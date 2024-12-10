@@ -3678,7 +3678,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %exitcond.not, label %for.cond6.preheader, label %for.body.1, !llvm.loop !132
 
 for.cond6.preheader:                              ; preds = %for.body.7, %for.body.6, %for.body.5, %for.body.4, %for.body.3, %for.body.2, %for.body.1, %for.body.lr.ph, %entry
-  %output_idx.0.lcssa.shrunk = phi i64 [ 0, %entry ], [ %89, %for.body.7 ], [ 7, %for.body.6 ], [ 6, %for.body.5 ], [ 5, %for.body.4 ], [ 4, %for.body.3 ], [ 3, %for.body.2 ], [ 2, %for.body.1 ], [ 1, %for.body.lr.ph ]
+  %output_idx.0.lcssa.shrunk = phi i64 [ 0, %entry ], [ %82, %for.body.7 ], [ 7, %for.body.6 ], [ 6, %for.body.5 ], [ 5, %for.body.4 ], [ 4, %for.body.3 ], [ 3, %for.body.2 ], [ 2, %for.body.1 ], [ 1, %for.body.lr.ph ]
   %cmp746 = icmp ugt i32 %1, 2
   br i1 %cmp746, label %iter.check, label %for.cond.cleanup8
 
@@ -3733,47 +3733,40 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %12 = getelementptr inbounds i8, ptr %cond.i, i64 %offset.idx
   %wide.load = load <16 x i8>, ptr %12, align 1, !tbaa !116, !alias.scope !133
   %13 = icmp sgt <16 x i8> %wide.load, splat (i8 -1)
-  %14 = select <16 x i1> %13, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %15 = and <16 x i8> %wide.load, splat (i8 64)
-  %16 = icmp eq <16 x i8> %15, zeroinitializer
-  %17 = select <16 x i1> %16, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %18 = and <16 x i8> %wide.load, splat (i8 32)
-  %19 = icmp eq <16 x i8> %18, zeroinitializer
-  %20 = select <16 x i1> %19, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %21 = and <16 x i8> %wide.load, splat (i8 16)
-  %22 = icmp eq <16 x i8> %21, zeroinitializer
-  %23 = select <16 x i1> %22, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %24 = and <16 x i8> %wide.load, splat (i8 8)
-  %25 = icmp eq <16 x i8> %24, zeroinitializer
-  %26 = select <16 x i1> %25, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %27 = and <16 x i8> %wide.load, splat (i8 4)
-  %28 = icmp eq <16 x i8> %27, zeroinitializer
-  %29 = select <16 x i1> %28, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %30 = and <16 x i8> %wide.load, splat (i8 2)
-  %31 = icmp eq <16 x i8> %30, zeroinitializer
-  %32 = select <16 x i1> %31, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
-  %33 = and <16 x i8> %wide.load, splat (i8 1)
-  %34 = or disjoint <16 x i8> %33, splat (i8 48)
+  %14 = and <16 x i8> %wide.load, splat (i8 64)
+  %15 = icmp eq <16 x i8> %14, zeroinitializer
+  %16 = and <16 x i8> %wide.load, splat (i8 2)
+  %17 = icmp eq <16 x i8> %16, zeroinitializer
+  %18 = select <16 x i1> %17, <16 x i8> splat (i8 48), <16 x i8> splat (i8 49)
+  %19 = and <16 x i8> %wide.load, splat (i8 1)
+  %20 = or disjoint <16 x i8> %19, splat (i8 48)
   %gep105 = getelementptr i8, ptr %output, i64 %offset.idx67
-  %35 = shufflevector <16 x i8> %14, <16 x i8> %17, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %36 = shufflevector <16 x i8> %20, <16 x i8> %23, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %37 = shufflevector <16 x i8> %26, <16 x i8> %29, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %38 = shufflevector <16 x i8> %32, <16 x i8> %34, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %39 = shufflevector <32 x i8> %35, <32 x i8> %36, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %40 = shufflevector <32 x i8> %37, <32 x i8> %38, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
-  %interleaved.vec = shufflevector <64 x i8> %39, <64 x i8> %40, <128 x i32> <i32 0, i32 16, i32 32, i32 48, i32 64, i32 80, i32 96, i32 112, i32 1, i32 17, i32 33, i32 49, i32 65, i32 81, i32 97, i32 113, i32 2, i32 18, i32 34, i32 50, i32 66, i32 82, i32 98, i32 114, i32 3, i32 19, i32 35, i32 51, i32 67, i32 83, i32 99, i32 115, i32 4, i32 20, i32 36, i32 52, i32 68, i32 84, i32 100, i32 116, i32 5, i32 21, i32 37, i32 53, i32 69, i32 85, i32 101, i32 117, i32 6, i32 22, i32 38, i32 54, i32 70, i32 86, i32 102, i32 118, i32 7, i32 23, i32 39, i32 55, i32 71, i32 87, i32 103, i32 119, i32 8, i32 24, i32 40, i32 56, i32 72, i32 88, i32 104, i32 120, i32 9, i32 25, i32 41, i32 57, i32 73, i32 89, i32 105, i32 121, i32 10, i32 26, i32 42, i32 58, i32 74, i32 90, i32 106, i32 122, i32 11, i32 27, i32 43, i32 59, i32 75, i32 91, i32 107, i32 123, i32 12, i32 28, i32 44, i32 60, i32 76, i32 92, i32 108, i32 124, i32 13, i32 29, i32 45, i32 61, i32 77, i32 93, i32 109, i32 125, i32 14, i32 30, i32 46, i32 62, i32 78, i32 94, i32 110, i32 126, i32 15, i32 31, i32 47, i32 63, i32 79, i32 95, i32 111, i32 127>
+  %21 = shufflevector <16 x i1> %13, <16 x i1> %15, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %22 = select <32 x i1> %21, <32 x i8> splat (i8 48), <32 x i8> splat (i8 49)
+  %23 = shufflevector <16 x i8> %wide.load, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %24 = and <32 x i8> %23, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16>
+  %25 = icmp eq <32 x i8> %24, zeroinitializer
+  %26 = select <32 x i1> %25, <32 x i8> splat (i8 48), <32 x i8> splat (i8 49)
+  %27 = shufflevector <16 x i8> %wide.load, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %28 = and <32 x i8> %27, <i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 8, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
+  %29 = icmp eq <32 x i8> %28, zeroinitializer
+  %30 = select <32 x i1> %29, <32 x i8> splat (i8 48), <32 x i8> splat (i8 49)
+  %31 = shufflevector <16 x i8> %18, <16 x i8> %20, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %32 = shufflevector <32 x i8> %22, <32 x i8> %26, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %33 = shufflevector <32 x i8> %30, <32 x i8> %31, <64 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31, i32 32, i32 33, i32 34, i32 35, i32 36, i32 37, i32 38, i32 39, i32 40, i32 41, i32 42, i32 43, i32 44, i32 45, i32 46, i32 47, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %interleaved.vec = shufflevector <64 x i8> %32, <64 x i8> %33, <128 x i32> <i32 0, i32 16, i32 32, i32 48, i32 64, i32 80, i32 96, i32 112, i32 1, i32 17, i32 33, i32 49, i32 65, i32 81, i32 97, i32 113, i32 2, i32 18, i32 34, i32 50, i32 66, i32 82, i32 98, i32 114, i32 3, i32 19, i32 35, i32 51, i32 67, i32 83, i32 99, i32 115, i32 4, i32 20, i32 36, i32 52, i32 68, i32 84, i32 100, i32 116, i32 5, i32 21, i32 37, i32 53, i32 69, i32 85, i32 101, i32 117, i32 6, i32 22, i32 38, i32 54, i32 70, i32 86, i32 102, i32 118, i32 7, i32 23, i32 39, i32 55, i32 71, i32 87, i32 103, i32 119, i32 8, i32 24, i32 40, i32 56, i32 72, i32 88, i32 104, i32 120, i32 9, i32 25, i32 41, i32 57, i32 73, i32 89, i32 105, i32 121, i32 10, i32 26, i32 42, i32 58, i32 74, i32 90, i32 106, i32 122, i32 11, i32 27, i32 43, i32 59, i32 75, i32 91, i32 107, i32 123, i32 12, i32 28, i32 44, i32 60, i32 76, i32 92, i32 108, i32 124, i32 13, i32 29, i32 45, i32 61, i32 77, i32 93, i32 109, i32 125, i32 14, i32 30, i32 46, i32 62, i32 78, i32 94, i32 110, i32 126, i32 15, i32 31, i32 47, i32 63, i32 79, i32 95, i32 111, i32 127>
   store <128 x i8> %interleaved.vec, ptr %gep105, align 1, !tbaa !116
   %index.next = add nuw i64 %index, 16
-  %41 = icmp eq i64 %index.next, %n.vec
-  br i1 %41, label %middle.block, label %vector.body, !llvm.loop !136
+  %34 = icmp eq i64 %index.next, %n.vec
+  br i1 %34, label %middle.block, label %vector.body, !llvm.loop !136
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup8, label %vec.epilog.iter.check
 
 vec.epilog.iter.check:                            ; preds = %middle.block
-  %42 = shl nsw i64 %n.vec, 3
-  %ind.end79 = or disjoint i64 %output_idx.0.lcssa.shrunk, %42
+  %35 = shl nsw i64 %n.vec, 3
+  %ind.end79 = or disjoint i64 %output_idx.0.lcssa.shrunk, %35
   %ind.end77 = or disjoint i64 %n.vec, 2
   %n.vec.remaining = and i64 %5, 8
   %min.epilog.iters.check.not.not = icmp eq i64 %n.vec.remaining, 0
@@ -3782,63 +3775,63 @@ vec.epilog.iter.check:                            ; preds = %middle.block
 vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check
   %vec.epilog.resume.val = phi i64 [ %n.vec, %vec.epilog.iter.check ], [ 0, %vector.main.loop.iter.check ]
   %n.vec76 = and i64 %5, -8
-  %43 = shl nsw i64 %n.vec76, 3
+  %36 = shl nsw i64 %n.vec76, 3
   %invariant.gep2 = getelementptr i8, ptr %output, i64 %output_idx.0.lcssa.shrunk
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.body, %vec.epilog.ph
   %index82 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next94, %vec.epilog.vector.body ]
   %offset.idx83 = or disjoint i64 %index82, 2
-  %44 = shl i64 %index82, 3
-  %45 = getelementptr inbounds i8, ptr %cond.i, i64 %offset.idx83
-  %wide.load85 = load <8 x i8>, ptr %45, align 1, !tbaa !116, !alias.scope !139
-  %46 = icmp sgt <8 x i8> %wide.load85, splat (i8 -1)
-  %47 = select <8 x i1> %46, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %48 = and <8 x i8> %wide.load85, splat (i8 64)
-  %49 = icmp eq <8 x i8> %48, zeroinitializer
-  %50 = select <8 x i1> %49, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %51 = and <8 x i8> %wide.load85, splat (i8 32)
-  %52 = icmp eq <8 x i8> %51, zeroinitializer
-  %53 = select <8 x i1> %52, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %54 = and <8 x i8> %wide.load85, splat (i8 16)
-  %55 = icmp eq <8 x i8> %54, zeroinitializer
-  %56 = select <8 x i1> %55, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %57 = and <8 x i8> %wide.load85, splat (i8 8)
-  %58 = icmp eq <8 x i8> %57, zeroinitializer
-  %59 = select <8 x i1> %58, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %60 = and <8 x i8> %wide.load85, splat (i8 4)
-  %61 = icmp eq <8 x i8> %60, zeroinitializer
-  %62 = select <8 x i1> %61, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %63 = and <8 x i8> %wide.load85, splat (i8 2)
-  %64 = icmp eq <8 x i8> %63, zeroinitializer
-  %65 = select <8 x i1> %64, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
-  %66 = and <8 x i8> %wide.load85, splat (i8 1)
-  %67 = or disjoint <8 x i8> %66, splat (i8 48)
-  %gep3 = getelementptr i8, ptr %invariant.gep2, i64 %44
-  %68 = shufflevector <8 x i8> %47, <8 x i8> %50, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %69 = shufflevector <8 x i8> %53, <8 x i8> %56, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %70 = shufflevector <8 x i8> %59, <8 x i8> %62, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %71 = shufflevector <8 x i8> %65, <8 x i8> %67, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %72 = shufflevector <16 x i8> %68, <16 x i8> %69, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %73 = shufflevector <16 x i8> %70, <16 x i8> %71, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
-  %interleaved.vec93 = shufflevector <32 x i8> %72, <32 x i8> %73, <64 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 49, i32 57, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 50, i32 58, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 51, i32 59, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 52, i32 60, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 53, i32 61, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 54, i32 62, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47, i32 55, i32 63>
+  %37 = shl i64 %index82, 3
+  %38 = getelementptr inbounds i8, ptr %cond.i, i64 %offset.idx83
+  %wide.load85 = load <8 x i8>, ptr %38, align 1, !tbaa !116, !alias.scope !139
+  %39 = icmp sgt <8 x i8> %wide.load85, splat (i8 -1)
+  %40 = select <8 x i1> %39, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %41 = and <8 x i8> %wide.load85, splat (i8 64)
+  %42 = icmp eq <8 x i8> %41, zeroinitializer
+  %43 = select <8 x i1> %42, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %44 = and <8 x i8> %wide.load85, splat (i8 32)
+  %45 = icmp eq <8 x i8> %44, zeroinitializer
+  %46 = select <8 x i1> %45, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %47 = and <8 x i8> %wide.load85, splat (i8 16)
+  %48 = icmp eq <8 x i8> %47, zeroinitializer
+  %49 = select <8 x i1> %48, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %50 = and <8 x i8> %wide.load85, splat (i8 8)
+  %51 = icmp eq <8 x i8> %50, zeroinitializer
+  %52 = select <8 x i1> %51, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %53 = and <8 x i8> %wide.load85, splat (i8 4)
+  %54 = icmp eq <8 x i8> %53, zeroinitializer
+  %55 = select <8 x i1> %54, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %56 = and <8 x i8> %wide.load85, splat (i8 2)
+  %57 = icmp eq <8 x i8> %56, zeroinitializer
+  %58 = select <8 x i1> %57, <8 x i8> splat (i8 48), <8 x i8> splat (i8 49)
+  %59 = and <8 x i8> %wide.load85, splat (i8 1)
+  %60 = or disjoint <8 x i8> %59, splat (i8 48)
+  %gep3 = getelementptr i8, ptr %invariant.gep2, i64 %37
+  %61 = shufflevector <8 x i8> %40, <8 x i8> %43, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %62 = shufflevector <8 x i8> %46, <8 x i8> %49, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %63 = shufflevector <8 x i8> %52, <8 x i8> %55, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %64 = shufflevector <8 x i8> %58, <8 x i8> %60, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %65 = shufflevector <16 x i8> %61, <16 x i8> %62, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %66 = shufflevector <16 x i8> %63, <16 x i8> %64, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
+  %interleaved.vec93 = shufflevector <32 x i8> %65, <32 x i8> %66, <64 x i32> <i32 0, i32 8, i32 16, i32 24, i32 32, i32 40, i32 48, i32 56, i32 1, i32 9, i32 17, i32 25, i32 33, i32 41, i32 49, i32 57, i32 2, i32 10, i32 18, i32 26, i32 34, i32 42, i32 50, i32 58, i32 3, i32 11, i32 19, i32 27, i32 35, i32 43, i32 51, i32 59, i32 4, i32 12, i32 20, i32 28, i32 36, i32 44, i32 52, i32 60, i32 5, i32 13, i32 21, i32 29, i32 37, i32 45, i32 53, i32 61, i32 6, i32 14, i32 22, i32 30, i32 38, i32 46, i32 54, i32 62, i32 7, i32 15, i32 23, i32 31, i32 39, i32 47, i32 55, i32 63>
   store <64 x i8> %interleaved.vec93, ptr %gep3, align 1, !tbaa !116
   %index.next94 = add nuw i64 %index82, 8
-  %74 = icmp eq i64 %index.next94, %n.vec76
-  br i1 %74, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !142
+  %67 = icmp eq i64 %index.next94, %n.vec76
+  br i1 %67, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !142
 
 vec.epilog.middle.block:                          ; preds = %vec.epilog.vector.body
   %ind.end = or disjoint i64 %n.vec76, 2
-  %ind.end78 = add nuw nsw i64 %output_idx.0.lcssa.shrunk, %43
+  %ind.end78 = add nuw nsw i64 %output_idx.0.lcssa.shrunk, %36
   %cmp.n81 = icmp eq i64 %5, %n.vec76
   br i1 %cmp.n81, label %for.cond.cleanup8, label %for.cond11.preheader.preheader
 
 for.body.1:                                       ; preds = %for.body.lr.ph
-  %75 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.1 = zext i8 %75 to i32
+  %68 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.1 = zext i8 %68 to i32
   %narrow = add nuw nsw i8 %2, 1
-  %76 = xor i8 %narrow, 7
-  %sh_prom.1 = zext nneg i8 %76 to i32
+  %69 = xor i8 %narrow, 7
+  %sh_prom.1 = zext nneg i8 %69 to i32
   %shl.1 = shl nuw nsw i32 1, %sh_prom.1
   %and.1 = and i32 %shl.1, %conv.1
   %tobool.not.1 = icmp eq i32 %and.1, 0
@@ -3849,11 +3842,11 @@ for.body.1:                                       ; preds = %for.body.lr.ph
   br i1 %exitcond.not.1, label %for.cond6.preheader, label %for.body.2, !llvm.loop !132
 
 for.body.2:                                       ; preds = %for.body.1
-  %77 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.2 = zext i8 %77 to i32
+  %70 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.2 = zext i8 %70 to i32
   %narrow97 = add nuw nsw i8 %2, 2
-  %78 = xor i8 %narrow97, 7
-  %sh_prom.2 = zext nneg i8 %78 to i32
+  %71 = xor i8 %narrow97, 7
+  %sh_prom.2 = zext nneg i8 %71 to i32
   %shl.2 = shl nuw nsw i32 1, %sh_prom.2
   %and.2 = and i32 %shl.2, %conv.2
   %tobool.not.2 = icmp eq i32 %and.2, 0
@@ -3864,11 +3857,11 @@ for.body.2:                                       ; preds = %for.body.1
   br i1 %exitcond.not.2, label %for.cond6.preheader, label %for.body.3, !llvm.loop !132
 
 for.body.3:                                       ; preds = %for.body.2
-  %79 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.3 = zext i8 %79 to i32
+  %72 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.3 = zext i8 %72 to i32
   %narrow98 = add nuw nsw i8 %2, 3
-  %80 = xor i8 %narrow98, 7
-  %sh_prom.3 = zext nneg i8 %80 to i32
+  %73 = xor i8 %narrow98, 7
+  %sh_prom.3 = zext nneg i8 %73 to i32
   %shl.3 = shl nuw nsw i32 1, %sh_prom.3
   %and.3 = and i32 %shl.3, %conv.3
   %tobool.not.3 = icmp eq i32 %and.3, 0
@@ -3879,11 +3872,11 @@ for.body.3:                                       ; preds = %for.body.2
   br i1 %exitcond.not.3, label %for.cond6.preheader, label %for.body.4, !llvm.loop !132
 
 for.body.4:                                       ; preds = %for.body.3
-  %81 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.4 = zext i8 %81 to i32
+  %74 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.4 = zext i8 %74 to i32
   %narrow99 = add nuw nsw i8 %2, 4
-  %82 = xor i8 %narrow99, 7
-  %sh_prom.4 = zext nneg i8 %82 to i32
+  %75 = xor i8 %narrow99, 7
+  %sh_prom.4 = zext nneg i8 %75 to i32
   %shl.4 = shl nuw nsw i32 1, %sh_prom.4
   %and.4 = and i32 %shl.4, %conv.4
   %tobool.not.4 = icmp eq i32 %and.4, 0
@@ -3894,11 +3887,11 @@ for.body.4:                                       ; preds = %for.body.3
   br i1 %exitcond.not.4, label %for.cond6.preheader, label %for.body.5, !llvm.loop !132
 
 for.body.5:                                       ; preds = %for.body.4
-  %83 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.5 = zext i8 %83 to i32
+  %76 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.5 = zext i8 %76 to i32
   %narrow100 = add nuw nsw i8 %2, 5
-  %84 = xor i8 %narrow100, 7
-  %sh_prom.5 = zext nneg i8 %84 to i32
+  %77 = xor i8 %narrow100, 7
+  %sh_prom.5 = zext nneg i8 %77 to i32
   %shl.5 = shl nuw nsw i32 1, %sh_prom.5
   %and.5 = and i32 %shl.5, %conv.5
   %tobool.not.5 = icmp eq i32 %and.5, 0
@@ -3909,11 +3902,11 @@ for.body.5:                                       ; preds = %for.body.4
   br i1 %exitcond.not.5, label %for.cond6.preheader, label %for.body.6, !llvm.loop !132
 
 for.body.6:                                       ; preds = %for.body.5
-  %85 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %conv.6 = zext i8 %85 to i32
+  %78 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %conv.6 = zext i8 %78 to i32
   %narrow101 = add nuw nsw i8 %2, 6
-  %86 = xor i8 %narrow101, 7
-  %sh_prom.6 = zext nneg i8 %86 to i32
+  %79 = xor i8 %narrow101, 7
+  %sh_prom.6 = zext nneg i8 %79 to i32
   %shl.6 = shl nuw nsw i32 1, %sh_prom.6
   %and.6 = and i32 %shl.6, %conv.6
   %tobool.not.6 = icmp eq i32 %and.6, 0
@@ -3924,62 +3917,62 @@ for.body.6:                                       ; preds = %for.body.5
   br i1 %exitcond.not.6, label %for.cond6.preheader, label %for.body.7, !llvm.loop !132
 
 for.body.7:                                       ; preds = %for.body.6
-  %87 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
-  %88 = and i8 %87, 1
-  %cond.7 = or disjoint i8 %88, 48
+  %80 = load i8, ptr %cond.i.sroa.sel, align 1, !tbaa !116
+  %81 = and i8 %80, 1
+  %cond.7 = or disjoint i8 %81, 48
   %arrayidx4.7 = getelementptr inbounds nuw i8, ptr %output, i64 7
   store i8 %cond.7, ptr %arrayidx4.7, align 1, !tbaa !116
-  %89 = zext nneg i8 %narrow102 to i64
+  %82 = zext nneg i8 %narrow102 to i64
   br label %for.cond6.preheader
 
 for.cond11.preheader:                             ; preds = %for.cond11.preheader.preheader, %for.cond11.preheader
   %byte_idx.048 = phi i64 [ %inc29, %for.cond11.preheader ], [ %byte_idx.048.ph, %for.cond11.preheader.preheader ]
   %output_idx.147 = phi i64 [ %inc23.7, %for.cond11.preheader ], [ %output_idx.147.ph, %for.cond11.preheader.preheader ]
   %arrayidx15 = getelementptr inbounds i8, ptr %cond.i, i64 %byte_idx.048
-  %90 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %tobool21.not = icmp sgt i8 %90, -1
+  %83 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %tobool21.not = icmp sgt i8 %83, -1
   %cond22 = select i1 %tobool21.not, i8 48, i8 49
   %arrayidx24 = getelementptr inbounds i8, ptr %output, i64 %output_idx.147
   store i8 %cond22, ptr %arrayidx24, align 1, !tbaa !116
-  %91 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %92 = and i8 %91, 64
-  %tobool21.not.1 = icmp eq i8 %92, 0
+  %84 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %85 = and i8 %84, 64
+  %tobool21.not.1 = icmp eq i8 %85, 0
   %cond22.1 = select i1 %tobool21.not.1, i8 48, i8 49
   %gep = getelementptr i8, ptr %invariant.gep, i64 %output_idx.147
   store i8 %cond22.1, ptr %gep, align 1, !tbaa !116
-  %93 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %94 = and i8 %93, 32
-  %tobool21.not.2 = icmp eq i8 %94, 0
+  %86 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %87 = and i8 %86, 32
+  %tobool21.not.2 = icmp eq i8 %87, 0
   %cond22.2 = select i1 %tobool21.not.2, i8 48, i8 49
   %gep52 = getelementptr i8, ptr %invariant.gep51, i64 %output_idx.147
   store i8 %cond22.2, ptr %gep52, align 1, !tbaa !116
-  %95 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %96 = and i8 %95, 16
-  %tobool21.not.3 = icmp eq i8 %96, 0
+  %88 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %89 = and i8 %88, 16
+  %tobool21.not.3 = icmp eq i8 %89, 0
   %cond22.3 = select i1 %tobool21.not.3, i8 48, i8 49
   %gep54 = getelementptr i8, ptr %invariant.gep53, i64 %output_idx.147
   store i8 %cond22.3, ptr %gep54, align 1, !tbaa !116
-  %97 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %98 = and i8 %97, 8
-  %tobool21.not.4 = icmp eq i8 %98, 0
+  %90 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %91 = and i8 %90, 8
+  %tobool21.not.4 = icmp eq i8 %91, 0
   %cond22.4 = select i1 %tobool21.not.4, i8 48, i8 49
   %gep56 = getelementptr i8, ptr %invariant.gep55, i64 %output_idx.147
   store i8 %cond22.4, ptr %gep56, align 1, !tbaa !116
-  %99 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %100 = and i8 %99, 4
-  %tobool21.not.5 = icmp eq i8 %100, 0
+  %92 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %93 = and i8 %92, 4
+  %tobool21.not.5 = icmp eq i8 %93, 0
   %cond22.5 = select i1 %tobool21.not.5, i8 48, i8 49
   %gep58 = getelementptr i8, ptr %invariant.gep57, i64 %output_idx.147
   store i8 %cond22.5, ptr %gep58, align 1, !tbaa !116
-  %101 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %102 = and i8 %101, 2
-  %tobool21.not.6 = icmp eq i8 %102, 0
+  %94 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %95 = and i8 %94, 2
+  %tobool21.not.6 = icmp eq i8 %95, 0
   %cond22.6 = select i1 %tobool21.not.6, i8 48, i8 49
   %gep60 = getelementptr i8, ptr %invariant.gep59, i64 %output_idx.147
   store i8 %cond22.6, ptr %gep60, align 1, !tbaa !116
-  %103 = load i8, ptr %arrayidx15, align 1, !tbaa !116
-  %104 = and i8 %103, 1
-  %cond22.7 = or disjoint i8 %104, 48
+  %96 = load i8, ptr %arrayidx15, align 1, !tbaa !116
+  %97 = and i8 %96, 1
+  %cond22.7 = or disjoint i8 %97, 48
   %inc23.7 = add nuw nsw i64 %output_idx.147, 8
   %gep62 = getelementptr i8, ptr %invariant.gep61, i64 %output_idx.147
   store i8 %cond22.7, ptr %gep62, align 1, !tbaa !116

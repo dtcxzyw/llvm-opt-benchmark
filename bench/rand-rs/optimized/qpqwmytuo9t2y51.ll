@@ -5720,12 +5720,12 @@ define hidden void @_ZN11rand_chacha4guts5d012317h8b1b358de0d53713E.llvm.1772011
   %15 = load <2 x i64>, ptr %4, align 16, !noalias !1142
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %16 = add <2 x i64> %12, %11
-  %17 = add <2 x i64> %13, %11
-  %18 = add <2 x i64> %14, %11
-  %19 = add <2 x i64> %15, %11
-  %.sroa.018.16.vecblend = shufflevector <2 x i64> %16, <2 x i64> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.5.48.vecblend = shufflevector <2 x i64> %18, <2 x i64> %19, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %16 = shufflevector <2 x i64> %12, <2 x i64> %13, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %17 = shufflevector <2 x i64> %11, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.018.16.vecblend = add <4 x i64> %16, %17
+  %18 = shufflevector <2 x i64> %14, <2 x i64> %15, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %19 = shufflevector <2 x i64> %11, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.5.48.vecblend = add <4 x i64> %18, %19
   store <4 x i64> %.sroa.018.16.vecblend, ptr %0, align 32, !alias.scope !1146, !noalias !1149
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %.sroa.5.48.vecblend, ptr %.sroa.4.0..sroa_idx.i, align 32, !alias.scope !1146, !noalias !1149
@@ -6964,12 +6964,12 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %284 = load <2 x i64>, ptr %5, align 16, !noalias !1434
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1406
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1406
-  %285 = add <2 x i64> %281, %.sroa.076.0.copyload
-  %286 = add <2 x i64> %282, %.sroa.076.0.copyload
-  %287 = add <2 x i64> %283, %.sroa.076.0.copyload
-  %288 = add <2 x i64> %284, %.sroa.076.0.copyload
-  %.sroa.0662.16.vecblend = shufflevector <2 x i64> %285, <2 x i64> %286, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.5664.48.vecblend = shufflevector <2 x i64> %287, <2 x i64> %288, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %285 = shufflevector <2 x i64> %281, <2 x i64> %282, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %286 = shufflevector <2 x i64> %.sroa.076.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.0662.16.vecblend = add <4 x i64> %285, %286
+  %287 = shufflevector <2 x i64> %283, <2 x i64> %284, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %288 = shufflevector <2 x i64> %.sroa.076.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.5664.48.vecblend = add <4 x i64> %287, %288
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52", label %.lr.ph
 
@@ -7069,12 +7069,12 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %292 = load <2 x i64>, ptr %13, align 16, !noalias !1478
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1450
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !1450
-  %293 = add <2 x i64> %289, %.sroa.0268.0.copyload
-  %294 = add <2 x i64> %290, %.sroa.0268.0.copyload
-  %295 = add <2 x i64> %291, %.sroa.0268.0.copyload
-  %296 = add <2 x i64> %292, %.sroa.0268.0.copyload
-  %.sroa.0601.16.vecblend = shufflevector <2 x i64> %293, <2 x i64> %294, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.5603.48.vecblend = shufflevector <2 x i64> %295, <2 x i64> %296, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %293 = shufflevector <2 x i64> %289, <2 x i64> %290, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %294 = shufflevector <2 x i64> %.sroa.0268.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.0601.16.vecblend = add <4 x i64> %293, %294
+  %295 = shufflevector <2 x i64> %291, <2 x i64> %292, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %296 = shufflevector <2 x i64> %.sroa.0268.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.5603.48.vecblend = add <4 x i64> %295, %296
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !1482
   store <4 x i64> %.sroa.0134.0.lcssa, ptr %209, align 32, !noalias !1482
@@ -9235,12 +9235,12 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %284 = load <2 x i64>, ptr %5, align 16, !noalias !2250
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2222
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2222
-  %285 = add <2 x i64> %281, %.sroa.041.0.copyload
-  %286 = add <2 x i64> %282, %.sroa.041.0.copyload
-  %287 = add <2 x i64> %283, %.sroa.041.0.copyload
-  %288 = add <2 x i64> %284, %.sroa.041.0.copyload
-  %.sroa.0629.16.vecblend = shufflevector <2 x i64> %285, <2 x i64> %286, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.5631.48.vecblend = shufflevector <2 x i64> %287, <2 x i64> %288, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %285 = shufflevector <2 x i64> %281, <2 x i64> %282, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %286 = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.0629.16.vecblend = add <4 x i64> %285, %286
+  %287 = shufflevector <2 x i64> %283, <2 x i64> %284, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %288 = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.5631.48.vecblend = add <4 x i64> %287, %288
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
@@ -9902,12 +9902,12 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %337 = load <2 x i64>, ptr %13, align 16, !noalias !2684
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !2656
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !2656
-  %338 = add <2 x i64> %334, %.sroa.0233.0.copyload
-  %339 = add <2 x i64> %335, %.sroa.0233.0.copyload
-  %340 = add <2 x i64> %336, %.sroa.0233.0.copyload
-  %341 = add <2 x i64> %337, %.sroa.0233.0.copyload
-  %.sroa.0568.16.vecblend = shufflevector <2 x i64> %338, <2 x i64> %339, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.5570.48.vecblend = shufflevector <2 x i64> %340, <2 x i64> %341, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %338 = shufflevector <2 x i64> %334, <2 x i64> %335, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %339 = shufflevector <2 x i64> %.sroa.0233.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.0568.16.vecblend = add <4 x i64> %338, %339
+  %340 = shufflevector <2 x i64> %336, <2 x i64> %337, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %341 = shufflevector <2 x i64> %.sroa.0233.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %.sroa.5570.48.vecblend = add <4 x i64> %340, %341
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209), !noalias !2198
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !2688
   store <4 x i64> %.sroa.099.0.lcssa, ptr %209, align 32, !noalias !2688

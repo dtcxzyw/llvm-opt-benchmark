@@ -645,30 +645,30 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %230 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %229)
   %231 = fadd reassoc nsz arcp contract afn <8 x float> %230, splat (float 1.000000e+00)
   %232 = fmul reassoc nsz arcp contract afn <8 x float> %227, %217
-  %233 = fsub reassoc nsz arcp contract afn <8 x float> %178, %159
+  %233 = fsub reassoc nsz arcp contract afn <8 x float> %176, %159
   %234 = fmul reassoc nsz arcp contract afn <8 x float> %232, %233
   %235 = fdiv reassoc nsz arcp contract afn <8 x float> %234, %231
   %236 = fadd reassoc nsz arcp contract afn <8 x float> %235, %159
-  %237 = fsub reassoc nsz arcp contract afn <8 x float> %177, %159
+  %237 = fsub reassoc nsz arcp contract afn <8 x float> %175, %159
   %238 = fmul reassoc nsz arcp contract afn <8 x float> %232, %237
   %239 = fdiv reassoc nsz arcp contract afn <8 x float> %238, %231
   %240 = fadd reassoc nsz arcp contract afn <8 x float> %239, %159
-  %241 = fsub reassoc nsz arcp contract afn <8 x float> %176, %159
-  %242 = fmul reassoc nsz arcp contract afn <8 x float> %232, %241
-  %243 = fdiv reassoc nsz arcp contract afn <8 x float> %242, %231
-  %244 = fadd reassoc nsz arcp contract afn <8 x float> %243, %159
-  %245 = fsub reassoc nsz arcp contract afn <8 x float> %175, %159
-  %246 = fmul reassoc nsz arcp contract afn <8 x float> %232, %245
-  %247 = fdiv reassoc nsz arcp contract afn <8 x float> %246, %231
-  %248 = fadd reassoc nsz arcp contract afn <8 x float> %247, %159
-  %249 = getelementptr float, ptr %34, <8 x i64> %77
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %248, <8 x ptr> %249, i32 4, <8 x i1> splat (i1 true)), !tbaa !19, !alias.scope !57, !noalias !54
-  %250 = extractelement <8 x ptr> %249, i64 0
-  %251 = getelementptr i8, ptr %250, i64 -12
-  %252 = shufflevector <8 x float> %236, <8 x float> %240, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %253 = shufflevector <8 x float> %244, <8 x float> %84, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %241 = getelementptr float, ptr %34, <8 x i64> %77
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %240, <8 x ptr> %241, i32 4, <8 x i1> splat (i1 true)), !tbaa !19, !alias.scope !57, !noalias !54
+  %242 = extractelement <8 x ptr> %241, i64 0
+  %243 = getelementptr i8, ptr %242, i64 -12
+  %244 = shufflevector <8 x float> %232, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %245 = shufflevector <8 x float> %178, <8 x float> %177, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %246 = shufflevector <8 x float> %159, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %247 = fsub reassoc nsz arcp contract afn <16 x float> %245, %246
+  %248 = fmul reassoc nsz arcp contract afn <16 x float> %244, %247
+  %249 = shufflevector <8 x float> %231, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %250 = fdiv reassoc nsz arcp contract afn <16 x float> %248, %249
+  %251 = shufflevector <8 x float> %159, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %252 = fadd reassoc nsz arcp contract afn <16 x float> %250, %251
+  %253 = shufflevector <8 x float> %236, <8 x float> %84, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %254 = shufflevector <16 x float> %252, <16 x float> %253, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
-  store <32 x float> %254, ptr %251, align 4, !tbaa !19
+  store <32 x float> %254, ptr %243, align 4, !tbaa !19
   %255 = add nuw i64 %76, 8
   %256 = add <8 x i64> %77, splat (i64 32)
   %257 = icmp eq i64 %255, %62

@@ -193,7 +193,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   ]
 
 7:                                                ; preds = %6
-  %8 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #26
+  %8 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(480) %8, ptr noundef nonnull align 4 dereferenceable(480) @constinit, i64 480, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 480
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 484
@@ -235,7 +235,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   br label %56
 
 33:                                               ; preds = %6
-  %34 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #26
+  %34 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(504) %34, ptr noundef nonnull align 4 dereferenceable(504) %1, i64 504, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 504
   store i32 0, ptr %35, align 4, !tbaa !18
@@ -244,7 +244,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   br label %56
 
 37:                                               ; preds = %6
-  %38 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #26
+  %38 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %38, ptr noundef nonnull align 4 dereferenceable(512) %1, i64 508, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %40 = load i32, ptr %39, align 4, !tbaa !20
@@ -269,14 +269,14 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   br label %56
 
 51:                                               ; preds = %6
-  %52 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #26
+  %52 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %52, ptr noundef nonnull align 4 dereferenceable(512) %1, i64 512, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
   store float 1.000000e+00, ptr %53, align 4, !tbaa !24
   br label %56
 
 54:                                               ; preds = %6
-  %55 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #26
+  %55 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(516) %55, ptr noundef nonnull align 4 dereferenceable(516) %1, i64 516, i1 false)
   br label %56
 
@@ -311,7 +311,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @name() local_unnamed_addr #6 {
-  %1 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #27
+  %1 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #28
   ret ptr %1
 }
 
@@ -320,12 +320,12 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define ptr @description(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5) #27
-  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #27
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #27
-  %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #27
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #27
-  %7 = tail call ptr @dt_iop_set_description(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #27
+  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5) #28
+  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #28
+  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #28
+  %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #28
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #28
+  %7 = tail call ptr @dt_iop_set_description(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #28
   ret ptr %7
 }
 
@@ -360,7 +360,7 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 676
   store i32 0, ptr %10, align 4, !tbaa !38
-  %11 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.6) #27
+  %11 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.6) #28
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %20, label %13
 
@@ -406,7 +406,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
   %12 = getelementptr inbounds %struct.basecurve_preset_t, ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !43
-  %15 = tail call noalias ptr @g_strdup(ptr noundef %14) #27
+  %15 = tail call noalias ptr @g_strdup(ptr noundef %14) #28
   br label %16
 
 16:                                               ; preds = %23, %9
@@ -432,15 +432,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
   br label %16
 
 25:                                               ; preds = %16
-  %26 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %15, ptr noundef %1, i32 noundef 1, i32 noundef 16) #27
-  tail call void @g_free(ptr noundef nonnull %15) #27
+  %26 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %15, ptr noundef %1, i32 noundef 1, i32 noundef 16) #28
+  tail call void @g_free(ptr noundef nonnull %15) #28
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %44, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !45
-  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #27
+  %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #28
   br label %32
 
 32:                                               ; preds = %39, %28
@@ -466,14 +466,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
   br label %32
 
 41:                                               ; preds = %32
-  %42 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %31, ptr noundef %2, i32 noundef 1, i32 noundef 16) #27
-  tail call void @g_free(ptr noundef nonnull %31) #27
+  %42 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %31, ptr noundef %2, i32 noundef 1, i32 noundef 16) #28
+  tail call void @g_free(ptr noundef nonnull %31) #28
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %75
 
 44:                                               ; preds = %41, %25
   %45 = load ptr, ptr %13, align 8, !tbaa !43
-  %46 = tail call noalias ptr @g_strdup(ptr noundef %45) #27
+  %46 = tail call noalias ptr @g_strdup(ptr noundef %45) #28
   br label %47
 
 47:                                               ; preds = %54, %44
@@ -499,15 +499,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
   br label %47
 
 56:                                               ; preds = %47
-  %57 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %46, ptr noundef %3, i32 noundef 1, i32 noundef 16) #27
-  tail call void @g_free(ptr noundef nonnull %46) #27
+  %57 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %46, ptr noundef %3, i32 noundef 1, i32 noundef 16) #28
+  tail call void @g_free(ptr noundef nonnull %46) #28
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %85, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !45
-  %62 = tail call noalias ptr @g_strdup(ptr noundef %61) #27
+  %62 = tail call noalias ptr @g_strdup(ptr noundef %61) #28
   br label %63
 
 63:                                               ; preds = %70, %59
@@ -533,8 +533,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
   br label %63
 
 72:                                               ; preds = %63
-  %73 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %62, ptr noundef %4, i32 noundef 1, i32 noundef 16) #27
-  tail call void @g_free(ptr noundef nonnull %62) #27
+  %73 = tail call i32 @g_regex_match_simple(ptr noundef nonnull %62, ptr noundef %4, i32 noundef 1, i32 noundef 16) #28
+  tail call void @g_free(ptr noundef nonnull %62) #28
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %85, label %75
 
@@ -569,32 +569,32 @@ define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define void @init_presets(ptr noundef %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !47
-  tail call void @dt_database_start_transaction(ptr noundef %2) #27
+  tail call void @dt_database_start_transaction(ptr noundef %2) #28
   tail call fastcc void @set_presets(ptr noundef %0, ptr noundef nonnull @basecurve_presets, i32 noundef 18, i32 noundef 0)
   tail call fastcc void @set_presets(ptr noundef %0, ptr noundef nonnull @basecurve_camera_presets, i32 noundef 14, i32 noundef 1)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !47
-  tail call void @dt_database_release_transaction(ptr noundef %3) #27
+  tail call void @dt_database_release_transaction(ptr noundef %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 556
   store i32 1, ptr %4, align 4, !tbaa !55
-  %5 = tail call i32 @dt_is_display_referred() #27
+  %5 = tail call i32 @dt_is_display_referred() #28
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #27
+  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !58
-  %12 = tail call i32 (...) %11() #27
-  tail call void @dt_gui_presets_add_generic(ptr noundef %8, ptr noundef nonnull %9, i32 noundef %12, ptr noundef null, i32 noundef 0, i32 noundef 1, i32 noundef 3) #27
-  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #27
+  %12 = tail call i32 (...) %11() #28
+  tail call void @dt_gui_presets_add_generic(ptr noundef %8, ptr noundef nonnull %9, i32 noundef %12, ptr noundef null, i32 noundef 0, i32 noundef 1, i32 noundef 3) #28
+  %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #28
   %14 = load ptr, ptr %10, align 8, !tbaa !58
-  %15 = tail call i32 (...) %14() #27
-  tail call void @dt_gui_presets_update_format(ptr noundef %13, ptr noundef nonnull %9, i32 noundef %15, i32 noundef 2) #27
-  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #27
+  %15 = tail call i32 (...) %14() #28
+  tail call void @dt_gui_presets_update_format(ptr noundef %13, ptr noundef nonnull %9, i32 noundef %15, i32 noundef 2) #28
+  %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #28
   %17 = load ptr, ptr %10, align 8, !tbaa !58
-  %18 = tail call i32 (...) %17() #27
-  tail call void @dt_gui_presets_update_autoapply(ptr noundef %16, ptr noundef nonnull %9, i32 noundef %18, i32 noundef 1) #27
+  %18 = tail call i32 (...) %17() #28
+  tail call void @dt_gui_presets_update_autoapply(ptr noundef %16, ptr noundef nonnull %9, i32 noundef %18, i32 noundef 1) #28
   br label %19
 
 19:                                               ; preds = %7, %1
@@ -619,7 +619,7 @@ define internal fastcc void @set_presets(ptr noundef %0, ptr nocapture noundef r
 
 13:                                               ; preds = %62, %4
   %14 = phi i64 [ 0, %4 ], [ %64, %62 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #28
   %15 = getelementptr inbounds nuw %struct.basecurve_preset_t, ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(520) %5, ptr noundef nonnull align 8 dereferenceable(520) %16, i64 520, i1 false), !tbaa.struct !40
@@ -637,43 +637,43 @@ define internal fastcc void @set_presets(ptr noundef %0, ptr nocapture noundef r
 
 23:                                               ; preds = %22, %13
   %24 = load ptr, ptr %15, align 8, !tbaa !59
-  %25 = call ptr @dcgettext(ptr noundef null, ptr noundef %24, i32 noundef 5) #27
+  %25 = call ptr @dcgettext(ptr noundef null, ptr noundef %24, i32 noundef 5) #28
   %26 = load ptr, ptr %9, align 8, !tbaa !58
-  %27 = call i32 (...) %26() #27
-  call void @dt_gui_presets_add_generic(ptr noundef %25, ptr noundef nonnull %8, i32 noundef %27, ptr noundef nonnull %5, i32 noundef 520, i32 noundef 1, i32 noundef 3) #27
+  %27 = call i32 (...) %26() #28
+  call void @dt_gui_presets_add_generic(ptr noundef %25, ptr noundef nonnull %8, i32 noundef %27, ptr noundef nonnull %5, i32 noundef 520, i32 noundef 1, i32 noundef 3) #28
   %28 = load ptr, ptr %15, align 8, !tbaa !59
-  %29 = call ptr @dcgettext(ptr noundef null, ptr noundef %28, i32 noundef 5) #27
+  %29 = call ptr @dcgettext(ptr noundef null, ptr noundef %28, i32 noundef 5) #28
   %30 = load ptr, ptr %9, align 8, !tbaa !58
-  %31 = call i32 (...) %30() #27
+  %31 = call i32 (...) %30() #28
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !45
-  call void @dt_gui_presets_update_mml(ptr noundef %29, ptr noundef nonnull %8, i32 noundef %31, ptr noundef %33, ptr noundef %35, ptr noundef nonnull @.str.101) #27
+  call void @dt_gui_presets_update_mml(ptr noundef %29, ptr noundef nonnull %8, i32 noundef %31, ptr noundef %33, ptr noundef %35, ptr noundef nonnull @.str.101) #28
   %36 = load ptr, ptr %15, align 8, !tbaa !59
-  %37 = call ptr @dcgettext(ptr noundef null, ptr noundef %36, i32 noundef 5) #27
+  %37 = call ptr @dcgettext(ptr noundef null, ptr noundef %36, i32 noundef 5) #28
   %38 = load ptr, ptr %9, align 8, !tbaa !58
-  %39 = call i32 (...) %38() #27
+  %39 = call i32 (...) %38() #28
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !60
   %42 = sitofp i32 %41 to float
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %44 = load float, ptr %43, align 4, !tbaa !61
-  call void @dt_gui_presets_update_iso(ptr noundef %37, ptr noundef nonnull %8, i32 noundef %39, float noundef %42, float noundef %44) #27
+  call void @dt_gui_presets_update_iso(ptr noundef %37, ptr noundef nonnull %8, i32 noundef %39, float noundef %42, float noundef %44) #28
   %45 = load ptr, ptr %15, align 8, !tbaa !59
-  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef %45, i32 noundef 5) #27
+  %46 = call ptr @dcgettext(ptr noundef null, ptr noundef %45, i32 noundef 5) #28
   %47 = load ptr, ptr %9, align 8, !tbaa !58
-  %48 = call i32 (...) %47() #27
-  call void @dt_gui_presets_update_format(ptr noundef %46, ptr noundef nonnull %8, i32 noundef %48, i32 noundef 2) #27
+  %48 = call i32 (...) %47() #28
+  call void @dt_gui_presets_update_format(ptr noundef %46, ptr noundef nonnull %8, i32 noundef %48, i32 noundef 2) #28
   %49 = load ptr, ptr %15, align 8, !tbaa !59
-  %50 = call ptr @dcgettext(ptr noundef null, ptr noundef %49, i32 noundef 5) #27
+  %50 = call ptr @dcgettext(ptr noundef null, ptr noundef %49, i32 noundef 5) #28
   %51 = load ptr, ptr %9, align 8, !tbaa !58
-  %52 = call i32 (...) %51() #27
-  call void @dt_gui_presets_update_autoapply(ptr noundef %50, ptr noundef nonnull %8, i32 noundef %52, i32 noundef 0) #27
+  %52 = call i32 (...) %51() #28
+  call void @dt_gui_presets_update_autoapply(ptr noundef %50, ptr noundef nonnull %8, i32 noundef %52, i32 noundef 0) #28
   %53 = load ptr, ptr %15, align 8, !tbaa !59
-  %54 = call ptr @dcgettext(ptr noundef null, ptr noundef %53, i32 noundef 5) #27
+  %54 = call ptr @dcgettext(ptr noundef null, ptr noundef %53, i32 noundef 5) #28
   %55 = load ptr, ptr %9, align 8, !tbaa !58
-  %56 = call i32 (...) %55() #27
+  %56 = call i32 (...) %55() #28
   br i1 %10, label %57, label %62
 
 57:                                               ; preds = %23
@@ -685,8 +685,8 @@ define internal fastcc void @set_presets(ptr noundef %0, ptr nocapture noundef r
 
 62:                                               ; preds = %57, %23
   %63 = phi i32 [ 1, %23 ], [ %61, %57 ]
-  call void @dt_gui_presets_update_filter(ptr noundef %54, ptr noundef nonnull %8, i32 noundef %56, i32 noundef %63) #27
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %5) #27
+  call void @dt_gui_presets_update_filter(ptr noundef %54, ptr noundef nonnull %8, i32 noundef %56, i32 noundef %63) #28
+  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %5) #28
   %64 = add nuw nsw i64 %14, 1
   %65 = icmp eq i64 %64, %11
   br i1 %65, label %12, label %13
@@ -754,11 +754,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2056
   %13 = load ptr, ptr %12, align 8, !tbaa !77
-  %14 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %9, ptr noundef %13) #27
+  %14 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %9, ptr noundef %13) #28
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load <2 x i32>, ptr %15, align 4, !tbaa !10
-  %17 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #28
-  %18 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #28
+  %17 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #29
+  %18 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #29
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load float, ptr %19, align 4, !tbaa !74
   %21 = fmul reassoc nsz arcp contract afn float %20, 2.560000e+02
@@ -774,10 +774,10 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %29, 4
   %33 = mul i64 %32, %31
-  %34 = tail call ptr @dt_alloc_aligned(i64 noundef %33) #27
+  %34 = tail call ptr @dt_alloc_aligned(i64 noundef %33) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 64) ]
   store ptr %34, ptr %17, align 8, !tbaa !26
-  %35 = tail call ptr @dt_alloc_aligned(i64 noundef %33) #27
+  %35 = tail call ptr @dt_alloc_aligned(i64 noundef %33) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %35, i64 64) ]
   store ptr %35, ptr %18, align 8, !tbaa !26
   %36 = icmp eq ptr %34, null
@@ -789,12 +789,12 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %41 = load i32, ptr %40, align 4, !tbaa !93
   %42 = sext i32 %41 to i64
-  tail call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %42, ptr noundef nonnull %4, ptr noundef %5) #27
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8) #27
+  tail call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %42, ptr noundef nonnull %4, ptr noundef %5) #28
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8) #28
   br label %.loopexit
 
 43:                                               ; preds = %6
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %35, float noundef 0.000000e+00, i64 noundef %29, i64 noundef %31, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %35, float noundef 0.000000e+00, i64 noundef %29, i64 noundef %31, i64 noundef 4) #28
   %44 = icmp sgt i32 %28, 1
   %45 = icmp sgt <2 x i32> %16, splat (i32 6)
   %46 = extractelement <2 x i1> %45, i64 0
@@ -814,11 +814,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %58 = zext nneg i32 %53 to i64
   %59 = shl nuw nsw i64 %57, 4
   %60 = mul i64 %59, %58
-  %61 = tail call ptr @dt_alloc_aligned(i64 noundef %60) #27
+  %61 = tail call ptr @dt_alloc_aligned(i64 noundef %60) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %61, i64 64) ]
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %61, ptr %62, align 8, !tbaa !26
-  %63 = tail call ptr @dt_alloc_aligned(i64 noundef %60) #27
+  %63 = tail call ptr @dt_alloc_aligned(i64 noundef %60) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %63, i64 64) ]
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %63, ptr %64, align 8, !tbaa !26
@@ -828,7 +828,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %67, label %39, label %68
 
 68:                                               ; preds = %50
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %63, float noundef 0.000000e+00, i64 noundef %57, i64 noundef %58, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %63, float noundef 0.000000e+00, i64 noundef %57, i64 noundef %58, i64 noundef 4) #28
   %69 = icmp samesign ult i32 %28, 4
   %70 = icmp ult <2 x i32> %16, splat (i32 13)
   %71 = extractelement <2 x i1> %70, i64 0
@@ -846,11 +846,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %81 = zext nneg i32 %77 to i64
   %82 = shl nuw nsw i64 %80, 4
   %83 = mul nuw nsw i64 %82, %81
-  %84 = tail call ptr @dt_alloc_aligned(i64 noundef %83) #27
+  %84 = tail call ptr @dt_alloc_aligned(i64 noundef %83) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %84, i64 64) ]
   %85 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %84, ptr %85, align 8, !tbaa !26
-  %86 = tail call ptr @dt_alloc_aligned(i64 noundef %83) #27
+  %86 = tail call ptr @dt_alloc_aligned(i64 noundef %83) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %86, i64 64) ]
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %86, ptr %87, align 8, !tbaa !26
@@ -860,7 +860,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %90, label %39, label %91
 
 91:                                               ; preds = %75
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %86, float noundef 0.000000e+00, i64 noundef %80, i64 noundef %81, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %86, float noundef 0.000000e+00, i64 noundef %80, i64 noundef %81, i64 noundef 4) #28
   %92 = icmp samesign ult i32 %28, 8
   %93 = icmp ult <2 x i32> %16, splat (i32 25)
   %94 = extractelement <2 x i1> %93, i64 0
@@ -878,11 +878,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %104 = zext nneg i32 %100 to i64
   %105 = shl nuw nsw i64 %103, 4
   %106 = mul nuw nsw i64 %105, %104
-  %107 = tail call ptr @dt_alloc_aligned(i64 noundef %106) #27
+  %107 = tail call ptr @dt_alloc_aligned(i64 noundef %106) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 64) ]
   %108 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %107, ptr %108, align 8, !tbaa !26
-  %109 = tail call ptr @dt_alloc_aligned(i64 noundef %106) #27
+  %109 = tail call ptr @dt_alloc_aligned(i64 noundef %106) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %109, i64 64) ]
   %110 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %109, ptr %110, align 8, !tbaa !26
@@ -892,7 +892,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %113, label %39, label %114
 
 114:                                              ; preds = %98
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %109, float noundef 0.000000e+00, i64 noundef %103, i64 noundef %104, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %109, float noundef 0.000000e+00, i64 noundef %103, i64 noundef %104, i64 noundef 4) #28
   %115 = icmp samesign ult i32 %28, 16
   %116 = icmp ult <2 x i32> %16, splat (i32 49)
   %117 = extractelement <2 x i1> %116, i64 0
@@ -910,11 +910,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %127 = zext nneg i32 %123 to i64
   %128 = shl nuw nsw i64 %126, 4
   %129 = mul nuw nsw i64 %128, %127
-  %130 = tail call ptr @dt_alloc_aligned(i64 noundef %129) #27
+  %130 = tail call ptr @dt_alloc_aligned(i64 noundef %129) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 64) ]
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %130, ptr %131, align 8, !tbaa !26
-  %132 = tail call ptr @dt_alloc_aligned(i64 noundef %129) #27
+  %132 = tail call ptr @dt_alloc_aligned(i64 noundef %129) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %132, i64 64) ]
   %133 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %132, ptr %133, align 8, !tbaa !26
@@ -924,7 +924,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %136, label %39, label %137
 
 137:                                              ; preds = %121
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %132, float noundef 0.000000e+00, i64 noundef %126, i64 noundef %127, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %132, float noundef 0.000000e+00, i64 noundef %126, i64 noundef %127, i64 noundef 4) #28
   %138 = icmp samesign ult i32 %28, 32
   %139 = icmp ult <2 x i32> %16, splat (i32 97)
   %140 = extractelement <2 x i1> %139, i64 0
@@ -942,11 +942,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %150 = zext nneg i32 %146 to i64
   %151 = shl nuw nsw i64 %149, 4
   %152 = mul nuw nsw i64 %151, %150
-  %153 = tail call ptr @dt_alloc_aligned(i64 noundef %152) #27
+  %153 = tail call ptr @dt_alloc_aligned(i64 noundef %152) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %153, i64 64) ]
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %153, ptr %154, align 8, !tbaa !26
-  %155 = tail call ptr @dt_alloc_aligned(i64 noundef %152) #27
+  %155 = tail call ptr @dt_alloc_aligned(i64 noundef %152) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %155, i64 64) ]
   %156 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %155, ptr %156, align 8, !tbaa !26
@@ -956,7 +956,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %159, label %39, label %160
 
 160:                                              ; preds = %144
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %155, float noundef 0.000000e+00, i64 noundef %149, i64 noundef %150, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %155, float noundef 0.000000e+00, i64 noundef %149, i64 noundef %150, i64 noundef 4) #28
   %161 = icmp samesign ult i32 %28, 64
   %162 = icmp ult <2 x i32> %16, splat (i32 193)
   %163 = extractelement <2 x i1> %162, i64 0
@@ -974,11 +974,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %173 = zext nneg i32 %169 to i64
   %174 = shl nuw nsw i64 %172, 4
   %175 = mul nuw nsw i64 %174, %173
-  %176 = tail call ptr @dt_alloc_aligned(i64 noundef %175) #27
+  %176 = tail call ptr @dt_alloc_aligned(i64 noundef %175) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %176, i64 64) ]
   %177 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %176, ptr %177, align 8, !tbaa !26
-  %178 = tail call ptr @dt_alloc_aligned(i64 noundef %175) #27
+  %178 = tail call ptr @dt_alloc_aligned(i64 noundef %175) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %178, i64 64) ]
   %179 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %178, ptr %179, align 8, !tbaa !26
@@ -988,7 +988,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %182, label %39, label %183
 
 183:                                              ; preds = %167
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %178, float noundef 0.000000e+00, i64 noundef %172, i64 noundef %173, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %178, float noundef 0.000000e+00, i64 noundef %172, i64 noundef %173, i64 noundef 4) #28
   %184 = icmp samesign ult i32 %28, 128
   %185 = icmp ult <2 x i32> %16, splat (i32 385)
   %186 = extractelement <2 x i1> %185, i64 0
@@ -1006,11 +1006,11 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %196 = zext nneg i32 %192 to i64
   %197 = shl nuw nsw i64 %195, 4
   %198 = mul nuw nsw i64 %197, %196
-  %199 = tail call ptr @dt_alloc_aligned(i64 noundef %198) #27
+  %199 = tail call ptr @dt_alloc_aligned(i64 noundef %198) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %199, i64 64) ]
   %200 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store ptr %199, ptr %200, align 8, !tbaa !26
-  %201 = tail call ptr @dt_alloc_aligned(i64 noundef %198) #27
+  %201 = tail call ptr @dt_alloc_aligned(i64 noundef %198) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %201, i64 64) ]
   %202 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %201, ptr %202, align 8, !tbaa !26
@@ -1020,7 +1020,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %205, label %39, label %206
 
 206:                                              ; preds = %190
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %201, float noundef 0.000000e+00, i64 noundef %195, i64 noundef %196, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %201, float noundef 0.000000e+00, i64 noundef %195, i64 noundef %196, i64 noundef 4) #28
   br label %207
 
 207:                                              ; preds = %206, %183, %160, %137, %114, %91, %68, %43
@@ -1439,7 +1439,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %534 = lshr i64 %533, 1
   %535 = shl nsw i64 %527, 4
   %536 = mul i64 %535, %529
-  %537 = tail call ptr @dt_alloc_aligned(i64 noundef %536) #27
+  %537 = tail call ptr @dt_alloc_aligned(i64 noundef %536) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %537, i64 64) ]
   %538 = icmp eq ptr %537, null
   br i1 %538, label %540, label %539
@@ -1449,7 +1449,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br label %541
 
 540:                                              ; preds = %.preheader67
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116) #27
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116) #28
   br label %541
 
 541:                                              ; preds = %540, %539
@@ -1647,7 +1647,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %694, label %649, label %569
 
 695:                                              ; preds = %649
-  tail call void @free(ptr noundef nonnull %542) #27
+  tail call void @free(ptr noundef nonnull %542) #28
   br label %696
 
 696:                                              ; preds = %695, %649
@@ -1732,7 +1732,7 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %742 = add i64 %730, 9223372036854775807
   %743 = lshr i64 %742, 1
   %744 = add nuw nsw i64 %743, 1
-  tail call void @dt_iop_image_fill(ptr noundef %3, float noundef 0.000000e+00, i64 noundef %730, i64 noundef %741, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef %3, float noundef 0.000000e+00, i64 noundef %730, i64 noundef %741, i64 noundef 4) #28
   %745 = icmp eq <2 x i32> %727, zeroinitializer
   %746 = extractelement <2 x i1> %745, i64 0
   %747 = extractelement <2 x i1> %745, i64 1
@@ -2218,20 +2218,20 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br i1 %1135, label %1094, label %.loopexit61, !llvm.loop !141
 
 1136:                                             ; preds = %.loopexit54, %.loopexit75
-  %1137 = phi i64 [ 0, %.loopexit75 ], [ %1521, %.loopexit54 ]
-  %1138 = phi i64 [ %.pre-phi, %.loopexit75 ], [ %1520, %.loopexit54 ]
+  %1137 = phi i64 [ 0, %.loopexit75 ], [ %1520, %.loopexit54 ]
+  %1138 = phi i64 [ %.pre-phi, %.loopexit75 ], [ %1519, %.loopexit54 ]
   %1139 = icmp sgt i64 %1138, 0
-  br i1 %1139, label %1140, label %1234
+  br i1 %1139, label %1140, label %1233
 
 1140:                                             ; preds = %1136
   %1141 = and i64 %1138, 3
   %1142 = sub nsw i64 %1137, %.pre-phi
   %1143 = icmp ugt i64 %1142, -4
-  br i1 %1143, label %1218, label %1144
+  br i1 %1143, label %1217, label %1144
 
 1144:                                             ; preds = %1140
   %1145 = and i64 %1138, 9223372036854775804
-  br label %1250
+  br label %1249
 
 1146:                                             ; preds = %.loopexit54
   %1147 = shl nsw i64 %29, 2
@@ -2246,9 +2246,9 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   %1154 = icmp ult i64 %1148, 93
   br i1 %1154, label %.preheader104, label %1155
 
-.preheader104:                                    ; preds = %1214, %1170, %1155, %1150
-  %.ph = phi i64 [ %1215, %1214 ], [ 0, %1150 ], [ 0, %1155 ], [ 0, %1170 ]
-  br label %1522
+.preheader104:                                    ; preds = %1213, %1170, %1155, %1150
+  %.ph = phi i64 [ %1214, %1213 ], [ 0, %1150 ], [ 0, %1155 ], [ 0, %1170 ]
+  br label %1521
 
 1155:                                             ; preds = %1150
   %1156 = shl i64 %1152, 4
@@ -2291,508 +2291,507 @@ define hidden void @process_fusion(ptr nocapture readnone %0, ptr nocapture noun
   br label %1189
 
 1189:                                             ; preds = %1189, %1186
-  %1190 = phi i64 [ 0, %1186 ], [ %1211, %1189 ]
-  %1191 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %1186 ], [ %1212, %1189 ]
+  %1190 = phi i64 [ 0, %1186 ], [ %1210, %1189 ]
+  %1191 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %1186 ], [ %1211, %1189 ]
   %1192 = getelementptr inbounds float, ptr %35, <8 x i64> %1191
   %1193 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1192, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !142
-  %1194 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1193, <8 x float> zeroinitializer)
-  %1195 = or disjoint <8 x i64> %1191, splat (i64 1)
-  %1196 = getelementptr inbounds float, ptr %35, <8 x i64> %1195
-  %1197 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1196, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !142
-  %1198 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1197, <8 x float> zeroinitializer)
-  %1199 = or disjoint <8 x i64> %1191, splat (i64 2)
-  %1200 = getelementptr inbounds float, ptr %35, <8 x i64> %1199
-  %1201 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1200, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !142
-  %1202 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1201, <8 x float> zeroinitializer)
-  %1203 = or disjoint <8 x i64> %1191, splat (i64 3)
-  %1204 = getelementptr inbounds float, ptr %2, <8 x i64> %1203
-  %1205 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1204, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !145
-  %1206 = extractelement <8 x i64> %1203, i64 0
-  %1207 = getelementptr float, ptr %1188, i64 %1206
-  %1208 = shufflevector <8 x float> %1194, <8 x float> %1198, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %1209 = shufflevector <8 x float> %1202, <8 x float> %1205, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %1210 = shufflevector <16 x float> %1208, <16 x float> %1209, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
-  store <32 x float> %1210, ptr %1207, align 4, !tbaa !12
-  %1211 = add nuw i64 %1190, 8
-  %1212 = add <8 x i64> %1191, splat (i64 32)
-  %1213 = icmp eq i64 %1211, %1187
-  br i1 %1213, label %1214, label %1189, !llvm.loop !147
+  %1194 = or disjoint <8 x i64> %1191, splat (i64 1)
+  %1195 = getelementptr inbounds float, ptr %35, <8 x i64> %1194
+  %1196 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1195, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !142
+  %1197 = or disjoint <8 x i64> %1191, splat (i64 2)
+  %1198 = getelementptr inbounds float, ptr %35, <8 x i64> %1197
+  %1199 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1198, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !142
+  %1200 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1199, <8 x float> zeroinitializer)
+  %1201 = or disjoint <8 x i64> %1191, splat (i64 3)
+  %1202 = getelementptr inbounds float, ptr %2, <8 x i64> %1201
+  %1203 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1202, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !145
+  %1204 = extractelement <8 x i64> %1201, i64 0
+  %1205 = getelementptr float, ptr %1188, i64 %1204
+  %1206 = shufflevector <8 x float> %1193, <8 x float> %1196, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %1207 = tail call reassoc nsz arcp contract afn <16 x float> @llvm.maxnum.v16f32(<16 x float> %1206, <16 x float> zeroinitializer)
+  %1208 = shufflevector <8 x float> %1200, <8 x float> %1203, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %1209 = shufflevector <16 x float> %1207, <16 x float> %1208, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
+  store <32 x float> %1209, ptr %1205, align 4, !tbaa !12
+  %1210 = add nuw i64 %1190, 8
+  %1211 = add <8 x i64> %1191, splat (i64 32)
+  %1212 = icmp eq i64 %1210, %1187
+  br i1 %1212, label %1213, label %1189, !llvm.loop !147
 
-1214:                                             ; preds = %1189
-  %1215 = shl i64 %1187, 2
-  %1216 = icmp eq i64 %1153, %1187
-  br i1 %1216, label %.loopexit, label %.preheader104
+1213:                                             ; preds = %1189
+  %1214 = shl i64 %1187, 2
+  %1215 = icmp eq i64 %1153, %1187
+  br i1 %1215, label %.loopexit, label %.preheader104
 
-.loopexit57:                                      ; preds = %1250
-  %1217 = add nsw <2 x i32> %1253, splat (i32 1)
-  br label %1218
+.loopexit57:                                      ; preds = %1249
+  %1216 = add nsw <2 x i32> %1252, splat (i32 1)
+  br label %1217
 
-1218:                                             ; preds = %.loopexit57, %1140
-  %1219 = phi <2 x i32> [ undef, %1140 ], [ %1217, %.loopexit57 ]
-  %1220 = phi <2 x i32> [ %16, %1140 ], [ %1217, %.loopexit57 ]
-  %1221 = icmp eq i64 %1141, 0
-  br i1 %1221, label %.loopexit56, label %.preheader.preheader
+1217:                                             ; preds = %.loopexit57, %1140
+  %1218 = phi <2 x i32> [ undef, %1140 ], [ %1216, %.loopexit57 ]
+  %1219 = phi <2 x i32> [ %16, %1140 ], [ %1216, %.loopexit57 ]
+  %1220 = icmp eq i64 %1141, 0
+  br i1 %1220, label %.loopexit56, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %1218
-  %1222 = add nsw <2 x i32> %1220, splat (i32 -1)
+.preheader.preheader:                             ; preds = %1217
+  %1221 = add nsw <2 x i32> %1219, splat (i32 -1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %1223 = phi <2 x i32> [ %1225, %.preheader ], [ %1222, %.preheader.preheader ]
-  %1224 = phi i64 [ %1226, %.preheader ], [ 0, %.preheader.preheader ]
-  %1225 = sdiv <2 x i32> %1223, splat (i32 2)
-  %1226 = add nuw nsw i64 %1224, 1
-  %1227 = icmp eq i64 %1226, %1141
-  br i1 %1227, label %.loopexit56.loopexit, label %.preheader, !llvm.loop !148
+  %1222 = phi <2 x i32> [ %1224, %.preheader ], [ %1221, %.preheader.preheader ]
+  %1223 = phi i64 [ %1225, %.preheader ], [ 0, %.preheader.preheader ]
+  %1224 = sdiv <2 x i32> %1222, splat (i32 2)
+  %1225 = add nuw nsw i64 %1223, 1
+  %1226 = icmp eq i64 %1225, %1141
+  br i1 %1226, label %.loopexit56.loopexit, label %.preheader, !llvm.loop !148
 
 .loopexit56.loopexit:                             ; preds = %.preheader
-  %1228 = add nsw <2 x i32> %1225, splat (i32 1)
+  %1227 = add nsw <2 x i32> %1224, splat (i32 1)
   br label %.loopexit56
 
-.loopexit56:                                      ; preds = %.loopexit56.loopexit, %1218
-  %1229 = phi <2 x i32> [ %1219, %1218 ], [ %1228, %.loopexit56.loopexit ]
-  %1230 = extractelement <2 x i32> %1229, i64 0
-  %1231 = sext i32 %1230 to i64
-  %1232 = extractelement <2 x i32> %1229, i64 1
-  %1233 = sext i32 %1232 to i64
-  br label %1234
+.loopexit56:                                      ; preds = %.loopexit56.loopexit, %1217
+  %1228 = phi <2 x i32> [ %1218, %1217 ], [ %1227, %.loopexit56.loopexit ]
+  %1229 = extractelement <2 x i32> %1228, i64 0
+  %1230 = sext i32 %1229 to i64
+  %1231 = extractelement <2 x i32> %1228, i64 1
+  %1232 = sext i32 %1231 to i64
+  br label %1233
 
-1234:                                             ; preds = %.loopexit56, %1136
-  %1235 = phi i64 [ %1233, %.loopexit56 ], [ %31, %1136 ]
-  %1236 = phi i64 [ %1231, %.loopexit56 ], [ %29, %1136 ]
-  %1237 = phi <2 x i32> [ %1229, %.loopexit56 ], [ %16, %1136 ]
-  %1238 = shl nsw i64 %1236, 2
-  %1239 = mul i64 %1238, %1235
-  %1240 = icmp eq i64 %1239, 0
-  br i1 %1240, label %1274, label %1241
+1233:                                             ; preds = %.loopexit56, %1136
+  %1234 = phi i64 [ %1232, %.loopexit56 ], [ %31, %1136 ]
+  %1235 = phi i64 [ %1230, %.loopexit56 ], [ %29, %1136 ]
+  %1236 = phi <2 x i32> [ %1228, %.loopexit56 ], [ %16, %1136 ]
+  %1237 = shl nsw i64 %1235, 2
+  %1238 = mul i64 %1237, %1234
+  %1239 = icmp eq i64 %1238, 0
+  br i1 %1239, label %1273, label %1240
 
-1241:                                             ; preds = %1234
-  %1242 = getelementptr inbounds ptr, ptr %18, i64 %1138
-  %1243 = load ptr, ptr %1242, align 8, !tbaa !26
-  %1244 = add i64 %1239, -1
-  %1245 = icmp eq i64 %1244, 3
-  br i1 %1245, label %.thread, label %1246
+1240:                                             ; preds = %1233
+  %1241 = getelementptr inbounds ptr, ptr %18, i64 %1138
+  %1242 = load ptr, ptr %1241, align 8, !tbaa !26
+  %1243 = add i64 %1238, -1
+  %1244 = icmp eq i64 %1243, 3
+  br i1 %1244, label %.thread, label %1245
 
-1246:                                             ; preds = %1241
-  %1247 = lshr i64 %1244, 2
-  %1248 = add nuw nsw i64 %1247, 1
-  %1249 = and i64 %1248, 9223372036854775806
-  br label %1276
+1245:                                             ; preds = %1240
+  %1246 = lshr i64 %1243, 2
+  %1247 = add nuw nsw i64 %1246, 1
+  %1248 = and i64 %1247, 9223372036854775806
+  br label %1275
 
-1250:                                             ; preds = %1250, %1144
-  %1251 = phi <2 x i32> [ %.pre-phi91, %1144 ], [ %1253, %1250 ]
-  %1252 = phi i64 [ 0, %1144 ], [ %1254, %1250 ]
-  %1253 = sdiv <2 x i32> %1251, splat (i32 16)
-  %1254 = add i64 %1252, 4
-  %1255 = icmp eq i64 %1254, %1145
-  br i1 %1255, label %.loopexit57, label %1250
+1249:                                             ; preds = %1249, %1144
+  %1250 = phi <2 x i32> [ %.pre-phi91, %1144 ], [ %1252, %1249 ]
+  %1251 = phi i64 [ 0, %1144 ], [ %1253, %1249 ]
+  %1252 = sdiv <2 x i32> %1250, splat (i32 16)
+  %1253 = add i64 %1251, 4
+  %1254 = icmp eq i64 %1253, %1145
+  br i1 %1254, label %.loopexit57, label %1249
 
-1256:                                             ; preds = %1309
-  %1257 = and i64 %1244, 4
-  %1258 = icmp eq i64 %1257, 0
-  br i1 %1258, label %.thread, label %1274
+1255:                                             ; preds = %1308
+  %1256 = and i64 %1243, 4
+  %1257 = icmp eq i64 %1256, 0
+  br i1 %1257, label %.thread, label %1273
 
-.thread:                                          ; preds = %1241, %1256
-  %1259 = phi i64 [ %1310, %1256 ], [ 0, %1241 ]
-  %1260 = or disjoint i64 %1259, 3
-  %1261 = getelementptr inbounds float, ptr %1243, i64 %1260
-  %1262 = load float, ptr %1261, align 4, !tbaa !12
-  %1263 = fcmp reassoc nsz arcp contract afn ogt float %1262, 0x3E45798EE0000000
-  br i1 %1263, label %1264, label %1274
+.thread:                                          ; preds = %1240, %1255
+  %1258 = phi i64 [ %1309, %1255 ], [ 0, %1240 ]
+  %1259 = or disjoint i64 %1258, 3
+  %1260 = getelementptr inbounds float, ptr %1242, i64 %1259
+  %1261 = load float, ptr %1260, align 4, !tbaa !12
+  %1262 = fcmp reassoc nsz arcp contract afn ogt float %1261, 0x3E45798EE0000000
+  br i1 %1262, label %1263, label %1273
 
-1264:                                             ; preds = %.thread
-  %1265 = getelementptr inbounds float, ptr %1243, i64 %1259
-  %1266 = load <2 x float>, ptr %1265, align 4, !tbaa !12
-  %1267 = insertelement <2 x float> poison, float %1262, i64 0
-  %1268 = shufflevector <2 x float> %1267, <2 x float> poison, <2 x i32> zeroinitializer
-  %1269 = fdiv reassoc nsz arcp contract afn <2 x float> %1266, %1268
-  store <2 x float> %1269, ptr %1265, align 4, !tbaa !12
-  %1270 = or disjoint i64 %1259, 2
-  %1271 = getelementptr inbounds float, ptr %1243, i64 %1270
-  %1272 = load float, ptr %1271, align 4, !tbaa !12
-  %1273 = fdiv reassoc nsz arcp contract afn float %1272, %1262
-  store float %1273, ptr %1271, align 4, !tbaa !12
-  br label %1274
+1263:                                             ; preds = %.thread
+  %1264 = getelementptr inbounds float, ptr %1242, i64 %1258
+  %1265 = load <2 x float>, ptr %1264, align 4, !tbaa !12
+  %1266 = insertelement <2 x float> poison, float %1261, i64 0
+  %1267 = shufflevector <2 x float> %1266, <2 x float> poison, <2 x i32> zeroinitializer
+  %1268 = fdiv reassoc nsz arcp contract afn <2 x float> %1265, %1267
+  store <2 x float> %1268, ptr %1264, align 4, !tbaa !12
+  %1269 = or disjoint i64 %1258, 2
+  %1270 = getelementptr inbounds float, ptr %1242, i64 %1269
+  %1271 = load float, ptr %1270, align 4, !tbaa !12
+  %1272 = fdiv reassoc nsz arcp contract afn float %1271, %1261
+  store float %1272, ptr %1270, align 4, !tbaa !12
+  br label %1273
 
-1274:                                             ; preds = %1264, %.thread, %1256, %1234
-  %1275 = icmp slt i64 %1138, %.pre-phi
-  br i1 %1275, label %1313, label %.loopexit54
+1273:                                             ; preds = %1263, %.thread, %1255, %1233
+  %1274 = icmp slt i64 %1138, %.pre-phi
+  br i1 %1274, label %1312, label %.loopexit54
 
-1276:                                             ; preds = %1309, %1246
-  %1277 = phi i64 [ 0, %1246 ], [ %1310, %1309 ]
-  %1278 = phi i64 [ 0, %1246 ], [ %1311, %1309 ]
-  %1279 = or disjoint i64 %1277, 3
-  %1280 = getelementptr inbounds float, ptr %1243, i64 %1279
-  %1281 = load float, ptr %1280, align 4, !tbaa !12
-  %1282 = fcmp reassoc nsz arcp contract afn ogt float %1281, 0x3E45798EE0000000
-  br i1 %1282, label %1283, label %1293
+1275:                                             ; preds = %1308, %1245
+  %1276 = phi i64 [ 0, %1245 ], [ %1309, %1308 ]
+  %1277 = phi i64 [ 0, %1245 ], [ %1310, %1308 ]
+  %1278 = or disjoint i64 %1276, 3
+  %1279 = getelementptr inbounds float, ptr %1242, i64 %1278
+  %1280 = load float, ptr %1279, align 4, !tbaa !12
+  %1281 = fcmp reassoc nsz arcp contract afn ogt float %1280, 0x3E45798EE0000000
+  br i1 %1281, label %1282, label %1292
 
-1283:                                             ; preds = %1276
-  %1284 = getelementptr inbounds float, ptr %1243, i64 %1277
-  %1285 = load <2 x float>, ptr %1284, align 4, !tbaa !12
-  %1286 = insertelement <2 x float> poison, float %1281, i64 0
-  %1287 = shufflevector <2 x float> %1286, <2 x float> poison, <2 x i32> zeroinitializer
-  %1288 = fdiv reassoc nsz arcp contract afn <2 x float> %1285, %1287
-  store <2 x float> %1288, ptr %1284, align 4, !tbaa !12
-  %1289 = or disjoint i64 %1277, 2
-  %1290 = getelementptr inbounds float, ptr %1243, i64 %1289
-  %1291 = load float, ptr %1290, align 4, !tbaa !12
-  %1292 = fdiv reassoc nsz arcp contract afn float %1291, %1281
-  store float %1292, ptr %1290, align 4, !tbaa !12
-  br label %1293
+1282:                                             ; preds = %1275
+  %1283 = getelementptr inbounds float, ptr %1242, i64 %1276
+  %1284 = load <2 x float>, ptr %1283, align 4, !tbaa !12
+  %1285 = insertelement <2 x float> poison, float %1280, i64 0
+  %1286 = shufflevector <2 x float> %1285, <2 x float> poison, <2 x i32> zeroinitializer
+  %1287 = fdiv reassoc nsz arcp contract afn <2 x float> %1284, %1286
+  store <2 x float> %1287, ptr %1283, align 4, !tbaa !12
+  %1288 = or disjoint i64 %1276, 2
+  %1289 = getelementptr inbounds float, ptr %1242, i64 %1288
+  %1290 = load float, ptr %1289, align 4, !tbaa !12
+  %1291 = fdiv reassoc nsz arcp contract afn float %1290, %1280
+  store float %1291, ptr %1289, align 4, !tbaa !12
+  br label %1292
 
-1293:                                             ; preds = %1283, %1276
-  %1294 = or disjoint i64 %1277, 7
-  %1295 = getelementptr inbounds float, ptr %1243, i64 %1294
-  %1296 = load float, ptr %1295, align 4, !tbaa !12
-  %1297 = fcmp reassoc nsz arcp contract afn ogt float %1296, 0x3E45798EE0000000
-  br i1 %1297, label %1298, label %1309
+1292:                                             ; preds = %1282, %1275
+  %1293 = or disjoint i64 %1276, 7
+  %1294 = getelementptr inbounds float, ptr %1242, i64 %1293
+  %1295 = load float, ptr %1294, align 4, !tbaa !12
+  %1296 = fcmp reassoc nsz arcp contract afn ogt float %1295, 0x3E45798EE0000000
+  br i1 %1296, label %1297, label %1308
 
-1298:                                             ; preds = %1293
-  %1299 = or disjoint i64 %1277, 4
-  %1300 = getelementptr inbounds float, ptr %1243, i64 %1299
-  %1301 = load <2 x float>, ptr %1300, align 4, !tbaa !12
-  %1302 = insertelement <2 x float> poison, float %1296, i64 0
-  %1303 = shufflevector <2 x float> %1302, <2 x float> poison, <2 x i32> zeroinitializer
-  %1304 = fdiv reassoc nsz arcp contract afn <2 x float> %1301, %1303
-  store <2 x float> %1304, ptr %1300, align 4, !tbaa !12
-  %1305 = or disjoint i64 %1277, 6
-  %1306 = getelementptr inbounds float, ptr %1243, i64 %1305
-  %1307 = load float, ptr %1306, align 4, !tbaa !12
-  %1308 = fdiv reassoc nsz arcp contract afn float %1307, %1296
-  store float %1308, ptr %1306, align 4, !tbaa !12
-  br label %1309
+1297:                                             ; preds = %1292
+  %1298 = or disjoint i64 %1276, 4
+  %1299 = getelementptr inbounds float, ptr %1242, i64 %1298
+  %1300 = load <2 x float>, ptr %1299, align 4, !tbaa !12
+  %1301 = insertelement <2 x float> poison, float %1295, i64 0
+  %1302 = shufflevector <2 x float> %1301, <2 x float> poison, <2 x i32> zeroinitializer
+  %1303 = fdiv reassoc nsz arcp contract afn <2 x float> %1300, %1302
+  store <2 x float> %1303, ptr %1299, align 4, !tbaa !12
+  %1304 = or disjoint i64 %1276, 6
+  %1305 = getelementptr inbounds float, ptr %1242, i64 %1304
+  %1306 = load float, ptr %1305, align 4, !tbaa !12
+  %1307 = fdiv reassoc nsz arcp contract afn float %1306, %1295
+  store float %1307, ptr %1305, align 4, !tbaa !12
+  br label %1308
 
-1309:                                             ; preds = %1298, %1293
-  %1310 = add nuw i64 %1277, 8
-  %1311 = add i64 %1278, 2
-  %1312 = icmp eq i64 %1311, %1249
-  br i1 %1312, label %1256, label %1276
+1308:                                             ; preds = %1297, %1292
+  %1309 = add nuw i64 %1276, 8
+  %1310 = add i64 %1277, 2
+  %1311 = icmp eq i64 %1310, %1248
+  br i1 %1311, label %1255, label %1275
 
-1313:                                             ; preds = %1274
-  %1314 = getelementptr ptr, ptr %18, i64 %1138
-  %1315 = getelementptr i8, ptr %1314, i64 8
-  %1316 = load ptr, ptr %1315, align 8, !tbaa !26
-  %1317 = add i64 %1236, 9223372036854775807
-  %1318 = lshr i64 %1317, 1
-  %1319 = add nuw nsw i64 %1318, 1
-  tail call void @dt_iop_image_fill(ptr noundef %3, float noundef 0.000000e+00, i64 noundef %1236, i64 noundef %1235, i64 noundef 4) #27
-  %1320 = icmp eq <2 x i32> %1237, zeroinitializer
-  %1321 = extractelement <2 x i1> %1320, i64 0
-  %1322 = extractelement <2 x i1> %1320, i64 1
-  %1323 = or i1 %1321, %1322
-  br i1 %1323, label %.loopexit55, label %1324
+1312:                                             ; preds = %1273
+  %1313 = getelementptr ptr, ptr %18, i64 %1138
+  %1314 = getelementptr i8, ptr %1313, i64 8
+  %1315 = load ptr, ptr %1314, align 8, !tbaa !26
+  %1316 = add i64 %1235, 9223372036854775807
+  %1317 = lshr i64 %1316, 1
+  %1318 = add nuw nsw i64 %1317, 1
+  tail call void @dt_iop_image_fill(ptr noundef %3, float noundef 0.000000e+00, i64 noundef %1235, i64 noundef %1234, i64 noundef 4) #28
+  %1319 = icmp eq <2 x i32> %1236, zeroinitializer
+  %1320 = extractelement <2 x i1> %1319, i64 0
+  %1321 = extractelement <2 x i1> %1319, i64 1
+  %1322 = or i1 %1320, %1321
+  br i1 %1322, label %.loopexit55, label %1323
 
-1324:                                             ; preds = %1313
-  %1325 = getelementptr i8, ptr %1316, i64 4
-  %1326 = getelementptr i8, ptr %1316, i64 8
-  %1327 = getelementptr i8, ptr %1316, i64 12
-  %1328 = tail call i64 @llvm.umax.i64(i64 %1236, i64 2)
-  %1329 = add i64 %1328, -1
-  %1330 = lshr i64 %1329, 1
-  %1331 = shl nsw i64 %1236, 5
-  %1332 = tail call i64 @llvm.umax.i64(i64 %1235, i64 2)
-  %1333 = add i64 %1332, -1
-  %1334 = lshr i64 %1333, 1
-  %1335 = mul i64 %1334, %1331
-  %1336 = shl i64 %1330, 5
-  %1337 = getelementptr i8, ptr %284, i64 %1335
-  %1338 = getelementptr i8, ptr %1337, i64 %1336
-  %1339 = getelementptr i8, ptr %1316, i64 16
-  %1340 = shl i64 %1318, 4
-  %1341 = add nsw i64 %1340, 16
-  %1342 = mul i64 %1341, %1334
-  %1343 = shl i64 %1330, 4
-  %1344 = getelementptr i8, ptr %1339, i64 %1342
-  %1345 = getelementptr i8, ptr %1344, i64 %1343
-  %1346 = add nuw i64 %1330, 1
-  %1347 = icmp ult i64 %1236, 31
-  %1348 = icmp ugt i64 %1329, 1152921504606846975
-  %1349 = icmp ugt ptr %1345, %3
-  %1350 = icmp ult ptr %1316, %1338
-  %1351 = and i1 %1350, %1349
-  %1352 = icmp slt i64 %1236, 0
-  %1353 = or i1 %1352, %1351
-  %1354 = icmp slt i64 %1340, -16
-  %1355 = or i1 %1354, %1353
-  %1356 = and i64 %1346, -8
-  %1357 = shl i64 %1356, 1
-  %1358 = icmp eq i64 %1346, %1356
-  br label %1359
+1323:                                             ; preds = %1312
+  %1324 = getelementptr i8, ptr %1315, i64 4
+  %1325 = getelementptr i8, ptr %1315, i64 8
+  %1326 = getelementptr i8, ptr %1315, i64 12
+  %1327 = tail call i64 @llvm.umax.i64(i64 %1235, i64 2)
+  %1328 = add i64 %1327, -1
+  %1329 = lshr i64 %1328, 1
+  %1330 = shl nsw i64 %1235, 5
+  %1331 = tail call i64 @llvm.umax.i64(i64 %1234, i64 2)
+  %1332 = add i64 %1331, -1
+  %1333 = lshr i64 %1332, 1
+  %1334 = mul i64 %1333, %1330
+  %1335 = shl i64 %1329, 5
+  %1336 = getelementptr i8, ptr %284, i64 %1334
+  %1337 = getelementptr i8, ptr %1336, i64 %1335
+  %1338 = getelementptr i8, ptr %1315, i64 16
+  %1339 = shl i64 %1317, 4
+  %1340 = add nsw i64 %1339, 16
+  %1341 = mul i64 %1340, %1333
+  %1342 = shl i64 %1329, 4
+  %1343 = getelementptr i8, ptr %1338, i64 %1341
+  %1344 = getelementptr i8, ptr %1343, i64 %1342
+  %1345 = add nuw i64 %1329, 1
+  %1346 = icmp ult i64 %1235, 31
+  %1347 = icmp ugt i64 %1328, 1152921504606846975
+  %1348 = icmp ugt ptr %1344, %3
+  %1349 = icmp ult ptr %1315, %1337
+  %1350 = and i1 %1349, %1348
+  %1351 = icmp slt i64 %1235, 0
+  %1352 = or i1 %1351, %1350
+  %1353 = icmp slt i64 %1339, -16
+  %1354 = or i1 %1353, %1352
+  %1355 = and i64 %1345, -8
+  %1356 = shl i64 %1355, 1
+  %1357 = icmp eq i64 %1345, %1355
+  br label %1358
 
-1359:                                             ; preds = %.loopexit53, %1324
-  %1360 = phi i64 [ %1440, %.loopexit53 ], [ 0, %1324 ]
-  %1361 = phi i64 [ %1439, %.loopexit53 ], [ 0, %1324 ]
-  %1362 = lshr exact i64 %1361, 1
-  %1363 = mul i64 %1362, %1319
-  %1364 = mul nsw i64 %1361, %1236
-  br i1 %1347, label %.preheader105, label %1365
+1358:                                             ; preds = %.loopexit53, %1323
+  %1359 = phi i64 [ %1439, %.loopexit53 ], [ 0, %1323 ]
+  %1360 = phi i64 [ %1438, %.loopexit53 ], [ 0, %1323 ]
+  %1361 = lshr exact i64 %1360, 1
+  %1362 = mul i64 %1361, %1318
+  %1363 = mul nsw i64 %1360, %1235
+  br i1 %1346, label %.preheader105, label %1364
 
-1365:                                             ; preds = %1359
-  %1366 = mul i64 %1360, %1331
-  %1367 = getelementptr i8, ptr %3, i64 %1366
-  %1368 = or disjoint i64 %1366, 4
-  %1369 = getelementptr i8, ptr %3, i64 %1368
-  %1370 = or disjoint i64 %1366, 12
-  %1371 = getelementptr i8, ptr %3, i64 %1370
-  %1372 = or disjoint i64 %1366, 8
-  %1373 = getelementptr i8, ptr %3, i64 %1372
-  %1374 = getelementptr i8, ptr %1373, i64 %1336
-  %1375 = icmp ult ptr %1374, %1373
-  %1376 = getelementptr i8, ptr %1371, i64 %1336
-  %1377 = icmp ult ptr %1376, %1371
-  %1378 = or i1 %1348, %1377
-  %1379 = getelementptr i8, ptr %1369, i64 %1336
-  %1380 = icmp ult ptr %1379, %1369
-  %1381 = getelementptr i8, ptr %1367, i64 %1336
-  %1382 = icmp ult ptr %1381, %1367
-  %1383 = or i1 %1375, %1378
-  %1384 = or i1 %1380, %1383
-  %1385 = or i1 %1382, %1384
-  %1386 = select i1 %1385, i1 true, i1 %1355
-  br i1 %1386, label %.preheader105, label %1387
+1364:                                             ; preds = %1358
+  %1365 = mul i64 %1359, %1330
+  %1366 = getelementptr i8, ptr %3, i64 %1365
+  %1367 = or disjoint i64 %1365, 4
+  %1368 = getelementptr i8, ptr %3, i64 %1367
+  %1369 = or disjoint i64 %1365, 12
+  %1370 = getelementptr i8, ptr %3, i64 %1369
+  %1371 = or disjoint i64 %1365, 8
+  %1372 = getelementptr i8, ptr %3, i64 %1371
+  %1373 = getelementptr i8, ptr %1372, i64 %1335
+  %1374 = icmp ult ptr %1373, %1372
+  %1375 = getelementptr i8, ptr %1370, i64 %1335
+  %1376 = icmp ult ptr %1375, %1370
+  %1377 = or i1 %1347, %1376
+  %1378 = getelementptr i8, ptr %1368, i64 %1335
+  %1379 = icmp ult ptr %1378, %1368
+  %1380 = getelementptr i8, ptr %1366, i64 %1335
+  %1381 = icmp ult ptr %1380, %1366
+  %1382 = or i1 %1374, %1377
+  %1383 = or i1 %1379, %1382
+  %1384 = or i1 %1381, %1383
+  %1385 = select i1 %1384, i1 true, i1 %1354
+  br i1 %1385, label %.preheader105, label %1386
 
-1387:                                             ; preds = %1365
-  %1388 = insertelement <8 x i64> poison, i64 %1364, i64 0
-  %1389 = shufflevector <8 x i64> %1388, <8 x i64> poison, <8 x i32> zeroinitializer
-  br label %1390
+1386:                                             ; preds = %1364
+  %1387 = insertelement <8 x i64> poison, i64 %1363, i64 0
+  %1388 = shufflevector <8 x i64> %1387, <8 x i64> poison, <8 x i32> zeroinitializer
+  br label %1389
 
-1390:                                             ; preds = %1390, %1387
-  %1391 = phi i64 [ 0, %1387 ], [ %1410, %1390 ]
-  %1392 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %1387 ], [ %1411, %1390 ]
-  %1393 = add i64 %1391, %1363
-  %1394 = add nsw <8 x i64> %1392, %1389
-  %1395 = shl <8 x i64> %1394, splat (i64 2)
-  %.idx52 = shl i64 %1393, 4
-  %1396 = getelementptr i8, ptr %1316, i64 %.idx52
-  %1397 = load <32 x float>, ptr %1396, align 4, !tbaa !12
-  %1398 = shufflevector <32 x float> %1397, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
-  %1399 = shufflevector <32 x float> %1397, <32 x float> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
-  %1400 = shufflevector <32 x float> %1397, <32 x float> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
-  %1401 = shufflevector <32 x float> %1397, <32 x float> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
-  %1402 = fmul reassoc nsz arcp contract afn <8 x float> %1398, splat (float 4.000000e+00)
-  %1403 = getelementptr float, ptr %3, <8 x i64> %1395
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1402, <8 x ptr> %1403, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
-  %1404 = fmul reassoc nsz arcp contract afn <8 x float> %1399, splat (float 4.000000e+00)
-  %1405 = getelementptr float, ptr %281, <8 x i64> %1395
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1404, <8 x ptr> %1405, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
-  %1406 = fmul reassoc nsz arcp contract afn <8 x float> %1400, splat (float 4.000000e+00)
-  %1407 = getelementptr float, ptr %282, <8 x i64> %1395
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1406, <8 x ptr> %1407, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
-  %1408 = fmul reassoc nsz arcp contract afn <8 x float> %1401, splat (float 4.000000e+00)
-  %1409 = getelementptr float, ptr %283, <8 x i64> %1395
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1408, <8 x ptr> %1409, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
-  %1410 = add nuw i64 %1391, 8
-  %1411 = add <8 x i64> %1392, splat (i64 16)
-  %1412 = icmp eq i64 %1410, %1356
-  br i1 %1412, label %1413, label %1390, !llvm.loop !154
+1389:                                             ; preds = %1389, %1386
+  %1390 = phi i64 [ 0, %1386 ], [ %1409, %1389 ]
+  %1391 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %1386 ], [ %1410, %1389 ]
+  %1392 = add i64 %1390, %1362
+  %1393 = add nsw <8 x i64> %1391, %1388
+  %1394 = shl <8 x i64> %1393, splat (i64 2)
+  %.idx52 = shl i64 %1392, 4
+  %1395 = getelementptr i8, ptr %1315, i64 %.idx52
+  %1396 = load <32 x float>, ptr %1395, align 4, !tbaa !12
+  %1397 = shufflevector <32 x float> %1396, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
+  %1398 = shufflevector <32 x float> %1396, <32 x float> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
+  %1399 = shufflevector <32 x float> %1396, <32 x float> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
+  %1400 = shufflevector <32 x float> %1396, <32 x float> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
+  %1401 = fmul reassoc nsz arcp contract afn <8 x float> %1397, splat (float 4.000000e+00)
+  %1402 = getelementptr float, ptr %3, <8 x i64> %1394
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1401, <8 x ptr> %1402, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
+  %1403 = fmul reassoc nsz arcp contract afn <8 x float> %1398, splat (float 4.000000e+00)
+  %1404 = getelementptr float, ptr %281, <8 x i64> %1394
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1403, <8 x ptr> %1404, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
+  %1405 = fmul reassoc nsz arcp contract afn <8 x float> %1399, splat (float 4.000000e+00)
+  %1406 = getelementptr float, ptr %282, <8 x i64> %1394
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1405, <8 x ptr> %1406, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
+  %1407 = fmul reassoc nsz arcp contract afn <8 x float> %1400, splat (float 4.000000e+00)
+  %1408 = getelementptr float, ptr %283, <8 x i64> %1394
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1407, <8 x ptr> %1408, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !149, !noalias !152
+  %1409 = add nuw i64 %1390, 8
+  %1410 = add <8 x i64> %1391, splat (i64 16)
+  %1411 = icmp eq i64 %1409, %1355
+  br i1 %1411, label %1412, label %1389, !llvm.loop !154
 
-1413:                                             ; preds = %1390
-  br i1 %1358, label %.loopexit53, label %.preheader105
+1412:                                             ; preds = %1389
+  br i1 %1357, label %.loopexit53, label %.preheader105
 
-.preheader105:                                    ; preds = %1413, %1365, %1359
-  %.ph106 = phi i64 [ %1357, %1413 ], [ 0, %1359 ], [ 0, %1365 ]
-  br label %1414
+.preheader105:                                    ; preds = %1412, %1364, %1358
+  %.ph106 = phi i64 [ %1356, %1412 ], [ 0, %1358 ], [ 0, %1364 ]
+  br label %1413
 
-1414:                                             ; preds = %.preheader105, %1414
-  %1415 = phi i64 [ %1437, %1414 ], [ %.ph106, %.preheader105 ]
-  %1416 = lshr exact i64 %1415, 1
-  %1417 = add i64 %1416, %1363
-  %1418 = shl i64 %1417, 2
-  %1419 = add nsw i64 %1415, %1364
-  %1420 = shl i64 %1419, 2
-  %1421 = getelementptr float, ptr %1316, i64 %1418
-  %1422 = load float, ptr %1421, align 4, !tbaa !12
-  %1423 = fmul reassoc nsz arcp contract afn float %1422, 4.000000e+00
-  %1424 = getelementptr float, ptr %3, i64 %1420
-  store float %1423, ptr %1424, align 4, !tbaa !12
-  %1425 = getelementptr float, ptr %1325, i64 %1418
-  %1426 = load float, ptr %1425, align 4, !tbaa !12
-  %1427 = fmul reassoc nsz arcp contract afn float %1426, 4.000000e+00
-  %1428 = getelementptr float, ptr %281, i64 %1420
-  store float %1427, ptr %1428, align 4, !tbaa !12
-  %1429 = getelementptr float, ptr %1326, i64 %1418
-  %1430 = load float, ptr %1429, align 4, !tbaa !12
-  %1431 = fmul reassoc nsz arcp contract afn float %1430, 4.000000e+00
-  %1432 = getelementptr float, ptr %282, i64 %1420
-  store float %1431, ptr %1432, align 4, !tbaa !12
-  %1433 = getelementptr float, ptr %1327, i64 %1418
-  %1434 = load float, ptr %1433, align 4, !tbaa !12
-  %1435 = fmul reassoc nsz arcp contract afn float %1434, 4.000000e+00
-  %1436 = getelementptr float, ptr %283, i64 %1420
-  store float %1435, ptr %1436, align 4, !tbaa !12
-  %1437 = add nuw nsw i64 %1415, 2
-  %1438 = icmp ult i64 %1437, %1236
-  br i1 %1438, label %1414, label %.loopexit53, !llvm.loop !155
+1413:                                             ; preds = %.preheader105, %1413
+  %1414 = phi i64 [ %1436, %1413 ], [ %.ph106, %.preheader105 ]
+  %1415 = lshr exact i64 %1414, 1
+  %1416 = add i64 %1415, %1362
+  %1417 = shl i64 %1416, 2
+  %1418 = add nsw i64 %1414, %1363
+  %1419 = shl i64 %1418, 2
+  %1420 = getelementptr float, ptr %1315, i64 %1417
+  %1421 = load float, ptr %1420, align 4, !tbaa !12
+  %1422 = fmul reassoc nsz arcp contract afn float %1421, 4.000000e+00
+  %1423 = getelementptr float, ptr %3, i64 %1419
+  store float %1422, ptr %1423, align 4, !tbaa !12
+  %1424 = getelementptr float, ptr %1324, i64 %1417
+  %1425 = load float, ptr %1424, align 4, !tbaa !12
+  %1426 = fmul reassoc nsz arcp contract afn float %1425, 4.000000e+00
+  %1427 = getelementptr float, ptr %281, i64 %1419
+  store float %1426, ptr %1427, align 4, !tbaa !12
+  %1428 = getelementptr float, ptr %1325, i64 %1417
+  %1429 = load float, ptr %1428, align 4, !tbaa !12
+  %1430 = fmul reassoc nsz arcp contract afn float %1429, 4.000000e+00
+  %1431 = getelementptr float, ptr %282, i64 %1419
+  store float %1430, ptr %1431, align 4, !tbaa !12
+  %1432 = getelementptr float, ptr %1326, i64 %1417
+  %1433 = load float, ptr %1432, align 4, !tbaa !12
+  %1434 = fmul reassoc nsz arcp contract afn float %1433, 4.000000e+00
+  %1435 = getelementptr float, ptr %283, i64 %1419
+  store float %1434, ptr %1435, align 4, !tbaa !12
+  %1436 = add nuw nsw i64 %1414, 2
+  %1437 = icmp ult i64 %1436, %1235
+  br i1 %1437, label %1413, label %.loopexit53, !llvm.loop !155
 
-.loopexit53:                                      ; preds = %1414, %1413
-  %1439 = add nuw nsw i64 %1361, 2
-  %1440 = add nuw nsw i64 %1360, 1
-  %exitcond89.not = icmp eq i64 %1360, %1334
-  br i1 %exitcond89.not, label %.loopexit55, label %1359
+.loopexit53:                                      ; preds = %1413, %1412
+  %1438 = add nuw nsw i64 %1360, 2
+  %1439 = add nuw nsw i64 %1359, 1
+  %exitcond89.not = icmp eq i64 %1359, %1333
+  br i1 %exitcond89.not, label %.loopexit55, label %1358
 
-.loopexit55:                                      ; preds = %.loopexit53, %1313
-  tail call fastcc void @gauss_blur(ptr noundef %3, ptr noundef %3, i64 noundef %1236, i64 noundef %1235)
-  br i1 %1240, label %.loopexit54, label %1441
+.loopexit55:                                      ; preds = %.loopexit53, %1312
+  tail call fastcc void @gauss_blur(ptr noundef %3, ptr noundef %3, i64 noundef %1235, i64 noundef %1234)
+  br i1 %1239, label %.loopexit54, label %1440
 
-1441:                                             ; preds = %.loopexit55
-  %1442 = load ptr, ptr %1314, align 8, !tbaa !26
-  %1443 = add i64 %1239, -1
-  %1444 = lshr i64 %1443, 2
-  %1445 = add nuw nsw i64 %1444, 1
-  %1446 = icmp ult i64 %1239, 93
-  br i1 %1446, label %.preheader107, label %1447
+1440:                                             ; preds = %.loopexit55
+  %1441 = load ptr, ptr %1313, align 8, !tbaa !26
+  %1442 = add i64 %1238, -1
+  %1443 = lshr i64 %1442, 2
+  %1444 = add nuw nsw i64 %1443, 1
+  %1445 = icmp ult i64 %1238, 93
+  br i1 %1445, label %.preheader107, label %1446
 
-1447:                                             ; preds = %1441
-  %1448 = getelementptr i8, ptr %1442, i64 8
-  %1449 = shl i64 %1444, 4
-  %1450 = getelementptr i8, ptr %1448, i64 %1449
-  %1451 = icmp ult ptr %1450, %1448
-  %1452 = getelementptr i8, ptr %1442, i64 4
-  %1453 = icmp ugt i64 %1443, 4611686018427387903
-  %1454 = getelementptr i8, ptr %1452, i64 %1449
-  %1455 = icmp ult ptr %1454, %1452
-  %1456 = or i1 %1453, %1455
-  %1457 = getelementptr i8, ptr %1442, i64 %1449
-  %1458 = icmp ult ptr %1457, %1442
-  %1459 = or i1 %1451, %1456
-  %1460 = or i1 %1458, %1459
-  br i1 %1460, label %.preheader107, label %1461
+1446:                                             ; preds = %1440
+  %1447 = getelementptr i8, ptr %1441, i64 8
+  %1448 = shl i64 %1443, 4
+  %1449 = getelementptr i8, ptr %1447, i64 %1448
+  %1450 = icmp ult ptr %1449, %1447
+  %1451 = getelementptr i8, ptr %1441, i64 4
+  %1452 = icmp ugt i64 %1442, 4611686018427387903
+  %1453 = getelementptr i8, ptr %1451, i64 %1448
+  %1454 = icmp ult ptr %1453, %1451
+  %1455 = or i1 %1452, %1454
+  %1456 = getelementptr i8, ptr %1441, i64 %1448
+  %1457 = icmp ult ptr %1456, %1441
+  %1458 = or i1 %1450, %1455
+  %1459 = or i1 %1457, %1458
+  br i1 %1459, label %.preheader107, label %1460
 
-1461:                                             ; preds = %1447
-  %1462 = getelementptr i8, ptr %1442, i64 12
-  %1463 = shl i64 %1239, 2
-  %1464 = add i64 %1463, -4
-  %1465 = and i64 %1464, -16
-  %1466 = getelementptr i8, ptr %1462, i64 %1465
-  %1467 = getelementptr i8, ptr %283, i64 %1465
-  %1468 = icmp ult ptr %1442, %1467
-  %1469 = icmp ugt ptr %1466, %3
-  %1470 = and i1 %1468, %1469
-  br i1 %1470, label %.preheader107, label %1471
+1460:                                             ; preds = %1446
+  %1461 = getelementptr i8, ptr %1441, i64 12
+  %1462 = shl i64 %1238, 2
+  %1463 = add i64 %1462, -4
+  %1464 = and i64 %1463, -16
+  %1465 = getelementptr i8, ptr %1461, i64 %1464
+  %1466 = getelementptr i8, ptr %283, i64 %1464
+  %1467 = icmp ult ptr %1441, %1466
+  %1468 = icmp ugt ptr %1465, %3
+  %1469 = and i1 %1467, %1468
+  br i1 %1469, label %.preheader107, label %1470
 
-1471:                                             ; preds = %1461
-  %1472 = and i64 %1445, 2305843009213693944
-  br label %1473
+1470:                                             ; preds = %1460
+  %1471 = and i64 %1444, 2305843009213693944
+  br label %1472
 
-1473:                                             ; preds = %1473, %1471
-  %1474 = phi i64 [ 0, %1471 ], [ %1493, %1473 ]
-  %1475 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %1471 ], [ %1494, %1473 ]
-  %1476 = getelementptr inbounds float, ptr %3, <8 x i64> %1475
-  %1477 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1476, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
-  %1478 = getelementptr inbounds float, ptr %1442, <8 x i64> %1475
-  %1479 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1478, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
-  %1480 = fadd reassoc nsz arcp contract afn <8 x float> %1479, %1477
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1480, <8 x ptr> %1478, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
-  %1481 = or disjoint <8 x i64> %1475, splat (i64 1)
-  %1482 = getelementptr inbounds float, ptr %3, <8 x i64> %1481
-  %1483 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1482, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
-  %1484 = getelementptr inbounds float, ptr %1442, <8 x i64> %1481
-  %1485 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1484, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
-  %1486 = fadd reassoc nsz arcp contract afn <8 x float> %1485, %1483
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1486, <8 x ptr> %1484, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
-  %1487 = or disjoint <8 x i64> %1475, splat (i64 2)
-  %1488 = getelementptr inbounds float, ptr %3, <8 x i64> %1487
-  %1489 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1488, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
-  %1490 = getelementptr inbounds float, ptr %1442, <8 x i64> %1487
-  %1491 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1490, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
-  %1492 = fadd reassoc nsz arcp contract afn <8 x float> %1491, %1489
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1492, <8 x ptr> %1490, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
-  %1493 = add nuw i64 %1474, 8
-  %1494 = add <8 x i64> %1475, splat (i64 32)
-  %1495 = icmp eq i64 %1493, %1472
-  br i1 %1495, label %1496, label %1473, !llvm.loop !161
+1472:                                             ; preds = %1472, %1470
+  %1473 = phi i64 [ 0, %1470 ], [ %1492, %1472 ]
+  %1474 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %1470 ], [ %1493, %1472 ]
+  %1475 = getelementptr inbounds float, ptr %3, <8 x i64> %1474
+  %1476 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1475, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
+  %1477 = getelementptr inbounds float, ptr %1441, <8 x i64> %1474
+  %1478 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1477, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
+  %1479 = fadd reassoc nsz arcp contract afn <8 x float> %1478, %1476
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1479, <8 x ptr> %1477, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
+  %1480 = or disjoint <8 x i64> %1474, splat (i64 1)
+  %1481 = getelementptr inbounds float, ptr %3, <8 x i64> %1480
+  %1482 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1481, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
+  %1483 = getelementptr inbounds float, ptr %1441, <8 x i64> %1480
+  %1484 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1483, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
+  %1485 = fadd reassoc nsz arcp contract afn <8 x float> %1484, %1482
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1485, <8 x ptr> %1483, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
+  %1486 = or disjoint <8 x i64> %1474, splat (i64 2)
+  %1487 = getelementptr inbounds float, ptr %3, <8 x i64> %1486
+  %1488 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1487, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !156
+  %1489 = getelementptr inbounds float, ptr %1441, <8 x i64> %1486
+  %1490 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1489, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !159, !noalias !156
+  %1491 = fadd reassoc nsz arcp contract afn <8 x float> %1490, %1488
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1491, <8 x ptr> %1489, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !159, !noalias !156
+  %1492 = add nuw i64 %1473, 8
+  %1493 = add <8 x i64> %1474, splat (i64 32)
+  %1494 = icmp eq i64 %1492, %1471
+  br i1 %1494, label %1495, label %1472, !llvm.loop !161
 
-1496:                                             ; preds = %1473
-  %1497 = shl nuw nsw i64 %1472, 2
-  %1498 = icmp eq i64 %1445, %1472
-  br i1 %1498, label %.loopexit54, label %.preheader107
+1495:                                             ; preds = %1472
+  %1496 = shl nuw nsw i64 %1471, 2
+  %1497 = icmp eq i64 %1444, %1471
+  br i1 %1497, label %.loopexit54, label %.preheader107
 
-.preheader107:                                    ; preds = %1496, %1461, %1447, %1441
-  %.ph108 = phi i64 [ %1497, %1496 ], [ 0, %1441 ], [ 0, %1447 ], [ 0, %1461 ]
-  br label %1499
+.preheader107:                                    ; preds = %1495, %1460, %1446, %1440
+  %.ph108 = phi i64 [ %1496, %1495 ], [ 0, %1440 ], [ 0, %1446 ], [ 0, %1460 ]
+  br label %1498
 
-1499:                                             ; preds = %.preheader107, %1499
-  %1500 = phi i64 [ %1518, %1499 ], [ %.ph108, %.preheader107 ]
-  %1501 = getelementptr inbounds float, ptr %3, i64 %1500
-  %1502 = load float, ptr %1501, align 4, !tbaa !12
-  %1503 = getelementptr inbounds float, ptr %1442, i64 %1500
-  %1504 = load float, ptr %1503, align 4, !tbaa !12
-  %1505 = fadd reassoc nsz arcp contract afn float %1504, %1502
-  store float %1505, ptr %1503, align 4, !tbaa !12
-  %1506 = or disjoint i64 %1500, 1
-  %1507 = getelementptr inbounds float, ptr %3, i64 %1506
-  %1508 = load float, ptr %1507, align 4, !tbaa !12
-  %1509 = getelementptr inbounds float, ptr %1442, i64 %1506
-  %1510 = load float, ptr %1509, align 4, !tbaa !12
-  %1511 = fadd reassoc nsz arcp contract afn float %1510, %1508
-  store float %1511, ptr %1509, align 4, !tbaa !12
-  %1512 = or disjoint i64 %1500, 2
-  %1513 = getelementptr inbounds float, ptr %3, i64 %1512
-  %1514 = load float, ptr %1513, align 4, !tbaa !12
-  %1515 = getelementptr inbounds float, ptr %1442, i64 %1512
-  %1516 = load float, ptr %1515, align 4, !tbaa !12
-  %1517 = fadd reassoc nsz arcp contract afn float %1516, %1514
-  store float %1517, ptr %1515, align 4, !tbaa !12
-  %1518 = add nuw i64 %1500, 4
-  %1519 = icmp ult i64 %1518, %1239
-  br i1 %1519, label %1499, label %.loopexit54, !llvm.loop !162
+1498:                                             ; preds = %.preheader107, %1498
+  %1499 = phi i64 [ %1517, %1498 ], [ %.ph108, %.preheader107 ]
+  %1500 = getelementptr inbounds float, ptr %3, i64 %1499
+  %1501 = load float, ptr %1500, align 4, !tbaa !12
+  %1502 = getelementptr inbounds float, ptr %1441, i64 %1499
+  %1503 = load float, ptr %1502, align 4, !tbaa !12
+  %1504 = fadd reassoc nsz arcp contract afn float %1503, %1501
+  store float %1504, ptr %1502, align 4, !tbaa !12
+  %1505 = or disjoint i64 %1499, 1
+  %1506 = getelementptr inbounds float, ptr %3, i64 %1505
+  %1507 = load float, ptr %1506, align 4, !tbaa !12
+  %1508 = getelementptr inbounds float, ptr %1441, i64 %1505
+  %1509 = load float, ptr %1508, align 4, !tbaa !12
+  %1510 = fadd reassoc nsz arcp contract afn float %1509, %1507
+  store float %1510, ptr %1508, align 4, !tbaa !12
+  %1511 = or disjoint i64 %1499, 2
+  %1512 = getelementptr inbounds float, ptr %3, i64 %1511
+  %1513 = load float, ptr %1512, align 4, !tbaa !12
+  %1514 = getelementptr inbounds float, ptr %1441, i64 %1511
+  %1515 = load float, ptr %1514, align 4, !tbaa !12
+  %1516 = fadd reassoc nsz arcp contract afn float %1515, %1513
+  store float %1516, ptr %1514, align 4, !tbaa !12
+  %1517 = add nuw i64 %1499, 4
+  %1518 = icmp ult i64 %1517, %1238
+  br i1 %1518, label %1498, label %.loopexit54, !llvm.loop !162
 
-.loopexit54:                                      ; preds = %1499, %1496, %.loopexit55, %1274
-  %1520 = add nsw i64 %1138, -1
-  %1521 = add nuw nsw i64 %1137, 1
-  %exitcond90.not = icmp eq i64 %1521, %.pre-phi93
+.loopexit54:                                      ; preds = %1498, %1495, %.loopexit55, %1273
+  %1519 = add nsw i64 %1138, -1
+  %1520 = add nuw nsw i64 %1137, 1
+  %exitcond90.not = icmp eq i64 %1520, %.pre-phi93
   br i1 %exitcond90.not, label %1146, label %1136
 
-1522:                                             ; preds = %.preheader104, %1522
-  %1523 = phi i64 [ %1542, %1522 ], [ %.ph, %.preheader104 ]
-  %1524 = getelementptr inbounds float, ptr %35, i64 %1523
-  %1525 = load float, ptr %1524, align 16, !tbaa !12
-  %1526 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1525, float 0.000000e+00)
-  %1527 = getelementptr inbounds float, ptr %3, i64 %1523
-  store float %1526, ptr %1527, align 4, !tbaa !12
-  %1528 = or disjoint i64 %1523, 1
-  %1529 = getelementptr inbounds float, ptr %35, i64 %1528
-  %1530 = load float, ptr %1529, align 4, !tbaa !12
-  %1531 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1530, float 0.000000e+00)
-  %1532 = getelementptr inbounds float, ptr %3, i64 %1528
-  store float %1531, ptr %1532, align 4, !tbaa !12
-  %1533 = or disjoint i64 %1523, 2
-  %1534 = getelementptr inbounds float, ptr %35, i64 %1533
-  %1535 = load float, ptr %1534, align 8, !tbaa !12
-  %1536 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1535, float 0.000000e+00)
-  %1537 = getelementptr inbounds float, ptr %3, i64 %1533
-  store float %1536, ptr %1537, align 4, !tbaa !12
-  %1538 = or disjoint i64 %1523, 3
-  %1539 = getelementptr inbounds float, ptr %2, i64 %1538
-  %1540 = load float, ptr %1539, align 4, !tbaa !12
-  %1541 = getelementptr inbounds float, ptr %3, i64 %1538
-  store float %1540, ptr %1541, align 4, !tbaa !12
-  %1542 = add nuw i64 %1523, 4
-  %1543 = icmp ult i64 %1542, %1148
-  br i1 %1543, label %1522, label %.loopexit, !llvm.loop !163
+1521:                                             ; preds = %.preheader104, %1521
+  %1522 = phi i64 [ %1541, %1521 ], [ %.ph, %.preheader104 ]
+  %1523 = getelementptr inbounds float, ptr %35, i64 %1522
+  %1524 = load float, ptr %1523, align 16, !tbaa !12
+  %1525 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1524, float 0.000000e+00)
+  %1526 = getelementptr inbounds float, ptr %3, i64 %1522
+  store float %1525, ptr %1526, align 4, !tbaa !12
+  %1527 = or disjoint i64 %1522, 1
+  %1528 = getelementptr inbounds float, ptr %35, i64 %1527
+  %1529 = load float, ptr %1528, align 4, !tbaa !12
+  %1530 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1529, float 0.000000e+00)
+  %1531 = getelementptr inbounds float, ptr %3, i64 %1527
+  store float %1530, ptr %1531, align 4, !tbaa !12
+  %1532 = or disjoint i64 %1522, 2
+  %1533 = getelementptr inbounds float, ptr %35, i64 %1532
+  %1534 = load float, ptr %1533, align 8, !tbaa !12
+  %1535 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1534, float 0.000000e+00)
+  %1536 = getelementptr inbounds float, ptr %3, i64 %1532
+  store float %1535, ptr %1536, align 4, !tbaa !12
+  %1537 = or disjoint i64 %1522, 3
+  %1538 = getelementptr inbounds float, ptr %2, i64 %1537
+  %1539 = load float, ptr %1538, align 4, !tbaa !12
+  %1540 = getelementptr inbounds float, ptr %3, i64 %1537
+  store float %1539, ptr %1540, align 4, !tbaa !12
+  %1541 = add nuw i64 %1522, 4
+  %1542 = icmp ult i64 %1541, %1148
+  br i1 %1542, label %1521, label %.loopexit, !llvm.loop !163
 
-.loopexit:                                        ; preds = %1522, %1214, %1146, %39
-  %1544 = phi i32 [ 8, %39 ], [ %209, %1146 ], [ %209, %1214 ], [ %209, %1522 ]
-  %1545 = zext nneg i32 %1544 to i64
-  br label %1547
+.loopexit:                                        ; preds = %1521, %1213, %1146, %39
+  %1543 = phi i32 [ 8, %39 ], [ %209, %1146 ], [ %209, %1213 ], [ %209, %1521 ]
+  %1544 = zext nneg i32 %1543 to i64
+  br label %1546
 
-1546:                                             ; preds = %1547
-  tail call void @free(ptr noundef nonnull %17) #27
-  tail call void @free(ptr noundef nonnull %18) #27
+1545:                                             ; preds = %1546
+  tail call void @free(ptr noundef nonnull %17) #28
+  tail call void @free(ptr noundef nonnull %18) #28
   ret void
 
-1547:                                             ; preds = %1547, %.loopexit
-  %1548 = phi i64 [ 0, %.loopexit ], [ %1553, %1547 ]
-  %1549 = getelementptr inbounds nuw ptr, ptr %17, i64 %1548
-  %1550 = load ptr, ptr %1549, align 8, !tbaa !26
-  tail call void @free(ptr noundef %1550) #27
-  %1551 = getelementptr inbounds nuw ptr, ptr %18, i64 %1548
-  %1552 = load ptr, ptr %1551, align 8, !tbaa !26
-  tail call void @free(ptr noundef %1552) #27
-  %1553 = add nuw nsw i64 %1548, 1
-  %1554 = icmp eq i64 %1553, %1545
-  br i1 %1554, label %1546, label %1547
+1546:                                             ; preds = %1546, %.loopexit
+  %1547 = phi i64 [ 0, %.loopexit ], [ %1552, %1546 ]
+  %1548 = getelementptr inbounds nuw ptr, ptr %17, i64 %1547
+  %1549 = load ptr, ptr %1548, align 8, !tbaa !26
+  tail call void @free(ptr noundef %1549) #28
+  %1550 = getelementptr inbounds nuw ptr, ptr %18, i64 %1547
+  %1551 = load ptr, ptr %1550, align 8, !tbaa !26
+  tail call void @free(ptr noundef %1551) #28
+  %1552 = add nuw nsw i64 %1547, 1
+  %1553 = icmp eq i64 %1552, %1544
+  br i1 %1553, label %1545, label %1546
 }
 
 declare ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -3185,7 +3184,7 @@ define internal fastcc void @gauss_reduce(ptr noundef nonnull %0, ptr nocapture 
   %10 = lshr i64 %9, 1
   %11 = shl nsw i64 %3, 4
   %12 = mul i64 %11, %4
-  %13 = tail call ptr @dt_alloc_aligned(i64 noundef %12) #27
+  %13 = tail call ptr @dt_alloc_aligned(i64 noundef %12) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 64) ]
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -3195,7 +3194,7 @@ define internal fastcc void @gauss_reduce(ptr noundef nonnull %0, ptr nocapture 
   br label %17
 
 16:                                               ; preds = %5
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116) #27
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.116) #28
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -3395,7 +3394,7 @@ define internal fastcc void @gauss_reduce(ptr noundef nonnull %0, ptr nocapture 
   br i1 %172, label %127, label %47
 
 173:                                              ; preds = %127
-  tail call void @free(ptr noundef nonnull %18) #27
+  tail call void @free(ptr noundef nonnull %18) #28
   br label %174
 
 174:                                              ; preds = %173, %127
@@ -3406,7 +3405,7 @@ define internal fastcc void @gauss_reduce(ptr noundef nonnull %0, ptr nocapture 
   %177 = add i64 %3, 9223372036854775807
   %178 = lshr i64 %177, 1
   %179 = add nuw nsw i64 %178, 1
-  tail call void @dt_iop_image_fill(ptr noundef nonnull %2, float noundef 0.000000e+00, i64 noundef %3, i64 noundef %4, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef nonnull %2, float noundef 0.000000e+00, i64 noundef %3, i64 noundef %4, i64 noundef 4) #28
   %180 = icmp eq i64 %4, 0
   %181 = icmp eq i64 %3, 0
   %182 = or i1 %181, %180
@@ -3712,7 +3711,7 @@ define hidden void @process_lut(ptr nocapture readnone %0, ptr nocapture noundef
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2056
   %13 = load ptr, ptr %12, align 8, !tbaa !77
-  %14 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %9, ptr noundef %13) #27
+  %14 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef %9, ptr noundef %13) #28
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !73
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -3943,19 +3942,19 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %54 = load ptr, ptr %53, align 8, !tbaa !193
-  tail call void @free(ptr noundef %54) #27
-  tail call void @free(ptr noundef nonnull %50) #27
+  tail call void @free(ptr noundef %54) #28
+  tail call void @free(ptr noundef nonnull %50) #28
   %55 = load i32, ptr %18, align 4, !tbaa !10
   br label %56
 
 56:                                               ; preds = %52, %49
   %57 = phi i32 [ %55, %52 ], [ %19, %49 ]
-  %58 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #26
+  %58 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #27
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 184
   store i32 65536, ptr %59, align 8, !tbaa !197
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 188
   store i32 65536, ptr %60, align 4, !tbaa !198
-  %61 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #26
+  %61 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #27
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 192
   store ptr %61, ptr %62, align 8, !tbaa !193
   store i32 %57, ptr %58, align 8, !tbaa !199
@@ -4122,7 +4121,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   store i32 65536, ptr %175, align 8, !tbaa !197
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 188
   store i32 65536, ptr %176, align 4, !tbaa !198
-  %177 = tail call i32 @CurveDataSample(ptr noundef %173, ptr noundef nonnull %175) #27
+  %177 = tail call i32 @CurveDataSample(ptr noundef %173, ptr noundef nonnull %175) #28
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 192
   %179 = load ptr, ptr %178, align 8, !tbaa !193
   br label %180
@@ -4288,14 +4287,14 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define void @init_pipe(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2) local_unnamed_addr #6 {
-  %4 = tail call noalias dereferenceable_or_null(262192) ptr @calloc(i64 noundef 1, i64 noundef 262192) #28
+  %4 = tail call noalias dereferenceable_or_null(262192) ptr @calloc(i64 noundef 1, i64 noundef 262192) #29
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 16, !tbaa !206
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %9 = load ptr, ptr %8, align 16, !tbaa !28
-  tail call void %7(ptr noundef %0, ptr noundef %9, ptr noundef %1, ptr noundef %2) #27
+  tail call void %7(ptr noundef %0, ptr noundef %9, ptr noundef %1, ptr noundef %2) #28
   ret void
 }
 
@@ -4306,10 +4305,10 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
   %6 = load ptr, ptr %5, align 8, !tbaa !191
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %8 = load ptr, ptr %7, align 8, !tbaa !193
-  tail call void @free(ptr noundef %8) #27
-  tail call void @free(ptr noundef %6) #27
+  tail call void @free(ptr noundef %8) #28
+  tail call void @free(ptr noundef %6) #28
   %9 = load ptr, ptr %4, align 16, !tbaa !63
-  tail call void @free(ptr noundef %9) #27
+  tail call void @free(ptr noundef %9) #28
   store ptr null, ptr %4, align 16, !tbaa !63
   ret void
 }
@@ -4326,16 +4325,16 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #6
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %7, i32 noundef %11) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %7, i32 noundef %11) #28
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !211
   %14 = load i32, ptr %8, align 4, !tbaa !41
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %13, i32 noundef %16) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %13, i32 noundef %16) #28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %18 = load ptr, ptr %17, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %18) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %18) #28
   ret void
 }
 
@@ -4345,7 +4344,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @init(ptr noundef %0) local_unnamed_addr #6 {
-  tail call void @dt_iop_default_init(ptr noundef %0) #27
+  tail call void @dt_iop_default_init(ptr noundef %0) #28
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 16, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4359,7 +4358,7 @@ declare void @dt_iop_default_init(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #16 {
-  %2 = tail call noalias dereferenceable_or_null(60) ptr @malloc(i64 noundef 60) #26
+  %2 = tail call noalias dereferenceable_or_null(60) ptr @malloc(i64 noundef 60) #27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !213
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %2, i8 -1, i64 60, i1 false)
@@ -4370,7 +4369,7 @@ define void @init_global(ptr nocapture noundef writeonly initializes((528, 536))
 define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !213
-  tail call void @free(ptr noundef %3) #27
+  tail call void @free(ptr noundef %3) #28
   store ptr null, ptr %2, align 8, !tbaa !213
   ret void
 }
@@ -4405,10 +4404,10 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
   %23 = phi i32 [ 1, %9 ], [ 0, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !209
-  tail call void @gtk_widget_set_visible(ptr noundef %25, i32 noundef %23) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %25, i32 noundef %23) #28
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !211
-  tail call void @gtk_widget_set_visible(ptr noundef %27, i32 noundef %23) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %27, i32 noundef %23) #28
   br label %28
 
 28:                                               ; preds = %22, %18, %3
@@ -4417,7 +4416,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr noundef readnone
 
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #6 {
-  %2 = tail call ptr @dt_alloc_aligned(i64 noundef 6280) #27
+  %2 = tail call ptr @dt_alloc_aligned(i64 noundef 6280) #28
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -4429,18 +4428,18 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %2, ptr %6, align 16, !tbaa !208
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #27
+  %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #28
   %9 = load ptr, ptr %6, align 16, !tbaa !208
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %11 = load ptr, ptr %10, align 16, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 492
   %13 = load i32, ptr %12, align 4, !tbaa !10
-  %14 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #26
+  %14 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #27
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   store i32 65536, ptr %15, align 8, !tbaa !197
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 188
   store i32 65536, ptr %16, align 4, !tbaa !198
-  %17 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #26
+  %17 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #27
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store ptr %17, ptr %18, align 8, !tbaa !193
   store i32 %13, ptr %14, align 8, !tbaa !199
@@ -4542,119 +4541,119 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   store i32 -1, ptr %74, align 8, !tbaa !221
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 6264
   store float 0.000000e+00, ptr %75, align 8, !tbaa !222
-  %76 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #27
+  %76 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #28
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %76, ptr %77, align 16, !tbaa !212
-  %78 = tail call ptr @dtgtk_drawing_area_new_with_aspect_ratio(double noundef 1.000000e+00) #27
-  %79 = tail call i64 @gtk_drawing_area_get_type() #29
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #27
+  %78 = tail call ptr @dtgtk_drawing_area_new_with_aspect_ratio(double noundef 1.000000e+00) #28
+  %79 = tail call i64 @gtk_drawing_area_get_type() #30
+  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #28
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %80, ptr %81, align 8, !tbaa !223
-  %82 = tail call i64 @gtk_widget_get_type() #29
-  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef %82) #27
-  %84 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #27
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %83, ptr noundef %84) #27
+  %82 = tail call i64 @gtk_widget_get_type() #30
+  %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef %82) #28
+  %84 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #28
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %83, ptr noundef %84) #28
   %85 = load ptr, ptr %81, align 8, !tbaa !223
-  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef 80) #27
-  tail call void @g_object_set_data(ptr noundef %86, ptr noundef nonnull @.str.25, ptr noundef %0) #27
+  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef 80) #28
+  tail call void @g_object_set_data(ptr noundef %86, ptr noundef nonnull @.str.25, ptr noundef %0) #28
   %87 = load ptr, ptr %81, align 8, !tbaa !223
-  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %82) #27
-  %89 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef %88, ptr noundef null) #27
+  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef %82) #28
+  %89 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.26, ptr noundef %88, ptr noundef null) #28
   %90 = load ptr, ptr %77, align 16, !tbaa !212
-  %91 = tail call i64 @gtk_box_get_type() #29
-  %92 = tail call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %91) #27
+  %91 = tail call i64 @gtk_box_get_type() #30
+  %92 = tail call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %91) #28
   %93 = load ptr, ptr %81, align 8, !tbaa !223
-  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %82) #27
-  tail call void @gtk_box_pack_start(ptr noundef %92, ptr noundef %94, i32 noundef 1, i32 noundef 1, i32 noundef 0) #27
-  %95 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.27) #27
+  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %82) #28
+  tail call void @gtk_box_pack_start(ptr noundef %92, ptr noundef %94, i32 noundef 1, i32 noundef 1, i32 noundef 0) #28
+  %95 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.27) #28
   %96 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %95, ptr %96, align 8, !tbaa !224
-  %97 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #27
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %95, ptr noundef %97) #27
-  %98 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.29) #27
+  %97 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #28
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %95, ptr noundef %97) #28
+  %98 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.29) #28
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %98, ptr %99, align 8, !tbaa !214
-  %100 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #27
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %98, ptr noundef %100) #27
+  %100 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #28
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %98, ptr noundef %100) #28
   %101 = load ptr, ptr %99, align 8, !tbaa !214
-  %102 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #27
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %101, ptr noundef %102) #27
+  %102 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #28
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %101, ptr noundef %102) #28
   %103 = load ptr, ptr %99, align 8, !tbaa !214
-  %104 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #27
-  tail call void @dt_bauhaus_combobox_add(ptr noundef %103, ptr noundef %104) #27
+  %104 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #28
+  tail call void @dt_bauhaus_combobox_add(ptr noundef %103, ptr noundef %104) #28
   %105 = load ptr, ptr %99, align 8, !tbaa !214
-  %106 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #27
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %105, ptr noundef %106) #27
-  %107 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.34) #27
+  %106 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #28
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %105, ptr noundef %106) #28
+  %107 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.34) #28
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %107, ptr %108, align 8, !tbaa !209
-  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %107, i32 noundef 3) #27
+  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %107, i32 noundef 3) #28
   %109 = load ptr, ptr %108, align 8, !tbaa !209
-  %110 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #27
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %109, ptr noundef %110) #27
+  %110 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #28
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %109, ptr noundef %110) #28
   %111 = load ptr, ptr %108, align 8, !tbaa !209
-  tail call void @gtk_widget_set_no_show_all(ptr noundef %111, i32 noundef 1) #27
+  tail call void @gtk_widget_set_no_show_all(ptr noundef %111, i32 noundef 1) #28
   %112 = load ptr, ptr %108, align 8, !tbaa !209
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 504
   %114 = load i32, ptr %113, align 4, !tbaa !41
   %115 = icmp ne i32 %114, 0
   %116 = zext i1 %115 to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %112, i32 noundef %116) #27
-  %117 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.36) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %112, i32 noundef %116) #28
+  %117 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.36) #28
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %117, ptr %118, align 8, !tbaa !211
-  tail call void @dt_bauhaus_slider_set_default(ptr noundef %117, float noundef 0.000000e+00) #27
+  tail call void @dt_bauhaus_slider_set_default(ptr noundef %117, float noundef 0.000000e+00) #28
   %119 = load ptr, ptr %118, align 8, !tbaa !211
-  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %119, i32 noundef 3) #27
+  tail call void @dt_bauhaus_slider_set_digits(ptr noundef %119, i32 noundef 3) #28
   %120 = load ptr, ptr %118, align 8, !tbaa !211
-  %121 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #27
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %120, ptr noundef %121) #27
+  %121 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #28
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %120, ptr noundef %121) #28
   %122 = load ptr, ptr %118, align 8, !tbaa !211
-  tail call void @gtk_widget_set_no_show_all(ptr noundef %122, i32 noundef 1) #27
+  tail call void @gtk_widget_set_no_show_all(ptr noundef %122, i32 noundef 1) #28
   %123 = load ptr, ptr %118, align 8, !tbaa !211
   %124 = load i32, ptr %113, align 4, !tbaa !41
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %123, i32 noundef %126) #27
-  %127 = tail call ptr @dt_bauhaus_slider_new_with_range(ptr noundef %0, float noundef 0.000000e+00, float noundef 4.000000e+01, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 2) #27
+  tail call void @gtk_widget_set_visible(ptr noundef %123, i32 noundef %126) #28
+  %127 = tail call ptr @dt_bauhaus_slider_new_with_range(ptr noundef %0, float noundef 0.000000e+00, float noundef 4.000000e+01, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 2) #28
   %128 = getelementptr inbounds nuw i8, ptr %9, i64 6272
   store ptr %127, ptr %128, align 8, !tbaa !225
-  %129 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %127, ptr noundef null, ptr noundef nonnull @.str.38) #27
+  %129 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %127, ptr noundef null, ptr noundef nonnull @.str.38) #28
   %130 = load ptr, ptr %77, align 16, !tbaa !212
-  %131 = tail call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %91) #27
+  %131 = tail call ptr @g_type_check_instance_cast(ptr noundef %130, i64 noundef %91) #28
   %132 = load ptr, ptr %128, align 8, !tbaa !225
-  tail call void @gtk_box_pack_start(ptr noundef %131, ptr noundef %132, i32 noundef 1, i32 noundef 1, i32 noundef 0) #27
+  tail call void @gtk_box_pack_start(ptr noundef %131, ptr noundef %132, i32 noundef 1, i32 noundef 1, i32 noundef 0) #28
   %133 = load ptr, ptr %128, align 8, !tbaa !225
-  %134 = tail call ptr @g_type_check_instance_cast(ptr noundef %133, i64 noundef 80) #27
-  %135 = tail call i64 @g_signal_connect_data(ptr noundef %134, ptr noundef nonnull @.str.39, ptr noundef nonnull @logbase_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %134 = tail call ptr @g_type_check_instance_cast(ptr noundef %133, i64 noundef 80) #28
+  %135 = tail call i64 @g_signal_connect_data(ptr noundef %134, ptr noundef nonnull @.str.39, ptr noundef nonnull @logbase_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %136 = load ptr, ptr %81, align 8, !tbaa !223
-  %137 = tail call ptr @g_type_check_instance_cast(ptr noundef %136, i64 noundef %82) #27
+  %137 = tail call ptr @g_type_check_instance_cast(ptr noundef %136, i64 noundef %82) #28
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 5576
   %140 = load i32, ptr %139, align 8, !tbaa !227
   %141 = or i32 %140, 13060
-  tail call void @gtk_widget_add_events(ptr noundef %137, i32 noundef %141) #27
+  tail call void @gtk_widget_add_events(ptr noundef %137, i32 noundef %141) #28
   %142 = load ptr, ptr %81, align 8, !tbaa !223
-  %143 = tail call ptr @g_type_check_instance_cast(ptr noundef %142, i64 noundef %82) #27
-  tail call void @gtk_widget_set_can_focus(ptr noundef %143, i32 noundef 1) #27
+  %143 = tail call ptr @g_type_check_instance_cast(ptr noundef %142, i64 noundef %82) #28
+  tail call void @gtk_widget_set_can_focus(ptr noundef %143, i32 noundef 1) #28
   %144 = load ptr, ptr %81, align 8, !tbaa !223
-  %145 = tail call ptr @g_type_check_instance_cast(ptr noundef %144, i64 noundef 80) #27
-  %146 = tail call i64 @g_signal_connect_data(ptr noundef %145, ptr noundef nonnull @.str.40, ptr noundef nonnull @dt_iop_basecurve_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %145 = tail call ptr @g_type_check_instance_cast(ptr noundef %144, i64 noundef 80) #28
+  %146 = tail call i64 @g_signal_connect_data(ptr noundef %145, ptr noundef nonnull @.str.40, ptr noundef nonnull @dt_iop_basecurve_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %147 = load ptr, ptr %81, align 8, !tbaa !223
-  %148 = tail call ptr @g_type_check_instance_cast(ptr noundef %147, i64 noundef 80) #27
-  %149 = tail call i64 @g_signal_connect_data(ptr noundef %148, ptr noundef nonnull @.str.41, ptr noundef nonnull @dt_iop_basecurve_button_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %148 = tail call ptr @g_type_check_instance_cast(ptr noundef %147, i64 noundef 80) #28
+  %149 = tail call i64 @g_signal_connect_data(ptr noundef %148, ptr noundef nonnull @.str.41, ptr noundef nonnull @dt_iop_basecurve_button_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %150 = load ptr, ptr %81, align 8, !tbaa !223
-  %151 = tail call ptr @g_type_check_instance_cast(ptr noundef %150, i64 noundef 80) #27
-  %152 = tail call i64 @g_signal_connect_data(ptr noundef %151, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_iop_basecurve_motion_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %151 = tail call ptr @g_type_check_instance_cast(ptr noundef %150, i64 noundef 80) #28
+  %152 = tail call i64 @g_signal_connect_data(ptr noundef %151, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_iop_basecurve_motion_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %153 = load ptr, ptr %81, align 8, !tbaa !223
-  %154 = tail call ptr @g_type_check_instance_cast(ptr noundef %153, i64 noundef 80) #27
-  %155 = tail call i64 @g_signal_connect_data(ptr noundef %154, ptr noundef nonnull @.str.43, ptr noundef nonnull @dt_iop_basecurve_leave_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %154 = tail call ptr @g_type_check_instance_cast(ptr noundef %153, i64 noundef 80) #28
+  %155 = tail call i64 @g_signal_connect_data(ptr noundef %154, ptr noundef nonnull @.str.43, ptr noundef nonnull @dt_iop_basecurve_leave_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %156 = load ptr, ptr %81, align 8, !tbaa !223
-  %157 = tail call ptr @g_type_check_instance_cast(ptr noundef %156, i64 noundef 80) #27
-  %158 = tail call i64 @g_signal_connect_data(ptr noundef %157, ptr noundef nonnull @.str.44, ptr noundef nonnull @_scrolled, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %157 = tail call ptr @g_type_check_instance_cast(ptr noundef %156, i64 noundef 80) #28
+  %158 = tail call i64 @g_signal_connect_data(ptr noundef %157, ptr noundef nonnull @.str.44, ptr noundef nonnull @_scrolled, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   %159 = load ptr, ptr %81, align 8, !tbaa !223
-  %160 = tail call ptr @g_type_check_instance_cast(ptr noundef %159, i64 noundef 80) #27
-  %161 = tail call i64 @g_signal_connect_data(ptr noundef %160, ptr noundef nonnull @.str.45, ptr noundef nonnull @dt_iop_basecurve_key_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #27
+  %160 = tail call ptr @g_type_check_instance_cast(ptr noundef %159, i64 noundef 80) #28
+  %161 = tail call i64 @g_signal_connect_data(ptr noundef %160, ptr noundef nonnull @.str.45, ptr noundef nonnull @dt_iop_basecurve_key_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #28
   ret void
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
@@ -4767,14 +4766,14 @@ define internal void @logbase_callback(ptr nocapture readnone %0, ptr nocapture 
   %4 = load ptr, ptr %3, align 16, !tbaa !208
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6272
   %6 = load ptr, ptr %5, align 8, !tbaa !225
-  %7 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %6) #27
+  %7 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %6) #28
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 6264
   store float %7, ptr %8, align 8, !tbaa !222
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !223
-  %11 = tail call i64 @gtk_widget_get_type() #29
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #27
-  tail call void @gtk_widget_queue_draw(ptr noundef %12) #27
+  %11 = tail call i64 @gtk_widget_get_type() #30
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #28
+  tail call void @gtk_widget_queue_draw(ptr noundef %12) #28
   ret void
 }
 
@@ -4848,15 +4847,15 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %45 = load ptr, ptr %8, align 8, !tbaa !215
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %47 = load ptr, ptr %46, align 8, !tbaa !193
-  tail call void @free(ptr noundef %47) #27
-  tail call void @free(ptr noundef %45) #27
+  tail call void @free(ptr noundef %47) #28
+  tail call void @free(ptr noundef %45) #28
   %48 = load i32, ptr %15, align 4, !tbaa !10
-  %49 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #26
+  %49 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 184
   store i32 65536, ptr %50, align 8, !tbaa !197
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 188
   store i32 65536, ptr %51, align 4, !tbaa !198
-  %52 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #26
+  %52 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #27
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 192
   store ptr %52, ptr %53, align 8, !tbaa !193
   store i32 %48, ptr %49, align 8, !tbaa !199
@@ -5029,7 +5028,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   store i32 256, ptr %166, align 8, !tbaa !197
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 188
   store i32 65536, ptr %167, align 4, !tbaa !198
-  %168 = tail call i32 @CurveDataSample(ptr noundef %165, ptr noundef nonnull %166) #27
+  %168 = tail call i32 @CurveDataSample(ptr noundef %165, ptr noundef nonnull %166) #28
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %170 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %171 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -5383,8 +5382,8 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %443 = load double, ptr %442, align 8, !tbaa !237
   %444 = fmul reassoc nsz arcp contract afn double %443, 5.000000e+00
   %445 = fptosi double %444 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #28
   %446 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %447 = load i32, ptr %446, align 4, !tbaa !238
   %448 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -5398,48 +5397,48 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %456 = sitofp i32 %449 to double
   %457 = fmul reassoc nsz arcp contract afn double %453, %456
   %458 = fptosi double %457 to i32
-  %459 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %455, i32 noundef %458) #27
+  %459 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %455, i32 noundef %458) #28
   %460 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 1456
   %462 = load double, ptr %461, align 8, !tbaa !241
-  call void @cairo_surface_set_device_scale(ptr noundef %459, double noundef %462, double noundef %462) #27
-  %463 = call ptr @cairo_create(ptr noundef %459) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01) #27
-  call void @cairo_paint(ptr noundef %463) #27
+  call void @cairo_surface_set_device_scale(ptr noundef %459, double noundef %462, double noundef %462) #28
+  %463 = call ptr @cairo_create(ptr noundef %459) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01) #28
+  call void @cairo_paint(ptr noundef %463) #28
   %464 = sitofp i32 %445 to double
-  call void @cairo_translate(ptr noundef %463, double noundef %464, double noundef %464) #27
+  call void @cairo_translate(ptr noundef %463, double noundef %464, double noundef %464) #28
   %465 = shl nsw i32 %445, 1
   %466 = sub nsw i32 %447, %465
   %467 = sub nsw i32 %449, %465
   %468 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 1448
   %470 = load double, ptr %469, align 8, !tbaa !237
-  call void @cairo_set_line_width(ptr noundef %463, double noundef %470) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #27
+  call void @cairo_set_line_width(ptr noundef %463, double noundef %470) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #28
   %471 = sitofp i32 %466 to double
   %472 = sitofp i32 %467 to double
-  call void @cairo_rectangle(ptr noundef %463, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %471, double noundef %472) #27
-  call void @cairo_stroke(ptr noundef %463) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #27
-  call void @cairo_rectangle(ptr noundef %463, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %471, double noundef %472) #27
-  call void @cairo_fill(ptr noundef %463) #27
-  call void @cairo_translate(ptr noundef %463, double noundef 0.000000e+00, double noundef %472) #27
+  call void @cairo_rectangle(ptr noundef %463, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %471, double noundef %472) #28
+  call void @cairo_stroke(ptr noundef %463) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #28
+  call void @cairo_rectangle(ptr noundef %463, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %471, double noundef %472) #28
+  call void @cairo_fill(ptr noundef %463) #28
+  call void @cairo_translate(ptr noundef %463, double noundef 0.000000e+00, double noundef %472) #28
   %473 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %474 = load i32, ptr %473, align 8, !tbaa !221
   %475 = icmp sgt i32 %474, -1
   br i1 %475, label %476, label %517
 
 476:                                              ; preds = %434
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5) #27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   %477 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !242
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 336
   %479 = load ptr, ptr %478, align 8, !tbaa !243
-  %480 = call ptr @pango_font_description_copy_static(ptr noundef %479) #27
-  call void @pango_font_description_set_weight(ptr noundef %480, i32 noundef 700) #27
-  call void @pango_font_description_set_absolute_size(ptr noundef %480, double noundef 1.024000e+03) #27
-  %481 = call ptr @pango_cairo_create_layout(ptr noundef %463) #27
-  call void @pango_layout_set_font_description(ptr noundef %481, ptr noundef %480) #27
+  %480 = call ptr @pango_font_description_copy_static(ptr noundef %479) #28
+  call void @pango_font_description_set_weight(ptr noundef %480, i32 noundef 700) #28
+  call void @pango_font_description_set_absolute_size(ptr noundef %480, double noundef 1.024000e+03) #28
+  %481 = call ptr @pango_cairo_create_layout(ptr noundef %463) #28
+  call void @pango_layout_set_font_description(ptr noundef %481, ptr noundef %480) #28
   %482 = load i32, ptr %473, align 8, !tbaa !221
   %483 = sext i32 %482 to i64
   %484 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %10, i64 %483
@@ -5449,22 +5448,22 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %488 = extractelement <2 x float> %486, i64 1
   %489 = fsub reassoc nsz arcp contract afn float %488, %487
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(27) %5, ptr noundef nonnull align 1 dereferenceable(27) @.str.117, i64 27, i1 false)
-  call void @pango_layout_set_text(ptr noundef %481, ptr noundef nonnull %5, i32 noundef -1) #27
-  call void @pango_layout_get_pixel_extents(ptr noundef %481, ptr noundef nonnull %6, ptr noundef null) #27
+  call void @pango_layout_set_text(ptr noundef %481, ptr noundef nonnull %5, i32 noundef -1) #28
+  call void @pango_layout_get_pixel_extents(ptr noundef %481, ptr noundef nonnull %6, ptr noundef null) #28
   %490 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %491 = load i32, ptr %490, align 4, !tbaa !248
   %492 = sitofp i32 %491 to double
   %493 = fmul reassoc nsz arcp contract afn double %471, 1.024000e+03
   %494 = fdiv reassoc nsz arcp contract afn double %493, %492
-  call void @pango_font_description_set_absolute_size(ptr noundef %480, double noundef %494) #27
-  call void @pango_layout_set_font_description(ptr noundef %481, ptr noundef %480) #27
+  call void @pango_font_description_set_absolute_size(ptr noundef %480, double noundef %494) #28
+  call void @pango_layout_set_font_description(ptr noundef %481, ptr noundef %480) #28
   %495 = fpext float %487 to double
   %496 = fpext float %488 to double
   %497 = fpext float %489 to double
-  %498 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.118, double noundef %495, double noundef %496, double noundef %497) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #27
-  call void @pango_layout_set_text(ptr noundef %481, ptr noundef nonnull %5, i32 noundef -1) #27
-  call void @pango_layout_get_pixel_extents(ptr noundef %481, ptr noundef nonnull %6, ptr noundef null) #27
+  %498 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.118, double noundef %495, double noundef %496, double noundef %497) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #28
+  call void @pango_layout_set_text(ptr noundef %481, ptr noundef nonnull %5, i32 noundef -1) #28
+  call void @pango_layout_get_pixel_extents(ptr noundef %481, ptr noundef nonnull %6, ptr noundef null) #28
   %499 = sitofp i32 %466 to float
   %500 = fmul reassoc nsz arcp contract afn float %499, 0x3FEF5C2900000000
   %501 = load i32, ptr %490, align 4, !tbaa !248
@@ -5483,23 +5482,23 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %514 = sitofp i32 %513 to double
   %515 = fadd reassoc nsz arcp contract afn double %511, %514
   %516 = fsub reassoc nsz arcp contract afn double %508, %515
-  call void @cairo_move_to(ptr noundef %463, double noundef %507, double noundef %516) #27
-  call void @pango_cairo_show_layout(ptr noundef %463, ptr noundef %481) #27
-  call void @cairo_stroke(ptr noundef %463) #27
-  call void @pango_font_description_free(ptr noundef %480) #27
-  call void @g_object_unref(ptr noundef %481) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %507, double noundef %516) #28
+  call void @pango_cairo_show_layout(ptr noundef %463, ptr noundef %481) #28
+  call void @cairo_stroke(ptr noundef %463) #28
+  call void @pango_font_description_free(ptr noundef %480) #28
+  call void @g_object_unref(ptr noundef %481) #28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5) #28
   br label %517
 
 517:                                              ; preds = %476, %434
-  call void @cairo_scale(ptr noundef %463, double noundef 1.000000e+00, double noundef -1.000000e+00) #27
+  call void @cairo_scale(ptr noundef %463, double noundef 1.000000e+00, double noundef -1.000000e+00) #28
   %518 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 1448
   %520 = load double, ptr %519, align 8, !tbaa !237
   %521 = fmul reassoc nsz arcp contract afn double %520, 4.000000e-01
-  call void @cairo_set_line_width(ptr noundef %463, double noundef %521) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #27
+  call void @cairo_set_line_width(ptr noundef %463, double noundef %521) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #28
   %522 = getelementptr inbounds nuw i8, ptr %8, i64 6264
   %523 = load float, ptr %522, align 8, !tbaa !222
   %524 = fcmp reassoc nsz arcp contract afn une float %523, 0.000000e+00
@@ -5519,37 +5518,37 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %536 = fdiv reassoc nsz arcp contract afn float %535, %531
   %537 = fmul reassoc nsz arcp contract afn float %536, %527
   %538 = fpext float %537 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %538, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %538, double noundef %532) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %538, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %538, double noundef %532) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %539 = fmul reassoc nsz arcp contract afn float %536, %528
   %540 = fpext float %539 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %540) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %533, double noundef %540) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %540) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %533, double noundef %540) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %541 = fmul reassoc nsz arcp contract afn float %530, 2.000000e+00
   %542 = fadd reassoc nsz arcp contract afn float %541, 1.000000e+00
   %543 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %542)
   %544 = fdiv reassoc nsz arcp contract afn float %543, %531
   %545 = fmul reassoc nsz arcp contract afn float %544, %527
   %546 = fpext float %545 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %546, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %546, double noundef %532) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %546, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %546, double noundef %532) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %547 = fmul reassoc nsz arcp contract afn float %544, %528
   %548 = fpext float %547 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %548) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %533, double noundef %548) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %548) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %533, double noundef %548) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %549 = fmul reassoc nsz arcp contract afn float %530, 3.000000e+00
   %550 = fadd reassoc nsz arcp contract afn float %549, 1.000000e+00
   %551 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %550)
   %552 = fdiv reassoc nsz arcp contract afn float %551, %531
   %553 = fmul reassoc nsz arcp contract afn float %552, %527
   %554 = fpext float %553 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %554, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %554, double noundef %532) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %554, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %554, double noundef %532) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %555 = fmul reassoc nsz arcp contract afn float %552, %528
   br label %572
 
@@ -5560,29 +5559,29 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %560 = fpext float %557 to double
   %561 = fmul reassoc nsz arcp contract afn float %557, 2.500000e-01
   %562 = fpext float %561 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %562, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %562, double noundef %559) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %562, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %562, double noundef %559) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %563 = fmul reassoc nsz arcp contract afn float %558, 2.500000e-01
   %564 = fpext float %563 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %564) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %560, double noundef %564) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %564) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %560, double noundef %564) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %565 = fmul reassoc nsz arcp contract afn float %557, 5.000000e-01
   %566 = fpext float %565 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %566, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %566, double noundef %559) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %566, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %566, double noundef %559) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %567 = fmul reassoc nsz arcp contract afn float %558, 5.000000e-01
   %568 = fpext float %567 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %568) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %560, double noundef %568) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %568) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %560, double noundef %568) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %569 = fmul reassoc nsz arcp contract afn float %557, 7.500000e-01
   %570 = fpext float %569 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef %570, double noundef 0.000000e+00) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %570, double noundef %559) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef %570, double noundef 0.000000e+00) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %570, double noundef %559) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %571 = fmul reassoc nsz arcp contract afn float %558, 7.500000e-01
   br label %572
 
@@ -5590,14 +5589,14 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %.sink38 = phi float [ %571, %556 ], [ %555, %525 ]
   %.sink = phi double [ %560, %556 ], [ %533, %525 ]
   %573 = fpext float %.sink38 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %573) #27
-  call void @cairo_line_to(ptr noundef %463, double noundef %.sink, double noundef %573) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %573) #28
+  call void @cairo_line_to(ptr noundef %463, double noundef %.sink, double noundef %573) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %574 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 1448
   %576 = load double, ptr %575, align 8, !tbaa !237
-  call void @cairo_set_line_width(ptr noundef %463, double noundef %576) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #27
+  call void @cairo_set_line_width(ptr noundef %463, double noundef %576) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #28
   %577 = icmp sgt i32 %12, 0
   br i1 %577, label %578, label %.loopexit
 
@@ -5611,7 +5610,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 1448
   %584 = load double, ptr %583, align 8, !tbaa !237
-  call void @cairo_set_line_width(ptr noundef %463, double noundef %584) #27
+  call void @cairo_set_line_width(ptr noundef %463, double noundef %584) #28
   %585 = load i32, ptr %473, align 8, !tbaa !221
   %586 = icmp sgt i32 %585, -1
   br i1 %586, label %624, label %587
@@ -5659,14 +5658,14 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 1448
   %620 = load double, ptr %619, align 8, !tbaa !237
   %621 = fmul reassoc nsz arcp contract afn double %620, 3.000000e+00
-  call void @cairo_arc(ptr noundef %463, double noundef %615, double noundef %617, double noundef %621, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_arc(ptr noundef %463, double noundef %615, double noundef %617, double noundef %621, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   %622 = add nuw nsw i64 %590, 1
   %623 = icmp eq i64 %622, %581
   br i1 %623, label %.loopexit, label %589
 
 624:                                              ; preds = %.loopexit
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #27
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #28
   %625 = load i32, ptr %473, align 8, !tbaa !221
   %626 = sext i32 %625 to i64
   %627 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %10, i64 %626
@@ -5708,8 +5707,8 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 1448
   %658 = load double, ptr %657, align 8, !tbaa !237
   %659 = fmul reassoc nsz arcp contract afn double %658, 4.000000e+00
-  call void @cairo_arc(ptr noundef %463, double noundef %652, double noundef %655, double noundef %659, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #27
-  call void @cairo_stroke(ptr noundef %463) #27
+  call void @cairo_arc(ptr noundef %463, double noundef %652, double noundef %655, double noundef %659, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #28
+  call void @cairo_stroke(ptr noundef %463) #28
   br label %660
 
 660:                                              ; preds = %647, %587
@@ -5718,8 +5717,8 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 1448
   %664 = load double, ptr %663, align 8, !tbaa !237
   %665 = fmul reassoc nsz arcp contract afn double %664, 2.000000e+00
-  call void @cairo_set_line_width(ptr noundef %463, double noundef %665) #27
-  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #27
+  call void @cairo_set_line_width(ptr noundef %463, double noundef %665) #28
+  call void @cairo_set_source_rgb(ptr noundef %463, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #28
   %666 = load float, ptr %201, align 8, !tbaa !12
   %667 = load float, ptr %522, align 8, !tbaa !222
   %668 = fcmp reassoc nsz arcp contract afn ogt float %667, 0.000000e+00
@@ -5738,18 +5737,18 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %677 = phi float [ %675, %669 ], [ %666, %660 ]
   %678 = fmul reassoc nsz arcp contract afn float %677, %661
   %679 = fpext float %678 to double
-  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %679) #27
+  call void @cairo_move_to(ptr noundef %463, double noundef 0.000000e+00, double noundef %679) #28
   %680 = sitofp i32 %466 to float
   %681 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %365
   br label %683
 
 682:                                              ; preds = %722
-  call void @cairo_stroke(ptr noundef %463) #27
-  call void @cairo_destroy(ptr noundef %463) #27
-  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %459, double noundef 0.000000e+00, double noundef 0.000000e+00) #27
-  call void @cairo_paint(ptr noundef %1) #27
-  call void @cairo_surface_destroy(ptr noundef %459) #27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @cairo_stroke(ptr noundef %463) #28
+  call void @cairo_destroy(ptr noundef %463) #28
+  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %459, double noundef 0.000000e+00, double noundef 0.000000e+00) #28
+  call void @cairo_paint(ptr noundef %1) #28
+  call void @cairo_surface_destroy(ptr noundef %459) #28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   ret i32 1
 
 683:                                              ; preds = %722, %676
@@ -5808,7 +5807,7 @@ define internal noundef i32 @dt_iop_basecurve_draw(ptr noundef %0, ptr noundef %
   %726 = fpext float %725 to double
   %727 = fmul reassoc nsz arcp contract afn float %724, %661
   %728 = fpext float %727 to double
-  call void @cairo_line_to(ptr noundef %463, double noundef %726, double noundef %728) #27
+  call void @cairo_line_to(ptr noundef %463, double noundef %726, double noundef %728) #28
   %729 = add nuw nsw i64 %684, 1
   %730 = icmp eq i64 %729, 256
   br i1 %730, label %682, label %683
@@ -5842,7 +5841,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !256
-  %23 = tail call i32 @gtk_accelerator_get_default_mod_mask() #27
+  %23 = tail call i32 @gtk_accelerator_get_default_mod_mask() #28
   %24 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !10
   %25 = or i32 %24, %22
   %26 = and i32 %25, %23
@@ -5863,8 +5862,8 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %37 = load double, ptr %36, align 8, !tbaa !237
   %38 = fmul reassoc nsz arcp contract afn double %37, 5.000000e+00
   %39 = fptosi double %38 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #27
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %6) #27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %6) #28
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load i32, ptr %40, align 4, !tbaa !238
   %42 = shl nsw i32 %39, 1
@@ -5968,8 +5967,8 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
 
 109:                                              ; preds = %102, %99, %.loopexit30
   %110 = load ptr, ptr %12, align 8, !tbaa !215
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #27
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #28
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 20
   %112 = load i8, ptr %111, align 4, !tbaa !200
   %113 = zext i8 %112 to i32
@@ -6019,7 +6018,7 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
 
 .loopexit.i:                                      ; preds = %143, %138, %109
   %140 = load i32, ptr %110, align 8, !tbaa !199
-  %141 = call ptr @interpolate_set(i32 noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %140) #27
+  %141 = call ptr @interpolate_set(i32 noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %140) #28
   %142 = icmp eq ptr %141, null
   br i1 %142, label %dt_draw_curve_calc_value.exit, label %153
 
@@ -6041,8 +6040,8 @@ define internal noundef range(i32 0, 2) i32 @dt_iop_basecurve_button_press(ptr n
   %154 = load i8, ptr %111, align 4, !tbaa !200
   %155 = zext i8 %154 to i32
   %156 = load i32, ptr %110, align 8, !tbaa !199
-  %157 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %155, ptr noundef nonnull %4, float noundef %72, ptr noundef nonnull %5, ptr noundef nonnull %141, i32 noundef %156) #27
-  call void @free(ptr noundef nonnull %141) #27
+  %157 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %155, ptr noundef nonnull %4, float noundef %72, ptr noundef nonnull %5, ptr noundef nonnull %141, i32 noundef %156) #28
+  call void @free(ptr noundef nonnull %141) #28
   br label %dt_draw_curve_calc_value.exit
 
 dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
@@ -6055,8 +6054,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   %164 = load float, ptr %163, align 8, !tbaa !263
   %165 = fcmp reassoc nsz arcp contract afn olt float %162, %164
   %166 = select reassoc nsz arcp contract afn i1 %165, float %162, float %164
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #27
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #28
   %167 = fcmp reassoc nsz arcp contract afn ult float %166, 0.000000e+00
   %168 = fcmp reassoc nsz arcp contract afn ugt float %166, 1.000000e+00
   %169 = or i1 %167, %168
@@ -6292,10 +6291,10 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
 
 .loopexit:                                        ; preds = %357, %320, %.loopexit24, %.loopexit29, %170
   %323 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  call void @dt_dev_add_history_item_target(ptr noundef %323, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  call void @dt_dev_add_history_item_target(ptr noundef %323, ptr noundef %2, i32 noundef 1, ptr noundef %0) #28
   %324 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %325 = load ptr, ptr %324, align 16, !tbaa !212
-  call void @gtk_widget_queue_draw(ptr noundef %325) #27
+  call void @gtk_widget_queue_draw(ptr noundef %325) #28
   br label %360
 
 .preheader26:                                     ; preds = %.loopexit29, %357
@@ -6356,7 +6355,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   br i1 %359, label %.loopexit, label %.preheader26, !llvm.loop !274
 
 360:                                              ; preds = %.loopexit, %dt_draw_curve_calc_value.exit, %102, %90
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
   br label %522
 
 361:                                              ; preds = %30, %20
@@ -6454,10 +6453,10 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   %423 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i32 -2, ptr %423, align 8, !tbaa !221
   %424 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %424, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  tail call void @dt_dev_add_history_item_target(ptr noundef %424, ptr noundef %2, i32 noundef 1, ptr noundef %0) #28
   %425 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %426 = load ptr, ptr %425, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %426) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %426) #28
   br label %522
 
 .preheader31:                                     ; preds = %.loopexit34, %.preheader31
@@ -6574,9 +6573,9 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   store float %500, ptr %503, align 4, !tbaa !17
   %504 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %505 = load ptr, ptr %504, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %505) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %505) #28
   %506 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %506, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #27
+  tail call void @dt_dev_add_history_item_target(ptr noundef %506, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #28
   br label %522
 
 .loopexit35:                                      ; preds = %514, %495, %470
@@ -6589,9 +6588,9 @@ dt_draw_curve_calc_value.exit:                    ; preds = %.loopexit.i, %153
   store i32 %510, ptr %13, align 4, !tbaa !10
   %511 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %512 = load ptr, ptr %511, align 16, !tbaa !212
-  tail call void @gtk_widget_queue_draw(ptr noundef %512) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %512) #28
   %513 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %513, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  tail call void @dt_dev_add_history_item_target(ptr noundef %513, ptr noundef %2, i32 noundef 1, ptr noundef %0) #28
   br label %522
 
 514:                                              ; preds = %.preheader57, %514
@@ -6619,8 +6618,8 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   %8 = load ptr, ptr %7, align 8, !tbaa !207
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 480
   %10 = load i32, ptr %9, align 4, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #27
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #28
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !226
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1448
   %13 = load double, ptr %12, align 8, !tbaa !237
@@ -6980,7 +6979,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   store i32 %277, ptr %9, align 4, !tbaa !10
   store i32 %273, ptr %141, align 8, !tbaa !221
   %278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  call void @dt_dev_add_history_item_target(ptr noundef %278, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  call void @dt_dev_add_history_item_target(ptr noundef %278, ptr noundef %2, i32 noundef 1, ptr noundef %0) #28
   %279 = load i32, ptr %141, align 8, !tbaa !221
   br label %382
 
@@ -7110,15 +7109,15 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   br i1 %384, label %385, label %386
 
 385:                                              ; preds = %382
-  call void @gtk_widget_grab_focus(ptr noundef %0) #27
+  call void @gtk_widget_grab_focus(ptr noundef %0) #28
   br label %386
 
 386:                                              ; preds = %385, %382, %217
-  call void @gtk_widget_queue_draw(ptr noundef %0) #27
+  call void @gtk_widget_queue_draw(ptr noundef %0) #28
   br label %387
 
 387:                                              ; preds = %386, %212
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
   ret i32 1
 }
 
@@ -7138,7 +7137,7 @@ define internal noundef i32 @dt_iop_basecurve_leave_notify(ptr noundef %0, ptr n
   br label %12
 
 12:                                               ; preds = %8, %3
-  tail call void @gtk_widget_queue_draw(ptr noundef %0) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %0) #28
   ret i32 0
 }
 
@@ -7147,7 +7146,7 @@ define internal noundef range(i32 0, 2) i32 @_scrolled(ptr noundef %0, ptr nound
   %4 = alloca double, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %6 = load ptr, ptr %5, align 16, !tbaa !208
-  %7 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #27
+  %7 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #28
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %23
 
@@ -7158,8 +7157,8 @@ define internal noundef range(i32 0, 2) i32 @_scrolled(ptr noundef %0, ptr nound
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #27
-  %14 = call i32 @dt_gui_get_scroll_delta(ptr noundef %1, ptr noundef nonnull %4) #27
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  %14 = call i32 @dt_gui_get_scroll_delta(ptr noundef %1, ptr noundef nonnull %4) #28
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %22, label %16
 
@@ -7174,7 +7173,7 @@ define internal noundef range(i32 0, 2) i32 @_scrolled(ptr noundef %0, ptr nound
   br label %22
 
 22:                                               ; preds = %16, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
   br label %23
 
 23:                                               ; preds = %22, %9, %3
@@ -7234,16 +7233,16 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #6 {
   %4 = load ptr, ptr %3, align 8, !tbaa !215
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = load ptr, ptr %5, align 8, !tbaa !193
-  tail call void @free(ptr noundef %6) #27
-  tail call void @free(ptr noundef %4) #27
+  tail call void @free(ptr noundef %6) #28
+  tail call void @free(ptr noundef %4) #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #27
+  %8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %7) #28
   %9 = load ptr, ptr %2, align 16, !tbaa !208
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void @free(ptr noundef nonnull %9) #27
+  tail call void @free(ptr noundef nonnull %9) #28
   br label %12
 
 12:                                               ; preds = %11, %1
@@ -7297,12 +7296,12 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #19 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.59) #30
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.59) #31
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %59, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.60) #30
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.60) #31
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
@@ -7311,22 +7310,22 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.61) #30
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.61) #31
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %59, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.62) #30
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.62) #31
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %59, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.63) #30
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.63) #31
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %59, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.64) #30
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.64) #31
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
@@ -7335,7 +7334,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 24:                                               ; preds = %19
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.65) #30
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.65) #31
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -7344,7 +7343,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.66) #30
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(18) @.str.66) #31
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %34
 
@@ -7353,7 +7352,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 34:                                               ; preds = %29
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.67) #30
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.67) #31
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %39
 
@@ -7362,7 +7361,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 39:                                               ; preds = %34
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.29) #30
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.29) #31
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %44
 
@@ -7371,7 +7370,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 44:                                               ; preds = %39
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.34) #30
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.34) #31
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %49
 
@@ -7380,7 +7379,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 49:                                               ; preds = %44
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.36) #30
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.36) #31
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %54
 
@@ -7389,7 +7388,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
   br label %59
 
 54:                                               ; preds = %49
-  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.27) #30
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.27) #31
   %56 = icmp eq i32 %55, 0
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %58 = select i1 %56, ptr %57, ptr null
@@ -7405,67 +7404,67 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define ptr @get_f(ptr noundef %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.59) #27
+  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.59) #28
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.60) #27
+  %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.60) #28
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %41, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.61) #27
+  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.61) #28
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %41, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.62) #27
+  %11 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.62) #28
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %41, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.63) #27
+  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.63) #28
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %41, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.64) #27
+  %17 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.64) #28
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %41, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.65) #27
+  %20 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.65) #28
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %41, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.66) #27
+  %23 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.66) #28
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %41, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.67) #27
+  %26 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.67) #28
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %41, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.29) #27
+  %29 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.29) #28
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %41, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.34) #27
+  %32 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.34) #28
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.36) #27
+  %35 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.36) #28
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.27) #27
+  %38 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.27) #28
   %39 = icmp eq i32 %38, 0
   %40 = select i1 %39, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), ptr null
   br label %41
@@ -7504,9 +7503,9 @@ declare float @llvm.fabs.f32(float) #10
 define internal fastcc void @gauss_blur(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #13 {
   %5 = shl nsw i64 %2, 4
   %6 = mul i64 %5, %3
-  %7 = tail call ptr @dt_alloc_aligned(i64 noundef %6) #27
+  %7 = tail call ptr @dt_alloc_aligned(i64 noundef %6) #28
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 64) ]
-  tail call void @dt_iop_image_fill(ptr noundef %7, float noundef 0.000000e+00, i64 noundef %2, i64 noundef %3, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef %7, float noundef 0.000000e+00, i64 noundef %2, i64 noundef %3, i64 noundef 4) #28
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %.loopexit14, label %9
 
@@ -7890,7 +7889,7 @@ define internal fastcc void @gauss_blur(ptr nocapture noundef readonly %0, ptr n
   br i1 %45, label %.loopexit12, label %.preheader16
 
 .loopexit14:                                      ; preds = %.loopexit11, %4
-  tail call void @dt_iop_image_fill(ptr noundef %1, float noundef 0.000000e+00, i64 noundef %2, i64 noundef %3, i64 noundef 4) #27
+  tail call void @dt_iop_image_fill(ptr noundef %1, float noundef 0.000000e+00, i64 noundef %2, i64 noundef %3, i64 noundef 4) #28
   %324 = icmp eq i64 %2, 0
   br i1 %324, label %.loopexit9, label %325
 
@@ -8382,7 +8381,7 @@ define internal fastcc void @gauss_blur(ptr nocapture noundef readonly %0, ptr n
   br i1 %327, label %.preheader7, label %.loopexit8
 
 .loopexit9:                                       ; preds = %.loopexit, %.loopexit14
-  tail call void @free(ptr noundef %7) #27
+  tail call void @free(ptr noundef %7) #28
   ret void
 
 .preheader7:                                      ; preds = %556, %.preheader7
@@ -8854,7 +8853,7 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
   %7 = load ptr, ptr %6, align 8, !tbaa !207
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %9 = load ptr, ptr %8, align 16, !tbaa !208
-  %10 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %1, i32 noundef %4) #27
+  %10 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %1, i32 noundef %4) #28
   %11 = fmul reassoc nsz arcp contract afn float %10, %2
   %12 = fmul reassoc nsz arcp contract afn float %10, %3
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 80
@@ -8991,9 +8990,9 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
   br i1 %95, label %.loopexit, label %89, !llvm.loop !301
 
 96:                                               ; preds = %.loopexit, %57, %54, %32
-  tail call void @gtk_widget_queue_draw(ptr noundef %1) #27
+  tail call void @gtk_widget_queue_draw(ptr noundef %1) #28
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !273
-  tail call void @dt_dev_add_history_item_target(ptr noundef %97, ptr noundef %0, i32 noundef 1, ptr noundef %1) #27
+  tail call void @dt_dev_add_history_item_target(ptr noundef %97, ptr noundef %0, i32 noundef 1, ptr noundef %1) #28
   ret void
 }
 
@@ -9056,6 +9055,9 @@ declare <8 x float> @llvm.log.v8f32(<8 x float>) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.log.v2f32(<2 x float>) #10
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x float> @llvm.maxnum.v16f32(<16 x float>, <16 x float>) #26
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree nounwind willreturn uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -9082,11 +9084,12 @@ attributes #22 = { nofree nounwind "approx-func-fp-math"="true" "denormal-fp-mat
 attributes #23 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "denormal-fp-math"="preserve-sign,preserve-sign" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" "unsafe-fp-math"="true" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(write) }
-attributes #26 = { nounwind allocsize(0) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind allocsize(0,1) }
-attributes #29 = { nounwind willreturn memory(none) }
-attributes #30 = { nounwind willreturn memory(read) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nounwind allocsize(0) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind allocsize(0,1) }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

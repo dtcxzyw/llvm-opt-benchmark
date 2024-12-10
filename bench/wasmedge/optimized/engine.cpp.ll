@@ -2533,7 +2533,7 @@ define internal fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runti
   store ptr %57, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %68 = load i32, ptr %67, align 4
-  switch i32 %68, label %5013 [
+  switch i32 %68, label %5005 [
     i32 0, label %69
     i32 1, label %106
     i32 2, label %107
@@ -2886,223 +2886,223 @@ define internal fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runti
     i32 347, label %2906
     i32 348, label %2910
     i32 349, label %2914
-    i32 350, label %2930
-    i32 355, label %2946
-    i32 356, label %2960
-    i32 357, label %2974
-    i32 358, label %2988
-    i32 359, label %2999
-    i32 360, label %3018
-    i32 361, label %3029
-    i32 362, label %3040
-    i32 363, label %3057
-    i32 366, label %3068
-    i32 367, label %3079
-    i32 368, label %3090
-    i32 369, label %3101
-    i32 371, label %3112
-    i32 376, label %3128
-    i32 377, label %3137
-    i32 379, label %3143
-    i32 380, label %3147
-    i32 381, label %3151
-    i32 382, label %3167
-    i32 383, label %3183
-    i32 384, label %3190
-    i32 385, label %3197
-    i32 386, label %3204
-    i32 387, label %3211
-    i32 388, label %3225
-    i32 389, label %3239
-    i32 390, label %3253
-    i32 391, label %3264
-    i32 392, label %3283
-    i32 393, label %3294
-    i32 394, label %3305
-    i32 395, label %3322
-    i32 397, label %3333
-    i32 398, label %3344
-    i32 399, label %3355
-    i32 400, label %3366
-    i32 401, label %3377
-    i32 402, label %3388
-    i32 403, label %3404
-    i32 404, label %3417
-    i32 405, label %3432
-    i32 406, label %3445
-    i32 378, label %3460
-    i32 372, label %3477
-    i32 373, label %3486
-    i32 407, label %3494
-    i32 408, label %3503
-    i32 409, label %3509
-    i32 410, label %3525
-    i32 411, label %3539
-    i32 412, label %3546
-    i32 413, label %3553
-    i32 414, label %3560
-    i32 415, label %3567
-    i32 416, label %3580
-    i32 417, label %3593
-    i32 418, label %3606
-    i32 419, label %3617
-    i32 420, label %3628
-    i32 421, label %3639
-    i32 422, label %3650
-    i32 423, label %3661
-    i32 424, label %3672
-    i32 426, label %3683
-    i32 427, label %3696
-    i32 428, label %3711
-    i32 429, label %3724
-    i32 374, label %3739
-    i32 375, label %3748
-    i32 430, label %3756
-    i32 431, label %3765
-    i32 432, label %3771
-    i32 433, label %3784
-    i32 434, label %3793
-    i32 435, label %3800
-    i32 436, label %3807
-    i32 437, label %3814
-    i32 438, label %3821
-    i32 439, label %3835
-    i32 440, label %3849
-    i32 441, label %3863
-    i32 442, label %3873
-    i32 443, label %3883
-    i32 450, label %3893
-    i32 451, label %3906
-    i32 452, label %3921
-    i32 453, label %3934
-    i32 454, label %3949
-    i32 455, label %3955
-    i32 456, label %3961
-    i32 457, label %3981
-    i32 458, label %3992
-    i32 459, label %4003
-    i32 460, label %4014
-    i32 461, label %4025
-    i32 462, label %4046
-    i32 463, label %4067
-    i32 464, label %4077
-    i32 465, label %4087
-    i32 466, label %4093
-    i32 467, label %4099
-    i32 468, label %4111
-    i32 469, label %4121
-    i32 470, label %4131
-    i32 471, label %4141
-    i32 472, label %4151
-    i32 473, label %4172
-    i32 474, label %4193
-    i32 475, label %4202
-    i32 476, label %4211
-    i32 477, label %4215
-    i32 478, label %4219
-    i32 479, label %4225
-    i32 480, label %4231
-    i32 481, label %4249
-    i32 482, label %4267
-    i32 483, label %4274
-    i32 342, label %4281
-    i32 343, label %4292
-    i32 425, label %4303
-    i32 351, label %4319
-    i32 352, label %4336
-    i32 353, label %4353
-    i32 354, label %4370
-    i32 364, label %4387
-    i32 365, label %4398
-    i32 370, label %4409
-    i32 396, label %4420
-    i32 484, label %4431
-    i32 485, label %4450
-    i32 486, label %4454
-    i32 487, label %4458
-    i32 488, label %4476
-    i32 489, label %4494
-    i32 490, label %4516
-    i32 491, label %4544
-    i32 492, label %4564
-    i32 493, label %4590
-    i32 494, label %4609
-    i32 495, label %4628
-    i32 496, label %4647
-    i32 497, label %4664
-    i32 498, label %4685
-    i32 499, label %4706
-    i32 500, label %4727
-    i32 501, label %4748
-    i32 502, label %4765
-    i32 503, label %4784
-    i32 507, label %4814
-    i32 504, label %4815
-    i32 505, label %4818
-    i32 506, label %4821
-    i32 508, label %4824
-    i32 509, label %4827
-    i32 510, label %4830
-    i32 511, label %4833
-    i32 512, label %4836
-    i32 513, label %4839
-    i32 514, label %4842
-    i32 515, label %4845
-    i32 516, label %4848
-    i32 517, label %4851
-    i32 518, label %4854
-    i32 519, label %4857
-    i32 520, label %4860
-    i32 521, label %4863
-    i32 522, label %4866
-    i32 523, label %4869
-    i32 524, label %4872
-    i32 525, label %4875
-    i32 526, label %4878
-    i32 527, label %4881
-    i32 528, label %4884
-    i32 529, label %4887
-    i32 530, label %4890
-    i32 531, label %4893
-    i32 532, label %4896
-    i32 533, label %4899
-    i32 534, label %4902
-    i32 535, label %4905
-    i32 536, label %4908
-    i32 537, label %4911
-    i32 538, label %4914
-    i32 539, label %4917
-    i32 540, label %4920
-    i32 541, label %4923
-    i32 542, label %4926
-    i32 543, label %4929
-    i32 544, label %4932
-    i32 545, label %4935
-    i32 546, label %4938
-    i32 547, label %4941
-    i32 548, label %4944
-    i32 549, label %4947
-    i32 550, label %4950
-    i32 551, label %4953
-    i32 552, label %4956
-    i32 553, label %4959
-    i32 554, label %4962
-    i32 555, label %4965
-    i32 556, label %4968
-    i32 557, label %4971
-    i32 558, label %4974
-    i32 559, label %4977
-    i32 560, label %4980
-    i32 561, label %4983
-    i32 562, label %4986
-    i32 563, label %4989
-    i32 564, label %4992
-    i32 565, label %4995
-    i32 566, label %4998
-    i32 567, label %5001
-    i32 568, label %5004
-    i32 569, label %5007
-    i32 570, label %5010
+    i32 350, label %2928
+    i32 355, label %2942
+    i32 356, label %2956
+    i32 357, label %2970
+    i32 358, label %2984
+    i32 359, label %2995
+    i32 360, label %3014
+    i32 361, label %3025
+    i32 362, label %3036
+    i32 363, label %3053
+    i32 366, label %3064
+    i32 367, label %3075
+    i32 368, label %3086
+    i32 369, label %3097
+    i32 371, label %3108
+    i32 376, label %3124
+    i32 377, label %3133
+    i32 379, label %3139
+    i32 380, label %3143
+    i32 381, label %3147
+    i32 382, label %3161
+    i32 383, label %3175
+    i32 384, label %3182
+    i32 385, label %3189
+    i32 386, label %3196
+    i32 387, label %3203
+    i32 388, label %3217
+    i32 389, label %3231
+    i32 390, label %3245
+    i32 391, label %3256
+    i32 392, label %3275
+    i32 393, label %3286
+    i32 394, label %3297
+    i32 395, label %3314
+    i32 397, label %3325
+    i32 398, label %3336
+    i32 399, label %3347
+    i32 400, label %3358
+    i32 401, label %3369
+    i32 402, label %3380
+    i32 403, label %3396
+    i32 404, label %3409
+    i32 405, label %3424
+    i32 406, label %3437
+    i32 378, label %3452
+    i32 372, label %3469
+    i32 373, label %3478
+    i32 407, label %3486
+    i32 408, label %3495
+    i32 409, label %3501
+    i32 410, label %3517
+    i32 411, label %3531
+    i32 412, label %3538
+    i32 413, label %3545
+    i32 414, label %3552
+    i32 415, label %3559
+    i32 416, label %3572
+    i32 417, label %3585
+    i32 418, label %3598
+    i32 419, label %3609
+    i32 420, label %3620
+    i32 421, label %3631
+    i32 422, label %3642
+    i32 423, label %3653
+    i32 424, label %3664
+    i32 426, label %3675
+    i32 427, label %3688
+    i32 428, label %3703
+    i32 429, label %3716
+    i32 374, label %3731
+    i32 375, label %3740
+    i32 430, label %3748
+    i32 431, label %3757
+    i32 432, label %3763
+    i32 433, label %3776
+    i32 434, label %3785
+    i32 435, label %3792
+    i32 436, label %3799
+    i32 437, label %3806
+    i32 438, label %3813
+    i32 439, label %3827
+    i32 440, label %3841
+    i32 441, label %3855
+    i32 442, label %3865
+    i32 443, label %3875
+    i32 450, label %3885
+    i32 451, label %3898
+    i32 452, label %3913
+    i32 453, label %3926
+    i32 454, label %3941
+    i32 455, label %3947
+    i32 456, label %3953
+    i32 457, label %3973
+    i32 458, label %3984
+    i32 459, label %3995
+    i32 460, label %4006
+    i32 461, label %4017
+    i32 462, label %4038
+    i32 463, label %4059
+    i32 464, label %4069
+    i32 465, label %4079
+    i32 466, label %4085
+    i32 467, label %4091
+    i32 468, label %4103
+    i32 469, label %4113
+    i32 470, label %4123
+    i32 471, label %4133
+    i32 472, label %4143
+    i32 473, label %4164
+    i32 474, label %4185
+    i32 475, label %4194
+    i32 476, label %4203
+    i32 477, label %4207
+    i32 478, label %4211
+    i32 479, label %4217
+    i32 480, label %4223
+    i32 481, label %4241
+    i32 482, label %4259
+    i32 483, label %4266
+    i32 342, label %4273
+    i32 343, label %4284
+    i32 425, label %4295
+    i32 351, label %4311
+    i32 352, label %4328
+    i32 353, label %4345
+    i32 354, label %4362
+    i32 364, label %4379
+    i32 365, label %4390
+    i32 370, label %4401
+    i32 396, label %4412
+    i32 484, label %4423
+    i32 485, label %4442
+    i32 486, label %4446
+    i32 487, label %4450
+    i32 488, label %4468
+    i32 489, label %4486
+    i32 490, label %4508
+    i32 491, label %4536
+    i32 492, label %4556
+    i32 493, label %4582
+    i32 494, label %4601
+    i32 495, label %4620
+    i32 496, label %4639
+    i32 497, label %4656
+    i32 498, label %4677
+    i32 499, label %4698
+    i32 500, label %4719
+    i32 501, label %4740
+    i32 502, label %4757
+    i32 503, label %4776
+    i32 507, label %4806
+    i32 504, label %4807
+    i32 505, label %4810
+    i32 506, label %4813
+    i32 508, label %4816
+    i32 509, label %4819
+    i32 510, label %4822
+    i32 511, label %4825
+    i32 512, label %4828
+    i32 513, label %4831
+    i32 514, label %4834
+    i32 515, label %4837
+    i32 516, label %4840
+    i32 517, label %4843
+    i32 518, label %4846
+    i32 519, label %4849
+    i32 520, label %4852
+    i32 521, label %4855
+    i32 522, label %4858
+    i32 523, label %4861
+    i32 524, label %4864
+    i32 525, label %4867
+    i32 526, label %4870
+    i32 527, label %4873
+    i32 528, label %4876
+    i32 529, label %4879
+    i32 530, label %4882
+    i32 531, label %4885
+    i32 532, label %4888
+    i32 533, label %4891
+    i32 534, label %4894
+    i32 535, label %4897
+    i32 536, label %4900
+    i32 537, label %4903
+    i32 538, label %4906
+    i32 539, label %4909
+    i32 540, label %4912
+    i32 541, label %4915
+    i32 542, label %4918
+    i32 543, label %4921
+    i32 544, label %4924
+    i32 545, label %4927
+    i32 546, label %4930
+    i32 547, label %4933
+    i32 548, label %4936
+    i32 549, label %4939
+    i32 550, label %4942
+    i32 551, label %4945
+    i32 552, label %4948
+    i32 553, label %4951
+    i32 554, label %4954
+    i32 555, label %4957
+    i32 556, label %4960
+    i32 557, label %4963
+    i32 558, label %4966
+    i32 559, label %4969
+    i32 560, label %4972
+    i32 561, label %4975
+    i32 562, label %4978
+    i32 563, label %4981
+    i32 564, label %4984
+    i32 565, label %4987
+    i32 566, label %4990
+    i32 567, label %4993
+    i32 568, label %4996
+    i32 569, label %4999
+    i32 570, label %5002
   ]
 
 69:                                               ; preds = %2
@@ -3151,7 +3151,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1034, ptr %89, align 4
-  br label %5014
+  br label %5006
 
 90:                                               ; preds = %69
   %91 = landingpad { ptr, i32 }
@@ -3186,19 +3186,19 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit463: ; preds = %90, %93
 
 106:                                              ; preds = %2
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 107:                                              ; preds = %2
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 108:                                              ; preds = %2
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 109:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor11runIfElseOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 110:                                              ; preds = %2
   %111 = getelementptr inbounds nuw i8, ptr %57, i64 256
@@ -3278,7 +3278,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 3, ptr %149, align 4
-  br label %5014
+  br label %5006
 
 150:                                              ; preds = %129
   %151 = landingpad { ptr, i32 }
@@ -3367,7 +3367,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 3, ptr %188, align 4
-  br label %5014
+  br label %5006
 
 189:                                              ; preds = %168
   %190 = landingpad { ptr, i32 }
@@ -3409,82 +3409,82 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %211 = getelementptr inbounds nuw %"class.WasmEdge::AST::Instruction", ptr %206, i64 %210
   store ptr %211, ptr %207, align 8
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 212:                                              ; preds = %2
   %213 = tail call noundef ptr @_ZN8WasmEdge7Runtime12StackManager22maybePopFrameOrHandlerEPKNS_3AST11InstructionE(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %60) #24
   %214 = load ptr, ptr %58, align 8
   store ptr %213, ptr %214, align 8
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 215:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 216:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor10runThrowOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 217:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runThrowRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 218:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor7runBrOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 219:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor9runBrIfOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 220:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor12runBrTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 221:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 222:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor16runBrOnNonNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 223:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 224:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 225:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor11runReturnOpERNS_7Runtime12StackManagerERPKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 226:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 227:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 228:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 229:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 230:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 231:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 232:                                              ; preds = %2, %2
   %233 = getelementptr inbounds nuw i8, ptr %60, i64 12
@@ -3502,27 +3502,27 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %244 = getelementptr inbounds nuw %"class.WasmEdge::AST::Instruction", ptr %239, i64 %243
   store ptr %244, ptr %238, align 8
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 245:                                              ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
-  br label %5014
+  br label %5006
 
 246:                                              ; preds = %2
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefNullOpERNS_7Runtime12StackManagerERKNS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 4 dereferenceable(8) %60) #24
-  br label %5014
+  br label %5006
 
 247:                                              ; preds = %2
   %248 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor14runRefIsNullOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %250) #24
-  br label %5014
+  br label %5006
 
 251:                                              ; preds = %2
   %252 = load i32, ptr %60, align 16
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefFuncOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %252) #24
-  br label %5014
+  br label %5006
 
 253:                                              ; preds = %2
   %254 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3540,24 +3540,24 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %261, ptr noundef nonnull align 16 dereferenceable(16) %17) #24
-  br label %5014
+  br label %5006
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor17runRefAsNonNullOpERNS_10RefVariantERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %265, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
-  br label %5014
+  br label %5006
 
 266:                                              ; preds = %2
   %267 = load i32, ptr %60, align 16
   tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %267, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 268:                                              ; preds = %2
   %269 = load i32, ptr %60, align 16
   tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %269, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 270:                                              ; preds = %2, %2
   %271 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3568,7 +3568,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %273, i32 noundef %275, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #24
-  br label %5014
+  br label %5006
 
 276:                                              ; preds = %2
   %277 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3579,7 +3579,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %279, i32 noundef %281, ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #24
-  br label %5014
+  br label %5006
 
 282:                                              ; preds = %2
   %283 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3608,7 +3608,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %292 = load i32, ptr %291, align 4
   call void @_ZNK8WasmEdge8Executor8Executor14runStructSetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSD_RKNS_3AST13CompositeTypeEjRKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %292, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #24
-  br label %5014
+  br label %5006
 
 293:                                              ; preds = %2
   %294 = load i32, ptr %60, align 16
@@ -3619,7 +3619,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store ptr %297, ptr %295, align 8
   %.sroa.02468.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i492 to i32
   tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %294, i32 noundef 1, i32 noundef %.sroa.02468.0.extract.trunc) #24
-  br label %5014
+  br label %5006
 
 298:                                              ; preds = %2
   %299 = load i32, ptr %60, align 16
@@ -3630,28 +3630,28 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store ptr %302, ptr %300, align 8
   %.sroa.02466.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i497 to i32
   tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %299, i32 noundef 0, i32 noundef %.sroa.02466.0.extract.trunc) #24
-  br label %5014
+  br label %5006
 
 303:                                              ; preds = %2
   %304 = load i32, ptr %60, align 16
   %305 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %306 = load i32, ptr %305, align 4
   tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %304, i32 noundef %306, i32 noundef %306) #24
-  br label %5014
+  br label %5006
 
 307:                                              ; preds = %2
   %308 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %309)
   tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewDataOpERNS_7Runtime12StackManagerERKNS2_8Instance12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
-  br label %5014
+  br label %5006
 
 311:                                              ; preds = %2
   %312 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %313 = load i32, ptr %312, align 4
   %314 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %313)
   tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewElemOpERNS_7Runtime12StackManagerERKNS2_8Instance15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(40) %314, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
-  br label %5014
+  br label %5006
 
 315:                                              ; preds = %2, %2
   %316 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3667,7 +3667,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %322, i32 noundef %.sroa.02464.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #24
-  br label %5014
+  br label %5006
 
 323:                                              ; preds = %2
   %324 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3683,7 +3683,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %330, i32 noundef %.sroa.02462.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #24
-  br label %5014
+  br label %5006
 
 331:                                              ; preds = %2
   %332 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3717,14 +3717,14 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor13runArraySetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %25, i32 noundef %.sroa.02460.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %27) #24
-  br label %5014
+  br label %5006
 
 344:                                              ; preds = %2
   %345 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %346 = load ptr, ptr %345, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayLenOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %347, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
-  br label %5014
+  br label %5006
 
 348:                                              ; preds = %2
   %349 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3765,7 +3765,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZNK8WasmEdge8Executor8Executor14runArrayFillOpEjRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02456.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %28, i32 noundef %.sroa.02454.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #24
-  br label %5014
+  br label %5006
 
 365:                                              ; preds = %2
   %366 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3818,7 +3818,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   call void @_ZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02450.0.extract.trunc, i32 noundef %.sroa.02448.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %31, i32 noundef %.sroa.02444.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #24
-  br label %5014
+  br label %5006
 
 386:                                              ; preds = %365
   %387 = landingpad { ptr, i32 }
@@ -3868,7 +3868,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.02440.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i572 to i32
   call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02440.0.extract.trunc, i32 noundef %.sroa.02438.0.extract.trunc, i32 noundef %.sroa.02436.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(32) %407, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %36) #24
-  br label %5014
+  br label %5006
 
 409:                                              ; preds = %388
   %410 = landingpad { ptr, i32 }
@@ -3918,7 +3918,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.02432.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i592 to i32
   call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02432.0.extract.trunc, i32 noundef %.sroa.02430.0.extract.trunc, i32 noundef %.sroa.02428.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(40) %430, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %38) #24
-  br label %5014
+  br label %5006
 
 432:                                              ; preds = %411
   %433 = landingpad { ptr, i32 }
@@ -3939,7 +3939,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %443 = load ptr, ptr %442, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %441, ptr noundef nonnull align 16 dereferenceable(16) %444, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 445:                                              ; preds = %2, %2
   %446 = getelementptr inbounds nuw i8, ptr %62, i64 24
@@ -3954,42 +3954,42 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %454 = load ptr, ptr %453, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %452, ptr noundef nonnull align 16 dereferenceable(16) %455, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 456:                                              ; preds = %2
   %457 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds i8, ptr %458, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %459, i8 noundef zeroext 110) #24
-  br label %5014
+  br label %5006
 
 460:                                              ; preds = %2
   %461 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %463, i8 noundef zeroext 111) #24
-  br label %5014
+  br label %5006
 
 464:                                              ; preds = %2
   %465 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %466 = load ptr, ptr %465, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor11runRefI31OpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %467) #24
-  br label %5014
+  br label %5006
 
 468:                                              ; preds = %2
   %469 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %471, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
-  br label %5014
+  br label %5006
 
 472:                                              ; preds = %2
   %473 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %475, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
-  br label %5014
+  br label %5006
 
 476:                                              ; preds = %2
   %477 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -3997,7 +3997,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %479 = getelementptr inbounds i8, ptr %478, i64 -16
   store ptr %479, ptr %477, align 8
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 480:                                              ; preds = %2, %2
   %481 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4033,47 +4033,47 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %. = select i1 %495, ptr %39, ptr %40
   call void @_ZN8WasmEdge7Runtime12StackManager4pushIRNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(48) %496, ptr noundef nonnull align 16 dereferenceable(16) %.)
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 497:                                              ; preds = %2
   %498 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %499 = load i32, ptr %498, align 8
   tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %499) #24
-  br label %5014
+  br label %5006
 
 500:                                              ; preds = %2
   %501 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %502 = load i32, ptr %501, align 8
   tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %502) #24
-  br label %5014
+  br label %5006
 
 503:                                              ; preds = %2
   %504 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %505 = load i32, ptr %504, align 8
   tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalTeeOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %505) #24
-  br label %5014
+  br label %5006
 
 506:                                              ; preds = %2
   %507 = load i32, ptr %60, align 16
   tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %507) #24
-  br label %5014
+  br label %5006
 
 508:                                              ; preds = %2
   %509 = load i32, ptr %60, align 16
   tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %509) #24
-  br label %5014
+  br label %5006
 
 510:                                              ; preds = %2
   %511 = load i32, ptr %60, align 16
   %512 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %511)
   tail call void @_ZN8WasmEdge8Executor8Executor13runTableGetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %512, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 513:                                              ; preds = %2
   %514 = load i32, ptr %60, align 16
   %515 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %514)
   tail call void @_ZN8WasmEdge8Executor8Executor13runTableSetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %515, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 516:                                              ; preds = %2
   %517 = load i32, ptr %60, align 16
@@ -4083,13 +4083,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %521 = load i32, ptr %520, align 4
   %522 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %519, i32 noundef %521)
   tail call void @_ZN8WasmEdge8Executor8Executor14runTableInitOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERNS5_15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %518, ptr noundef nonnull align 8 dereferenceable(40) %522, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 523:                                              ; preds = %2
   %524 = load i32, ptr %60, align 16
   %525 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %524)
   tail call void @_ZN8WasmEdge8Executor8Executor13runElemDropOpERNS_7Runtime8Instance15ElementInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(40) %525)
-  br label %5014
+  br label %5006
 
 526:                                              ; preds = %2
   %527 = load i32, ptr %60, align 16
@@ -4099,175 +4099,175 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %531 = load i32, ptr %530, align 4
   %532 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %529, i32 noundef %531)
   tail call void @_ZN8WasmEdge8Executor8Executor14runTableCopyOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %528, ptr noundef nonnull align 16 dereferenceable(64) %532, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 533:                                              ; preds = %2
   %534 = load i32, ptr %60, align 16
   %535 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %534)
   tail call void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %535)
-  br label %5014
+  br label %5006
 
 536:                                              ; preds = %2
   %537 = load i32, ptr %60, align 16
   %538 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %537)
   tail call void @_ZN8WasmEdge8Executor8Executor14runTableSizeOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %538)
-  br label %5014
+  br label %5006
 
 539:                                              ; preds = %2
   %540 = load i32, ptr %60, align 16
   %541 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %540)
   tail call void @_ZN8WasmEdge8Executor8Executor14runTableFillOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %541, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 542:                                              ; preds = %2
   %543 = load i32, ptr %60, align 16
   %544 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %543)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %544, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 545:                                              ; preds = %2
   %546 = load i32, ptr %60, align 16
   %547 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %546)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %547, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 548:                                              ; preds = %2
   %549 = load i32, ptr %60, align 16
   %550 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %549)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIfLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %550, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 551:                                              ; preds = %2
   %552 = load i32, ptr %60, align 16
   %553 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %552)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIdLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %553, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 554:                                              ; preds = %2
   %555 = load i32, ptr %60, align 16
   %556 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %555)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %556, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 557:                                              ; preds = %2
   %558 = load i32, ptr %60, align 16
   %559 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %558)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %559, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 560:                                              ; preds = %2
   %561 = load i32, ptr %60, align 16
   %562 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %561)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %562, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 563:                                              ; preds = %2
   %564 = load i32, ptr %60, align 16
   %565 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %564)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %565, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 566:                                              ; preds = %2
   %567 = load i32, ptr %60, align 16
   %568 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %567)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %568, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 569:                                              ; preds = %2
   %570 = load i32, ptr %60, align 16
   %571 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %570)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %571, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 572:                                              ; preds = %2
   %573 = load i32, ptr %60, align 16
   %574 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %573)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %574, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 575:                                              ; preds = %2
   %576 = load i32, ptr %60, align 16
   %577 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %576)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %577, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 578:                                              ; preds = %2
   %579 = load i32, ptr %60, align 16
   %580 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %579)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %580, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 581:                                              ; preds = %2
   %582 = load i32, ptr %60, align 16
   %583 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %582)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %583, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 584:                                              ; preds = %2
   %585 = load i32, ptr %60, align 16
   %586 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %585)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %586, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 587:                                              ; preds = %2
   %588 = load i32, ptr %60, align 16
   %589 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %588)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %589, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 590:                                              ; preds = %2
   %591 = load i32, ptr %60, align 16
   %592 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %591)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIfLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %592, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 593:                                              ; preds = %2
   %594 = load i32, ptr %60, align 16
   %595 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %594)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIdLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %595, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 596:                                              ; preds = %2
   %597 = load i32, ptr %60, align 16
   %598 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %597)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %598, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 599:                                              ; preds = %2
   %600 = load i32, ptr %60, align 16
   %601 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %600)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %601, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 602:                                              ; preds = %2
   %603 = load i32, ptr %60, align 16
   %604 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %603)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %604, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 605:                                              ; preds = %2
   %606 = load i32, ptr %60, align 16
   %607 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %606)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %607, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 608:                                              ; preds = %2
   %609 = load i32, ptr %60, align 16
   %610 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %609)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %610, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 611:                                              ; preds = %2
   %612 = load i32, ptr %60, align 16
   %613 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %612)
   tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryGrowOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %613)
-  br label %5014
+  br label %5006
 
 614:                                              ; preds = %2
   %615 = load i32, ptr %60, align 16
   %616 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %615)
   tail call void @_ZN8WasmEdge8Executor8Executor15runMemorySizeOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %616)
-  br label %5014
+  br label %5006
 
 617:                                              ; preds = %2
   %618 = load i32, ptr %60, align 16
@@ -4277,13 +4277,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %622 = load i32, ptr %621, align 4
   %623 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %620, i32 noundef %622)
   tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryInitOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERNS5_12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %619, ptr noundef nonnull align 8 dereferenceable(32) %623, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 624:                                              ; preds = %2
   %625 = load i32, ptr %60, align 16
   %626 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %625)
   tail call void @_ZN8WasmEdge8Executor8Executor13runDataDropOpERNS_7Runtime8Instance12DataInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(32) %626)
-  br label %5014
+  br label %5006
 
 627:                                              ; preds = %2
   %628 = load i32, ptr %60, align 16
@@ -4293,13 +4293,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %632 = load i32, ptr %631, align 4
   %633 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %630, i32 noundef %632)
   tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryCopyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %629, ptr noundef nonnull align 8 dereferenceable(28) %633, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 634:                                              ; preds = %2
   %635 = load i32, ptr %60, align 16
   %636 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %635)
   tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryFillOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %636, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 637:                                              ; preds = %2, %2, %2, %2
   %638 = load i128, ptr %60, align 16
@@ -4311,7 +4311,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.2.0.extract.trunc.i, ptr %639, align 8
   call void @_ZN8WasmEdge7Runtime12StackManager4pushINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(16) %41)
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 640:                                              ; preds = %2
   %641 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4323,7 +4323,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %646 = zext i1 %645 to i32
   store i32 %646, ptr %643, align 16, !noalias !28
   store i64 1, ptr %0, align 4, !alias.scope !28
-  br label %5014
+  br label %5006
 
 647:                                              ; preds = %2
   %648 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4335,7 +4335,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %653 = zext i1 %652 to i32
   store i32 %653, ptr %650, align 16, !noalias !31
   store i64 1, ptr %0, align 4, !alias.scope !31
-  br label %5014
+  br label %5006
 
 654:                                              ; preds = %2
   %655 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4362,7 +4362,7 @@ _ZNK8WasmEdge8Executor8Executor8runClzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
   %storemerge.i = phi i32 [ 32, %654 ], [ 0, %.preheader.i ], [ %660, %.lr.ph.i ]
   store i32 %storemerge.i, ptr %657, align 4, !noalias !34
   store i64 1, ptr %0, align 4, !alias.scope !34
-  br label %5014
+  br label %5006
 
 663:                                              ; preds = %2
   %664 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4391,7 +4391,7 @@ _ZNK8WasmEdge8Executor8Executor8runCtzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
   %storemerge.i636 = phi i32 [ 32, %663 ], [ 0, %.preheader.i635 ], [ %670, %.lr.ph.i637 ]
   store i32 %storemerge.i636, ptr %666, align 4, !noalias !38
   store i64 1, ptr %0, align 4, !alias.scope !38
-  br label %5014
+  br label %5006
 
 674:                                              ; preds = %2
   %675 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4417,7 +4417,7 @@ _ZNK8WasmEdge8Executor8Executor8runCtzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
 
 _ZNK8WasmEdge8Executor8Executor11runPopcntOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit: ; preds = %674, %681
   store i64 1, ptr %0, align 4, !alias.scope !42
-  br label %5014
+  br label %5006
 
 682:                                              ; preds = %2
   %683 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4444,7 +4444,7 @@ _ZNK8WasmEdge8Executor8Executor8runClzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
   %storemerge.i644 = phi i64 [ 64, %682 ], [ 0, %.preheader.i643 ], [ %688, %.lr.ph.i645 ]
   store i64 %storemerge.i644, ptr %685, align 8, !noalias !46
   store i64 1, ptr %0, align 4, !alias.scope !46
-  br label %5014
+  br label %5006
 
 691:                                              ; preds = %2
   %692 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4473,7 +4473,7 @@ _ZNK8WasmEdge8Executor8Executor8runCtzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
   %storemerge.i650 = phi i64 [ 64, %691 ], [ 0, %.preheader.i649 ], [ %698, %.lr.ph.i651 ]
   store i64 %storemerge.i650, ptr %694, align 8, !noalias !50
   store i64 1, ptr %0, align 4, !alias.scope !50
-  br label %5014
+  br label %5006
 
 702:                                              ; preds = %2
   %703 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4499,7 +4499,7 @@ _ZNK8WasmEdge8Executor8Executor8runCtzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN
 
 _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit: ; preds = %702, %709
   store i64 1, ptr %0, align 4, !alias.scope !54
-  br label %5014
+  br label %5006
 
 710:                                              ; preds = %2
   %711 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4510,7 +4510,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %715 = tail call noundef float @llvm.fabs.f32(float %714)
   store float %715, ptr %713, align 4, !noalias !58
   store i64 1, ptr %0, align 4, !alias.scope !58
-  br label %5014
+  br label %5006
 
 716:                                              ; preds = %2
   %717 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4521,7 +4521,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %721 = fneg float %720
   store float %721, ptr %719, align 4, !noalias !61
   store i64 1, ptr %0, align 4, !alias.scope !61
-  br label %5014
+  br label %5006
 
 722:                                              ; preds = %2
   %723 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4532,7 +4532,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %727 = tail call noundef float @llvm.ceil.f32(float %726)
   store float %727, ptr %725, align 4, !noalias !64
   store i64 1, ptr %0, align 4, !alias.scope !64
-  br label %5014
+  br label %5006
 
 728:                                              ; preds = %2
   %729 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4543,7 +4543,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %733 = tail call noundef float @llvm.floor.f32(float %732)
   store float %733, ptr %731, align 4, !noalias !67
   store i64 1, ptr %0, align 4, !alias.scope !67
-  br label %5014
+  br label %5006
 
 734:                                              ; preds = %2
   %735 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4554,7 +4554,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %739 = tail call noundef float @llvm.trunc.f32(float %738)
   store float %739, ptr %737, align 4, !noalias !70
   store i64 1, ptr %0, align 4, !alias.scope !70
-  br label %5014
+  br label %5006
 
 740:                                              ; preds = %2
   %741 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4565,7 +4565,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %745 = tail call noundef float @llvm.roundeven.f32(float %744)
   store float %745, ptr %743, align 4, !noalias !73
   store i64 1, ptr %0, align 4, !alias.scope !73
-  br label %5014
+  br label %5006
 
 746:                                              ; preds = %2
   %747 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4576,7 +4576,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %751 = tail call noundef float @sqrtf(float noundef %750) #24, !noalias !76
   store float %751, ptr %749, align 4, !noalias !76
   store i64 1, ptr %0, align 4, !alias.scope !76
-  br label %5014
+  br label %5006
 
 752:                                              ; preds = %2
   %753 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4587,7 +4587,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %757 = tail call double @llvm.fabs.f64(double %756)
   store double %757, ptr %755, align 8, !noalias !79
   store i64 1, ptr %0, align 4, !alias.scope !79
-  br label %5014
+  br label %5006
 
 758:                                              ; preds = %2
   %759 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4598,7 +4598,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %763 = fneg double %762
   store double %763, ptr %761, align 8, !noalias !82
   store i64 1, ptr %0, align 4, !alias.scope !82
-  br label %5014
+  br label %5006
 
 764:                                              ; preds = %2
   %765 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4609,7 +4609,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %769 = tail call double @llvm.ceil.f64(double %768)
   store double %769, ptr %767, align 8, !noalias !85
   store i64 1, ptr %0, align 4, !alias.scope !85
-  br label %5014
+  br label %5006
 
 770:                                              ; preds = %2
   %771 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4620,7 +4620,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %775 = tail call double @llvm.floor.f64(double %774)
   store double %775, ptr %773, align 8, !noalias !88
   store i64 1, ptr %0, align 4, !alias.scope !88
-  br label %5014
+  br label %5006
 
 776:                                              ; preds = %2
   %777 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4631,7 +4631,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %781 = tail call double @llvm.trunc.f64(double %780)
   store double %781, ptr %779, align 8, !noalias !91
   store i64 1, ptr %0, align 4, !alias.scope !91
-  br label %5014
+  br label %5006
 
 782:                                              ; preds = %2
   %783 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4642,7 +4642,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %787 = tail call noundef double @llvm.roundeven.f64(double %786)
   store double %787, ptr %785, align 8, !noalias !94
   store i64 1, ptr %0, align 4, !alias.scope !94
-  br label %5014
+  br label %5006
 
 788:                                              ; preds = %2
   %789 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4653,7 +4653,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %793 = tail call double @sqrt(double noundef %792) #24, !noalias !97
   store double %793, ptr %791, align 8, !noalias !97
   store i64 1, ptr %0, align 4, !alias.scope !97
-  br label %5014
+  br label %5006
 
 794:                                              ; preds = %2
   %795 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4664,35 +4664,35 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %799 = trunc i64 %798 to i32
   store i32 %799, ptr %797, align 16, !noalias !100
   store i64 1, ptr %0, align 4, !alias.scope !100
-  br label %5014
+  br label %5006
 
 800:                                              ; preds = %2
   %801 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %802 = load ptr, ptr %801, align 8
   %803 = getelementptr inbounds i8, ptr %802, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %803)
-  br label %5014
+  br label %5006
 
 804:                                              ; preds = %2
   %805 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %806 = load ptr, ptr %805, align 8
   %807 = getelementptr inbounds i8, ptr %806, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %807)
-  br label %5014
+  br label %5006
 
 808:                                              ; preds = %2
   %809 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %811)
-  br label %5014
+  br label %5006
 
 812:                                              ; preds = %2
   %813 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %814 = load ptr, ptr %813, align 8
   %815 = getelementptr inbounds i8, ptr %814, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %815)
-  br label %5014
+  br label %5006
 
 816:                                              ; preds = %2
   %817 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4703,7 +4703,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %821 = sext i32 %820 to i64
   store i64 %821, ptr %819, align 16, !noalias !103
   store i64 1, ptr %0, align 4, !alias.scope !103
-  br label %5014
+  br label %5006
 
 822:                                              ; preds = %2
   %823 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4714,35 +4714,35 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %827 = zext i32 %826 to i64
   store i64 %827, ptr %825, align 16, !noalias !106
   store i64 1, ptr %0, align 4, !alias.scope !106
-  br label %5014
+  br label %5006
 
 828:                                              ; preds = %2
   %829 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %830 = load ptr, ptr %829, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIflEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %831)
-  br label %5014
+  br label %5006
 
 832:                                              ; preds = %2
   %833 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %834 = load ptr, ptr %833, align 8
   %835 = getelementptr inbounds i8, ptr %834, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %835)
-  br label %5014
+  br label %5006
 
 836:                                              ; preds = %2
   %837 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds i8, ptr %838, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdlEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %839)
-  br label %5014
+  br label %5006
 
 840:                                              ; preds = %2
   %841 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %842 = load ptr, ptr %841, align 8
   %843 = getelementptr inbounds i8, ptr %842, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %843)
-  br label %5014
+  br label %5006
 
 844:                                              ; preds = %2
   %845 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4753,7 +4753,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %849 = sitofp i32 %848 to float
   store float %849, ptr %847, align 16, !noalias !109
   store i64 1, ptr %0, align 4, !alias.scope !109
-  br label %5014
+  br label %5006
 
 850:                                              ; preds = %2
   %851 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4764,7 +4764,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %855 = uitofp i32 %854 to float
   store float %855, ptr %853, align 16, !noalias !112
   store i64 1, ptr %0, align 4, !alias.scope !112
-  br label %5014
+  br label %5006
 
 856:                                              ; preds = %2
   %857 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4775,7 +4775,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %861 = sitofp i64 %860 to float
   store float %861, ptr %859, align 16, !noalias !115
   store i64 1, ptr %0, align 4, !alias.scope !115
-  br label %5014
+  br label %5006
 
 862:                                              ; preds = %2
   %863 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4786,7 +4786,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %867 = uitofp i64 %866 to float
   store float %867, ptr %865, align 16, !noalias !118
   store i64 1, ptr %0, align 4, !alias.scope !118
-  br label %5014
+  br label %5006
 
 868:                                              ; preds = %2
   %869 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4797,7 +4797,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %873 = fptrunc double %872 to float
   store float %873, ptr %871, align 16, !noalias !121
   store i64 1, ptr %0, align 4, !alias.scope !121
-  br label %5014
+  br label %5006
 
 874:                                              ; preds = %2
   %875 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4808,7 +4808,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %879 = sitofp i32 %878 to double
   store double %879, ptr %877, align 16, !noalias !124
   store i64 1, ptr %0, align 4, !alias.scope !124
-  br label %5014
+  br label %5006
 
 880:                                              ; preds = %2
   %881 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4819,7 +4819,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %885 = uitofp i32 %884 to double
   store double %885, ptr %883, align 16, !noalias !127
   store i64 1, ptr %0, align 4, !alias.scope !127
-  br label %5014
+  br label %5006
 
 886:                                              ; preds = %2
   %887 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4830,7 +4830,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %891 = sitofp i64 %890 to double
   store double %891, ptr %889, align 16, !noalias !130
   store i64 1, ptr %0, align 4, !alias.scope !130
-  br label %5014
+  br label %5006
 
 892:                                              ; preds = %2
   %893 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4841,7 +4841,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %897 = uitofp i64 %896 to double
   store double %897, ptr %895, align 16, !noalias !133
   store i64 1, ptr %0, align 4, !alias.scope !133
-  br label %5014
+  br label %5006
 
 898:                                              ; preds = %2
   %899 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4852,23 +4852,23 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %903 = fpext float %902 to double
   store double %903, ptr %901, align 16, !noalias !136
   store i64 1, ptr %0, align 4, !alias.scope !136
-  br label %5014
+  br label %5006
 
 904:                                              ; preds = %2
   store i64 1, ptr %0, align 4, !alias.scope !139
-  br label %5014
+  br label %5006
 
 905:                                              ; preds = %2
   store i64 1, ptr %0, align 4, !alias.scope !142
-  br label %5014
+  br label %5006
 
 906:                                              ; preds = %2
   store i64 1, ptr %0, align 4, !alias.scope !145
-  br label %5014
+  br label %5006
 
 907:                                              ; preds = %2
   store i64 1, ptr %0, align 4, !alias.scope !148
-  br label %5014
+  br label %5006
 
 908:                                              ; preds = %2
   %909 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4880,7 +4880,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %913 = ashr exact i32 %sext.i, 24
   store i32 %913, ptr %911, align 16, !noalias !151
   store i64 1, ptr %0, align 4, !alias.scope !151
-  br label %5014
+  br label %5006
 
 914:                                              ; preds = %2
   %915 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4892,7 +4892,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %919 = ashr exact i32 %sext.i660, 16
   store i32 %919, ptr %917, align 16, !noalias !154
   store i64 1, ptr %0, align 4, !alias.scope !154
-  br label %5014
+  br label %5006
 
 920:                                              ; preds = %2
   %921 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4904,7 +4904,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %925 = ashr exact i64 %sext.i661, 56
   store i64 %925, ptr %923, align 16, !noalias !157
   store i64 1, ptr %0, align 4, !alias.scope !157
-  br label %5014
+  br label %5006
 
 926:                                              ; preds = %2
   %927 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4916,7 +4916,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %931 = ashr exact i64 %sext.i662, 48
   store i64 %931, ptr %929, align 16, !noalias !160
   store i64 1, ptr %0, align 4, !alias.scope !160
-  br label %5014
+  br label %5006
 
 932:                                              ; preds = %2
   %933 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4928,7 +4928,7 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %937 = ashr exact i64 %sext.i663, 32
   store i64 %937, ptr %935, align 16, !noalias !163
   store i64 1, ptr %0, align 4, !alias.scope !163
-  br label %5014
+  br label %5006
 
 938:                                              ; preds = %2
   %939 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -4966,7 +4966,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfiEENSt9enable_ifIXaa12IsWasmF
   %.sink.i = phi i32 [ %955, %954 ], [ 0, %938 ], [ %..i, %947 ], [ -2147483648, %949 ], [ 2147483647, %952 ]
   store i32 %.sink.i, ptr %941, align 16, !noalias !166
   store i64 1, ptr %0, align 4, !alias.scope !166
-  br label %5014
+  br label %5006
 
 956:                                              ; preds = %2
   %957 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5004,7 +5004,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfjEENSt9enable_ifIXaa12IsWasmF
   %.sink.i664 = phi i32 [ %973, %972 ], [ 0, %956 ], [ %..i665, %965 ], [ 0, %967 ], [ -1, %970 ]
   store i32 %.sink.i664, ptr %959, align 16, !noalias !169
   store i64 1, ptr %0, align 4, !alias.scope !169
-  br label %5014
+  br label %5006
 
 974:                                              ; preds = %2
   %975 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5042,7 +5042,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdiEENSt9enable_ifIXaa12IsWasmF
   %.sink.i666 = phi i32 [ %991, %990 ], [ 0, %974 ], [ %..i667, %983 ], [ -2147483648, %985 ], [ 2147483647, %988 ]
   store i32 %.sink.i666, ptr %977, align 16, !noalias !172
   store i64 1, ptr %0, align 4, !alias.scope !172
-  br label %5014
+  br label %5006
 
 992:                                              ; preds = %2
   %993 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5080,7 +5080,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdjEENSt9enable_ifIXaa12IsWasmF
   %.sink.i668 = phi i32 [ %1009, %1008 ], [ 0, %992 ], [ %..i669, %1001 ], [ 0, %1003 ], [ -1, %1006 ]
   store i32 %.sink.i668, ptr %995, align 16, !noalias !175
   store i64 1, ptr %0, align 4, !alias.scope !175
-  br label %5014
+  br label %5006
 
 1010:                                             ; preds = %2
   %1011 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5118,7 +5118,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIflEENSt9enable_ifIXaa12IsWasmF
   %.sink.i670 = phi i64 [ %1027, %1026 ], [ 0, %1010 ], [ %..i671, %1019 ], [ -9223372036854775808, %1021 ], [ 9223372036854775807, %1024 ]
   store i64 %.sink.i670, ptr %1013, align 16, !noalias !178
   store i64 1, ptr %0, align 4, !alias.scope !178
-  br label %5014
+  br label %5006
 
 1028:                                             ; preds = %2
   %1029 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5156,7 +5156,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfmEENSt9enable_ifIXaa12IsWasmF
   %.sink.i672 = phi i64 [ %1045, %1044 ], [ 0, %1028 ], [ %..i673, %1037 ], [ 0, %1039 ], [ -1, %1042 ]
   store i64 %.sink.i672, ptr %1031, align 16, !noalias !181
   store i64 1, ptr %0, align 4, !alias.scope !181
-  br label %5014
+  br label %5006
 
 1046:                                             ; preds = %2
   %1047 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5194,7 +5194,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdlEENSt9enable_ifIXaa12IsWasmF
   %.sink.i674 = phi i64 [ %1063, %1062 ], [ 0, %1046 ], [ %..i675, %1055 ], [ -9223372036854775808, %1057 ], [ 9223372036854775807, %1060 ]
   store i64 %.sink.i674, ptr %1049, align 16, !noalias !184
   store i64 1, ptr %0, align 4, !alias.scope !184
-  br label %5014
+  br label %5006
 
 1064:                                             ; preds = %2
   %1065 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5232,7 +5232,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %.sink.i676 = phi i64 [ %1081, %1080 ], [ 0, %1064 ], [ %..i677, %1073 ], [ 0, %1075 ], [ -1, %1078 ]
   store i64 %.sink.i676, ptr %1067, align 16, !noalias !187
   store i64 1, ptr %0, align 4, !alias.scope !187
-  br label %5014
+  br label %5006
 
 1082:                                             ; preds = %2
   %1083 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5251,7 +5251,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1092 = zext i1 %1091 to i32
   store i32 %1092, ptr %1089, align 16, !noalias !190
   store i64 1, ptr %0, align 4, !alias.scope !190
-  br label %5014
+  br label %5006
 
 1093:                                             ; preds = %2
   %1094 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5270,7 +5270,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1102 = zext i1 %.not.i688 to i32
   store i32 %1102, ptr %1100, align 16, !noalias !193
   store i64 1, ptr %0, align 4, !alias.scope !193
-  br label %5014
+  br label %5006
 
 1103:                                             ; preds = %2
   %1104 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5289,7 +5289,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1113 = zext i1 %1112 to i32
   store i32 %1113, ptr %1110, align 16, !noalias !196
   store i64 1, ptr %0, align 4, !alias.scope !196
-  br label %5014
+  br label %5006
 
 1114:                                             ; preds = %2
   %1115 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5308,7 +5308,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1124 = zext i1 %1123 to i32
   store i32 %1124, ptr %1121, align 16, !noalias !199
   store i64 1, ptr %0, align 4, !alias.scope !199
-  br label %5014
+  br label %5006
 
 1125:                                             ; preds = %2
   %1126 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5327,7 +5327,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1135 = zext i1 %1134 to i32
   store i32 %1135, ptr %1132, align 16, !noalias !202
   store i64 1, ptr %0, align 4, !alias.scope !202
-  br label %5014
+  br label %5006
 
 1136:                                             ; preds = %2
   %1137 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5346,7 +5346,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1146 = zext i1 %1145 to i32
   store i32 %1146, ptr %1143, align 16, !noalias !205
   store i64 1, ptr %0, align 4, !alias.scope !205
-  br label %5014
+  br label %5006
 
 1147:                                             ; preds = %2
   %1148 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5365,7 +5365,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1156 = zext i1 %.not.i714 to i32
   store i32 %1156, ptr %1154, align 16, !noalias !208
   store i64 1, ptr %0, align 4, !alias.scope !208
-  br label %5014
+  br label %5006
 
 1157:                                             ; preds = %2
   %1158 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5384,7 +5384,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1166 = zext i1 %.not.i720 to i32
   store i32 %1166, ptr %1164, align 16, !noalias !211
   store i64 1, ptr %0, align 4, !alias.scope !211
-  br label %5014
+  br label %5006
 
 1167:                                             ; preds = %2
   %1168 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5403,7 +5403,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1176 = zext i1 %.not.i726 to i32
   store i32 %1176, ptr %1174, align 16, !noalias !214
   store i64 1, ptr %0, align 4, !alias.scope !214
-  br label %5014
+  br label %5006
 
 1177:                                             ; preds = %2
   %1178 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5422,7 +5422,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1186 = zext i1 %.not.i732 to i32
   store i32 %1186, ptr %1184, align 16, !noalias !217
   store i64 1, ptr %0, align 4, !alias.scope !217
-  br label %5014
+  br label %5006
 
 1187:                                             ; preds = %2
   %1188 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5440,7 +5440,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1197 = zext i1 %1196 to i32
   store i32 %1197, ptr %1194, align 16, !noalias !220
   store i64 1, ptr %0, align 4, !alias.scope !220
-  br label %5014
+  br label %5006
 
 1198:                                             ; preds = %2
   %1199 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5458,7 +5458,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1207 = zext i1 %.not.i743 to i32
   store i32 %1207, ptr %1205, align 16, !noalias !223
   store i64 1, ptr %0, align 4, !alias.scope !223
-  br label %5014
+  br label %5006
 
 1208:                                             ; preds = %2
   %1209 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5476,7 +5476,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1218 = zext i1 %1217 to i32
   store i32 %1218, ptr %1215, align 16, !noalias !226
   store i64 1, ptr %0, align 4, !alias.scope !226
-  br label %5014
+  br label %5006
 
 1219:                                             ; preds = %2
   %1220 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5494,7 +5494,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1229 = zext i1 %1228 to i32
   store i32 %1229, ptr %1226, align 16, !noalias !229
   store i64 1, ptr %0, align 4, !alias.scope !229
-  br label %5014
+  br label %5006
 
 1230:                                             ; preds = %2
   %1231 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5512,7 +5512,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1240 = zext i1 %1239 to i32
   store i32 %1240, ptr %1237, align 16, !noalias !232
   store i64 1, ptr %0, align 4, !alias.scope !232
-  br label %5014
+  br label %5006
 
 1241:                                             ; preds = %2
   %1242 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5530,7 +5530,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1251 = zext i1 %1250 to i32
   store i32 %1251, ptr %1248, align 16, !noalias !235
   store i64 1, ptr %0, align 4, !alias.scope !235
-  br label %5014
+  br label %5006
 
 1252:                                             ; preds = %2
   %1253 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5548,7 +5548,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1261 = zext i1 %.not.i769 to i32
   store i32 %1261, ptr %1259, align 16, !noalias !238
   store i64 1, ptr %0, align 4, !alias.scope !238
-  br label %5014
+  br label %5006
 
 1262:                                             ; preds = %2
   %1263 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5566,7 +5566,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1271 = zext i1 %.not.i775 to i32
   store i32 %1271, ptr %1269, align 16, !noalias !241
   store i64 1, ptr %0, align 4, !alias.scope !241
-  br label %5014
+  br label %5006
 
 1272:                                             ; preds = %2
   %1273 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5584,7 +5584,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1281 = zext i1 %.not.i781 to i32
   store i32 %1281, ptr %1279, align 16, !noalias !244
   store i64 1, ptr %0, align 4, !alias.scope !244
-  br label %5014
+  br label %5006
 
 1282:                                             ; preds = %2
   %1283 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5602,7 +5602,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1291 = zext i1 %.not.i787 to i32
   store i32 %1291, ptr %1289, align 16, !noalias !247
   store i64 1, ptr %0, align 4, !alias.scope !247
-  br label %5014
+  br label %5006
 
 1292:                                             ; preds = %2
   %1293 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5622,7 +5622,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1303 = zext i1 %1302 to i32
   store i32 %1303, ptr %1300, align 16, !noalias !250
   store i64 1, ptr %0, align 4, !alias.scope !250
-  br label %5014
+  br label %5006
 
 1304:                                             ; preds = %2
   %1305 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5642,7 +5642,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1315 = zext i1 %1314 to i32
   store i32 %1315, ptr %1312, align 16, !noalias !253
   store i64 1, ptr %0, align 4, !alias.scope !253
-  br label %5014
+  br label %5006
 
 1316:                                             ; preds = %2
   %1317 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5662,7 +5662,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1327 = zext i1 %1326 to i32
   store i32 %1327, ptr %1324, align 16, !noalias !256
   store i64 1, ptr %0, align 4, !alias.scope !256
-  br label %5014
+  br label %5006
 
 1328:                                             ; preds = %2
   %1329 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5682,7 +5682,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1339 = zext i1 %1338 to i32
   store i32 %1339, ptr %1336, align 16, !noalias !259
   store i64 1, ptr %0, align 4, !alias.scope !259
-  br label %5014
+  br label %5006
 
 1340:                                             ; preds = %2
   %1341 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5702,7 +5702,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1351 = zext i1 %1350 to i32
   store i32 %1351, ptr %1348, align 16, !noalias !262
   store i64 1, ptr %0, align 4, !alias.scope !262
-  br label %5014
+  br label %5006
 
 1352:                                             ; preds = %2
   %1353 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5722,7 +5722,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1363 = zext i1 %1362 to i32
   store i32 %1363, ptr %1360, align 16, !noalias !265
   store i64 1, ptr %0, align 4, !alias.scope !265
-  br label %5014
+  br label %5006
 
 1364:                                             ; preds = %2
   %1365 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5740,7 +5740,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1374 = zext i1 %1373 to i32
   store i32 %1374, ptr %1371, align 16, !noalias !268
   store i64 1, ptr %0, align 4, !alias.scope !268
-  br label %5014
+  br label %5006
 
 1375:                                             ; preds = %2
   %1376 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5758,7 +5758,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1385 = zext i1 %1384 to i32
   store i32 %1385, ptr %1382, align 16, !noalias !271
   store i64 1, ptr %0, align 4, !alias.scope !271
-  br label %5014
+  br label %5006
 
 1386:                                             ; preds = %2
   %1387 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5776,7 +5776,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1396 = zext i1 %1395 to i32
   store i32 %1396, ptr %1393, align 16, !noalias !274
   store i64 1, ptr %0, align 4, !alias.scope !274
-  br label %5014
+  br label %5006
 
 1397:                                             ; preds = %2
   %1398 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5794,7 +5794,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1407 = zext i1 %1406 to i32
   store i32 %1407, ptr %1404, align 16, !noalias !277
   store i64 1, ptr %0, align 4, !alias.scope !277
-  br label %5014
+  br label %5006
 
 1408:                                             ; preds = %2
   %1409 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5812,7 +5812,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1418 = zext i1 %1417 to i32
   store i32 %1418, ptr %1415, align 16, !noalias !280
   store i64 1, ptr %0, align 4, !alias.scope !280
-  br label %5014
+  br label %5006
 
 1419:                                             ; preds = %2
   %1420 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5830,7 +5830,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1429 = zext i1 %1428 to i32
   store i32 %1429, ptr %1426, align 16, !noalias !283
   store i64 1, ptr %0, align 4, !alias.scope !283
-  br label %5014
+  br label %5006
 
 1430:                                             ; preds = %2
   %1431 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5848,7 +5848,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1439 = add i32 %1438, %.sroa.02358.0.extract.trunc
   store i32 %1439, ptr %1437, align 4, !noalias !286
   store i64 1, ptr %0, align 4, !alias.scope !286
-  br label %5014
+  br label %5006
 
 1440:                                             ; preds = %2
   %1441 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5866,7 +5866,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1449 = sub i32 %1448, %.sroa.02356.0.extract.trunc
   store i32 %1449, ptr %1447, align 4, !noalias !289
   store i64 1, ptr %0, align 4, !alias.scope !289
-  br label %5014
+  br label %5006
 
 1450:                                             ; preds = %2
   %1451 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5884,7 +5884,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1459 = mul i32 %1458, %.sroa.02354.0.extract.trunc
   store i32 %1459, ptr %1457, align 4, !noalias !292
   store i64 1, ptr %0, align 4, !alias.scope !292
-  br label %5014
+  br label %5006
 
 1460:                                             ; preds = %2
   %1461 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5902,7 +5902,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1467 = load ptr, ptr %1466, align 8
   %1468 = getelementptr inbounds i8, ptr %1467, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1468, ptr noundef nonnull align 16 dereferenceable(16) %42)
-  br label %5014
+  br label %5006
 
 1469:                                             ; preds = %2
   %1470 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5920,7 +5920,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1476 = load ptr, ptr %1475, align 8
   %1477 = getelementptr inbounds i8, ptr %1476, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1477, ptr noundef nonnull align 16 dereferenceable(16) %43)
-  br label %5014
+  br label %5006
 
 1478:                                             ; preds = %2
   %1479 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5938,7 +5938,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1485 = load ptr, ptr %1484, align 8
   %1486 = getelementptr inbounds i8, ptr %1485, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIiEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1486, ptr noundef nonnull align 16 dereferenceable(16) %44)
-  br label %5014
+  br label %5006
 
 1487:                                             ; preds = %2
   %1488 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5956,7 +5956,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1494 = load ptr, ptr %1493, align 8
   %1495 = getelementptr inbounds i8, ptr %1494, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIjEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1495, ptr noundef nonnull align 16 dereferenceable(16) %45)
-  br label %5014
+  br label %5006
 
 1496:                                             ; preds = %2
   %1497 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5974,7 +5974,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1505 = and i32 %1504, %.sroa.02352.0.extract.trunc
   store i32 %1505, ptr %1503, align 4, !noalias !295
   store i64 1, ptr %0, align 4, !alias.scope !295
-  br label %5014
+  br label %5006
 
 1506:                                             ; preds = %2
   %1507 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -5992,7 +5992,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1515 = or i32 %1514, %.sroa.02350.0.extract.trunc
   store i32 %1515, ptr %1513, align 4, !noalias !298
   store i64 1, ptr %0, align 4, !alias.scope !298
-  br label %5014
+  br label %5006
 
 1516:                                             ; preds = %2
   %1517 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6010,7 +6010,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1525 = xor i32 %1524, %.sroa.02348.0.extract.trunc
   store i32 %1525, ptr %1523, align 4, !noalias !301
   store i64 1, ptr %0, align 4, !alias.scope !301
-  br label %5014
+  br label %5006
 
 1526:                                             ; preds = %2
   %1527 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6029,7 +6029,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1536 = shl i32 %1535, %1534
   store i32 %1536, ptr %1533, align 4, !noalias !304
   store i64 1, ptr %0, align 4, !alias.scope !304
-  br label %5014
+  br label %5006
 
 1537:                                             ; preds = %2
   %1538 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6048,7 +6048,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1547 = ashr i32 %1546, %1545
   store i32 %1547, ptr %1544, align 4, !noalias !307
   store i64 1, ptr %0, align 4, !alias.scope !307
-  br label %5014
+  br label %5006
 
 1548:                                             ; preds = %2
   %1549 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6067,7 +6067,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1558 = lshr i32 %1557, %1556
   store i32 %1558, ptr %1555, align 4, !noalias !310
   store i64 1, ptr %0, align 4, !alias.scope !310
-  br label %5014
+  br label %5006
 
 1559:                                             ; preds = %2
   %1560 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6093,7 +6093,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
 
 _ZNK8WasmEdge8Executor8Executor9runRotlOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit: ; preds = %1559, %1567
   store i64 1, ptr %0, align 4, !alias.scope !313
-  br label %5014
+  br label %5006
 
 1571:                                             ; preds = %2
   %1572 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6119,7 +6119,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotlOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
 
 _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit: ; preds = %1571, %1579
   store i64 1, ptr %0, align 4, !alias.scope !316
-  br label %5014
+  br label %5006
 
 1583:                                             ; preds = %2
   %1584 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6136,7 +6136,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1592 = add i64 %1591, %.sroa.0.0.copyload.i925
   store i64 %1592, ptr %1590, align 8, !noalias !319
   store i64 1, ptr %0, align 4, !alias.scope !319
-  br label %5014
+  br label %5006
 
 1593:                                             ; preds = %2
   %1594 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6153,7 +6153,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1602 = sub i64 %1601, %.sroa.0.0.copyload.i930
   store i64 %1602, ptr %1600, align 8, !noalias !322
   store i64 1, ptr %0, align 4, !alias.scope !322
-  br label %5014
+  br label %5006
 
 1603:                                             ; preds = %2
   %1604 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6170,7 +6170,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1612 = mul i64 %1611, %.sroa.0.0.copyload.i935
   store i64 %1612, ptr %1610, align 8, !noalias !325
   store i64 1, ptr %0, align 4, !alias.scope !325
-  br label %5014
+  br label %5006
 
 1613:                                             ; preds = %2
   %1614 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6188,7 +6188,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1620 = load ptr, ptr %1619, align 8
   %1621 = getelementptr inbounds i8, ptr %1620, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1621, ptr noundef nonnull align 16 dereferenceable(16) %46)
-  br label %5014
+  br label %5006
 
 1622:                                             ; preds = %2
   %1623 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6206,7 +6206,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1629 = load ptr, ptr %1628, align 8
   %1630 = getelementptr inbounds i8, ptr %1629, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runDivOpImEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1630, ptr noundef nonnull align 16 dereferenceable(16) %47)
-  br label %5014
+  br label %5006
 
 1631:                                             ; preds = %2
   %1632 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6224,7 +6224,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1638 = load ptr, ptr %1637, align 8
   %1639 = getelementptr inbounds i8, ptr %1638, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIlEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1639, ptr noundef nonnull align 16 dereferenceable(16) %48)
-  br label %5014
+  br label %5006
 
 1640:                                             ; preds = %2
   %1641 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6242,7 +6242,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1647 = load ptr, ptr %1646, align 8
   %1648 = getelementptr inbounds i8, ptr %1647, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runRemOpImEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1648, ptr noundef nonnull align 16 dereferenceable(16) %49)
-  br label %5014
+  br label %5006
 
 1649:                                             ; preds = %2
   %1650 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6259,7 +6259,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1658 = and i64 %1657, %.sroa.0.0.copyload.i960
   store i64 %1658, ptr %1656, align 8, !noalias !328
   store i64 1, ptr %0, align 4, !alias.scope !328
-  br label %5014
+  br label %5006
 
 1659:                                             ; preds = %2
   %1660 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6276,7 +6276,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1668 = or i64 %1667, %.sroa.0.0.copyload.i965
   store i64 %1668, ptr %1666, align 8, !noalias !331
   store i64 1, ptr %0, align 4, !alias.scope !331
-  br label %5014
+  br label %5006
 
 1669:                                             ; preds = %2
   %1670 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6293,7 +6293,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1678 = xor i64 %1677, %.sroa.0.0.copyload.i970
   store i64 %1678, ptr %1676, align 8, !noalias !334
   store i64 1, ptr %0, align 4, !alias.scope !334
-  br label %5014
+  br label %5006
 
 1679:                                             ; preds = %2
   %1680 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6311,7 +6311,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1689 = shl i64 %1688, %1687
   store i64 %1689, ptr %1686, align 8, !noalias !337
   store i64 1, ptr %0, align 4, !alias.scope !337
-  br label %5014
+  br label %5006
 
 1690:                                             ; preds = %2
   %1691 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6329,7 +6329,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1700 = ashr i64 %1699, %1698
   store i64 %1700, ptr %1697, align 8, !noalias !340
   store i64 1, ptr %0, align 4, !alias.scope !340
-  br label %5014
+  br label %5006
 
 1701:                                             ; preds = %2
   %1702 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6347,7 +6347,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1711 = lshr i64 %1710, %1709
   store i64 %1711, ptr %1708, align 8, !noalias !343
   store i64 1, ptr %0, align 4, !alias.scope !343
-  br label %5014
+  br label %5006
 
 1712:                                             ; preds = %2
   %1713 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6372,7 +6372,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
 
 _ZNK8WasmEdge8Executor8Executor9runRotlOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit: ; preds = %1712, %1720
   store i64 1, ptr %0, align 4, !alias.scope !346
-  br label %5014
+  br label %5006
 
 1724:                                             ; preds = %2
   %1725 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6397,7 +6397,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotlOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
 
 _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit: ; preds = %1724, %1732
   store i64 1, ptr %0, align 4, !alias.scope !349
-  br label %5014
+  br label %5006
 
 1736:                                             ; preds = %2
   %1737 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6416,7 +6416,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1746 = fadd float %1745, %1740
   store float %1746, ptr %1744, align 4, !noalias !352
   store i64 1, ptr %0, align 4, !alias.scope !352
-  br label %5014
+  br label %5006
 
 1747:                                             ; preds = %2
   %1748 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6435,7 +6435,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1757 = fsub float %1756, %1751
   store float %1757, ptr %1755, align 4, !noalias !355
   store i64 1, ptr %0, align 4, !alias.scope !355
-  br label %5014
+  br label %5006
 
 1758:                                             ; preds = %2
   %1759 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6454,7 +6454,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1768 = fmul float %1767, %1762
   store float %1768, ptr %1766, align 4, !noalias !358
   store i64 1, ptr %0, align 4, !alias.scope !358
-  br label %5014
+  br label %5006
 
 1769:                                             ; preds = %2
   %1770 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6473,7 +6473,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1779 = fdiv float %1778, %1773
   store float %1779, ptr %1777, align 4, !noalias !361
   store i64 1, ptr %0, align 4, !alias.scope !361
-  br label %5014
+  br label %5006
 
 1780:                                             ; preds = %2
   %1781 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6491,7 +6491,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1787 = load ptr, ptr %1786, align 8
   %1788 = getelementptr inbounds i8, ptr %1787, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1788, ptr noundef nonnull align 16 dereferenceable(16) %50)
-  br label %5014
+  br label %5006
 
 1789:                                             ; preds = %2
   %1790 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6509,7 +6509,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1796 = load ptr, ptr %1795, align 8
   %1797 = getelementptr inbounds i8, ptr %1796, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1797, ptr noundef nonnull align 16 dereferenceable(16) %51)
-  br label %5014
+  br label %5006
 
 1798:                                             ; preds = %2
   %1799 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6528,7 +6528,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1808 = tail call noundef float @llvm.copysign.f32(float %1807, float %1802)
   store float %1808, ptr %1806, align 4, !noalias !364
   store i64 1, ptr %0, align 4, !alias.scope !364
-  br label %5014
+  br label %5006
 
 1809:                                             ; preds = %2
   %1810 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6545,7 +6545,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1818 = fadd double %.sroa.0.0.copyload.i10372526, %1817
   store double %1818, ptr %1816, align 8, !noalias !367
   store i64 1, ptr %0, align 4, !alias.scope !367
-  br label %5014
+  br label %5006
 
 1819:                                             ; preds = %2
   %1820 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6562,7 +6562,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1828 = fsub double %1827, %.sroa.0.0.copyload.i10422525
   store double %1828, ptr %1826, align 8, !noalias !370
   store i64 1, ptr %0, align 4, !alias.scope !370
-  br label %5014
+  br label %5006
 
 1829:                                             ; preds = %2
   %1830 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6579,7 +6579,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1838 = fmul double %.sroa.0.0.copyload.i10472524, %1837
   store double %1838, ptr %1836, align 8, !noalias !373
   store i64 1, ptr %0, align 4, !alias.scope !373
-  br label %5014
+  br label %5006
 
 1839:                                             ; preds = %2
   %1840 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6596,7 +6596,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1848 = fdiv double %1847, %.sroa.0.0.copyload.i10522523
   store double %1848, ptr %1846, align 8, !noalias !376
   store i64 1, ptr %0, align 4, !alias.scope !376
-  br label %5014
+  br label %5006
 
 1849:                                             ; preds = %2
   %1850 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6614,7 +6614,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1856 = load ptr, ptr %1855, align 8
   %1857 = getelementptr inbounds i8, ptr %1856, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1857, ptr noundef nonnull align 16 dereferenceable(16) %52)
-  br label %5014
+  br label %5006
 
 1858:                                             ; preds = %2
   %1859 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6632,7 +6632,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1865 = load ptr, ptr %1864, align 8
   %1866 = getelementptr inbounds i8, ptr %1865, i64 -16
   call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1866, ptr noundef nonnull align 16 dereferenceable(16) %53)
-  br label %5014
+  br label %5006
 
 1867:                                             ; preds = %2
   %1868 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6649,139 +6649,139 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1876 = tail call double @llvm.copysign.f64(double %1875, double %.sroa.0.0.copyload.i10672522)
   store double %1876, ptr %1874, align 8, !noalias !379
   store i64 1, ptr %0, align 4, !alias.scope !379
-  br label %5014
+  br label %5006
 
 1877:                                             ; preds = %2
   %1878 = load i32, ptr %60, align 16
   %1879 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1878)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj128EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1879, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1880:                                             ; preds = %2
   %1881 = load i32, ptr %60, align 16
   %1882 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1881)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIasEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1882, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1883:                                             ; preds = %2
   %1884 = load i32, ptr %60, align 16
   %1885 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1884)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIhtEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1885, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1886:                                             ; preds = %2
   %1887 = load i32, ptr %60, align 16
   %1888 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1887)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIsiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1888, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1889:                                             ; preds = %2
   %1890 = load i32, ptr %60, align 16
   %1891 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1890)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpItjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1891, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1892:                                             ; preds = %2
   %1893 = load i32, ptr %60, align 16
   %1894 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1893)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIilEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1894, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1895:                                             ; preds = %2
   %1896 = load i32, ptr %60, align 16
   %1897 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1896)
   tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIjmEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1897, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1898:                                             ; preds = %2
   %1899 = load i32, ptr %60, align 16
   %1900 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1899)
   tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1900, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1901:                                             ; preds = %2
   %1902 = load i32, ptr %60, align 16
   %1903 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1902)
   tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1903, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1904:                                             ; preds = %2
   %1905 = load i32, ptr %60, align 16
   %1906 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1905)
   tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1906, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1907:                                             ; preds = %2
   %1908 = load i32, ptr %60, align 16
   %1909 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1908)
   tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1909, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1910:                                             ; preds = %2
   %1911 = load i32, ptr %60, align 16
   %1912 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1911)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1912, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1913:                                             ; preds = %2
   %1914 = load i32, ptr %60, align 16
   %1915 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1914)
   tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1915, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1916:                                             ; preds = %2
   %1917 = load i32, ptr %60, align 16
   %1918 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1917)
   tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIoLj128EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1918, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1919:                                             ; preds = %2
   %1920 = load i32, ptr %60, align 16
   %1921 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1920)
   tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1921, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1922:                                             ; preds = %2
   %1923 = load i32, ptr %60, align 16
   %1924 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1923)
   tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1924, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1925:                                             ; preds = %2
   %1926 = load i32, ptr %60, align 16
   %1927 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1926)
   tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1927, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1928:                                             ; preds = %2
   %1929 = load i32, ptr %60, align 16
   %1930 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1929)
   tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1930, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1931:                                             ; preds = %2
   %1932 = load i32, ptr %60, align 16
   %1933 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1932)
   tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1933, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1934:                                             ; preds = %2
   %1935 = load i32, ptr %60, align 16
   %1936 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1935)
   tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1936, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1937:                                             ; preds = %2
   %1938 = load i32, ptr %60, align 16
   %1939 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1938)
   tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1939, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1940:                                             ; preds = %2
   %1941 = load i32, ptr %60, align 16
   %1942 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1941)
   tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1942, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
+  br label %5006
 
 1943:                                             ; preds = %2
   %1944 = load i128, ptr %60, align 16
@@ -6793,7 +6793,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   store i64 %.sroa.2.0.extract.trunc.i1074, ptr %1945, align 8
   call void @_ZN8WasmEdge7Runtime12StackManager4pushINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(16) %54)
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 1946:                                             ; preds = %2
   %1947 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6833,7 +6833,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
 1966:                                             ; preds = %1956
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1953, ptr noundef nonnull align 1 dereferenceable(16) %56, i64 16, i1 false)
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 1967:                                             ; preds = %2
   %1968 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6847,7 +6847,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1975 = sext i8 %1974 to i32
   store i32 %1975, ptr %1970, align 16, !noalias !383
   store i64 1, ptr %0, align 4, !alias.scope !383
-  br label %5014
+  br label %5006
 
 1976:                                             ; preds = %2
   %1977 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6861,7 +6861,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1984 = zext i8 %1983 to i32
   store i32 %1984, ptr %1979, align 16, !noalias !386
   store i64 1, ptr %0, align 4, !alias.scope !386
-  br label %5014
+  br label %5006
 
 1985:                                             ; preds = %2
   %1986 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6875,7 +6875,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1993 = sext i16 %1992 to i32
   store i32 %1993, ptr %1988, align 16, !noalias !389
   store i64 1, ptr %0, align 4, !alias.scope !389
-  br label %5014
+  br label %5006
 
 1994:                                             ; preds = %2
   %1995 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6889,7 +6889,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2002 = zext i16 %2001 to i32
   store i32 %2002, ptr %1997, align 16, !noalias !392
   store i64 1, ptr %0, align 4, !alias.scope !392
-  br label %5014
+  br label %5006
 
 2003:                                             ; preds = %2
   %2004 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6902,7 +6902,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2010 = extractelement <4 x i32> %2009, i8 %2008
   store i32 %2010, ptr %2006, align 16, !noalias !395
   store i64 1, ptr %0, align 4, !alias.scope !395
-  br label %5014
+  br label %5006
 
 2011:                                             ; preds = %2
   %2012 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6915,7 +6915,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2018 = extractelement <2 x i64> %2017, i8 %2016
   store i64 %2018, ptr %2014, align 16, !noalias !398
   store i64 1, ptr %0, align 4, !alias.scope !398
-  br label %5014
+  br label %5006
 
 2019:                                             ; preds = %2
   %2020 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6928,7 +6928,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2026 = extractelement <4 x float> %2025, i8 %2024
   store float %2026, ptr %2022, align 16, !noalias !401
   store i64 1, ptr %0, align 4, !alias.scope !401
-  br label %5014
+  br label %5006
 
 2027:                                             ; preds = %2
   %2028 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6941,7 +6941,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2034 = extractelement <2 x double> %2033, i8 %2032
   store double %2034, ptr %2030, align 16, !noalias !404
   store i64 1, ptr %0, align 4, !alias.scope !404
-  br label %5014
+  br label %5006
 
 2035:                                             ; preds = %2
   %2036 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6961,7 +6961,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2047 = insertelement <16 x i8> %2046, i8 %2045, i8 %2044
   store <16 x i8> %2047, ptr %2042, align 16, !noalias !407
   store i64 1, ptr %0, align 4, !alias.scope !407
-  br label %5014
+  br label %5006
 
 2048:                                             ; preds = %2
   %2049 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -6981,7 +6981,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2060 = insertelement <8 x i16> %2059, i16 %2058, i8 %2057
   store <8 x i16> %2060, ptr %2055, align 16, !noalias !410
   store i64 1, ptr %0, align 4, !alias.scope !410
-  br label %5014
+  br label %5006
 
 2061:                                             ; preds = %2
   %2062 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7001,7 +7001,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2072 = insertelement <4 x i32> %2071, i32 %.sroa.02288.0.extract.trunc, i8 %2070
   store <4 x i32> %2072, ptr %2068, align 16, !noalias !413
   store i64 1, ptr %0, align 4, !alias.scope !413
-  br label %5014
+  br label %5006
 
 2073:                                             ; preds = %2
   %2074 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7020,7 +7020,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2084 = insertelement <2 x i64> %2083, i64 %.sroa.0.0.copyload.i1102, i8 %2082
   store <2 x i64> %2084, ptr %2080, align 16, !noalias !416
   store i64 1, ptr %0, align 4, !alias.scope !416
-  br label %5014
+  br label %5006
 
 2085:                                             ; preds = %2
   %2086 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7041,7 +7041,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2097 = insertelement <4 x float> %2096, float %2089, i8 %2095
   store <4 x float> %2097, ptr %2093, align 16, !noalias !419
   store i64 1, ptr %0, align 4, !alias.scope !419
-  br label %5014
+  br label %5006
 
 2098:                                             ; preds = %2
   %2099 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7060,7 +7060,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2109 = insertelement <2 x double> %2108, double %.sroa.0.0.copyload.i11122521, i8 %2107
   store <2 x double> %2109, ptr %2105, align 16, !noalias !422
   store i64 1, ptr %0, align 4, !alias.scope !422
-  br label %5014
+  br label %5006
 
 2110:                                             ; preds = %2
   %2111 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7161,7 +7161,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2200 = select <16 x i1> %2199, <16 x i8> %2198, <16 x i8> zeroinitializer
   store <16 x i8> %2200, ptr %2117, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2201:                                             ; preds = %2
   %2202 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7174,7 +7174,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2208 = shufflevector <16 x i8> %2207, <16 x i8> poison, <16 x i32> zeroinitializer
   store <16 x i8> %2208, ptr %2204, align 16, !noalias !425
   store i64 1, ptr %0, align 4, !alias.scope !425
-  br label %5014
+  br label %5006
 
 2209:                                             ; preds = %2
   %2210 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7187,7 +7187,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2216 = shufflevector <8 x i16> %2215, <8 x i16> poison, <8 x i32> zeroinitializer
   store <8 x i16> %2216, ptr %2212, align 16, !noalias !428
   store i64 1, ptr %0, align 4, !alias.scope !428
-  br label %5014
+  br label %5006
 
 2217:                                             ; preds = %2
   %2218 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7198,7 +7198,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2222 = shufflevector <4 x i32> %2221, <4 x i32> poison, <4 x i32> zeroinitializer
   store <4 x i32> %2222, ptr %2220, align 16, !noalias !431
   store i64 1, ptr %0, align 4, !alias.scope !431
-  br label %5014
+  br label %5006
 
 2223:                                             ; preds = %2
   %2224 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7209,7 +7209,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2228 = shufflevector <2 x i64> %2227, <2 x i64> poison, <2 x i32> zeroinitializer
   store <2 x i64> %2228, ptr %2226, align 16, !noalias !434
   store i64 1, ptr %0, align 4, !alias.scope !434
-  br label %5014
+  br label %5006
 
 2229:                                             ; preds = %2
   %2230 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7220,7 +7220,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2234 = shufflevector <4 x float> %2233, <4 x float> poison, <4 x i32> zeroinitializer
   store <4 x float> %2234, ptr %2232, align 16, !noalias !437
   store i64 1, ptr %0, align 4, !alias.scope !437
-  br label %5014
+  br label %5006
 
 2235:                                             ; preds = %2
   %2236 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7231,7 +7231,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2240 = shufflevector <2 x double> %2239, <2 x double> poison, <2 x i32> zeroinitializer
   store <2 x double> %2240, ptr %2238, align 16, !noalias !440
   store i64 1, ptr %0, align 4, !alias.scope !440
-  br label %5014
+  br label %5006
 
 2241:                                             ; preds = %2
   %2242 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7254,7 +7254,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2252 = sext <16 x i1> %2251 to <16 x i8>
   store <16 x i8> %2252, ptr %2248, align 16, !noalias !443
   store i64 1, ptr %0, align 4, !alias.scope !443
-  br label %5014
+  br label %5006
 
 2253:                                             ; preds = %2
   %2254 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7277,7 +7277,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2264 = sext <16 x i1> %2263 to <16 x i8>
   store <16 x i8> %2264, ptr %2260, align 16, !noalias !446
   store i64 1, ptr %0, align 4, !alias.scope !446
-  br label %5014
+  br label %5006
 
 2265:                                             ; preds = %2
   %2266 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7300,7 +7300,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2276 = sext <16 x i1> %2275 to <16 x i8>
   store <16 x i8> %2276, ptr %2272, align 16, !noalias !449
   store i64 1, ptr %0, align 4, !alias.scope !449
-  br label %5014
+  br label %5006
 
 2277:                                             ; preds = %2
   %2278 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7323,7 +7323,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2288 = sext <16 x i1> %2287 to <16 x i8>
   store <16 x i8> %2288, ptr %2284, align 16, !noalias !452
   store i64 1, ptr %0, align 4, !alias.scope !452
-  br label %5014
+  br label %5006
 
 2289:                                             ; preds = %2
   %2290 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7346,7 +7346,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2300 = sext <16 x i1> %2299 to <16 x i8>
   store <16 x i8> %2300, ptr %2296, align 16, !noalias !455
   store i64 1, ptr %0, align 4, !alias.scope !455
-  br label %5014
+  br label %5006
 
 2301:                                             ; preds = %2
   %2302 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7369,7 +7369,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2312 = sext <16 x i1> %2311 to <16 x i8>
   store <16 x i8> %2312, ptr %2308, align 16, !noalias !458
   store i64 1, ptr %0, align 4, !alias.scope !458
-  br label %5014
+  br label %5006
 
 2313:                                             ; preds = %2
   %2314 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7392,7 +7392,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2324 = sext <16 x i1> %2323 to <16 x i8>
   store <16 x i8> %2324, ptr %2320, align 16, !noalias !461
   store i64 1, ptr %0, align 4, !alias.scope !461
-  br label %5014
+  br label %5006
 
 2325:                                             ; preds = %2
   %2326 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7415,7 +7415,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2336 = sext <16 x i1> %2335 to <16 x i8>
   store <16 x i8> %2336, ptr %2332, align 16, !noalias !464
   store i64 1, ptr %0, align 4, !alias.scope !464
-  br label %5014
+  br label %5006
 
 2337:                                             ; preds = %2
   %2338 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7438,7 +7438,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2348 = sext <16 x i1> %2347 to <16 x i8>
   store <16 x i8> %2348, ptr %2344, align 16, !noalias !467
   store i64 1, ptr %0, align 4, !alias.scope !467
-  br label %5014
+  br label %5006
 
 2349:                                             ; preds = %2
   %2350 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7461,7 +7461,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2360 = sext <16 x i1> %2359 to <16 x i8>
   store <16 x i8> %2360, ptr %2356, align 16, !noalias !470
   store i64 1, ptr %0, align 4, !alias.scope !470
-  br label %5014
+  br label %5006
 
 2361:                                             ; preds = %2
   %2362 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7484,7 +7484,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2372 = sext <8 x i1> %2371 to <8 x i16>
   store <8 x i16> %2372, ptr %2368, align 16, !noalias !473
   store i64 1, ptr %0, align 4, !alias.scope !473
-  br label %5014
+  br label %5006
 
 2373:                                             ; preds = %2
   %2374 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7507,7 +7507,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2384 = sext <8 x i1> %2383 to <8 x i16>
   store <8 x i16> %2384, ptr %2380, align 16, !noalias !476
   store i64 1, ptr %0, align 4, !alias.scope !476
-  br label %5014
+  br label %5006
 
 2385:                                             ; preds = %2
   %2386 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7530,7 +7530,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2396 = sext <8 x i1> %2395 to <8 x i16>
   store <8 x i16> %2396, ptr %2392, align 16, !noalias !479
   store i64 1, ptr %0, align 4, !alias.scope !479
-  br label %5014
+  br label %5006
 
 2397:                                             ; preds = %2
   %2398 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7553,7 +7553,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2408 = sext <8 x i1> %2407 to <8 x i16>
   store <8 x i16> %2408, ptr %2404, align 16, !noalias !482
   store i64 1, ptr %0, align 4, !alias.scope !482
-  br label %5014
+  br label %5006
 
 2409:                                             ; preds = %2
   %2410 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7576,7 +7576,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2420 = sext <8 x i1> %2419 to <8 x i16>
   store <8 x i16> %2420, ptr %2416, align 16, !noalias !485
   store i64 1, ptr %0, align 4, !alias.scope !485
-  br label %5014
+  br label %5006
 
 2421:                                             ; preds = %2
   %2422 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7599,7 +7599,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2432 = sext <8 x i1> %2431 to <8 x i16>
   store <8 x i16> %2432, ptr %2428, align 16, !noalias !488
   store i64 1, ptr %0, align 4, !alias.scope !488
-  br label %5014
+  br label %5006
 
 2433:                                             ; preds = %2
   %2434 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7622,7 +7622,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2444 = sext <8 x i1> %2443 to <8 x i16>
   store <8 x i16> %2444, ptr %2440, align 16, !noalias !491
   store i64 1, ptr %0, align 4, !alias.scope !491
-  br label %5014
+  br label %5006
 
 2445:                                             ; preds = %2
   %2446 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7645,7 +7645,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2456 = sext <8 x i1> %2455 to <8 x i16>
   store <8 x i16> %2456, ptr %2452, align 16, !noalias !494
   store i64 1, ptr %0, align 4, !alias.scope !494
-  br label %5014
+  br label %5006
 
 2457:                                             ; preds = %2
   %2458 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7668,7 +7668,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2468 = sext <8 x i1> %2467 to <8 x i16>
   store <8 x i16> %2468, ptr %2464, align 16, !noalias !497
   store i64 1, ptr %0, align 4, !alias.scope !497
-  br label %5014
+  br label %5006
 
 2469:                                             ; preds = %2
   %2470 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7691,7 +7691,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2480 = sext <8 x i1> %2479 to <8 x i16>
   store <8 x i16> %2480, ptr %2476, align 16, !noalias !500
   store i64 1, ptr %0, align 4, !alias.scope !500
-  br label %5014
+  br label %5006
 
 2481:                                             ; preds = %2
   %2482 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7714,7 +7714,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2492 = sext <4 x i1> %2491 to <4 x i32>
   store <4 x i32> %2492, ptr %2488, align 16, !noalias !503
   store i64 1, ptr %0, align 4, !alias.scope !503
-  br label %5014
+  br label %5006
 
 2493:                                             ; preds = %2
   %2494 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7737,7 +7737,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2504 = sext <4 x i1> %2503 to <4 x i32>
   store <4 x i32> %2504, ptr %2500, align 16, !noalias !506
   store i64 1, ptr %0, align 4, !alias.scope !506
-  br label %5014
+  br label %5006
 
 2505:                                             ; preds = %2
   %2506 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7760,7 +7760,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2516 = sext <4 x i1> %2515 to <4 x i32>
   store <4 x i32> %2516, ptr %2512, align 16, !noalias !509
   store i64 1, ptr %0, align 4, !alias.scope !509
-  br label %5014
+  br label %5006
 
 2517:                                             ; preds = %2
   %2518 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7783,7 +7783,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2528 = sext <4 x i1> %2527 to <4 x i32>
   store <4 x i32> %2528, ptr %2524, align 16, !noalias !512
   store i64 1, ptr %0, align 4, !alias.scope !512
-  br label %5014
+  br label %5006
 
 2529:                                             ; preds = %2
   %2530 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7806,7 +7806,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2540 = sext <4 x i1> %2539 to <4 x i32>
   store <4 x i32> %2540, ptr %2536, align 16, !noalias !515
   store i64 1, ptr %0, align 4, !alias.scope !515
-  br label %5014
+  br label %5006
 
 2541:                                             ; preds = %2
   %2542 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7829,7 +7829,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2552 = sext <4 x i1> %2551 to <4 x i32>
   store <4 x i32> %2552, ptr %2548, align 16, !noalias !518
   store i64 1, ptr %0, align 4, !alias.scope !518
-  br label %5014
+  br label %5006
 
 2553:                                             ; preds = %2
   %2554 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7852,7 +7852,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2564 = sext <4 x i1> %2563 to <4 x i32>
   store <4 x i32> %2564, ptr %2560, align 16, !noalias !521
   store i64 1, ptr %0, align 4, !alias.scope !521
-  br label %5014
+  br label %5006
 
 2565:                                             ; preds = %2
   %2566 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7875,7 +7875,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2576 = sext <4 x i1> %2575 to <4 x i32>
   store <4 x i32> %2576, ptr %2572, align 16, !noalias !524
   store i64 1, ptr %0, align 4, !alias.scope !524
-  br label %5014
+  br label %5006
 
 2577:                                             ; preds = %2
   %2578 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7898,7 +7898,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2588 = sext <4 x i1> %2587 to <4 x i32>
   store <4 x i32> %2588, ptr %2584, align 16, !noalias !527
   store i64 1, ptr %0, align 4, !alias.scope !527
-  br label %5014
+  br label %5006
 
 2589:                                             ; preds = %2
   %2590 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7921,7 +7921,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2600 = sext <4 x i1> %2599 to <4 x i32>
   store <4 x i32> %2600, ptr %2596, align 16, !noalias !530
   store i64 1, ptr %0, align 4, !alias.scope !530
-  br label %5014
+  br label %5006
 
 2601:                                             ; preds = %2
   %2602 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7943,7 +7943,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2611 = sext <2 x i1> %2610 to <2 x i64>
   store <2 x i64> %2611, ptr %2608, align 16, !noalias !533
   store i64 1, ptr %0, align 4, !alias.scope !533
-  br label %5014
+  br label %5006
 
 2612:                                             ; preds = %2
   %2613 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7965,7 +7965,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2622 = sext <2 x i1> %2621 to <2 x i64>
   store <2 x i64> %2622, ptr %2619, align 16, !noalias !536
   store i64 1, ptr %0, align 4, !alias.scope !536
-  br label %5014
+  br label %5006
 
 2623:                                             ; preds = %2
   %2624 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -7987,7 +7987,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2633 = sext <2 x i1> %2632 to <2 x i64>
   store <2 x i64> %2633, ptr %2630, align 16, !noalias !539
   store i64 1, ptr %0, align 4, !alias.scope !539
-  br label %5014
+  br label %5006
 
 2634:                                             ; preds = %2
   %2635 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8009,7 +8009,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2644 = sext <2 x i1> %2643 to <2 x i64>
   store <2 x i64> %2644, ptr %2641, align 16, !noalias !542
   store i64 1, ptr %0, align 4, !alias.scope !542
-  br label %5014
+  br label %5006
 
 2645:                                             ; preds = %2
   %2646 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8031,7 +8031,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2655 = sext <2 x i1> %2654 to <2 x i64>
   store <2 x i64> %2655, ptr %2652, align 16, !noalias !545
   store i64 1, ptr %0, align 4, !alias.scope !545
-  br label %5014
+  br label %5006
 
 2656:                                             ; preds = %2
   %2657 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8053,7 +8053,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2666 = sext <2 x i1> %2665 to <2 x i64>
   store <2 x i64> %2666, ptr %2663, align 16, !noalias !548
   store i64 1, ptr %0, align 4, !alias.scope !548
-  br label %5014
+  br label %5006
 
 2667:                                             ; preds = %2
   %2668 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8076,7 +8076,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2678 = sext <4 x i1> %2677 to <4 x i32>
   store <4 x i32> %2678, ptr %2674, align 16, !noalias !551
   store i64 1, ptr %0, align 4, !alias.scope !551
-  br label %5014
+  br label %5006
 
 2679:                                             ; preds = %2
   %2680 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8099,7 +8099,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2690 = sext <4 x i1> %2689 to <4 x i32>
   store <4 x i32> %2690, ptr %2686, align 16, !noalias !554
   store i64 1, ptr %0, align 4, !alias.scope !554
-  br label %5014
+  br label %5006
 
 2691:                                             ; preds = %2
   %2692 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8122,7 +8122,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2702 = sext <4 x i1> %2701 to <4 x i32>
   store <4 x i32> %2702, ptr %2698, align 16, !noalias !557
   store i64 1, ptr %0, align 4, !alias.scope !557
-  br label %5014
+  br label %5006
 
 2703:                                             ; preds = %2
   %2704 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8145,7 +8145,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2714 = sext <4 x i1> %2713 to <4 x i32>
   store <4 x i32> %2714, ptr %2710, align 16, !noalias !560
   store i64 1, ptr %0, align 4, !alias.scope !560
-  br label %5014
+  br label %5006
 
 2715:                                             ; preds = %2
   %2716 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8168,7 +8168,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2726 = sext <4 x i1> %2725 to <4 x i32>
   store <4 x i32> %2726, ptr %2722, align 16, !noalias !563
   store i64 1, ptr %0, align 4, !alias.scope !563
-  br label %5014
+  br label %5006
 
 2727:                                             ; preds = %2
   %2728 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8191,7 +8191,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2738 = sext <4 x i1> %2737 to <4 x i32>
   store <4 x i32> %2738, ptr %2734, align 16, !noalias !566
   store i64 1, ptr %0, align 4, !alias.scope !566
-  br label %5014
+  br label %5006
 
 2739:                                             ; preds = %2
   %2740 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8213,7 +8213,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2749 = sext <2 x i1> %2748 to <2 x i64>
   store <2 x i64> %2749, ptr %2746, align 16, !noalias !569
   store i64 1, ptr %0, align 4, !alias.scope !569
-  br label %5014
+  br label %5006
 
 2750:                                             ; preds = %2
   %2751 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8235,7 +8235,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2760 = sext <2 x i1> %2759 to <2 x i64>
   store <2 x i64> %2760, ptr %2757, align 16, !noalias !572
   store i64 1, ptr %0, align 4, !alias.scope !572
-  br label %5014
+  br label %5006
 
 2761:                                             ; preds = %2
   %2762 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8257,7 +8257,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2771 = sext <2 x i1> %2770 to <2 x i64>
   store <2 x i64> %2771, ptr %2768, align 16, !noalias !575
   store i64 1, ptr %0, align 4, !alias.scope !575
-  br label %5014
+  br label %5006
 
 2772:                                             ; preds = %2
   %2773 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8279,7 +8279,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2782 = sext <2 x i1> %2781 to <2 x i64>
   store <2 x i64> %2782, ptr %2779, align 16, !noalias !578
   store i64 1, ptr %0, align 4, !alias.scope !578
-  br label %5014
+  br label %5006
 
 2783:                                             ; preds = %2
   %2784 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8301,7 +8301,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2793 = sext <2 x i1> %2792 to <2 x i64>
   store <2 x i64> %2793, ptr %2790, align 16, !noalias !581
   store i64 1, ptr %0, align 4, !alias.scope !581
-  br label %5014
+  br label %5006
 
 2794:                                             ; preds = %2
   %2795 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8323,7 +8323,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2804 = sext <2 x i1> %2803 to <2 x i64>
   store <2 x i64> %2804, ptr %2801, align 16, !noalias !584
   store i64 1, ptr %0, align 4, !alias.scope !584
-  br label %5014
+  br label %5006
 
 2805:                                             ; preds = %2
   %2806 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8333,7 +8333,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2810 = xor i128 %2809, -1
   store i128 %2810, ptr %2808, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2811:                                             ; preds = %2
   %2812 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8353,7 +8353,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2820 = and <2 x i64> %2819, %.sroa.02183.8.vec.insert
   store <2 x i64> %2820, ptr %2818, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2821:                                             ; preds = %2
   %2822 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8374,7 +8374,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2831 = and <2 x i64> %2830, %2829
   store <2 x i64> %2831, ptr %2828, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2832:                                             ; preds = %2
   %2833 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8394,7 +8394,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2841 = or <2 x i64> %2840, %.sroa.02179.8.vec.insert
   store <2 x i64> %2841, ptr %2839, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2842:                                             ; preds = %2
   %2843 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8414,7 +8414,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2851 = xor <2 x i64> %2850, %.sroa.02177.8.vec.insert
   store <2 x i64> %2851, ptr %2849, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2852:                                             ; preds = %2
   %2853 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8447,7 +8447,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2868 = or <2 x i64> %2865, %2867
   store <2 x i64> %2868, ptr %2863, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
 2869:                                             ; preds = %2
   %2870 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8459,7 +8459,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2875 = zext i1 %2874 to i32
   store i32 %2875, ptr %2872, align 16, !noalias !587
   store i64 1, ptr %0, align 4, !alias.scope !587
-  br label %5014
+  br label %5006
 
 2876:                                             ; preds = %2
   %2877 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8474,7 +8474,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2884 = or <16 x i8> %2883, %2882
   store <16 x i8> %2884, ptr %2879, align 16, !noalias !590
   store i64 1, ptr %0, align 4, !alias.scope !590
-  br label %5014
+  br label %5006
 
 2885:                                             ; preds = %2
   %2886 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8485,7 +8485,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2890 = sub <16 x i8> zeroinitializer, %2889
   store <16 x i8> %2890, ptr %2888, align 16, !noalias !593
   store i64 1, ptr %0, align 4, !alias.scope !593
-  br label %5014
+  br label %5006
 
 2891:                                             ; preds = %2
   %2892 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8505,21 +8505,21 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2905 = and <16 x i8> %2904, splat (i8 15)
   store <16 x i8> %2905, ptr %2894, align 16, !noalias !596
   store i64 1, ptr %0, align 4, !alias.scope !596
-  br label %5014
+  br label %5006
 
 2906:                                             ; preds = %2
   %2907 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %2908 = load ptr, ptr %2907, align 8
   %2909 = getelementptr inbounds i8, ptr %2908, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2909)
-  br label %5014
+  br label %5006
 
 2910:                                             ; preds = %2
   %2911 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %2912 = load ptr, ptr %2911, align 8
   %2913 = getelementptr inbounds i8, ptr %2912, i64 -16
   tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2913)
-  br label %5014
+  br label %5006
 
 2914:                                             ; preds = %2
   %2915 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -8538,3622 +8538,3614 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !599)
   %2922 = load <8 x i16>, ptr %2921, align 16, !noalias !599
   %2923 = bitcast <2 x i64> %.sroa.02171.8.vec.insert to <8 x i16>
-  %2924 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2922, <8 x i16> splat (i16 -128))
-  %2925 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2924, <8 x i16> splat (i16 127))
-  %2926 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2923, <8 x i16> splat (i16 -128))
-  %2927 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2926, <8 x i16> splat (i16 127))
-  %2928 = shufflevector <8 x i16> %2925, <8 x i16> %2927, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %2929 = trunc nsw <16 x i16> %2928 to <16 x i8>
-  store <16 x i8> %2929, ptr %2921, align 16, !noalias !599
+  %2924 = shufflevector <8 x i16> %2922, <8 x i16> %2923, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %2925 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %2924, <16 x i16> splat (i16 -128))
+  %2926 = tail call <16 x i16> @llvm.smin.v16i16(<16 x i16> %2925, <16 x i16> splat (i16 127))
+  %2927 = trunc nsw <16 x i16> %2926 to <16 x i8>
+  store <16 x i8> %2927, ptr %2921, align 16, !noalias !599
   store i64 1, ptr %0, align 4, !alias.scope !599
-  br label %5014
+  br label %5006
 
-2930:                                             ; preds = %2
-  %2931 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %2932 = load ptr, ptr %2931, align 8
-  %2933 = getelementptr inbounds i8, ptr %2932, i64 -16
-  %.sroa.0.0.copyload.i1397 = load i64, ptr %2933, align 16
-  %.sroa.2.0..sroa_idx.i1398 = getelementptr inbounds i8, ptr %2932, i64 -8
+2928:                                             ; preds = %2
+  %2929 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2930 = load ptr, ptr %2929, align 8
+  %2931 = getelementptr inbounds i8, ptr %2930, i64 -16
+  %.sroa.0.0.copyload.i1397 = load i64, ptr %2931, align 16
+  %.sroa.2.0..sroa_idx.i1398 = getelementptr inbounds i8, ptr %2930, i64 -8
   %.sroa.2.0.copyload.i1399 = load i64, ptr %.sroa.2.0..sroa_idx.i1398, align 8
-  store ptr %2933, ptr %2931, align 8
+  store ptr %2931, ptr %2929, align 8
   %.sroa.02169.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1397, i64 0
   %.sroa.02169.8.vec.insert = insertelement <2 x i64> %.sroa.02169.0.vec.insert, i64 %.sroa.2.0.copyload.i1399, i64 1
-  %2934 = load ptr, ptr %61, align 8
-  %2935 = getelementptr inbounds nuw i8, ptr %2934, i64 8
-  %2936 = load ptr, ptr %2935, align 8
-  %2937 = getelementptr inbounds i8, ptr %2936, i64 -16
+  %2932 = load ptr, ptr %61, align 8
+  %2933 = getelementptr inbounds nuw i8, ptr %2932, i64 8
+  %2934 = load ptr, ptr %2933, align 8
+  %2935 = getelementptr inbounds i8, ptr %2934, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !602)
-  %2938 = load <8 x i16>, ptr %2937, align 16, !noalias !602
-  %2939 = bitcast <2 x i64> %.sroa.02169.8.vec.insert to <8 x i16>
-  %2940 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2938, <8 x i16> zeroinitializer)
-  %2941 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2940, <8 x i16> splat (i16 255))
-  %2942 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2939, <8 x i16> zeroinitializer)
-  %2943 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2942, <8 x i16> splat (i16 255))
-  %2944 = shufflevector <8 x i16> %2941, <8 x i16> %2943, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %2945 = trunc nuw <16 x i16> %2944 to <16 x i8>
-  store <16 x i8> %2945, ptr %2937, align 16, !noalias !602
+  %2936 = load <8 x i16>, ptr %2935, align 16, !noalias !602
+  %2937 = bitcast <2 x i64> %.sroa.02169.8.vec.insert to <8 x i16>
+  %2938 = shufflevector <8 x i16> %2936, <8 x i16> %2937, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %2939 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %2938, <16 x i16> zeroinitializer)
+  %2940 = tail call <16 x i16> @llvm.umin.v16i16(<16 x i16> %2939, <16 x i16> splat (i16 255))
+  %2941 = trunc nuw <16 x i16> %2940 to <16 x i8>
+  store <16 x i8> %2941, ptr %2935, align 16, !noalias !602
   store i64 1, ptr %0, align 4, !alias.scope !602
-  br label %5014
+  br label %5006
 
-2946:                                             ; preds = %2
-  %2947 = getelementptr inbounds nuw i8, ptr %62, i64 8
+2942:                                             ; preds = %2
+  %2943 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2944 = load ptr, ptr %2943, align 8
+  %2945 = getelementptr inbounds i8, ptr %2944, i64 -16
+  %.sroa.0.0.copyload.i1402 = load i64, ptr %2945, align 16
+  store ptr %2945, ptr %2943, align 8
+  %2946 = load ptr, ptr %61, align 8
+  %2947 = getelementptr inbounds nuw i8, ptr %2946, i64 8
   %2948 = load ptr, ptr %2947, align 8
   %2949 = getelementptr inbounds i8, ptr %2948, i64 -16
-  %.sroa.0.0.copyload.i1402 = load i64, ptr %2949, align 16
-  store ptr %2949, ptr %2947, align 8
-  %2950 = load ptr, ptr %61, align 8
-  %2951 = getelementptr inbounds nuw i8, ptr %2950, i64 8
-  %2952 = load ptr, ptr %2951, align 8
-  %2953 = getelementptr inbounds i8, ptr %2952, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
-  %2954 = load <16 x i8>, ptr %2953, align 16, !noalias !605
-  %2955 = trunc i64 %.sroa.0.0.copyload.i1402 to i8
-  %2956 = and i8 %2955, 7
-  %2957 = insertelement <16 x i8> poison, i8 %2956, i64 0
-  %2958 = shufflevector <16 x i8> %2957, <16 x i8> poison, <16 x i32> zeroinitializer
-  %2959 = shl <16 x i8> %2954, %2958
-  store <16 x i8> %2959, ptr %2953, align 16, !noalias !605
+  %2950 = load <16 x i8>, ptr %2949, align 16, !noalias !605
+  %2951 = trunc i64 %.sroa.0.0.copyload.i1402 to i8
+  %2952 = and i8 %2951, 7
+  %2953 = insertelement <16 x i8> poison, i8 %2952, i64 0
+  %2954 = shufflevector <16 x i8> %2953, <16 x i8> poison, <16 x i32> zeroinitializer
+  %2955 = shl <16 x i8> %2950, %2954
+  store <16 x i8> %2955, ptr %2949, align 16, !noalias !605
   store i64 1, ptr %0, align 4, !alias.scope !605
-  br label %5014
+  br label %5006
 
-2960:                                             ; preds = %2
-  %2961 = getelementptr inbounds nuw i8, ptr %62, i64 8
+2956:                                             ; preds = %2
+  %2957 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2958 = load ptr, ptr %2957, align 8
+  %2959 = getelementptr inbounds i8, ptr %2958, i64 -16
+  %.sroa.0.0.copyload.i1407 = load i64, ptr %2959, align 16
+  store ptr %2959, ptr %2957, align 8
+  %2960 = load ptr, ptr %61, align 8
+  %2961 = getelementptr inbounds nuw i8, ptr %2960, i64 8
   %2962 = load ptr, ptr %2961, align 8
   %2963 = getelementptr inbounds i8, ptr %2962, i64 -16
-  %.sroa.0.0.copyload.i1407 = load i64, ptr %2963, align 16
-  store ptr %2963, ptr %2961, align 8
-  %2964 = load ptr, ptr %61, align 8
-  %2965 = getelementptr inbounds nuw i8, ptr %2964, i64 8
-  %2966 = load ptr, ptr %2965, align 8
-  %2967 = getelementptr inbounds i8, ptr %2966, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
-  %2968 = load <16 x i8>, ptr %2967, align 16, !noalias !608
-  %2969 = trunc i64 %.sroa.0.0.copyload.i1407 to i8
-  %2970 = and i8 %2969, 7
-  %2971 = insertelement <16 x i8> poison, i8 %2970, i64 0
-  %2972 = shufflevector <16 x i8> %2971, <16 x i8> poison, <16 x i32> zeroinitializer
-  %2973 = ashr <16 x i8> %2968, %2972
-  store <16 x i8> %2973, ptr %2967, align 16, !noalias !608
+  %2964 = load <16 x i8>, ptr %2963, align 16, !noalias !608
+  %2965 = trunc i64 %.sroa.0.0.copyload.i1407 to i8
+  %2966 = and i8 %2965, 7
+  %2967 = insertelement <16 x i8> poison, i8 %2966, i64 0
+  %2968 = shufflevector <16 x i8> %2967, <16 x i8> poison, <16 x i32> zeroinitializer
+  %2969 = ashr <16 x i8> %2964, %2968
+  store <16 x i8> %2969, ptr %2963, align 16, !noalias !608
   store i64 1, ptr %0, align 4, !alias.scope !608
-  br label %5014
+  br label %5006
 
-2974:                                             ; preds = %2
-  %2975 = getelementptr inbounds nuw i8, ptr %62, i64 8
+2970:                                             ; preds = %2
+  %2971 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2972 = load ptr, ptr %2971, align 8
+  %2973 = getelementptr inbounds i8, ptr %2972, i64 -16
+  %.sroa.0.0.copyload.i1412 = load i64, ptr %2973, align 16
+  store ptr %2973, ptr %2971, align 8
+  %2974 = load ptr, ptr %61, align 8
+  %2975 = getelementptr inbounds nuw i8, ptr %2974, i64 8
   %2976 = load ptr, ptr %2975, align 8
   %2977 = getelementptr inbounds i8, ptr %2976, i64 -16
-  %.sroa.0.0.copyload.i1412 = load i64, ptr %2977, align 16
-  store ptr %2977, ptr %2975, align 8
-  %2978 = load ptr, ptr %61, align 8
-  %2979 = getelementptr inbounds nuw i8, ptr %2978, i64 8
-  %2980 = load ptr, ptr %2979, align 8
-  %2981 = getelementptr inbounds i8, ptr %2980, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
-  %2982 = load <16 x i8>, ptr %2981, align 16, !noalias !611
-  %2983 = trunc i64 %.sroa.0.0.copyload.i1412 to i8
-  %2984 = and i8 %2983, 7
-  %2985 = insertelement <16 x i8> poison, i8 %2984, i64 0
-  %2986 = shufflevector <16 x i8> %2985, <16 x i8> poison, <16 x i32> zeroinitializer
-  %2987 = lshr <16 x i8> %2982, %2986
-  store <16 x i8> %2987, ptr %2981, align 16, !noalias !611
+  %2978 = load <16 x i8>, ptr %2977, align 16, !noalias !611
+  %2979 = trunc i64 %.sroa.0.0.copyload.i1412 to i8
+  %2980 = and i8 %2979, 7
+  %2981 = insertelement <16 x i8> poison, i8 %2980, i64 0
+  %2982 = shufflevector <16 x i8> %2981, <16 x i8> poison, <16 x i32> zeroinitializer
+  %2983 = lshr <16 x i8> %2978, %2982
+  store <16 x i8> %2983, ptr %2977, align 16, !noalias !611
   store i64 1, ptr %0, align 4, !alias.scope !611
-  br label %5014
+  br label %5006
 
-2988:                                             ; preds = %2
-  %2989 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %2990 = load ptr, ptr %2989, align 8
-  %2991 = getelementptr inbounds i8, ptr %2990, i64 -16
-  %.sroa.0.0.copyload.i1417 = load i64, ptr %2991, align 16
-  %.sroa.2.0..sroa_idx.i1418 = getelementptr inbounds i8, ptr %2990, i64 -8
+2984:                                             ; preds = %2
+  %2985 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2986 = load ptr, ptr %2985, align 8
+  %2987 = getelementptr inbounds i8, ptr %2986, i64 -16
+  %.sroa.0.0.copyload.i1417 = load i64, ptr %2987, align 16
+  %.sroa.2.0..sroa_idx.i1418 = getelementptr inbounds i8, ptr %2986, i64 -8
   %.sroa.2.0.copyload.i1419 = load i64, ptr %.sroa.2.0..sroa_idx.i1418, align 8
-  store ptr %2991, ptr %2989, align 8
+  store ptr %2987, ptr %2985, align 8
   %.sroa.02152.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1417, i64 0
   %.sroa.02152.8.vec.insert = insertelement <2 x i64> %.sroa.02152.0.vec.insert, i64 %.sroa.2.0.copyload.i1419, i64 1
-  %2992 = load ptr, ptr %61, align 8
-  %2993 = getelementptr inbounds nuw i8, ptr %2992, i64 8
-  %2994 = load ptr, ptr %2993, align 8
-  %2995 = getelementptr inbounds i8, ptr %2994, i64 -16
+  %2988 = load ptr, ptr %61, align 8
+  %2989 = getelementptr inbounds nuw i8, ptr %2988, i64 8
+  %2990 = load ptr, ptr %2989, align 8
+  %2991 = getelementptr inbounds i8, ptr %2990, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
-  %2996 = bitcast <2 x i64> %.sroa.02152.8.vec.insert to <16 x i8>
-  %2997 = load <16 x i8>, ptr %2995, align 16, !noalias !614
-  %2998 = add <16 x i8> %2997, %2996
-  store <16 x i8> %2998, ptr %2995, align 16, !noalias !614
+  %2992 = bitcast <2 x i64> %.sroa.02152.8.vec.insert to <16 x i8>
+  %2993 = load <16 x i8>, ptr %2991, align 16, !noalias !614
+  %2994 = add <16 x i8> %2993, %2992
+  store <16 x i8> %2994, ptr %2991, align 16, !noalias !614
   store i64 1, ptr %0, align 4, !alias.scope !614
-  br label %5014
+  br label %5006
 
-2999:                                             ; preds = %2
-  %3000 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3001 = load ptr, ptr %3000, align 8
-  %3002 = getelementptr inbounds i8, ptr %3001, i64 -16
-  %.sroa.0.0.copyload.i1422 = load i64, ptr %3002, align 16
-  %.sroa.2.0..sroa_idx.i1423 = getelementptr inbounds i8, ptr %3001, i64 -8
+2995:                                             ; preds = %2
+  %2996 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %2997 = load ptr, ptr %2996, align 8
+  %2998 = getelementptr inbounds i8, ptr %2997, i64 -16
+  %.sroa.0.0.copyload.i1422 = load i64, ptr %2998, align 16
+  %.sroa.2.0..sroa_idx.i1423 = getelementptr inbounds i8, ptr %2997, i64 -8
   %.sroa.2.0.copyload.i1424 = load i64, ptr %.sroa.2.0..sroa_idx.i1423, align 8
-  store ptr %3002, ptr %3000, align 8
+  store ptr %2998, ptr %2996, align 8
   %.sroa.02150.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1422, i64 0
   %.sroa.02150.8.vec.insert = insertelement <2 x i64> %.sroa.02150.0.vec.insert, i64 %.sroa.2.0.copyload.i1424, i64 1
-  %3003 = load ptr, ptr %61, align 8
-  %3004 = getelementptr inbounds nuw i8, ptr %3003, i64 8
-  %3005 = load ptr, ptr %3004, align 8
-  %3006 = getelementptr inbounds i8, ptr %3005, i64 -16
+  %2999 = load ptr, ptr %61, align 8
+  %3000 = getelementptr inbounds nuw i8, ptr %2999, i64 8
+  %3001 = load ptr, ptr %3000, align 8
+  %3002 = getelementptr inbounds i8, ptr %3001, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !617)
-  %3007 = load <16 x i8>, ptr %3006, align 16, !noalias !617
-  %3008 = bitcast <2 x i64> %.sroa.02150.8.vec.insert to <16 x i8>
-  %3009 = add <16 x i8> %3007, %3008
-  %3010 = lshr <16 x i8> %3007, splat (i8 7)
-  %3011 = add nuw <16 x i8> %3010, splat (i8 127)
-  %3012 = xor <16 x i8> %3007, %3008
-  %3013 = xor <16 x i8> %3009, %3008
-  %3014 = xor <16 x i8> %3013, splat (i8 -1)
-  %3015 = or <16 x i8> %3012, %3014
-  %3016 = icmp slt <16 x i8> %3015, zeroinitializer
-  %3017 = select <16 x i1> %3016, <16 x i8> %3009, <16 x i8> %3011
-  store <16 x i8> %3017, ptr %3006, align 16, !noalias !617
+  %3003 = load <16 x i8>, ptr %3002, align 16, !noalias !617
+  %3004 = bitcast <2 x i64> %.sroa.02150.8.vec.insert to <16 x i8>
+  %3005 = add <16 x i8> %3003, %3004
+  %3006 = lshr <16 x i8> %3003, splat (i8 7)
+  %3007 = add nuw <16 x i8> %3006, splat (i8 127)
+  %3008 = xor <16 x i8> %3003, %3004
+  %3009 = xor <16 x i8> %3005, %3004
+  %3010 = xor <16 x i8> %3009, splat (i8 -1)
+  %3011 = or <16 x i8> %3008, %3010
+  %3012 = icmp slt <16 x i8> %3011, zeroinitializer
+  %3013 = select <16 x i1> %3012, <16 x i8> %3005, <16 x i8> %3007
+  store <16 x i8> %3013, ptr %3002, align 16, !noalias !617
   store i64 1, ptr %0, align 4, !alias.scope !617
-  br label %5014
+  br label %5006
 
-3018:                                             ; preds = %2
-  %3019 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3020 = load ptr, ptr %3019, align 8
-  %3021 = getelementptr inbounds i8, ptr %3020, i64 -16
-  %.sroa.0.0.copyload.i1427 = load i64, ptr %3021, align 16
-  %.sroa.2.0..sroa_idx.i1428 = getelementptr inbounds i8, ptr %3020, i64 -8
+3014:                                             ; preds = %2
+  %3015 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3016 = load ptr, ptr %3015, align 8
+  %3017 = getelementptr inbounds i8, ptr %3016, i64 -16
+  %.sroa.0.0.copyload.i1427 = load i64, ptr %3017, align 16
+  %.sroa.2.0..sroa_idx.i1428 = getelementptr inbounds i8, ptr %3016, i64 -8
   %.sroa.2.0.copyload.i1429 = load i64, ptr %.sroa.2.0..sroa_idx.i1428, align 8
-  store ptr %3021, ptr %3019, align 8
+  store ptr %3017, ptr %3015, align 8
   %.sroa.02148.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1427, i64 0
   %.sroa.02148.8.vec.insert = insertelement <2 x i64> %.sroa.02148.0.vec.insert, i64 %.sroa.2.0.copyload.i1429, i64 1
-  %3022 = load ptr, ptr %61, align 8
-  %3023 = getelementptr inbounds nuw i8, ptr %3022, i64 8
-  %3024 = load ptr, ptr %3023, align 8
-  %3025 = getelementptr inbounds i8, ptr %3024, i64 -16
+  %3018 = load ptr, ptr %61, align 8
+  %3019 = getelementptr inbounds nuw i8, ptr %3018, i64 8
+  %3020 = load ptr, ptr %3019, align 8
+  %3021 = getelementptr inbounds i8, ptr %3020, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
-  %3026 = load <16 x i8>, ptr %3025, align 16, !noalias !620
-  %3027 = bitcast <2 x i64> %.sroa.02148.8.vec.insert to <16 x i8>
-  %3028 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %3026, <16 x i8> %3027)
-  store <16 x i8> %3028, ptr %3025, align 16, !noalias !620
+  %3022 = load <16 x i8>, ptr %3021, align 16, !noalias !620
+  %3023 = bitcast <2 x i64> %.sroa.02148.8.vec.insert to <16 x i8>
+  %3024 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %3022, <16 x i8> %3023)
+  store <16 x i8> %3024, ptr %3021, align 16, !noalias !620
   store i64 1, ptr %0, align 4, !alias.scope !620
-  br label %5014
+  br label %5006
 
-3029:                                             ; preds = %2
-  %3030 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3031 = load ptr, ptr %3030, align 8
-  %3032 = getelementptr inbounds i8, ptr %3031, i64 -16
-  %.sroa.0.0.copyload.i1432 = load i64, ptr %3032, align 16
-  %.sroa.2.0..sroa_idx.i1433 = getelementptr inbounds i8, ptr %3031, i64 -8
+3025:                                             ; preds = %2
+  %3026 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3027 = load ptr, ptr %3026, align 8
+  %3028 = getelementptr inbounds i8, ptr %3027, i64 -16
+  %.sroa.0.0.copyload.i1432 = load i64, ptr %3028, align 16
+  %.sroa.2.0..sroa_idx.i1433 = getelementptr inbounds i8, ptr %3027, i64 -8
   %.sroa.2.0.copyload.i1434 = load i64, ptr %.sroa.2.0..sroa_idx.i1433, align 8
-  store ptr %3032, ptr %3030, align 8
+  store ptr %3028, ptr %3026, align 8
   %.sroa.02146.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1432, i64 0
   %.sroa.02146.8.vec.insert = insertelement <2 x i64> %.sroa.02146.0.vec.insert, i64 %.sroa.2.0.copyload.i1434, i64 1
-  %3033 = load ptr, ptr %61, align 8
-  %3034 = getelementptr inbounds nuw i8, ptr %3033, i64 8
-  %3035 = load ptr, ptr %3034, align 8
-  %3036 = getelementptr inbounds i8, ptr %3035, i64 -16
+  %3029 = load ptr, ptr %61, align 8
+  %3030 = getelementptr inbounds nuw i8, ptr %3029, i64 8
+  %3031 = load ptr, ptr %3030, align 8
+  %3032 = getelementptr inbounds i8, ptr %3031, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
-  %3037 = bitcast <2 x i64> %.sroa.02146.8.vec.insert to <16 x i8>
-  %3038 = load <16 x i8>, ptr %3036, align 16, !noalias !623
-  %3039 = sub <16 x i8> %3038, %3037
-  store <16 x i8> %3039, ptr %3036, align 16, !noalias !623
+  %3033 = bitcast <2 x i64> %.sroa.02146.8.vec.insert to <16 x i8>
+  %3034 = load <16 x i8>, ptr %3032, align 16, !noalias !623
+  %3035 = sub <16 x i8> %3034, %3033
+  store <16 x i8> %3035, ptr %3032, align 16, !noalias !623
   store i64 1, ptr %0, align 4, !alias.scope !623
-  br label %5014
+  br label %5006
 
-3040:                                             ; preds = %2
-  %3041 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3042 = load ptr, ptr %3041, align 8
-  %3043 = getelementptr inbounds i8, ptr %3042, i64 -16
-  %.sroa.0.0.copyload.i1437 = load i64, ptr %3043, align 16
-  %.sroa.2.0..sroa_idx.i1438 = getelementptr inbounds i8, ptr %3042, i64 -8
+3036:                                             ; preds = %2
+  %3037 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3038 = load ptr, ptr %3037, align 8
+  %3039 = getelementptr inbounds i8, ptr %3038, i64 -16
+  %.sroa.0.0.copyload.i1437 = load i64, ptr %3039, align 16
+  %.sroa.2.0..sroa_idx.i1438 = getelementptr inbounds i8, ptr %3038, i64 -8
   %.sroa.2.0.copyload.i1439 = load i64, ptr %.sroa.2.0..sroa_idx.i1438, align 8
-  store ptr %3043, ptr %3041, align 8
+  store ptr %3039, ptr %3037, align 8
   %.sroa.02144.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1437, i64 0
   %.sroa.02144.8.vec.insert = insertelement <2 x i64> %.sroa.02144.0.vec.insert, i64 %.sroa.2.0.copyload.i1439, i64 1
-  %3044 = load ptr, ptr %61, align 8
-  %3045 = getelementptr inbounds nuw i8, ptr %3044, i64 8
-  %3046 = load ptr, ptr %3045, align 8
-  %3047 = getelementptr inbounds i8, ptr %3046, i64 -16
+  %3040 = load ptr, ptr %61, align 8
+  %3041 = getelementptr inbounds nuw i8, ptr %3040, i64 8
+  %3042 = load ptr, ptr %3041, align 8
+  %3043 = getelementptr inbounds i8, ptr %3042, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !626)
-  %3048 = load <16 x i8>, ptr %3047, align 16, !noalias !626
-  %3049 = bitcast <2 x i64> %.sroa.02144.8.vec.insert to <16 x i8>
-  %3050 = sub <16 x i8> %3048, %3049
-  %3051 = lshr <16 x i8> %3048, splat (i8 7)
-  %3052 = add nuw <16 x i8> %3051, splat (i8 127)
-  %3053 = xor <16 x i8> %3048, %3049
-  %3054 = xor <16 x i8> %3050, %3048
-  %3055 = and <16 x i8> %3054, %3053
-  %isneg16.i = icmp slt <16 x i8> %3055, zeroinitializer
-  %3056 = select <16 x i1> %isneg16.i, <16 x i8> %3052, <16 x i8> %3050
-  store <16 x i8> %3056, ptr %3047, align 16, !noalias !626
+  %3044 = load <16 x i8>, ptr %3043, align 16, !noalias !626
+  %3045 = bitcast <2 x i64> %.sroa.02144.8.vec.insert to <16 x i8>
+  %3046 = sub <16 x i8> %3044, %3045
+  %3047 = lshr <16 x i8> %3044, splat (i8 7)
+  %3048 = add nuw <16 x i8> %3047, splat (i8 127)
+  %3049 = xor <16 x i8> %3044, %3045
+  %3050 = xor <16 x i8> %3046, %3044
+  %3051 = and <16 x i8> %3050, %3049
+  %isneg16.i = icmp slt <16 x i8> %3051, zeroinitializer
+  %3052 = select <16 x i1> %isneg16.i, <16 x i8> %3048, <16 x i8> %3046
+  store <16 x i8> %3052, ptr %3043, align 16, !noalias !626
   store i64 1, ptr %0, align 4, !alias.scope !626
-  br label %5014
+  br label %5006
 
-3057:                                             ; preds = %2
-  %3058 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3059 = load ptr, ptr %3058, align 8
-  %3060 = getelementptr inbounds i8, ptr %3059, i64 -16
-  %.sroa.0.0.copyload.i1442 = load i64, ptr %3060, align 16
-  %.sroa.2.0..sroa_idx.i1443 = getelementptr inbounds i8, ptr %3059, i64 -8
+3053:                                             ; preds = %2
+  %3054 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3055 = load ptr, ptr %3054, align 8
+  %3056 = getelementptr inbounds i8, ptr %3055, i64 -16
+  %.sroa.0.0.copyload.i1442 = load i64, ptr %3056, align 16
+  %.sroa.2.0..sroa_idx.i1443 = getelementptr inbounds i8, ptr %3055, i64 -8
   %.sroa.2.0.copyload.i1444 = load i64, ptr %.sroa.2.0..sroa_idx.i1443, align 8
-  store ptr %3060, ptr %3058, align 8
+  store ptr %3056, ptr %3054, align 8
   %.sroa.02142.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1442, i64 0
   %.sroa.02142.8.vec.insert = insertelement <2 x i64> %.sroa.02142.0.vec.insert, i64 %.sroa.2.0.copyload.i1444, i64 1
-  %3061 = load ptr, ptr %61, align 8
-  %3062 = getelementptr inbounds nuw i8, ptr %3061, i64 8
-  %3063 = load ptr, ptr %3062, align 8
-  %3064 = getelementptr inbounds i8, ptr %3063, i64 -16
+  %3057 = load ptr, ptr %61, align 8
+  %3058 = getelementptr inbounds nuw i8, ptr %3057, i64 8
+  %3059 = load ptr, ptr %3058, align 8
+  %3060 = getelementptr inbounds i8, ptr %3059, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !629)
-  %3065 = load <16 x i8>, ptr %3064, align 16, !noalias !629
-  %3066 = bitcast <2 x i64> %.sroa.02142.8.vec.insert to <16 x i8>
-  %3067 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %3065, <16 x i8> %3066)
-  store <16 x i8> %3067, ptr %3064, align 16, !noalias !629
+  %3061 = load <16 x i8>, ptr %3060, align 16, !noalias !629
+  %3062 = bitcast <2 x i64> %.sroa.02142.8.vec.insert to <16 x i8>
+  %3063 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %3061, <16 x i8> %3062)
+  store <16 x i8> %3063, ptr %3060, align 16, !noalias !629
   store i64 1, ptr %0, align 4, !alias.scope !629
-  br label %5014
+  br label %5006
 
-3068:                                             ; preds = %2
-  %3069 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3070 = load ptr, ptr %3069, align 8
-  %3071 = getelementptr inbounds i8, ptr %3070, i64 -16
-  %.sroa.0.0.copyload.i1447 = load i64, ptr %3071, align 16
-  %.sroa.2.0..sroa_idx.i1448 = getelementptr inbounds i8, ptr %3070, i64 -8
+3064:                                             ; preds = %2
+  %3065 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3066 = load ptr, ptr %3065, align 8
+  %3067 = getelementptr inbounds i8, ptr %3066, i64 -16
+  %.sroa.0.0.copyload.i1447 = load i64, ptr %3067, align 16
+  %.sroa.2.0..sroa_idx.i1448 = getelementptr inbounds i8, ptr %3066, i64 -8
   %.sroa.2.0.copyload.i1449 = load i64, ptr %.sroa.2.0..sroa_idx.i1448, align 8
-  store ptr %3071, ptr %3069, align 8
+  store ptr %3067, ptr %3065, align 8
   %.sroa.02140.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1447, i64 0
   %.sroa.02140.8.vec.insert = insertelement <2 x i64> %.sroa.02140.0.vec.insert, i64 %.sroa.2.0.copyload.i1449, i64 1
-  %3072 = load ptr, ptr %61, align 8
-  %3073 = getelementptr inbounds nuw i8, ptr %3072, i64 8
-  %3074 = load ptr, ptr %3073, align 8
-  %3075 = getelementptr inbounds i8, ptr %3074, i64 -16
+  %3068 = load ptr, ptr %61, align 8
+  %3069 = getelementptr inbounds nuw i8, ptr %3068, i64 8
+  %3070 = load ptr, ptr %3069, align 8
+  %3071 = getelementptr inbounds i8, ptr %3070, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
-  %3076 = load <16 x i8>, ptr %3075, align 16, !noalias !632
-  %3077 = bitcast <2 x i64> %.sroa.02140.8.vec.insert to <16 x i8>
-  %3078 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %3076, <16 x i8> %3077)
-  store <16 x i8> %3078, ptr %3075, align 16, !noalias !632
+  %3072 = load <16 x i8>, ptr %3071, align 16, !noalias !632
+  %3073 = bitcast <2 x i64> %.sroa.02140.8.vec.insert to <16 x i8>
+  %3074 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %3072, <16 x i8> %3073)
+  store <16 x i8> %3074, ptr %3071, align 16, !noalias !632
   store i64 1, ptr %0, align 4, !alias.scope !632
-  br label %5014
+  br label %5006
 
-3079:                                             ; preds = %2
-  %3080 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3081 = load ptr, ptr %3080, align 8
-  %3082 = getelementptr inbounds i8, ptr %3081, i64 -16
-  %.sroa.0.0.copyload.i1452 = load i64, ptr %3082, align 16
-  %.sroa.2.0..sroa_idx.i1453 = getelementptr inbounds i8, ptr %3081, i64 -8
+3075:                                             ; preds = %2
+  %3076 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3077 = load ptr, ptr %3076, align 8
+  %3078 = getelementptr inbounds i8, ptr %3077, i64 -16
+  %.sroa.0.0.copyload.i1452 = load i64, ptr %3078, align 16
+  %.sroa.2.0..sroa_idx.i1453 = getelementptr inbounds i8, ptr %3077, i64 -8
   %.sroa.2.0.copyload.i1454 = load i64, ptr %.sroa.2.0..sroa_idx.i1453, align 8
-  store ptr %3082, ptr %3080, align 8
+  store ptr %3078, ptr %3076, align 8
   %.sroa.02138.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1452, i64 0
   %.sroa.02138.8.vec.insert = insertelement <2 x i64> %.sroa.02138.0.vec.insert, i64 %.sroa.2.0.copyload.i1454, i64 1
-  %3083 = load ptr, ptr %61, align 8
-  %3084 = getelementptr inbounds nuw i8, ptr %3083, i64 8
-  %3085 = load ptr, ptr %3084, align 8
-  %3086 = getelementptr inbounds i8, ptr %3085, i64 -16
+  %3079 = load ptr, ptr %61, align 8
+  %3080 = getelementptr inbounds nuw i8, ptr %3079, i64 8
+  %3081 = load ptr, ptr %3080, align 8
+  %3082 = getelementptr inbounds i8, ptr %3081, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !635)
-  %3087 = load <16 x i8>, ptr %3086, align 16, !noalias !635
-  %3088 = bitcast <2 x i64> %.sroa.02138.8.vec.insert to <16 x i8>
-  %3089 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %3087, <16 x i8> %3088)
-  store <16 x i8> %3089, ptr %3086, align 16, !noalias !635
+  %3083 = load <16 x i8>, ptr %3082, align 16, !noalias !635
+  %3084 = bitcast <2 x i64> %.sroa.02138.8.vec.insert to <16 x i8>
+  %3085 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %3083, <16 x i8> %3084)
+  store <16 x i8> %3085, ptr %3082, align 16, !noalias !635
   store i64 1, ptr %0, align 4, !alias.scope !635
-  br label %5014
+  br label %5006
 
-3090:                                             ; preds = %2
-  %3091 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3092 = load ptr, ptr %3091, align 8
-  %3093 = getelementptr inbounds i8, ptr %3092, i64 -16
-  %.sroa.0.0.copyload.i1457 = load i64, ptr %3093, align 16
-  %.sroa.2.0..sroa_idx.i1458 = getelementptr inbounds i8, ptr %3092, i64 -8
+3086:                                             ; preds = %2
+  %3087 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3088 = load ptr, ptr %3087, align 8
+  %3089 = getelementptr inbounds i8, ptr %3088, i64 -16
+  %.sroa.0.0.copyload.i1457 = load i64, ptr %3089, align 16
+  %.sroa.2.0..sroa_idx.i1458 = getelementptr inbounds i8, ptr %3088, i64 -8
   %.sroa.2.0.copyload.i1459 = load i64, ptr %.sroa.2.0..sroa_idx.i1458, align 8
-  store ptr %3093, ptr %3091, align 8
+  store ptr %3089, ptr %3087, align 8
   %.sroa.02136.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1457, i64 0
   %.sroa.02136.8.vec.insert = insertelement <2 x i64> %.sroa.02136.0.vec.insert, i64 %.sroa.2.0.copyload.i1459, i64 1
-  %3094 = load ptr, ptr %61, align 8
-  %3095 = getelementptr inbounds nuw i8, ptr %3094, i64 8
-  %3096 = load ptr, ptr %3095, align 8
-  %3097 = getelementptr inbounds i8, ptr %3096, i64 -16
+  %3090 = load ptr, ptr %61, align 8
+  %3091 = getelementptr inbounds nuw i8, ptr %3090, i64 8
+  %3092 = load ptr, ptr %3091, align 8
+  %3093 = getelementptr inbounds i8, ptr %3092, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !638)
-  %3098 = bitcast <2 x i64> %.sroa.02136.8.vec.insert to <16 x i8>
-  %3099 = load <16 x i8>, ptr %3097, align 16, !noalias !638
-  %3100 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %3098, <16 x i8> %3099)
-  store <16 x i8> %3100, ptr %3097, align 16, !noalias !638
+  %3094 = bitcast <2 x i64> %.sroa.02136.8.vec.insert to <16 x i8>
+  %3095 = load <16 x i8>, ptr %3093, align 16, !noalias !638
+  %3096 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %3094, <16 x i8> %3095)
+  store <16 x i8> %3096, ptr %3093, align 16, !noalias !638
   store i64 1, ptr %0, align 4, !alias.scope !638
-  br label %5014
+  br label %5006
 
-3101:                                             ; preds = %2
-  %3102 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3103 = load ptr, ptr %3102, align 8
-  %3104 = getelementptr inbounds i8, ptr %3103, i64 -16
-  %.sroa.0.0.copyload.i1462 = load i64, ptr %3104, align 16
-  %.sroa.2.0..sroa_idx.i1463 = getelementptr inbounds i8, ptr %3103, i64 -8
+3097:                                             ; preds = %2
+  %3098 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3099 = load ptr, ptr %3098, align 8
+  %3100 = getelementptr inbounds i8, ptr %3099, i64 -16
+  %.sroa.0.0.copyload.i1462 = load i64, ptr %3100, align 16
+  %.sroa.2.0..sroa_idx.i1463 = getelementptr inbounds i8, ptr %3099, i64 -8
   %.sroa.2.0.copyload.i1464 = load i64, ptr %.sroa.2.0..sroa_idx.i1463, align 8
-  store ptr %3104, ptr %3102, align 8
+  store ptr %3100, ptr %3098, align 8
   %.sroa.02134.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1462, i64 0
   %.sroa.02134.8.vec.insert = insertelement <2 x i64> %.sroa.02134.0.vec.insert, i64 %.sroa.2.0.copyload.i1464, i64 1
-  %3105 = load ptr, ptr %61, align 8
-  %3106 = getelementptr inbounds nuw i8, ptr %3105, i64 8
-  %3107 = load ptr, ptr %3106, align 8
-  %3108 = getelementptr inbounds i8, ptr %3107, i64 -16
+  %3101 = load ptr, ptr %61, align 8
+  %3102 = getelementptr inbounds nuw i8, ptr %3101, i64 8
+  %3103 = load ptr, ptr %3102, align 8
+  %3104 = getelementptr inbounds i8, ptr %3103, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !641)
-  %3109 = bitcast <2 x i64> %.sroa.02134.8.vec.insert to <16 x i8>
-  %3110 = load <16 x i8>, ptr %3108, align 16, !noalias !641
-  %3111 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %3109, <16 x i8> %3110)
-  store <16 x i8> %3111, ptr %3108, align 16, !noalias !641
+  %3105 = bitcast <2 x i64> %.sroa.02134.8.vec.insert to <16 x i8>
+  %3106 = load <16 x i8>, ptr %3104, align 16, !noalias !641
+  %3107 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %3105, <16 x i8> %3106)
+  store <16 x i8> %3107, ptr %3104, align 16, !noalias !641
   store i64 1, ptr %0, align 4, !alias.scope !641
-  br label %5014
+  br label %5006
 
-3112:                                             ; preds = %2
-  %3113 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3114 = load ptr, ptr %3113, align 8
-  %3115 = getelementptr inbounds i8, ptr %3114, i64 -16
-  %.sroa.0.0.copyload.i1467 = load i64, ptr %3115, align 16
-  %.sroa.2.0..sroa_idx.i1468 = getelementptr inbounds i8, ptr %3114, i64 -8
+3108:                                             ; preds = %2
+  %3109 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3110 = load ptr, ptr %3109, align 8
+  %3111 = getelementptr inbounds i8, ptr %3110, i64 -16
+  %.sroa.0.0.copyload.i1467 = load i64, ptr %3111, align 16
+  %.sroa.2.0..sroa_idx.i1468 = getelementptr inbounds i8, ptr %3110, i64 -8
   %.sroa.2.0.copyload.i1469 = load i64, ptr %.sroa.2.0..sroa_idx.i1468, align 8
-  store ptr %3115, ptr %3113, align 8
+  store ptr %3111, ptr %3109, align 8
   %.sroa.02132.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1467, i64 0
   %.sroa.02132.8.vec.insert = insertelement <2 x i64> %.sroa.02132.0.vec.insert, i64 %.sroa.2.0.copyload.i1469, i64 1
-  %3116 = load ptr, ptr %61, align 8
-  %3117 = getelementptr inbounds nuw i8, ptr %3116, i64 8
-  %3118 = load ptr, ptr %3117, align 8
-  %3119 = getelementptr inbounds i8, ptr %3118, i64 -16
+  %3112 = load ptr, ptr %61, align 8
+  %3113 = getelementptr inbounds nuw i8, ptr %3112, i64 8
+  %3114 = load ptr, ptr %3113, align 8
+  %3115 = getelementptr inbounds i8, ptr %3114, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !644)
-  %3120 = load <16 x i8>, ptr %3119, align 16, !noalias !644
-  %3121 = zext <16 x i8> %3120 to <16 x i16>
-  %3122 = bitcast <2 x i64> %.sroa.02132.8.vec.insert to <16 x i8>
-  %3123 = zext <16 x i8> %3122 to <16 x i16>
-  %3124 = add nuw nsw <16 x i16> %3123, splat (i16 1)
-  %3125 = add nuw nsw <16 x i16> %3124, %3121
-  %3126 = lshr <16 x i16> %3125, splat (i16 1)
-  %3127 = trunc nuw <16 x i16> %3126 to <16 x i8>
-  store <16 x i8> %3127, ptr %3119, align 16, !noalias !644
+  %3116 = load <16 x i8>, ptr %3115, align 16, !noalias !644
+  %3117 = zext <16 x i8> %3116 to <16 x i16>
+  %3118 = bitcast <2 x i64> %.sroa.02132.8.vec.insert to <16 x i8>
+  %3119 = zext <16 x i8> %3118 to <16 x i16>
+  %3120 = add nuw nsw <16 x i16> %3119, splat (i16 1)
+  %3121 = add nuw nsw <16 x i16> %3120, %3117
+  %3122 = lshr <16 x i16> %3121, splat (i16 1)
+  %3123 = trunc nuw <16 x i16> %3122 to <16 x i8>
+  store <16 x i8> %3123, ptr %3115, align 16, !noalias !644
   store i64 1, ptr %0, align 4, !alias.scope !644
-  br label %5014
+  br label %5006
 
-3128:                                             ; preds = %2
-  %3129 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3130 = load ptr, ptr %3129, align 8
-  %3131 = getelementptr inbounds i8, ptr %3130, i64 -16
+3124:                                             ; preds = %2
+  %3125 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3126 = load ptr, ptr %3125, align 8
+  %3127 = getelementptr inbounds i8, ptr %3126, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !647)
-  %3132 = load <8 x i16>, ptr %3131, align 16, !noalias !647
-  %3133 = sub <8 x i16> zeroinitializer, %3132
-  %3134 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %3132, <8 x i16> zeroinitializer)
-  %.inv.i1472 = icmp sgt <8 x i16> %3132, zeroinitializer
-  %3135 = select <8 x i1> %.inv.i1472, <8 x i16> zeroinitializer, <8 x i16> %3133
-  %3136 = or <8 x i16> %3135, %3134
-  store <8 x i16> %3136, ptr %3131, align 16, !noalias !647
+  %3128 = load <8 x i16>, ptr %3127, align 16, !noalias !647
+  %3129 = sub <8 x i16> zeroinitializer, %3128
+  %3130 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %3128, <8 x i16> zeroinitializer)
+  %.inv.i1472 = icmp sgt <8 x i16> %3128, zeroinitializer
+  %3131 = select <8 x i1> %.inv.i1472, <8 x i16> zeroinitializer, <8 x i16> %3129
+  %3132 = or <8 x i16> %3131, %3130
+  store <8 x i16> %3132, ptr %3127, align 16, !noalias !647
   store i64 1, ptr %0, align 4, !alias.scope !647
-  br label %5014
+  br label %5006
 
-3137:                                             ; preds = %2
-  %3138 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3139 = load ptr, ptr %3138, align 8
-  %3140 = getelementptr inbounds i8, ptr %3139, i64 -16
+3133:                                             ; preds = %2
+  %3134 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3135 = load ptr, ptr %3134, align 8
+  %3136 = getelementptr inbounds i8, ptr %3135, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
-  %3141 = load <8 x i16>, ptr %3140, align 16, !noalias !650
-  %3142 = sub <8 x i16> zeroinitializer, %3141
-  store <8 x i16> %3142, ptr %3140, align 16, !noalias !650
+  %3137 = load <8 x i16>, ptr %3136, align 16, !noalias !650
+  %3138 = sub <8 x i16> zeroinitializer, %3137
+  store <8 x i16> %3138, ptr %3136, align 16, !noalias !650
   store i64 1, ptr %0, align 4, !alias.scope !650
-  br label %5014
+  br label %5006
+
+3139:                                             ; preds = %2
+  %3140 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3141 = load ptr, ptr %3140, align 8
+  %3142 = getelementptr inbounds i8, ptr %3141, i64 -16
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3142)
+  br label %5006
 
 3143:                                             ; preds = %2
   %3144 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %3145 = load ptr, ptr %3144, align 8
   %3146 = getelementptr inbounds i8, ptr %3145, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3146)
-  br label %5014
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3146)
+  br label %5006
 
 3147:                                             ; preds = %2
   %3148 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %3149 = load ptr, ptr %3148, align 8
   %3150 = getelementptr inbounds i8, ptr %3149, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3150)
-  br label %5014
-
-3151:                                             ; preds = %2
-  %3152 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3153 = load ptr, ptr %3152, align 8
-  %3154 = getelementptr inbounds i8, ptr %3153, i64 -16
-  %.sroa.0.0.copyload.i1473 = load i64, ptr %3154, align 16
-  %.sroa.2.0..sroa_idx.i1474 = getelementptr inbounds i8, ptr %3153, i64 -8
+  %.sroa.0.0.copyload.i1473 = load i64, ptr %3150, align 16
+  %.sroa.2.0..sroa_idx.i1474 = getelementptr inbounds i8, ptr %3149, i64 -8
   %.sroa.2.0.copyload.i1475 = load i64, ptr %.sroa.2.0..sroa_idx.i1474, align 8
-  store ptr %3154, ptr %3152, align 8
+  store ptr %3150, ptr %3148, align 8
   %.sroa.02130.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1473, i64 0
   %.sroa.02130.8.vec.insert = insertelement <2 x i64> %.sroa.02130.0.vec.insert, i64 %.sroa.2.0.copyload.i1475, i64 1
-  %3155 = load ptr, ptr %61, align 8
-  %3156 = getelementptr inbounds nuw i8, ptr %3155, i64 8
-  %3157 = load ptr, ptr %3156, align 8
-  %3158 = getelementptr inbounds i8, ptr %3157, i64 -16
+  %3151 = load ptr, ptr %61, align 8
+  %3152 = getelementptr inbounds nuw i8, ptr %3151, i64 8
+  %3153 = load ptr, ptr %3152, align 8
+  %3154 = getelementptr inbounds i8, ptr %3153, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  %3159 = load <4 x i32>, ptr %3158, align 16, !noalias !653
-  %3160 = bitcast <2 x i64> %.sroa.02130.8.vec.insert to <4 x i32>
-  %3161 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3159, <4 x i32> splat (i32 -32768))
-  %3162 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3161, <4 x i32> splat (i32 32767))
-  %3163 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3160, <4 x i32> splat (i32 -32768))
-  %3164 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3163, <4 x i32> splat (i32 32767))
-  %3165 = shufflevector <4 x i32> %3162, <4 x i32> %3164, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3166 = trunc nsw <8 x i32> %3165 to <8 x i16>
-  store <8 x i16> %3166, ptr %3158, align 16, !noalias !653
+  %3155 = load <4 x i32>, ptr %3154, align 16, !noalias !653
+  %3156 = bitcast <2 x i64> %.sroa.02130.8.vec.insert to <4 x i32>
+  %3157 = shufflevector <4 x i32> %3155, <4 x i32> %3156, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3158 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %3157, <8 x i32> splat (i32 -32768))
+  %3159 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %3158, <8 x i32> splat (i32 32767))
+  %3160 = trunc nsw <8 x i32> %3159 to <8 x i16>
+  store <8 x i16> %3160, ptr %3154, align 16, !noalias !653
   store i64 1, ptr %0, align 4, !alias.scope !653
-  br label %5014
+  br label %5006
 
-3167:                                             ; preds = %2
-  %3168 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3169 = load ptr, ptr %3168, align 8
-  %3170 = getelementptr inbounds i8, ptr %3169, i64 -16
-  %.sroa.0.0.copyload.i1478 = load i64, ptr %3170, align 16
-  %.sroa.2.0..sroa_idx.i1479 = getelementptr inbounds i8, ptr %3169, i64 -8
+3161:                                             ; preds = %2
+  %3162 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3163 = load ptr, ptr %3162, align 8
+  %3164 = getelementptr inbounds i8, ptr %3163, i64 -16
+  %.sroa.0.0.copyload.i1478 = load i64, ptr %3164, align 16
+  %.sroa.2.0..sroa_idx.i1479 = getelementptr inbounds i8, ptr %3163, i64 -8
   %.sroa.2.0.copyload.i1480 = load i64, ptr %.sroa.2.0..sroa_idx.i1479, align 8
-  store ptr %3170, ptr %3168, align 8
+  store ptr %3164, ptr %3162, align 8
   %.sroa.02128.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1478, i64 0
   %.sroa.02128.8.vec.insert = insertelement <2 x i64> %.sroa.02128.0.vec.insert, i64 %.sroa.2.0.copyload.i1480, i64 1
-  %3171 = load ptr, ptr %61, align 8
-  %3172 = getelementptr inbounds nuw i8, ptr %3171, i64 8
-  %3173 = load ptr, ptr %3172, align 8
-  %3174 = getelementptr inbounds i8, ptr %3173, i64 -16
+  %3165 = load ptr, ptr %61, align 8
+  %3166 = getelementptr inbounds nuw i8, ptr %3165, i64 8
+  %3167 = load ptr, ptr %3166, align 8
+  %3168 = getelementptr inbounds i8, ptr %3167, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %3175 = load <4 x i32>, ptr %3174, align 16, !noalias !656
-  %3176 = bitcast <2 x i64> %.sroa.02128.8.vec.insert to <4 x i32>
-  %3177 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3175, <4 x i32> zeroinitializer)
-  %3178 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3177, <4 x i32> splat (i32 65535))
-  %3179 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3176, <4 x i32> zeroinitializer)
-  %3180 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3179, <4 x i32> splat (i32 65535))
-  %3181 = shufflevector <4 x i32> %3178, <4 x i32> %3180, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3182 = trunc nuw <8 x i32> %3181 to <8 x i16>
-  store <8 x i16> %3182, ptr %3174, align 16, !noalias !656
+  %3169 = load <4 x i32>, ptr %3168, align 16, !noalias !656
+  %3170 = bitcast <2 x i64> %.sroa.02128.8.vec.insert to <4 x i32>
+  %3171 = shufflevector <4 x i32> %3169, <4 x i32> %3170, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3172 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %3171, <8 x i32> zeroinitializer)
+  %3173 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %3172, <8 x i32> splat (i32 65535))
+  %3174 = trunc nuw <8 x i32> %3173 to <8 x i16>
+  store <8 x i16> %3174, ptr %3168, align 16, !noalias !656
   store i64 1, ptr %0, align 4, !alias.scope !656
-  br label %5014
+  br label %5006
 
-3183:                                             ; preds = %2
-  %3184 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3185 = load ptr, ptr %3184, align 8
-  %3186 = getelementptr inbounds i8, ptr %3185, i64 -16
+3175:                                             ; preds = %2
+  %3176 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3177 = load ptr, ptr %3176, align 8
+  %3178 = getelementptr inbounds i8, ptr %3177, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
-  %3187 = load <16 x i8>, ptr %3186, align 16, !noalias !659
-  %3188 = shufflevector <16 x i8> %3187, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3189 = sext <8 x i8> %3188 to <8 x i16>
-  store <8 x i16> %3189, ptr %3186, align 16, !noalias !659
+  %3179 = load <16 x i8>, ptr %3178, align 16, !noalias !659
+  %3180 = shufflevector <16 x i8> %3179, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3181 = sext <8 x i8> %3180 to <8 x i16>
+  store <8 x i16> %3181, ptr %3178, align 16, !noalias !659
   store i64 1, ptr %0, align 4, !alias.scope !659
-  br label %5014
+  br label %5006
 
-3190:                                             ; preds = %2
-  %3191 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3192 = load ptr, ptr %3191, align 8
-  %3193 = getelementptr inbounds i8, ptr %3192, i64 -16
+3182:                                             ; preds = %2
+  %3183 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3184 = load ptr, ptr %3183, align 8
+  %3185 = getelementptr inbounds i8, ptr %3184, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !662)
-  %3194 = load <16 x i8>, ptr %3193, align 16, !noalias !662
-  %3195 = shufflevector <16 x i8> %3194, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3196 = sext <8 x i8> %3195 to <8 x i16>
-  store <8 x i16> %3196, ptr %3193, align 16, !noalias !662
+  %3186 = load <16 x i8>, ptr %3185, align 16, !noalias !662
+  %3187 = shufflevector <16 x i8> %3186, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3188 = sext <8 x i8> %3187 to <8 x i16>
+  store <8 x i16> %3188, ptr %3185, align 16, !noalias !662
   store i64 1, ptr %0, align 4, !alias.scope !662
-  br label %5014
+  br label %5006
 
-3197:                                             ; preds = %2
-  %3198 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3199 = load ptr, ptr %3198, align 8
-  %3200 = getelementptr inbounds i8, ptr %3199, i64 -16
+3189:                                             ; preds = %2
+  %3190 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3191 = load ptr, ptr %3190, align 8
+  %3192 = getelementptr inbounds i8, ptr %3191, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !665)
-  %3201 = load <16 x i8>, ptr %3200, align 16, !noalias !665
-  %3202 = shufflevector <16 x i8> %3201, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3203 = zext <8 x i8> %3202 to <8 x i16>
-  store <8 x i16> %3203, ptr %3200, align 16, !noalias !665
+  %3193 = load <16 x i8>, ptr %3192, align 16, !noalias !665
+  %3194 = shufflevector <16 x i8> %3193, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3195 = zext <8 x i8> %3194 to <8 x i16>
+  store <8 x i16> %3195, ptr %3192, align 16, !noalias !665
   store i64 1, ptr %0, align 4, !alias.scope !665
-  br label %5014
+  br label %5006
 
-3204:                                             ; preds = %2
-  %3205 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3206 = load ptr, ptr %3205, align 8
-  %3207 = getelementptr inbounds i8, ptr %3206, i64 -16
+3196:                                             ; preds = %2
+  %3197 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3198 = load ptr, ptr %3197, align 8
+  %3199 = getelementptr inbounds i8, ptr %3198, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !668)
-  %3208 = load <16 x i8>, ptr %3207, align 16, !noalias !668
-  %3209 = shufflevector <16 x i8> %3208, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3210 = zext <8 x i8> %3209 to <8 x i16>
-  store <8 x i16> %3210, ptr %3207, align 16, !noalias !668
+  %3200 = load <16 x i8>, ptr %3199, align 16, !noalias !668
+  %3201 = shufflevector <16 x i8> %3200, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3202 = zext <8 x i8> %3201 to <8 x i16>
+  store <8 x i16> %3202, ptr %3199, align 16, !noalias !668
   store i64 1, ptr %0, align 4, !alias.scope !668
-  br label %5014
+  br label %5006
 
-3211:                                             ; preds = %2
-  %3212 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3213 = load ptr, ptr %3212, align 8
-  %3214 = getelementptr inbounds i8, ptr %3213, i64 -16
-  %.sroa.0.0.copyload.i1483 = load i64, ptr %3214, align 16
-  store ptr %3214, ptr %3212, align 8
-  %3215 = load ptr, ptr %61, align 8
-  %3216 = getelementptr inbounds nuw i8, ptr %3215, i64 8
-  %3217 = load ptr, ptr %3216, align 8
-  %3218 = getelementptr inbounds i8, ptr %3217, i64 -16
+3203:                                             ; preds = %2
+  %3204 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3205 = load ptr, ptr %3204, align 8
+  %3206 = getelementptr inbounds i8, ptr %3205, i64 -16
+  %.sroa.0.0.copyload.i1483 = load i64, ptr %3206, align 16
+  store ptr %3206, ptr %3204, align 8
+  %3207 = load ptr, ptr %61, align 8
+  %3208 = getelementptr inbounds nuw i8, ptr %3207, i64 8
+  %3209 = load ptr, ptr %3208, align 8
+  %3210 = getelementptr inbounds i8, ptr %3209, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
-  %3219 = load <8 x i16>, ptr %3218, align 16, !noalias !671
-  %3220 = trunc i64 %.sroa.0.0.copyload.i1483 to i16
-  %3221 = and i16 %3220, 15
-  %3222 = insertelement <8 x i16> poison, i16 %3221, i64 0
-  %3223 = shufflevector <8 x i16> %3222, <8 x i16> poison, <8 x i32> zeroinitializer
-  %3224 = shl <8 x i16> %3219, %3223
-  store <8 x i16> %3224, ptr %3218, align 16, !noalias !671
+  %3211 = load <8 x i16>, ptr %3210, align 16, !noalias !671
+  %3212 = trunc i64 %.sroa.0.0.copyload.i1483 to i16
+  %3213 = and i16 %3212, 15
+  %3214 = insertelement <8 x i16> poison, i16 %3213, i64 0
+  %3215 = shufflevector <8 x i16> %3214, <8 x i16> poison, <8 x i32> zeroinitializer
+  %3216 = shl <8 x i16> %3211, %3215
+  store <8 x i16> %3216, ptr %3210, align 16, !noalias !671
   store i64 1, ptr %0, align 4, !alias.scope !671
-  br label %5014
+  br label %5006
 
-3225:                                             ; preds = %2
-  %3226 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3227 = load ptr, ptr %3226, align 8
-  %3228 = getelementptr inbounds i8, ptr %3227, i64 -16
-  %.sroa.0.0.copyload.i1488 = load i64, ptr %3228, align 16
-  store ptr %3228, ptr %3226, align 8
-  %3229 = load ptr, ptr %61, align 8
-  %3230 = getelementptr inbounds nuw i8, ptr %3229, i64 8
-  %3231 = load ptr, ptr %3230, align 8
-  %3232 = getelementptr inbounds i8, ptr %3231, i64 -16
+3217:                                             ; preds = %2
+  %3218 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3219 = load ptr, ptr %3218, align 8
+  %3220 = getelementptr inbounds i8, ptr %3219, i64 -16
+  %.sroa.0.0.copyload.i1488 = load i64, ptr %3220, align 16
+  store ptr %3220, ptr %3218, align 8
+  %3221 = load ptr, ptr %61, align 8
+  %3222 = getelementptr inbounds nuw i8, ptr %3221, i64 8
+  %3223 = load ptr, ptr %3222, align 8
+  %3224 = getelementptr inbounds i8, ptr %3223, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !674)
-  %3233 = load <8 x i16>, ptr %3232, align 16, !noalias !674
-  %3234 = trunc i64 %.sroa.0.0.copyload.i1488 to i16
-  %3235 = and i16 %3234, 15
-  %3236 = insertelement <8 x i16> poison, i16 %3235, i64 0
-  %3237 = shufflevector <8 x i16> %3236, <8 x i16> poison, <8 x i32> zeroinitializer
-  %3238 = ashr <8 x i16> %3233, %3237
-  store <8 x i16> %3238, ptr %3232, align 16, !noalias !674
+  %3225 = load <8 x i16>, ptr %3224, align 16, !noalias !674
+  %3226 = trunc i64 %.sroa.0.0.copyload.i1488 to i16
+  %3227 = and i16 %3226, 15
+  %3228 = insertelement <8 x i16> poison, i16 %3227, i64 0
+  %3229 = shufflevector <8 x i16> %3228, <8 x i16> poison, <8 x i32> zeroinitializer
+  %3230 = ashr <8 x i16> %3225, %3229
+  store <8 x i16> %3230, ptr %3224, align 16, !noalias !674
   store i64 1, ptr %0, align 4, !alias.scope !674
-  br label %5014
+  br label %5006
 
-3239:                                             ; preds = %2
-  %3240 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3241 = load ptr, ptr %3240, align 8
-  %3242 = getelementptr inbounds i8, ptr %3241, i64 -16
-  %.sroa.0.0.copyload.i1493 = load i64, ptr %3242, align 16
-  store ptr %3242, ptr %3240, align 8
-  %3243 = load ptr, ptr %61, align 8
-  %3244 = getelementptr inbounds nuw i8, ptr %3243, i64 8
-  %3245 = load ptr, ptr %3244, align 8
-  %3246 = getelementptr inbounds i8, ptr %3245, i64 -16
+3231:                                             ; preds = %2
+  %3232 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3233 = load ptr, ptr %3232, align 8
+  %3234 = getelementptr inbounds i8, ptr %3233, i64 -16
+  %.sroa.0.0.copyload.i1493 = load i64, ptr %3234, align 16
+  store ptr %3234, ptr %3232, align 8
+  %3235 = load ptr, ptr %61, align 8
+  %3236 = getelementptr inbounds nuw i8, ptr %3235, i64 8
+  %3237 = load ptr, ptr %3236, align 8
+  %3238 = getelementptr inbounds i8, ptr %3237, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !677)
-  %3247 = load <8 x i16>, ptr %3246, align 16, !noalias !677
-  %3248 = trunc i64 %.sroa.0.0.copyload.i1493 to i16
-  %3249 = and i16 %3248, 15
-  %3250 = insertelement <8 x i16> poison, i16 %3249, i64 0
-  %3251 = shufflevector <8 x i16> %3250, <8 x i16> poison, <8 x i32> zeroinitializer
-  %3252 = lshr <8 x i16> %3247, %3251
-  store <8 x i16> %3252, ptr %3246, align 16, !noalias !677
+  %3239 = load <8 x i16>, ptr %3238, align 16, !noalias !677
+  %3240 = trunc i64 %.sroa.0.0.copyload.i1493 to i16
+  %3241 = and i16 %3240, 15
+  %3242 = insertelement <8 x i16> poison, i16 %3241, i64 0
+  %3243 = shufflevector <8 x i16> %3242, <8 x i16> poison, <8 x i32> zeroinitializer
+  %3244 = lshr <8 x i16> %3239, %3243
+  store <8 x i16> %3244, ptr %3238, align 16, !noalias !677
   store i64 1, ptr %0, align 4, !alias.scope !677
-  br label %5014
+  br label %5006
 
-3253:                                             ; preds = %2
-  %3254 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3255 = load ptr, ptr %3254, align 8
-  %3256 = getelementptr inbounds i8, ptr %3255, i64 -16
-  %.sroa.0.0.copyload.i1498 = load i64, ptr %3256, align 16
-  %.sroa.2.0..sroa_idx.i1499 = getelementptr inbounds i8, ptr %3255, i64 -8
+3245:                                             ; preds = %2
+  %3246 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3247 = load ptr, ptr %3246, align 8
+  %3248 = getelementptr inbounds i8, ptr %3247, i64 -16
+  %.sroa.0.0.copyload.i1498 = load i64, ptr %3248, align 16
+  %.sroa.2.0..sroa_idx.i1499 = getelementptr inbounds i8, ptr %3247, i64 -8
   %.sroa.2.0.copyload.i1500 = load i64, ptr %.sroa.2.0..sroa_idx.i1499, align 8
-  store ptr %3256, ptr %3254, align 8
+  store ptr %3248, ptr %3246, align 8
   %.sroa.02111.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1498, i64 0
   %.sroa.02111.8.vec.insert = insertelement <2 x i64> %.sroa.02111.0.vec.insert, i64 %.sroa.2.0.copyload.i1500, i64 1
-  %3257 = load ptr, ptr %61, align 8
-  %3258 = getelementptr inbounds nuw i8, ptr %3257, i64 8
-  %3259 = load ptr, ptr %3258, align 8
-  %3260 = getelementptr inbounds i8, ptr %3259, i64 -16
+  %3249 = load ptr, ptr %61, align 8
+  %3250 = getelementptr inbounds nuw i8, ptr %3249, i64 8
+  %3251 = load ptr, ptr %3250, align 8
+  %3252 = getelementptr inbounds i8, ptr %3251, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
-  %3261 = bitcast <2 x i64> %.sroa.02111.8.vec.insert to <8 x i16>
-  %3262 = load <8 x i16>, ptr %3260, align 16, !noalias !680
-  %3263 = add <8 x i16> %3262, %3261
-  store <8 x i16> %3263, ptr %3260, align 16, !noalias !680
+  %3253 = bitcast <2 x i64> %.sroa.02111.8.vec.insert to <8 x i16>
+  %3254 = load <8 x i16>, ptr %3252, align 16, !noalias !680
+  %3255 = add <8 x i16> %3254, %3253
+  store <8 x i16> %3255, ptr %3252, align 16, !noalias !680
   store i64 1, ptr %0, align 4, !alias.scope !680
-  br label %5014
+  br label %5006
 
-3264:                                             ; preds = %2
-  %3265 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3266 = load ptr, ptr %3265, align 8
-  %3267 = getelementptr inbounds i8, ptr %3266, i64 -16
-  %.sroa.0.0.copyload.i1503 = load i64, ptr %3267, align 16
-  %.sroa.2.0..sroa_idx.i1504 = getelementptr inbounds i8, ptr %3266, i64 -8
+3256:                                             ; preds = %2
+  %3257 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3258 = load ptr, ptr %3257, align 8
+  %3259 = getelementptr inbounds i8, ptr %3258, i64 -16
+  %.sroa.0.0.copyload.i1503 = load i64, ptr %3259, align 16
+  %.sroa.2.0..sroa_idx.i1504 = getelementptr inbounds i8, ptr %3258, i64 -8
   %.sroa.2.0.copyload.i1505 = load i64, ptr %.sroa.2.0..sroa_idx.i1504, align 8
-  store ptr %3267, ptr %3265, align 8
+  store ptr %3259, ptr %3257, align 8
   %.sroa.02109.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1503, i64 0
   %.sroa.02109.8.vec.insert = insertelement <2 x i64> %.sroa.02109.0.vec.insert, i64 %.sroa.2.0.copyload.i1505, i64 1
-  %3268 = load ptr, ptr %61, align 8
-  %3269 = getelementptr inbounds nuw i8, ptr %3268, i64 8
-  %3270 = load ptr, ptr %3269, align 8
-  %3271 = getelementptr inbounds i8, ptr %3270, i64 -16
+  %3260 = load ptr, ptr %61, align 8
+  %3261 = getelementptr inbounds nuw i8, ptr %3260, i64 8
+  %3262 = load ptr, ptr %3261, align 8
+  %3263 = getelementptr inbounds i8, ptr %3262, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
-  %3272 = load <8 x i16>, ptr %3271, align 16, !noalias !683
-  %3273 = bitcast <2 x i64> %.sroa.02109.8.vec.insert to <8 x i16>
-  %3274 = add <8 x i16> %3272, %3273
-  %3275 = lshr <8 x i16> %3272, splat (i16 15)
-  %3276 = add nuw <8 x i16> %3275, splat (i16 32767)
-  %3277 = xor <8 x i16> %3272, %3273
-  %3278 = xor <8 x i16> %3274, %3273
-  %3279 = xor <8 x i16> %3278, splat (i16 -1)
-  %3280 = or <8 x i16> %3277, %3279
-  %3281 = icmp slt <8 x i16> %3280, zeroinitializer
-  %3282 = select <8 x i1> %3281, <8 x i16> %3274, <8 x i16> %3276
-  store <8 x i16> %3282, ptr %3271, align 16, !noalias !683
+  %3264 = load <8 x i16>, ptr %3263, align 16, !noalias !683
+  %3265 = bitcast <2 x i64> %.sroa.02109.8.vec.insert to <8 x i16>
+  %3266 = add <8 x i16> %3264, %3265
+  %3267 = lshr <8 x i16> %3264, splat (i16 15)
+  %3268 = add nuw <8 x i16> %3267, splat (i16 32767)
+  %3269 = xor <8 x i16> %3264, %3265
+  %3270 = xor <8 x i16> %3266, %3265
+  %3271 = xor <8 x i16> %3270, splat (i16 -1)
+  %3272 = or <8 x i16> %3269, %3271
+  %3273 = icmp slt <8 x i16> %3272, zeroinitializer
+  %3274 = select <8 x i1> %3273, <8 x i16> %3266, <8 x i16> %3268
+  store <8 x i16> %3274, ptr %3263, align 16, !noalias !683
   store i64 1, ptr %0, align 4, !alias.scope !683
-  br label %5014
+  br label %5006
 
-3283:                                             ; preds = %2
-  %3284 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3285 = load ptr, ptr %3284, align 8
-  %3286 = getelementptr inbounds i8, ptr %3285, i64 -16
-  %.sroa.0.0.copyload.i1508 = load i64, ptr %3286, align 16
-  %.sroa.2.0..sroa_idx.i1509 = getelementptr inbounds i8, ptr %3285, i64 -8
+3275:                                             ; preds = %2
+  %3276 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3277 = load ptr, ptr %3276, align 8
+  %3278 = getelementptr inbounds i8, ptr %3277, i64 -16
+  %.sroa.0.0.copyload.i1508 = load i64, ptr %3278, align 16
+  %.sroa.2.0..sroa_idx.i1509 = getelementptr inbounds i8, ptr %3277, i64 -8
   %.sroa.2.0.copyload.i1510 = load i64, ptr %.sroa.2.0..sroa_idx.i1509, align 8
-  store ptr %3286, ptr %3284, align 8
+  store ptr %3278, ptr %3276, align 8
   %.sroa.02107.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1508, i64 0
   %.sroa.02107.8.vec.insert = insertelement <2 x i64> %.sroa.02107.0.vec.insert, i64 %.sroa.2.0.copyload.i1510, i64 1
-  %3287 = load ptr, ptr %61, align 8
-  %3288 = getelementptr inbounds nuw i8, ptr %3287, i64 8
-  %3289 = load ptr, ptr %3288, align 8
-  %3290 = getelementptr inbounds i8, ptr %3289, i64 -16
+  %3279 = load ptr, ptr %61, align 8
+  %3280 = getelementptr inbounds nuw i8, ptr %3279, i64 8
+  %3281 = load ptr, ptr %3280, align 8
+  %3282 = getelementptr inbounds i8, ptr %3281, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !686)
-  %3291 = load <8 x i16>, ptr %3290, align 16, !noalias !686
-  %3292 = bitcast <2 x i64> %.sroa.02107.8.vec.insert to <8 x i16>
-  %3293 = tail call <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16> %3291, <8 x i16> %3292)
-  store <8 x i16> %3293, ptr %3290, align 16, !noalias !686
+  %3283 = load <8 x i16>, ptr %3282, align 16, !noalias !686
+  %3284 = bitcast <2 x i64> %.sroa.02107.8.vec.insert to <8 x i16>
+  %3285 = tail call <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16> %3283, <8 x i16> %3284)
+  store <8 x i16> %3285, ptr %3282, align 16, !noalias !686
   store i64 1, ptr %0, align 4, !alias.scope !686
-  br label %5014
+  br label %5006
 
-3294:                                             ; preds = %2
-  %3295 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3296 = load ptr, ptr %3295, align 8
-  %3297 = getelementptr inbounds i8, ptr %3296, i64 -16
-  %.sroa.0.0.copyload.i1513 = load i64, ptr %3297, align 16
-  %.sroa.2.0..sroa_idx.i1514 = getelementptr inbounds i8, ptr %3296, i64 -8
+3286:                                             ; preds = %2
+  %3287 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3288 = load ptr, ptr %3287, align 8
+  %3289 = getelementptr inbounds i8, ptr %3288, i64 -16
+  %.sroa.0.0.copyload.i1513 = load i64, ptr %3289, align 16
+  %.sroa.2.0..sroa_idx.i1514 = getelementptr inbounds i8, ptr %3288, i64 -8
   %.sroa.2.0.copyload.i1515 = load i64, ptr %.sroa.2.0..sroa_idx.i1514, align 8
-  store ptr %3297, ptr %3295, align 8
+  store ptr %3289, ptr %3287, align 8
   %.sroa.02105.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1513, i64 0
   %.sroa.02105.8.vec.insert = insertelement <2 x i64> %.sroa.02105.0.vec.insert, i64 %.sroa.2.0.copyload.i1515, i64 1
-  %3298 = load ptr, ptr %61, align 8
-  %3299 = getelementptr inbounds nuw i8, ptr %3298, i64 8
-  %3300 = load ptr, ptr %3299, align 8
-  %3301 = getelementptr inbounds i8, ptr %3300, i64 -16
+  %3290 = load ptr, ptr %61, align 8
+  %3291 = getelementptr inbounds nuw i8, ptr %3290, i64 8
+  %3292 = load ptr, ptr %3291, align 8
+  %3293 = getelementptr inbounds i8, ptr %3292, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
-  %3302 = bitcast <2 x i64> %.sroa.02105.8.vec.insert to <8 x i16>
-  %3303 = load <8 x i16>, ptr %3301, align 16, !noalias !689
-  %3304 = sub <8 x i16> %3303, %3302
-  store <8 x i16> %3304, ptr %3301, align 16, !noalias !689
+  %3294 = bitcast <2 x i64> %.sroa.02105.8.vec.insert to <8 x i16>
+  %3295 = load <8 x i16>, ptr %3293, align 16, !noalias !689
+  %3296 = sub <8 x i16> %3295, %3294
+  store <8 x i16> %3296, ptr %3293, align 16, !noalias !689
   store i64 1, ptr %0, align 4, !alias.scope !689
-  br label %5014
+  br label %5006
 
-3305:                                             ; preds = %2
-  %3306 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3307 = load ptr, ptr %3306, align 8
-  %3308 = getelementptr inbounds i8, ptr %3307, i64 -16
-  %.sroa.0.0.copyload.i1518 = load i64, ptr %3308, align 16
-  %.sroa.2.0..sroa_idx.i1519 = getelementptr inbounds i8, ptr %3307, i64 -8
+3297:                                             ; preds = %2
+  %3298 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3299 = load ptr, ptr %3298, align 8
+  %3300 = getelementptr inbounds i8, ptr %3299, i64 -16
+  %.sroa.0.0.copyload.i1518 = load i64, ptr %3300, align 16
+  %.sroa.2.0..sroa_idx.i1519 = getelementptr inbounds i8, ptr %3299, i64 -8
   %.sroa.2.0.copyload.i1520 = load i64, ptr %.sroa.2.0..sroa_idx.i1519, align 8
-  store ptr %3308, ptr %3306, align 8
+  store ptr %3300, ptr %3298, align 8
   %.sroa.02103.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1518, i64 0
   %.sroa.02103.8.vec.insert = insertelement <2 x i64> %.sroa.02103.0.vec.insert, i64 %.sroa.2.0.copyload.i1520, i64 1
-  %3309 = load ptr, ptr %61, align 8
-  %3310 = getelementptr inbounds nuw i8, ptr %3309, i64 8
-  %3311 = load ptr, ptr %3310, align 8
-  %3312 = getelementptr inbounds i8, ptr %3311, i64 -16
+  %3301 = load ptr, ptr %61, align 8
+  %3302 = getelementptr inbounds nuw i8, ptr %3301, i64 8
+  %3303 = load ptr, ptr %3302, align 8
+  %3304 = getelementptr inbounds i8, ptr %3303, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !692)
-  %3313 = load <8 x i16>, ptr %3312, align 16, !noalias !692
-  %3314 = bitcast <2 x i64> %.sroa.02103.8.vec.insert to <8 x i16>
-  %3315 = sub <8 x i16> %3313, %3314
-  %3316 = lshr <8 x i16> %3313, splat (i16 15)
-  %3317 = add nuw <8 x i16> %3316, splat (i16 32767)
-  %3318 = xor <8 x i16> %3313, %3314
-  %3319 = xor <8 x i16> %3315, %3313
-  %3320 = and <8 x i16> %3319, %3318
-  %isneg16.i1523 = icmp slt <8 x i16> %3320, zeroinitializer
-  %3321 = select <8 x i1> %isneg16.i1523, <8 x i16> %3317, <8 x i16> %3315
-  store <8 x i16> %3321, ptr %3312, align 16, !noalias !692
+  %3305 = load <8 x i16>, ptr %3304, align 16, !noalias !692
+  %3306 = bitcast <2 x i64> %.sroa.02103.8.vec.insert to <8 x i16>
+  %3307 = sub <8 x i16> %3305, %3306
+  %3308 = lshr <8 x i16> %3305, splat (i16 15)
+  %3309 = add nuw <8 x i16> %3308, splat (i16 32767)
+  %3310 = xor <8 x i16> %3305, %3306
+  %3311 = xor <8 x i16> %3307, %3305
+  %3312 = and <8 x i16> %3311, %3310
+  %isneg16.i1523 = icmp slt <8 x i16> %3312, zeroinitializer
+  %3313 = select <8 x i1> %isneg16.i1523, <8 x i16> %3309, <8 x i16> %3307
+  store <8 x i16> %3313, ptr %3304, align 16, !noalias !692
   store i64 1, ptr %0, align 4, !alias.scope !692
-  br label %5014
+  br label %5006
 
-3322:                                             ; preds = %2
-  %3323 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3324 = load ptr, ptr %3323, align 8
-  %3325 = getelementptr inbounds i8, ptr %3324, i64 -16
-  %.sroa.0.0.copyload.i1524 = load i64, ptr %3325, align 16
-  %.sroa.2.0..sroa_idx.i1525 = getelementptr inbounds i8, ptr %3324, i64 -8
+3314:                                             ; preds = %2
+  %3315 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3316 = load ptr, ptr %3315, align 8
+  %3317 = getelementptr inbounds i8, ptr %3316, i64 -16
+  %.sroa.0.0.copyload.i1524 = load i64, ptr %3317, align 16
+  %.sroa.2.0..sroa_idx.i1525 = getelementptr inbounds i8, ptr %3316, i64 -8
   %.sroa.2.0.copyload.i1526 = load i64, ptr %.sroa.2.0..sroa_idx.i1525, align 8
-  store ptr %3325, ptr %3323, align 8
+  store ptr %3317, ptr %3315, align 8
   %.sroa.02101.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1524, i64 0
   %.sroa.02101.8.vec.insert = insertelement <2 x i64> %.sroa.02101.0.vec.insert, i64 %.sroa.2.0.copyload.i1526, i64 1
-  %3326 = load ptr, ptr %61, align 8
-  %3327 = getelementptr inbounds nuw i8, ptr %3326, i64 8
-  %3328 = load ptr, ptr %3327, align 8
-  %3329 = getelementptr inbounds i8, ptr %3328, i64 -16
+  %3318 = load ptr, ptr %61, align 8
+  %3319 = getelementptr inbounds nuw i8, ptr %3318, i64 8
+  %3320 = load ptr, ptr %3319, align 8
+  %3321 = getelementptr inbounds i8, ptr %3320, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
-  %3330 = load <8 x i16>, ptr %3329, align 16, !noalias !695
-  %3331 = bitcast <2 x i64> %.sroa.02101.8.vec.insert to <8 x i16>
-  %3332 = tail call <8 x i16> @llvm.usub.sat.v8i16(<8 x i16> %3330, <8 x i16> %3331)
-  store <8 x i16> %3332, ptr %3329, align 16, !noalias !695
+  %3322 = load <8 x i16>, ptr %3321, align 16, !noalias !695
+  %3323 = bitcast <2 x i64> %.sroa.02101.8.vec.insert to <8 x i16>
+  %3324 = tail call <8 x i16> @llvm.usub.sat.v8i16(<8 x i16> %3322, <8 x i16> %3323)
+  store <8 x i16> %3324, ptr %3321, align 16, !noalias !695
   store i64 1, ptr %0, align 4, !alias.scope !695
-  br label %5014
+  br label %5006
 
-3333:                                             ; preds = %2
-  %3334 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3335 = load ptr, ptr %3334, align 8
-  %3336 = getelementptr inbounds i8, ptr %3335, i64 -16
-  %.sroa.0.0.copyload.i1529 = load i64, ptr %3336, align 16
-  %.sroa.2.0..sroa_idx.i1530 = getelementptr inbounds i8, ptr %3335, i64 -8
+3325:                                             ; preds = %2
+  %3326 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3327 = load ptr, ptr %3326, align 8
+  %3328 = getelementptr inbounds i8, ptr %3327, i64 -16
+  %.sroa.0.0.copyload.i1529 = load i64, ptr %3328, align 16
+  %.sroa.2.0..sroa_idx.i1530 = getelementptr inbounds i8, ptr %3327, i64 -8
   %.sroa.2.0.copyload.i1531 = load i64, ptr %.sroa.2.0..sroa_idx.i1530, align 8
-  store ptr %3336, ptr %3334, align 8
+  store ptr %3328, ptr %3326, align 8
   %.sroa.02099.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1529, i64 0
   %.sroa.02099.8.vec.insert = insertelement <2 x i64> %.sroa.02099.0.vec.insert, i64 %.sroa.2.0.copyload.i1531, i64 1
-  %3337 = load ptr, ptr %61, align 8
-  %3338 = getelementptr inbounds nuw i8, ptr %3337, i64 8
-  %3339 = load ptr, ptr %3338, align 8
-  %3340 = getelementptr inbounds i8, ptr %3339, i64 -16
+  %3329 = load ptr, ptr %61, align 8
+  %3330 = getelementptr inbounds nuw i8, ptr %3329, i64 8
+  %3331 = load ptr, ptr %3330, align 8
+  %3332 = getelementptr inbounds i8, ptr %3331, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)
-  %3341 = bitcast <2 x i64> %.sroa.02099.8.vec.insert to <8 x i16>
-  %3342 = load <8 x i16>, ptr %3340, align 16, !noalias !698
-  %3343 = mul <8 x i16> %3342, %3341
-  store <8 x i16> %3343, ptr %3340, align 16, !noalias !698
+  %3333 = bitcast <2 x i64> %.sroa.02099.8.vec.insert to <8 x i16>
+  %3334 = load <8 x i16>, ptr %3332, align 16, !noalias !698
+  %3335 = mul <8 x i16> %3334, %3333
+  store <8 x i16> %3335, ptr %3332, align 16, !noalias !698
   store i64 1, ptr %0, align 4, !alias.scope !698
-  br label %5014
+  br label %5006
 
-3344:                                             ; preds = %2
-  %3345 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3346 = load ptr, ptr %3345, align 8
-  %3347 = getelementptr inbounds i8, ptr %3346, i64 -16
-  %.sroa.0.0.copyload.i1534 = load i64, ptr %3347, align 16
-  %.sroa.2.0..sroa_idx.i1535 = getelementptr inbounds i8, ptr %3346, i64 -8
+3336:                                             ; preds = %2
+  %3337 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3338 = load ptr, ptr %3337, align 8
+  %3339 = getelementptr inbounds i8, ptr %3338, i64 -16
+  %.sroa.0.0.copyload.i1534 = load i64, ptr %3339, align 16
+  %.sroa.2.0..sroa_idx.i1535 = getelementptr inbounds i8, ptr %3338, i64 -8
   %.sroa.2.0.copyload.i1536 = load i64, ptr %.sroa.2.0..sroa_idx.i1535, align 8
-  store ptr %3347, ptr %3345, align 8
+  store ptr %3339, ptr %3337, align 8
   %.sroa.02097.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1534, i64 0
   %.sroa.02097.8.vec.insert = insertelement <2 x i64> %.sroa.02097.0.vec.insert, i64 %.sroa.2.0.copyload.i1536, i64 1
-  %3348 = load ptr, ptr %61, align 8
-  %3349 = getelementptr inbounds nuw i8, ptr %3348, i64 8
-  %3350 = load ptr, ptr %3349, align 8
-  %3351 = getelementptr inbounds i8, ptr %3350, i64 -16
+  %3340 = load ptr, ptr %61, align 8
+  %3341 = getelementptr inbounds nuw i8, ptr %3340, i64 8
+  %3342 = load ptr, ptr %3341, align 8
+  %3343 = getelementptr inbounds i8, ptr %3342, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !701)
-  %3352 = load <8 x i16>, ptr %3351, align 16, !noalias !701
-  %3353 = bitcast <2 x i64> %.sroa.02097.8.vec.insert to <8 x i16>
-  %3354 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %3352, <8 x i16> %3353)
-  store <8 x i16> %3354, ptr %3351, align 16, !noalias !701
+  %3344 = load <8 x i16>, ptr %3343, align 16, !noalias !701
+  %3345 = bitcast <2 x i64> %.sroa.02097.8.vec.insert to <8 x i16>
+  %3346 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %3344, <8 x i16> %3345)
+  store <8 x i16> %3346, ptr %3343, align 16, !noalias !701
   store i64 1, ptr %0, align 4, !alias.scope !701
-  br label %5014
+  br label %5006
 
-3355:                                             ; preds = %2
-  %3356 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3357 = load ptr, ptr %3356, align 8
-  %3358 = getelementptr inbounds i8, ptr %3357, i64 -16
-  %.sroa.0.0.copyload.i1539 = load i64, ptr %3358, align 16
-  %.sroa.2.0..sroa_idx.i1540 = getelementptr inbounds i8, ptr %3357, i64 -8
+3347:                                             ; preds = %2
+  %3348 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3349 = load ptr, ptr %3348, align 8
+  %3350 = getelementptr inbounds i8, ptr %3349, i64 -16
+  %.sroa.0.0.copyload.i1539 = load i64, ptr %3350, align 16
+  %.sroa.2.0..sroa_idx.i1540 = getelementptr inbounds i8, ptr %3349, i64 -8
   %.sroa.2.0.copyload.i1541 = load i64, ptr %.sroa.2.0..sroa_idx.i1540, align 8
-  store ptr %3358, ptr %3356, align 8
+  store ptr %3350, ptr %3348, align 8
   %.sroa.02095.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1539, i64 0
   %.sroa.02095.8.vec.insert = insertelement <2 x i64> %.sroa.02095.0.vec.insert, i64 %.sroa.2.0.copyload.i1541, i64 1
-  %3359 = load ptr, ptr %61, align 8
-  %3360 = getelementptr inbounds nuw i8, ptr %3359, i64 8
-  %3361 = load ptr, ptr %3360, align 8
-  %3362 = getelementptr inbounds i8, ptr %3361, i64 -16
+  %3351 = load ptr, ptr %61, align 8
+  %3352 = getelementptr inbounds nuw i8, ptr %3351, i64 8
+  %3353 = load ptr, ptr %3352, align 8
+  %3354 = getelementptr inbounds i8, ptr %3353, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !704)
-  %3363 = load <8 x i16>, ptr %3362, align 16, !noalias !704
-  %3364 = bitcast <2 x i64> %.sroa.02095.8.vec.insert to <8 x i16>
-  %3365 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %3363, <8 x i16> %3364)
-  store <8 x i16> %3365, ptr %3362, align 16, !noalias !704
+  %3355 = load <8 x i16>, ptr %3354, align 16, !noalias !704
+  %3356 = bitcast <2 x i64> %.sroa.02095.8.vec.insert to <8 x i16>
+  %3357 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %3355, <8 x i16> %3356)
+  store <8 x i16> %3357, ptr %3354, align 16, !noalias !704
   store i64 1, ptr %0, align 4, !alias.scope !704
-  br label %5014
+  br label %5006
 
-3366:                                             ; preds = %2
-  %3367 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3368 = load ptr, ptr %3367, align 8
-  %3369 = getelementptr inbounds i8, ptr %3368, i64 -16
-  %.sroa.0.0.copyload.i1544 = load i64, ptr %3369, align 16
-  %.sroa.2.0..sroa_idx.i1545 = getelementptr inbounds i8, ptr %3368, i64 -8
+3358:                                             ; preds = %2
+  %3359 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3360 = load ptr, ptr %3359, align 8
+  %3361 = getelementptr inbounds i8, ptr %3360, i64 -16
+  %.sroa.0.0.copyload.i1544 = load i64, ptr %3361, align 16
+  %.sroa.2.0..sroa_idx.i1545 = getelementptr inbounds i8, ptr %3360, i64 -8
   %.sroa.2.0.copyload.i1546 = load i64, ptr %.sroa.2.0..sroa_idx.i1545, align 8
-  store ptr %3369, ptr %3367, align 8
+  store ptr %3361, ptr %3359, align 8
   %.sroa.02093.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1544, i64 0
   %.sroa.02093.8.vec.insert = insertelement <2 x i64> %.sroa.02093.0.vec.insert, i64 %.sroa.2.0.copyload.i1546, i64 1
-  %3370 = load ptr, ptr %61, align 8
-  %3371 = getelementptr inbounds nuw i8, ptr %3370, i64 8
-  %3372 = load ptr, ptr %3371, align 8
-  %3373 = getelementptr inbounds i8, ptr %3372, i64 -16
+  %3362 = load ptr, ptr %61, align 8
+  %3363 = getelementptr inbounds nuw i8, ptr %3362, i64 8
+  %3364 = load ptr, ptr %3363, align 8
+  %3365 = getelementptr inbounds i8, ptr %3364, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
-  %3374 = bitcast <2 x i64> %.sroa.02093.8.vec.insert to <8 x i16>
-  %3375 = load <8 x i16>, ptr %3373, align 16, !noalias !707
-  %3376 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %3374, <8 x i16> %3375)
-  store <8 x i16> %3376, ptr %3373, align 16, !noalias !707
+  %3366 = bitcast <2 x i64> %.sroa.02093.8.vec.insert to <8 x i16>
+  %3367 = load <8 x i16>, ptr %3365, align 16, !noalias !707
+  %3368 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %3366, <8 x i16> %3367)
+  store <8 x i16> %3368, ptr %3365, align 16, !noalias !707
   store i64 1, ptr %0, align 4, !alias.scope !707
-  br label %5014
+  br label %5006
 
-3377:                                             ; preds = %2
-  %3378 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3379 = load ptr, ptr %3378, align 8
-  %3380 = getelementptr inbounds i8, ptr %3379, i64 -16
-  %.sroa.0.0.copyload.i1549 = load i64, ptr %3380, align 16
-  %.sroa.2.0..sroa_idx.i1550 = getelementptr inbounds i8, ptr %3379, i64 -8
+3369:                                             ; preds = %2
+  %3370 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3371 = load ptr, ptr %3370, align 8
+  %3372 = getelementptr inbounds i8, ptr %3371, i64 -16
+  %.sroa.0.0.copyload.i1549 = load i64, ptr %3372, align 16
+  %.sroa.2.0..sroa_idx.i1550 = getelementptr inbounds i8, ptr %3371, i64 -8
   %.sroa.2.0.copyload.i1551 = load i64, ptr %.sroa.2.0..sroa_idx.i1550, align 8
-  store ptr %3380, ptr %3378, align 8
+  store ptr %3372, ptr %3370, align 8
   %.sroa.02091.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1549, i64 0
   %.sroa.02091.8.vec.insert = insertelement <2 x i64> %.sroa.02091.0.vec.insert, i64 %.sroa.2.0.copyload.i1551, i64 1
-  %3381 = load ptr, ptr %61, align 8
-  %3382 = getelementptr inbounds nuw i8, ptr %3381, i64 8
-  %3383 = load ptr, ptr %3382, align 8
-  %3384 = getelementptr inbounds i8, ptr %3383, i64 -16
+  %3373 = load ptr, ptr %61, align 8
+  %3374 = getelementptr inbounds nuw i8, ptr %3373, i64 8
+  %3375 = load ptr, ptr %3374, align 8
+  %3376 = getelementptr inbounds i8, ptr %3375, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
-  %3385 = bitcast <2 x i64> %.sroa.02091.8.vec.insert to <8 x i16>
-  %3386 = load <8 x i16>, ptr %3384, align 16, !noalias !710
-  %3387 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %3385, <8 x i16> %3386)
-  store <8 x i16> %3387, ptr %3384, align 16, !noalias !710
+  %3377 = bitcast <2 x i64> %.sroa.02091.8.vec.insert to <8 x i16>
+  %3378 = load <8 x i16>, ptr %3376, align 16, !noalias !710
+  %3379 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %3377, <8 x i16> %3378)
+  store <8 x i16> %3379, ptr %3376, align 16, !noalias !710
   store i64 1, ptr %0, align 4, !alias.scope !710
-  br label %5014
+  br label %5006
 
-3388:                                             ; preds = %2
-  %3389 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3390 = load ptr, ptr %3389, align 8
-  %3391 = getelementptr inbounds i8, ptr %3390, i64 -16
-  %.sroa.0.0.copyload.i1554 = load i64, ptr %3391, align 16
-  %.sroa.2.0..sroa_idx.i1555 = getelementptr inbounds i8, ptr %3390, i64 -8
+3380:                                             ; preds = %2
+  %3381 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3382 = load ptr, ptr %3381, align 8
+  %3383 = getelementptr inbounds i8, ptr %3382, i64 -16
+  %.sroa.0.0.copyload.i1554 = load i64, ptr %3383, align 16
+  %.sroa.2.0..sroa_idx.i1555 = getelementptr inbounds i8, ptr %3382, i64 -8
   %.sroa.2.0.copyload.i1556 = load i64, ptr %.sroa.2.0..sroa_idx.i1555, align 8
-  store ptr %3391, ptr %3389, align 8
+  store ptr %3383, ptr %3381, align 8
   %.sroa.02089.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1554, i64 0
   %.sroa.02089.8.vec.insert = insertelement <2 x i64> %.sroa.02089.0.vec.insert, i64 %.sroa.2.0.copyload.i1556, i64 1
-  %3392 = load ptr, ptr %61, align 8
-  %3393 = getelementptr inbounds nuw i8, ptr %3392, i64 8
-  %3394 = load ptr, ptr %3393, align 8
-  %3395 = getelementptr inbounds i8, ptr %3394, i64 -16
+  %3384 = load ptr, ptr %61, align 8
+  %3385 = getelementptr inbounds nuw i8, ptr %3384, i64 8
+  %3386 = load ptr, ptr %3385, align 8
+  %3387 = getelementptr inbounds i8, ptr %3386, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
-  %3396 = load <8 x i16>, ptr %3395, align 16, !noalias !713
-  %3397 = zext <8 x i16> %3396 to <8 x i32>
-  %3398 = bitcast <2 x i64> %.sroa.02089.8.vec.insert to <8 x i16>
-  %3399 = zext <8 x i16> %3398 to <8 x i32>
-  %3400 = add nuw nsw <8 x i32> %3399, splat (i32 1)
-  %3401 = add nuw nsw <8 x i32> %3400, %3397
-  %3402 = lshr <8 x i32> %3401, splat (i32 1)
-  %3403 = trunc nuw <8 x i32> %3402 to <8 x i16>
-  store <8 x i16> %3403, ptr %3395, align 16, !noalias !713
+  %3388 = load <8 x i16>, ptr %3387, align 16, !noalias !713
+  %3389 = zext <8 x i16> %3388 to <8 x i32>
+  %3390 = bitcast <2 x i64> %.sroa.02089.8.vec.insert to <8 x i16>
+  %3391 = zext <8 x i16> %3390 to <8 x i32>
+  %3392 = add nuw nsw <8 x i32> %3391, splat (i32 1)
+  %3393 = add nuw nsw <8 x i32> %3392, %3389
+  %3394 = lshr <8 x i32> %3393, splat (i32 1)
+  %3395 = trunc nuw <8 x i32> %3394 to <8 x i16>
+  store <8 x i16> %3395, ptr %3387, align 16, !noalias !713
   store i64 1, ptr %0, align 4, !alias.scope !713
-  br label %5014
+  br label %5006
 
-3404:                                             ; preds = %2
-  %3405 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3406 = load ptr, ptr %3405, align 8
-  %3407 = getelementptr inbounds i8, ptr %3406, i64 -16
-  %.sroa.0.0.copyload.i15592508 = load <8 x i8>, ptr %3407, align 16
-  store ptr %3407, ptr %3405, align 8
-  %3408 = load ptr, ptr %61, align 8
-  %3409 = getelementptr inbounds nuw i8, ptr %3408, i64 8
-  %3410 = load ptr, ptr %3409, align 8
-  %3411 = getelementptr inbounds i8, ptr %3410, i64 -16
+3396:                                             ; preds = %2
+  %3397 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3398 = load ptr, ptr %3397, align 8
+  %3399 = getelementptr inbounds i8, ptr %3398, i64 -16
+  %.sroa.0.0.copyload.i15592508 = load <8 x i8>, ptr %3399, align 16
+  store ptr %3399, ptr %3397, align 8
+  %3400 = load ptr, ptr %61, align 8
+  %3401 = getelementptr inbounds nuw i8, ptr %3400, i64 8
+  %3402 = load ptr, ptr %3401, align 8
+  %3403 = getelementptr inbounds i8, ptr %3402, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
-  %3412 = load <16 x i8>, ptr %3411, align 16, !noalias !716
-  %3413 = shufflevector <16 x i8> %3412, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3414 = sext <8 x i8> %3413 to <8 x i16>
-  %3415 = sext <8 x i8> %.sroa.0.0.copyload.i15592508 to <8 x i16>
-  %3416 = mul nsw <8 x i16> %3414, %3415
-  store <8 x i16> %3416, ptr %3411, align 16, !noalias !716
+  %3404 = load <16 x i8>, ptr %3403, align 16, !noalias !716
+  %3405 = shufflevector <16 x i8> %3404, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3406 = sext <8 x i8> %3405 to <8 x i16>
+  %3407 = sext <8 x i8> %.sroa.0.0.copyload.i15592508 to <8 x i16>
+  %3408 = mul nsw <8 x i16> %3406, %3407
+  store <8 x i16> %3408, ptr %3403, align 16, !noalias !716
   store i64 1, ptr %0, align 4, !alias.scope !716
-  br label %5014
+  br label %5006
 
-3417:                                             ; preds = %2
-  %3418 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3419 = load ptr, ptr %3418, align 8
-  %3420 = getelementptr inbounds i8, ptr %3419, i64 -16
-  %.sroa.2.0..sroa_idx.i1565 = getelementptr inbounds i8, ptr %3419, i64 -8
+3409:                                             ; preds = %2
+  %3410 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3411 = load ptr, ptr %3410, align 8
+  %3412 = getelementptr inbounds i8, ptr %3411, i64 -16
+  %.sroa.2.0..sroa_idx.i1565 = getelementptr inbounds i8, ptr %3411, i64 -8
   %.sroa.2.0.copyload.i1566 = load i64, ptr %.sroa.2.0..sroa_idx.i1565, align 8
-  store ptr %3420, ptr %3418, align 8
+  store ptr %3412, ptr %3410, align 8
   %.sroa.02085.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1566, i64 1
-  %3421 = load ptr, ptr %61, align 8
-  %3422 = getelementptr inbounds nuw i8, ptr %3421, i64 8
-  %3423 = load ptr, ptr %3422, align 8
-  %3424 = getelementptr inbounds i8, ptr %3423, i64 -16
+  %3413 = load ptr, ptr %61, align 8
+  %3414 = getelementptr inbounds nuw i8, ptr %3413, i64 8
+  %3415 = load ptr, ptr %3414, align 8
+  %3416 = getelementptr inbounds i8, ptr %3415, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !719)
-  %3425 = load <16 x i8>, ptr %3424, align 16, !noalias !719
-  %3426 = shufflevector <16 x i8> %3425, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3427 = sext <8 x i8> %3426 to <8 x i16>
-  %3428 = bitcast <2 x i64> %.sroa.02085.8.vec.insert to <16 x i8>
-  %3429 = shufflevector <16 x i8> %3428, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3430 = sext <8 x i8> %3429 to <8 x i16>
-  %3431 = mul nsw <8 x i16> %3427, %3430
-  store <8 x i16> %3431, ptr %3424, align 16, !noalias !719
+  %3417 = load <16 x i8>, ptr %3416, align 16, !noalias !719
+  %3418 = shufflevector <16 x i8> %3417, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3419 = sext <8 x i8> %3418 to <8 x i16>
+  %3420 = bitcast <2 x i64> %.sroa.02085.8.vec.insert to <16 x i8>
+  %3421 = shufflevector <16 x i8> %3420, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3422 = sext <8 x i8> %3421 to <8 x i16>
+  %3423 = mul nsw <8 x i16> %3419, %3422
+  store <8 x i16> %3423, ptr %3416, align 16, !noalias !719
   store i64 1, ptr %0, align 4, !alias.scope !719
-  br label %5014
+  br label %5006
 
-3432:                                             ; preds = %2
-  %3433 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3434 = load ptr, ptr %3433, align 8
-  %3435 = getelementptr inbounds i8, ptr %3434, i64 -16
-  %.sroa.0.0.copyload.i15692507 = load <8 x i8>, ptr %3435, align 16
-  store ptr %3435, ptr %3433, align 8
-  %3436 = load ptr, ptr %61, align 8
-  %3437 = getelementptr inbounds nuw i8, ptr %3436, i64 8
-  %3438 = load ptr, ptr %3437, align 8
-  %3439 = getelementptr inbounds i8, ptr %3438, i64 -16
+3424:                                             ; preds = %2
+  %3425 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3426 = load ptr, ptr %3425, align 8
+  %3427 = getelementptr inbounds i8, ptr %3426, i64 -16
+  %.sroa.0.0.copyload.i15692507 = load <8 x i8>, ptr %3427, align 16
+  store ptr %3427, ptr %3425, align 8
+  %3428 = load ptr, ptr %61, align 8
+  %3429 = getelementptr inbounds nuw i8, ptr %3428, i64 8
+  %3430 = load ptr, ptr %3429, align 8
+  %3431 = getelementptr inbounds i8, ptr %3430, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !722)
-  %3440 = load <16 x i8>, ptr %3439, align 16, !noalias !722
-  %3441 = shufflevector <16 x i8> %3440, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %3442 = zext <8 x i8> %3441 to <8 x i16>
-  %3443 = zext <8 x i8> %.sroa.0.0.copyload.i15692507 to <8 x i16>
-  %3444 = mul nuw <8 x i16> %3442, %3443
-  store <8 x i16> %3444, ptr %3439, align 16, !noalias !722
+  %3432 = load <16 x i8>, ptr %3431, align 16, !noalias !722
+  %3433 = shufflevector <16 x i8> %3432, <16 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %3434 = zext <8 x i8> %3433 to <8 x i16>
+  %3435 = zext <8 x i8> %.sroa.0.0.copyload.i15692507 to <8 x i16>
+  %3436 = mul nuw <8 x i16> %3434, %3435
+  store <8 x i16> %3436, ptr %3431, align 16, !noalias !722
   store i64 1, ptr %0, align 4, !alias.scope !722
-  br label %5014
+  br label %5006
 
-3445:                                             ; preds = %2
-  %3446 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3447 = load ptr, ptr %3446, align 8
-  %3448 = getelementptr inbounds i8, ptr %3447, i64 -16
-  %.sroa.2.0..sroa_idx.i1575 = getelementptr inbounds i8, ptr %3447, i64 -8
+3437:                                             ; preds = %2
+  %3438 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3439 = load ptr, ptr %3438, align 8
+  %3440 = getelementptr inbounds i8, ptr %3439, i64 -16
+  %.sroa.2.0..sroa_idx.i1575 = getelementptr inbounds i8, ptr %3439, i64 -8
   %.sroa.2.0.copyload.i1576 = load i64, ptr %.sroa.2.0..sroa_idx.i1575, align 8
-  store ptr %3448, ptr %3446, align 8
+  store ptr %3440, ptr %3438, align 8
   %.sroa.02081.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1576, i64 1
-  %3449 = load ptr, ptr %61, align 8
-  %3450 = getelementptr inbounds nuw i8, ptr %3449, i64 8
-  %3451 = load ptr, ptr %3450, align 8
-  %3452 = getelementptr inbounds i8, ptr %3451, i64 -16
+  %3441 = load ptr, ptr %61, align 8
+  %3442 = getelementptr inbounds nuw i8, ptr %3441, i64 8
+  %3443 = load ptr, ptr %3442, align 8
+  %3444 = getelementptr inbounds i8, ptr %3443, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
-  %3453 = load <16 x i8>, ptr %3452, align 16, !noalias !725
-  %3454 = shufflevector <16 x i8> %3453, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3455 = zext <8 x i8> %3454 to <8 x i16>
-  %3456 = bitcast <2 x i64> %.sroa.02081.8.vec.insert to <16 x i8>
-  %3457 = shufflevector <16 x i8> %3456, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %3458 = zext <8 x i8> %3457 to <8 x i16>
-  %3459 = mul nuw <8 x i16> %3455, %3458
-  store <8 x i16> %3459, ptr %3452, align 16, !noalias !725
+  %3445 = load <16 x i8>, ptr %3444, align 16, !noalias !725
+  %3446 = shufflevector <16 x i8> %3445, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3447 = zext <8 x i8> %3446 to <8 x i16>
+  %3448 = bitcast <2 x i64> %.sroa.02081.8.vec.insert to <16 x i8>
+  %3449 = shufflevector <16 x i8> %3448, <16 x i8> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %3450 = zext <8 x i8> %3449 to <8 x i16>
+  %3451 = mul nuw <8 x i16> %3447, %3450
+  store <8 x i16> %3451, ptr %3444, align 16, !noalias !725
   store i64 1, ptr %0, align 4, !alias.scope !725
-  br label %5014
+  br label %5006
 
-3460:                                             ; preds = %2
-  %3461 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3462 = load ptr, ptr %3461, align 8
-  %3463 = getelementptr inbounds i8, ptr %3462, i64 -16
-  %.sroa.0.0.copyload.i1579 = load i64, ptr %3463, align 16
-  %.sroa.2.0..sroa_idx.i1580 = getelementptr inbounds i8, ptr %3462, i64 -8
+3452:                                             ; preds = %2
+  %3453 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3454 = load ptr, ptr %3453, align 8
+  %3455 = getelementptr inbounds i8, ptr %3454, i64 -16
+  %.sroa.0.0.copyload.i1579 = load i64, ptr %3455, align 16
+  %.sroa.2.0..sroa_idx.i1580 = getelementptr inbounds i8, ptr %3454, i64 -8
   %.sroa.2.0.copyload.i1581 = load i64, ptr %.sroa.2.0..sroa_idx.i1580, align 8
-  store ptr %3463, ptr %3461, align 8
+  store ptr %3455, ptr %3453, align 8
   %.sroa.02079.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1579, i64 0
   %.sroa.02079.8.vec.insert = insertelement <2 x i64> %.sroa.02079.0.vec.insert, i64 %.sroa.2.0.copyload.i1581, i64 1
-  %3464 = load ptr, ptr %61, align 8
-  %3465 = getelementptr inbounds nuw i8, ptr %3464, i64 8
-  %3466 = load ptr, ptr %3465, align 8
-  %3467 = getelementptr inbounds i8, ptr %3466, i64 -16
+  %3456 = load ptr, ptr %61, align 8
+  %3457 = getelementptr inbounds nuw i8, ptr %3456, i64 8
+  %3458 = load ptr, ptr %3457, align 8
+  %3459 = getelementptr inbounds i8, ptr %3458, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
-  %3468 = load <8 x i16>, ptr %3467, align 16, !noalias !728
-  %3469 = sext <8 x i16> %3468 to <8 x i32>
-  %3470 = bitcast <2 x i64> %.sroa.02079.8.vec.insert to <8 x i16>
-  %3471 = sext <8 x i16> %3470 to <8 x i32>
-  %3472 = mul nsw <8 x i32> %3469, %3471
-  %3473 = add nsw <8 x i32> %3472, splat (i32 16384)
-  %3474 = ashr <8 x i32> %3473, splat (i32 15)
-  %3475 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %3474, <8 x i32> splat (i32 32767))
-  %3476 = trunc nsw <8 x i32> %3475 to <8 x i16>
-  store <8 x i16> %3476, ptr %3467, align 16, !noalias !728
+  %3460 = load <8 x i16>, ptr %3459, align 16, !noalias !728
+  %3461 = sext <8 x i16> %3460 to <8 x i32>
+  %3462 = bitcast <2 x i64> %.sroa.02079.8.vec.insert to <8 x i16>
+  %3463 = sext <8 x i16> %3462 to <8 x i32>
+  %3464 = mul nsw <8 x i32> %3461, %3463
+  %3465 = add nsw <8 x i32> %3464, splat (i32 16384)
+  %3466 = ashr <8 x i32> %3465, splat (i32 15)
+  %3467 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %3466, <8 x i32> splat (i32 32767))
+  %3468 = trunc nsw <8 x i32> %3467 to <8 x i16>
+  store <8 x i16> %3468, ptr %3459, align 16, !noalias !728
   store i64 1, ptr %0, align 4, !alias.scope !728
-  br label %5014
+  br label %5006
 
-3477:                                             ; preds = %2
-  %3478 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3479 = load ptr, ptr %3478, align 8
-  %3480 = getelementptr inbounds i8, ptr %3479, i64 -16
+3469:                                             ; preds = %2
+  %3470 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3471 = load ptr, ptr %3470, align 8
+  %3472 = getelementptr inbounds i8, ptr %3471, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  %3481 = load <8 x i16>, ptr %3480, align 16, !noalias !731
-  %3482 = ashr <8 x i16> %3481, splat (i16 8)
-  %3483 = shl <8 x i16> %3481, splat (i16 8)
-  %3484 = ashr exact <8 x i16> %3483, splat (i16 8)
-  %3485 = add nsw <8 x i16> %3484, %3482
-  store <8 x i16> %3485, ptr %3480, align 16, !noalias !731
+  %3473 = load <8 x i16>, ptr %3472, align 16, !noalias !731
+  %3474 = ashr <8 x i16> %3473, splat (i16 8)
+  %3475 = shl <8 x i16> %3473, splat (i16 8)
+  %3476 = ashr exact <8 x i16> %3475, splat (i16 8)
+  %3477 = add nsw <8 x i16> %3476, %3474
+  store <8 x i16> %3477, ptr %3472, align 16, !noalias !731
   store i64 1, ptr %0, align 4, !alias.scope !731
-  br label %5014
+  br label %5006
+
+3478:                                             ; preds = %2
+  %3479 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3480 = load ptr, ptr %3479, align 8
+  %3481 = getelementptr inbounds i8, ptr %3480, i64 -16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
+  %3482 = load <8 x i16>, ptr %3481, align 16, !noalias !734
+  %3483 = lshr <8 x i16> %3482, splat (i16 8)
+  %3484 = and <8 x i16> %3482, splat (i16 255)
+  %3485 = add nuw nsw <8 x i16> %3483, %3484
+  store <8 x i16> %3485, ptr %3481, align 16, !noalias !734
+  store i64 1, ptr %0, align 4, !alias.scope !734
+  br label %5006
 
 3486:                                             ; preds = %2
   %3487 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %3488 = load ptr, ptr %3487, align 8
   %3489 = getelementptr inbounds i8, ptr %3488, i64 -16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
-  %3490 = load <8 x i16>, ptr %3489, align 16, !noalias !734
-  %3491 = lshr <8 x i16> %3490, splat (i16 8)
-  %3492 = and <8 x i16> %3490, splat (i16 255)
-  %3493 = add nuw nsw <8 x i16> %3491, %3492
-  store <8 x i16> %3493, ptr %3489, align 16, !noalias !734
-  store i64 1, ptr %0, align 4, !alias.scope !734
-  br label %5014
-
-3494:                                             ; preds = %2
-  %3495 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3496 = load ptr, ptr %3495, align 8
-  %3497 = getelementptr inbounds i8, ptr %3496, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
-  %3498 = load <4 x i32>, ptr %3497, align 16, !noalias !737
-  %3499 = sub <4 x i32> zeroinitializer, %3498
-  %3500 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3498, <4 x i32> zeroinitializer)
-  %.inv.i1584 = icmp sgt <4 x i32> %3498, zeroinitializer
-  %3501 = select <4 x i1> %.inv.i1584, <4 x i32> zeroinitializer, <4 x i32> %3499
-  %3502 = or <4 x i32> %3501, %3500
-  store <4 x i32> %3502, ptr %3497, align 16, !noalias !737
+  %3490 = load <4 x i32>, ptr %3489, align 16, !noalias !737
+  %3491 = sub <4 x i32> zeroinitializer, %3490
+  %3492 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3490, <4 x i32> zeroinitializer)
+  %.inv.i1584 = icmp sgt <4 x i32> %3490, zeroinitializer
+  %3493 = select <4 x i1> %.inv.i1584, <4 x i32> zeroinitializer, <4 x i32> %3491
+  %3494 = or <4 x i32> %3493, %3492
+  store <4 x i32> %3494, ptr %3489, align 16, !noalias !737
   store i64 1, ptr %0, align 4, !alias.scope !737
-  br label %5014
+  br label %5006
 
-3503:                                             ; preds = %2
-  %3504 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3505 = load ptr, ptr %3504, align 8
-  %3506 = getelementptr inbounds i8, ptr %3505, i64 -16
+3495:                                             ; preds = %2
+  %3496 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3497 = load ptr, ptr %3496, align 8
+  %3498 = getelementptr inbounds i8, ptr %3497, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
-  %3507 = load <4 x i32>, ptr %3506, align 16, !noalias !740
-  %3508 = sub <4 x i32> zeroinitializer, %3507
-  store <4 x i32> %3508, ptr %3506, align 16, !noalias !740
+  %3499 = load <4 x i32>, ptr %3498, align 16, !noalias !740
+  %3500 = sub <4 x i32> zeroinitializer, %3499
+  store <4 x i32> %3500, ptr %3498, align 16, !noalias !740
   store i64 1, ptr %0, align 4, !alias.scope !740
-  br label %5014
+  br label %5006
 
-3509:                                             ; preds = %2
-  %3510 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3511 = load ptr, ptr %3510, align 8
-  %3512 = getelementptr inbounds i8, ptr %3511, i64 -16
+3501:                                             ; preds = %2
+  %3502 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3503 = load ptr, ptr %3502, align 8
+  %3504 = getelementptr inbounds i8, ptr %3503, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
-  %3513 = load <4 x i32>, ptr %3512, align 16, !noalias !743
-  %3514 = icmp ne <4 x i32> %3513, zeroinitializer
-  %3515 = sext <4 x i1> %3514 to <4 x i32>
-  %3516 = extractelement <4 x i32> %3515, i64 0
-  %3517 = icmp ne i32 %3516, 0
-  %3518 = extractelement <4 x i32> %3515, i64 1
-  %3519 = icmp ne i32 %3518, 0
-  %or.cond.i = select i1 %3517, i1 %3519, i1 false
-  %3520 = extractelement <4 x i32> %3515, i64 2
-  %3521 = icmp ne i32 %3520, 0
-  %or.cond5.i = select i1 %or.cond.i, i1 %3521, i1 false
-  %3522 = extractelement <4 x i32> %3515, i64 3
-  %3523 = icmp ne i32 %3522, 0
-  %narrow.i = select i1 %or.cond5.i, i1 %3523, i1 false
-  %3524 = zext i1 %narrow.i to i32
-  store i32 %3524, ptr %3512, align 16, !noalias !743
+  %3505 = load <4 x i32>, ptr %3504, align 16, !noalias !743
+  %3506 = icmp ne <4 x i32> %3505, zeroinitializer
+  %3507 = sext <4 x i1> %3506 to <4 x i32>
+  %3508 = extractelement <4 x i32> %3507, i64 0
+  %3509 = icmp ne i32 %3508, 0
+  %3510 = extractelement <4 x i32> %3507, i64 1
+  %3511 = icmp ne i32 %3510, 0
+  %or.cond.i = select i1 %3509, i1 %3511, i1 false
+  %3512 = extractelement <4 x i32> %3507, i64 2
+  %3513 = icmp ne i32 %3512, 0
+  %or.cond5.i = select i1 %or.cond.i, i1 %3513, i1 false
+  %3514 = extractelement <4 x i32> %3507, i64 3
+  %3515 = icmp ne i32 %3514, 0
+  %narrow.i = select i1 %or.cond5.i, i1 %3515, i1 false
+  %3516 = zext i1 %narrow.i to i32
+  store i32 %3516, ptr %3504, align 16, !noalias !743
   store i64 1, ptr %0, align 4, !alias.scope !743
-  br label %5014
+  br label %5006
 
-3525:                                             ; preds = %2
-  %3526 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3527 = load ptr, ptr %3526, align 8
-  %3528 = getelementptr inbounds i8, ptr %3527, i64 -16
+3517:                                             ; preds = %2
+  %3518 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3519 = load ptr, ptr %3518, align 8
+  %3520 = getelementptr inbounds i8, ptr %3519, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
-  %3529 = load <4 x i32>, ptr %3528, align 16, !noalias !746
-  %isneg.i = icmp slt <4 x i32> %3529, zeroinitializer
-  %3530 = select <4 x i1> %isneg.i, <4 x i8> <i8 1, i8 2, i8 4, i8 8>, <4 x i8> zeroinitializer
-  %3531 = extractelement <4 x i8> %3530, i64 0
-  %3532 = extractelement <4 x i8> %3530, i64 1
-  %3533 = or disjoint i8 %3531, %3532
-  %3534 = extractelement <4 x i8> %3530, i64 2
-  %3535 = or disjoint i8 %3533, %3534
-  %3536 = extractelement <4 x i8> %3530, i64 3
-  %3537 = or disjoint i8 %3535, %3536
-  %3538 = zext nneg i8 %3537 to i32
-  store i32 %3538, ptr %3528, align 16, !noalias !746
+  %3521 = load <4 x i32>, ptr %3520, align 16, !noalias !746
+  %isneg.i = icmp slt <4 x i32> %3521, zeroinitializer
+  %3522 = select <4 x i1> %isneg.i, <4 x i8> <i8 1, i8 2, i8 4, i8 8>, <4 x i8> zeroinitializer
+  %3523 = extractelement <4 x i8> %3522, i64 0
+  %3524 = extractelement <4 x i8> %3522, i64 1
+  %3525 = or disjoint i8 %3523, %3524
+  %3526 = extractelement <4 x i8> %3522, i64 2
+  %3527 = or disjoint i8 %3525, %3526
+  %3528 = extractelement <4 x i8> %3522, i64 3
+  %3529 = or disjoint i8 %3527, %3528
+  %3530 = zext nneg i8 %3529 to i32
+  store i32 %3530, ptr %3520, align 16, !noalias !746
   store i64 1, ptr %0, align 4, !alias.scope !746
-  br label %5014
+  br label %5006
 
-3539:                                             ; preds = %2
-  %3540 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3541 = load ptr, ptr %3540, align 8
-  %3542 = getelementptr inbounds i8, ptr %3541, i64 -16
+3531:                                             ; preds = %2
+  %3532 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3533 = load ptr, ptr %3532, align 8
+  %3534 = getelementptr inbounds i8, ptr %3533, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
-  %3543 = load <8 x i16>, ptr %3542, align 16, !noalias !749
-  %3544 = shufflevector <8 x i16> %3543, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %3545 = sext <4 x i16> %3544 to <4 x i32>
-  store <4 x i32> %3545, ptr %3542, align 16, !noalias !749
+  %3535 = load <8 x i16>, ptr %3534, align 16, !noalias !749
+  %3536 = shufflevector <8 x i16> %3535, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %3537 = sext <4 x i16> %3536 to <4 x i32>
+  store <4 x i32> %3537, ptr %3534, align 16, !noalias !749
   store i64 1, ptr %0, align 4, !alias.scope !749
-  br label %5014
+  br label %5006
 
-3546:                                             ; preds = %2
-  %3547 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3548 = load ptr, ptr %3547, align 8
-  %3549 = getelementptr inbounds i8, ptr %3548, i64 -16
+3538:                                             ; preds = %2
+  %3539 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3540 = load ptr, ptr %3539, align 8
+  %3541 = getelementptr inbounds i8, ptr %3540, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !752)
-  %3550 = load <8 x i16>, ptr %3549, align 16, !noalias !752
-  %3551 = shufflevector <8 x i16> %3550, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3552 = sext <4 x i16> %3551 to <4 x i32>
-  store <4 x i32> %3552, ptr %3549, align 16, !noalias !752
+  %3542 = load <8 x i16>, ptr %3541, align 16, !noalias !752
+  %3543 = shufflevector <8 x i16> %3542, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3544 = sext <4 x i16> %3543 to <4 x i32>
+  store <4 x i32> %3544, ptr %3541, align 16, !noalias !752
   store i64 1, ptr %0, align 4, !alias.scope !752
-  br label %5014
+  br label %5006
 
-3553:                                             ; preds = %2
-  %3554 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3555 = load ptr, ptr %3554, align 8
-  %3556 = getelementptr inbounds i8, ptr %3555, i64 -16
+3545:                                             ; preds = %2
+  %3546 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3547 = load ptr, ptr %3546, align 8
+  %3548 = getelementptr inbounds i8, ptr %3547, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !755)
-  %3557 = load <8 x i16>, ptr %3556, align 16, !noalias !755
-  %3558 = shufflevector <8 x i16> %3557, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %3559 = zext <4 x i16> %3558 to <4 x i32>
-  store <4 x i32> %3559, ptr %3556, align 16, !noalias !755
+  %3549 = load <8 x i16>, ptr %3548, align 16, !noalias !755
+  %3550 = shufflevector <8 x i16> %3549, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %3551 = zext <4 x i16> %3550 to <4 x i32>
+  store <4 x i32> %3551, ptr %3548, align 16, !noalias !755
   store i64 1, ptr %0, align 4, !alias.scope !755
-  br label %5014
+  br label %5006
 
-3560:                                             ; preds = %2
-  %3561 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3562 = load ptr, ptr %3561, align 8
-  %3563 = getelementptr inbounds i8, ptr %3562, i64 -16
+3552:                                             ; preds = %2
+  %3553 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3554 = load ptr, ptr %3553, align 8
+  %3555 = getelementptr inbounds i8, ptr %3554, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !758)
-  %3564 = load <8 x i16>, ptr %3563, align 16, !noalias !758
-  %3565 = shufflevector <8 x i16> %3564, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3566 = zext <4 x i16> %3565 to <4 x i32>
-  store <4 x i32> %3566, ptr %3563, align 16, !noalias !758
+  %3556 = load <8 x i16>, ptr %3555, align 16, !noalias !758
+  %3557 = shufflevector <8 x i16> %3556, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3558 = zext <4 x i16> %3557 to <4 x i32>
+  store <4 x i32> %3558, ptr %3555, align 16, !noalias !758
   store i64 1, ptr %0, align 4, !alias.scope !758
-  br label %5014
+  br label %5006
 
-3567:                                             ; preds = %2
-  %3568 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3569 = load ptr, ptr %3568, align 8
-  %3570 = getelementptr inbounds i8, ptr %3569, i64 -16
-  %.sroa.0.0.copyload.i1585 = load i64, ptr %3570, align 16
-  store ptr %3570, ptr %3568, align 8
+3559:                                             ; preds = %2
+  %3560 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3561 = load ptr, ptr %3560, align 8
+  %3562 = getelementptr inbounds i8, ptr %3561, i64 -16
+  %.sroa.0.0.copyload.i1585 = load i64, ptr %3562, align 16
+  store ptr %3562, ptr %3560, align 8
   %.sroa.02074.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1585 to i32
-  %3571 = load ptr, ptr %61, align 8
-  %3572 = getelementptr inbounds nuw i8, ptr %3571, i64 8
-  %3573 = load ptr, ptr %3572, align 8
-  %3574 = getelementptr inbounds i8, ptr %3573, i64 -16
+  %3563 = load ptr, ptr %61, align 8
+  %3564 = getelementptr inbounds nuw i8, ptr %3563, i64 8
+  %3565 = load ptr, ptr %3564, align 8
+  %3566 = getelementptr inbounds i8, ptr %3565, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !761)
-  %3575 = and i32 %.sroa.02074.0.extract.trunc, 31
-  %3576 = insertelement <4 x i32> poison, i32 %3575, i64 0
-  %3577 = shufflevector <4 x i32> %3576, <4 x i32> poison, <4 x i32> zeroinitializer
-  %3578 = load <4 x i32>, ptr %3574, align 16, !noalias !761
-  %3579 = shl <4 x i32> %3578, %3577
-  store <4 x i32> %3579, ptr %3574, align 16, !noalias !761
+  %3567 = and i32 %.sroa.02074.0.extract.trunc, 31
+  %3568 = insertelement <4 x i32> poison, i32 %3567, i64 0
+  %3569 = shufflevector <4 x i32> %3568, <4 x i32> poison, <4 x i32> zeroinitializer
+  %3570 = load <4 x i32>, ptr %3566, align 16, !noalias !761
+  %3571 = shl <4 x i32> %3570, %3569
+  store <4 x i32> %3571, ptr %3566, align 16, !noalias !761
   store i64 1, ptr %0, align 4, !alias.scope !761
-  br label %5014
+  br label %5006
 
-3580:                                             ; preds = %2
-  %3581 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3582 = load ptr, ptr %3581, align 8
-  %3583 = getelementptr inbounds i8, ptr %3582, i64 -16
-  %.sroa.0.0.copyload.i1590 = load i64, ptr %3583, align 16
-  store ptr %3583, ptr %3581, align 8
+3572:                                             ; preds = %2
+  %3573 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3574 = load ptr, ptr %3573, align 8
+  %3575 = getelementptr inbounds i8, ptr %3574, i64 -16
+  %.sroa.0.0.copyload.i1590 = load i64, ptr %3575, align 16
+  store ptr %3575, ptr %3573, align 8
   %.sroa.02069.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1590 to i32
-  %3584 = load ptr, ptr %61, align 8
-  %3585 = getelementptr inbounds nuw i8, ptr %3584, i64 8
-  %3586 = load ptr, ptr %3585, align 8
-  %3587 = getelementptr inbounds i8, ptr %3586, i64 -16
+  %3576 = load ptr, ptr %61, align 8
+  %3577 = getelementptr inbounds nuw i8, ptr %3576, i64 8
+  %3578 = load ptr, ptr %3577, align 8
+  %3579 = getelementptr inbounds i8, ptr %3578, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !764)
-  %3588 = and i32 %.sroa.02069.0.extract.trunc, 31
-  %3589 = insertelement <4 x i32> poison, i32 %3588, i64 0
-  %3590 = shufflevector <4 x i32> %3589, <4 x i32> poison, <4 x i32> zeroinitializer
-  %3591 = load <4 x i32>, ptr %3587, align 16, !noalias !764
-  %3592 = ashr <4 x i32> %3591, %3590
-  store <4 x i32> %3592, ptr %3587, align 16, !noalias !764
+  %3580 = and i32 %.sroa.02069.0.extract.trunc, 31
+  %3581 = insertelement <4 x i32> poison, i32 %3580, i64 0
+  %3582 = shufflevector <4 x i32> %3581, <4 x i32> poison, <4 x i32> zeroinitializer
+  %3583 = load <4 x i32>, ptr %3579, align 16, !noalias !764
+  %3584 = ashr <4 x i32> %3583, %3582
+  store <4 x i32> %3584, ptr %3579, align 16, !noalias !764
   store i64 1, ptr %0, align 4, !alias.scope !764
-  br label %5014
+  br label %5006
 
-3593:                                             ; preds = %2
-  %3594 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3595 = load ptr, ptr %3594, align 8
-  %3596 = getelementptr inbounds i8, ptr %3595, i64 -16
-  %.sroa.0.0.copyload.i1595 = load i64, ptr %3596, align 16
-  store ptr %3596, ptr %3594, align 8
+3585:                                             ; preds = %2
+  %3586 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3587 = load ptr, ptr %3586, align 8
+  %3588 = getelementptr inbounds i8, ptr %3587, i64 -16
+  %.sroa.0.0.copyload.i1595 = load i64, ptr %3588, align 16
+  store ptr %3588, ptr %3586, align 8
   %.sroa.02064.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1595 to i32
-  %3597 = load ptr, ptr %61, align 8
-  %3598 = getelementptr inbounds nuw i8, ptr %3597, i64 8
-  %3599 = load ptr, ptr %3598, align 8
-  %3600 = getelementptr inbounds i8, ptr %3599, i64 -16
+  %3589 = load ptr, ptr %61, align 8
+  %3590 = getelementptr inbounds nuw i8, ptr %3589, i64 8
+  %3591 = load ptr, ptr %3590, align 8
+  %3592 = getelementptr inbounds i8, ptr %3591, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
-  %3601 = and i32 %.sroa.02064.0.extract.trunc, 31
-  %3602 = insertelement <4 x i32> poison, i32 %3601, i64 0
-  %3603 = shufflevector <4 x i32> %3602, <4 x i32> poison, <4 x i32> zeroinitializer
-  %3604 = load <4 x i32>, ptr %3600, align 16, !noalias !767
-  %3605 = lshr <4 x i32> %3604, %3603
-  store <4 x i32> %3605, ptr %3600, align 16, !noalias !767
+  %3593 = and i32 %.sroa.02064.0.extract.trunc, 31
+  %3594 = insertelement <4 x i32> poison, i32 %3593, i64 0
+  %3595 = shufflevector <4 x i32> %3594, <4 x i32> poison, <4 x i32> zeroinitializer
+  %3596 = load <4 x i32>, ptr %3592, align 16, !noalias !767
+  %3597 = lshr <4 x i32> %3596, %3595
+  store <4 x i32> %3597, ptr %3592, align 16, !noalias !767
   store i64 1, ptr %0, align 4, !alias.scope !767
-  br label %5014
+  br label %5006
 
-3606:                                             ; preds = %2
-  %3607 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3608 = load ptr, ptr %3607, align 8
-  %3609 = getelementptr inbounds i8, ptr %3608, i64 -16
-  %.sroa.0.0.copyload.i1600 = load i64, ptr %3609, align 16
-  %.sroa.2.0..sroa_idx.i1601 = getelementptr inbounds i8, ptr %3608, i64 -8
+3598:                                             ; preds = %2
+  %3599 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3600 = load ptr, ptr %3599, align 8
+  %3601 = getelementptr inbounds i8, ptr %3600, i64 -16
+  %.sroa.0.0.copyload.i1600 = load i64, ptr %3601, align 16
+  %.sroa.2.0..sroa_idx.i1601 = getelementptr inbounds i8, ptr %3600, i64 -8
   %.sroa.2.0.copyload.i1602 = load i64, ptr %.sroa.2.0..sroa_idx.i1601, align 8
-  store ptr %3609, ptr %3607, align 8
+  store ptr %3601, ptr %3599, align 8
   %.sroa.02062.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1600, i64 0
   %.sroa.02062.8.vec.insert = insertelement <2 x i64> %.sroa.02062.0.vec.insert, i64 %.sroa.2.0.copyload.i1602, i64 1
-  %3610 = load ptr, ptr %61, align 8
-  %3611 = getelementptr inbounds nuw i8, ptr %3610, i64 8
-  %3612 = load ptr, ptr %3611, align 8
-  %3613 = getelementptr inbounds i8, ptr %3612, i64 -16
+  %3602 = load ptr, ptr %61, align 8
+  %3603 = getelementptr inbounds nuw i8, ptr %3602, i64 8
+  %3604 = load ptr, ptr %3603, align 8
+  %3605 = getelementptr inbounds i8, ptr %3604, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !770)
-  %3614 = bitcast <2 x i64> %.sroa.02062.8.vec.insert to <4 x i32>
-  %3615 = load <4 x i32>, ptr %3613, align 16, !noalias !770
-  %3616 = add <4 x i32> %3615, %3614
-  store <4 x i32> %3616, ptr %3613, align 16, !noalias !770
+  %3606 = bitcast <2 x i64> %.sroa.02062.8.vec.insert to <4 x i32>
+  %3607 = load <4 x i32>, ptr %3605, align 16, !noalias !770
+  %3608 = add <4 x i32> %3607, %3606
+  store <4 x i32> %3608, ptr %3605, align 16, !noalias !770
   store i64 1, ptr %0, align 4, !alias.scope !770
-  br label %5014
+  br label %5006
 
-3617:                                             ; preds = %2
-  %3618 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3619 = load ptr, ptr %3618, align 8
-  %3620 = getelementptr inbounds i8, ptr %3619, i64 -16
-  %.sroa.0.0.copyload.i1605 = load i64, ptr %3620, align 16
-  %.sroa.2.0..sroa_idx.i1606 = getelementptr inbounds i8, ptr %3619, i64 -8
+3609:                                             ; preds = %2
+  %3610 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3611 = load ptr, ptr %3610, align 8
+  %3612 = getelementptr inbounds i8, ptr %3611, i64 -16
+  %.sroa.0.0.copyload.i1605 = load i64, ptr %3612, align 16
+  %.sroa.2.0..sroa_idx.i1606 = getelementptr inbounds i8, ptr %3611, i64 -8
   %.sroa.2.0.copyload.i1607 = load i64, ptr %.sroa.2.0..sroa_idx.i1606, align 8
-  store ptr %3620, ptr %3618, align 8
+  store ptr %3612, ptr %3610, align 8
   %.sroa.02060.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1605, i64 0
   %.sroa.02060.8.vec.insert = insertelement <2 x i64> %.sroa.02060.0.vec.insert, i64 %.sroa.2.0.copyload.i1607, i64 1
-  %3621 = load ptr, ptr %61, align 8
-  %3622 = getelementptr inbounds nuw i8, ptr %3621, i64 8
-  %3623 = load ptr, ptr %3622, align 8
-  %3624 = getelementptr inbounds i8, ptr %3623, i64 -16
+  %3613 = load ptr, ptr %61, align 8
+  %3614 = getelementptr inbounds nuw i8, ptr %3613, i64 8
+  %3615 = load ptr, ptr %3614, align 8
+  %3616 = getelementptr inbounds i8, ptr %3615, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
-  %3625 = bitcast <2 x i64> %.sroa.02060.8.vec.insert to <4 x i32>
-  %3626 = load <4 x i32>, ptr %3624, align 16, !noalias !773
-  %3627 = sub <4 x i32> %3626, %3625
-  store <4 x i32> %3627, ptr %3624, align 16, !noalias !773
+  %3617 = bitcast <2 x i64> %.sroa.02060.8.vec.insert to <4 x i32>
+  %3618 = load <4 x i32>, ptr %3616, align 16, !noalias !773
+  %3619 = sub <4 x i32> %3618, %3617
+  store <4 x i32> %3619, ptr %3616, align 16, !noalias !773
   store i64 1, ptr %0, align 4, !alias.scope !773
-  br label %5014
+  br label %5006
 
-3628:                                             ; preds = %2
-  %3629 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3630 = load ptr, ptr %3629, align 8
-  %3631 = getelementptr inbounds i8, ptr %3630, i64 -16
-  %.sroa.0.0.copyload.i1610 = load i64, ptr %3631, align 16
-  %.sroa.2.0..sroa_idx.i1611 = getelementptr inbounds i8, ptr %3630, i64 -8
+3620:                                             ; preds = %2
+  %3621 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3622 = load ptr, ptr %3621, align 8
+  %3623 = getelementptr inbounds i8, ptr %3622, i64 -16
+  %.sroa.0.0.copyload.i1610 = load i64, ptr %3623, align 16
+  %.sroa.2.0..sroa_idx.i1611 = getelementptr inbounds i8, ptr %3622, i64 -8
   %.sroa.2.0.copyload.i1612 = load i64, ptr %.sroa.2.0..sroa_idx.i1611, align 8
-  store ptr %3631, ptr %3629, align 8
+  store ptr %3623, ptr %3621, align 8
   %.sroa.02058.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1610, i64 0
   %.sroa.02058.8.vec.insert = insertelement <2 x i64> %.sroa.02058.0.vec.insert, i64 %.sroa.2.0.copyload.i1612, i64 1
-  %3632 = load ptr, ptr %61, align 8
-  %3633 = getelementptr inbounds nuw i8, ptr %3632, i64 8
-  %3634 = load ptr, ptr %3633, align 8
-  %3635 = getelementptr inbounds i8, ptr %3634, i64 -16
+  %3624 = load ptr, ptr %61, align 8
+  %3625 = getelementptr inbounds nuw i8, ptr %3624, i64 8
+  %3626 = load ptr, ptr %3625, align 8
+  %3627 = getelementptr inbounds i8, ptr %3626, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
-  %3636 = bitcast <2 x i64> %.sroa.02058.8.vec.insert to <4 x i32>
-  %3637 = load <4 x i32>, ptr %3635, align 16, !noalias !776
-  %3638 = mul <4 x i32> %3637, %3636
-  store <4 x i32> %3638, ptr %3635, align 16, !noalias !776
+  %3628 = bitcast <2 x i64> %.sroa.02058.8.vec.insert to <4 x i32>
+  %3629 = load <4 x i32>, ptr %3627, align 16, !noalias !776
+  %3630 = mul <4 x i32> %3629, %3628
+  store <4 x i32> %3630, ptr %3627, align 16, !noalias !776
   store i64 1, ptr %0, align 4, !alias.scope !776
-  br label %5014
+  br label %5006
 
-3639:                                             ; preds = %2
-  %3640 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3641 = load ptr, ptr %3640, align 8
-  %3642 = getelementptr inbounds i8, ptr %3641, i64 -16
-  %.sroa.0.0.copyload.i1615 = load i64, ptr %3642, align 16
-  %.sroa.2.0..sroa_idx.i1616 = getelementptr inbounds i8, ptr %3641, i64 -8
+3631:                                             ; preds = %2
+  %3632 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3633 = load ptr, ptr %3632, align 8
+  %3634 = getelementptr inbounds i8, ptr %3633, i64 -16
+  %.sroa.0.0.copyload.i1615 = load i64, ptr %3634, align 16
+  %.sroa.2.0..sroa_idx.i1616 = getelementptr inbounds i8, ptr %3633, i64 -8
   %.sroa.2.0.copyload.i1617 = load i64, ptr %.sroa.2.0..sroa_idx.i1616, align 8
-  store ptr %3642, ptr %3640, align 8
+  store ptr %3634, ptr %3632, align 8
   %.sroa.02056.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1615, i64 0
   %.sroa.02056.8.vec.insert = insertelement <2 x i64> %.sroa.02056.0.vec.insert, i64 %.sroa.2.0.copyload.i1617, i64 1
-  %3643 = load ptr, ptr %61, align 8
-  %3644 = getelementptr inbounds nuw i8, ptr %3643, i64 8
-  %3645 = load ptr, ptr %3644, align 8
-  %3646 = getelementptr inbounds i8, ptr %3645, i64 -16
+  %3635 = load ptr, ptr %61, align 8
+  %3636 = getelementptr inbounds nuw i8, ptr %3635, i64 8
+  %3637 = load ptr, ptr %3636, align 8
+  %3638 = getelementptr inbounds i8, ptr %3637, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
-  %3647 = load <4 x i32>, ptr %3646, align 16, !noalias !779
-  %3648 = bitcast <2 x i64> %.sroa.02056.8.vec.insert to <4 x i32>
-  %3649 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3647, <4 x i32> %3648)
-  store <4 x i32> %3649, ptr %3646, align 16, !noalias !779
+  %3639 = load <4 x i32>, ptr %3638, align 16, !noalias !779
+  %3640 = bitcast <2 x i64> %.sroa.02056.8.vec.insert to <4 x i32>
+  %3641 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3639, <4 x i32> %3640)
+  store <4 x i32> %3641, ptr %3638, align 16, !noalias !779
   store i64 1, ptr %0, align 4, !alias.scope !779
-  br label %5014
+  br label %5006
 
-3650:                                             ; preds = %2
-  %3651 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3652 = load ptr, ptr %3651, align 8
-  %3653 = getelementptr inbounds i8, ptr %3652, i64 -16
-  %.sroa.0.0.copyload.i1620 = load i64, ptr %3653, align 16
-  %.sroa.2.0..sroa_idx.i1621 = getelementptr inbounds i8, ptr %3652, i64 -8
+3642:                                             ; preds = %2
+  %3643 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3644 = load ptr, ptr %3643, align 8
+  %3645 = getelementptr inbounds i8, ptr %3644, i64 -16
+  %.sroa.0.0.copyload.i1620 = load i64, ptr %3645, align 16
+  %.sroa.2.0..sroa_idx.i1621 = getelementptr inbounds i8, ptr %3644, i64 -8
   %.sroa.2.0.copyload.i1622 = load i64, ptr %.sroa.2.0..sroa_idx.i1621, align 8
-  store ptr %3653, ptr %3651, align 8
+  store ptr %3645, ptr %3643, align 8
   %.sroa.02054.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1620, i64 0
   %.sroa.02054.8.vec.insert = insertelement <2 x i64> %.sroa.02054.0.vec.insert, i64 %.sroa.2.0.copyload.i1622, i64 1
-  %3654 = load ptr, ptr %61, align 8
-  %3655 = getelementptr inbounds nuw i8, ptr %3654, i64 8
-  %3656 = load ptr, ptr %3655, align 8
-  %3657 = getelementptr inbounds i8, ptr %3656, i64 -16
+  %3646 = load ptr, ptr %61, align 8
+  %3647 = getelementptr inbounds nuw i8, ptr %3646, i64 8
+  %3648 = load ptr, ptr %3647, align 8
+  %3649 = getelementptr inbounds i8, ptr %3648, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !782)
-  %3658 = load <4 x i32>, ptr %3657, align 16, !noalias !782
-  %3659 = bitcast <2 x i64> %.sroa.02054.8.vec.insert to <4 x i32>
-  %3660 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3658, <4 x i32> %3659)
-  store <4 x i32> %3660, ptr %3657, align 16, !noalias !782
+  %3650 = load <4 x i32>, ptr %3649, align 16, !noalias !782
+  %3651 = bitcast <2 x i64> %.sroa.02054.8.vec.insert to <4 x i32>
+  %3652 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3650, <4 x i32> %3651)
+  store <4 x i32> %3652, ptr %3649, align 16, !noalias !782
   store i64 1, ptr %0, align 4, !alias.scope !782
-  br label %5014
+  br label %5006
 
-3661:                                             ; preds = %2
-  %3662 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3663 = load ptr, ptr %3662, align 8
-  %3664 = getelementptr inbounds i8, ptr %3663, i64 -16
-  %.sroa.0.0.copyload.i1625 = load i64, ptr %3664, align 16
-  %.sroa.2.0..sroa_idx.i1626 = getelementptr inbounds i8, ptr %3663, i64 -8
+3653:                                             ; preds = %2
+  %3654 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3655 = load ptr, ptr %3654, align 8
+  %3656 = getelementptr inbounds i8, ptr %3655, i64 -16
+  %.sroa.0.0.copyload.i1625 = load i64, ptr %3656, align 16
+  %.sroa.2.0..sroa_idx.i1626 = getelementptr inbounds i8, ptr %3655, i64 -8
   %.sroa.2.0.copyload.i1627 = load i64, ptr %.sroa.2.0..sroa_idx.i1626, align 8
-  store ptr %3664, ptr %3662, align 8
+  store ptr %3656, ptr %3654, align 8
   %.sroa.02052.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1625, i64 0
   %.sroa.02052.8.vec.insert = insertelement <2 x i64> %.sroa.02052.0.vec.insert, i64 %.sroa.2.0.copyload.i1627, i64 1
-  %3665 = load ptr, ptr %61, align 8
-  %3666 = getelementptr inbounds nuw i8, ptr %3665, i64 8
-  %3667 = load ptr, ptr %3666, align 8
-  %3668 = getelementptr inbounds i8, ptr %3667, i64 -16
+  %3657 = load ptr, ptr %61, align 8
+  %3658 = getelementptr inbounds nuw i8, ptr %3657, i64 8
+  %3659 = load ptr, ptr %3658, align 8
+  %3660 = getelementptr inbounds i8, ptr %3659, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !785)
-  %3669 = bitcast <2 x i64> %.sroa.02052.8.vec.insert to <4 x i32>
-  %3670 = load <4 x i32>, ptr %3668, align 16, !noalias !785
-  %3671 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3669, <4 x i32> %3670)
-  store <4 x i32> %3671, ptr %3668, align 16, !noalias !785
+  %3661 = bitcast <2 x i64> %.sroa.02052.8.vec.insert to <4 x i32>
+  %3662 = load <4 x i32>, ptr %3660, align 16, !noalias !785
+  %3663 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3661, <4 x i32> %3662)
+  store <4 x i32> %3663, ptr %3660, align 16, !noalias !785
   store i64 1, ptr %0, align 4, !alias.scope !785
-  br label %5014
+  br label %5006
 
-3672:                                             ; preds = %2
-  %3673 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3674 = load ptr, ptr %3673, align 8
-  %3675 = getelementptr inbounds i8, ptr %3674, i64 -16
-  %.sroa.0.0.copyload.i1630 = load i64, ptr %3675, align 16
-  %.sroa.2.0..sroa_idx.i1631 = getelementptr inbounds i8, ptr %3674, i64 -8
+3664:                                             ; preds = %2
+  %3665 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3666 = load ptr, ptr %3665, align 8
+  %3667 = getelementptr inbounds i8, ptr %3666, i64 -16
+  %.sroa.0.0.copyload.i1630 = load i64, ptr %3667, align 16
+  %.sroa.2.0..sroa_idx.i1631 = getelementptr inbounds i8, ptr %3666, i64 -8
   %.sroa.2.0.copyload.i1632 = load i64, ptr %.sroa.2.0..sroa_idx.i1631, align 8
-  store ptr %3675, ptr %3673, align 8
+  store ptr %3667, ptr %3665, align 8
   %.sroa.02050.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1630, i64 0
   %.sroa.02050.8.vec.insert = insertelement <2 x i64> %.sroa.02050.0.vec.insert, i64 %.sroa.2.0.copyload.i1632, i64 1
-  %3676 = load ptr, ptr %61, align 8
-  %3677 = getelementptr inbounds nuw i8, ptr %3676, i64 8
-  %3678 = load ptr, ptr %3677, align 8
-  %3679 = getelementptr inbounds i8, ptr %3678, i64 -16
+  %3668 = load ptr, ptr %61, align 8
+  %3669 = getelementptr inbounds nuw i8, ptr %3668, i64 8
+  %3670 = load ptr, ptr %3669, align 8
+  %3671 = getelementptr inbounds i8, ptr %3670, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
-  %3680 = bitcast <2 x i64> %.sroa.02050.8.vec.insert to <4 x i32>
-  %3681 = load <4 x i32>, ptr %3679, align 16, !noalias !788
-  %3682 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %3680, <4 x i32> %3681)
-  store <4 x i32> %3682, ptr %3679, align 16, !noalias !788
+  %3672 = bitcast <2 x i64> %.sroa.02050.8.vec.insert to <4 x i32>
+  %3673 = load <4 x i32>, ptr %3671, align 16, !noalias !788
+  %3674 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %3672, <4 x i32> %3673)
+  store <4 x i32> %3674, ptr %3671, align 16, !noalias !788
   store i64 1, ptr %0, align 4, !alias.scope !788
-  br label %5014
+  br label %5006
 
-3683:                                             ; preds = %2
-  %3684 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3685 = load ptr, ptr %3684, align 8
-  %3686 = getelementptr inbounds i8, ptr %3685, i64 -16
-  %.sroa.0.0.copyload.i16352506 = load <4 x i16>, ptr %3686, align 16
-  store ptr %3686, ptr %3684, align 8
-  %3687 = load ptr, ptr %61, align 8
-  %3688 = getelementptr inbounds nuw i8, ptr %3687, i64 8
-  %3689 = load ptr, ptr %3688, align 8
-  %3690 = getelementptr inbounds i8, ptr %3689, i64 -16
+3675:                                             ; preds = %2
+  %3676 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3677 = load ptr, ptr %3676, align 8
+  %3678 = getelementptr inbounds i8, ptr %3677, i64 -16
+  %.sroa.0.0.copyload.i16352506 = load <4 x i16>, ptr %3678, align 16
+  store ptr %3678, ptr %3676, align 8
+  %3679 = load ptr, ptr %61, align 8
+  %3680 = getelementptr inbounds nuw i8, ptr %3679, i64 8
+  %3681 = load ptr, ptr %3680, align 8
+  %3682 = getelementptr inbounds i8, ptr %3681, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !791)
-  %3691 = load <8 x i16>, ptr %3690, align 16, !noalias !791
-  %3692 = shufflevector <8 x i16> %3691, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %3693 = sext <4 x i16> %3692 to <4 x i32>
-  %3694 = sext <4 x i16> %.sroa.0.0.copyload.i16352506 to <4 x i32>
-  %3695 = mul nsw <4 x i32> %3693, %3694
-  store <4 x i32> %3695, ptr %3690, align 16, !noalias !791
+  %3683 = load <8 x i16>, ptr %3682, align 16, !noalias !791
+  %3684 = shufflevector <8 x i16> %3683, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %3685 = sext <4 x i16> %3684 to <4 x i32>
+  %3686 = sext <4 x i16> %.sroa.0.0.copyload.i16352506 to <4 x i32>
+  %3687 = mul nsw <4 x i32> %3685, %3686
+  store <4 x i32> %3687, ptr %3682, align 16, !noalias !791
   store i64 1, ptr %0, align 4, !alias.scope !791
-  br label %5014
+  br label %5006
 
-3696:                                             ; preds = %2
-  %3697 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3698 = load ptr, ptr %3697, align 8
-  %3699 = getelementptr inbounds i8, ptr %3698, i64 -16
-  %.sroa.2.0..sroa_idx.i1641 = getelementptr inbounds i8, ptr %3698, i64 -8
+3688:                                             ; preds = %2
+  %3689 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3690 = load ptr, ptr %3689, align 8
+  %3691 = getelementptr inbounds i8, ptr %3690, i64 -16
+  %.sroa.2.0..sroa_idx.i1641 = getelementptr inbounds i8, ptr %3690, i64 -8
   %.sroa.2.0.copyload.i1642 = load i64, ptr %.sroa.2.0..sroa_idx.i1641, align 8
-  store ptr %3699, ptr %3697, align 8
+  store ptr %3691, ptr %3689, align 8
   %.sroa.02046.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1642, i64 1
-  %3700 = load ptr, ptr %61, align 8
-  %3701 = getelementptr inbounds nuw i8, ptr %3700, i64 8
-  %3702 = load ptr, ptr %3701, align 8
-  %3703 = getelementptr inbounds i8, ptr %3702, i64 -16
+  %3692 = load ptr, ptr %61, align 8
+  %3693 = getelementptr inbounds nuw i8, ptr %3692, i64 8
+  %3694 = load ptr, ptr %3693, align 8
+  %3695 = getelementptr inbounds i8, ptr %3694, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
-  %3704 = load <8 x i16>, ptr %3703, align 16, !noalias !794
-  %3705 = shufflevector <8 x i16> %3704, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3706 = sext <4 x i16> %3705 to <4 x i32>
-  %3707 = bitcast <2 x i64> %.sroa.02046.8.vec.insert to <8 x i16>
-  %3708 = shufflevector <8 x i16> %3707, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3709 = sext <4 x i16> %3708 to <4 x i32>
-  %3710 = mul nsw <4 x i32> %3706, %3709
-  store <4 x i32> %3710, ptr %3703, align 16, !noalias !794
+  %3696 = load <8 x i16>, ptr %3695, align 16, !noalias !794
+  %3697 = shufflevector <8 x i16> %3696, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3698 = sext <4 x i16> %3697 to <4 x i32>
+  %3699 = bitcast <2 x i64> %.sroa.02046.8.vec.insert to <8 x i16>
+  %3700 = shufflevector <8 x i16> %3699, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3701 = sext <4 x i16> %3700 to <4 x i32>
+  %3702 = mul nsw <4 x i32> %3698, %3701
+  store <4 x i32> %3702, ptr %3695, align 16, !noalias !794
   store i64 1, ptr %0, align 4, !alias.scope !794
-  br label %5014
+  br label %5006
 
-3711:                                             ; preds = %2
-  %3712 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3713 = load ptr, ptr %3712, align 8
-  %3714 = getelementptr inbounds i8, ptr %3713, i64 -16
-  %.sroa.0.0.copyload.i16452505 = load <4 x i16>, ptr %3714, align 16
-  store ptr %3714, ptr %3712, align 8
-  %3715 = load ptr, ptr %61, align 8
-  %3716 = getelementptr inbounds nuw i8, ptr %3715, i64 8
-  %3717 = load ptr, ptr %3716, align 8
-  %3718 = getelementptr inbounds i8, ptr %3717, i64 -16
+3703:                                             ; preds = %2
+  %3704 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3705 = load ptr, ptr %3704, align 8
+  %3706 = getelementptr inbounds i8, ptr %3705, i64 -16
+  %.sroa.0.0.copyload.i16452505 = load <4 x i16>, ptr %3706, align 16
+  store ptr %3706, ptr %3704, align 8
+  %3707 = load ptr, ptr %61, align 8
+  %3708 = getelementptr inbounds nuw i8, ptr %3707, i64 8
+  %3709 = load ptr, ptr %3708, align 8
+  %3710 = getelementptr inbounds i8, ptr %3709, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
-  %3719 = load <8 x i16>, ptr %3718, align 16, !noalias !797
-  %3720 = shufflevector <8 x i16> %3719, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %3721 = zext <4 x i16> %3720 to <4 x i32>
-  %3722 = zext <4 x i16> %.sroa.0.0.copyload.i16452505 to <4 x i32>
-  %3723 = mul nuw <4 x i32> %3721, %3722
-  store <4 x i32> %3723, ptr %3718, align 16, !noalias !797
+  %3711 = load <8 x i16>, ptr %3710, align 16, !noalias !797
+  %3712 = shufflevector <8 x i16> %3711, <8 x i16> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %3713 = zext <4 x i16> %3712 to <4 x i32>
+  %3714 = zext <4 x i16> %.sroa.0.0.copyload.i16452505 to <4 x i32>
+  %3715 = mul nuw <4 x i32> %3713, %3714
+  store <4 x i32> %3715, ptr %3710, align 16, !noalias !797
   store i64 1, ptr %0, align 4, !alias.scope !797
-  br label %5014
+  br label %5006
 
-3724:                                             ; preds = %2
-  %3725 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3726 = load ptr, ptr %3725, align 8
-  %3727 = getelementptr inbounds i8, ptr %3726, i64 -16
-  %.sroa.2.0..sroa_idx.i1651 = getelementptr inbounds i8, ptr %3726, i64 -8
+3716:                                             ; preds = %2
+  %3717 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3718 = load ptr, ptr %3717, align 8
+  %3719 = getelementptr inbounds i8, ptr %3718, i64 -16
+  %.sroa.2.0..sroa_idx.i1651 = getelementptr inbounds i8, ptr %3718, i64 -8
   %.sroa.2.0.copyload.i1652 = load i64, ptr %.sroa.2.0..sroa_idx.i1651, align 8
-  store ptr %3727, ptr %3725, align 8
+  store ptr %3719, ptr %3717, align 8
   %.sroa.02042.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1652, i64 1
-  %3728 = load ptr, ptr %61, align 8
-  %3729 = getelementptr inbounds nuw i8, ptr %3728, i64 8
-  %3730 = load ptr, ptr %3729, align 8
-  %3731 = getelementptr inbounds i8, ptr %3730, i64 -16
+  %3720 = load ptr, ptr %61, align 8
+  %3721 = getelementptr inbounds nuw i8, ptr %3720, i64 8
+  %3722 = load ptr, ptr %3721, align 8
+  %3723 = getelementptr inbounds i8, ptr %3722, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !800)
-  %3732 = load <8 x i16>, ptr %3731, align 16, !noalias !800
-  %3733 = shufflevector <8 x i16> %3732, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3734 = zext <4 x i16> %3733 to <4 x i32>
-  %3735 = bitcast <2 x i64> %.sroa.02042.8.vec.insert to <8 x i16>
-  %3736 = shufflevector <8 x i16> %3735, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %3737 = zext <4 x i16> %3736 to <4 x i32>
-  %3738 = mul nuw <4 x i32> %3734, %3737
-  store <4 x i32> %3738, ptr %3731, align 16, !noalias !800
+  %3724 = load <8 x i16>, ptr %3723, align 16, !noalias !800
+  %3725 = shufflevector <8 x i16> %3724, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3726 = zext <4 x i16> %3725 to <4 x i32>
+  %3727 = bitcast <2 x i64> %.sroa.02042.8.vec.insert to <8 x i16>
+  %3728 = shufflevector <8 x i16> %3727, <8 x i16> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %3729 = zext <4 x i16> %3728 to <4 x i32>
+  %3730 = mul nuw <4 x i32> %3726, %3729
+  store <4 x i32> %3730, ptr %3723, align 16, !noalias !800
   store i64 1, ptr %0, align 4, !alias.scope !800
-  br label %5014
+  br label %5006
 
-3739:                                             ; preds = %2
-  %3740 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3741 = load ptr, ptr %3740, align 8
-  %3742 = getelementptr inbounds i8, ptr %3741, i64 -16
+3731:                                             ; preds = %2
+  %3732 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3733 = load ptr, ptr %3732, align 8
+  %3734 = getelementptr inbounds i8, ptr %3733, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
-  %3743 = load <4 x i32>, ptr %3742, align 16, !noalias !803
-  %3744 = ashr <4 x i32> %3743, splat (i32 16)
-  %3745 = shl <4 x i32> %3743, splat (i32 16)
-  %3746 = ashr exact <4 x i32> %3745, splat (i32 16)
-  %3747 = add nsw <4 x i32> %3746, %3744
-  store <4 x i32> %3747, ptr %3742, align 16, !noalias !803
+  %3735 = load <4 x i32>, ptr %3734, align 16, !noalias !803
+  %3736 = ashr <4 x i32> %3735, splat (i32 16)
+  %3737 = shl <4 x i32> %3735, splat (i32 16)
+  %3738 = ashr exact <4 x i32> %3737, splat (i32 16)
+  %3739 = add nsw <4 x i32> %3738, %3736
+  store <4 x i32> %3739, ptr %3734, align 16, !noalias !803
   store i64 1, ptr %0, align 4, !alias.scope !803
-  br label %5014
+  br label %5006
+
+3740:                                             ; preds = %2
+  %3741 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3742 = load ptr, ptr %3741, align 8
+  %3743 = getelementptr inbounds i8, ptr %3742, i64 -16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
+  %3744 = load <4 x i32>, ptr %3743, align 16, !noalias !806
+  %3745 = lshr <4 x i32> %3744, splat (i32 16)
+  %3746 = and <4 x i32> %3744, splat (i32 65535)
+  %3747 = add nuw nsw <4 x i32> %3745, %3746
+  store <4 x i32> %3747, ptr %3743, align 16, !noalias !806
+  store i64 1, ptr %0, align 4, !alias.scope !806
+  br label %5006
 
 3748:                                             ; preds = %2
   %3749 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %3750 = load ptr, ptr %3749, align 8
   %3751 = getelementptr inbounds i8, ptr %3750, i64 -16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
-  %3752 = load <4 x i32>, ptr %3751, align 16, !noalias !806
-  %3753 = lshr <4 x i32> %3752, splat (i32 16)
-  %3754 = and <4 x i32> %3752, splat (i32 65535)
-  %3755 = add nuw nsw <4 x i32> %3753, %3754
-  store <4 x i32> %3755, ptr %3751, align 16, !noalias !806
-  store i64 1, ptr %0, align 4, !alias.scope !806
-  br label %5014
-
-3756:                                             ; preds = %2
-  %3757 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3758 = load ptr, ptr %3757, align 8
-  %3759 = getelementptr inbounds i8, ptr %3758, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
-  %3760 = load <2 x i64>, ptr %3759, align 16, !noalias !809
-  %3761 = sub <2 x i64> zeroinitializer, %3760
-  %3762 = tail call <2 x i64> @llvm.smax.v2i64(<2 x i64> %3760, <2 x i64> zeroinitializer)
-  %.inv.i1655 = icmp sgt <2 x i64> %3760, zeroinitializer
-  %3763 = select <2 x i1> %.inv.i1655, <2 x i64> zeroinitializer, <2 x i64> %3761
-  %3764 = or <2 x i64> %3763, %3762
-  store <2 x i64> %3764, ptr %3759, align 16, !noalias !809
+  %3752 = load <2 x i64>, ptr %3751, align 16, !noalias !809
+  %3753 = sub <2 x i64> zeroinitializer, %3752
+  %3754 = tail call <2 x i64> @llvm.smax.v2i64(<2 x i64> %3752, <2 x i64> zeroinitializer)
+  %.inv.i1655 = icmp sgt <2 x i64> %3752, zeroinitializer
+  %3755 = select <2 x i1> %.inv.i1655, <2 x i64> zeroinitializer, <2 x i64> %3753
+  %3756 = or <2 x i64> %3755, %3754
+  store <2 x i64> %3756, ptr %3751, align 16, !noalias !809
   store i64 1, ptr %0, align 4, !alias.scope !809
-  br label %5014
+  br label %5006
 
-3765:                                             ; preds = %2
-  %3766 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3767 = load ptr, ptr %3766, align 8
-  %3768 = getelementptr inbounds i8, ptr %3767, i64 -16
+3757:                                             ; preds = %2
+  %3758 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3759 = load ptr, ptr %3758, align 8
+  %3760 = getelementptr inbounds i8, ptr %3759, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !812)
-  %3769 = load <2 x i64>, ptr %3768, align 16, !noalias !812
-  %3770 = sub <2 x i64> zeroinitializer, %3769
-  store <2 x i64> %3770, ptr %3768, align 16, !noalias !812
+  %3761 = load <2 x i64>, ptr %3760, align 16, !noalias !812
+  %3762 = sub <2 x i64> zeroinitializer, %3761
+  store <2 x i64> %3762, ptr %3760, align 16, !noalias !812
   store i64 1, ptr %0, align 4, !alias.scope !812
-  br label %5014
+  br label %5006
 
-3771:                                             ; preds = %2
-  %3772 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3773 = load ptr, ptr %3772, align 8
-  %3774 = getelementptr inbounds i8, ptr %3773, i64 -16
+3763:                                             ; preds = %2
+  %3764 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3765 = load ptr, ptr %3764, align 8
+  %3766 = getelementptr inbounds i8, ptr %3765, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !815)
-  %3775 = load <2 x i64>, ptr %3774, align 16, !noalias !815
-  %3776 = icmp ne <2 x i64> %3775, zeroinitializer
-  %3777 = sext <2 x i1> %3776 to <2 x i64>
-  %3778 = extractelement <2 x i64> %3777, i64 0
-  %3779 = icmp ne i64 %3778, 0
-  %3780 = extractelement <2 x i64> %3777, i64 1
-  %3781 = icmp ne i64 %3780, 0
-  %3782 = select i1 %3779, i1 %3781, i1 false
-  %3783 = zext i1 %3782 to i32
-  store i32 %3783, ptr %3774, align 16, !noalias !815
+  %3767 = load <2 x i64>, ptr %3766, align 16, !noalias !815
+  %3768 = icmp ne <2 x i64> %3767, zeroinitializer
+  %3769 = sext <2 x i1> %3768 to <2 x i64>
+  %3770 = extractelement <2 x i64> %3769, i64 0
+  %3771 = icmp ne i64 %3770, 0
+  %3772 = extractelement <2 x i64> %3769, i64 1
+  %3773 = icmp ne i64 %3772, 0
+  %3774 = select i1 %3771, i1 %3773, i1 false
+  %3775 = zext i1 %3774 to i32
+  store i32 %3775, ptr %3766, align 16, !noalias !815
   store i64 1, ptr %0, align 4, !alias.scope !815
-  br label %5014
+  br label %5006
 
-3784:                                             ; preds = %2
-  %3785 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3786 = load ptr, ptr %3785, align 8
-  %3787 = getelementptr inbounds i8, ptr %3786, i64 -16
+3776:                                             ; preds = %2
+  %3777 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3778 = load ptr, ptr %3777, align 8
+  %3779 = getelementptr inbounds i8, ptr %3778, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !818)
-  %3788 = load <2 x i64>, ptr %3787, align 16, !noalias !818
-  %isneg.i1656 = icmp slt <2 x i64> %3788, zeroinitializer
-  %3789 = select <2 x i1> %isneg.i1656, <2 x i8> <i8 1, i8 2>, <2 x i8> zeroinitializer
-  %shift = shufflevector <2 x i8> %3789, <2 x i8> poison, <2 x i32> <i32 1, i32 poison>
-  %3790 = or disjoint <2 x i8> %3789, %shift
-  %3791 = extractelement <2 x i8> %3790, i64 0
-  %3792 = zext nneg i8 %3791 to i32
-  store i32 %3792, ptr %3787, align 16, !noalias !818
+  %3780 = load <2 x i64>, ptr %3779, align 16, !noalias !818
+  %isneg.i1656 = icmp slt <2 x i64> %3780, zeroinitializer
+  %3781 = select <2 x i1> %isneg.i1656, <2 x i8> <i8 1, i8 2>, <2 x i8> zeroinitializer
+  %shift = shufflevector <2 x i8> %3781, <2 x i8> poison, <2 x i32> <i32 1, i32 poison>
+  %3782 = or disjoint <2 x i8> %3781, %shift
+  %3783 = extractelement <2 x i8> %3782, i64 0
+  %3784 = zext nneg i8 %3783 to i32
+  store i32 %3784, ptr %3779, align 16, !noalias !818
   store i64 1, ptr %0, align 4, !alias.scope !818
-  br label %5014
+  br label %5006
 
-3793:                                             ; preds = %2
-  %3794 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3795 = load ptr, ptr %3794, align 8
-  %3796 = getelementptr inbounds i8, ptr %3795, i64 -16
+3785:                                             ; preds = %2
+  %3786 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3787 = load ptr, ptr %3786, align 8
+  %3788 = getelementptr inbounds i8, ptr %3787, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !821)
-  %3797 = load <4 x i32>, ptr %3796, align 16, !noalias !821
-  %3798 = shufflevector <4 x i32> %3797, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %3799 = sext <2 x i32> %3798 to <2 x i64>
-  store <2 x i64> %3799, ptr %3796, align 16, !noalias !821
+  %3789 = load <4 x i32>, ptr %3788, align 16, !noalias !821
+  %3790 = shufflevector <4 x i32> %3789, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %3791 = sext <2 x i32> %3790 to <2 x i64>
+  store <2 x i64> %3791, ptr %3788, align 16, !noalias !821
   store i64 1, ptr %0, align 4, !alias.scope !821
-  br label %5014
+  br label %5006
 
-3800:                                             ; preds = %2
-  %3801 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3802 = load ptr, ptr %3801, align 8
-  %3803 = getelementptr inbounds i8, ptr %3802, i64 -16
+3792:                                             ; preds = %2
+  %3793 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3794 = load ptr, ptr %3793, align 8
+  %3795 = getelementptr inbounds i8, ptr %3794, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !824)
-  %3804 = load <4 x i32>, ptr %3803, align 16, !noalias !824
-  %3805 = shufflevector <4 x i32> %3804, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3806 = sext <2 x i32> %3805 to <2 x i64>
-  store <2 x i64> %3806, ptr %3803, align 16, !noalias !824
+  %3796 = load <4 x i32>, ptr %3795, align 16, !noalias !824
+  %3797 = shufflevector <4 x i32> %3796, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3798 = sext <2 x i32> %3797 to <2 x i64>
+  store <2 x i64> %3798, ptr %3795, align 16, !noalias !824
   store i64 1, ptr %0, align 4, !alias.scope !824
-  br label %5014
+  br label %5006
 
-3807:                                             ; preds = %2
-  %3808 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3809 = load ptr, ptr %3808, align 8
-  %3810 = getelementptr inbounds i8, ptr %3809, i64 -16
+3799:                                             ; preds = %2
+  %3800 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3801 = load ptr, ptr %3800, align 8
+  %3802 = getelementptr inbounds i8, ptr %3801, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !827)
-  %3811 = load <4 x i32>, ptr %3810, align 16, !noalias !827
-  %3812 = shufflevector <4 x i32> %3811, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %3813 = zext <2 x i32> %3812 to <2 x i64>
-  store <2 x i64> %3813, ptr %3810, align 16, !noalias !827
+  %3803 = load <4 x i32>, ptr %3802, align 16, !noalias !827
+  %3804 = shufflevector <4 x i32> %3803, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %3805 = zext <2 x i32> %3804 to <2 x i64>
+  store <2 x i64> %3805, ptr %3802, align 16, !noalias !827
   store i64 1, ptr %0, align 4, !alias.scope !827
-  br label %5014
+  br label %5006
 
-3814:                                             ; preds = %2
-  %3815 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3816 = load ptr, ptr %3815, align 8
-  %3817 = getelementptr inbounds i8, ptr %3816, i64 -16
+3806:                                             ; preds = %2
+  %3807 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3808 = load ptr, ptr %3807, align 8
+  %3809 = getelementptr inbounds i8, ptr %3808, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
-  %3818 = load <4 x i32>, ptr %3817, align 16, !noalias !830
-  %3819 = shufflevector <4 x i32> %3818, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3820 = zext <2 x i32> %3819 to <2 x i64>
-  store <2 x i64> %3820, ptr %3817, align 16, !noalias !830
+  %3810 = load <4 x i32>, ptr %3809, align 16, !noalias !830
+  %3811 = shufflevector <4 x i32> %3810, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3812 = zext <2 x i32> %3811 to <2 x i64>
+  store <2 x i64> %3812, ptr %3809, align 16, !noalias !830
   store i64 1, ptr %0, align 4, !alias.scope !830
-  br label %5014
+  br label %5006
 
-3821:                                             ; preds = %2
-  %3822 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3823 = load ptr, ptr %3822, align 8
-  %3824 = getelementptr inbounds i8, ptr %3823, i64 -16
-  %.sroa.0.0.copyload.i1657 = load i64, ptr %3824, align 16
-  store ptr %3824, ptr %3822, align 8
+3813:                                             ; preds = %2
+  %3814 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3815 = load ptr, ptr %3814, align 8
+  %3816 = getelementptr inbounds i8, ptr %3815, i64 -16
+  %.sroa.0.0.copyload.i1657 = load i64, ptr %3816, align 16
+  store ptr %3816, ptr %3814, align 8
   %.sroa.02037.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1657 to i32
-  %3825 = load ptr, ptr %61, align 8
-  %3826 = getelementptr inbounds nuw i8, ptr %3825, i64 8
-  %3827 = load ptr, ptr %3826, align 8
-  %3828 = getelementptr inbounds i8, ptr %3827, i64 -16
+  %3817 = load ptr, ptr %61, align 8
+  %3818 = getelementptr inbounds nuw i8, ptr %3817, i64 8
+  %3819 = load ptr, ptr %3818, align 8
+  %3820 = getelementptr inbounds i8, ptr %3819, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)
-  %3829 = and i32 %.sroa.02037.0.extract.trunc, 63
-  %3830 = insertelement <2 x i32> poison, i32 %3829, i64 0
-  %3831 = shufflevector <2 x i32> %3830, <2 x i32> poison, <2 x i32> zeroinitializer
-  %3832 = load <2 x i64>, ptr %3828, align 16, !noalias !833
-  %3833 = zext nneg <2 x i32> %3831 to <2 x i64>
-  %3834 = shl <2 x i64> %3832, %3833
-  store <2 x i64> %3834, ptr %3828, align 16, !noalias !833
+  %3821 = and i32 %.sroa.02037.0.extract.trunc, 63
+  %3822 = insertelement <2 x i32> poison, i32 %3821, i64 0
+  %3823 = shufflevector <2 x i32> %3822, <2 x i32> poison, <2 x i32> zeroinitializer
+  %3824 = load <2 x i64>, ptr %3820, align 16, !noalias !833
+  %3825 = zext nneg <2 x i32> %3823 to <2 x i64>
+  %3826 = shl <2 x i64> %3824, %3825
+  store <2 x i64> %3826, ptr %3820, align 16, !noalias !833
   store i64 1, ptr %0, align 4, !alias.scope !833
-  br label %5014
+  br label %5006
 
-3835:                                             ; preds = %2
-  %3836 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3837 = load ptr, ptr %3836, align 8
-  %3838 = getelementptr inbounds i8, ptr %3837, i64 -16
-  %.sroa.0.0.copyload.i1662 = load i64, ptr %3838, align 16
-  store ptr %3838, ptr %3836, align 8
+3827:                                             ; preds = %2
+  %3828 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3829 = load ptr, ptr %3828, align 8
+  %3830 = getelementptr inbounds i8, ptr %3829, i64 -16
+  %.sroa.0.0.copyload.i1662 = load i64, ptr %3830, align 16
+  store ptr %3830, ptr %3828, align 8
   %.sroa.02032.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1662 to i32
-  %3839 = load ptr, ptr %61, align 8
-  %3840 = getelementptr inbounds nuw i8, ptr %3839, i64 8
-  %3841 = load ptr, ptr %3840, align 8
-  %3842 = getelementptr inbounds i8, ptr %3841, i64 -16
+  %3831 = load ptr, ptr %61, align 8
+  %3832 = getelementptr inbounds nuw i8, ptr %3831, i64 8
+  %3833 = load ptr, ptr %3832, align 8
+  %3834 = getelementptr inbounds i8, ptr %3833, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
-  %3843 = and i32 %.sroa.02032.0.extract.trunc, 63
-  %3844 = insertelement <2 x i32> poison, i32 %3843, i64 0
-  %3845 = shufflevector <2 x i32> %3844, <2 x i32> poison, <2 x i32> zeroinitializer
-  %3846 = load <2 x i64>, ptr %3842, align 16, !noalias !836
-  %3847 = zext nneg <2 x i32> %3845 to <2 x i64>
-  %3848 = ashr <2 x i64> %3846, %3847
-  store <2 x i64> %3848, ptr %3842, align 16, !noalias !836
+  %3835 = and i32 %.sroa.02032.0.extract.trunc, 63
+  %3836 = insertelement <2 x i32> poison, i32 %3835, i64 0
+  %3837 = shufflevector <2 x i32> %3836, <2 x i32> poison, <2 x i32> zeroinitializer
+  %3838 = load <2 x i64>, ptr %3834, align 16, !noalias !836
+  %3839 = zext nneg <2 x i32> %3837 to <2 x i64>
+  %3840 = ashr <2 x i64> %3838, %3839
+  store <2 x i64> %3840, ptr %3834, align 16, !noalias !836
   store i64 1, ptr %0, align 4, !alias.scope !836
-  br label %5014
+  br label %5006
 
-3849:                                             ; preds = %2
-  %3850 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3851 = load ptr, ptr %3850, align 8
-  %3852 = getelementptr inbounds i8, ptr %3851, i64 -16
-  %.sroa.0.0.copyload.i1667 = load i64, ptr %3852, align 16
-  store ptr %3852, ptr %3850, align 8
+3841:                                             ; preds = %2
+  %3842 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3843 = load ptr, ptr %3842, align 8
+  %3844 = getelementptr inbounds i8, ptr %3843, i64 -16
+  %.sroa.0.0.copyload.i1667 = load i64, ptr %3844, align 16
+  store ptr %3844, ptr %3842, align 8
   %.sroa.02031.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i1667 to i32
-  %3853 = load ptr, ptr %61, align 8
-  %3854 = getelementptr inbounds nuw i8, ptr %3853, i64 8
-  %3855 = load ptr, ptr %3854, align 8
-  %3856 = getelementptr inbounds i8, ptr %3855, i64 -16
+  %3845 = load ptr, ptr %61, align 8
+  %3846 = getelementptr inbounds nuw i8, ptr %3845, i64 8
+  %3847 = load ptr, ptr %3846, align 8
+  %3848 = getelementptr inbounds i8, ptr %3847, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !839)
-  %3857 = and i32 %.sroa.02031.0.extract.trunc, 63
-  %3858 = insertelement <2 x i32> poison, i32 %3857, i64 0
-  %3859 = shufflevector <2 x i32> %3858, <2 x i32> poison, <2 x i32> zeroinitializer
-  %3860 = load <2 x i64>, ptr %3856, align 16, !noalias !839
-  %3861 = zext nneg <2 x i32> %3859 to <2 x i64>
-  %3862 = lshr <2 x i64> %3860, %3861
-  store <2 x i64> %3862, ptr %3856, align 16, !noalias !839
+  %3849 = and i32 %.sroa.02031.0.extract.trunc, 63
+  %3850 = insertelement <2 x i32> poison, i32 %3849, i64 0
+  %3851 = shufflevector <2 x i32> %3850, <2 x i32> poison, <2 x i32> zeroinitializer
+  %3852 = load <2 x i64>, ptr %3848, align 16, !noalias !839
+  %3853 = zext nneg <2 x i32> %3851 to <2 x i64>
+  %3854 = lshr <2 x i64> %3852, %3853
+  store <2 x i64> %3854, ptr %3848, align 16, !noalias !839
   store i64 1, ptr %0, align 4, !alias.scope !839
-  br label %5014
+  br label %5006
 
-3863:                                             ; preds = %2
-  %3864 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3865 = load ptr, ptr %3864, align 8
-  %3866 = getelementptr inbounds i8, ptr %3865, i64 -16
-  %.sroa.0.0.copyload.i1672 = load i64, ptr %3866, align 16
-  %.sroa.2.0..sroa_idx.i1673 = getelementptr inbounds i8, ptr %3865, i64 -8
+3855:                                             ; preds = %2
+  %3856 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3857 = load ptr, ptr %3856, align 8
+  %3858 = getelementptr inbounds i8, ptr %3857, i64 -16
+  %.sroa.0.0.copyload.i1672 = load i64, ptr %3858, align 16
+  %.sroa.2.0..sroa_idx.i1673 = getelementptr inbounds i8, ptr %3857, i64 -8
   %.sroa.2.0.copyload.i1674 = load i64, ptr %.sroa.2.0..sroa_idx.i1673, align 8
-  store ptr %3866, ptr %3864, align 8
+  store ptr %3858, ptr %3856, align 8
   %.sroa.02029.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1672, i64 0
   %.sroa.02029.8.vec.insert = insertelement <2 x i64> %.sroa.02029.0.vec.insert, i64 %.sroa.2.0.copyload.i1674, i64 1
-  %3867 = load ptr, ptr %61, align 8
-  %3868 = getelementptr inbounds nuw i8, ptr %3867, i64 8
-  %3869 = load ptr, ptr %3868, align 8
-  %3870 = getelementptr inbounds i8, ptr %3869, i64 -16
+  %3859 = load ptr, ptr %61, align 8
+  %3860 = getelementptr inbounds nuw i8, ptr %3859, i64 8
+  %3861 = load ptr, ptr %3860, align 8
+  %3862 = getelementptr inbounds i8, ptr %3861, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !842)
-  %3871 = load <2 x i64>, ptr %3870, align 16, !noalias !842
-  %3872 = add <2 x i64> %3871, %.sroa.02029.8.vec.insert
-  store <2 x i64> %3872, ptr %3870, align 16, !noalias !842
+  %3863 = load <2 x i64>, ptr %3862, align 16, !noalias !842
+  %3864 = add <2 x i64> %3863, %.sroa.02029.8.vec.insert
+  store <2 x i64> %3864, ptr %3862, align 16, !noalias !842
   store i64 1, ptr %0, align 4, !alias.scope !842
-  br label %5014
+  br label %5006
 
-3873:                                             ; preds = %2
-  %3874 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3875 = load ptr, ptr %3874, align 8
-  %3876 = getelementptr inbounds i8, ptr %3875, i64 -16
-  %.sroa.0.0.copyload.i1677 = load i64, ptr %3876, align 16
-  %.sroa.2.0..sroa_idx.i1678 = getelementptr inbounds i8, ptr %3875, i64 -8
+3865:                                             ; preds = %2
+  %3866 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3867 = load ptr, ptr %3866, align 8
+  %3868 = getelementptr inbounds i8, ptr %3867, i64 -16
+  %.sroa.0.0.copyload.i1677 = load i64, ptr %3868, align 16
+  %.sroa.2.0..sroa_idx.i1678 = getelementptr inbounds i8, ptr %3867, i64 -8
   %.sroa.2.0.copyload.i1679 = load i64, ptr %.sroa.2.0..sroa_idx.i1678, align 8
-  store ptr %3876, ptr %3874, align 8
+  store ptr %3868, ptr %3866, align 8
   %.sroa.02027.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1677, i64 0
   %.sroa.02027.8.vec.insert = insertelement <2 x i64> %.sroa.02027.0.vec.insert, i64 %.sroa.2.0.copyload.i1679, i64 1
-  %3877 = load ptr, ptr %61, align 8
-  %3878 = getelementptr inbounds nuw i8, ptr %3877, i64 8
-  %3879 = load ptr, ptr %3878, align 8
-  %3880 = getelementptr inbounds i8, ptr %3879, i64 -16
+  %3869 = load ptr, ptr %61, align 8
+  %3870 = getelementptr inbounds nuw i8, ptr %3869, i64 8
+  %3871 = load ptr, ptr %3870, align 8
+  %3872 = getelementptr inbounds i8, ptr %3871, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
-  %3881 = load <2 x i64>, ptr %3880, align 16, !noalias !845
-  %3882 = sub <2 x i64> %3881, %.sroa.02027.8.vec.insert
-  store <2 x i64> %3882, ptr %3880, align 16, !noalias !845
+  %3873 = load <2 x i64>, ptr %3872, align 16, !noalias !845
+  %3874 = sub <2 x i64> %3873, %.sroa.02027.8.vec.insert
+  store <2 x i64> %3874, ptr %3872, align 16, !noalias !845
   store i64 1, ptr %0, align 4, !alias.scope !845
-  br label %5014
+  br label %5006
 
-3883:                                             ; preds = %2
-  %3884 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3885 = load ptr, ptr %3884, align 8
-  %3886 = getelementptr inbounds i8, ptr %3885, i64 -16
-  %.sroa.0.0.copyload.i1682 = load i64, ptr %3886, align 16
-  %.sroa.2.0..sroa_idx.i1683 = getelementptr inbounds i8, ptr %3885, i64 -8
+3875:                                             ; preds = %2
+  %3876 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3877 = load ptr, ptr %3876, align 8
+  %3878 = getelementptr inbounds i8, ptr %3877, i64 -16
+  %.sroa.0.0.copyload.i1682 = load i64, ptr %3878, align 16
+  %.sroa.2.0..sroa_idx.i1683 = getelementptr inbounds i8, ptr %3877, i64 -8
   %.sroa.2.0.copyload.i1684 = load i64, ptr %.sroa.2.0..sroa_idx.i1683, align 8
-  store ptr %3886, ptr %3884, align 8
+  store ptr %3878, ptr %3876, align 8
   %.sroa.02025.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1682, i64 0
   %.sroa.02025.8.vec.insert = insertelement <2 x i64> %.sroa.02025.0.vec.insert, i64 %.sroa.2.0.copyload.i1684, i64 1
-  %3887 = load ptr, ptr %61, align 8
-  %3888 = getelementptr inbounds nuw i8, ptr %3887, i64 8
-  %3889 = load ptr, ptr %3888, align 8
-  %3890 = getelementptr inbounds i8, ptr %3889, i64 -16
+  %3879 = load ptr, ptr %61, align 8
+  %3880 = getelementptr inbounds nuw i8, ptr %3879, i64 8
+  %3881 = load ptr, ptr %3880, align 8
+  %3882 = getelementptr inbounds i8, ptr %3881, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
-  %3891 = load <2 x i64>, ptr %3890, align 16, !noalias !848
-  %3892 = mul <2 x i64> %3891, %.sroa.02025.8.vec.insert
-  store <2 x i64> %3892, ptr %3890, align 16, !noalias !848
+  %3883 = load <2 x i64>, ptr %3882, align 16, !noalias !848
+  %3884 = mul <2 x i64> %3883, %.sroa.02025.8.vec.insert
+  store <2 x i64> %3884, ptr %3882, align 16, !noalias !848
   store i64 1, ptr %0, align 4, !alias.scope !848
-  br label %5014
+  br label %5006
 
-3893:                                             ; preds = %2
-  %3894 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3895 = load ptr, ptr %3894, align 8
-  %3896 = getelementptr inbounds i8, ptr %3895, i64 -16
-  %.sroa.0.0.copyload.i16872504 = load <2 x i32>, ptr %3896, align 16
-  store ptr %3896, ptr %3894, align 8
-  %3897 = load ptr, ptr %61, align 8
-  %3898 = getelementptr inbounds nuw i8, ptr %3897, i64 8
-  %3899 = load ptr, ptr %3898, align 8
-  %3900 = getelementptr inbounds i8, ptr %3899, i64 -16
+3885:                                             ; preds = %2
+  %3886 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3887 = load ptr, ptr %3886, align 8
+  %3888 = getelementptr inbounds i8, ptr %3887, i64 -16
+  %.sroa.0.0.copyload.i16872504 = load <2 x i32>, ptr %3888, align 16
+  store ptr %3888, ptr %3886, align 8
+  %3889 = load ptr, ptr %61, align 8
+  %3890 = getelementptr inbounds nuw i8, ptr %3889, i64 8
+  %3891 = load ptr, ptr %3890, align 8
+  %3892 = getelementptr inbounds i8, ptr %3891, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !851)
-  %3901 = load <4 x i32>, ptr %3900, align 16, !noalias !851
-  %3902 = shufflevector <4 x i32> %3901, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %3903 = sext <2 x i32> %3902 to <2 x i64>
-  %3904 = sext <2 x i32> %.sroa.0.0.copyload.i16872504 to <2 x i64>
-  %3905 = mul nsw <2 x i64> %3903, %3904
-  store <2 x i64> %3905, ptr %3900, align 16, !noalias !851
+  %3893 = load <4 x i32>, ptr %3892, align 16, !noalias !851
+  %3894 = shufflevector <4 x i32> %3893, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %3895 = sext <2 x i32> %3894 to <2 x i64>
+  %3896 = sext <2 x i32> %.sroa.0.0.copyload.i16872504 to <2 x i64>
+  %3897 = mul nsw <2 x i64> %3895, %3896
+  store <2 x i64> %3897, ptr %3892, align 16, !noalias !851
   store i64 1, ptr %0, align 4, !alias.scope !851
-  br label %5014
+  br label %5006
 
-3906:                                             ; preds = %2
-  %3907 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3908 = load ptr, ptr %3907, align 8
-  %3909 = getelementptr inbounds i8, ptr %3908, i64 -16
-  %.sroa.2.0..sroa_idx.i1693 = getelementptr inbounds i8, ptr %3908, i64 -8
+3898:                                             ; preds = %2
+  %3899 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3900 = load ptr, ptr %3899, align 8
+  %3901 = getelementptr inbounds i8, ptr %3900, i64 -16
+  %.sroa.2.0..sroa_idx.i1693 = getelementptr inbounds i8, ptr %3900, i64 -8
   %.sroa.2.0.copyload.i1694 = load i64, ptr %.sroa.2.0..sroa_idx.i1693, align 8
-  store ptr %3909, ptr %3907, align 8
+  store ptr %3901, ptr %3899, align 8
   %.sroa.02021.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1694, i64 1
-  %3910 = load ptr, ptr %61, align 8
-  %3911 = getelementptr inbounds nuw i8, ptr %3910, i64 8
-  %3912 = load ptr, ptr %3911, align 8
-  %3913 = getelementptr inbounds i8, ptr %3912, i64 -16
+  %3902 = load ptr, ptr %61, align 8
+  %3903 = getelementptr inbounds nuw i8, ptr %3902, i64 8
+  %3904 = load ptr, ptr %3903, align 8
+  %3905 = getelementptr inbounds i8, ptr %3904, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !854)
-  %3914 = load <4 x i32>, ptr %3913, align 16, !noalias !854
-  %3915 = shufflevector <4 x i32> %3914, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3916 = sext <2 x i32> %3915 to <2 x i64>
-  %3917 = bitcast <2 x i64> %.sroa.02021.8.vec.insert to <4 x i32>
-  %3918 = shufflevector <4 x i32> %3917, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3919 = sext <2 x i32> %3918 to <2 x i64>
-  %3920 = mul nsw <2 x i64> %3916, %3919
-  store <2 x i64> %3920, ptr %3913, align 16, !noalias !854
+  %3906 = load <4 x i32>, ptr %3905, align 16, !noalias !854
+  %3907 = shufflevector <4 x i32> %3906, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3908 = sext <2 x i32> %3907 to <2 x i64>
+  %3909 = bitcast <2 x i64> %.sroa.02021.8.vec.insert to <4 x i32>
+  %3910 = shufflevector <4 x i32> %3909, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3911 = sext <2 x i32> %3910 to <2 x i64>
+  %3912 = mul nsw <2 x i64> %3908, %3911
+  store <2 x i64> %3912, ptr %3905, align 16, !noalias !854
   store i64 1, ptr %0, align 4, !alias.scope !854
-  br label %5014
+  br label %5006
 
-3921:                                             ; preds = %2
-  %3922 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3923 = load ptr, ptr %3922, align 8
-  %3924 = getelementptr inbounds i8, ptr %3923, i64 -16
-  %.sroa.0.0.copyload.i16972503 = load <2 x i32>, ptr %3924, align 16
-  store ptr %3924, ptr %3922, align 8
-  %3925 = load ptr, ptr %61, align 8
-  %3926 = getelementptr inbounds nuw i8, ptr %3925, i64 8
-  %3927 = load ptr, ptr %3926, align 8
-  %3928 = getelementptr inbounds i8, ptr %3927, i64 -16
+3913:                                             ; preds = %2
+  %3914 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3915 = load ptr, ptr %3914, align 8
+  %3916 = getelementptr inbounds i8, ptr %3915, i64 -16
+  %.sroa.0.0.copyload.i16972503 = load <2 x i32>, ptr %3916, align 16
+  store ptr %3916, ptr %3914, align 8
+  %3917 = load ptr, ptr %61, align 8
+  %3918 = getelementptr inbounds nuw i8, ptr %3917, i64 8
+  %3919 = load ptr, ptr %3918, align 8
+  %3920 = getelementptr inbounds i8, ptr %3919, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !857)
-  %3929 = load <4 x i32>, ptr %3928, align 16, !noalias !857
-  %3930 = shufflevector <4 x i32> %3929, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %3931 = zext <2 x i32> %3930 to <2 x i64>
-  %3932 = zext <2 x i32> %.sroa.0.0.copyload.i16972503 to <2 x i64>
-  %3933 = mul nuw <2 x i64> %3931, %3932
-  store <2 x i64> %3933, ptr %3928, align 16, !noalias !857
+  %3921 = load <4 x i32>, ptr %3920, align 16, !noalias !857
+  %3922 = shufflevector <4 x i32> %3921, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %3923 = zext <2 x i32> %3922 to <2 x i64>
+  %3924 = zext <2 x i32> %.sroa.0.0.copyload.i16972503 to <2 x i64>
+  %3925 = mul nuw <2 x i64> %3923, %3924
+  store <2 x i64> %3925, ptr %3920, align 16, !noalias !857
   store i64 1, ptr %0, align 4, !alias.scope !857
-  br label %5014
+  br label %5006
 
-3934:                                             ; preds = %2
-  %3935 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3936 = load ptr, ptr %3935, align 8
-  %3937 = getelementptr inbounds i8, ptr %3936, i64 -16
-  %.sroa.2.0..sroa_idx.i1703 = getelementptr inbounds i8, ptr %3936, i64 -8
+3926:                                             ; preds = %2
+  %3927 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3928 = load ptr, ptr %3927, align 8
+  %3929 = getelementptr inbounds i8, ptr %3928, i64 -16
+  %.sroa.2.0..sroa_idx.i1703 = getelementptr inbounds i8, ptr %3928, i64 -8
   %.sroa.2.0.copyload.i1704 = load i64, ptr %.sroa.2.0..sroa_idx.i1703, align 8
-  store ptr %3937, ptr %3935, align 8
+  store ptr %3929, ptr %3927, align 8
   %.sroa.02017.8.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.2.0.copyload.i1704, i64 1
-  %3938 = load ptr, ptr %61, align 8
-  %3939 = getelementptr inbounds nuw i8, ptr %3938, i64 8
-  %3940 = load ptr, ptr %3939, align 8
-  %3941 = getelementptr inbounds i8, ptr %3940, i64 -16
+  %3930 = load ptr, ptr %61, align 8
+  %3931 = getelementptr inbounds nuw i8, ptr %3930, i64 8
+  %3932 = load ptr, ptr %3931, align 8
+  %3933 = getelementptr inbounds i8, ptr %3932, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %3942 = load <4 x i32>, ptr %3941, align 16, !noalias !860
-  %3943 = shufflevector <4 x i32> %3942, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3944 = zext <2 x i32> %3943 to <2 x i64>
-  %3945 = bitcast <2 x i64> %.sroa.02017.8.vec.insert to <4 x i32>
-  %3946 = shufflevector <4 x i32> %3945, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
-  %3947 = zext <2 x i32> %3946 to <2 x i64>
-  %3948 = mul nuw <2 x i64> %3944, %3947
-  store <2 x i64> %3948, ptr %3941, align 16, !noalias !860
+  %3934 = load <4 x i32>, ptr %3933, align 16, !noalias !860
+  %3935 = shufflevector <4 x i32> %3934, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3936 = zext <2 x i32> %3935 to <2 x i64>
+  %3937 = bitcast <2 x i64> %.sroa.02017.8.vec.insert to <4 x i32>
+  %3938 = shufflevector <4 x i32> %3937, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
+  %3939 = zext <2 x i32> %3938 to <2 x i64>
+  %3940 = mul nuw <2 x i64> %3936, %3939
+  store <2 x i64> %3940, ptr %3933, align 16, !noalias !860
   store i64 1, ptr %0, align 4, !alias.scope !860
-  br label %5014
+  br label %5006
 
-3949:                                             ; preds = %2
-  %3950 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3951 = load ptr, ptr %3950, align 8
-  %3952 = getelementptr inbounds i8, ptr %3951, i64 -16
+3941:                                             ; preds = %2
+  %3942 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3943 = load ptr, ptr %3942, align 8
+  %3944 = getelementptr inbounds i8, ptr %3943, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !863)
-  %3953 = load <4 x i32>, ptr %3952, align 16, !noalias !863
-  %3954 = and <4 x i32> %3953, splat (i32 2147483647)
-  store <4 x i32> %3954, ptr %3952, align 16, !noalias !863
+  %3945 = load <4 x i32>, ptr %3944, align 16, !noalias !863
+  %3946 = and <4 x i32> %3945, splat (i32 2147483647)
+  store <4 x i32> %3946, ptr %3944, align 16, !noalias !863
   store i64 1, ptr %0, align 4, !alias.scope !863
-  br label %5014
+  br label %5006
 
-3955:                                             ; preds = %2
-  %3956 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3957 = load ptr, ptr %3956, align 8
-  %3958 = getelementptr inbounds i8, ptr %3957, i64 -16
+3947:                                             ; preds = %2
+  %3948 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3949 = load ptr, ptr %3948, align 8
+  %3950 = getelementptr inbounds i8, ptr %3949, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !866)
-  %3959 = load <4 x float>, ptr %3958, align 16, !noalias !866
-  %3960 = fneg <4 x float> %3959
-  store <4 x float> %3960, ptr %3958, align 16, !noalias !866
+  %3951 = load <4 x float>, ptr %3950, align 16, !noalias !866
+  %3952 = fneg <4 x float> %3951
+  store <4 x float> %3952, ptr %3950, align 16, !noalias !866
   store i64 1, ptr %0, align 4, !alias.scope !866
-  br label %5014
+  br label %5006
 
-3961:                                             ; preds = %2
-  %3962 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3963 = load ptr, ptr %3962, align 8
-  %3964 = getelementptr inbounds i8, ptr %3963, i64 -16
+3953:                                             ; preds = %2
+  %3954 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3955 = load ptr, ptr %3954, align 8
+  %3956 = getelementptr inbounds i8, ptr %3955, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !869)
-  %3965 = load <4 x float>, ptr %3964, align 16, !noalias !869
-  %3966 = extractelement <4 x float> %3965, i64 0
+  %3957 = load <4 x float>, ptr %3956, align 16, !noalias !869
+  %3958 = extractelement <4 x float> %3957, i64 0
+  %3959 = tail call noundef float @sqrtf(float noundef %3958) #24, !noalias !869
+  %3960 = insertelement <4 x float> poison, float %3959, i64 0
+  %3961 = getelementptr inbounds i8, ptr %3955, i64 -12
+  %3962 = load float, ptr %3961, align 4, !noalias !869
+  %3963 = tail call noundef float @sqrtf(float noundef %3962) #24, !noalias !869
+  %3964 = insertelement <4 x float> %3960, float %3963, i64 1
+  %3965 = getelementptr inbounds i8, ptr %3955, i64 -8
+  %3966 = load float, ptr %3965, align 8, !noalias !869
   %3967 = tail call noundef float @sqrtf(float noundef %3966) #24, !noalias !869
-  %3968 = insertelement <4 x float> poison, float %3967, i64 0
-  %3969 = getelementptr inbounds i8, ptr %3963, i64 -12
+  %3968 = insertelement <4 x float> %3964, float %3967, i64 2
+  %3969 = getelementptr inbounds i8, ptr %3955, i64 -4
   %3970 = load float, ptr %3969, align 4, !noalias !869
   %3971 = tail call noundef float @sqrtf(float noundef %3970) #24, !noalias !869
-  %3972 = insertelement <4 x float> %3968, float %3971, i64 1
-  %3973 = getelementptr inbounds i8, ptr %3963, i64 -8
-  %3974 = load float, ptr %3973, align 8, !noalias !869
-  %3975 = tail call noundef float @sqrtf(float noundef %3974) #24, !noalias !869
-  %3976 = insertelement <4 x float> %3972, float %3975, i64 2
-  %3977 = getelementptr inbounds i8, ptr %3963, i64 -4
-  %3978 = load float, ptr %3977, align 4, !noalias !869
-  %3979 = tail call noundef float @sqrtf(float noundef %3978) #24, !noalias !869
-  %3980 = insertelement <4 x float> %3976, float %3979, i64 3
-  store <4 x float> %3980, ptr %3964, align 16, !noalias !869
+  %3972 = insertelement <4 x float> %3968, float %3971, i64 3
+  store <4 x float> %3972, ptr %3956, align 16, !noalias !869
   store i64 1, ptr %0, align 4, !alias.scope !869
-  br label %5014
+  br label %5006
 
-3981:                                             ; preds = %2
-  %3982 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3983 = load ptr, ptr %3982, align 8
-  %3984 = getelementptr inbounds i8, ptr %3983, i64 -16
-  %.sroa.0.0.copyload.i1707 = load i64, ptr %3984, align 16
-  %.sroa.2.0..sroa_idx.i1708 = getelementptr inbounds i8, ptr %3983, i64 -8
+3973:                                             ; preds = %2
+  %3974 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3975 = load ptr, ptr %3974, align 8
+  %3976 = getelementptr inbounds i8, ptr %3975, i64 -16
+  %.sroa.0.0.copyload.i1707 = load i64, ptr %3976, align 16
+  %.sroa.2.0..sroa_idx.i1708 = getelementptr inbounds i8, ptr %3975, i64 -8
   %.sroa.2.0.copyload.i1709 = load i64, ptr %.sroa.2.0..sroa_idx.i1708, align 8
-  store ptr %3984, ptr %3982, align 8
+  store ptr %3976, ptr %3974, align 8
   %.sroa.02015.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1707, i64 0
   %.sroa.02015.8.vec.insert = insertelement <2 x i64> %.sroa.02015.0.vec.insert, i64 %.sroa.2.0.copyload.i1709, i64 1
-  %3985 = load ptr, ptr %61, align 8
-  %3986 = getelementptr inbounds nuw i8, ptr %3985, i64 8
-  %3987 = load ptr, ptr %3986, align 8
-  %3988 = getelementptr inbounds i8, ptr %3987, i64 -16
+  %3977 = load ptr, ptr %61, align 8
+  %3978 = getelementptr inbounds nuw i8, ptr %3977, i64 8
+  %3979 = load ptr, ptr %3978, align 8
+  %3980 = getelementptr inbounds i8, ptr %3979, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
-  %3989 = bitcast <2 x i64> %.sroa.02015.8.vec.insert to <4 x float>
-  %3990 = load <4 x float>, ptr %3988, align 16, !noalias !872
-  %3991 = fadd <4 x float> %3990, %3989
-  store <4 x float> %3991, ptr %3988, align 16, !noalias !872
+  %3981 = bitcast <2 x i64> %.sroa.02015.8.vec.insert to <4 x float>
+  %3982 = load <4 x float>, ptr %3980, align 16, !noalias !872
+  %3983 = fadd <4 x float> %3982, %3981
+  store <4 x float> %3983, ptr %3980, align 16, !noalias !872
   store i64 1, ptr %0, align 4, !alias.scope !872
-  br label %5014
+  br label %5006
 
-3992:                                             ; preds = %2
-  %3993 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %3994 = load ptr, ptr %3993, align 8
-  %3995 = getelementptr inbounds i8, ptr %3994, i64 -16
-  %.sroa.0.0.copyload.i1712 = load i64, ptr %3995, align 16
-  %.sroa.2.0..sroa_idx.i1713 = getelementptr inbounds i8, ptr %3994, i64 -8
+3984:                                             ; preds = %2
+  %3985 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3986 = load ptr, ptr %3985, align 8
+  %3987 = getelementptr inbounds i8, ptr %3986, i64 -16
+  %.sroa.0.0.copyload.i1712 = load i64, ptr %3987, align 16
+  %.sroa.2.0..sroa_idx.i1713 = getelementptr inbounds i8, ptr %3986, i64 -8
   %.sroa.2.0.copyload.i1714 = load i64, ptr %.sroa.2.0..sroa_idx.i1713, align 8
-  store ptr %3995, ptr %3993, align 8
+  store ptr %3987, ptr %3985, align 8
   %.sroa.02013.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1712, i64 0
   %.sroa.02013.8.vec.insert = insertelement <2 x i64> %.sroa.02013.0.vec.insert, i64 %.sroa.2.0.copyload.i1714, i64 1
-  %3996 = load ptr, ptr %61, align 8
-  %3997 = getelementptr inbounds nuw i8, ptr %3996, i64 8
-  %3998 = load ptr, ptr %3997, align 8
-  %3999 = getelementptr inbounds i8, ptr %3998, i64 -16
+  %3988 = load ptr, ptr %61, align 8
+  %3989 = getelementptr inbounds nuw i8, ptr %3988, i64 8
+  %3990 = load ptr, ptr %3989, align 8
+  %3991 = getelementptr inbounds i8, ptr %3990, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
-  %4000 = bitcast <2 x i64> %.sroa.02013.8.vec.insert to <4 x float>
-  %4001 = load <4 x float>, ptr %3999, align 16, !noalias !875
-  %4002 = fsub <4 x float> %4001, %4000
-  store <4 x float> %4002, ptr %3999, align 16, !noalias !875
+  %3992 = bitcast <2 x i64> %.sroa.02013.8.vec.insert to <4 x float>
+  %3993 = load <4 x float>, ptr %3991, align 16, !noalias !875
+  %3994 = fsub <4 x float> %3993, %3992
+  store <4 x float> %3994, ptr %3991, align 16, !noalias !875
   store i64 1, ptr %0, align 4, !alias.scope !875
-  br label %5014
+  br label %5006
 
-4003:                                             ; preds = %2
-  %4004 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4005 = load ptr, ptr %4004, align 8
-  %4006 = getelementptr inbounds i8, ptr %4005, i64 -16
-  %.sroa.0.0.copyload.i1717 = load i64, ptr %4006, align 16
-  %.sroa.2.0..sroa_idx.i1718 = getelementptr inbounds i8, ptr %4005, i64 -8
+3995:                                             ; preds = %2
+  %3996 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %3997 = load ptr, ptr %3996, align 8
+  %3998 = getelementptr inbounds i8, ptr %3997, i64 -16
+  %.sroa.0.0.copyload.i1717 = load i64, ptr %3998, align 16
+  %.sroa.2.0..sroa_idx.i1718 = getelementptr inbounds i8, ptr %3997, i64 -8
   %.sroa.2.0.copyload.i1719 = load i64, ptr %.sroa.2.0..sroa_idx.i1718, align 8
-  store ptr %4006, ptr %4004, align 8
+  store ptr %3998, ptr %3996, align 8
   %.sroa.02011.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1717, i64 0
   %.sroa.02011.8.vec.insert = insertelement <2 x i64> %.sroa.02011.0.vec.insert, i64 %.sroa.2.0.copyload.i1719, i64 1
-  %4007 = load ptr, ptr %61, align 8
-  %4008 = getelementptr inbounds nuw i8, ptr %4007, i64 8
-  %4009 = load ptr, ptr %4008, align 8
-  %4010 = getelementptr inbounds i8, ptr %4009, i64 -16
+  %3999 = load ptr, ptr %61, align 8
+  %4000 = getelementptr inbounds nuw i8, ptr %3999, i64 8
+  %4001 = load ptr, ptr %4000, align 8
+  %4002 = getelementptr inbounds i8, ptr %4001, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !878)
-  %4011 = bitcast <2 x i64> %.sroa.02011.8.vec.insert to <4 x float>
-  %4012 = load <4 x float>, ptr %4010, align 16, !noalias !878
-  %4013 = fmul <4 x float> %4012, %4011
-  store <4 x float> %4013, ptr %4010, align 16, !noalias !878
+  %4003 = bitcast <2 x i64> %.sroa.02011.8.vec.insert to <4 x float>
+  %4004 = load <4 x float>, ptr %4002, align 16, !noalias !878
+  %4005 = fmul <4 x float> %4004, %4003
+  store <4 x float> %4005, ptr %4002, align 16, !noalias !878
   store i64 1, ptr %0, align 4, !alias.scope !878
-  br label %5014
+  br label %5006
 
-4014:                                             ; preds = %2
-  %4015 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4016 = load ptr, ptr %4015, align 8
-  %4017 = getelementptr inbounds i8, ptr %4016, i64 -16
-  %.sroa.0.0.copyload.i1722 = load i64, ptr %4017, align 16
-  %.sroa.2.0..sroa_idx.i1723 = getelementptr inbounds i8, ptr %4016, i64 -8
+4006:                                             ; preds = %2
+  %4007 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4008 = load ptr, ptr %4007, align 8
+  %4009 = getelementptr inbounds i8, ptr %4008, i64 -16
+  %.sroa.0.0.copyload.i1722 = load i64, ptr %4009, align 16
+  %.sroa.2.0..sroa_idx.i1723 = getelementptr inbounds i8, ptr %4008, i64 -8
   %.sroa.2.0.copyload.i1724 = load i64, ptr %.sroa.2.0..sroa_idx.i1723, align 8
-  store ptr %4017, ptr %4015, align 8
+  store ptr %4009, ptr %4007, align 8
   %.sroa.02009.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1722, i64 0
   %.sroa.02009.8.vec.insert = insertelement <2 x i64> %.sroa.02009.0.vec.insert, i64 %.sroa.2.0.copyload.i1724, i64 1
-  %4018 = load ptr, ptr %61, align 8
-  %4019 = getelementptr inbounds nuw i8, ptr %4018, i64 8
-  %4020 = load ptr, ptr %4019, align 8
-  %4021 = getelementptr inbounds i8, ptr %4020, i64 -16
+  %4010 = load ptr, ptr %61, align 8
+  %4011 = getelementptr inbounds nuw i8, ptr %4010, i64 8
+  %4012 = load ptr, ptr %4011, align 8
+  %4013 = getelementptr inbounds i8, ptr %4012, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
-  %4022 = bitcast <2 x i64> %.sroa.02009.8.vec.insert to <4 x float>
-  %4023 = load <4 x float>, ptr %4021, align 16, !noalias !881
-  %4024 = fdiv <4 x float> %4023, %4022
-  store <4 x float> %4024, ptr %4021, align 16, !noalias !881
+  %4014 = bitcast <2 x i64> %.sroa.02009.8.vec.insert to <4 x float>
+  %4015 = load <4 x float>, ptr %4013, align 16, !noalias !881
+  %4016 = fdiv <4 x float> %4015, %4014
+  store <4 x float> %4016, ptr %4013, align 16, !noalias !881
   store i64 1, ptr %0, align 4, !alias.scope !881
-  br label %5014
+  br label %5006
 
-4025:                                             ; preds = %2
-  %4026 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4027 = load ptr, ptr %4026, align 8
-  %4028 = getelementptr inbounds i8, ptr %4027, i64 -16
-  %.sroa.0.0.copyload.i1727 = load i64, ptr %4028, align 16
-  %.sroa.2.0..sroa_idx.i1728 = getelementptr inbounds i8, ptr %4027, i64 -8
+4017:                                             ; preds = %2
+  %4018 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4019 = load ptr, ptr %4018, align 8
+  %4020 = getelementptr inbounds i8, ptr %4019, i64 -16
+  %.sroa.0.0.copyload.i1727 = load i64, ptr %4020, align 16
+  %.sroa.2.0..sroa_idx.i1728 = getelementptr inbounds i8, ptr %4019, i64 -8
   %.sroa.2.0.copyload.i1729 = load i64, ptr %.sroa.2.0..sroa_idx.i1728, align 8
-  store ptr %4028, ptr %4026, align 8
+  store ptr %4020, ptr %4018, align 8
   %.sroa.02007.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1727, i64 0
   %.sroa.02007.8.vec.insert = insertelement <2 x i64> %.sroa.02007.0.vec.insert, i64 %.sroa.2.0.copyload.i1729, i64 1
-  %4029 = load ptr, ptr %61, align 8
-  %4030 = getelementptr inbounds nuw i8, ptr %4029, i64 8
-  %4031 = load ptr, ptr %4030, align 8
-  %4032 = getelementptr inbounds i8, ptr %4031, i64 -16
+  %4021 = load ptr, ptr %61, align 8
+  %4022 = getelementptr inbounds nuw i8, ptr %4021, i64 8
+  %4023 = load ptr, ptr %4022, align 8
+  %4024 = getelementptr inbounds i8, ptr %4023, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !884)
-  %4033 = load <4 x float>, ptr %4032, align 16, !noalias !884
-  %4034 = bitcast <4 x float> %4033 to <2 x i64>
-  %4035 = bitcast <2 x i64> %.sroa.02007.8.vec.insert to <4 x float>
-  %4036 = or <2 x i64> %.sroa.02007.8.vec.insert, %4034
-  %4037 = fcmp uge <4 x float> %4033, %4035
-  %4038 = fcmp ule <4 x float> %4033, %4035
-  %4039 = fcmp uno <4 x float> %4033, zeroinitializer
-  %4040 = fcmp uno <4 x float> %4035, zeroinitializer
-  %4041 = bitcast <2 x i64> %4036 to <4 x float>
-  %4042 = select <4 x i1> %4037, <4 x float> %4041, <4 x float> %4033
-  %4043 = select <4 x i1> %4038, <4 x float> %4042, <4 x float> %4035
-  %4044 = select <4 x i1> %4039, <4 x float> %4033, <4 x float> %4043
-  %4045 = select <4 x i1> %4040, <4 x float> %4035, <4 x float> %4044
-  store <4 x float> %4045, ptr %4032, align 16, !noalias !884
+  %4025 = load <4 x float>, ptr %4024, align 16, !noalias !884
+  %4026 = bitcast <4 x float> %4025 to <2 x i64>
+  %4027 = bitcast <2 x i64> %.sroa.02007.8.vec.insert to <4 x float>
+  %4028 = or <2 x i64> %.sroa.02007.8.vec.insert, %4026
+  %4029 = fcmp uge <4 x float> %4025, %4027
+  %4030 = fcmp ule <4 x float> %4025, %4027
+  %4031 = fcmp uno <4 x float> %4025, zeroinitializer
+  %4032 = fcmp uno <4 x float> %4027, zeroinitializer
+  %4033 = bitcast <2 x i64> %4028 to <4 x float>
+  %4034 = select <4 x i1> %4029, <4 x float> %4033, <4 x float> %4025
+  %4035 = select <4 x i1> %4030, <4 x float> %4034, <4 x float> %4027
+  %4036 = select <4 x i1> %4031, <4 x float> %4025, <4 x float> %4035
+  %4037 = select <4 x i1> %4032, <4 x float> %4027, <4 x float> %4036
+  store <4 x float> %4037, ptr %4024, align 16, !noalias !884
   store i64 1, ptr %0, align 4, !alias.scope !884
-  br label %5014
+  br label %5006
 
-4046:                                             ; preds = %2
-  %4047 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4048 = load ptr, ptr %4047, align 8
-  %4049 = getelementptr inbounds i8, ptr %4048, i64 -16
-  %.sroa.0.0.copyload.i1732 = load i64, ptr %4049, align 16
-  %.sroa.2.0..sroa_idx.i1733 = getelementptr inbounds i8, ptr %4048, i64 -8
+4038:                                             ; preds = %2
+  %4039 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4040 = load ptr, ptr %4039, align 8
+  %4041 = getelementptr inbounds i8, ptr %4040, i64 -16
+  %.sroa.0.0.copyload.i1732 = load i64, ptr %4041, align 16
+  %.sroa.2.0..sroa_idx.i1733 = getelementptr inbounds i8, ptr %4040, i64 -8
   %.sroa.2.0.copyload.i1734 = load i64, ptr %.sroa.2.0..sroa_idx.i1733, align 8
-  store ptr %4049, ptr %4047, align 8
+  store ptr %4041, ptr %4039, align 8
   %.sroa.02005.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1732, i64 0
   %.sroa.02005.8.vec.insert = insertelement <2 x i64> %.sroa.02005.0.vec.insert, i64 %.sroa.2.0.copyload.i1734, i64 1
-  %4050 = load ptr, ptr %61, align 8
-  %4051 = getelementptr inbounds nuw i8, ptr %4050, i64 8
-  %4052 = load ptr, ptr %4051, align 8
-  %4053 = getelementptr inbounds i8, ptr %4052, i64 -16
+  %4042 = load ptr, ptr %61, align 8
+  %4043 = getelementptr inbounds nuw i8, ptr %4042, i64 8
+  %4044 = load ptr, ptr %4043, align 8
+  %4045 = getelementptr inbounds i8, ptr %4044, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !887)
-  %4054 = load <4 x float>, ptr %4053, align 16, !noalias !887
-  %4055 = bitcast <4 x float> %4054 to <2 x i64>
-  %4056 = bitcast <2 x i64> %.sroa.02005.8.vec.insert to <4 x float>
-  %4057 = and <2 x i64> %.sroa.02005.8.vec.insert, %4055
-  %4058 = fcmp uge <4 x float> %4054, %4056
-  %4059 = fcmp ule <4 x float> %4054, %4056
-  %4060 = fcmp uno <4 x float> %4054, zeroinitializer
-  %4061 = fcmp uno <4 x float> %4056, zeroinitializer
-  %4062 = bitcast <2 x i64> %4057 to <4 x float>
-  %4063 = select <4 x i1> %4058, <4 x float> %4062, <4 x float> %4056
-  %4064 = select <4 x i1> %4059, <4 x float> %4063, <4 x float> %4054
-  %4065 = select <4 x i1> %4060, <4 x float> %4054, <4 x float> %4064
-  %4066 = select <4 x i1> %4061, <4 x float> %4056, <4 x float> %4065
-  store <4 x float> %4066, ptr %4053, align 16, !noalias !887
+  %4046 = load <4 x float>, ptr %4045, align 16, !noalias !887
+  %4047 = bitcast <4 x float> %4046 to <2 x i64>
+  %4048 = bitcast <2 x i64> %.sroa.02005.8.vec.insert to <4 x float>
+  %4049 = and <2 x i64> %.sroa.02005.8.vec.insert, %4047
+  %4050 = fcmp uge <4 x float> %4046, %4048
+  %4051 = fcmp ule <4 x float> %4046, %4048
+  %4052 = fcmp uno <4 x float> %4046, zeroinitializer
+  %4053 = fcmp uno <4 x float> %4048, zeroinitializer
+  %4054 = bitcast <2 x i64> %4049 to <4 x float>
+  %4055 = select <4 x i1> %4050, <4 x float> %4054, <4 x float> %4048
+  %4056 = select <4 x i1> %4051, <4 x float> %4055, <4 x float> %4046
+  %4057 = select <4 x i1> %4052, <4 x float> %4046, <4 x float> %4056
+  %4058 = select <4 x i1> %4053, <4 x float> %4048, <4 x float> %4057
+  store <4 x float> %4058, ptr %4045, align 16, !noalias !887
   store i64 1, ptr %0, align 4, !alias.scope !887
-  br label %5014
+  br label %5006
 
-4067:                                             ; preds = %2
-  %4068 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4069 = load ptr, ptr %4068, align 8
-  %4070 = getelementptr inbounds i8, ptr %4069, i64 -16
-  %.sroa.0.0.copyload.i1737 = load i64, ptr %4070, align 16
-  %.sroa.2.0..sroa_idx.i1738 = getelementptr inbounds i8, ptr %4069, i64 -8
+4059:                                             ; preds = %2
+  %4060 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4061 = load ptr, ptr %4060, align 8
+  %4062 = getelementptr inbounds i8, ptr %4061, i64 -16
+  %.sroa.0.0.copyload.i1737 = load i64, ptr %4062, align 16
+  %.sroa.2.0..sroa_idx.i1738 = getelementptr inbounds i8, ptr %4061, i64 -8
   %.sroa.2.0.copyload.i1739 = load i64, ptr %.sroa.2.0..sroa_idx.i1738, align 8
-  store ptr %4070, ptr %4068, align 8
+  store ptr %4062, ptr %4060, align 8
   %.sroa.02003.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1737, i64 0
   %.sroa.02003.8.vec.insert = insertelement <2 x i64> %.sroa.02003.0.vec.insert, i64 %.sroa.2.0.copyload.i1739, i64 1
-  %4071 = load ptr, ptr %61, align 8
-  %4072 = getelementptr inbounds nuw i8, ptr %4071, i64 8
-  %4073 = load ptr, ptr %4072, align 8
-  %4074 = getelementptr inbounds i8, ptr %4073, i64 -16
+  %4063 = load ptr, ptr %61, align 8
+  %4064 = getelementptr inbounds nuw i8, ptr %4063, i64 8
+  %4065 = load ptr, ptr %4064, align 8
+  %4066 = getelementptr inbounds i8, ptr %4065, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
-  %4075 = load <4 x float>, ptr %4074, align 16, !noalias !890
-  %4076 = bitcast <2 x i64> %.sroa.02003.8.vec.insert to <4 x float>
-  %.inv.i1742 = fcmp ogt <4 x float> %4075, %4076
-  %.v.i = select <4 x i1> %.inv.i1742, <4 x float> %4076, <4 x float> %4075
-  store <4 x float> %.v.i, ptr %4074, align 16, !noalias !890
+  %4067 = load <4 x float>, ptr %4066, align 16, !noalias !890
+  %4068 = bitcast <2 x i64> %.sroa.02003.8.vec.insert to <4 x float>
+  %.inv.i1742 = fcmp ogt <4 x float> %4067, %4068
+  %.v.i = select <4 x i1> %.inv.i1742, <4 x float> %4068, <4 x float> %4067
+  store <4 x float> %.v.i, ptr %4066, align 16, !noalias !890
   store i64 1, ptr %0, align 4, !alias.scope !890
-  br label %5014
+  br label %5006
 
-4077:                                             ; preds = %2
-  %4078 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4079 = load ptr, ptr %4078, align 8
-  %4080 = getelementptr inbounds i8, ptr %4079, i64 -16
-  %.sroa.0.0.copyload.i1743 = load i64, ptr %4080, align 16
-  %.sroa.2.0..sroa_idx.i1744 = getelementptr inbounds i8, ptr %4079, i64 -8
+4069:                                             ; preds = %2
+  %4070 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4071 = load ptr, ptr %4070, align 8
+  %4072 = getelementptr inbounds i8, ptr %4071, i64 -16
+  %.sroa.0.0.copyload.i1743 = load i64, ptr %4072, align 16
+  %.sroa.2.0..sroa_idx.i1744 = getelementptr inbounds i8, ptr %4071, i64 -8
   %.sroa.2.0.copyload.i1745 = load i64, ptr %.sroa.2.0..sroa_idx.i1744, align 8
-  store ptr %4080, ptr %4078, align 8
+  store ptr %4072, ptr %4070, align 8
   %.sroa.02001.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1743, i64 0
   %.sroa.02001.8.vec.insert = insertelement <2 x i64> %.sroa.02001.0.vec.insert, i64 %.sroa.2.0.copyload.i1745, i64 1
-  %4081 = load ptr, ptr %61, align 8
-  %4082 = getelementptr inbounds nuw i8, ptr %4081, i64 8
-  %4083 = load ptr, ptr %4082, align 8
-  %4084 = getelementptr inbounds i8, ptr %4083, i64 -16
+  %4073 = load ptr, ptr %61, align 8
+  %4074 = getelementptr inbounds nuw i8, ptr %4073, i64 8
+  %4075 = load ptr, ptr %4074, align 8
+  %4076 = getelementptr inbounds i8, ptr %4075, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !893)
-  %4085 = bitcast <2 x i64> %.sroa.02001.8.vec.insert to <4 x float>
-  %4086 = load <4 x float>, ptr %4084, align 16, !noalias !893
-  %.inv.i1748 = fcmp olt <4 x float> %4086, %4085
-  %.v.i1749 = select <4 x i1> %.inv.i1748, <4 x float> %4085, <4 x float> %4086
-  store <4 x float> %.v.i1749, ptr %4084, align 16, !noalias !893
+  %4077 = bitcast <2 x i64> %.sroa.02001.8.vec.insert to <4 x float>
+  %4078 = load <4 x float>, ptr %4076, align 16, !noalias !893
+  %.inv.i1748 = fcmp olt <4 x float> %4078, %4077
+  %.v.i1749 = select <4 x i1> %.inv.i1748, <4 x float> %4077, <4 x float> %4078
+  store <4 x float> %.v.i1749, ptr %4076, align 16, !noalias !893
   store i64 1, ptr %0, align 4, !alias.scope !893
-  br label %5014
+  br label %5006
 
-4087:                                             ; preds = %2
-  %4088 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4089 = load ptr, ptr %4088, align 8
-  %4090 = getelementptr inbounds i8, ptr %4089, i64 -16
+4079:                                             ; preds = %2
+  %4080 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4081 = load ptr, ptr %4080, align 8
+  %4082 = getelementptr inbounds i8, ptr %4081, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
-  %4091 = load <2 x i64>, ptr %4090, align 16, !noalias !896
-  %4092 = and <2 x i64> %4091, splat (i64 9223372036854775807)
-  store <2 x i64> %4092, ptr %4090, align 16, !noalias !896
+  %4083 = load <2 x i64>, ptr %4082, align 16, !noalias !896
+  %4084 = and <2 x i64> %4083, splat (i64 9223372036854775807)
+  store <2 x i64> %4084, ptr %4082, align 16, !noalias !896
   store i64 1, ptr %0, align 4, !alias.scope !896
-  br label %5014
+  br label %5006
 
-4093:                                             ; preds = %2
-  %4094 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4095 = load ptr, ptr %4094, align 8
-  %4096 = getelementptr inbounds i8, ptr %4095, i64 -16
+4085:                                             ; preds = %2
+  %4086 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4087 = load ptr, ptr %4086, align 8
+  %4088 = getelementptr inbounds i8, ptr %4087, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !899)
-  %4097 = load <2 x double>, ptr %4096, align 16, !noalias !899
-  %4098 = fneg <2 x double> %4097
-  store <2 x double> %4098, ptr %4096, align 16, !noalias !899
+  %4089 = load <2 x double>, ptr %4088, align 16, !noalias !899
+  %4090 = fneg <2 x double> %4089
+  store <2 x double> %4090, ptr %4088, align 16, !noalias !899
   store i64 1, ptr %0, align 4, !alias.scope !899
-  br label %5014
+  br label %5006
 
-4099:                                             ; preds = %2
-  %4100 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4101 = load ptr, ptr %4100, align 8
-  %4102 = getelementptr inbounds i8, ptr %4101, i64 -16
+4091:                                             ; preds = %2
+  %4092 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4093 = load ptr, ptr %4092, align 8
+  %4094 = getelementptr inbounds i8, ptr %4093, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !902)
-  %4103 = load <2 x double>, ptr %4102, align 16, !noalias !902
-  %4104 = extractelement <2 x double> %4103, i64 0
-  %4105 = tail call double @sqrt(double noundef %4104) #24, !noalias !902
-  %4106 = insertelement <2 x double> poison, double %4105, i64 0
-  %4107 = getelementptr inbounds i8, ptr %4101, i64 -8
-  %4108 = load double, ptr %4107, align 8, !noalias !902
-  %4109 = tail call double @sqrt(double noundef %4108) #24, !noalias !902
-  %4110 = insertelement <2 x double> %4106, double %4109, i64 1
-  store <2 x double> %4110, ptr %4102, align 16, !noalias !902
+  %4095 = load <2 x double>, ptr %4094, align 16, !noalias !902
+  %4096 = extractelement <2 x double> %4095, i64 0
+  %4097 = tail call double @sqrt(double noundef %4096) #24, !noalias !902
+  %4098 = insertelement <2 x double> poison, double %4097, i64 0
+  %4099 = getelementptr inbounds i8, ptr %4093, i64 -8
+  %4100 = load double, ptr %4099, align 8, !noalias !902
+  %4101 = tail call double @sqrt(double noundef %4100) #24, !noalias !902
+  %4102 = insertelement <2 x double> %4098, double %4101, i64 1
+  store <2 x double> %4102, ptr %4094, align 16, !noalias !902
   store i64 1, ptr %0, align 4, !alias.scope !902
-  br label %5014
+  br label %5006
 
-4111:                                             ; preds = %2
-  %4112 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4113 = load ptr, ptr %4112, align 8
-  %4114 = getelementptr inbounds i8, ptr %4113, i64 -16
-  %.sroa.0.0.copyload.i17502501 = load double, ptr %4114, align 16
-  %.sroa.2.0..sroa_idx.i1751 = getelementptr inbounds i8, ptr %4113, i64 -8
+4103:                                             ; preds = %2
+  %4104 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4105 = load ptr, ptr %4104, align 8
+  %4106 = getelementptr inbounds i8, ptr %4105, i64 -16
+  %.sroa.0.0.copyload.i17502501 = load double, ptr %4106, align 16
+  %.sroa.2.0..sroa_idx.i1751 = getelementptr inbounds i8, ptr %4105, i64 -8
   %.sroa.2.0.copyload.i17522502 = load double, ptr %.sroa.2.0..sroa_idx.i1751, align 8
-  store ptr %4114, ptr %4112, align 8
+  store ptr %4106, ptr %4104, align 8
   %.sroa.01999.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17502501, i64 0
   %.sroa.01999.8.vec.insert = insertelement <2 x double> %.sroa.01999.0.vec.insert, double %.sroa.2.0.copyload.i17522502, i64 1
-  %4115 = load ptr, ptr %61, align 8
-  %4116 = getelementptr inbounds nuw i8, ptr %4115, i64 8
-  %4117 = load ptr, ptr %4116, align 8
-  %4118 = getelementptr inbounds i8, ptr %4117, i64 -16
+  %4107 = load ptr, ptr %61, align 8
+  %4108 = getelementptr inbounds nuw i8, ptr %4107, i64 8
+  %4109 = load ptr, ptr %4108, align 8
+  %4110 = getelementptr inbounds i8, ptr %4109, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
-  %4119 = load <2 x double>, ptr %4118, align 16, !noalias !905
-  %4120 = fadd <2 x double> %.sroa.01999.8.vec.insert, %4119
-  store <2 x double> %4120, ptr %4118, align 16, !noalias !905
+  %4111 = load <2 x double>, ptr %4110, align 16, !noalias !905
+  %4112 = fadd <2 x double> %.sroa.01999.8.vec.insert, %4111
+  store <2 x double> %4112, ptr %4110, align 16, !noalias !905
   store i64 1, ptr %0, align 4, !alias.scope !905
-  br label %5014
+  br label %5006
 
-4121:                                             ; preds = %2
-  %4122 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4123 = load ptr, ptr %4122, align 8
-  %4124 = getelementptr inbounds i8, ptr %4123, i64 -16
-  %.sroa.0.0.copyload.i17552499 = load double, ptr %4124, align 16
-  %.sroa.2.0..sroa_idx.i1756 = getelementptr inbounds i8, ptr %4123, i64 -8
+4113:                                             ; preds = %2
+  %4114 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4115 = load ptr, ptr %4114, align 8
+  %4116 = getelementptr inbounds i8, ptr %4115, i64 -16
+  %.sroa.0.0.copyload.i17552499 = load double, ptr %4116, align 16
+  %.sroa.2.0..sroa_idx.i1756 = getelementptr inbounds i8, ptr %4115, i64 -8
   %.sroa.2.0.copyload.i17572500 = load double, ptr %.sroa.2.0..sroa_idx.i1756, align 8
-  store ptr %4124, ptr %4122, align 8
+  store ptr %4116, ptr %4114, align 8
   %.sroa.01997.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17552499, i64 0
   %.sroa.01997.8.vec.insert = insertelement <2 x double> %.sroa.01997.0.vec.insert, double %.sroa.2.0.copyload.i17572500, i64 1
-  %4125 = load ptr, ptr %61, align 8
-  %4126 = getelementptr inbounds nuw i8, ptr %4125, i64 8
-  %4127 = load ptr, ptr %4126, align 8
-  %4128 = getelementptr inbounds i8, ptr %4127, i64 -16
+  %4117 = load ptr, ptr %61, align 8
+  %4118 = getelementptr inbounds nuw i8, ptr %4117, i64 8
+  %4119 = load ptr, ptr %4118, align 8
+  %4120 = getelementptr inbounds i8, ptr %4119, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !908)
-  %4129 = load <2 x double>, ptr %4128, align 16, !noalias !908
-  %4130 = fsub <2 x double> %4129, %.sroa.01997.8.vec.insert
-  store <2 x double> %4130, ptr %4128, align 16, !noalias !908
+  %4121 = load <2 x double>, ptr %4120, align 16, !noalias !908
+  %4122 = fsub <2 x double> %4121, %.sroa.01997.8.vec.insert
+  store <2 x double> %4122, ptr %4120, align 16, !noalias !908
   store i64 1, ptr %0, align 4, !alias.scope !908
-  br label %5014
+  br label %5006
 
-4131:                                             ; preds = %2
-  %4132 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4133 = load ptr, ptr %4132, align 8
-  %4134 = getelementptr inbounds i8, ptr %4133, i64 -16
-  %.sroa.0.0.copyload.i17602497 = load double, ptr %4134, align 16
-  %.sroa.2.0..sroa_idx.i1761 = getelementptr inbounds i8, ptr %4133, i64 -8
+4123:                                             ; preds = %2
+  %4124 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4125 = load ptr, ptr %4124, align 8
+  %4126 = getelementptr inbounds i8, ptr %4125, i64 -16
+  %.sroa.0.0.copyload.i17602497 = load double, ptr %4126, align 16
+  %.sroa.2.0..sroa_idx.i1761 = getelementptr inbounds i8, ptr %4125, i64 -8
   %.sroa.2.0.copyload.i17622498 = load double, ptr %.sroa.2.0..sroa_idx.i1761, align 8
-  store ptr %4134, ptr %4132, align 8
+  store ptr %4126, ptr %4124, align 8
   %.sroa.01995.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17602497, i64 0
   %.sroa.01995.8.vec.insert = insertelement <2 x double> %.sroa.01995.0.vec.insert, double %.sroa.2.0.copyload.i17622498, i64 1
-  %4135 = load ptr, ptr %61, align 8
-  %4136 = getelementptr inbounds nuw i8, ptr %4135, i64 8
-  %4137 = load ptr, ptr %4136, align 8
-  %4138 = getelementptr inbounds i8, ptr %4137, i64 -16
+  %4127 = load ptr, ptr %61, align 8
+  %4128 = getelementptr inbounds nuw i8, ptr %4127, i64 8
+  %4129 = load ptr, ptr %4128, align 8
+  %4130 = getelementptr inbounds i8, ptr %4129, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !911)
-  %4139 = load <2 x double>, ptr %4138, align 16, !noalias !911
-  %4140 = fmul <2 x double> %.sroa.01995.8.vec.insert, %4139
-  store <2 x double> %4140, ptr %4138, align 16, !noalias !911
+  %4131 = load <2 x double>, ptr %4130, align 16, !noalias !911
+  %4132 = fmul <2 x double> %.sroa.01995.8.vec.insert, %4131
+  store <2 x double> %4132, ptr %4130, align 16, !noalias !911
   store i64 1, ptr %0, align 4, !alias.scope !911
-  br label %5014
+  br label %5006
 
-4141:                                             ; preds = %2
-  %4142 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4143 = load ptr, ptr %4142, align 8
-  %4144 = getelementptr inbounds i8, ptr %4143, i64 -16
-  %.sroa.0.0.copyload.i17652495 = load double, ptr %4144, align 16
-  %.sroa.2.0..sroa_idx.i1766 = getelementptr inbounds i8, ptr %4143, i64 -8
+4133:                                             ; preds = %2
+  %4134 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4135 = load ptr, ptr %4134, align 8
+  %4136 = getelementptr inbounds i8, ptr %4135, i64 -16
+  %.sroa.0.0.copyload.i17652495 = load double, ptr %4136, align 16
+  %.sroa.2.0..sroa_idx.i1766 = getelementptr inbounds i8, ptr %4135, i64 -8
   %.sroa.2.0.copyload.i17672496 = load double, ptr %.sroa.2.0..sroa_idx.i1766, align 8
-  store ptr %4144, ptr %4142, align 8
+  store ptr %4136, ptr %4134, align 8
   %.sroa.01993.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17652495, i64 0
   %.sroa.01993.8.vec.insert = insertelement <2 x double> %.sroa.01993.0.vec.insert, double %.sroa.2.0.copyload.i17672496, i64 1
-  %4145 = load ptr, ptr %61, align 8
-  %4146 = getelementptr inbounds nuw i8, ptr %4145, i64 8
-  %4147 = load ptr, ptr %4146, align 8
-  %4148 = getelementptr inbounds i8, ptr %4147, i64 -16
+  %4137 = load ptr, ptr %61, align 8
+  %4138 = getelementptr inbounds nuw i8, ptr %4137, i64 8
+  %4139 = load ptr, ptr %4138, align 8
+  %4140 = getelementptr inbounds i8, ptr %4139, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !914)
-  %4149 = load <2 x double>, ptr %4148, align 16, !noalias !914
-  %4150 = fdiv <2 x double> %4149, %.sroa.01993.8.vec.insert
-  store <2 x double> %4150, ptr %4148, align 16, !noalias !914
+  %4141 = load <2 x double>, ptr %4140, align 16, !noalias !914
+  %4142 = fdiv <2 x double> %4141, %.sroa.01993.8.vec.insert
+  store <2 x double> %4142, ptr %4140, align 16, !noalias !914
   store i64 1, ptr %0, align 4, !alias.scope !914
-  br label %5014
+  br label %5006
 
-4151:                                             ; preds = %2
-  %4152 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4153 = load ptr, ptr %4152, align 8
-  %4154 = getelementptr inbounds i8, ptr %4153, i64 -16
-  %.sroa.0.0.copyload.i17702493 = load double, ptr %4154, align 16
-  %.sroa.2.0..sroa_idx.i1771 = getelementptr inbounds i8, ptr %4153, i64 -8
+4143:                                             ; preds = %2
+  %4144 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4145 = load ptr, ptr %4144, align 8
+  %4146 = getelementptr inbounds i8, ptr %4145, i64 -16
+  %.sroa.0.0.copyload.i17702493 = load double, ptr %4146, align 16
+  %.sroa.2.0..sroa_idx.i1771 = getelementptr inbounds i8, ptr %4145, i64 -8
   %.sroa.2.0.copyload.i17722494 = load double, ptr %.sroa.2.0..sroa_idx.i1771, align 8
-  store ptr %4154, ptr %4152, align 8
+  store ptr %4146, ptr %4144, align 8
   %.sroa.01991.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17702493, i64 0
   %.sroa.01991.8.vec.insert = insertelement <2 x double> %.sroa.01991.0.vec.insert, double %.sroa.2.0.copyload.i17722494, i64 1
-  %4155 = load ptr, ptr %61, align 8
-  %4156 = getelementptr inbounds nuw i8, ptr %4155, i64 8
-  %4157 = load ptr, ptr %4156, align 8
-  %4158 = getelementptr inbounds i8, ptr %4157, i64 -16
+  %4147 = load ptr, ptr %61, align 8
+  %4148 = getelementptr inbounds nuw i8, ptr %4147, i64 8
+  %4149 = load ptr, ptr %4148, align 8
+  %4150 = getelementptr inbounds i8, ptr %4149, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !917)
-  %4159 = load <2 x double>, ptr %4158, align 16, !noalias !917
-  %4160 = bitcast <2 x double> %4159 to <2 x i64>
-  %4161 = bitcast <2 x double> %.sroa.01991.8.vec.insert to <2 x i64>
-  %4162 = fcmp uge <2 x double> %4159, %.sroa.01991.8.vec.insert
-  %4163 = select <2 x i1> %4162, <2 x i64> %4161, <2 x i64> zeroinitializer
-  %4164 = or <2 x i64> %4163, %4160
-  %4165 = fcmp ule <2 x double> %4159, %.sroa.01991.8.vec.insert
-  %4166 = fcmp uno <2 x double> %4159, zeroinitializer
-  %4167 = fcmp uno <2 x double> %.sroa.01991.8.vec.insert, zeroinitializer
-  %4168 = bitcast <2 x i64> %4164 to <2 x double>
-  %4169 = select <2 x i1> %4165, <2 x double> %4168, <2 x double> %.sroa.01991.8.vec.insert
-  %4170 = select <2 x i1> %4166, <2 x double> %4159, <2 x double> %4169
-  %4171 = select <2 x i1> %4167, <2 x double> %.sroa.01991.8.vec.insert, <2 x double> %4170
-  store <2 x double> %4171, ptr %4158, align 16, !noalias !917
+  %4151 = load <2 x double>, ptr %4150, align 16, !noalias !917
+  %4152 = bitcast <2 x double> %4151 to <2 x i64>
+  %4153 = bitcast <2 x double> %.sroa.01991.8.vec.insert to <2 x i64>
+  %4154 = fcmp uge <2 x double> %4151, %.sroa.01991.8.vec.insert
+  %4155 = select <2 x i1> %4154, <2 x i64> %4153, <2 x i64> zeroinitializer
+  %4156 = or <2 x i64> %4155, %4152
+  %4157 = fcmp ule <2 x double> %4151, %.sroa.01991.8.vec.insert
+  %4158 = fcmp uno <2 x double> %4151, zeroinitializer
+  %4159 = fcmp uno <2 x double> %.sroa.01991.8.vec.insert, zeroinitializer
+  %4160 = bitcast <2 x i64> %4156 to <2 x double>
+  %4161 = select <2 x i1> %4157, <2 x double> %4160, <2 x double> %.sroa.01991.8.vec.insert
+  %4162 = select <2 x i1> %4158, <2 x double> %4151, <2 x double> %4161
+  %4163 = select <2 x i1> %4159, <2 x double> %.sroa.01991.8.vec.insert, <2 x double> %4162
+  store <2 x double> %4163, ptr %4150, align 16, !noalias !917
   store i64 1, ptr %0, align 4, !alias.scope !917
-  br label %5014
+  br label %5006
 
-4172:                                             ; preds = %2
-  %4173 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4174 = load ptr, ptr %4173, align 8
-  %4175 = getelementptr inbounds i8, ptr %4174, i64 -16
-  %.sroa.0.0.copyload.i17752491 = load double, ptr %4175, align 16
-  %.sroa.2.0..sroa_idx.i1776 = getelementptr inbounds i8, ptr %4174, i64 -8
+4164:                                             ; preds = %2
+  %4165 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4166 = load ptr, ptr %4165, align 8
+  %4167 = getelementptr inbounds i8, ptr %4166, i64 -16
+  %.sroa.0.0.copyload.i17752491 = load double, ptr %4167, align 16
+  %.sroa.2.0..sroa_idx.i1776 = getelementptr inbounds i8, ptr %4166, i64 -8
   %.sroa.2.0.copyload.i17772492 = load double, ptr %.sroa.2.0..sroa_idx.i1776, align 8
-  store ptr %4175, ptr %4173, align 8
+  store ptr %4167, ptr %4165, align 8
   %.sroa.01989.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17752491, i64 0
   %.sroa.01989.8.vec.insert = insertelement <2 x double> %.sroa.01989.0.vec.insert, double %.sroa.2.0.copyload.i17772492, i64 1
-  %4176 = load ptr, ptr %61, align 8
-  %4177 = getelementptr inbounds nuw i8, ptr %4176, i64 8
-  %4178 = load ptr, ptr %4177, align 8
-  %4179 = getelementptr inbounds i8, ptr %4178, i64 -16
+  %4168 = load ptr, ptr %61, align 8
+  %4169 = getelementptr inbounds nuw i8, ptr %4168, i64 8
+  %4170 = load ptr, ptr %4169, align 8
+  %4171 = getelementptr inbounds i8, ptr %4170, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !920)
-  %4180 = load <2 x double>, ptr %4179, align 16, !noalias !920
-  %4181 = bitcast <2 x double> %4180 to <2 x i64>
-  %4182 = bitcast <2 x double> %.sroa.01989.8.vec.insert to <2 x i64>
-  %4183 = fcmp uge <2 x double> %4180, %.sroa.01989.8.vec.insert
-  %4184 = select <2 x i1> %4183, <2 x i64> %4181, <2 x i64> splat (i64 -1)
-  %4185 = and <2 x i64> %4184, %4182
-  %4186 = fcmp ule <2 x double> %4180, %.sroa.01989.8.vec.insert
-  %4187 = fcmp uno <2 x double> %4180, zeroinitializer
-  %4188 = fcmp uno <2 x double> %.sroa.01989.8.vec.insert, zeroinitializer
-  %4189 = bitcast <2 x i64> %4185 to <2 x double>
-  %4190 = select <2 x i1> %4186, <2 x double> %4189, <2 x double> %4180
-  %4191 = select <2 x i1> %4187, <2 x double> %4180, <2 x double> %4190
-  %4192 = select <2 x i1> %4188, <2 x double> %.sroa.01989.8.vec.insert, <2 x double> %4191
-  store <2 x double> %4192, ptr %4179, align 16, !noalias !920
+  %4172 = load <2 x double>, ptr %4171, align 16, !noalias !920
+  %4173 = bitcast <2 x double> %4172 to <2 x i64>
+  %4174 = bitcast <2 x double> %.sroa.01989.8.vec.insert to <2 x i64>
+  %4175 = fcmp uge <2 x double> %4172, %.sroa.01989.8.vec.insert
+  %4176 = select <2 x i1> %4175, <2 x i64> %4173, <2 x i64> splat (i64 -1)
+  %4177 = and <2 x i64> %4176, %4174
+  %4178 = fcmp ule <2 x double> %4172, %.sroa.01989.8.vec.insert
+  %4179 = fcmp uno <2 x double> %4172, zeroinitializer
+  %4180 = fcmp uno <2 x double> %.sroa.01989.8.vec.insert, zeroinitializer
+  %4181 = bitcast <2 x i64> %4177 to <2 x double>
+  %4182 = select <2 x i1> %4178, <2 x double> %4181, <2 x double> %4172
+  %4183 = select <2 x i1> %4179, <2 x double> %4172, <2 x double> %4182
+  %4184 = select <2 x i1> %4180, <2 x double> %.sroa.01989.8.vec.insert, <2 x double> %4183
+  store <2 x double> %4184, ptr %4171, align 16, !noalias !920
   store i64 1, ptr %0, align 4, !alias.scope !920
-  br label %5014
+  br label %5006
 
-4193:                                             ; preds = %2
-  %4194 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4195 = load ptr, ptr %4194, align 8
-  %4196 = getelementptr inbounds i8, ptr %4195, i64 -16
-  %.sroa.0.0.copyload.i17802489 = load double, ptr %4196, align 16
-  %.sroa.2.0..sroa_idx.i1781 = getelementptr inbounds i8, ptr %4195, i64 -8
+4185:                                             ; preds = %2
+  %4186 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4187 = load ptr, ptr %4186, align 8
+  %4188 = getelementptr inbounds i8, ptr %4187, i64 -16
+  %.sroa.0.0.copyload.i17802489 = load double, ptr %4188, align 16
+  %.sroa.2.0..sroa_idx.i1781 = getelementptr inbounds i8, ptr %4187, i64 -8
   %.sroa.2.0.copyload.i17822490 = load double, ptr %.sroa.2.0..sroa_idx.i1781, align 8
-  store ptr %4196, ptr %4194, align 8
+  store ptr %4188, ptr %4186, align 8
   %.sroa.01987.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17802489, i64 0
   %.sroa.01987.8.vec.insert = insertelement <2 x double> %.sroa.01987.0.vec.insert, double %.sroa.2.0.copyload.i17822490, i64 1
-  %4197 = load ptr, ptr %61, align 8
-  %4198 = getelementptr inbounds nuw i8, ptr %4197, i64 8
-  %4199 = load ptr, ptr %4198, align 8
-  %4200 = getelementptr inbounds i8, ptr %4199, i64 -16
+  %4189 = load ptr, ptr %61, align 8
+  %4190 = getelementptr inbounds nuw i8, ptr %4189, i64 8
+  %4191 = load ptr, ptr %4190, align 8
+  %4192 = getelementptr inbounds i8, ptr %4191, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !923)
-  %4201 = load <2 x double>, ptr %4200, align 16, !noalias !923
-  %.inv.i1785 = fcmp ogt <2 x double> %4201, %.sroa.01987.8.vec.insert
-  %.v.i1786 = select <2 x i1> %.inv.i1785, <2 x double> %.sroa.01987.8.vec.insert, <2 x double> %4201
-  store <2 x double> %.v.i1786, ptr %4200, align 16, !noalias !923
+  %4193 = load <2 x double>, ptr %4192, align 16, !noalias !923
+  %.inv.i1785 = fcmp ogt <2 x double> %4193, %.sroa.01987.8.vec.insert
+  %.v.i1786 = select <2 x i1> %.inv.i1785, <2 x double> %.sroa.01987.8.vec.insert, <2 x double> %4193
+  store <2 x double> %.v.i1786, ptr %4192, align 16, !noalias !923
   store i64 1, ptr %0, align 4, !alias.scope !923
-  br label %5014
+  br label %5006
 
-4202:                                             ; preds = %2
-  %4203 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4204 = load ptr, ptr %4203, align 8
-  %4205 = getelementptr inbounds i8, ptr %4204, i64 -16
-  %.sroa.0.0.copyload.i17872487 = load double, ptr %4205, align 16
-  %.sroa.2.0..sroa_idx.i1788 = getelementptr inbounds i8, ptr %4204, i64 -8
+4194:                                             ; preds = %2
+  %4195 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4196 = load ptr, ptr %4195, align 8
+  %4197 = getelementptr inbounds i8, ptr %4196, i64 -16
+  %.sroa.0.0.copyload.i17872487 = load double, ptr %4197, align 16
+  %.sroa.2.0..sroa_idx.i1788 = getelementptr inbounds i8, ptr %4196, i64 -8
   %.sroa.2.0.copyload.i17892488 = load double, ptr %.sroa.2.0..sroa_idx.i1788, align 8
-  store ptr %4205, ptr %4203, align 8
+  store ptr %4197, ptr %4195, align 8
   %.sroa.01985.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i17872487, i64 0
   %.sroa.01985.8.vec.insert = insertelement <2 x double> %.sroa.01985.0.vec.insert, double %.sroa.2.0.copyload.i17892488, i64 1
-  %4206 = load ptr, ptr %61, align 8
-  %4207 = getelementptr inbounds nuw i8, ptr %4206, i64 8
-  %4208 = load ptr, ptr %4207, align 8
-  %4209 = getelementptr inbounds i8, ptr %4208, i64 -16
+  %4198 = load ptr, ptr %61, align 8
+  %4199 = getelementptr inbounds nuw i8, ptr %4198, i64 8
+  %4200 = load ptr, ptr %4199, align 8
+  %4201 = getelementptr inbounds i8, ptr %4200, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
-  %4210 = load <2 x double>, ptr %4209, align 16, !noalias !926
-  %.inv.i1792 = fcmp ogt <2 x double> %.sroa.01985.8.vec.insert, %4210
-  %.v.i1793 = select <2 x i1> %.inv.i1792, <2 x double> %.sroa.01985.8.vec.insert, <2 x double> %4210
-  store <2 x double> %.v.i1793, ptr %4209, align 16, !noalias !926
+  %4202 = load <2 x double>, ptr %4201, align 16, !noalias !926
+  %.inv.i1792 = fcmp ogt <2 x double> %.sroa.01985.8.vec.insert, %4202
+  %.v.i1793 = select <2 x i1> %.inv.i1792, <2 x double> %.sroa.01985.8.vec.insert, <2 x double> %4202
+  store <2 x double> %.v.i1793, ptr %4201, align 16, !noalias !926
   store i64 1, ptr %0, align 4, !alias.scope !926
-  br label %5014
+  br label %5006
+
+4203:                                             ; preds = %2
+  %4204 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4205 = load ptr, ptr %4204, align 8
+  %4206 = getelementptr inbounds i8, ptr %4205, i64 -16
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4206)
+  br label %5006
+
+4207:                                             ; preds = %2
+  %4208 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4209 = load ptr, ptr %4208, align 8
+  %4210 = getelementptr inbounds i8, ptr %4209, i64 -16
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4210)
+  br label %5006
 
 4211:                                             ; preds = %2
   %4212 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %4213 = load ptr, ptr %4212, align 8
   %4214 = getelementptr inbounds i8, ptr %4213, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4214)
-  br label %5014
-
-4215:                                             ; preds = %2
-  %4216 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4217 = load ptr, ptr %4216, align 8
-  %4218 = getelementptr inbounds i8, ptr %4217, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4218)
-  br label %5014
-
-4219:                                             ; preds = %2
-  %4220 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4221 = load ptr, ptr %4220, align 8
-  %4222 = getelementptr inbounds i8, ptr %4221, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
-  %4223 = load <4 x i32>, ptr %4222, align 16, !noalias !929
-  %4224 = sitofp <4 x i32> %4223 to <4 x float>
-  store <4 x float> %4224, ptr %4222, align 16, !noalias !929
+  %4215 = load <4 x i32>, ptr %4214, align 16, !noalias !929
+  %4216 = sitofp <4 x i32> %4215 to <4 x float>
+  store <4 x float> %4216, ptr %4214, align 16, !noalias !929
   store i64 1, ptr %0, align 4, !alias.scope !929
-  br label %5014
+  br label %5006
 
-4225:                                             ; preds = %2
-  %4226 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4227 = load ptr, ptr %4226, align 8
-  %4228 = getelementptr inbounds i8, ptr %4227, i64 -16
+4217:                                             ; preds = %2
+  %4218 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4219 = load ptr, ptr %4218, align 8
+  %4220 = getelementptr inbounds i8, ptr %4219, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
-  %4229 = load <4 x i32>, ptr %4228, align 16, !noalias !932
-  %4230 = uitofp <4 x i32> %4229 to <4 x float>
-  store <4 x float> %4230, ptr %4228, align 16, !noalias !932
+  %4221 = load <4 x i32>, ptr %4220, align 16, !noalias !932
+  %4222 = uitofp <4 x i32> %4221 to <4 x float>
+  store <4 x float> %4222, ptr %4220, align 16, !noalias !932
   store i64 1, ptr %0, align 4, !alias.scope !932
-  br label %5014
+  br label %5006
 
-4231:                                             ; preds = %2
-  %4232 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4233 = load ptr, ptr %4232, align 8
-  %4234 = getelementptr inbounds i8, ptr %4233, i64 -16
+4223:                                             ; preds = %2
+  %4224 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4225 = load ptr, ptr %4224, align 8
+  %4226 = getelementptr inbounds i8, ptr %4225, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !935)
-  %4235 = load <2 x double>, ptr %4234, align 16, !noalias !935
-  %4236 = extractelement <2 x double> %4235, i64 0
-  %4237 = tail call double @llvm.trunc.f64(double %4236)
-  %4238 = insertelement <2 x double> poison, double %4237, i64 0
-  %4239 = extractelement <2 x double> %4235, i64 1
-  %4240 = tail call double @llvm.trunc.f64(double %4239)
-  %4241 = insertelement <2 x double> %4238, double %4240, i64 1
-  %.inv.i1794 = fcmp ole <2 x double> %4241, splat (double 0xC1E0000000000000)
-  %4242 = select <2 x i1> %.inv.i1794, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4241
-  %4243 = fptosi <2 x double> %4242 to <2 x i64>
-  %4244 = fcmp ult <2 x double> %4241, splat (double 0x41DFFFFFFFC00000)
-  %4245 = select <2 x i1> %4244, <2 x i64> %4243, <2 x i64> splat (i64 2147483647)
-  %4246 = shufflevector <2 x i64> %4245, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %4247 = shufflevector <4 x i64> %4246, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %4248 = trunc <4 x i64> %4247 to <4 x i32>
-  store <4 x i32> %4248, ptr %4234, align 16, !noalias !935
+  %4227 = load <2 x double>, ptr %4226, align 16, !noalias !935
+  %4228 = extractelement <2 x double> %4227, i64 0
+  %4229 = tail call double @llvm.trunc.f64(double %4228)
+  %4230 = insertelement <2 x double> poison, double %4229, i64 0
+  %4231 = extractelement <2 x double> %4227, i64 1
+  %4232 = tail call double @llvm.trunc.f64(double %4231)
+  %4233 = insertelement <2 x double> %4230, double %4232, i64 1
+  %.inv.i1794 = fcmp ole <2 x double> %4233, splat (double 0xC1E0000000000000)
+  %4234 = select <2 x i1> %.inv.i1794, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4233
+  %4235 = fptosi <2 x double> %4234 to <2 x i64>
+  %4236 = fcmp ult <2 x double> %4233, splat (double 0x41DFFFFFFFC00000)
+  %4237 = select <2 x i1> %4236, <2 x i64> %4235, <2 x i64> splat (i64 2147483647)
+  %4238 = shufflevector <2 x i64> %4237, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %4239 = shufflevector <4 x i64> %4238, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %4240 = trunc <4 x i64> %4239 to <4 x i32>
+  store <4 x i32> %4240, ptr %4226, align 16, !noalias !935
   store i64 1, ptr %0, align 4, !alias.scope !935
-  br label %5014
+  br label %5006
 
-4249:                                             ; preds = %2
-  %4250 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4251 = load ptr, ptr %4250, align 8
-  %4252 = getelementptr inbounds i8, ptr %4251, i64 -16
+4241:                                             ; preds = %2
+  %4242 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4243 = load ptr, ptr %4242, align 8
+  %4244 = getelementptr inbounds i8, ptr %4243, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !938)
-  %4253 = load <2 x double>, ptr %4252, align 16, !noalias !938
-  %4254 = extractelement <2 x double> %4253, i64 0
-  %4255 = tail call double @llvm.trunc.f64(double %4254)
-  %4256 = insertelement <2 x double> poison, double %4255, i64 0
-  %4257 = extractelement <2 x double> %4253, i64 1
-  %4258 = tail call double @llvm.trunc.f64(double %4257)
-  %4259 = insertelement <2 x double> %4256, double %4258, i64 1
-  %.inv.i1795 = fcmp ole <2 x double> %4259, zeroinitializer
-  %4260 = select <2 x i1> %.inv.i1795, <2 x double> zeroinitializer, <2 x double> %4259
-  %4261 = fptoui <2 x double> %4260 to <2 x i64>
-  %4262 = fcmp ult <2 x double> %4259, splat (double 0x41EFFFFFFFE00000)
-  %4263 = select <2 x i1> %4262, <2 x i64> %4261, <2 x i64> splat (i64 4294967295)
-  %4264 = shufflevector <2 x i64> %4263, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %4265 = shufflevector <4 x i64> %4264, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %4266 = trunc <4 x i64> %4265 to <4 x i32>
-  store <4 x i32> %4266, ptr %4252, align 16, !noalias !938
+  %4245 = load <2 x double>, ptr %4244, align 16, !noalias !938
+  %4246 = extractelement <2 x double> %4245, i64 0
+  %4247 = tail call double @llvm.trunc.f64(double %4246)
+  %4248 = insertelement <2 x double> poison, double %4247, i64 0
+  %4249 = extractelement <2 x double> %4245, i64 1
+  %4250 = tail call double @llvm.trunc.f64(double %4249)
+  %4251 = insertelement <2 x double> %4248, double %4250, i64 1
+  %.inv.i1795 = fcmp ole <2 x double> %4251, zeroinitializer
+  %4252 = select <2 x i1> %.inv.i1795, <2 x double> zeroinitializer, <2 x double> %4251
+  %4253 = fptoui <2 x double> %4252 to <2 x i64>
+  %4254 = fcmp ult <2 x double> %4251, splat (double 0x41EFFFFFFFE00000)
+  %4255 = select <2 x i1> %4254, <2 x i64> %4253, <2 x i64> splat (i64 4294967295)
+  %4256 = shufflevector <2 x i64> %4255, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %4257 = shufflevector <4 x i64> %4256, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %4258 = trunc <4 x i64> %4257 to <4 x i32>
+  store <4 x i32> %4258, ptr %4244, align 16, !noalias !938
   store i64 1, ptr %0, align 4, !alias.scope !938
-  br label %5014
+  br label %5006
 
-4267:                                             ; preds = %2
-  %4268 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4269 = load ptr, ptr %4268, align 8
-  %4270 = getelementptr inbounds i8, ptr %4269, i64 -16
+4259:                                             ; preds = %2
+  %4260 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4261 = load ptr, ptr %4260, align 8
+  %4262 = getelementptr inbounds i8, ptr %4261, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
-  %4271 = load <4 x i32>, ptr %4270, align 16, !noalias !941
-  %4272 = shufflevector <4 x i32> %4271, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %4273 = sitofp <2 x i32> %4272 to <2 x double>
-  store <2 x double> %4273, ptr %4270, align 16, !noalias !941
+  %4263 = load <4 x i32>, ptr %4262, align 16, !noalias !941
+  %4264 = shufflevector <4 x i32> %4263, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %4265 = sitofp <2 x i32> %4264 to <2 x double>
+  store <2 x double> %4265, ptr %4262, align 16, !noalias !941
   store i64 1, ptr %0, align 4, !alias.scope !941
-  br label %5014
+  br label %5006
 
-4274:                                             ; preds = %2
-  %4275 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4276 = load ptr, ptr %4275, align 8
-  %4277 = getelementptr inbounds i8, ptr %4276, i64 -16
+4266:                                             ; preds = %2
+  %4267 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4268 = load ptr, ptr %4267, align 8
+  %4269 = getelementptr inbounds i8, ptr %4268, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
-  %4278 = load <4 x i32>, ptr %4277, align 16, !noalias !944
-  %4279 = shufflevector <4 x i32> %4278, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %4280 = uitofp <2 x i32> %4279 to <2 x double>
-  store <2 x double> %4280, ptr %4277, align 16, !noalias !944
+  %4270 = load <4 x i32>, ptr %4269, align 16, !noalias !944
+  %4271 = shufflevector <4 x i32> %4270, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
+  %4272 = uitofp <2 x i32> %4271 to <2 x double>
+  store <2 x double> %4272, ptr %4269, align 16, !noalias !944
   store i64 1, ptr %0, align 4, !alias.scope !944
-  br label %5014
+  br label %5006
 
-4281:                                             ; preds = %2
-  %4282 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4283 = load ptr, ptr %4282, align 8
-  %4284 = getelementptr inbounds i8, ptr %4283, i64 -16
+4273:                                             ; preds = %2
+  %4274 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4275 = load ptr, ptr %4274, align 8
+  %4276 = getelementptr inbounds i8, ptr %4275, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !947)
-  %4285 = load <2 x double>, ptr %4284, align 16, !noalias !947
-  %4286 = extractelement <2 x double> %4285, i64 0
-  %4287 = fptrunc double %4286 to float
-  %4288 = extractelement <2 x double> %4285, i64 1
-  %4289 = fptrunc double %4288 to float
-  %4290 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %4287, i64 0
-  %4291 = insertelement <4 x float> %4290, float %4289, i64 1
-  store <4 x float> %4291, ptr %4284, align 16, !noalias !947
+  %4277 = load <2 x double>, ptr %4276, align 16, !noalias !947
+  %4278 = extractelement <2 x double> %4277, i64 0
+  %4279 = fptrunc double %4278 to float
+  %4280 = extractelement <2 x double> %4277, i64 1
+  %4281 = fptrunc double %4280 to float
+  %4282 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %4279, i64 0
+  %4283 = insertelement <4 x float> %4282, float %4281, i64 1
+  store <4 x float> %4283, ptr %4276, align 16, !noalias !947
   store i64 1, ptr %0, align 4, !alias.scope !947
-  br label %5014
+  br label %5006
 
-4292:                                             ; preds = %2
-  %4293 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4294 = load ptr, ptr %4293, align 8
-  %4295 = getelementptr inbounds i8, ptr %4294, i64 -16
+4284:                                             ; preds = %2
+  %4285 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4286 = load ptr, ptr %4285, align 8
+  %4287 = getelementptr inbounds i8, ptr %4286, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !950)
-  %4296 = load <4 x float>, ptr %4295, align 16, !noalias !950
-  %4297 = extractelement <4 x float> %4296, i64 0
-  %4298 = fpext float %4297 to double
-  %4299 = insertelement <2 x double> poison, double %4298, i64 0
-  %4300 = extractelement <4 x float> %4296, i64 1
-  %4301 = fpext float %4300 to double
-  %4302 = insertelement <2 x double> %4299, double %4301, i64 1
-  store <2 x double> %4302, ptr %4295, align 16, !noalias !950
+  %4288 = load <4 x float>, ptr %4287, align 16, !noalias !950
+  %4289 = extractelement <4 x float> %4288, i64 0
+  %4290 = fpext float %4289 to double
+  %4291 = insertelement <2 x double> poison, double %4290, i64 0
+  %4292 = extractelement <4 x float> %4288, i64 1
+  %4293 = fpext float %4292 to double
+  %4294 = insertelement <2 x double> %4291, double %4293, i64 1
+  store <2 x double> %4294, ptr %4287, align 16, !noalias !950
   store i64 1, ptr %0, align 4, !alias.scope !950
-  br label %5014
+  br label %5006
 
-4303:                                             ; preds = %2
-  %4304 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4305 = load ptr, ptr %4304, align 8
-  %4306 = getelementptr inbounds i8, ptr %4305, i64 -16
-  %.sroa.0.0.copyload.i1796 = load i64, ptr %4306, align 16
-  %.sroa.2.0..sroa_idx.i1797 = getelementptr inbounds i8, ptr %4305, i64 -8
+4295:                                             ; preds = %2
+  %4296 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4297 = load ptr, ptr %4296, align 8
+  %4298 = getelementptr inbounds i8, ptr %4297, i64 -16
+  %.sroa.0.0.copyload.i1796 = load i64, ptr %4298, align 16
+  %.sroa.2.0..sroa_idx.i1797 = getelementptr inbounds i8, ptr %4297, i64 -8
   %.sroa.2.0.copyload.i1798 = load i64, ptr %.sroa.2.0..sroa_idx.i1797, align 8
-  store ptr %4306, ptr %4304, align 8
+  store ptr %4298, ptr %4296, align 8
   %.sroa.01983.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1796, i64 0
   %.sroa.01983.8.vec.insert = insertelement <2 x i64> %.sroa.01983.0.vec.insert, i64 %.sroa.2.0.copyload.i1798, i64 1
-  %4307 = load ptr, ptr %61, align 8
-  %4308 = getelementptr inbounds nuw i8, ptr %4307, i64 8
-  %4309 = load ptr, ptr %4308, align 8
-  %4310 = getelementptr inbounds i8, ptr %4309, i64 -16
-  %4311 = load <8 x i16>, ptr %4310, align 16
-  %4312 = sext <8 x i16> %4311 to <8 x i32>
-  %4313 = bitcast <2 x i64> %.sroa.01983.8.vec.insert to <8 x i16>
-  %4314 = sext <8 x i16> %4313 to <8 x i32>
-  %4315 = mul nsw <8 x i32> %4312, %4314
-  %4316 = shufflevector <8 x i32> %4315, <8 x i32> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
-  %4317 = shufflevector <8 x i32> %4315, <8 x i32> poison, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
-  %4318 = add <4 x i32> %4316, %4317
-  store <4 x i32> %4318, ptr %4310, align 16
+  %4299 = load ptr, ptr %61, align 8
+  %4300 = getelementptr inbounds nuw i8, ptr %4299, i64 8
+  %4301 = load ptr, ptr %4300, align 8
+  %4302 = getelementptr inbounds i8, ptr %4301, i64 -16
+  %4303 = load <8 x i16>, ptr %4302, align 16
+  %4304 = sext <8 x i16> %4303 to <8 x i32>
+  %4305 = bitcast <2 x i64> %.sroa.01983.8.vec.insert to <8 x i16>
+  %4306 = sext <8 x i16> %4305 to <8 x i32>
+  %4307 = mul nsw <8 x i32> %4304, %4306
+  %4308 = shufflevector <8 x i32> %4307, <8 x i32> poison, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
+  %4309 = shufflevector <8 x i32> %4307, <8 x i32> poison, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
+  %4310 = add <4 x i32> %4308, %4309
+  store <4 x i32> %4310, ptr %4302, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
-4319:                                             ; preds = %2
-  %4320 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4321 = load ptr, ptr %4320, align 8
-  %4322 = getelementptr inbounds i8, ptr %4321, i64 -16
+4311:                                             ; preds = %2
+  %4312 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4313 = load ptr, ptr %4312, align 8
+  %4314 = getelementptr inbounds i8, ptr %4313, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
-  %4323 = load <4 x float>, ptr %4322, align 16, !noalias !953
-  %4324 = extractelement <4 x float> %4323, i64 0
-  %4325 = tail call noundef float @llvm.ceil.f32(float %4324)
-  %4326 = insertelement <4 x float> poison, float %4325, i64 0
-  %4327 = extractelement <4 x float> %4323, i64 1
-  %4328 = tail call noundef float @llvm.ceil.f32(float %4327)
-  %4329 = insertelement <4 x float> %4326, float %4328, i64 1
-  %4330 = extractelement <4 x float> %4323, i64 2
-  %4331 = tail call noundef float @llvm.ceil.f32(float %4330)
-  %4332 = insertelement <4 x float> %4329, float %4331, i64 2
-  %4333 = extractelement <4 x float> %4323, i64 3
-  %4334 = tail call noundef float @llvm.ceil.f32(float %4333)
-  %4335 = insertelement <4 x float> %4332, float %4334, i64 3
-  store <4 x float> %4335, ptr %4322, align 16, !noalias !953
+  %4315 = load <4 x float>, ptr %4314, align 16, !noalias !953
+  %4316 = extractelement <4 x float> %4315, i64 0
+  %4317 = tail call noundef float @llvm.ceil.f32(float %4316)
+  %4318 = insertelement <4 x float> poison, float %4317, i64 0
+  %4319 = extractelement <4 x float> %4315, i64 1
+  %4320 = tail call noundef float @llvm.ceil.f32(float %4319)
+  %4321 = insertelement <4 x float> %4318, float %4320, i64 1
+  %4322 = extractelement <4 x float> %4315, i64 2
+  %4323 = tail call noundef float @llvm.ceil.f32(float %4322)
+  %4324 = insertelement <4 x float> %4321, float %4323, i64 2
+  %4325 = extractelement <4 x float> %4315, i64 3
+  %4326 = tail call noundef float @llvm.ceil.f32(float %4325)
+  %4327 = insertelement <4 x float> %4324, float %4326, i64 3
+  store <4 x float> %4327, ptr %4314, align 16, !noalias !953
   store i64 1, ptr %0, align 4, !alias.scope !953
-  br label %5014
+  br label %5006
 
-4336:                                             ; preds = %2
-  %4337 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4338 = load ptr, ptr %4337, align 8
-  %4339 = getelementptr inbounds i8, ptr %4338, i64 -16
+4328:                                             ; preds = %2
+  %4329 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4330 = load ptr, ptr %4329, align 8
+  %4331 = getelementptr inbounds i8, ptr %4330, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !956)
-  %4340 = load <4 x float>, ptr %4339, align 16, !noalias !956
-  %4341 = extractelement <4 x float> %4340, i64 0
-  %4342 = tail call noundef float @llvm.floor.f32(float %4341)
-  %4343 = insertelement <4 x float> poison, float %4342, i64 0
-  %4344 = extractelement <4 x float> %4340, i64 1
-  %4345 = tail call noundef float @llvm.floor.f32(float %4344)
-  %4346 = insertelement <4 x float> %4343, float %4345, i64 1
-  %4347 = extractelement <4 x float> %4340, i64 2
-  %4348 = tail call noundef float @llvm.floor.f32(float %4347)
-  %4349 = insertelement <4 x float> %4346, float %4348, i64 2
-  %4350 = extractelement <4 x float> %4340, i64 3
-  %4351 = tail call noundef float @llvm.floor.f32(float %4350)
-  %4352 = insertelement <4 x float> %4349, float %4351, i64 3
-  store <4 x float> %4352, ptr %4339, align 16, !noalias !956
+  %4332 = load <4 x float>, ptr %4331, align 16, !noalias !956
+  %4333 = extractelement <4 x float> %4332, i64 0
+  %4334 = tail call noundef float @llvm.floor.f32(float %4333)
+  %4335 = insertelement <4 x float> poison, float %4334, i64 0
+  %4336 = extractelement <4 x float> %4332, i64 1
+  %4337 = tail call noundef float @llvm.floor.f32(float %4336)
+  %4338 = insertelement <4 x float> %4335, float %4337, i64 1
+  %4339 = extractelement <4 x float> %4332, i64 2
+  %4340 = tail call noundef float @llvm.floor.f32(float %4339)
+  %4341 = insertelement <4 x float> %4338, float %4340, i64 2
+  %4342 = extractelement <4 x float> %4332, i64 3
+  %4343 = tail call noundef float @llvm.floor.f32(float %4342)
+  %4344 = insertelement <4 x float> %4341, float %4343, i64 3
+  store <4 x float> %4344, ptr %4331, align 16, !noalias !956
   store i64 1, ptr %0, align 4, !alias.scope !956
-  br label %5014
+  br label %5006
 
-4353:                                             ; preds = %2
-  %4354 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4355 = load ptr, ptr %4354, align 8
-  %4356 = getelementptr inbounds i8, ptr %4355, i64 -16
+4345:                                             ; preds = %2
+  %4346 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4347 = load ptr, ptr %4346, align 8
+  %4348 = getelementptr inbounds i8, ptr %4347, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !959)
-  %4357 = load <4 x float>, ptr %4356, align 16, !noalias !959
-  %4358 = extractelement <4 x float> %4357, i64 0
-  %4359 = tail call noundef float @llvm.trunc.f32(float %4358)
-  %4360 = insertelement <4 x float> poison, float %4359, i64 0
-  %4361 = extractelement <4 x float> %4357, i64 1
-  %4362 = tail call noundef float @llvm.trunc.f32(float %4361)
-  %4363 = insertelement <4 x float> %4360, float %4362, i64 1
-  %4364 = extractelement <4 x float> %4357, i64 2
-  %4365 = tail call noundef float @llvm.trunc.f32(float %4364)
-  %4366 = insertelement <4 x float> %4363, float %4365, i64 2
-  %4367 = extractelement <4 x float> %4357, i64 3
-  %4368 = tail call noundef float @llvm.trunc.f32(float %4367)
-  %4369 = insertelement <4 x float> %4366, float %4368, i64 3
-  store <4 x float> %4369, ptr %4356, align 16, !noalias !959
+  %4349 = load <4 x float>, ptr %4348, align 16, !noalias !959
+  %4350 = extractelement <4 x float> %4349, i64 0
+  %4351 = tail call noundef float @llvm.trunc.f32(float %4350)
+  %4352 = insertelement <4 x float> poison, float %4351, i64 0
+  %4353 = extractelement <4 x float> %4349, i64 1
+  %4354 = tail call noundef float @llvm.trunc.f32(float %4353)
+  %4355 = insertelement <4 x float> %4352, float %4354, i64 1
+  %4356 = extractelement <4 x float> %4349, i64 2
+  %4357 = tail call noundef float @llvm.trunc.f32(float %4356)
+  %4358 = insertelement <4 x float> %4355, float %4357, i64 2
+  %4359 = extractelement <4 x float> %4349, i64 3
+  %4360 = tail call noundef float @llvm.trunc.f32(float %4359)
+  %4361 = insertelement <4 x float> %4358, float %4360, i64 3
+  store <4 x float> %4361, ptr %4348, align 16, !noalias !959
   store i64 1, ptr %0, align 4, !alias.scope !959
-  br label %5014
+  br label %5006
 
-4370:                                             ; preds = %2
-  %4371 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4372 = load ptr, ptr %4371, align 8
-  %4373 = getelementptr inbounds i8, ptr %4372, i64 -16
+4362:                                             ; preds = %2
+  %4363 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4364 = load ptr, ptr %4363, align 8
+  %4365 = getelementptr inbounds i8, ptr %4364, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !962)
-  %4374 = load <4 x float>, ptr %4373, align 16, !noalias !962
-  %4375 = extractelement <4 x float> %4374, i64 0
-  %4376 = tail call noundef float @llvm.roundeven.f32(float %4375)
-  %4377 = insertelement <4 x float> poison, float %4376, i64 0
-  %4378 = extractelement <4 x float> %4374, i64 1
-  %4379 = tail call noundef float @llvm.roundeven.f32(float %4378)
-  %4380 = insertelement <4 x float> %4377, float %4379, i64 1
-  %4381 = extractelement <4 x float> %4374, i64 2
-  %4382 = tail call noundef float @llvm.roundeven.f32(float %4381)
-  %4383 = insertelement <4 x float> %4380, float %4382, i64 2
-  %4384 = extractelement <4 x float> %4374, i64 3
-  %4385 = tail call noundef float @llvm.roundeven.f32(float %4384)
-  %4386 = insertelement <4 x float> %4383, float %4385, i64 3
-  store <4 x float> %4386, ptr %4373, align 16, !noalias !962
+  %4366 = load <4 x float>, ptr %4365, align 16, !noalias !962
+  %4367 = extractelement <4 x float> %4366, i64 0
+  %4368 = tail call noundef float @llvm.roundeven.f32(float %4367)
+  %4369 = insertelement <4 x float> poison, float %4368, i64 0
+  %4370 = extractelement <4 x float> %4366, i64 1
+  %4371 = tail call noundef float @llvm.roundeven.f32(float %4370)
+  %4372 = insertelement <4 x float> %4369, float %4371, i64 1
+  %4373 = extractelement <4 x float> %4366, i64 2
+  %4374 = tail call noundef float @llvm.roundeven.f32(float %4373)
+  %4375 = insertelement <4 x float> %4372, float %4374, i64 2
+  %4376 = extractelement <4 x float> %4366, i64 3
+  %4377 = tail call noundef float @llvm.roundeven.f32(float %4376)
+  %4378 = insertelement <4 x float> %4375, float %4377, i64 3
+  store <4 x float> %4378, ptr %4365, align 16, !noalias !962
   store i64 1, ptr %0, align 4, !alias.scope !962
-  br label %5014
+  br label %5006
 
-4387:                                             ; preds = %2
-  %4388 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4389 = load ptr, ptr %4388, align 8
-  %4390 = getelementptr inbounds i8, ptr %4389, i64 -16
+4379:                                             ; preds = %2
+  %4380 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4381 = load ptr, ptr %4380, align 8
+  %4382 = getelementptr inbounds i8, ptr %4381, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !965)
-  %4391 = load <2 x double>, ptr %4390, align 16, !noalias !965
-  %4392 = extractelement <2 x double> %4391, i64 0
-  %4393 = tail call double @llvm.ceil.f64(double %4392)
-  %4394 = insertelement <2 x double> poison, double %4393, i64 0
-  %4395 = extractelement <2 x double> %4391, i64 1
-  %4396 = tail call double @llvm.ceil.f64(double %4395)
-  %4397 = insertelement <2 x double> %4394, double %4396, i64 1
-  store <2 x double> %4397, ptr %4390, align 16, !noalias !965
+  %4383 = load <2 x double>, ptr %4382, align 16, !noalias !965
+  %4384 = extractelement <2 x double> %4383, i64 0
+  %4385 = tail call double @llvm.ceil.f64(double %4384)
+  %4386 = insertelement <2 x double> poison, double %4385, i64 0
+  %4387 = extractelement <2 x double> %4383, i64 1
+  %4388 = tail call double @llvm.ceil.f64(double %4387)
+  %4389 = insertelement <2 x double> %4386, double %4388, i64 1
+  store <2 x double> %4389, ptr %4382, align 16, !noalias !965
   store i64 1, ptr %0, align 4, !alias.scope !965
-  br label %5014
+  br label %5006
 
-4398:                                             ; preds = %2
-  %4399 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4400 = load ptr, ptr %4399, align 8
-  %4401 = getelementptr inbounds i8, ptr %4400, i64 -16
+4390:                                             ; preds = %2
+  %4391 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4392 = load ptr, ptr %4391, align 8
+  %4393 = getelementptr inbounds i8, ptr %4392, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !968)
-  %4402 = load <2 x double>, ptr %4401, align 16, !noalias !968
-  %4403 = extractelement <2 x double> %4402, i64 0
-  %4404 = tail call double @llvm.floor.f64(double %4403)
-  %4405 = insertelement <2 x double> poison, double %4404, i64 0
-  %4406 = extractelement <2 x double> %4402, i64 1
-  %4407 = tail call double @llvm.floor.f64(double %4406)
-  %4408 = insertelement <2 x double> %4405, double %4407, i64 1
-  store <2 x double> %4408, ptr %4401, align 16, !noalias !968
+  %4394 = load <2 x double>, ptr %4393, align 16, !noalias !968
+  %4395 = extractelement <2 x double> %4394, i64 0
+  %4396 = tail call double @llvm.floor.f64(double %4395)
+  %4397 = insertelement <2 x double> poison, double %4396, i64 0
+  %4398 = extractelement <2 x double> %4394, i64 1
+  %4399 = tail call double @llvm.floor.f64(double %4398)
+  %4400 = insertelement <2 x double> %4397, double %4399, i64 1
+  store <2 x double> %4400, ptr %4393, align 16, !noalias !968
   store i64 1, ptr %0, align 4, !alias.scope !968
-  br label %5014
+  br label %5006
 
-4409:                                             ; preds = %2
-  %4410 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4411 = load ptr, ptr %4410, align 8
-  %4412 = getelementptr inbounds i8, ptr %4411, i64 -16
+4401:                                             ; preds = %2
+  %4402 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4403 = load ptr, ptr %4402, align 8
+  %4404 = getelementptr inbounds i8, ptr %4403, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !971)
-  %4413 = load <2 x double>, ptr %4412, align 16, !noalias !971
-  %4414 = extractelement <2 x double> %4413, i64 0
-  %4415 = tail call double @llvm.trunc.f64(double %4414)
-  %4416 = insertelement <2 x double> poison, double %4415, i64 0
-  %4417 = extractelement <2 x double> %4413, i64 1
-  %4418 = tail call double @llvm.trunc.f64(double %4417)
-  %4419 = insertelement <2 x double> %4416, double %4418, i64 1
-  store <2 x double> %4419, ptr %4412, align 16, !noalias !971
+  %4405 = load <2 x double>, ptr %4404, align 16, !noalias !971
+  %4406 = extractelement <2 x double> %4405, i64 0
+  %4407 = tail call double @llvm.trunc.f64(double %4406)
+  %4408 = insertelement <2 x double> poison, double %4407, i64 0
+  %4409 = extractelement <2 x double> %4405, i64 1
+  %4410 = tail call double @llvm.trunc.f64(double %4409)
+  %4411 = insertelement <2 x double> %4408, double %4410, i64 1
+  store <2 x double> %4411, ptr %4404, align 16, !noalias !971
   store i64 1, ptr %0, align 4, !alias.scope !971
-  br label %5014
+  br label %5006
 
-4420:                                             ; preds = %2
-  %4421 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4422 = load ptr, ptr %4421, align 8
-  %4423 = getelementptr inbounds i8, ptr %4422, i64 -16
+4412:                                             ; preds = %2
+  %4413 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4414 = load ptr, ptr %4413, align 8
+  %4415 = getelementptr inbounds i8, ptr %4414, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
-  %4424 = load <2 x double>, ptr %4423, align 16, !noalias !974
-  %4425 = extractelement <2 x double> %4424, i64 0
-  %4426 = tail call noundef double @llvm.roundeven.f64(double %4425)
-  %4427 = insertelement <2 x double> poison, double %4426, i64 0
-  %4428 = extractelement <2 x double> %4424, i64 1
-  %4429 = tail call noundef double @llvm.roundeven.f64(double %4428)
-  %4430 = insertelement <2 x double> %4427, double %4429, i64 1
-  store <2 x double> %4430, ptr %4423, align 16, !noalias !974
+  %4416 = load <2 x double>, ptr %4415, align 16, !noalias !974
+  %4417 = extractelement <2 x double> %4416, i64 0
+  %4418 = tail call noundef double @llvm.roundeven.f64(double %4417)
+  %4419 = insertelement <2 x double> poison, double %4418, i64 0
+  %4420 = extractelement <2 x double> %4416, i64 1
+  %4421 = tail call noundef double @llvm.roundeven.f64(double %4420)
+  %4422 = insertelement <2 x double> %4419, double %4421, i64 1
+  store <2 x double> %4422, ptr %4415, align 16, !noalias !974
   store i64 1, ptr %0, align 4, !alias.scope !974
-  br label %5014
+  br label %5006
 
-4431:                                             ; preds = %2
-  %4432 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4433 = load ptr, ptr %4432, align 8
-  %4434 = getelementptr inbounds i8, ptr %4433, i64 -16
-  %.sroa.0.0.copyload.i1801 = load i64, ptr %4434, align 16
-  %.sroa.2.0..sroa_idx.i1802 = getelementptr inbounds i8, ptr %4433, i64 -8
+4423:                                             ; preds = %2
+  %4424 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4425 = load ptr, ptr %4424, align 8
+  %4426 = getelementptr inbounds i8, ptr %4425, i64 -16
+  %.sroa.0.0.copyload.i1801 = load i64, ptr %4426, align 16
+  %.sroa.2.0..sroa_idx.i1802 = getelementptr inbounds i8, ptr %4425, i64 -8
   %.sroa.2.0.copyload.i1803 = load i64, ptr %.sroa.2.0..sroa_idx.i1802, align 8
-  store ptr %4434, ptr %4432, align 8
+  store ptr %4426, ptr %4424, align 8
   %.sroa.01981.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1801, i64 0
   %.sroa.01981.8.vec.insert = insertelement <2 x i64> %.sroa.01981.0.vec.insert, i64 %.sroa.2.0.copyload.i1803, i64 1
-  %4435 = load ptr, ptr %61, align 8
-  %4436 = getelementptr inbounds nuw i8, ptr %4435, i64 8
-  %4437 = load ptr, ptr %4436, align 8
-  %4438 = getelementptr inbounds i8, ptr %4437, i64 -16
-  %4439 = bitcast <2 x i64> %.sroa.01981.8.vec.insert to <16 x i8>
-  br label %4440
+  %4427 = load ptr, ptr %61, align 8
+  %4428 = getelementptr inbounds nuw i8, ptr %4427, i64 8
+  %4429 = load ptr, ptr %4428, align 8
+  %4430 = getelementptr inbounds i8, ptr %4429, i64 -16
+  %4431 = bitcast <2 x i64> %.sroa.01981.8.vec.insert to <16 x i8>
+  br label %4432
 
-4440:                                             ; preds = %4431, %4446
-  %.04562537 = phi i64 [ 0, %4431 ], [ %4448, %4446 ]
-  %.04572536 = phi <16 x i8> [ zeroinitializer, %4431 ], [ %4447, %4446 ]
-  %4441 = extractelement <16 x i8> %4439, i64 %.04562537
-  %4442 = icmp ult i8 %4441, 16
-  br i1 %4442, label %4443, label %4446
+4432:                                             ; preds = %4423, %4438
+  %.04562537 = phi i64 [ 0, %4423 ], [ %4440, %4438 ]
+  %.04572536 = phi <16 x i8> [ zeroinitializer, %4423 ], [ %4439, %4438 ]
+  %4433 = extractelement <16 x i8> %4431, i64 %.04562537
+  %4434 = icmp ult i8 %4433, 16
+  br i1 %4434, label %4435, label %4438
 
-4443:                                             ; preds = %4440
-  %4444 = load <16 x i8>, ptr %4438, align 16
-  %4445 = extractelement <16 x i8> %4444, i8 %4441
-  br label %4446
+4435:                                             ; preds = %4432
+  %4436 = load <16 x i8>, ptr %4430, align 16
+  %4437 = extractelement <16 x i8> %4436, i8 %4433
+  br label %4438
 
-4446:                                             ; preds = %4440, %4443
-  %.sink2547 = phi i8 [ %4445, %4443 ], [ 0, %4440 ]
-  %4447 = insertelement <16 x i8> %.04572536, i8 %.sink2547, i64 %.04562537
-  %4448 = add nuw nsw i64 %.04562537, 1
-  %exitcond.not = icmp eq i64 %4448, 16
-  br i1 %exitcond.not, label %4449, label %4440, !llvm.loop !977
+4438:                                             ; preds = %4432, %4435
+  %.sink2547 = phi i8 [ %4437, %4435 ], [ 0, %4432 ]
+  %4439 = insertelement <16 x i8> %.04572536, i8 %.sink2547, i64 %.04562537
+  %4440 = add nuw nsw i64 %.04562537, 1
+  %exitcond.not = icmp eq i64 %4440, 16
+  br i1 %exitcond.not, label %4441, label %4432, !llvm.loop !977
 
-4449:                                             ; preds = %4446
-  store <16 x i8> %4447, ptr %4438, align 16
+4441:                                             ; preds = %4438
+  store <16 x i8> %4439, ptr %4430, align 16
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
+
+4442:                                             ; preds = %2
+  %4443 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4444 = load ptr, ptr %4443, align 8
+  %4445 = getelementptr inbounds i8, ptr %4444, i64 -16
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4445)
+  br label %5006
+
+4446:                                             ; preds = %2
+  %4447 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4448 = load ptr, ptr %4447, align 8
+  %4449 = getelementptr inbounds i8, ptr %4448, i64 -16
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4449)
+  br label %5006
 
 4450:                                             ; preds = %2
   %4451 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %4452 = load ptr, ptr %4451, align 8
   %4453 = getelementptr inbounds i8, ptr %4452, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4453)
-  br label %5014
-
-4454:                                             ; preds = %2
-  %4455 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4456 = load ptr, ptr %4455, align 8
-  %4457 = getelementptr inbounds i8, ptr %4456, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4457)
-  br label %5014
-
-4458:                                             ; preds = %2
-  %4459 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4460 = load ptr, ptr %4459, align 8
-  %4461 = getelementptr inbounds i8, ptr %4460, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !978)
-  %4462 = load <2 x double>, ptr %4461, align 16, !noalias !978
-  %4463 = extractelement <2 x double> %4462, i64 0
-  %4464 = tail call double @llvm.trunc.f64(double %4463)
-  %4465 = insertelement <2 x double> poison, double %4464, i64 0
-  %4466 = extractelement <2 x double> %4462, i64 1
-  %4467 = tail call double @llvm.trunc.f64(double %4466)
-  %4468 = insertelement <2 x double> %4465, double %4467, i64 1
-  %.inv.i1806 = fcmp ole <2 x double> %4468, splat (double 0xC1E0000000000000)
-  %4469 = select <2 x i1> %.inv.i1806, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4468
-  %4470 = fptosi <2 x double> %4469 to <2 x i64>
-  %4471 = fcmp ult <2 x double> %4468, splat (double 0x41DFFFFFFFC00000)
-  %4472 = select <2 x i1> %4471, <2 x i64> %4470, <2 x i64> splat (i64 2147483647)
-  %4473 = shufflevector <2 x i64> %4472, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %4474 = shufflevector <4 x i64> %4473, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %4475 = trunc <4 x i64> %4474 to <4 x i32>
-  store <4 x i32> %4475, ptr %4461, align 16, !noalias !978
+  %4454 = load <2 x double>, ptr %4453, align 16, !noalias !978
+  %4455 = extractelement <2 x double> %4454, i64 0
+  %4456 = tail call double @llvm.trunc.f64(double %4455)
+  %4457 = insertelement <2 x double> poison, double %4456, i64 0
+  %4458 = extractelement <2 x double> %4454, i64 1
+  %4459 = tail call double @llvm.trunc.f64(double %4458)
+  %4460 = insertelement <2 x double> %4457, double %4459, i64 1
+  %.inv.i1806 = fcmp ole <2 x double> %4460, splat (double 0xC1E0000000000000)
+  %4461 = select <2 x i1> %.inv.i1806, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4460
+  %4462 = fptosi <2 x double> %4461 to <2 x i64>
+  %4463 = fcmp ult <2 x double> %4460, splat (double 0x41DFFFFFFFC00000)
+  %4464 = select <2 x i1> %4463, <2 x i64> %4462, <2 x i64> splat (i64 2147483647)
+  %4465 = shufflevector <2 x i64> %4464, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %4466 = shufflevector <4 x i64> %4465, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %4467 = trunc <4 x i64> %4466 to <4 x i32>
+  store <4 x i32> %4467, ptr %4453, align 16, !noalias !978
   store i64 1, ptr %0, align 4, !alias.scope !978
-  br label %5014
+  br label %5006
 
-4476:                                             ; preds = %2
-  %4477 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4478 = load ptr, ptr %4477, align 8
-  %4479 = getelementptr inbounds i8, ptr %4478, i64 -16
+4468:                                             ; preds = %2
+  %4469 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4470 = load ptr, ptr %4469, align 8
+  %4471 = getelementptr inbounds i8, ptr %4470, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !981)
-  %4480 = load <2 x double>, ptr %4479, align 16, !noalias !981
-  %4481 = extractelement <2 x double> %4480, i64 0
-  %4482 = tail call double @llvm.trunc.f64(double %4481)
-  %4483 = insertelement <2 x double> poison, double %4482, i64 0
-  %4484 = extractelement <2 x double> %4480, i64 1
-  %4485 = tail call double @llvm.trunc.f64(double %4484)
-  %4486 = insertelement <2 x double> %4483, double %4485, i64 1
-  %.inv.i1807 = fcmp ole <2 x double> %4486, zeroinitializer
-  %4487 = select <2 x i1> %.inv.i1807, <2 x double> zeroinitializer, <2 x double> %4486
-  %4488 = fptoui <2 x double> %4487 to <2 x i64>
-  %4489 = fcmp ult <2 x double> %4486, splat (double 0x41EFFFFFFFE00000)
-  %4490 = select <2 x i1> %4489, <2 x i64> %4488, <2 x i64> splat (i64 4294967295)
-  %4491 = shufflevector <2 x i64> %4490, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %4492 = shufflevector <4 x i64> %4491, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %4493 = trunc <4 x i64> %4492 to <4 x i32>
-  store <4 x i32> %4493, ptr %4479, align 16, !noalias !981
+  %4472 = load <2 x double>, ptr %4471, align 16, !noalias !981
+  %4473 = extractelement <2 x double> %4472, i64 0
+  %4474 = tail call double @llvm.trunc.f64(double %4473)
+  %4475 = insertelement <2 x double> poison, double %4474, i64 0
+  %4476 = extractelement <2 x double> %4472, i64 1
+  %4477 = tail call double @llvm.trunc.f64(double %4476)
+  %4478 = insertelement <2 x double> %4475, double %4477, i64 1
+  %.inv.i1807 = fcmp ole <2 x double> %4478, zeroinitializer
+  %4479 = select <2 x i1> %.inv.i1807, <2 x double> zeroinitializer, <2 x double> %4478
+  %4480 = fptoui <2 x double> %4479 to <2 x i64>
+  %4481 = fcmp ult <2 x double> %4478, splat (double 0x41EFFFFFFFE00000)
+  %4482 = select <2 x i1> %4481, <2 x i64> %4480, <2 x i64> splat (i64 4294967295)
+  %4483 = shufflevector <2 x i64> %4482, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %4484 = shufflevector <4 x i64> %4483, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %4485 = trunc <4 x i64> %4484 to <4 x i32>
+  store <4 x i32> %4485, ptr %4471, align 16, !noalias !981
   store i64 1, ptr %0, align 4, !alias.scope !981
-  br label %5014
+  br label %5006
 
-4494:                                             ; preds = %2
-  %4495 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4496 = load ptr, ptr %4495, align 8
-  %4497 = getelementptr inbounds i8, ptr %4496, i64 -16
-  %.sroa.0.0.copyload.i1808 = load i64, ptr %4497, align 16
-  %.sroa.2.0..sroa_idx.i1809 = getelementptr inbounds i8, ptr %4496, i64 -8
+4486:                                             ; preds = %2
+  %4487 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4488 = load ptr, ptr %4487, align 8
+  %4489 = getelementptr inbounds i8, ptr %4488, i64 -16
+  %.sroa.0.0.copyload.i1808 = load i64, ptr %4489, align 16
+  %.sroa.2.0..sroa_idx.i1809 = getelementptr inbounds i8, ptr %4488, i64 -8
   %.sroa.2.0.copyload.i1810 = load i64, ptr %.sroa.2.0..sroa_idx.i1809, align 8
-  store ptr %4497, ptr %4495, align 8
+  store ptr %4489, ptr %4487, align 8
   %.sroa.01979.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1808, i64 0
   %.sroa.01979.8.vec.insert = insertelement <2 x i64> %.sroa.01979.0.vec.insert, i64 %.sroa.2.0.copyload.i1810, i64 1
-  %4498 = load ptr, ptr %61, align 8
-  %4499 = getelementptr inbounds nuw i8, ptr %4498, i64 8
-  %4500 = load ptr, ptr %4499, align 8
-  %4501 = getelementptr inbounds i8, ptr %4500, i64 -16
-  %.sroa.0.0.copyload.i1813 = load i64, ptr %4501, align 16
-  %.sroa.2.0..sroa_idx.i1814 = getelementptr inbounds i8, ptr %4500, i64 -8
+  %4490 = load ptr, ptr %61, align 8
+  %4491 = getelementptr inbounds nuw i8, ptr %4490, i64 8
+  %4492 = load ptr, ptr %4491, align 8
+  %4493 = getelementptr inbounds i8, ptr %4492, i64 -16
+  %.sroa.0.0.copyload.i1813 = load i64, ptr %4493, align 16
+  %.sroa.2.0..sroa_idx.i1814 = getelementptr inbounds i8, ptr %4492, i64 -8
   %.sroa.2.0.copyload.i1815 = load i64, ptr %.sroa.2.0..sroa_idx.i1814, align 8
-  store ptr %4501, ptr %4499, align 8
+  store ptr %4493, ptr %4491, align 8
   %.sroa.01977.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1813, i64 0
   %.sroa.01977.8.vec.insert = insertelement <2 x i64> %.sroa.01977.0.vec.insert, i64 %.sroa.2.0.copyload.i1815, i64 1
-  %4502 = load ptr, ptr %61, align 8
-  %4503 = getelementptr inbounds nuw i8, ptr %4502, i64 8
-  %4504 = load ptr, ptr %4503, align 8
-  %4505 = getelementptr inbounds i8, ptr %4504, i64 -16
-  %4506 = bitcast <2 x i64> %.sroa.01977.8.vec.insert to <4 x float>
-  %4507 = load <4 x float>, ptr %4505, align 16, !noalias !984
-  %4508 = fmul <4 x float> %4507, %4506
-  store <4 x float> %4508, ptr %4505, align 16, !noalias !984
-  %4509 = load ptr, ptr %61, align 8
-  %4510 = getelementptr inbounds nuw i8, ptr %4509, i64 8
-  %4511 = load ptr, ptr %4510, align 8
-  %4512 = getelementptr inbounds i8, ptr %4511, i64 -16
+  %4494 = load ptr, ptr %61, align 8
+  %4495 = getelementptr inbounds nuw i8, ptr %4494, i64 8
+  %4496 = load ptr, ptr %4495, align 8
+  %4497 = getelementptr inbounds i8, ptr %4496, i64 -16
+  %4498 = bitcast <2 x i64> %.sroa.01977.8.vec.insert to <4 x float>
+  %4499 = load <4 x float>, ptr %4497, align 16, !noalias !984
+  %4500 = fmul <4 x float> %4499, %4498
+  store <4 x float> %4500, ptr %4497, align 16, !noalias !984
+  %4501 = load ptr, ptr %61, align 8
+  %4502 = getelementptr inbounds nuw i8, ptr %4501, i64 8
+  %4503 = load ptr, ptr %4502, align 8
+  %4504 = getelementptr inbounds i8, ptr %4503, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !987)
-  %4513 = bitcast <2 x i64> %.sroa.01979.8.vec.insert to <4 x float>
-  %4514 = load <4 x float>, ptr %4512, align 16, !noalias !987
-  %4515 = fadd <4 x float> %4514, %4513
-  store <4 x float> %4515, ptr %4512, align 16, !noalias !987
+  %4505 = bitcast <2 x i64> %.sroa.01979.8.vec.insert to <4 x float>
+  %4506 = load <4 x float>, ptr %4504, align 16, !noalias !987
+  %4507 = fadd <4 x float> %4506, %4505
+  store <4 x float> %4507, ptr %4504, align 16, !noalias !987
   store i64 1, ptr %0, align 4, !alias.scope !987
-  br label %5014
+  br label %5006
 
-4516:                                             ; preds = %2
-  %4517 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4518 = load ptr, ptr %4517, align 8
-  %4519 = getelementptr inbounds i8, ptr %4518, i64 -16
-  %.sroa.0.0.copyload.i1818 = load i64, ptr %4519, align 16
-  %.sroa.2.0..sroa_idx.i1819 = getelementptr inbounds i8, ptr %4518, i64 -8
+4508:                                             ; preds = %2
+  %4509 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4510 = load ptr, ptr %4509, align 8
+  %4511 = getelementptr inbounds i8, ptr %4510, i64 -16
+  %.sroa.0.0.copyload.i1818 = load i64, ptr %4511, align 16
+  %.sroa.2.0..sroa_idx.i1819 = getelementptr inbounds i8, ptr %4510, i64 -8
   %.sroa.2.0.copyload.i1820 = load i64, ptr %.sroa.2.0..sroa_idx.i1819, align 8
-  store ptr %4519, ptr %4517, align 8
+  store ptr %4511, ptr %4509, align 8
   %.sroa.01974.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1818, i64 0
   %.sroa.01974.8.vec.insert = insertelement <2 x i64> %.sroa.01974.0.vec.insert, i64 %.sroa.2.0.copyload.i1820, i64 1
-  %4520 = load ptr, ptr %61, align 8
-  %4521 = getelementptr inbounds nuw i8, ptr %4520, i64 8
-  %4522 = load ptr, ptr %4521, align 8
-  %4523 = getelementptr inbounds i8, ptr %4522, i64 -16
-  %.sroa.0.0.copyload.i1823 = load i64, ptr %4523, align 16
-  %.sroa.2.0..sroa_idx.i1824 = getelementptr inbounds i8, ptr %4522, i64 -8
+  %4512 = load ptr, ptr %61, align 8
+  %4513 = getelementptr inbounds nuw i8, ptr %4512, i64 8
+  %4514 = load ptr, ptr %4513, align 8
+  %4515 = getelementptr inbounds i8, ptr %4514, i64 -16
+  %.sroa.0.0.copyload.i1823 = load i64, ptr %4515, align 16
+  %.sroa.2.0..sroa_idx.i1824 = getelementptr inbounds i8, ptr %4514, i64 -8
   %.sroa.2.0.copyload.i1825 = load i64, ptr %.sroa.2.0..sroa_idx.i1824, align 8
-  store ptr %4523, ptr %4521, align 8
+  store ptr %4515, ptr %4513, align 8
   %.sroa.01972.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1823, i64 0
   %.sroa.01972.8.vec.insert = insertelement <2 x i64> %.sroa.01972.0.vec.insert, i64 %.sroa.2.0.copyload.i1825, i64 1
-  %4524 = load ptr, ptr %61, align 8
-  %4525 = getelementptr inbounds nuw i8, ptr %4524, i64 8
-  %4526 = load ptr, ptr %4525, align 8
-  %4527 = getelementptr inbounds i8, ptr %4526, i64 -16
-  %4528 = load <4 x float>, ptr %4527, align 16, !noalias !990
-  %4529 = fneg <4 x float> %4528
-  store <4 x float> %4529, ptr %4527, align 16, !noalias !990
-  %4530 = load ptr, ptr %61, align 8
-  %4531 = getelementptr inbounds nuw i8, ptr %4530, i64 8
-  %4532 = load ptr, ptr %4531, align 8
-  %4533 = getelementptr inbounds i8, ptr %4532, i64 -16
-  %4534 = bitcast <2 x i64> %.sroa.01972.8.vec.insert to <4 x float>
-  %4535 = load <4 x float>, ptr %4533, align 16, !noalias !993
-  %4536 = fmul <4 x float> %4535, %4534
-  store <4 x float> %4536, ptr %4533, align 16, !noalias !993
-  %4537 = load ptr, ptr %61, align 8
-  %4538 = getelementptr inbounds nuw i8, ptr %4537, i64 8
-  %4539 = load ptr, ptr %4538, align 8
-  %4540 = getelementptr inbounds i8, ptr %4539, i64 -16
+  %4516 = load ptr, ptr %61, align 8
+  %4517 = getelementptr inbounds nuw i8, ptr %4516, i64 8
+  %4518 = load ptr, ptr %4517, align 8
+  %4519 = getelementptr inbounds i8, ptr %4518, i64 -16
+  %4520 = load <4 x float>, ptr %4519, align 16, !noalias !990
+  %4521 = fneg <4 x float> %4520
+  store <4 x float> %4521, ptr %4519, align 16, !noalias !990
+  %4522 = load ptr, ptr %61, align 8
+  %4523 = getelementptr inbounds nuw i8, ptr %4522, i64 8
+  %4524 = load ptr, ptr %4523, align 8
+  %4525 = getelementptr inbounds i8, ptr %4524, i64 -16
+  %4526 = bitcast <2 x i64> %.sroa.01972.8.vec.insert to <4 x float>
+  %4527 = load <4 x float>, ptr %4525, align 16, !noalias !993
+  %4528 = fmul <4 x float> %4527, %4526
+  store <4 x float> %4528, ptr %4525, align 16, !noalias !993
+  %4529 = load ptr, ptr %61, align 8
+  %4530 = getelementptr inbounds nuw i8, ptr %4529, i64 8
+  %4531 = load ptr, ptr %4530, align 8
+  %4532 = getelementptr inbounds i8, ptr %4531, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !996)
-  %4541 = bitcast <2 x i64> %.sroa.01974.8.vec.insert to <4 x float>
-  %4542 = load <4 x float>, ptr %4540, align 16, !noalias !996
-  %4543 = fadd <4 x float> %4542, %4541
-  store <4 x float> %4543, ptr %4540, align 16, !noalias !996
+  %4533 = bitcast <2 x i64> %.sroa.01974.8.vec.insert to <4 x float>
+  %4534 = load <4 x float>, ptr %4532, align 16, !noalias !996
+  %4535 = fadd <4 x float> %4534, %4533
+  store <4 x float> %4535, ptr %4532, align 16, !noalias !996
   store i64 1, ptr %0, align 4, !alias.scope !996
-  br label %5014
+  br label %5006
 
-4544:                                             ; preds = %2
-  %4545 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4546 = load ptr, ptr %4545, align 8
-  %4547 = getelementptr inbounds i8, ptr %4546, i64 -16
-  %.sroa.0.0.copyload.i18282483 = load double, ptr %4547, align 16
-  %.sroa.2.0..sroa_idx.i1829 = getelementptr inbounds i8, ptr %4546, i64 -8
+4536:                                             ; preds = %2
+  %4537 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4538 = load ptr, ptr %4537, align 8
+  %4539 = getelementptr inbounds i8, ptr %4538, i64 -16
+  %.sroa.0.0.copyload.i18282483 = load double, ptr %4539, align 16
+  %.sroa.2.0..sroa_idx.i1829 = getelementptr inbounds i8, ptr %4538, i64 -8
   %.sroa.2.0.copyload.i18302484 = load double, ptr %.sroa.2.0..sroa_idx.i1829, align 8
-  store ptr %4547, ptr %4545, align 8
+  store ptr %4539, ptr %4537, align 8
   %.sroa.01968.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i18282483, i64 0
   %.sroa.01968.8.vec.insert = insertelement <2 x double> %.sroa.01968.0.vec.insert, double %.sroa.2.0.copyload.i18302484, i64 1
-  %4548 = load ptr, ptr %61, align 8
-  %4549 = getelementptr inbounds nuw i8, ptr %4548, i64 8
-  %4550 = load ptr, ptr %4549, align 8
-  %4551 = getelementptr inbounds i8, ptr %4550, i64 -16
-  %.sroa.0.0.copyload.i18332485 = load double, ptr %4551, align 16
-  %.sroa.2.0..sroa_idx.i1834 = getelementptr inbounds i8, ptr %4550, i64 -8
+  %4540 = load ptr, ptr %61, align 8
+  %4541 = getelementptr inbounds nuw i8, ptr %4540, i64 8
+  %4542 = load ptr, ptr %4541, align 8
+  %4543 = getelementptr inbounds i8, ptr %4542, i64 -16
+  %.sroa.0.0.copyload.i18332485 = load double, ptr %4543, align 16
+  %.sroa.2.0..sroa_idx.i1834 = getelementptr inbounds i8, ptr %4542, i64 -8
   %.sroa.2.0.copyload.i18352486 = load double, ptr %.sroa.2.0..sroa_idx.i1834, align 8
-  store ptr %4551, ptr %4549, align 8
+  store ptr %4543, ptr %4541, align 8
   %.sroa.01966.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i18332485, i64 0
   %.sroa.01966.8.vec.insert = insertelement <2 x double> %.sroa.01966.0.vec.insert, double %.sroa.2.0.copyload.i18352486, i64 1
-  %4552 = load ptr, ptr %61, align 8
-  %4553 = getelementptr inbounds nuw i8, ptr %4552, i64 8
-  %4554 = load ptr, ptr %4553, align 8
-  %4555 = getelementptr inbounds i8, ptr %4554, i64 -16
-  %4556 = load <2 x double>, ptr %4555, align 16, !noalias !999
-  %4557 = fmul <2 x double> %.sroa.01966.8.vec.insert, %4556
-  store <2 x double> %4557, ptr %4555, align 16, !noalias !999
-  %4558 = load ptr, ptr %61, align 8
-  %4559 = getelementptr inbounds nuw i8, ptr %4558, i64 8
-  %4560 = load ptr, ptr %4559, align 8
-  %4561 = getelementptr inbounds i8, ptr %4560, i64 -16
+  %4544 = load ptr, ptr %61, align 8
+  %4545 = getelementptr inbounds nuw i8, ptr %4544, i64 8
+  %4546 = load ptr, ptr %4545, align 8
+  %4547 = getelementptr inbounds i8, ptr %4546, i64 -16
+  %4548 = load <2 x double>, ptr %4547, align 16, !noalias !999
+  %4549 = fmul <2 x double> %.sroa.01966.8.vec.insert, %4548
+  store <2 x double> %4549, ptr %4547, align 16, !noalias !999
+  %4550 = load ptr, ptr %61, align 8
+  %4551 = getelementptr inbounds nuw i8, ptr %4550, i64 8
+  %4552 = load ptr, ptr %4551, align 8
+  %4553 = getelementptr inbounds i8, ptr %4552, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1002)
-  %4562 = load <2 x double>, ptr %4561, align 16, !noalias !1002
-  %4563 = fadd <2 x double> %.sroa.01968.8.vec.insert, %4562
-  store <2 x double> %4563, ptr %4561, align 16, !noalias !1002
+  %4554 = load <2 x double>, ptr %4553, align 16, !noalias !1002
+  %4555 = fadd <2 x double> %.sroa.01968.8.vec.insert, %4554
+  store <2 x double> %4555, ptr %4553, align 16, !noalias !1002
   store i64 1, ptr %0, align 4, !alias.scope !1002
-  br label %5014
+  br label %5006
 
-4564:                                             ; preds = %2
-  %4565 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4566 = load ptr, ptr %4565, align 8
-  %4567 = getelementptr inbounds i8, ptr %4566, i64 -16
-  %.sroa.0.0.copyload.i18382479 = load double, ptr %4567, align 16
-  %.sroa.2.0..sroa_idx.i1839 = getelementptr inbounds i8, ptr %4566, i64 -8
+4556:                                             ; preds = %2
+  %4557 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4558 = load ptr, ptr %4557, align 8
+  %4559 = getelementptr inbounds i8, ptr %4558, i64 -16
+  %.sroa.0.0.copyload.i18382479 = load double, ptr %4559, align 16
+  %.sroa.2.0..sroa_idx.i1839 = getelementptr inbounds i8, ptr %4558, i64 -8
   %.sroa.2.0.copyload.i18402480 = load double, ptr %.sroa.2.0..sroa_idx.i1839, align 8
-  store ptr %4567, ptr %4565, align 8
+  store ptr %4559, ptr %4557, align 8
   %.sroa.01963.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i18382479, i64 0
   %.sroa.01963.8.vec.insert = insertelement <2 x double> %.sroa.01963.0.vec.insert, double %.sroa.2.0.copyload.i18402480, i64 1
-  %4568 = load ptr, ptr %61, align 8
-  %4569 = getelementptr inbounds nuw i8, ptr %4568, i64 8
-  %4570 = load ptr, ptr %4569, align 8
-  %4571 = getelementptr inbounds i8, ptr %4570, i64 -16
-  %.sroa.0.0.copyload.i18432481 = load double, ptr %4571, align 16
-  %.sroa.2.0..sroa_idx.i1844 = getelementptr inbounds i8, ptr %4570, i64 -8
+  %4560 = load ptr, ptr %61, align 8
+  %4561 = getelementptr inbounds nuw i8, ptr %4560, i64 8
+  %4562 = load ptr, ptr %4561, align 8
+  %4563 = getelementptr inbounds i8, ptr %4562, i64 -16
+  %.sroa.0.0.copyload.i18432481 = load double, ptr %4563, align 16
+  %.sroa.2.0..sroa_idx.i1844 = getelementptr inbounds i8, ptr %4562, i64 -8
   %.sroa.2.0.copyload.i18452482 = load double, ptr %.sroa.2.0..sroa_idx.i1844, align 8
-  store ptr %4571, ptr %4569, align 8
+  store ptr %4563, ptr %4561, align 8
   %.sroa.01961.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i18432481, i64 0
   %.sroa.01961.8.vec.insert = insertelement <2 x double> %.sroa.01961.0.vec.insert, double %.sroa.2.0.copyload.i18452482, i64 1
-  %4572 = load ptr, ptr %61, align 8
-  %4573 = getelementptr inbounds nuw i8, ptr %4572, i64 8
-  %4574 = load ptr, ptr %4573, align 8
-  %4575 = getelementptr inbounds i8, ptr %4574, i64 -16
-  %4576 = load <2 x double>, ptr %4575, align 16, !noalias !1005
-  %4577 = fmul <2 x double> %.sroa.01961.8.vec.insert, %4576
-  store <2 x double> %4577, ptr %4575, align 16, !noalias !1005
-  %4578 = load ptr, ptr %61, align 8
-  %4579 = getelementptr inbounds nuw i8, ptr %4578, i64 8
-  %4580 = load ptr, ptr %4579, align 8
-  %4581 = getelementptr inbounds i8, ptr %4580, i64 -16
-  %4582 = load <2 x double>, ptr %4581, align 16, !noalias !1008
-  %4583 = fneg <2 x double> %4582
-  store <2 x double> %4583, ptr %4581, align 16, !noalias !1008
-  %4584 = load ptr, ptr %61, align 8
-  %4585 = getelementptr inbounds nuw i8, ptr %4584, i64 8
-  %4586 = load ptr, ptr %4585, align 8
-  %4587 = getelementptr inbounds i8, ptr %4586, i64 -16
+  %4564 = load ptr, ptr %61, align 8
+  %4565 = getelementptr inbounds nuw i8, ptr %4564, i64 8
+  %4566 = load ptr, ptr %4565, align 8
+  %4567 = getelementptr inbounds i8, ptr %4566, i64 -16
+  %4568 = load <2 x double>, ptr %4567, align 16, !noalias !1005
+  %4569 = fmul <2 x double> %.sroa.01961.8.vec.insert, %4568
+  store <2 x double> %4569, ptr %4567, align 16, !noalias !1005
+  %4570 = load ptr, ptr %61, align 8
+  %4571 = getelementptr inbounds nuw i8, ptr %4570, i64 8
+  %4572 = load ptr, ptr %4571, align 8
+  %4573 = getelementptr inbounds i8, ptr %4572, i64 -16
+  %4574 = load <2 x double>, ptr %4573, align 16, !noalias !1008
+  %4575 = fneg <2 x double> %4574
+  store <2 x double> %4575, ptr %4573, align 16, !noalias !1008
+  %4576 = load ptr, ptr %61, align 8
+  %4577 = getelementptr inbounds nuw i8, ptr %4576, i64 8
+  %4578 = load ptr, ptr %4577, align 8
+  %4579 = getelementptr inbounds i8, ptr %4578, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  %4588 = load <2 x double>, ptr %4587, align 16, !noalias !1011
-  %4589 = fadd <2 x double> %.sroa.01963.8.vec.insert, %4588
-  store <2 x double> %4589, ptr %4587, align 16, !noalias !1011
+  %4580 = load <2 x double>, ptr %4579, align 16, !noalias !1011
+  %4581 = fadd <2 x double> %.sroa.01963.8.vec.insert, %4580
+  store <2 x double> %4581, ptr %4579, align 16, !noalias !1011
   store i64 1, ptr %0, align 4, !alias.scope !1011
-  br label %5014
+  br label %5006
 
-4590:                                             ; preds = %2
-  %4591 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4592 = load ptr, ptr %4591, align 8
-  %4593 = getelementptr inbounds i8, ptr %4592, i64 -16
-  %.sroa.0.0.copyload.i1848 = load i64, ptr %4593, align 16
-  %.sroa.2.0..sroa_idx.i1849 = getelementptr inbounds i8, ptr %4592, i64 -8
+4582:                                             ; preds = %2
+  %4583 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4584 = load ptr, ptr %4583, align 8
+  %4585 = getelementptr inbounds i8, ptr %4584, i64 -16
+  %.sroa.0.0.copyload.i1848 = load i64, ptr %4585, align 16
+  %.sroa.2.0..sroa_idx.i1849 = getelementptr inbounds i8, ptr %4584, i64 -8
   %.sroa.2.0.copyload.i1850 = load i64, ptr %.sroa.2.0..sroa_idx.i1849, align 8
-  store ptr %4593, ptr %4591, align 8
+  store ptr %4585, ptr %4583, align 8
   %.sroa.01957.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1848, i64 0
   %.sroa.01957.8.vec.insert = insertelement <2 x i64> %.sroa.01957.0.vec.insert, i64 %.sroa.2.0.copyload.i1850, i64 1
-  %4594 = load ptr, ptr %61, align 8
-  %4595 = getelementptr inbounds nuw i8, ptr %4594, i64 8
-  %4596 = load ptr, ptr %4595, align 8
-  %4597 = getelementptr inbounds i8, ptr %4596, i64 -16
-  %.sroa.0.0.copyload.i1853 = load i64, ptr %4597, align 16
-  %.sroa.2.0..sroa_idx.i1854 = getelementptr inbounds i8, ptr %4596, i64 -8
+  %4586 = load ptr, ptr %61, align 8
+  %4587 = getelementptr inbounds nuw i8, ptr %4586, i64 8
+  %4588 = load ptr, ptr %4587, align 8
+  %4589 = getelementptr inbounds i8, ptr %4588, i64 -16
+  %.sroa.0.0.copyload.i1853 = load i64, ptr %4589, align 16
+  %.sroa.2.0..sroa_idx.i1854 = getelementptr inbounds i8, ptr %4588, i64 -8
   %.sroa.2.0.copyload.i1855 = load i64, ptr %.sroa.2.0..sroa_idx.i1854, align 8
-  store ptr %4597, ptr %4595, align 8
+  store ptr %4589, ptr %4587, align 8
   %.sroa.01955.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1853, i64 0
   %.sroa.01955.8.vec.insert = insertelement <2 x i64> %.sroa.01955.0.vec.insert, i64 %.sroa.2.0.copyload.i1855, i64 1
-  %4598 = load ptr, ptr %61, align 8
-  %4599 = getelementptr inbounds nuw i8, ptr %4598, i64 8
-  %4600 = load ptr, ptr %4599, align 8
-  %4601 = getelementptr inbounds i8, ptr %4600, i64 -16
+  %4590 = load ptr, ptr %61, align 8
+  %4591 = getelementptr inbounds nuw i8, ptr %4590, i64 8
+  %4592 = load ptr, ptr %4591, align 8
+  %4593 = getelementptr inbounds i8, ptr %4592, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1014)
-  %4602 = load <16 x i8>, ptr %4601, align 16, !noalias !1014
-  %4603 = bitcast <2 x i64> %.sroa.01957.8.vec.insert to <16 x i8>
-  %4604 = and <16 x i8> %4602, %4603
-  %4605 = bitcast <2 x i64> %.sroa.01955.8.vec.insert to <16 x i8>
-  %4606 = xor <16 x i8> %4603, splat (i8 -1)
-  %4607 = and <16 x i8> %4605, %4606
-  %4608 = or <16 x i8> %4604, %4607
-  store <16 x i8> %4608, ptr %4601, align 16, !noalias !1014
+  %4594 = load <16 x i8>, ptr %4593, align 16, !noalias !1014
+  %4595 = bitcast <2 x i64> %.sroa.01957.8.vec.insert to <16 x i8>
+  %4596 = and <16 x i8> %4594, %4595
+  %4597 = bitcast <2 x i64> %.sroa.01955.8.vec.insert to <16 x i8>
+  %4598 = xor <16 x i8> %4595, splat (i8 -1)
+  %4599 = and <16 x i8> %4597, %4598
+  %4600 = or <16 x i8> %4596, %4599
+  store <16 x i8> %4600, ptr %4593, align 16, !noalias !1014
   store i64 1, ptr %0, align 4, !alias.scope !1014
-  br label %5014
+  br label %5006
 
-4609:                                             ; preds = %2
-  %4610 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4611 = load ptr, ptr %4610, align 8
-  %4612 = getelementptr inbounds i8, ptr %4611, i64 -16
-  %.sroa.0.0.copyload.i1858 = load i64, ptr %4612, align 16
-  %.sroa.2.0..sroa_idx.i1859 = getelementptr inbounds i8, ptr %4611, i64 -8
+4601:                                             ; preds = %2
+  %4602 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4603 = load ptr, ptr %4602, align 8
+  %4604 = getelementptr inbounds i8, ptr %4603, i64 -16
+  %.sroa.0.0.copyload.i1858 = load i64, ptr %4604, align 16
+  %.sroa.2.0..sroa_idx.i1859 = getelementptr inbounds i8, ptr %4603, i64 -8
   %.sroa.2.0.copyload.i1860 = load i64, ptr %.sroa.2.0..sroa_idx.i1859, align 8
-  store ptr %4612, ptr %4610, align 8
+  store ptr %4604, ptr %4602, align 8
   %.sroa.01953.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1858, i64 0
   %.sroa.01953.8.vec.insert = insertelement <2 x i64> %.sroa.01953.0.vec.insert, i64 %.sroa.2.0.copyload.i1860, i64 1
-  %4613 = load ptr, ptr %61, align 8
-  %4614 = getelementptr inbounds nuw i8, ptr %4613, i64 8
-  %4615 = load ptr, ptr %4614, align 8
-  %4616 = getelementptr inbounds i8, ptr %4615, i64 -16
-  %.sroa.0.0.copyload.i1863 = load i64, ptr %4616, align 16
-  %.sroa.2.0..sroa_idx.i1864 = getelementptr inbounds i8, ptr %4615, i64 -8
+  %4605 = load ptr, ptr %61, align 8
+  %4606 = getelementptr inbounds nuw i8, ptr %4605, i64 8
+  %4607 = load ptr, ptr %4606, align 8
+  %4608 = getelementptr inbounds i8, ptr %4607, i64 -16
+  %.sroa.0.0.copyload.i1863 = load i64, ptr %4608, align 16
+  %.sroa.2.0..sroa_idx.i1864 = getelementptr inbounds i8, ptr %4607, i64 -8
   %.sroa.2.0.copyload.i1865 = load i64, ptr %.sroa.2.0..sroa_idx.i1864, align 8
-  store ptr %4616, ptr %4614, align 8
+  store ptr %4608, ptr %4606, align 8
   %.sroa.01951.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1863, i64 0
   %.sroa.01951.8.vec.insert = insertelement <2 x i64> %.sroa.01951.0.vec.insert, i64 %.sroa.2.0.copyload.i1865, i64 1
-  %4617 = load ptr, ptr %61, align 8
-  %4618 = getelementptr inbounds nuw i8, ptr %4617, i64 8
-  %4619 = load ptr, ptr %4618, align 8
-  %4620 = getelementptr inbounds i8, ptr %4619, i64 -16
+  %4609 = load ptr, ptr %61, align 8
+  %4610 = getelementptr inbounds nuw i8, ptr %4609, i64 8
+  %4611 = load ptr, ptr %4610, align 8
+  %4612 = getelementptr inbounds i8, ptr %4611, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
-  %4621 = load <8 x i16>, ptr %4620, align 16, !noalias !1017
-  %4622 = bitcast <2 x i64> %.sroa.01953.8.vec.insert to <8 x i16>
-  %4623 = and <8 x i16> %4621, %4622
-  %4624 = bitcast <2 x i64> %.sroa.01951.8.vec.insert to <8 x i16>
-  %4625 = xor <8 x i16> %4622, splat (i16 -1)
-  %4626 = and <8 x i16> %4624, %4625
-  %4627 = or <8 x i16> %4623, %4626
-  store <8 x i16> %4627, ptr %4620, align 16, !noalias !1017
+  %4613 = load <8 x i16>, ptr %4612, align 16, !noalias !1017
+  %4614 = bitcast <2 x i64> %.sroa.01953.8.vec.insert to <8 x i16>
+  %4615 = and <8 x i16> %4613, %4614
+  %4616 = bitcast <2 x i64> %.sroa.01951.8.vec.insert to <8 x i16>
+  %4617 = xor <8 x i16> %4614, splat (i16 -1)
+  %4618 = and <8 x i16> %4616, %4617
+  %4619 = or <8 x i16> %4615, %4618
+  store <8 x i16> %4619, ptr %4612, align 16, !noalias !1017
   store i64 1, ptr %0, align 4, !alias.scope !1017
-  br label %5014
+  br label %5006
 
-4628:                                             ; preds = %2
-  %4629 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4630 = load ptr, ptr %4629, align 8
-  %4631 = getelementptr inbounds i8, ptr %4630, i64 -16
-  %.sroa.0.0.copyload.i1868 = load i64, ptr %4631, align 16
-  %.sroa.2.0..sroa_idx.i1869 = getelementptr inbounds i8, ptr %4630, i64 -8
+4620:                                             ; preds = %2
+  %4621 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4622 = load ptr, ptr %4621, align 8
+  %4623 = getelementptr inbounds i8, ptr %4622, i64 -16
+  %.sroa.0.0.copyload.i1868 = load i64, ptr %4623, align 16
+  %.sroa.2.0..sroa_idx.i1869 = getelementptr inbounds i8, ptr %4622, i64 -8
   %.sroa.2.0.copyload.i1870 = load i64, ptr %.sroa.2.0..sroa_idx.i1869, align 8
-  store ptr %4631, ptr %4629, align 8
+  store ptr %4623, ptr %4621, align 8
   %.sroa.01949.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1868, i64 0
   %.sroa.01949.8.vec.insert = insertelement <2 x i64> %.sroa.01949.0.vec.insert, i64 %.sroa.2.0.copyload.i1870, i64 1
-  %4632 = load ptr, ptr %61, align 8
-  %4633 = getelementptr inbounds nuw i8, ptr %4632, i64 8
-  %4634 = load ptr, ptr %4633, align 8
-  %4635 = getelementptr inbounds i8, ptr %4634, i64 -16
-  %.sroa.0.0.copyload.i1873 = load i64, ptr %4635, align 16
-  %.sroa.2.0..sroa_idx.i1874 = getelementptr inbounds i8, ptr %4634, i64 -8
+  %4624 = load ptr, ptr %61, align 8
+  %4625 = getelementptr inbounds nuw i8, ptr %4624, i64 8
+  %4626 = load ptr, ptr %4625, align 8
+  %4627 = getelementptr inbounds i8, ptr %4626, i64 -16
+  %.sroa.0.0.copyload.i1873 = load i64, ptr %4627, align 16
+  %.sroa.2.0..sroa_idx.i1874 = getelementptr inbounds i8, ptr %4626, i64 -8
   %.sroa.2.0.copyload.i1875 = load i64, ptr %.sroa.2.0..sroa_idx.i1874, align 8
-  store ptr %4635, ptr %4633, align 8
+  store ptr %4627, ptr %4625, align 8
   %.sroa.01947.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1873, i64 0
   %.sroa.01947.8.vec.insert = insertelement <2 x i64> %.sroa.01947.0.vec.insert, i64 %.sroa.2.0.copyload.i1875, i64 1
-  %4636 = load ptr, ptr %61, align 8
-  %4637 = getelementptr inbounds nuw i8, ptr %4636, i64 8
-  %4638 = load ptr, ptr %4637, align 8
-  %4639 = getelementptr inbounds i8, ptr %4638, i64 -16
+  %4628 = load ptr, ptr %61, align 8
+  %4629 = getelementptr inbounds nuw i8, ptr %4628, i64 8
+  %4630 = load ptr, ptr %4629, align 8
+  %4631 = getelementptr inbounds i8, ptr %4630, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1020)
-  %4640 = load <4 x i32>, ptr %4639, align 16, !noalias !1020
-  %4641 = bitcast <2 x i64> %.sroa.01949.8.vec.insert to <4 x i32>
-  %4642 = and <4 x i32> %4640, %4641
-  %4643 = bitcast <2 x i64> %.sroa.01947.8.vec.insert to <4 x i32>
-  %4644 = xor <4 x i32> %4641, splat (i32 -1)
-  %4645 = and <4 x i32> %4643, %4644
-  %4646 = or <4 x i32> %4642, %4645
-  store <4 x i32> %4646, ptr %4639, align 16, !noalias !1020
+  %4632 = load <4 x i32>, ptr %4631, align 16, !noalias !1020
+  %4633 = bitcast <2 x i64> %.sroa.01949.8.vec.insert to <4 x i32>
+  %4634 = and <4 x i32> %4632, %4633
+  %4635 = bitcast <2 x i64> %.sroa.01947.8.vec.insert to <4 x i32>
+  %4636 = xor <4 x i32> %4633, splat (i32 -1)
+  %4637 = and <4 x i32> %4635, %4636
+  %4638 = or <4 x i32> %4634, %4637
+  store <4 x i32> %4638, ptr %4631, align 16, !noalias !1020
   store i64 1, ptr %0, align 4, !alias.scope !1020
-  br label %5014
+  br label %5006
 
-4647:                                             ; preds = %2
-  %4648 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4649 = load ptr, ptr %4648, align 8
-  %4650 = getelementptr inbounds i8, ptr %4649, i64 -16
-  %.sroa.0.0.copyload.i1878 = load i64, ptr %4650, align 16
-  %.sroa.2.0..sroa_idx.i1879 = getelementptr inbounds i8, ptr %4649, i64 -8
+4639:                                             ; preds = %2
+  %4640 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4641 = load ptr, ptr %4640, align 8
+  %4642 = getelementptr inbounds i8, ptr %4641, i64 -16
+  %.sroa.0.0.copyload.i1878 = load i64, ptr %4642, align 16
+  %.sroa.2.0..sroa_idx.i1879 = getelementptr inbounds i8, ptr %4641, i64 -8
   %.sroa.2.0.copyload.i1880 = load i64, ptr %.sroa.2.0..sroa_idx.i1879, align 8
-  store ptr %4650, ptr %4648, align 8
+  store ptr %4642, ptr %4640, align 8
   %.sroa.01945.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1878, i64 0
   %.sroa.01945.8.vec.insert = insertelement <2 x i64> %.sroa.01945.0.vec.insert, i64 %.sroa.2.0.copyload.i1880, i64 1
-  %4651 = load ptr, ptr %61, align 8
-  %4652 = getelementptr inbounds nuw i8, ptr %4651, i64 8
-  %4653 = load ptr, ptr %4652, align 8
-  %4654 = getelementptr inbounds i8, ptr %4653, i64 -16
-  %.sroa.0.0.copyload.i1883 = load i64, ptr %4654, align 16
-  %.sroa.2.0..sroa_idx.i1884 = getelementptr inbounds i8, ptr %4653, i64 -8
+  %4643 = load ptr, ptr %61, align 8
+  %4644 = getelementptr inbounds nuw i8, ptr %4643, i64 8
+  %4645 = load ptr, ptr %4644, align 8
+  %4646 = getelementptr inbounds i8, ptr %4645, i64 -16
+  %.sroa.0.0.copyload.i1883 = load i64, ptr %4646, align 16
+  %.sroa.2.0..sroa_idx.i1884 = getelementptr inbounds i8, ptr %4645, i64 -8
   %.sroa.2.0.copyload.i1885 = load i64, ptr %.sroa.2.0..sroa_idx.i1884, align 8
-  store ptr %4654, ptr %4652, align 8
+  store ptr %4646, ptr %4644, align 8
   %.sroa.01943.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1883, i64 0
   %.sroa.01943.8.vec.insert = insertelement <2 x i64> %.sroa.01943.0.vec.insert, i64 %.sroa.2.0.copyload.i1885, i64 1
-  %4655 = load ptr, ptr %61, align 8
-  %4656 = getelementptr inbounds nuw i8, ptr %4655, i64 8
-  %4657 = load ptr, ptr %4656, align 8
-  %4658 = getelementptr inbounds i8, ptr %4657, i64 -16
+  %4647 = load ptr, ptr %61, align 8
+  %4648 = getelementptr inbounds nuw i8, ptr %4647, i64 8
+  %4649 = load ptr, ptr %4648, align 8
+  %4650 = getelementptr inbounds i8, ptr %4649, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
-  %4659 = load <2 x i64>, ptr %4658, align 16, !noalias !1023
-  %4660 = and <2 x i64> %4659, %.sroa.01945.8.vec.insert
-  %4661 = xor <2 x i64> %.sroa.01945.8.vec.insert, splat (i64 -1)
-  %4662 = and <2 x i64> %.sroa.01943.8.vec.insert, %4661
-  %4663 = or <2 x i64> %4660, %4662
-  store <2 x i64> %4663, ptr %4658, align 16, !noalias !1023
+  %4651 = load <2 x i64>, ptr %4650, align 16, !noalias !1023
+  %4652 = and <2 x i64> %4651, %.sroa.01945.8.vec.insert
+  %4653 = xor <2 x i64> %.sroa.01945.8.vec.insert, splat (i64 -1)
+  %4654 = and <2 x i64> %.sroa.01943.8.vec.insert, %4653
+  %4655 = or <2 x i64> %4652, %4654
+  store <2 x i64> %4655, ptr %4650, align 16, !noalias !1023
   store i64 1, ptr %0, align 4, !alias.scope !1023
-  br label %5014
+  br label %5006
 
-4664:                                             ; preds = %2
-  %4665 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4666 = load ptr, ptr %4665, align 8
-  %4667 = getelementptr inbounds i8, ptr %4666, i64 -16
-  %.sroa.0.0.copyload.i1888 = load i64, ptr %4667, align 16
-  %.sroa.2.0..sroa_idx.i1889 = getelementptr inbounds i8, ptr %4666, i64 -8
+4656:                                             ; preds = %2
+  %4657 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4658 = load ptr, ptr %4657, align 8
+  %4659 = getelementptr inbounds i8, ptr %4658, i64 -16
+  %.sroa.0.0.copyload.i1888 = load i64, ptr %4659, align 16
+  %.sroa.2.0..sroa_idx.i1889 = getelementptr inbounds i8, ptr %4658, i64 -8
   %.sroa.2.0.copyload.i1890 = load i64, ptr %.sroa.2.0..sroa_idx.i1889, align 8
-  store ptr %4667, ptr %4665, align 8
+  store ptr %4659, ptr %4657, align 8
   %.sroa.01941.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1888, i64 0
   %.sroa.01941.8.vec.insert = insertelement <2 x i64> %.sroa.01941.0.vec.insert, i64 %.sroa.2.0.copyload.i1890, i64 1
-  %4668 = load ptr, ptr %61, align 8
-  %4669 = getelementptr inbounds nuw i8, ptr %4668, i64 8
-  %4670 = load ptr, ptr %4669, align 8
-  %4671 = getelementptr inbounds i8, ptr %4670, i64 -16
+  %4660 = load ptr, ptr %61, align 8
+  %4661 = getelementptr inbounds nuw i8, ptr %4660, i64 8
+  %4662 = load ptr, ptr %4661, align 8
+  %4663 = getelementptr inbounds i8, ptr %4662, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1026)
-  %4672 = load <4 x float>, ptr %4671, align 16, !noalias !1026
-  %4673 = bitcast <4 x float> %4672 to <2 x i64>
-  %4674 = bitcast <2 x i64> %.sroa.01941.8.vec.insert to <4 x float>
-  %4675 = or <2 x i64> %.sroa.01941.8.vec.insert, %4673
-  %4676 = fcmp uge <4 x float> %4672, %4674
-  %4677 = fcmp ule <4 x float> %4672, %4674
-  %4678 = fcmp uno <4 x float> %4672, zeroinitializer
-  %4679 = fcmp uno <4 x float> %4674, zeroinitializer
-  %4680 = bitcast <2 x i64> %4675 to <4 x float>
-  %4681 = select <4 x i1> %4676, <4 x float> %4680, <4 x float> %4672
-  %4682 = select <4 x i1> %4677, <4 x float> %4681, <4 x float> %4674
-  %4683 = select <4 x i1> %4678, <4 x float> %4672, <4 x float> %4682
-  %4684 = select <4 x i1> %4679, <4 x float> %4674, <4 x float> %4683
-  store <4 x float> %4684, ptr %4671, align 16, !noalias !1026
+  %4664 = load <4 x float>, ptr %4663, align 16, !noalias !1026
+  %4665 = bitcast <4 x float> %4664 to <2 x i64>
+  %4666 = bitcast <2 x i64> %.sroa.01941.8.vec.insert to <4 x float>
+  %4667 = or <2 x i64> %.sroa.01941.8.vec.insert, %4665
+  %4668 = fcmp uge <4 x float> %4664, %4666
+  %4669 = fcmp ule <4 x float> %4664, %4666
+  %4670 = fcmp uno <4 x float> %4664, zeroinitializer
+  %4671 = fcmp uno <4 x float> %4666, zeroinitializer
+  %4672 = bitcast <2 x i64> %4667 to <4 x float>
+  %4673 = select <4 x i1> %4668, <4 x float> %4672, <4 x float> %4664
+  %4674 = select <4 x i1> %4669, <4 x float> %4673, <4 x float> %4666
+  %4675 = select <4 x i1> %4670, <4 x float> %4664, <4 x float> %4674
+  %4676 = select <4 x i1> %4671, <4 x float> %4666, <4 x float> %4675
+  store <4 x float> %4676, ptr %4663, align 16, !noalias !1026
   store i64 1, ptr %0, align 4, !alias.scope !1026
-  br label %5014
+  br label %5006
 
-4685:                                             ; preds = %2
-  %4686 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4687 = load ptr, ptr %4686, align 8
-  %4688 = getelementptr inbounds i8, ptr %4687, i64 -16
-  %.sroa.0.0.copyload.i1893 = load i64, ptr %4688, align 16
-  %.sroa.2.0..sroa_idx.i1894 = getelementptr inbounds i8, ptr %4687, i64 -8
+4677:                                             ; preds = %2
+  %4678 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4679 = load ptr, ptr %4678, align 8
+  %4680 = getelementptr inbounds i8, ptr %4679, i64 -16
+  %.sroa.0.0.copyload.i1893 = load i64, ptr %4680, align 16
+  %.sroa.2.0..sroa_idx.i1894 = getelementptr inbounds i8, ptr %4679, i64 -8
   %.sroa.2.0.copyload.i1895 = load i64, ptr %.sroa.2.0..sroa_idx.i1894, align 8
-  store ptr %4688, ptr %4686, align 8
+  store ptr %4680, ptr %4678, align 8
   %.sroa.01939.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1893, i64 0
   %.sroa.01939.8.vec.insert = insertelement <2 x i64> %.sroa.01939.0.vec.insert, i64 %.sroa.2.0.copyload.i1895, i64 1
-  %4689 = load ptr, ptr %61, align 8
-  %4690 = getelementptr inbounds nuw i8, ptr %4689, i64 8
-  %4691 = load ptr, ptr %4690, align 8
-  %4692 = getelementptr inbounds i8, ptr %4691, i64 -16
+  %4681 = load ptr, ptr %61, align 8
+  %4682 = getelementptr inbounds nuw i8, ptr %4681, i64 8
+  %4683 = load ptr, ptr %4682, align 8
+  %4684 = getelementptr inbounds i8, ptr %4683, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1029)
-  %4693 = load <4 x float>, ptr %4692, align 16, !noalias !1029
-  %4694 = bitcast <4 x float> %4693 to <2 x i64>
-  %4695 = bitcast <2 x i64> %.sroa.01939.8.vec.insert to <4 x float>
-  %4696 = and <2 x i64> %.sroa.01939.8.vec.insert, %4694
-  %4697 = fcmp uge <4 x float> %4693, %4695
-  %4698 = fcmp ule <4 x float> %4693, %4695
-  %4699 = fcmp uno <4 x float> %4693, zeroinitializer
-  %4700 = fcmp uno <4 x float> %4695, zeroinitializer
-  %4701 = bitcast <2 x i64> %4696 to <4 x float>
-  %4702 = select <4 x i1> %4697, <4 x float> %4701, <4 x float> %4695
-  %4703 = select <4 x i1> %4698, <4 x float> %4702, <4 x float> %4693
-  %4704 = select <4 x i1> %4699, <4 x float> %4693, <4 x float> %4703
-  %4705 = select <4 x i1> %4700, <4 x float> %4695, <4 x float> %4704
-  store <4 x float> %4705, ptr %4692, align 16, !noalias !1029
+  %4685 = load <4 x float>, ptr %4684, align 16, !noalias !1029
+  %4686 = bitcast <4 x float> %4685 to <2 x i64>
+  %4687 = bitcast <2 x i64> %.sroa.01939.8.vec.insert to <4 x float>
+  %4688 = and <2 x i64> %.sroa.01939.8.vec.insert, %4686
+  %4689 = fcmp uge <4 x float> %4685, %4687
+  %4690 = fcmp ule <4 x float> %4685, %4687
+  %4691 = fcmp uno <4 x float> %4685, zeroinitializer
+  %4692 = fcmp uno <4 x float> %4687, zeroinitializer
+  %4693 = bitcast <2 x i64> %4688 to <4 x float>
+  %4694 = select <4 x i1> %4689, <4 x float> %4693, <4 x float> %4687
+  %4695 = select <4 x i1> %4690, <4 x float> %4694, <4 x float> %4685
+  %4696 = select <4 x i1> %4691, <4 x float> %4685, <4 x float> %4695
+  %4697 = select <4 x i1> %4692, <4 x float> %4687, <4 x float> %4696
+  store <4 x float> %4697, ptr %4684, align 16, !noalias !1029
   store i64 1, ptr %0, align 4, !alias.scope !1029
-  br label %5014
+  br label %5006
 
-4706:                                             ; preds = %2
-  %4707 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4708 = load ptr, ptr %4707, align 8
-  %4709 = getelementptr inbounds i8, ptr %4708, i64 -16
-  %.sroa.0.0.copyload.i18982477 = load double, ptr %4709, align 16
-  %.sroa.2.0..sroa_idx.i1899 = getelementptr inbounds i8, ptr %4708, i64 -8
+4698:                                             ; preds = %2
+  %4699 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4700 = load ptr, ptr %4699, align 8
+  %4701 = getelementptr inbounds i8, ptr %4700, i64 -16
+  %.sroa.0.0.copyload.i18982477 = load double, ptr %4701, align 16
+  %.sroa.2.0..sroa_idx.i1899 = getelementptr inbounds i8, ptr %4700, i64 -8
   %.sroa.2.0.copyload.i19002478 = load double, ptr %.sroa.2.0..sroa_idx.i1899, align 8
-  store ptr %4709, ptr %4707, align 8
+  store ptr %4701, ptr %4699, align 8
   %.sroa.01937.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i18982477, i64 0
   %.sroa.01937.8.vec.insert = insertelement <2 x double> %.sroa.01937.0.vec.insert, double %.sroa.2.0.copyload.i19002478, i64 1
-  %4710 = load ptr, ptr %61, align 8
-  %4711 = getelementptr inbounds nuw i8, ptr %4710, i64 8
-  %4712 = load ptr, ptr %4711, align 8
-  %4713 = getelementptr inbounds i8, ptr %4712, i64 -16
+  %4702 = load ptr, ptr %61, align 8
+  %4703 = getelementptr inbounds nuw i8, ptr %4702, i64 8
+  %4704 = load ptr, ptr %4703, align 8
+  %4705 = getelementptr inbounds i8, ptr %4704, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1032)
-  %4714 = load <2 x double>, ptr %4713, align 16, !noalias !1032
-  %4715 = bitcast <2 x double> %4714 to <2 x i64>
-  %4716 = bitcast <2 x double> %.sroa.01937.8.vec.insert to <2 x i64>
-  %4717 = fcmp uge <2 x double> %4714, %.sroa.01937.8.vec.insert
-  %4718 = select <2 x i1> %4717, <2 x i64> %4716, <2 x i64> zeroinitializer
-  %4719 = or <2 x i64> %4718, %4715
-  %4720 = fcmp ule <2 x double> %4714, %.sroa.01937.8.vec.insert
-  %4721 = fcmp uno <2 x double> %4714, zeroinitializer
-  %4722 = fcmp uno <2 x double> %.sroa.01937.8.vec.insert, zeroinitializer
-  %4723 = bitcast <2 x i64> %4719 to <2 x double>
-  %4724 = select <2 x i1> %4720, <2 x double> %4723, <2 x double> %.sroa.01937.8.vec.insert
-  %4725 = select <2 x i1> %4721, <2 x double> %4714, <2 x double> %4724
-  %4726 = select <2 x i1> %4722, <2 x double> %.sroa.01937.8.vec.insert, <2 x double> %4725
-  store <2 x double> %4726, ptr %4713, align 16, !noalias !1032
+  %4706 = load <2 x double>, ptr %4705, align 16, !noalias !1032
+  %4707 = bitcast <2 x double> %4706 to <2 x i64>
+  %4708 = bitcast <2 x double> %.sroa.01937.8.vec.insert to <2 x i64>
+  %4709 = fcmp uge <2 x double> %4706, %.sroa.01937.8.vec.insert
+  %4710 = select <2 x i1> %4709, <2 x i64> %4708, <2 x i64> zeroinitializer
+  %4711 = or <2 x i64> %4710, %4707
+  %4712 = fcmp ule <2 x double> %4706, %.sroa.01937.8.vec.insert
+  %4713 = fcmp uno <2 x double> %4706, zeroinitializer
+  %4714 = fcmp uno <2 x double> %.sroa.01937.8.vec.insert, zeroinitializer
+  %4715 = bitcast <2 x i64> %4711 to <2 x double>
+  %4716 = select <2 x i1> %4712, <2 x double> %4715, <2 x double> %.sroa.01937.8.vec.insert
+  %4717 = select <2 x i1> %4713, <2 x double> %4706, <2 x double> %4716
+  %4718 = select <2 x i1> %4714, <2 x double> %.sroa.01937.8.vec.insert, <2 x double> %4717
+  store <2 x double> %4718, ptr %4705, align 16, !noalias !1032
   store i64 1, ptr %0, align 4, !alias.scope !1032
-  br label %5014
+  br label %5006
 
-4727:                                             ; preds = %2
-  %4728 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4729 = load ptr, ptr %4728, align 8
-  %4730 = getelementptr inbounds i8, ptr %4729, i64 -16
-  %.sroa.0.0.copyload.i19032475 = load double, ptr %4730, align 16
-  %.sroa.2.0..sroa_idx.i1904 = getelementptr inbounds i8, ptr %4729, i64 -8
+4719:                                             ; preds = %2
+  %4720 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4721 = load ptr, ptr %4720, align 8
+  %4722 = getelementptr inbounds i8, ptr %4721, i64 -16
+  %.sroa.0.0.copyload.i19032475 = load double, ptr %4722, align 16
+  %.sroa.2.0..sroa_idx.i1904 = getelementptr inbounds i8, ptr %4721, i64 -8
   %.sroa.2.0.copyload.i19052476 = load double, ptr %.sroa.2.0..sroa_idx.i1904, align 8
-  store ptr %4730, ptr %4728, align 8
+  store ptr %4722, ptr %4720, align 8
   %.sroa.01935.0.vec.insert = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i19032475, i64 0
   %.sroa.01935.8.vec.insert = insertelement <2 x double> %.sroa.01935.0.vec.insert, double %.sroa.2.0.copyload.i19052476, i64 1
-  %4731 = load ptr, ptr %61, align 8
-  %4732 = getelementptr inbounds nuw i8, ptr %4731, i64 8
-  %4733 = load ptr, ptr %4732, align 8
-  %4734 = getelementptr inbounds i8, ptr %4733, i64 -16
+  %4723 = load ptr, ptr %61, align 8
+  %4724 = getelementptr inbounds nuw i8, ptr %4723, i64 8
+  %4725 = load ptr, ptr %4724, align 8
+  %4726 = getelementptr inbounds i8, ptr %4725, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1035)
-  %4735 = load <2 x double>, ptr %4734, align 16, !noalias !1035
-  %4736 = bitcast <2 x double> %4735 to <2 x i64>
-  %4737 = bitcast <2 x double> %.sroa.01935.8.vec.insert to <2 x i64>
-  %4738 = fcmp uge <2 x double> %4735, %.sroa.01935.8.vec.insert
-  %4739 = select <2 x i1> %4738, <2 x i64> %4736, <2 x i64> splat (i64 -1)
-  %4740 = and <2 x i64> %4739, %4737
-  %4741 = fcmp ule <2 x double> %4735, %.sroa.01935.8.vec.insert
-  %4742 = fcmp uno <2 x double> %4735, zeroinitializer
-  %4743 = fcmp uno <2 x double> %.sroa.01935.8.vec.insert, zeroinitializer
-  %4744 = bitcast <2 x i64> %4740 to <2 x double>
-  %4745 = select <2 x i1> %4741, <2 x double> %4744, <2 x double> %4735
-  %4746 = select <2 x i1> %4742, <2 x double> %4735, <2 x double> %4745
-  %4747 = select <2 x i1> %4743, <2 x double> %.sroa.01935.8.vec.insert, <2 x double> %4746
-  store <2 x double> %4747, ptr %4734, align 16, !noalias !1035
+  %4727 = load <2 x double>, ptr %4726, align 16, !noalias !1035
+  %4728 = bitcast <2 x double> %4727 to <2 x i64>
+  %4729 = bitcast <2 x double> %.sroa.01935.8.vec.insert to <2 x i64>
+  %4730 = fcmp uge <2 x double> %4727, %.sroa.01935.8.vec.insert
+  %4731 = select <2 x i1> %4730, <2 x i64> %4728, <2 x i64> splat (i64 -1)
+  %4732 = and <2 x i64> %4731, %4729
+  %4733 = fcmp ule <2 x double> %4727, %.sroa.01935.8.vec.insert
+  %4734 = fcmp uno <2 x double> %4727, zeroinitializer
+  %4735 = fcmp uno <2 x double> %.sroa.01935.8.vec.insert, zeroinitializer
+  %4736 = bitcast <2 x i64> %4732 to <2 x double>
+  %4737 = select <2 x i1> %4733, <2 x double> %4736, <2 x double> %4727
+  %4738 = select <2 x i1> %4734, <2 x double> %4727, <2 x double> %4737
+  %4739 = select <2 x i1> %4735, <2 x double> %.sroa.01935.8.vec.insert, <2 x double> %4738
+  store <2 x double> %4739, ptr %4726, align 16, !noalias !1035
   store i64 1, ptr %0, align 4, !alias.scope !1035
-  br label %5014
+  br label %5006
 
-4748:                                             ; preds = %2
-  %4749 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4750 = load ptr, ptr %4749, align 8
-  %4751 = getelementptr inbounds i8, ptr %4750, i64 -16
-  %.sroa.0.0.copyload.i1908 = load i64, ptr %4751, align 16
-  %.sroa.2.0..sroa_idx.i1909 = getelementptr inbounds i8, ptr %4750, i64 -8
+4740:                                             ; preds = %2
+  %4741 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4742 = load ptr, ptr %4741, align 8
+  %4743 = getelementptr inbounds i8, ptr %4742, i64 -16
+  %.sroa.0.0.copyload.i1908 = load i64, ptr %4743, align 16
+  %.sroa.2.0..sroa_idx.i1909 = getelementptr inbounds i8, ptr %4742, i64 -8
   %.sroa.2.0.copyload.i1910 = load i64, ptr %.sroa.2.0..sroa_idx.i1909, align 8
-  store ptr %4751, ptr %4749, align 8
+  store ptr %4743, ptr %4741, align 8
   %.sroa.01933.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1908, i64 0
   %.sroa.01933.8.vec.insert = insertelement <2 x i64> %.sroa.01933.0.vec.insert, i64 %.sroa.2.0.copyload.i1910, i64 1
-  %4752 = load ptr, ptr %61, align 8
-  %4753 = getelementptr inbounds nuw i8, ptr %4752, i64 8
-  %4754 = load ptr, ptr %4753, align 8
-  %4755 = getelementptr inbounds i8, ptr %4754, i64 -16
+  %4744 = load ptr, ptr %61, align 8
+  %4745 = getelementptr inbounds nuw i8, ptr %4744, i64 8
+  %4746 = load ptr, ptr %4745, align 8
+  %4747 = getelementptr inbounds i8, ptr %4746, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1038)
-  %4756 = load <8 x i16>, ptr %4755, align 16, !noalias !1038
-  %4757 = sext <8 x i16> %4756 to <8 x i32>
-  %4758 = bitcast <2 x i64> %.sroa.01933.8.vec.insert to <8 x i16>
-  %4759 = sext <8 x i16> %4758 to <8 x i32>
-  %4760 = mul nsw <8 x i32> %4757, %4759
-  %4761 = add nsw <8 x i32> %4760, splat (i32 16384)
-  %4762 = ashr <8 x i32> %4761, splat (i32 15)
-  %4763 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %4762, <8 x i32> splat (i32 32767))
-  %4764 = trunc nsw <8 x i32> %4763 to <8 x i16>
-  store <8 x i16> %4764, ptr %4755, align 16, !noalias !1038
+  %4748 = load <8 x i16>, ptr %4747, align 16, !noalias !1038
+  %4749 = sext <8 x i16> %4748 to <8 x i32>
+  %4750 = bitcast <2 x i64> %.sroa.01933.8.vec.insert to <8 x i16>
+  %4751 = sext <8 x i16> %4750 to <8 x i32>
+  %4752 = mul nsw <8 x i32> %4749, %4751
+  %4753 = add nsw <8 x i32> %4752, splat (i32 16384)
+  %4754 = ashr <8 x i32> %4753, splat (i32 15)
+  %4755 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %4754, <8 x i32> splat (i32 32767))
+  %4756 = trunc nsw <8 x i32> %4755 to <8 x i16>
+  store <8 x i16> %4756, ptr %4747, align 16, !noalias !1038
   store i64 1, ptr %0, align 4, !alias.scope !1038
-  br label %5014
+  br label %5006
 
-4765:                                             ; preds = %2
-  %4766 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4767 = load ptr, ptr %4766, align 8
-  %4768 = getelementptr inbounds i8, ptr %4767, i64 -16
-  %.sroa.0.0.copyload.i1913 = load i64, ptr %4768, align 16
-  %.sroa.2.0..sroa_idx.i1914 = getelementptr inbounds i8, ptr %4767, i64 -8
+4757:                                             ; preds = %2
+  %4758 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4759 = load ptr, ptr %4758, align 8
+  %4760 = getelementptr inbounds i8, ptr %4759, i64 -16
+  %.sroa.0.0.copyload.i1913 = load i64, ptr %4760, align 16
+  %.sroa.2.0..sroa_idx.i1914 = getelementptr inbounds i8, ptr %4759, i64 -8
   %.sroa.2.0.copyload.i1915 = load i64, ptr %.sroa.2.0..sroa_idx.i1914, align 8
-  store ptr %4768, ptr %4766, align 8
+  store ptr %4760, ptr %4758, align 8
   %.sroa.01931.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1913, i64 0
   %.sroa.01931.8.vec.insert = insertelement <2 x i64> %.sroa.01931.0.vec.insert, i64 %.sroa.2.0.copyload.i1915, i64 1
-  %4769 = load ptr, ptr %61, align 8
-  %4770 = getelementptr inbounds nuw i8, ptr %4769, i64 8
-  %4771 = load ptr, ptr %4770, align 8
-  %4772 = getelementptr inbounds i8, ptr %4771, i64 -16
+  %4761 = load ptr, ptr %61, align 8
+  %4762 = getelementptr inbounds nuw i8, ptr %4761, i64 8
+  %4763 = load ptr, ptr %4762, align 8
+  %4764 = getelementptr inbounds i8, ptr %4763, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1041)
-  %4773 = load <8 x i16>, ptr %4772, align 16, !noalias !1041
-  %4774 = ashr <8 x i16> %4773, splat (i16 8)
-  %4775 = shl <8 x i16> %4773, splat (i16 8)
-  %4776 = ashr exact <8 x i16> %4775, splat (i16 8)
-  %4777 = bitcast <2 x i64> %.sroa.01931.8.vec.insert to <8 x i16>
-  %4778 = ashr <8 x i16> %4777, splat (i16 8)
-  %4779 = shl <8 x i16> %4777, splat (i16 8)
-  %4780 = ashr exact <8 x i16> %4779, splat (i16 8)
-  %4781 = mul nsw <8 x i16> %4774, %4778
-  %4782 = mul nsw <8 x i16> %4776, %4780
-  %4783 = add <8 x i16> %4782, %4781
-  store <8 x i16> %4783, ptr %4772, align 16, !noalias !1041
+  %4765 = load <8 x i16>, ptr %4764, align 16, !noalias !1041
+  %4766 = ashr <8 x i16> %4765, splat (i16 8)
+  %4767 = shl <8 x i16> %4765, splat (i16 8)
+  %4768 = ashr exact <8 x i16> %4767, splat (i16 8)
+  %4769 = bitcast <2 x i64> %.sroa.01931.8.vec.insert to <8 x i16>
+  %4770 = ashr <8 x i16> %4769, splat (i16 8)
+  %4771 = shl <8 x i16> %4769, splat (i16 8)
+  %4772 = ashr exact <8 x i16> %4771, splat (i16 8)
+  %4773 = mul nsw <8 x i16> %4766, %4770
+  %4774 = mul nsw <8 x i16> %4768, %4772
+  %4775 = add <8 x i16> %4774, %4773
+  store <8 x i16> %4775, ptr %4764, align 16, !noalias !1041
   store i64 1, ptr %0, align 4, !alias.scope !1041
-  br label %5014
+  br label %5006
 
-4784:                                             ; preds = %2
-  %4785 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %4786 = load ptr, ptr %4785, align 8
-  %4787 = getelementptr inbounds i8, ptr %4786, i64 -16
-  %.sroa.0.0.copyload.i1918 = load i64, ptr %4787, align 16
-  %.sroa.2.0..sroa_idx.i1919 = getelementptr inbounds i8, ptr %4786, i64 -8
+4776:                                             ; preds = %2
+  %4777 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %4778 = load ptr, ptr %4777, align 8
+  %4779 = getelementptr inbounds i8, ptr %4778, i64 -16
+  %.sroa.0.0.copyload.i1918 = load i64, ptr %4779, align 16
+  %.sroa.2.0..sroa_idx.i1919 = getelementptr inbounds i8, ptr %4778, i64 -8
   %.sroa.2.0.copyload.i1920 = load i64, ptr %.sroa.2.0..sroa_idx.i1919, align 8
-  store ptr %4787, ptr %4785, align 8
+  store ptr %4779, ptr %4777, align 8
   %.sroa.01929.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1918, i64 0
   %.sroa.01929.8.vec.insert = insertelement <2 x i64> %.sroa.01929.0.vec.insert, i64 %.sroa.2.0.copyload.i1920, i64 1
-  %4788 = load ptr, ptr %61, align 8
-  %4789 = getelementptr inbounds nuw i8, ptr %4788, i64 8
-  %4790 = load ptr, ptr %4789, align 8
-  %4791 = getelementptr inbounds i8, ptr %4790, i64 -16
-  %.sroa.0.0.copyload.i1923 = load i64, ptr %4791, align 16
-  %.sroa.2.0..sroa_idx.i1924 = getelementptr inbounds i8, ptr %4790, i64 -8
+  %4780 = load ptr, ptr %61, align 8
+  %4781 = getelementptr inbounds nuw i8, ptr %4780, i64 8
+  %4782 = load ptr, ptr %4781, align 8
+  %4783 = getelementptr inbounds i8, ptr %4782, i64 -16
+  %.sroa.0.0.copyload.i1923 = load i64, ptr %4783, align 16
+  %.sroa.2.0..sroa_idx.i1924 = getelementptr inbounds i8, ptr %4782, i64 -8
   %.sroa.2.0.copyload.i1925 = load i64, ptr %.sroa.2.0..sroa_idx.i1924, align 8
-  store ptr %4791, ptr %4789, align 8
+  store ptr %4783, ptr %4781, align 8
   %.sroa.0.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i1923, i64 0
   %.sroa.0.8.vec.insert = insertelement <2 x i64> %.sroa.0.0.vec.insert, i64 %.sroa.2.0.copyload.i1925, i64 1
-  %4792 = load ptr, ptr %61, align 8
-  %4793 = getelementptr inbounds nuw i8, ptr %4792, i64 8
-  %4794 = load ptr, ptr %4793, align 8
-  %4795 = getelementptr inbounds i8, ptr %4794, i64 -16
+  %4784 = load ptr, ptr %61, align 8
+  %4785 = getelementptr inbounds nuw i8, ptr %4784, i64 8
+  %4786 = load ptr, ptr %4785, align 8
+  %4787 = getelementptr inbounds i8, ptr %4786, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
-  %4796 = load <8 x i16>, ptr %4795, align 16, !noalias !1044
-  %4797 = ashr <8 x i16> %4796, splat (i16 8)
-  %4798 = shl <8 x i16> %4796, splat (i16 8)
-  %4799 = ashr exact <8 x i16> %4798, splat (i16 8)
-  %4800 = bitcast <2 x i64> %.sroa.0.8.vec.insert to <8 x i16>
-  %4801 = ashr <8 x i16> %4800, splat (i16 8)
-  %4802 = shl <8 x i16> %4800, splat (i16 8)
-  %4803 = ashr exact <8 x i16> %4802, splat (i16 8)
-  %4804 = mul nsw <8 x i16> %4797, %4801
-  %4805 = mul nsw <8 x i16> %4799, %4803
-  %4806 = add <8 x i16> %4805, %4804
-  %4807 = bitcast <8 x i16> %4806 to <4 x i32>
-  %4808 = ashr <4 x i32> %4807, splat (i32 16)
-  %4809 = shl <4 x i32> %4807, splat (i32 16)
-  %4810 = ashr exact <4 x i32> %4809, splat (i32 16)
-  %4811 = bitcast <2 x i64> %.sroa.01929.8.vec.insert to <4 x i32>
-  %4812 = add <4 x i32> %4808, %4811
-  %4813 = add <4 x i32> %4812, %4810
-  store <4 x i32> %4813, ptr %4795, align 16, !noalias !1044
+  %4788 = load <8 x i16>, ptr %4787, align 16, !noalias !1044
+  %4789 = ashr <8 x i16> %4788, splat (i16 8)
+  %4790 = shl <8 x i16> %4788, splat (i16 8)
+  %4791 = ashr exact <8 x i16> %4790, splat (i16 8)
+  %4792 = bitcast <2 x i64> %.sroa.0.8.vec.insert to <8 x i16>
+  %4793 = ashr <8 x i16> %4792, splat (i16 8)
+  %4794 = shl <8 x i16> %4792, splat (i16 8)
+  %4795 = ashr exact <8 x i16> %4794, splat (i16 8)
+  %4796 = mul nsw <8 x i16> %4789, %4793
+  %4797 = mul nsw <8 x i16> %4791, %4795
+  %4798 = add <8 x i16> %4797, %4796
+  %4799 = bitcast <8 x i16> %4798 to <4 x i32>
+  %4800 = ashr <4 x i32> %4799, splat (i32 16)
+  %4801 = shl <4 x i32> %4799, splat (i32 16)
+  %4802 = ashr exact <4 x i32> %4801, splat (i32 16)
+  %4803 = bitcast <2 x i64> %.sroa.01929.8.vec.insert to <4 x i32>
+  %4804 = add <4 x i32> %4800, %4803
+  %4805 = add <4 x i32> %4804, %4802
+  store <4 x i32> %4805, ptr %4787, align 16, !noalias !1044
   store i64 1, ptr %0, align 4, !alias.scope !1044
-  br label %5014
+  br label %5006
 
-4814:                                             ; preds = %2
+4806:                                             ; preds = %2
   tail call void @_ZN8WasmEdge8Executor8Executor16runMemoryFenceOpEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57)
-  br label %5014
-
-4815:                                             ; preds = %2
-  %4816 = load i32, ptr %60, align 16
-  %4817 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4816)
-  tail call void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4817, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4818:                                             ; preds = %2
-  %4819 = load i32, ptr %60, align 16
-  %4820 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4819)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4820, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4821:                                             ; preds = %2
-  %4822 = load i32, ptr %60, align 16
-  %4823 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4822)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4823, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4824:                                             ; preds = %2
-  %4825 = load i32, ptr %60, align 16
-  %4826 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4825)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4826, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4827:                                             ; preds = %2
-  %4828 = load i32, ptr %60, align 16
-  %4829 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4828)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4829, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4830:                                             ; preds = %2
-  %4831 = load i32, ptr %60, align 16
-  %4832 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4831)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4832, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4833:                                             ; preds = %2
-  %4834 = load i32, ptr %60, align 16
-  %4835 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4834)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4835, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4836:                                             ; preds = %2
-  %4837 = load i32, ptr %60, align 16
-  %4838 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4837)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4838, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4839:                                             ; preds = %2
-  %4840 = load i32, ptr %60, align 16
-  %4841 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4840)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4841, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4842:                                             ; preds = %2
-  %4843 = load i32, ptr %60, align 16
-  %4844 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4843)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4844, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4845:                                             ; preds = %2
-  %4846 = load i32, ptr %60, align 16
-  %4847 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4846)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4847, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4848:                                             ; preds = %2
-  %4849 = load i32, ptr %60, align 16
-  %4850 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4849)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4850, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4851:                                             ; preds = %2
-  %4852 = load i32, ptr %60, align 16
-  %4853 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4852)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4853, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4854:                                             ; preds = %2
-  %4855 = load i32, ptr %60, align 16
-  %4856 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4855)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4856, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4857:                                             ; preds = %2
-  %4858 = load i32, ptr %60, align 16
-  %4859 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4858)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4859, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4860:                                             ; preds = %2
-  %4861 = load i32, ptr %60, align 16
-  %4862 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4861)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4862, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4863:                                             ; preds = %2
-  %4864 = load i32, ptr %60, align 16
-  %4865 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4864)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4865, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4866:                                             ; preds = %2
-  %4867 = load i32, ptr %60, align 16
-  %4868 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4867)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4868, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4869:                                             ; preds = %2
-  %4870 = load i32, ptr %60, align 16
-  %4871 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4870)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4871, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4872:                                             ; preds = %2
-  %4873 = load i32, ptr %60, align 16
-  %4874 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4873)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4874, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4875:                                             ; preds = %2
-  %4876 = load i32, ptr %60, align 16
-  %4877 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4876)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4877, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4878:                                             ; preds = %2
-  %4879 = load i32, ptr %60, align 16
-  %4880 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4879)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4880, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4881:                                             ; preds = %2
-  %4882 = load i32, ptr %60, align 16
-  %4883 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4882)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4883, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4884:                                             ; preds = %2
-  %4885 = load i32, ptr %60, align 16
-  %4886 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4885)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4886, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4887:                                             ; preds = %2
-  %4888 = load i32, ptr %60, align 16
-  %4889 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4888)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4889, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4890:                                             ; preds = %2
-  %4891 = load i32, ptr %60, align 16
-  %4892 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4891)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4892, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4893:                                             ; preds = %2
-  %4894 = load i32, ptr %60, align 16
-  %4895 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4894)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4895, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4896:                                             ; preds = %2
-  %4897 = load i32, ptr %60, align 16
-  %4898 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4897)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4898, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4899:                                             ; preds = %2
-  %4900 = load i32, ptr %60, align 16
-  %4901 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4900)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4901, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4902:                                             ; preds = %2
-  %4903 = load i32, ptr %60, align 16
-  %4904 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4903)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4904, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4905:                                             ; preds = %2
-  %4906 = load i32, ptr %60, align 16
-  %4907 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4906)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4907, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4908:                                             ; preds = %2
-  %4909 = load i32, ptr %60, align 16
-  %4910 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4909)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4910, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4911:                                             ; preds = %2
-  %4912 = load i32, ptr %60, align 16
-  %4913 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4912)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4913, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4914:                                             ; preds = %2
-  %4915 = load i32, ptr %60, align 16
-  %4916 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4915)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4916, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4917:                                             ; preds = %2
-  %4918 = load i32, ptr %60, align 16
-  %4919 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4918)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4919, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4920:                                             ; preds = %2
-  %4921 = load i32, ptr %60, align 16
-  %4922 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4921)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4922, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4923:                                             ; preds = %2
-  %4924 = load i32, ptr %60, align 16
-  %4925 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4924)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4925, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4926:                                             ; preds = %2
-  %4927 = load i32, ptr %60, align 16
-  %4928 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4927)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4928, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4929:                                             ; preds = %2
-  %4930 = load i32, ptr %60, align 16
-  %4931 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4930)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4931, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4932:                                             ; preds = %2
-  %4933 = load i32, ptr %60, align 16
-  %4934 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4933)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4934, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4935:                                             ; preds = %2
-  %4936 = load i32, ptr %60, align 16
-  %4937 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4936)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4937, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4938:                                             ; preds = %2
-  %4939 = load i32, ptr %60, align 16
-  %4940 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4939)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4940, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4941:                                             ; preds = %2
-  %4942 = load i32, ptr %60, align 16
-  %4943 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4942)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4943, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4944:                                             ; preds = %2
-  %4945 = load i32, ptr %60, align 16
-  %4946 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4945)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4946, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4947:                                             ; preds = %2
-  %4948 = load i32, ptr %60, align 16
-  %4949 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4948)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4949, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4950:                                             ; preds = %2
-  %4951 = load i32, ptr %60, align 16
-  %4952 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4951)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4952, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4953:                                             ; preds = %2
-  %4954 = load i32, ptr %60, align 16
-  %4955 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4954)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4955, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4956:                                             ; preds = %2
-  %4957 = load i32, ptr %60, align 16
-  %4958 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4957)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4958, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4959:                                             ; preds = %2
-  %4960 = load i32, ptr %60, align 16
-  %4961 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4960)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4961, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4962:                                             ; preds = %2
-  %4963 = load i32, ptr %60, align 16
-  %4964 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4963)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4964, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4965:                                             ; preds = %2
-  %4966 = load i32, ptr %60, align 16
-  %4967 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4966)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4967, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4968:                                             ; preds = %2
-  %4969 = load i32, ptr %60, align 16
-  %4970 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4969)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4970, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4971:                                             ; preds = %2
-  %4972 = load i32, ptr %60, align 16
-  %4973 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4972)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4973, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4974:                                             ; preds = %2
-  %4975 = load i32, ptr %60, align 16
-  %4976 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4975)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4976, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4977:                                             ; preds = %2
-  %4978 = load i32, ptr %60, align 16
-  %4979 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4978)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4979, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4980:                                             ; preds = %2
-  %4981 = load i32, ptr %60, align 16
-  %4982 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4981)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4982, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4983:                                             ; preds = %2
-  %4984 = load i32, ptr %60, align 16
-  %4985 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4984)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4985, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4986:                                             ; preds = %2
-  %4987 = load i32, ptr %60, align 16
-  %4988 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4987)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4988, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4989:                                             ; preds = %2
-  %4990 = load i32, ptr %60, align 16
-  %4991 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4990)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4991, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4992:                                             ; preds = %2
-  %4993 = load i32, ptr %60, align 16
-  %4994 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4993)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4994, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4995:                                             ; preds = %2
-  %4996 = load i32, ptr %60, align 16
-  %4997 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4996)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4997, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-4998:                                             ; preds = %2
-  %4999 = load i32, ptr %60, align 16
-  %5000 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4999)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5000, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-5001:                                             ; preds = %2
-  %5002 = load i32, ptr %60, align 16
-  %5003 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5002)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5003, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-5004:                                             ; preds = %2
-  %5005 = load i32, ptr %60, align 16
-  %5006 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5005)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5006, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-5007:                                             ; preds = %2
-  %5008 = load i32, ptr %60, align 16
-  %5009 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5008)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5009, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-5010:                                             ; preds = %2
-  %5011 = load i32, ptr %60, align 16
-  %5012 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5011)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5012, ptr noundef nonnull align 16 dereferenceable(25) %60)
-  br label %5014
-
-5013:                                             ; preds = %2
+  br label %5006
+
+4807:                                             ; preds = %2
+  %4808 = load i32, ptr %60, align 16
+  %4809 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4808)
+  tail call void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4809, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4810:                                             ; preds = %2
+  %4811 = load i32, ptr %60, align 16
+  %4812 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4811)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4812, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4813:                                             ; preds = %2
+  %4814 = load i32, ptr %60, align 16
+  %4815 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4814)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4815, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4816:                                             ; preds = %2
+  %4817 = load i32, ptr %60, align 16
+  %4818 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4817)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4818, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4819:                                             ; preds = %2
+  %4820 = load i32, ptr %60, align 16
+  %4821 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4820)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4821, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4822:                                             ; preds = %2
+  %4823 = load i32, ptr %60, align 16
+  %4824 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4823)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4824, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4825:                                             ; preds = %2
+  %4826 = load i32, ptr %60, align 16
+  %4827 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4826)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4827, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4828:                                             ; preds = %2
+  %4829 = load i32, ptr %60, align 16
+  %4830 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4829)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4830, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4831:                                             ; preds = %2
+  %4832 = load i32, ptr %60, align 16
+  %4833 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4832)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4833, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4834:                                             ; preds = %2
+  %4835 = load i32, ptr %60, align 16
+  %4836 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4835)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4836, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4837:                                             ; preds = %2
+  %4838 = load i32, ptr %60, align 16
+  %4839 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4838)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4839, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4840:                                             ; preds = %2
+  %4841 = load i32, ptr %60, align 16
+  %4842 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4841)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4842, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4843:                                             ; preds = %2
+  %4844 = load i32, ptr %60, align 16
+  %4845 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4844)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4845, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4846:                                             ; preds = %2
+  %4847 = load i32, ptr %60, align 16
+  %4848 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4847)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4848, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4849:                                             ; preds = %2
+  %4850 = load i32, ptr %60, align 16
+  %4851 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4850)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4851, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4852:                                             ; preds = %2
+  %4853 = load i32, ptr %60, align 16
+  %4854 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4853)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4854, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4855:                                             ; preds = %2
+  %4856 = load i32, ptr %60, align 16
+  %4857 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4856)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4857, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4858:                                             ; preds = %2
+  %4859 = load i32, ptr %60, align 16
+  %4860 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4859)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4860, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4861:                                             ; preds = %2
+  %4862 = load i32, ptr %60, align 16
+  %4863 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4862)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4863, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4864:                                             ; preds = %2
+  %4865 = load i32, ptr %60, align 16
+  %4866 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4865)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4866, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4867:                                             ; preds = %2
+  %4868 = load i32, ptr %60, align 16
+  %4869 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4868)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4869, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4870:                                             ; preds = %2
+  %4871 = load i32, ptr %60, align 16
+  %4872 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4871)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4872, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4873:                                             ; preds = %2
+  %4874 = load i32, ptr %60, align 16
+  %4875 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4874)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4875, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4876:                                             ; preds = %2
+  %4877 = load i32, ptr %60, align 16
+  %4878 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4877)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4878, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4879:                                             ; preds = %2
+  %4880 = load i32, ptr %60, align 16
+  %4881 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4880)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4881, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4882:                                             ; preds = %2
+  %4883 = load i32, ptr %60, align 16
+  %4884 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4883)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4884, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4885:                                             ; preds = %2
+  %4886 = load i32, ptr %60, align 16
+  %4887 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4886)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4887, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4888:                                             ; preds = %2
+  %4889 = load i32, ptr %60, align 16
+  %4890 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4889)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4890, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4891:                                             ; preds = %2
+  %4892 = load i32, ptr %60, align 16
+  %4893 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4892)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4893, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4894:                                             ; preds = %2
+  %4895 = load i32, ptr %60, align 16
+  %4896 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4895)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4896, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4897:                                             ; preds = %2
+  %4898 = load i32, ptr %60, align 16
+  %4899 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4898)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4899, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4900:                                             ; preds = %2
+  %4901 = load i32, ptr %60, align 16
+  %4902 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4901)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4902, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4903:                                             ; preds = %2
+  %4904 = load i32, ptr %60, align 16
+  %4905 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4904)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4905, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4906:                                             ; preds = %2
+  %4907 = load i32, ptr %60, align 16
+  %4908 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4907)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4908, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4909:                                             ; preds = %2
+  %4910 = load i32, ptr %60, align 16
+  %4911 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4910)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4911, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4912:                                             ; preds = %2
+  %4913 = load i32, ptr %60, align 16
+  %4914 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4913)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4914, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4915:                                             ; preds = %2
+  %4916 = load i32, ptr %60, align 16
+  %4917 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4916)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4917, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4918:                                             ; preds = %2
+  %4919 = load i32, ptr %60, align 16
+  %4920 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4919)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4920, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4921:                                             ; preds = %2
+  %4922 = load i32, ptr %60, align 16
+  %4923 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4922)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4923, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4924:                                             ; preds = %2
+  %4925 = load i32, ptr %60, align 16
+  %4926 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4925)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4926, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4927:                                             ; preds = %2
+  %4928 = load i32, ptr %60, align 16
+  %4929 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4928)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4929, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4930:                                             ; preds = %2
+  %4931 = load i32, ptr %60, align 16
+  %4932 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4931)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4932, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4933:                                             ; preds = %2
+  %4934 = load i32, ptr %60, align 16
+  %4935 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4934)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4935, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4936:                                             ; preds = %2
+  %4937 = load i32, ptr %60, align 16
+  %4938 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4937)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4938, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4939:                                             ; preds = %2
+  %4940 = load i32, ptr %60, align 16
+  %4941 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4940)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4941, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4942:                                             ; preds = %2
+  %4943 = load i32, ptr %60, align 16
+  %4944 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4943)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4944, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4945:                                             ; preds = %2
+  %4946 = load i32, ptr %60, align 16
+  %4947 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4946)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4947, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4948:                                             ; preds = %2
+  %4949 = load i32, ptr %60, align 16
+  %4950 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4949)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4950, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4951:                                             ; preds = %2
+  %4952 = load i32, ptr %60, align 16
+  %4953 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4952)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4953, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4954:                                             ; preds = %2
+  %4955 = load i32, ptr %60, align 16
+  %4956 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4955)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4956, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4957:                                             ; preds = %2
+  %4958 = load i32, ptr %60, align 16
+  %4959 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4958)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4959, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4960:                                             ; preds = %2
+  %4961 = load i32, ptr %60, align 16
+  %4962 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4961)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4962, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4963:                                             ; preds = %2
+  %4964 = load i32, ptr %60, align 16
+  %4965 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4964)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4965, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4966:                                             ; preds = %2
+  %4967 = load i32, ptr %60, align 16
+  %4968 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4967)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4968, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4969:                                             ; preds = %2
+  %4970 = load i32, ptr %60, align 16
+  %4971 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4970)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4971, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4972:                                             ; preds = %2
+  %4973 = load i32, ptr %60, align 16
+  %4974 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4973)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4974, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4975:                                             ; preds = %2
+  %4976 = load i32, ptr %60, align 16
+  %4977 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4976)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4977, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4978:                                             ; preds = %2
+  %4979 = load i32, ptr %60, align 16
+  %4980 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4979)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4980, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4981:                                             ; preds = %2
+  %4982 = load i32, ptr %60, align 16
+  %4983 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4982)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4983, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4984:                                             ; preds = %2
+  %4985 = load i32, ptr %60, align 16
+  %4986 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4985)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4986, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4987:                                             ; preds = %2
+  %4988 = load i32, ptr %60, align 16
+  %4989 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4988)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4989, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4990:                                             ; preds = %2
+  %4991 = load i32, ptr %60, align 16
+  %4992 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4991)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4992, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4993:                                             ; preds = %2
+  %4994 = load i32, ptr %60, align 16
+  %4995 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4994)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4995, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4996:                                             ; preds = %2
+  %4997 = load i32, ptr %60, align 16
+  %4998 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4997)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4998, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+4999:                                             ; preds = %2
+  %5000 = load i32, ptr %60, align 16
+  %5001 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5000)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5001, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+5002:                                             ; preds = %2
+  %5003 = load i32, ptr %60, align 16
+  %5004 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5003)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5004, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  br label %5006
+
+5005:                                             ; preds = %2
   store i64 1, ptr %0, align 4
-  br label %5014
+  br label %5006
 
-5014:                                             ; preds = %5013, %5010, %5007, %5004, %5001, %4998, %4995, %4992, %4989, %4986, %4983, %4980, %4977, %4974, %4971, %4968, %4965, %4962, %4959, %4956, %4953, %4950, %4947, %4944, %4941, %4938, %4935, %4932, %4929, %4926, %4923, %4920, %4917, %4914, %4911, %4908, %4905, %4902, %4899, %4896, %4893, %4890, %4887, %4884, %4881, %4878, %4875, %4872, %4869, %4866, %4863, %4860, %4857, %4854, %4851, %4848, %4845, %4842, %4839, %4836, %4833, %4830, %4827, %4824, %4821, %4818, %4815, %4814, %4784, %4765, %4748, %4727, %4706, %4685, %4664, %4647, %4628, %4609, %4590, %4564, %4544, %4516, %4494, %4476, %4458, %4454, %4450, %4449, %4420, %4409, %4398, %4387, %4370, %4353, %4336, %4319, %4303, %4292, %4281, %4274, %4267, %4249, %4231, %4225, %4219, %4215, %4211, %4202, %4193, %4172, %4151, %4141, %4131, %4121, %4111, %4099, %4093, %4087, %4077, %4067, %4046, %4025, %4014, %4003, %3992, %3981, %3961, %3955, %3949, %3934, %3921, %3906, %3893, %3883, %3873, %3863, %3849, %3835, %3821, %3814, %3807, %3800, %3793, %3784, %3771, %3765, %3756, %3748, %3739, %3724, %3711, %3696, %3683, %3672, %3661, %3650, %3639, %3628, %3617, %3606, %3593, %3580, %3567, %3560, %3553, %3546, %3539, %3525, %3509, %3503, %3494, %3486, %3477, %3460, %3445, %3432, %3417, %3404, %3388, %3377, %3366, %3355, %3344, %3333, %3322, %3305, %3294, %3283, %3264, %3253, %3239, %3225, %3211, %3204, %3197, %3190, %3183, %3167, %3151, %3147, %3143, %3137, %3128, %3112, %3101, %3090, %3079, %3068, %3057, %3040, %3029, %3018, %2999, %2988, %2974, %2960, %2946, %2930, %2914, %2910, %2906, %2891, %2885, %2876, %2869, %2852, %2842, %2832, %2821, %2811, %2805, %2794, %2783, %2772, %2761, %2750, %2739, %2727, %2715, %2703, %2691, %2679, %2667, %2656, %2645, %2634, %2623, %2612, %2601, %2589, %2577, %2565, %2553, %2541, %2529, %2517, %2505, %2493, %2481, %2469, %2457, %2445, %2433, %2421, %2409, %2397, %2385, %2373, %2361, %2349, %2337, %2325, %2313, %2301, %2289, %2277, %2265, %2253, %2241, %2235, %2229, %2223, %2217, %2209, %2201, %2110, %2098, %2085, %2073, %2061, %2048, %2035, %2027, %2019, %2011, %2003, %1994, %1985, %1976, %1967, %1966, %1943, %1940, %1937, %1934, %1931, %1928, %1925, %1922, %1919, %1916, %1913, %1910, %1907, %1904, %1901, %1898, %1895, %1892, %1889, %1886, %1883, %1880, %1877, %1867, %1858, %1849, %1839, %1829, %1819, %1809, %1798, %1789, %1780, %1769, %1758, %1747, %1736, %_ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %_ZNK8WasmEdge8Executor8Executor9runRotlOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %1701, %1690, %1679, %1669, %1659, %1649, %1640, %1631, %1622, %1613, %1603, %1593, %1583, %_ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %_ZNK8WasmEdge8Executor8Executor9runRotlOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %1548, %1537, %1526, %1516, %1506, %1496, %1487, %1478, %1469, %1460, %1450, %1440, %1430, %1419, %1408, %1397, %1386, %1375, %1364, %1352, %1340, %1328, %1316, %1304, %1292, %1282, %1272, %1262, %1252, %1241, %1230, %1219, %1208, %1198, %1187, %1177, %1167, %1157, %1147, %1136, %1125, %1114, %1103, %1093, %1082, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdlEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIflEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %932, %926, %920, %914, %908, %907, %906, %905, %904, %898, %892, %886, %880, %874, %868, %862, %856, %850, %844, %840, %836, %832, %828, %822, %816, %812, %808, %804, %800, %794, %788, %782, %776, %770, %764, %758, %752, %746, %740, %734, %728, %722, %716, %710, %_ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runCtzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runClzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor11runPopcntOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runCtzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runClzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %647, %640, %637, %634, %627, %624, %617, %614, %611, %608, %605, %602, %599, %596, %593, %590, %587, %584, %581, %578, %575, %572, %569, %566, %563, %560, %557, %554, %551, %548, %545, %542, %539, %536, %533, %526, %523, %516, %513, %510, %508, %506, %503, %500, %497, %480, %476, %472, %468, %464, %460, %456, %445, %434, %431, %408, %385, %348, %344, %331, %323, %315, %311, %307, %303, %298, %293, %282, %276, %270, %268, %266, %262, %253, %251, %247, %246, %245, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %212, %205, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit477, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit469, %109, %108, %107, %106, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit
+5006:                                             ; preds = %5005, %5002, %4999, %4996, %4993, %4990, %4987, %4984, %4981, %4978, %4975, %4972, %4969, %4966, %4963, %4960, %4957, %4954, %4951, %4948, %4945, %4942, %4939, %4936, %4933, %4930, %4927, %4924, %4921, %4918, %4915, %4912, %4909, %4906, %4903, %4900, %4897, %4894, %4891, %4888, %4885, %4882, %4879, %4876, %4873, %4870, %4867, %4864, %4861, %4858, %4855, %4852, %4849, %4846, %4843, %4840, %4837, %4834, %4831, %4828, %4825, %4822, %4819, %4816, %4813, %4810, %4807, %4806, %4776, %4757, %4740, %4719, %4698, %4677, %4656, %4639, %4620, %4601, %4582, %4556, %4536, %4508, %4486, %4468, %4450, %4446, %4442, %4441, %4412, %4401, %4390, %4379, %4362, %4345, %4328, %4311, %4295, %4284, %4273, %4266, %4259, %4241, %4223, %4217, %4211, %4207, %4203, %4194, %4185, %4164, %4143, %4133, %4123, %4113, %4103, %4091, %4085, %4079, %4069, %4059, %4038, %4017, %4006, %3995, %3984, %3973, %3953, %3947, %3941, %3926, %3913, %3898, %3885, %3875, %3865, %3855, %3841, %3827, %3813, %3806, %3799, %3792, %3785, %3776, %3763, %3757, %3748, %3740, %3731, %3716, %3703, %3688, %3675, %3664, %3653, %3642, %3631, %3620, %3609, %3598, %3585, %3572, %3559, %3552, %3545, %3538, %3531, %3517, %3501, %3495, %3486, %3478, %3469, %3452, %3437, %3424, %3409, %3396, %3380, %3369, %3358, %3347, %3336, %3325, %3314, %3297, %3286, %3275, %3256, %3245, %3231, %3217, %3203, %3196, %3189, %3182, %3175, %3161, %3147, %3143, %3139, %3133, %3124, %3108, %3097, %3086, %3075, %3064, %3053, %3036, %3025, %3014, %2995, %2984, %2970, %2956, %2942, %2928, %2914, %2910, %2906, %2891, %2885, %2876, %2869, %2852, %2842, %2832, %2821, %2811, %2805, %2794, %2783, %2772, %2761, %2750, %2739, %2727, %2715, %2703, %2691, %2679, %2667, %2656, %2645, %2634, %2623, %2612, %2601, %2589, %2577, %2565, %2553, %2541, %2529, %2517, %2505, %2493, %2481, %2469, %2457, %2445, %2433, %2421, %2409, %2397, %2385, %2373, %2361, %2349, %2337, %2325, %2313, %2301, %2289, %2277, %2265, %2253, %2241, %2235, %2229, %2223, %2217, %2209, %2201, %2110, %2098, %2085, %2073, %2061, %2048, %2035, %2027, %2019, %2011, %2003, %1994, %1985, %1976, %1967, %1966, %1943, %1940, %1937, %1934, %1931, %1928, %1925, %1922, %1919, %1916, %1913, %1910, %1907, %1904, %1901, %1898, %1895, %1892, %1889, %1886, %1883, %1880, %1877, %1867, %1858, %1849, %1839, %1829, %1819, %1809, %1798, %1789, %1780, %1769, %1758, %1747, %1736, %_ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %_ZNK8WasmEdge8Executor8Executor9runRotlOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %1701, %1690, %1679, %1669, %1659, %1649, %1640, %1631, %1622, %1613, %1603, %1593, %1583, %_ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %_ZNK8WasmEdge8Executor8Executor9runRotlOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_.exit, %1548, %1537, %1526, %1516, %1506, %1496, %1487, %1478, %1469, %1460, %1450, %1440, %1430, %1419, %1408, %1397, %1386, %1375, %1364, %1352, %1340, %1328, %1316, %1304, %1292, %1282, %1272, %1262, %1252, %1241, %1230, %1219, %1208, %1198, %1187, %1177, %1167, %1157, %1147, %1136, %1125, %1114, %1103, %1093, %1082, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdlEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIflEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIfiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %932, %926, %920, %914, %908, %907, %906, %905, %904, %898, %892, %886, %880, %874, %868, %862, %856, %850, %844, %840, %836, %832, %828, %822, %816, %812, %808, %804, %800, %794, %788, %782, %776, %770, %764, %758, %752, %746, %740, %734, %728, %722, %716, %710, %_ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runCtzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runClzOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor11runPopcntOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runCtzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %_ZNK8WasmEdge8Executor8Executor8runClzOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE.exit, %647, %640, %637, %634, %627, %624, %617, %614, %611, %608, %605, %602, %599, %596, %593, %590, %587, %584, %581, %578, %575, %572, %569, %566, %563, %560, %557, %554, %551, %548, %545, %542, %539, %536, %533, %526, %523, %516, %513, %510, %508, %506, %503, %500, %497, %480, %476, %472, %468, %464, %460, %456, %445, %434, %431, %408, %385, %348, %344, %331, %323, %315, %311, %307, %303, %298, %293, %282, %276, %270, %268, %266, %262, %253, %251, %247, %246, %245, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %212, %205, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit477, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit469, %109, %108, %107, %106, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit
   ret void
 
 _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit465: ; preds = %199, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479, %160, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit471, %100, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit463, %432, %409, %386
@@ -76114,6 +76106,21 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x i32> @llvm.umin.v8i32(<8 x i32>, <8 x i32>) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x i32> @llvm.smax.v8i32(<8 x i32>, <8 x i32>) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x i16> @llvm.umin.v16i16(<16 x i16>, <16 x i16>) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x i16> @llvm.smax.v16i16(<16 x i16>, <16 x i16>) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <16 x i16> @llvm.smin.v16i16(<16 x i16>, <16 x i16>) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
