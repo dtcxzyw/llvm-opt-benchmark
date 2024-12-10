@@ -9711,8 +9711,6 @@ define hidden noundef zeroext i1 @_ZN14PhaseIdealLoop15is_counted_loopEP4NodeRP1
   br i1 %72, label %_ZN14PhaseIdealLoop17loop_exit_controlEP4NodeP13IdealLoopTree.exit, label %_ZN14PhaseIdealLoop14loop_iv_strideEP4NodeP13IdealLoopTreeRS1_.exit
 
 _ZN14PhaseIdealLoop17loop_exit_controlEP4NodeP13IdealLoopTree.exit: ; preds = %64
-  store i32 9, ptr %5, align 4
-  store float 0.000000e+00, ptr %6, align 4
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   %73 = load ptr, ptr %2, align 8

@@ -219,7 +219,6 @@ entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
   %proto = getelementptr inbounds nuw i8, ptr %0, i64 856
-  store ptr null, ptr %msg, align 8
   %1 = load i32, ptr %proto, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end14
@@ -374,7 +373,6 @@ entry:
   %req2 = getelementptr inbounds nuw i8, ptr %data, i64 224
   %p = getelementptr inbounds nuw i8, ptr %data, i64 392
   %1 = load ptr, ptr %p, align 8
-  store ptr null, ptr %msg, align 8
   %upload = getelementptr inbounds nuw i8, ptr %data, i64 5044
   %bf.load = load i32, ptr %upload, align 4
   %2 = and i32 %bf.load, 1048576

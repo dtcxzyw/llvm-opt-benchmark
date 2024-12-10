@@ -1450,7 +1450,6 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)
 
 160:                                              ; preds = %156
   %161 = tail call fastcc i32 @_test_step_desc_fields(ptr noundef nonnull %0)
-  store i32 %161, ptr %6, align 4
   %.not434 = icmp eq i32 %161, 0
   br i1 %.not434, label %162, label %528
 

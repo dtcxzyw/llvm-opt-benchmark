@@ -362,7 +362,6 @@ define void @prte_map_print(ptr nocapture noundef writeonly initializes((0, 8)) 
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  store ptr null, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %14 = load ptr, ptr %13, align 8
   store ptr %8, ptr %9, align 8

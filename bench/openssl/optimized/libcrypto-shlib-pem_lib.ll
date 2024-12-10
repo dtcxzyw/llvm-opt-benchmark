@@ -249,7 +249,6 @@ entry:
   %header = alloca ptr, align 8
   %data = alloca ptr, align 8
   %len = alloca i64, align 8
-  store ptr null, ptr %nm, align 8
   store ptr null, ptr %header, align 8
   store ptr null, ptr %data, align 8
   store i64 0, ptr %len, align 8

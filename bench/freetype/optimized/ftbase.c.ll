@@ -3104,7 +3104,6 @@ FT_GlyphLoader_CreateExtra.exit113:               ; preds = %174, %172
   br label %FT_GlyphLoader_Adjust_Points.exit.thread
 
 218:                                              ; preds = %166, %162, %FT_GlyphLoader_Adjust_Points.exit.i110
-  store i32 0, ptr %4, align 4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %220 = load i32, ptr %219, align 4
   %221 = load i16, ptr %6, align 8
@@ -6061,7 +6060,6 @@ define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
-  store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
   %14 = icmp sgt i64 %2, 0
   %15 = and i64 %2, 2147483647
@@ -13153,7 +13151,6 @@ ft_mem_realloc.exit:                              ; preds = %19
 ft_mem_realloc.exit42.thread:                     ; preds = %ft_mem_realloc.exit.thread.thread, %30
   %31 = phi ptr [ %26, %30 ], [ %18, %ft_mem_realloc.exit.thread.thread ]
   %.0.i25.i37.ph = phi ptr [ %29, %30 ], [ null, %ft_mem_realloc.exit.thread.thread ]
-  store i32 0, ptr %5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.0.i25.i37.ph, ptr %32, align 8
   %33 = zext nneg i32 %2 to i64
@@ -14770,8 +14767,6 @@ define hidden i32 @FT_Raccess_Get_HeaderInfo(ptr nocapture readnone %0, ptr noun
   br label %FT_Stream_Skip.exit
 
 FT_Stream_Skip.exit:                              ; preds = %156, %158, %160
-  %.0.i = phi i32 [ 85, %156 ], [ 0, %160 ], [ 85, %158 ]
-  store i32 %.0.i, ptr %6, align 4
   %161 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %6)
   %162 = sext i16 %161 to i64
   %163 = load i32, ptr %6, align 4
@@ -15034,6 +15029,7 @@ define hidden i32 @FT_Raccess_Get_DataOffsets(ptr nocapture noundef readonly %0,
 .preheader.thread:                                ; preds = %32
   %35 = add i64 %2, 2
   store i64 %35, ptr %24, align 8
+  store i32 0, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
   br label %.lr.ph.preheader
 
@@ -15053,6 +15049,7 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %22, %30
   %43 = or disjoint i16 %39, %42
   %44 = add i64 %.pre.i, 2
   store i64 %44, ptr %24, align 8
+  store i32 0, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
   %45 = icmp sgt i16 %43, 4078
   br i1 %45, label %ft_mem_free.exit, label %.preheader
@@ -15285,7 +15282,6 @@ FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
 
 ft_mem_qrealloc.exit:                             ; preds = %141
   %.pre192 = load i64, ptr %7, align 8
-  store i32 0, ptr %13, align 4
   %147 = icmp sgt i64 %.pre192, 0
   br i1 %147, label %.lr.ph174, label %._crit_edge
 
@@ -15317,7 +15313,6 @@ ft_mem_qrealloc.exit:                             ; preds = %141
 
 159:                                              ; preds = %157, %155
   store i64 %153, ptr %24, align 8
-  store i32 0, ptr %13, align 4
   %160 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %1, ptr noundef nonnull %13)
   %161 = load i32, ptr %13, align 4
   %.not80 = icmp eq i32 %161, 0
@@ -19093,7 +19088,6 @@ ft_mem_qalloc.exit:                               ; preds = %72
 
 91:                                               ; preds = %89, %87
   store i64 %85, ptr %82, align 8
-  store i32 0, ptr %8, align 4
   %92 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %1, ptr noundef nonnull %8)
   %93 = zext i32 %92 to i64
   %94 = load i32, ptr %8, align 4
@@ -19309,7 +19303,6 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
 190:                                              ; preds = %187, %185
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %182, ptr %191, align 8
-  store i32 0, ptr %7, align 4
   %192 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %1, ptr noundef nonnull %7)
   %193 = zext i32 %192 to i64
   %194 = load i32, ptr %7, align 4
@@ -20052,7 +20045,6 @@ FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   %.0.i78 = phi i64 [ %147, %.thread.i75 ], [ 0, %127 ]
   %150 = add i64 %149, 4
   store i64 %150, ptr %10, align 8
-  store i32 0, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %151 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %152 = load i32, ptr %9, align 4

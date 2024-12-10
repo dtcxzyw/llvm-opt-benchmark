@@ -762,7 +762,6 @@ define internal i64 @sg_read(ptr nocapture noundef readonly %0, ptr noundef %1, 
 .thread19:                                        ; preds = %61, %28, %67
   %77 = phi i32 [ %70, %67 ], [ -1, %28 ], [ -1, %61 ]
   %.fr79 = freeze i32 %77
-  store i8 0, ptr %5, align 1
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %79 = tail call i64 @_raw_write_lock_irqsave(ptr noundef nonnull %78) #17
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 128
@@ -797,7 +796,7 @@ define internal i64 @sg_read(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %95 = phi i8 [ 1, %93 ], [ %85, %90 ], [ %85, %.split.us ]
   %96 = load ptr, ptr %86, align 8
   %97 = icmp eq ptr %96, %80
-  br i1 %97, label %.split60.us, label %.split.us, !llvm.loop !22
+  br i1 %97, label %.thread22, label %.split.us, !llvm.loop !22
 
 .split:                                           ; preds = %83, %111
   %98 = phi i8 [ %112, %111 ], [ 0, %83 ]
@@ -828,14 +827,9 @@ define internal i64 @sg_read(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %112 = phi i8 [ 1, %110 ], [ %98, %107 ], [ %98, %103 ], [ %98, %.split ]
   %113 = load ptr, ptr %99, align 8
   %114 = icmp eq ptr %113, %80
-  br i1 %114, label %.split60.us, label %.split, !llvm.loop !22
+  br i1 %114, label %.thread22, label %.split, !llvm.loop !22
 
-.split60.us:                                      ; preds = %111, %94
-  %.us-phi61 = phi i8 [ %95, %94 ], [ %112, %111 ]
-  store i8 %.us-phi61, ptr %5, align 1
-  br label %.thread22
-
-.thread22:                                        ; preds = %.split60.us, %.thread19
+.thread22:                                        ; preds = %111, %94, %.thread19
   tail call void @_raw_write_unlock_irqrestore(ptr noundef nonnull %78, i64 noundef %79) #17
   br label %117
 
@@ -1039,8 +1033,8 @@ define internal i64 @sg_read(ptr nocapture noundef readonly %0, ptr noundef %1, 
 
 199:                                              ; preds = %.loopexit, %.thread36
   %200 = phi i64 [ -19, %.thread36 ], [ %.us-phi74, %.loopexit ]
-  %sext146 = shl i64 %200, 32
-  %201 = ashr exact i64 %sext146, 32
+  %sext144 = shl i64 %200, 32
+  %201 = ashr exact i64 %sext144, 32
   br label %.thread
 
 .thread31:                                        ; preds = %122, %.split76.us, %.split56.us

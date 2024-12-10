@@ -13306,7 +13306,6 @@ define dso_local void @_ZN18cmCTestTestHandler27ExpandTestsToRunInformationEm(pt
   br i1 %11, label %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit, label %12
 
 12:                                               ; preds = %2
-  store i32 -1, ptr %6, align 4
   store i64 0, ptr %7, align 8
   %13 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113GetNextNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiRmS9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %.not = icmp eq i32 %13, 0
@@ -13371,7 +13370,6 @@ _ZN12_GLOBAL__N_117GetNextRealNumberERKNSt7__cxx1112basic_stringIcSt11char_trait
   store i64 %36, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  store i32 0, ptr %9, align 4
   %37 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113GetNextNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiRmS9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %.not1440 = icmp eq i32 %37, 0
   br i1 %.not1440, label %._crit_edge, label %.lr.ph

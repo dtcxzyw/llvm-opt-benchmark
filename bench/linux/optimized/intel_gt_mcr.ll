@@ -878,8 +878,6 @@ define dso_local i32 @intel_gt_mcr_read_any(ptr noundef %0, i32 %1) local_unname
 
 .split7.us:                                       ; preds = %.preheader, %.preheader.us
   %.us-phi = phi i64 [ %8, %.preheader.us ], [ %33, %.preheader ]
-  store i8 0, ptr %3, align 1, !annotation !30
-  store i8 0, ptr %4, align 1, !annotation !30
   %52 = trunc i64 %.us-phi to i32
   call fastcc void @get_nonterminated_steering(ptr noundef %0, i32 noundef %52, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %53 = load i8, ptr %3, align 1
@@ -1191,8 +1189,6 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0
 
 .split7.us:                                       ; preds = %.preheader, %.preheader.us
   %.us-phi = phi i64 [ %8, %.preheader.us ], [ %33, %.preheader ]
-  store i8 0, ptr %3, align 1, !annotation !30
-  store i8 0, ptr %4, align 1, !annotation !30
   %52 = trunc i64 %.us-phi to i32
   call fastcc void @get_nonterminated_steering(ptr noundef %0, i32 noundef %52, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %53 = load i8, ptr %3, align 1
@@ -1402,146 +1398,219 @@ define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_mcr_report_steering(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 7176
-  %6 = load i8, ptr %5, align 8
-  %7 = zext i8 %6 to i32
-  %8 = shl nuw nsw i32 %7, 8
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 7177
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  %12 = or disjoint i32 %8, %11
-  %13 = icmp samesign ult i32 %12, 3142
-  br i1 %13, label %14, label %.thread
+  %4 = alloca i8, align 1
+  %5 = alloca i8, align 1
+  %6 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7176
+  %8 = load i8, ptr %7, align 8
+  %9 = zext i8 %8 to i32
+  %10 = shl nuw nsw i32 %9, 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 7177
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i32
+  %14 = or disjoint i32 %10, %13
+  %15 = icmp samesign ult i32 %14, 3142
+  br i1 %15, label %16, label %.thread
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4936
-  %16 = load i8, ptr %15, align 8
-  %17 = zext i8 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4937
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %17, i32 noundef %20) #8
+16:                                               ; preds = %3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4936
+  %18 = load i8, ptr %17, align 8
+  %19 = zext i8 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4937
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %19, i32 noundef %22) #8
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7176
-  %.pre2 = load i8, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert3 = getelementptr inbounds nuw i8, ptr %.pre, i64 7177
-  %.pre4 = load i8, ptr %.phi.trans.insert3, align 1
-  %.pre5 = zext i8 %.pre2 to i32
-  %.pre6 = shl nuw nsw i32 %.pre5, 8
-  %.pre8 = zext i8 %.pre4 to i32
-  %.pre10 = or disjoint i32 %.pre6, %.pre8
-  %21 = icmp samesign ugt i32 %.pre10, 3141
-  br i1 %21, label %.thread, label %33
+  %.pre17 = load i8, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %.pre, i64 7177
+  %.pre19 = load i8, ptr %.phi.trans.insert18, align 1
+  %.pre20 = zext i8 %.pre17 to i32
+  %.pre21 = shl nuw nsw i32 %.pre20, 8
+  %.pre23 = zext i8 %.pre19 to i32
+  %.pre25 = or disjoint i32 %.pre21, %.pre23
+  %23 = icmp samesign ugt i32 %.pre25, 3141
+  br i1 %23, label %.thread, label %53
 
-.thread:                                          ; preds = %3, %14
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4880
-  br label %23
+.thread:                                          ; preds = %3, %16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4880
+  br label %25
 
-23:                                               ; preds = %30, %.thread
-  %24 = phi i64 [ 0, %.thread ], [ %31, %30 ]
-  %25 = getelementptr [7 x ptr], ptr %22, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %30, label %28
+25:                                               ; preds = %50, %.thread
+  %26 = phi i64 [ 0, %.thread ], [ %51, %50 ]
+  %27 = getelementptr [7 x ptr], ptr %24, i64 0, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %50, label %30
 
-28:                                               ; preds = %23
-  %29 = trunc i64 %24 to i32
-  tail call fastcc void @report_steering_type(ptr noundef %0, ptr noundef %1, i32 noundef %29, i1 noundef zeroext %2)
-  br label %30
+30:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
+  %31 = trunc i64 %26 to i32
+  call fastcc void @get_nonterminated_steering(ptr noundef readonly %1, i32 noundef %31, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %32 = getelementptr [7 x ptr], ptr @intel_steering_types, i64 0, i64 %26
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i8, ptr %4, align 1
+  %35 = zext i8 %34 to i32
+  %36 = load i8, ptr %5, align 1
+  %37 = zext i8 %36 to i32
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %33, i32 noundef %35, i32 noundef %37) #8
+  br i1 %2, label %38, label %report_steering_type.exit
 
-30:                                               ; preds = %28, %23
-  %31 = add nuw nsw i64 %24, 1
-  %32 = icmp eq i64 %31, 7
-  br i1 %32, label %.loopexit, label %23, !llvm.loop !41
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %27, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %report_steering_type.exit, label %.preheader.i
 
-33:                                               ; preds = %14
-  %34 = getelementptr i8, ptr %.pre, i64 7188
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 4096
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.loopexit.sink.split
+.preheader.i:                                     ; preds = %38, %.preheader.i
+  %43 = phi i32 [ %48, %.preheader.i ], [ %41, %38 ]
+  %44 = phi ptr [ %46, %.preheader.i ], [ %39, %38 ]
+  %45 = load i32, ptr %44, align 4
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %45, i32 noundef %43) #8
+  %46 = getelementptr i8, ptr %44, i64 8
+  %47 = getelementptr i8, ptr %44, i64 12
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %report_steering_type.exit, label %.preheader.i, !llvm.loop !41
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 7168
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  %42 = load i64, ptr %41, align 4
-  %43 = and i64 %42, 8388608
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.loopexit, label %.split
+report_steering_type.exit:                        ; preds = %.preheader.i, %30, %38
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  br label %50
 
-.split:                                           ; preds = %38
-  tail call fastcc void @report_steering_type(ptr noundef %0, ptr noundef %1, i32 noundef 1, i1 noundef zeroext %2)
-  br label %.loopexit.sink.split
+50:                                               ; preds = %report_steering_type.exit, %25
+  %51 = add nuw nsw i64 %26, 1
+  %52 = icmp eq i64 %51, 7
+  br i1 %52, label %report_steering_type.exit3, label %25, !llvm.loop !42
 
-.loopexit.sink.split:                             ; preds = %33, %.split
-  %.sink = phi i32 [ 2, %.split ], [ 6, %33 ]
-  tail call fastcc void @report_steering_type(ptr noundef %0, ptr noundef %1, i32 noundef %.sink, i1 noundef zeroext %2)
-  br label %.loopexit
+53:                                               ; preds = %16
+  %54 = getelementptr i8, ptr %.pre, i64 7188
+  %55 = load i32, ptr %54, align 4
+  %56 = and i32 %55, 4096
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %74, label %.split1
 
-.loopexit:                                        ; preds = %30, %.loopexit.sink.split, %38
+.split1:                                          ; preds = %53
+  %58 = getelementptr i8, ptr %1, i64 4928
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %report_steering_type.exit3.sink.split, label %61
+
+61:                                               ; preds = %.split1
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0) #8
+  br i1 %2, label %62, label %report_steering_type.exit3
+
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %58, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %report_steering_type.exit3, label %.preheader.i2
+
+.preheader.i2:                                    ; preds = %62, %.preheader.i2
+  %67 = phi i32 [ %72, %.preheader.i2 ], [ %65, %62 ]
+  %68 = phi ptr [ %70, %.preheader.i2 ], [ %63, %62 ]
+  %69 = load i32, ptr %68, align 4
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %69, i32 noundef %67) #8
+  %70 = getelementptr i8, ptr %68, i64 8
+  %71 = getelementptr i8, ptr %68, i64 12
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %report_steering_type.exit3, label %.preheader.i2, !llvm.loop !41
+
+74:                                               ; preds = %53
+  %75 = getelementptr inbounds nuw i8, ptr %.pre, i64 7168
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 28
+  %78 = load i64, ptr %77, align 4
+  %79 = and i64 %78, 8388608
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %report_steering_type.exit3, label %.split
+
+.split:                                           ; preds = %74
+  %81 = getelementptr i8, ptr %1, i64 4888
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %84, label %85
+
+84:                                               ; preds = %.split
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.15) #8
+  br label %report_steering_type.exit5
+
+85:                                               ; preds = %.split
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 5144
+  %87 = load i64, ptr %86, align 8
+  %88 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %87) #10, !srcloc !17
+  %89 = trunc i64 %88 to i32
+  %90 = and i32 %89, 255
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.15, i32 noundef %90, i32 noundef 0) #8
+  br i1 %2, label %91, label %report_steering_type.exit5
+
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %81, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %report_steering_type.exit5, label %.preheader.i4
+
+.preheader.i4:                                    ; preds = %91, %.preheader.i4
+  %96 = phi i32 [ %101, %.preheader.i4 ], [ %94, %91 ]
+  %97 = phi ptr [ %99, %.preheader.i4 ], [ %92, %91 ]
+  %98 = load i32, ptr %97, align 4
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %98, i32 noundef %96) #8
+  %99 = getelementptr i8, ptr %97, i64 8
+  %100 = getelementptr i8, ptr %97, i64 12
+  %101 = load i32, ptr %100, align 4
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %report_steering_type.exit5, label %.preheader.i4, !llvm.loop !41
+
+report_steering_type.exit5:                       ; preds = %.preheader.i4, %84, %85, %91
+  %103 = getelementptr i8, ptr %1, i64 4896
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %report_steering_type.exit3.sink.split, label %106
+
+106:                                              ; preds = %report_steering_type.exit5
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 5144
+  %108 = load i64, ptr %107, align 8
+  %109 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %108) #10, !srcloc !17
+  %110 = trunc i64 %109 to i32
+  %111 = shl i32 %110, 1
+  %112 = and i32 %111, 254
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16, i32 noundef %112, i32 noundef 0) #8
+  br i1 %2, label %113, label %report_steering_type.exit3
+
+113:                                              ; preds = %106
+  %114 = load ptr, ptr %103, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = icmp eq i32 %116, 0
+  br i1 %117, label %report_steering_type.exit3, label %.preheader.i6
+
+.preheader.i6:                                    ; preds = %113, %.preheader.i6
+  %118 = phi i32 [ %123, %.preheader.i6 ], [ %116, %113 ]
+  %119 = phi ptr [ %121, %.preheader.i6 ], [ %114, %113 ]
+  %120 = load i32, ptr %119, align 4
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %120, i32 noundef %118) #8
+  %121 = getelementptr i8, ptr %119, i64 8
+  %122 = getelementptr i8, ptr %119, i64 12
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %report_steering_type.exit3, label %.preheader.i6, !llvm.loop !41
+
+report_steering_type.exit3.sink.split:            ; preds = %report_steering_type.exit5, %.split1
+  %.str.16.sink = phi ptr [ @.str.20, %.split1 ], [ @.str.16, %report_steering_type.exit5 ]
+  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %.str.16.sink) #8
+  br label %report_steering_type.exit3
+
+report_steering_type.exit3:                       ; preds = %.preheader.i2, %.preheader.i6, %50, %report_steering_type.exit3.sink.split, %113, %106, %62, %61, %74
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @report_steering_type(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
-  %5 = alloca i8, align 1
-  %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4880
-  %8 = zext i32 %2 to i64
-  %9 = getelementptr [7 x ptr], ptr %7, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %15
-
-12:                                               ; preds = %4
-  %13 = getelementptr [7 x ptr], ptr @intel_steering_types, i64 0, i64 %8
-  %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %14) #8
-  br label %.loopexit
-
-15:                                               ; preds = %4
-  store i8 0, ptr %5, align 1, !annotation !30
-  store i8 0, ptr %6, align 1, !annotation !30
-  call fastcc void @get_nonterminated_steering(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %16 = getelementptr [7 x ptr], ptr @intel_steering_types, i64 0, i64 %8
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i8, ptr %5, align 1
-  %19 = zext i8 %18 to i32
-  %20 = load i8, ptr %6, align 1
-  %21 = zext i8 %20 to i32
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %17, i32 noundef %19, i32 noundef %21) #8
-  br i1 %3, label %22, label %.loopexit
-
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %22, %.preheader
-  %27 = phi i32 [ %32, %.preheader ], [ %25, %22 ]
-  %28 = phi ptr [ %30, %.preheader ], [ %23, %22 ]
-  %29 = load i32, ptr %28, align 4
-  tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %29, i32 noundef %27) #8
-  %30 = getelementptr i8, ptr %28, i64 8
-  %31 = getelementptr i8, ptr %28, i64 12
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !42
-
-.loopexit:                                        ; preds = %.preheader, %22, %15, %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  ret void
-}
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @intel_gt_mcr_get_ss_steering(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #4 align 16 {

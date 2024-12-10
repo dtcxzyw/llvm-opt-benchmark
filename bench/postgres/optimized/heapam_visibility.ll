@@ -445,7 +445,6 @@ declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  store i32 0, ptr %4, align 4
   %5 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %10
@@ -1940,7 +1939,6 @@ HeapTupleSatisfiesHistoricMVCC.exit:              ; preds = %460, %471, %476, %4
 
 548:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 0, ptr %4, align 4
   %549 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %4)
   %550 = icmp eq i32 %549, 2
   br i1 %550, label %551, label %HeapTupleSatisfiesNonVacuumable.exit

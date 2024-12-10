@@ -5298,7 +5298,6 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVZN3euf10completion13set_canonicalEPNS_5enodeEP4exprE6vtrail, i64 16), ptr %ref.tmp, align 8
   %c2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %m_canonical, ptr %c2.i, align 8
   %idx3.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16

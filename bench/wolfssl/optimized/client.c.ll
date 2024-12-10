@@ -1469,7 +1469,6 @@ if.end456:                                        ; preds = %if.end451
 if.then458:                                       ; preds = %if.end456
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sockfd.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rng.i)
-  store i32 -1, ptr %sockfd.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #23
   %cmp.i.i = icmp slt i32 %call.i.i, 0

@@ -69,9 +69,6 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  store i16 0, ptr %3, align 2
-  store i16 0, ptr %4, align 2
-  store i16 0, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8
   %8 = call fastcc ptr @_get_avail_map(ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -1387,9 +1384,6 @@ switch.early.test:                                ; preds = %220
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  store i16 0, ptr %12, align 2
-  store i16 0, ptr %13, align 2
-  store i16 0, ptr %14, align 2
   %315 = load ptr, ptr %37, align 8
   %316 = getelementptr inbounds nuw i16, ptr %315, i64 %39
   %317 = load i16, ptr %316, align 2
@@ -2472,9 +2466,6 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocap
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  store i16 0, ptr %4, align 2
-  store i16 0, ptr %5, align 2
-  store i16 0, ptr %6, align 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %1 to i64

@@ -9799,10 +9799,8 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit132:            ; preds = %invoke.cont92, %if.
   %retval.0.i131 = phi i32 [ %21, %if.end.i129 ], [ 0, %invoke.cont92 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc_inv.i)
-  store i32 0, ptr %lc.i, align 8
   store i8 0, ptr %m_kind.i.i133, align 4
   store ptr null, ptr %m_ptr.i.i134, align 8
-  store i32 0, ptr %lc_inv.i, align 8
   store i8 0, ptr %m_kind.i1.i, align 4
   store ptr null, ptr %m_ptr.i4.i, align 8
   invoke void @_ZN11upolynomial12core_manager8mk_monicEjP3mpzRS1_S3_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %retval.0.i131, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(16) %lc.i, ptr noundef nonnull align 8 dereferenceable(16) %lc_inv.i)
@@ -10768,12 +10766,10 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit:               ; preds = %if.then8, %if.end.i
   %retval.0.i = phi i32 [ %23, %if.end.i54 ], [ 0, %if.then8 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc_inv.i)
-  store i32 0, ptr %lc.i, align 8
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %lc.i, i64 4
   store i8 0, ptr %m_kind.i.i, align 4
   %m_ptr.i.i = getelementptr inbounds nuw i8, ptr %lc.i, i64 8
   store ptr null, ptr %m_ptr.i.i, align 8
-  store i32 0, ptr %lc_inv.i, align 8
   %m_kind.i1.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 4
   store i8 0, ptr %m_kind.i1.i, align 4
   %m_ptr.i4.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 8
@@ -10842,7 +10838,6 @@ if.end.i79:                                       ; preds = %if.end12
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit87:             ; preds = %if.end12, %if.end.i79
   %retval.0.i81 = phi i32 [ %32, %if.end.i79 ], [ 0, %if.end12 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %d.i)
-  store i32 0, ptr %d.i, align 4
   call void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %retval.0.i81, ptr noundef %31, i32 noundef %17, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(4) %d.i, ptr noundef nonnull align 8 dereferenceable(8) %buffer)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d.i)
   %33 = load ptr, ptr %buffer, align 8
@@ -11375,12 +11370,10 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit109:            ; preds = %if.then37, %if.end.
   %retval.0.i108 = phi i32 [ %31, %if.end.i106 ], [ 0, %if.then37 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc_inv.i)
-  store i32 0, ptr %lc.i, align 8
   %m_kind.i.i110 = getelementptr inbounds nuw i8, ptr %lc.i, i64 4
   store i8 0, ptr %m_kind.i.i110, align 4
   %m_ptr.i.i111 = getelementptr inbounds nuw i8, ptr %lc.i, i64 8
   store ptr null, ptr %m_ptr.i.i111, align 8
-  store i32 0, ptr %lc_inv.i, align 8
   %m_kind.i1.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 4
   store i8 0, ptr %m_kind.i1.i, align 4
   %m_ptr.i4.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 8
@@ -12473,12 +12466,10 @@ invoke.cont30:                                    ; preds = %invoke.cont29
   %25 = load ptr, ptr %D, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lc_inv.i)
-  store i32 0, ptr %lc.i, align 8
   %m_kind.i.i52 = getelementptr inbounds nuw i8, ptr %lc.i, i64 4
   store i8 0, ptr %m_kind.i.i52, align 4
   %m_ptr.i.i53 = getelementptr inbounds nuw i8, ptr %lc.i, i64 8
   store ptr null, ptr %m_ptr.i.i53, align 8
-  store i32 0, ptr %lc_inv.i, align 8
   %m_kind.i1.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 4
   store i8 0, ptr %m_kind.i1.i, align 4
   %m_ptr.i4.i = getelementptr inbounds nuw i8, ptr %lc_inv.i, i64 8
@@ -13003,7 +12994,6 @@ if.end.i281:                                      ; preds = %if.end
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit289:            ; preds = %if.end, %if.end.i281
   %retval.0.i283 = phi i32 [ %101, %if.end.i281 ], [ 0, %if.end ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %d.i)
-  store i32 0, ptr %d.i, align 4
   invoke void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %retval.0.i283, ptr noundef %100, i32 noundef %34, ptr noundef nonnull %33, ptr noundef nonnull align 4 dereferenceable(4) %d.i, ptr noundef nonnull align 8 dereferenceable(8) %m_div_tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %m_div_tmp1.i.i)
           to label %invoke.cont88 unwind label %lpad20.loopexit
 

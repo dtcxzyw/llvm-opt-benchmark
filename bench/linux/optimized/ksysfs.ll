@@ -106,15 +106,14 @@ define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unna
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %5
-  store i32 0, ptr %2, align 4, !annotation !5
-  %9 = call fastcc i32 @get_setup_data_total_num(i64 noundef %3, ptr noundef nonnull %2) #12, !range !6
+  %9 = call fastcc i32 @get_setup_data_total_num(i64 noundef %3, ptr noundef nonnull %2) #12, !range !5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %2, align 4
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread, label %14, !prof !7
+  br i1 %13, label %.thread, label %14, !prof !6
 
 14:                                               ; preds = %11
   %15 = zext nneg i32 %12 to i64
@@ -149,7 +148,7 @@ define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unna
   %30 = add nuw nsw i64 %20, 1
   %exitcond.not = icmp eq i64 %30, %15
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %exitcond.not, label %.loopexit10, label %.preheader9, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit10, label %.preheader9, !llvm.loop !7
 
 .loopexit10:                                      ; preds = %29, %19
   tail call void @kfree(ptr noundef nonnull %17) #11
@@ -163,7 +162,7 @@ define internal fastcc i32 @create_setup_data_nodes(ptr noundef nonnull %0) unna
   tail call void @kobject_put(ptr noundef %32) #11
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
   %.not8 = icmp eq i64 %indvars.iv18, 0
-  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not8, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %25
   tail call void @kfree(ptr noundef nonnull %17) #11
@@ -229,7 +228,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @get_setup_data_total_num(i
   %10 = load i64, ptr %7, align 8
   tail call void @memunmap(ptr noundef nonnull %7) #11
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %3, !llvm.loop !12
+  br i1 %11, label %12, label %3, !llvm.loop !11
 
 12:                                               ; preds = %9, %3
   %13 = phi i32 [ 0, %9 ], [ -12, %3 ]
@@ -242,14 +241,14 @@ define internal fastcc i32 @create_setup_data_node(ptr noundef nonnull %0, ptr n
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.6, i32 noundef %2) #11
   %7 = call ptr @kobject_create_and_add(ptr noundef nonnull %5, ptr noundef nonnull %0) #11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %3
-  store i64 0, ptr %4, align 8, !annotation !5
+  store i64 0, ptr %4, align 8, !annotation !12
   %10 = call fastcc i32 @get_setup_data_size(i32 noundef %2, ptr noundef nonnull %4) #12, !range !13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
@@ -372,7 +371,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @get_setup_data_size(i32 no
 define internal range(i64 -2147483648, 2147483648) i64 @setup_data_data_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) #9 align 16 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 0, ptr %7, align 4, !annotation !5
+  store i32 0, ptr %7, align 4, !annotation !12
   %8 = load ptr, ptr %1, align 8
   %9 = call i32 @kstrtoint(ptr noundef %8, i32 noundef 10, ptr noundef nonnull %7) #11
   %10 = icmp eq i32 %9, 0
@@ -496,7 +495,7 @@ declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_un
 define internal range(i64 -2147483648, 2147483648) i64 @type_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !annotation !5
+  store i32 0, ptr %4, align 4, !annotation !12
   %5 = load ptr, ptr %0, align 8
   %6 = call i32 @kstrtoint(ptr noundef %5, i32 noundef 10, ptr noundef nonnull %4) #11
   %7 = icmp eq i32 %6, 0
@@ -593,14 +592,14 @@ attributes #13 = { nounwind allocsize(0) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{!"auto-init"}
-!6 = !{i32 -12, i32 1}
-!7 = !{!"branch_weights", i32 1, i32 2000}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!5 = !{i32 -12, i32 1}
+!6 = !{!"branch_weights", i32 1, i32 2000}
+!7 = distinct !{!7, !8, !9}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.unroll.disable"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!"auto-init"}
 !13 = !{i32 -22, i32 1}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}

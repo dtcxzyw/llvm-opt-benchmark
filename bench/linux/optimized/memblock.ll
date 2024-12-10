@@ -732,9 +732,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_remove_range(ptr 
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
-  store i32 0, ptr %4, align 4, !annotation !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
-  store i32 0, ptr %5, align 4, !annotation !24
   %6 = call fastcc i32 @memblock_isolate_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #22, !range !10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit
@@ -843,9 +841,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr n
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
-  store i32 0, ptr %6, align 4, !annotation !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  store i32 0, ptr %7, align 4, !annotation !24
   %8 = call fastcc i32 @memblock_isolate_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7) #22, !range !10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %30
@@ -1691,9 +1687,7 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_set_node(i64 noundef %0
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
-  store i32 0, ptr %5, align 4, !annotation !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
-  store i32 0, ptr %6, align 4, !annotation !24
   %7 = call fastcc i32 @memblock_isolate_range(ptr noundef %2, i64 noundef %0, i64 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #22, !range !10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %23
@@ -2304,8 +2298,6 @@ define dso_local void @memblock_cap_memory_range(i64 noundef %0, i64 noundef %1)
   br label %54
 
 13:                                               ; preds = %6
-  store i32 0, ptr %3, align 4, !annotation !24
-  store i32 0, ptr %4, align 4, !annotation !24
   %14 = call fastcc i32 @memblock_isolate_range(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @memblock, i64 16), i64 noundef %0, i64 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #22, !range !10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %54

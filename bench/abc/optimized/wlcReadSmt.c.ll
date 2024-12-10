@@ -3449,7 +3449,6 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   br label %.loopexit
 
 187:                                              ; preds = %163, %Smt_VecEntryName.exit
-  store i32 0, ptr %8, align 4
   %188 = call fastcc i32 @Smt_StrToType(ptr noundef nonnull %160, ptr noundef %8)
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %.loopexit, label %190
@@ -3559,7 +3558,6 @@ Smt_VecEntryName.exit298:                         ; preds = %167, %171
   br label %.loopexit
 
 258:                                              ; preds = %153
-  store i32 0, ptr %9, align 4
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %260 = load ptr, ptr %259, align 8
   %261 = tail call i32 @Abc_NamStrFind(ptr noundef %260, ptr noundef nonnull %93) #17

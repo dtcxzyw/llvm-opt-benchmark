@@ -638,7 +638,6 @@ define noundef i64 @_ZN8facebook5velox4util14fromDateStringEPKcm(ptr nocapture n
 entry:
   %daysSinceEpoch = alloca i64, align 8
   %pos = alloca i64, align 8
-  store i64 0, ptr %pos, align 8
   %call = call fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr noundef %str, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(8) %pos, ptr noundef nonnull align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef 0)
   br i1 %call, label %if.end, label %if.then
 
@@ -1101,7 +1100,6 @@ define noundef i32 @_ZN8facebook5velox4util18castFromDateStringEPKcmb(ptr nocapt
 entry:
   %daysSinceEpoch = alloca i64, align 8
   %pos = alloca i64, align 8
-  store i64 0, ptr %pos, align 8
   %cond = select i1 %isIso8601, i32 2, i32 3
   %call = call fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr noundef %str, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(8) %pos, ptr noundef nonnull align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef %cond)
   br i1 %call, label %if.end3, label %if.then
@@ -1393,7 +1391,6 @@ if.then8:                                         ; preds = %if.end3, %if.end3
 
 if.end9:                                          ; preds = %if.end3, %if.then8
   %3 = phi i64 [ %0, %if.end3 ], [ %inc, %if.then8 ]
-  store i64 0, ptr %timePos, align 8
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 %3
   %sub = sub i64 %len, %3
   %call10 = call fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseTimeStringEPKcmRmRlb(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(8) %timePos, ptr noundef nonnull align 8 dereferenceable(8) %microsSinceMidnight, i1 noundef zeroext false)

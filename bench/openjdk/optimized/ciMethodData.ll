@@ -1943,7 +1943,6 @@ select.unfold._crit_edge:                         ; preds = %34, %select.unfold,
   br label %98
 
 .thread:                                          ; preds = %3
-  store i8 0, ptr %5, align 1
   %51 = call noundef ptr @_ZN12ciMethodData17bci_to_extra_dataEiP8ciMethodRb(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %5)
   %.not24 = icmp eq ptr %51, null
   br i1 %.not24, label %.thread25, label %98

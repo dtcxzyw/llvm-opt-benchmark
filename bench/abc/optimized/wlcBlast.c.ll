@@ -1557,7 +1557,6 @@ define void @Wlc_BlastAdderCLA_int(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %5
-  store i32 %4, ptr %8, align 4
   %17 = load i32, ptr %1, align 4
   %18 = load i32, ptr %2, align 4
   call void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %17, i32 noundef %18, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %1)
@@ -1748,7 +1747,6 @@ define void @Wlc_BlastAdderFast_int(ptr noundef %0, ptr nocapture noundef %1, pt
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %5
-  store i32 %4, ptr %6, align 4
   %15 = load i32, ptr %1, align 4
   %16 = load i32, ptr %2, align 4
   call void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %15, i32 noundef %16, i32 noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %1)

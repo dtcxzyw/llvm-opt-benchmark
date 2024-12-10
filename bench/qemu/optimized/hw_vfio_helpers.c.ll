@@ -1644,7 +1644,6 @@ return:                                           ; preds = %land.lhs.true, %for
 define dso_local noundef zeroext i1 @vfio_has_region_cap(ptr nocapture noundef readonly %vbasedev, i32 noundef %region, i16 noundef zeroext %cap_type) local_unnamed_addr #0 {
 entry:
   %info = alloca ptr, align 8
-  store ptr null, ptr %info, align 8
   %call = call i32 @vfio_get_region_info(ptr noundef %vbasedev, i32 noundef %region, ptr noundef nonnull %info)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end4

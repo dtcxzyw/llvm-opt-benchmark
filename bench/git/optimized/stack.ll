@@ -788,7 +788,8 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_stack_add(ptr noundef %
 entry:
   %add.i = alloca %struct.reftable_addition, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %add.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.i, i8 0, i64 40, i1 false)
+  %0 = getelementptr inbounds nuw i8, ptr %add.i, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %call.i = call fastcc i32 @reftable_stack_init_addition(ptr noundef nonnull %add.i, ptr noundef %st)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %stack_try_add.exit.thread, label %if.end.i
@@ -2658,7 +2659,6 @@ entry:
   %stack = alloca ptr, align 8
   %cfg = alloca %struct.reftable_write_options, align 8
   %table = alloca %struct.reftable_table, align 8
-  store ptr null, ptr %stack, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cfg, i8 0, i64 28, i1 false)
   %hash_id1 = getelementptr inbounds nuw i8, ptr %cfg, i64 16
   store i32 %hash_id, ptr %hash_id1, align 8

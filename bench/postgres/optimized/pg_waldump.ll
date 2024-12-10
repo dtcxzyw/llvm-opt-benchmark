@@ -690,8 +690,6 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   br i1 %240, label %241, label %339
 
 241:                                              ; preds = %238
-  store ptr null, ptr %12, align 8
-  store ptr null, ptr %13, align 8
   %242 = sext i32 %239 to i64
   %243 = getelementptr ptr, ptr %1, i64 %242
   %244 = load ptr, ptr %243, align 8

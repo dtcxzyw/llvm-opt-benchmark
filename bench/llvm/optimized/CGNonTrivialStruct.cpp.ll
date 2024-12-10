@@ -1861,7 +1861,6 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %34, %36
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 144
   %65 = load ptr, ptr %64, align 8
   store i64 0, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %.val.i.i = load ptr, ptr %0, align 8, !noalias !90

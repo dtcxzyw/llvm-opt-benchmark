@@ -2815,7 +2815,6 @@ define dso_local range(i32 -2147483648, 1) i32 @cipso_v4_skbuff_setattr(ptr noun
   %4 = alloca [40 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !28
   %6 = call fastcc i32 @cipso_v4_genopt(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %118, label %8

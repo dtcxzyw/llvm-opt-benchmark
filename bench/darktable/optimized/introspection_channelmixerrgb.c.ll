@@ -4810,7 +4810,6 @@ find_temperature_from_raw_coeffs.exit.thread103:  ; preds = %2831
 
 2836:                                             ; preds = %2831, %2827
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #28
-  store float 0x7FF8000000000000, ptr %8, align 16, !tbaa !12
   call fastcc void @matrice_pseudoinverse(ptr noundef nonnull %7, ptr noundef nonnull %8)
   %2837 = load float, ptr %8, align 16, !tbaa !12
   %2838 = call float @llvm.fabs.f32(float %2837)
@@ -6491,7 +6490,6 @@ define internal fastcc noundef range(i32 0, 2) i32 @find_temperature_from_raw_co
 
 66:                                               ; preds = %61, %57
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #28
-  store float 0x7FF8000000000000, ptr %6, align 16, !tbaa !12
   call fastcc void @matrice_pseudoinverse(ptr noundef nonnull %5, ptr noundef nonnull %6)
   %67 = load float, ptr %6, align 16, !tbaa !12
   %68 = tail call float @llvm.fabs.f32(float %67)
@@ -8559,7 +8557,6 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone %1, ptr noundef re
 
 131:                                              ; preds = %126, %122
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #28
-  store float 0x7FF8000000000000, ptr %7, align 16, !tbaa !12
   call fastcc void @matrice_pseudoinverse(ptr noundef nonnull %6, ptr noundef nonnull %7)
   %132 = load float, ptr %7, align 16, !tbaa !12
   %133 = tail call float @llvm.fabs.f32(float %132)
@@ -8825,7 +8822,6 @@ find_temperature_from_raw_coeffs.exit:            ; preds = %77, %84, %92, %93, 
 
 330:                                              ; preds = %325, %321
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #28
-  store float 0x7FF8000000000000, ptr %5, align 16, !tbaa !12
   call fastcc void @matrice_pseudoinverse(ptr noundef nonnull %4, ptr noundef nonnull %5)
   %331 = load float, ptr %5, align 16, !tbaa !12
   %332 = tail call float @llvm.fabs.f32(float %331)
@@ -9909,7 +9905,6 @@ find_temperature_from_raw_coeffs.exit.thread5:    ; preds = %198
 
 203:                                              ; preds = %198, %194
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #28
-  store float 0x7FF8000000000000, ptr %3, align 16, !tbaa !12
   call fastcc void @matrice_pseudoinverse(ptr noundef nonnull %2, ptr noundef nonnull %3)
   %204 = load float, ptr %3, align 16, !tbaa !12
   %205 = tail call float @llvm.fabs.f32(float %204)

@@ -1070,7 +1070,7 @@ default_search.exit:                              ; preds = %108, %94, %110
   tail call void @jv_free(i64 %11, ptr %12) #11
   tail call void @jv_free(i64 %1, ptr %2) #11
   tail call void @jv_free(i64 %3, ptr %4) #11
-  br label %188
+  br label %186
 
 139:                                              ; preds = %default_search.exit
   %140 = zext i1 %40 to i32
@@ -1136,39 +1136,35 @@ default_search.exit:                              ; preds = %108, %94, %110
 
 ._crit_edge193.thread:                            ; preds = %.preheader, %._crit_edge193
   %175 = tail call { ptr, ptr } (...) @gen_noop() #11
-  %176 = extractvalue { ptr, ptr } %175, 0
-  store ptr %176, ptr %9, align 8
-  %177 = extractvalue { ptr, ptr } %175, 1
-  store ptr %177, ptr %19, align 8
-  %178 = call fastcc i32 @load_library(ptr noundef %0, i64 %125, ptr %126, i32 noundef %140, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %9, ptr noundef %6)
-  %179 = add nsw i32 %178, %.0150.ph198
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %181, label %.outer
+  %176 = call fastcc i32 @load_library(ptr noundef %0, i64 %125, ptr %126, i32 noundef %140, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef %9, ptr noundef %6)
+  %177 = add nsw i32 %176, %.0150.ph198
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %.outer
 
-181:                                              ; preds = %._crit_edge193.thread
-  %182 = load ptr, ptr %9, align 8
-  %183 = load ptr, ptr %19, align 8
-  %184 = tail call { ptr, ptr } @block_bind_library(ptr %182, ptr %183, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
-  %185 = extractvalue { ptr, ptr } %184, 0
-  %186 = extractvalue { ptr, ptr } %184, 1
+179:                                              ; preds = %._crit_edge193.thread
+  %180 = load ptr, ptr %9, align 8
+  %181 = load ptr, ptr %19, align 8
+  %182 = tail call { ptr, ptr } @block_bind_library(ptr %180, ptr %181, ptr %.sroa.0110.0.ph199, ptr %.sroa.9.0.ph200, i32 noundef 128, ptr noundef %.0153) #11
+  %183 = extractvalue { ptr, ptr } %182, 0
+  %184 = extractvalue { ptr, ptr } %182, 1
   br label %.outer
 
-.outer:                                           ; preds = %166, %181, %._crit_edge193.thread, %143, %147
-  %.1 = phi i32 [ 0, %147 ], [ %145, %143 ], [ %.0150.ph198, %166 ], [ 0, %181 ], [ %179, %._crit_edge193.thread ]
-  %.sroa.0110.1 = phi ptr [ %154, %147 ], [ %.sroa.0110.0.ph199, %143 ], [ %173, %166 ], [ %185, %181 ], [ %.sroa.0110.0.ph199, %._crit_edge193.thread ]
-  %.sroa.9.1 = phi ptr [ %155, %147 ], [ %.sroa.9.0.ph200, %143 ], [ %174, %166 ], [ %186, %181 ], [ %.sroa.9.0.ph200, %._crit_edge193.thread ]
+.outer:                                           ; preds = %166, %179, %._crit_edge193.thread, %143, %147
+  %.1 = phi i32 [ 0, %147 ], [ %145, %143 ], [ %.0150.ph198, %166 ], [ 0, %179 ], [ %177, %._crit_edge193.thread ]
+  %.sroa.0110.1 = phi ptr [ %154, %147 ], [ %.sroa.0110.0.ph199, %143 ], [ %173, %166 ], [ %183, %179 ], [ %.sroa.0110.0.ph199, %._crit_edge193.thread ]
+  %.sroa.9.1 = phi ptr [ %155, %147 ], [ %.sroa.9.0.ph200, %143 ], [ %174, %166 ], [ %184, %179 ], [ %.sroa.9.0.ph200, %._crit_edge193.thread ]
   tail call void @jv_free(i64 %80, ptr %81) #11
-  %187 = icmp sgt i32 %.0152189, 1
-  br i1 %187, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
+  %185 = icmp sgt i32 %.0152189, 1
+  br i1 %185, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.outer, %129, %7
   %.0150.ph.lcssa185 = phi i32 [ 0, %7 ], [ %.0150.ph198, %129 ], [ %.1, %.outer ]
   tail call void @jv_free(i64 %3, ptr %4) #11
   tail call void @jv_free(i64 %1, ptr %2) #11
   tail call void @jv_free(i64 %11, ptr %12) #11
-  br label %188
+  br label %186
 
-188:                                              ; preds = %.outer._crit_edge, %131
+186:                                              ; preds = %.outer._crit_edge, %131
   %.0 = phi i32 [ 1, %131 ], [ %.0150.ph.lcssa185, %.outer._crit_edge ]
   ret i32 %.0
 }

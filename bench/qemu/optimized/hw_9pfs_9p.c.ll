@@ -9804,7 +9804,6 @@ if.else:                                          ; preds = %entry
   %call13 = tail call noalias ptr @g_path_get_dirname(ptr noundef %3) #24
   %data.i20 = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   store ptr null, ptr %data.i20, align 8
-  store i16 0, ptr %dir_path, align 8
   call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef nonnull %dir_path, ptr noundef nonnull @.str.54, ptr noundef %call13)
   call void @g_free(ptr noundef %call13) #24
   %data14 = getelementptr inbounds nuw i8, ptr %name, i64 8

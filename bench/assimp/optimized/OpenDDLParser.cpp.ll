@@ -1486,7 +1486,6 @@ entry:
   br i1 %or.cond49, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr null, ptr %id, align 8
   %call = call noundef ptr @_ZN10ODDLParser13OpenDDLParser15parseIdentifierEPcS1_PPNS_4TextE(ptr noundef nonnull %in, ptr noundef %end, ptr noundef nonnull %id)
   %cmp.not8.i = icmp eq ptr %call, %end
   br i1 %cmp.not8.i, label %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit, label %land.rhs.preheader.i

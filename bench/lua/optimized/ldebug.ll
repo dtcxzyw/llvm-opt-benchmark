@@ -1234,7 +1234,6 @@ entry:
   %name = alloca ptr, align 8
   %ci1 = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %ci1, align 8
-  store ptr null, ptr %name, align 8
   %callstatus = getelementptr inbounds nuw i8, ptr %0, i64 62
   %1 = load i16, ptr %callstatus, align 2
   %2 = and i16 %1, 2

@@ -390,7 +390,6 @@ define internal i32 @dissect_icep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store ptr null, ptr %8, align 8
-  store i32 0, ptr %9, align 4
   %40 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 14, i32 noundef 4) #3
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %41, label %44
@@ -637,7 +636,6 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  store i32 0, ptr %13, align 4
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
   store i32 0, ptr %5, align 4
@@ -683,7 +681,6 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
 
 38:                                               ; preds = %32
   %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #3
-  store i32 1, ptr %13, align 4
   switch i8 %39, label %dissect_ice_facet.exit.thread.sink.split [
     i8 0, label %dissect_ice_facet.exit.thread70
     i8 1, label %41
@@ -696,7 +693,6 @@ dissect_ice_facet.exit.thread70:                  ; preds = %38
 
 41:                                               ; preds = %38
   %42 = add i32 %33, 1
-  store i32 0, ptr %12, align 4
   call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %36, ptr noundef %0, i32 noundef %42, ptr noundef %12, ptr noundef null)
   %43 = load i32, ptr %12, align 4
   %44 = icmp eq i32 %43, -1
@@ -717,7 +713,6 @@ dissect_ice_facet.exit.thread:                    ; preds = %dissect_ice_facet.e
 
 dissect_ice_facet.exit:                           ; preds = %41
   %48 = add nuw i32 %43, 1
-  store i32 %48, ptr %13, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %49 = icmp eq i32 %48, -1
   br i1 %49, label %dissect_ice_params.exit.thread78, label %50
@@ -838,9 +833,7 @@ dissect_ice_context.exit.thread75:                ; preds = %101
   %106 = phi i32 [ %122, %127 ], [ %.promoted, %101 ]
   %.160.i = phi i32 [ %121, %127 ], [ %.0.i, %101 ]
   %.05159.i = phi i32 [ %128, %127 ], [ 0, %101 ]
-  store i32 0, ptr %7, align 4
   store ptr null, ptr %8, align 8
-  store i32 0, ptr %9, align 4
   store ptr null, ptr %10, align 8
   %107 = load i32, ptr @ett_icep_invocation_context, align 4
   %108 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.160.i, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %11, ptr noundef nonnull @.str.43) #3

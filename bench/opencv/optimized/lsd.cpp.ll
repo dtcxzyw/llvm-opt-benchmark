@@ -1128,7 +1128,7 @@ _ZN2cv4Mat_IhEaSERKNS_7MatExprE.exit:             ; preds = %75
   br i1 %182, label %183, label %193
 
 183:                                              ; preds = %180
-  %184 = invoke noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vectorINS0_11RegionPointESaIS2_EEdddRNS0_4rectERKd(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, double noundef %179, double noundef %23, double noundef %24, ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(8) %120)
+  %184 = invoke noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vectorINS0_11RegionPointESaIS2_EEdddRNS0_4rectERKd(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, double poison, double noundef %23, double noundef %24, ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(8) %120)
           to label %185 unwind label %.loopexit
 
 185:                                              ; preds = %183
@@ -2479,13 +2479,12 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vectorINS0_11RegionPointESaIS2_EEdddRNS0_4rectERKd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(96) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv23LineSegmentDetectorImpl6refineERSt6vectorINS0_11RegionPointESaIS2_EEdddRNS0_4rectERKd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, double %2, double noundef %3, double noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(96) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca double, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.5", align 1
   %11 = alloca double, align 8
   %12 = alloca %"class.cv::Point_", align 4
-  store double %2, ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %1, align 8

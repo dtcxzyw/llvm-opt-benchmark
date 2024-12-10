@@ -1218,7 +1218,6 @@ _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %.sroa.8.2 = phi ptr [ %.sroa.8.4, %_ZN4llvm5ErrorD2Ev.exit23 ], [ undef, %_ZN4llvm5ErrorD2Ev.exit15.preheader ]
   %.sroa.042.2 = phi i32 [ %.sroa.042.4, %_ZN4llvm5ErrorD2Ev.exit23 ], [ 7, %_ZN4llvm5ErrorD2Ev.exit15.preheader ]
   %.09 = phi i1 [ %.211, %_ZN4llvm5ErrorD2Ev.exit23 ], [ false, %_ZN4llvm5ErrorD2Ev.exit15.preheader ]
-  store i32 0, ptr %10, align 4
   call void @_ZN5clang16serialized_diags26SerializedDiagnosticReader22skipUntilRecordOrBlockERN4llvm15BitstreamCursorERj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.81") align 8 %11, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %36 = load i32, ptr %11, align 8
   switch i32 %36, label %62 [
@@ -1527,7 +1526,6 @@ _ZN4llvm5ErrorD2Ev.exit56:                        ; preds = %2
 _ZNK4llvm7ErrorOrIN5clang16serialized_diags26SerializedDiagnosticReader6CursorEE8getErrorEv.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit64, %46
   %.sroa.32.2 = phi ptr [ undef, %46 ], [ %.sroa.32.3, %_ZN4llvm5ErrorD2Ev.exit64 ]
   %.sroa.0155.2 = phi i32 [ 8, %46 ], [ %.sroa.0155.3, %_ZN4llvm5ErrorD2Ev.exit64 ]
-  store i32 0, ptr %11, align 4
   call void @_ZN5clang16serialized_diags26SerializedDiagnosticReader22skipUntilRecordOrBlockERN4llvm15BitstreamCursorERj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.81") align 8 %12, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 4 dereferenceable(4) %11)
   %65 = load i32, ptr %12, align 8
   switch i32 %65, label %100 [

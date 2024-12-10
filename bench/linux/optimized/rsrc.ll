@@ -609,7 +609,6 @@ define internal fastcc i32 @__io_register_rsrc_update(ptr nocapture noundef %0, 
 150:                                              ; preds = %214, %143
   %151 = phi i64 [ 0, %143 ], [ %229, %214 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  store ptr null, ptr %8, align 8, !annotation !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
   store i64 0, ptr %9, align 8
   %152 = load i16, ptr %144, align 4

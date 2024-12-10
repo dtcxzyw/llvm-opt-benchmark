@@ -2294,8 +2294,6 @@ define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL
   br i1 %or.cond, label %28, label %16
 
 16:                                               ; preds = %11
-  store i32 0, ptr %12, align 4
-  store i32 0, ptr %13, align 4
   call fastcc void @_ZN4Luau7CodeGenL33translateBufferArgsAndCheckBoundsERNS0_9IrBuilderEiiNS0_4IrOpES3_iiRS3_S4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %3, i32 %4, i32 %5, i32 noundef %9, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   %.sroa.09.0.copyload = load i32, ptr %12, align 4
   %.sroa.08.0.copyload = load i32, ptr %13, align 4
@@ -2332,8 +2330,6 @@ define internal fastcc range(i64 -4294967296, 3) i64 @_ZN4Luau7CodeGenL27transla
   br i1 %or.cond, label %33, label %15
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 4
   call fastcc void @_ZN4Luau7CodeGenL33translateBufferArgsAndCheckBoundsERNS0_9IrBuilderEiiNS0_4IrOpES3_iiRS3_S4_(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4, i32 noundef %8, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   %16 = load i8, ptr @_ZN5FFlag20LuauCodegenFastcall3E, align 8
   %17 = trunc i8 %16 to i1

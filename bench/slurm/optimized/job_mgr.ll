@@ -3086,7 +3086,6 @@ define dso_local void @set_job_failed_assoc_qos_ptr(ptr noundef %0) local_unname
   br i1 %52, label %53, label %82
 
 53:                                               ; preds = %49
-  store i32 0, ptr %3, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %4, i8 0, i64 336, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %55 = load i32, ptr %54, align 8

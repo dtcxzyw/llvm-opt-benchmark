@@ -9152,7 +9152,6 @@ define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4llvm9DWARFUnit
   br label %"_ZSt10__invoke_rISt10unique_ptrIN4llvm9DWARFUnitESt14default_deleteIS2_EERZNS1_15DWARFUnitVector12addUnitsImplERNS1_12DWARFContextERKNS1_11DWARFObjectERKNS1_12DWARFSectionEPKNS1_16DWARFDebugAbbrevEPSD_SI_NS1_9StringRefESE_SI_SE_bbbNS1_16DWARFSectionKindEE3$_0JmSK_SI_PKNS1_14DWARFUnitIndex5EntryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESS_E4typeEOST_DpOSU_.exit"
 
 30:                                               ; preds = %6
-  store i64 0, ptr %11, align 8, !noalias !446
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i8 0, ptr %31, align 4, !noalias !446
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16

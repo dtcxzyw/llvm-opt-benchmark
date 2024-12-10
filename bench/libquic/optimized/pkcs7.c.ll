@@ -17,7 +17,6 @@ entry:
   %der_bytes = alloca ptr, align 8
   %cert = alloca %struct.cbs_st, align 8
   %inp = alloca ptr, align 8
-  store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_certs) #3
   %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0
@@ -231,7 +230,6 @@ entry:
   %der_bytes = alloca ptr, align 8
   %crl_data = alloca %struct.cbs_st, align 8
   %inp = alloca ptr, align 8
-  store ptr null, ptr %der_bytes, align 8
   %call = tail call i64 @sk_num(ptr noundef %out_crls) #3
   %call1 = call fastcc i32 @pkcs7_parse_header(ptr noundef %der_bytes, ptr noundef %signed_data, ptr noundef %cbs)
   %tobool.not = icmp eq i32 %call1, 0

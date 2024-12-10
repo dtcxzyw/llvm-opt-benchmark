@@ -18504,7 +18504,6 @@ define internal i32 @nl80211_set_key(ptr nocapture readnone %0, ptr nocapture no
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !76
   %6 = getelementptr i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -18801,7 +18800,6 @@ define internal i32 @nl80211_new_key(ptr nocapture readnone %0, ptr nocapture no
   %6 = getelementptr i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !76
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 2504
@@ -19020,7 +19018,6 @@ define internal i32 @nl80211_del_key(ptr nocapture readnone %0, ptr nocapture no
 
 17:                                               ; preds = %13, %2
   %18 = phi i32 [ %16, %13 ], [ -1, %2 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !76
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 960
   %20 = load ptr, ptr %19, align 8
   %21 = call fastcc i32 @nl80211_parse_key(ptr noundef %1, ptr noundef nonnull %3)
@@ -26448,7 +26445,6 @@ define internal i32 @nl80211_authenticate(ptr nocapture readnone %0, ptr nocaptu
   br i1 %25, label %.thread14, label %26
 
 26:                                               ; preds = %22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !76
   %27 = call fastcc i32 @nl80211_parse_key(ptr noundef %1, ptr noundef nonnull %3)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.thread14
@@ -30419,7 +30415,6 @@ define internal i32 @nl80211_cancel_remain_on_channel(ptr nocapture readnone %0,
 define internal i32 @nl80211_set_tx_bitrate_mask(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.cfg80211_bitrate_mask, align 4
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %3) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(360) %3, i8 0, i64 360, i1 false), !annotation !76
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 2504

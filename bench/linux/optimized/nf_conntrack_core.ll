@@ -3267,7 +3267,6 @@ define dso_local range(i32 0, -2147483647) i32 @nf_conntrack_in(ptr noundef %0, 
 76:                                               ; preds = %.thread14, %58
   %77 = load i8, ptr %7, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !10
   %78 = load ptr, ptr %26, align 8
   %79 = load i16, ptr %28, align 4
   %80 = zext i16 %79 to i64
@@ -6548,7 +6547,6 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr nocapture nou
   br label %.thread12
 
 15:                                               ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 180

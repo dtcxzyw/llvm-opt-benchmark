@@ -509,7 +509,6 @@ if.end:                                           ; preds = %if.end.i8.i
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  store ptr null, ptr %cidobj, align 8
   %ChannelIDType = getelementptr inbounds nuw i8, ptr %call.i14, i64 72
   %14 = load ptr, ptr %ChannelIDType, align 8
   %call6 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %9, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
@@ -633,7 +632,6 @@ if.end.i21:                                       ; preds = %if.then11
 for.body:                                         ; preds = %for.body.lr.ph, %if.end17
   %cur.029 = phi ptr [ %call2.i, %for.body.lr.ph ], [ %incdec.ptr, %if.end17 ]
   %i.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end17 ]
-  store ptr null, ptr %cidobj, align 8
   %9 = load ptr, ptr %ChannelIDType, align 8
   %10 = load i64, ptr %cur.029, align 8
   %call14 = call fastcc i32 @newchannelid(ptr noundef %9, i64 noundef %10, i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef 0, i32 noundef 0, ptr noundef %cidobj)
@@ -2600,7 +2598,6 @@ if.else14.i:                                      ; preds = %if.else.i
 
 if.end19.i:                                       ; preds = %if.else14.i, %if.then8.i
   %end.0.i = phi i32 [ %..i, %if.then8.i ], [ %spec.select.i, %if.else14.i ]
-  store ptr null, ptr %cidobj.i, align 8
   %11 = load i32, ptr %force.i, align 4
   %12 = load i32, ptr %resolve.i, align 4
   %call21.i = call fastcc i32 @newchannelid(ptr noundef %0, i64 noundef %5, i32 noundef %end.0.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef %11, i32 noundef %12, ptr noundef %cidobj.i)
@@ -3928,7 +3925,6 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  store ptr null, ptr %cidobj, align 8
   %ChannelIDType = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %1 = load ptr, ptr %ChannelIDType, align 8
   %2 = load i64, ptr %0, align 8

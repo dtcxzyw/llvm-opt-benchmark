@@ -4778,7 +4778,6 @@ define dso_local range(i64 0, 4294967296) i64 @reclaim_pages(ptr noundef %0) loc
   %44 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %4, i8 0, i64 44, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   store i8 112, ptr %22, align 8
@@ -4841,7 +4840,6 @@ define dso_local range(i64 0, 4294967296) i64 @reclaim_pages(ptr noundef %0) loc
   %77 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %76
   %78 = load ptr, ptr %77, align 8
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %2, i8 0, i64 44, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 40

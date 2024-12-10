@@ -1837,7 +1837,6 @@ get_type_length.exit.i:                           ; preds = %108, %105, %102, %1
 114:                                              ; preds = %144, %.lr.ph.i
   %.056.i = phi i32 [ %.022.i.i, %.lr.ph.i ], [ %145, %144 ]
   %.05355.i = phi i32 [ %110, %.lr.ph.i ], [ %146, %144 ]
-  store ptr null, ptr %50, align 8
   %115 = call fastcc i32 @dissect_sdp_type(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.056.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %50)
   %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.056.i) #7
   %117 = add i32 %.056.i, 1

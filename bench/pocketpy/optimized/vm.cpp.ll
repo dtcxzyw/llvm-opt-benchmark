@@ -2684,7 +2684,6 @@ define void @_ZN4pkpy2VM7py_reprEPNS_8PyObjectE(ptr dead_on_unwind noalias writa
 16:                                               ; preds = %3
   %.sroa.01.0.copyload = load i16, ptr @_ZN4pkpy8__repr__E, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %2, ptr %4, align 8
   %17 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %2, i16 %.sroa.01.0.copyload, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext false)
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 264296
@@ -4723,7 +4722,6 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnu
 24:                                               ; preds = %18, %7
   %.sroa.01.0.copyload = load i16, ptr @_ZN4pkpy6__eq__E, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %1, ptr %5, align 8
   %25 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, i16 %.sroa.01.0.copyload, ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false)
   %26 = load ptr, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264296
@@ -4773,7 +4771,6 @@ define noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnu
 54:                                               ; preds = %49, %39
   %.sroa.0.0.copyload = load i16, ptr @_ZN4pkpy6__eq__E, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %2, ptr %4, align 8
   %55 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %.sroa.0.0.copyload, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext false)
   %56 = load ptr, ptr %4, align 8
   %57 = load ptr, ptr %27, align 8
@@ -6837,7 +6834,6 @@ _ZN4pkpy2VM18__pack_next_retvalEj.exit:           ; preds = %11, %14, %_ZN4pkpy6
 36:                                               ; preds = %3
   %.sroa.0.0.copyload = load i16, ptr @_ZN4pkpy8__next__E, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %2, ptr %4, align 8
   %37 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %2, i16 %.sroa.0.0.copyload, ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext false)
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264296
@@ -8490,7 +8486,6 @@ define noundef ptr @_ZN4pkpy2VM9py_negateEPNS_8PyObjectE(ptr noundef nonnull ali
 16:                                               ; preds = %2
   %.sroa.0.0.copyload = load i16, ptr @_ZN4pkpy7__neg__E, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %1, ptr %3, align 8
   %17 = call noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, i16 %.sroa.0.0.copyload, ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext false)
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 264296

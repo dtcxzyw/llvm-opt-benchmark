@@ -2107,9 +2107,7 @@ define dso_local noundef i32 @simple_acl_create(ptr noundef %0, ptr noundef %1) 
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %3, align 8, !annotation !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr null, ptr %4, align 8, !annotation !34
   %5 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %.thread7
@@ -2325,7 +2323,7 @@ select.unfold:                                    ; preds = %9, %4
   %37 = add nuw i32 %24, 1
   %38 = load i32, ptr %18, align 8
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %23, label %.loopexit24, !llvm.loop !35
+  br i1 %39, label %23, label %.loopexit24, !llvm.loop !34
 
 .loopexit24:                                      ; preds = %36, %13, %select.unfold
   %40 = getelementptr inbounds nuw i8, ptr %.fr26, i64 160
@@ -2346,7 +2344,7 @@ select.unfold:                                    ; preds = %9, %4
   br i1 %48, label %49, label %.loopexit.sink.split
 
 49:                                               ; preds = %46
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %50 = load ptr, ptr %41, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread16, label %52
@@ -2354,7 +2352,7 @@ select.unfold:                                    ; preds = %9, %4
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %54 = load volatile ptr, ptr %53, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %55 = icmp eq ptr %54, %53
   br i1 %55, label %56, label %60
 
@@ -2387,7 +2385,7 @@ select.unfold:                                    ; preds = %9, %4
   br i1 %66, label %67, label %.loopexit.sink.split
 
 67:                                               ; preds = %64
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %68 = load ptr, ptr %41, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread16, label %70
@@ -2395,7 +2393,7 @@ select.unfold:                                    ; preds = %9, %4
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %72 = load volatile ptr, ptr %71, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %73 = icmp eq ptr %72, %71
   br i1 %73, label %74, label %78
 
@@ -2460,7 +2458,7 @@ select.unfold:                                    ; preds = %9, %4
 108:                                              ; preds = %78
   tail call void @ihold(ptr noundef nonnull %.fr26) #13
   tail call void @up_write(ptr noundef nonnull %40) #13
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %109 = load ptr, ptr %41, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %121, label %111
@@ -2468,7 +2466,7 @@ select.unfold:                                    ; preds = %9, %4
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %113 = load volatile ptr, ptr %112, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %114 = icmp eq ptr %113, %112
   br i1 %114, label %115, label %119
 
@@ -2594,7 +2592,7 @@ select.unfold.split.us:                           ; preds = %select.unfold
   br i1 %18, label %19, label %.loopexit.sink.split
 
 19:                                               ; preds = %16
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %20 = load ptr, ptr %11, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread14, label %22
@@ -2602,7 +2600,7 @@ select.unfold.split.us:                           ; preds = %select.unfold
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = load volatile ptr, ptr %23, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %26, label %30
 
@@ -2635,7 +2633,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
   br i1 %36, label %37, label %.loopexit.sink.split
 
 37:                                               ; preds = %34
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %38 = load ptr, ptr %11, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread14, label %40
@@ -2643,7 +2641,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %42 = load volatile ptr, ptr %41, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %43 = icmp eq ptr %42, %41
   br i1 %43, label %44, label %48
 
@@ -2747,7 +2745,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
 100:                                              ; preds = %48
   tail call void @ihold(ptr noundef nonnull %.fr26) #13
   tail call void @up_write(ptr noundef nonnull %10) #13
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !35
   %101 = load ptr, ptr %11, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %113, label %103
@@ -2755,7 +2753,7 @@ select.unfold.split:                              ; preds = %select.unfold, %113
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %105 = load volatile ptr, ptr %104, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !36
   %106 = icmp eq ptr %105, %104
   br i1 %106, label %107, label %111
 
@@ -2956,7 +2954,7 @@ vfs_get_acl.exit.thread:                          ; preds = %29, %10, %25, %18, 
   %78 = load i32, ptr %38, align 8
   %79 = zext i32 %78 to i64
   %80 = icmp samesign ult i64 %76, %79
-  br i1 %80, label %56, label %.loopexit, !llvm.loop !38
+  br i1 %80, label %56, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %73, %36, %44, %46
   %81 = phi i64 [ %42, %36 ], [ -34, %44 ], [ %42, %46 ], [ %42, %73 ]
@@ -3092,8 +3090,7 @@ attributes #17 = { nounwind allocsize(2) }
 !31 = distinct !{!31, !10, !11}
 !32 = distinct !{!32, !10, !11}
 !33 = !{i32 -22, i32 1}
-!34 = !{!"auto-init"}
-!35 = distinct !{!35, !10, !11}
-!36 = !{i64 2154488324}
-!37 = !{i64 2149615112}
-!38 = distinct !{!38, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = !{i64 2154488324}
+!36 = !{i64 2149615112}
+!37 = distinct !{!37, !10, !11}

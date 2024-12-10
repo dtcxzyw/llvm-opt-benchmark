@@ -1078,7 +1078,6 @@ lor.lhs.false.i:                                  ; preds = %if.then12
   br i1 %tobool3.not.i, label %if.end.i70, label %specialize_class_load_attr.exit.thread
 
 if.end.i70:                                       ; preds = %lor.lhs.false.i
-  store ptr null, ptr %descr.i, align 8
   %call4.i = call fastcc i32 @analyze_descriptor(ptr noundef nonnull %owner, ptr noundef %name, ptr noundef %descr.i, i32 noundef 0)
   switch i32 %call4.i, label %specialize_class_load_attr.exit.thread [
     i32 1, label %specialize_class_load_attr.exit
@@ -1102,7 +1101,6 @@ specialize_class_load_attr.exit:                  ; preds = %if.end.i70, %if.end
   br label %return
 
 if.end17:                                         ; preds = %if.end9
-  store ptr null, ptr %descr, align 8
   %call18 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef %descr, i32 noundef 0)
   switch i32 %call18, label %fail [
     i32 10, label %sw.bb136

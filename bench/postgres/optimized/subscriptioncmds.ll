@@ -154,7 +154,6 @@ define dso_local { i64, i32 } @CreateSubscription(ptr noundef %0, ptr nocapture 
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %10 = call i32 @GetUserId() #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   call fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef %12, i32 noundef 49087, ptr noundef %7)

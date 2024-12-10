@@ -833,8 +833,6 @@ entry:
   %is_cache_miss = alloca i8, align 1
   %admitted = alloca i8, align 1
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
-  store i8 1, ptr %is_cache_miss, align 1
-  store i8 1, ptr %admitted, align 1
   %block_key = getelementptr inbounds nuw i8, ptr %access, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %block_key) #23
   store ptr %call.i, ptr %ref.tmp, align 8

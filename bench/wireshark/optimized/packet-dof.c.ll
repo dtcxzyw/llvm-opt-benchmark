@@ -2695,8 +2695,8 @@ init_addr_port_tables.exit:                       ; preds = %0, %8
   %.not118 = icmp eq i32 %68, 0
   br i1 %.not118, label %._crit_edge114, label %.lr.ph113
 
-.lr.ph113:                                        ; preds = %._crit_edge110, %99
-  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %99 ], [ 0, %._crit_edge110 ]
+.lr.ph113:                                        ; preds = %._crit_edge110, %95
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %95 ], [ 0, %._crit_edge110 ]
   %70 = load ptr, ptr @global_security.4, align 8
   %71 = getelementptr %struct._dof_identity_data, ptr %70, i64 %indvars.iv131
   %72 = getelementptr %struct._identsecret_field_t, ptr %52, i64 %indvars.iv131
@@ -2726,74 +2726,68 @@ switch.early.test:                                ; preds = %.lr.ph113
 76:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph113
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   tail call fastcc void @parse_hex_string(ptr noundef nonnull %73, ptr noundef %71, ptr noundef nonnull %77)
-  br label %84
+  br label %82
 
 78:                                               ; preds = %switch.early.test
-  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #22
-  %80 = trunc i64 %79 to i32
-  store i32 %80, ptr %4, align 4
   call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %73, ptr noundef %4, ptr noundef %71)
-  %81 = load i32, ptr %4, align 4
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i8 %82, ptr %83, align 8
-  br label %84
+  %79 = load i32, ptr %4, align 4
+  %80 = trunc i32 %79 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i8 %80, ptr %81, align 8
+  br label %82
 
-84:                                               ; preds = %78, %76
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i8, ptr %86, align 1
-  %.fr120 = freeze i8 %87
-  %88 = add i8 %.fr120, -48
-  %or.cond90 = icmp ult i8 %88, 10
-  br i1 %or.cond90, label %89, label %switch.early.test97
+82:                                               ; preds = %78, %76
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i8, ptr %84, align 1
+  %.fr120 = freeze i8 %85
+  %86 = add i8 %.fr120, -48
+  %or.cond90 = icmp ult i8 %86, 10
+  br i1 %or.cond90, label %87, label %switch.early.test97
 
-switch.early.test97:                              ; preds = %84
-  switch i8 %.fr120, label %92 [
-    i8 102, label %89
-    i8 101, label %89
-    i8 100, label %89
-    i8 99, label %89
-    i8 98, label %89
-    i8 97, label %89
-    i8 70, label %89
-    i8 69, label %89
-    i8 68, label %89
-    i8 67, label %89
-    i8 66, label %89
-    i8 65, label %89
+switch.early.test97:                              ; preds = %82
+  switch i8 %.fr120, label %90 [
+    i8 102, label %87
+    i8 101, label %87
+    i8 100, label %87
+    i8 99, label %87
+    i8 98, label %87
+    i8 97, label %87
+    i8 70, label %87
+    i8 69, label %87
+    i8 68, label %87
+    i8 67, label %87
+    i8 66, label %87
+    i8 65, label %87
   ]
 
-89:                                               ; preds = %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %84
-  %90 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  tail call fastcc void @parse_hex_string(ptr noundef nonnull %86, ptr noundef nonnull %90, ptr noundef nonnull %91)
-  br label %99
+87:                                               ; preds = %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %switch.early.test97, %82
+  %88 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  tail call fastcc void @parse_hex_string(ptr noundef nonnull %84, ptr noundef nonnull %88, ptr noundef nonnull %89)
+  br label %95
 
-92:                                               ; preds = %switch.early.test97
-  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #22
-  %94 = trunc i64 %93 to i32
-  store i32 %94, ptr %4, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %86, ptr noundef %4, ptr noundef nonnull %95)
-  %96 = load i32, ptr %4, align 4
-  %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i8 %97, ptr %98, align 8
-  br label %99
+90:                                               ; preds = %switch.early.test97
+  %91 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %84, ptr noundef %4, ptr noundef nonnull %91)
+  %92 = load i32, ptr %4, align 4
+  %93 = trunc i32 %92 to i8
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i8 %93, ptr %94, align 8
+  br label %95
 
-99:                                               ; preds = %92, %89
-  %100 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  call fastcc void @parse_hex_string(ptr noundef %101, ptr noundef nonnull %102, ptr noundef nonnull %3)
+95:                                               ; preds = %90, %87
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  call fastcc void @parse_hex_string(ptr noundef %97, ptr noundef nonnull %98, ptr noundef nonnull %3)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %103 = load i32, ptr @num_identsecret_list, align 4
-  %104 = zext i32 %103 to i64
-  %105 = icmp samesign ult i64 %indvars.iv.next132, %104
-  br i1 %105, label %.lr.ph113, label %._crit_edge114, !llvm.loop !12
+  %99 = load i32, ptr @num_identsecret_list, align 4
+  %100 = zext i32 %99 to i64
+  %101 = icmp samesign ult i64 %indvars.iv.next132, %100
+  br i1 %101, label %.lr.ph113, label %._crit_edge114, !llvm.loop !12
 
-._crit_edge114:                                   ; preds = %99, %._crit_edge110
+._crit_edge114:                                   ; preds = %95, %._crit_edge110
   ret void
 }
 

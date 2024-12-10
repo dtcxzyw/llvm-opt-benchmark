@@ -52800,7 +52800,6 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc318
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i316 ], [ %indvars.iv.next.i, %496 ]
   %.01217.i = phi ptr [ %484, %.lr.ph.i316 ], [ %495, %496 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !327
-  store double 0.000000e+00, ptr %6, align 8, !noalias !327
   %495 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.01217.i, ptr noundef %6)
           to label %496 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, !noalias !327
 
@@ -53099,7 +53098,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc352
   %indvars.iv.i345 = phi i64 [ 0, %.lr.ph.i342 ], [ %indvars.iv.next.i347, %603 ]
   %.01217.i346 = phi ptr [ %591, %.lr.ph.i342 ], [ %602, %603 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !331
-  store double 0.000000e+00, ptr %5, align 8, !noalias !331
   %602 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.01217.i346, ptr noundef %5)
           to label %603 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i, !noalias !331
 
@@ -53278,7 +53276,6 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i368: ; preds = %.noexc38
   %indvars.iv.i372 = phi i64 [ 0, %.lr.ph.i369 ], [ %indvars.iv.next.i375, %662 ]
   %.01217.i373 = phi ptr [ %650, %.lr.ph.i369 ], [ %661, %662 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !335
-  store double 0.000000e+00, ptr %4, align 8, !noalias !335
   %661 = invoke fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %.01217.i373, ptr noundef %4)
           to label %662 unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit.i374, !noalias !335
 
@@ -57385,7 +57382,6 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit244.i: ; preds = %139, %1
   br label %.thread248.i
 
 229:                                              ; preds = %.critedge7.i, %202, %186
-  store double 0.000000e+00, ptr %6, align 8
   %230 = call fastcc noundef ptr @_ZN18fast_double_parserL18parse_float_strtodEPKcPd(ptr noundef nonnull %7, ptr noundef nonnull %6)
   br label %select.unfold.i
 

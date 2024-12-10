@@ -190,7 +190,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
 if.else:                                          ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
   %not.tobool = xor i1 %tobool, true
   %.pre4.mux = select i1 %not.tobool, i1 true, i1 %.pre4
-  %call11 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %arrayidx7, i32 noundef %host.4.val, i1 noundef zeroext %tobool, i1 noundef zeroext %.pre4.mux, ptr noundef nonnull %output)
+  %call11 = tail call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %arrayidx7, i32 noundef %host.4.val, i1 noundef zeroext %.pre4.mux, ptr noundef nonnull %output)
   br i1 %call11, label %invoke.cont22, label %if.then15
 
 if.end13:                                         ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
@@ -650,7 +650,7 @@ if.end.i:                                         ; preds = %invoke.cont.i
   %31 = load ptr, ptr %buffer_.i.i.i, align 8
   %cur_len_.i.i = getelementptr inbounds nuw i8, ptr %utf8.i, i64 20
   %32 = load i32, ptr %cur_len_.i.i, align 4
-  %call9.i = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %31, i32 noundef %32, i1 noundef zeroext %tobool, i1 noundef zeroext true, ptr noundef nonnull %output)
+  %call9.i = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %31, i32 noundef %32, i1 noundef zeroext true, ptr noundef nonnull %output)
           to label %cleanup.i unwind label %lpad.i
 
 cleanup.i:                                        ; preds = %if.end.i
@@ -1035,13 +1035,11 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %host, i32 noundef %host_len, i1 noundef zeroext %has_non_ascii, i1 noundef zeroext %has_escaped, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %host, i32 noundef %host_len, i1 noundef zeroext %has_escaped, ptr noundef %output) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %has_non_ascii.addr = alloca i8, align 1
   %utf16 = alloca %"class.url::RawCanonOutputT.0", align 8
   %utf8 = alloca %"class.url::RawCanonOutputT.2", align 8
-  %frombool = zext i1 %has_non_ascii to i8
-  store i8 %frombool, ptr %has_non_ascii.addr, align 1
   %cur_len_.i = getelementptr inbounds nuw i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i, align 4
   br i1 %has_escaped, label %if.then, label %if.end9

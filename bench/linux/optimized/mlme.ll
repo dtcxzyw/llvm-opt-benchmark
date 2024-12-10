@@ -13396,7 +13396,6 @@ define internal fastcc i32 @ieee80211_config_bw(ptr noundef %0, ptr noundef read
   br i1 %30, label %31, label %262
 
 31:                                               ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !62
   %32 = and i32 %26, 4
   %33 = icmp eq i32 %32, 0
   %34 = select i1 %33, ptr %3, ptr null

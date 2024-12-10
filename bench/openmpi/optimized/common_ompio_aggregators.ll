@@ -1730,8 +1730,6 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
   store i64 0, ptr %7, align 8
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 456

@@ -668,7 +668,6 @@ return:                                           ; preds = %do.body, %sw.epilog
 define dso_local i32 @fdt_check_node_offset_(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr = alloca i32, align 4
-  store i32 %offset, ptr %offset.addr, align 4
   %0 = and i32 %offset, -2147483645
   %or.cond = icmp eq i32 %0, 0
   br i1 %or.cond, label %if.end, label %return
@@ -689,7 +688,6 @@ return:                                           ; preds = %if.end, %entry
 define dso_local i32 @fdt_check_prop_offset_(ptr noundef %fdt, i32 noundef %offset) local_unnamed_addr #2 {
 entry:
   %offset.addr = alloca i32, align 4
-  store i32 %offset, ptr %offset.addr, align 4
   %0 = and i32 %offset, -2147483645
   %or.cond = icmp eq i32 %0, 0
   br i1 %or.cond, label %if.end, label %return
@@ -717,7 +715,6 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset.addr.i)
-  store i32 %offset, ptr %offset.addr.i, align 4
   %0 = and i32 %offset, 3
   %or.cond.i = icmp eq i32 %0, 0
   br i1 %or.cond.i, label %if.end.i, label %fdt_check_node_offset_.exit.thread
@@ -808,13 +805,11 @@ entry:
   %offset.addr.i.i = alloca i32, align 4
   %nextoffset.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nextoffset.i)
-  store i32 0, ptr %nextoffset.i, align 4
   %cmp.i = icmp sgt i32 %offset, -1
   br i1 %cmp.i, label %if.then.i, label %do.body.i.preheader
 
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset.addr.i.i)
-  store i32 %offset, ptr %offset.addr.i.i, align 4
   %0 = and i32 %offset, 3
   %or.cond.i.i = icmp eq i32 %0, 0
   br i1 %or.cond.i.i, label %if.end.i.i, label %fdt_check_node_offset_.exit.thread.i
@@ -831,7 +826,6 @@ fdt_check_node_offset_.exit.thread.i:             ; preds = %if.end.i.i, %if.the
 fdt_check_node_offset_.exit.i:                    ; preds = %if.end.i.i
   %1 = load i32, ptr %offset.addr.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %offset.addr.i.i)
-  store i32 %1, ptr %nextoffset.i, align 4
   %cmp1.i = icmp slt i32 %1, 0
   br i1 %cmp1.i, label %fdt_next_node.exit, label %do.body.i.preheader
 
@@ -901,7 +895,6 @@ do.body:                                          ; preds = %do.cond, %entry
 
 if.then.i:                                        ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset.addr.i.i)
-  store i32 %offset.addr.0, ptr %offset.addr.i.i, align 4
   %0 = and i32 %offset.addr.0, 3
   %or.cond.i.i = icmp eq i32 %0, 0
   br i1 %or.cond.i.i, label %if.end.i.i, label %fdt_check_node_offset_.exit.thread.i

@@ -3163,7 +3163,6 @@ entry:
   %tempfile = alloca ptr, align 8
   %tempfilename = alloca ptr, align 8
   store ptr null, ptr %tempfile, align 8
-  store ptr null, ptr %tempfilename, align 8
   %is_last = getelementptr inbounds nuw i8, ptr %iterator, i64 236
   %0 = load i32, ptr %is_last, align 4
   %tobool.not = icmp eq i32 %0, 0

@@ -2214,7 +2214,6 @@ define dso_local void @_ZN4llvm16DWARFTypePrinter34appendConstVolatileQualifierB
   store ptr %2, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @_ZN4llvm16DWARFTypePrinter22decomposeConstVolatileERNS_8DWARFDieES2_S2_S2_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %13 = load ptr, ptr %11, align 8
   %.not.i.i = icmp ne ptr %13, null
@@ -4898,7 +4897,6 @@ define dso_local void @_ZN4llvm16DWARFTypePrinter33appendConstVolatileQualifierA
   store ptr %2, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @_ZN4llvm16DWARFTypePrinter22decomposeConstVolatileERNS_8DWARFDieES2_S2_S2_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %13 = load ptr, ptr %11, align 8
   %.not.i.i = icmp ne ptr %13, null

@@ -3579,7 +3579,6 @@ define internal fastcc i32 @ext4_add_entry(ptr noundef %0, ptr noundef %1, ptr n
 
 74:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %7, i8 0, i64 72, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
   store ptr null, ptr %8, align 8, !annotation !13
   %75 = ptrtoint ptr %7 to i64
@@ -7422,7 +7421,6 @@ thread-pre-split:                                 ; preds = %25, %28
 
 52:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !13
   %53 = call fastcc ptr @dx_probe(ptr noundef %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull %5)
   %54 = icmp ugt ptr %53, inttoptr (i64 -4096 to ptr)
   br i1 %54, label %.loopexit51, label %55

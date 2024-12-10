@@ -5700,7 +5700,6 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %4, %_ZNK11RegisterM
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 5104, ptr nonnull %5)
   %44 = load ptr, ptr %12, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24

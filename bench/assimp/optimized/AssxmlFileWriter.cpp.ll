@@ -2261,7 +2261,6 @@ for.end:                                          ; preds = %entry, %for.body.pr
   %arrayidx2 = getelementptr inbounds nuw [512 x i8], ptr %prefix, i64 0, i64 %idxprom1.pre-phi
   store i8 0, ptr %arrayidx2, align 1
   %mTransformation = getelementptr inbounds nuw i8, ptr %node, i64 1028
-  store i32 0, ptr %name, align 4
   %data.i = getelementptr inbounds nuw i8, ptr %name, i64 4
   store i8 0, ptr %data.i, align 4
   call fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStringRKS1_(ptr noundef nonnull align 4 dereferenceable(1028) %name, ptr noundef nonnull align 4 dereferenceable(1028) %node)

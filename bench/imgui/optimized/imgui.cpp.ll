@@ -1671,7 +1671,6 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN7ImGuiIO17AddInputCharacterEj.exit
   %utf8_chars.addr.04 = phi ptr [ %utf8_chars, %while.body.lr.ph ], [ %add.ptr, %_ZN7ImGuiIO17AddInputCharacterEj.exit ]
-  store i32 0, ptr %c, align 4
   %call = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %c, ptr noundef nonnull %utf8_chars.addr.04, ptr noundef null)
   %idx.ext = sext i32 %call to i64
   %add.ptr = getelementptr inbounds i8, ptr %utf8_chars.addr.04, i64 %idx.ext

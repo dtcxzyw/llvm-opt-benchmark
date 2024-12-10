@@ -656,7 +656,6 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 
 19:                                               ; preds = %13, %8
   %.018 = phi i1 [ %18, %13 ], [ true, %8 ]
-  store i8 0, ptr %4, align 1
   %20 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, ptr noundef %4, i1 noundef zeroext %.018)
   %21 = load i64, ptr %9, align 8
   %22 = and i64 %21, 31

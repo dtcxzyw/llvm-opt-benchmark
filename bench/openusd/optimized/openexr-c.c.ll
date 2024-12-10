@@ -6200,7 +6200,6 @@ fill_context_data.exit.i:                         ; preds = %19
   store i32 0, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %22)
-  store ptr null, ptr %21, align 8
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store i64 0, ptr %36, align 8, !alias.scope !30
   store i64 104, ptr %22, align 8, !alias.scope !30
@@ -12609,7 +12608,6 @@ fill_context_data.exit.i:                         ; preds = %8
   store ptr %2, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14)
-  store ptr null, ptr %13, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i64 0, ptr %27, align 8, !alias.scope !64
   store i64 104, ptr %14, align 8, !alias.scope !64

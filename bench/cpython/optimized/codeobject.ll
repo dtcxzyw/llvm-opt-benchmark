@@ -3586,38 +3586,17 @@ get_line_delta.exit.i:                            ; preds = %sw.default.i.i, %sw
   store i32 %sub.i, ptr %opaque.i.i, align 8
   %11 = load i32, ptr %bounds, align 8
   store i32 %11, ptr %ar_end.i.i, align 4
-  %cmp.i.i = icmp eq i32 %11, 0
-  br i1 %cmp.i.i, label %retreat.exit, label %while.cond.i.i
-
-while.cond.i.i:                                   ; preds = %get_line_delta.exit.i, %while.cond.i.i
-  %.pn.i.i = phi ptr [ %ptr.0.i.i, %while.cond.i.i ], [ %incdec.ptr.i, %get_line_delta.exit.i ]
-  %ptr.0.i.i = getelementptr i8, ptr %.pn.i.i, i64 -1
-  %12 = load i8, ptr %ptr.0.i.i, align 1
-  %cmp1.i.i = icmp sgt i8 %12, -1
-  br i1 %cmp1.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !24
-
-while.end.i.i:                                    ; preds = %while.cond.i.i
-  %13 = shl i8 %12, 1
-  %narrow.i.i = and i8 %13, 14
-  %14 = add nuw nsw i8 %narrow.i.i, 2
-  %conv6.i.i = zext nneg i8 %14 to i32
-  br label %retreat.exit
-
-retreat.exit:                                     ; preds = %get_line_delta.exit.i, %while.end.i.i
-  %retval.0.i12.i = phi i32 [ %conv6.i.i, %while.end.i.i ], [ 1, %get_line_delta.exit.i ]
-  %sub9.i = sub i32 %11, %retval.0.i12.i
-  store i32 %sub9.i, ptr %bounds, align 8
   %arrayidx.i = getelementptr i8, ptr %incdec.ptr17.i, i64 -2
-  %15 = load i8, ptr %arrayidx.i, align 1
-  %cmp.i13.i = icmp ult i8 %15, -8
+  %12 = load i8, ptr %arrayidx.i, align 1
+  %cmp.i13.i = icmp ult i8 %12, -8
   %spec.select.i = select i1 %cmp.i13.i, i32 %sub.i, i32 -1
   store i32 %spec.select.i, ptr %ar_line.i.i, align 8
   call fastcc void @advance_with_locations(ptr noundef nonnull %bounds, ptr noundef %end_line, ptr noundef %start_column, ptr noundef %end_column)
-  %16 = load i32, ptr %ar_line.i.i, align 8
-  store i32 %16, ptr %start_line, align 4
+  %13 = load i32, ptr %ar_line.i.i, align 8
+  store i32 %13, ptr %start_line, align 4
   br label %return
 
-return:                                           ; preds = %retreat.exit, %if.then
+return:                                           ; preds = %get_line_delta.exit.i, %if.then
   ret i32 1
 }
 

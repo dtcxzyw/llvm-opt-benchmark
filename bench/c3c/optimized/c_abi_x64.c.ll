@@ -2601,9 +2601,9 @@ declare ptr @abi_arg_new_direct_coerce_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = alloca %struct.Registers, align 8
-  %3 = alloca %struct.Registers, align 8
-  %4 = alloca %struct.Registers, align 8
+  %2 = alloca %struct.Registers, align 4
+  %3 = alloca %struct.Registers, align 4
+  %4 = alloca %struct.Registers, align 4
   %5 = load i16, ptr %0, align 8
   %6 = and i16 %5, 32
   %.not = icmp eq i16 %6, 0
@@ -2633,10 +2633,9 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   %20 = tail call fastcc ptr @type_lowering(ptr noundef %19)
   %21 = tail call ptr @type_get_ptr(ptr noundef %20) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i64 0, ptr %4, align 8
   %22 = tail call fastcc ptr @type_lowering(ptr noundef readonly %21)
   %23 = call fastcc ptr @x64_classify_argument_type(ptr noundef %22, i32 noundef %spec.select, ptr noundef %4, i32 noundef 1)
-  %24 = load i32, ptr %4, align 8
+  %24 = load i32, ptr %4, align 4
   %25 = icmp ugt i32 %24, 8
   br i1 %25, label %32, label %26
 
@@ -2692,10 +2691,9 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 0, ptr %3, align 8
   %49 = tail call fastcc ptr @type_lowering(ptr noundef readonly %48)
   %50 = call fastcc ptr @x64_classify_argument_type(ptr noundef %49, i32 noundef %.sroa.7.368, ptr noundef %3, i32 noundef 1)
-  %51 = load i32, ptr %3, align 8
+  %51 = load i32, ptr %3, align 4
   %52 = icmp ult i32 %.sroa.0.269, %51
   br i1 %52, label %58, label %53
 
@@ -2758,10 +2756,9 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv75
   %76 = load ptr, ptr %75, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i64 0, ptr %2, align 8
   %77 = tail call fastcc ptr @type_lowering(ptr noundef readonly %76)
   %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.471, ptr noundef %2, i32 noundef 0)
-  %79 = load i32, ptr %2, align 8
+  %79 = load i32, ptr %2, align 4
   %80 = icmp ult i32 %.sroa.0.372, %79
   br i1 %80, label %86, label %81
 

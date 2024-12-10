@@ -1642,77 +1642,78 @@ define internal fastcc noundef zeroext i1 @ieee80211_tx(ptr noundef %0, ptr noun
 
 12:                                               ; preds = %4
   tail call void @consume_skb(ptr noundef %2) #20
-  br label %54
+  br label %55
 
 13:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !36
-  %14 = call fastcc i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2), !range !37
-  switch i32 %14, label %16 [
-    i32 1, label %15
-    i32 2, label %54
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, i8 0, i64 64, i1 false), !annotation !36
+  %15 = call fastcc i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2), !range !37
+  switch i32 %15, label %17 [
+    i32 1, label %16
+    i32 2, label %55
   ], !prof !46
 
-15:                                               ; preds = %13
-  call void @ieee80211_free_txskb(ptr noundef %7, ptr noundef %2) #20
-  br label %54
-
 16:                                               ; preds = %13
-  %17 = load i32, ptr %8, align 8
-  %18 = and i32 %17, 33554432
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %25, label %20
+  call void @ieee80211_free_txskb(ptr noundef %7, ptr noundef %2) #20
+  br label %55
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %22 = load volatile i64, ptr %21, align 8
-  %23 = and i64 %22, 262144
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %39
+17:                                               ; preds = %13
+  %18 = load i32, ptr %8, align 8
+  %19 = and i32 %18, 33554432
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %26, label %21
 
-25:                                               ; preds = %20, %16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5070
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %28 = load i16, ptr %27, align 4
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr [4 x i8], ptr %26, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %33 = load i32, ptr %32, align 4
-  %34 = and i8 %31, 15
-  %35 = zext nneg i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 17
-  %37 = and i32 %33, -1966081
-  %38 = or disjoint i32 %36, %37
-  store i32 %38, ptr %32, align 4
-  br label %39
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %23 = load volatile i64, ptr %22, align 8
+  %24 = and i64 %23, 262144
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %26, label %40
 
-39:                                               ; preds = %25, %20
-  %40 = call fastcc i32 @invoke_tx_handlers_early(ptr noundef nonnull %5), !range !38
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %54
+26:                                               ; preds = %21, %17
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5070
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 124
+  %29 = load i16, ptr %28, align 4
+  %30 = zext i16 %29 to i64
+  %31 = getelementptr [4 x i8], ptr %27, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %34 = load i32, ptr %33, align 4
+  %35 = and i8 %32, 15
+  %36 = zext nneg i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 17
+  %38 = and i32 %34, -1966081
+  %39 = or disjoint i32 %37, %38
+  store i32 %39, ptr %33, align 4
+  br label %40
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = call fastcc zeroext i1 @ieee80211_queue_skb(ptr noundef %7, ptr noundef %0, ptr noundef %44, ptr noundef %45)
-  br i1 %46, label %54, label %47
+40:                                               ; preds = %26, %21
+  %41 = call fastcc i32 @invoke_tx_handlers_early(ptr noundef nonnull %5), !range !38
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %55
 
-47:                                               ; preds = %42
-  %48 = call fastcc i32 @invoke_tx_handlers_late(ptr noundef nonnull %5), !range !38
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %54
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = call fastcc zeroext i1 @ieee80211_queue_skb(ptr noundef %7, ptr noundef %0, ptr noundef %45, ptr noundef %46)
+  br i1 %47, label %55, label %48
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %52 = load ptr, ptr %43, align 8
-  %53 = call fastcc zeroext i1 @__ieee80211_tx(ptr noundef %7, ptr noundef nonnull %51, ptr noundef %52, i1 noundef zeroext %3)
-  br label %54
+48:                                               ; preds = %43
+  %49 = call fastcc i32 @invoke_tx_handlers_late(ptr noundef nonnull %5), !range !38
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %55
 
-54:                                               ; preds = %50, %47, %42, %39, %15, %13, %12
-  %55 = phi i1 [ true, %12 ], [ true, %15 ], [ true, %13 ], [ true, %39 ], [ true, %42 ], [ true, %47 ], [ %53, %50 ]
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %53 = load ptr, ptr %44, align 8
+  %54 = call fastcc zeroext i1 @__ieee80211_tx(ptr noundef %7, ptr noundef nonnull %52, ptr noundef %53, i1 noundef zeroext %3)
+  br label %55
+
+55:                                               ; preds = %51, %48, %43, %40, %16, %13, %12
+  %56 = phi i1 [ true, %12 ], [ true, %16 ], [ true, %13 ], [ true, %40 ], [ true, %43 ], [ true, %48 ], [ %54, %51 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #20
-  ret i1 %55
+  ret i1 %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

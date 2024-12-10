@@ -636,7 +636,6 @@ mbedtls_nist_kw_setkey.exit88.thread:             ; preds = %39, %36, %33, %mbed
 
 .preheader:                                       ; preds = %52, %100
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %100 ], [ 0, %52 ]
-  store i64 48, ptr %4, align 8
   %.phi.trans.insert124 = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv119
   %.pre125 = load i32, ptr %.phi.trans.insert124, align 4
   %.pre127 = shl i32 %.pre125, 3

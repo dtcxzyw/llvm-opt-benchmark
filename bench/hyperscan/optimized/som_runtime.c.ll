@@ -1622,7 +1622,6 @@ mmbit_isset.exit4187:                             ; preds = %mmbit_isset.exit414
   br i1 %tobool5.i287.not, label %do.end69.thread, label %if.then66
 
 do.end69.thread:                                  ; preds = %mmbit_isset.exit4187
-  store i64 0, ptr %from_offset, align 8
   %325 = getelementptr i8, ptr %ri, i64 8
   %ri.val10221207 = load i64, ptr %325, align 8
   call fastcc void @runRevNfa(ptr noundef nonnull %scratch, i64 %ri.val10221207, i64 noundef %to_offset, ptr noundef %from_offset)
@@ -1878,7 +1877,6 @@ if.end6.i5200.thread:                             ; preds = %if.end.i5198, %if.e
   br label %return
 
 do.end69:                                         ; preds = %do.body.i4399
-  store i64 0, ptr %from_offset, align 8
   %378 = getelementptr i8, ptr %ri, i64 8
   %ri.val1022 = load i64, ptr %378, align 8
   call fastcc void @runRevNfa(ptr noundef %scratch, i64 %ri.val1022, i64 noundef %to_offset, ptr noundef %from_offset)

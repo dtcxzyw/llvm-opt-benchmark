@@ -3272,7 +3272,6 @@ define internal fastcc i32 @Exa_ManAddClause(ptr nocapture noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define i32 @Exa_ManSolverSolve(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
-  store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 33080
   br label %4
 
@@ -4303,7 +4302,6 @@ Abc_Clock.exit35:                                 ; preds = %46, %49
 
 56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 1, ptr %4, align 4
   br label %57
 
 thread-pre-split.i:                               ; preds = %60

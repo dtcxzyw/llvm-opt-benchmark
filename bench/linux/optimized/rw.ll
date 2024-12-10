@@ -763,7 +763,6 @@ define dso_local range(i32 -2147483648, 1) i32 @io_readv_prep_async(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store ptr null, ptr %2, align 8, !annotation !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = call fastcc i32 @io_import_iovec(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %4, i32 noundef 0)
@@ -795,7 +794,6 @@ define dso_local range(i32 -2147483648, 1) i32 @io_writev_prep_async(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store ptr null, ptr %2, align 8, !annotation !7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = call fastcc i32 @io_import_iovec(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %4, i32 noundef 0)
@@ -844,7 +842,6 @@ define internal fastcc i32 @__io_read(ptr noundef %0, i32 noundef %1) unnamed_ad
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false), !annotation !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store ptr null, ptr %4, align 8, !annotation !7
   %5 = icmp sgt i32 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
@@ -1532,7 +1529,6 @@ define dso_local i32 @io_write(ptr noundef %0, i32 noundef %1) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false), !annotation !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store ptr null, ptr %4, align 8, !annotation !7
   %5 = icmp sgt i32 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4

@@ -215,7 +215,6 @@ define internal i32 @smb_connection_state(ptr noundef %0, ptr nocapture noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 824
-  store ptr null, ptr %3, align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %26
@@ -369,7 +368,6 @@ define internal i32 @smb_request_state(ptr noundef %0, ptr nocapture noundef wri
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %14 = load ptr, ptr %13, align 8
-  store ptr null, ptr %9, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1048576

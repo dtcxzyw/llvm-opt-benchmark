@@ -206,7 +206,6 @@ if.then45:                                        ; preds = %if.else43
   %or.i187 = or i128 %shr.i173, %shl.i162
   %retval.sroa.2.0.extract.shift.i189 = lshr i128 %or.i187, 64
   %retval.sroa.2.0.extract.trunc.i190 = trunc nuw i128 %retval.sroa.2.0.extract.shift.i189 to i64
-  store i128 %or.i187, ptr %dhi, align 16
   %shl.i198 = shl i128 %1, %sh_prom.i139
   %retval.sroa.0.0.extract.trunc.i199 = trunc i128 %shl.i198 to i64
   %retval.sroa.2.0.extract.shift.i200 = lshr i128 %shl.i198, 64

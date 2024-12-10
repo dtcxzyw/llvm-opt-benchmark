@@ -66,7 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.resv_desc_msg, align 8
   %4 = alloca i32, align 4
-  store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
   %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %5, 0
@@ -727,7 +726,6 @@ declare void @slurm_free_resv_desc_msg_part(ptr noundef, i32 noundef) local_unna
 define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.resv_desc_msg, align 8
   %4 = alloca i32, align 4
-  store i32 0, ptr %4, align 4
   call void @slurm_init_resv_desc_msg(ptr noundef nonnull %3) #9
   %5 = call fastcc i32 @_parse_res_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %5, 0

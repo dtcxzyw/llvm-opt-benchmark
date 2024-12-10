@@ -10214,7 +10214,6 @@ _ZNSt6vectorI13EDLineSegmentSaIS0_EE5clearEv.exit: ; preds = %_ZNSt6vectorI8mEll
   br i1 %185, label %276, label %186
 
 186:                                              ; preds = %168
-  store double 1.000000e+10, ptr %7, align 8
   %187 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_(ptr noundef nonnull %147, ptr noundef nonnull %150, i32 noundef %137, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %188 = load double, ptr %7, align 8
@@ -20398,7 +20397,6 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %229
-  store double 1.000000e+10, ptr %8, align 8
   %235 = call noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_(ptr noundef %193, ptr noundef %196, i32 noundef %224, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %236 = load double, ptr %8, align 8
   %237 = fcmp ugt double %236, 2.000000e+00

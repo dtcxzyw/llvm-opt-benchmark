@@ -534,7 +534,6 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store i64 0, ptr %consumed, align 8
   %ch = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %next1 = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %1 = load ptr, ptr %next1, align 8

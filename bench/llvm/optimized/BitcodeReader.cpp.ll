@@ -23930,7 +23930,6 @@ _ZN4llvm5ErrorD2Ev.exit1766:                      ; preds = %3432
   br label %.critedge1284
 
 3459:                                             ; preds = %3450
-  store ptr null, ptr %328, align 8
   %3460 = load i32, ptr %325, align 4
   %.val1398 = load ptr, ptr %582, align 8
   %.val1399 = load i32, ptr %583, align 8
@@ -23948,7 +23947,6 @@ _ZN4llvm5ErrorD2Ev.exit1766:                      ; preds = %3432
   br label %.critedge1284
 
 3466:                                             ; preds = %3459
-  store ptr null, ptr %330, align 8
   %3467 = load ptr, ptr %328, align 8
   %3468 = getelementptr inbounds nuw i8, ptr %3467, i64 8
   %3469 = load ptr, ptr %3468, align 8
@@ -24214,7 +24212,6 @@ _ZN4llvm17AtomicCmpXchgInst27getStrongestFailureOrderingENS_14AtomicOrderingE.ex
   br label %.critedge1284
 
 3591:                                             ; preds = %3587
-  store ptr null, ptr %347, align 8
   %3592 = load ptr, ptr %344, align 8
   %3593 = getelementptr inbounds nuw i8, ptr %3592, i64 8
   %3594 = load ptr, ptr %3593, align 8

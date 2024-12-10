@@ -799,7 +799,6 @@ _ZN12_GLOBAL__N_113COFFAsmParser17ParseSectionFlagsEN4llvm9StringRefES2_Pj.exit:
   br i1 %193, label %194, label %247
 
 194:                                              ; preds = %184
-  store i8 2, ptr %8, align 1
   %195 = load ptr, ptr %14, align 8
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 184
@@ -1910,7 +1909,6 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  store i8 2, ptr %5, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8

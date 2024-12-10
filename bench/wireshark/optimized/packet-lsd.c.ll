@@ -138,7 +138,6 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   %6 = alloca i16, align 2
   store i32 0, ptr %4, align 4
   %7 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0) #3
-  store i32 %7, ptr %5, align 4
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %77, label %9
 
@@ -168,7 +167,6 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
 25:                                               ; preds = %9
   %26 = load i32, ptr %4, align 4
   %27 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %26, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0) #3
-  store i32 %27, ptr %5, align 4
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
 
@@ -223,7 +221,6 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
 60:                                               ; preds = %53
   %61 = load i32, ptr %4, align 4
   %62 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %61, i32 noundef -1, ptr noundef nonnull %4, i32 noundef 0) #3
-  store i32 %62, ptr %5, align 4
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %64, label %66
 

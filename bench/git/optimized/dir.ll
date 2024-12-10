@@ -2281,7 +2281,6 @@ entry:
   %st = alloca %struct.stat, align 8
   %size = alloca i64, align 8
   %buf = alloca ptr, align 8
-  store i64 0, ptr %size, align 8
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then

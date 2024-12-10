@@ -993,7 +993,6 @@ define dso_local ptr @rb_reg_prepare_re(i64 noundef %0, i64 noundef %1) local_un
   %9 = alloca %struct.re_pattern_buffer, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr null, ptr %5, align 8
   %12 = tail call fastcc ptr @rb_reg_prepare_enc(i64 noundef %0, i64 noundef %1, i32 noundef 1)
   %13 = inttoptr i64 %0 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2142,7 +2141,6 @@ define hidden i64 @rb_reg_check_preprocess(i64 noundef %0) local_unnamed_addr #1
   %4 = alloca [90 x i8], align 16
   %5 = alloca ptr, align 8
   store i64 %0, ptr %2, align 8
-  store ptr null, ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(90) %4, i8 0, i64 90, i1 false)
   %6 = call i64 @rb_string_value(ptr noundef nonnull %2) #28
   %7 = load i64, ptr %2, align 8
@@ -2633,7 +2631,6 @@ define internal fastcc range(i32 -1, 1) i32 @rb_reg_initialize(i64 noundef %0, p
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = inttoptr i64 %0 to ptr
-  store ptr null, ptr %11, align 8
   %14 = tail call nonnull ptr @rb_ascii8bit_encoding() #28
   %15 = and i64 %0, 7
   %16 = icmp ne i64 %15, 0

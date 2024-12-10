@@ -1539,7 +1539,6 @@ if.end25:                                         ; preds = %if.end19, %while.bo
   %10 = xor i32 %x.0, -1
   %sub30 = add i32 %ucbits.0109, %10
   %rem = and i32 %sub30, 63
-  store i32 %x.0, ptr %msbs, align 4
   %cmp31 = icmp ugt i32 %x.0, %shr
   br i1 %cmp31, label %return, label %if.end33
 
@@ -1794,7 +1793,6 @@ if.end25:                                         ; preds = %if.end19, %while.bo
   %10 = xor i32 %x.0, -1
   %sub30 = add i32 %ucbits.0109, %10
   %rem = and i32 %sub30, 63
-  store i32 %x.0, ptr %msbs, align 4
   %cmp31 = icmp ugt i32 %x.0, %shr
   br i1 %cmp31, label %return, label %if.end33
 

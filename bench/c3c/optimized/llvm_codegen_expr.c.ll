@@ -1325,7 +1325,6 @@ llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %4
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %40) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %1) #10
-  store i32 0, ptr %7, align 4
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12437,7 +12436,6 @@ llvm_emit_ptradd_raw.exit15:                      ; preds = %22, %30, %32
 define dso_local void @llvm_emit_subarray_len(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef %1) #10
-  store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12719,7 +12717,6 @@ llvm_emit_coerce_alignment.exit:                  ; preds = %60, %66
   %140 = or i32 %135, %139
   %141 = sub i32 0, %140
   %142 = and i32 %140, %141
-  store i32 %142, ptr %8, align 4
   %143 = tail call ptr @LLVMStructGetTypeAtIndex(ptr noundef %125, i32 noundef 0) #10
   %144 = tail call ptr @llvm_load(ptr noundef %0, ptr noundef %143, ptr noundef %132, i32 noundef %142, ptr noundef nonnull @.str.68) #10
   %145 = load i32, ptr %2, align 4
@@ -12935,7 +12932,6 @@ llvm_emit_coerce_alignment.exit241:               ; preds = %263, %268
   %275 = or i32 %.0245, %274
   %276 = sub i32 0, %275
   %277 = and i32 %275, %276
-  store i32 %277, ptr %8, align 4
   %278 = tail call ptr @llvm_load(ptr noundef %0, ptr noundef %252, ptr noundef %.0.i240, i32 noundef %277, ptr noundef nonnull @.str.68) #10
   %279 = load i32, ptr %2, align 4
   %280 = add i32 %279, 1
@@ -16104,66 +16100,63 @@ define internal fastcc void @llvm_emit_type_from_any(ptr noundef %0, ptr noundef
   %4 = and i8 %.val, 31
   %5 = add nsw i8 %4, -1
   %spec.select.i = icmp ult i8 %5, 2
-  br i1 %spec.select.i, label %6, label %16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8
+  br i1 %spec.select.i, label %8, label %16
 
-6:                                                ; preds = %2
-  store i32 0, ptr %3, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8
+8:                                                ; preds = %2
   %9 = load ptr, ptr @type_anyptr, align 8
   %10 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %9) #10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = call ptr @llvm_emit_struct_gep_raw(ptr noundef %0, ptr noundef %8, ptr noundef %10, i32 noundef 1, i32 noundef %12, ptr noundef nonnull %3)
+  %13 = call ptr @llvm_emit_struct_gep_raw(ptr noundef %0, ptr noundef %7, ptr noundef %10, i32 noundef 1, i32 noundef %12, ptr noundef nonnull %3)
   %14 = load ptr, ptr @type_typeid, align 8
   %15 = load i32, ptr %3, align 4
   tail call void @llvm_value_set_address(ptr noundef nonnull %1, ptr noundef %13, ptr noundef %14, i32 noundef %15) #10
-  br label %44
+  br label %42
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @LLVMTypeOf(ptr noundef %18) #10
-  %20 = tail call i32 @LLVMGetTypeKind(ptr noundef %19) #10
-  %21 = icmp eq i32 %20, 13
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8
-  br i1 %21, label %24, label %40
+  %17 = tail call ptr @LLVMTypeOf(ptr noundef %7) #10
+  %18 = tail call i32 @LLVMGetTypeKind(ptr noundef %17) #10
+  %19 = icmp eq i32 %18, 13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = load ptr, ptr %20, align 8
+  br i1 %19, label %22, label %38
 
-24:                                               ; preds = %16
-  %25 = load ptr, ptr @type_usz, align 8
-  %26 = tail call fastcc ptr @type_lowering(ptr noundef %25)
-  %27 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %26) #10
-  %28 = load i32, ptr %26, align 8
-  %29 = icmp eq i32 %28, 31
-  br i1 %29, label %30, label %34
+22:                                               ; preds = %16
+  %23 = load ptr, ptr @type_usz, align 8
+  %24 = tail call fastcc ptr @type_lowering(ptr noundef %23)
+  %25 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %24) #10
+  %26 = load i32, ptr %24, align 8
+  %27 = icmp eq i32 %26, 31
+  br i1 %27, label %28, label %32
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %32, align 8
-  br label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr %30, align 8
+  br label %32
 
-34:                                               ; preds = %30, %24
-  %.0 = phi i32 [ %33, %30 ], [ %28, %24 ]
-  %35 = add i32 %.0, -3
-  %36 = icmp ult i32 %35, 5
-  %37 = zext i1 %36 to i32
-  %38 = tail call ptr @LLVMConstInt(ptr noundef %27, i64 noundef 1, i32 noundef %37) #10
-  %39 = tail call ptr @LLVMBuildExtractElement(ptr noundef %23, ptr noundef %18, ptr noundef %38, ptr noundef nonnull @.str.3) #10
+32:                                               ; preds = %28, %22
+  %.0 = phi i32 [ %31, %28 ], [ %26, %22 ]
+  %33 = add i32 %.0, -3
+  %34 = icmp ult i32 %33, 5
+  %35 = zext i1 %34 to i32
+  %36 = tail call ptr @LLVMConstInt(ptr noundef %25, i64 noundef 1, i32 noundef %35) #10
+  %37 = tail call ptr @LLVMBuildExtractElement(ptr noundef %21, ptr noundef %7, ptr noundef %36, ptr noundef nonnull @.str.3) #10
+  br label %40
+
+38:                                               ; preds = %16
+  %39 = tail call ptr @LLVMBuildExtractValue(ptr noundef %21, ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.3) #10
+  br label %40
+
+40:                                               ; preds = %38, %32
+  %.028 = phi ptr [ %37, %32 ], [ %39, %38 ]
+  %41 = load ptr, ptr @type_typeid, align 8
+  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.028, ptr noundef %41) #10
   br label %42
 
-40:                                               ; preds = %16
-  %41 = tail call ptr @LLVMBuildExtractValue(ptr noundef %23, ptr noundef %18, i32 noundef 1, ptr noundef nonnull @.str.3) #10
-  br label %42
-
-42:                                               ; preds = %40, %34
-  %.028 = phi ptr [ %39, %34 ], [ %41, %40 ]
-  %43 = load ptr, ptr @type_typeid, align 8
-  tail call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %.028, ptr noundef %43) #10
-  br label %44
-
-44:                                               ; preds = %42, %6
+42:                                               ; preds = %40, %8
   ret void
 }
 

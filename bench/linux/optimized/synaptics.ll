@@ -244,7 +244,6 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #3
 define dso_local i32 @synaptics_init_absolute(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.synaptics_device_info, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false), !annotation !5
   %3 = tail call i32 @psmouse_reset(ptr noundef %0) #12
   %4 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %2)
   %5 = icmp eq i32 %4, 0
@@ -271,7 +270,6 @@ define dso_local i32 @synaptics_init_absolute(ptr noundef %0) local_unnamed_addr
 define dso_local i32 @synaptics_init_relative(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.synaptics_device_info, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false), !annotation !5
   %3 = tail call i32 @psmouse_reset(ptr noundef %0) #12
   %4 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %2)
   %5 = icmp eq i32 %4, 0
@@ -300,7 +298,6 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
   %3 = alloca %struct.i2c_board_info, align 8
   %4 = alloca %struct.synaptics_device_info, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %5 = tail call i32 @psmouse_reset(ptr noundef %0) #12
   %6 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 0
@@ -538,7 +535,6 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %3 = alloca %struct.i2c_board_info, align 8
   %4 = alloca %struct.synaptics_device_info, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   %5 = tail call i32 @psmouse_reset(ptr noundef %0) #12
   %6 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 0

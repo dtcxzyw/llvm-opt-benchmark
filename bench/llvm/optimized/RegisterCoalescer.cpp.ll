@@ -7315,7 +7315,6 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5countEPKS1_.exit65: ; preds = %.
   br i1 %.not105, label %70, label %.sink.split
 
 70:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5countEPKS1_.exit65
-  store i8 0, ptr %5, align 1
   %71 = load ptr, ptr %.034113, align 8
   %72 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer8joinCopyEPN4llvm12MachineInstrERbRNS1_15SmallPtrSetImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %71, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(28) %4)
   %73 = or i1 %.0114, %72
@@ -10672,7 +10671,6 @@ _ZN12_GLOBAL__N_117RegisterCoalescer11canJoinPhysERKN4llvm13CoalescerPairE.exit:
   br i1 %1081, label %_ZN4llvm13CoalescerPair4flipEv.exit, label %_ZN12_GLOBAL__N_117RegisterCoalescer11canJoinPhysERKN4llvm13CoalescerPairE.exit.thread
 
 _ZN12_GLOBAL__N_117RegisterCoalescer11canJoinPhysERKN4llvm13CoalescerPairE.exit.thread: ; preds = %1044, %_ZN12_GLOBAL__N_117RegisterCoalescer11canJoinPhysERKN4llvm13CoalescerPairE.exit
-  store i8 0, ptr %20, align 1
   %1082 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer23reMaterializeTrivialDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrERb(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %20)
   br i1 %1082, label %2022, label %1083
 

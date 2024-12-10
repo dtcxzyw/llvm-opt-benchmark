@@ -1815,7 +1815,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction35EmitScalarCompoundAss
 
 _ZL12getComplexOpN5clang18BinaryOperatorKindE.exit: ; preds = %4, %10, %11, %12
   %.sroa.0.0.i = phi i64 [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinAddERKNS0_9BinOpInfoE to i64), %12 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinSubERKNS0_9BinOpInfoE to i64), %11 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinDivERKNS0_9BinOpInfoE to i64), %10 ], [ ptrtoint (ptr @_ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE to i64), %4 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %5, i8 0, i64 16, i1 false)
   store ptr %1, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -16153,7 +16152,6 @@ declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine21EmitCurrentDiagnosticE
 define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter18EmitCompoundAssignEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEE(ptr noundef nonnull align 8 dereferenceable(19) initializes((16, 18)) %0, ptr nocapture noundef readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::RValue", align 8
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %4, i8 0, i64 16, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitCompoundAssignLValueEPKN5clang22CompoundAssignOperatorEMS0_FSt4pairIPN4llvm5ValueES8_ERKNS0_9BinOpInfoEERNS1_7CodeGen6RValueE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(49) %4)
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144

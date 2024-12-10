@@ -3755,7 +3755,6 @@ define hidden noundef ptr @_ZN11OptoRuntime18handle_exception_CEP10JavaThread(pt
   %3 = alloca %class.RegisterMap, align 8
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.frame, align 8
-  store ptr null, ptr %2, align 8
   %6 = call noundef ptr @_ZN11OptoRuntime25handle_exception_C_helperEP10JavaThreadRP7nmethod(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %7 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %7, null

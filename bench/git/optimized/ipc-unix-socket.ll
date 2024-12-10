@@ -49,7 +49,6 @@ entry:
   %st = alloca %struct.stat, align 8
   %connection_test = alloca ptr, align 8
   store i32 0, ptr %options, align 4
-  store ptr null, ptr %connection_test, align 8
   %call = call i32 @lstat64(ptr noundef %path, ptr noundef nonnull %st) #12
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -299,7 +298,6 @@ declare i64 @read_packetized_to_strbuf(i32 noundef, ptr noundef, i32 noundef) lo
 define dso_local range(i32 -1, 1) i32 @ipc_client_send_command(ptr noundef %path, ptr nocapture noundef readonly %options, ptr noundef %message, i64 noundef %message_len, ptr noundef %answer) local_unnamed_addr #0 {
 entry:
   %connection = alloca ptr, align 8
-  store ptr null, ptr %connection, align 8
   %call = call i32 @ipc_client_try_connect(ptr noundef %path, ptr noundef %options, ptr noundef nonnull %connection)
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return

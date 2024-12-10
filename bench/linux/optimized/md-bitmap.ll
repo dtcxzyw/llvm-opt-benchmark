@@ -4810,7 +4810,6 @@ define dso_local range(i32 -28, 1) i32 @md_bitmap_load(ptr noundef %0) #0 align 
 .preheader5:                                      ; preds = %25, %.preheader5
   %29 = phi i64 [ %32, %.preheader5 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
-  store i64 0, ptr %3, align 8, !annotation !23
   %30 = call i32 @md_bitmap_start_sync(ptr noundef nonnull %5, i64 noundef %29, ptr noundef nonnull %3, i32 noundef 0), !range !47
   %31 = load i64, ptr %3, align 8
   %32 = add i64 %31, %29

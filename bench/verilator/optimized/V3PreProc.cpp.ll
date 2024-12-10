@@ -14005,7 +14005,6 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE10push_f
   br i1 %.not.us, label %120, label %.loopexit
 
 120:                                              ; preds = %.critedge.us
-  store i8 0, ptr %7, align 1
   call void @_ZN8V3PreLex11endOfStreamB5cxx11ERb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %121 = load ptr, ptr %11, align 8, !noalias !613
   %122 = load ptr, ptr %13, align 8, !noalias !613
@@ -14066,7 +14065,6 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE10push_f
   br label %.loopexit56
 
 .critedge:                                        ; preds = %62, %180
-  store i8 0, ptr %7, align 1
   call void @_ZN8V3PreLex11endOfStreamB5cxx11ERb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %148 = load ptr, ptr %11, align 8, !noalias !613
   %149 = load ptr, ptr %13, align 8, !noalias !613

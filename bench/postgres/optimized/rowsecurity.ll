@@ -156,8 +156,6 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %.not135, label %88, label %85
 
 85:                                               ; preds = %78
-  store ptr null, ptr %14, align 8
-  store ptr null, ptr %15, align 8
   call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %14, ptr noundef %15)
   %86 = load ptr, ptr %14, align 8
   %87 = load ptr, ptr %15, align 8
@@ -180,8 +178,6 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %95, label %96, label %.thread142
 
 96:                                               ; preds = %92
-  store ptr null, ptr %18, align 8
-  store ptr null, ptr %19, align 8
   call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef %16, ptr noundef %17)
   %97 = load ptr, ptr %16, align 8
   %98 = load ptr, ptr %17, align 8

@@ -1026,7 +1026,6 @@ xar_hash_final.exit368.thread433:                 ; preds = %326, %351, %xar_has
 356:                                              ; preds = %xar_hash_final.exit368.thread433
   %357 = load ptr, ptr @xmlFree, align 8
   call void %357(ptr noundef nonnull %355) #9
-  store ptr null, ptr %12, align 8
   br label %358
 
 358:                                              ; preds = %356, %xar_hash_final.exit368.thread433
@@ -1037,7 +1036,6 @@ xar_hash_final.exit368.thread433:                 ; preds = %326, %351, %xar_has
 360:                                              ; preds = %358
   %361 = load ptr, ptr @xmlFree, align 8
   call void %361(ptr noundef nonnull %359) #9
-  store ptr null, ptr %13, align 8
   br label %362
 
 362:                                              ; preds = %360, %358

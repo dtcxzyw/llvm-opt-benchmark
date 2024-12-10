@@ -516,7 +516,6 @@ define dso_local void @get_random_bytes(ptr noundef %0, i64 noundef %1) #0 align
   br i1 %5, label %_get_random_bytes.exit, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !7
   %7 = tail call i64 @llvm.umin.i64(i64 %1, i64 32)
   call fastcc void @crng_make_state(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %7)
@@ -590,7 +589,6 @@ define dso_local zeroext i8 @get_random_u8() #0 align 16 {
 8:                                                ; preds = %5
   store i8 0, ptr %4, align 1, !annotation !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #17, !srcloc !25
@@ -622,7 +620,6 @@ define dso_local zeroext i8 @get_random_u8() #0 align 16 {
 
 21:                                               ; preds = %17, %.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %1, ptr noundef %12, i64 noundef 32)
   %22 = getelementptr i8, ptr %12, i64 32
   call void @chacha_block_generic(ptr noundef nonnull %1, ptr noundef %22, i32 noundef 20) #17
@@ -676,7 +673,6 @@ define dso_local zeroext i16 @get_random_u16() #0 align 16 {
 8:                                                ; preds = %5
   store i16 0, ptr %4, align 2, !annotation !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef 2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #17, !srcloc !25
@@ -708,7 +704,6 @@ define dso_local zeroext i16 @get_random_u16() #0 align 16 {
 
 21:                                               ; preds = %17, %.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %1, ptr noundef %12, i64 noundef 32)
   %22 = getelementptr i8, ptr %12, i64 32
   call void @chacha_block_generic(ptr noundef nonnull %1, ptr noundef %22, i32 noundef 20) #17
@@ -762,7 +757,6 @@ define dso_local i32 @get_random_u32() #0 align 16 {
 8:                                                ; preds = %5
   store i32 0, ptr %4, align 4, !annotation !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #17, !srcloc !25
@@ -794,7 +788,6 @@ define dso_local i32 @get_random_u32() #0 align 16 {
 
 21:                                               ; preds = %17, %.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %1, ptr noundef %12, i64 noundef 32)
   %22 = getelementptr i8, ptr %12, i64 32
   call void @chacha_block_generic(ptr noundef nonnull %1, ptr noundef %22, i32 noundef 20) #17
@@ -848,7 +841,6 @@ define dso_local i64 @get_random_u64() #0 align 16 {
 8:                                                ; preds = %5
   store i64 0, ptr %4, align 8, !annotation !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %2, ptr noundef nonnull %4, i64 noundef 8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #17, !srcloc !25
@@ -880,7 +872,6 @@ define dso_local i64 @get_random_u64() #0 align 16 {
 
 21:                                               ; preds = %17, %.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !7
   call fastcc void @crng_make_state(ptr noundef nonnull %1, ptr noundef %12, i64 noundef 32)
   %22 = getelementptr i8, ptr %12, i64 32
   call void @chacha_block_generic(ptr noundef nonnull %1, ptr noundef %22, i32 noundef 20) #17

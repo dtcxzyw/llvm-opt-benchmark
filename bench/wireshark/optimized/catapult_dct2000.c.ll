@@ -433,8 +433,6 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_read(ptr noundef %0, ptr n
   br label %26
 
 26:                                               ; preds = %51, %6
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
   store i8 0, ptr %19, align 1
   %27 = load ptr, ptr %0, align 8
   %28 = call i64 @file_tell(ptr noundef %27) #17
@@ -574,8 +572,6 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_seek_read(ptr noundef %0, 
   %22 = alloca i32, align 4
   %23 = alloca [22 x i8], align 16
   store i8 0, ptr %12, align 1
-  store i32 0, ptr %16, align 4
-  store i32 0, ptr %17, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @__errno_location() #16

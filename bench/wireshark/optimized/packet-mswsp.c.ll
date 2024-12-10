@@ -5476,7 +5476,6 @@ define internal i32 @parse_RANGEBOUNDARY(ptr noundef %0, ptr noundef %1, i32 nou
   %19 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.1127, i32 noundef %16) #10
   %20 = add i32 %2, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
   %21 = call fastcc i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %20, ptr noundef %15, ptr noundef nonnull %8, ptr noundef nonnull @.str.1128)
   %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #10
   %23 = load i32, ptr @hf_mswsp_rangeboundry_labelpresent, align 4

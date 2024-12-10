@@ -319,7 +319,6 @@ define hidden noundef range(i32 -1, 256) i32 @_ZN2OT4cff132lookup_standard_encod
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %struct.bounds_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
   br i1 %6, label %7, label %44
 

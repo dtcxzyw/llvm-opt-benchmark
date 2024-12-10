@@ -41,7 +41,6 @@ define range(i32 0, 2) i32 @TS_RESP_verify_signature(ptr noundef %token, ptr nou
 entry:
   %chain = alloca ptr, align 8
   %buf = alloca [4096 x i8], align 16
-  store ptr null, ptr %chain, align 8
   %tobool.not = icmp eq ptr %token, null
   br i1 %tobool.not, label %if.then, label %if.end
 

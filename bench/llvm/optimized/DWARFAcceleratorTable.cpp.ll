@@ -4314,7 +4314,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loop
   br label %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7
 
 10:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit
-  %11 = phi i8 [ %6, %.lr.ph ], [ %45, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
+  %11 = phi i8 [ %6, %.lr.ph ], [ %44, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
   %.sroa.010.031 = phi ptr [ null, %.lr.ph ], [ %.sroa.010.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
   %.sroa.11.030 = phi ptr [ null, %.lr.ph ], [ %.sroa.11.2, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
   %.sroa.6.029 = phi ptr [ null, %.lr.ph ], [ %.sroa.6.1, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit ]
@@ -4394,64 +4394,58 @@ _ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJ
   %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.6.029, %16 ]
   %.sroa.11.2 = phi ptr [ %37, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.030, %16 ]
   %.sroa.010.2 = phi ptr [ %30, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.010.031, %16 ]
-  %39 = inttoptr i64 %.in to ptr
   %.sroa.6.1 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
-  %40 = trunc i8 %38 to i1
-  br i1 %40, label %41, label %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit
+  %39 = trunc i8 %38 to i1
+  %.not.i.i = icmp ne i64 %.in, 0
+  %or.cond.not = select i1 %39, i1 %.not.i.i, i1 false
+  br i1 %or.cond.not, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, label %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit
 
-41:                                               ; preds = %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
-  %.not.i.i = icmp eq i64 %.in, 0
-  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
-
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %41
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %39) #27
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3
-
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %41
-  store ptr null, ptr %4, align 8
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
+  %40 = inttoptr i64 %.in to ptr
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #27
   br label %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit: ; preds = %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i3
+_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
   call void @_ZN4llvm15DWARFDebugNames9NameIndex24extractAttributeEncodingEPm(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %4, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2)
-  %45 = load i8, ptr %5, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loopexit, label %10, !llvm.loop !197
+  %44 = load i8, ptr %5, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loopexit, label %10, !llvm.loop !197
 
 _ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7.thread: ; preds = %10
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, -2
-  store i8 %49, ptr %47, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i8, ptr %46, align 8
+  %48 = and i8 %47, -2
+  store i8 %48, ptr %46, align 8
   store ptr %.sroa.010.031, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.029, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.11.030, ptr %51, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.6.029, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.11.030, ptr %50, align 8
   br label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit
 
 _ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7: ; preds = %3, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loopexit
   %.sroa.11.0.lcssa = phi i64 [ 0, %3 ], [ %9, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loopexit ]
   %.sroa.010.0.lcssa = phi ptr [ null, %3 ], [ %.sroa.010.2, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.loopexit ]
-  %52 = load i64, ptr %4, align 8, !noalias !198
-  %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %55 = load i8, ptr %54, align 8
-  %56 = or i8 %55, 1
-  store i8 %56, ptr %54, align 8
-  store ptr %53, ptr %0, align 8, !alias.scope !201
+  %51 = load i64, ptr %4, align 8, !noalias !198
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = load i8, ptr %53, align 8
+  %55 = or i8 %54, 1
+  store i8 %55, ptr %53, align 8
+  store ptr %52, ptr %0, align 8, !alias.scope !201
   %.not.i.i.i8 = icmp eq ptr %.sroa.010.0.lcssa, null
-  br i1 %.not.i.i.i8, label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit, label %57
+  br i1 %.not.i.i.i8, label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit, label %56
 
-57:                                               ; preds = %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7
-  %58 = ptrtoint ptr %.sroa.010.0.lcssa to i64
-  %59 = sub i64 %.sroa.11.0.lcssa, %58
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.010.0.lcssa, i64 noundef %59) #29
+56:                                               ; preds = %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7
+  %57 = ptrtoint ptr %.sroa.010.0.lcssa to i64
+  %58 = sub i64 %.sroa.11.0.lcssa, %57
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.010.0.lcssa, i64 noundef %58) #29
   br label %_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7.thread, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7, %57
+_ZNSt6vectorIN4llvm15DWARFDebugNames17AttributeEncodingESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7.thread, %_ZN4llvm8ExpectedINS_15DWARFDebugNames17AttributeEncodingEED2Ev.exit7, %56
   ret void
 }
 

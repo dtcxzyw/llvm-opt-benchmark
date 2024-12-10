@@ -10394,7 +10394,6 @@ define dso_local i32 @do_tcp_getsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
 
 137:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %9, i8 0, i64 248, i1 false), !annotation !16
   br i1 %22, label %138, label %142
 
 138:                                              ; preds = %137

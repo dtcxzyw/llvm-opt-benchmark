@@ -2260,7 +2260,6 @@ if.end22:                                         ; preds = %if.end17
   store ptr %params, ptr %params, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   store ptr %params, ptr %Next2.i.i.i.i.i, align 8
-  store ptr null, ptr %thisConstraint, align 8
   %call23 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef nonnull align 8 dereferenceable(8) %thisConstraint)
   %6 = extractvalue { i64, i8 } %call23, 0
   %7 = extractvalue { i64, i8 } %call23, 1
@@ -10841,7 +10840,6 @@ if.end12:                                         ; preds = %if.end8
   store ptr %params, ptr %params, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   store ptr %params, ptr %Next2.i.i.i.i.i, align 8
-  store ptr null, ptr %thisConstraint, align 8
   %call13 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef nonnull align 8 dereferenceable(8) %thisConstraint)
   %5 = extractvalue { i64, i8 } %call13, 1
   %tobool.i3 = trunc i8 %5 to i1
@@ -13656,7 +13654,6 @@ entry:
   store ptr %params, ptr %params, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   store ptr %params, ptr %Next2.i.i.i.i.i, align 8
-  store ptr null, ptr %thisConstraint, align 8
   %call = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 53, ptr noundef nonnull @.str.103, ptr noundef null, ptr null) #10
   br i1 %call, label %if.end, label %return
 

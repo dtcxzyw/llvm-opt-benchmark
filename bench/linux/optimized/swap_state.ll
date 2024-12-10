@@ -1361,7 +1361,6 @@ define dso_local ptr @read_swap_cache_async(i64 %0, i32 noundef %1, ptr noundef 
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #11
-  store i8 0, ptr %6, align 1, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store i64 0, ptr %7, align 8, !annotation !5
   %8 = call ptr @get_vma_policy(ptr noundef %2, i64 noundef %3, i32 noundef 0, ptr noundef nonnull %7) #11

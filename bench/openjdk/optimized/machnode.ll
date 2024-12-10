@@ -1018,7 +1018,6 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %30, %33, %36
 define hidden noundef ptr @_ZNK8MachNode8adr_typeEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  store i64 0, ptr %2, align 8
   store ptr inttoptr (i64 -1 to ptr), ptr %3, align 8
   %4 = call noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = load ptr, ptr %3, align 8

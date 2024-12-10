@@ -294,7 +294,6 @@ _ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_Delete
   store ptr %9, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr %16, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %19, align 8
   store ptr null, ptr %18, align 8

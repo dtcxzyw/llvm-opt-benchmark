@@ -17829,7 +17829,6 @@ define hidden void @_ZN12GraphBuilder24check_args_for_profilingEP13GrowableArray
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
-  store i32 0, ptr %5, align 4
   %6 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %3)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
@@ -19233,7 +19232,6 @@ _ZN12GraphBuilder13profile_callsEv.exit292:       ; preds = %757
 766:                                              ; preds = %.sink.split457, %763
   %.0184 = phi ptr [ null, %763 ], [ %765, %.sink.split457 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 0, ptr %3, align 4
   %767 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext false)
   %768 = icmp eq ptr %767, null
   br i1 %768, label %_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb.exit, label %769
@@ -32296,7 +32294,6 @@ _ZN12GraphBuilder13profile_callsEv.exit:          ; preds = %227
   br i1 %231, label %232, label %_ZN12GraphBuilder13profile_callsEv.exit.thread
 
 232:                                              ; preds = %_ZN12GraphBuilder13profile_callsEv.exit
-  store i32 0, ptr %7, align 4
   %233 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext %86)
   %.not123 = icmp eq ptr %233, null
   br i1 %.not123, label %.critedge, label %234

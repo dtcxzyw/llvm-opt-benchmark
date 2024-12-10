@@ -733,7 +733,6 @@ define internal range(i32 0, 2) i32 @vwr_read(ptr nocapture noundef readonly %0,
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
-  store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   %12 = load ptr, ptr %0, align 8

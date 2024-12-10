@@ -437,7 +437,6 @@ define internal fastcc noundef zeroext i1 @intel_set_max_freq_ratio() unnamed_ad
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store i64 0, ptr %1, align 8, !annotation !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   store i64 0, ptr %2, align 8, !annotation !29
   %3 = call fastcc zeroext i1 @slv_set_max_freq_ratio(ptr noundef nonnull %1, ptr noundef nonnull %2) #10

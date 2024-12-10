@@ -1239,7 +1239,6 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writ
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2725, ptr noundef nonnull @__func__.slurmdb_unpack_wckey_rec) #6
-  store ptr null, ptr %6, align 8
   store ptr %7, ptr %0, align 8
   %8 = icmp ugt i16 %1, 9983
   br i1 %8, label %9, label %46
@@ -3339,7 +3338,6 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  store ptr null, ptr %7, align 8
   store ptr null, ptr %0, align 8
   %8 = icmp ugt i16 %1, 9983
   br i1 %8, label %9, label %36

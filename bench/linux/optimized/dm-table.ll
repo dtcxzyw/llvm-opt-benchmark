@@ -869,7 +869,6 @@ define dso_local i32 @dm_table_add_target(ptr noundef %0, ptr noundef %1, i64 no
   br label %159
 
 115:                                              ; preds = %101, %112
-  store i32 0, ptr %6, align 4, !annotation !12
   store ptr null, ptr %7, align 8, !annotation !12
   %116 = call i32 @dm_split_args(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4), !range !23
   %117 = icmp eq i32 %116, 0

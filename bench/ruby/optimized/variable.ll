@@ -437,7 +437,6 @@ define internal noundef i64 @no_fallback(i64 %0, i64 noundef returned %1) #5 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_set_class_path_string(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  store i8 1, ptr %4, align 1
   %5 = load i64, ptr @rb_cObject, align 8
   %6 = icmp eq i64 %1, %5
   br i1 %6, label %7, label %9

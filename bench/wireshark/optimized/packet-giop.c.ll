@@ -3154,7 +3154,6 @@ define internal fastcc void @dissect_tk_struct_params(ptr noundef %0, ptr nounde
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 4) #14
   %15 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %9)
-  store ptr null, ptr %11, align 8
   %16 = load i32, ptr %10, align 4
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @hf_giop_repoid, align 4
@@ -3242,7 +3241,6 @@ define internal fastcc void @dissect_tk_union_params(ptr noundef %0, ptr noundef
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %10, ptr noundef nonnull %9)
-  store ptr null, ptr %11, align 8
   %13 = load i32, ptr %10, align 4
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @hf_giop_repoid, align 4
@@ -3354,7 +3352,6 @@ define internal fastcc void @dissect_tk_enum_params(ptr noundef %0, ptr %.408.va
   %9 = alloca ptr, align 8
   %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %.408.val, i64 noundef 4) #14
   %11 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %7)
-  store ptr null, ptr %9, align 8
   %12 = load i32, ptr %8, align 4
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr @hf_giop_repoid, align 4
@@ -3534,7 +3531,6 @@ define internal fastcc void @dissect_tk_alias_params(ptr noundef %0, ptr noundef
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %9)
-  store ptr null, ptr %11, align 8
   %13 = load i32, ptr %10, align 4
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @hf_giop_repoid, align 4

@@ -2008,7 +2008,6 @@ define internal void @trace_event_raw_event_device_pm_callback_start(ptr noundef
   br i1 %15, label %80, label %16
 
 16:                                               ; preds = %14, %11, %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !33
   %17 = call fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
   %18 = sext i32 %17 to i64
@@ -2113,7 +2112,6 @@ define internal void @perf_trace_device_pm_callback_start(ptr noundef %0, ptr no
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   store ptr null, ptr %6, align 8, !annotation !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9

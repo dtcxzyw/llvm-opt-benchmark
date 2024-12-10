@@ -197,11 +197,8 @@ for.body20:                                       ; preds = %for.body.preheader,
   %xor20.i19 = xor i64 %and14.i, %16
   store i64 %xor20.i19, ptr %arrayidx1.i, align 8
   %xor22.i = xor i64 %and15.i, %17
-  store i64 %xor22.i, ptr %arrayidx2.i, align 16
   %xor24.i = xor i64 %and16.i, %18
-  store i64 %xor24.i, ptr %arrayidx3.i, align 8
   %xor26.i = xor i64 %and17.i, %19
-  store i64 %xor26.i, ptr %arrayidx4.i, align 16
   %xor28.i = xor i64 %and.i, %x3.sroa.0.0565
   %xor30.i = xor i64 %and14.i, %x3.sroa.10.0564
   %xor32.i = xor i64 %and15.i, %x3.sroa.19.0563

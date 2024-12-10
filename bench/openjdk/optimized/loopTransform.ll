@@ -21927,9 +21927,6 @@ _ZN13IdealLoopTree12is_innermostEv.exit:          ; preds = %69, %_ZN14PhaseIdea
 
 127:                                              ; preds = %122
   store ptr null, ptr %3, align 8
-  store ptr null, ptr %4, align 8
-  store ptr null, ptr %5, align 8
-  store ptr null, ptr %6, align 8
   %128 = call noundef zeroext i1 @_ZN14PhaseIdealLoop15match_fill_loopEP13IdealLoopTreeRP4NodeS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %128, label %_ZNK15CountedLoopNode8loopexitEv.exit, label %_ZN13IdealLoopTree10is_countedEv.exit.thread
 

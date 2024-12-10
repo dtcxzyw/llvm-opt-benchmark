@@ -128,7 +128,6 @@ define internal void @action_move(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr null, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread29, label %6
 

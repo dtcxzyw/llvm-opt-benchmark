@@ -3984,7 +3984,6 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
 
 515:                                              ; preds = %511
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false), !annotation !35
   call void @gen6_rps_get_freq_caps(ptr noundef %0, ptr noundef nonnull %2)
   %516 = load i8, ptr %2, align 1
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 146
@@ -5315,7 +5314,6 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   %18 = getelementptr i8, ptr %0, i64 -3672
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false), !annotation !35
   call void @gen6_rps_get_freq_caps(ptr noundef %0, ptr noundef nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %21 = load ptr, ptr %20, align 8
@@ -6033,7 +6031,6 @@ define dso_local void @gen6_rps_frequency_dump(ptr noundef %0, ptr noundef %1) l
   %515 = getelementptr i8, ptr %0, i64 -3672
   %516 = load ptr, ptr %515, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !35
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 144
   %518 = load ptr, ptr %517, align 8
   %519 = tail call i32 %518(ptr noundef %516, i32 1333652, i1 noundef zeroext true) #11
@@ -7617,7 +7614,6 @@ define dso_local void @intel_rps_raise_unslice(ptr noundef %0) local_unnamed_add
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false), !annotation !35
   call void @gen6_rps_get_freq_caps(ptr noundef %0, ptr noundef nonnull %2)
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
@@ -7672,7 +7668,6 @@ define dso_local void @intel_rps_lower_unslice(ptr noundef %0) local_unnamed_add
 
 16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2, i8 0, i64 3, i1 false), !annotation !35
   call void @gen6_rps_get_freq_caps(ptr noundef %0, ptr noundef nonnull %2)
   %17 = load ptr, ptr %3, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 176

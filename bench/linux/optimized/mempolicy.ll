@@ -883,7 +883,6 @@ define internal fastcc i64 @__se_sys_mbind(i64 noundef %0, i64 noundef %1, i64 n
 
 select.unfold:                                    ; preds = %25, %22
   %.ph = phi i16 [ %17, %22 ], [ %27, %25 ]
-  store i64 0, ptr %12, align 8, !annotation !20
   %28 = call fastcc i32 @get_nodes(ptr noundef nonnull %12, ptr noundef %13, i64 noundef %4)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %32, label %30
@@ -1304,7 +1303,6 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_set_mempolicy
 
 select.unfold:                                    ; preds = %20, %17
   %.ph = phi i16 [ %12, %17 ], [ %22, %20 ]
-  store i64 0, ptr %2, align 8, !annotation !20
   %23 = call fastcc i32 @get_nodes(ptr noundef nonnull %2, ptr noundef %10, i64 noundef %8)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %27, label %25
@@ -1358,7 +1356,6 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_set_mempolic
 
 select.unfold:                                    ; preds = %22, %19
   %.ph = phi i16 [ %14, %19 ], [ %24, %22 ]
-  store i64 0, ptr %2, align 8, !annotation !20
   %25 = call fastcc i32 @get_nodes(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %10)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %27
@@ -1398,127 +1395,128 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_migrate_
   %6 = trunc i64 %0 to i32
   %7 = inttoptr i64 %2 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !20
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = call fastcc i32 @get_nodes(ptr noundef nonnull %5, ptr noundef %7, i64 noundef %1)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %.thread
+  store i64 0, ptr %8, align 8, !annotation !20
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = call fastcc i32 @get_nodes(ptr noundef nonnull %5, ptr noundef %7, i64 noundef %1)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %.thread
 
-11:                                               ; preds = %4
-  %12 = inttoptr i64 %3 to ptr
-  %13 = call fastcc i32 @get_nodes(ptr noundef nonnull %8, ptr noundef %12, i64 noundef %1)
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %.thread
+12:                                               ; preds = %4
+  %13 = inttoptr i64 %3 to ptr
+  %14 = call fastcc i32 @get_nodes(ptr noundef nonnull %9, ptr noundef %13, i64 noundef %1)
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %.thread
 
-15:                                               ; preds = %11
+16:                                               ; preds = %12
   call void @__rcu_read_lock() #19
-  %16 = icmp eq i32 %6, 0
-  br i1 %16, label %19, label %17
+  %17 = icmp eq i32 %6, 0
+  br i1 %17, label %20, label %18
 
-17:                                               ; preds = %15
-  %18 = call ptr @find_task_by_vpid(i32 noundef %6) #19
-  br label %22
+18:                                               ; preds = %16
+  %19 = call ptr @find_task_by_vpid(i32 noundef %6) #19
+  br label %23
 
-19:                                               ; preds = %15
-  %20 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
-  %21 = inttoptr i64 %20 to ptr
-  br label %22
+20:                                               ; preds = %16
+  %21 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
+  %22 = inttoptr i64 %21 to ptr
+  br label %23
 
-22:                                               ; preds = %19, %17
-  %23 = phi ptr [ %18, %17 ], [ %21, %19 ]
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %26
+23:                                               ; preds = %20, %18
+  %24 = phi ptr [ %19, %18 ], [ %22, %20 ]
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   call void @__rcu_read_unlock() #19
   br label %.thread
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %28 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 1, ptr nonnull elementtype(i32) %27) #19, !srcloc !29
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %30, !prof !8
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %29 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 1, ptr nonnull elementtype(i32) %28) #19, !srcloc !29
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %35, label %31, !prof !8
 
-30:                                               ; preds = %26
-  %31 = add i32 %28, 1
-  %32 = or i32 %31, %28
-  %33 = icmp sgt i32 %32, -1
-  br i1 %33, label %36, label %34, !prof !30
+31:                                               ; preds = %27
+  %32 = add i32 %29, 1
+  %33 = or i32 %32, %29
+  %34 = icmp sgt i32 %33, -1
+  br i1 %34, label %37, label %35, !prof !30
 
-34:                                               ; preds = %30, %26
-  %35 = phi i32 [ 2, %26 ], [ 1, %30 ]
-  call void @refcount_warn_saturate(ptr noundef nonnull %27, i32 noundef %35) #19
-  br label %36
+35:                                               ; preds = %31, %27
+  %36 = phi i32 [ 2, %27 ], [ 1, %31 ]
+  call void @refcount_warn_saturate(ptr noundef nonnull %28, i32 noundef %36) #19
+  br label %37
 
-36:                                               ; preds = %34, %30
-  %37 = call zeroext i1 @ptrace_may_access(ptr noundef nonnull %23, i32 noundef 17) #19
+37:                                               ; preds = %35, %31
+  %38 = call zeroext i1 @ptrace_may_access(ptr noundef nonnull %24, i32 noundef 17) #19
   call void @__rcu_read_unlock() #19
-  br i1 %37, label %38, label %63
+  br i1 %38, label %39, label %64
 
-38:                                               ; preds = %36
-  %39 = call i64 @cpuset_mems_allowed(ptr noundef nonnull %23) #19
-  %40 = load i64, ptr %8, align 8
-  %41 = xor i64 %39, -1
-  %42 = and i64 %40, %41
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %46, label %44
+39:                                               ; preds = %37
+  %40 = call i64 @cpuset_mems_allowed(ptr noundef nonnull %24) #19
+  %41 = load i64, ptr %9, align 8
+  %42 = xor i64 %40, -1
+  %43 = and i64 %41, %42
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %47, label %45
 
-44:                                               ; preds = %38
-  %45 = call zeroext i1 @capable(i32 noundef 23) #19
-  br i1 %45, label %46, label %63
+45:                                               ; preds = %39
+  %46 = call zeroext i1 @capable(i32 noundef 23) #19
+  br i1 %46, label %47, label %64
 
-46:                                               ; preds = %44, %38
-  %47 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
-  %48 = inttoptr i64 %47 to ptr
-  %49 = call i64 @cpuset_mems_allowed(ptr noundef %48) #19
-  %50 = load i64, ptr %8, align 8
-  %51 = and i64 %50, %49
-  store i64 %51, ptr %8, align 8
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %63, label %53
+47:                                               ; preds = %45, %39
+  %48 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
+  %49 = inttoptr i64 %48 to ptr
+  %50 = call i64 @cpuset_mems_allowed(ptr noundef %49) #19
+  %51 = load i64, ptr %9, align 8
+  %52 = and i64 %51, %50
+  store i64 %52, ptr %9, align 8
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %64, label %54
 
-53:                                               ; preds = %46
-  %54 = call i32 @security_task_movememory(ptr noundef nonnull %23) #19
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %63
+54:                                               ; preds = %47
+  %55 = call i32 @security_task_movememory(ptr noundef nonnull %24) #19
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %64
 
-56:                                               ; preds = %53
-  %57 = call ptr @get_task_mm(ptr noundef nonnull %23) #19
-  call fastcc void @put_task_struct(ptr noundef nonnull %23)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.thread, label %59
+57:                                               ; preds = %54
+  %58 = call ptr @get_task_mm(ptr noundef nonnull %24) #19
+  call fastcc void @put_task_struct(ptr noundef nonnull %24)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %.thread, label %60
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @capable(i32 noundef 23) #19
-  %61 = select i1 %60, i32 4, i32 2
-  %62 = call i32 @do_migrate_pages(ptr noundef nonnull %57, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef %61)
-  call void @mmput(ptr noundef nonnull %57) #19
+60:                                               ; preds = %57
+  %61 = call zeroext i1 @capable(i32 noundef 23) #19
+  %62 = select i1 %61, i32 4, i32 2
+  %63 = call i32 @do_migrate_pages(ptr noundef nonnull %58, ptr noundef nonnull %5, ptr noundef nonnull %9, i32 noundef %62)
+  call void @mmput(ptr noundef nonnull %58) #19
   br label %.thread
 
-63:                                               ; preds = %53, %46, %44, %36
-  %64 = phi i32 [ -22, %46 ], [ %54, %53 ], [ -1, %44 ], [ -1, %36 ]
-  %65 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 -1, ptr nonnull elementtype(i32) %27) #19, !srcloc !31
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %70, label %67
+64:                                               ; preds = %54, %47, %45, %37
+  %65 = phi i32 [ -22, %47 ], [ %55, %54 ], [ -1, %45 ], [ -1, %37 ]
+  %66 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 -1, ptr nonnull elementtype(i32) %28) #19, !srcloc !31
+  %67 = icmp eq i32 %66, 1
+  br i1 %67, label %71, label %68
 
-67:                                               ; preds = %63
-  %68 = icmp sgt i32 %65, 0
-  br i1 %68, label %.thread, label %69, !prof !30
+68:                                               ; preds = %64
+  %69 = icmp sgt i32 %66, 0
+  br i1 %69, label %.thread, label %70, !prof !30
 
-69:                                               ; preds = %67
-  call void @refcount_warn_saturate(ptr noundef nonnull %27, i32 noundef 3) #19
+70:                                               ; preds = %68
+  call void @refcount_warn_saturate(ptr noundef nonnull %28, i32 noundef 3) #19
   br label %.thread
 
-70:                                               ; preds = %63
+71:                                               ; preds = %64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !32
-  call void @__put_task_struct(ptr noundef nonnull %23) #19
+  call void @__put_task_struct(ptr noundef nonnull %24) #19
   br label %.thread
 
-.thread:                                          ; preds = %67, %69, %70, %59, %56, %25, %11, %4
-  %71 = phi i32 [ %9, %4 ], [ %13, %11 ], [ %62, %59 ], [ -3, %25 ], [ -22, %56 ], [ %64, %70 ], [ %64, %69 ], [ %64, %67 ]
+.thread:                                          ; preds = %68, %70, %71, %60, %57, %26, %12, %4
+  %72 = phi i32 [ %10, %4 ], [ %14, %12 ], [ %63, %60 ], [ -3, %26 ], [ -22, %57 ], [ %65, %71 ], [ %65, %70 ], [ %65, %68 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  %72 = sext i32 %71 to i64
-  ret i64 %72
+  %73 = sext i32 %72 to i64
+  ret i64 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

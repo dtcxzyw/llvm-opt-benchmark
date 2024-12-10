@@ -490,7 +490,6 @@ ompi_osc_module_get_peer.exit.i:                  ; preds = %13, %10
   %.0.in.i.i = phi ptr [ %3, %10 ], [ %15, %13 ]
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  store ptr %.0.i.i, ptr %4, align 8
   %.not.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i, label %16, label %ompi_osc_rdma_peer_lookup_internal.exit
 

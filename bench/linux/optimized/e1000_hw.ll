@@ -3710,7 +3710,6 @@ define dso_local noundef range(i32 -3, 1) i32 @e1000_check_for_link(ptr nocaptur
 
 96:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  store i16 0, ptr %3, align 2, !annotation !7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   %97 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %98 = icmp eq i32 %97, 0
@@ -4132,7 +4131,6 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
   br i1 %1, label %14, label %76
 
 14:                                               ; preds = %13
-  store i16 0, ptr %8, align 2, !annotation !7
   %15 = call i32 @e1000_get_speed_and_duplex(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.loopexit40
@@ -4144,7 +4142,6 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
-  store i16 0, ptr %3, align 2, !annotation !7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #7
   store i16 0, ptr %5, align 2, !annotation !7
@@ -5280,8 +5277,6 @@ e1000_check_polarity.exit:                        ; preds = %15, %23, %31
   br i1 %56, label %57, label %85
 
 57:                                               ; preds = %54
-  store i16 0, ptr %5, align 2, !annotation !7
-  store i16 0, ptr %6, align 2, !annotation !7
   %58 = load i16, ptr %4, align 2
   %59 = lshr i16 %58, 13
   %60 = and i16 %59, 1

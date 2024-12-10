@@ -2819,7 +2819,6 @@ detach_if_pending.exit:                           ; preds = %124
 
 ._crit_edge:                                      ; preds = %227
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store i64 0, ptr %4, align 8, !annotation !24
   %234 = call fastcc i32 @calc_wheel_index(i64 noundef %1, i64 noundef %.pre20, ptr noundef nonnull %4), !range !57
   %235 = load i64, ptr %4, align 8
   tail call fastcc void @enqueue_timer(ptr noundef %228, ptr noundef %0, i32 noundef %234, i64 noundef %235)
@@ -2990,7 +2989,6 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
 67:                                               ; preds = %66, %65, %61, %49
   %68 = phi i64 [ %58, %66 ], [ %.pre, %65 ], [ %51, %61 ], [ %53, %49 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store i64 0, ptr %3, align 8, !annotation !24
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = call fastcc i32 @calc_wheel_index(i64 noundef %70, i64 noundef %68, ptr noundef nonnull %3), !range !57

@@ -1654,7 +1654,6 @@ _ZN6vectorIP10quantifierLb0EjED2Ev.exit:          ; preds = %entry, %if.then.i.i
 define hidden noundef i32 @_ZN11var_counter11get_max_varEP4expr(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
 entry:
   %has_var = alloca i8, align 1
-  store i8 0, ptr %has_var, align 1
   %m_todo = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_todo, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -1694,7 +1693,6 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %i
 define hidden noundef i32 @_ZN11var_counter12get_next_varEP4expr(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %e) local_unnamed_addr #3 align 2 {
 entry:
   %has_var = alloca i8, align 1
-  store i8 0, ptr %has_var, align 1
   %m_todo = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %m_todo, align 8
   %cmp.i = icmp eq ptr %0, null

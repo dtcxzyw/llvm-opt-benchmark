@@ -1025,9 +1025,6 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
-  store i32 -1, ptr %9, align 4
-  store i32 -1, ptr %10, align 4
-  store i32 -1, ptr %11, align 4
   switch i32 %27, label %98 [
     i32 1, label %30
     i32 2, label %44

@@ -5351,7 +5351,7 @@ json_find_attr.exit:                              ; preds = %.lr.ph.i
 json_find_attr.exit.thread:                       ; preds = %15, %3, %json_find_attr.exit
   %23 = load i32, ptr @rpcid, align 4
   tail call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %23, i32 noundef -10005, ptr poison, ptr noundef nonnull @.str.428)
-  br label %126
+  br label %127
 
 sub_0:                                            ; preds = %json_find_attr.exit
   %24 = load i8, ptr %22, align 1
@@ -5453,7 +5453,7 @@ sharkd_session_eo_retap_listener.exit:            ; preds = %52, %54
 
 56:                                               ; preds = %sharkd_session_eo_retap_listener.exit
   tail call void @g_free(ptr noundef %31) #18
-  br label %126
+  br label %127
 
 sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i71, %sharkd_session_eo_retap_listener.exit
   tail call void @g_free(ptr noundef %31) #18
@@ -5529,7 +5529,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i71, %sharkd
   %86 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper) #18
   %87 = load ptr, ptr @stdout, align 8
   %88 = call i32 @fflush(ptr noundef %87)
-  br label %126
+  br label %127
 
 .thread:                                          ; preds = %69, %sharkd_eo_object_list_get_entry_by_type.exit, %65, %70
   %89 = load i32, ptr @rpcid, align 4
@@ -5544,7 +5544,7 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i71, %sharkd
   %90 = call zeroext i1 @json_dumper_finish(ptr noundef nonnull @dumper) #18
   %91 = load ptr, ptr @stdout, align 8
   %92 = call i32 @fflush(ptr noundef %91)
-  br label %126
+  br label %127
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(12) @.str.431) #19
@@ -5582,48 +5582,49 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i71, %sharkd
 
 102:                                              ; preds = %96, %94
   call void @g_free(ptr noundef %95) #18
-  br label %126
+  br label %127
 
 103:                                              ; preds = %.tail.thread
   %104 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(5) @.str.434, i64 noundef 4) #19
   %.not67 = icmp eq i32 %104, 0
-  br i1 %.not67, label %105, label %124
+  br i1 %.not67, label %105, label %125
 
 105:                                              ; preds = %103
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
-  %106 = getelementptr i8, ptr %22, i64 4
-  %107 = call fastcc i32 @sharkd_rtp_match_init(ptr noundef nonnull %8, ptr noundef %106)
-  %.not68 = icmp eq i32 %107, 0
-  br i1 %.not68, label %108, label %110
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %106, i8 0, i64 16, i1 false)
+  %107 = getelementptr i8, ptr %22, i64 4
+  %108 = call fastcc i32 @sharkd_rtp_match_init(ptr noundef nonnull %8, ptr noundef %107)
+  %.not68 = icmp eq i32 %108, 0
+  br i1 %.not68, label %109, label %111
 
-108:                                              ; preds = %105
-  %109 = load i32, ptr @rpcid, align 4
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %109, i32 noundef -10001, ptr poison, ptr noundef nonnull @.str.435, ptr noundef nonnull %22)
-  br label %126
+109:                                              ; preds = %105
+  %110 = load i32, ptr @rpcid, align 4
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %110, i32 noundef -10001, ptr poison, ptr noundef nonnull @.str.435, ptr noundef nonnull %22)
+  br label %127
 
-110:                                              ; preds = %105
-  %111 = call ptr @register_tap_listener(ptr noundef nonnull @.str.206, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @sharkd_session_packet_download_tap_rtp_cb, ptr noundef null, ptr noundef null) #18
-  %.not69 = icmp eq ptr %111, null
-  br i1 %.not69, label %116, label %112
+111:                                              ; preds = %105
+  %112 = call ptr @register_tap_listener(ptr noundef nonnull @.str.206, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull @sharkd_session_packet_download_tap_rtp_cb, ptr noundef null, ptr noundef null) #18
+  %.not69 = icmp eq ptr %112, null
+  br i1 %.not69, label %117, label %113
 
-112:                                              ; preds = %110
-  %113 = load i32, ptr @rpcid, align 4
-  %114 = load ptr, ptr %111, align 8
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %113, i32 noundef -10002, ptr poison, ptr noundef nonnull @.str.436, ptr noundef %114)
-  %115 = call ptr @g_string_free(ptr noundef nonnull %111, i32 noundef 1) #18
-  br label %126
+113:                                              ; preds = %111
+  %114 = load i32, ptr @rpcid, align 4
+  %115 = load ptr, ptr %112, align 8
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %114, i32 noundef -10002, ptr poison, ptr noundef nonnull @.str.436, ptr noundef %115)
+  %116 = call ptr @g_string_free(ptr noundef nonnull %112, i32 noundef 1) #18
+  br label %127
 
-116:                                              ; preds = %110
-  %117 = call i32 @sharkd_retap() #18
+117:                                              ; preds = %111
+  %118 = call i32 @sharkd_retap() #18
   call void @remove_tap_listener(ptr noundef nonnull %8) #18
-  %118 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %119 = load ptr, ptr %118, align 8
-  %.not70 = icmp eq ptr %119, null
-  %120 = load i32, ptr @rpcid, align 4
-  br i1 %.not70, label %123, label %121
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %120 = load ptr, ptr %119, align 8
+  %.not70 = icmp eq ptr %120, null
+  %121 = load i32, ptr @rpcid, align 4
+  br i1 %.not70, label %124, label %122
 
-121:                                              ; preds = %116
-  call fastcc void @sharkd_json_result_prologue(i32 noundef %120)
+122:                                              ; preds = %117
+  call fastcc void @sharkd_json_result_prologue(i32 noundef %121)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.69) #18
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef nonnull %22) #18
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.430) #18
@@ -5633,20 +5634,20 @@ sharkd_eo_object_list_get_entry_by_type.exit:     ; preds = %.lr.ph.i71, %sharkd
   call fastcc void @sharkd_rtp_download_decode(ptr noundef %8)
   call void @json_dumper_end_base64(ptr noundef nonnull @dumper) #18
   call fastcc void @sharkd_json_result_epilogue()
-  %122 = load ptr, ptr %118, align 8
-  call void @g_slist_free_full(ptr noundef %122, ptr noundef nonnull @sharkd_rtp_download_free_items) #18
-  br label %126
+  %123 = load ptr, ptr %119, align 8
+  call void @g_slist_free_full(ptr noundef %123, ptr noundef nonnull @sharkd_rtp_download_free_items) #18
+  br label %127
 
-123:                                              ; preds = %116
-  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %120, i32 noundef -10003, ptr poison, ptr noundef nonnull @.str.438)
-  br label %126
+124:                                              ; preds = %117
+  call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %121, i32 noundef -10003, ptr poison, ptr noundef nonnull @.str.438)
+  br label %127
 
-124:                                              ; preds = %103
-  %125 = load i32, ptr @rpcid, align 4
-  tail call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %125, i32 noundef -10004, ptr poison, ptr noundef nonnull @.str.439)
-  br label %126
+125:                                              ; preds = %103
+  %126 = load i32, ptr @rpcid, align 4
+  tail call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %126, i32 noundef -10004, ptr poison, ptr noundef nonnull @.str.439)
+  br label %127
 
-126:                                              ; preds = %102, %121, %123, %124, %75, %.thread, %112, %108, %56, %json_find_attr.exit.thread
+127:                                              ; preds = %102, %122, %124, %125, %75, %.thread, %113, %109, %56, %json_find_attr.exit.thread
   ret void
 }
 

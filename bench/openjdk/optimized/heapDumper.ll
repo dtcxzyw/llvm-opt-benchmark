@@ -4331,7 +4331,6 @@ define hidden void @_ZN13DumperSupport19dump_instance_classEP18AbstractDumpWrite
   br i1 %.not, label %261, label %19
 
 19:                                               ; preds = %2
-  store i16 0, ptr %16, align 2
   %20 = call noundef i32 @_ZN13DumperSupport22get_static_fields_sizeEP13InstanceKlassRt(ptr noundef nonnull %1, ptr noundef nonnull align 2 dereferenceable(2) %16)
   %21 = tail call noundef zeroext i16 @_ZN13DumperSupport25get_instance_fields_countEP13InstanceKlass(ptr noundef nonnull %1)
   %22 = zext i16 %21 to i32
