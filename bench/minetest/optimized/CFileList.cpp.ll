@@ -2129,7 +2129,7 @@ for.body.i.i51.preheader:                         ; preds = %if.then.i50
   br i1 %114, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51.preheader.new
 
 for.body.i.i51.preheader.new:                     ; preds = %for.body.i.i51.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i19.i, %xtraiter
+  %unroll_iter = and i64 %call.i.i.i, 4294967292
   br label %for.body.i.i51
 
 for.body.i.i51:                                   ; preds = %for.body.i.i51, %for.body.i.i51.preheader.new
@@ -2169,10 +2169,10 @@ _ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa: ;
 for.body.i.i51.epil:                              ; preds = %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, %for.body.i.i51.epil
   %indvars.iv.i.i.epil = phi i64 [ %indvars.iv.next.i.i.epil, %for.body.i.i51.epil ], [ %indvars.iv.i.i.unr, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i51.epil ], [ 0, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa ]
-  %arrayidx.i.i52.epil = getelementptr inbounds i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
+  %arrayidx.i.i52.epil = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
   %123 = load i8, ptr %arrayidx.i.i52.epil, align 1, !tbaa !25
   %124 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53.epil = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.epil
+  %arrayidx.i.i.i53.epil = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv.i.i.epil
   store i8 %123, ptr %arrayidx.i.i.i53.epil, align 1, !tbaa !25
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -3065,7 +3065,7 @@ for.body.i.i38.preheader:                         ; preds = %if.then.i37
   br i1 %113, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38.preheader.new
 
 for.body.i.i38.preheader.new:                     ; preds = %for.body.i.i38.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i19.i, %xtraiter
+  %unroll_iter = and i64 %call.i.i.i, 4294967292
   br label %for.body.i.i38
 
 for.body.i.i38:                                   ; preds = %for.body.i.i38, %for.body.i.i38.preheader.new
@@ -3105,10 +3105,10 @@ if.end24.loopexit.unr-lcssa:                      ; preds = %for.body.i.i38, %fo
 for.body.i.i38.epil:                              ; preds = %if.end24.loopexit.unr-lcssa, %for.body.i.i38.epil
   %indvars.iv.i.i.epil = phi i64 [ %indvars.iv.next.i.i.epil, %for.body.i.i38.epil ], [ %indvars.iv.i.i.unr, %if.end24.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i38.epil ], [ 0, %if.end24.loopexit.unr-lcssa ]
-  %arrayidx.i.i39.epil = getelementptr inbounds i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
+  %arrayidx.i.i39.epil = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
   %122 = load i8, ptr %arrayidx.i.i39.epil, align 1, !tbaa !25
   %123 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40.epil = getelementptr inbounds i8, ptr %123, i64 %indvars.iv.i.i.epil
+  %arrayidx.i.i.i40.epil = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv.i.i.epil
   store i8 %122, ptr %arrayidx.i.i.i40.epil, align 1, !tbaa !25
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1

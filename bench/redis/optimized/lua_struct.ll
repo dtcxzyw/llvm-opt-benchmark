@@ -158,7 +158,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %9, label %putinteger.exit.loopexit.unr-lcssa, label %for.body.preheader.i.new
 
 for.body.preheader.i.new:                         ; preds = %for.body.preheader.i
-  %unroll_iter = sub nsw i64 %wide.trip.count.i, %xtraiter
+  %unroll_iter = and i64 %call5, 2147483644
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new
@@ -209,7 +209,7 @@ for.body.i.epil:                                  ; preds = %putinteger.exit.loo
   %value.139.i.epil = phi i64 [ %shr.i.epil, %for.body.i.epil ], [ %value.139.i.unr, %putinteger.exit.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.epil ], [ 0, %putinteger.exit.loopexit.unr-lcssa ]
   %conv7.i.epil = trunc i64 %value.139.i.epil to i8
-  %arrayidx.i.epil = getelementptr inbounds [32 x i8], ptr %buff.i, i64 0, i64 %indvars.iv43.i.epil
+  %arrayidx.i.epil = getelementptr inbounds nuw [32 x i8], ptr %buff.i, i64 0, i64 %indvars.iv43.i.epil
   store i8 %conv7.i.epil, ptr %arrayidx.i.epil, align 1, !tbaa !10
   %shr.i.epil = lshr i64 %value.139.i.epil, 8
   %indvars.iv.next44.i.epil = add nuw nsw i64 %indvars.iv43.i.epil, 1
@@ -489,7 +489,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %11, label %if.end.i143.loopexit.unr-lcssa, label %for.body.preheader.i.new
 
 for.body.preheader.i.new:                         ; preds = %for.body.preheader.i
-  %unroll_iter = and i64 %call7, 9223372036854775804
+  %unroll_iter = and i64 %call7, 2147483644
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new

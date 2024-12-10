@@ -4201,8 +4201,8 @@ define hidden void @filepath_set_unix_separator(ptr nocapture noundef %0) local_
   %7 = icmp samesign ult i64 %6, 16
   br i1 %7, label %.preheader, label %8
 
-.preheader:                                       ; preds = %44, %31, %5
-  %.ph = phi i64 [ %36, %44 ], [ %12, %31 ], [ 0, %5 ]
+.preheader:                                       ; preds = %43, %31, %5
+  %.ph = phi i64 [ %35, %43 ], [ %11, %31 ], [ 0, %5 ]
   br label %46
 
 8:                                                ; preds = %5
@@ -4210,66 +4210,66 @@ define hidden void @filepath_set_unix_separator(ptr nocapture noundef %0) local_
   br i1 %9, label %33, label %10
 
 10:                                               ; preds = %8
-  %11 = and i64 %2, 127
-  %12 = sub nuw nsw i64 %6, %11
-  br label %13
+  %11 = and i64 %2, 2147483520
+  br label %12
 
-13:                                               ; preds = %13, %10
-  %14 = phi i64 [ 0, %10 ], [ %27, %13 ]
-  %15 = getelementptr i8, ptr %0, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 96
+12:                                               ; preds = %12, %10
+  %13 = phi i64 [ 0, %10 ], [ %26, %12 ]
+  %14 = getelementptr i8, ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %18 = load <32 x i8>, ptr %14, align 1, !tbaa !57
   %19 = load <32 x i8>, ptr %15, align 1, !tbaa !57
   %20 = load <32 x i8>, ptr %16, align 1, !tbaa !57
   %21 = load <32 x i8>, ptr %17, align 1, !tbaa !57
-  %22 = load <32 x i8>, ptr %18, align 1, !tbaa !57
+  %22 = icmp eq <32 x i8> %18, splat (i8 92)
   %23 = icmp eq <32 x i8> %19, splat (i8 92)
   %24 = icmp eq <32 x i8> %20, splat (i8 92)
   %25 = icmp eq <32 x i8> %21, splat (i8 92)
-  %26 = icmp eq <32 x i8> %22, splat (i8 92)
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %15, i32 1, <32 x i1> %23), !tbaa !57
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %14, i32 1, <32 x i1> %22), !tbaa !57
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %15, i32 1, <32 x i1> %23), !tbaa !57
   tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %16, i32 1, <32 x i1> %24), !tbaa !57
   tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %17, i32 1, <32 x i1> %25), !tbaa !57
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %18, i32 1, <32 x i1> %26), !tbaa !57
-  %27 = add nuw i64 %14, 128
-  %28 = icmp eq i64 %27, %12
-  br i1 %28, label %29, label %13, !llvm.loop !118
+  %26 = add nuw i64 %13, 128
+  %27 = icmp eq i64 %26, %11
+  br i1 %27, label %28, label %12, !llvm.loop !118
 
-29:                                               ; preds = %13
-  %30 = icmp eq i64 %11, 0
+28:                                               ; preds = %12
+  %29 = and i64 %2, 127
+  %30 = icmp eq i64 %29, 0
   br i1 %30, label %.loopexit, label %31
 
-31:                                               ; preds = %29
-  %32 = icmp samesign ult i64 %11, 16
+31:                                               ; preds = %28
+  %32 = icmp samesign ult i64 %29, 16
   br i1 %32, label %.preheader, label %33
 
 33:                                               ; preds = %31, %8
-  %34 = phi i64 [ %12, %31 ], [ 0, %8 ]
-  %35 = and i64 %2, 15
-  %36 = sub nuw nsw i64 %6, %35
-  br label %37
+  %34 = phi i64 [ %11, %31 ], [ 0, %8 ]
+  %35 = and i64 %2, 2147483632
+  br label %36
 
-37:                                               ; preds = %37, %33
-  %38 = phi i64 [ %34, %33 ], [ %42, %37 ]
-  %39 = getelementptr i8, ptr %0, i64 %38
-  %40 = load <16 x i8>, ptr %39, align 1, !tbaa !57
-  %41 = icmp eq <16 x i8> %40, splat (i8 92)
-  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %39, i32 1, <16 x i1> %41), !tbaa !57
-  %42 = add nuw i64 %38, 16
-  %43 = icmp eq i64 %42, %36
-  br i1 %43, label %44, label %37, !llvm.loop !119
+36:                                               ; preds = %36, %33
+  %37 = phi i64 [ %34, %33 ], [ %41, %36 ]
+  %38 = getelementptr i8, ptr %0, i64 %37
+  %39 = load <16 x i8>, ptr %38, align 1, !tbaa !57
+  %40 = icmp eq <16 x i8> %39, splat (i8 92)
+  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %38, i32 1, <16 x i1> %40), !tbaa !57
+  %41 = add nuw i64 %37, 16
+  %42 = icmp eq i64 %41, %35
+  br i1 %42, label %43, label %36, !llvm.loop !119
 
-44:                                               ; preds = %37
-  %45 = icmp eq i64 %35, 0
+43:                                               ; preds = %36
+  %44 = and i64 %2, 15
+  %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %52, %44, %29, %1
+.loopexit:                                        ; preds = %52, %43, %28, %1
   ret void
 
 46:                                               ; preds = %.preheader, %52
   %47 = phi i64 [ %53, %52 ], [ %.ph, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !57
   %50 = icmp eq i8 %49, 92
   br i1 %50, label %51, label %52
@@ -4740,67 +4740,67 @@ sub_0:                                            ; preds = %.loopexit, %19
   br i1 %43, label %67, label %44
 
 44:                                               ; preds = %42
-  %45 = and i64 %36, 127
-  %46 = sub nuw nsw i64 %40, %45
-  br label %47
+  %45 = and i64 %36, 2147483520
+  br label %46
 
-47:                                               ; preds = %47, %44
-  %48 = phi i64 [ 0, %44 ], [ %61, %47 ]
-  %49 = getelementptr i8, ptr %35, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 96
+46:                                               ; preds = %46, %44
+  %47 = phi i64 [ 0, %44 ], [ %60, %46 ]
+  %48 = getelementptr i8, ptr %35, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 96
+  %52 = load <32 x i8>, ptr %48, align 1, !tbaa !57
   %53 = load <32 x i8>, ptr %49, align 1, !tbaa !57
   %54 = load <32 x i8>, ptr %50, align 1, !tbaa !57
   %55 = load <32 x i8>, ptr %51, align 1, !tbaa !57
-  %56 = load <32 x i8>, ptr %52, align 1, !tbaa !57
+  %56 = icmp eq <32 x i8> %52, splat (i8 92)
   %57 = icmp eq <32 x i8> %53, splat (i8 92)
   %58 = icmp eq <32 x i8> %54, splat (i8 92)
   %59 = icmp eq <32 x i8> %55, splat (i8 92)
-  %60 = icmp eq <32 x i8> %56, splat (i8 92)
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %49, i32 1, <32 x i1> %57), !tbaa !57
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %48, i32 1, <32 x i1> %56), !tbaa !57
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %49, i32 1, <32 x i1> %57), !tbaa !57
   call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %50, i32 1, <32 x i1> %58), !tbaa !57
   call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %51, i32 1, <32 x i1> %59), !tbaa !57
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %52, i32 1, <32 x i1> %60), !tbaa !57
-  %61 = add nuw i64 %48, 128
-  %62 = icmp eq i64 %61, %46
-  br i1 %62, label %63, label %47, !llvm.loop !135
+  %60 = add nuw i64 %47, 128
+  %61 = icmp eq i64 %60, %45
+  br i1 %61, label %62, label %46, !llvm.loop !135
 
-63:                                               ; preds = %47
-  %64 = icmp eq i64 %45, 0
+62:                                               ; preds = %46
+  %63 = and i64 %36, 127
+  %64 = icmp eq i64 %63, 0
   br i1 %64, label %.loopexit, label %65
 
-65:                                               ; preds = %63
-  %66 = icmp samesign ult i64 %45, 16
+65:                                               ; preds = %62
+  %66 = icmp samesign ult i64 %63, 16
   br i1 %66, label %.preheader, label %67
 
 67:                                               ; preds = %65, %42
-  %68 = phi i64 [ %46, %65 ], [ 0, %42 ]
-  %69 = and i64 %36, 15
-  %70 = sub nuw nsw i64 %40, %69
-  br label %71
+  %68 = phi i64 [ %45, %65 ], [ 0, %42 ]
+  %69 = and i64 %36, 2147483632
+  br label %70
 
-71:                                               ; preds = %71, %67
-  %72 = phi i64 [ %68, %67 ], [ %76, %71 ]
-  %73 = getelementptr i8, ptr %35, i64 %72
-  %74 = load <16 x i8>, ptr %73, align 1, !tbaa !57
-  %75 = icmp eq <16 x i8> %74, splat (i8 92)
-  call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %73, i32 1, <16 x i1> %75), !tbaa !57
-  %76 = add nuw i64 %72, 16
-  %77 = icmp eq i64 %76, %70
-  br i1 %77, label %78, label %71, !llvm.loop !136
+70:                                               ; preds = %70, %67
+  %71 = phi i64 [ %68, %67 ], [ %75, %70 ]
+  %72 = getelementptr i8, ptr %35, i64 %71
+  %73 = load <16 x i8>, ptr %72, align 1, !tbaa !57
+  %74 = icmp eq <16 x i8> %73, splat (i8 92)
+  call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %72, i32 1, <16 x i1> %74), !tbaa !57
+  %75 = add nuw i64 %71, 16
+  %76 = icmp eq i64 %75, %69
+  br i1 %76, label %77, label %70, !llvm.loop !136
 
-78:                                               ; preds = %71
-  %79 = icmp eq i64 %69, 0
+77:                                               ; preds = %70
+  %78 = and i64 %36, 15
+  %79 = icmp eq i64 %78, 0
   br i1 %79, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %78, %65, %39
-  %.ph = phi i64 [ %70, %78 ], [ %46, %65 ], [ 0, %39 ]
+.preheader:                                       ; preds = %77, %65, %39
+  %.ph = phi i64 [ %69, %77 ], [ %45, %65 ], [ 0, %39 ]
   br label %80
 
 80:                                               ; preds = %.preheader, %86
   %81 = phi i64 [ %87, %86 ], [ %.ph, %.preheader ]
-  %82 = getelementptr inbounds i8, ptr %35, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %35, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !57
   %84 = icmp eq i8 %83, 92
   br i1 %84, label %85, label %86
@@ -4814,7 +4814,7 @@ sub_0:                                            ; preds = %.loopexit, %19
   %88 = icmp eq i64 %87, %40
   br i1 %88, label %.loopexit, label %80, !llvm.loop !137
 
-.loopexit:                                        ; preds = %86, %78, %63, %34
+.loopexit:                                        ; preds = %86, %77, %62, %34
   %89 = load ptr, ptr %7, align 8, !tbaa !131
   call void @dt_bauhaus_combobox_add_aligned(ptr noundef %89, ptr noundef %35, i32 noundef 0) #29
   call void @g_free(ptr noundef %35) #29
@@ -5361,67 +5361,67 @@ define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture no
   br i1 %83, label %107, label %84
 
 84:                                               ; preds = %82
-  %85 = and i64 %76, 127
-  %86 = sub nuw nsw i64 %80, %85
-  br label %87
+  %85 = and i64 %76, 2147483520
+  br label %86
 
-87:                                               ; preds = %87, %84
-  %88 = phi i64 [ 0, %84 ], [ %101, %87 ]
-  %89 = getelementptr i8, ptr %53, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 96
+86:                                               ; preds = %86, %84
+  %87 = phi i64 [ 0, %84 ], [ %100, %86 ]
+  %88 = getelementptr i8, ptr %53, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 96
+  %92 = load <32 x i8>, ptr %88, align 1, !tbaa !57
   %93 = load <32 x i8>, ptr %89, align 1, !tbaa !57
   %94 = load <32 x i8>, ptr %90, align 1, !tbaa !57
   %95 = load <32 x i8>, ptr %91, align 1, !tbaa !57
-  %96 = load <32 x i8>, ptr %92, align 1, !tbaa !57
+  %96 = icmp eq <32 x i8> %92, splat (i8 92)
   %97 = icmp eq <32 x i8> %93, splat (i8 92)
   %98 = icmp eq <32 x i8> %94, splat (i8 92)
   %99 = icmp eq <32 x i8> %95, splat (i8 92)
-  %100 = icmp eq <32 x i8> %96, splat (i8 92)
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %89, i32 1, <32 x i1> %97), !tbaa !57
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %88, i32 1, <32 x i1> %96), !tbaa !57
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %89, i32 1, <32 x i1> %97), !tbaa !57
   tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %90, i32 1, <32 x i1> %98), !tbaa !57
   tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %91, i32 1, <32 x i1> %99), !tbaa !57
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %92, i32 1, <32 x i1> %100), !tbaa !57
-  %101 = add nuw i64 %88, 128
-  %102 = icmp eq i64 %101, %86
-  br i1 %102, label %103, label %87, !llvm.loop !150
+  %100 = add nuw i64 %87, 128
+  %101 = icmp eq i64 %100, %85
+  br i1 %101, label %102, label %86, !llvm.loop !150
 
-103:                                              ; preds = %87
-  %104 = icmp eq i64 %85, 0
+102:                                              ; preds = %86
+  %103 = and i64 %76, 127
+  %104 = icmp eq i64 %103, 0
   br i1 %104, label %.loopexit, label %105
 
-105:                                              ; preds = %103
-  %106 = icmp samesign ult i64 %85, 16
+105:                                              ; preds = %102
+  %106 = icmp samesign ult i64 %103, 16
   br i1 %106, label %.preheader6, label %107
 
 107:                                              ; preds = %105, %82
-  %108 = phi i64 [ %86, %105 ], [ 0, %82 ]
-  %109 = and i64 %76, 15
-  %110 = sub nuw nsw i64 %80, %109
-  br label %111
+  %108 = phi i64 [ %85, %105 ], [ 0, %82 ]
+  %109 = and i64 %76, 2147483632
+  br label %110
 
-111:                                              ; preds = %111, %107
-  %112 = phi i64 [ %108, %107 ], [ %116, %111 ]
-  %113 = getelementptr i8, ptr %53, i64 %112
-  %114 = load <16 x i8>, ptr %113, align 1, !tbaa !57
-  %115 = icmp eq <16 x i8> %114, splat (i8 92)
-  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %113, i32 1, <16 x i1> %115), !tbaa !57
-  %116 = add nuw i64 %112, 16
-  %117 = icmp eq i64 %116, %110
-  br i1 %117, label %118, label %111, !llvm.loop !151
+110:                                              ; preds = %110, %107
+  %111 = phi i64 [ %108, %107 ], [ %115, %110 ]
+  %112 = getelementptr i8, ptr %53, i64 %111
+  %113 = load <16 x i8>, ptr %112, align 1, !tbaa !57
+  %114 = icmp eq <16 x i8> %113, splat (i8 92)
+  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %112, i32 1, <16 x i1> %114), !tbaa !57
+  %115 = add nuw i64 %111, 16
+  %116 = icmp eq i64 %115, %109
+  br i1 %116, label %117, label %110, !llvm.loop !151
 
-118:                                              ; preds = %111
-  %119 = icmp eq i64 %109, 0
+117:                                              ; preds = %110
+  %118 = and i64 %76, 15
+  %119 = icmp eq i64 %118, 0
   br i1 %119, label %.loopexit, label %.preheader6
 
-.preheader6:                                      ; preds = %118, %105, %79
-  %.ph = phi i64 [ %110, %118 ], [ %86, %105 ], [ 0, %79 ]
+.preheader6:                                      ; preds = %117, %105, %79
+  %.ph = phi i64 [ %109, %117 ], [ %85, %105 ], [ 0, %79 ]
   br label %120
 
 120:                                              ; preds = %.preheader6, %126
   %121 = phi i64 [ %127, %126 ], [ %.ph, %.preheader6 ]
-  %122 = getelementptr inbounds i8, ptr %53, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %53, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !57
   %124 = icmp eq i8 %123, 92
   br i1 %124, label %125, label %126
@@ -5435,7 +5435,7 @@ define internal void @button_clicked(ptr nocapture readnone %0, ptr nocapture no
   %128 = icmp eq i64 %127, %80
   br i1 %128, label %.loopexit, label %120, !llvm.loop !152
 
-.loopexit:                                        ; preds = %126, %118, %103, %73
+.loopexit:                                        ; preds = %126, %117, %102, %73
   tail call fastcc void @update_filepath_combobox(ptr noundef %4, ptr noundef nonnull %53, ptr noundef nonnull %7)
   br label %134
 
@@ -5507,67 +5507,67 @@ define internal void @filepath_callback(ptr noundef %0, ptr noundef %1) #1 {
   br i1 %23, label %47, label %24
 
 24:                                               ; preds = %22
-  %25 = and i64 %16, 127
-  %26 = sub nuw nsw i64 %20, %25
-  br label %27
+  %25 = and i64 %16, 2147483520
+  br label %26
 
-27:                                               ; preds = %27, %24
-  %28 = phi i64 [ 0, %24 ], [ %41, %27 ]
-  %29 = getelementptr i8, ptr %3, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 96
+26:                                               ; preds = %26, %24
+  %27 = phi i64 [ 0, %24 ], [ %40, %26 ]
+  %28 = getelementptr i8, ptr %3, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 96
+  %32 = load <32 x i8>, ptr %28, align 16, !tbaa !57
   %33 = load <32 x i8>, ptr %29, align 16, !tbaa !57
   %34 = load <32 x i8>, ptr %30, align 16, !tbaa !57
   %35 = load <32 x i8>, ptr %31, align 16, !tbaa !57
-  %36 = load <32 x i8>, ptr %32, align 16, !tbaa !57
+  %36 = icmp eq <32 x i8> %32, splat (i8 92)
   %37 = icmp eq <32 x i8> %33, splat (i8 92)
   %38 = icmp eq <32 x i8> %34, splat (i8 92)
   %39 = icmp eq <32 x i8> %35, splat (i8 92)
-  %40 = icmp eq <32 x i8> %36, splat (i8 92)
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %29, i32 1, <32 x i1> %37), !tbaa !57
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr %28, i32 1, <32 x i1> %36), !tbaa !57
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %29, i32 1, <32 x i1> %37), !tbaa !57
   call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %30, i32 1, <32 x i1> %38), !tbaa !57
   call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %31, i32 1, <32 x i1> %39), !tbaa !57
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 47), ptr nonnull %32, i32 1, <32 x i1> %40), !tbaa !57
-  %41 = add nuw i64 %28, 128
-  %42 = icmp eq i64 %41, %26
-  br i1 %42, label %43, label %27, !llvm.loop !154
+  %40 = add nuw i64 %27, 128
+  %41 = icmp eq i64 %40, %25
+  br i1 %41, label %42, label %26, !llvm.loop !154
 
-43:                                               ; preds = %27
-  %44 = icmp eq i64 %25, 0
+42:                                               ; preds = %26
+  %43 = and i64 %16, 127
+  %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
-45:                                               ; preds = %43
-  %46 = icmp samesign ult i64 %25, 16
+45:                                               ; preds = %42
+  %46 = icmp samesign ult i64 %43, 16
   br i1 %46, label %.preheader, label %47
 
 47:                                               ; preds = %45, %22
-  %48 = phi i64 [ %26, %45 ], [ 0, %22 ]
-  %49 = and i64 %16, 15
-  %50 = sub nuw nsw i64 %20, %49
-  br label %51
+  %48 = phi i64 [ %25, %45 ], [ 0, %22 ]
+  %49 = and i64 %16, 2147483632
+  br label %50
 
-51:                                               ; preds = %51, %47
-  %52 = phi i64 [ %48, %47 ], [ %56, %51 ]
-  %53 = getelementptr i8, ptr %3, i64 %52
-  %54 = load <16 x i8>, ptr %53, align 1, !tbaa !57
-  %55 = icmp eq <16 x i8> %54, splat (i8 92)
-  call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %53, i32 1, <16 x i1> %55), !tbaa !57
-  %56 = add nuw i64 %52, 16
-  %57 = icmp eq i64 %56, %50
-  br i1 %57, label %58, label %51, !llvm.loop !155
+50:                                               ; preds = %50, %47
+  %51 = phi i64 [ %48, %47 ], [ %55, %50 ]
+  %52 = getelementptr i8, ptr %3, i64 %51
+  %53 = load <16 x i8>, ptr %52, align 16, !tbaa !57
+  %54 = icmp eq <16 x i8> %53, splat (i8 92)
+  call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 47), ptr %52, i32 1, <16 x i1> %54), !tbaa !57
+  %55 = add nuw i64 %51, 16
+  %56 = icmp eq i64 %55, %49
+  br i1 %56, label %57, label %50, !llvm.loop !155
 
-58:                                               ; preds = %51
-  %59 = icmp eq i64 %49, 0
+57:                                               ; preds = %50
+  %58 = and i64 %16, 15
+  %59 = icmp eq i64 %58, 0
   br i1 %59, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %58, %45, %19
-  %.ph = phi i64 [ %50, %58 ], [ %26, %45 ], [ 0, %19 ]
+.preheader:                                       ; preds = %57, %45, %19
+  %.ph = phi i64 [ %49, %57 ], [ %25, %45 ], [ 0, %19 ]
   br label %60
 
 60:                                               ; preds = %.preheader, %66
   %61 = phi i64 [ %67, %66 ], [ %.ph, %.preheader ]
-  %62 = getelementptr inbounds i8, ptr %3, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !57
   %64 = icmp eq i8 %63, 92
   br i1 %64, label %65, label %66
@@ -5581,7 +5581,7 @@ define internal void @filepath_callback(ptr noundef %0, ptr noundef %1) #1 {
   %68 = icmp eq i64 %67, %20
   br i1 %68, label %.loopexit, label %60, !llvm.loop !156
 
-.loopexit:                                        ; preds = %66, %58, %43, %15
+.loopexit:                                        ; preds = %66, %57, %42, %15
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %70 = load ptr, ptr %69, align 16, !tbaa !128
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %10) #31

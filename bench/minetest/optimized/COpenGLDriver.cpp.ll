@@ -1404,7 +1404,7 @@ for.body.i193.preheader:                          ; preds = %if.end.i187
   br i1 %18, label %if.end20.loopexit.unr-lcssa, label %for.body.i193.preheader.new
 
 for.body.i193.preheader.new:                      ; preds = %for.body.i193.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i189, %xtraiter
+  %unroll_iter = and i64 %call.i.i188, 4294967292
   br label %for.body.i193
 
 for.body.i193:                                    ; preds = %for.body.i193, %for.body.i193.preheader.new
@@ -1444,10 +1444,10 @@ if.end20.loopexit.unr-lcssa:                      ; preds = %for.body.i193, %for
 for.body.i193.epil:                               ; preds = %if.end20.loopexit.unr-lcssa, %for.body.i193.epil
   %indvars.iv.i194.epil = phi i64 [ %indvars.iv.next.i197.epil, %for.body.i193.epil ], [ %indvars.iv.i194.unr, %if.end20.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i193.epil ], [ 0, %if.end20.loopexit.unr-lcssa ]
-  %arrayidx.i195.epil = getelementptr inbounds i8, ptr %call15, i64 %indvars.iv.i194.epil
+  %arrayidx.i195.epil = getelementptr inbounds nuw i8, ptr %call15, i64 %indvars.iv.i194.epil
   %27 = load i8, ptr %arrayidx.i195.epil, align 1, !tbaa !102
   %28 = load ptr, ptr %VendorName, align 8, !tbaa !143
-  %arrayidx.i.i196.epil = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.i194.epil
+  %arrayidx.i.i196.epil = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i194.epil
   store i8 %27, ptr %arrayidx.i.i196.epil, align 1, !tbaa !102
   %indvars.iv.next.i197.epil = add nuw nsw i64 %indvars.iv.i194.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -11558,36 +11558,35 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp403.not, label %for.cond9.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %sub.ptr.div.i.i = lshr i64 %sub.ptr.sub.i.i, 3
   %MaterialType = getelementptr inbounds nuw i8, ptr %material, i64 128
   %MaterialType.promoted = load i32, ptr %MaterialType, align 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
-  %xtraiter = and i64 %sub.ptr.div.i.i, 1
-  %4 = icmp eq i64 %wide.trip.count, 1
+  %4 = icmp eq i64 %3, 8
   br i1 %4, label %for.cond9.preheader.loopexit.unr-lcssa, label %for.body.lr.ph.new
 
 for.body.lr.ph.new:                               ; preds = %for.body.lr.ph
-  %unroll_iter = sub nsw i64 %wide.trip.count, %xtraiter
+  %sub.ptr.div.i.i = lshr i64 %sub.ptr.sub.i.i, 3
+  %unroll_iter = and i64 %sub.ptr.div.i.i, 4294967294
   br label %for.body
 
 for.cond9.preheader.loopexit.unr-lcssa:           ; preds = %if.end.1, %for.body.lr.ph
   %indvars.iv.unr = phi i64 [ 0, %for.body.lr.ph ], [ %unroll_iter, %if.end.1 ]
-  %.unr = phi i32 [ %MaterialType.promoted, %for.body.lr.ph ], [ %13, %if.end.1 ]
-  %lcmp.mod.not = icmp eq i64 %xtraiter, 0
+  %.unr = phi i32 [ %MaterialType.promoted, %for.body.lr.ph ], [ %14, %if.end.1 ]
+  %5 = and i64 %sub.ptr.sub.i.i, 8
+  %lcmp.mod.not = icmp eq i64 %5, 0
   br i1 %lcmp.mod.not, label %for.cond9.preheader, label %for.body.epil
 
 for.body.epil:                                    ; preds = %for.cond9.preheader.loopexit.unr-lcssa
-  %add.ptr.i.i.epil = getelementptr inbounds %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv.unr
-  %5 = load i32, ptr %add.ptr.i.i.epil, align 4, !tbaa !403
-  %cmp4.epil = icmp slt i32 %5, 0
-  %cmp6.epil = icmp eq i32 %5, %.unr
+  %add.ptr.i.i.epil = getelementptr inbounds nuw %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv.unr
+  %6 = load i32, ptr %add.ptr.i.i.epil, align 4, !tbaa !403
+  %cmp4.epil = icmp slt i32 %6, 0
+  %cmp6.epil = icmp eq i32 %6, %.unr
   %or.cond.epil = select i1 %cmp4.epil, i1 true, i1 %cmp6.epil
   br i1 %or.cond.epil, label %if.then7.epil, label %for.cond9.preheader
 
 if.then7.epil:                                    ; preds = %for.body.epil
   %Replacement.epil = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.epil, i64 4
-  %6 = load i32, ptr %Replacement.epil, align 4, !tbaa !405
-  store i32 %6, ptr %MaterialType, align 8, !tbaa !406
+  %7 = load i32, ptr %Replacement.epil, align 4, !tbaa !405
+  store i32 %7, ptr %MaterialType, align 8, !tbaa !406
   br label %for.cond9.preheader
 
 for.cond9.preheader:                              ; preds = %if.then7.epil, %for.body.epil, %for.cond9.preheader.loopexit.unr-lcssa, %for.cond.preheader
@@ -11644,38 +11643,38 @@ for.cond9.preheader:                              ; preds = %if.then7.epil, %for
 
 for.body:                                         ; preds = %if.end.1, %for.body.lr.ph.new
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.new ], [ %indvars.iv.next.1, %if.end.1 ]
-  %7 = phi i32 [ %MaterialType.promoted, %for.body.lr.ph.new ], [ %13, %if.end.1 ]
+  %8 = phi i32 [ %MaterialType.promoted, %for.body.lr.ph.new ], [ %14, %if.end.1 ]
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv
-  %8 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !403
-  %cmp4 = icmp slt i32 %8, 0
-  %cmp6 = icmp eq i32 %8, %7
+  %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !403
+  %cmp4 = icmp slt i32 %9, 0
+  %cmp6 = icmp eq i32 %9, %8
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
   br i1 %or.cond, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %for.body
   %Replacement = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
-  %9 = load i32, ptr %Replacement, align 4, !tbaa !405
-  store i32 %9, ptr %MaterialType, align 8, !tbaa !406
+  %10 = load i32, ptr %Replacement, align 4, !tbaa !405
+  store i32 %10, ptr %MaterialType, align 8, !tbaa !406
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %for.body
-  %10 = phi i32 [ %7, %for.body ], [ %9, %if.then7 ]
+  %11 = phi i32 [ %8, %for.body ], [ %10, %if.then7 ]
   %indvars.iv.next = or disjoint i64 %indvars.iv, 1
   %add.ptr.i.i.1 = getelementptr inbounds nuw %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv.next
-  %11 = load i32, ptr %add.ptr.i.i.1, align 4, !tbaa !403
-  %cmp4.1 = icmp slt i32 %11, 0
-  %cmp6.1 = icmp eq i32 %11, %10
+  %12 = load i32, ptr %add.ptr.i.i.1, align 4, !tbaa !403
+  %cmp4.1 = icmp slt i32 %12, 0
+  %cmp6.1 = icmp eq i32 %12, %11
   %or.cond.1 = select i1 %cmp4.1, i1 true, i1 %cmp6.1
   br i1 %or.cond.1, label %if.then7.1, label %if.end.1
 
 if.then7.1:                                       ; preds = %if.end
   %Replacement.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.1, i64 4
-  %12 = load i32, ptr %Replacement.1, align 4, !tbaa !405
-  store i32 %12, ptr %MaterialType, align 8, !tbaa !406
+  %13 = load i32, ptr %Replacement.1, align 4, !tbaa !405
+  store i32 %13, ptr %MaterialType, align 8, !tbaa !406
   br label %if.end.1
 
 if.end.1:                                         ; preds = %if.then7.1, %if.end
-  %13 = phi i32 [ %10, %if.end ], [ %12, %if.then7.1 ]
+  %14 = phi i32 [ %11, %if.end ], [ %13, %if.then7.1 ]
   %indvars.iv.next.1 = add nuw i64 %indvars.iv, 2
   %niter.ncmp.1 = icmp eq i64 %indvars.iv.next.1, %unroll_iter
   br i1 %niter.ncmp.1, label %for.cond9.preheader.loopexit.unr-lcssa, label %for.body, !llvm.loop !407
@@ -11687,15 +11686,15 @@ for.cond297.preheader:                            ; preds = %if.end292
 
 for.body300.preheader:                            ; preds = %for.cond297.preheader
   %EnableLayers = getelementptr inbounds nuw i8, ptr %this, i64 196
-  %14 = load i8, ptr %EnableLayers, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool303.not = icmp eq i8 %14, 0
+  %15 = load i8, ptr %EnableLayers, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool303.not = icmp eq i8 %15, 0
   br i1 %tobool303.not, label %if.else, label %if.then304
 
 for.body12:                                       ; preds = %if.end292, %for.cond9.preheader
   %f.0409 = phi i32 [ 0, %for.cond9.preheader ], [ %inc294, %if.end292 ]
   %shl = shl nuw i32 1, %f.0409
-  %15 = load i32, ptr %EnableProps, align 8, !tbaa !408
-  %and = and i32 %15, %shl
+  %16 = load i32, ptr %EnableProps, align 8, !tbaa !408
+  %and = and i32 %16, %shl
   %tobool13.not = icmp eq i32 %and, 0
   br i1 %tobool13.not, label %if.end292, label %if.then14
 
@@ -11725,31 +11724,31 @@ if.then14:                                        ; preds = %for.body12
   ]
 
 for.body177.preheader:                            ; preds = %if.then14
-  %16 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool181.not = icmp eq i8 %16, 0
+  %17 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool181.not = icmp eq i8 %17, 0
   br i1 %tobool181.not, label %for.inc233, label %if.then182
 
 for.body132.preheader:                            ; preds = %if.then14
-  %17 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool136.not = icmp eq i8 %17, 0
+  %18 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool136.not = icmp eq i8 %18, 0
   br i1 %tobool136.not, label %for.inc147, label %if.then137
 
 for.body109.preheader:                            ; preds = %if.then14
-  %18 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool113.not = icmp eq i8 %18, 0
+  %19 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool113.not = icmp eq i8 %19, 0
   br i1 %tobool113.not, label %for.inc124, label %if.then114
 
 for.body90.preheader:                             ; preds = %if.then14
-  %19 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool91.not = icmp eq i8 %19, 0
+  %20 = load i8, ptr %EnableLayerProps178, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool91.not = icmp eq i8 %20, 0
   br i1 %tobool91.not, label %for.inc101, label %if.then92
 
 sw.bb:                                            ; preds = %if.then14
   %bf.load = load i16, ptr %UseMipMaps, align 8
-  %20 = and i16 %bf.load, 1
+  %21 = and i16 %bf.load, 1
   %bf.load16 = load i16, ptr %UseMipMaps267, align 8
   %bf.clear17 = and i16 %bf.load16, -2
-  %bf.set = or disjoint i16 %bf.clear17, %20
+  %bf.set = or disjoint i16 %bf.clear17, %21
   store i16 %bf.set, ptr %UseMipMaps267, align 8
   br label %if.end292
 
@@ -11781,8 +11780,8 @@ sw.bb38:                                          ; preds = %if.then14
   br label %if.end292
 
 sw.bb49:                                          ; preds = %if.then14
-  %21 = load i8, ptr %ZBuffer, align 8, !tbaa !409
-  store i8 %21, ptr %ZBuffer51, align 8, !tbaa !121
+  %22 = load i8, ptr %ZBuffer, align 8, !tbaa !409
+  store i8 %22, ptr %ZBuffer51, align 8, !tbaa !121
   br label %if.end292
 
 sw.bb52:                                          ; preds = %if.then14
@@ -11813,108 +11812,108 @@ sw.bb74:                                          ; preds = %if.then14
   br label %if.end292
 
 if.then92:                                        ; preds = %for.body90.preheader
-  %22 = load i32, ptr %MinFilter, align 4, !tbaa !114
-  store i32 %22, ptr %MinFilter99, align 4, !tbaa !114
+  %23 = load i32, ptr %MinFilter, align 4, !tbaa !114
+  store i32 %23, ptr %MinFilter99, align 4, !tbaa !114
   br label %for.inc101
 
 for.inc101:                                       ; preds = %if.then92, %for.body90.preheader
-  %23 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool91.not.1 = icmp eq i8 %23, 0
+  %24 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool91.not.1 = icmp eq i8 %24, 0
   br i1 %tobool91.not.1, label %for.inc101.1, label %if.then92.1
 
 if.then92.1:                                      ; preds = %for.inc101
-  %24 = load i32, ptr %MinFilter.1, align 4, !tbaa !114
-  store i32 %24, ptr %MinFilter99.1, align 4, !tbaa !114
+  %25 = load i32, ptr %MinFilter.1, align 4, !tbaa !114
+  store i32 %25, ptr %MinFilter99.1, align 4, !tbaa !114
   br label %for.inc101.1
 
 for.inc101.1:                                     ; preds = %if.then92.1, %for.inc101
-  %25 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool91.not.2 = icmp eq i8 %25, 0
+  %26 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool91.not.2 = icmp eq i8 %26, 0
   br i1 %tobool91.not.2, label %for.inc101.2, label %if.then92.2
 
 if.then92.2:                                      ; preds = %for.inc101.1
-  %26 = load i32, ptr %MinFilter.2, align 4, !tbaa !114
-  store i32 %26, ptr %MinFilter99.2, align 4, !tbaa !114
+  %27 = load i32, ptr %MinFilter.2, align 4, !tbaa !114
+  store i32 %27, ptr %MinFilter99.2, align 4, !tbaa !114
   br label %for.inc101.2
 
 for.inc101.2:                                     ; preds = %if.then92.2, %for.inc101.1
-  %27 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool91.not.3 = icmp eq i8 %27, 0
+  %28 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool91.not.3 = icmp eq i8 %28, 0
   br i1 %tobool91.not.3, label %if.end292, label %if.then92.3
 
 if.then92.3:                                      ; preds = %for.inc101.2
-  %28 = load i32, ptr %MinFilter.3, align 4, !tbaa !114
-  store i32 %28, ptr %MinFilter99.3, align 4, !tbaa !114
+  %29 = load i32, ptr %MinFilter.3, align 4, !tbaa !114
+  store i32 %29, ptr %MinFilter99.3, align 4, !tbaa !114
   br label %if.end292
 
 if.then114:                                       ; preds = %for.body109.preheader
-  %29 = load i32, ptr %MagFilter, align 8, !tbaa !115
-  store i32 %29, ptr %MagFilter122, align 8, !tbaa !115
+  %30 = load i32, ptr %MagFilter, align 8, !tbaa !115
+  store i32 %30, ptr %MagFilter122, align 8, !tbaa !115
   br label %for.inc124
 
 for.inc124:                                       ; preds = %if.then114, %for.body109.preheader
-  %30 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool113.not.1 = icmp eq i8 %30, 0
+  %31 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool113.not.1 = icmp eq i8 %31, 0
   br i1 %tobool113.not.1, label %for.inc124.1, label %if.then114.1
 
 if.then114.1:                                     ; preds = %for.inc124
-  %31 = load i32, ptr %MagFilter.1, align 8, !tbaa !115
-  store i32 %31, ptr %MagFilter122.1, align 8, !tbaa !115
+  %32 = load i32, ptr %MagFilter.1, align 8, !tbaa !115
+  store i32 %32, ptr %MagFilter122.1, align 8, !tbaa !115
   br label %for.inc124.1
 
 for.inc124.1:                                     ; preds = %if.then114.1, %for.inc124
-  %32 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool113.not.2 = icmp eq i8 %32, 0
+  %33 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool113.not.2 = icmp eq i8 %33, 0
   br i1 %tobool113.not.2, label %for.inc124.2, label %if.then114.2
 
 if.then114.2:                                     ; preds = %for.inc124.1
-  %33 = load i32, ptr %MagFilter.2, align 8, !tbaa !115
-  store i32 %33, ptr %MagFilter122.2, align 8, !tbaa !115
+  %34 = load i32, ptr %MagFilter.2, align 8, !tbaa !115
+  store i32 %34, ptr %MagFilter122.2, align 8, !tbaa !115
   br label %for.inc124.2
 
 for.inc124.2:                                     ; preds = %if.then114.2, %for.inc124.1
-  %34 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool113.not.3 = icmp eq i8 %34, 0
+  %35 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool113.not.3 = icmp eq i8 %35, 0
   br i1 %tobool113.not.3, label %if.end292, label %if.then114.3
 
 if.then114.3:                                     ; preds = %for.inc124.2
-  %35 = load i32, ptr %MagFilter.3, align 8, !tbaa !115
-  store i32 %35, ptr %MagFilter122.3, align 8, !tbaa !115
+  %36 = load i32, ptr %MagFilter.3, align 8, !tbaa !115
+  store i32 %36, ptr %MagFilter122.3, align 8, !tbaa !115
   br label %if.end292
 
 if.then137:                                       ; preds = %for.body132.preheader
-  %36 = load i8, ptr %AnisotropicFilter, align 4, !tbaa !116
-  store i8 %36, ptr %AnisotropicFilter145, align 4, !tbaa !116
+  %37 = load i8, ptr %AnisotropicFilter, align 4, !tbaa !116
+  store i8 %37, ptr %AnisotropicFilter145, align 4, !tbaa !116
   br label %for.inc147
 
 for.inc147:                                       ; preds = %if.then137, %for.body132.preheader
-  %37 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool136.not.1 = icmp eq i8 %37, 0
+  %38 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool136.not.1 = icmp eq i8 %38, 0
   br i1 %tobool136.not.1, label %for.inc147.1, label %if.then137.1
 
 if.then137.1:                                     ; preds = %for.inc147
-  %38 = load i8, ptr %AnisotropicFilter.1, align 4, !tbaa !116
-  store i8 %38, ptr %AnisotropicFilter145.1, align 4, !tbaa !116
+  %39 = load i8, ptr %AnisotropicFilter.1, align 4, !tbaa !116
+  store i8 %39, ptr %AnisotropicFilter145.1, align 4, !tbaa !116
   br label %for.inc147.1
 
 for.inc147.1:                                     ; preds = %if.then137.1, %for.inc147
-  %39 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool136.not.2 = icmp eq i8 %39, 0
+  %40 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool136.not.2 = icmp eq i8 %40, 0
   br i1 %tobool136.not.2, label %for.inc147.2, label %if.then137.2
 
 if.then137.2:                                     ; preds = %for.inc147.1
-  %40 = load i8, ptr %AnisotropicFilter.2, align 4, !tbaa !116
-  store i8 %40, ptr %AnisotropicFilter145.2, align 4, !tbaa !116
+  %41 = load i8, ptr %AnisotropicFilter.2, align 4, !tbaa !116
+  store i8 %41, ptr %AnisotropicFilter145.2, align 4, !tbaa !116
   br label %for.inc147.2
 
 for.inc147.2:                                     ; preds = %if.then137.2, %for.inc147.1
-  %41 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool136.not.3 = icmp eq i8 %41, 0
+  %42 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool136.not.3 = icmp eq i8 %42, 0
   br i1 %tobool136.not.3, label %if.end292, label %if.then137.3
 
 if.then137.3:                                     ; preds = %for.inc147.2
-  %42 = load i8, ptr %AnisotropicFilter.3, align 4, !tbaa !116
-  store i8 %42, ptr %AnisotropicFilter145.3, align 4, !tbaa !116
+  %43 = load i8, ptr %AnisotropicFilter.3, align 4, !tbaa !116
+  store i8 %43, ptr %AnisotropicFilter145.3, align 4, !tbaa !116
   br label %if.end292
 
 sw.bb150:                                         ; preds = %if.then14
@@ -11943,9 +11942,9 @@ if.then182:                                       ; preds = %for.body177.prehead
   %bf.set197 = or disjoint i16 %bf.clear196, %bf.cast189
   store i16 %bf.set197, ptr %TextureWrapU193, align 8
   %bf.load202 = load i16, ptr %TextureWrapU, align 8
-  %43 = and i16 %bf.load202, 240
+  %44 = and i16 %bf.load202, 240
   %bf.clear213 = and i16 %bf.set197, -241
-  %bf.set214 = or disjoint i16 %bf.clear213, %43
+  %bf.set214 = or disjoint i16 %bf.clear213, %44
   store i16 %bf.set214, ptr %TextureWrapU193, align 8
   %bf.load219 = load i16, ptr %TextureWrapU, align 8
   %bf.cast222 = and i16 %bf.load219, 3840
@@ -11955,8 +11954,8 @@ if.then182:                                       ; preds = %for.body177.prehead
   br label %for.inc233
 
 for.inc233:                                       ; preds = %if.then182, %for.body177.preheader
-  %44 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool181.not.1 = icmp eq i8 %44, 0
+  %45 = load i8, ptr %arrayidx180.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool181.not.1 = icmp eq i8 %45, 0
   br i1 %tobool181.not.1, label %for.inc233.1, label %if.then182.1
 
 if.then182.1:                                     ; preds = %for.inc233
@@ -11967,9 +11966,9 @@ if.then182.1:                                     ; preds = %for.inc233
   %bf.set197.1 = or disjoint i16 %bf.clear196.1, %bf.cast189.1
   store i16 %bf.set197.1, ptr %TextureWrapU193.1, align 8
   %bf.load202.1 = load i16, ptr %TextureWrapU.1, align 8
-  %45 = and i16 %bf.load202.1, 240
+  %46 = and i16 %bf.load202.1, 240
   %bf.clear213.1 = and i16 %bf.set197.1, -241
-  %bf.set214.1 = or disjoint i16 %bf.clear213.1, %45
+  %bf.set214.1 = or disjoint i16 %bf.clear213.1, %46
   store i16 %bf.set214.1, ptr %TextureWrapU193.1, align 8
   %bf.load219.1 = load i16, ptr %TextureWrapU.1, align 8
   %bf.cast222.1 = and i16 %bf.load219.1, 3840
@@ -11979,8 +11978,8 @@ if.then182.1:                                     ; preds = %for.inc233
   br label %for.inc233.1
 
 for.inc233.1:                                     ; preds = %if.then182.1, %for.inc233
-  %46 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool181.not.2 = icmp eq i8 %46, 0
+  %47 = load i8, ptr %arrayidx180.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool181.not.2 = icmp eq i8 %47, 0
   br i1 %tobool181.not.2, label %for.inc233.2, label %if.then182.2
 
 if.then182.2:                                     ; preds = %for.inc233.1
@@ -11991,9 +11990,9 @@ if.then182.2:                                     ; preds = %for.inc233.1
   %bf.set197.2 = or disjoint i16 %bf.clear196.2, %bf.cast189.2
   store i16 %bf.set197.2, ptr %TextureWrapU193.2, align 8
   %bf.load202.2 = load i16, ptr %TextureWrapU.2, align 8
-  %47 = and i16 %bf.load202.2, 240
+  %48 = and i16 %bf.load202.2, 240
   %bf.clear213.2 = and i16 %bf.set197.2, -241
-  %bf.set214.2 = or disjoint i16 %bf.clear213.2, %47
+  %bf.set214.2 = or disjoint i16 %bf.clear213.2, %48
   store i16 %bf.set214.2, ptr %TextureWrapU193.2, align 8
   %bf.load219.2 = load i16, ptr %TextureWrapU.2, align 8
   %bf.cast222.2 = and i16 %bf.load219.2, 3840
@@ -12003,8 +12002,8 @@ if.then182.2:                                     ; preds = %for.inc233.1
   br label %for.inc233.2
 
 for.inc233.2:                                     ; preds = %if.then182.2, %for.inc233.1
-  %48 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool181.not.3 = icmp eq i8 %48, 0
+  %49 = load i8, ptr %arrayidx180.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool181.not.3 = icmp eq i8 %49, 0
   br i1 %tobool181.not.3, label %if.end292, label %if.then182.3
 
 if.then182.3:                                     ; preds = %for.inc233.2
@@ -12015,9 +12014,9 @@ if.then182.3:                                     ; preds = %for.inc233.2
   %bf.set197.3 = or disjoint i16 %bf.clear196.3, %bf.cast189.3
   store i16 %bf.set197.3, ptr %TextureWrapU193.3, align 8
   %bf.load202.3 = load i16, ptr %TextureWrapU.3, align 8
-  %49 = and i16 %bf.load202.3, 240
+  %50 = and i16 %bf.load202.3, 240
   %bf.clear213.3 = and i16 %bf.set197.3, -241
-  %bf.set214.3 = or disjoint i16 %bf.clear213.3, %49
+  %bf.set214.3 = or disjoint i16 %bf.clear213.3, %50
   store i16 %bf.set214.3, ptr %TextureWrapU193.3, align 8
   %bf.load219.3 = load i16, ptr %TextureWrapU.3, align 8
   %bf.cast222.3 = and i16 %bf.load219.3, 3840
@@ -12027,8 +12026,8 @@ if.then182.3:                                     ; preds = %for.inc233.2
   br label %if.end292
 
 sw.bb236:                                         ; preds = %if.then14
-  %50 = load i8, ptr %AntiAliasing, align 1, !tbaa !410
-  store i8 %50, ptr %AntiAliasing238, align 1, !tbaa !122
+  %51 = load i8, ptr %AntiAliasing, align 1, !tbaa !410
+  store i8 %51, ptr %AntiAliasing238, align 1, !tbaa !122
   br label %if.end292
 
 sw.bb239:                                         ; preds = %if.then14
@@ -12068,13 +12067,13 @@ sw.bb272:                                         ; preds = %if.then14
   br label %if.end292
 
 sw.bb284:                                         ; preds = %if.then14
-  %51 = load float, ptr %BlendFactor, align 4, !tbaa !411
-  store float %51, ptr %BlendFactor286, align 4, !tbaa !412
+  %52 = load float, ptr %BlendFactor, align 4, !tbaa !411
+  store float %52, ptr %BlendFactor286, align 4, !tbaa !412
   br label %if.end292
 
 sw.bb287:                                         ; preds = %if.then14
-  %52 = load <2 x float>, ptr %PolygonOffsetDepthBias, align 8, !tbaa !103
-  store <2 x float> %52, ptr %PolygonOffsetDepthBias289, align 8, !tbaa !103
+  %53 = load <2 x float>, ptr %PolygonOffsetDepthBias, align 8, !tbaa !103
+  store <2 x float> %53, ptr %PolygonOffsetDepthBias289, align 8, !tbaa !103
   br label %if.end292
 
 if.end292:                                        ; preds = %sw.bb287, %sw.bb284, %sw.bb272, %sw.bb261, %sw.bb249, %sw.bb239, %sw.bb236, %if.then182.3, %for.inc233.2, %sw.bb161, %sw.bb150, %if.then137.3, %for.inc147.2, %if.then114.3, %for.inc124.2, %if.then92.3, %for.inc101.2, %sw.bb74, %sw.bb63, %sw.bb52, %sw.bb49, %sw.bb38, %sw.bb27, %sw.bb18, %sw.bb, %if.then14, %for.body12
@@ -12083,25 +12082,25 @@ if.end292:                                        ; preds = %sw.bb287, %sw.bb284
   br i1 %exitcond432.not, label %for.cond297.preheader, label %for.body12, !llvm.loop !413
 
 if.then304:                                       ; preds = %for.body300.preheader
-  %53 = load ptr, ptr %this, align 8, !tbaa !110
-  store ptr %53, ptr %material, align 8, !tbaa !110
+  %54 = load ptr, ptr %this, align 8, !tbaa !110
+  store ptr %54, ptr %material, align 8, !tbaa !110
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %material, i64 24
-  %54 = load ptr, ptr %TextureMatrix.i, align 8, !tbaa !118
-  %tobool.not.i = icmp eq ptr %54, null
+  %55 = load ptr, ptr %TextureMatrix.i, align 8, !tbaa !118
+  %tobool.not.i = icmp eq ptr %55, null
   %TextureMatrix13.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %55 = load ptr, ptr %TextureMatrix13.i, align 8, !tbaa !118
-  %tobool14.not.i = icmp eq ptr %55, null
+  %56 = load ptr, ptr %TextureMatrix13.i, align 8, !tbaa !118
+  %tobool14.not.i = icmp eq ptr %56, null
   br i1 %tobool.not.i, label %if.else12.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then304
   br i1 %tobool14.not.i, label %delete.notnull.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %54, ptr noundef nonnull align 4 dereferenceable(64) %55, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %55, ptr noundef nonnull align 4 dereferenceable(64) %56, i64 64, i1 false), !tbaa.struct !237
   br label %if.end21.i
 
 delete.notnull.i:                                 ; preds = %if.then3.i
-  tail call void @_ZdlPv(ptr noundef nonnull %54) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %55) #26
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !118
   br label %if.end21.i
 
@@ -12110,7 +12109,7 @@ if.else12.i:                                      ; preds = %if.then304
 
 if.then15.i:                                      ; preds = %if.else12.i
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i, ptr noundef nonnull align 4 dereferenceable(64) %55, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i, ptr noundef nonnull align 4 dereferenceable(64) %56, i64 64, i1 false), !tbaa.struct !237
   store ptr %call.i, ptr %TextureMatrix.i, align 8, !tbaa !118
   br label %if.end21.i
 
@@ -12126,63 +12125,63 @@ if.end21.i:                                       ; preds = %if.else18.i, %if.th
   %bf.set.i = or disjoint i16 %bf.clear24.i, %bf.cast.i
   store i16 %bf.set.i, ptr %TextureWrapU193, align 8
   %bf.load25.i = load i16, ptr %TextureWrapU, align 8
-  %56 = and i16 %bf.load25.i, 240
+  %57 = and i16 %bf.load25.i, 240
   %bf.clear31.i = and i16 %bf.set.i, -241
-  %bf.set32.i = or disjoint i16 %bf.clear31.i, %56
+  %bf.set32.i = or disjoint i16 %bf.clear31.i, %57
   store i16 %bf.set32.i, ptr %TextureWrapU193, align 8
   %bf.load33.i = load i16, ptr %TextureWrapU, align 8
   %bf.cast36.i = and i16 %bf.load33.i, 3840
   %bf.clear41.i = and i16 %bf.set32.i, -3841
   %bf.set42.i = or disjoint i16 %bf.clear41.i, %bf.cast36.i
   store i16 %bf.set42.i, ptr %TextureWrapU193, align 8
-  %57 = load <2 x i32>, ptr %MinFilter, align 4, !tbaa !102
-  store <2 x i32> %57, ptr %MinFilter99, align 4, !tbaa !102
-  %58 = load i8, ptr %AnisotropicFilter, align 4, !tbaa !116
-  store i8 %58, ptr %AnisotropicFilter145, align 4, !tbaa !116
+  %58 = load <2 x i32>, ptr %MinFilter, align 4, !tbaa !102
+  store <2 x i32> %58, ptr %MinFilter99, align 4, !tbaa !102
+  %59 = load i8, ptr %AnisotropicFilter, align 4, !tbaa !116
+  store i8 %59, ptr %AnisotropicFilter145, align 4, !tbaa !116
   %LODBias.i = getelementptr inbounds nuw i8, ptr %this, i64 21
-  %59 = load i8, ptr %LODBias.i, align 1, !tbaa !117
+  %60 = load i8, ptr %LODBias.i, align 1, !tbaa !117
   %LODBias46.i = getelementptr inbounds nuw i8, ptr %material, i64 21
-  store i8 %59, ptr %LODBias46.i, align 1, !tbaa !117
+  store i8 %60, ptr %LODBias46.i, align 1, !tbaa !117
   br label %for.inc327
 
 if.else:                                          ; preds = %for.body300.preheader
-  %60 = load i8, ptr %EnableTextures, align 8, !tbaa !166, !range !131, !noundef !132
-  %tobool315.not = icmp eq i8 %60, 0
+  %61 = load i8, ptr %EnableTextures, align 8, !tbaa !166, !range !131, !noundef !132
+  %tobool315.not = icmp eq i8 %61, 0
   br i1 %tobool315.not, label %for.inc327, label %if.then316
 
 if.then316:                                       ; preds = %if.else
-  %61 = load ptr, ptr %this, align 8, !tbaa !110
-  store ptr %61, ptr %material, align 8, !tbaa !110
+  %62 = load ptr, ptr %this, align 8, !tbaa !110
+  store ptr %62, ptr %material, align 8, !tbaa !110
   br label %for.inc327
 
 for.inc327:                                       ; preds = %if.then316, %if.else, %if.end21.i
   %arrayidx302.1 = getelementptr inbounds nuw i8, ptr %this, i64 197
-  %62 = load i8, ptr %arrayidx302.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool303.not.1 = icmp eq i8 %62, 0
+  %63 = load i8, ptr %arrayidx302.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool303.not.1 = icmp eq i8 %63, 0
   br i1 %tobool303.not.1, label %if.else.1, label %if.then304.1
 
 if.then304.1:                                     ; preds = %for.inc327
   %arrayidx308.1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %arrayidx311.1 = getelementptr inbounds nuw i8, ptr %material, i64 32
-  %63 = load ptr, ptr %arrayidx308.1, align 8, !tbaa !110
-  store ptr %63, ptr %arrayidx311.1, align 8, !tbaa !110
+  %64 = load ptr, ptr %arrayidx308.1, align 8, !tbaa !110
+  store ptr %64, ptr %arrayidx311.1, align 8, !tbaa !110
   %TextureMatrix.i.1 = getelementptr inbounds nuw i8, ptr %material, i64 56
-  %64 = load ptr, ptr %TextureMatrix.i.1, align 8, !tbaa !118
-  %tobool.not.i.1 = icmp eq ptr %64, null
+  %65 = load ptr, ptr %TextureMatrix.i.1, align 8, !tbaa !118
+  %tobool.not.i.1 = icmp eq ptr %65, null
   %TextureMatrix13.i.1 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %65 = load ptr, ptr %TextureMatrix13.i.1, align 8, !tbaa !118
-  %tobool14.not.i.1 = icmp eq ptr %65, null
+  %66 = load ptr, ptr %TextureMatrix13.i.1, align 8, !tbaa !118
+  %tobool14.not.i.1 = icmp eq ptr %66, null
   br i1 %tobool.not.i.1, label %if.else12.i.1, label %if.then3.i.1
 
 if.then3.i.1:                                     ; preds = %if.then304.1
   br i1 %tobool14.not.i.1, label %delete.notnull.i.1, label %if.then6.i.1
 
 if.then6.i.1:                                     ; preds = %if.then3.i.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %64, ptr noundef nonnull align 4 dereferenceable(64) %65, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %65, ptr noundef nonnull align 4 dereferenceable(64) %66, i64 64, i1 false), !tbaa.struct !237
   br label %if.end21.i.1
 
 delete.notnull.i.1:                               ; preds = %if.then3.i.1
-  tail call void @_ZdlPv(ptr noundef nonnull %64) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %65) #26
   store ptr null, ptr %TextureMatrix.i.1, align 8, !tbaa !118
   br label %if.end21.i.1
 
@@ -12191,7 +12190,7 @@ if.else12.i.1:                                    ; preds = %if.then304.1
 
 if.then15.i.1:                                    ; preds = %if.else12.i.1
   %call.i.1 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.1, ptr noundef nonnull align 4 dereferenceable(64) %65, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.1, ptr noundef nonnull align 4 dereferenceable(64) %66, i64 64, i1 false), !tbaa.struct !237
   store ptr %call.i.1, ptr %TextureMatrix.i.1, align 8, !tbaa !118
   br label %if.end21.i.1
 
@@ -12207,66 +12206,66 @@ if.end21.i.1:                                     ; preds = %if.else18.i.1, %if.
   %bf.set.i.1 = or disjoint i16 %bf.clear24.i.1, %bf.cast.i.1
   store i16 %bf.set.i.1, ptr %TextureWrapU193.1, align 8
   %bf.load25.i.1 = load i16, ptr %TextureWrapU.1, align 8
-  %66 = and i16 %bf.load25.i.1, 240
+  %67 = and i16 %bf.load25.i.1, 240
   %bf.clear31.i.1 = and i16 %bf.set.i.1, -241
-  %bf.set32.i.1 = or disjoint i16 %bf.clear31.i.1, %66
+  %bf.set32.i.1 = or disjoint i16 %bf.clear31.i.1, %67
   store i16 %bf.set32.i.1, ptr %TextureWrapU193.1, align 8
   %bf.load33.i.1 = load i16, ptr %TextureWrapU.1, align 8
   %bf.cast36.i.1 = and i16 %bf.load33.i.1, 3840
   %bf.clear41.i.1 = and i16 %bf.set32.i.1, -3841
   %bf.set42.i.1 = or disjoint i16 %bf.clear41.i.1, %bf.cast36.i.1
   store i16 %bf.set42.i.1, ptr %TextureWrapU193.1, align 8
-  %67 = load <2 x i32>, ptr %MinFilter.1, align 4, !tbaa !102
-  store <2 x i32> %67, ptr %MinFilter99.1, align 4, !tbaa !102
-  %68 = load i8, ptr %AnisotropicFilter.1, align 4, !tbaa !116
-  store i8 %68, ptr %AnisotropicFilter145.1, align 4, !tbaa !116
+  %68 = load <2 x i32>, ptr %MinFilter.1, align 4, !tbaa !102
+  store <2 x i32> %68, ptr %MinFilter99.1, align 4, !tbaa !102
+  %69 = load i8, ptr %AnisotropicFilter.1, align 4, !tbaa !116
+  store i8 %69, ptr %AnisotropicFilter145.1, align 4, !tbaa !116
   %LODBias.i.1 = getelementptr inbounds nuw i8, ptr %this, i64 53
-  %69 = load i8, ptr %LODBias.i.1, align 1, !tbaa !117
+  %70 = load i8, ptr %LODBias.i.1, align 1, !tbaa !117
   %LODBias46.i.1 = getelementptr inbounds nuw i8, ptr %material, i64 53
-  store i8 %69, ptr %LODBias46.i.1, align 1, !tbaa !117
+  store i8 %70, ptr %LODBias46.i.1, align 1, !tbaa !117
   br label %for.inc327.1
 
 if.else.1:                                        ; preds = %for.inc327
   %arrayidx314.1 = getelementptr inbounds nuw i8, ptr %this, i64 193
-  %70 = load i8, ptr %arrayidx314.1, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool315.not.1 = icmp eq i8 %70, 0
+  %71 = load i8, ptr %arrayidx314.1, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool315.not.1 = icmp eq i8 %71, 0
   br i1 %tobool315.not.1, label %for.inc327.1, label %if.then316.1
 
 if.then316.1:                                     ; preds = %if.else.1
   %arrayidx320.1 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %71 = load ptr, ptr %arrayidx320.1, align 8, !tbaa !110
+  %72 = load ptr, ptr %arrayidx320.1, align 8, !tbaa !110
   %arrayidx323.1 = getelementptr inbounds nuw i8, ptr %material, i64 32
-  store ptr %71, ptr %arrayidx323.1, align 8, !tbaa !110
+  store ptr %72, ptr %arrayidx323.1, align 8, !tbaa !110
   br label %for.inc327.1
 
 for.inc327.1:                                     ; preds = %if.then316.1, %if.else.1, %if.end21.i.1
   %arrayidx302.2 = getelementptr inbounds nuw i8, ptr %this, i64 198
-  %72 = load i8, ptr %arrayidx302.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool303.not.2 = icmp eq i8 %72, 0
+  %73 = load i8, ptr %arrayidx302.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool303.not.2 = icmp eq i8 %73, 0
   br i1 %tobool303.not.2, label %if.else.2, label %if.then304.2
 
 if.then304.2:                                     ; preds = %for.inc327.1
   %arrayidx308.2 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %arrayidx311.2 = getelementptr inbounds nuw i8, ptr %material, i64 64
-  %73 = load ptr, ptr %arrayidx308.2, align 8, !tbaa !110
-  store ptr %73, ptr %arrayidx311.2, align 8, !tbaa !110
+  %74 = load ptr, ptr %arrayidx308.2, align 8, !tbaa !110
+  store ptr %74, ptr %arrayidx311.2, align 8, !tbaa !110
   %TextureMatrix.i.2 = getelementptr inbounds nuw i8, ptr %material, i64 88
-  %74 = load ptr, ptr %TextureMatrix.i.2, align 8, !tbaa !118
-  %tobool.not.i.2 = icmp eq ptr %74, null
+  %75 = load ptr, ptr %TextureMatrix.i.2, align 8, !tbaa !118
+  %tobool.not.i.2 = icmp eq ptr %75, null
   %TextureMatrix13.i.2 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %75 = load ptr, ptr %TextureMatrix13.i.2, align 8, !tbaa !118
-  %tobool14.not.i.2 = icmp eq ptr %75, null
+  %76 = load ptr, ptr %TextureMatrix13.i.2, align 8, !tbaa !118
+  %tobool14.not.i.2 = icmp eq ptr %76, null
   br i1 %tobool.not.i.2, label %if.else12.i.2, label %if.then3.i.2
 
 if.then3.i.2:                                     ; preds = %if.then304.2
   br i1 %tobool14.not.i.2, label %delete.notnull.i.2, label %if.then6.i.2
 
 if.then6.i.2:                                     ; preds = %if.then3.i.2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %74, ptr noundef nonnull align 4 dereferenceable(64) %75, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %75, ptr noundef nonnull align 4 dereferenceable(64) %76, i64 64, i1 false), !tbaa.struct !237
   br label %if.end21.i.2
 
 delete.notnull.i.2:                               ; preds = %if.then3.i.2
-  tail call void @_ZdlPv(ptr noundef nonnull %74) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %75) #26
   store ptr null, ptr %TextureMatrix.i.2, align 8, !tbaa !118
   br label %if.end21.i.2
 
@@ -12275,7 +12274,7 @@ if.else12.i.2:                                    ; preds = %if.then304.2
 
 if.then15.i.2:                                    ; preds = %if.else12.i.2
   %call.i.2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.2, ptr noundef nonnull align 4 dereferenceable(64) %75, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.2, ptr noundef nonnull align 4 dereferenceable(64) %76, i64 64, i1 false), !tbaa.struct !237
   store ptr %call.i.2, ptr %TextureMatrix.i.2, align 8, !tbaa !118
   br label %if.end21.i.2
 
@@ -12291,66 +12290,66 @@ if.end21.i.2:                                     ; preds = %if.else18.i.2, %if.
   %bf.set.i.2 = or disjoint i16 %bf.clear24.i.2, %bf.cast.i.2
   store i16 %bf.set.i.2, ptr %TextureWrapU193.2, align 8
   %bf.load25.i.2 = load i16, ptr %TextureWrapU.2, align 8
-  %76 = and i16 %bf.load25.i.2, 240
+  %77 = and i16 %bf.load25.i.2, 240
   %bf.clear31.i.2 = and i16 %bf.set.i.2, -241
-  %bf.set32.i.2 = or disjoint i16 %bf.clear31.i.2, %76
+  %bf.set32.i.2 = or disjoint i16 %bf.clear31.i.2, %77
   store i16 %bf.set32.i.2, ptr %TextureWrapU193.2, align 8
   %bf.load33.i.2 = load i16, ptr %TextureWrapU.2, align 8
   %bf.cast36.i.2 = and i16 %bf.load33.i.2, 3840
   %bf.clear41.i.2 = and i16 %bf.set32.i.2, -3841
   %bf.set42.i.2 = or disjoint i16 %bf.clear41.i.2, %bf.cast36.i.2
   store i16 %bf.set42.i.2, ptr %TextureWrapU193.2, align 8
-  %77 = load <2 x i32>, ptr %MinFilter.2, align 4, !tbaa !102
-  store <2 x i32> %77, ptr %MinFilter99.2, align 4, !tbaa !102
-  %78 = load i8, ptr %AnisotropicFilter.2, align 4, !tbaa !116
-  store i8 %78, ptr %AnisotropicFilter145.2, align 4, !tbaa !116
+  %78 = load <2 x i32>, ptr %MinFilter.2, align 4, !tbaa !102
+  store <2 x i32> %78, ptr %MinFilter99.2, align 4, !tbaa !102
+  %79 = load i8, ptr %AnisotropicFilter.2, align 4, !tbaa !116
+  store i8 %79, ptr %AnisotropicFilter145.2, align 4, !tbaa !116
   %LODBias.i.2 = getelementptr inbounds nuw i8, ptr %this, i64 85
-  %79 = load i8, ptr %LODBias.i.2, align 1, !tbaa !117
+  %80 = load i8, ptr %LODBias.i.2, align 1, !tbaa !117
   %LODBias46.i.2 = getelementptr inbounds nuw i8, ptr %material, i64 85
-  store i8 %79, ptr %LODBias46.i.2, align 1, !tbaa !117
+  store i8 %80, ptr %LODBias46.i.2, align 1, !tbaa !117
   br label %for.inc327.2
 
 if.else.2:                                        ; preds = %for.inc327.1
   %arrayidx314.2 = getelementptr inbounds nuw i8, ptr %this, i64 194
-  %80 = load i8, ptr %arrayidx314.2, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool315.not.2 = icmp eq i8 %80, 0
+  %81 = load i8, ptr %arrayidx314.2, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool315.not.2 = icmp eq i8 %81, 0
   br i1 %tobool315.not.2, label %for.inc327.2, label %if.then316.2
 
 if.then316.2:                                     ; preds = %if.else.2
   %arrayidx320.2 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %81 = load ptr, ptr %arrayidx320.2, align 8, !tbaa !110
+  %82 = load ptr, ptr %arrayidx320.2, align 8, !tbaa !110
   %arrayidx323.2 = getelementptr inbounds nuw i8, ptr %material, i64 64
-  store ptr %81, ptr %arrayidx323.2, align 8, !tbaa !110
+  store ptr %82, ptr %arrayidx323.2, align 8, !tbaa !110
   br label %for.inc327.2
 
 for.inc327.2:                                     ; preds = %if.then316.2, %if.else.2, %if.end21.i.2
   %arrayidx302.3 = getelementptr inbounds nuw i8, ptr %this, i64 199
-  %82 = load i8, ptr %arrayidx302.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool303.not.3 = icmp eq i8 %82, 0
+  %83 = load i8, ptr %arrayidx302.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool303.not.3 = icmp eq i8 %83, 0
   br i1 %tobool303.not.3, label %if.else.3, label %if.then304.3
 
 if.then304.3:                                     ; preds = %for.inc327.2
   %arrayidx308.3 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %arrayidx311.3 = getelementptr inbounds nuw i8, ptr %material, i64 96
-  %83 = load ptr, ptr %arrayidx308.3, align 8, !tbaa !110
-  store ptr %83, ptr %arrayidx311.3, align 8, !tbaa !110
+  %84 = load ptr, ptr %arrayidx308.3, align 8, !tbaa !110
+  store ptr %84, ptr %arrayidx311.3, align 8, !tbaa !110
   %TextureMatrix.i.3 = getelementptr inbounds nuw i8, ptr %material, i64 120
-  %84 = load ptr, ptr %TextureMatrix.i.3, align 8, !tbaa !118
-  %tobool.not.i.3 = icmp eq ptr %84, null
+  %85 = load ptr, ptr %TextureMatrix.i.3, align 8, !tbaa !118
+  %tobool.not.i.3 = icmp eq ptr %85, null
   %TextureMatrix13.i.3 = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %85 = load ptr, ptr %TextureMatrix13.i.3, align 8, !tbaa !118
-  %tobool14.not.i.3 = icmp eq ptr %85, null
+  %86 = load ptr, ptr %TextureMatrix13.i.3, align 8, !tbaa !118
+  %tobool14.not.i.3 = icmp eq ptr %86, null
   br i1 %tobool.not.i.3, label %if.else12.i.3, label %if.then3.i.3
 
 if.then3.i.3:                                     ; preds = %if.then304.3
   br i1 %tobool14.not.i.3, label %delete.notnull.i.3, label %if.then6.i.3
 
 if.then6.i.3:                                     ; preds = %if.then3.i.3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %84, ptr noundef nonnull align 4 dereferenceable(64) %85, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %85, ptr noundef nonnull align 4 dereferenceable(64) %86, i64 64, i1 false), !tbaa.struct !237
   br label %if.end21.i.3
 
 delete.notnull.i.3:                               ; preds = %if.then3.i.3
-  tail call void @_ZdlPv(ptr noundef nonnull %84) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %85) #26
   store ptr null, ptr %TextureMatrix.i.3, align 8, !tbaa !118
   br label %if.end21.i.3
 
@@ -12359,7 +12358,7 @@ if.else12.i.3:                                    ; preds = %if.then304.3
 
 if.then15.i.3:                                    ; preds = %if.else12.i.3
   %call.i.3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.3, ptr noundef nonnull align 4 dereferenceable(64) %85, i64 64, i1 false), !tbaa.struct !237
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %call.i.3, ptr noundef nonnull align 4 dereferenceable(64) %86, i64 64, i1 false), !tbaa.struct !237
   store ptr %call.i.3, ptr %TextureMatrix.i.3, align 8, !tbaa !118
   br label %if.end21.i.3
 
@@ -12375,36 +12374,36 @@ if.end21.i.3:                                     ; preds = %if.else18.i.3, %if.
   %bf.set.i.3 = or disjoint i16 %bf.clear24.i.3, %bf.cast.i.3
   store i16 %bf.set.i.3, ptr %TextureWrapU193.3, align 8
   %bf.load25.i.3 = load i16, ptr %TextureWrapU.3, align 8
-  %86 = and i16 %bf.load25.i.3, 240
+  %87 = and i16 %bf.load25.i.3, 240
   %bf.clear31.i.3 = and i16 %bf.set.i.3, -241
-  %bf.set32.i.3 = or disjoint i16 %bf.clear31.i.3, %86
+  %bf.set32.i.3 = or disjoint i16 %bf.clear31.i.3, %87
   store i16 %bf.set32.i.3, ptr %TextureWrapU193.3, align 8
   %bf.load33.i.3 = load i16, ptr %TextureWrapU.3, align 8
   %bf.cast36.i.3 = and i16 %bf.load33.i.3, 3840
   %bf.clear41.i.3 = and i16 %bf.set32.i.3, -3841
   %bf.set42.i.3 = or disjoint i16 %bf.clear41.i.3, %bf.cast36.i.3
   store i16 %bf.set42.i.3, ptr %TextureWrapU193.3, align 8
-  %87 = load <2 x i32>, ptr %MinFilter.3, align 4, !tbaa !102
-  store <2 x i32> %87, ptr %MinFilter99.3, align 4, !tbaa !102
-  %88 = load i8, ptr %AnisotropicFilter.3, align 4, !tbaa !116
-  store i8 %88, ptr %AnisotropicFilter145.3, align 4, !tbaa !116
+  %88 = load <2 x i32>, ptr %MinFilter.3, align 4, !tbaa !102
+  store <2 x i32> %88, ptr %MinFilter99.3, align 4, !tbaa !102
+  %89 = load i8, ptr %AnisotropicFilter.3, align 4, !tbaa !116
+  store i8 %89, ptr %AnisotropicFilter145.3, align 4, !tbaa !116
   %LODBias.i.3 = getelementptr inbounds nuw i8, ptr %this, i64 117
-  %89 = load i8, ptr %LODBias.i.3, align 1, !tbaa !117
+  %90 = load i8, ptr %LODBias.i.3, align 1, !tbaa !117
   %LODBias46.i.3 = getelementptr inbounds nuw i8, ptr %material, i64 117
-  store i8 %89, ptr %LODBias46.i.3, align 1, !tbaa !117
+  store i8 %90, ptr %LODBias46.i.3, align 1, !tbaa !117
   br label %if.end330
 
 if.else.3:                                        ; preds = %for.inc327.2
   %arrayidx314.3 = getelementptr inbounds nuw i8, ptr %this, i64 195
-  %90 = load i8, ptr %arrayidx314.3, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool315.not.3 = icmp eq i8 %90, 0
+  %91 = load i8, ptr %arrayidx314.3, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool315.not.3 = icmp eq i8 %91, 0
   br i1 %tobool315.not.3, label %if.end330, label %if.then316.3
 
 if.then316.3:                                     ; preds = %if.else.3
   %arrayidx320.3 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %91 = load ptr, ptr %arrayidx320.3, align 8, !tbaa !110
+  %92 = load ptr, ptr %arrayidx320.3, align 8, !tbaa !110
   %arrayidx323.3 = getelementptr inbounds nuw i8, ptr %material, i64 96
-  store ptr %91, ptr %arrayidx323.3, align 8, !tbaa !110
+  store ptr %92, ptr %arrayidx323.3, align 8, !tbaa !110
   br label %if.end330
 
 if.end330:                                        ; preds = %if.then316.3, %if.else.3, %if.end21.i.3, %for.cond297.preheader, %entry

@@ -68577,7 +68577,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %if.else
   br i1 %12, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i, %xtraiter
+  %unroll_iter = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -68588,12 +68588,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %13 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %13 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %14 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %14, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -69029,7 +69029,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %for.body10
   br i1 %26, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter217 = sub nsw i64 %conv.i.i.i.i, %xtraiter214
+  %unroll_iter217 = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -69040,12 +69040,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter215 = phi i64 [ %epil.iter215.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %27 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %27 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %28 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %28, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter215.next = add nuw nsw i64 %epil.iter215, 1
@@ -69168,7 +69168,7 @@ for.body.i.i.i.i120.preheader:                    ; preds = %if.then23
   br i1 %46, label %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa, label %for.body.i.i.i.i120.preheader.new
 
 for.body.i.i.i.i120.preheader.new:                ; preds = %for.body.i.i.i.i120.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i114, %xtraiter
+  %unroll_iter = and i64 %agg.tmp25.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i120
 
 for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa:   ; preds = %for.body.i.i.i.i120, %for.body.i.i.i.i120.preheader
@@ -69179,12 +69179,12 @@ for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa:   ; preds = %for.body.i.i.i.i120
 for.body.i.i.i.i120.epil:                         ; preds = %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa, %for.body.i.i.i.i120.epil
   %i.012.i.i.i.i121.epil = phi i64 [ %inc.i.i.i.i126.epil, %for.body.i.i.i.i120.epil ], [ %i.012.i.i.i.i121.unr, %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i120.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa ]
-  %arrayidx.i.i.i.i122.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i113, i64 %i.012.i.i.i.i121.epil
+  %arrayidx.i.i.i.i122.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i113, i64 %i.012.i.i.i.i121.epil
   %47 = load i8, ptr %arrayidx.i.i.i.i122.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i123.epil = zext i8 %47 to i64
   %arrayidx3.i.i.i.i124.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i123.epil
   %48 = load i8, ptr %arrayidx3.i.i.i.i124.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i125.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i118, i64 %i.012.i.i.i.i121.epil
+  %arrayidx4.i.i.i.i125.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i118, i64 %i.012.i.i.i.i121.epil
   store i8 %48, ptr %arrayidx4.i.i.i.i125.epil, align 1, !tbaa !3
   %inc.i.i.i.i126.epil = add nuw nsw i64 %i.012.i.i.i.i121.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -69332,7 +69332,7 @@ for.body.i.i.i.i157.preheader:                    ; preds = %for.body49
   br i1 %70, label %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa, label %for.body.i.i.i.i157.preheader.new
 
 for.body.i.i.i.i157.preheader.new:                ; preds = %for.body.i.i.i.i157.preheader
-  %unroll_iter222 = sub nsw i64 %conv.i.i.i.i151, %xtraiter219
+  %unroll_iter222 = and i64 %agg.tmp51.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i157
 
 for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa:   ; preds = %for.body.i.i.i.i157, %for.body.i.i.i.i157.preheader
@@ -69343,12 +69343,12 @@ for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa:   ; preds = %for.body.i.i.i.i157
 for.body.i.i.i.i157.epil:                         ; preds = %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa, %for.body.i.i.i.i157.epil
   %i.012.i.i.i.i158.epil = phi i64 [ %inc.i.i.i.i163.epil, %for.body.i.i.i.i157.epil ], [ %i.012.i.i.i.i158.unr, %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa ]
   %epil.iter220 = phi i64 [ %epil.iter220.next, %for.body.i.i.i.i157.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa ]
-  %arrayidx.i.i.i.i159.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i150, i64 %i.012.i.i.i.i158.epil
+  %arrayidx.i.i.i.i159.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i150, i64 %i.012.i.i.i.i158.epil
   %71 = load i8, ptr %arrayidx.i.i.i.i159.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i160.epil = zext i8 %71 to i64
   %arrayidx3.i.i.i.i161.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i160.epil
   %72 = load i8, ptr %arrayidx3.i.i.i.i161.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i162.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i155, i64 %i.012.i.i.i.i158.epil
+  %arrayidx4.i.i.i.i162.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i155, i64 %i.012.i.i.i.i158.epil
   store i8 %72, ptr %arrayidx4.i.i.i.i162.epil, align 1, !tbaa !3
   %inc.i.i.i.i163.epil = add nuw nsw i64 %i.012.i.i.i.i158.epil, 1
   %epil.iter220.next = add nuw nsw i64 %epil.iter220, 1
@@ -69533,7 +69533,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %if.then3
   br i1 %14, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i, %xtraiter
+  %unroll_iter = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -69544,12 +69544,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %15 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %15 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %16 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %16, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -69724,7 +69724,7 @@ for.body.i.i.i.i74.preheader:                     ; preds = %_ZNK6duckdb15Select
   br i1 %43, label %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa, label %for.body.i.i.i.i74.preheader.new
 
 for.body.i.i.i.i74.preheader.new:                 ; preds = %for.body.i.i.i.i74.preheader
-  %unroll_iter113 = sub nsw i64 %conv.i.i.i.i68, %xtraiter110
+  %unroll_iter113 = and i64 %agg.tmp18.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i74
 
 for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa:    ; preds = %for.body.i.i.i.i74, %for.body.i.i.i.i74.preheader
@@ -69735,12 +69735,12 @@ for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa:    ; preds = %for.body.i.i.i.i74,
 for.body.i.i.i.i74.epil:                          ; preds = %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa, %for.body.i.i.i.i74.epil
   %i.012.i.i.i.i75.epil = phi i64 [ %inc.i.i.i.i80.epil, %for.body.i.i.i.i74.epil ], [ %i.012.i.i.i.i75.unr, %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa ]
   %epil.iter111 = phi i64 [ %epil.iter111.next, %for.body.i.i.i.i74.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa ]
-  %arrayidx.i.i.i.i76.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i67, i64 %i.012.i.i.i.i75.epil
+  %arrayidx.i.i.i.i76.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i67, i64 %i.012.i.i.i.i75.epil
   %44 = load i8, ptr %arrayidx.i.i.i.i76.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i77.epil = zext i8 %44 to i64
   %arrayidx3.i.i.i.i78.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8LowerFun18ascii_to_lower_mapE, i64 0, i64 %idxprom.i.i.i.i77.epil
   %45 = load i8, ptr %arrayidx3.i.i.i.i78.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i79.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i72, i64 %i.012.i.i.i.i75.epil
+  %arrayidx4.i.i.i.i79.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i72, i64 %i.012.i.i.i.i75.epil
   store i8 %45, ptr %arrayidx4.i.i.i.i79.epil, align 1, !tbaa !3
   %inc.i.i.i.i80.epil = add nuw nsw i64 %i.012.i.i.i.i75.epil, 1
   %epil.iter111.next = add nuw nsw i64 %epil.iter111, 1
@@ -70708,7 +70708,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %if.else
   br i1 %12, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i, %xtraiter
+  %unroll_iter = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -70719,12 +70719,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %13 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %13 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %14 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %14, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -71160,7 +71160,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %for.body10
   br i1 %26, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter217 = sub nsw i64 %conv.i.i.i.i, %xtraiter214
+  %unroll_iter217 = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -71171,12 +71171,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter215 = phi i64 [ %epil.iter215.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %27 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %27 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %28 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %28, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter215.next = add nuw nsw i64 %epil.iter215, 1
@@ -71299,7 +71299,7 @@ for.body.i.i.i.i120.preheader:                    ; preds = %if.then23
   br i1 %46, label %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa, label %for.body.i.i.i.i120.preheader.new
 
 for.body.i.i.i.i120.preheader.new:                ; preds = %for.body.i.i.i.i120.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i114, %xtraiter
+  %unroll_iter = and i64 %agg.tmp25.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i120
 
 for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa:   ; preds = %for.body.i.i.i.i120, %for.body.i.i.i.i120.preheader
@@ -71310,12 +71310,12 @@ for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa:   ; preds = %for.body.i.i.i.i120
 for.body.i.i.i.i120.epil:                         ; preds = %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa, %for.body.i.i.i.i120.epil
   %i.012.i.i.i.i121.epil = phi i64 [ %inc.i.i.i.i126.epil, %for.body.i.i.i.i120.epil ], [ %i.012.i.i.i.i121.unr, %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i120.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i128.unr-lcssa ]
-  %arrayidx.i.i.i.i122.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i113, i64 %i.012.i.i.i.i121.epil
+  %arrayidx.i.i.i.i122.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i113, i64 %i.012.i.i.i.i121.epil
   %47 = load i8, ptr %arrayidx.i.i.i.i122.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i123.epil = zext i8 %47 to i64
   %arrayidx3.i.i.i.i124.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i123.epil
   %48 = load i8, ptr %arrayidx3.i.i.i.i124.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i125.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i118, i64 %i.012.i.i.i.i121.epil
+  %arrayidx4.i.i.i.i125.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i118, i64 %i.012.i.i.i.i121.epil
   store i8 %48, ptr %arrayidx4.i.i.i.i125.epil, align 1, !tbaa !3
   %inc.i.i.i.i126.epil = add nuw nsw i64 %i.012.i.i.i.i121.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -71463,7 +71463,7 @@ for.body.i.i.i.i157.preheader:                    ; preds = %for.body49
   br i1 %70, label %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa, label %for.body.i.i.i.i157.preheader.new
 
 for.body.i.i.i.i157.preheader.new:                ; preds = %for.body.i.i.i.i157.preheader
-  %unroll_iter222 = sub nsw i64 %conv.i.i.i.i151, %xtraiter219
+  %unroll_iter222 = and i64 %agg.tmp51.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i157
 
 for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa:   ; preds = %for.body.i.i.i.i157, %for.body.i.i.i.i157.preheader
@@ -71474,12 +71474,12 @@ for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa:   ; preds = %for.body.i.i.i.i157
 for.body.i.i.i.i157.epil:                         ; preds = %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa, %for.body.i.i.i.i157.epil
   %i.012.i.i.i.i158.epil = phi i64 [ %inc.i.i.i.i163.epil, %for.body.i.i.i.i157.epil ], [ %i.012.i.i.i.i158.unr, %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa ]
   %epil.iter220 = phi i64 [ %epil.iter220.next, %for.body.i.i.i.i157.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i165.unr-lcssa ]
-  %arrayidx.i.i.i.i159.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i150, i64 %i.012.i.i.i.i158.epil
+  %arrayidx.i.i.i.i159.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i150, i64 %i.012.i.i.i.i158.epil
   %71 = load i8, ptr %arrayidx.i.i.i.i159.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i160.epil = zext i8 %71 to i64
   %arrayidx3.i.i.i.i161.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i160.epil
   %72 = load i8, ptr %arrayidx3.i.i.i.i161.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i162.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i155, i64 %i.012.i.i.i.i158.epil
+  %arrayidx4.i.i.i.i162.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i155, i64 %i.012.i.i.i.i158.epil
   store i8 %72, ptr %arrayidx4.i.i.i.i162.epil, align 1, !tbaa !3
   %inc.i.i.i.i163.epil = add nuw nsw i64 %i.012.i.i.i.i158.epil, 1
   %epil.iter220.next = add nuw nsw i64 %epil.iter220, 1
@@ -71664,7 +71664,7 @@ for.body.i.i.i.i.preheader:                       ; preds = %if.then3
   br i1 %14, label %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, label %for.body.i.i.i.i.preheader.new
 
 for.body.i.i.i.i.preheader.new:                   ; preds = %for.body.i.i.i.i.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i.i.i, %xtraiter
+  %unroll_iter = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i
 
 for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %for.body.i.i.i.i.preheader
@@ -71675,12 +71675,12 @@ for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa:      ; preds = %for.body.i.i.i.i, %
 for.body.i.i.i.i.epil:                            ; preds = %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa, %for.body.i.i.i.i.epil
   %i.012.i.i.i.i.epil = phi i64 [ %inc.i.i.i.i.epil, %for.body.i.i.i.i.epil ], [ %i.012.i.i.i.i.unr, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i.i.i.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i.unr-lcssa ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.012.i.i.i.i.epil
   %15 = load i8, ptr %arrayidx.i.i.i.i.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i.epil = zext i8 %15 to i64
   %arrayidx3.i.i.i.i.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i.epil
   %16 = load i8, ptr %arrayidx3.i.i.i.i.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
+  %arrayidx4.i.i.i.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %i.012.i.i.i.i.epil
   store i8 %16, ptr %arrayidx4.i.i.i.i.epil, align 1, !tbaa !3
   %inc.i.i.i.i.epil = add nuw nsw i64 %i.012.i.i.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -71855,7 +71855,7 @@ for.body.i.i.i.i74.preheader:                     ; preds = %_ZNK6duckdb15Select
   br i1 %43, label %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa, label %for.body.i.i.i.i74.preheader.new
 
 for.body.i.i.i.i74.preheader.new:                 ; preds = %for.body.i.i.i.i74.preheader
-  %unroll_iter113 = sub nsw i64 %conv.i.i.i.i68, %xtraiter110
+  %unroll_iter113 = and i64 %agg.tmp18.sroa.0.0.copyload, 4294967292
   br label %for.body.i.i.i.i74
 
 for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa:    ; preds = %for.body.i.i.i.i74, %for.body.i.i.i.i74.preheader
@@ -71866,12 +71866,12 @@ for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa:    ; preds = %for.body.i.i.i.i74,
 for.body.i.i.i.i74.epil:                          ; preds = %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa, %for.body.i.i.i.i74.epil
   %i.012.i.i.i.i75.epil = phi i64 [ %inc.i.i.i.i80.epil, %for.body.i.i.i.i74.epil ], [ %i.012.i.i.i.i75.unr, %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa ]
   %epil.iter111 = phi i64 [ %epil.iter111.next, %for.body.i.i.i.i74.epil ], [ 0, %for.cond.cleanup.loopexit.i.i.i.i82.unr-lcssa ]
-  %arrayidx.i.i.i.i76.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i67, i64 %i.012.i.i.i.i75.epil
+  %arrayidx.i.i.i.i76.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i67, i64 %i.012.i.i.i.i75.epil
   %44 = load i8, ptr %arrayidx.i.i.i.i76.epil, align 1, !tbaa !3
   %idxprom.i.i.i.i77.epil = zext i8 %44 to i64
   %arrayidx3.i.i.i.i78.epil = getelementptr inbounds nuw [256 x i8], ptr @_ZN6duckdb8UpperFun18ascii_to_upper_mapE, i64 0, i64 %idxprom.i.i.i.i77.epil
   %45 = load i8, ptr %arrayidx3.i.i.i.i78.epil, align 1, !tbaa !3
-  %arrayidx4.i.i.i.i79.epil = getelementptr inbounds i8, ptr %cond.i.i.i.i.i72, i64 %i.012.i.i.i.i75.epil
+  %arrayidx4.i.i.i.i79.epil = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i72, i64 %i.012.i.i.i.i75.epil
   store i8 %45, ptr %arrayidx4.i.i.i.i79.epil, align 1, !tbaa !3
   %inc.i.i.i.i80.epil = add nuw nsw i64 %i.012.i.i.i.i75.epil, 1
   %epil.iter111.next = add nuw nsw i64 %epil.iter111, 1
@@ -73149,8 +73149,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.else
   br i1 %min.iters.check, label %for.body.i.i.i.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
-  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
-  %n.vec = sub nuw nsw i64 %conv.i.i.i.i, %n.mod.vf
+  %n.vec = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -73172,6 +73171,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !1341
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
   %bin.rdx = add <2 x i64> %14, %13
   %16 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0
@@ -73185,7 +73185,7 @@ for.body.i.i.i.preheader7:                        ; preds = %middle.block, %for.
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader7, %for.body.i.i.i
   %i.08.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ %i.08.i.i.i.ph, %for.body.i.i.i.preheader7 ]
   %length.07.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ %length.07.i.i.i.ph, %for.body.i.i.i.preheader7 ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
   %17 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !3
   %cmp.i.i.i.i = icmp sgt i8 %17, -65
   %conv.i.i.i = zext i1 %cmp.i.i.i.i to i64
@@ -73536,8 +73536,7 @@ for.body.i.i.i.preheader:                         ; preds = %for.body10
   br i1 %min.iters.check, label %for.body.i.i.i.preheader35, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
-  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
-  %n.vec = sub nuw nsw i64 %conv.i.i.i.i, %n.mod.vf
+  %n.vec = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -73559,6 +73558,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %28, label %middle.block, label %vector.body, !llvm.loop !1343
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
   %bin.rdx = add <2 x i64> %27, %26
   %29 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0
@@ -73572,7 +73572,7 @@ for.body.i.i.i.preheader35:                       ; preds = %middle.block, %for.
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader35, %for.body.i.i.i
   %i.08.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ %i.08.i.i.i.ph, %for.body.i.i.i.preheader35 ]
   %length.07.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ %length.07.i.i.i.ph, %for.body.i.i.i.preheader35 ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
   %30 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !3
   %cmp.i.i.i.i = icmp sgt i8 %30, -65
   %conv.i.i.i = zext i1 %cmp.i.i.i.i to i64
@@ -73618,8 +73618,7 @@ for.body.i.i.i107.preheader:                      ; preds = %if.then21
   br i1 %min.iters.check168, label %for.body.i.i.i107.preheader36, label %vector.ph169
 
 vector.ph169:                                     ; preds = %for.body.i.i.i107.preheader
-  %n.mod.vf170 = and i64 %agg.tmp22.sroa.0.0.copyload, 3
-  %n.vec171 = sub nuw nsw i64 %conv.i.i.i.i105, %n.mod.vf170
+  %n.vec171 = and i64 %agg.tmp22.sroa.0.0.copyload, 4294967292
   br label %vector.body174
 
 vector.body174:                                   ; preds = %vector.body174, %vector.ph169
@@ -73641,6 +73640,7 @@ vector.body174:                                   ; preds = %vector.body174, %ve
   br i1 %40, label %middle.block166, label %vector.body174, !llvm.loop !1346
 
 middle.block166:                                  ; preds = %vector.body174
+  %n.mod.vf170 = and i64 %agg.tmp22.sroa.0.0.copyload, 3
   %bin.rdx181 = add <2 x i64> %39, %38
   %41 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx181)
   %cmp.n173 = icmp eq i64 %n.mod.vf170, 0
@@ -73654,7 +73654,7 @@ for.body.i.i.i107.preheader36:                    ; preds = %middle.block166, %f
 for.body.i.i.i107:                                ; preds = %for.body.i.i.i107.preheader36, %for.body.i.i.i107
   %i.08.i.i.i108 = phi i64 [ %inc.i.i.i114, %for.body.i.i.i107 ], [ %i.08.i.i.i108.ph, %for.body.i.i.i107.preheader36 ]
   %length.07.i.i.i109 = phi i64 [ %add.i.i.i113, %for.body.i.i.i107 ], [ %length.07.i.i.i109.ph, %for.body.i.i.i107.preheader36 ]
-  %arrayidx.i.i.i110 = getelementptr inbounds i8, ptr %cond.i.i.i.i104, i64 %i.08.i.i.i108
+  %arrayidx.i.i.i110 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i104, i64 %i.08.i.i.i108
   %42 = load i8, ptr %arrayidx.i.i.i110, align 1, !tbaa !3
   %cmp.i.i.i.i111 = icmp sgt i8 %42, -65
   %conv.i.i.i112 = zext i1 %cmp.i.i.i.i111 to i64
@@ -73723,8 +73723,7 @@ for.body.i.i.i126.preheader:                      ; preds = %for.body44
   br i1 %min.iters.check185, label %for.body.i.i.i126.preheader33, label %vector.ph186
 
 vector.ph186:                                     ; preds = %for.body.i.i.i126.preheader
-  %n.mod.vf187 = and i64 %agg.tmp45.sroa.0.0.copyload, 3
-  %n.vec188 = sub nuw nsw i64 %conv.i.i.i.i124, %n.mod.vf187
+  %n.vec188 = and i64 %agg.tmp45.sroa.0.0.copyload, 4294967292
   br label %vector.body191
 
 vector.body191:                                   ; preds = %vector.body191, %vector.ph186
@@ -73746,6 +73745,7 @@ vector.body191:                                   ; preds = %vector.body191, %ve
   br i1 %55, label %middle.block183, label %vector.body191, !llvm.loop !1350
 
 middle.block183:                                  ; preds = %vector.body191
+  %n.mod.vf187 = and i64 %agg.tmp45.sroa.0.0.copyload, 3
   %bin.rdx198 = add <2 x i64> %54, %53
   %56 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx198)
   %cmp.n190 = icmp eq i64 %n.mod.vf187, 0
@@ -73759,7 +73759,7 @@ for.body.i.i.i126.preheader33:                    ; preds = %middle.block183, %f
 for.body.i.i.i126:                                ; preds = %for.body.i.i.i126.preheader33, %for.body.i.i.i126
   %i.08.i.i.i127 = phi i64 [ %inc.i.i.i133, %for.body.i.i.i126 ], [ %i.08.i.i.i127.ph, %for.body.i.i.i126.preheader33 ]
   %length.07.i.i.i128 = phi i64 [ %add.i.i.i132, %for.body.i.i.i126 ], [ %length.07.i.i.i128.ph, %for.body.i.i.i126.preheader33 ]
-  %arrayidx.i.i.i129 = getelementptr inbounds i8, ptr %cond.i.i.i.i123, i64 %i.08.i.i.i127
+  %arrayidx.i.i.i129 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i123, i64 %i.08.i.i.i127
   %57 = load i8, ptr %arrayidx.i.i.i129, align 1, !tbaa !3
   %cmp.i.i.i.i130 = icmp sgt i8 %57, -65
   %conv.i.i.i131 = zext i1 %cmp.i.i.i.i130 to i64
@@ -73863,8 +73863,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.then3
   br i1 %min.iters.check, label %for.body.i.i.i.preheader37, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i.i.preheader
-  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
-  %n.vec = sub nuw nsw i64 %conv.i.i.i.i, %n.mod.vf
+  %n.vec = and i64 %agg.tmp.sroa.0.0.copyload, 4294967292
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -73886,6 +73885,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %17, label %middle.block, label %vector.body, !llvm.loop !1353
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %agg.tmp.sroa.0.0.copyload, 3
   %bin.rdx = add <2 x i64> %16, %15
   %18 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0
@@ -73899,7 +73899,7 @@ for.body.i.i.i.preheader37:                       ; preds = %middle.block, %for.
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader37, %for.body.i.i.i
   %i.08.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ %i.08.i.i.i.ph, %for.body.i.i.i.preheader37 ]
   %length.07.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ %length.07.i.i.i.ph, %for.body.i.i.i.preheader37 ]
-  %arrayidx.i.i.i46 = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
+  %arrayidx.i.i.i46 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %i.08.i.i.i
   %19 = load i8, ptr %arrayidx.i.i.i46, align 1, !tbaa !3
   %cmp.i.i.i.i = icmp sgt i8 %19, -65
   %conv.i.i.i = zext i1 %cmp.i.i.i.i to i64
@@ -73985,8 +73985,7 @@ for.body.i.i.i66.us.preheader:                    ; preds = %for.body13.us
   br i1 %min.iters.check111, label %for.body.i.i.i66.us.preheader31, label %vector.ph112
 
 vector.ph112:                                     ; preds = %for.body.i.i.i66.us.preheader
-  %n.mod.vf113 = and i64 %agg.tmp16.sroa.0.0.copyload.us, 3
-  %n.vec114 = sub nuw nsw i64 %conv.i.i.i.i64.us, %n.mod.vf113
+  %n.vec114 = and i64 %agg.tmp16.sroa.0.0.copyload.us, 4294967292
   br label %vector.body117
 
 vector.body117:                                   ; preds = %vector.body117, %vector.ph112
@@ -74008,6 +74007,7 @@ vector.body117:                                   ; preds = %vector.body117, %ve
   br i1 %36, label %middle.block109, label %vector.body117, !llvm.loop !1356
 
 middle.block109:                                  ; preds = %vector.body117
+  %n.mod.vf113 = and i64 %agg.tmp16.sroa.0.0.copyload.us, 3
   %bin.rdx124 = add <2 x i64> %35, %34
   %37 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx124)
   %cmp.n116 = icmp eq i64 %n.mod.vf113, 0
@@ -74021,7 +74021,7 @@ for.body.i.i.i66.us.preheader31:                  ; preds = %middle.block109, %f
 for.body.i.i.i66.us:                              ; preds = %for.body.i.i.i66.us.preheader31, %for.body.i.i.i66.us
   %i.08.i.i.i67.us = phi i64 [ %inc.i.i.i73.us, %for.body.i.i.i66.us ], [ %i.08.i.i.i67.us.ph, %for.body.i.i.i66.us.preheader31 ]
   %length.07.i.i.i68.us = phi i64 [ %add.i.i.i72.us, %for.body.i.i.i66.us ], [ %length.07.i.i.i68.us.ph, %for.body.i.i.i66.us.preheader31 ]
-  %arrayidx.i.i.i69.us = getelementptr inbounds i8, ptr %cond.i.i.i.i63.us, i64 %i.08.i.i.i67.us
+  %arrayidx.i.i.i69.us = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i63.us, i64 %i.08.i.i.i67.us
   %38 = load i8, ptr %arrayidx.i.i.i69.us, align 1, !tbaa !3
   %cmp.i.i.i.i70.us = icmp sgt i8 %38, -65
   %conv.i.i.i71.us = zext i1 %cmp.i.i.i.i70.us to i64
@@ -74063,8 +74063,7 @@ for.body.i.i.i66.preheader:                       ; preds = %for.body13
   br i1 %min.iters.check94, label %for.body.i.i.i66.preheader33, label %vector.ph95
 
 vector.ph95:                                      ; preds = %for.body.i.i.i66.preheader
-  %n.mod.vf96 = and i64 %agg.tmp16.sroa.0.0.copyload, 3
-  %n.vec97 = sub nuw nsw i64 %conv.i.i.i.i64, %n.mod.vf96
+  %n.vec97 = and i64 %agg.tmp16.sroa.0.0.copyload, 4294967292
   br label %vector.body100
 
 vector.body100:                                   ; preds = %vector.body100, %vector.ph95
@@ -74086,6 +74085,7 @@ vector.body100:                                   ; preds = %vector.body100, %ve
   br i1 %49, label %middle.block92, label %vector.body100, !llvm.loop !1359
 
 middle.block92:                                   ; preds = %vector.body100
+  %n.mod.vf96 = and i64 %agg.tmp16.sroa.0.0.copyload, 3
   %bin.rdx107 = add <2 x i64> %48, %47
   %50 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx107)
   %cmp.n99 = icmp eq i64 %n.mod.vf96, 0
@@ -74099,7 +74099,7 @@ for.body.i.i.i66.preheader33:                     ; preds = %middle.block92, %fo
 for.body.i.i.i66:                                 ; preds = %for.body.i.i.i66.preheader33, %for.body.i.i.i66
   %i.08.i.i.i67 = phi i64 [ %inc.i.i.i73, %for.body.i.i.i66 ], [ %i.08.i.i.i67.ph, %for.body.i.i.i66.preheader33 ]
   %length.07.i.i.i68 = phi i64 [ %add.i.i.i72, %for.body.i.i.i66 ], [ %length.07.i.i.i68.ph, %for.body.i.i.i66.preheader33 ]
-  %arrayidx.i.i.i69 = getelementptr inbounds i8, ptr %cond.i.i.i.i63, i64 %i.08.i.i.i67
+  %arrayidx.i.i.i69 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i63, i64 %i.08.i.i.i67
   %51 = load i8, ptr %arrayidx.i.i.i69, align 1, !tbaa !3
   %cmp.i.i.i.i70 = icmp sgt i8 %51, -65
   %conv.i.i.i71 = zext i1 %cmp.i.i.i.i70 to i64

@@ -4246,8 +4246,7 @@ for.body.lr.ph.i:                                 ; preds = %.noexc
   br i1 %or.cond, label %for.body.i.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.lr.ph.i
-  %n.mod.vf = and i64 %call.i.i, 7
-  %n.vec = sub nuw nsw i64 %conv.i, %n.mod.vf
+  %n.vec = and i64 %call.i.i, 4294967288
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -4265,23 +4264,23 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %11, label %middle.block, label %vector.body, !llvm.loop !297
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %call.i.i, 7
   %cmp.n = icmp eq i64 %n.mod.vf, 0
   br i1 %cmp.n, label %invoke.cont, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %middle.block, %for.body.lr.ph.i
   %indvars.iv.i.ph = phi i64 [ 0, %for.body.lr.ph.i ], [ %n.vec, %middle.block ]
-  %12 = sub i64 %call.i.i, %indvars.iv.i.ph
-  %xtraiter = and i64 %12, 3
+  %xtraiter = and i64 %call.i.i, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.i.prol.loopexit, label %for.body.i.prol
 
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.i.prol
-  %13 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !295
-  %arrayidx.i.i.prol = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i.prol
-  store i32 %13, ptr %arrayidx.i.i.prol, align 4, !tbaa !295
+  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv.i.prol
+  %12 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !295
+  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.prol
+  store i32 %12, ptr %arrayidx.i.i.prol, align 4, !tbaa !295
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
@@ -4289,31 +4288,31 @@ for.body.i.prol:                                  ; preds = %for.body.i.preheade
 
 for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %for.body.i.preheader
   %indvars.iv.i.unr = phi i64 [ %indvars.iv.i.ph, %for.body.i.preheader ], [ %indvars.iv.next.i.prol, %for.body.i.prol ]
-  %14 = sub nsw i64 %indvars.iv.i.ph, %conv.i
-  %15 = icmp ugt i64 %14, -4
-  br i1 %15, label %invoke.cont, label %for.body.i
+  %13 = sub nsw i64 %indvars.iv.i.ph, %conv.i
+  %14 = icmp ugt i64 %13, -4
+  br i1 %14, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
   %arrayidx.i = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.i
-  %16 = load i32, ptr %arrayidx.i, align 4, !tbaa !295
+  %15 = load i32, ptr %arrayidx.i, align 4, !tbaa !295
   %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
-  store i32 %16, ptr %arrayidx.i.i, align 4, !tbaa !295
+  store i32 %15, ptr %arrayidx.i.i, align 4, !tbaa !295
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i.1 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i
-  %17 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !295
+  %16 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !295
   %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i
-  store i32 %17, ptr %arrayidx.i.i.1, align 4, !tbaa !295
+  store i32 %16, ptr %arrayidx.i.i.1, align 4, !tbaa !295
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
   %arrayidx.i.2 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i.1
-  %18 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !295
+  %17 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !295
   %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i.1
-  store i32 %18, ptr %arrayidx.i.i.2, align 4, !tbaa !295
+  store i32 %17, ptr %arrayidx.i.i.2, align 4, !tbaa !295
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
   %arrayidx.i.3 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i.2
-  %19 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !295
+  %18 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !295
   %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i.2
-  store i32 %19, ptr %arrayidx.i.i.3, align 4, !tbaa !295
+  store i32 %18, ptr %arrayidx.i.i.3, align 4, !tbaa !295
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
   br i1 %exitcond.not.i.3, label %invoke.cont, label %for.body.i, !llvm.loop !302
@@ -4322,24 +4321,24 @@ invoke.cont:                                      ; preds = %for.body.i, %for.bo
   ret void
 
 lpad:                                             ; preds = %if.end.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %this, align 8, !tbaa !289
-  %cmp.i.i.i = icmp eq ptr %21, %0
+  %20 = load ptr, ptr %this, align 8, !tbaa !289
+  %cmp.i.i.i = icmp eq ptr %20, %0
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad
-  %22 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !292
-  %cmp3.i.i.i = icmp ult i64 %22, 4
+  %21 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !292
+  %cmp3.i.i.i = icmp ult i64 %21, 4
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef %21) #27
+  tail call void @_ZdlPv(ptr noundef %20) #27
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
