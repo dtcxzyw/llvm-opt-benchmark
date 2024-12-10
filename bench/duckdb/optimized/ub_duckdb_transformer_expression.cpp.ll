@@ -2547,7 +2547,7 @@ for.body.preheader:                               ; preds = %_ZN6duckdb8string_t
   br i1 %19, label %for.cond.cleanup.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i205, %xtraiter
+  %unroll_iter = and i64 %call.i, 4294967294
   br label %for.body
 
 for.cond.cleanup.unr-lcssa:                       ; preds = %for.inc.1, %for.body.preheader

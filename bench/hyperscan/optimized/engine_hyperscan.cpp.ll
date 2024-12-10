@@ -2407,8 +2407,7 @@ for.body87.preheader106:                          ; preds = %middle.block760, %f
   br label %for.body87
 
 vector.ph763:                                     ; preds = %for.body87.preheader
-  %n.mod.vf764 = and i64 %0, 3
-  %n.vec765 = sub nuw nsw i64 %conv59, %n.mod.vf764
+  %n.vec765 = and i64 %0, 4294967292
   br label %vector.body767
 
 vector.body767:                                   ; preds = %vector.body767, %vector.ph763
@@ -2427,6 +2426,7 @@ vector.body767:                                   ; preds = %vector.body767, %ve
   br i1 %82, label %middle.block760, label %vector.body767, !llvm.loop !33
 
 middle.block760:                                  ; preds = %vector.body767
+  %n.mod.vf764 = and i64 %0, 3
   %cmp.n = icmp eq i64 %n.mod.vf764, 0
   br i1 %cmp.n, label %invoke.cont97, label %for.body87.preheader106
 
@@ -2437,8 +2437,8 @@ lpad79:                                           ; preds = %if.then.i.i.i.i.i45
 
 for.body87:                                       ; preds = %for.body87.preheader106, %for.body87
   %indvars.iv706 = phi i64 [ %indvars.iv.next707, %for.body87 ], [ %indvars.iv706.ph, %for.body87.preheader106 ]
-  %add.ptr.i469 = getelementptr inbounds %struct.hs_expr_ext, ptr %ext.sroa.0.0.lcssa, i64 %indvars.iv706
-  %add.ptr.i470 = getelementptr inbounds ptr, ptr %ext_ptr.sroa.0.0, i64 %indvars.iv706
+  %add.ptr.i469 = getelementptr inbounds nuw %struct.hs_expr_ext, ptr %ext.sroa.0.0.lcssa, i64 %indvars.iv706
+  %add.ptr.i470 = getelementptr inbounds nuw ptr, ptr %ext_ptr.sroa.0.0, i64 %indvars.iv706
   store ptr %add.ptr.i469, ptr %add.ptr.i470, align 8
   %indvars.iv.next707 = add nuw nsw i64 %indvars.iv706, 1
   %exitcond710.not = icmp eq i64 %indvars.iv.next707, %conv59

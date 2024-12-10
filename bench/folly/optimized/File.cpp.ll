@@ -4855,7 +4855,7 @@ for.body.preheader:                               ; preds = %while.end
   br i1 %21, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
-  %unroll_iter = sub nsw i64 %wide.trip.count, %xtraiter
+  %unroll_iter = and i64 %digits.coerce1, 2147483646
   br label %for.body
 
 for.cond.cleanup.loopexit.unr-lcssa.loopexit:     ; preds = %if.end22.1
@@ -4888,7 +4888,7 @@ if.then19.epil:                                   ; preds = %for.body.epil
 
 if.end22.epil:                                    ; preds = %if.then19.epil, %for.body.epil
   %out.addr.1.epil = phi ptr [ %incdec.ptr.epil, %if.then19.epil ], [ %out.addr.092.unr, %for.body.epil ]
-  %arrayidx.i68.epil = getelementptr inbounds i8, ptr %digits.coerce0, i64 %indvars.iv.unr
+  %arrayidx.i68.epil = getelementptr inbounds nuw i8, ptr %digits.coerce0, i64 %indvars.iv.unr
   %26 = load i8, ptr %arrayidx.i68.epil, align 1, !tbaa !31
   %incdec.ptr26.epil = getelementptr inbounds nuw i8, ptr %out.addr.1.epil, i64 1
   store i8 %26, ptr %out.addr.1.epil, align 1, !tbaa !31

@@ -48604,8 +48604,7 @@ for.body12.i.preheader:                           ; preds = %cleanup.i.epil, %fo
   br i1 %min.iters.check285, label %for.body12.i.preheader47, label %vector.ph286
 
 vector.ph286:                                     ; preds = %for.body12.i.preheader
-  %n.mod.vf287 = and i64 %0, 3
-  %n.vec288 = sub nuw nsw i64 %rem.i225, %n.mod.vf287
+  %n.vec288 = and i64 %0, 60
   %75 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %valid.050.i.lcssa, i64 0
   %broadcast.splatinsert = insertelement <2 x i64> poison, i64 %.lcssa, i64 0
   %broadcast.splat = shufflevector <2 x i64> %broadcast.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -48629,6 +48628,7 @@ vector.body291:                                   ; preds = %vector.body291, %ve
   br i1 %82, label %middle.block283, label %vector.body291, !llvm.loop !1390
 
 middle.block283:                                  ; preds = %vector.body291
+  %n.mod.vf287 = and i64 %0, 3
   %bin.rdx = add <2 x i64> %81, %80
   %83 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n290 = icmp eq i64 %n.mod.vf287, 0

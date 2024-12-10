@@ -10438,57 +10438,56 @@ define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr noc
   unreachable
 
 14:                                               ; preds = %1
-  %15 = and i32 %7, -8
-  %16 = sub i32 %15, %11
-  %17 = load i32, ptr @copybreak, align 4
-  %18 = tail call i32 @llvm.umax.i32(i32 %16, i32 %17)
-  %19 = tail call i32 @llvm.umax.i32(i32 %18, i32 14)
-  %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i16 %20, ptr %21, align 2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %23 = load i16, ptr %22, align 4
-  %24 = icmp eq i16 %23, 0
-  br i1 %24, label %.loopexit, label %25
+  %15 = and i32 %7, -268431368
+  %16 = load i32, ptr @copybreak, align 4
+  %17 = tail call i32 @llvm.umax.i32(i32 %15, i32 %16)
+  %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 14)
+  %19 = trunc i32 %18 to i16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 166
+  store i16 %19, ptr %20, align 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %22 = load i16, ptr %21, align 4
+  %23 = icmp eq i16 %22, 0
+  br i1 %23, label %.loopexit, label %24
 
-25:                                               ; preds = %14
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %33
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %32
 
-28:                                               ; preds = %39
-  %29 = add nuw nsw i64 %34, 1
-  %30 = load i16, ptr %22, align 4
-  %31 = zext i16 %30 to i64
-  %32 = icmp samesign ult i64 %29, %31
-  br i1 %32, label %33, label %.loopexit, !llvm.loop !63
+27:                                               ; preds = %38
+  %28 = add nuw nsw i64 %33, 1
+  %29 = load i16, ptr %21, align 4
+  %30 = zext i16 %29 to i64
+  %31 = icmp samesign ult i64 %28, %30
+  br i1 %31, label %32, label %.loopexit, !llvm.loop !63
 
-33:                                               ; preds = %28, %25
-  %34 = phi i64 [ 0, %25 ], [ %29, %28 ]
-  %35 = load ptr, ptr %26, align 64
-  %36 = getelementptr %struct.rx_ring_info, ptr %35, i64 %34
-  %37 = tail call fastcc ptr @sky2_rx_alloc(ptr noundef %0, i32 noundef 3264)
-  store ptr %37, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %39
+32:                                               ; preds = %27, %24
+  %33 = phi i64 [ 0, %24 ], [ %28, %27 ]
+  %34 = load ptr, ptr %25, align 64
+  %35 = getelementptr %struct.rx_ring_info, ptr %34, i64 %33
+  %36 = tail call fastcc ptr @sky2_rx_alloc(ptr noundef %0, i32 noundef 3264)
+  store ptr %36, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %.loopexit, label %38
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %27, align 8
-  %41 = load i16, ptr %21, align 2
-  %42 = zext i16 %41 to i32
-  %43 = tail call fastcc i32 @sky2_rx_map_skb(ptr noundef %40, ptr noundef %36, i32 noundef %42)
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %28, label %45
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %26, align 8
+  %40 = load i16, ptr %20, align 2
+  %41 = zext i16 %40 to i32
+  %42 = tail call fastcc i32 @sky2_rx_map_skb(ptr noundef %39, ptr noundef %35, i32 noundef %41)
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %27, label %44
 
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %36, align 8
-  tail call void @consume_skb(ptr noundef %46) #23
-  store ptr null, ptr %36, align 8
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %35, align 8
+  tail call void @consume_skb(ptr noundef %45) #23
+  store ptr null, ptr %35, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %28, %45, %14
-  %47 = phi i32 [ -12, %45 ], [ 0, %14 ], [ 0, %28 ], [ -12, %33 ]
-  ret i32 %47
+.loopexit:                                        ; preds = %32, %27, %44, %14
+  %46 = phi i32 [ -12, %44 ], [ 0, %14 ], [ 0, %27 ], [ -12, %32 ]
+  ret i32 %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

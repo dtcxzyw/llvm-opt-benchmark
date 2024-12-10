@@ -14732,8 +14732,7 @@ for.body.preheader36:                             ; preds = %middle.block, %for.
   br label %for.body
 
 vector.ph:                                        ; preds = %for.body.preheader
-  %n.mod.vf = and i64 %cond.i, 3
-  %n.vec = sub nuw nsw i64 %conv26, %n.mod.vf
+  %n.vec = and i64 %cond.i, 4294967292
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -14751,6 +14750,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %21, label %middle.block, label %vector.body, !llvm.loop !563
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %cond.i, 3
   %bin.rdx = add <2 x i64> %20, %19
   %22 = call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0
@@ -14768,7 +14768,7 @@ for.body:                                         ; preds = %for.body.preheader3
   %23 = load i64, ptr %gep, align 8, !tbaa !66
   %add28 = add i64 %23, %total_heap_size.0161
   %inc = add nuw nsw i64 %i.0160, 1
-  %cmp27 = icmp ult i64 %inc, %conv26
+  %cmp27 = icmp samesign ult i64 %inc, %conv26
   br i1 %cmp27, label %for.body, label %for.cond.cleanup, !llvm.loop !564
 
 if.then30:                                        ; preds = %for.cond.cleanup, %if.then22

@@ -463,7 +463,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
   %238 = zext i32 %230 to i64
   %239 = mul nsw i64 %238, -131072
   %240 = and i32 %77, 6
-  %241 = sub i32 %80, %240
+  %241 = and i32 %77, -8
   %242 = add i32 %241, %75
   %243 = insertelement <8 x i32> poison, i32 %75, i64 0
   %244 = shufflevector <8 x i32> %243, <8 x i32> poison, <8 x i32> zeroinitializer

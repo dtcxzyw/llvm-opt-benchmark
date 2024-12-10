@@ -8638,17 +8638,17 @@ entry:
   %cmp.i.i = icmp ult i32 %1, 13
   %inlined.i = getelementptr inbounds nuw i8, ptr %blob, i64 4
   %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %blob.coerce1
-  %conv.i = and i64 %blob.coerce0, 4294967295
   %cmp11.not = icmp eq i32 %1, 0
   br i1 %cmp11.not, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
+  %conv.i = and i64 %blob.coerce0, 4294967295
   %xtraiter = and i64 %blob.coerce0, 1
   %2 = icmp eq i64 %conv.i, 1
   br i1 %2, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
-  %unroll_iter = sub nsw i64 %conv.i, %xtraiter
+  %unroll_iter = and i64 %blob.coerce0, 4294967294
   br label %for.body
 
 for.cond.cleanup.loopexit.unr-lcssa:              ; preds = %for.cond.1, %for.body.preheader
@@ -8659,7 +8659,7 @@ for.cond.cleanup.loopexit.unr-lcssa:              ; preds = %for.cond.1, %for.bo
   br i1 %lcmp.mod.not, label %for.cond.cleanup, label %for.body.epil
 
 for.body.epil:                                    ; preds = %for.cond.cleanup.loopexit.unr-lcssa
-  %arrayidx.epil = getelementptr inbounds i8, ptr %cond.i, i64 %i.013.unr
+  %arrayidx.epil = getelementptr inbounds nuw i8, ptr %cond.i, i64 %i.013.unr
   %3 = load i8, ptr %arrayidx.epil, align 1, !tbaa !116
   %4 = add i8 %3, -32
   %or.cond.i.epil = icmp ult i8 %4, 95
@@ -8823,7 +8823,7 @@ for.body.i.preheader:                             ; preds = %entry
   br i1 %2, label %_ZN6duckdb4Blob13GetStringSizeENS_8string_tE.exit.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
-  %unroll_iter = sub nsw i64 %conv.i.i, %xtraiter
+  %unroll_iter = and i64 %blob.coerce0, 4294967294
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i.1, %for.body.i.preheader.new
@@ -8880,7 +8880,7 @@ _ZN6duckdb4Blob13GetStringSizeENS_8string_tE.exit.loopexit.unr-lcssa: ; preds = 
   br i1 %lcmp.mod.not, label %_ZN6duckdb4Blob13GetStringSizeENS_8string_tE.exit, label %for.body.i.epil
 
 for.body.i.epil:                                  ; preds = %_ZN6duckdb4Blob13GetStringSizeENS_8string_tE.exit.loopexit.unr-lcssa
-  %arrayidx.i.epil = getelementptr inbounds i8, ptr %cond.i.i, i64 %i.013.i.unr
+  %arrayidx.i.epil = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %i.013.i.unr
   %9 = load i8, ptr %arrayidx.i.epil, align 1, !tbaa !116
   %10 = add i8 %9, -32
   %or.cond.i.i.epil = icmp ult i8 %10, 95
@@ -49438,8 +49438,7 @@ for.body12.i.preheader:                           ; preds = %cleanup.i.epil, %fo
   br i1 %min.iters.check, label %for.body12.i.preheader40, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body12.i.preheader
-  %n.mod.vf = and i64 %count, 3
-  %n.vec = sub nuw nsw i64 %rem.i, %n.mod.vf
+  %n.vec = and i64 %count, 60
   %8 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %valid.050.i.lcssa, i64 0
   %broadcast.splatinsert = insertelement <2 x i64> poison, i64 %.lcssa, i64 0
   %broadcast.splat = shufflevector <2 x i64> %broadcast.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
@@ -49463,6 +49462,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %15, label %middle.block, label %vector.body, !llvm.loop !1003
 
 middle.block:                                     ; preds = %vector.body
+  %n.mod.vf = and i64 %count, 3
   %bin.rdx = add <2 x i64> %14, %13
   %16 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %bin.rdx)
   %cmp.n = icmp eq i64 %n.mod.vf, 0

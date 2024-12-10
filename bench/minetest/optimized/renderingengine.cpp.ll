@@ -2009,7 +2009,7 @@ for.body.i686.preheader:                          ; preds = %.noexc689
   br i1 %167, label %invoke.cont229.loopexit.unr-lcssa, label %for.body.i686.preheader.new
 
 for.body.i686.preheader.new:                      ; preds = %for.body.i686.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i, %xtraiter
+  %unroll_iter = and i64 %call.i.i685, 4294967292
   br label %for.body.i686
 
 for.body.i686:                                    ; preds = %for.body.i686, %for.body.i686.preheader.new
@@ -2049,10 +2049,10 @@ invoke.cont229.loopexit.unr-lcssa:                ; preds = %for.body.i686, %for
 for.body.i686.epil:                               ; preds = %invoke.cont229.loopexit.unr-lcssa, %for.body.i686.epil
   %indvars.iv.i.epil = phi i64 [ %indvars.iv.next.i.epil, %for.body.i686.epil ], [ %indvars.iv.i.unr, %invoke.cont229.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i686.epil ], [ 0, %invoke.cont229.loopexit.unr-lcssa ]
-  %arrayidx.i.epil = getelementptr inbounds i8, ptr %163, i64 %indvars.iv.i.epil
+  %arrayidx.i.epil = getelementptr inbounds nuw i8, ptr %163, i64 %indvars.iv.i.epil
   %176 = load i8, ptr %arrayidx.i.epil, align 1, !tbaa !13
   %177 = load ptr, ptr %OGLES2ShaderPath, align 8, !tbaa !11
-  %arrayidx.i.i.epil = getelementptr inbounds i8, ptr %177, i64 %indvars.iv.i.epil
+  %arrayidx.i.i.epil = getelementptr inbounds nuw i8, ptr %177, i64 %indvars.iv.i.epil
   store i8 %176, ptr %arrayidx.i.i.epil, align 1, !tbaa !13
   %indvars.iv.next.i.epil = add nuw nsw i64 %indvars.iv.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
@@ -4092,7 +4092,7 @@ for.body.i.preheader:                             ; preds = %.noexc
   br i1 %4, label %invoke.cont.loopexit.unr-lcssa, label %for.body.i.preheader.new
 
 for.body.i.preheader.new:                         ; preds = %for.body.i.preheader
-  %unroll_iter = sub nuw nsw i64 %conv.i, %xtraiter
+  %unroll_iter = and i64 %call.i.i, 4294967292
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.i.preheader.new
@@ -4132,10 +4132,10 @@ invoke.cont.loopexit.unr-lcssa:                   ; preds = %for.body.i, %for.bo
 for.body.i.epil:                                  ; preds = %invoke.cont.loopexit.unr-lcssa, %for.body.i.epil
   %indvars.iv.i.epil = phi i64 [ %indvars.iv.next.i.epil, %for.body.i.epil ], [ %indvars.iv.i.unr, %invoke.cont.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.epil ], [ 0, %invoke.cont.loopexit.unr-lcssa ]
-  %arrayidx.i.epil = getelementptr inbounds i8, ptr %c, i64 %indvars.iv.i.epil
+  %arrayidx.i.epil = getelementptr inbounds nuw i8, ptr %c, i64 %indvars.iv.i.epil
   %13 = load i8, ptr %arrayidx.i.epil, align 1, !tbaa !13
   %14 = load ptr, ptr %this, align 8, !tbaa !11
-  %arrayidx.i.i.epil = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i.epil
+  %arrayidx.i.i.epil = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i.epil
   store i8 %13, ptr %arrayidx.i.i.epil, align 1, !tbaa !13
   %indvars.iv.next.i.epil = add nuw nsw i64 %indvars.iv.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1

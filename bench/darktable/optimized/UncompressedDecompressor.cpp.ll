@@ -3027,7 +3027,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   br i1 %109, label %.loopexit1, label %110
 
 110:                                              ; preds = %101
-  %111 = sub nsw i64 %106, %108
+  %111 = and i64 %60, 4294967288
   br label %112
 
 112:                                              ; preds = %112, %110
@@ -3317,7 +3317,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   br i1 %295, label %.loopexit4, label %296
 
 296:                                              ; preds = %287
-  %297 = sub nsw i64 %292, %294
+  %297 = and i64 %246, 4294967288
   br label %298
 
 298:                                              ; preds = %298, %296
@@ -3435,14 +3435,14 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %377 = phi i64 [ %387, %.preheader ], [ 0, %.loopexit1 ]
   %378 = mul nuw nsw i64 %376, %104
   %379 = add nuw nsw i64 %378, %102
-  %380 = icmp ule i64 %379, %105
+  %380 = icmp samesign ule i64 %379, %105
   tail call void @llvm.assume(i1 %380)
   %381 = getelementptr inbounds nuw i8, ptr %57, i64 %378
   %382 = mul nuw nsw i64 %376, %103
   %383 = add nuw nsw i64 %382, %102
-  %384 = icmp ule i64 %383, %66
+  %384 = icmp samesign ule i64 %383, %66
   tail call void @llvm.assume(i1 %384)
-  %385 = getelementptr inbounds i8, ptr %80, i64 %382
+  %385 = getelementptr inbounds nuw i8, ptr %80, i64 %382
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %381, ptr nonnull align 1 %385, i64 %102, i1 false)
   %386 = add nuw nsw i64 %376, 1
   %387 = add nuw nsw i64 %377, 1
@@ -3459,14 +3459,14 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %392 = phi i64 [ %402, %.preheader2 ], [ 0, %.loopexit4 ]
   %393 = mul nuw nsw i64 %391, %290
   %394 = add nuw nsw i64 %393, %288
-  %395 = icmp ule i64 %394, %291
+  %395 = icmp samesign ule i64 %394, %291
   tail call void @llvm.assume(i1 %395)
   %396 = getelementptr inbounds nuw i8, ptr %243, i64 %393
   %397 = mul nuw nsw i64 %391, %289
   %398 = add nuw nsw i64 %397, %288
-  %399 = icmp ule i64 %398, %252
+  %399 = icmp samesign ule i64 %398, %252
   tail call void @llvm.assume(i1 %399)
-  %400 = getelementptr inbounds i8, ptr %266, i64 %397
+  %400 = getelementptr inbounds nuw i8, ptr %266, i64 %397
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %396, ptr nonnull align 1 %400, i64 %288, i1 false)
   %401 = add nuw nsw i64 %391, 1
   %402 = add nuw nsw i64 %392, 1

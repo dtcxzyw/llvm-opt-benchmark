@@ -158,7 +158,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %9, label %putinteger.exit.loopexit.unr-lcssa, label %for.body.preheader.i.new
 
 for.body.preheader.i.new:                         ; preds = %for.body.preheader.i
-  %unroll_iter = sub nsw i64 %wide.trip.count.i, %xtraiter
+  %unroll_iter = and i64 %call5, 2147483644
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new
@@ -489,7 +489,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br i1 %11, label %if.end.i143.loopexit.unr-lcssa, label %for.body.preheader.i.new
 
 for.body.preheader.i.new:                         ; preds = %for.body.preheader.i
-  %unroll_iter = and i64 %call7, 9223372036854775804
+  %unroll_iter = and i64 %call7, 2147483644
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i.new
