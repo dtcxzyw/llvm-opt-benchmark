@@ -2452,8 +2452,7 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %109 = bitcast <2 x i64> %h_sig.0.i42.i to <4 x i32>
   %add.i100.i44.i = add <4 x i32> %add.i103.i43.i, %109
   %110 = bitcast <4 x i32> %add.i100.i44.i to <8 x i16>
-  %pshufhw.i45.i = shufflevector <8 x i16> %110, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i46.i = shufflevector <8 x i16> %pshufhw.i45.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i46.i = shufflevector <8 x i16> %110, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %111 = bitcast <8 x i16> %pshuflw.i46.i to <4 x i32>
   %permil.i47.i = shufflevector <4 x i32> %111, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %112 = bitcast <4 x float> %add.i.i8.i to <4 x i32>
@@ -2466,10 +2465,8 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %118 = bitcast <2 x i64> %h_sig.0.i19.i to <4 x i32>
   %add.i100.i21.i = add <4 x i32> %add.i103.i20.i, %118
   %119 = bitcast <4 x i32> %add.i100.i21.i to <8 x i16>
-  %pshufhw.i22.i = shufflevector <8 x i16> %119, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i23.i = shufflevector <8 x i16> %pshufhw.i22.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i23.i = shufflevector <8 x i16> %119, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %120 = bitcast <8 x i16> %pshuflw.i23.i to <4 x i32>
-  %permil.i24.i = shufflevector <4 x i32> %120, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %121 = bitcast <4 x float> %add.i.i.i139 to <4 x i32>
   %122 = lshr <4 x i32> %121, splat (i32 13)
   %123 = and <4 x i32> %122, splat (i32 31744)
@@ -2480,8 +2477,7 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %127 = bitcast <2 x i64> %h_sig.0.i.i to <4 x i32>
   %add.i100.i.i = add <4 x i32> %add.i103.i.i, %127
   %128 = bitcast <4 x i32> %add.i100.i.i to <8 x i16>
-  %pshufhw.i.i = shufflevector <8 x i16> %128, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i.i = shufflevector <8 x i16> %pshufhw.i.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i.i = shufflevector <8 x i16> %128, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %129 = bitcast <8 x i16> %pshuflw.i.i to <4 x i32>
   %permil.i.i = shufflevector <4 x i32> %129, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %130 = bitcast <4 x float> %add.i.i54.i to <4 x i32>
@@ -2494,14 +2490,12 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %add.i103.i66.i = or disjoint <4 x i32> %135, %134
   %add.i100.i67.i = add <4 x i32> %add.i103.i66.i, %136
   %137 = bitcast <4 x i32> %add.i100.i67.i to <8 x i16>
-  %pshufhw.i68.i = shufflevector <8 x i16> %137, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i69.i = shufflevector <8 x i16> %pshufhw.i68.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i69.i = shufflevector <8 x i16> %137, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %138 = bitcast <8 x i16> %pshuflw.i69.i to <4 x i32>
-  %permil.i70.i = shufflevector <4 x i32> %138, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
-  %permil.i = shufflevector <4 x i32> %permil.i24.i, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %permil.i = shufflevector <4 x i32> %120, <4 x i32> poison, <4 x i32> <i32 3, i32 3, i32 0, i32 2>
   %xor.i1372.i = xor <4 x i32> %permil.i, %permil.i.i
   store <4 x i32> %xor.i1372.i, ptr %dst.0392, align 1
-  %permil5.i = shufflevector <4 x i32> %permil.i70.i, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %permil5.i = shufflevector <4 x i32> %138, <4 x i32> poison, <4 x i32> <i32 3, i32 3, i32 0, i32 2>
   %xor.i73.i = xor <4 x i32> %permil5.i, %permil.i47.i
   %add.ptr7.i = getelementptr inbounds nuw i8, ptr %dst.0392, i64 16
   store <4 x i32> %xor.i73.i, ptr %add.ptr7.i, align 1
@@ -2897,8 +2891,7 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %255 = bitcast <2 x i64> %h_sig.0.i42.i329 to <4 x i32>
   %add.i100.i44.i348 = add <4 x i32> %add.i103.i43.i347, %255
   %256 = bitcast <4 x i32> %add.i100.i44.i348 to <8 x i16>
-  %pshufhw.i45.i349 = shufflevector <8 x i16> %256, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i46.i350 = shufflevector <8 x i16> %pshufhw.i45.i349, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i46.i350 = shufflevector <8 x i16> %256, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %257 = bitcast <8 x i16> %pshuflw.i46.i350 to <4 x i32>
   %permil.i47.i351 = shufflevector <4 x i32> %257, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %258 = bitcast <4 x float> %add.i.i8.i299 to <4 x i32>
@@ -2911,10 +2904,8 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %264 = bitcast <2 x i64> %h_sig.0.i19.i311 to <4 x i32>
   %add.i100.i21.i353 = add <4 x i32> %add.i103.i20.i352, %264
   %265 = bitcast <4 x i32> %add.i100.i21.i353 to <8 x i16>
-  %pshufhw.i22.i354 = shufflevector <8 x i16> %265, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i23.i355 = shufflevector <8 x i16> %pshufhw.i22.i354, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i23.i355 = shufflevector <8 x i16> %265, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %266 = bitcast <8 x i16> %pshuflw.i23.i355 to <4 x i32>
-  %permil.i24.i356 = shufflevector <4 x i32> %266, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %267 = bitcast <4 x float> %add.i.i.i281 to <4 x i32>
   %268 = lshr <4 x i32> %267, splat (i32 13)
   %269 = and <4 x i32> %268, splat (i32 31744)
@@ -2925,8 +2916,7 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %273 = bitcast <2 x i64> %h_sig.0.i.i293 to <4 x i32>
   %add.i100.i.i358 = add <4 x i32> %add.i103.i.i357, %273
   %274 = bitcast <4 x i32> %add.i100.i.i358 to <8 x i16>
-  %pshufhw.i.i359 = shufflevector <8 x i16> %274, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i.i360 = shufflevector <8 x i16> %pshufhw.i.i359, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i.i360 = shufflevector <8 x i16> %274, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %275 = bitcast <8 x i16> %pshuflw.i.i360 to <4 x i32>
   %permil.i.i361 = shufflevector <4 x i32> %275, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
   %276 = bitcast <4 x float> %add.i.i54.i335 to <4 x i32>
@@ -2939,14 +2929,12 @@ _ZN19OpenColorIO_v2_4dev12SSE2RGBAPackILNS_8BitDepthE7EE5StoreEPN9Imath_3_14half
   %add.i103.i66.i362 = or disjoint <4 x i32> %281, %280
   %add.i100.i67.i363 = add <4 x i32> %add.i103.i66.i362, %282
   %283 = bitcast <4 x i32> %add.i100.i67.i363 to <8 x i16>
-  %pshufhw.i68.i364 = shufflevector <8 x i16> %283, <8 x i16> poison, <8 x i32> <i32 0, i32 poison, i32 2, i32 poison, i32 4, i32 6, i32 5, i32 5>
-  %pshuflw.i69.i365 = shufflevector <8 x i16> %pshufhw.i68.i364, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i69.i365 = shufflevector <8 x i16> %283, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 poison, i32 poison, i32 4, i32 6, i32 5, i32 5>
   %284 = bitcast <8 x i16> %pshuflw.i69.i365 to <4 x i32>
-  %permil.i70.i366 = shufflevector <4 x i32> %284, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 3, i32 3>
-  %permil.i367 = shufflevector <4 x i32> %permil.i24.i356, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %permil.i367 = shufflevector <4 x i32> %266, <4 x i32> poison, <4 x i32> <i32 3, i32 3, i32 0, i32 2>
   %xor.i1372.i368 = xor <4 x i32> %permil.i367, %permil.i.i361
   store <4 x i32> %xor.i1372.i368, ptr %out_buf, align 16
-  %permil5.i369 = shufflevector <4 x i32> %permil.i70.i366, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %permil5.i369 = shufflevector <4 x i32> %284, <4 x i32> poison, <4 x i32> <i32 3, i32 3, i32 0, i32 2>
   %xor.i73.i370 = xor <4 x i32> %permil5.i369, %permil.i47.i351
   %add.ptr7.i371 = getelementptr inbounds nuw i8, ptr %out_buf, i64 16
   store <4 x i32> %xor.i73.i370, ptr %add.ptr7.i371, align 16

@@ -63,34 +63,33 @@ define internal void @SubtractGreenFromBlueAndRed_SSE2(ptr noundef %0, i32 nound
   %5 = load <2 x i64>, ptr %4, align 1
   %6 = bitcast <2 x i64> %5 to <8 x i16>
   %7 = lshr <8 x i16> %6, splat (i16 8)
-  %8 = shufflevector <8 x i16> %7, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
-  %9 = shufflevector <8 x i16> %8, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
-  %10 = bitcast <2 x i64> %5 to <16 x i8>
-  %11 = bitcast <8 x i16> %9 to <16 x i8>
-  %12 = sub <16 x i8> %10, %11
-  store <16 x i8> %12, ptr %4, align 1
+  %8 = shufflevector <8 x i16> %7, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
+  %9 = bitcast <2 x i64> %5 to <16 x i8>
+  %10 = bitcast <8 x i16> %8 to <16 x i8>
+  %11 = sub <16 x i8> %9, %10
+  store <16 x i8> %11, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %3
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %12, %._crit_edge.loopexit ]
   %.not27 = icmp eq i32 %.0.lcssa, %1
-  br i1 %.not27, label %18, label %14
+  br i1 %.not27, label %17, label %13
 
-14:                                               ; preds = %._crit_edge
-  %15 = zext nneg i32 %.0.lcssa to i64
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
-  %17 = sub nsw i32 %1, %.0.lcssa
-  tail call void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef %16, i32 noundef %17) #7
-  br label %18
+13:                                               ; preds = %._crit_edge
+  %14 = zext nneg i32 %.0.lcssa to i64
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %16 = sub nsw i32 %1, %.0.lcssa
+  tail call void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef %15, i32 noundef %16) #7
+  br label %17
 
-18:                                               ; preds = %14, %._crit_edge
+17:                                               ; preds = %13, %._crit_edge
   ret void
 }
 
@@ -136,42 +135,41 @@ define internal void @TransformColor_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %33 = load <2 x i64>, ptr %32, align 1
   %34 = bitcast <2 x i64> %33 to <8 x i16>
   %35 = and <8 x i16> %34, <i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison, i16 -256, i16 poison>
-  %36 = shufflevector <8 x i16> %35, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
-  %37 = shufflevector <8 x i16> %36, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
-  %38 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %37, <8 x i16> %28)
-  %39 = shl <8 x i16> %34, splat (i16 8)
-  %40 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %39, <8 x i16> %29)
-  %41 = bitcast <8 x i16> %40 to <4 x i32>
-  %42 = lshr <4 x i32> %41, splat (i32 16)
-  %43 = bitcast <4 x i32> %42 to <16 x i8>
-  %44 = bitcast <8 x i16> %38 to <16 x i8>
-  %45 = add <16 x i8> %43, %44
-  %46 = bitcast <2 x i64> %33 to <16 x i8>
-  %47 = and <16 x i8> %45, <i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0>
-  %48 = sub <16 x i8> %46, %47
-  store <16 x i8> %48, ptr %32, align 1
+  %36 = shufflevector <8 x i16> %35, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
+  %37 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %36, <8 x i16> %28)
+  %38 = shl <8 x i16> %34, splat (i16 8)
+  %39 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %38, <8 x i16> %29)
+  %40 = bitcast <8 x i16> %39 to <4 x i32>
+  %41 = lshr <4 x i32> %40, splat (i32 16)
+  %42 = bitcast <4 x i32> %41 to <16 x i8>
+  %43 = bitcast <8 x i16> %37 to <16 x i8>
+  %44 = add <16 x i8> %42, %43
+  %45 = bitcast <2 x i64> %33 to <16 x i8>
+  %46 = and <16 x i8> %44, <i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0, i8 -1, i8 0>
+  %47 = sub <16 x i8> %45, %46
+  store <16 x i8> %47, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %30
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 4
   br i1 %.not, label %._crit_edge.loopexit, label %31, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %31
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %49, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %48, %._crit_edge.loopexit ]
   %.not90 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not90, label %54, label %50
+  br i1 %.not90, label %53, label %49
 
-50:                                               ; preds = %._crit_edge
-  %51 = zext nneg i32 %.0.lcssa to i64
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %51
-  %53 = sub nsw i32 %2, %.0.lcssa
-  tail call void @VP8LTransformColor_C(ptr noundef nonnull %0, ptr noundef %52, i32 noundef %53) #7
-  br label %54
+49:                                               ; preds = %._crit_edge
+  %50 = zext nneg i32 %.0.lcssa to i64
+  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
+  %52 = sub nsw i32 %2, %.0.lcssa
+  tail call void @VP8LTransformColor_C(ptr noundef nonnull %0, ptr noundef %51, i32 noundef %52) #7
+  br label %53
 
-54:                                               ; preds = %50, %._crit_edge
+53:                                               ; preds = %49, %._crit_edge
   ret void
 }
 

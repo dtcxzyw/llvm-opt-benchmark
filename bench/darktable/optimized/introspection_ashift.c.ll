@@ -1081,41 +1081,40 @@ define internal fastcc void @_homography(ptr noundef nonnull %0, float noundef %
   %417 = shufflevector <2 x float> %413, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %418 = shufflevector <4 x float> %417, <4 x float> %416, <4 x i32> <i32 0, i32 1, i32 6, i32 poison>
   %419 = shufflevector <4 x float> %418, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %420 = shufflevector <4 x float> %352, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
-  %421 = shufflevector <4 x float> %420, <4 x float> %345, <4 x i32> <i32 0, i32 1, i32 4, i32 poison>
-  %422 = shufflevector <4 x float> %421, <4 x float> %404, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
-  %423 = fadd reassoc nsz arcp contract afn <4 x float> %419, %422
-  %424 = shufflevector <4 x float> %403, <4 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %425 = shufflevector <2 x float> %415, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %426 = shufflevector <4 x float> %425, <4 x float> %424, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %427 = fsub reassoc nsz arcp contract afn <4 x float> %423, %426
-  %428 = fadd reassoc nsz arcp contract afn <4 x float> %426, %423
-  %429 = shufflevector <4 x float> %427, <4 x float> %428, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x float> %429, ptr %91, align 16, !tbaa !10, !alias.scope !68, !noalias !71
-  %430 = fadd reassoc nsz arcp contract afn <2 x float> %413, %355
-  %431 = extractelement <2 x float> %430, i64 1
-  %432 = extractelement <4 x float> %403, i64 2
-  %433 = fadd reassoc nsz arcp contract afn float %432, %431
-  store float %433, ptr %94, align 16, !tbaa !10, !alias.scope !68, !noalias !71
-  %434 = icmp eq i32 %10, 0
-  br i1 %434, label %435, label %436
+  %420 = shufflevector <4 x float> %352, <4 x float> %345, <4 x i32> <i32 1, i32 2, i32 4, i32 poison>
+  %421 = shufflevector <4 x float> %420, <4 x float> %404, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
+  %422 = fadd reassoc nsz arcp contract afn <4 x float> %419, %421
+  %423 = shufflevector <4 x float> %403, <4 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
+  %424 = shufflevector <2 x float> %415, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %425 = shufflevector <4 x float> %424, <4 x float> %423, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %426 = fsub reassoc nsz arcp contract afn <4 x float> %422, %425
+  %427 = fadd reassoc nsz arcp contract afn <4 x float> %425, %422
+  %428 = shufflevector <4 x float> %426, <4 x float> %427, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x float> %428, ptr %91, align 16, !tbaa !10, !alias.scope !68, !noalias !71
+  %429 = fadd reassoc nsz arcp contract afn <2 x float> %413, %355
+  %430 = extractelement <2 x float> %429, i64 1
+  %431 = extractelement <4 x float> %403, i64 2
+  %432 = fadd reassoc nsz arcp contract afn float %431, %430
+  store float %432, ptr %94, align 16, !tbaa !10, !alias.scope !68, !noalias !71
+  %433 = icmp eq i32 %10, 0
+  br i1 %433, label %434, label %435
+
+434:                                              ; preds = %.loopexit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 16 dereferenceable(36) %12, i64 36, i1 false)
+  br label %440
 
 435:                                              ; preds = %.loopexit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 16 dereferenceable(36) %12, i64 36, i1 false)
-  br label %441
+  %436 = call i32 @mat3inv(ptr noundef nonnull %0, ptr noundef nonnull %12) #33
+  %437 = icmp eq i32 %436, 0
+  br i1 %437, label %440, label %438
 
-436:                                              ; preds = %.loopexit
-  %437 = call i32 @mat3inv(ptr noundef nonnull %0, ptr noundef nonnull %12) #33
-  %438 = icmp eq i32 %437, 0
-  br i1 %438, label %441, label %439
-
-439:                                              ; preds = %436
+438:                                              ; preds = %435
   store <8 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %0, align 4
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float 1.000000e+00, ptr %440, align 4
-  br label %441
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store float 1.000000e+00, ptr %439, align 4
+  br label %440
 
-441:                                              ; preds = %439, %436, %435
+440:                                              ; preds = %438, %435, %434
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #33
   ret void
 }

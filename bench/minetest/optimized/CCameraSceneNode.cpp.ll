@@ -632,45 +632,44 @@ entry:
   %84 = insertelement <4 x float> %83, float %add11.i, i64 1
   %85 = insertelement <4 x float> %84, float %add17.i, i64 2
   %86 = insertelement <4 x float> %85, float %sub.i, i64 3
-  %87 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %88 = insertelement <2 x float> poison, float %sub.i, i64 0
-  %89 = insertelement <2 x float> %88, float %add75.i, i64 1
-  %90 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %89, <2 x float> %89, <2 x float> %82)
-  %91 = insertelement <2 x float> poison, float %sub35.i, i64 0
-  %92 = insertelement <2 x float> %91, float %add89.i, i64 1
-  %93 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %92, <2 x float> %90)
-  %94 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %93)
-  %95 = fdiv <2 x float> splat (float -1.000000e+00), %94
-  %96 = shufflevector <2 x float> %95, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %97 = shufflevector <2 x float> %87, <2 x float> %95, <2 x i32> <i32 0, i32 2>
-  %98 = shufflevector <2 x float> %97, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %99 = fmul <4 x float> %86, %98
-  store <4 x float> %99, ptr %Y.i, align 4, !tbaa !10
-  %100 = insertelement <4 x float> poison, float %sub28.i, i64 0
-  %101 = insertelement <4 x float> %100, float %sub35.i, i64 1
-  %102 = insertelement <4 x float> %101, float %sub42.i, i64 2
-  %103 = insertelement <4 x float> %102, float %add75.i, i64 3
-  %104 = fmul <4 x float> %103, %96
-  store <4 x float> %104, ptr %Y32.i, align 4, !tbaa !10
+  %87 = insertelement <2 x float> poison, float %sub.i, i64 0
+  %88 = insertelement <2 x float> %87, float %add75.i, i64 1
+  %89 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %88, <2 x float> %88, <2 x float> %82)
+  %90 = insertelement <2 x float> poison, float %sub35.i, i64 0
+  %91 = insertelement <2 x float> %90, float %add89.i, i64 1
+  %92 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %91, <2 x float> %91, <2 x float> %89)
+  %93 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %92)
+  %94 = fdiv <2 x float> splat (float -1.000000e+00), %93
+  %95 = shufflevector <2 x float> %94, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %96 = shufflevector <2 x float> %73, <2 x float> %94, <2 x i32> <i32 1, i32 2>
+  %97 = shufflevector <2 x float> %96, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %98 = fmul <4 x float> %86, %97
+  store <4 x float> %98, ptr %Y.i, align 4, !tbaa !10
+  %99 = insertelement <4 x float> poison, float %sub28.i, i64 0
+  %100 = insertelement <4 x float> %99, float %sub35.i, i64 1
+  %101 = insertelement <4 x float> %100, float %sub42.i, i64 2
+  %102 = insertelement <4 x float> %101, float %add75.i, i64 3
+  %103 = fmul <4 x float> %102, %95
+  store <4 x float> %103, ptr %Y32.i, align 4, !tbaa !10
   %mul4.i.5.i = fmul float %sub55.i, %sub55.i
-  %105 = tail call float @llvm.fmuladd.f32(float %sub48.i, float %sub48.i, float %mul4.i.5.i)
-  %106 = tail call noundef float @llvm.fmuladd.f32(float %sub62.i, float %sub62.i, float %105)
-  %sqrt.5.i = tail call float @llvm.sqrt.f32(float %106)
+  %104 = tail call float @llvm.fmuladd.f32(float %sub48.i, float %sub48.i, float %mul4.i.5.i)
+  %105 = tail call noundef float @llvm.fmuladd.f32(float %sub62.i, float %sub62.i, float %104)
+  %sqrt.5.i = tail call float @llvm.sqrt.f32(float %105)
   %fneg.5.i = fdiv float -1.000000e+00, %sqrt.5.i
-  %107 = insertelement <4 x float> poison, float %add82.i, i64 0
-  %108 = insertelement <4 x float> %107, float %add89.i, i64 1
-  %109 = insertelement <4 x float> %108, float %add96.i, i64 2
-  %110 = insertelement <4 x float> %109, float %sub48.i, i64 3
-  %111 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %112 = insertelement <2 x float> %111, float %fneg.5.i, i64 1
-  %113 = shufflevector <2 x float> %112, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %114 = fmul <4 x float> %110, %113
-  store <4 x float> %114, ptr %Y86.i, align 4, !tbaa !10
-  %115 = load <2 x float>, ptr %Y59.i, align 4, !tbaa !10
-  %116 = insertelement <2 x float> poison, float %fneg.5.i, i64 0
-  %117 = shufflevector <2 x float> %116, <2 x float> poison, <2 x i32> zeroinitializer
-  %118 = fmul <2 x float> %117, %115
-  store <2 x float> %118, ptr %Y59.i, align 4, !tbaa !10
+  %106 = insertelement <4 x float> poison, float %add82.i, i64 0
+  %107 = insertelement <4 x float> %106, float %add89.i, i64 1
+  %108 = insertelement <4 x float> %107, float %add96.i, i64 2
+  %109 = insertelement <4 x float> %108, float %sub48.i, i64 3
+  %110 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %111 = insertelement <2 x float> %110, float %fneg.5.i, i64 1
+  %112 = shufflevector <2 x float> %111, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %113 = fmul <4 x float> %109, %112
+  store <4 x float> %113, ptr %Y86.i, align 4, !tbaa !10
+  %114 = load <2 x float>, ptr %Y59.i, align 4, !tbaa !10
+  %115 = insertelement <2 x float> poison, float %fneg.5.i, i64 0
+  %116 = shufflevector <2 x float> %115, <2 x float> poison, <2 x i32> zeroinitializer
+  %117 = fmul <2 x float> %116, %114
+  store <2 x float> %117, ptr %Y59.i, align 4, !tbaa !10
   %mul.5.i = fmul float %fneg.5.i, %sub69.i
   store float %mul.5.i, ptr %D72.i, align 4, !tbaa !63
   tail call void @_ZN3irr5scene12SViewFrustum22recalculateBoundingBoxEv(ptr noundef nonnull align 4 dereferenceable(280) %ViewArea)

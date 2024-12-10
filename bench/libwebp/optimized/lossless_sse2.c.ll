@@ -941,7 +941,7 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv219 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next220, %.lr.ph ]
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0212217 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %106, %.lr.ph ]
+  %.0212217 = phi <2 x i64> [ %8, %.lr.ph.preheader ], [ %105, %.lr.ph ]
   %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv219
   %11 = load <2 x i64>, ptr %10, align 1
   %12 = getelementptr i8, ptr %10, i64 -4
@@ -1030,48 +1030,47 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %92 = bitcast <16 x i8> %89 to <4 x i32>
   %93 = shufflevector <4 x i32> %85, <4 x i32> %92, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %94 = bitcast <16 x i8> %69 to <4 x i32>
-  %95 = shufflevector <4 x i32> %94, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 poison, i32 poison>
-  %96 = shufflevector <4 x i32> %95, <4 x i32> %92, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
-  %97 = bitcast <4 x i32> %93 to <16 x i8>
-  %98 = bitcast <4 x i32> %96 to <16 x i8>
-  %99 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %97, <16 x i8> %98)
-  %100 = bitcast <2 x i64> %99 to <4 x i32>
-  %101 = bitcast <16 x i8> %91 to <4 x i32>
-  %102 = icmp sgt <4 x i32> %100, %101
-  %103 = select <4 x i1> %102, <4 x i32> %85, <4 x i32> %92
-  %104 = bitcast <4 x i32> %103 to <16 x i8>
-  %105 = add <16 x i8> %90, %104
-  %106 = bitcast <16 x i8> %105 to <2 x i64>
-  %107 = bitcast <16 x i8> %105 to <4 x i32>
-  %108 = extractelement <4 x i32> %107, i64 0
-  %109 = or disjoint i64 %indvars.iv219, 3
-  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %109
-  store i32 %108, ptr %110, align 4
+  %95 = shufflevector <4 x i32> %94, <4 x i32> %92, <4 x i32> <i32 1, i32 4, i32 2, i32 5>
+  %96 = bitcast <4 x i32> %93 to <16 x i8>
+  %97 = bitcast <4 x i32> %95 to <16 x i8>
+  %98 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %96, <16 x i8> %97)
+  %99 = bitcast <2 x i64> %98 to <4 x i32>
+  %100 = bitcast <16 x i8> %91 to <4 x i32>
+  %101 = icmp sgt <4 x i32> %99, %100
+  %102 = select <4 x i1> %101, <4 x i32> %85, <4 x i32> %92
+  %103 = bitcast <4 x i32> %102 to <16 x i8>
+  %104 = add <16 x i8> %90, %103
+  %105 = bitcast <16 x i8> %104 to <2 x i64>
+  %106 = bitcast <16 x i8> %104 to <4 x i32>
+  %107 = extractelement <4 x i32> %106, i64 0
+  %108 = or disjoint i64 %indvars.iv219, 3
+  %109 = getelementptr inbounds nuw i32, ptr %3, i64 %108
+  store i32 %107, ptr %109, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %9
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %111 = trunc nuw nsw i64 %indvars.iv to i32
+  %110 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %111, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %110, %._crit_edge.loopexit ]
   %.not215 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not215, label %119, label %112
+  br i1 %.not215, label %118, label %111
 
-112:                                              ; preds = %._crit_edge
-  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
-  %114 = zext nneg i32 %.0.lcssa to i64
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %114
-  %116 = getelementptr inbounds nuw i32, ptr %1, i64 %114
-  %117 = sub nsw i32 %2, %.0.lcssa
-  %118 = getelementptr inbounds nuw i32, ptr %3, i64 %114
-  tail call void %113(ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef %118) #7
-  br label %119
+111:                                              ; preds = %._crit_edge
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @VP8LPredictorsAdd_C, i64 88), align 8
+  %113 = zext nneg i32 %.0.lcssa to i64
+  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %113
+  %115 = getelementptr inbounds nuw i32, ptr %1, i64 %113
+  %116 = sub nsw i32 %2, %.0.lcssa
+  %117 = getelementptr inbounds nuw i32, ptr %3, i64 %113
+  tail call void %112(ptr noundef %114, ptr noundef %115, i32 noundef %116, ptr noundef %117) #7
+  br label %118
 
-119:                                              ; preds = %112, %._crit_edge
+118:                                              ; preds = %111, %._crit_edge
   ret void
 }
 
@@ -1259,36 +1258,35 @@ define internal void @AddGreenToBlueAndRed_SSE2(ptr noundef %0, i32 noundef %1, 
   %6 = load <2 x i64>, ptr %5, align 1
   %7 = bitcast <2 x i64> %6 to <8 x i16>
   %8 = lshr <8 x i16> %7, splat (i16 8)
-  %9 = shufflevector <8 x i16> %8, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
-  %10 = shufflevector <8 x i16> %9, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
-  %11 = bitcast <2 x i64> %6 to <16 x i8>
-  %12 = bitcast <8 x i16> %10 to <16 x i8>
-  %13 = add <16 x i8> %12, %11
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv32
-  store <16 x i8> %13, ptr %14, align 1
+  %9 = shufflevector <8 x i16> %8, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
+  %10 = bitcast <2 x i64> %6 to <16 x i8>
+  %11 = bitcast <8 x i16> %9 to <16 x i8>
+  %12 = add <16 x i8> %11, %10
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv32
+  store <16 x i8> %12, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %15, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %14, %._crit_edge.loopexit ]
   %.not29 = icmp eq i32 %.0.lcssa, %1
-  br i1 %.not29, label %21, label %16
+  br i1 %.not29, label %20, label %15
 
-16:                                               ; preds = %._crit_edge
-  %17 = zext nneg i32 %.0.lcssa to i64
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
-  %19 = sub nsw i32 %1, %.0.lcssa
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %17
-  tail call void @VP8LAddGreenToBlueAndRed_C(ptr noundef %18, i32 noundef %19, ptr noundef %20) #7
-  br label %21
+15:                                               ; preds = %._crit_edge
+  %16 = zext nneg i32 %.0.lcssa to i64
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = sub nsw i32 %1, %.0.lcssa
+  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %16
+  tail call void @VP8LAddGreenToBlueAndRed_C(ptr noundef %17, i32 noundef %18, ptr noundef %19) #7
+  br label %20
 
-21:                                               ; preds = %16, %._crit_edge
+20:                                               ; preds = %15, %._crit_edge
   ret void
 }
 
@@ -1334,49 +1332,48 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %34 = load <2 x i64>, ptr %33, align 1
   %35 = and <2 x i64> %34, splat (i64 -71777214294589696)
   %36 = bitcast <2 x i64> %35 to <8 x i16>
-  %37 = shufflevector <8 x i16> %36, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
-  %38 = shufflevector <8 x i16> %37, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
-  %39 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %38, <8 x i16> %29)
-  %40 = bitcast <2 x i64> %34 to <16 x i8>
-  %41 = bitcast <8 x i16> %39 to <16 x i8>
-  %42 = add <16 x i8> %41, %40
-  %43 = bitcast <16 x i8> %42 to <8 x i16>
-  %44 = shl <8 x i16> %43, splat (i16 8)
-  %45 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %44, <8 x i16> %30)
-  %46 = bitcast <8 x i16> %45 to <4 x i32>
-  %47 = lshr <4 x i32> %46, splat (i32 8)
-  %48 = bitcast <4 x i32> %47 to <16 x i8>
-  %49 = bitcast <8 x i16> %44 to <16 x i8>
-  %50 = add <16 x i8> %49, %48
-  %51 = bitcast <16 x i8> %50 to <8 x i16>
-  %52 = lshr <8 x i16> %51, splat (i16 8)
-  %53 = bitcast <8 x i16> %52 to <2 x i64>
-  %54 = or disjoint <2 x i64> %35, %53
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv89
-  store <2 x i64> %54, ptr %55, align 1
+  %37 = shufflevector <8 x i16> %36, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 4, i32 6, i32 6>
+  %38 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %37, <8 x i16> %29)
+  %39 = bitcast <2 x i64> %34 to <16 x i8>
+  %40 = bitcast <8 x i16> %38 to <16 x i8>
+  %41 = add <16 x i8> %40, %39
+  %42 = bitcast <16 x i8> %41 to <8 x i16>
+  %43 = shl <8 x i16> %42, splat (i16 8)
+  %44 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %43, <8 x i16> %30)
+  %45 = bitcast <8 x i16> %44 to <4 x i32>
+  %46 = lshr <4 x i32> %45, splat (i32 8)
+  %47 = bitcast <4 x i32> %46 to <16 x i8>
+  %48 = bitcast <8 x i16> %43 to <16 x i8>
+  %49 = add <16 x i8> %48, %47
+  %50 = bitcast <16 x i8> %49 to <8 x i16>
+  %51 = lshr <8 x i16> %50, splat (i16 8)
+  %52 = bitcast <8 x i16> %51 to <2 x i64>
+  %53 = or disjoint <2 x i64> %35, %52
+  %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv89
+  store <2 x i64> %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %31
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 4
   br i1 %.not, label %._crit_edge.loopexit, label %32, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %32
-  %56 = trunc nuw nsw i64 %indvars.iv to i32
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0.lcssa = phi i32 [ 0, %4 ], [ %56, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ %55, %._crit_edge.loopexit ]
   %.not86 = icmp eq i32 %.0.lcssa, %2
-  br i1 %.not86, label %62, label %57
+  br i1 %.not86, label %61, label %56
 
-57:                                               ; preds = %._crit_edge
-  %58 = zext nneg i32 %.0.lcssa to i64
-  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %58
-  %60 = sub nsw i32 %2, %.0.lcssa
-  %61 = getelementptr inbounds nuw i32, ptr %3, i64 %58
-  tail call void @VP8LTransformColorInverse_C(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %60, ptr noundef %61) #7
-  br label %62
+56:                                               ; preds = %._crit_edge
+  %57 = zext nneg i32 %.0.lcssa to i64
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %57
+  %59 = sub nsw i32 %2, %.0.lcssa
+  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %57
+  tail call void @VP8LTransformColorInverse_C(ptr noundef nonnull %0, ptr noundef %58, i32 noundef %59, ptr noundef %60) #7
+  br label %61
 
-62:                                               ; preds = %57, %._crit_edge
+61:                                               ; preds = %56, %._crit_edge
   ret void
 }
 
@@ -1600,9 +1597,9 @@ define internal void @ConvertBGRAToRGBA_SSE2(ptr noundef %0, i32 noundef %1, ptr
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.060 = phi i32 [ %25, %.lr.ph ], [ %1, %3 ]
+  %.060 = phi i32 [ %23, %.lr.ph ], [ %1, %3 ]
   %.05659 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
-  %.05758 = phi ptr [ %24, %.lr.ph ], [ %2, %3 ]
+  %.05758 = phi ptr [ %22, %.lr.ph ], [ %2, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05659, i64 16
   %6 = load <2 x i64>, ptr %.05659, align 1
   %7 = getelementptr inbounds nuw i8, ptr %.05659, i64 32
@@ -1611,36 +1608,34 @@ define internal void @ConvertBGRAToRGBA_SSE2(ptr noundef %0, i32 noundef %1, ptr
   %10 = and <2 x i64> %8, splat (i64 -71777214294589696)
   %11 = bitcast <2 x i64> %6 to <8 x i16>
   %12 = and <8 x i16> %11, splat (i16 255)
-  %13 = shufflevector <8 x i16> %12, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 4, i32 5, i32 6, i32 7>
-  %14 = bitcast <2 x i64> %8 to <8 x i16>
-  %15 = and <8 x i16> %14, splat (i16 255)
-  %16 = shufflevector <8 x i16> %15, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 4, i32 5, i32 6, i32 7>
-  %17 = shufflevector <8 x i16> %13, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 5, i32 4, i32 7, i32 6>
+  %13 = bitcast <2 x i64> %8 to <8 x i16>
+  %14 = and <8 x i16> %13, splat (i16 255)
+  %15 = shufflevector <8 x i16> %12, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %16 = bitcast <8 x i16> %15 to <2 x i64>
+  %17 = shufflevector <8 x i16> %14, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %18 = bitcast <8 x i16> %17 to <2 x i64>
-  %19 = shufflevector <8 x i16> %16, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 5, i32 4, i32 7, i32 6>
-  %20 = bitcast <8 x i16> %19 to <2 x i64>
-  %21 = or disjoint <2 x i64> %9, %18
-  %22 = or disjoint <2 x i64> %10, %20
-  %23 = getelementptr inbounds nuw i8, ptr %.05758, i64 16
-  store <2 x i64> %21, ptr %.05758, align 1
-  %24 = getelementptr inbounds nuw i8, ptr %.05758, i64 32
-  store <2 x i64> %22, ptr %23, align 1
-  %25 = add nsw i32 %.060, -8
-  %26 = icmp samesign ugt i32 %.060, 15
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  %19 = or disjoint <2 x i64> %9, %16
+  %20 = or disjoint <2 x i64> %10, %18
+  %21 = getelementptr inbounds nuw i8, ptr %.05758, i64 16
+  store <2 x i64> %19, ptr %.05758, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %.05758, i64 32
+  store <2 x i64> %20, ptr %21, align 1
+  %23 = add nsw i32 %.060, -8
+  %24 = icmp samesign ugt i32 %.060, 15
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.057.lcssa = phi ptr [ %2, %3 ], [ %24, %.lr.ph ]
+  %.057.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
   %.056.lcssa = phi ptr [ %0, %3 ], [ %7, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %1, %3 ], [ %25, %.lr.ph ]
-  %27 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %27, label %28, label %29
+  %.0.lcssa = phi i32 [ %1, %3 ], [ %23, %.lr.ph ]
+  %25 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %25, label %26, label %27
 
-28:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToRGBA_C(ptr noundef %.056.lcssa, i32 noundef %.0.lcssa, ptr noundef %.057.lcssa) #7
-  br label %29
+  br label %27
 
-29:                                               ; preds = %28, %._crit_edge
+27:                                               ; preds = %26, %._crit_edge
   ret void
 }
 
@@ -1650,9 +1645,9 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noundef %0, i32 noundef %1,
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0137 = phi i32 [ %29, %.lr.ph ], [ %1, %3 ]
+  %.0137 = phi i32 [ %28, %.lr.ph ], [ %1, %3 ]
   %.0133136 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
-  %.0134135 = phi ptr [ %28, %.lr.ph ], [ %2, %3 ]
+  %.0134135 = phi ptr [ %27, %.lr.ph ], [ %2, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %.0133136, i64 16
   %6 = load <16 x i8>, ptr %.0133136, align 1
   %7 = getelementptr inbounds nuw i8, ptr %.0133136, i64 32
@@ -1674,26 +1669,25 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noundef %0, i32 noundef %1,
   %23 = and <2 x i64> %21, splat (i64 1085102592571150095)
   %24 = or disjoint <2 x i64> %23, %22
   %25 = bitcast <2 x i64> %24 to <16 x i8>
-  %26 = shufflevector <16 x i8> %25, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %27 = shufflevector <16 x i8> %25, <16 x i8> %26, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %28 = getelementptr inbounds nuw i8, ptr %.0134135, i64 16
-  store <16 x i8> %27, ptr %.0134135, align 1
-  %29 = add nsw i32 %.0137, -8
-  %30 = icmp samesign ugt i32 %.0137, 15
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  %26 = shufflevector <16 x i8> %25, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %27 = getelementptr inbounds nuw i8, ptr %.0134135, i64 16
+  store <16 x i8> %26, ptr %.0134135, align 1
+  %28 = add nsw i32 %.0137, -8
+  %29 = icmp samesign ugt i32 %.0137, 15
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0134.lcssa = phi ptr [ %2, %3 ], [ %28, %.lr.ph ]
+  %.0134.lcssa = phi ptr [ %2, %3 ], [ %27, %.lr.ph ]
   %.0133.lcssa = phi ptr [ %0, %3 ], [ %7, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %1, %3 ], [ %29, %.lr.ph ]
-  %31 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %31, label %32, label %33
+  %.0.lcssa = phi i32 [ %1, %3 ], [ %28, %.lr.ph ]
+  %30 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %._crit_edge
+31:                                               ; preds = %._crit_edge
   tail call void @VP8LConvertBGRAToRGBA4444_C(ptr noundef %.0133.lcssa, i32 noundef %.0.lcssa, ptr noundef %.0134.lcssa) #7
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %._crit_edge
+32:                                               ; preds = %31, %._crit_edge
   ret void
 }
 

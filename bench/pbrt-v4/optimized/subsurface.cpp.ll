@@ -843,8 +843,7 @@ entry:
   %retval.sroa.2.0.p.addr.0..sroa_idx.i10.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr31.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i1120.i.i3.i.i.i.i = load <2 x float>, ptr %retval.sroa.2.0.p.addr.0..sroa_idx.i10.i.i.i.i.i.i, align 8, !noalias !19
   %ss.sroa.0.0.vec.extract.i.i.i.i.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i, i64 0
-  %raySamples.sroa.10.36.vec.insert.i.i.i.i = shufflevector <2 x float> %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %raySamples.sroa.10.40.vec.insert.i.i.i.i = shufflevector <2 x float> %raySamples.sroa.10.36.vec.insert.i.i.i.i, <2 x float> %retval.sroa.2.0.copyload.i1120.i.i3.i.i.i.i, <2 x i32> <i32 0, i32 2>
+  %raySamples.sroa.10.40.vec.insert.i.i.i.i = shufflevector <2 x float> %retval.sroa.0.0.copyload.i9.i.i.i.i.i.i, <2 x float> %retval.sroa.2.0.copyload.i1120.i.i3.i.i.i.i, <2 x i32> <i32 1, i32 2>
   call void @_ZNK4pbrt15TabulatedBSSRDF8SampleSpEfNS_6Point2IfEE(ptr nonnull sret(%"class.pstd::optional.48") align 4 %probeSeg.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %bssrdf.i.i.i.i, float noundef %ss.sroa.0.0.vec.extract.i.i.i.i.i.i, <2 x float> %raySamples.sroa.10.40.vec.insert.i.i.i.i)
   %set.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %probeSeg.i.i.i.i, i64 24
   %56 = load i8, ptr %set.i.i.i.i.i, align 8

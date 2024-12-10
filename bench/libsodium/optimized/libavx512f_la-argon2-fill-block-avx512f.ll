@@ -465,18 +465,16 @@ do.body11.i:                                      ; preds = %for.body.i42, %do.b
   %xor.i1841.i = xor <8 x i64> %add.i.i929.i, %97
   %112 = tail call <8 x i64> @llvm.fshl.v8i64(<8 x i64> %xor.i1844.i, <8 x i64> %xor.i1844.i, <8 x i64> splat (i64 1))
   %113 = tail call <8 x i64> @llvm.fshl.v8i64(<8 x i64> %xor.i1841.i, <8 x i64> %xor.i1841.i, <8 x i64> splat (i64 1))
-  %perm739.i = shufflevector <8 x i64> %112, <8 x i64> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
-  %perm748.i = shufflevector <8 x i64> %113, <8 x i64> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
-  %shuf802.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %perm739.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %shuf811.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %perm739.i, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %shuf802.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %112, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 11, i32 8, i32 9, i32 10>
+  %shuf811.i = shufflevector <8 x i64> %add.i.i920.i, <8 x i64> %112, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 15, i32 12, i32 13, i32 14>
   store <8 x i64> %shuf802.i, ptr %indvars.iv984.i.sroa.phi, align 64
   store <8 x i64> %shuf811.i, ptr %arrayidx18.i, align 64
   %shuf832.i = shufflevector <8 x i64> %add.i.i926.i, <8 x i64> %104, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 9, i32 10, i32 11, i32 8>
   %shuf841.i = shufflevector <8 x i64> %add.i.i926.i, <8 x i64> %104, <8 x i32> <i32 6, i32 7, i32 4, i32 5, i32 13, i32 14, i32 15, i32 12>
   store <8 x i64> %shuf832.i, ptr %arrayidx42.i, align 64
   store <8 x i64> %shuf841.i, ptr %arrayidx46.i, align 64
-  %shuf862.i = shufflevector <8 x i64> %add.i.i923.i, <8 x i64> %perm748.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %shuf871.i = shufflevector <8 x i64> %add.i.i923.i, <8 x i64> %perm748.i, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %shuf862.i = shufflevector <8 x i64> %add.i.i923.i, <8 x i64> %113, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 11, i32 8, i32 9, i32 10>
+  %shuf871.i = shufflevector <8 x i64> %add.i.i923.i, <8 x i64> %113, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 15, i32 12, i32 13, i32 14>
   store <8 x i64> %shuf862.i, ptr %arrayidx72.i, align 64
   store <8 x i64> %shuf871.i, ptr %arrayidx76.i, align 64
   %shuf892.i = shufflevector <8 x i64> %add.i.i929.i, <8 x i64> %105, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 9, i32 10, i32 11, i32 8>
@@ -906,18 +904,16 @@ do.body18:                                        ; preds = %for.body, %do.body1
   %xor.i1848 = xor <8 x i64> %add.i.i933, %66
   %81 = tail call <8 x i64> @llvm.fshl.v8i64(<8 x i64> %xor.i1851, <8 x i64> %xor.i1851, <8 x i64> splat (i64 1))
   %82 = tail call <8 x i64> @llvm.fshl.v8i64(<8 x i64> %xor.i1848, <8 x i64> %xor.i1848, <8 x i64> splat (i64 1))
-  %perm746 = shufflevector <8 x i64> %81, <8 x i64> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
-  %perm755 = shufflevector <8 x i64> %82, <8 x i64> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
-  %shuf809 = shufflevector <8 x i64> %add.i.i924, <8 x i64> %perm746, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %shuf818 = shufflevector <8 x i64> %add.i.i924, <8 x i64> %perm746, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %shuf809 = shufflevector <8 x i64> %add.i.i924, <8 x i64> %81, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 11, i32 8, i32 9, i32 10>
+  %shuf818 = shufflevector <8 x i64> %add.i.i924, <8 x i64> %81, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 15, i32 12, i32 13, i32 14>
   store <8 x i64> %shuf809, ptr %arrayidx21, align 64
   store <8 x i64> %shuf818, ptr %arrayidx25, align 64
   %shuf839 = shufflevector <8 x i64> %add.i.i930, <8 x i64> %73, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 9, i32 10, i32 11, i32 8>
   %shuf848 = shufflevector <8 x i64> %add.i.i930, <8 x i64> %73, <8 x i32> <i32 6, i32 7, i32 4, i32 5, i32 13, i32 14, i32 15, i32 12>
   store <8 x i64> %shuf839, ptr %arrayidx49, align 64
   store <8 x i64> %shuf848, ptr %arrayidx53, align 64
-  %shuf869 = shufflevector <8 x i64> %add.i.i927, <8 x i64> %perm755, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
-  %shuf878 = shufflevector <8 x i64> %add.i.i927, <8 x i64> %perm755, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
+  %shuf869 = shufflevector <8 x i64> %add.i.i927, <8 x i64> %82, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 11, i32 8, i32 9, i32 10>
+  %shuf878 = shufflevector <8 x i64> %add.i.i927, <8 x i64> %82, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 15, i32 12, i32 13, i32 14>
   store <8 x i64> %shuf869, ptr %arrayidx79, align 64
   store <8 x i64> %shuf878, ptr %arrayidx83, align 64
   %shuf899 = shufflevector <8 x i64> %add.i.i933, <8 x i64> %74, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 9, i32 10, i32 11, i32 8>

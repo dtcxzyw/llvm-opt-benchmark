@@ -57772,8 +57772,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %22 = bitcast <8 x i16> %21 to <4 x i32>
   %permil.i = shufflevector <4 x i32> %22, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %23 = bitcast <4 x i32> %permil.i to <8 x i16>
-  %pshufhw.i = shufflevector <8 x i16> %23, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 5, i32 7>
-  %pshuflw.i = shufflevector <8 x i16> %pshufhw.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i = shufflevector <8 x i16> %23, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   store <8 x i16> %pshuflw.i, ptr %add.ptr15.i, align 1
   %inc.i = add nuw nsw i64 %i.i.0665, 1
   %exitcond710.not = icmp eq i64 %inc.i, %shr.i
@@ -57965,8 +57964,7 @@ for.body.i215:                                    ; preds = %if.then.i99, %for.b
   %46 = bitcast <8 x i16> %45 to <4 x i32>
   %permil.i.i = shufflevector <4 x i32> %46, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %47 = bitcast <4 x i32> %permil.i.i to <8 x i16>
-  %pshufhw.i.i = shufflevector <8 x i16> %47, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 5, i32 7>
-  %pshuflw.i.i = shufflevector <8 x i16> %pshufhw.i.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i.i = shufflevector <8 x i16> %47, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   store <8 x i16> %pshuflw.i.i, ptr %add.ptr15.i219, align 1
   %inc.i220 = add nuw nsw i64 %i.i182.0657, 1
   %exitcond708.not = icmp eq i64 %inc.i220, %shr.i191
@@ -58158,8 +58156,7 @@ for.body.i346:                                    ; preds = %for.cond.i337.prehe
   %75 = bitcast <8 x i16> %74 to <4 x i32>
   %permil.i209.i = shufflevector <4 x i32> %75, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %76 = bitcast <4 x i32> %permil.i209.i to <8 x i16>
-  %pshufhw.i210.i = shufflevector <8 x i16> %76, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 5, i32 7>
-  %pshuflw.i211.i = shufflevector <8 x i16> %pshufhw.i210.i, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i211.i = shufflevector <8 x i16> %76, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   store <8 x i16> %pshuflw.i211.i, ptr %add.ptr21.i, align 1
   %inc.i353 = add nuw nsw i64 %i.i318.0649, 1
   %exitcond706.not = icmp eq i64 %inc.i353, %shr.i325
@@ -58231,8 +58228,7 @@ for.body63.i:                                     ; preds = %if.else.i327, %for.
   %95 = bitcast <8 x i16> %94 to <4 x i32>
   %permil.i.i333 = shufflevector <4 x i32> %95, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %96 = bitcast <4 x i32> %permil.i.i333 to <8 x i16>
-  %pshufhw.i.i334 = shufflevector <8 x i16> %96, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 5, i32 7>
-  %pshuflw.i.i335 = shufflevector <8 x i16> %pshufhw.i.i334, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i.i335 = shufflevector <8 x i16> %96, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   store <8 x i16> %pshuflw.i.i335, ptr %add.ptr95.i, align 1
   %inc98.i = add nuw nsw i64 %i.i318.2645, 1
   %exitcond705.not = icmp eq i64 %inc98.i, %shr.i325
@@ -58579,8 +58575,7 @@ for.body.i451:                                    ; preds = %if.then.i125, %for.
   %133 = bitcast <8 x i16> %132 to <4 x i32>
   %permil.i.i455 = shufflevector <4 x i32> %133, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %134 = bitcast <4 x i32> %permil.i.i455 to <8 x i16>
-  %pshufhw.i.i456 = shufflevector <8 x i16> %134, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 5, i32 7>
-  %pshuflw.i.i457 = shufflevector <8 x i16> %pshufhw.i.i456, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %pshuflw.i.i457 = shufflevector <8 x i16> %134, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   store <8 x i16> %pshuflw.i.i457, ptr %add.ptr14.i, align 1
   %inc.i458 = add nuw nsw i64 %i.i421.0673, 1
   %exitcond712.not = icmp eq i64 %inc.i458, %shr.i429

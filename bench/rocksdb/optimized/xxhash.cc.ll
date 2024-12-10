@@ -1933,16 +1933,16 @@ _ZL26XXH3_hashLong_64b_internalPKvmS0_mPFvPmPKhS3_mEPFvPvS0_E.exit.i: ; preds = 
 
 if.end.i:                                         ; preds = %entry
   %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
-  %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
-  %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
-  %31 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
+  %31 = sub <8 x i64> <i64 0, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison>, %vecinit.i.i.i
+  %sub.i.i.i = shufflevector <8 x i64> %31, <8 x i64> poison, <8 x i32> <i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0>
+  %32 = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i.i
-  %32 = load <8 x i64>, ptr %add.ptr.i.i, align 64
-  %add.i.i6.i = add <8 x i64> %32, %31
+  %33 = load <8 x i64>, ptr %add.ptr.i.i, align 64
+  %add.i.i6.i = add <8 x i64> %33, %32
   %arrayidx.i.i = getelementptr inbounds nuw <8 x i64>, ptr %secret.i, i64 %indvars.iv.i.i
   store <8 x i64> %add.i.i6.i, ptr %arrayidx.i.i, align 64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1960,7 +1960,7 @@ _ZL28XXH3_initCustomSecret_avx512Pvm.exit.i:      ; preds = %for.body.i.i
 for.body.lr.ph.i.i12.i:                           ; preds = %_ZL28XXH3_initCustomSecret_avx512Pvm.exit.i
   %div2.i.i91.i = lshr i64 %sub1.i.i8.i, 10
   %add.ptr6.i.i.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 128
-  %33 = load <16 x i32>, ptr %add.ptr6.i.i.i, align 64
+  %34 = load <16 x i32>, ptr %add.ptr6.i.i.i, align 64
   br label %for.body.i.i13.i
 
 for.body.i.i13.i:                                 ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i, %for.body.lr.ph.i.i12.i
@@ -1979,30 +1979,30 @@ for.body.i.i.i18.i:                               ; preds = %for.body.i.i.i18.i,
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i.i23.i, i32 0, i32 3, i32 1)
   %mul2.i.i.i24.i = shl i64 %n.06.i.i.i20.i, 3
   %add.ptr3.i.i.i25.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 %mul2.i.i.i24.i
-  %34 = load <8 x i64>, ptr %add.ptr.i.i.i22.i, align 1
-  %35 = load <8 x i64>, ptr %add.ptr3.i.i.i25.i, align 8
-  %xor.i.i.i.i.i26.i = xor <8 x i64> %35, %34
-  %36 = lshr <8 x i64> %xor.i.i.i.i.i26.i, splat (i64 32)
-  %37 = and <8 x i64> %xor.i.i.i.i.i26.i, splat (i64 4294967295)
-  %38 = mul nuw <8 x i64> %37, %36
-  %39 = shufflevector <8 x i64> %34, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i.i.i28.i = add <8 x i64> %add.i.i7.i.i.i19.i, %39
-  %add.i.i.i.i.i29.i = add <8 x i64> %add.i12.i.i.i.i28.i, %38
+  %35 = load <8 x i64>, ptr %add.ptr.i.i.i22.i, align 1
+  %36 = load <8 x i64>, ptr %add.ptr3.i.i.i25.i, align 8
+  %xor.i.i.i.i.i26.i = xor <8 x i64> %36, %35
+  %37 = lshr <8 x i64> %xor.i.i.i.i.i26.i, splat (i64 32)
+  %38 = and <8 x i64> %xor.i.i.i.i.i26.i, splat (i64 4294967295)
+  %39 = mul nuw <8 x i64> %38, %37
+  %40 = shufflevector <8 x i64> %35, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i.i.i28.i = add <8 x i64> %add.i.i7.i.i.i19.i, %40
+  %add.i.i.i.i.i29.i = add <8 x i64> %add.i12.i.i.i.i28.i, %39
   %inc.i.i.i30.i = add nuw nsw i64 %n.06.i.i.i20.i, 1
   %exitcond.not.i.i.i31.i = icmp eq i64 %inc.i.i.i30.i, 16
   br i1 %exitcond.not.i.i.i31.i, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i, label %for.body.i.i.i18.i, !llvm.loop !18
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.loopexit.i.i32.i: ; preds = %for.body.i.i.i18.i
-  %40 = lshr <8 x i64> %add.i.i.i.i.i29.i, splat (i64 47)
-  %41 = bitcast <8 x i64> %add.i.i.i.i.i29.i to <16 x i32>
-  %42 = bitcast <8 x i64> %40 to <16 x i32>
-  %43 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %33, <16 x i32> %41, <16 x i32> %42, i32 150)
-  %44 = bitcast <16 x i32> %43 to <8 x i64>
-  %45 = lshr <8 x i64> %44, splat (i64 32)
-  %46 = and <8 x i64> %44, splat (i64 4294967295)
-  %47 = mul nuw <8 x i64> %46, splat (i64 2654435761)
-  %48 = mul <8 x i64> %45, splat (i64 -7046029290881679360)
-  %add.i.i.i.i33.i = add <8 x i64> %47, %48
+  %41 = lshr <8 x i64> %add.i.i.i.i.i29.i, splat (i64 47)
+  %42 = bitcast <8 x i64> %add.i.i.i.i.i29.i to <16 x i32>
+  %43 = bitcast <8 x i64> %41 to <16 x i32>
+  %44 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %34, <16 x i32> %42, <16 x i32> %43, i32 150)
+  %45 = bitcast <16 x i32> %44 to <8 x i64>
+  %46 = lshr <8 x i64> %45, splat (i64 32)
+  %47 = and <8 x i64> %45, splat (i64 4294967295)
+  %48 = mul nuw <8 x i64> %47, splat (i64 2654435761)
+  %49 = mul <8 x i64> %46, splat (i64 -7046029290881679360)
+  %add.i.i.i.i33.i = add <8 x i64> %48, %49
   %inc.i.i34.i = add nuw nsw i64 %n.02.i.i15.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i.i34.i, %div2.i.i91.i
   br i1 %exitcond.not.i, label %for.end.i.i36.i, label %for.body.i.i13.i, !llvm.loop !19
@@ -2027,33 +2027,33 @@ for.body.i34.i.i45.i:                             ; preds = %for.end.i.i36.i, %f
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i39.i.i50.i, i32 0, i32 3, i32 1)
   %mul2.i40.i.i51.i = shl i64 %n.06.i36.i.i47.i, 3
   %add.ptr3.i41.i.i52.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 %mul2.i40.i.i51.i
-  %49 = load <8 x i64>, ptr %add.ptr.i38.i.i49.i, align 1
-  %50 = load <8 x i64>, ptr %add.ptr3.i41.i.i52.i, align 8
-  %xor.i.i.i42.i.i53.i = xor <8 x i64> %50, %49
-  %51 = lshr <8 x i64> %xor.i.i.i42.i.i53.i, splat (i64 32)
-  %52 = and <8 x i64> %xor.i.i.i42.i.i53.i, splat (i64 4294967295)
-  %53 = mul nuw <8 x i64> %52, %51
-  %54 = shufflevector <8 x i64> %49, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i44.i.i55.i = add <8 x i64> %add.i.i7.i35.i.i46.i, %54
-  %add.i.i.i45.i.i56.i = add <8 x i64> %add.i12.i.i44.i.i55.i, %53
+  %50 = load <8 x i64>, ptr %add.ptr.i38.i.i49.i, align 1
+  %51 = load <8 x i64>, ptr %add.ptr3.i41.i.i52.i, align 8
+  %xor.i.i.i42.i.i53.i = xor <8 x i64> %51, %50
+  %52 = lshr <8 x i64> %xor.i.i.i42.i.i53.i, splat (i64 32)
+  %53 = and <8 x i64> %xor.i.i.i42.i.i53.i, splat (i64 4294967295)
+  %54 = mul nuw <8 x i64> %53, %52
+  %55 = shufflevector <8 x i64> %50, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i44.i.i55.i = add <8 x i64> %add.i.i7.i35.i.i46.i, %55
+  %add.i.i.i45.i.i56.i = add <8 x i64> %add.i12.i.i44.i.i55.i, %54
   %inc.i46.i.i57.i = add nuw nsw i64 %n.06.i36.i.i47.i, 1
   %exitcond.not.i47.i.i58.i = icmp eq i64 %inc.i46.i.i57.i, %div1327.i.i41.i
   br i1 %exitcond.not.i47.i.i58.i, label %_ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i, label %for.body.i34.i.i45.i, !llvm.loop !18
 
 _ZL27XXH3_hashLong_internal_loopPmPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit.i59.i: ; preds = %for.body.i34.i.i45.i, %for.end.i.i36.i
-  %55 = phi <8 x i64> [ %.pre.i.i37.i, %for.end.i.i36.i ], [ %add.i.i.i45.i.i56.i, %for.body.i34.i.i45.i ]
+  %56 = phi <8 x i64> [ %.pre.i.i37.i, %for.end.i.i36.i ], [ %add.i.i.i45.i.i56.i, %for.body.i34.i.i45.i ]
   %add.ptr20.i.i60.i = getelementptr inbounds i8, ptr %input, i64 %len
   %add.ptr21.i.i61.i = getelementptr inbounds i8, ptr %add.ptr20.i.i60.i, i64 -64
   %add.ptr24.i.i.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 121
-  %56 = load <8 x i64>, ptr %add.ptr21.i.i61.i, align 1
-  %57 = load <8 x i64>, ptr %add.ptr24.i.i.i, align 1
-  %xor.i.i.i.i62.i = xor <8 x i64> %57, %56
-  %58 = lshr <8 x i64> %xor.i.i.i.i62.i, splat (i64 32)
-  %59 = and <8 x i64> %xor.i.i.i.i62.i, splat (i64 4294967295)
-  %60 = mul nuw <8 x i64> %59, %58
-  %61 = shufflevector <8 x i64> %56, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i.i64.i = add <8 x i64> %55, %61
-  %add.i.i51.i.i65.i = add <8 x i64> %add.i12.i.i.i64.i, %60
+  %57 = load <8 x i64>, ptr %add.ptr21.i.i61.i, align 1
+  %58 = load <8 x i64>, ptr %add.ptr24.i.i.i, align 1
+  %xor.i.i.i.i62.i = xor <8 x i64> %58, %57
+  %59 = lshr <8 x i64> %xor.i.i.i.i62.i, splat (i64 32)
+  %60 = and <8 x i64> %xor.i.i.i.i62.i, splat (i64 4294967295)
+  %61 = mul nuw <8 x i64> %60, %59
+  %62 = shufflevector <8 x i64> %57, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i.i64.i = add <8 x i64> %56, %62
+  %add.i.i51.i.i65.i = add <8 x i64> %add.i12.i.i.i64.i, %61
   store <8 x i64> %add.i.i51.i.i65.i, ptr %acc.i7.i, align 64
   %add.ptr.i66.i = getelementptr inbounds nuw i8, ptr %secret.i, i64 11
   %mul.i67.i = mul i64 %len, -7046029288634856825
@@ -2066,11 +2066,11 @@ for.body.i4.i68.i:                                ; preds = %for.body.i4.i68.i, 
   %add.ptr.i5.i72.i = getelementptr inbounds nuw i8, ptr %acc.i7.i, i64 %add.ptr.idx.i.i71.i
   %add.ptr2.i.i73.i = getelementptr inbounds nuw i8, ptr %add.ptr.i66.i, i64 %add.ptr.idx.i.i71.i
   %add.ptr.val.i.i74.i = load i64, ptr %add.ptr.i5.i72.i, align 16
-  %62 = getelementptr i8, ptr %add.ptr.i5.i72.i, i64 8
-  %add.ptr.val5.i.i75.i = load i64, ptr %62, align 8
+  %63 = getelementptr i8, ptr %add.ptr.i5.i72.i, i64 8
+  %add.ptr.val5.i.i75.i = load i64, ptr %63, align 8
   %add.ptr2.val.i.i76.i = load i64, ptr %add.ptr2.i.i73.i, align 1
-  %63 = getelementptr i8, ptr %add.ptr2.i.i73.i, i64 8
-  %add.ptr2.val6.i.i77.i = load i64, ptr %63, align 1
+  %64 = getelementptr i8, ptr %add.ptr2.i.i73.i, i64 8
+  %add.ptr2.val6.i.i77.i = load i64, ptr %64, align 1
   %xor.i.i.i78.i = xor i64 %add.ptr2.val.i.i76.i, %add.ptr.val.i.i74.i
   %xor3.i.i.i79.i = xor i64 %add.ptr2.val6.i.i77.i, %add.ptr.val5.i.i75.i
   %conv.i.i.i.i.i80.i = zext i64 %xor.i.i.i78.i to i128
@@ -2456,16 +2456,16 @@ if.then7:                                         ; preds = %lor.lhs.false, %if.
   %cmp.i9 = icmp eq i64 %and.i, 0
   tail call void @llvm.assume(i1 %cmp.i9)
   %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
-  %vecinit7.i.i = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
-  %sub.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i
-  %3 = shufflevector <8 x i64> %vecinit7.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
+  %3 = sub <8 x i64> <i64 0, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison>, %vecinit.i.i
+  %sub.i.i = shufflevector <8 x i64> %3, <8 x i64> poison, <8 x i32> <i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0>
+  %4 = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then7
   %indvars.iv.i = phi i64 [ 0, %if.then7 ], [ %indvars.iv.next.i, %for.body.i ]
   %add.ptr.i = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i
-  %4 = load <8 x i64>, ptr %add.ptr.i, align 64
-  %add.i.i = add <8 x i64> %4, %3
+  %5 = load <8 x i64>, ptr %add.ptr.i, align 64
+  %add.i.i = add <8 x i64> %5, %4
   %arrayidx.i = getelementptr inbounds nuw <8 x i64>, ptr %customSecret, i64 %indvars.iv.i
   store <8 x i64> %add.i.i, ptr %arrayidx.i, align 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4050,16 +4050,16 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed64, i64 0
-  %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
-  %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
-  %0 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
+  %0 = sub <8 x i64> <i64 0, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison>, %vecinit.i.i.i
+  %sub.i.i.i = shufflevector <8 x i64> %0, <8 x i64> poison, <8 x i32> <i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0>
+  %1 = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i.i
-  %1 = load <8 x i64>, ptr %add.ptr.i.i, align 64
-  %add.i.i.i = add <8 x i64> %1, %0
+  %2 = load <8 x i64>, ptr %add.ptr.i.i, align 64
+  %add.i.i.i = add <8 x i64> %2, %1
   %arrayidx.i.i = getelementptr inbounds nuw <8 x i64>, ptr %secret.i, i64 %indvars.iv.i.i
   store <8 x i64> %add.i.i.i, ptr %arrayidx.i.i, align 64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4237,16 +4237,16 @@ if.then7.i:                                       ; preds = %lor.lhs.false.i, %i
   %cmp.i9.i = icmp eq i64 %and.i.i, 0
   tail call void @llvm.assume(i1 %cmp.i9.i)
   %vecinit.i.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
-  %vecinit7.i.i.i = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
-  %sub.i.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i.i
-  %3 = shufflevector <8 x i64> %vecinit7.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
+  %3 = sub <8 x i64> <i64 0, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison>, %vecinit.i.i.i
+  %sub.i.i.i = shufflevector <8 x i64> %3, <8 x i64> poison, <8 x i32> <i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0>
+  %4 = shufflevector <8 x i64> %vecinit.i.i.i, <8 x i64> %sub.i.i.i, <8 x i32> <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then7.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then7.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i.i
-  %4 = load <8 x i64>, ptr %add.ptr.i.i, align 64
-  %add.i.i.i = add <8 x i64> %4, %3
+  %5 = load <8 x i64>, ptr %add.ptr.i.i, align 64
+  %add.i.i.i = add <8 x i64> %5, %4
   %arrayidx.i.i = getelementptr inbounds nuw <8 x i64>, ptr %customSecret.i, i64 %indvars.iv.i.i
   store <8 x i64> %add.i.i.i, ptr %arrayidx.i.i, align 64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4643,16 +4643,16 @@ define void @ROCKSDB_XXH3_generateSecret_fromSeed(ptr nocapture noundef writeonl
 entry:
   %secret = alloca [192 x i8], align 64
   %vecinit.i.i = insertelement <8 x i64> poison, i64 %seed, i64 0
-  %vecinit7.i.i = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> poison, <8 x i32> zeroinitializer
-  %sub.i.i = sub <8 x i64> <i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0, i64 poison, i64 0>, %vecinit7.i.i
-  %0 = shufflevector <8 x i64> %vecinit7.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 2, i32 11, i32 4, i32 13, i32 6, i32 15>
+  %0 = sub <8 x i64> <i64 0, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison, i64 poison>, %vecinit.i.i
+  %sub.i.i = shufflevector <8 x i64> %0, <8 x i64> poison, <8 x i32> <i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0, i32 poison, i32 0>
+  %1 = shufflevector <8 x i64> %vecinit.i.i, <8 x i64> %sub.i.i, <8 x i32> <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %add.ptr.i = getelementptr inbounds nuw <8 x i64>, ptr @_ZL12XXH3_kSecret, i64 %indvars.iv.i
-  %1 = load <8 x i64>, ptr %add.ptr.i, align 64
-  %add.i.i = add <8 x i64> %1, %0
+  %2 = load <8 x i64>, ptr %add.ptr.i, align 64
+  %add.i.i = add <8 x i64> %2, %1
   %arrayidx.i = getelementptr inbounds nuw <8 x i64>, ptr %secret, i64 %indvars.iv.i
   store <8 x i64> %add.i.i, ptr %arrayidx.i, align 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

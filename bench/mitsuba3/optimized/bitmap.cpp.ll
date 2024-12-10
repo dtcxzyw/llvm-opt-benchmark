@@ -11968,7 +11968,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %226 = shufflevector <4 x float> %.sroa.0570.0.copyload.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %227 = fmul contract <4 x float> %.sroa.0592.0.copyload.i.i, %226
   %228 = shufflevector <4 x float> %227, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %229 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %229 = shufflevector <4 x float> %227, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %230 = fneg contract <4 x float> %228
   %231 = fmul contract <4 x float> %225, %230
   %232 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %225, <4 x float> %229, <4 x float> %231)
@@ -11978,7 +11978,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %236 = fmul contract <4 x float> %225, %.sroa.0592.0.copyload.i.i
   %237 = shufflevector <4 x float> %236, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %238 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %237, <4 x float> %232)
-  %239 = shufflevector <4 x float> %237, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %239 = shufflevector <4 x float> %236, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %240 = fneg contract <4 x float> %226
   %241 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %240, <4 x float> %239, <4 x float> %238)
   %242 = fneg contract <4 x float> %237
@@ -11989,7 +11989,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %247 = shufflevector <4 x float> %246, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %248 = shufflevector <4 x float> %.sroa.0592.0.copyload.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %249 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %248, <4 x float> %247, <4 x float> %241)
-  %250 = shufflevector <4 x float> %247, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %250 = shufflevector <4 x float> %246, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %251 = fneg contract <4 x float> %248
   %252 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> %250, <4 x float> %249)
   %253 = fneg contract <4 x float> %247
@@ -12001,7 +12001,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %259 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %258, <4 x float> %256)
   %260 = fneg contract <4 x float> %245
   %261 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %248, <4 x float> %258, <4 x float> %260)
-  %262 = shufflevector <4 x float> %258, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %262 = shufflevector <4 x float> %257, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %263 = fneg contract <4 x float> %259
   %264 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %262, <4 x float> %263)
   %265 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> %262, <4 x float> %261)
@@ -12009,7 +12009,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %267 = shufflevector <4 x float> %266, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %268 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> %267, <4 x float> %235)
   %269 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %225, <4 x float> %267, <4 x float> %264)
-  %270 = shufflevector <4 x float> %267, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %270 = shufflevector <4 x float> %266, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %271 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %248, <4 x float> %270, <4 x float> %268)
   %272 = fneg contract <4 x float> %225
   %273 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %272, <4 x float> %270, <4 x float> %269)
@@ -12017,7 +12017,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   %275 = shufflevector <4 x float> %274, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %276 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %275, <4 x float> %271)
   %277 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %272, <4 x float> %275, <4 x float> %265)
-  %278 = shufflevector <4 x float> %275, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %278 = shufflevector <4 x float> %274, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %279 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %240, <4 x float> %278, <4 x float> %276)
   %280 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %225, <4 x float> %278, <4 x float> %277)
   %281 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0554.0.copyload.i.i, <4 x float> %252, i8 -15)

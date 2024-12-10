@@ -20598,7 +20598,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %8 = shufflevector <4 x double> %.sroa.0589.0.copyload.i, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %9 = fmul contract <4 x double> %.sroa.0599.0.copyload.i, %8
   %10 = shufflevector <4 x double> %9, <4 x double> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %11 = shufflevector <4 x double> %10, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %11 = shufflevector <4 x double> %9, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %12 = fneg contract <4 x double> %10
   %13 = fmul contract <4 x double> %7, %12
   %14 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %7, <4 x double> %11, <4 x double> %13)
@@ -20608,7 +20608,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %18 = fmul contract <4 x double> %7, %.sroa.0599.0.copyload.i
   %19 = shufflevector <4 x double> %18, <4 x double> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %20 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %8, <4 x double> %19, <4 x double> %14)
-  %21 = shufflevector <4 x double> %19, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %21 = shufflevector <4 x double> %18, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %22 = fneg contract <4 x double> %8
   %23 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %22, <4 x double> %21, <4 x double> %20)
   %24 = fneg contract <4 x double> %19
@@ -20619,7 +20619,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %29 = shufflevector <4 x double> %28, <4 x double> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %30 = shufflevector <4 x double> %.sroa.0599.0.copyload.i, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %31 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %30, <4 x double> %29, <4 x double> %23)
-  %32 = shufflevector <4 x double> %29, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %32 = shufflevector <4 x double> %28, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %33 = fneg contract <4 x double> %30
   %34 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %33, <4 x double> %32, <4 x double> %31)
   %35 = fneg contract <4 x double> %29
@@ -20631,7 +20631,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %41 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %8, <4 x double> %40, <4 x double> %38)
   %42 = fneg contract <4 x double> %27
   %43 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %30, <4 x double> %40, <4 x double> %42)
-  %44 = shufflevector <4 x double> %40, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %44 = shufflevector <4 x double> %39, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %45 = fneg contract <4 x double> %41
   %46 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %8, <4 x double> %44, <4 x double> %45)
   %47 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %33, <4 x double> %44, <4 x double> %43)
@@ -20639,7 +20639,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %49 = shufflevector <4 x double> %48, <4 x double> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %50 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %33, <4 x double> %49, <4 x double> %17)
   %51 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %7, <4 x double> %49, <4 x double> %46)
-  %52 = shufflevector <4 x double> %49, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %52 = shufflevector <4 x double> %48, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %53 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %30, <4 x double> %52, <4 x double> %50)
   %54 = fneg contract <4 x double> %7
   %55 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %54, <4 x double> %52, <4 x double> %51)
@@ -20647,7 +20647,7 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEEC2ERKN5
   %57 = shufflevector <4 x double> %56, <4 x double> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %58 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %8, <4 x double> %57, <4 x double> %53)
   %59 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %54, <4 x double> %57, <4 x double> %47)
-  %60 = shufflevector <4 x double> %57, <4 x double> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %60 = shufflevector <4 x double> %56, <4 x double> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   %61 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %22, <4 x double> %60, <4 x double> %58)
   %62 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %7, <4 x double> %60, <4 x double> %59)
   %63 = fmul contract <4 x double> %.sroa.0619.0.copyload.i, %34
