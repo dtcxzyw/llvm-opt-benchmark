@@ -9396,7 +9396,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef 
 17:                                               ; preds = %15
   %18 = shl nuw nsw i64 %.041, 6
   %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds [15360 x i8], ptr %5, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [15360 x i8], ptr %5, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %22, 32

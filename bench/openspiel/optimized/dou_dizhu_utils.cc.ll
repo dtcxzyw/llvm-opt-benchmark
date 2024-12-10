@@ -273,7 +273,7 @@ define void @_ZN10open_spiel9dou_dizhu10RankStringB5cxx11Ei(ptr dead_on_unwind n
 
 9:                                                ; preds = %2
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -453,7 +453,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %27 = zext nneg i32 %15 to i64
   %28 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kSuitCharE, i64 0, i64 %27
   %29 = sext i32 %14 to i64
-  %30 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel9dou_dizhuL9kRankCharE, i64 0, i64 %29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %.sroa.0.0.copyload.i.i.i.i = load i8, ptr %28, align 1, !noalias !4
   %.sroa.0.0.insert.ext.i.i.i.i = zext i8 %.sroa.0.0.copyload.i.i.i.i to i64
@@ -992,7 +992,7 @@ define void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind noalia
   %.sroa.2.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.2.0.extract.shift.i to i32
   %sext.i = shl i64 %14, 32
   %15 = ashr exact i64 %sext.i, 32
-  %16 = getelementptr inbounds [15 x i32], ptr %3, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [15 x i32], ptr %3, i64 0, i64 %15
   store i32 %.sroa.2.0.extract.trunc.i, ptr %16, align 4, !alias.scope !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %0, ptr noundef nonnull align 4 dereferenceable(60) %3, i64 60, i1 false)
   br label %63
@@ -1028,7 +1028,7 @@ define void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind noalia
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %25 = add nsw i64 %indvars.iv.i, %24
-  %26 = getelementptr inbounds [15 x i32], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [15 x i32], ptr %4, i64 0, i64 %25
   store i32 %.sroa.24.0.extract.trunc.i, ptr %26, align 4, !alias.scope !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1054,7 +1054,7 @@ _ZN10open_spiel9dou_dizhu13ChainOnlyHandEi.exit:  ; preds = %.lr.ph.i, %21
   %.sroa.5.8.extract.trunc.i = trunc nuw i64 %.sroa.5.8.extract.shift.i to i32
   %sext.i50 = shl i64 %31, 32
   %33 = ashr exact i64 %sext.i50, 32
-  %34 = getelementptr inbounds [15 x i32], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [15 x i32], ptr %5, i64 0, i64 %33
   store i32 3, ptr %34, align 4, !alias.scope !23
   br label %35
 
@@ -1251,7 +1251,7 @@ switch.lookup:
   %5 = tail call noundef i32 @_ZN10open_spiel9dou_dizhu18GetNumCardsPerRankEi(i32 noundef %0)
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23SearchSingleRankActionsEPSt6vectorIlSaIlEEN4absl7debian24SpanIKiEEi, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %0, ptr %1, align 4
   store i32 %switch.load, ptr %2, align 4
@@ -1892,7 +1892,7 @@ common.resume:                                    ; preds = %96, %100, %107, %11
   br label %common.resume
 
 119:                                              ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit31
-  %120 = getelementptr inbounds [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
   store i32 %.sroa.246.0.extract.trunc, ptr %120, align 4
   %121 = call noundef i32 @_ZN10open_spiel9dou_dizhu24SingleRankHandToActionIdEN4absl7debian24SpanIKiEE(ptr nonnull %11, i64 15)
   %122 = sext i32 %121 to i64
@@ -1957,7 +1957,7 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit39
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit39:         ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i38, %125, %_ZNK4absl7debian24SpanIKiEixEm.exit31
-  %148 = getelementptr inbounds [15 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [15 x i32], ptr %11, i64 0, i64 %indvars.iv
   store i32 0, ptr %148, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -2227,10 +2227,10 @@ common.resume:                                    ; preds = %22, %17
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add nsw i32 %8, -1
   %18 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE.2, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = sext i32 %switch.tableidx to i64
-  %switch.gep39 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %19
+  %switch.gep39 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN10open_spiel9dou_dizhu23ChainOnlyHandToActionIdEN4absl7debian24SpanIKiEE, i64 0, i64 %19
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -2910,7 +2910,7 @@ switch.lookup:                                    ; preds = %.lr.ph144
 74:                                               ; preds = %73, %74
   %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %74 ]
   %75 = add nsw i64 %indvars.iv, %indvars.iv172
-  %76 = getelementptr inbounds [15 x i32], ptr %7, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [15 x i32], ptr %7, i64 0, i64 %75
   store i32 %62, ptr %76, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond164.not = icmp eq i64 %indvars.iv.next, %indvars.iv165
@@ -3907,7 +3907,7 @@ _ZNK4absl7debian24SpanIKiEixEm.exit:              ; preds = %16
   br i1 %21, label %.loopexit86, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK4absl7debian24SpanIKiEixEm.exit
-  %22 = getelementptr inbounds [15 x i32], ptr %5, i64 0, i64 %indvars.iv119
+  %22 = getelementptr inbounds nuw [15 x i32], ptr %5, i64 0, i64 %indvars.iv119
   %23 = and i64 %indvars.iv119, 4294967295
   br label %24
 
@@ -4642,7 +4642,7 @@ define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %34 = add nsw i64 %indvars.iv, %33
-  %35 = getelementptr inbounds [15 x i32], ptr %3, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [15 x i32], ptr %3, i64 0, i64 %34
   store i32 3, ptr %35, align 4
   %36 = getelementptr inbounds [15 x i32], ptr %0, i64 0, i64 %34
   store i32 3, ptr %36, align 4
@@ -5484,7 +5484,7 @@ switch.lookup463:                                 ; preds = %236
 .lr.ph305:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
   %indvars.iv346 = phi i64 [ 0, %.lr.ph305.preheader ], [ %indvars.iv.next347, %.lr.ph305 ]
   %249 = add nsw i64 %indvars.iv346, %248
-  %250 = getelementptr inbounds [15 x i32], ptr %32, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [15 x i32], ptr %32, i64 0, i64 %249
   store i32 3, ptr %250, align 4
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count
@@ -6144,7 +6144,7 @@ _ZNKSt6vectorIN10open_spiel9dou_dizhu10KickerTypeESaIS2_EE12_M_check_lenEmPKc.ex
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %52 = add nsw i64 %indvars.iv, %indvars.iv149
-  %53 = getelementptr inbounds [15 x i32], ptr %5, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [15 x i32], ptr %5, i64 0, i64 %52
   store i32 3, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv142

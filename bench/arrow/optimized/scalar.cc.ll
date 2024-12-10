@@ -129769,7 +129769,7 @@ while.body.i.i.i.i.i.i.i.i.i882:                  ; preds = %while.body.i.i.i.i.
   store i8 %752, ptr %gep.i.i.i.i.i.i888, align 1, !noalias !9608
   %753 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i886, align 1, !noalias !9608
   %cursor.0.add.i.i.i.i.i.i889 = add nsw i64 %cursor.0.idx.i.i.i.i.i.i883, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i890 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i737, i64 %cursor.0.add.i.i.i.i.i.i889
+  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i890 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i737, i64 %cursor.0.add.i.i.i.i.i.i889
   store i8 %753, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i890, align 1, !noalias !9608
   %div.i.i.i16.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i884, 100
   %cmp.i.i.i17.i.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i884, 9999
@@ -129787,7 +129787,7 @@ if.then.i.i.i.i.i.i.i.i.i874:                     ; preds = %while.end.i.i.i.i.i
   %arrayidx1.i10.i.i.i.i.i.i.i.i.i877 = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i876, i64 1
   %754 = load i8, ptr %arrayidx1.i10.i.i.i.i.i.i.i.i.i877, align 1, !noalias !9608
   %cursor.1.add.i.i.i.i.i.i878 = add nsw i64 %cursor.1.idx.i.i.i.i.i.i835, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i879 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i737, i64 %cursor.1.add.i.i.i.i.i.i878
+  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i879 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i737, i64 %cursor.1.add.i.i.i.i.i.i878
   store i8 %754, ptr %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i879, align 1, !noalias !9608
   %755 = load i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i876, align 1, !noalias !9608
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i839
@@ -129824,7 +129824,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i.i.i.i.i.i845 = getelementptr i8, ptr %764, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i.i.i.i.i.i845, align 1, !noalias !9608
   %mul.i.i.i.i.i.i.i.i846 = shl nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i830, 1
-  %arrayidx.i.i.i.i.i.i.i.i847 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i846
+  %arrayidx.i.i.i.i.i.i.i.i847 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i846
   %arrayidx1.i.i.i.i.i.i.i.i848 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i847, i64 1
   %765 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i848, align 1, !noalias !9608
   %incdec.ptr.i.i8.i.i.i.i.i.i.i849 = getelementptr i8, ptr %764, i64 -3
@@ -129835,7 +129835,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i.i.i.i.i.i851 = getelementptr i8, ptr %764, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i.i.i.i.i.i851, align 1, !noalias !9608
   %mul.i10.i.i.i.i.i.i.i852 = shl nsw i64 %sub.i.i.i.i.i.i.i.i.i825, 1
-  %arrayidx.i11.i.i.i.i.i.i.i853 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i852
+  %arrayidx.i11.i.i.i.i.i.i.i853 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i852
   %arrayidx1.i12.i.i.i.i.i.i.i854 = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i.i.i.i.i.i853, i64 1
   %767 = load i8, ptr %arrayidx1.i12.i.i.i.i.i.i.i854, align 1, !noalias !9608
   %incdec.ptr.i.i13.i.i.i.i.i.i.i855 = getelementptr i8, ptr %764, i64 -6
@@ -130042,7 +130042,7 @@ while.body.i.i.i.i161.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i1
   store i8 %787, ptr %gep.i168.i.i.i.i.i, align 1, !noalias !9612
   %788 = load i8, ptr %arrayidx.i.i.i.i.i166.i.i.i.i.i, align 1, !noalias !9612
   %cursor.0.add.i169.i.i.i.i.i = add nsw i64 %cursor.0.idx.i162.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i170.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i736, i64 %cursor.0.add.i169.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i170.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i736, i64 %cursor.0.add.i169.i.i.i.i.i
   store i8 %788, ptr %incdec.ptr.i3.i.i.i.i.ptr.i170.i.i.i.i.i, align 1, !noalias !9612
   %div.i.i.i16.i171.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i163.i.i.i.i.i, 100
   %cmp.i.i.i17.i172.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i163.i.i.i.i.i, 9999
@@ -130060,7 +130060,7 @@ if.then.i.i.i.i153.i.i.i.i.i:                     ; preds = %while.end.i.i.i.i39
   %arrayidx1.i10.i.i.i.i156.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i155.i.i.i.i.i, i64 1
   %789 = load i8, ptr %arrayidx1.i10.i.i.i.i156.i.i.i.i.i, align 1, !noalias !9612
   %cursor.1.add.i157.i.i.i.i.i = add nsw i64 %cursor.1.idx.i40.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i158.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i736, i64 %cursor.1.add.i157.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i158.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i736, i64 %cursor.1.add.i157.i.i.i.i.i
   store i8 %789, ptr %incdec.ptr.i.i11.i.i.i.ptr.i158.i.i.i.i.i, align 1, !noalias !9612
   %790 = load i8, ptr %arrayidx.i9.i.i.i.i155.i.i.i.i.i, align 1, !noalias !9612
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i45.i.i.i.i.i
@@ -130097,7 +130097,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i50.i.i.i.i.i = getelementptr i8, ptr %799, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i50.i.i.i.i.i, align 1, !noalias !9612
   %mul.i.i.i51.i.i.i.i.i = shl nsw i64 %div.i.i.i.i.i.i35.i.i.i.i.i, 1
-  %arrayidx.i.i.i52.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i51.i.i.i.i.i
+  %arrayidx.i.i.i52.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i51.i.i.i.i.i
   %arrayidx1.i.i.i53.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i52.i.i.i.i.i, i64 1
   %800 = load i8, ptr %arrayidx1.i.i.i53.i.i.i.i.i, align 1, !noalias !9612
   %incdec.ptr.i.i8.i.i54.i.i.i.i.i = getelementptr i8, ptr %799, i64 -3
@@ -130108,7 +130108,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i56.i.i.i.i.i = getelementptr i8, ptr %799, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i56.i.i.i.i.i, align 1, !noalias !9612
   %mul.i10.i.i57.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i30.i.i.i.i.i, 1
-  %arrayidx.i11.i.i58.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i57.i.i.i.i.i
+  %arrayidx.i11.i.i58.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i57.i.i.i.i.i
   %arrayidx1.i12.i.i59.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i58.i.i.i.i.i, i64 1
   %802 = load i8, ptr %arrayidx1.i12.i.i59.i.i.i.i.i, align 1, !noalias !9612
   %incdec.ptr.i.i13.i.i60.i.i.i.i.i = getelementptr i8, ptr %799, i64 -6
@@ -130305,7 +130305,7 @@ while.body.i.i.i.i322.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i3
   store i8 %821, ptr %gep.i329.i.i.i.i.i, align 1, !noalias !9615
   %822 = load i8, ptr %arrayidx.i.i.i.i.i327.i.i.i.i.i, align 1, !noalias !9615
   %cursor.0.add.i330.i.i.i.i.i = add nsw i64 %cursor.0.idx.i323.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i331.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i178.i.i.i.i.i, i64 %cursor.0.add.i330.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i331.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i178.i.i.i.i.i, i64 %cursor.0.add.i330.i.i.i.i.i
   store i8 %822, ptr %incdec.ptr.i3.i.i.i.i.ptr.i331.i.i.i.i.i, align 1, !noalias !9615
   %div.i.i.i16.i332.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i324.i.i.i.i.i, 100
   %cmp.i.i.i17.i333.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i324.i.i.i.i.i, 9999
@@ -130323,7 +130323,7 @@ if.then.i.i.i.i314.i.i.i.i.i:                     ; preds = %while.end.i.i.i.i20
   %arrayidx1.i10.i.i.i.i317.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i316.i.i.i.i.i, i64 1
   %823 = load i8, ptr %arrayidx1.i10.i.i.i.i317.i.i.i.i.i, align 1, !noalias !9615
   %cursor.1.add.i318.i.i.i.i.i = add nsw i64 %cursor.1.idx.i204.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i319.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i178.i.i.i.i.i, i64 %cursor.1.add.i318.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i319.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i178.i.i.i.i.i, i64 %cursor.1.add.i318.i.i.i.i.i
   store i8 %823, ptr %incdec.ptr.i.i11.i.i.i.ptr.i319.i.i.i.i.i, align 1, !noalias !9615
   %824 = load i8, ptr %arrayidx.i9.i.i.i.i316.i.i.i.i.i, align 1, !noalias !9615
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i209.i.i.i.i.i
@@ -130360,7 +130360,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i214.i.i.i.i.i = getelementptr i8, ptr %833, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i214.i.i.i.i.i, align 1, !noalias !9615
   %mul.i.i.i215.i.i.i.i.i = shl nsw i64 %div.i.i.i.i.i.i199.i.i.i.i.i, 1
-  %arrayidx.i.i.i216.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i215.i.i.i.i.i
+  %arrayidx.i.i.i216.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i215.i.i.i.i.i
   %arrayidx1.i.i.i217.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i216.i.i.i.i.i, i64 1
   %834 = load i8, ptr %arrayidx1.i.i.i217.i.i.i.i.i, align 1, !noalias !9615
   %incdec.ptr.i.i8.i.i218.i.i.i.i.i = getelementptr i8, ptr %833, i64 -3
@@ -130371,7 +130371,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i220.i.i.i.i.i = getelementptr i8, ptr %833, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i220.i.i.i.i.i, align 1, !noalias !9615
   %mul.i10.i.i221.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i194.i.i.i.i.i, 1
-  %arrayidx.i11.i.i222.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i221.i.i.i.i.i
+  %arrayidx.i11.i.i222.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i221.i.i.i.i.i
   %arrayidx1.i12.i.i223.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i222.i.i.i.i.i, i64 1
   %836 = load i8, ptr %arrayidx1.i12.i.i223.i.i.i.i.i, align 1, !noalias !9615
   %incdec.ptr.i.i13.i.i224.i.i.i.i.i = getelementptr i8, ptr %833, i64 -6
@@ -130551,7 +130551,7 @@ if.end25.i349.i.i.i.i.i:                          ; preds = %if.else.i437.i.i.i.
   %mul.i.i.i.neg.i6.i.i.i357.i.i.i.i.i = mul nsw i64 %sub.i.i.i.i354.i.i.i.i.i, -60
   %sub.i7.i.i.i358.i.i.i.i.i = add nsw i64 %sub.i5.i.i.i356.i.i.i.i.i, %mul.i.i.i.neg.i6.i.i.i357.i.i.i.i.i
   %mul.i.i.i359.i.i.i.i.i = shl nsw i64 %sub.i7.i.i.i358.i.i.i.i.i, 1
-  %arrayidx.i.i.i360.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i359.i.i.i.i.i
+  %arrayidx.i.i.i360.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i359.i.i.i.i.i
   %arrayidx1.i.i.i361.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i360.i.i.i.i.i, i64 1
   %856 = load i8, ptr %arrayidx1.i.i.i361.i.i.i.i.i, align 1, !noalias !9618
   %incdec.ptr.i.i.i.i.i.i.i.i.i894 = getelementptr inbounds nuw i8, ptr %buffer.i338.i.i.i.i.i, i64 21
@@ -130562,7 +130562,7 @@ if.end25.i349.i.i.i.i.i:                          ; preds = %if.else.i437.i.i.i.
   %incdec.ptr.i.i.i363.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i338.i.i.i.i.i, i64 19
   store i8 58, ptr %incdec.ptr.i.i.i363.i.i.i.i.i, align 1, !noalias !9618
   %mul.i5.i.i.i.i.i.i.i895 = shl nsw i64 %sub.i.i.i.i354.i.i.i.i.i, 1
-  %arrayidx.i6.i.i.i.i.i.i.i896 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i895
+  %arrayidx.i6.i.i.i.i.i.i.i896 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i895
   %arrayidx1.i7.i.i.i.i.i.i.i897 = getelementptr inbounds nuw i8, ptr %arrayidx.i6.i.i.i.i.i.i.i896, i64 1
   %858 = load i8, ptr %arrayidx1.i7.i.i.i.i.i.i.i897, align 1, !noalias !9618
   %incdec.ptr.i.i8.i.i364.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i338.i.i.i.i.i, i64 18
@@ -131000,7 +131000,7 @@ while.body.i.i.i.i.i.i.i.i.i705:                  ; preds = %while.body.i.i.i.i.
   store i8 %909, ptr %gep.i.i.i.i.i.i712, align 1, !noalias !9640
   %910 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i710, align 1, !noalias !9640
   %cursor.0.add.i.i.i.i.i.i713 = add nsw i64 %cursor.0.idx.i.i.i.i.i.i706, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i714 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i516, i64 %cursor.0.add.i.i.i.i.i.i713
+  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i714 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i516, i64 %cursor.0.add.i.i.i.i.i.i713
   store i8 %910, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i714, align 1, !noalias !9640
   %div.i.i.i.i.i.i.i.i.i715 = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i707, 100
   %cmp.i.i.i.i.i.i.i.i.i716 = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i707, 9999
@@ -131018,7 +131018,7 @@ if.then.i.i.i.i.i.i.i.i.i697:                     ; preds = %while.end.i.i.i.i.i
   %arrayidx1.i10.i.i.i.i.i.i.i.i.i700 = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i699, i64 1
   %911 = load i8, ptr %arrayidx1.i10.i.i.i.i.i.i.i.i.i700, align 1, !noalias !9640
   %cursor.1.add.i.i.i.i.i.i701 = add nsw i64 %cursor.1.idx.i.i.i.i.i.i661, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i702 = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i516, i64 %cursor.1.add.i.i.i.i.i.i701
+  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i702 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i516, i64 %cursor.1.add.i.i.i.i.i.i701
   store i8 %911, ptr %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i702, align 1, !noalias !9640
   %912 = load i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i699, align 1, !noalias !9640
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i666
@@ -131055,7 +131055,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i.i.i.i.i.i672 = getelementptr i8, ptr %921, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i.i.i.i.i.i672, align 1, !noalias !9640
   %mul.i.i.i.i.i.i.i.i673 = shl nsw i64 %div.i.i.i.i.i.sext.i.i.i.i.i.i656, 1
-  %arrayidx.i.i.i.i.i.i.i.i674 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i673
+  %arrayidx.i.i.i.i.i.i.i.i674 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i673
   %arrayidx1.i.i.i.i.i.i.i.i675 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i674, i64 1
   %922 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i675, align 1, !noalias !9640
   %incdec.ptr.i.i8.i.i.i.i.i.i.i676 = getelementptr i8, ptr %921, i64 -3
@@ -131066,7 +131066,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i.i.i.i.i.i678 = getelementptr i8, ptr %921, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i.i.i.i.i.i678, align 1, !noalias !9640
   %mul.i10.i.i.i.i.i.i.i679 = shl nsw i64 %sub.i.i.i.i.i.i.i.i.i649, 1
-  %arrayidx.i11.i.i.i.i.i.i.i680 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i679
+  %arrayidx.i11.i.i.i.i.i.i.i680 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i679
   %arrayidx1.i12.i.i.i.i.i.i.i681 = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i.i.i.i.i.i680, i64 1
   %924 = load i8, ptr %arrayidx1.i12.i.i.i.i.i.i.i681, align 1, !noalias !9640
   %incdec.ptr.i.i13.i.i.i.i.i.i.i682 = getelementptr i8, ptr %921, i64 -6
@@ -131136,7 +131136,7 @@ while.body.i.i.i.i64.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i6
   store i8 %928, ptr %gep.i71.i.i.i.i.i, align 1, !noalias !9643
   %929 = load i8, ptr %arrayidx.i.i.i.i.i69.i.i.i.i.i, align 1, !noalias !9643
   %cursor.0.add.i72.i.i.i.i.i = add nsw i64 %cursor.0.idx.i65.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i73.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i515, i64 %cursor.0.add.i72.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i73.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i515, i64 %cursor.0.add.i72.i.i.i.i.i
   store i8 %929, ptr %incdec.ptr.i3.i.i.i.i.ptr.i73.i.i.i.i.i, align 1, !noalias !9643
   %div.i.i.i.i74.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i66.i.i.i.i.i, 100
   %cmp.i.i.i.i75.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i66.i.i.i.i.i, 9999
@@ -131154,7 +131154,7 @@ if.then.i.i.i.i56.i.i.i.i.i:                      ; preds = %while.end.i.i.i.i24
   %arrayidx1.i10.i.i.i.i59.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i58.i.i.i.i.i, i64 1
   %930 = load i8, ptr %arrayidx1.i10.i.i.i.i59.i.i.i.i.i, align 1, !noalias !9643
   %cursor.1.add.i60.i.i.i.i.i = add nsw i64 %cursor.1.idx.i25.i.i.i.i.i614, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i61.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i515, i64 %cursor.1.add.i60.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i61.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i515, i64 %cursor.1.add.i60.i.i.i.i.i
   store i8 %930, ptr %incdec.ptr.i.i11.i.i.i.ptr.i61.i.i.i.i.i, align 1, !noalias !9643
   %931 = load i8, ptr %arrayidx.i9.i.i.i.i58.i.i.i.i.i, align 1, !noalias !9643
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i30.i.i.i.i.i619
@@ -131191,7 +131191,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i35.i.i.i.i.i625 = getelementptr i8, ptr %940, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i35.i.i.i.i.i625, align 1, !noalias !9643
   %mul.i.i.i36.i.i.i.i.i626 = shl nsw i64 %div.i.i.i.i.i.sext.i20.i.i.i.i.i, 1
-  %arrayidx.i.i.i37.i.i.i.i.i627 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i36.i.i.i.i.i626
+  %arrayidx.i.i.i37.i.i.i.i.i627 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i36.i.i.i.i.i626
   %arrayidx1.i.i.i38.i.i.i.i.i628 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i37.i.i.i.i.i627, i64 1
   %941 = load i8, ptr %arrayidx1.i.i.i38.i.i.i.i.i628, align 1, !noalias !9643
   %incdec.ptr.i.i8.i.i39.i.i.i.i.i629 = getelementptr i8, ptr %940, i64 -3
@@ -131264,7 +131264,7 @@ while.body.i.i.i.i124.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i1
   store i8 %947, ptr %gep.i131.i.i.i.i.i, align 1, !noalias !9646
   %948 = load i8, ptr %arrayidx.i.i.i.i.i129.i.i.i.i.i, align 1, !noalias !9646
   %cursor.0.add.i132.i.i.i.i.i = add nsw i64 %cursor.0.idx.i125.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i133.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i76.i.i.i.i.i, i64 %cursor.0.add.i132.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i133.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i76.i.i.i.i.i, i64 %cursor.0.add.i132.i.i.i.i.i
   store i8 %948, ptr %incdec.ptr.i3.i.i.i.i.ptr.i133.i.i.i.i.i, align 1, !noalias !9646
   %div.i.i.i.i134.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i126.i.i.i.i.i, 100
   %cmp.i.i.i.i135.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i126.i.i.i.i.i, 9999
@@ -131282,7 +131282,7 @@ if.then.i.i.i.i116.i.i.i.i.i:                     ; preds = %while.end.i.i.i.i86
   %arrayidx1.i10.i.i.i.i119.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i118.i.i.i.i.i, i64 1
   %949 = load i8, ptr %arrayidx1.i10.i.i.i.i119.i.i.i.i.i, align 1, !noalias !9646
   %cursor.1.add.i120.i.i.i.i.i = add nsw i64 %cursor.1.idx.i87.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i121.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i76.i.i.i.i.i, i64 %cursor.1.add.i120.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i121.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i76.i.i.i.i.i, i64 %cursor.1.add.i120.i.i.i.i.i
   store i8 %949, ptr %incdec.ptr.i.i11.i.i.i.ptr.i121.i.i.i.i.i, align 1, !noalias !9646
   %950 = load i8, ptr %arrayidx.i9.i.i.i.i118.i.i.i.i.i, align 1, !noalias !9646
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i92.i.i.i.i.i
@@ -131373,7 +131373,7 @@ if.end.i139.i.i.i.i.i:                            ; preds = %sw.epilog.i.i.i.i.i
   %mul.i.i.i.neg.i6.i.i.i145.i.i.i.i.i = mul nsw i64 %sub.i.i.i.i142.i.i.i.i.i, -60
   %sub.i7.i.i.i146.i.i.i.i.i = add nsw i64 %sub.i5.i.i.i144.i.i.i.i.i, %mul.i.i.i.neg.i6.i.i.i145.i.i.i.i.i
   %mul.i.i.i147.i.i.i.i.i = shl nsw i64 %sub.i7.i.i.i146.i.i.i.i.i, 1
-  %arrayidx.i.i.i148.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i147.i.i.i.i.i
+  %arrayidx.i.i.i148.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i147.i.i.i.i.i
   %arrayidx1.i.i.i149.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i148.i.i.i.i.i, i64 1
   %964 = load i8, ptr %arrayidx1.i.i.i149.i.i.i.i.i, align 1, !noalias !9649
   %incdec.ptr.i.i.i.i.i.i.i.i.i724 = getelementptr inbounds nuw i8, ptr %buffer.i136.i.i.i.i.i, i64 8
@@ -131384,7 +131384,7 @@ if.end.i139.i.i.i.i.i:                            ; preds = %sw.epilog.i.i.i.i.i
   %incdec.ptr.i.i.i151.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i136.i.i.i.i.i, i64 6
   store i8 58, ptr %incdec.ptr.i.i.i151.i.i.i.i.i, align 1, !noalias !9649
   %mul.i5.i.i.i.i.i.i.i725 = shl nsw i64 %sub.i.i.i.i142.i.i.i.i.i, 1
-  %arrayidx.i6.i.i.i.i.i.i.i726 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i725
+  %arrayidx.i6.i.i.i.i.i.i.i726 = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i725
   %arrayidx1.i7.i.i.i.i.i.i.i727 = getelementptr inbounds nuw i8, ptr %arrayidx.i6.i.i.i.i.i.i.i726, i64 1
   %966 = load i8, ptr %arrayidx1.i7.i.i.i.i.i.i.i727, align 1, !noalias !9649
   %incdec.ptr.i.i8.i.i152.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i136.i.i.i.i.i, i64 5
@@ -131705,7 +131705,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   store i8 %1002, ptr %gep.i.i.i.i.i.i, align 1, !noalias !9671
   %1003 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !9671
   %cursor.0.add.i.i.i.i.i.i = add nsw i64 %cursor.0.idx.i.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i, i64 %cursor.0.add.i.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i, i64 %cursor.0.add.i.i.i.i.i.i
   store i8 %1003, ptr %incdec.ptr.i3.i.i.i.i.ptr.i.i.i.i.i.i, align 1, !noalias !9671
   %div.i.i.i.i.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i.i.i.i.i.i, 100
   %cmp.i.i.i.i.i.i.i.i.i513 = icmp samesign ugt i64 %value.addr.015.i.i.i.i.i.i.i.i.i, 9999
@@ -131723,7 +131723,7 @@ if.then.i.i.i.i.i.i.i.i.i512:                     ; preds = %while.end.i.i.i.i.i
   %arrayidx1.i10.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i, i64 1
   %1004 = load i8, ptr %arrayidx1.i10.i.i.i.i.i.i.i.i.i, align 1, !noalias !9671
   %cursor.1.add.i.i.i.i.i.i = add nsw i64 %cursor.1.idx.i.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i.i.i, i64 %cursor.1.add.i.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i.i.i, i64 %cursor.1.add.i.i.i.i.i.i
   store i8 %1004, ptr %incdec.ptr.i.i11.i.i.i.ptr.i.i.i.i.i.i, align 1, !noalias !9671
   %1005 = load i8, ptr %arrayidx.i9.i.i.i.i.i.i.i.i.i, align 1, !noalias !9671
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i.i.i.i.i.i
@@ -131760,7 +131760,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %1014, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 1, !noalias !9671
   %mul.i.i.i.i.i.i.i.i = shl nsw i64 %div.i.i.i.i.i.sext.i.i.i.i.i.i, 1
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i.i.i.i.i.i
   %arrayidx1.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i, i64 1
   %1015 = load i8, ptr %arrayidx1.i.i.i.i.i.i.i.i, align 1, !noalias !9671
   %incdec.ptr.i.i8.i.i.i.i.i.i.i = getelementptr i8, ptr %1014, i64 -3
@@ -131771,7 +131771,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i.i.i.i.i.i = getelementptr i8, ptr %1014, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i.i.i.i.i.i, align 1, !noalias !9671
   %mul.i10.i.i.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i
+  %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i.i.i.i.i.i
   %arrayidx1.i12.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i.i.i.i.i.i, i64 1
   %1017 = load i8, ptr %arrayidx1.i12.i.i.i.i.i.i.i, align 1, !noalias !9671
   %incdec.ptr.i.i13.i.i.i.i.i.i.i = getelementptr i8, ptr %1014, i64 -6
@@ -131842,7 +131842,7 @@ while.body.i.i.i.i67.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i6
   store i8 %1021, ptr %gep.i74.i.i.i.i.i, align 1, !noalias !9674
   %1022 = load i8, ptr %arrayidx.i.i.i.i.i72.i.i.i.i.i, align 1, !noalias !9674
   %cursor.0.add.i75.i.i.i.i.i = add nsw i64 %cursor.0.idx.i68.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i76.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i, i64 %cursor.0.add.i75.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i76.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i, i64 %cursor.0.add.i75.i.i.i.i.i
   store i8 %1022, ptr %incdec.ptr.i3.i.i.i.i.ptr.i76.i.i.i.i.i, align 1, !noalias !9674
   %div.i.i.i.i77.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i69.i.i.i.i.i, 100
   %cmp.i.i.i.i78.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i69.i.i.i.i.i, 9999
@@ -131860,7 +131860,7 @@ if.then.i.i.i.i59.i.i.i.i.i:                      ; preds = %while.end.i.i.i.i24
   %arrayidx1.i10.i.i.i.i62.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i61.i.i.i.i.i, i64 1
   %1023 = load i8, ptr %arrayidx1.i10.i.i.i.i62.i.i.i.i.i, align 1, !noalias !9674
   %cursor.1.add.i63.i.i.i.i.i = add nsw i64 %cursor.1.idx.i25.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i64.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i10.i.i.i.i.i, i64 %cursor.1.add.i63.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i64.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i10.i.i.i.i.i, i64 %cursor.1.add.i63.i.i.i.i.i
   store i8 %1023, ptr %incdec.ptr.i.i11.i.i.i.ptr.i64.i.i.i.i.i, align 1, !noalias !9674
   %1024 = load i8, ptr %arrayidx.i9.i.i.i.i61.i.i.i.i.i, align 1, !noalias !9674
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i30.i.i.i.i.i
@@ -131897,7 +131897,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i35.i.i.i.i.i = getelementptr i8, ptr %1033, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i35.i.i.i.i.i, align 1, !noalias !9674
   %mul.i.i.i36.i.i.i.i.i = shl nsw i64 %div.i.i.i.i.i.i.i.i.i.i.i, 1
-  %arrayidx.i.i.i37.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i36.i.i.i.i.i
+  %arrayidx.i.i.i37.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i36.i.i.i.i.i
   %arrayidx1.i.i.i38.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i37.i.i.i.i.i, i64 1
   %1034 = load i8, ptr %arrayidx1.i.i.i38.i.i.i.i.i, align 1, !noalias !9674
   %incdec.ptr.i.i8.i.i39.i.i.i.i.i = getelementptr i8, ptr %1033, i64 -3
@@ -131908,7 +131908,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i41.i.i.i.i.i = getelementptr i8, ptr %1033, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i41.i.i.i.i.i, align 1, !noalias !9674
   %mul.i10.i.i42.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i16.i.i.i.i.i, 1
-  %arrayidx.i11.i.i43.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i42.i.i.i.i.i
+  %arrayidx.i11.i.i43.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i42.i.i.i.i.i
   %arrayidx1.i12.i.i44.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i43.i.i.i.i.i, i64 1
   %1036 = load i8, ptr %arrayidx1.i12.i.i44.i.i.i.i.i, align 1, !noalias !9674
   %incdec.ptr.i.i13.i.i45.i.i.i.i.i = getelementptr i8, ptr %1033, i64 -6
@@ -131979,7 +131979,7 @@ while.body.i.i.i.i141.i.i.i.i.i:                  ; preds = %while.body.i.i.i.i1
   store i8 %1040, ptr %gep.i148.i.i.i.i.i, align 1, !noalias !9677
   %1041 = load i8, ptr %arrayidx.i.i.i.i.i146.i.i.i.i.i, align 1, !noalias !9677
   %cursor.0.add.i149.i.i.i.i.i = add nsw i64 %cursor.0.idx.i142.i.i.i.i.i, -2
-  %incdec.ptr.i3.i.i.i.i.ptr.i150.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i79.i.i.i.i.i, i64 %cursor.0.add.i149.i.i.i.i.i
+  %incdec.ptr.i3.i.i.i.i.ptr.i150.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i79.i.i.i.i.i, i64 %cursor.0.add.i149.i.i.i.i.i
   store i8 %1041, ptr %incdec.ptr.i3.i.i.i.i.ptr.i150.i.i.i.i.i, align 1, !noalias !9677
   %div.i.i.i.i151.i.i.i.i.i = udiv i64 %value.addr.015.i.i.i.i143.i.i.i.i.i, 100
   %cmp.i.i.i.i152.i.i.i.i.i = icmp samesign ugt i64 %value.addr.015.i.i.i.i143.i.i.i.i.i, 9999
@@ -131997,7 +131997,7 @@ if.then.i.i.i.i133.i.i.i.i.i:                     ; preds = %while.end.i.i.i.i97
   %arrayidx1.i10.i.i.i.i136.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i9.i.i.i.i135.i.i.i.i.i, i64 1
   %1042 = load i8, ptr %arrayidx1.i10.i.i.i.i136.i.i.i.i.i, align 1, !noalias !9677
   %cursor.1.add.i137.i.i.i.i.i = add nsw i64 %cursor.1.idx.i98.i.i.i.i.i, -1
-  %incdec.ptr.i.i11.i.i.i.ptr.i138.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i79.i.i.i.i.i, i64 %cursor.1.add.i137.i.i.i.i.i
+  %incdec.ptr.i.i11.i.i.i.ptr.i138.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i79.i.i.i.i.i, i64 %cursor.1.add.i137.i.i.i.i.i
   store i8 %1042, ptr %incdec.ptr.i.i11.i.i.i.ptr.i138.i.i.i.i.i, align 1, !noalias !9677
   %1043 = load i8, ptr %arrayidx.i9.i.i.i.i135.i.i.i.i.i, align 1, !noalias !9677
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIlEEvT_PPc.exit.i.i.i103.i.i.i.i.i
@@ -132034,7 +132034,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i.i.i108.i.i.i.i.i = getelementptr i8, ptr %1052, i64 -2
   store i8 46, ptr %incdec.ptr.i.i.i108.i.i.i.i.i, align 1, !noalias !9677
   %mul.i.i.i109.i.i.i.i.i = shl nsw i64 %div.i.i.i.i.i.i93.i.i.i.i.i, 1
-  %arrayidx.i.i.i110.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i109.i.i.i.i.i
+  %arrayidx.i.i.i110.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i109.i.i.i.i.i
   %arrayidx1.i.i.i111.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i110.i.i.i.i.i, i64 1
   %1053 = load i8, ptr %arrayidx1.i.i.i111.i.i.i.i.i, align 1, !noalias !9677
   %incdec.ptr.i.i8.i.i112.i.i.i.i.i = getelementptr i8, ptr %1052, i64 -3
@@ -132045,7 +132045,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %incdec.ptr.i9.i.i114.i.i.i.i.i = getelementptr i8, ptr %1052, i64 -5
   store i8 58, ptr %incdec.ptr.i9.i.i114.i.i.i.i.i, align 1, !noalias !9677
   %mul.i10.i.i115.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i88.i.i.i.i.i, 1
-  %arrayidx.i11.i.i116.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i115.i.i.i.i.i
+  %arrayidx.i11.i.i116.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i10.i.i115.i.i.i.i.i
   %arrayidx1.i12.i.i117.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i11.i.i116.i.i.i.i.i, i64 1
   %1055 = load i8, ptr %arrayidx1.i12.i.i117.i.i.i.i.i, align 1, !noalias !9677
   %incdec.ptr.i.i13.i.i118.i.i.i.i.i = getelementptr i8, ptr %1052, i64 -6
@@ -132096,7 +132096,7 @@ if.end.i156.i.i.i.i.i:                            ; preds = %sw.epilog.i.i.i.i.i
   %mul.i.i.i.neg.i6.i.i.i161.i.i.i.i.i = mul nsw i64 %sub.i.i.i.i158.i.i.i.i.i, -60
   %sub.i7.i.i.i162.i.i.i.i.i = add nsw i64 %sub.i5.i.i.i160.i.i.i.i.i, %mul.i.i.i.neg.i6.i.i.i161.i.i.i.i.i
   %mul.i.i.i163.i.i.i.i.i = shl nsw i64 %sub.i7.i.i.i162.i.i.i.i.i, 1
-  %arrayidx.i.i.i164.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i163.i.i.i.i.i
+  %arrayidx.i.i.i164.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i.i.i163.i.i.i.i.i
   %arrayidx1.i.i.i165.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i164.i.i.i.i.i, i64 1
   %1059 = load i8, ptr %arrayidx1.i.i.i165.i.i.i.i.i, align 1, !noalias !9680
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i153.i.i.i.i.i, i64 8
@@ -132107,7 +132107,7 @@ if.end.i156.i.i.i.i.i:                            ; preds = %sw.epilog.i.i.i.i.i
   %incdec.ptr.i.i.i167.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i153.i.i.i.i.i, i64 6
   store i8 58, ptr %incdec.ptr.i.i.i167.i.i.i.i.i, align 1, !noalias !9680
   %mul.i5.i.i.i.i.i.i.i = shl nsw i64 %sub.i.i.i.i158.i.i.i.i.i, 1
-  %arrayidx.i6.i.i.i.i.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i
+  %arrayidx.i6.i.i.i.i.i.i.i = getelementptr inbounds nuw [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %mul.i5.i.i.i.i.i.i.i
   %arrayidx1.i7.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i6.i.i.i.i.i.i.i, i64 1
   %1061 = load i8, ptr %arrayidx1.i7.i.i.i.i.i.i.i, align 1, !noalias !9680
   %incdec.ptr.i.i8.i.i168.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i153.i.i.i.i.i, i64 5

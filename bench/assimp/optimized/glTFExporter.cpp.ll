@@ -7431,7 +7431,7 @@ if.end24:                                         ; preds = %invoke.cont15
   %call25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   %call26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 1024, ptr noundef nonnull @.str.61, ptr noundef %call25) #27
   %idx.ext = sext i32 %call26 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext
   %sub = sub nsw i64 1024, %idx.ext
   br label %for.body
 
@@ -34520,7 +34520,7 @@ if.then192:                                       ; preds = %for.end189
 
 for.body.i:                                       ; preds = %if.then192, %for.inc17.i
   %j.036.i = phi i64 [ %inc18.i, %for.inc17.i ], [ 0, %if.then192 ]
-  %arrayidx.i260 = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i
+  %arrayidx.i260 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i
   %m_c1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i260, i64 16
   %60 = load i64, ptr %m_c1.i.i, align 8
   %cmp.i.i261 = icmp eq i64 %60, %sub198
@@ -34560,7 +34560,7 @@ for.body9.i:                                      ; preds = %if.then4.i, %for.bo
   %h.040.i = phi i64 [ %h.0.i, %for.body9.i ], [ %h.037.i, %if.then4.i ]
   %h.0.in39.i = phi i64 [ %h.040.i, %for.body9.i ], [ %spec.select560, %if.then4.i ]
   %gep.i = getelementptr %"struct.o3dgc::SC3DMCPredictor", ptr %invariant.gep.i, i64 %h.0.in39.i
-  %arrayidx12.i = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i
+  %arrayidx12.i = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %arrayidx12.i, ptr noundef nonnull align 8 dereferenceable(280) %gep.i, i64 280, i1 false)
   %h.0.i = add i64 %h.040.i, -1
   %cmp8.i = icmp ugt i64 %h.0.i, %j.036.i
@@ -34652,7 +34652,7 @@ if.then247:                                       ; preds = %for.body241
 
 for.body.i268:                                    ; preds = %if.then247, %for.inc17.i275
   %j.036.i269 = phi i64 [ %inc18.i276, %for.inc17.i275 ], [ 0, %if.then247 ]
-  %arrayidx.i270 = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i269
+  %arrayidx.i270 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i269
   %m_c1.i.i271 = getelementptr inbounds nuw i8, ptr %arrayidx.i270, i64 16
   %72 = load i64, ptr %m_c1.i.i271, align 8
   %cmp.i.i272 = icmp eq i64 %72, %conv245
@@ -34692,7 +34692,7 @@ for.body9.i293:                                   ; preds = %if.then4.i287, %for
   %h.040.i294 = phi i64 [ %h.0.i298, %for.body9.i293 ], [ %h.037.i291, %if.then4.i287 ]
   %h.0.in39.i295 = phi i64 [ %h.040.i294, %for.body9.i293 ], [ %spec.select562, %if.then4.i287 ]
   %gep.i296 = getelementptr %"struct.o3dgc::SC3DMCPredictor", ptr %invariant.gep.i, i64 %h.0.in39.i295
-  %arrayidx12.i297 = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i294
+  %arrayidx12.i297 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %arrayidx12.i297, ptr noundef nonnull align 8 dereferenceable(280) %gep.i296, i64 280, i1 false)
   %h.0.i298 = add i64 %h.040.i294, -1
   %cmp8.i299 = icmp ugt i64 %h.0.i298, %j.036.i269
@@ -35161,9 +35161,9 @@ for.body13.us.i:                                  ; preds = %for.body13.us.i, %f
   %arrayidx14.us.i = getelementptr inbounds i64, ptr %114, i64 %add.us.i
   %115 = load i64, ptr %arrayidx14.us.i, align 8
   %conv15.us.i = sitofp i64 %115 to float
-  %arrayidx16.us.i = getelementptr inbounds [32 x float], ptr %idelta.i, i64 0, i64 %d10.021.us.i
+  %arrayidx16.us.i = getelementptr inbounds nuw [32 x float], ptr %idelta.i, i64 0, i64 %d10.021.us.i
   %116 = load float, ptr %arrayidx16.us.i, align 4
-  %arrayidx18.us.i = getelementptr inbounds float, ptr %minNormal, i64 %d10.021.us.i
+  %arrayidx18.us.i = getelementptr inbounds nuw float, ptr %minNormal, i64 %d10.021.us.i
   %117 = load float, ptr %arrayidx18.us.i, align 4
   %118 = call float @llvm.fmuladd.f32(float %conv15.us.i, float %116, float %117)
   %arrayidx21.us.i = getelementptr inbounds float, ptr %floatArray, i64 %add.us.i
@@ -35179,15 +35179,15 @@ for.cond11.for.inc25_crit_edge.us.i:              ; preds = %for.body13.us.i
 
 for.body.i481:                                    ; preds = %for.body.i481, %for.body.lr.ph.i479
   %d.019.i = phi i64 [ 0, %for.body.lr.ph.i479 ], [ %inc.i484, %for.body.i481 ]
-  %arrayidx.i482 = getelementptr inbounds float, ptr %maxNormal, i64 %d.019.i
+  %arrayidx.i482 = getelementptr inbounds nuw float, ptr %maxNormal, i64 %d.019.i
   %119 = load float, ptr %arrayidx.i482, align 4
-  %arrayidx2.i = getelementptr inbounds float, ptr %minNormal, i64 %d.019.i
+  %arrayidx2.i = getelementptr inbounds nuw float, ptr %minNormal, i64 %d.019.i
   %120 = load float, ptr %arrayidx2.i, align 4
   %sub.i483 = fsub float %119, %120
   %cmp3.i = fcmp ogt float %sub.i483, 0.000000e+00
   %div.i = fdiv float %sub.i483, %conv.i480
   %.sink.i = select i1 %cmp3.i, float %div.i, float 1.000000e+00
-  %121 = getelementptr inbounds [32 x float], ptr %idelta.i, i64 0, i64 %d.019.i
+  %121 = getelementptr inbounds nuw [32 x float], ptr %idelta.i, i64 0, i64 %d.019.i
   store float %.sink.i, ptr %121, align 4
   %inc.i484 = add nuw i64 %d.019.i, 1
   %exitcond.not.i485 = icmp eq i64 %inc.i484, %dimFloatArray.addr.0
@@ -35262,7 +35262,7 @@ for.body13.us.i511:                               ; preds = %for.body13.us.i511,
   %arrayidx14.us.i514 = getelementptr inbounds i64, ptr %129, i64 %add.us.i513
   %130 = load i64, ptr %arrayidx14.us.i514, align 8
   %conv15.us.i515 = sitofp i64 %130 to float
-  %arrayidx16.us.i516 = getelementptr inbounds [32 x float], ptr %idelta.i487, i64 0, i64 %d10.021.us.i512
+  %arrayidx16.us.i516 = getelementptr inbounds nuw [32 x float], ptr %idelta.i487, i64 0, i64 %d10.021.us.i512
   %131 = load float, ptr %arrayidx16.us.i516, align 4
   %arrayidx18.us.i517 = getelementptr inbounds float, ptr %minFloatArray, i64 %d10.021.us.i512
   %132 = load float, ptr %arrayidx18.us.i517, align 4
@@ -35288,7 +35288,7 @@ for.body.i494:                                    ; preds = %for.body.i494, %for
   %cmp3.i499 = fcmp ogt float %sub.i498, 0.000000e+00
   %div.i500 = fdiv float %sub.i498, %conv.i493
   %.sink.i501 = select i1 %cmp3.i499, float %div.i500, float 1.000000e+00
-  %136 = getelementptr inbounds [32 x float], ptr %idelta.i487, i64 0, i64 %d.019.i495
+  %136 = getelementptr inbounds nuw [32 x float], ptr %idelta.i487, i64 0, i64 %d.019.i495
   store float %.sink.i501, ptr %136, align 4
   %inc.i502 = add nuw i64 %d.019.i495, 1
   %exitcond.not.i503 = icmp eq i64 %inc.i502, %dimFloatArray.addr.0
@@ -35595,7 +35595,7 @@ if.then65:                                        ; preds = %for.body61
 
 for.body.i:                                       ; preds = %if.then65, %for.inc17.i
   %j.036.i = phi i64 [ %inc18.i, %for.inc17.i ], [ 0, %if.then65 ]
-  %arrayidx.i107 = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i
+  %arrayidx.i107 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %j.036.i
   %m_c1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i107, i64 16
   %22 = load i64, ptr %m_c1.i.i, align 8
   %cmp.i.i108 = icmp eq i64 %22, %conv63
@@ -35635,7 +35635,7 @@ for.body9.i:                                      ; preds = %if.then4.i, %for.bo
   %h.040.i = phi i64 [ %h.0.i, %for.body9.i ], [ %h.037.i, %if.then4.i ]
   %h.0.in39.i = phi i64 [ %h.040.i, %for.body9.i ], [ %spec.select, %if.then4.i ]
   %gep.i = getelementptr %"struct.o3dgc::SC3DMCPredictor", ptr %invariant.gep.i, i64 %h.0.in39.i
-  %arrayidx12.i = getelementptr inbounds %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i
+  %arrayidx12.i = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %m_neighbors, i64 %h.040.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %arrayidx12.i, ptr noundef nonnull align 8 dereferenceable(280) %gep.i, i64 280, i1 false)
   %h.0.i = add i64 %h.040.i, -1
   %cmp8.i = icmp ugt i64 %h.0.i, %j.036.i
@@ -63880,15 +63880,15 @@ for.body.lr.ph.i:                                 ; preds = %if.end73
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %d.023.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i216, %for.body.i ]
-  %arrayidx.i214 = getelementptr inbounds float, ptr %curMaxFloatArray, i64 %d.023.i
+  %arrayidx.i214 = getelementptr inbounds nuw float, ptr %curMaxFloatArray, i64 %d.023.i
   %35 = load float, ptr %arrayidx.i214, align 4
-  %arrayidx2.i = getelementptr inbounds float, ptr %curMinFloatArray, i64 %d.023.i
+  %arrayidx2.i = getelementptr inbounds nuw float, ptr %curMinFloatArray, i64 %d.023.i
   %36 = load float, ptr %arrayidx2.i, align 4
   %sub.i215 = fsub float %35, %36
   %cmp3.i = fcmp ogt float %sub.i215, 0.000000e+00
   %div.i = fdiv float %conv.i213, %sub.i215
   %.sink.i = select i1 %cmp3.i, float %div.i, float 1.000000e+00
-  %37 = getelementptr inbounds [32 x float], ptr %delta.i, i64 0, i64 %d.023.i
+  %37 = getelementptr inbounds nuw [32 x float], ptr %delta.i, i64 0, i64 %d.023.i
   store float %.sink.i, ptr %37, align 4
   %inc.i216 = add nuw i64 %d.023.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i216, %dimFloatArray
@@ -63940,10 +63940,10 @@ for.body18.us.i:                                  ; preds = %for.body18.us.i, %f
   %add.us.i = add i64 %d15.025.us.i, %mul19.us.i
   %arrayidx20.us.i = getelementptr inbounds float, ptr %floatArray, i64 %add.us.i
   %43 = load float, ptr %arrayidx20.us.i, align 4
-  %arrayidx21.us.i = getelementptr inbounds float, ptr %curMinFloatArray, i64 %d15.025.us.i
+  %arrayidx21.us.i = getelementptr inbounds nuw float, ptr %curMinFloatArray, i64 %d15.025.us.i
   %44 = load float, ptr %arrayidx21.us.i, align 4
   %sub22.us.i = fsub float %43, %44
-  %arrayidx23.us.i = getelementptr inbounds [32 x float], ptr %delta.i, i64 0, i64 %d15.025.us.i
+  %arrayidx23.us.i = getelementptr inbounds nuw [32 x float], ptr %delta.i, i64 0, i64 %d15.025.us.i
   %45 = load float, ptr %arrayidx23.us.i, align 4
   %46 = call float @llvm.fmuladd.f32(float %sub22.us.i, float %45, float 5.000000e-01)
   %conv25.us.i = fptosi float %46 to i64
@@ -63986,7 +63986,7 @@ for.body.i229:                                    ; preds = %for.body.i229, %for
   %cmp3.i234 = fcmp ogt float %sub.i233, 0.000000e+00
   %div.i235 = fdiv float %conv.i228, %sub.i233
   %.sink.i236 = select i1 %cmp3.i234, float %div.i235, float 1.000000e+00
-  %50 = getelementptr inbounds [32 x float], ptr %delta.i221, i64 0, i64 %d.023.i230
+  %50 = getelementptr inbounds nuw [32 x float], ptr %delta.i221, i64 0, i64 %d.023.i230
   store float %.sink.i236, ptr %50, align 4
   %inc.i237 = add nuw i64 %d.023.i230, 1
   %exitcond.not.i238 = icmp eq i64 %inc.i237, %dimFloatArray
@@ -64041,7 +64041,7 @@ for.body18.us.i249:                               ; preds = %for.body18.us.i249,
   %arrayidx21.us.i253 = getelementptr inbounds float, ptr %minFloatArray, i64 %d15.025.us.i250
   %57 = load float, ptr %arrayidx21.us.i253, align 4
   %sub22.us.i254 = fsub float %56, %57
-  %arrayidx23.us.i255 = getelementptr inbounds [32 x float], ptr %delta.i221, i64 0, i64 %d15.025.us.i250
+  %arrayidx23.us.i255 = getelementptr inbounds nuw [32 x float], ptr %delta.i221, i64 0, i64 %d15.025.us.i250
   %58 = load float, ptr %arrayidx23.us.i255, align 4
   %59 = call float @llvm.fmuladd.f32(float %sub22.us.i254, float %58, float 5.000000e-01)
   %conv25.us.i256 = fptosi float %59 to i64
@@ -69638,7 +69638,7 @@ for.inc:                                          ; preds = %for.body42
 if.then52:                                        ; preds = %for.body42
   %sub53 = xor i64 %u.0569, -1
   %inc54 = add nsw i64 %numIndices.0573, 1
-  %arrayidx55 = getelementptr inbounds [256 x i64], ptr %indices, i64 0, i64 %numIndices.0573
+  %arrayidx55 = getelementptr inbounds nuw [256 x i64], ptr %indices, i64 0, i64 %numIndices.0573
   store i64 %sub53, ptr %arrayidx55, align 8
   br label %for.inc66
 
@@ -69648,7 +69648,7 @@ if.else56:                                        ; preds = %for.inc, %if.else.i
   %53 = load i64, ptr %arrayidx60, align 8
   %sub61 = sub nsw i64 %52, %53
   %inc62 = add nsw i64 %numIndices.0573, 1
-  %arrayidx63 = getelementptr inbounds [256 x i64], ptr %indices, i64 0, i64 %numIndices.0573
+  %arrayidx63 = getelementptr inbounds nuw [256 x i64], ptr %indices, i64 0, i64 %numIndices.0573
   store i64 %sub61, ptr %arrayidx63, align 8
   br label %for.inc66
 

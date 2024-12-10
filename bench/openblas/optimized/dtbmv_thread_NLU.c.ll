@@ -215,7 +215,7 @@ define noundef i32 @dtbmv_thread_NLU(i64 noundef %0, i64 noundef %1, ptr noundef
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %135 = phi i64 [ %140, %.preheader ], [ 1, %.loopexit ]
-  %136 = getelementptr inbounds [17 x i64], ptr %13, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %135
   %137 = load i64, ptr %136, align 8, !tbaa !15
   %138 = getelementptr inbounds double, ptr %6, i64 %137
   %139 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %138, i64 noundef 1, ptr noundef %6, i64 noundef 1, ptr noundef null, i64 noundef 0) #7

@@ -1642,11 +1642,11 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
 
 14:                                               ; preds = %10
   %15 = sext i8 %12 to i64
-  %16 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = sext i8 %8 to i64
-  %20 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = shl nsw i32 %22, 6
@@ -1654,7 +1654,7 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
   %25 = getelementptr inbounds nuw i8, ptr %.06874, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i64
-  %28 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i32
   %31 = shl nsw i32 %30, 12
@@ -1665,7 +1665,7 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
 34:                                               ; preds = %14
   %35 = load i8, ptr %.06874, align 1
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = shl nsw i32 %39, 18
@@ -1727,13 +1727,13 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
   %72 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = shl nsw i32 %77, 12
   %79 = load i8, ptr %.068.lcssa, align 1
   %80 = sext i8 %79 to i64
-  %81 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i32
   %84 = shl nsw i32 %83, 18
@@ -1756,14 +1756,14 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
 
 95:                                               ; preds = %91
   %96 = sext i8 %67 to i64
-  %97 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = sext i8 %98 to i32
   %100 = shl nsw i32 %99, 6
   %101 = getelementptr inbounds nuw i8, ptr %.068.lcssa, i64 1
   %102 = load i8, ptr %101, align 1
   %103 = sext i8 %102 to i64
-  %104 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = sext i8 %105 to i32
   %107 = shl nsw i32 %106, 12
@@ -1774,7 +1774,7 @@ define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_
 110:                                              ; preds = %95
   %111 = load i8, ptr %.068.lcssa, align 1
   %112 = sext i8 %111 to i64
-  %113 = getelementptr inbounds [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [128 x i8], ptr @_ZN2c46detailL22base64_char_to_sextet_E, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = sext i8 %114 to i32
   %116 = shl nsw i32 %115, 18
@@ -43458,7 +43458,7 @@ _ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5
 
 28:                                               ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56.i
   %.sroa.03.0.copyload.i = load ptr, ptr %3, align 8, !alias.scope !199
-  %29 = getelementptr inbounds i8, ptr %5, i64 %.pre.i.i.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %.sroa.03.0.copyload.i, i64 %.sroa.24.0.copyload.i, i1 false), !noalias !199
   br label %_ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6_E_EEmOT_NS4_IcEES6_.exit.thread79.i
 
@@ -43468,7 +43468,7 @@ _ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6
   br i1 %.not.i.i.i59.i, label %_ZN2c43yml6detail13_SubstrWriter6appendEc.exit, label %31
 
 31:                                               ; preds = %_ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6_E_EEmOT_NS4_IcEES6_.exit.thread79.i
-  %32 = getelementptr inbounds i8, ptr %5, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %25, i64 %26, i1 false), !noalias !199
   br label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRKS7_EEEvT_S7_DpOT0_.exit
 
@@ -52040,13 +52040,13 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJE
   %55 = add i64 %.neg, %.073
   %56 = shl i64 %55, 1
   %57 = or disjoint i64 %56, 1
-  %58 = getelementptr inbounds [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = add i32 %.06372, -1
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   store i8 %59, ptr %62, align 1
-  %63 = getelementptr inbounds [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %56
+  %63 = getelementptr inbounds nuw [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %56
   %64 = load i8, ptr %63, align 2
   %65 = add i32 %.06372, -2
   %66 = zext i32 %65 to i64
@@ -53597,13 +53597,13 @@ define linkonce_odr dso_local noundef i64 @_ZN2c44dumpIRZNKS_3yml6Parser4_errIJN
   %55 = add i64 %.neg, %.073
   %56 = shl i64 %55, 1
   %57 = or disjoint i64 %56, 1
-  %58 = getelementptr inbounds [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = add i32 %.06372, -1
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   store i8 %59, ptr %62, align 1
-  %63 = getelementptr inbounds [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %56
+  %63 = getelementptr inbounds nuw [201 x i8], ptr @_ZN2c46detail10digits0099E, i64 0, i64 %56
   %64 = load i8, ptr %63, align 2
   %65 = add i32 %.06372, -2
   %66 = zext i32 %65 to i64

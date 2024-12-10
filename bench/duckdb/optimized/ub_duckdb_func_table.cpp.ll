@@ -47190,7 +47190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1622: ; preds = %i
   %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %383, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %csv_read, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %csv_read, i64 %vbase.offset.i.i
   store ptr %384, ptr %add.ptr.i.i, align 8, !tbaa !151
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %csv_read, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !151
@@ -47388,7 +47388,7 @@ _ZN6duckdb13StrTimeFormatD2Ev.exit1691:           ; preds = %if.then.i.i.i1684, 
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %date_format) #30
   store ptr %383, ptr %columns, align 8, !tbaa !151
   %vbase.offset.i.i1693 = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i1694 = getelementptr inbounds i8, ptr %columns, i64 %vbase.offset.i.i1693
+  %add.ptr.i.i1694 = getelementptr inbounds nuw i8, ptr %columns, i64 %vbase.offset.i.i1693
   store ptr %384, ptr %add.ptr.i.i1694, align 8, !tbaa !151
   %_M_stringbuf.i.i1695 = getelementptr inbounds nuw i8, ptr %columns, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i1695, align 8, !tbaa !151

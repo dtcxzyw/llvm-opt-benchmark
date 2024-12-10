@@ -1245,7 +1245,7 @@ define internal fastcc void @_ZN5ZXing5AztecL14LatchAndAppendERKNS0_13EncodingSt
 
 13:                                               ; preds = %4
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds [5 x %"struct.std::array.16"], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [5 x %"struct.std::array.16"], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 0, i64 %14
   %16 = sext i32 %2 to i64
   %17 = getelementptr inbounds [5 x i32], ptr %15, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !47
@@ -1794,7 +1794,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing5AztecL21IsBetterThanOrEqual
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [5 x %"struct.std::array.16"], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [5 x %"struct.std::array.16"], ptr @_ZN5ZXing5AztecL11LATCH_TABLEE, i64 0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = sext i32 %10 to i64

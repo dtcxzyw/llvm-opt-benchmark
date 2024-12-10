@@ -918,7 +918,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 43:                                               ; preds = %38
   %44 = sext i32 %20 to i64
-  %45 = getelementptr inbounds float, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw float, ptr %5, i64 %44
   %46 = add nuw i32 %21, 1
   %47 = sitofp i32 %46 to float
   %48 = zext nneg i32 %21 to i64
@@ -1116,7 +1116,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %188 = sitofp <8 x i32> %174 to <8 x float>
   %189 = sitofp <8 x i32> %175 to <8 x float>
   %190 = extractelement <8 x i64> %176, i64 0
-  %191 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 64
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 96
@@ -1538,7 +1538,7 @@ define internal noundef i32 @dt_iop_zonesystem_preview_draw(ptr noundef %0, ptr 
 
 90:                                               ; preds = %85
   %91 = sext i32 %67 to i64
-  %92 = getelementptr inbounds float, ptr %5, i64 %91
+  %92 = getelementptr inbounds nuw float, ptr %5, i64 %91
   %93 = add nuw i32 %68, 1
   %94 = sitofp i32 %93 to float
   %95 = zext nneg i32 %68 to i64
@@ -1948,7 +1948,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
 
 71:                                               ; preds = %66
   %72 = sext i32 %48 to i64
-  %73 = getelementptr inbounds float, ptr %5, i64 %72
+  %73 = getelementptr inbounds nuw float, ptr %5, i64 %72
   %74 = add nuw i32 %49, 1
   %75 = sitofp i32 %74 to float
   %76 = zext nneg i32 %49 to i64
@@ -2284,7 +2284,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
 
 54:                                               ; preds = %49
   %55 = sext i32 %31 to i64
-  %56 = getelementptr inbounds float, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw float, ptr %5, i64 %55
   %57 = add nuw i32 %32, 1
   %58 = sitofp i32 %57 to float
   %59 = zext nneg i32 %32 to i64
@@ -2437,7 +2437,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
   %166 = load i32, ptr %165, align 8, !tbaa !144
   %167 = add nsw i32 %166, -1
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !62
   %171 = fcmp reassoc nsz arcp contract afn ogt float %164, %170
   br i1 %171, label %172, label %224
@@ -2445,7 +2445,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_motion_notify(ptr noundef %0,
 172:                                              ; preds = %162
   %173 = add nsw i32 %166, 1
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %174
   %176 = load float, ptr %175, align 4, !tbaa !62
   %177 = fcmp reassoc nsz arcp contract afn olt float %164, %176
   br i1 %177, label %178, label %224
@@ -2623,7 +2623,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
 
 51:                                               ; preds = %46
   %52 = sext i32 %28 to i64
-  %53 = getelementptr inbounds float, ptr %5, i64 %52
+  %53 = getelementptr inbounds nuw float, ptr %5, i64 %52
   %54 = add nuw i32 %29, 1
   %55 = sitofp i32 %54 to float
   %56 = zext nneg i32 %29 to i64
@@ -2751,10 +2751,10 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
   %145 = call i32 @llvm.smin.i32(i32 %144, i32 %21)
   %146 = add nsw i32 %145, 1
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %147
   %149 = load float, ptr %148, align 4, !tbaa !62
   %150 = sext i32 %145 to i64
-  %151 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %150
   %152 = load float, ptr %151, align 4, !tbaa !62
   %153 = fsub reassoc nsz arcp contract afn float %149, %152
   %154 = fmul reassoc nsz arcp contract afn float %153, 5.000000e-01
@@ -2777,7 +2777,7 @@ define internal noundef i32 @dt_iop_zonesystem_bar_button_press(ptr noundef %0, 
   br i1 %165, label %166, label %170
 
 166:                                              ; preds = %160
-  %167 = getelementptr inbounds [24 x float], ptr %5, i64 0, i64 %162
+  %167 = getelementptr inbounds nuw [24 x float], ptr %5, i64 0, i64 %162
   %168 = load float, ptr %167, align 4, !tbaa !62
   store float %168, ptr %163, align 4, !tbaa !62
   %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !145

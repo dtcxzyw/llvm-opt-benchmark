@@ -534,7 +534,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i.i, ptr %3, i64 %49) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -1152,7 +1152,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %380 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 12
   %381 = load i32, ptr %380, align 4
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %382
   %384 = load ptr, ptr %383, align 8
   call void %384(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(16) %.041.i, ptr noundef %.0.i.i.i.i.i, ptr %213, i64 %284) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -1232,7 +1232,7 @@ _ZN18PSPromotionManager21push_contents_boundedEP7oopDescPP12HeapWordImplS4_.exit
   %424 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i56.i, i64 12
   %425 = load i32, ptr %424, align 4
   %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %426
+  %427 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %426
   %428 = load ptr, ptr %427, align 8
   call void %428(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %.041.i, ptr noundef %.0.i.i.i.i56.i, ptr %213, i64 %281) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -1817,7 +1817,7 @@ _ZN7oopDesc11oop_iterateI22PSCheckForUnmarkedOopsEEvPT_.exit: ; preds = %15, %25
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PSCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PSCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #11
   %32 = load ptr, ptr %11, align 8

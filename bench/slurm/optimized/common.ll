@@ -869,7 +869,7 @@ define dso_local range(i32 0, 2) i32 @commit_check(ptr noundef %0) local_unnamed
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %7, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = add nsw i32 %7, 1
   br label %25

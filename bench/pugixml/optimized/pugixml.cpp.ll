@@ -17409,7 +17409,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %20 = phi i32 [ %21, %for.body ], [ %19, %if.end ]
   %i.010 = phi i64 [ %inc, %for.body ], [ 0, %if.end ]
   %conv = trunc i32 %20 to i8
-  %arrayidx3 = getelementptr inbounds [4 x i8], ptr %mode_ascii, i64 0, i64 %i.010
+  %arrayidx3 = getelementptr inbounds nuw [4 x i8], ptr %mode_ascii, i64 0, i64 %i.010
   store i8 %conv, ptr %arrayidx3, align 1
   %inc = add i64 %i.010, 1
   %arrayidx = getelementptr inbounds i32, ptr %mode, i64 %inc
@@ -20135,7 +20135,7 @@ for.body:                                         ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.08, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %var.08, i64 %switch.load
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -20297,7 +20297,7 @@ for.body:                                         ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.018, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %var.018, i64 %switch.load
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -20486,7 +20486,7 @@ for.body.i:                                       ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.018.i, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i = getelementptr inbounds nuw i8, ptr %var.018.i, i64 %switch.load
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -20581,7 +20581,7 @@ for.body.i:                                       ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.018.i, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i = getelementptr inbounds nuw i8, ptr %var.018.i, i64 %switch.load
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -20864,7 +20864,7 @@ for.body.i:                                       ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.08.i, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i = getelementptr inbounds nuw i8, ptr %var.08.i, i64 %switch.load
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -20923,7 +20923,7 @@ for.body.i:                                       ; preds = %_ZN4pugi4impl12_GLO
   %5 = load i32, ptr %var.08.i, align 8
   %switch.tableidx = add nsw i32 %5, -1
   %6 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i = getelementptr inbounds nuw i8, ptr %var.08.i, i64 %switch.load
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i.i, ptr noundef nonnull readonly dereferenceable(1) %name) #45
@@ -35640,7 +35640,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4pugi4impl12_GLO
   %16 = load i32, ptr %var.08.i.i.i.i, align 8
   %switch.tableidx = add nsw i32 %16, -1
   %17 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4pugi4impl12_GLOBAL__N_112xpath_parser30parse_path_or_unary_expressionEv, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   %name.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %var.08.i.i.i.i, i64 %switch.load
   %call.i.i.i.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name.i.i.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %scratch.0.i.i) #45
@@ -36308,7 +36308,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i160.i
 
 for.body.i.i.i160.i:                              ; preds = %sw.bb.i.i, %for.cond.i.i.i.i
   %i.08.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %sw.bb.i.i ]
-  %arrayidx.i.i.i161.i = getelementptr inbounds i8, ptr @.str.45, i64 %i.08.i.i.i.i
+  %arrayidx.i.i.i161.i = getelementptr inbounds nuw i8, ptr @.str.45, i64 %i.08.i.i.i.i
   %105 = load i8, ptr %arrayidx.i.i.i161.i, align 1
   %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i.i.i
   %106 = load i8, ptr %arrayidx1.i.i.i.i, align 1
@@ -36316,7 +36316,7 @@ for.body.i.i.i160.i:                              ; preds = %sw.bb.i.i, %for.con
   br i1 %cmp3.not.i.i.i.i, label %for.cond.i.i.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i.i: ; preds = %for.cond.i.i.i.i, %sw.bb.i.i
-  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr @.str.45, i64 %sub.ptr.sub.i.i159.i
+  %arrayidx4.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.45, i64 %sub.ptr.sub.i.i159.i
   %107 = load i8, ptr %arrayidx4.i.i.i.i, align 1
   %cmp6.i.i.i.i = icmp eq i8 %107, 0
   %cmp.i162.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -36395,7 +36395,7 @@ for.cond.i.i221.i.i:                              ; preds = %for.body.i.i215.i.i
 
 for.body.i.i215.i.i:                              ; preds = %sw.bb4.i.i, %for.cond.i.i221.i.i
   %i.08.i.i216.i.i = phi i64 [ %inc.i.i222.i.i, %for.cond.i.i221.i.i ], [ 0, %sw.bb4.i.i ]
-  %arrayidx.i.i217.i.i = getelementptr inbounds i8, ptr @.str.46, i64 %i.08.i.i216.i.i
+  %arrayidx.i.i217.i.i = getelementptr inbounds nuw i8, ptr @.str.46, i64 %i.08.i.i216.i.i
   %116 = load i8, ptr %arrayidx.i.i217.i.i, align 1
   %arrayidx1.i.i218.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i216.i.i
   %117 = load i8, ptr %arrayidx1.i.i218.i.i, align 1
@@ -36407,7 +36407,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.thread.i.i: ; pre
   br label %if.else.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit227.i.i: ; preds = %for.cond.i.i221.i.i, %sw.bb4.i.i
-  %arrayidx4.i.i225.i.i = getelementptr inbounds i8, ptr @.str.46, i64 %sub.ptr.sub.i213.i.i
+  %arrayidx4.i.i225.i.i = getelementptr inbounds nuw i8, ptr @.str.46, i64 %sub.ptr.sub.i213.i.i
   %118 = load i8, ptr %arrayidx4.i.i225.i.i, align 1
   %cmp6.i.i226.i.i = icmp eq i8 %118, 0
   %cmp7.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -36505,7 +36505,7 @@ for.cond.i.i266.i.i:                              ; preds = %for.body.i.i260.i.i
 
 for.body.i.i260.i.i:                              ; preds = %if.else.i.i, %for.cond.i.i266.i.i
   %i.08.i.i261.i.i = phi i64 [ %inc.i.i267.i.i, %for.cond.i.i266.i.i ], [ 0, %if.else.i.i ]
-  %arrayidx.i.i262.i.i = getelementptr inbounds i8, ptr @.str.48, i64 %i.08.i.i261.i.i
+  %arrayidx.i.i262.i.i = getelementptr inbounds nuw i8, ptr @.str.48, i64 %i.08.i.i261.i.i
   %132 = load i8, ptr %arrayidx.i.i262.i.i, align 1
   %arrayidx1.i.i263.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i261.i.i
   %133 = load i8, ptr %arrayidx1.i.i263.i.i, align 1
@@ -36513,7 +36513,7 @@ for.body.i.i260.i.i:                              ; preds = %if.else.i.i, %for.c
   br i1 %cmp3.not.i.i264.i.i, label %for.cond.i.i266.i.i, label %if.else24.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit272.i.i: ; preds = %for.cond.i.i266.i.i, %if.else.i.i
-  %arrayidx4.i.i270.i.i = getelementptr inbounds i8, ptr @.str.48, i64 %sub.ptr.sub.i213.i.i
+  %arrayidx4.i.i270.i.i = getelementptr inbounds nuw i8, ptr @.str.48, i64 %sub.ptr.sub.i213.i.i
   %134 = load i8, ptr %arrayidx4.i.i270.i.i, align 1
   %cmp6.i.i271.i.i = icmp eq i8 %134, 0
   %cmp19.i.i = icmp eq i64 %argc.0.i.lcssa, 2
@@ -36590,7 +36590,7 @@ for.cond.i.i308.i.i:                              ; preds = %for.body.i.i302.i.i
 
 for.body.i.i302.i.i:                              ; preds = %if.else24.i.i, %for.cond.i.i308.i.i
   %i.08.i.i303.i.i = phi i64 [ %inc.i.i309.i.i, %for.cond.i.i308.i.i ], [ 0, %if.else24.i.i ]
-  %arrayidx.i.i304.i.i = getelementptr inbounds i8, ptr @.str.49, i64 %i.08.i.i303.i.i
+  %arrayidx.i.i304.i.i = getelementptr inbounds nuw i8, ptr @.str.49, i64 %i.08.i.i303.i.i
   %143 = load i8, ptr %arrayidx.i.i304.i.i, align 1
   %arrayidx1.i.i305.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i303.i.i
   %144 = load i8, ptr %arrayidx1.i.i305.i.i, align 1
@@ -36598,7 +36598,7 @@ for.body.i.i302.i.i:                              ; preds = %if.else24.i.i, %for
   br i1 %cmp3.not.i.i306.i.i, label %for.cond.i.i308.i.i, label %if.else32.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit314.i.i: ; preds = %for.cond.i.i308.i.i, %if.else24.i.i
-  %arrayidx4.i.i312.i.i = getelementptr inbounds i8, ptr @.str.49, i64 %sub.ptr.sub.i213.i.i
+  %arrayidx4.i.i312.i.i = getelementptr inbounds nuw i8, ptr @.str.49, i64 %sub.ptr.sub.i213.i.i
   %145 = load i8, ptr %arrayidx4.i.i312.i.i, align 1
   %cmp6.i.i313.i.i = icmp eq i8 %145, 0
   %cmp27.i.i = icmp ugt i64 %argc.0.i.lcssa, 1
@@ -36620,7 +36620,7 @@ for.cond.i.i325.i.i:                              ; preds = %for.body.i.i319.i.i
 
 for.body.i.i319.i.i:                              ; preds = %if.else32.i.i, %for.cond.i.i325.i.i
   %i.08.i.i320.i.i = phi i64 [ %inc.i.i326.i.i, %for.cond.i.i325.i.i ], [ 0, %if.else32.i.i ]
-  %arrayidx.i.i321.i.i = getelementptr inbounds i8, ptr @.str.50, i64 %i.08.i.i320.i.i
+  %arrayidx.i.i321.i.i = getelementptr inbounds nuw i8, ptr @.str.50, i64 %i.08.i.i320.i.i
   %146 = load i8, ptr %arrayidx.i.i321.i.i, align 1
   %arrayidx1.i.i322.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i320.i.i
   %147 = load i8, ptr %arrayidx1.i.i322.i.i, align 1
@@ -36628,7 +36628,7 @@ for.body.i.i319.i.i:                              ; preds = %if.else32.i.i, %for
   br i1 %cmp3.not.i.i323.i.i, label %for.cond.i.i325.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit331.i.i: ; preds = %for.cond.i.i325.i.i, %if.else32.i.i
-  %arrayidx4.i.i329.i.i = getelementptr inbounds i8, ptr @.str.50, i64 %sub.ptr.sub.i213.i.i
+  %arrayidx4.i.i329.i.i = getelementptr inbounds nuw i8, ptr @.str.50, i64 %sub.ptr.sub.i213.i.i
   %148 = load i8, ptr %arrayidx4.i.i329.i.i, align 1
   %cmp6.i.i330.i.i = icmp eq i8 %148, 0
   %or.cond4.i.i = and i1 %cmp731.i.i, %cmp6.i.i330.i.i
@@ -36653,7 +36653,7 @@ for.cond.i.i342.i.i:                              ; preds = %for.body.i.i336.i.i
 
 for.body.i.i336.i.i:                              ; preds = %sw.bb43.i.i, %for.cond.i.i342.i.i
   %i.08.i.i337.i.i = phi i64 [ %inc.i.i343.i.i, %for.cond.i.i342.i.i ], [ 0, %sw.bb43.i.i ]
-  %arrayidx.i.i338.i.i = getelementptr inbounds i8, ptr @.str.51, i64 %i.08.i.i337.i.i
+  %arrayidx.i.i338.i.i = getelementptr inbounds nuw i8, ptr @.str.51, i64 %i.08.i.i337.i.i
   %149 = load i8, ptr %arrayidx.i.i338.i.i, align 1
   %arrayidx1.i.i339.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i337.i.i
   %150 = load i8, ptr %arrayidx1.i.i339.i.i, align 1
@@ -36661,7 +36661,7 @@ for.body.i.i336.i.i:                              ; preds = %sw.bb43.i.i, %for.c
   br i1 %cmp3.not.i.i340.i.i, label %for.cond.i.i342.i.i, label %if.else49.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit348.i.i: ; preds = %for.cond.i.i342.i.i, %sw.bb43.i.i
-  %arrayidx4.i.i346.i.i = getelementptr inbounds i8, ptr @.str.51, i64 %sub.ptr.sub.i334.i.i
+  %arrayidx4.i.i346.i.i = getelementptr inbounds nuw i8, ptr @.str.51, i64 %sub.ptr.sub.i334.i.i
   %151 = load i8, ptr %arrayidx4.i.i346.i.i, align 1
   %cmp6.i.i347.i.i = icmp eq i8 %151, 0
   %cmp46.i.i = icmp eq i64 %argc.0.i.lcssa, 0
@@ -36734,7 +36734,7 @@ for.cond.i.i384.i.i:                              ; preds = %for.body.i.i378.i.i
 
 for.body.i.i378.i.i:                              ; preds = %if.else49.i.i, %for.cond.i.i384.i.i
   %i.08.i.i379.i.i = phi i64 [ %inc.i.i385.i.i, %for.cond.i.i384.i.i ], [ 0, %if.else49.i.i ]
-  %arrayidx.i.i380.i.i = getelementptr inbounds i8, ptr @.str.52, i64 %i.08.i.i379.i.i
+  %arrayidx.i.i380.i.i = getelementptr inbounds nuw i8, ptr @.str.52, i64 %i.08.i.i379.i.i
   %160 = load i8, ptr %arrayidx.i.i380.i.i, align 1
   %arrayidx1.i.i381.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i379.i.i
   %161 = load i8, ptr %arrayidx1.i.i381.i.i, align 1
@@ -36742,7 +36742,7 @@ for.body.i.i378.i.i:                              ; preds = %if.else49.i.i, %for
   br i1 %cmp3.not.i.i382.i.i, label %for.cond.i.i384.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit390.i.i: ; preds = %for.cond.i.i384.i.i, %if.else49.i.i
-  %arrayidx4.i.i388.i.i = getelementptr inbounds i8, ptr @.str.52, i64 %sub.ptr.sub.i334.i.i
+  %arrayidx4.i.i388.i.i = getelementptr inbounds nuw i8, ptr @.str.52, i64 %sub.ptr.sub.i334.i.i
   %162 = load i8, ptr %arrayidx4.i.i388.i.i, align 1
   %cmp6.i.i389.i.i = icmp eq i8 %162, 0
   %cmp52.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -36821,7 +36821,7 @@ for.cond.i.i426.i.i:                              ; preds = %for.body.i.i420.i.i
 
 for.body.i.i420.i.i:                              ; preds = %sw.bb58.i.i, %for.cond.i.i426.i.i
   %i.08.i.i421.i.i = phi i64 [ %inc.i.i427.i.i, %for.cond.i.i426.i.i ], [ 0, %sw.bb58.i.i ]
-  %arrayidx.i.i422.i.i = getelementptr inbounds i8, ptr @.str.53, i64 %i.08.i.i421.i.i
+  %arrayidx.i.i422.i.i = getelementptr inbounds nuw i8, ptr @.str.53, i64 %i.08.i.i421.i.i
   %171 = load i8, ptr %arrayidx.i.i422.i.i, align 1
   %arrayidx1.i.i423.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i421.i.i
   %172 = load i8, ptr %arrayidx1.i.i423.i.i, align 1
@@ -36829,7 +36829,7 @@ for.body.i.i420.i.i:                              ; preds = %sw.bb58.i.i, %for.c
   br i1 %cmp3.not.i.i424.i.i, label %for.cond.i.i426.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit432.i.i: ; preds = %for.cond.i.i426.i.i, %sw.bb58.i.i
-  %arrayidx4.i.i430.i.i = getelementptr inbounds i8, ptr @.str.53, i64 %sub.ptr.sub.i418.i.i
+  %arrayidx4.i.i430.i.i = getelementptr inbounds nuw i8, ptr @.str.53, i64 %sub.ptr.sub.i418.i.i
   %173 = load i8, ptr %arrayidx4.i.i430.i.i, align 1
   %cmp6.i.i431.i.i = icmp eq i8 %173, 0
   %cmp61.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -36908,7 +36908,7 @@ for.cond.i.i468.i.i:                              ; preds = %for.body.i.i462.i.i
 
 for.body.i.i462.i.i:                              ; preds = %sw.bb66.i.i, %for.cond.i.i468.i.i
   %i.08.i.i463.i.i = phi i64 [ %inc.i.i469.i.i, %for.cond.i.i468.i.i ], [ 0, %sw.bb66.i.i ]
-  %arrayidx.i.i464.i.i = getelementptr inbounds i8, ptr @.str.54, i64 %i.08.i.i463.i.i
+  %arrayidx.i.i464.i.i = getelementptr inbounds nuw i8, ptr @.str.54, i64 %i.08.i.i463.i.i
   %182 = load i8, ptr %arrayidx.i.i464.i.i, align 1
   %arrayidx1.i.i465.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i463.i.i
   %183 = load i8, ptr %arrayidx1.i.i465.i.i, align 1
@@ -36920,7 +36920,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.thread.i.i: ; pre
   br label %if.else72.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit474.i.i: ; preds = %for.cond.i.i468.i.i, %sw.bb66.i.i
-  %arrayidx4.i.i472.i.i = getelementptr inbounds i8, ptr @.str.54, i64 %sub.ptr.sub.i460.i.i
+  %arrayidx4.i.i472.i.i = getelementptr inbounds nuw i8, ptr @.str.54, i64 %sub.ptr.sub.i460.i.i
   %184 = load i8, ptr %arrayidx4.i.i472.i.i, align 1
   %cmp6.i.i473.i.i = icmp eq i8 %184, 0
   %cmp69.i.i = icmp eq i64 %argc.0.i.lcssa, 0
@@ -36994,7 +36994,7 @@ for.cond.i.i510.i.i:                              ; preds = %for.body.i.i504.i.i
 
 for.body.i.i504.i.i:                              ; preds = %if.else72.i.i, %for.cond.i.i510.i.i
   %i.08.i.i505.i.i = phi i64 [ %inc.i.i511.i.i, %for.cond.i.i510.i.i ], [ 0, %if.else72.i.i ]
-  %arrayidx.i.i506.i.i = getelementptr inbounds i8, ptr @.str.55, i64 %i.08.i.i505.i.i
+  %arrayidx.i.i506.i.i = getelementptr inbounds nuw i8, ptr @.str.55, i64 %i.08.i.i505.i.i
   %193 = load i8, ptr %arrayidx.i.i506.i.i, align 1
   %arrayidx1.i.i507.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i505.i.i
   %194 = load i8, ptr %arrayidx1.i.i507.i.i, align 1
@@ -37006,7 +37006,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.thread.i.i: ; pre
   br label %if.else79.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit516.i.i: ; preds = %for.cond.i.i510.i.i, %if.else72.i.i
-  %arrayidx4.i.i514.i.i = getelementptr inbounds i8, ptr @.str.55, i64 %sub.ptr.sub.i460.i.i
+  %arrayidx4.i.i514.i.i = getelementptr inbounds nuw i8, ptr @.str.55, i64 %sub.ptr.sub.i460.i.i
   %195 = load i8, ptr %arrayidx4.i.i514.i.i, align 1
   %cmp6.i.i515.i.i = icmp eq i8 %195, 0
   %cmp75.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -37082,7 +37082,7 @@ for.cond.i.i552.i.i:                              ; preds = %for.body.i.i546.i.i
 
 for.body.i.i546.i.i:                              ; preds = %if.else79.i.i, %for.cond.i.i552.i.i
   %i.08.i.i547.i.i = phi i64 [ %inc.i.i553.i.i, %for.cond.i.i552.i.i ], [ 0, %if.else79.i.i ]
-  %arrayidx.i.i548.i.i = getelementptr inbounds i8, ptr @.str.56, i64 %i.08.i.i547.i.i
+  %arrayidx.i.i548.i.i = getelementptr inbounds nuw i8, ptr @.str.56, i64 %i.08.i.i547.i.i
   %204 = load i8, ptr %arrayidx.i.i548.i.i, align 1
   %arrayidx1.i.i549.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i547.i.i
   %205 = load i8, ptr %arrayidx1.i.i549.i.i, align 1
@@ -37090,7 +37090,7 @@ for.body.i.i546.i.i:                              ; preds = %if.else79.i.i, %for
   br i1 %cmp3.not.i.i550.i.i, label %for.cond.i.i552.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit558.i.i: ; preds = %for.cond.i.i552.i.i, %if.else79.i.i
-  %arrayidx4.i.i556.i.i = getelementptr inbounds i8, ptr @.str.56, i64 %sub.ptr.sub.i460.i.i
+  %arrayidx4.i.i556.i.i = getelementptr inbounds nuw i8, ptr @.str.56, i64 %sub.ptr.sub.i460.i.i
   %206 = load i8, ptr %arrayidx4.i.i556.i.i, align 1
   %cmp6.i.i557.i.i = icmp eq i8 %206, 0
   %cmp82.i.i = icmp ult i64 %argc.0.i.lcssa, 2
@@ -37142,7 +37142,7 @@ for.cond.i.i577.i.i:                              ; preds = %for.body.i.i571.i.i
 
 for.body.i.i571.i.i:                              ; preds = %sw.bb98.i.i, %for.cond.i.i577.i.i
   %i.08.i.i572.i.i = phi i64 [ %inc.i.i578.i.i, %for.cond.i.i577.i.i ], [ 0, %sw.bb98.i.i ]
-  %arrayidx.i.i573.i.i = getelementptr inbounds i8, ptr @.str.57, i64 %i.08.i.i572.i.i
+  %arrayidx.i.i573.i.i = getelementptr inbounds nuw i8, ptr @.str.57, i64 %i.08.i.i572.i.i
   %212 = load i8, ptr %arrayidx.i.i573.i.i, align 1
   %arrayidx1.i.i574.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i572.i.i
   %213 = load i8, ptr %arrayidx1.i.i574.i.i, align 1
@@ -37154,7 +37154,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.thread.i.i: ; pre
   br label %if.else115.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit583.i.i: ; preds = %for.cond.i.i577.i.i, %sw.bb98.i.i
-  %arrayidx4.i.i581.i.i = getelementptr inbounds i8, ptr @.str.57, i64 %sub.ptr.sub.i569.i.i
+  %arrayidx4.i.i581.i.i = getelementptr inbounds nuw i8, ptr @.str.57, i64 %sub.ptr.sub.i569.i.i
   %214 = load i8, ptr %arrayidx4.i.i581.i.i, align 1
   %cmp6.i.i582.i.i = icmp eq i8 %214, 0
   %cmp101.i.i = icmp ult i64 %argc.0.i.lcssa, 2
@@ -37258,7 +37258,7 @@ for.cond.i.i627.i.i:                              ; preds = %for.body.i.i621.i.i
 
 for.body.i.i621.i.i:                              ; preds = %if.else115.i.i, %for.cond.i.i627.i.i
   %i.08.i.i622.i.i = phi i64 [ %inc.i.i628.i.i, %for.cond.i.i627.i.i ], [ 0, %if.else115.i.i ]
-  %arrayidx.i.i623.i.i = getelementptr inbounds i8, ptr @.str.58, i64 %i.08.i.i622.i.i
+  %arrayidx.i.i623.i.i = getelementptr inbounds nuw i8, ptr @.str.58, i64 %i.08.i.i622.i.i
   %228 = load i8, ptr %arrayidx.i.i623.i.i, align 1
   %arrayidx1.i.i624.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i622.i.i
   %229 = load i8, ptr %arrayidx1.i.i624.i.i, align 1
@@ -37266,7 +37266,7 @@ for.body.i.i621.i.i:                              ; preds = %if.else115.i.i, %fo
   br i1 %cmp3.not.i.i625.i.i, label %for.cond.i.i627.i.i, label %if.else132.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit633.i.i: ; preds = %for.cond.i.i627.i.i, %if.else115.i.i
-  %arrayidx4.i.i631.i.i = getelementptr inbounds i8, ptr @.str.58, i64 %sub.ptr.sub.i569.i.i
+  %arrayidx4.i.i631.i.i = getelementptr inbounds nuw i8, ptr @.str.58, i64 %sub.ptr.sub.i569.i.i
   %230 = load i8, ptr %arrayidx4.i.i631.i.i, align 1
   %cmp6.i.i632.i.i = icmp eq i8 %230, 0
   %or.cond12.i.i = and i1 %cmp10163.i.i, %cmp6.i.i632.i.i
@@ -37315,7 +37315,7 @@ for.cond.i.i652.i.i:                              ; preds = %for.body.i.i646.i.i
 
 for.body.i.i646.i.i:                              ; preds = %if.else132.i.i, %for.cond.i.i652.i.i
   %i.08.i.i647.i.i = phi i64 [ %inc.i.i653.i.i, %for.cond.i.i652.i.i ], [ 0, %if.else132.i.i ]
-  %arrayidx.i.i648.i.i = getelementptr inbounds i8, ptr @.str.59, i64 %i.08.i.i647.i.i
+  %arrayidx.i.i648.i.i = getelementptr inbounds nuw i8, ptr @.str.59, i64 %i.08.i.i647.i.i
   %236 = load i8, ptr %arrayidx.i.i648.i.i, align 1
   %arrayidx1.i.i649.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i647.i.i
   %237 = load i8, ptr %arrayidx1.i.i649.i.i, align 1
@@ -37323,7 +37323,7 @@ for.body.i.i646.i.i:                              ; preds = %if.else132.i.i, %fo
   br i1 %cmp3.not.i.i650.i.i, label %for.cond.i.i652.i.i, label %if.else142.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit658.i.i: ; preds = %for.cond.i.i652.i.i, %if.else132.i.i
-  %arrayidx4.i.i656.i.i = getelementptr inbounds i8, ptr @.str.59, i64 %sub.ptr.sub.i569.i.i
+  %arrayidx4.i.i656.i.i = getelementptr inbounds nuw i8, ptr @.str.59, i64 %sub.ptr.sub.i569.i.i
   %238 = load i8, ptr %arrayidx4.i.i656.i.i, align 1
   %cmp6.i.i657.i.i = icmp eq i8 %238, 0
   %or.cond13.i.i = and i1 %cmp10163.i.i, %cmp6.i.i657.i.i
@@ -37346,7 +37346,7 @@ for.cond.i.i669.i.i:                              ; preds = %for.body.i.i663.i.i
 
 for.body.i.i663.i.i:                              ; preds = %if.else142.i.i, %for.cond.i.i669.i.i
   %i.08.i.i664.i.i = phi i64 [ %inc.i.i670.i.i, %for.cond.i.i669.i.i ], [ 0, %if.else142.i.i ]
-  %arrayidx.i.i665.i.i = getelementptr inbounds i8, ptr @.str.60, i64 %i.08.i.i664.i.i
+  %arrayidx.i.i665.i.i = getelementptr inbounds nuw i8, ptr @.str.60, i64 %i.08.i.i664.i.i
   %239 = load i8, ptr %arrayidx.i.i665.i.i, align 1
   %arrayidx1.i.i666.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i664.i.i
   %240 = load i8, ptr %arrayidx1.i.i666.i.i, align 1
@@ -37354,7 +37354,7 @@ for.body.i.i663.i.i:                              ; preds = %if.else142.i.i, %fo
   br i1 %cmp3.not.i.i667.i.i, label %for.cond.i.i669.i.i, label %if.else149.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit675.i.i: ; preds = %for.cond.i.i669.i.i, %if.else142.i.i
-  %arrayidx4.i.i673.i.i = getelementptr inbounds i8, ptr @.str.60, i64 %sub.ptr.sub.i569.i.i
+  %arrayidx4.i.i673.i.i = getelementptr inbounds nuw i8, ptr @.str.60, i64 %sub.ptr.sub.i569.i.i
   %241 = load i8, ptr %arrayidx4.i.i673.i.i, align 1
   %cmp6.i.i674.i.i = icmp eq i8 %241, 0
   %cmp145.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -37376,7 +37376,7 @@ for.cond.i.i686.i.i:                              ; preds = %for.body.i.i680.i.i
 
 for.body.i.i680.i.i:                              ; preds = %if.else149.i.i, %for.cond.i.i686.i.i
   %i.08.i.i681.i.i = phi i64 [ %inc.i.i687.i.i, %for.cond.i.i686.i.i ], [ 0, %if.else149.i.i ]
-  %arrayidx.i.i682.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %i.08.i.i681.i.i
+  %arrayidx.i.i682.i.i = getelementptr inbounds nuw i8, ptr @.str.61, i64 %i.08.i.i681.i.i
   %242 = load i8, ptr %arrayidx.i.i682.i.i, align 1
   %arrayidx1.i.i683.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i681.i.i
   %243 = load i8, ptr %arrayidx1.i.i683.i.i, align 1
@@ -37384,7 +37384,7 @@ for.body.i.i680.i.i:                              ; preds = %if.else149.i.i, %fo
   br i1 %cmp3.not.i.i684.i.i, label %for.cond.i.i686.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit692.i.i: ; preds = %for.cond.i.i686.i.i, %if.else149.i.i
-  %arrayidx4.i.i690.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %sub.ptr.sub.i569.i.i
+  %arrayidx4.i.i690.i.i = getelementptr inbounds nuw i8, ptr @.str.61, i64 %sub.ptr.sub.i569.i.i
   %244 = load i8, ptr %arrayidx4.i.i690.i.i, align 1
   %cmp6.i.i691.i.i = icmp eq i8 %244, 0
   %or.cond15.i.i = and i1 %cmp10163.i.i, %cmp6.i.i691.i.i
@@ -37411,7 +37411,7 @@ for.cond.i.i703.i.i:                              ; preds = %for.body.i.i697.i.i
 
 for.body.i.i697.i.i:                              ; preds = %sw.bb163.i.i, %for.cond.i.i703.i.i
   %i.08.i.i698.i.i = phi i64 [ %inc.i.i704.i.i, %for.cond.i.i703.i.i ], [ 0, %sw.bb163.i.i ]
-  %arrayidx.i.i699.i.i = getelementptr inbounds i8, ptr @.str.62, i64 %i.08.i.i698.i.i
+  %arrayidx.i.i699.i.i = getelementptr inbounds nuw i8, ptr @.str.62, i64 %i.08.i.i698.i.i
   %245 = load i8, ptr %arrayidx.i.i699.i.i, align 1
   %arrayidx1.i.i700.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i698.i.i
   %246 = load i8, ptr %arrayidx1.i.i700.i.i, align 1
@@ -37419,7 +37419,7 @@ for.body.i.i697.i.i:                              ; preds = %sw.bb163.i.i, %for.
   br i1 %cmp3.not.i.i701.i.i, label %for.cond.i.i703.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit709.i.i: ; preds = %for.cond.i.i703.i.i, %sw.bb163.i.i
-  %arrayidx4.i.i707.i.i = getelementptr inbounds i8, ptr @.str.62, i64 %sub.ptr.sub.i695.i.i
+  %arrayidx4.i.i707.i.i = getelementptr inbounds nuw i8, ptr @.str.62, i64 %sub.ptr.sub.i695.i.i
   %247 = load i8, ptr %arrayidx4.i.i707.i.i, align 1
   %cmp6.i.i708.i.i = icmp eq i8 %247, 0
   %cmp166.i.i = icmp eq i64 %argc.0.i.lcssa, 0
@@ -37496,7 +37496,7 @@ for.cond.i.i745.i.i:                              ; preds = %for.body.i.i739.i.i
 
 for.body.i.i739.i.i:                              ; preds = %sw.bb170.i.i, %for.cond.i.i745.i.i
   %i.08.i.i740.i.i = phi i64 [ %inc.i.i746.i.i, %for.cond.i.i745.i.i ], [ 0, %sw.bb170.i.i ]
-  %arrayidx.i.i741.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %i.08.i.i740.i.i
+  %arrayidx.i.i741.i.i = getelementptr inbounds nuw i8, ptr @.str.63, i64 %i.08.i.i740.i.i
   %256 = load i8, ptr %arrayidx.i.i741.i.i, align 1
   %arrayidx1.i.i742.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i740.i.i
   %257 = load i8, ptr %arrayidx1.i.i742.i.i, align 1
@@ -37504,7 +37504,7 @@ for.body.i.i739.i.i:                              ; preds = %sw.bb170.i.i, %for.
   br i1 %cmp3.not.i.i743.i.i, label %for.cond.i.i745.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit751.i.i: ; preds = %for.cond.i.i745.i.i, %sw.bb170.i.i
-  %arrayidx4.i.i749.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %sub.ptr.sub.i737.i.i
+  %arrayidx4.i.i749.i.i = getelementptr inbounds nuw i8, ptr @.str.63, i64 %sub.ptr.sub.i737.i.i
   %258 = load i8, ptr %arrayidx4.i.i749.i.i, align 1
   %cmp6.i.i750.i.i = icmp eq i8 %258, 0
   %cmp173.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -37583,7 +37583,7 @@ for.cond.i.i787.i.i:                              ; preds = %for.body.i.i781.i.i
 
 for.body.i.i781.i.i:                              ; preds = %sw.bb178.i.i, %for.cond.i.i787.i.i
   %i.08.i.i782.i.i = phi i64 [ %inc.i.i788.i.i, %for.cond.i.i787.i.i ], [ 0, %sw.bb178.i.i ]
-  %arrayidx.i.i783.i.i = getelementptr inbounds i8, ptr @.str.64, i64 %i.08.i.i782.i.i
+  %arrayidx.i.i783.i.i = getelementptr inbounds nuw i8, ptr @.str.64, i64 %i.08.i.i782.i.i
   %267 = load i8, ptr %arrayidx.i.i783.i.i, align 1
   %arrayidx1.i.i784.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i782.i.i
   %268 = load i8, ptr %arrayidx1.i.i784.i.i, align 1
@@ -37595,7 +37595,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.thread.i.i: ; pre
   br label %if.else187.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit793.i.i: ; preds = %for.cond.i.i787.i.i, %sw.bb178.i.i
-  %arrayidx4.i.i791.i.i = getelementptr inbounds i8, ptr @.str.64, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i791.i.i = getelementptr inbounds nuw i8, ptr @.str.64, i64 %sub.ptr.sub.i779.i.i
   %269 = load i8, ptr %arrayidx4.i.i791.i.i, align 1
   %cmp6.i.i792.i.i = icmp eq i8 %269, 0
   %cmp181.i.i = icmp ult i64 %argc.0.i.lcssa, 2
@@ -37673,7 +37673,7 @@ for.cond.i.i830.i.i:                              ; preds = %for.body.i.i824.i.i
 
 for.body.i.i824.i.i:                              ; preds = %if.else187.i.i, %for.cond.i.i830.i.i
   %i.08.i.i825.i.i = phi i64 [ %inc.i.i831.i.i, %for.cond.i.i830.i.i ], [ 0, %if.else187.i.i ]
-  %arrayidx.i.i826.i.i = getelementptr inbounds i8, ptr @.str.65, i64 %i.08.i.i825.i.i
+  %arrayidx.i.i826.i.i = getelementptr inbounds nuw i8, ptr @.str.65, i64 %i.08.i.i825.i.i
   %278 = load i8, ptr %arrayidx.i.i826.i.i, align 1
   %arrayidx1.i.i827.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i825.i.i
   %279 = load i8, ptr %arrayidx1.i.i827.i.i, align 1
@@ -37681,7 +37681,7 @@ for.body.i.i824.i.i:                              ; preds = %if.else187.i.i, %fo
   br i1 %cmp3.not.i.i828.i.i, label %for.cond.i.i830.i.i, label %if.else196.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit836.i.i: ; preds = %for.cond.i.i830.i.i, %if.else187.i.i
-  %arrayidx4.i.i834.i.i = getelementptr inbounds i8, ptr @.str.65, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i834.i.i = getelementptr inbounds nuw i8, ptr @.str.65, i64 %sub.ptr.sub.i779.i.i
   %280 = load i8, ptr %arrayidx4.i.i834.i.i, align 1
   %cmp6.i.i835.i.i = icmp eq i8 %280, 0
   %or.cond19.i.i = and i1 %cmp18182.i.i, %cmp6.i.i835.i.i
@@ -37757,7 +37757,7 @@ for.cond.i.i873.i.i:                              ; preds = %for.body.i.i867.i.i
 
 for.body.i.i867.i.i:                              ; preds = %if.else196.i.i, %for.cond.i.i873.i.i
   %i.08.i.i868.i.i = phi i64 [ %inc.i.i874.i.i, %for.cond.i.i873.i.i ], [ 0, %if.else196.i.i ]
-  %arrayidx.i.i869.i.i = getelementptr inbounds i8, ptr @.str.66, i64 %i.08.i.i868.i.i
+  %arrayidx.i.i869.i.i = getelementptr inbounds nuw i8, ptr @.str.66, i64 %i.08.i.i868.i.i
   %289 = load i8, ptr %arrayidx.i.i869.i.i, align 1
   %arrayidx1.i.i870.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i868.i.i
   %290 = load i8, ptr %arrayidx1.i.i870.i.i, align 1
@@ -37769,7 +37769,7 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.thread.i.i: ; pre
   br label %if.else204.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit879.i.i: ; preds = %for.cond.i.i873.i.i, %if.else196.i.i
-  %arrayidx4.i.i877.i.i = getelementptr inbounds i8, ptr @.str.66, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i877.i.i = getelementptr inbounds nuw i8, ptr @.str.66, i64 %sub.ptr.sub.i779.i.i
   %291 = load i8, ptr %arrayidx4.i.i877.i.i, align 1
   %cmp6.i.i878.i.i = icmp eq i8 %291, 0
   %cmp199.i.i = icmp eq i64 %argc.0.i.lcssa, 2
@@ -37792,7 +37792,7 @@ for.cond.i.i890.i.i:                              ; preds = %for.body.i.i884.i.i
 
 for.body.i.i884.i.i:                              ; preds = %if.else204.i.i, %for.cond.i.i890.i.i
   %i.08.i.i885.i.i = phi i64 [ %inc.i.i891.i.i, %for.cond.i.i890.i.i ], [ 0, %if.else204.i.i ]
-  %arrayidx.i.i886.i.i = getelementptr inbounds i8, ptr @.str.67, i64 %i.08.i.i885.i.i
+  %arrayidx.i.i886.i.i = getelementptr inbounds nuw i8, ptr @.str.67, i64 %i.08.i.i885.i.i
   %292 = load i8, ptr %arrayidx.i.i886.i.i, align 1
   %arrayidx1.i.i887.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i885.i.i
   %293 = load i8, ptr %arrayidx1.i.i887.i.i, align 1
@@ -37800,7 +37800,7 @@ for.body.i.i884.i.i:                              ; preds = %if.else204.i.i, %fo
   br i1 %cmp3.not.i.i888.i.i, label %for.cond.i.i890.i.i, label %if.else212.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit896.i.i: ; preds = %for.cond.i.i890.i.i, %if.else204.i.i
-  %arrayidx4.i.i894.i.i = getelementptr inbounds i8, ptr @.str.67, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i894.i.i = getelementptr inbounds nuw i8, ptr @.str.67, i64 %sub.ptr.sub.i779.i.i
   %294 = load i8, ptr %arrayidx4.i.i894.i.i, align 1
   %cmp6.i.i895.i.i = icmp eq i8 %294, 0
   %or.cond21.i.i = and i1 %cmp19988.i.i, %cmp6.i.i895.i.i
@@ -37821,7 +37821,7 @@ for.cond.i.i907.i.i:                              ; preds = %for.body.i.i901.i.i
 
 for.body.i.i901.i.i:                              ; preds = %if.else212.i.i, %for.cond.i.i907.i.i
   %i.08.i.i902.i.i = phi i64 [ %inc.i.i908.i.i, %for.cond.i.i907.i.i ], [ 0, %if.else212.i.i ]
-  %arrayidx.i.i903.i.i = getelementptr inbounds i8, ptr @.str.68, i64 %i.08.i.i902.i.i
+  %arrayidx.i.i903.i.i = getelementptr inbounds nuw i8, ptr @.str.68, i64 %i.08.i.i902.i.i
   %295 = load i8, ptr %arrayidx.i.i903.i.i, align 1
   %arrayidx1.i.i904.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i902.i.i
   %296 = load i8, ptr %arrayidx1.i.i904.i.i, align 1
@@ -37829,7 +37829,7 @@ for.body.i.i901.i.i:                              ; preds = %if.else212.i.i, %fo
   br i1 %cmp3.not.i.i905.i.i, label %for.cond.i.i907.i.i, label %if.else220.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit913.i.i: ; preds = %for.cond.i.i907.i.i, %if.else212.i.i
-  %arrayidx4.i.i911.i.i = getelementptr inbounds i8, ptr @.str.68, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i911.i.i = getelementptr inbounds nuw i8, ptr @.str.68, i64 %sub.ptr.sub.i779.i.i
   %297 = load i8, ptr %arrayidx4.i.i911.i.i, align 1
   %cmp6.i.i912.i.i = icmp eq i8 %297, 0
   %or.cond22.i.i = and i1 %cmp19988.i.i, %cmp6.i.i912.i.i
@@ -37850,7 +37850,7 @@ for.cond.i.i924.i.i:                              ; preds = %for.body.i.i918.i.i
 
 for.body.i.i918.i.i:                              ; preds = %if.else220.i.i, %for.cond.i.i924.i.i
   %i.08.i.i919.i.i = phi i64 [ %inc.i.i925.i.i, %for.cond.i.i924.i.i ], [ 0, %if.else220.i.i ]
-  %arrayidx.i.i920.i.i = getelementptr inbounds i8, ptr @.str.69, i64 %i.08.i.i919.i.i
+  %arrayidx.i.i920.i.i = getelementptr inbounds nuw i8, ptr @.str.69, i64 %i.08.i.i919.i.i
   %298 = load i8, ptr %arrayidx.i.i920.i.i, align 1
   %arrayidx1.i.i921.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i919.i.i
   %299 = load i8, ptr %arrayidx1.i.i921.i.i, align 1
@@ -37858,7 +37858,7 @@ for.body.i.i918.i.i:                              ; preds = %if.else220.i.i, %fo
   br i1 %cmp3.not.i.i922.i.i, label %for.cond.i.i924.i.i, label %if.else231.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit930.i.i: ; preds = %for.cond.i.i924.i.i, %if.else220.i.i
-  %arrayidx4.i.i928.i.i = getelementptr inbounds i8, ptr @.str.69, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i928.i.i = getelementptr inbounds nuw i8, ptr @.str.69, i64 %sub.ptr.sub.i779.i.i
   %300 = load i8, ptr %arrayidx4.i.i928.i.i, align 1
   %cmp6.i.i929.i.i = icmp eq i8 %300, 0
   %301 = and i64 %argc.0.i.lcssa, -2
@@ -37882,7 +37882,7 @@ for.cond.i.i941.i.i:                              ; preds = %for.body.i.i935.i.i
 
 for.body.i.i935.i.i:                              ; preds = %if.else231.i.i, %for.cond.i.i941.i.i
   %i.08.i.i936.i.i = phi i64 [ %inc.i.i942.i.i, %for.cond.i.i941.i.i ], [ 0, %if.else231.i.i ]
-  %arrayidx.i.i937.i.i = getelementptr inbounds i8, ptr @.str.70, i64 %i.08.i.i936.i.i
+  %arrayidx.i.i937.i.i = getelementptr inbounds nuw i8, ptr @.str.70, i64 %i.08.i.i936.i.i
   %302 = load i8, ptr %arrayidx.i.i937.i.i, align 1
   %arrayidx1.i.i938.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i936.i.i
   %303 = load i8, ptr %arrayidx1.i.i938.i.i, align 1
@@ -37890,7 +37890,7 @@ for.body.i.i935.i.i:                              ; preds = %if.else231.i.i, %fo
   br i1 %cmp3.not.i.i939.i.i, label %for.cond.i.i941.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit947.i.i: ; preds = %for.cond.i.i941.i.i, %if.else231.i.i
-  %arrayidx4.i.i945.i.i = getelementptr inbounds i8, ptr @.str.70, i64 %sub.ptr.sub.i779.i.i
+  %arrayidx4.i.i945.i.i = getelementptr inbounds nuw i8, ptr @.str.70, i64 %sub.ptr.sub.i779.i.i
   %304 = load i8, ptr %arrayidx4.i.i945.i.i, align 1
   %cmp6.i.i946.i.i = icmp eq i8 %304, 0
   %cmp234.i.i = icmp eq i64 %argc.0.i.lcssa, 1
@@ -37938,7 +37938,7 @@ for.cond.i.i966.i.i:                              ; preds = %for.body.i.i960.i.i
 
 for.body.i.i960.i.i:                              ; preds = %sw.bb251.i.i, %for.cond.i.i966.i.i
   %i.08.i.i961.i.i = phi i64 [ %inc.i.i967.i.i, %for.cond.i.i966.i.i ], [ 0, %sw.bb251.i.i ]
-  %arrayidx.i.i962.i.i = getelementptr inbounds i8, ptr @.str.71, i64 %i.08.i.i961.i.i
+  %arrayidx.i.i962.i.i = getelementptr inbounds nuw i8, ptr @.str.71, i64 %i.08.i.i961.i.i
   %310 = load i8, ptr %arrayidx.i.i962.i.i, align 1
   %arrayidx1.i.i963.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i961.i.i
   %311 = load i8, ptr %arrayidx1.i.i963.i.i, align 1
@@ -37946,7 +37946,7 @@ for.body.i.i960.i.i:                              ; preds = %sw.bb251.i.i, %for.
   br i1 %cmp3.not.i.i964.i.i, label %for.cond.i.i966.i.i, label %if.else259.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit972.i.i: ; preds = %for.cond.i.i966.i.i, %sw.bb251.i.i
-  %arrayidx4.i.i970.i.i = getelementptr inbounds i8, ptr @.str.71, i64 %sub.ptr.sub.i958.i.i
+  %arrayidx4.i.i970.i.i = getelementptr inbounds nuw i8, ptr @.str.71, i64 %sub.ptr.sub.i958.i.i
   %312 = load i8, ptr %arrayidx4.i.i970.i.i, align 1
   %cmp6.i.i971.i.i = icmp eq i8 %312, 0
   %cmp254.i.i = icmp eq i64 %argc.0.i.lcssa, 3
@@ -38023,7 +38023,7 @@ for.cond.i.i1008.i.i:                             ; preds = %for.body.i.i1002.i.
 
 for.body.i.i1002.i.i:                             ; preds = %if.else259.i.i, %for.cond.i.i1008.i.i
   %i.08.i.i1003.i.i = phi i64 [ %inc.i.i1009.i.i, %for.cond.i.i1008.i.i ], [ 0, %if.else259.i.i ]
-  %arrayidx.i.i1004.i.i = getelementptr inbounds i8, ptr @.str.72, i64 %i.08.i.i1003.i.i
+  %arrayidx.i.i1004.i.i = getelementptr inbounds nuw i8, ptr @.str.72, i64 %i.08.i.i1003.i.i
   %321 = load i8, ptr %arrayidx.i.i1004.i.i, align 1
   %arrayidx1.i.i1005.i.i = getelementptr inbounds i8, ptr %call28.val, i64 %i.08.i.i1003.i.i
   %322 = load i8, ptr %arrayidx1.i.i1005.i.i, align 1
@@ -38031,7 +38031,7 @@ for.body.i.i1002.i.i:                             ; preds = %if.else259.i.i, %fo
   br i1 %cmp3.not.i.i1006.i.i, label %for.cond.i.i1008.i.i, label %sw.epilog.i.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit1014.i.i: ; preds = %for.cond.i.i1008.i.i, %if.else259.i.i
-  %arrayidx4.i.i1012.i.i = getelementptr inbounds i8, ptr @.str.72, i64 %sub.ptr.sub.i958.i.i
+  %arrayidx4.i.i1012.i.i = getelementptr inbounds nuw i8, ptr @.str.72, i64 %sub.ptr.sub.i958.i.i
   %323 = load i8, ptr %arrayidx4.i.i1012.i.i, align 1
   %cmp6.i.i1013.i.i = icmp eq i8 %323, 0
   %cmp262.i.i = icmp eq i64 %argc.0.i.lcssa, 0
@@ -38962,7 +38962,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.i
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %sw.bb ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.33, i64 %i.08.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.33, i64 %i.08.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i
   %2 = load i8, ptr %arrayidx1.i.i, align 1
@@ -38970,7 +38970,7 @@ for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %sw.bb
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.33, i64 %sub.ptr.sub.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr @.str.33, i64 %sub.ptr.sub.i
   %3 = load i8, ptr %arrayidx4.i.i, align 1
   %cmp6.i.i = icmp eq i8 %3, 0
   br i1 %cmp6.i.i, label %return, label %sw.epilog
@@ -38989,7 +38989,7 @@ for.cond.i.i22:                                   ; preds = %for.body.i.i16
 
 for.body.i.i16:                                   ; preds = %sw.bb2, %for.cond.i.i22
   %i.08.i.i17 = phi i64 [ %inc.i.i23, %for.cond.i.i22 ], [ 0, %sw.bb2 ]
-  %arrayidx.i.i18 = getelementptr inbounds i8, ptr @.str.34, i64 %i.08.i.i17
+  %arrayidx.i.i18 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %i.08.i.i17
   %4 = load i8, ptr %arrayidx.i.i18, align 1
   %arrayidx1.i.i19 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i17
   %5 = load i8, ptr %arrayidx1.i.i19, align 1
@@ -38997,7 +38997,7 @@ for.body.i.i16:                                   ; preds = %sw.bb2, %for.cond.i
   br i1 %cmp3.not.i.i20, label %for.cond.i.i22, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28: ; preds = %for.cond.i.i22, %sw.bb2
-  %arrayidx4.i.i26 = getelementptr inbounds i8, ptr @.str.34, i64 %sub.ptr.sub.i14
+  %arrayidx4.i.i26 = getelementptr inbounds nuw i8, ptr @.str.34, i64 %sub.ptr.sub.i14
   %6 = load i8, ptr %arrayidx4.i.i26, align 1
   %cmp6.i.i27 = icmp eq i8 %6, 0
   br i1 %cmp6.i.i27, label %return, label %sw.epilog
@@ -39016,7 +39016,7 @@ for.cond.i.i39:                                   ; preds = %for.body.i.i33
 
 for.body.i.i33:                                   ; preds = %sw.bb6, %for.cond.i.i39
   %i.08.i.i34 = phi i64 [ %inc.i.i40, %for.cond.i.i39 ], [ 0, %sw.bb6 ]
-  %arrayidx.i.i35 = getelementptr inbounds i8, ptr @.str.35, i64 %i.08.i.i34
+  %arrayidx.i.i35 = getelementptr inbounds nuw i8, ptr @.str.35, i64 %i.08.i.i34
   %7 = load i8, ptr %arrayidx.i.i35, align 1
   %arrayidx1.i.i36 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i34
   %8 = load i8, ptr %arrayidx1.i.i36, align 1
@@ -39024,7 +39024,7 @@ for.body.i.i33:                                   ; preds = %sw.bb6, %for.cond.i
   br i1 %cmp3.not.i.i37, label %for.cond.i.i39, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit45: ; preds = %for.cond.i.i39, %sw.bb6
-  %arrayidx4.i.i43 = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i31
+  %arrayidx4.i.i43 = getelementptr inbounds nuw i8, ptr @.str.35, i64 %sub.ptr.sub.i31
   %9 = load i8, ptr %arrayidx4.i.i43, align 1
   %cmp6.i.i44 = icmp eq i8 %9, 0
   br i1 %cmp6.i.i44, label %return, label %sw.epilog
@@ -39043,7 +39043,7 @@ for.cond.i.i56:                                   ; preds = %for.body.i.i50
 
 for.body.i.i50:                                   ; preds = %sw.bb10, %for.cond.i.i56
   %i.08.i.i51 = phi i64 [ %inc.i.i57, %for.cond.i.i56 ], [ 0, %sw.bb10 ]
-  %arrayidx.i.i52 = getelementptr inbounds i8, ptr @.str.36, i64 %i.08.i.i51
+  %arrayidx.i.i52 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %i.08.i.i51
   %10 = load i8, ptr %arrayidx.i.i52, align 1
   %arrayidx1.i.i53 = getelementptr inbounds i8, ptr %name.0.val, i64 %i.08.i.i51
   %11 = load i8, ptr %arrayidx1.i.i53, align 1
@@ -39051,7 +39051,7 @@ for.body.i.i50:                                   ; preds = %sw.bb10, %for.cond.
   br i1 %cmp3.not.i.i54, label %for.cond.i.i56, label %sw.epilog
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit62: ; preds = %for.cond.i.i56, %sw.bb10
-  %arrayidx4.i.i60 = getelementptr inbounds i8, ptr @.str.36, i64 %sub.ptr.sub.i48
+  %arrayidx4.i.i60 = getelementptr inbounds nuw i8, ptr @.str.36, i64 %sub.ptr.sub.i48
   %12 = load i8, ptr %arrayidx4.i.i60, align 1
   %cmp6.i.i61 = icmp eq i8 %12, 0
   br i1 %cmp6.i.i61, label %return, label %sw.epilog
@@ -39620,7 +39620,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %sw.bb.i, %for.cond.i.i.i
   %i.08.i.i.i = phi i64 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %sw.bb.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr @.str.82, i64 %i.08.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr @.str.82, i64 %i.08.i.i.i
   %35 = load i8, ptr %arrayidx.i.i.i, align 1
   %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i.i
   %36 = load i8, ptr %arrayidx1.i.i.i, align 1
@@ -39628,7 +39628,7 @@ for.body.i.i.i:                                   ; preds = %sw.bb.i, %for.cond.
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %if.else.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit.i: ; preds = %for.cond.i.i.i, %sw.bb.i
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr @.str.82, i64 %sub.ptr.sub.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds nuw i8, ptr @.str.82, i64 %sub.ptr.sub.i.i
   %37 = load i8, ptr %arrayidx4.i.i.i, align 1
   %cmp6.i.i.i = icmp eq i8 %37, 0
   br i1 %cmp6.i.i.i, label %if.end54, label %if.else.i
@@ -39643,7 +39643,7 @@ for.cond.i.i50.i:                                 ; preds = %for.body.i.i44.i
 
 for.body.i.i44.i:                                 ; preds = %if.else.i, %for.cond.i.i50.i
   %i.08.i.i45.i = phi i64 [ %inc.i.i51.i, %for.cond.i.i50.i ], [ 0, %if.else.i ]
-  %arrayidx.i.i46.i = getelementptr inbounds i8, ptr @.str.83, i64 %i.08.i.i45.i
+  %arrayidx.i.i46.i = getelementptr inbounds nuw i8, ptr @.str.83, i64 %i.08.i.i45.i
   %38 = load i8, ptr %arrayidx.i.i46.i, align 1
   %arrayidx1.i.i47.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i45.i
   %39 = load i8, ptr %arrayidx1.i.i47.i, align 1
@@ -39651,7 +39651,7 @@ for.body.i.i44.i:                                 ; preds = %if.else.i, %for.con
   br i1 %cmp3.not.i.i48.i, label %for.cond.i.i50.i, label %if.else4.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit56.i: ; preds = %for.cond.i.i50.i, %if.else.i
-  %arrayidx4.i.i54.i = getelementptr inbounds i8, ptr @.str.83, i64 %sub.ptr.sub.i.i
+  %arrayidx4.i.i54.i = getelementptr inbounds nuw i8, ptr @.str.83, i64 %sub.ptr.sub.i.i
   %40 = load i8, ptr %arrayidx4.i.i54.i, align 1
   %cmp6.i.i55.i = icmp eq i8 %40, 0
   br i1 %cmp6.i.i55.i, label %if.end54, label %if.else4.i
@@ -39666,7 +39666,7 @@ for.cond.i.i67.i:                                 ; preds = %for.body.i.i61.i
 
 for.body.i.i61.i:                                 ; preds = %if.else4.i, %for.cond.i.i67.i
   %i.08.i.i62.i = phi i64 [ %inc.i.i68.i, %for.cond.i.i67.i ], [ 0, %if.else4.i ]
-  %arrayidx.i.i63.i = getelementptr inbounds i8, ptr @.str.84, i64 %i.08.i.i62.i
+  %arrayidx.i.i63.i = getelementptr inbounds nuw i8, ptr @.str.84, i64 %i.08.i.i62.i
   %41 = load i8, ptr %arrayidx.i.i63.i, align 1
   %arrayidx1.i.i64.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i62.i
   %42 = load i8, ptr %arrayidx1.i.i64.i, align 1
@@ -39674,7 +39674,7 @@ for.body.i.i61.i:                                 ; preds = %if.else4.i, %for.co
   br i1 %cmp3.not.i.i65.i, label %for.cond.i.i67.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit73.i: ; preds = %for.cond.i.i67.i, %if.else4.i
-  %arrayidx4.i.i71.i = getelementptr inbounds i8, ptr @.str.84, i64 %sub.ptr.sub.i.i
+  %arrayidx4.i.i71.i = getelementptr inbounds nuw i8, ptr @.str.84, i64 %sub.ptr.sub.i.i
   %43 = load i8, ptr %arrayidx4.i.i71.i, align 1
   %cmp6.i.i72.i = icmp eq i8 %43, 0
   br i1 %cmp6.i.i72.i, label %if.end54, label %if.then52
@@ -39693,7 +39693,7 @@ for.cond.i.i84.i:                                 ; preds = %for.body.i.i78.i
 
 for.body.i.i78.i:                                 ; preds = %sw.bb9.i, %for.cond.i.i84.i
   %i.08.i.i79.i = phi i64 [ %inc.i.i85.i, %for.cond.i.i84.i ], [ 0, %sw.bb9.i ]
-  %arrayidx.i.i80.i = getelementptr inbounds i8, ptr @.str.85, i64 %i.08.i.i79.i
+  %arrayidx.i.i80.i = getelementptr inbounds nuw i8, ptr @.str.85, i64 %i.08.i.i79.i
   %44 = load i8, ptr %arrayidx.i.i80.i, align 1
   %arrayidx1.i.i81.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i79.i
   %45 = load i8, ptr %arrayidx1.i.i81.i, align 1
@@ -39701,7 +39701,7 @@ for.body.i.i78.i:                                 ; preds = %sw.bb9.i, %for.cond
   br i1 %cmp3.not.i.i82.i, label %for.cond.i.i84.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit90.i: ; preds = %for.cond.i.i84.i, %sw.bb9.i
-  %arrayidx4.i.i88.i = getelementptr inbounds i8, ptr @.str.85, i64 %sub.ptr.sub.i76.i
+  %arrayidx4.i.i88.i = getelementptr inbounds nuw i8, ptr @.str.85, i64 %sub.ptr.sub.i76.i
   %46 = load i8, ptr %arrayidx4.i.i88.i, align 1
   %cmp6.i.i89.i = icmp eq i8 %46, 0
   br i1 %cmp6.i.i89.i, label %if.end54, label %if.then52
@@ -39720,7 +39720,7 @@ for.cond.i.i101.i:                                ; preds = %for.body.i.i95.i
 
 for.body.i.i95.i:                                 ; preds = %sw.bb13.i, %for.cond.i.i101.i
   %i.08.i.i96.i = phi i64 [ %inc.i.i102.i, %for.cond.i.i101.i ], [ 0, %sw.bb13.i ]
-  %arrayidx.i.i97.i = getelementptr inbounds i8, ptr @.str.86, i64 %i.08.i.i96.i
+  %arrayidx.i.i97.i = getelementptr inbounds nuw i8, ptr @.str.86, i64 %i.08.i.i96.i
   %47 = load i8, ptr %arrayidx.i.i97.i, align 1
   %arrayidx1.i.i98.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i96.i
   %48 = load i8, ptr %arrayidx1.i.i98.i, align 1
@@ -39728,7 +39728,7 @@ for.body.i.i95.i:                                 ; preds = %sw.bb13.i, %for.con
   br i1 %cmp3.not.i.i99.i, label %for.cond.i.i101.i, label %if.else16.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit107.i: ; preds = %for.cond.i.i101.i, %sw.bb13.i
-  %arrayidx4.i.i105.i = getelementptr inbounds i8, ptr @.str.86, i64 %sub.ptr.sub.i93.i
+  %arrayidx4.i.i105.i = getelementptr inbounds nuw i8, ptr @.str.86, i64 %sub.ptr.sub.i93.i
   %49 = load i8, ptr %arrayidx4.i.i105.i, align 1
   %cmp6.i.i106.i = icmp eq i8 %49, 0
   br i1 %cmp6.i.i106.i, label %if.end54, label %if.else16.i
@@ -39743,7 +39743,7 @@ for.cond.i.i118.i:                                ; preds = %for.body.i.i112.i
 
 for.body.i.i112.i:                                ; preds = %if.else16.i, %for.cond.i.i118.i
   %i.08.i.i113.i = phi i64 [ %inc.i.i119.i, %for.cond.i.i118.i ], [ 0, %if.else16.i ]
-  %arrayidx.i.i114.i = getelementptr inbounds i8, ptr @.str.87, i64 %i.08.i.i113.i
+  %arrayidx.i.i114.i = getelementptr inbounds nuw i8, ptr @.str.87, i64 %i.08.i.i113.i
   %50 = load i8, ptr %arrayidx.i.i114.i, align 1
   %arrayidx1.i.i115.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i113.i
   %51 = load i8, ptr %arrayidx1.i.i115.i, align 1
@@ -39751,7 +39751,7 @@ for.body.i.i112.i:                                ; preds = %if.else16.i, %for.c
   br i1 %cmp3.not.i.i116.i, label %for.cond.i.i118.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit124.i: ; preds = %for.cond.i.i118.i, %if.else16.i
-  %arrayidx4.i.i122.i = getelementptr inbounds i8, ptr @.str.87, i64 %sub.ptr.sub.i93.i
+  %arrayidx4.i.i122.i = getelementptr inbounds nuw i8, ptr @.str.87, i64 %sub.ptr.sub.i93.i
   %52 = load i8, ptr %arrayidx4.i.i122.i, align 1
   %cmp6.i.i123.i = icmp eq i8 %52, 0
   br i1 %cmp6.i.i123.i, label %if.end54, label %if.then52
@@ -39770,7 +39770,7 @@ for.cond.i.i135.i:                                ; preds = %for.body.i.i129.i
 
 for.body.i.i129.i:                                ; preds = %sw.bb21.i, %for.cond.i.i135.i
   %i.08.i.i130.i = phi i64 [ %inc.i.i136.i, %for.cond.i.i135.i ], [ 0, %sw.bb21.i ]
-  %arrayidx.i.i131.i = getelementptr inbounds i8, ptr @.str.88, i64 %i.08.i.i130.i
+  %arrayidx.i.i131.i = getelementptr inbounds nuw i8, ptr @.str.88, i64 %i.08.i.i130.i
   %53 = load i8, ptr %arrayidx.i.i131.i, align 1
   %arrayidx1.i.i132.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i130.i
   %54 = load i8, ptr %arrayidx1.i.i132.i, align 1
@@ -39778,7 +39778,7 @@ for.body.i.i129.i:                                ; preds = %sw.bb21.i, %for.con
   br i1 %cmp3.not.i.i133.i, label %for.cond.i.i135.i, label %if.else24.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit141.i: ; preds = %for.cond.i.i135.i, %sw.bb21.i
-  %arrayidx4.i.i139.i = getelementptr inbounds i8, ptr @.str.88, i64 %sub.ptr.sub.i127.i
+  %arrayidx4.i.i139.i = getelementptr inbounds nuw i8, ptr @.str.88, i64 %sub.ptr.sub.i127.i
   %55 = load i8, ptr %arrayidx4.i.i139.i, align 1
   %cmp6.i.i140.i = icmp eq i8 %55, 0
   br i1 %cmp6.i.i140.i, label %if.end54, label %if.else24.i
@@ -39793,7 +39793,7 @@ for.cond.i.i152.i:                                ; preds = %for.body.i.i146.i
 
 for.body.i.i146.i:                                ; preds = %if.else24.i, %for.cond.i.i152.i
   %i.08.i.i147.i = phi i64 [ %inc.i.i153.i, %for.cond.i.i152.i ], [ 0, %if.else24.i ]
-  %arrayidx.i.i148.i = getelementptr inbounds i8, ptr @.str.89, i64 %i.08.i.i147.i
+  %arrayidx.i.i148.i = getelementptr inbounds nuw i8, ptr @.str.89, i64 %i.08.i.i147.i
   %56 = load i8, ptr %arrayidx.i.i148.i, align 1
   %arrayidx1.i.i149.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i147.i
   %57 = load i8, ptr %arrayidx1.i.i149.i, align 1
@@ -39801,7 +39801,7 @@ for.body.i.i146.i:                                ; preds = %if.else24.i, %for.c
   br i1 %cmp3.not.i.i150.i, label %for.cond.i.i152.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit158.i: ; preds = %for.cond.i.i152.i, %if.else24.i
-  %arrayidx4.i.i156.i = getelementptr inbounds i8, ptr @.str.89, i64 %sub.ptr.sub.i127.i
+  %arrayidx4.i.i156.i = getelementptr inbounds nuw i8, ptr @.str.89, i64 %sub.ptr.sub.i127.i
   %58 = load i8, ptr %arrayidx4.i.i156.i, align 1
   %cmp6.i.i157.i = icmp eq i8 %58, 0
   br i1 %cmp6.i.i157.i, label %if.end54, label %if.then52
@@ -39820,7 +39820,7 @@ for.cond.i.i169.i:                                ; preds = %for.body.i.i163.i
 
 for.body.i.i163.i:                                ; preds = %sw.bb29.i, %for.cond.i.i169.i
   %i.08.i.i164.i = phi i64 [ %inc.i.i170.i, %for.cond.i.i169.i ], [ 0, %sw.bb29.i ]
-  %arrayidx.i.i165.i = getelementptr inbounds i8, ptr @.str.90, i64 %i.08.i.i164.i
+  %arrayidx.i.i165.i = getelementptr inbounds nuw i8, ptr @.str.90, i64 %i.08.i.i164.i
   %59 = load i8, ptr %arrayidx.i.i165.i, align 1
   %arrayidx1.i.i166.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i164.i
   %60 = load i8, ptr %arrayidx1.i.i166.i, align 1
@@ -39828,7 +39828,7 @@ for.body.i.i163.i:                                ; preds = %sw.bb29.i, %for.con
   br i1 %cmp3.not.i.i167.i, label %for.cond.i.i169.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit175.i: ; preds = %for.cond.i.i169.i, %sw.bb29.i
-  %arrayidx4.i.i173.i = getelementptr inbounds i8, ptr @.str.90, i64 %sub.ptr.sub.i161.i
+  %arrayidx4.i.i173.i = getelementptr inbounds nuw i8, ptr @.str.90, i64 %sub.ptr.sub.i161.i
   %61 = load i8, ptr %arrayidx4.i.i173.i, align 1
   %cmp6.i.i174.i = icmp eq i8 %61, 0
   br i1 %cmp6.i.i174.i, label %if.end54, label %if.then52
@@ -39847,7 +39847,7 @@ for.cond.i.i186.i:                                ; preds = %for.body.i.i180.i
 
 for.body.i.i180.i:                                ; preds = %sw.bb33.i, %for.cond.i.i186.i
   %i.08.i.i181.i = phi i64 [ %inc.i.i187.i, %for.cond.i.i186.i ], [ 0, %sw.bb33.i ]
-  %arrayidx.i.i182.i = getelementptr inbounds i8, ptr @.str.91, i64 %i.08.i.i181.i
+  %arrayidx.i.i182.i = getelementptr inbounds nuw i8, ptr @.str.91, i64 %i.08.i.i181.i
   %62 = load i8, ptr %arrayidx.i.i182.i, align 1
   %arrayidx1.i.i183.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i181.i
   %63 = load i8, ptr %arrayidx1.i.i183.i, align 1
@@ -39855,7 +39855,7 @@ for.body.i.i180.i:                                ; preds = %sw.bb33.i, %for.con
   br i1 %cmp3.not.i.i184.i, label %for.cond.i.i186.i, label %if.else36.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit192.i: ; preds = %for.cond.i.i186.i, %sw.bb33.i
-  %arrayidx4.i.i190.i = getelementptr inbounds i8, ptr @.str.91, i64 %sub.ptr.sub.i178.i
+  %arrayidx4.i.i190.i = getelementptr inbounds nuw i8, ptr @.str.91, i64 %sub.ptr.sub.i178.i
   %64 = load i8, ptr %arrayidx4.i.i190.i, align 1
   %cmp6.i.i191.i = icmp eq i8 %64, 0
   br i1 %cmp6.i.i191.i, label %if.end54, label %if.else36.i
@@ -39870,7 +39870,7 @@ for.cond.i.i203.i:                                ; preds = %for.body.i.i197.i
 
 for.body.i.i197.i:                                ; preds = %if.else36.i, %for.cond.i.i203.i
   %i.08.i.i198.i = phi i64 [ %inc.i.i204.i, %for.cond.i.i203.i ], [ 0, %if.else36.i ]
-  %arrayidx.i.i199.i = getelementptr inbounds i8, ptr @.str.92, i64 %i.08.i.i198.i
+  %arrayidx.i.i199.i = getelementptr inbounds nuw i8, ptr @.str.92, i64 %i.08.i.i198.i
   %65 = load i8, ptr %arrayidx.i.i199.i, align 1
   %arrayidx1.i.i200.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i198.i
   %66 = load i8, ptr %arrayidx1.i.i200.i, align 1
@@ -39878,7 +39878,7 @@ for.body.i.i197.i:                                ; preds = %if.else36.i, %for.c
   br i1 %cmp3.not.i.i201.i, label %for.cond.i.i203.i, label %if.else39.i
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit209.i: ; preds = %for.cond.i.i203.i, %if.else36.i
-  %arrayidx4.i.i207.i = getelementptr inbounds i8, ptr @.str.92, i64 %sub.ptr.sub.i178.i
+  %arrayidx4.i.i207.i = getelementptr inbounds nuw i8, ptr @.str.92, i64 %sub.ptr.sub.i178.i
   %67 = load i8, ptr %arrayidx4.i.i207.i, align 1
   %cmp6.i.i208.i = icmp eq i8 %67, 0
   br i1 %cmp6.i.i208.i, label %if.end54, label %if.else39.i
@@ -39893,7 +39893,7 @@ for.cond.i.i220.i:                                ; preds = %for.body.i.i214.i
 
 for.body.i.i214.i:                                ; preds = %if.else39.i, %for.cond.i.i220.i
   %i.08.i.i215.i = phi i64 [ %inc.i.i221.i, %for.cond.i.i220.i ], [ 0, %if.else39.i ]
-  %arrayidx.i.i216.i = getelementptr inbounds i8, ptr @.str.93, i64 %i.08.i.i215.i
+  %arrayidx.i.i216.i = getelementptr inbounds nuw i8, ptr @.str.93, i64 %i.08.i.i215.i
   %68 = load i8, ptr %arrayidx.i.i216.i, align 1
   %arrayidx1.i.i217.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i215.i
   %69 = load i8, ptr %arrayidx1.i.i217.i, align 1
@@ -39901,7 +39901,7 @@ for.body.i.i214.i:                                ; preds = %if.else39.i, %for.c
   br i1 %cmp3.not.i.i218.i, label %for.cond.i.i220.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit226.i: ; preds = %for.cond.i.i220.i, %if.else39.i
-  %arrayidx4.i.i224.i = getelementptr inbounds i8, ptr @.str.93, i64 %sub.ptr.sub.i178.i
+  %arrayidx4.i.i224.i = getelementptr inbounds nuw i8, ptr @.str.93, i64 %sub.ptr.sub.i178.i
   %70 = load i8, ptr %arrayidx4.i.i224.i, align 1
   %cmp6.i.i225.i = icmp eq i8 %70, 0
   br i1 %cmp6.i.i225.i, label %if.end54, label %if.then52
@@ -39920,7 +39920,7 @@ for.cond.i.i237.i:                                ; preds = %for.body.i.i231.i
 
 for.body.i.i231.i:                                ; preds = %sw.bb45.i, %for.cond.i.i237.i
   %i.08.i.i232.i = phi i64 [ %inc.i.i238.i, %for.cond.i.i237.i ], [ 0, %sw.bb45.i ]
-  %arrayidx.i.i233.i = getelementptr inbounds i8, ptr @.str.94, i64 %i.08.i.i232.i
+  %arrayidx.i.i233.i = getelementptr inbounds nuw i8, ptr @.str.94, i64 %i.08.i.i232.i
   %71 = load i8, ptr %arrayidx.i.i233.i, align 1
   %arrayidx1.i.i234.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.copyload, i64 %i.08.i.i232.i
   %72 = load i8, ptr %arrayidx1.i.i234.i, align 1
@@ -39928,7 +39928,7 @@ for.body.i.i231.i:                                ; preds = %sw.bb45.i, %for.con
   br i1 %cmp3.not.i.i235.i, label %for.cond.i.i237.i, label %if.then52
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit243.i: ; preds = %for.cond.i.i237.i, %sw.bb45.i
-  %arrayidx4.i.i241.i = getelementptr inbounds i8, ptr @.str.94, i64 %sub.ptr.sub.i229.i
+  %arrayidx4.i.i241.i = getelementptr inbounds nuw i8, ptr @.str.94, i64 %sub.ptr.sub.i229.i
   %73 = load i8, ptr %arrayidx4.i.i241.i, align 1
   %cmp6.i.i242.i = icmp eq i8 %73, 0
   br i1 %cmp6.i.i242.i, label %if.end54, label %if.then52
@@ -40035,7 +40035,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.else92, %for.cond.i.i
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %if.else92 ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %i.08.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.35, i64 %i.08.i.i
   %86 = load i8, ptr %arrayidx.i.i, align 1
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %nt_name.sroa.0.0.ph, i64 %i.08.i.i
   %87 = load i8, ptr %arrayidx1.i.i, align 1
@@ -40043,7 +40043,7 @@ for.body.i.i:                                     ; preds = %if.else92, %for.con
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %if.else111
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %if.else92
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.35, i64 %sub.ptr.sub.i107
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr @.str.35, i64 %sub.ptr.sub.i107
   %88 = load i8, ptr %arrayidx4.i.i, align 1
   %cmp6.i.i = icmp eq i8 %88, 0
   br i1 %cmp6.i.i, label %if.then94, label %if.else111
@@ -40487,7 +40487,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.i
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %sw.bb ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.96, i64 %i.08.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.96, i64 %i.08.i.i
   %2 = load i8, ptr %arrayidx.i.i, align 1
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i
   %3 = load i8, ptr %arrayidx1.i.i, align 1
@@ -40495,7 +40495,7 @@ for.body.i.i:                                     ; preds = %sw.bb, %for.cond.i.
   br i1 %cmp3.not.i.i, label %for.cond.i.i, label %if.else
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit: ; preds = %for.cond.i.i, %sw.bb
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr @.str.96, i64 %sub.ptr.sub.i
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr @.str.96, i64 %sub.ptr.sub.i
   %4 = load i8, ptr %arrayidx4.i.i, align 1
   %cmp6.i.i = icmp eq i8 %4, 0
   br i1 %cmp6.i.i, label %return, label %if.else
@@ -40510,7 +40510,7 @@ for.cond.i.i20:                                   ; preds = %for.body.i.i14
 
 for.body.i.i14:                                   ; preds = %if.else, %for.cond.i.i20
   %i.08.i.i15 = phi i64 [ %inc.i.i21, %for.cond.i.i20 ], [ 0, %if.else ]
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr @.str.97, i64 %i.08.i.i15
+  %arrayidx.i.i16 = getelementptr inbounds nuw i8, ptr @.str.97, i64 %i.08.i.i15
   %5 = load i8, ptr %arrayidx.i.i16, align 1
   %arrayidx1.i.i17 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i15
   %6 = load i8, ptr %arrayidx1.i.i17, align 1
@@ -40518,7 +40518,7 @@ for.body.i.i14:                                   ; preds = %if.else, %for.cond.
   br i1 %cmp3.not.i.i18, label %for.cond.i.i20, label %if.else6
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit26: ; preds = %for.cond.i.i20, %if.else
-  %arrayidx4.i.i24 = getelementptr inbounds i8, ptr @.str.97, i64 %sub.ptr.sub.i
+  %arrayidx4.i.i24 = getelementptr inbounds nuw i8, ptr @.str.97, i64 %sub.ptr.sub.i
   %7 = load i8, ptr %arrayidx4.i.i24, align 1
   %cmp6.i.i25 = icmp eq i8 %7, 0
   br i1 %cmp6.i.i25, label %return, label %if.else6
@@ -40533,7 +40533,7 @@ for.cond.i.i40:                                   ; preds = %for.body.i.i34
 
 for.body.i.i34:                                   ; preds = %if.else6, %for.cond.i.i40
   %i.08.i.i35 = phi i64 [ %inc.i.i41, %for.cond.i.i40 ], [ 0, %if.else6 ]
-  %arrayidx.i.i36 = getelementptr inbounds i8, ptr @.str.98, i64 %i.08.i.i35
+  %arrayidx.i.i36 = getelementptr inbounds nuw i8, ptr @.str.98, i64 %i.08.i.i35
   %8 = load i8, ptr %arrayidx.i.i36, align 1
   %arrayidx1.i.i37 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i35
   %9 = load i8, ptr %arrayidx1.i.i37, align 1
@@ -40541,7 +40541,7 @@ for.body.i.i34:                                   ; preds = %if.else6, %for.cond
   br i1 %cmp3.not.i.i38, label %for.cond.i.i40, label %if.else10
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit46: ; preds = %for.cond.i.i40, %if.else6
-  %arrayidx4.i.i44 = getelementptr inbounds i8, ptr @.str.98, i64 %sub.ptr.sub.i
+  %arrayidx4.i.i44 = getelementptr inbounds nuw i8, ptr @.str.98, i64 %sub.ptr.sub.i
   %10 = load i8, ptr %arrayidx4.i.i44, align 1
   %cmp6.i.i45 = icmp eq i8 %10, 0
   br i1 %cmp6.i.i45, label %return, label %if.else10
@@ -40556,7 +40556,7 @@ for.cond.i.i60:                                   ; preds = %for.body.i.i54
 
 for.body.i.i54:                                   ; preds = %if.else10, %for.cond.i.i60
   %i.08.i.i55 = phi i64 [ %inc.i.i61, %for.cond.i.i60 ], [ 0, %if.else10 ]
-  %arrayidx.i.i56 = getelementptr inbounds i8, ptr @.str.99, i64 %i.08.i.i55
+  %arrayidx.i.i56 = getelementptr inbounds nuw i8, ptr @.str.99, i64 %i.08.i.i55
   %11 = load i8, ptr %arrayidx.i.i56, align 1
   %arrayidx1.i.i57 = getelementptr inbounds i8, ptr %call1.val, i64 %i.08.i.i55
   %12 = load i8, ptr %arrayidx1.i.i57, align 1
@@ -40564,7 +40564,7 @@ for.body.i.i54:                                   ; preds = %if.else10, %for.con
   br i1 %cmp3.not.i.i58, label %for.cond.i.i60, label %if.else14
 
 _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit66: ; preds = %for.cond.i.i60, %if.else10
-  %arrayidx4.i.i64 = getelementptr inbounds i8, ptr @.str.99, i64 %sub.ptr.sub.i
+  %arrayidx4.i.i64 = getelementptr inbounds nuw i8, ptr @.str.99, i64 %sub.ptr.sub.i
   %13 = load i8, ptr %arrayidx4.i.i64, align 1
   %cmp6.i.i65 = icmp eq i8 %13, 0
   br i1 %cmp6.i.i65, label %return, label %if.else14

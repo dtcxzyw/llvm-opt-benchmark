@@ -4927,7 +4927,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit250: ; preds 
 _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit251: ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit250, %637
   %638 = call noundef i32 @_ZN19AbstractInterpreter18BasicType_as_indexE9BasicType(i8 noundef zeroext 12) #7
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19AbstractInterpreter20_native_abi_to_toscaE, i64 0, i64 %639
   %641 = load ptr, ptr %640, align 8
   %.not.i.i252 = icmp eq ptr %641, null
   %642 = select i1 %.not.i.i252, i32 0, i32 7

@@ -4944,7 +4944,7 @@ define dso_local void @_ZN4llvm20FunctionLoweringInfo24ComputePHILiveOutRegInfoE
 45:                                               ; preds = %41
   %46 = zext i16 %44 to i64
   %47 = add nsw i64 %46, -1
-  %48 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %47
   %.sroa.0.0.copyload.i.i = load i64, ptr %48, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8

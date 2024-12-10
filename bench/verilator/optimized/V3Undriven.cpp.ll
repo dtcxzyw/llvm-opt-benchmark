@@ -510,7 +510,7 @@ _ZN12VNUser2InUseC2Ev.exit.i:                     ; preds = %20
 31:                                               ; preds = %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i.i, %29
   %.idx.i = phi i64 [ 88, %29 ], [ %.add.i, %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i.i ]
   %.add.i = add nsw i64 %.idx.i, -24
-  %.ptr7.i = getelementptr inbounds i8, ptr %3, i64 %.add.i
+  %.ptr7.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add.i
   %32 = load ptr, ptr %.ptr7.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIP16UndrivenVarEntrySaIS1_EED2Ev.exit.i.i, label %33

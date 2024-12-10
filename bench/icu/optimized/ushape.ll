@@ -1341,7 +1341,7 @@ if.else207:                                       ; preds = %if.then197.thread, 
   %54 = phi i16 [ 1617, %if.then197.thread ], [ %50, %if.then197 ]
   %conv210 = zext nneg i16 %54 to i64
   %sub211 = add nsw i64 %conv210, -1611
-  %arrayidx213 = getelementptr inbounds [8 x i8], ptr @_ZL13IrrelevantPos, i64 0, i64 %sub211
+  %arrayidx213 = getelementptr inbounds nuw [8 x i8], ptr @_ZL13IrrelevantPos, i64 0, i64 %sub211
   %55 = load i8, ptr %arrayidx213, align 1
   %conv214 = zext i8 %55 to i32
   %add215 = add nuw nsw i32 %Shape.0307312317, 65136
@@ -2393,7 +2393,7 @@ if.then53.us.us.i:                                ; preds = %if.then48.us.us.i
   store i16 1604, ptr %arrayidx45.us.us.i, align 2
   %conv60.us.us.i = zext i16 %4 to i64
   %sub61.us.us.i = add nsw i64 %conv60.us.us.i, -65269
-  %arrayidx63.us.us.i = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.us.i
+  %arrayidx63.us.us.i = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.us.i
   %8 = load i16, ptr %arrayidx63.us.us.i, align 2
   store i16 %8, ptr %3, align 2
   br label %for.inc.us.us.i
@@ -2495,7 +2495,7 @@ if.then53.us.us.i104:                             ; preds = %if.then48.us.us.i98
   store i16 1604, ptr %arrayidx45.us.us.i97, align 2
   %conv60.us.us.i105 = zext i16 %13 to i64
   %sub61.us.us.i106 = add nsw i64 %conv60.us.us.i105, -65269
-  %arrayidx63.us.us.i107 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.us.i106
+  %arrayidx63.us.us.i107 = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.us.i106
   %17 = load i16, ptr %arrayidx63.us.us.i107, align 2
   store i16 %17, ptr %12, align 2
   br label %for.inc.us.us.i101
@@ -2526,7 +2526,7 @@ land.lhs.true21.us.i:                             ; preds = %if.then19.us.i
 if.then27.us.i:                                   ; preds = %land.lhs.true21.us.i
   %conv30.us.i = zext i16 %18 to i64
   %sub31.us.i = add nsw i64 %conv30.us.i, -65161
-  %arrayidx33.us.i = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.us.i
+  %arrayidx33.us.i = getelementptr inbounds nuw [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.us.i
   %21 = load i16, ptr %arrayidx33.us.i, align 2
   store i16 %21, ptr %arrayidx16.us.i, align 2
   store i16 -384, ptr %arrayidx24.us.i, align 2
@@ -2558,7 +2558,7 @@ if.then53.us.i:                                   ; preds = %if.then48.us.i
   store i16 1604, ptr %arrayidx45.us.i, align 2
   %conv60.us.i = zext i16 %22 to i64
   %sub61.us.i = add nsw i64 %conv60.us.i, -65269
-  %arrayidx63.us.i = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.i
+  %arrayidx63.us.i = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us.i
   %25 = load i16, ptr %arrayidx63.us.i, align 2
   store i16 %25, ptr %arrayidx16.us.i, align 2
   br label %for.inc.us.i
@@ -2669,7 +2669,7 @@ if.then53.us14.i:                                 ; preds = %if.then48.us11.i
   store i16 1604, ptr %arrayidx45.us10.i, align 2
   %conv60.us15.i = zext i16 %36 to i64
   %sub61.us16.i = add nsw i64 %conv60.us15.i, -65269
-  %arrayidx63.us17.i = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us16.i
+  %arrayidx63.us17.i = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.us16.i
   %39 = load i16, ptr %arrayidx63.us17.i, align 2
   store i16 %39, ptr %arrayidx.us.i, align 2
   br label %for.inc.us18.i
@@ -2735,7 +2735,7 @@ land.lhs.true21.us44.i:                           ; preds = %if.then19.us42.i
 if.then27.us47.i:                                 ; preds = %land.lhs.true21.us44.i
   %conv30.us48.i = zext i16 %40 to i64
   %sub31.us49.i = add nsw i64 %conv30.us48.i, -65161
-  %arrayidx33.us50.i = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.us49.i
+  %arrayidx33.us50.i = getelementptr inbounds nuw [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.us49.i
   %47 = load i16, ptr %arrayidx33.us50.i, align 2
   store i16 %47, ptr %arrayidx.us24.i, align 2
   store i16 -384, ptr %arrayidx24.us45.i, align 2
@@ -2803,7 +2803,7 @@ land.lhs.true21.i:                                ; preds = %if.then19.i
 if.then27.i:                                      ; preds = %land.lhs.true21.i
   %conv30.i = zext i16 %48 to i64
   %sub31.i = add nsw i64 %conv30.i, -65161
-  %arrayidx33.i = getelementptr inbounds [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.i
+  %arrayidx33.i = getelementptr inbounds nuw [2 x i16], ptr @_ZL13yehHamzaToYeh, i64 0, i64 %sub31.i
   %55 = load i16, ptr %arrayidx33.i, align 2
   store i16 %55, ptr %arrayidx.i, align 2
   store i16 -384, ptr %arrayidx24.i, align 2
@@ -2828,7 +2828,7 @@ if.then53.i:                                      ; preds = %if.then48.i
   store i16 1604, ptr %arrayidx45.i, align 2
   %conv60.i = zext i16 %56 to i64
   %sub61.i = add nsw i64 %conv60.i, -65269
-  %arrayidx63.i = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.i
+  %arrayidx63.i = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub61.i
   %59 = load i16, ptr %arrayidx63.i, align 2
   store i16 %59, ptr %arrayidx.i, align 2
   br label %for.inc.i
@@ -3008,7 +3008,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.then78:                                        ; preds = %while.body
   %conv81 = zext i16 %73 to i64
   %sub = add nsw i64 %conv81, -65269
-  %arrayidx83 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub
+  %arrayidx83 = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub
   %76 = load i16, ptr %arrayidx83, align 2
   %idxprom84 = sext i32 %j.0138 to i64
   %arrayidx85 = getelementptr inbounds i16, ptr %call67, i64 %idxprom84
@@ -3106,7 +3106,7 @@ if.then17:                                        ; preds = %land.lhs.true
   store i16 1604, ptr %arrayidx19, align 2
   %conv22 = zext i16 %6 to i64
   %sub23 = add nsw i64 %conv22, -65269
-  %arrayidx25 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub23
+  %arrayidx25 = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub23
   %9 = load i16, ptr %arrayidx25, align 2
   %arrayidx28 = getelementptr i8, ptr %arrayidx19, i64 -2
   store i16 %9, ptr %arrayidx28, align 2
@@ -3244,7 +3244,7 @@ if.then15:                                        ; preds = %land.lhs.true
   store i16 1604, ptr %arrayidx17, align 2
   %conv20 = zext i16 %3 to i64
   %sub21 = add nsw i64 %conv20, -65269
-  %arrayidx23 = getelementptr inbounds [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub21
+  %arrayidx23 = getelementptr inbounds nuw [8 x i16], ptr @_ZL14convertLamAlef, i64 0, i64 %sub21
   %6 = load i16, ptr %arrayidx23, align 2
   %arrayidx26 = getelementptr i8, ptr %arrayidx17, i64 -2
   store i16 %6, ptr %arrayidx26, align 2

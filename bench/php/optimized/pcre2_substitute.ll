@@ -1372,14 +1372,14 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %720 = load i32, ptr %16, align 4
   %721 = sdiv i32 %720, 128
   %722 = sext i32 %721 to i64
-  %723 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %722
   %724 = load i16, ptr %723, align 2
   %725 = zext i16 %724 to i32
   %726 = shl nuw nsw i32 %725, 7
   %727 = srem i32 %720, 128
   %728 = add nsw i32 %726, %727
   %729 = sext i32 %728 to i64
-  %730 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %729
+  %730 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %729
   %731 = load i16, ptr %730, align 2
   %732 = zext i16 %731 to i64
   %733 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %732

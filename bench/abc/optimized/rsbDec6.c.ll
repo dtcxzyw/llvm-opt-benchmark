@@ -3607,7 +3607,7 @@ define void @Rsb_DecPrintFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
   %52 = shl nuw i32 1, %51
   %53 = select i1 %50, i32 1, i32 %52
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i64, ptr %7, i64 %54
+  %55 = getelementptr inbounds nuw i64, ptr %7, i64 %54
   %56 = icmp slt i32 %53, 1
   %.not.i = icmp eq i32 %.val31, 31
   %or.cond.i = or i1 %.not.i, %56
@@ -3686,7 +3686,7 @@ Abc_TtPrintBinary.exit51.critedge:                ; preds = %6
 Abc_TtPrintBinary.exit51:                         ; preds = %._crit_edge.us.i49, %Abc_TtPrintBinary.exit51.critedge
   %putchar.i50 = call i32 @putchar(i32 10)
   %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
-  %92 = getelementptr inbounds i64, ptr %8, i64 %54
+  %92 = getelementptr inbounds nuw i64, ptr %8, i64 %54
   br i1 %or.cond.i, label %Abc_TtPrintBinary.exit62, label %.preheader.us.preheader.i54
 
 .preheader.us.preheader.i54:                      ; preds = %Abc_TtPrintBinary.exit51
@@ -3865,12 +3865,12 @@ tailrecurse:                                      ; preds = %11, %20, %.tailrecu
   %.pre-phi10 = phi i64 [ %.pre9, %.tailrecurse_crit_edge ], [ %13, %20 ], [ %13, %11 ]
   %.0.lcssa = phi i32 [ %7, %.tailrecurse_crit_edge ], [ %indvars, %20 ], [ %indvars, %11 ]
   %24 = sext i32 %.0.lcssa to i64
-  %25 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %.tr5
   %28 = shl i64 %27, %.pre-phi10
   %29 = or i64 %28, %27
-  %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %24
+  %30 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, %.tr5
   %33 = lshr i64 %32, %.pre-phi10

@@ -350,7 +350,7 @@ entry:
   %call = tail call ptr @luaL_optlstring(ptr noundef %L, i32 noundef 1, ptr noundef null, ptr noundef null) #12
   %call1 = tail call i32 @luaL_checkoption(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.24, ptr noundef nonnull @os_setlocale.catnames) #12
   %idxprom = sext i32 %call1 to i64
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @os_setlocale.cat, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @os_setlocale.cat, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !25
   %call2 = tail call ptr @setlocale(i32 noundef %0, ptr noundef %call) #12
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %call2) #12

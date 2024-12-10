@@ -5157,7 +5157,7 @@ _ZN4llvm7RISCVCC9getBrCondENS0_8CondCodeEb.exit:  ; preds = %3, %5, %6, %7, %8, 
 define dso_local noundef range(i32 0, 6) i32 @_ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -6130,7 +6130,7 @@ switch.lookup:
   %4 = load i64, ptr %3, align 8
   %sext = shl i64 %4, 32
   %5 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %3, align 8
   ret i1 false
@@ -6452,7 +6452,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %155 = load i64, ptr %154, align 8
   %sext = shl i64 %155, 32
   %156 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo18optimizeCondBranchERNS_12MachineInstrE, i64 0, i64 %156
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo18optimizeCondBranchERNS_12MachineInstrE, i64 0, i64 %156
   %switch.load = load i64, ptr %switch.gep, align 8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %158 = load ptr, ptr %157, align 8
@@ -7046,7 +7046,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 switch.lookup:                                    ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %sext = shl i64 %82, 32
   %83 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %83
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %83
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN4llvm7RISCVCC26getOppositeBranchConditionENS0_8CondCodeE.exit
 
@@ -14458,7 +14458,7 @@ switch.lookup:
   %25 = load ptr, ptr %24, align 8
   %switch.tableidx = add nsw i32 %2, -4
   %26 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZL22combineFPFusedMultiplyRN4llvm12MachineInstrES1_jRNS_15SmallVectorImplIPS0_EES5_, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZL22combineFPFusedMultiplyRN4llvm12MachineInstrES1_jRNS_15SmallVectorImplIPS0_EES5_, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
   %27 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %25, i64 %switch.load
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -14761,7 +14761,7 @@ _ZL20getSHXADDShiftAmountj.exit:                  ; preds = %switch.lookup, %5
   %41 = trunc i64 %40 to i32
   %42 = add i32 %.0.i.neg, %41
   %43 = sext i32 %42 to i64
-  %switch.gep104 = getelementptr inbounds [4 x i64], ptr @switch.table._ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE.58, i64 0, i64 %43
+  %switch.gep104 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZL17genShXAddAddShiftRN4llvm12MachineInstrEjRNS_15SmallVectorImplIPS0_EES5_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE.58, i64 0, i64 %43
   %switch.load105 = load i64, ptr %switch.gep104, align 8
   %44 = xor i32 %1, 3
   %45 = load ptr, ptr %31, align 8
@@ -19215,7 +19215,7 @@ switch.lookup:                                    ; preds = %5, %5
   %24 = load i64, ptr %23, align 8
   %sext = shl i64 %24, 32
   %25 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjj, i64 0, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
   br i1 %2, label %26, label %"_ZZNK4llvm14RISCVInstrInfo22commuteInstructionImplERNS_12MachineInstrEbjjENK3$_0clES2_.exit45"
 

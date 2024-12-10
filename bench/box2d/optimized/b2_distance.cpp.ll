@@ -534,7 +534,7 @@ _ZNK9b2Simplex18GetSearchDirectionEv.exit:        ; preds = %sw.bb.i, %if.then.i
   br i1 %cmp19, label %while.end, label %if.end21
 
 if.end21:                                         ; preds = %_ZNK9b2Simplex18GetSearchDirectionEv.exit
-  %add.ptr = getelementptr inbounds %struct.b2SimplexVertex, ptr %simplex, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.b2SimplexVertex, ptr %simplex, i64 %idx.ext
   %fneg.i63 = fneg float %d.sroa.0.0.vec.extract
   %fneg2.i = fneg float %d.sroa.0.4.vec.extract
   %mul1.i = fmul float %2, %fneg2.i
@@ -1556,7 +1556,7 @@ if.end56:                                         ; preds = %if.end52, %_ZNK15b2
   %n.sroa.0.1 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i212, %if.end52 ], [ %n.sroa.0.0376, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
   %lambda5.1 = phi float [ %div, %if.end52 ], [ %lambda5.0378, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
   %idx.ext = sext i32 %75 to i64
-  %add.ptr = getelementptr inbounds %struct.b2SimplexVertex, ptr %simplex, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.b2SimplexVertex, ptr %simplex, i64 %idx.ext
   %indexA58 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 28
   store i32 %bestIndex.0.lcssa.i164, ptr %indexA58, align 4
   %mul.i213 = fmul float %2, %lambda5.1

@@ -276,7 +276,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
   %101 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv237
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, %.0101164
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
@@ -291,7 +291,7 @@ define noalias noundef ptr @Abc_NtkPrecomputeCellPairs(ptr nocapture noundef rea
   %116 = and i64 %115, %.0101164
   %117 = lshr i64 %116, %111
   %118 = or i64 %113, %117
-  %119 = getelementptr inbounds i32, ptr %5, i64 %103
+  %119 = getelementptr inbounds nuw i32, ptr %5, i64 %103
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i32, ptr %119, align 4
   %122 = load i32, ptr %120, align 4

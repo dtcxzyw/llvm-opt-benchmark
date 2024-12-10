@@ -7346,7 +7346,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6DIFile23getChecksumKindAsStringENS0_12Ch
 _ZN4llvm9StringRefC2EPKc.exit:
   %1 = add nsw i32 %0, -1
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [3 x ptr], ptr @_ZL16ChecksumKindName, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL16ChecksumKindName, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #24
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -16854,7 +16854,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 
@@ -17074,7 +17074,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_8MetadataEEEbRPcS5_RKT_m.exit: ; 
   br i1 %137, label %138, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_8MetadataEEEbRPcS5_RKT_m.exit11
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %6, i64 %11
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %139, i64 %135, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_8MetadataEEEbRPcS5_RKT_m.exit11
 
@@ -17294,7 +17294,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIbEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %137, label %138, label %_ZN4llvm7hashing6detail17store_and_advanceIbEEbRPcS3_RKT_m.exit11
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %6, i64 %11
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %139, i64 %135, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIbEEbRPcS3_RKT_m.exit11
 
@@ -19108,7 +19108,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_8MDStringEEEbRPcS5_RKT_m.exit: ; 
   br i1 %137, label %138, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_8MDStringEEEbRPcS5_RKT_m.exit11
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %6, i64 %11
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %139, i64 %135, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_8MDStringEEEbRPcS5_RKT_m.exit11
 
@@ -21547,7 +21547,7 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 

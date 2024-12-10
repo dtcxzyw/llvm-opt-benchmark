@@ -1660,7 +1660,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %51 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %50
   %52 = shl i64 %indvars.iv.i.i, 2
   %53 = add nuw nsw i64 %52, %indvars.iv15.i.i
-  %54 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %53
   %55 = load float, ptr %51, align 4
   %56 = load float, ptr %54, align 4
   store float %56, ptr %51, align 4
@@ -1689,7 +1689,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit:     ; preds = %57
   %61 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %60
   %62 = shl i64 %indvars.iv.i.i22, 2
   %63 = add nuw nsw i64 %62, %indvars.iv15.i.i21
-  %64 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %63
   %65 = load float, ptr %61, align 4
   %66 = load float, ptr %64, align 4
   store float %66, ptr %61, align 4
@@ -1755,7 +1755,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit27:   ; preds = %67
   %85 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %84
   %86 = shl i64 %indvars.iv.i.i31, 2
   %87 = add nuw nsw i64 %86, %indvars.iv15.i.i30
-  %88 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %87
   %89 = load float, ptr %85, align 4
   %90 = load float, ptr %88, align 4
   store float %90, ptr %85, align 4
@@ -2128,7 +2128,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %41 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %40
   %42 = shl i64 %indvars.iv.i.i.i, 2
   %43 = add nuw nsw i64 %42, %indvars.iv15.i.i.i
-  %44 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %43
   %45 = load float, ptr %41, align 4, !alias.scope !39
   %46 = load float, ptr %44, align 4, !alias.scope !39
   store float %46, ptr %41, align 4, !alias.scope !39
@@ -2280,7 +2280,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %55 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %54
   %56 = shl i64 %indvars.iv.i.i, 2
   %57 = add nuw nsw i64 %56, %indvars.iv15.i.i
-  %58 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %57
   %59 = load float, ptr %55, align 4
   %60 = load float, ptr %58, align 4
   store float %60, ptr %55, align 4
@@ -2309,7 +2309,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit:     ; preds = %61
   %65 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %64
   %66 = shl i64 %indvars.iv.i.i48, 2
   %67 = add nuw nsw i64 %66, %indvars.iv15.i.i47
-  %68 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %67
   %69 = load float, ptr %65, align 4
   %70 = load float, ptr %68, align 4
   store float %70, ptr %65, align 4
@@ -2375,7 +2375,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit53:   ; preds = %71
   %89 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %88
   %90 = shl i64 %indvars.iv.i.i57, 2
   %91 = add nuw nsw i64 %90, %indvars.iv15.i.i56
-  %92 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %91
   %93 = load float, ptr %89, align 4
   %94 = load float, ptr %92, align 4
   store float %94, ptr %89, align 4
@@ -2633,7 +2633,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %197 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %196
   %198 = shl i64 %indvars.iv.i.i101, 2
   %199 = add nuw nsw i64 %198, %indvars.iv15.i.i100
-  %200 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %199
   %201 = load float, ptr %197, align 4
   %202 = load float, ptr %200, align 4
   store float %202, ptr %197, align 4
@@ -2662,7 +2662,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit106:  ; preds = %203
   %207 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %206
   %208 = shl i64 %indvars.iv.i.i109, 2
   %209 = add nuw nsw i64 %208, %indvars.iv15.i.i108
-  %210 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %209
   %211 = load float, ptr %207, align 4
   %212 = load float, ptr %210, align 4
   store float %212, ptr %207, align 4
@@ -2732,7 +2732,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit127:             ; preds = %227
   %231 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %230
   %232 = shl i64 %indvars.iv.i.i130, 2
   %233 = add nuw nsw i64 %232, %indvars.iv15.i.i129
-  %234 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %233
   %235 = load float, ptr %231, align 4
   %236 = load float, ptr %234, align 4
   store float %236, ptr %231, align 4
@@ -2985,7 +2985,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %334 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %333
   %335 = shl i64 %indvars.iv.i.i191, 2
   %336 = add nuw nsw i64 %335, %indvars.iv15.i.i190
-  %337 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %336
   %338 = load float, ptr %334, align 4
   %339 = load float, ptr %337, align 4
   store float %339, ptr %334, align 4
@@ -3014,7 +3014,7 @@ _ZN3vcg8Matrix44IfE16transposeInPlaceEv.exit196:  ; preds = %340
   %344 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %343
   %345 = shl i64 %indvars.iv.i.i199, 2
   %346 = add nuw nsw i64 %345, %indvars.iv15.i.i198
-  %347 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %346
   %348 = load float, ptr %344, align 4
   %349 = load float, ptr %347, align 4
   store float %349, ptr %344, align 4
@@ -3084,7 +3084,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit217:             ; preds = %364
   %368 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %367
   %369 = shl i64 %indvars.iv.i.i220, 2
   %370 = add nuw nsw i64 %369, %indvars.iv15.i.i219
-  %371 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %370
   %372 = load float, ptr %368, align 4
   %373 = load float, ptr %371, align 4
   store float %373, ptr %368, align 4

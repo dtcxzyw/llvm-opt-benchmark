@@ -3721,7 +3721,7 @@ invoke.cont15:                                    ; preds = %invoke.cont10
   store ptr %marker, ptr %ref.tmp, align 8
   %switch.tableidx = add nsw i32 %3, -1
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.main, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.main, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i335 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #26
   %call25 = invoke { i32, ptr } @_ZN4llvh3sys2fs19createTemporaryFileERKNS_5TwineENS_9StringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr nonnull %switch.load, i64 %call.i335, ptr noundef nonnull align 8 dereferenceable(16) %tmpfile)

@@ -207,7 +207,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %.0100 = load i32, ptr %.0100.in, align 4
   %.0101 = load i32, ptr %.0101.in, align 4
   %70 = sext i32 %.0100 to i64
-  %71 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
   %74 = shl nuw nsw i32 %73, 2

@@ -665,7 +665,7 @@ if.end:                                           ; preds = %entry
   %sub = shl i64 %call1, 32
   %sext = add i64 %sub, -4294967296
   %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds [4096 x i8], ptr @read_to_eol.buf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4096 x i8], ptr @read_to_eol.buf, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %cmp3.not = icmp eq i8 %0, 10
   br i1 %cmp3.not, label %while.cond.preheader, label %if.then5

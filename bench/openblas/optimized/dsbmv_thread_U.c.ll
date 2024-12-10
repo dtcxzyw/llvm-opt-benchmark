@@ -93,11 +93,11 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
 59:                                               ; preds = %55, %40
   %60 = phi i64 [ %58, %55 ], [ %44, %40 ]
   %61 = sub nsw i64 16, %42
-  %62 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !16
   %64 = sub nsw i64 %63, %60
   %65 = sub nsw i64 15, %42
-  %66 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %65
   store i64 %64, ptr %66, align 8, !tbaa !16
   %67 = mul nuw nsw i64 %42, %39
   %68 = getelementptr inbounds nuw [16 x i64], ptr %16, i64 0, i64 %42

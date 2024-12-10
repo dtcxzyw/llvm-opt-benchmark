@@ -373,7 +373,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_fp(i32 noundef %i) #1 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [7 x %struct.pw_st], ptr @pw_params, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x %struct.pw_st], ptr @pw_params, i64 0, i64 %idxprom
   %.b39 = load i1, ptr @justprint, align 4
   br i1 %.b39, label %if.then, label %if.end
 
@@ -463,7 +463,7 @@ define internal range(i32 0, 2) i32 @test_zu(i32 noundef %i) #1 {
 entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom
   %format = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
@@ -481,7 +481,7 @@ define internal range(i32 0, 2) i32 @test_j(i32 noundef %i) #1 {
 entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom
   %format = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8

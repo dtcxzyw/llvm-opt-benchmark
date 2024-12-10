@@ -1749,7 +1749,7 @@ define hidden void @_ZNK5clang7targets15NVPTXTargetInfo16getTargetDefinesERKNS_1
 
 switch.lookup:                                    ; preds = %28, %32
   %36 = sext i32 %23 to i64
-  %switch.gep = getelementptr inbounds [23 x ptr], ptr @switch.table._ZNK5clang7targets15NVPTXTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZNK5clang7targets15NVPTXTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #12
   %37 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #12

@@ -390,7 +390,7 @@ entry:
   %vtable4 = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
-  %add.ptr7 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset6
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %smaps, i64 %vbase.offset6
   %call10 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr7) #23
   br i1 %call10, label %while.body, label %while.end
 
@@ -425,7 +425,7 @@ while.cond.backedge:                              ; preds = %if.end, %while.cond
   %vtable = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %smaps, i64 %vbase.offset
   %call = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #23
   br i1 %call, label %while.body, label %while.end
 
@@ -433,7 +433,7 @@ while.end:                                        ; preds = %while.cond.backedge
   %vtable1611 = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr1712 = getelementptr i8, ptr %vtable1611, i64 -24
   %vbase.offset1813 = load i64, ptr %vbase.offset.ptr1712, align 8
-  %add.ptr1914 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset1813
+  %add.ptr1914 = getelementptr inbounds nuw i8, ptr %smaps, i64 %vbase.offset1813
   %call2015 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr1914) #23
   br i1 %call2015, label %while.body21, label %while.end38
 
@@ -442,7 +442,7 @@ while.cond15.critedge:                            ; preds = %while.body21
   %vtable16 = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr17 = getelementptr i8, ptr %vtable16, i64 -24
   %vbase.offset18 = load i64, ptr %vbase.offset.ptr17, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset18
+  %add.ptr19 = getelementptr inbounds nuw i8, ptr %smaps, i64 %vbase.offset18
   %call20 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr19) #23
   br i1 %call20, label %while.body21, label %while.end38
 
@@ -874,7 +874,7 @@ if.then4:                                         ; preds = %_ZN6hermes8oscompat
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #23
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %mode) #23
-  %add.ptr.i = getelementptr inbounds i8, ptr %mode, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %mode, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %mode, ptr noundef nonnull %add.ptr.i)
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
@@ -1127,7 +1127,7 @@ if.end:                                           ; preds = %entry
   %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #23
   %call.i.i2 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %threadName) #23
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %threadName, i64 %call.i.i2
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %threadName, i64 %call.i.i2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %threadName, ptr noundef nonnull %add.ptr.i3)
   br label %return
 

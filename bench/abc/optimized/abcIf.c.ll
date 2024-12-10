@@ -2025,7 +2025,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %105 = getelementptr inbounds nuw [5 x ptr], ptr %9, i64 0, i64 %indvars.iv158
   store ptr %104, ptr %105, align 8
   %106 = sext i32 %.079128 to i64
-  %107 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [92 x i8], ptr %8, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
   %.1105 = add i32 %.079128, 1
   %.not133 = icmp eq i8 %108, 0
@@ -2039,7 +2039,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %indvars.iv142 = phi i64 [ %109, %.lr.ph109 ], [ %indvars.iv.next143, %130 ]
   %.080107 = phi i32 [ 0, %.lr.ph109 ], [ %133, %130 ]
   %.083106 = phi i8 [ 0, %.lr.ph109 ], [ %134, %130 ]
-  %111 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %indvars.iv142
+  %111 = getelementptr inbounds nuw [92 x i8], ptr %8, i64 0, i64 %indvars.iv142
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   %.val98 = load i64, ptr %13, align 4
@@ -2146,7 +2146,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %indvars.iv144 = phi i64 [ %163, %.lr.ph114.us ], [ %indvars.iv.next145, %164 ]
   %165 = phi i64 [ 0, %.lr.ph114.us ], [ %171, %164 ]
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
-  %166 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %indvars.iv144
+  %166 = getelementptr inbounds nuw [92 x i8], ptr %8, i64 0, i64 %indvars.iv144
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i64
   %169 = shl nuw nsw i64 %indvars.iv146, 3
@@ -3300,7 +3300,7 @@ define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noun
   %8 = zext i32 %7 to i64
   %9 = shl i64 %6, %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %9, %12
   %14 = and i64 %12, %6
@@ -3321,7 +3321,7 @@ define internal fastcc void @Abc_TtFlip(ptr noundef %0, i32 noundef %1, i32 noun
   %21 = shl nuw nsw i32 1, %2
   %22 = zext nneg i32 %21 to i64
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8
   %wide.trip.count59 = zext nneg i32 %1 to i64
   br label %26

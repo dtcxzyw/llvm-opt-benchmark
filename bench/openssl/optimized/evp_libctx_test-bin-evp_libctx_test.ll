@@ -332,7 +332,7 @@ lor.lhs.false:                                    ; preds = %getname.exit32
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false
   %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %call13 = tail call ptr @BN_dup(ptr noundef %3) #6
   %call14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 115, ptr noundef nonnull @.str.33, ptr noundef %call13) #6
@@ -341,7 +341,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false12
   %idxprom17 = sext i32 %rem to i64
-  %arrayidx18 = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom17
   %4 = load ptr, ptr %arrayidx18, align 8
   %call19 = tail call ptr @BN_dup(ptr noundef %4) #6
   %call20 = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 116, ptr noundef nonnull @.str.34, ptr noundef %call19) #6
@@ -350,7 +350,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false12
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false16
   %idxprom23 = sext i32 %rem2 to i64
-  %arrayidx24 = getelementptr inbounds [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw [3 x ptr], ptr @test_dsa_param_keygen.bn, i64 0, i64 %idxprom23
   %5 = load ptr, ptr %arrayidx24, align 8
   %call25 = tail call ptr @BN_dup(ptr noundef %5) #6
   %call26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 117, ptr noundef nonnull @.str.35, ptr noundef %call25) #6
@@ -494,7 +494,7 @@ lor.lhs.false.i:                                  ; preds = %getname.exit34.i
 
 lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
   %idxprom.i = sext i32 %div.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %call13.i = tail call ptr @BN_dup(ptr noundef %3) #6
   %call14.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 178, ptr noundef nonnull @.str.33, ptr noundef %call13.i) #6
@@ -503,7 +503,7 @@ lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
   %idxprom17.i = sext i32 %rem.i to i64
-  %arrayidx18.i = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom17.i
   %4 = load ptr, ptr %arrayidx18.i, align 8
   %call19.i = tail call ptr @BN_dup(ptr noundef %4) #6
   %call20.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 179, ptr noundef nonnull @.str.34, ptr noundef %call19.i) #6
@@ -512,7 +512,7 @@ lor.lhs.false16.i:                                ; preds = %lor.lhs.false12.i
 
 lor.lhs.false22.i:                                ; preds = %lor.lhs.false16.i
   %idxprom23.i = sext i32 %rem2.i to i64
-  %arrayidx24.i = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom23.i
+  %arrayidx24.i = getelementptr inbounds nuw ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %idxprom23.i
   %5 = load ptr, ptr %arrayidx24.i, align 8
   %call25.i = tail call ptr @BN_dup(ptr noundef %5) #6
   %call26.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 180, ptr noundef nonnull @.str.35, ptr noundef %call25.i) #6

@@ -357,7 +357,7 @@ define dso_local noundef zeroext i1 @_ZN10bindexplib17AddDefinitionFileEPKc(ptr 
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %9 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %8)
           to label %10 unwind label %14
 

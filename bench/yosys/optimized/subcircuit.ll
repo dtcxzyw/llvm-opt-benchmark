@@ -17722,7 +17722,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
   %225 = ashr exact i64 %224, 5
-  %226 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %225
   %227 = load i32, ptr %226, align 4
   %228 = mul nsw i32 %227, %.011.i
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 24
@@ -17763,7 +17763,7 @@ _ZN10SubCircuit12SolverWorker25numberOfPermutationsArrayERKSt6vectorIS1_INSt7__c
   %246 = ptrtoint ptr %244 to i64
   %247 = sub i64 %245, %246
   %248 = ashr exact i64 %247, 5
-  %249 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = srem i32 %.015.i, %250
   %252 = sdiv i32 %.015.i, %250
@@ -22812,7 +22812,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %184 = ptrtoint ptr %182 to i64
   %185 = sub i64 %183, %184
   %186 = ashr exact i64 %185, 5
-  %187 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %186
   %188 = load i32, ptr %187, align 4
   %189 = mul nsw i32 %188, %.011.i
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 24
@@ -22855,7 +22855,7 @@ _ZN10SubCircuit12SolverWorker25numberOfPermutationsArrayERKSt6vectorIS1_INSt7__c
   %210 = ptrtoint ptr %208 to i64
   %211 = sub i64 %209, %210
   %212 = ashr exact i64 %211, 5
-  %213 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4
   %215 = srem i32 %.015.i, %214
   %216 = sdiv i32 %.015.i, %214
@@ -24780,7 +24780,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %214 = ptrtoint ptr %212 to i64
   %215 = sub i64 %213, %214
   %216 = ashr exact i64 %215, 5
-  %217 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %216
   %218 = load i32, ptr %217, align 4
   %219 = mul nsw i32 %218, %.011.i
   %220 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 24
@@ -24805,7 +24805,7 @@ _ZN10SubCircuit12SolverWorker25numberOfPermutationsArrayERKSt6vectorIS1_INSt7__c
   %228 = ptrtoint ptr %226 to i64
   %229 = sub i64 %227, %228
   %230 = ashr exact i64 %229, 5
-  %231 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = mul nsw i32 %232, %.011.i131
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i132, i64 24
@@ -24838,7 +24838,7 @@ _ZN10SubCircuit12SolverWorker25numberOfPermutationsArrayERKSt6vectorIS1_INSt7__c
   %244 = ptrtoint ptr %242 to i64
   %245 = sub i64 %243, %244
   %246 = ashr exact i64 %245, 5
-  %247 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = srem i32 %.015.i, %248
   %250 = sdiv i32 %.015.i, %248
@@ -24875,7 +24875,7 @@ _ZN10SubCircuit12SolverWorker25permutateVectorToMapArrayERSt3mapINSt7__cxx1112ba
   %260 = ptrtoint ptr %258 to i64
   %261 = sub i64 %259, %260
   %262 = ashr exact i64 %261, 5
-  %263 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %262
   %264 = load i32, ptr %263, align 4
   %265 = srem i32 %.015.i141, %264
   %266 = sdiv i32 %.015.i141, %264
@@ -27091,7 +27091,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 5
-  %120 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = mul nsw i32 %121, %.011.i
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 24
@@ -27123,7 +27123,7 @@ _ZN10SubCircuit12SolverWorker25numberOfPermutationsArrayERKSt6vectorIS1_INSt7__c
   %131 = ptrtoint ptr %129 to i64
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 5
-  %134 = getelementptr inbounds [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [10 x i32], ptr @__const._ZN10SubCircuit12SolverWorker20numberOfPermutationsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE.mappedPermutations, i64 0, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = srem i32 %.015.i, %135
   %137 = sdiv i32 %.015.i, %135

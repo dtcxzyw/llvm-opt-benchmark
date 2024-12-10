@@ -40064,7 +40064,7 @@ _ZN3vcg3tri2io11ImporterX3DI6CMeshOE8getColorERK11QStringListiiRNS_6Color4IhEERK
   %679 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %678
   %680 = shl i64 %indvars.iv.i.i.i.us, 2
   %681 = add nuw nsw i64 %680, %indvars.iv15.i.i.i.us
-  %682 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %681
+  %682 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %681
   %683 = load float, ptr %679, align 4
   %684 = load float, ptr %682, align 4
   store float %684, ptr %679, align 4
@@ -49643,7 +49643,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE9getNormalERK11QSt
   %44 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %43
   %45 = shl i64 %indvars.iv.i.i, 2
   %46 = add nuw nsw i64 %45, %indvars.iv15.i.i
-  %47 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %46
   %48 = load float, ptr %44, align 4
   %49 = load float, ptr %47, align 4
   store float %49, ptr %44, align 4
@@ -61531,21 +61531,21 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %51, %54
   %72 = getelementptr inbounds nuw [20 x [3 x i32]], ptr @__const._ZN3vcg3tri11IcosahedronI6CMeshOEEvRT_.ff, i64 0, i64 %indvars.iv51
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 8
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 16
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [12 x ptr], ptr %5, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [12 x ptr], ptr %5, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 24
   store ptr %88, ptr %89, align 8

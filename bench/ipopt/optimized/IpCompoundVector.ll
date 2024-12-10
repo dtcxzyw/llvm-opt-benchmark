@@ -3318,7 +3318,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread: ; preds = %32, %_ZNK5Ipopt14
 
 .noexc42:                                         ; preds = %.noexc
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #21
-  %52 = getelementptr inbounds i8, ptr %8, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 %51
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %8, ptr noundef nonnull %52)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %53
 

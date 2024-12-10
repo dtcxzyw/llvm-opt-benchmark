@@ -1285,7 +1285,7 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
 
 121:                                              ; preds = %119, %117
   %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %123 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr @bitmap2rangestr.ret, i64 %122
   %124 = sub i64 1024, %122
   %125 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %123, i64 noundef %124, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
   br label %bitmap2rangestr.exit.us
@@ -1316,7 +1316,7 @@ build_map.exit:                                   ; preds = %39, %.critedge61.i,
 
 .thread.i.us:                                     ; preds = %137, %135
   %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @bitmap2rangestr.ret) #15
-  %140 = getelementptr inbounds i8, ptr @bitmap2rangestr.ret, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr @bitmap2rangestr.ret, i64 %139
   %141 = sub i64 1024, %139
   %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %140, i64 noundef %141, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #14
   %143 = add nuw nsw i64 %.034.i.us, 1

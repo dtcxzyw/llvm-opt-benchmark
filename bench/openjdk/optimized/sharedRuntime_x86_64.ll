@@ -7681,13 +7681,13 @@ define hidden void @_ZN13SharedRuntime19montgomery_multiplyEPiS0_S0_ilS0_(ptr no
   %13 = shl i32 %11, 5
   %14 = sext i32 %13 to i64
   %15 = alloca i8, i64 %14, align 16
-  %16 = getelementptr inbounds i64, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %12
   %17 = shl nsw i32 %11, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %18
   %20 = mul nsw i32 %11, 3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %15, i64 %21
   %23 = icmp sgt i32 %3, 1
   br i1 %23, label %.lr.ph.preheader.i, label %_ZL13reverse_wordsPmS_i.exit41.thread
 
@@ -7941,10 +7941,10 @@ define hidden void @_ZN13SharedRuntime17montgomery_squareEPiS0_ilS0_(ptr nocaptu
   %13 = mul i32 %7, 24
   %14 = sext i32 %13 to i64
   %15 = alloca i8, i64 %14, align 16
-  %16 = getelementptr inbounds i64, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %12
   %17 = shl nsw i32 %7, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %18
   %20 = icmp sgt i32 %2, 1
   br i1 %20, label %.lr.ph.preheader.i, label %_ZL13reverse_wordsPmS_i.exit36.thread
 
@@ -8017,7 +8017,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %41 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8
   %43 = sub nsw i64 %indvars.iv179.i, %indvars.iv.i
-  %44 = getelementptr inbounds i64, ptr %15, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %15, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %42, i64 %45, i64 %.1119.i, i64 %.1102118.i, i64 %40) #14, !srcloc !51
   %47 = extractvalue { i64, i64, i64, i64 } %46, 2
@@ -8123,7 +8123,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %91 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv186.i
   %92 = load i64, ptr %91, align 8
   %93 = sub nsw i64 %indvars.iv193.i, %indvars.iv186.i
-  %94 = getelementptr inbounds i64, ptr %15, i64 %93
+  %94 = getelementptr inbounds nuw i64, ptr %15, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %92, i64 %95, i64 %.5139.i, i64 %.5106138.i, i64 %90) #14, !srcloc !59
   %97 = extractvalue { i64, i64, i64, i64 } %96, 2
@@ -8153,7 +8153,7 @@ _ZL13reverse_wordsPmS_i.exit36:                   ; preds = %.lr.ph.i32
   %111 = load i64, ptr %6, align 8
   %sext.i = shl i64 %.0113.lcssa.in.i, 32
   %112 = ashr exact i64 %sext.i, 29
-  %113 = getelementptr inbounds i8, ptr %15, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = call { i64, i64, i64, i64 } asm "mul $5; add %rax, $2; adc %rdx, $3; adc $$0, $4", "=&{dx},={ax},=r,=r,=*imr,r,{ax},2,3,4,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %114, i64 %114, i64 %.5.lcssa.i, i64 %.5106.lcssa.i, i64 %111) #14, !srcloc !62
   %116 = extractvalue { i64, i64, i64, i64 } %115, 2

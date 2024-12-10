@@ -2952,8 +2952,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = phi i64 [ %6, %for.body.lr.ph ], [ %7, %for.cond ]
   %j.0105 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   store ptr null, ptr %compressdata, align 8
-  %arrayidx = getelementptr inbounds [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.0105
-  %arrayidx20 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105
+  %arrayidx = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.0105
+  %arrayidx20 = getelementptr inbounds nuw [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.0105
   %cmp21 = icmp ult i64 %j.0105, %8
   %sub = sub nuw i64 %j.0105, %8
   %arrayidx22 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub
@@ -3113,7 +3113,7 @@ if.end92:                                         ; preds = %for.end.if.end92_cr
   %30 = load ptr, ptr %funcs, align 8
   %cipher94 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load ptr, ptr %cipher94, align 8
-  %add.ptr = getelementptr inbounds %struct.tls_rl_record_st, ptr %wr, i64 %29
+  %add.ptr = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %wr, i64 %29
   %call97 = call i32 %31(ptr noundef nonnull %rl, ptr noundef nonnull %add.ptr, i64 noundef %numtempl, i32 noundef 1, ptr noundef null, i64 noundef %conv96.pre-phi) #12
   %cmp98 = icmp slt i32 %call97, 1
   br i1 %cmp98, label %if.then100, label %for.cond107.preheader
@@ -3139,8 +3139,8 @@ if.then104:                                       ; preds = %if.then100
 for.body111:                                      ; preds = %for.cond107.preheader, %if.end127
   %34 = phi i64 [ %38, %if.end127 ], [ %32, %for.cond107.preheader ]
   %j.1108 = phi i64 [ %inc132, %if.end127 ], [ 0, %for.cond107.preheader ]
-  %arrayidx112 = getelementptr inbounds [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.1108
-  %arrayidx113 = getelementptr inbounds [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.1108
+  %arrayidx112 = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.1108
+  %arrayidx113 = getelementptr inbounds nuw [33 x %struct.tls_rl_record_st], ptr %wr, i64 0, i64 %j.1108
   %cmp114 = icmp ult i64 %j.1108, %34
   %sub118 = sub nuw i64 %j.1108, %34
   %arrayidx119 = getelementptr inbounds %struct.ossl_record_template_st, ptr %templates, i64 %sub118
@@ -3172,7 +3172,7 @@ err:                                              ; preds = %if.end71, %land.lhs
 
 for.body137:                                      ; preds = %err, %for.body137
   %j.2112 = phi i64 [ %inc140, %for.body137 ], [ 0, %err ]
-  %arrayidx138 = getelementptr inbounds [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.2112
+  %arrayidx138 = getelementptr inbounds nuw [33 x %struct.wpacket_st], ptr %pkt, i64 0, i64 %j.2112
   call void @WPACKET_cleanup(ptr noundef nonnull %arrayidx138) #12
   %inc140 = add nuw i64 %j.2112, 1
   %40 = load i64, ptr %wpinited, align 8

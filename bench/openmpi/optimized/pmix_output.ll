@@ -336,7 +336,7 @@ define internal fastcc range(i32 0, -1) i32 @do_open(i32 noundef %0, ptr noundef
   %19 = icmp eq ptr %1, null
   %spec.store.select = select i1 %19, ptr @verbose, ptr %1
   %20 = sext i32 %.1 to i64
-  %21 = getelementptr inbounds [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [64 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20
   store i8 1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 152
   %23 = load i8, ptr %22, align 8

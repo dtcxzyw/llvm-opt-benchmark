@@ -1915,7 +1915,7 @@ if.end23:                                         ; preds = %do.body, %do.body.o
 
 for.body:                                         ; preds = %if.end23, %for.inc
   %i.034 = phi i64 [ %add38, %for.inc ], [ 0, %if.end23 ]
-  %add.ptr28 = getelementptr inbounds i8, ptr %buf, i64 %i.034
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %buf, i64 %i.034
   %6 = load ptr, ptr %add.ptr28, align 16
   %signum = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 8
   %7 = load i32, ptr %signum, align 8
@@ -1956,7 +1956,7 @@ for.end:                                          ; preds = %for.inc, %if.end23
   br i1 %tobool40.not, label %do.cond, label %if.then41
 
 if.then41:                                        ; preds = %for.end
-  %add.ptr44 = getelementptr inbounds i8, ptr %buf, i64 %div24
+  %add.ptr44 = getelementptr inbounds nuw i8, ptr %buf, i64 %div24
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 16 %add.ptr44, i64 %sub39, i1 false)
   br label %do.cond
 

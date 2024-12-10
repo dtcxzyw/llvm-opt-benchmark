@@ -624,7 +624,7 @@ _ZStrsISt14basic_ifstreamIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS2_SaI
   %110 = load ptr, ptr %21, align 8
   %111 = getelementptr i8, ptr %110, i64 -24
   %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %21, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %21, i64 %112
   %114 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %113)
           to label %115 unwind label %123
 
@@ -701,7 +701,7 @@ _ZStrsISt14basic_ifstreamIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS2_SaI
   %132 = load ptr, ptr %23, align 8
   %133 = getelementptr i8, ptr %132, i64 -24
   %134 = load i64, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %23, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %23, i64 %134
   %136 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %135)
           to label %137 unwind label %140
 
@@ -752,7 +752,7 @@ _ZStrsISt14basic_ifstreamIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS2_SaI
   %149 = load ptr, ptr %25, align 8
   %150 = getelementptr i8, ptr %149, i64 -24
   %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %25, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %25, i64 %151
   %153 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %152)
           to label %154 unwind label %157
 
@@ -991,7 +991,7 @@ _ZStrsISt14basic_ifstreamIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS2_SaI
   %234 = load ptr, ptr %38, align 8
   %235 = getelementptr i8, ptr %234, i64 -24
   %236 = load i64, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %38, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr %38, i64 %236
   %238 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %237)
           to label %239 unwind label %254
 
@@ -3022,7 +3022,7 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %16, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = or i64 %19, %23
   store i64 %24, ptr %22, align 8

@@ -91,11 +91,11 @@ define noundef i32 @dtbmv_thread_NUN(i64 noundef %0, i64 noundef %1, ptr noundef
 55:                                               ; preds = %51, %36
   %56 = phi i64 [ %54, %51 ], [ %40, %36 ]
   %57 = sub nsw i64 16, %38
-  %58 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !15
   %60 = sub nsw i64 %59, %56
   %61 = sub nsw i64 15, %38
-  %62 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %61
   store i64 %60, ptr %62, align 8, !tbaa !15
   %63 = mul nuw nsw i64 %38, %35
   %64 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %38
@@ -216,7 +216,7 @@ define noundef i32 @dtbmv_thread_NUN(i64 noundef %0, i64 noundef %1, ptr noundef
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %138 = phi i64 [ %143, %.preheader ], [ 1, %.loopexit ]
-  %139 = getelementptr inbounds [17 x i64], ptr %13, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %138
   %140 = load i64, ptr %139, align 8, !tbaa !15
   %141 = getelementptr inbounds double, ptr %6, i64 %140
   %142 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %141, i64 noundef 1, ptr noundef %6, i64 noundef 1, ptr noundef null, i64 noundef 0) #7

@@ -27799,7 +27799,7 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %485 = getelementptr inbounds nuw [4 x [3 x i32]], ptr %477, i64 0, i64 %indvars.iv352, i64 %indvars.iv348
   %486 = load i32, ptr %485, align 4
   %487 = sext i32 %486 to i64
-  %488 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %487
+  %488 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %487
   %489 = load ptr, ptr %488, align 8
   %490 = getelementptr inbounds nuw [3 x ptr], ptr %481, i64 0, i64 %indvars.iv348
   store ptr %489, ptr %490, align 8
@@ -27808,7 +27808,7 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   br i1 %492, label %493, label %504
 
 493:                                              ; preds = %484
-  %494 = getelementptr inbounds [6 x %"class.vcg::TexCoord2"], ptr %13, i64 0, i64 %487
+  %494 = getelementptr inbounds nuw [6 x %"class.vcg::TexCoord2"], ptr %13, i64 0, i64 %487
   %495 = load ptr, ptr %480, align 8
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 192
   %497 = load ptr, ptr %495, align 8
@@ -27893,13 +27893,13 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %539 = getelementptr inbounds nuw i8, ptr %373, i64 52
   %540 = load i32, ptr %539, align 4
   %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %541
+  %542 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %541
   %543 = load ptr, ptr %542, align 8
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
   %545 = getelementptr inbounds nuw i8, ptr %373, i64 56
   %546 = load i32, ptr %545, align 4
   %547 = sext i32 %546 to i64
-  %548 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %547
   %549 = load ptr, ptr %548, align 8
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
   %551 = load float, ptr %544, align 4
@@ -27921,13 +27921,13 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   %567 = getelementptr inbounds nuw i8, ptr %373, i64 60
   %568 = load i32, ptr %567, align 4
   %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %569
+  %570 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %569
   %571 = load ptr, ptr %570, align 8
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
   %573 = getelementptr inbounds nuw i8, ptr %373, i64 64
   %574 = load i32, ptr %573, align 4
   %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds [6 x ptr], ptr %11, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw [6 x ptr], ptr %11, i64 0, i64 %575
   %577 = load ptr, ptr %576, align 8
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 8
   %579 = load float, ptr %572, align 4

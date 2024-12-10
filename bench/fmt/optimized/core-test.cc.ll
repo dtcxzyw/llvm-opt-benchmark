@@ -16350,7 +16350,7 @@ call.i.noexc:                                     ; preds = %_ZN7testing7Matcher
 
 .noexc185:                                        ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str_data) #25
-  %add.ptr.i = getelementptr inbounds i8, ptr %str_data, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %str_data, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %var33, ptr noundef nonnull %str_data, ptr noundef nonnull %add.ptr.i)
           to label %sw.bb41.i77 unwind label %lpad.i183
 
@@ -17454,7 +17454,7 @@ call.i.noexc:                                     ; preds = %_ZN7testing7Matcher
 
 .noexc393:                                        ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @wcslen(ptr noundef nonnull %str_data) #30
-  %add.ptr.i = getelementptr inbounds i32, ptr %str_data, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %str_data, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_M_constructIPKwEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %var56, ptr noundef nonnull %str_data, ptr noundef nonnull %add.ptr.i)
           to label %sw.bb41.i231 unwind label %lpad.i391
 

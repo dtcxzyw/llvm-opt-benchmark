@@ -672,7 +672,7 @@ declare i32 @type_alloca_alignment(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i32 @binaryop_assign_base_op(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [31 x i32], ptr @assign_binop, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [31 x i32], ptr @assign_binop, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }

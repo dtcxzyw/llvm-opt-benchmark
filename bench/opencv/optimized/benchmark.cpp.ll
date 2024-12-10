@@ -1508,7 +1508,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %37
   %39 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %38)
           to label %40 unwind label %.loopexit31.loopexit
 
@@ -1552,7 +1552,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
   %58 = load ptr, ptr %4, align 8
   %59 = getelementptr i8, ptr %58, i64 -24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %4, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 %60
   %62 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %61)
           to label %63 unwind label %.loopexit31.loopexit
 
@@ -1708,7 +1708,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   %109 = load ptr, ptr %8, align 8
   %110 = getelementptr i8, ptr %109, i64 -24
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %8, i64 %111
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 %111
   %113 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %112)
           to label %114 unwind label %.loopexit29
 
@@ -1847,7 +1847,7 @@ _ZN8AlgoWrapD2Ev.exit:                            ; preds = %_ZN8AlgoWrapD2Ev.ex
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %23
 
@@ -2700,7 +2700,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrapC2ERKNSt7__cxx1112basic_stringIcSt1
 
 19:                                               ; preds = %16, %13
   %20 = phi i64 [ %18, %16 ], [ 5, %13 ]
-  %21 = getelementptr inbounds [6 x %"class.cv::Scalar_"], ptr @_ZZL12getNextColorvE6colors, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [6 x %"class.cv::Scalar_"], ptr @_ZZL12getNextColorvE6colors, i64 0, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %21, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128

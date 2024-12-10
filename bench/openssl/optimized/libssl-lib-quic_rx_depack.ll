@@ -177,7 +177,7 @@ lor.lhs.false:                                    ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %was_minimal.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
   %9 = sext i32 %switch.load to i64
-  %switch.gep320 = getelementptr inbounds [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
+  %switch.gep320 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.ossl_quic_handle_frames.23, i64 0, i64 %9
   %switch.load321 = load i32, ptr %switch.gep320, align 4
   %cmp.i17 = icmp eq i64 %7, 0
   br i1 %cmp.i17, label %if.then.i, label %while.cond.preheader.i

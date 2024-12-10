@@ -1748,7 +1748,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %in
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i:            ; preds = %while.cond.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %sNameCurrent, i64 %sub.i.i.i.i
+  %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %sNameCurrent, i64 %sub.i.i.i.i
   %tobool.i.i.i = icmp slt i8 %4, 0
   %spec.select.i.i = select i1 %tobool.i.i.i, ptr %5, ptr %sNameCurrent
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
@@ -1868,7 +1868,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %spec.select.i12.i.i = select i1 %tobool.i.i11.i.i, ptr %16, ptr %sNameCurrent
   %add.ptr.i.i = getelementptr inbounds i8, ptr %spec.select.i12.i.i, i64 %sub.ptr.sub
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %17
-  %add.ptr.i1.i.i.i = getelementptr inbounds i8, ptr %sNameCurrent, i64 %sub.i.i.i.pre-phi.i.i
+  %add.ptr.i1.i.i.i = getelementptr inbounds nuw i8, ptr %sNameCurrent, i64 %sub.i.i.i.pre-phi.i.i
   %cond.i16.i.i = select i1 %tobool.i.i11.i.i, ptr %add.ptr.i.i.i.i, ptr %add.ptr.i1.i.i.i
   %cmp.not.i.i.i17 = icmp eq ptr %add.ptr.i.i, %cond.i16.i.i
   br i1 %cmp.not.i.i.i17, label %invoke.cont11, label %if.then.i.i.i

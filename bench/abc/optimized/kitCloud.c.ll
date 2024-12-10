@@ -62,7 +62,7 @@ tailrecurse:                                      ; preds = %32, %4
 
 32:                                               ; preds = %14, %12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %33 = getelementptr inbounds [5 x i32], ptr @Kit_TruthToCloud5_rec.uVars, i64 0, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw [5 x i32], ptr @Kit_TruthToCloud5_rec.uVars, i64 0, i64 %indvars.iv.next
   %34 = load i32, ptr %33, align 4
   %35 = xor i32 %34, -1
   %36 = and i32 %.tr53, %35

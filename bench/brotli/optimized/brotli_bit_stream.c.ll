@@ -50,7 +50,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %i.018 = phi i64 [ %inc3, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [704 x i8], ptr %huffman_tree, i64 0, i64 %i.018
+  %arrayidx = getelementptr inbounds nuw [704 x i8], ptr %huffman_tree, i64 0, i64 %i.018
   %1 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %1 to i64
   %arrayidx2 = getelementptr inbounds nuw [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %idxprom
@@ -95,7 +95,7 @@ for.end16:                                        ; preds = %if.then, %for.inc14
 for.body.i:                                       ; preds = %for.end16, %for.inc.i
   %codes_to_store.1.i = phi i64 [ %sub.i, %for.inc.i ], [ 18, %for.end16 ]
   %sub.i = add nsw i64 %codes_to_store.1.i, -1
-  %arrayidx.i = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %sub.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i8 %4 to i64
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 %idxprom.i
@@ -172,7 +172,7 @@ BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit: ; preds = %for.body29.i, %if.
   br i1 %cmp22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit
-  %arrayidx24 = getelementptr inbounds [18 x i8], ptr %code_length_bitdepth, i64 0, i64 %code.0.lcssa
+  %arrayidx24 = getelementptr inbounds nuw [18 x i8], ptr %code_length_bitdepth, i64 0, i64 %code.0.lcssa
   store i8 0, ptr %arrayidx24, align 1
   br label %if.end25
 
@@ -186,7 +186,7 @@ if.end25:                                         ; preds = %if.then23, %BrotliS
 for.body.i12:                                     ; preds = %if.end25, %for.inc.i14
   %add.i3527.i = phi i64 [ %add.i3526.i, %for.inc.i14 ], [ %storage_ix.promoted.i, %if.end25 ]
   %i.025.i = phi i64 [ %inc.i15, %for.inc.i14 ], [ 0, %if.end25 ]
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %huffman_tree, i64 %i.025.i
+  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %huffman_tree, i64 %i.025.i
   %20 = load i8, ptr %arrayidx.i13, align 1, !noalias !13
   %conv.i = zext i8 %20 to i64
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 %conv.i
@@ -214,7 +214,7 @@ sw.bb7.i:                                         ; preds = %for.body.i12
 
 for.inc.sink.split.i:                             ; preds = %sw.bb7.i, %for.body.i12
   %.sink.i = phi i64 [ 3, %sw.bb7.i ], [ 2, %for.body.i12 ]
-  %arrayidx5.i = getelementptr inbounds i8, ptr %huffman_tree_extra_bits, i64 %i.025.i
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %huffman_tree_extra_bits, i64 %i.025.i
   %24 = load i8, ptr %arrayidx5.i, align 1, !noalias !13
   %conv6.i = zext i8 %24 to i64
   %shr.i16.i = lshr i64 %add.i35.i, 3
@@ -737,8 +737,8 @@ for.end172:                                       ; preds = %for.end172.loopexit
   br i1 %cmp175, label %if.then177, label %if.else181
 
 if.then177:                                       ; preds = %for.end172
-  %arrayidx178 = getelementptr inbounds [704 x i32], ptr @kZeroRepsDepth, i64 0, i64 %reps.0.lcssa
-  %arrayidx180 = getelementptr inbounds [704 x i64], ptr @kZeroRepsBits, i64 0, i64 %reps.0.lcssa
+  %arrayidx178 = getelementptr inbounds nuw [704 x i32], ptr @kZeroRepsDepth, i64 0, i64 %reps.0.lcssa
+  %arrayidx180 = getelementptr inbounds nuw [704 x i64], ptr @kZeroRepsBits, i64 0, i64 %reps.0.lcssa
   br label %if.end216.sink.split
 
 if.else181:                                       ; preds = %for.end172
@@ -807,8 +807,8 @@ while.body201:                                    ; preds = %while.body201.lr.ph
 
 if.else210:                                       ; preds = %if.end194
   %sub211 = add i64 %reps.1, -3
-  %arrayidx212 = getelementptr inbounds [704 x i32], ptr @kNonZeroRepsDepth, i64 0, i64 %sub211
-  %arrayidx214 = getelementptr inbounds [704 x i64], ptr @kNonZeroRepsBits, i64 0, i64 %sub211
+  %arrayidx212 = getelementptr inbounds nuw [704 x i32], ptr @kNonZeroRepsDepth, i64 0, i64 %sub211
+  %arrayidx214 = getelementptr inbounds nuw [704 x i64], ptr @kNonZeroRepsBits, i64 0, i64 %sub211
   br label %if.end216.sink.split
 
 if.end216.sink.split:                             ; preds = %if.then177, %if.else210

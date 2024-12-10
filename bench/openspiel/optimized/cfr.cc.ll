@@ -10265,7 +10265,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit114.thread: ; preds = %_ZN4absl7deb
 
 124:                                              ; preds = %_ZN4absl7debian2eqENS0_11string_viewES1_.exit114.thread
   %125 = sext i32 %.052172 to i64
-  %126 = getelementptr inbounds [4 x %"class.std::__cxx11::basic_string"], ptr %5, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [4 x %"class.std::__cxx11::basic_string"], ptr %5, i64 0, i64 %125
   store ptr %61, ptr %20, align 8
   store i64 %58, ptr %.sroa.2.0..sroa_idx.i115, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef nonnull %126, ptr noundef nonnull align 8 dereferenceable(48) %20)

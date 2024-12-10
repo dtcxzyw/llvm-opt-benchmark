@@ -105,7 +105,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString12ParticleType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -1096,7 +1096,7 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = load float, ptr %17, align 4
   %30 = fpext float %29 to double
@@ -1620,12 +1620,12 @@ define internal fastcc void @_ZL11compareAtomP8_IO_FILEiPK6t_atomS3_ff(ptr nound
 16:                                               ; preds = %9
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.39) #17
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
   %fputs.i = tail call i32 @fputs(ptr %20, ptr %0)
   %21 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 3, i64 1, ptr %0)
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %fputs10.i = tail call i32 @fputs(ptr %24, ptr %0)
   %25 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 2, i64 1, ptr %0)

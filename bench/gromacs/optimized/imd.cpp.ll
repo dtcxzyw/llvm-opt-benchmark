@@ -2137,7 +2137,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit15: ; preds = %122
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #24
   store i8 0, ptr %26, align 8
   %133 = sext i32 %.0.i31 to i64
-  %134 = getelementptr inbounds [10 x ptr], ptr @__const._ZN3gmxL17enumValueToStringENS_14IMDMessageTypeE.imdMessageTypeNames, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [10 x ptr], ptr @__const._ZN3gmxL17enumValueToStringENS_14IMDMessageTypeE.imdMessageTypeNames, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8
   %136 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull @.str.33, ptr noundef nonnull @_ZN3gmxL6IMDstrE, ptr noundef %135)
           to label %137 unwind label %141

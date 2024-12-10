@@ -970,7 +970,7 @@ if.end7:                                          ; preds = %sw.bb
   %sub = add nsw i8 %1, -48
   %inc = add nsw i32 %digitCount.1, 1
   %idxprom = sext i32 %digitCount.1 to i64
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom
   store i8 %sub, ptr %arrayidx, align 1
   br label %sw.epilog
 
@@ -1323,7 +1323,7 @@ if.then222:                                       ; preds = %sw.bb219
 if.then223:                                       ; preds = %if.then222
   %mul226 = shl nsw i32 %quadsAfterZipperCount.1, 1
   %idx.ext227 = sext i32 %mul226 to i64
-  %add.ptr228 = getelementptr inbounds i8, ptr %quadsAfterZipper, i64 %idx.ext227
+  %add.ptr228 = getelementptr inbounds nuw i8, ptr %quadsAfterZipper, i64 %idx.ext227
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr228) #6
   %inc229 = add nsw i32 %quadsAfterZipperCount.1, 1
   br label %if.end240
@@ -1565,7 +1565,7 @@ if.end387:                                        ; preds = %sw.bb378
 if.then392:                                       ; preds = %if.end387
   %mul395 = shl nsw i32 %quadsAfterZipperCount.1, 1
   %idx.ext396 = sext i32 %mul395 to i64
-  %add.ptr397 = getelementptr inbounds i8, ptr %quadsAfterZipper, i64 %idx.ext396
+  %add.ptr397 = getelementptr inbounds nuw i8, ptr %quadsAfterZipper, i64 %idx.ext396
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr397) #6
   %inc398 = add nsw i32 %quadsAfterZipperCount.1, 1
   br label %if.end410
@@ -1608,7 +1608,7 @@ sw.epilog429.sink.split:                          ; preds = %sw.bb207, %sw.bb195
   %letterAmong.1.ph = phi i32 [ 1, %sw.bb183 ], [ 1, %sw.bb195 ], [ %letterAmong.0, %sw.bb207 ]
   %sub214 = add nsw i8 %30, %.sink
   %idxprom216 = sext i32 %digitCount.3 to i64
-  %arrayidx217 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom216
+  %arrayidx217 = getelementptr inbounds nuw [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom216
   store i8 %sub214, ptr %arrayidx217, align 1
   %inc218 = add nsw i32 %digitCount.3, 1
   br label %sw.epilog429
@@ -2608,7 +2608,7 @@ if.end6:                                          ; preds = %sw.bb
   %conv = add nsw i8 %3, -48
   %inc = add nsw i32 %digitCount.1, 1
   %idxprom = sext i32 %digitCount.1 to i64
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom
   store i8 %conv, ptr %arrayidx, align 1
   br label %sw.epilog
 
@@ -2961,7 +2961,7 @@ if.then215:                                       ; preds = %sw.bb212
 if.then216:                                       ; preds = %if.then215
   %mul219 = shl nsw i32 %quadsAfterZipperCount.1, 1
   %idx.ext220 = sext i32 %mul219 to i64
-  %add.ptr221 = getelementptr inbounds i8, ptr %quadsAfterZipper, i64 %idx.ext220
+  %add.ptr221 = getelementptr inbounds nuw i8, ptr %quadsAfterZipper, i64 %idx.ext220
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr221) #6
   %inc222 = add nsw i32 %quadsAfterZipperCount.1, 1
   br label %if.end233
@@ -3203,7 +3203,7 @@ if.end378:                                        ; preds = %sw.bb369
 if.then383:                                       ; preds = %if.end378
   %mul386 = shl nsw i32 %quadsAfterZipperCount.1, 1
   %idx.ext387 = sext i32 %mul386 to i64
-  %add.ptr388 = getelementptr inbounds i8, ptr %quadsAfterZipper, i64 %idx.ext387
+  %add.ptr388 = getelementptr inbounds nuw i8, ptr %quadsAfterZipper, i64 %idx.ext387
   call void @uriWriteQuadToDoubleByte(ptr noundef nonnull %digitHistory, i32 noundef %digitCount.3, ptr noundef nonnull %add.ptr388) #6
   %inc389 = add nsw i32 %quadsAfterZipperCount.1, 1
   br label %if.end401
@@ -3247,7 +3247,7 @@ sw.epilog420.sink.split:                          ; preds = %sw.bb201, %sw.bb190
   %61 = trunc i32 %31 to i8
   %conv208 = add nsw i8 %.sink813, %61
   %idxprom209 = sext i32 %digitCount.3 to i64
-  %arrayidx210 = getelementptr inbounds [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom209
+  %arrayidx210 = getelementptr inbounds nuw [4 x i8], ptr %digitHistory, i64 0, i64 %idxprom209
   store i8 %conv208, ptr %arrayidx210, align 1
   %inc211 = add nsw i32 %digitCount.3, 1
   br label %sw.epilog420

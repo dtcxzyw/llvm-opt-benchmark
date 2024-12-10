@@ -54,7 +54,7 @@ define hidden void @_ZN13PhaseRegAllocC2EjR8PhaseCFGR7MatcherPFvvE(ptr noundef n
   %19 = add nsw i32 %13, 1
   store i32 %19, ptr @_ZN13PhaseRegAlloc15_num_allocatorsE, align 4
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds [10 x ptr], ptr @_ZN13PhaseRegAlloc17_alloc_statisticsE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN13PhaseRegAlloc17_alloc_statisticsE, i64 0, i64 %20
   store ptr %4, ptr %21, align 8
   br label %.loopexit
 

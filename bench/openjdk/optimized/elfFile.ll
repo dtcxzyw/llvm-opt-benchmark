@@ -1614,7 +1614,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13
 .lr.ph.i:                                         ; preds = %10, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i
   %14 = phi i64 [ %27, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i ], [ %12, %10 ]
   %.06.i = phi i32 [ %.0.lcssa.i.i, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i ], [ 0, %10 ]
-  %15 = getelementptr inbounds i8, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %14
   %16 = icmp sgt i64 %14, 0
   br i1 %16, label %.lr.ph.preheader.i.i, label %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i
 
@@ -1767,7 +1767,7 @@ define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr nocapture no
 .lr.ph:                                           ; preds = %1, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit
   %6 = phi i64 [ %19, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit ], [ %4, %1 ]
   %.06 = phi i32 [ %.0.lcssa.i, %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %8 = icmp sgt i64 %6, 0
   br i1 %8, label %.lr.ph.preheader.i, label %_ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit
 

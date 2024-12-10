@@ -607,7 +607,7 @@ _make_time_str.exit159:                           ; preds = %156
 .outer.split.preheader:                           ; preds = %204, %.outer
   %230 = phi i64 [ %241, %.outer ], [ %229, %204 ]
   %.0102.ph166 = phi i64 [ %239, %.outer ], [ 0, %204 ]
-  %231 = getelementptr inbounds i8, ptr %10, i64 %.0102.ph166
+  %231 = getelementptr inbounds nuw i8, ptr %10, i64 %.0102.ph166
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %235

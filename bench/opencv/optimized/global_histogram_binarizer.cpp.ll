@@ -1440,7 +1440,7 @@ define hidden noundef i32 @_ZN5zxing24GlobalHistogramBinarizer19estimateBlackPoi
 23:                                               ; preds = %20
   %24 = add nsw i32 %.0119155, 1
   %25 = sext i32 %.0119155 to i64
-  %26 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %25
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr %26, align 4
   br label %45
@@ -1470,7 +1470,7 @@ define hidden noundef i32 @_ZN5zxing24GlobalHistogramBinarizer19estimateBlackPoi
 39:                                               ; preds = %36
   %40 = add nsw i32 %.0107158, 1
   %41 = sext i32 %.0107158 to i64
-  %42 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %41
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %43, ptr %42, align 4
   %44 = icmp sgt i32 %10, %.0110157

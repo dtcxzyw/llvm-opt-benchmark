@@ -186,7 +186,7 @@ define internal nonnull ptr @alloc_small(ptr noundef %0, i32 noundef %1, i64 nou
   %.062.lcssa = phi ptr [ null, %34 ], [ %.06376, %38 ]
   %41 = icmp eq ptr %.062.lcssa, null
   %first_pool_slop.extra_pool_slop = select i1 %41, ptr @first_pool_slop, ptr @extra_pool_slop
-  %.0.in = getelementptr inbounds [2 x i64], ptr %first_pool_slop.extra_pool_slop, i64 0, i64 %36
+  %.0.in = getelementptr inbounds nuw [2 x i64], ptr %first_pool_slop.extra_pool_slop, i64 0, i64 %36
   %.0 = load i64, ptr %.0.in, align 8
   %42 = sub i64 999999945, %16
   %.1 = tail call i64 @llvm.umin.i64(i64 %.0, i64 %42)

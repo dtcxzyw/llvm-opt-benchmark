@@ -90572,11 +90572,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %sext = shl i64 %19, 32
   %25 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN14deltalake_core6writer5utils14next_data_path17h0f039c76dbde27a1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN14deltalake_core6writer5utils14next_data_path17h0f039c76dbde27a1E, i64 0, i64 %25
   %switch.load = load i64, ptr %switch.gep, align 8
   %sext45 = shl i64 %19, 32
   %26 = ashr exact i64 %sext45, 32
-  %switch.gep43 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN14deltalake_core6writer5utils14next_data_path17h0f039c76dbde27a1E.506, i64 0, i64 %26
+  %switch.gep43 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN14deltalake_core6writer5utils14next_data_path17h0f039c76dbde27a1E.506, i64 0, i64 %26
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   store ptr %switch.load44, ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 8

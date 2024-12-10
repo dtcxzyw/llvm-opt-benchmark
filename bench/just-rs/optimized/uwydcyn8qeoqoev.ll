@@ -7157,9 +7157,9 @@ switch.lookup:                                    ; preds = %2
   %165 = icmp ult i64 %164, 8
   %166 = xor i64 %163, -9223372036854775808
   %167 = select i1 %165, i64 %166, i64 0
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.43", i64 0, i64 %167
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.43", i64 0, i64 %167
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep243 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.44", i64 0, i64 %167
+  %switch.gep243 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.44", i64 0, i64 %167
   %switch.load244 = load ptr, ptr %switch.gep243, align 8
   store ptr %switch.load244, ptr %151, align 8
   %168 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -7885,9 +7885,9 @@ switch.lookup248:                                 ; preds = %2
   %430 = icmp ult i64 %429, 8
   %431 = xor i64 %428, -9223372036854775808
   %432 = select i1 %430, i64 %431, i64 0
-  %switch.gep249 = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.43", i64 0, i64 %432
+  %switch.gep249 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.43", i64 0, i64 %432
   %switch.load250 = load i64, ptr %switch.gep249, align 8
-  %switch.gep251 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.44", i64 0, i64 %432
+  %switch.gep251 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN72_$LT$just..compile_error..CompileError$u20$as$u20$core..fmt..Display$GT$3fmt17hca97e4ddc9b349dbE.44", i64 0, i64 %432
   %switch.load252 = load ptr, ptr %switch.gep251, align 8
   store ptr %switch.load252, ptr %39, align 8
   %433 = getelementptr inbounds nuw i8, ptr %39, i64 8

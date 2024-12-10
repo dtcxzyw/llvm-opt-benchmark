@@ -269,7 +269,7 @@ _ZN6google24glog_internal_namespace_L19ReadFromOffsetExactEiPvmm.exit39: ; preds
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %101
   %.01931.i = phi i64 [ %102, %101 ], [ 0, %.preheader.i ]
-  %104 = getelementptr inbounds i8, ptr %7, i64 %.01931.i
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 %.01931.i
   %105 = sub nuw i64 %2, %.01931.i
   %106 = add i64 %100, %.01931.i
   br label %107
@@ -566,7 +566,7 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 95:                                               ; preds = %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %89, i64 %93, i1 false), !noalias !8
-  %96 = getelementptr inbounds i8, ptr %14, i64 %93
+  %96 = getelementptr inbounds nuw i8, ptr %14, i64 %93
   %97 = sub i64 1024, %93
   br i1 %57, label %99, label %98
 
@@ -1880,7 +1880,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 
 .lr.ph.i:                                         ; preds = %.lr.ph41.split, %15
   %.01931.i = phi i64 [ %16, %15 ], [ 0, %.lr.ph41.split ]
-  %18 = getelementptr inbounds i8, ptr %6, i64 %.01931.i
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %.01931.i
   %19 = sub nuw i64 %11, %.01931.i
   %20 = add i64 %13, %.01931.i
   br label %21
@@ -1996,7 +1996,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %23
   %.01931.i = phi i64 [ %24, %23 ], [ 0, %.preheader.i ]
-  %26 = getelementptr inbounds i8, ptr %7, i64 %.01931.i
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 %.01931.i
   %27 = sub nuw i64 %21, %.01931.i
   %28 = add i64 %19, %.01931.i
   br label %29

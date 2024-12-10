@@ -502,7 +502,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
 
 .noexc49:                                         ; preds = %.split.us.i
   %190 = sext i32 %83 to i64
-  %191 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %190, i32 1
+  %191 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %190, i32 1
   %192 = load ptr, ptr %191, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 147, ptr noundef nonnull @.str.34, ptr noundef %192) #15
           to label %193 unwind label %194
@@ -557,7 +557,7 @@ _ZL13gmx_snew_implIPiEvPKcS2_iRPT_m.exit:         ; preds = %_ZL13gmx_snew_implI
 .lr.ph87.i:                                       ; preds = %205
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %208, i32 2
+  %214 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %208, i32 2
   br label %215
 
 215:                                              ; preds = %278, %.lr.ph87.i

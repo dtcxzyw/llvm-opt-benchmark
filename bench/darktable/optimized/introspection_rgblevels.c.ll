@@ -1178,7 +1178,7 @@ define internal float @_action_process(ptr noundef %0, i32 noundef %1, i32 nound
 
 50:                                               ; preds = %49, %15
   %51 = sext i32 %1 to i64
-  %52 = getelementptr inbounds [4 x %struct.dt_action_element_def_t], ptr @_action_elements_levels, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [4 x %struct.dt_action_element_def_t], ptr @_action_elements_levels, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 16, !tbaa !98
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 172

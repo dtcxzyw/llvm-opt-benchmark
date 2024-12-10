@@ -786,7 +786,7 @@ define void @_ZN3nix17scanForReferencesERKNSt7__cxx1112basic_stringIcSt11char_tr
           to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix7TeeSinkE, i64 16), ptr %6, align 8, !noalias !8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %14, align 8, !noalias !8

@@ -193,7 +193,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 66:                                               ; preds = %63, %61, %51
   %67 = phi i64 [ 2047, %51 ], [ %65, %63 ], [ 0, %61 ]
-  %68 = getelementptr inbounds i32, ptr %7, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %7, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !38
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %68, align 4, !tbaa !38
@@ -229,7 +229,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 91:                                               ; preds = %88, %86, %74
   %92 = phi i64 [ 2047, %74 ], [ %90, %88 ], [ 0, %86 ]
-  %93 = getelementptr inbounds i32, ptr %7, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %7, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !38
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 4, !tbaa !38
@@ -255,7 +255,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 110:                                              ; preds = %107, %105, %91
   %111 = phi i64 [ 2047, %91 ], [ %109, %107 ], [ 0, %105 ]
-  %112 = getelementptr inbounds i32, ptr %7, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %7, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !38
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4, !tbaa !38
@@ -382,7 +382,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 194:                                              ; preds = %206, %192
   %195 = phi i64 [ %193, %192 ], [ %207, %206 ]
-  %196 = getelementptr inbounds i32, ptr %7, i64 %195
+  %196 = getelementptr inbounds nuw i32, ptr %7, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !38
   %198 = sext i32 %197 to i64
   %199 = icmp sgt i64 %189, %198
@@ -415,7 +415,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 215:                                              ; preds = %227, %213
   %216 = phi i64 [ %214, %213 ], [ %228, %227 ]
-  %217 = getelementptr inbounds i32, ptr %7, i64 %216
+  %217 = getelementptr inbounds nuw i32, ptr %7, i64 %216
   %218 = load i32, ptr %217, align 4, !tbaa !38
   %219 = sext i32 %218 to i64
   %220 = icmp slt i64 %189, %219
@@ -545,7 +545,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 297:                                              ; preds = %294, %292, %282
   %298 = phi i64 [ 2047, %282 ], [ %296, %294 ], [ 0, %292 ]
-  %299 = getelementptr inbounds i32, ptr %8, i64 %298
+  %299 = getelementptr inbounds nuw i32, ptr %8, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !38
   %301 = add nsw i32 %300, 1
   store i32 %301, ptr %299, align 4, !tbaa !38
@@ -581,7 +581,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 322:                                              ; preds = %319, %317, %305
   %323 = phi i64 [ 2047, %305 ], [ %321, %319 ], [ 0, %317 ]
-  %324 = getelementptr inbounds i32, ptr %8, i64 %323
+  %324 = getelementptr inbounds nuw i32, ptr %8, i64 %323
   %325 = load i32, ptr %324, align 4, !tbaa !38
   %326 = add nsw i32 %325, 1
   store i32 %326, ptr %324, align 4, !tbaa !38
@@ -607,7 +607,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 341:                                              ; preds = %338, %336, %322
   %342 = phi i64 [ 2047, %322 ], [ %340, %338 ], [ 0, %336 ]
-  %343 = getelementptr inbounds i32, ptr %8, i64 %342
+  %343 = getelementptr inbounds nuw i32, ptr %8, i64 %342
   %344 = load i32, ptr %343, align 4, !tbaa !38
   %345 = add nsw i32 %344, 1
   store i32 %345, ptr %343, align 4, !tbaa !38
@@ -762,7 +762,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 448:                                              ; preds = %445, %443, %.preheader78
   %449 = phi i64 [ 2047, %.preheader78 ], [ %447, %445 ], [ 0, %443 ]
-  %450 = getelementptr inbounds [2048 x i32], ptr %8, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %449
   %451 = load i32, ptr %450, align 4, !tbaa !38
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds [2048 x float], ptr %425, i64 0, i64 %452
@@ -801,7 +801,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 474:                                              ; preds = %471, %469, %460
   %475 = phi i64 [ 2047, %460 ], [ %473, %471 ], [ 0, %469 ]
-  %476 = getelementptr inbounds [2048 x i32], ptr %8, i64 0, i64 %475
+  %476 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %475
   %477 = load i32, ptr %476, align 4, !tbaa !38
   %478 = sext i32 %477 to i64
   %479 = getelementptr inbounds [2048 x float], ptr %425, i64 0, i64 %478
@@ -849,7 +849,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 504:                                              ; preds = %501, %499, %.thread60
   %505 = phi i64 [ 2047, %.thread60 ], [ %503, %501 ], [ 0, %499 ]
-  %506 = getelementptr inbounds [2048 x i32], ptr %8, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw [2048 x i32], ptr %8, i64 0, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !38
   %508 = sext i32 %507 to i64
   %509 = getelementptr inbounds [2048 x float], ptr %425, i64 0, i64 %508

@@ -1424,7 +1424,7 @@ define void @_ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi(ptr dead_
   %.13254 = phi i8 [ %.3, %73 ], [ %.03160, %.preheader ]
   %.13553 = phi i32 [ %.236, %73 ], [ %.03459, %.preheader ]
   %40 = sext i32 %.155 to i64
-  %41 = getelementptr inbounds [8 x i8], ptr @__const._ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi.base2List, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN2cv5aruco10Dictionary19getBitsFromByteListERKNS_3MatEi.base2List, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %.not47 = icmp ult i8 %.13254, %42
   br i1 %.not47, label %53, label %43

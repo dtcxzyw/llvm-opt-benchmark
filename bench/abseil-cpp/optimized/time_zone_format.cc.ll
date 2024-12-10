@@ -167,7 +167,7 @@ if.end28.i:                                       ; preds = %if.else22.i, %if.el
   %div414.i.i = udiv i16 %div2.lhs.trunc.i.i, 400
   %div4.zext.i.i = zext nneg i16 %div414.i.i to i64
   %idxprom.i.i = sext i8 %6 to i64
-  %arrayidx.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i
   %9 = load i32, ptr %arrayidx.i.i, align 4, !noalias !5
   %add9.i.i = add nsw i32 %9, %conv.i13.i
   %conv10.i.i = sext i32 %add9.i.i to i64
@@ -202,7 +202,7 @@ lor.rhs.i.i.i:                                    ; preds = %land.rhs.i.i.i
 
 invoke.cont2:                                     ; preds = %lor.rhs.i.i.i, %land.rhs.i.i.i, %if.end28.i
   %conv.i17.i = phi i32 [ 0, %if.end28.i ], [ 1, %land.rhs.i.i.i ], [ %12, %lor.rhs.i.i.i ]
-  %arrayidx.i19.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 0, i64 %idxprom.i.i
+  %arrayidx.i19.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.k_month_offsets, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i19.i, align 4, !noalias !5
   %add.i20.i = add nsw i32 %conv.i13.i, -1
   %add5.i22.i = add nsw i32 %add.i20.i, %conv.i17.i
@@ -524,13 +524,13 @@ sw.bb70:                                          ; preds = %if.end60
   %42 = load i8, ptr %m.i.i, align 8
   %rem.i946 = srem i8 %42, 10
   %idxprom.i = sext i8 %rem.i946 to i64
-  %arrayidx.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
   %43 = load i8, ptr %arrayidx.i, align 1
   store i8 %43, ptr %incdec.ptr.i454, align 4
   %div.i947 = sdiv i8 %42, 10
   %rem1.i948 = srem i8 %div.i947, 10
   %idxprom2.i = sext i8 %rem1.i948 to i64
-  %arrayidx3.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
   %44 = load i8, ptr %arrayidx3.i, align 1
   store i8 %44, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -539,13 +539,13 @@ sw.bb80:                                          ; preds = %if.end60, %if.end60
   %45 = load i8, ptr %d.i.i, align 1
   %rem.i259949 = srem i8 %45, 10
   %idxprom.i260 = sext i8 %rem.i259949 to i64
-  %arrayidx.i261 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i260
+  %arrayidx.i261 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i260
   %46 = load i8, ptr %arrayidx.i261, align 1
   store i8 %46, ptr %incdec.ptr.i454, align 4
   %div.i263950 = sdiv i8 %45, 10
   %rem1.i264951 = srem i8 %div.i263950, 10
   %idxprom2.i265 = sext i8 %rem1.i264951 to i64
-  %arrayidx3.i266 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i265
+  %arrayidx3.i266 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i265
   %47 = load i8, ptr %arrayidx3.i266, align 1
   store i8 %47, ptr %incdec.ptr4.i37.i, align 1
   %48 = load i8, ptr %cur.2.lcssa, align 1
@@ -565,13 +565,13 @@ sw.bb97:                                          ; preds = %if.end60
   %call101 = call fastcc noundef i32 @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16ToWeekERKNS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp98, i32 noundef 6)
   %rem.i268 = srem i32 %call101, 10
   %idxprom.i269 = sext i32 %rem.i268 to i64
-  %arrayidx.i270 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i269
+  %arrayidx.i270 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i269
   %49 = load i8, ptr %arrayidx.i270, align 1
   store i8 %49, ptr %incdec.ptr.i454, align 4
   %div.i272 = sdiv i32 %call101, 10
   %rem1.i273 = srem i32 %div.i272, 10
   %idxprom2.i274 = sext i32 %rem1.i273 to i64
-  %arrayidx3.i275 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i274
+  %arrayidx3.i275 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i274
   %50 = load i8, ptr %arrayidx3.i275, align 1
   store i8 %50, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -650,13 +650,13 @@ sw.bb120:                                         ; preds = %if.end60
   %call124 = call fastcc noundef i32 @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16ToWeekERKNS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp121, i32 noundef 0)
   %rem.i324 = srem i32 %call124, 10
   %idxprom.i325 = sext i32 %rem.i324 to i64
-  %arrayidx.i326 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i325
+  %arrayidx.i326 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i325
   %63 = load i8, ptr %arrayidx.i326, align 1
   store i8 %63, ptr %incdec.ptr.i454, align 4
   %div.i328 = sdiv i32 %call124, 10
   %rem1.i329 = srem i32 %div.i328, 10
   %idxprom2.i330 = sext i32 %rem1.i329 to i64
-  %arrayidx3.i331 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i330
+  %arrayidx3.i331 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i330
   %64 = load i8, ptr %arrayidx3.i331, align 1
   store i8 %64, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -728,13 +728,13 @@ sw.bb142:                                         ; preds = %if.end60
   %77 = load i8, ptr %hh.i.i, align 2
   %rem.i377952 = srem i8 %77, 10
   %idxprom.i378 = sext i8 %rem.i377952 to i64
-  %arrayidx.i379 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i378
+  %arrayidx.i379 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i378
   %78 = load i8, ptr %arrayidx.i379, align 1
   store i8 %78, ptr %incdec.ptr.i454, align 4
   %div.i381953 = sdiv i8 %77, 10
   %rem1.i382954 = srem i8 %div.i381953, 10
   %idxprom2.i383 = sext i8 %rem1.i382954 to i64
-  %arrayidx3.i384 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i383
+  %arrayidx3.i384 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i383
   %79 = load i8, ptr %arrayidx3.i384, align 1
   store i8 %79, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -743,13 +743,13 @@ sw.bb152:                                         ; preds = %if.end60
   %80 = load i8, ptr %mm.i.i, align 1
   %rem.i387955 = srem i8 %80, 10
   %idxprom.i388 = sext i8 %rem.i387955 to i64
-  %arrayidx.i389 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i388
+  %arrayidx.i389 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i388
   %81 = load i8, ptr %arrayidx.i389, align 1
   store i8 %81, ptr %incdec.ptr.i454, align 4
   %div.i391956 = sdiv i8 %80, 10
   %rem1.i392957 = srem i8 %div.i391956, 10
   %idxprom2.i393 = sext i8 %rem1.i392957 to i64
-  %arrayidx3.i394 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i393
+  %arrayidx3.i394 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i393
   %82 = load i8, ptr %arrayidx3.i394, align 1
   store i8 %82, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -758,13 +758,13 @@ sw.bb162:                                         ; preds = %if.end60
   %83 = load i8, ptr %ss.i.i, align 4
   %rem.i397958 = srem i8 %83, 10
   %idxprom.i398 = sext i8 %rem.i397958 to i64
-  %arrayidx.i399 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i398
+  %arrayidx.i399 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i398
   %84 = load i8, ptr %arrayidx.i399, align 1
   store i8 %84, ptr %incdec.ptr.i454, align 4
   %div.i401959 = sdiv i8 %83, 10
   %rem1.i402960 = srem i8 %div.i401959, 10
   %idxprom2.i403 = sext i8 %rem1.i402960 to i64
-  %arrayidx3.i404 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i403
+  %arrayidx3.i404 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i403
   %85 = load i8, ptr %arrayidx3.i404, align 1
   store i8 %85, ptr %incdec.ptr4.i37.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
@@ -1705,14 +1705,14 @@ if.end432:                                        ; preds = %if.then430, %sw.bb4
   %172 = load i8, ptr %ss.i.i, align 4
   %rem.i770943 = srem i8 %172, 10
   %idxprom.i771 = sext i8 %rem.i770943 to i64
-  %arrayidx.i772 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i771
+  %arrayidx.i772 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i771
   %173 = load i8, ptr %arrayidx.i772, align 1
   %incdec.ptr.i773 = getelementptr inbounds i8, ptr %bp.1, i64 -1
   store i8 %173, ptr %incdec.ptr.i773, align 1
   %div.i774944 = sdiv i8 %172, 10
   %rem1.i775945 = srem i8 %div.i774944, 10
   %idxprom2.i776 = sext i8 %rem1.i775945 to i64
-  %arrayidx3.i777 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i776
+  %arrayidx3.i777 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i776
   %174 = load i8, ptr %arrayidx3.i777, align 1
   %incdec.ptr4.i778 = getelementptr inbounds i8, ptr %bp.1, i64 -2
   store i8 %174, ptr %incdec.ptr4.i778, align 1
@@ -2150,14 +2150,14 @@ if.then541:                                       ; preds = %if.end538
   %214 = load i8, ptr %ss.i.i, align 4
   %rem.i892940 = srem i8 %214, 10
   %idxprom.i893 = sext i8 %rem.i892940 to i64
-  %arrayidx.i894 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i893
+  %arrayidx.i894 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i893
   %215 = load i8, ptr %arrayidx.i894, align 1
   %incdec.ptr.i895 = getelementptr inbounds i8, ptr %bp.2.ph, i64 -1
   store i8 %215, ptr %incdec.ptr.i895, align 1
   %div.i896941 = sdiv i8 %214, 10
   %rem1.i897942 = srem i8 %div.i896941, 10
   %idxprom2.i898 = sext i8 %rem1.i897942 to i64
-  %arrayidx3.i899 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i898
+  %arrayidx3.i899 = getelementptr inbounds nuw [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i898
   %216 = load i8, ptr %arrayidx3.i899, align 1
   %incdec.ptr4.i900 = getelementptr inbounds i8, ptr %bp.2.ph, i64 -2
   store i8 %216, ptr %incdec.ptr4.i900, align 1
@@ -3507,7 +3507,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
   %div4.zext.i.i21.i = zext nneg i16 %div414.i.i20.i to i64
   %sext.i22.i = shl i64 %retval.sroa.3.0.in.i.i, 56
   %idxprom.i.i23.i = ashr exact i64 %sext.i22.i, 56
-  %arrayidx.i.i24.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i23.i
+  %arrayidx.i.i24.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i23.i
   %68 = load i32, ptr %arrayidx.i.i24.i, align 4
   %69 = shl i32 %67, 16
   %conv.i12.i.i25.i = ashr i32 %69, 24
@@ -4207,7 +4207,7 @@ if.then10:                                        ; preds = %if.end8, %while.end
   %dp.addr.1.lcssa.ph34 = phi ptr [ %dp.addr.117, %while.end ], [ %incdec.ptr, %if.end8 ]
   %v.0.lcssa.ph33 = phi i64 [ %v.015, %while.end ], [ %v.1, %if.end8 ]
   %3 = sub nsw i64 15, %exp.1.pn
-  %arrayidx = getelementptr inbounds [19 x i64], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16kExp10E, i64 0, i64 %3
+  %arrayidx = getelementptr inbounds nuw [19 x i64], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16kExp10E, i64 0, i64 %3
   %4 = load i64, ptr %arrayidx, align 8
   %mul11 = mul nsw i64 %4, %v.0.lcssa.ph33
   store i64 %mul11, ptr %subseconds, align 8
@@ -4923,7 +4923,7 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %d.addr.6 = phi i64 [ %sub77, %if.end75 ], [ %d.addr.1, %if.end66 ]
   %m.addr.1 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
   %idxprom.i = sext i8 %m.addr.1 to i64
-  %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp.i79 = icmp eq i8 %m.addr.1, 2
   %8 = and i64 %ey.7, 3

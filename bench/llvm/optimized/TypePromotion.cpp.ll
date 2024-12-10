@@ -805,7 +805,7 @@ _ZNK4llvm4User10getOperandEj.exit80:              ; preds = %180, %183
 190:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit80
   %191 = zext i16 %176 to i64
   %192 = add nsw i64 %191, -1
-  %193 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %192
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %193, align 16
   br label %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit
 
@@ -945,7 +945,7 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.i:       ; preds = %259
 _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit.thread.i: ; preds = %259
   %266 = zext i16 %262 to i64
   %267 = add nsw i64 %266, -1
-  %268 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %267
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %268, align 16
   %269 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i.i, %261
   br i1 %269, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit.thread", label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_1clEPNS1_11InstructionE.exit"

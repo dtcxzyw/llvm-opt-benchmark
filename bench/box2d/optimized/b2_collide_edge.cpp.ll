@@ -759,12 +759,12 @@ if.else141:                                       ; preds = %if.end76
   %i2186 = getelementptr inbounds nuw i8, ptr %ref, i64 4
   store i32 %cond185, ptr %i2186, align 4
   %idxprom189 = sext i32 %primaryAxis.sroa.19.0 to i64
-  %arrayidx190 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom189
+  %arrayidx190 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom189
   %v1191 = getelementptr inbounds nuw i8, ptr %ref, i64 8
   %90 = load i64, ptr %arrayidx190, align 4
   store i64 %90, ptr %v1191, align 4
   %idxprom194 = sext i32 %cond185 to i64
-  %arrayidx195 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom194
+  %arrayidx195 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom194
   %v2196 = getelementptr inbounds nuw i8, ptr %ref, i64 16
   %91 = load i64, ptr %arrayidx195, align 4
   store i64 %91, ptr %v2196, align 4

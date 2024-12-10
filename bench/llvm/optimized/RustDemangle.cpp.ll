@@ -3943,14 +3943,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler18printDecimalNumberEm(p
   %14 = trunc nuw nsw i64 %13 to i8
   %15 = or disjoint i8 %14, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
   store i8 %15, ptr %.ptr.i.i.i, align 1
   %16 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %17, label %12, !llvm.loop !15
 
 17:                                               ; preds = %12
-  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
@@ -4267,14 +4267,14 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit.i:       ; preds = %_ZN4llvm16itanium_d
   %62 = trunc nuw nsw i64 %61 to i8
   %63 = or disjoint i8 %62, 48
   %.0.add.i.i.i.i.i = add nsw i64 %.0.idx.i.i.i.i.i, -1
-  %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.0.add.i.i.i.i.i
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.add.i.i.i.i.i
   store i8 %63, ptr %.ptr.i.i.i.i.i, align 1
   %64 = udiv i64 %.08.i.i.i.i.i, 10
   %.not.i.i.i.i.i = icmp ult i64 %.08.i.i.i.i.i, 10
   br i1 %.not.i.i.i.i.i, label %65, label %60, !llvm.loop !15
 
 65:                                               ; preds = %60
-  %.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %2, i64 %.0.add.i.i.i.i.i
+  %.ptr.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %2, i64 %.0.add.i.i.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %gepdiff.i.i.i.i.i = sub nsw i64 22, %.0.idx.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i, 21
@@ -4794,14 +4794,14 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit27:       ; preds = %91, %94, %_ZN4llvm1
   %125 = trunc nuw nsw i64 %124 to i8
   %126 = or disjoint i8 %125, 48
   %.0.add.i.i.i.i = add nsw i64 %.0.idx.i.i.i.i, -1
-  %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i.i
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i.i
   store i8 %126, ptr %.ptr.i.i.i.i, align 1
   %127 = udiv i64 %.08.i.i.i.i, 10
   %.not.i.i.i.i = icmp ult i64 %.08.i.i.i.i, 10
   br i1 %.not.i.i.i.i, label %128, label %123, !llvm.loop !15
 
 128:                                              ; preds = %123
-  %.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i.i
+  %.ptr.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i.i
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %gepdiff.i.i.i.i = sub nsw i64 22, %.0.idx.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i, 21

@@ -27759,7 +27759,7 @@ switch.lookup:
   %3 = icmp ult i64 %2, 3
   %4 = add nsw i64 %1, -1
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN81_$LT$tokenizers..models..ModelWrapper$u20$as$u20$tokenizers..tokenizer..Model$GT$14get_vocab_size17h73dc71a04e4f248fE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN81_$LT$tokenizers..models..ModelWrapper$u20$as$u20$tokenizers..tokenizer..Model$GT$14get_vocab_size17h73dc71a04e4f248fE", i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i64, ptr %6, align 8, !noundef !4

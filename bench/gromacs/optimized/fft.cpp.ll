@@ -167,7 +167,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 
 70:                                               ; preds = %63
   %71 = sext i32 %.0208 to i64
-  %72 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [500 x i8], ptr %5, i64 0, i64 %71
   store i8 1, ptr %72, align 1
   br label %73
 
@@ -177,7 +177,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
 
 75:                                               ; preds = %73
   %76 = sext i32 %.0206 to i64
-  %77 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [500 x i8], ptr %5, i64 0, i64 %76
   store i8 1, ptr %77, align 1
   br label %78
 
@@ -277,7 +277,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   br i1 %125, label %129, label %.preheader251.backedge
 
 126:                                              ; preds = %110
-  %127 = getelementptr inbounds [500 x i8], ptr %5, i64 0, i64 %indvars.iv.next282
+  %127 = getelementptr inbounds nuw [500 x i8], ptr %5, i64 0, i64 %indvars.iv.next282
   %128 = load i8, ptr %127, align 1
   %.not229 = icmp eq i8 %128, 0
   br i1 %.not229, label %129, label %.preheader251.backedge

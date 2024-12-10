@@ -1162,7 +1162,7 @@ define void @_Z8xvgr_boxP8_IO_FILEiffffiiiiiiPK16gmx_output_env_t(ptr nocapture 
   %17 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 10, i64 1, ptr %0)
   %18 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 12, i64 1, ptr %0)
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds [2 x ptr], ptr @_ZL10LocTypeStr, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL10LocTypeStr, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %21) #21
   %23 = fpext float %2 to double
@@ -1174,7 +1174,7 @@ define void @_Z8xvgr_boxP8_IO_FILEiffffiiiiiiPK16gmx_output_env_t(ptr nocapture 
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.52, i32 noundef %7) #21
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.53, i32 noundef %8) #21
   %31 = sext i32 %9 to i64
-  %32 = getelementptr inbounds [3 x ptr], ptr @_ZL10BoxFillStr, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [3 x ptr], ptr @_ZL10BoxFillStr, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %33) #21
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.55, i32 noundef %10) #21
@@ -3453,7 +3453,7 @@ common.resume:                                    ; preds = %141, %132, %121, %5
   %.0123.lcssa = phi i1 [ true, %57 ], [ %112, %.critedge5.loopexit ]
   %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #24
   %114 = add i64 %113, -1
-  %115 = getelementptr inbounds [16384 x i8], ptr %15, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [16384 x i8], ptr %15, i64 0, i64 %114
   %116 = load i8, ptr %115, align 1
   %.not156 = icmp eq i8 %116, 10
   br i1 %.not156, label %125, label %117

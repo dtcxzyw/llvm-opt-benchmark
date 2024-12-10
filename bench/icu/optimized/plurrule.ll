@@ -1542,7 +1542,7 @@ if.then66:                                        ; preds = %land.lhs.true
   %cond.i.i = select i1 %cmp.i.i.i, i32 %50, i32 %shr.i.i.i
   %call1.i = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %digits.i, i32 noundef 128, i32 noundef 0)
   %idxprom.i110 = sext i32 %call1.i to i64
-  %arrayidx.i111 = getelementptr inbounds [128 x i8], ptr %digits.i, i64 0, i64 %idxprom.i110
+  %arrayidx.i111 = getelementptr inbounds nuw [128 x i8], ptr %digits.i, i64 0, i64 %idxprom.i110
   store i8 0, ptr %arrayidx.i111, align 1
   %call3.i112 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i)
@@ -1567,7 +1567,7 @@ if.then73:                                        ; preds = %if.else
   %cond.i.i118 = select i1 %cmp.i.i.i115, i32 %55, i32 %shr.i.i.i116
   %call1.i119 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i118, ptr noundef nonnull %digits.i113, i32 noundef 128, i32 noundef 0)
   %idxprom.i120 = sext i32 %call1.i119 to i64
-  %arrayidx.i121 = getelementptr inbounds [128 x i8], ptr %digits.i113, i64 0, i64 %idxprom.i120
+  %arrayidx.i121 = getelementptr inbounds nuw [128 x i8], ptr %digits.i113, i64 0, i64 %idxprom.i120
   store i8 0, ptr %arrayidx.i121, align 1
   %call3.i122 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i113) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i113)
@@ -1604,7 +1604,7 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   %cond.i.i135 = select i1 %cmp.i.i.i132, i32 %63, i32 %shr.i.i.i133
   %call1.i136 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i135, ptr noundef nonnull %digits.i130, i32 noundef 128, i32 noundef 0)
   %idxprom.i137 = sext i32 %call1.i136 to i64
-  %arrayidx.i138 = getelementptr inbounds [128 x i8], ptr %digits.i130, i64 0, i64 %idxprom.i137
+  %arrayidx.i138 = getelementptr inbounds nuw [128 x i8], ptr %digits.i130, i64 0, i64 %idxprom.i137
   store i8 0, ptr %arrayidx.i138, align 1
   %call3.i139 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i130) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i130)
@@ -1622,7 +1622,7 @@ if.then84:                                        ; preds = %_ZNK6icu_759UVector
   %cond.i.i145 = select i1 %cmp.i.i.i142, i32 %69, i32 %shr.i.i.i143
   %call1.i146 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i145, ptr noundef nonnull %digits.i140, i32 noundef 128, i32 noundef 0)
   %idxprom.i147 = sext i32 %call1.i146 to i64
-  %arrayidx.i148 = getelementptr inbounds [128 x i8], ptr %digits.i140, i64 0, i64 %idxprom.i147
+  %arrayidx.i148 = getelementptr inbounds nuw [128 x i8], ptr %digits.i140, i64 0, i64 %idxprom.i147
   store i8 0, ptr %arrayidx.i148, align 1
   %call3.i149 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i140) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i140)
@@ -1640,7 +1640,7 @@ if.else95:                                        ; preds = %if.else78, %_ZNK6ic
   %cond.i.i155 = select i1 %cmp.i.i.i152, i32 %73, i32 %shr.i.i.i153
   %call1.i156 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token220, i32 noundef 0, i32 noundef %cond.i.i155, ptr noundef nonnull %digits.i150, i32 noundef 128, i32 noundef 0)
   %idxprom.i157 = sext i32 %call1.i156 to i64
-  %arrayidx.i158 = getelementptr inbounds [128 x i8], ptr %digits.i150, i64 0, i64 %idxprom.i157
+  %arrayidx.i158 = getelementptr inbounds nuw [128 x i8], ptr %digits.i150, i64 0, i64 %idxprom.i157
   store i8 0, ptr %arrayidx.i158, align 1
   %call3.i159 = call noundef i32 @atoi(ptr nocapture noundef nonnull %digits.i150) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %digits.i150)
@@ -5260,7 +5260,7 @@ entry:
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %call1 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %token, i32 noundef 0, i32 noundef %cond.i, ptr noundef nonnull %digits, i32 noundef 128, i32 noundef 0)
   %idxprom = sext i32 %call1 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %digits, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %digits, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call3 = call i32 @atoi(ptr nocapture noundef nonnull %digits) #30
   ret i32 %call3
@@ -8762,7 +8762,7 @@ if.end10.i:                                       ; preds = %for.end.i, %if.end1
   %numFractionDigits.014.i = phi i32 [ %dec.i, %if.end10.i ], [ 15, %for.end.i ]
   %dec.i = add nsw i32 %numFractionDigits.014.i, -1
   %indvars.iv.next19.i = add nsw i64 %indvars.iv18.i, -1
-  %arrayidx6.i = getelementptr inbounds [30 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.next19.i
+  %arrayidx6.i = getelementptr inbounds nuw [30 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.next19.i
   %4 = load i8, ptr %arrayidx6.i, align 1
   %cmp8.not.i = icmp eq i8 %4, 48
   br i1 %cmp8.not.i, label %if.end10.i, label %for.end13.i, !llvm.loop !52
@@ -9594,7 +9594,7 @@ if.end10:                                         ; preds = %for.end, %if.end10
   %numFractionDigits.014 = phi i32 [ %dec, %if.end10 ], [ 15, %for.end ]
   %dec = add nsw i32 %numFractionDigits.014, -1
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
-  %arrayidx6 = getelementptr inbounds [30 x i8], ptr %buf, i64 0, i64 %indvars.iv.next19
+  %arrayidx6 = getelementptr inbounds nuw [30 x i8], ptr %buf, i64 0, i64 %indvars.iv.next19
   %4 = load i8, ptr %arrayidx6, align 1
   %cmp8.not = icmp eq i8 %4, 48
   br i1 %cmp8.not, label %if.end10, label %for.end13, !llvm.loop !52

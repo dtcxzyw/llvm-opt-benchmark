@@ -231,7 +231,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 78:                                               ; preds = %74
   %79 = sext i8 %76 to i64
-  %80 = getelementptr inbounds [96 x i8], ptr @yyr2, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [96 x i8], ptr @yyr2, i64 0, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = sext i8 %81 to i64
   %83 = sub nsw i64 1, %82
@@ -585,18 +585,18 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %276 = call i64 @H5Tcreate(i32 noundef 6, i64 noundef 1) #9
   %277 = load i32, ptr @csindex, align 4
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %278
   store i64 %276, ptr %279, align 16
   br label %571
 
 280:                                              ; preds = %78
   %281 = load i32, ptr @csindex, align 4
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %282
   %284 = load i64, ptr %283, align 16
   %285 = inttoptr i64 %284 to ptr
   store i64 0, ptr %283, align 16
-  %286 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %282, i32 2
+  %286 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %282, i32 2
   store i8 1, ptr %286, align 1
   %287 = add nsw i32 %281, -1
   store i32 %287, ptr @csindex, align 4
@@ -605,14 +605,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 288:                                              ; preds = %78
   %289 = load i32, ptr @csindex, align 4
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %290, i32 1
+  %291 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %290, i32 1
   store i8 1, ptr %291, align 8
   br label %571
 
 292:                                              ; preds = %78
   %293 = load i32, ptr @csindex, align 4
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %294
   %296 = load i64, ptr %295, align 16
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 9
   %298 = load i8, ptr %297, align 1
@@ -636,7 +636,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %314 = call i32 @H5Tinsert(i64 noundef %296, ptr noundef %310, i64 noundef %312, i64 noundef %313) #9
   %315 = load i32, ptr @csindex, align 4
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %316, i32 2
+  %317 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %316, i32 2
   store i8 0, ptr %317, align 1
   br label %346
 
@@ -688,7 +688,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 350:                                              ; preds = %349, %346
   %351 = load i32, ptr @csindex, align 4
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %352, i32 1
+  %353 = getelementptr inbounds nuw [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %352, i32 1
   store i8 0, ptr %353, align 8
   %354 = getelementptr inbounds i8, ptr %.2249, i64 -32
   %355 = load i64, ptr %354, align 8
@@ -729,14 +729,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %373 = load i64, ptr %372, align 8
   %374 = load i32, ptr @asindex, align 4
   %375 = sext i32 %374 to i64
-  %376 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %375
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 256
   %378 = load i32, ptr %377, align 8
   %379 = call i64 @H5Tarray_create2(i64 noundef %373, i32 noundef %378, ptr noundef nonnull %376) #9
   %380 = inttoptr i64 %379 to ptr
   %381 = load i32, ptr @asindex, align 4
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %382, i32 1
+  %383 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %382, i32 1
   store i32 0, ptr %383, align 8
   %384 = add nsw i32 %381, -1
   store i32 %384, ptr @asindex, align 4
@@ -747,14 +747,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 387:                                              ; preds = %78
   %388 = load i32, ptr @asindex, align 4
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %389, i32 2
+  %390 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %389, i32 2
   store i8 1, ptr %390, align 4
   br label %571
 
 391:                                              ; preds = %78
   %392 = load i32, ptr @asindex, align 4
   %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 256
   %396 = load i32, ptr %395, align 8
   %397 = load i32, ptr @H5LTyylval, align 8
@@ -762,11 +762,11 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %399 = zext i32 %396 to i64
   %400 = getelementptr inbounds nuw [32 x i64], ptr %394, i64 0, i64 %399
   store i64 %398, ptr %400, align 8
-  %401 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393, i32 1
+  %401 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393, i32 1
   %402 = load i32, ptr %401, align 8
   %403 = add i32 %402, 1
   store i32 %403, ptr %401, align 8
-  %404 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393, i32 2
+  %404 = getelementptr inbounds nuw [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %393, i32 2
   store i8 0, ptr %404, align 4
   br label %571
 
@@ -1121,11 +1121,11 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %574 = getelementptr inbounds i8, ptr %.2243, i64 %572
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 8
   store ptr %.sroa.0.0, ptr %575, align 8
-  %576 = getelementptr inbounds [96 x i8], ptr @yyr1, i64 0, i64 %79
+  %576 = getelementptr inbounds nuw [96 x i8], ptr @yyr1, i64 0, i64 %79
   %577 = load i8, ptr %576, align 1
   %578 = sext i8 %577 to i64
   %579 = add nsw i64 %578, -68
-  %580 = getelementptr inbounds [43 x i8], ptr @yypgoto, i64 0, i64 %579
+  %580 = getelementptr inbounds nuw [43 x i8], ptr @yypgoto, i64 0, i64 %579
   %581 = load i8, ptr %580, align 1
   %582 = sext i8 %581 to i32
   %583 = load i8, ptr %574, align 1
@@ -1147,7 +1147,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %596
 
 594:                                              ; preds = %586, %571
-  %595 = getelementptr inbounds [43 x i8], ptr @yydefgoto, i64 0, i64 %579
+  %595 = getelementptr inbounds nuw [43 x i8], ptr @yydefgoto, i64 0, i64 %579
   br label %596
 
 596:                                              ; preds = %594, %592

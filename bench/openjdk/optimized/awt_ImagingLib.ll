@@ -1163,8 +1163,8 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %172 = sext i32 %129 to i64
   %173 = getelementptr inbounds [32 x i32], ptr %171, i64 0, i64 %172
-  %174 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %172
-  %175 = getelementptr inbounds [32 x i32], ptr %12, i64 0, i64 %172
+  %174 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %172
+  %175 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %172
   %176 = icmp sgt i32 %129, 0
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %178 = load i32, ptr %15, align 8
@@ -1434,8 +1434,8 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %308 = sext i32 %265 to i64
   %309 = getelementptr inbounds [32 x i32], ptr %307, i64 0, i64 %308
-  %310 = getelementptr inbounds [32 x i32], ptr %11, i64 0, i64 %308
-  %311 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %308
+  %310 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %308
+  %311 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %308
   %312 = icmp sgt i32 %265, 0
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %314 = load i32, ptr %15, align 8
@@ -1765,8 +1765,8 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %470 = sext i32 %.fr280 to i64
   %471 = getelementptr inbounds [32 x i32], ptr %469, i64 0, i64 %470
-  %472 = getelementptr inbounds [32 x i32], ptr %9, i64 0, i64 %470
-  %473 = getelementptr inbounds [32 x i32], ptr %8, i64 0, i64 %470
+  %472 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %470
+  %473 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %470
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %475 = load i32, ptr %15, align 8
   %476 = icmp sgt i32 %475, 0
@@ -6377,7 +6377,7 @@ freeDataArray.exit:                               ; preds = %68, %69
 
 144:                                              ; preds = %.lr.ph174, %144
   %indvars.iv199 = phi i64 [ %117, %.lr.ph174 ], [ %indvars.iv.next200, %144 ]
-  %145 = getelementptr inbounds [4 x ptr], ptr %11, i64 0, i64 %indvars.iv199
+  %145 = getelementptr inbounds nuw [4 x ptr], ptr %11, i64 0, i64 %indvars.iv199
   store ptr %116, ptr %145, align 8
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next200 to i32
@@ -7397,8 +7397,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
 
 .lr.ph190:                                        ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %78
+  %80 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
   br label %84
@@ -7702,8 +7702,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
 
 .preheader170.lr.ph:                              ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %78
+  %80 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
   %83 = load i32, ptr %44, align 8
@@ -8029,8 +8029,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
 
 .preheader170.lr.ph:                              ; preds = %.preheader171
   %78 = sext i32 %9 to i64
-  %79 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %78
-  %80 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %78
+  %80 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %78
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = getelementptr inbounds [32 x i32], ptr %81, i64 0, i64 %78
   %83 = load i32, ptr %44, align 8

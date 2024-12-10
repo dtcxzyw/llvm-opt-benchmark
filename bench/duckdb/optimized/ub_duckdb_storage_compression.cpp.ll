@@ -11022,7 +11022,7 @@ while.body:                                       ; preds = %if.end44, %while.bo
 if.then:                                          ; preds = %while.body
   %sub12 = sub nuw i64 %input_idx.089, %result_idx.091
   %shr = lshr i64 %6, %sub12
-  %arrayidx13 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub12
+  %arrayidx13 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub12
   %7 = load i64, ptr %arrayidx13, align 8, !tbaa !14
   %or = or i64 %7, %shr
   %sub14 = sub i64 64, %input_idx.089
@@ -11036,12 +11036,12 @@ if.else:                                          ; preds = %while.body
 
 if.then16:                                        ; preds = %if.else
   %sub18 = sub nuw i64 %result_idx.091, %input_idx.089
-  %arrayidx19 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub18
+  %arrayidx19 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub18
   %8 = load i64, ptr %arrayidx19, align 8, !tbaa !14
   %not = xor i64 %8, -1
   %and = and i64 %6, %not
   %shl = shl i64 %and, %sub18
-  %arrayidx20 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %sub18
+  %arrayidx20 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11LOWER_MASKSE, i64 0, i64 %sub18
   %9 = load i64, ptr %arrayidx20, align 8, !tbaa !14
   %or21 = or i64 %shl, %9
   %sub22 = sub i64 64, %result_idx.091
@@ -11068,7 +11068,7 @@ if.end29:                                         ; preds = %if.else25, %if.then
 
 if.then32:                                        ; preds = %if.end29
   %sub33 = sub nuw i64 %add30, %scan_count
-  %arrayidx34 = getelementptr inbounds [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub33
+  %arrayidx34 = getelementptr inbounds nuw [65 x i64], ptr @_ZN6duckdb20ValidityUncompressed11UPPER_MASKSE, i64 0, i64 %sub33
   %10 = load i64, ptr %arrayidx34, align 8, !tbaa !14
   %or35 = or i64 %10, %input_mask.0
   br label %if.end36

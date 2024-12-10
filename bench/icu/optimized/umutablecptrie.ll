@@ -3545,7 +3545,7 @@ if.then377.i.i.i:                                 ; preds = %for.body373.i.i.i
 if.else382.i.i.i:                                 ; preds = %for.body373.i.i.i
   %sub.i272.i.i.i = sub i32 %indexLength.5354.i.i.i, %sub375.i.i.i
   %idx.ext.i273.i.i.i = sext i32 %i370.0357.i.i.i to i64
-  %add.ptr.i274.i.i.i = getelementptr inbounds i16, ptr %index2.i.i.i, i64 %idx.ext.i273.i.i.i
+  %add.ptr.i274.i.i.i = getelementptr inbounds nuw i16, ptr %index2.i.i.i, i64 %idx.ext.i273.i.i.i
   %cmp.not14.i.i.i.i = icmp sgt i32 %add92.i.i.i, %sub.i272.i.i.i
   br i1 %cmp.not14.i.i.i.i, label %if.else391.i.i.i, label %while.body.lr.ph.i.i.i.i
 
@@ -3605,7 +3605,7 @@ if.else391.i.i.i:                                 ; preds = %if.end.loopexit.us.
 
 if.else394.i.i.i:                                 ; preds = %if.else391.i.i.i
   %idx.ext.i278.i.i.i = sext i32 %i370.0357.i.i.i to i64
-  %add.ptr.i279.i.i.i = getelementptr inbounds i16, ptr %index2.i.i.i, i64 %idx.ext.i278.i.i.i
+  %add.ptr.i279.i.i.i = getelementptr inbounds nuw i16, ptr %index2.i.i.i, i64 %idx.ext.i278.i.i.i
   %cmp12.i.i.i.i = icmp sgt i32 %blockLength.1313.i.i.i, 1
   br i1 %cmp12.i.i.i.i, label %land.rhs.preheader.i.i150.i.i, label %if.end399.thread.i.i.i
 
@@ -3671,7 +3671,7 @@ while.body404.i.i.i:                              ; preds = %while.body404.i.i.i
   %indvars.iv408.i.i.i = phi i64 [ %262, %while.body404.preheader.i.i.i ], [ %indvars.iv.next409.i.i.i, %while.body404.i.i.i ]
   %indvars.iv.next409.i.i.i = add nsw i64 %indvars.iv408.i.i.i, 1
   %264 = add nsw i64 %indvars.iv408.i.i.i, %.pre-phi.i.i
-  %arrayidx408.i.i.i = getelementptr inbounds [2176 x i16], ptr %index2.i.i.i, i64 0, i64 %264
+  %arrayidx408.i.i.i = getelementptr inbounds nuw [2176 x i16], ptr %index2.i.i.i, i64 0, i64 %264
   %265 = load i16, ptr %arrayidx408.i.i.i, align 2
   %266 = load ptr, ptr %index16.i.i.i, align 8
   %indvars.iv.next412.i.i.i = add nsw i64 %indvars.iv411.i.i.i, 1

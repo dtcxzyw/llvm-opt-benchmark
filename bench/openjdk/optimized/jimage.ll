@@ -53,11 +53,11 @@ define range(i64 0, 4294967296) i64 @JIMAGE_FindResource(ptr noundef %0, ptr noc
   store i8 47, ptr %6, align 16
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr align 1 %1, i64 %7, i1 false)
-  %16 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %14
   store i8 47, ptr %16, align 1
-  %17 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %9
+  %17 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %8, i1 false)
-  %18 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw [4096 x i8], ptr %6, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   %19 = call noundef i32 @_ZNK15ImageFileReader19find_location_indexEPKcPy(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %6, ptr noundef %4)
   %20 = zext i32 %19 to i64

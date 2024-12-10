@@ -15329,10 +15329,10 @@ if.then29:                                        ; preds = %if.then24
   %RHSKind6.i.i.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 17
   store i8 3, ptr %RHSKind6.i.i.i65, align 1, !alias.scope !30
   %13 = sext i32 %optKind.sroa.0.0 to i64
-  %switch.gep404 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.2, i64 0, i64 %13
+  %switch.gep404 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.2, i64 0, i64 %13
   %switch.load405 = load i64, ptr %switch.gep404, align 8
   %14 = sext i32 %optKind.sroa.0.0 to i64
-  %switch.gep406 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.3, i64 0, i64 %14
+  %switch.gep406 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN6hermes6parser6detail12JSParserImpl17parseEnumBodyFlowENS_8OptValueINS2_8EnumKindEEEN4llvh8OptionalINS6_5SMLocEEE.3, i64 0, i64 %14
   %switch.load407 = load ptr, ptr %switch.gep406, align 8
   store ptr %switch.load407, ptr %ref.tmp43, align 8
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 8

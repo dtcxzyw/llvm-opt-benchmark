@@ -591,7 +591,7 @@ pop.exit54:                                       ; preds = %36, %42
 
 .preheader81.preheader.i:                         ; preds = %pop.exit54
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %51 = getelementptr inbounds i8, ptr %4, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 %48
   br label %.preheader81.i
 

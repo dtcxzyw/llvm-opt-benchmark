@@ -844,7 +844,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %295, %301
   %.02222092 = phi i64 [ %322, %321 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
   %317 = getelementptr inbounds i8, ptr %316, i64 %.02222092
   %318 = load i8, ptr %317, align 1
-  %319 = getelementptr inbounds [4 x i8], ptr %68, i64 0, i64 %.02222092
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 0, i64 %.02222092
   %320 = load i8, ptr %319, align 1
   %.not241 = icmp eq i8 %318, %320
   br i1 %.not241, label %321, label %._crit_edge

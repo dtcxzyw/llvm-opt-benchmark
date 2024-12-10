@@ -1936,7 +1936,7 @@ if.end908:                                        ; preds = %if.then906, %if.end
   br i1 %cmp912744, label %for.body914.lr.ph, label %for.end982
 
 for.body914.lr.ph:                                ; preds = %if.end908
-  %add.ptr = getelementptr inbounds i8, ptr %new_cert, i64 %call904
+  %add.ptr = getelementptr inbounds nuw i8, ptr %new_cert, i64 %call904
   %incdec.ptr954 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %incdec.ptr955 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   %tobool1.not.i = icmp eq i32 %notext.0, 0

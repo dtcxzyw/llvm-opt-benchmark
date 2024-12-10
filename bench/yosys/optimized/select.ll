@@ -98156,7 +98156,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit:   ; preds = %179
   %268 = load ptr, ptr %18, align 8
   %269 = getelementptr i8, ptr %268, i64 -24
   %270 = load i64, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %18, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %18, i64 %270
   %272 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %271)
           to label %273 unwind label %280
 

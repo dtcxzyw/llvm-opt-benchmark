@@ -4383,7 +4383,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
 30:                                               ; preds = %25
   %31 = call fastcc i32 @fr_print(ptr noundef nonnull %1, ptr noundef %14)
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %32
   store i8 0, ptr %33, align 1
   %34 = load i64, ptr %22, align 2
   %35 = and i64 %34, 268435456
@@ -5368,7 +5368,7 @@ define internal noundef i32 @on_frame_send(ptr nocapture readnone %0, ptr nocapt
 19:                                               ; preds = %14
   %20 = call fastcc i32 @fr_print(ptr noundef %1, ptr noundef %4)
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %21
   store i8 0, ptr %22, align 1
   %23 = load i64, ptr %11, align 2
   %24 = and i64 %23, 268435456

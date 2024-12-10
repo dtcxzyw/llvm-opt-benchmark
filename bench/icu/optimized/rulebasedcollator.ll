@@ -7441,7 +7441,7 @@ if.end9:                                          ; preds = %if.end9.i, %if.end.
 
 if.end14:                                         ; preds = %if.end9
   %idxprom = sext i32 %call10 to i64
-  %arrayidx = getelementptr inbounds [158 x i8], ptr %resultLocale, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [158 x i8], ptr %resultLocale, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %result)
   %len.i = getelementptr inbounds nuw i8, ptr %result, i64 56
@@ -7958,7 +7958,7 @@ if.end5.i275:                                     ; preds = %if.then3.i274, %if.
 
 call6.i.noexc280:                                 ; preds = %if.end5.i275
   %idxprom.i276 = sext i32 %shr.i.i.i to i64
-  %arrayidx.i277 = getelementptr inbounds i8, ptr @.str.5, i64 %idxprom.i276
+  %arrayidx.i277 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %idxprom.i276
   %68 = load i8, ptr %arrayidx.i277, align 1
   %call7.i283 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %result, i8 noundef signext %68, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %if.end96 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

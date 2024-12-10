@@ -517,7 +517,7 @@ to_ascii.exit.thread:                             ; preds = %18
 41:                                               ; preds = %38
   %42 = add nsw i32 %.1.i, 10
   %43 = sext i32 %.1.i to i64
-  %44 = getelementptr inbounds i8, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %45 = lshr i32 %36, 24
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
   %47 = getelementptr i8, ptr %44, i64 4
@@ -540,7 +540,7 @@ to_ascii.exit.thread:                             ; preds = %18
 60:                                               ; preds = %58
   %61 = add nsw i32 %.1.i, 6
   %62 = sext i32 %.1.i to i64
-  %63 = getelementptr inbounds i8, ptr %3, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
   %64 = lshr i32 %36, 8
   %65 = and i32 %64, 255
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %63, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %65) #8
@@ -553,7 +553,7 @@ to_ascii.exit.thread:                             ; preds = %18
   %71 = trunc nuw nsw i32 %36 to i8
   %72 = add nsw i32 %.1.i, 1
   %73 = sext i32 %.1.i to i64
-  %74 = getelementptr inbounds i8, ptr %3, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %73
   store i8 %71, ptr %74, align 1
   br label %75
 

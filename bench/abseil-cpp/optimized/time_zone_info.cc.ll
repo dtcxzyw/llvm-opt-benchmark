@@ -1097,7 +1097,7 @@ entry:
   %div414 = udiv i16 %div2.lhs.trunc, 400
   %div4.zext = zext nneg i16 %div414 to i64
   %idxprom = sext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
   %d.i = getelementptr inbounds nuw i8, ptr %cs, i64 9
   %3 = load i8, ptr %d.i, align 1
@@ -5297,7 +5297,7 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %d.addr.6 = phi i64 [ %sub77, %if.end75 ], [ %d.addr.1, %if.end66 ]
   %m.addr.1 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
   %idxprom.i = sext i8 %m.addr.1 to i64
-  %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp.i79 = icmp eq i8 %m.addr.1, 2
   %8 = and i64 %ey.7, 3

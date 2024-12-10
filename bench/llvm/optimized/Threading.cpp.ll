@@ -349,7 +349,7 @@ define dso_local void @_ZN4llvm15get_thread_nameERNS_15SmallVectorImplIcEE(ptr n
 
 8:                                                ; preds = %1
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
-  %10 = getelementptr inbounds i8, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPcvEEvT_S4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %2, ptr noundef nonnull %10)
   br label %11
 

@@ -3942,7 +3942,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i: ; preds = %490, %4
 
 ._crit_edge.i.i78.loopexit.i:                     ; preds = %503
   %526 = add nuw nsw i64 %.0.i.i60.i, 8
-  %527 = getelementptr inbounds i8, ptr %4, i64 %.0.i.i60.i
+  %527 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.i60.i
   %.0.copyload.i.i77.i = load i64, ptr %527, align 1, !alias.scope !491, !noalias !488
   %528 = xor i64 %.0.copyload.i.i77.i, %.sroa.42.11.i
   %529 = add i64 %528, %.sroa.16.11.i
@@ -3972,7 +3972,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i: ; preds = %490, %4
   br i1 %544, label %545, label %548
 
 545:                                              ; preds = %._crit_edge.i.i78.i
-  %546 = getelementptr inbounds i8, ptr %4, i64 %.09.lcssa.i.i61.i
+  %546 = getelementptr inbounds nuw i8, ptr %4, i64 %.09.lcssa.i.i61.i
   %.0.copyload.i19.i.i70.i = load i32, ptr %546, align 1, !alias.scope !492, !noalias !488
   %547 = zext i32 %.0.copyload.i19.i.i70.i to i64
   br label %548

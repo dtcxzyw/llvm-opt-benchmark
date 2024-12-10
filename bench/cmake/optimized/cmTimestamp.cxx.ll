@@ -103,7 +103,7 @@ define dso_local void @_ZNK11cmTimestamp11CurrentTimeERKNSt7__cxx1112basic_strin
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   %27 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %26)
           to label %28 unwind label %41
 
@@ -114,7 +114,7 @@ define dso_local void @_ZNK11cmTimestamp11CurrentTimeERKNSt7__cxx1112basic_strin
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr i8, ptr %30, i64 -24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 %32
   %34 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %33)
           to label %35 unwind label %41
 

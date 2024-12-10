@@ -179,7 +179,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
 
 32:                                               ; preds = %30
   %33 = sext i32 %.0 to i64
-  %34 = getelementptr inbounds [102 x i16], ptr @yypact, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [102 x i16], ptr @yypact, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
   %37 = icmp eq i16 %35, -29
@@ -257,7 +257,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   br label %3
 
 74:                                               ; preds = %57, %59, %32
-  %75 = getelementptr inbounds [102 x i8], ptr @yydefact, i64 0, i64 %33
+  %75 = getelementptr inbounds nuw [102 x i8], ptr @yydefact, i64 0, i64 %33
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = icmp eq i8 %76, 0
@@ -266,7 +266,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
 79:                                               ; preds = %74, %69
   %.0184 = phi i32 [ %77, %74 ], [ %70, %69 ]
   %80 = sext i32 %.0184 to i64
-  %81 = getelementptr inbounds [64 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [64 x i8], ptr @yyr2, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -839,11 +839,11 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
   %364 = getelementptr inbounds i8, ptr %.2174, i64 %362
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store ptr %.sroa.0.0, ptr %365, align 8
-  %366 = getelementptr inbounds [64 x i8], ptr @yyr1, i64 0, i64 %80
+  %366 = getelementptr inbounds nuw [64 x i8], ptr @yyr1, i64 0, i64 %80
   %367 = load i8, ptr %366, align 1
   %368 = sext i8 %367 to i64
   %369 = add nsw i64 %368, -37
-  %370 = getelementptr inbounds [20 x i16], ptr @yypgoto, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [20 x i16], ptr @yypgoto, i64 0, i64 %369
   %371 = load i16, ptr %370, align 2
   %372 = sext i16 %371 to i32
   %373 = load i8, ptr %364, align 1
@@ -864,7 +864,7 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
   br label %385
 
 383:                                              ; preds = %376, %setDir.exit.thread
-  %384 = getelementptr inbounds [20 x i8], ptr @yydefgoto, i64 0, i64 %369
+  %384 = getelementptr inbounds nuw [20 x i8], ptr @yydefgoto, i64 0, i64 %369
   br label %385
 
 385:                                              ; preds = %383, %381
@@ -930,7 +930,7 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
   %412 = load i8, ptr %411, align 1
   %413 = sext i8 %412 to i32
   %.phi.trans.insert = sext i8 %412 to i64
-  %.phi.trans.insert353 = getelementptr inbounds [102 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert353 = getelementptr inbounds nuw [102 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert353, align 2
   br label %397
 

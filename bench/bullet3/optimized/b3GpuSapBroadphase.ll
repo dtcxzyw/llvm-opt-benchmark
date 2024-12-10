@@ -6200,7 +6200,7 @@ lpad48:                                           ; preds = %if.then3.i.i, %.noe
 
 if.end98:                                         ; preds = %invoke.cont87.if.end98_crit_edge, %if.then97
   %idxprom = phi i64 [ %65, %invoke.cont87.if.end98_crit_edge ], [ 1, %if.then97 ]
-  %arrayidx104 = getelementptr inbounds float, ptr %v, i64 %idxprom
+  %arrayidx104 = getelementptr inbounds nuw float, ptr %v, i64 %idxprom
   %67 = load float, ptr %arrayidx104, align 4
   %cmp105 = fcmp ogt float %sub7.i, %67
   br i1 %cmp105, label %if.then106, label %if.end107

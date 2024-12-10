@@ -1711,7 +1711,7 @@ parse_queue.exit.i:                               ; preds = %735, %731
 
 .lr.ph189.i:                                      ; preds = %.preheader.i47, %.lr.ph189.i
   %.0110188.i = phi i64 [ %763, %.lr.ph189.i ], [ 1, %.preheader.i47 ]
-  %758 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.0110188.i
+  %758 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.0110188.i
   %759 = load i8, ptr %758, align 1
   %760 = sext i8 %759 to i32
   %761 = call i32 @tolower(i32 noundef %760) #27
@@ -2716,7 +2716,7 @@ detail_is_selected.exit.thread.i.i:               ; preds = %detail_is_selected.
   %1264 = ptrtoint ptr %1255 to i64
   %1265 = ptrtoint ptr %1254 to i64
   %1266 = sub i64 %1264, %1265
-  %1267 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %1266
+  %1267 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %1266
   store i8 0, ptr %1267, align 1
   br label %1268
 
@@ -3508,7 +3508,7 @@ define internal fastcc void @exit_program(i32 noundef range(i32 1, 6) %0, ptr no
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.exit_program, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.exit_program, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr @exit_reason, align 8
   store ptr %1, ptr @exit_func, align 8

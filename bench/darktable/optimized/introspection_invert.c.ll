@@ -629,7 +629,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %247 = phi i64 [ %134, %234 ], [ %301, %294 ]
   %248 = phi i64 [ 0, %234 ], [ %300, %294 ]
   %249 = getelementptr float, ptr %235, i64 %247
-  %250 = getelementptr inbounds [3 x [4 x float]], ptr %10, i64 0, i64 %248, i64 0
+  %250 = getelementptr inbounds nuw [3 x [4 x float]], ptr %10, i64 0, i64 %248, i64 0
   %251 = load float, ptr %250, align 16, !tbaa !6
   %252 = load float, ptr %249, align 4, !tbaa !6
   %253 = fsub reassoc nsz arcp contract afn float %251, %252

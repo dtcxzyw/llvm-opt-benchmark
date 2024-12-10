@@ -1581,7 +1581,7 @@ if.then31:                                        ; preds = %if.end30
   %vtable = load ptr, ptr %state, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %state, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %state, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 4)
           to label %invoke.cont33 unwind label %lpad32
 
@@ -4529,7 +4529,7 @@ invoke.cont14:                                    ; preds = %.noexc
   %vtable15 = load ptr, ptr %state, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable15, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %state, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %state, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 4)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -4827,7 +4827,7 @@ invoke.cont133:                                   ; preds = %"_ZZN8facebook5velo
   %vtable135 = load ptr, ptr %state, align 8
   %vbase.offset.ptr136 = getelementptr i8, ptr %vtable135, i64 -24
   %vbase.offset137 = load i64, ptr %vbase.offset.ptr136, align 8
-  %add.ptr138 = getelementptr inbounds i8, ptr %state, i64 %vbase.offset137
+  %add.ptr138 = getelementptr inbounds nuw i8, ptr %state, i64 %vbase.offset137
   %call140 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr138)
           to label %invoke.cont139 unwind label %lpad130
 

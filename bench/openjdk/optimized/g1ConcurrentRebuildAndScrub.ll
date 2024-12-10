@@ -1428,7 +1428,7 @@ _ZN7oopDesc11oop_iterateI22G1RebuildRemSetClosureEEvPT_9MemRegion.exit.i: ; pred
   %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %132 = load i32, ptr %131, align 4
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8
   tail call void %135(ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %.0.i.i.i, ptr %.010.i, i64 %116) #10
   %136 = load i64, ptr %105, align 8
@@ -1822,7 +1822,7 @@ _ZN7oopDesc11oop_iterateI22G1RebuildRemSetClosureEEvPT_9MemRegion.exit.i: ; pred
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull %72, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i.i, ptr %.010.i, i64 %84) #10
   %104 = load i64, ptr %73, align 8
@@ -1905,7 +1905,7 @@ _ZN7oopDesc11oop_iterateI22G1RebuildRemSetClosureEEvPT_.exit: ; preds = %135, %1
   %147 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22G1RebuildRemSetClosureE6_tableE, i64 0, i64 %149
   %151 = load ptr, ptr %150, align 8
   tail call void %151(ptr noundef nonnull %132, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i13) #10
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 72

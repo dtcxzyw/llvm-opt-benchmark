@@ -28007,7 +28007,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %8 = call noundef i32 %1(ptr noundef nonnull %7, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #30
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %15
@@ -29000,7 +29000,7 @@ _ZSt22__uninitialized_copy_aIPKPN8pybind116detail9type_infoEPS3_S3_ET0_T_S8_S7_R
   %198 = ptrtoint ptr %193 to i64
   %199 = sub i64 %198, %182
   %gepdiff = sub nsw i64 8, %199
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %199
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %199
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %193, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %200 = getelementptr inbounds i8, ptr %193, i64 %gepdiff
   store ptr %200, ptr %192, align 8

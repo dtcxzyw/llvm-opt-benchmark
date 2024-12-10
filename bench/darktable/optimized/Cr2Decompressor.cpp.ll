@@ -1738,7 +1738,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %414 = add nsw i64 %413, -12884901888
   %415 = ashr exact i64 %414, 32
   %416 = select i1 %412, i64 0, i64 %415
-  %417 = getelementptr inbounds [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
   %418 = load ptr, ptr %417, align 8, !tbaa !211
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 72
   %420 = load i8, ptr %419, align 8, !tbaa !133, !range !127, !noundef !128
@@ -2098,7 +2098,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %678 = phi i64 [ %566, %552 ], [ %671, %662 ], [ %650, %647 ], [ %650, %654 ], [ %661, %658 ]
   %679 = phi i32 [ %564, %552 ], [ %669, %662 ], [ %651, %647 ], [ %651, %654 ], [ %660, %658 ]
   %680 = phi i32 [ %561, %552 ], [ %676, %662 ], [ 0, %647 ], [ -32768, %654 ], [ -32768, %658 ]
-  %681 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %416
+  %681 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %416
   %682 = load i16, ptr %681, align 2, !tbaa !170
   %683 = trunc i32 %680 to i16
   %684 = add i16 %682, %683
@@ -2731,7 +2731,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %414 = add nsw i64 %413, -4294967296
   %415 = ashr exact i64 %414, 32
   %416 = select i1 %412, i64 0, i64 %415
-  %417 = getelementptr inbounds [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw [3 x %"class.std::reference_wrapper"], ptr %6, i64 0, i64 %416
   %418 = load ptr, ptr %417, align 8, !tbaa !211
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 72
   %420 = load i8, ptr %419, align 8, !tbaa !133, !range !127, !noundef !128
@@ -3091,7 +3091,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed15Cr2DecompressorINS_20Pref
   %678 = phi i64 [ %566, %552 ], [ %671, %662 ], [ %650, %647 ], [ %650, %654 ], [ %661, %658 ]
   %679 = phi i32 [ %564, %552 ], [ %669, %662 ], [ %651, %647 ], [ %651, %654 ], [ %660, %658 ]
   %680 = phi i32 [ %561, %552 ], [ %676, %662 ], [ 0, %647 ], [ -32768, %654 ], [ -32768, %658 ]
-  %681 = getelementptr inbounds [3 x i16], ptr %7, i64 0, i64 %416
+  %681 = getelementptr inbounds nuw [3 x i16], ptr %7, i64 0, i64 %416
   %682 = load i16, ptr %681, align 2, !tbaa !170
   %683 = trunc i32 %680 to i16
   %684 = add i16 %682, %683

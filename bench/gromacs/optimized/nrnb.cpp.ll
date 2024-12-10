@@ -637,7 +637,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2, i32 1
+  %3 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2, i32 1
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -645,7 +645,7 @@ define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z8nrnb_stri(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 16
   ret ptr %4
 }

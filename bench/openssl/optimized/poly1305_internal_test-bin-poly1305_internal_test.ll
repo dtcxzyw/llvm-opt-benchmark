@@ -36,7 +36,7 @@ entry:
   %test = alloca %struct.TESTDATA, align 8
   %out = alloca [16 x i8], align 16
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [35 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [35 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3096) %test, ptr noundef nonnull align 8 dereferenceable(3096) %arrayidx, i64 3096, i1 false)
   %data = getelementptr inbounds nuw i8, ptr %test, i64 8
   %0 = load i64, ptr %test, align 8

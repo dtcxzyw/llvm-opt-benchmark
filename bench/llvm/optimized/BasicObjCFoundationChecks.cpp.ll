@@ -5740,7 +5740,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit.i:        ; preds = %_ZNK4llvm5APInt13ge
 
 82:                                               ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit.i
   %83 = add nsw i64 %.0.i.i.i.i, -1
-  %84 = getelementptr inbounds [6 x i8], ptr @_ZZL15GetCFNumberSizeRN5clang10ASTContextEmE9FixedSize, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [6 x i8], ptr @_ZZL15GetCFNumberSizeRN5clang10ASTContextEmE9FixedSize, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
   br label %95

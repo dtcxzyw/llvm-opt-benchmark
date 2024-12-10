@@ -2495,7 +2495,7 @@ invoke.cont2.i:                                   ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.ensured1.i.i)
   store ptr %51, ptr %tmp_is.i, align 8, !tbaa !44
   %vbase.offset.i.i27.i = load i64, ptr %vbase.offset.ptr.i.i26.i, align 8
-  %add.ptr.i.i28.i = getelementptr inbounds i8, ptr %tmp_is.i, i64 %vbase.offset.i.i27.i
+  %add.ptr.i.i28.i = getelementptr inbounds nuw i8, ptr %tmp_is.i, i64 %vbase.offset.i.i27.i
   store ptr %52, ptr %add.ptr.i.i28.i, align 8, !tbaa !44
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !44
   %293 = load ptr, ptr %_M_string.i.i.i.i, align 8, !tbaa !30
@@ -2517,7 +2517,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i: ; preds
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #23
   store ptr %54, ptr %tmp_is.i, align 8, !tbaa !44
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %tmp_is.i, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmp_is.i, i64 %vbase.offset.i.i.i.i
   store ptr %55, ptr %add.ptr.i.i.i.i, align 8, !tbaa !44
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !77
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %56) #23
@@ -2999,7 +2999,7 @@ invoke.cont2:
   %vtable.i = load ptr, ptr %oss, align 8, !tbaa !44
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i64 9, ptr %_M_precision.i.i, align 8, !tbaa !89
   %conv.i = fpext float %f to double
@@ -3062,7 +3062,7 @@ invoke.cont6:                                     ; preds = %if.else.i.i, %if.th
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %7, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i.i
   store ptr %8, ptr %add.ptr.i.i, align 8, !tbaa !44
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %oss, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !44

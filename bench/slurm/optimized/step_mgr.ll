@@ -5707,7 +5707,7 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
 
 159:                                              ; preds = %156
   %160 = sext i32 %.0125185 to i64
-  %161 = getelementptr inbounds i16, ptr %14, i64 %160
+  %161 = getelementptr inbounds nuw i16, ptr %14, i64 %160
   %162 = load i16, ptr %161, align 2
   %.not151 = icmp eq i16 %162, %.3.in
   br i1 %.not151, label %168, label %163
@@ -5715,14 +5715,14 @@ _use_one_thread_per_core.exit:                    ; preds = %133, %130, %127, %1
 163:                                              ; preds = %159, %156
   %164 = add nsw i32 %.0125185, 1
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i16, ptr %14, i64 %165
+  %166 = getelementptr inbounds nuw i16, ptr %14, i64 %165
   store i16 %.3.in, ptr %166, align 2
-  %167 = getelementptr inbounds i32, ptr %20, i64 %165
+  %167 = getelementptr inbounds nuw i32, ptr %20, i64 %165
   store i32 1, ptr %167, align 4
   br label %172
 
 168:                                              ; preds = %159
-  %169 = getelementptr inbounds i32, ptr %20, i64 %160
+  %169 = getelementptr inbounds nuw i32, ptr %20, i64 %160
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
@@ -5841,7 +5841,7 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
 
 217:                                              ; preds = %215
   %218 = sext i32 %.0122186 to i64
-  %219 = getelementptr inbounds i16, ptr %13, i64 %218
+  %219 = getelementptr inbounds nuw i16, ptr %13, i64 %218
   %220 = load i16, ptr %219, align 2
   %221 = zext i16 %220 to i32
   %.not157 = icmp eq i32 %.2130, %221
@@ -5851,14 +5851,14 @@ _is_mem_resv.exit169:                             ; preds = %199, %200
   %223 = add nsw i32 %.0122186, 1
   %224 = trunc i32 %.2130 to i16
   %225 = sext i32 %223 to i64
-  %226 = getelementptr inbounds i16, ptr %13, i64 %225
+  %226 = getelementptr inbounds nuw i16, ptr %13, i64 %225
   store i16 %224, ptr %226, align 2
-  %227 = getelementptr inbounds i32, ptr %19, i64 %225
+  %227 = getelementptr inbounds nuw i32, ptr %19, i64 %225
   store i32 1, ptr %227, align 4
   br label %232
 
 228:                                              ; preds = %217
-  %229 = getelementptr inbounds i32, ptr %19, i64 %218
+  %229 = getelementptr inbounds nuw i32, ptr %19, i64 %218
   %230 = load i32, ptr %229, align 4
   %231 = add i32 %230, 1
   store i32 %231, ptr %229, align 4

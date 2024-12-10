@@ -4828,7 +4828,7 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %45 = load i64, ptr %offset, align 8
   %mul92 = mul i64 %45, %add91
   %add.ptr93 = getelementptr inbounds i16, ptr %add.ptr, i64 %mul92
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %readPointers, i64 0, i64 %i84.039
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr %readPointers, i64 0, i64 %i84.039
   store ptr %add.ptr93, ptr %arrayidx, align 8
   %inc95 = add nuw i64 %i84.039, 1
   %exitcond.not = icmp eq i64 %inc95, %umax

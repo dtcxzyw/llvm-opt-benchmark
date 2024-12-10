@@ -3260,7 +3260,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %39
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 30360
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [4 x i64], ptr @_ZN6google10LogMessage13num_messages_E, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i64], ptr @_ZN6google10LogMessage13num_messages_E, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = add nsw i64 %65, 1
   store i64 %66, ptr %64, align 8
@@ -4063,7 +4063,7 @@ define void @_ZN6google10LogMessage18SendToSyslogAndLogEv(ptr noundef nonnull al
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 30360
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x i32], ptr @__const._ZN6google10LogMessage18SendToSyslogAndLogEv.SEVERITY_TO_LEVEL, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN6google10LogMessage18SendToSyslogAndLogEv.SEVERITY_TO_LEVEL, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 30408
@@ -4226,7 +4226,7 @@ define noundef i64 @_ZN6google10LogMessage12num_messagesEi(i32 noundef %0) local
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [4 x i64], ptr @_ZN6google10LogMessage13num_messages_E, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i64], ptr @_ZN6google10LogMessage13num_messages_E, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN6googleL9log_mutexE) #43
   ret i64 %6
@@ -4419,7 +4419,7 @@ _ZN6google16posix_strerror_rEiPcm.exit:           ; preds = %9, %12
 
 .noexc7:                                          ; preds = %.noexc
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #43
-  %21 = getelementptr inbounds i8, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %21)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %22
 
@@ -4501,12 +4501,12 @@ _ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZSt4nextIPSt10unique_ptrIN6google14LogDestinationESt14default_deleteIS2_EEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit.i
   %2 = sext i32 %0 to i64
-  %.idx.i = shl nsw i64 %2, 3
+  %.idx.i = shl nuw nsw i64 %2, 3
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i, %.lr.ph.i.preheader.i
   %.06.i.i.idx = phi i64 [ %.06.i.i.add, %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i ], [ %.idx.i, %.lr.ph.i.preheader.i ]
-  %.06.i.i.ptr = getelementptr inbounds i8, ptr @_ZN6google14LogDestination17log_destinations_E, i64 %.06.i.i.idx
+  %.06.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN6google14LogDestination17log_destinations_E, i64 %.06.i.i.idx
   %3 = load ptr, ptr %.06.i.i.ptr, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i, label %4
@@ -4533,7 +4533,7 @@ _ZN6google12_GLOBAL__N_113LogFileObject13FlushUnlockedERKNSt6chrono10time_pointI
   br label %_ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i
 
 _ZZN6google14LogDestination19FlushLogFilesUnsafeEiENKUlRSt10unique_ptrIS0_St14default_deleteIS0_EEE_clES5_.exit.i.i: ; preds = %_ZN6google12_GLOBAL__N_113LogFileObject13FlushUnlockedERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEE.exit.i.i.i, %.lr.ph.i.i
-  %.06.i.i.add = add nsw i64 %.06.i.i.idx, 8
+  %.06.i.i.add = add nuw nsw i64 %.06.i.i.idx, 8
   %.not.i.i = icmp eq i64 %.06.i.i.add, 32
   br i1 %.not.i.i, label %_ZN6google14LogDestination19FlushLogFilesUnsafeEi.exit, label %.lr.ph.i.i, !llvm.loop !13
 
@@ -4788,7 +4788,7 @@ define void @_ZN6google7LogSink8ToStringB5cxx11ENS_11LogSeverityEPKciRKNS_14LogM
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = invoke noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %12, i8 noundef signext 48)
           to label %14 unwind label %30
 
@@ -8595,7 +8595,7 @@ _ZNSt10unique_ptrI8_IO_FILESt14default_deleteIS0_EEaSEDn.exit: ; preds = %49, %5
   %76 = load ptr, ptr %11, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %11, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 %78
   %80 = invoke noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %79, i8 noundef signext 48)
           to label %81 unwind label %135
 
@@ -9000,7 +9000,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %233 = load ptr, ptr %26, align 8
   %234 = getelementptr i8, ptr %233, i64 -24
   %235 = load i64, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %26, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr %26, i64 %235
   %237 = invoke noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %236, i8 noundef signext 48)
           to label %238 unwind label %310
 
@@ -9174,7 +9174,7 @@ _ZN6google14LogDestination8hostnameB5cxx11Ev.exit: ; preds = %.noexc106, %287, %
   %325 = load ptr, ptr %6, align 8, !noalias !71
   %326 = getelementptr i8, ptr %325, i64 -24
   %327 = load i64, ptr %326, align 8, !noalias !71
-  %328 = getelementptr inbounds i8, ptr %6, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr %6, i64 %327
   %329 = invoke noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %328, i8 noundef signext 48)
           to label %330 unwind label %347, !noalias !71
 
@@ -24760,7 +24760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %24 = load ptr, ptr %4, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %17
 

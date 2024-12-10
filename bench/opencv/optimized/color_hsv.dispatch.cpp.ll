@@ -2582,20 +2582,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %71 = fmul float %50, %70
   store float %71, ptr %27, align 4
   %72 = sext i32 %63 to i64
-  %73 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %75
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72, i64 1
+  %78 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72, i64 1
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %80
   %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72, i64 2
+  %83 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %72, i64 2
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %85
   %87 = load float, ptr %86, align 4
   br label %88
 
@@ -2815,20 +2815,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %70 = fmul float %51, %69
   store float %70, ptr %27, align 4
   %71 = sext i32 %62 to i64
-  %72 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %74
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71, i64 1
+  %77 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71, i64 1
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71, i64 2
+  %82 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %71, i64 2
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [4 x float], ptr %3, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   br label %87
 
@@ -3092,20 +3092,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %104 = call float @llvm.fmuladd.f32(float %101, float %94, float %100)
   store float %104, ptr %29, align 4
   %105 = sext i32 %98 to i64
-  %106 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %118
   %120 = load float, ptr %119, align 4
   br label %121
 
@@ -3401,20 +3401,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %75 = call float @llvm.fmuladd.f32(float %72, float %65, float %71)
   store float %75, ptr %27, align 4
   %76 = sext i32 %69 to i64
-  %77 = getelementptr inbounds [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [6 x [3 x i32]], ptr @_ZZNK2cv3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fclEPKfPfiE11sector_data, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %89
   %91 = load float, ptr %90, align 4
   br label %92
 

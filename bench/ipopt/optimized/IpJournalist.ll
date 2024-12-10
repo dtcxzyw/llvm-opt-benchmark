@@ -226,7 +226,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 16:                                               ; preds = %.lr.ph
   %17 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.04557) #21
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %indvars.iv
   store i8 %18, ptr %19, align 1
   %20 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %.04557) #21
   %21 = load i8, ptr %20, align 1
@@ -252,7 +252,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 
 28:                                               ; preds = %.critedge
   %29 = sext i32 %.1.lcssa to i64
-  %30 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %29
   store i8 0, ptr %30, align 1
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -272,7 +272,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 
 40:                                               ; preds = %36
   %41 = sext i32 %.1.lcssa to i64
-  %42 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %41
   store i8 0, ptr %42, align 1
   %43 = add i64 %.045.lcssa, 1
   br label %57
@@ -280,10 +280,10 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 44:                                               ; preds = %36
   %45 = add nsw i32 %.1.lcssa, -1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %46
   store i8 45, ptr %47, align 1
   %48 = sext i32 %.1.lcssa to i64
-  %49 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %48
   store i8 0, ptr %49, align 1
   %50 = add i64 %.045.lcssa, -1
   br label %57
@@ -293,7 +293,7 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %53 = xor i64 %.045.lcssa, -1
   %54 = add i64 %.150.lcssa, %53
   %55 = add i64 %54, %52
-  %56 = getelementptr inbounds [1024 x i8], ptr %7, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 0, i64 %55
   store i8 0, ptr %56, align 1
   br label %57
 

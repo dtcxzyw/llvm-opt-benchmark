@@ -30363,7 +30363,7 @@ _ZNK4llvm6APSInteqEl.exit.i.i:                    ; preds = %186, %183, %179
 switch.lookup:                                    ; preds = %_ZNK4llvm6APSInteqEl.exit.i.i
   %sext = shl i64 %.04776.i.i, 32
   %188 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE, i64 0, i64 %188
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5clang4ento7SymExprE, i64 0, i64 %188
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge.i.i
 

@@ -2529,7 +2529,7 @@ _ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC
 12:                                               ; preds = %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit, %20
   %indvars.iv = phi i64 [ 290, %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit ], [ %indvars.iv.next, %20 ]
   %13 = add nsw i64 %indvars.iv, -290
-  %14 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %15, ptr %3, align 8
@@ -4426,7 +4426,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer10isReservedERKNSt7__cxx1112b
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 290, %1 ], [ %indvars.iv.next, %2 ]
   %3 = add nsw i64 %indvars.iv, -290
-  %4 = getelementptr inbounds [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [21 x ptr], ptr @_ZN4LuauL9kReservedE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5) #25
   %7 = icmp eq i32 %6, 0

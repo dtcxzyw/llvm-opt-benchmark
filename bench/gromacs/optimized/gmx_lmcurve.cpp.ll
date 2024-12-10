@@ -118,7 +118,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %52 = load i32, ptr %46, align 8
   %53 = load i32, ptr %47, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [0 x ptr], ptr @lm_infmsg, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [0 x ptr], ptr @lm_infmsg, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef %56)
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.050.us, double noundef %50)

@@ -191,12 +191,12 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %143 = load double, ptr %142, align 8
   %144 = fmul double %., %143
   %145 = add nsw i64 %indvars.iv, -1
-  %146 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %145
   store double %144, ptr %146, align 8
   %147 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %148 = load double, ptr %147, align 8
   %149 = fmul double %., %148
-  %150 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %145
+  %150 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %145
   store double %149, ptr %150, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -219,11 +219,11 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.0304338 = phi double [ 0.000000e+00, %.loopexit333 ], [ %167, %154 ]
   %.0307337 = phi double [ 0.000000e+00, %.loopexit333 ], [ %166, %154 ]
   %155 = add nsw i64 %indvars.iv362, -1
-  %156 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %155
   %157 = load double, ptr %156, align 8
   %158 = fsub double %157, %153
   %159 = fdiv double 1.000000e+00, %158
-  %160 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %155
+  %160 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %155
   %161 = load double, ptr %160, align 8
   %162 = fmul double %161, %159
   %163 = fmul double %159, %162
@@ -377,11 +377,11 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.2306342 = phi double [ 0.000000e+00, %250 ], [ %267, %252 ]
   %.1308341 = phi double [ 0.000000e+00, %250 ], [ %264, %252 ]
   %253 = add nsw i64 %indvars.iv366, -1
-  %254 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %253
   %255 = load double, ptr %254, align 8
   %256 = fsub double %255, %251
   %257 = fdiv double 1.000000e+00, %256
-  %258 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %253
+  %258 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %253
   %259 = load double, ptr %258, align 8
   %260 = fmul double %259, %257
   %261 = fmul double %257, %260

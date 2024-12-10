@@ -14793,7 +14793,7 @@ define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame11SetRNGStateERKN
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   store i32 4098, ptr %11, align 8
@@ -14819,7 +14819,7 @@ define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame11SetRNGStateERKN
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 %12, ptr %25, align 8
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #33

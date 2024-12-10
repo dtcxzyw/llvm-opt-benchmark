@@ -2063,7 +2063,7 @@ define noundef range(i32 0, 256) i32 @_ZN8QuantLib8Calendar11WesternImpl12easter
 entry:
   %sub = add nsw i32 %y, -1901
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [299 x i8], ptr @_ZZN8QuantLib8Calendar11WesternImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [299 x i8], ptr @_ZZN8QuantLib8Calendar11WesternImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !14
   %conv = zext i8 %0 to i32
   ret i32 %conv
@@ -2083,7 +2083,7 @@ define noundef range(i32 0, 256) i32 @_ZN8QuantLib8Calendar12OrthodoxImpl12easte
 entry:
   %sub = add nsw i32 %y, -1901
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [299 x i8], ptr @_ZZN8QuantLib8Calendar12OrthodoxImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [299 x i8], ptr @_ZZN8QuantLib8Calendar12OrthodoxImpl12easterMondayEiE12EasterMonday, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !14
   %conv = zext i8 %0 to i32
   ret i32 %conv

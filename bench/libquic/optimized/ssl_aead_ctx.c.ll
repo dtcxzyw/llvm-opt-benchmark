@@ -35,7 +35,7 @@ if.then4:                                         ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.then1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %merged_key, ptr align 1 %mac_key, i64 %mac_key_len, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %merged_key, i64 %mac_key_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %merged_key, i64 %mac_key_len
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %enc_key, i64 %enc_key_len, i1 false)
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr, i64 %enc_key_len
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr9, ptr align 1 %fixed_iv, i64 %fixed_iv_len, i1 false)
@@ -356,14 +356,14 @@ if.then29:                                        ; preds = %if.then24
   br label %return
 
 if.end30:                                         ; preds = %if.then24
-  %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 %nonce_len.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce, i64 %nonce_len.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %conv26, i1 false)
   %add.ptr36 = getelementptr inbounds nuw i8, ptr %in, i64 %conv26
   %sub39 = sub nuw i64 %in_len, %conv26
   br label %if.end45
 
 if.else40:                                        ; preds = %if.end22
-  %add.ptr42 = getelementptr inbounds i8, ptr %nonce, i64 %nonce_len.0
+  %add.ptr42 = getelementptr inbounds nuw i8, ptr %nonce, i64 %nonce_len.0
   %variable_nonce_len43 = getelementptr inbounds nuw i8, ptr %aead, i64 37
   %14 = load i8, ptr %variable_nonce_len43, align 1
   %conv44 = zext i8 %14 to i64
@@ -504,7 +504,7 @@ if.end14:                                         ; preds = %if.else, %if.then4
   %random_variable_nonce = getelementptr inbounds nuw i8, ptr %aead, i64 39
   %7 = load i8, ptr %random_variable_nonce, align 1
   %tobool15.not = icmp eq i8 %7, 0
-  %add.ptr26 = getelementptr inbounds i8, ptr %nonce, i64 %nonce_len.0
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %nonce, i64 %nonce_len.0
   %variable_nonce_len27 = getelementptr inbounds nuw i8, ptr %aead, i64 37
   %8 = load i8, ptr %variable_nonce_len27, align 1
   %conv28 = zext i8 %8 to i64

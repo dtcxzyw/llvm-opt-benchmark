@@ -3129,7 +3129,7 @@ switch.lookup:                                    ; preds = %12
   %15 = load i16, ptr %14, align 4
   %switch.tableidx = add nsw i16 %15, -340
   %16 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo13reMaterializeERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEjRKS4_RKNS_18TargetRegisterInfoE, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo13reMaterializeERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEjRKS4_RKNS_18TargetRegisterInfoE, i64 0, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %18 = load ptr, ptr %17, align 8
@@ -8241,7 +8241,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %55, %_ZNK4llvm8Func
   %333 = load ptr, ptr %332, align 8
   %sext193 = shl i64 %331, 32
   %334 = ashr exact i64 %sext193, 32
-  %switch.gep191 = getelementptr inbounds [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %334
+  %switch.gep191 = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %334
   %switch.load192 = load i64, ptr %switch.gep191, align 8
   %335 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %333, i64 %329, i32 3
   store i64 %switch.load192, ptr %335, align 8
@@ -8403,7 +8403,7 @@ declare void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noun
 define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCMPImmEj(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCMPImmEj, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCMPImmEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -8412,7 +8412,7 @@ switch.lookup:
 define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm3X8618getSwappedVPCOMImmEj(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -8433,7 +8433,7 @@ define dso_local noundef i32 @_ZN4llvm3X8617getSwappedVCMPImmEj(i32 noundef %0) 
 define dso_local noundef range(i32 0, 18) i32 @_ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [18 x i32], ptr @switch.table._ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [18 x i32], ptr @switch.table._ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -10392,7 +10392,7 @@ _ZN4llvm3X8613getCondFromMIERKNS_12MachineInstrE.exit: ; preds = %15, %10, %6
 define dso_local noundef range(i32 0, 9) i32 @_ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE(i32 noundef %0) local_unnamed_addr #3 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table._ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table._ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -10539,7 +10539,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm3X8618getVPCMPImmForCondEN
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -10
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -28393,7 +28393,7 @@ switch.lookup:
   %4 = load i64, ptr %3, align 8
   %sext = shl i64 %4, 32
   %5 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZNK4llvm12X86InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %3, align 8
   ret i1 false

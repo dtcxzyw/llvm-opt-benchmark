@@ -2724,7 +2724,7 @@ _ZN13sentencepiece11string_util4ItoaIiEEmT_Pc.exit: ; preds = %.lr.ph.i.i.i, %._
 
 .noexc2:                                          ; preds = %.noexc
   %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %24)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %25
 

@@ -3711,7 +3711,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr nocapture noundef readonly 
 31:                                               ; preds = %30
   %32 = sdiv i32 %25, 2
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i64, ptr %5, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %5, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = xor i64 %35, -1
   br label %Exp_Truth6Lit.exit.i
@@ -3719,7 +3719,7 @@ define void @Mio_LibGateSimulate(ptr noundef %0, ptr nocapture noundef readonly 
 37:                                               ; preds = %30
   %38 = ashr exact i32 %25, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i64, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw i64, ptr %5, i64 %39
   %41 = load i64, ptr %40, align 8
   br label %Exp_Truth6Lit.exit.i
 
@@ -3768,7 +3768,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %50, %43, %37, %31, 
 64:                                               ; preds = %63
   %65 = sdiv i32 %58, 2
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i64, ptr %5, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %5, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = xor i64 %68, -1
   br label %Exp_Truth6Lit.exit31.i
@@ -3776,7 +3776,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %50, %43, %37, %31, 
 70:                                               ; preds = %63
   %71 = ashr exact i32 %58, 1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i64, ptr %5, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %5, i64 %72
   %74 = load i64, ptr %73, align 8
   br label %Exp_Truth6Lit.exit31.i
 
@@ -3834,7 +3834,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %83, %76, %70, %64, 
 100:                                              ; preds = %99
   %101 = sdiv i32 %94, 2
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i64, ptr %5, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %5, i64 %102
   %104 = load i64, ptr %103, align 8
   %105 = xor i64 %104, -1
   br label %Exp_Truth6Lit.exit34.i
@@ -3842,7 +3842,7 @@ Exp_Truth6Lit.exit31.i:                           ; preds = %83, %76, %70, %64, 
 106:                                              ; preds = %99
   %107 = ashr exact i32 %94, 1
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i64, ptr %5, i64 %108
+  %109 = getelementptr inbounds nuw i64, ptr %5, i64 %108
   %110 = load i64, ptr %109, align 8
   br label %Exp_Truth6Lit.exit34.i
 

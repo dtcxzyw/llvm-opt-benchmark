@@ -1211,7 +1211,7 @@ define internal fastcc noundef zeroext i1 @_ZL23CC_AArch64_Custom_BlockRjRN4llvm
 _ZNK4llvm3MVT13is32BitVectorEv.exit:              ; preds = %27
   %29 = zext nneg i16 %23 to i64
   %30 = add nsw i64 %29, -1
-  %31 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %30
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %31, align 16
   switch i64 %.sroa.0.0.copyload.i.i.i, label %.thread43 [
     i64 32, label %32
@@ -7369,7 +7369,7 @@ _ZN4llvm7CCState11AllocateRegEt.exit68:           ; preds = %.preheader75, %48
 78:                                               ; preds = %5
   %79 = zext i16 %1 to i64
   %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %80
   %.sroa.0.0.copyload.i70 = load i64, ptr %81, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8

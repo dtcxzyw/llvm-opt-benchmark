@@ -808,7 +808,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %m_upAxis.i, align 8
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds float, ptr %retval, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %retval, i64 %idxprom
   store float 1.000000e+00, ptr %arrayidx, align 4
   %.fca.0.load = load <2 x float>, ptr %retval, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0

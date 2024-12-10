@@ -680,14 +680,14 @@ shrunk_size.exit:                                 ; preds = %122, %str_end_with_
 
 149:                                              ; preds = %148
   %150 = add nsw i64 %.01217.i, 1
-  %151 = getelementptr inbounds i8, ptr %3, i64 %.01217.i
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 %.01217.i
   store i8 32, ptr %151, align 1
   br label %152
 
 152:                                              ; preds = %149, %148
   %.113.i = phi i64 [ %150, %149 ], [ %.01217.i, %148 ]
   %153 = add nsw i64 %.113.i, 1
-  %154 = getelementptr inbounds i8, ptr %3, i64 %.113.i
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 %.113.i
   store i8 %143, ptr %154, align 1
   br label %155
 

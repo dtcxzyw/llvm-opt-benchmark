@@ -10677,12 +10677,12 @@ if.end:                                           ; preds = %entry
   %conv13 = zext i8 %call5 to i32
   %add = sub nsw i32 %conv13, %1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %conv14 = trunc i64 %3 to i16
   %sub16 = sub nsw i32 0, %1
   %idxprom17 = sext i32 %sub16 to i64
-  %arrayidx18 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom17
   %4 = load i64, ptr %arrayidx18, align 8, !tbaa !104
   %conv19 = trunc i64 %4 to i16
   %5 = sdiv i16 %conv14, 2
@@ -11486,12 +11486,12 @@ if.end:                                           ; preds = %entry
   %conv13 = zext i8 %call5 to i32
   %add = sub nsw i32 %conv13, %1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %conv14 = trunc i64 %3 to i32
   %sub16 = sub nsw i32 0, %1
   %idxprom17 = sext i32 %sub16 to i64
-  %arrayidx18 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom17
   %4 = load i64, ptr %arrayidx18, align 8, !tbaa !104
   %conv19 = trunc i64 %4 to i32
   %div = sdiv i32 %conv14, 2
@@ -12290,11 +12290,11 @@ if.end:                                           ; preds = %entry
   %conv13 = zext i8 %call5 to i32
   %add = sub nsw i32 %conv13, %1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %sub15 = sub nsw i32 0, %1
   %idxprom16 = sext i32 %sub15 to i64
-  %arrayidx17 = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom16
   %4 = load i64, ptr %arrayidx17, align 8, !tbaa !104
   %div = sdiv i64 %3, 2
   %call18 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %input, i64 noundef 0)
@@ -13115,12 +13115,12 @@ if.end:                                           ; preds = %entry
   %conv13 = zext i8 %call5 to i32
   %add = sub nsw i32 %conv13, %1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %divide_power_of_ten, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %multiply_power_of_ten) #22
   %sub15 = sub nsw i32 0, %1
   %idxprom16 = sext i32 %sub15 to i64
-  %arrayidx17 = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %multiply_power_of_ten, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx17, i64 16, i1 false), !tbaa.struct !196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addition) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp18) #22
@@ -13932,7 +13932,7 @@ entry:
   %1 = load i32, ptr %target_scale, align 8, !tbaa !89
   %sub = sub nsw i32 %conv, %1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %conv6 = trunc i64 %2 to i16
   %3 = sdiv i16 %conv6, 2
@@ -14719,7 +14719,7 @@ entry:
   %1 = load i32, ptr %target_scale, align 8, !tbaa !89
   %sub = sub nsw i32 %conv, %1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %conv6 = trunc i64 %2 to i32
   %div = sdiv i32 %conv6, 2
@@ -15474,7 +15474,7 @@ entry:
   %1 = load i32, ptr %target_scale, align 8, !tbaa !89
   %sub = sub nsw i32 %conv, %1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8, !tbaa !104
   %div = sdiv i64 %2, 2
   %call6 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %input, i64 noundef 0)
@@ -16244,7 +16244,7 @@ entry:
   %1 = load i32, ptr %target_scale, align 8, !tbaa !89
   %sub = sub nsw i32 %conv, %1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %power_of_ten, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addition) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22

@@ -816,7 +816,7 @@ for.body.preheader:                               ; preds = %ggml_backend_regist
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.05 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i.05
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i.05
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) %name) #24
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %return, label %for.inc
@@ -884,7 +884,7 @@ if.else:                                          ; preds = %ggml_backend_regist
   %sub.ptr.rhs.cast = ptrtoint ptr %backend_str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef %backend_str, i64 noundef %sub.ptr.sub) #20
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %backend_name, i64 0, i64 %sub.ptr.sub
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %backend_name, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   br label %if.end
@@ -968,7 +968,7 @@ if.then:                                          ; preds = %ggml_backend_regist
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
-  %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i
   %init_fn = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   %5 = load ptr, ptr %init_fn, align 8
   %user_data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
@@ -1027,7 +1027,7 @@ if.then:                                          ; preds = %ggml_backend_regist
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
-  %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i
   ret ptr %arrayidx
 }
 
@@ -1081,7 +1081,7 @@ if.then:                                          ; preds = %ggml_backend_regist
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
-  %default_buffer_type = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i, i32 2
+  %default_buffer_type = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i, i32 2
   %5 = load ptr, ptr %default_buffer_type, align 8
   ret ptr %5
 }
@@ -1136,7 +1136,7 @@ if.then:                                          ; preds = %ggml_backend_regist
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
-  %default_buffer_type = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i, i32 2
+  %default_buffer_type = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i, i32 2
   %5 = load ptr, ptr %default_buffer_type, align 8
   %6 = load ptr, ptr %5, align 8
   %call.i = tail call ptr %6(ptr noundef nonnull %5, i64 noundef %size) #20
@@ -3073,7 +3073,7 @@ ggml_backend_tensor_copy.exit.i:                  ; preds = %if.else19.i.i, %if.
 for.end.i:                                        ; preds = %ggml_backend_tensor_copy.exit.i, %sched_backend_prio.exit.i
   %call29.i = tail call i64 @ggml_time_us() #20
   %sub.i = sub i64 %call29.i, %call3.i
-  %arrayidx31.i = getelementptr inbounds [4 x i64], ptr %copy_us.i, i64 0, i64 %retval.0.i26.i
+  %arrayidx31.i = getelementptr inbounds nuw [4 x i64], ptr %copy_us.i, i64 0, i64 %retval.0.i26.i
   %45 = load i64, ptr %arrayidx31.i, align 8
   %add.i = add i64 %sub.i, %45
   store i64 %add.i, ptr %arrayidx31.i, align 8
@@ -3094,7 +3094,7 @@ if.end.i.i.i:                                     ; preds = %for.end.i
 ggml_backend_graph_compute.exit.i:                ; preds = %if.end.i.i.i, %for.end.i
   %call33.i = tail call i64 @ggml_time_us() #20
   %sub34.i = sub i64 %call33.i, %call32.i
-  %arrayidx36.i = getelementptr inbounds [4 x i64], ptr %compute_us.i, i64 0, i64 %retval.0.i26.i
+  %arrayidx36.i = getelementptr inbounds nuw [4 x i64], ptr %compute_us.i, i64 0, i64 %retval.0.i26.i
   %48 = load i64, ptr %arrayidx36.i, align 8
   %add37.i = add i64 %sub34.i, %48
   store i64 %add37.i, ptr %arrayidx36.i, align 8

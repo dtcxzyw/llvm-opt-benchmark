@@ -3357,7 +3357,7 @@ define hidden noundef ptr @_ZN5ciEnv13lookup_methodEP15ciInstanceKlassP7ciKlassP
   %29 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %29, align 1
   %30 = sext i32 %5 to i64
-  %31 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 851, ptr noundef nonnull @.str.4, ptr noundef %32) #20
   unreachable
@@ -6651,7 +6651,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %87, %_ZN26GrowableA
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %125, %115
   %127 = phi i32 [ %126, %125 ], [ %124, %115 ]
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = icmp ult i32 %130, 239
   br i1 %131, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit.thread
@@ -6803,7 +6803,7 @@ _ZNK14BytecodeStream12get_index_u2Ev.exit:        ; preds = %204, %205
   %207 = load i32, ptr %41, align 4
   %208 = getelementptr inbounds nuw i8, ptr %198, i64 1
   %209 = sext i32 %207 to i64
-  %210 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %209
   %211 = load i16, ptr %210, align 2
   %212 = and i16 %211, 128
   %.not.i.i43 = icmp eq i16 %212, 0

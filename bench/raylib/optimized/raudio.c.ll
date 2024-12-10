@@ -1689,7 +1689,7 @@ ma_malloc.exit:                                   ; preds = %23, %26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %29
   %.0.lcssa = phi i64 [ 0, %29 ], [ %46, %.lr.ph ]
-  %33 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %.0.lcssa
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.0.lcssa
   store i8 0, ptr %33, align 1
   %34 = call noalias ptr @fopen(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   store ptr %34, ptr %0, align 8
@@ -1720,7 +1720,7 @@ ma_free.exit:                                     ; preds = %35, %38, %40
   %43 = phi i32 [ %48, %.lr.ph ], [ %31, %29 ]
   %.051 = phi i64 [ %46, %.lr.ph ], [ 0, %29 ]
   %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %.051
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.051
   store i8 %44, ptr %45, align 1
   %46 = add i64 %.051, 1
   %47 = getelementptr inbounds i32, ptr %2, i64 %46
@@ -12095,7 +12095,7 @@ ma_device_get_state.exit.thread.i.i:              ; preds = %ma_device_get_state
   %613 = getelementptr inbounds i8, ptr %603, i64 %612
   %614 = zext i32 %.078136.i.i to i64
   %615 = mul nuw i64 %611, %614
-  %616 = getelementptr inbounds i8, ptr %11, i64 %615
+  %616 = getelementptr inbounds nuw i8, ptr %11, i64 %615
   %617 = zext i32 %spec.select.i169.i to i64
   %618 = icmp eq ptr %613, %616
   %619 = mul nuw i64 %611, %617
@@ -58584,7 +58584,7 @@ drwav__malloc_from_callbacks.exit:                ; preds = %23, %29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %.0.lcssa = phi i64 [ 0, %33 ], [ %48, %.lr.ph ]
-  %37 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %.0.lcssa
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.0.lcssa
   store i8 0, ptr %37, align 1
   %38 = call noalias ptr @fopen(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   store ptr %38, ptr %0, align 8
@@ -58609,7 +58609,7 @@ drwav__free_from_callbacks.exit:                  ; preds = %._crit_edge, %41
   %45 = phi i32 [ %50, %.lr.ph ], [ %35, %33 ]
   %.037 = phi i64 [ %48, %.lr.ph ], [ 0, %33 ]
   %46 = trunc i32 %45 to i8
-  %47 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %.037
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.037
   store i8 %46, ptr %47, align 1
   %48 = add i64 %.037, 1
   %49 = getelementptr inbounds i32, ptr %2, i64 %48
@@ -61005,7 +61005,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr nocapture noundef
   %124 = lshr i8 %122, 4
   %125 = load i32, ptr %118, align 4
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [89 x i32], ptr @drwav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [89 x i32], ptr @drwav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = load i32, ptr %119, align 4
   %130 = ashr i32 %128, 3
@@ -61052,7 +61052,7 @@ define internal fastcc i64 @drwav_read_pcm_frames_s16__ima(ptr nocapture noundef
   store i32 %143, ptr %158, align 4
   %159 = load i32, ptr %118, align 4
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds [89 x i32], ptr @drwav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [89 x i32], ptr @drwav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = load i32, ptr %119, align 4
   %164 = ashr i32 %162, 3
@@ -61638,7 +61638,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %25, %31
 
 .lr.ph.i.i.i:                                     ; preds = %60, %.lr.ph.i.i.i
   %.09.i.i.i = phi i64 [ %67, %.lr.ph.i.i.i ], [ 0, %60 ]
-  %61 = getelementptr inbounds i8, ptr %7, i64 %.09.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 %.09.i.i.i
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i16
   %64 = shl nuw i16 %63, 8
@@ -61670,7 +61670,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %25, %31
 
 .lr.ph.i48.i.i:                                   ; preds = %73, %.lr.ph.i48.i.i
   %.08.i.i.i = phi i64 [ %79, %.lr.ph.i48.i.i ], [ 0, %73 ]
-  %74 = getelementptr inbounds i32, ptr %7, i64 %.08.i.i.i
+  %74 = getelementptr inbounds nuw i32, ptr %7, i64 %.08.i.i.i
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 16
   %77 = trunc nuw i32 %76 to i16
@@ -61808,7 +61808,7 @@ drwav_get_bytes_per_pcm_frame.exit.i40:           ; preds = %106, %112
 
 .lr.ph.i.i.us.i:                                  ; preds = %134, %146
   %.014.i.i.us.i = phi i64 [ %149, %146 ], [ 0, %134 ]
-  %135 = getelementptr inbounds float, ptr %6, i64 %.014.i.i.us.i
+  %135 = getelementptr inbounds nuw float, ptr %6, i64 %.014.i.i.us.i
   %136 = load float, ptr %135, align 4
   %137 = fcmp olt float %136, -1.000000e+00
   br i1 %137, label %146, label %138
@@ -61861,7 +61861,7 @@ drwav__ieee_to_s16.exit.us.i:                     ; preds = %146, %134
 
 .lr.ph.i10.i.us.i:                                ; preds = %161, %173
   %.014.i11.i.us.i = phi i64 [ %176, %173 ], [ 0, %161 ]
-  %162 = getelementptr inbounds double, ptr %6, i64 %.014.i11.i.us.i
+  %162 = getelementptr inbounds nuw double, ptr %6, i64 %.014.i11.i.us.i
   %163 = load double, ptr %162, align 8
   %164 = fcmp olt double %163, -1.000000e+00
   br i1 %164, label %173, label %165
@@ -61998,7 +61998,7 @@ drwav_read_pcm_frames_s16__ieee.exit:             ; preds = %.preheader.split.us
 
 .lr.ph.i.i:                                       ; preds = %229, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %236, %.lr.ph.i.i ], [ 0, %229 ]
-  %230 = getelementptr inbounds i8, ptr %5, i64 %.07.i.i
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 %.07.i.i
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
   %233 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavAlawTable, i64 0, i64 %232
@@ -62097,7 +62097,7 @@ drwav_read_pcm_frames_s16__alaw.exit:             ; preds = %220, %223, %drwav_a
 
 .lr.ph.i.i68:                                     ; preds = %277, %.lr.ph.i.i68
   %.07.i.i69 = phi i64 [ %284, %.lr.ph.i.i68 ], [ 0, %277 ]
-  %278 = getelementptr inbounds i8, ptr %4, i64 %.07.i.i69
+  %278 = getelementptr inbounds nuw i8, ptr %4, i64 %.07.i.i69
   %279 = load i8, ptr %278, align 1
   %280 = zext i8 %279 to i64
   %281 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavMulawTable, i64 0, i64 %280
@@ -62456,7 +62456,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
 .lr.ph.i.i.i:                                     ; preds = %57, %.lr.ph.i.i.i
   %.015.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i ], [ %.03044.i, %57 ]
   %.01114.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i ], [ 0, %57 ]
-  %58 = getelementptr inbounds i8, ptr %8, i64 %.01114.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %.01114.i.i.i
   %59 = load i8, ptr %58, align 1
   %60 = uitofp i8 %59 to float
   %61 = fmul float %60, 0x3F80101020000000
@@ -62474,7 +62474,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
 .lr.ph.i40.i.i:                                   ; preds = %65, %.lr.ph.i40.i.i
   %.012.i.i.i = phi i64 [ %71, %.lr.ph.i40.i.i ], [ 0, %65 ]
   %.0811.i.i.i = phi ptr [ %70, %.lr.ph.i40.i.i ], [ %.03044.i, %65 ]
-  %66 = getelementptr inbounds i16, ptr %8, i64 %.012.i.i.i
+  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %.012.i.i.i
   %67 = load i16, ptr %66, align 2
   %68 = sitofp i16 %67 to float
   %69 = fmul float %68, 0x3F00000000000000
@@ -62492,7 +62492,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
   %.020.i.i.i = phi ptr [ %87, %.lr.ph.i42.i.i ], [ %.03044.i, %72 ]
   %.01619.i.i.i = phi i64 [ %88, %.lr.ph.i42.i.i ], [ 0, %72 ]
   %73 = mul i64 %.01619.i.i.i, 3
-  %74 = getelementptr inbounds i8, ptr %8, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 %73
   %75 = load i16, ptr %74, align 1
   %76 = zext i16 %75 to i32
   %77 = shl nuw nsw i32 %76, 8
@@ -62518,7 +62518,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
 .lr.ph.i44.i.i:                                   ; preds = %89, %.lr.ph.i44.i.i
   %.012.i45.i.i = phi i64 [ %96, %.lr.ph.i44.i.i ], [ 0, %89 ]
   %.0811.i46.i.i = phi ptr [ %95, %.lr.ph.i44.i.i ], [ %.03044.i, %89 ]
-  %90 = getelementptr inbounds i32, ptr %8, i64 %.012.i45.i.i
+  %90 = getelementptr inbounds nuw i32, ptr %8, i64 %.012.i45.i.i
   %91 = load i32, ptr %90, align 4
   %92 = sitofp i32 %91 to double
   %93 = fmul double %92, 0x3E00000000000000
@@ -62614,7 +62614,7 @@ drwav_read_pcm_frames_f32__pcm.exit:              ; preds = %47, %50, %drwav__pc
 .lr.ph.i.i35:                                     ; preds = %128, %.lr.ph.i.i35
   %.012.i.i = phi i64 [ %137, %.lr.ph.i.i35 ], [ 0, %128 ]
   %.0811.i.i = phi ptr [ %136, %.lr.ph.i.i35 ], [ %.01823.i, %128 ]
-  %132 = getelementptr inbounds i16, ptr %7, i64 %.012.i.i
+  %132 = getelementptr inbounds nuw i16, ptr %7, i64 %.012.i.i
   %133 = load i16, ptr %132, align 2
   %134 = sitofp i16 %133 to float
   %135 = fmul float %134, 0x3F00000000000000
@@ -62767,7 +62767,7 @@ drwav__ieee_to_f32.exit.us.i:                     ; preds = %.lr.ph.i.us.i, %.pr
 .lr.ph.i.i.us.i:                                  ; preds = %197, %.lr.ph.i.i.us.i
   %.012.i.i.us.i = phi i64 [ %202, %.lr.ph.i.i.us.i ], [ 0, %197 ]
   %.0811.i.i.us.i = phi ptr [ %201, %.lr.ph.i.i.us.i ], [ %.03546.us50.i, %197 ]
-  %198 = getelementptr inbounds double, ptr %6, i64 %.012.i.i.us.i
+  %198 = getelementptr inbounds nuw double, ptr %6, i64 %.012.i.i.us.i
   %199 = load double, ptr %198, align 8
   %200 = fptrunc double %199 to float
   %201 = getelementptr inbounds nuw i8, ptr %.0811.i.i.us.i, i64 4
@@ -62891,7 +62891,7 @@ drwav_read_pcm_frames_f32__ieee.exit:             ; preds = %.preheader.split.us
 .lr.ph.i.i54:                                     ; preds = %255, %.lr.ph.i.i54
   %.013.i.i = phi i64 [ %264, %.lr.ph.i.i54 ], [ 0, %255 ]
   %.0912.i.i = phi ptr [ %263, %.lr.ph.i.i54 ], [ %.02938.i, %255 ]
-  %256 = getelementptr inbounds i8, ptr %5, i64 %.013.i.i
+  %256 = getelementptr inbounds nuw i8, ptr %5, i64 %.013.i.i
   %257 = load i8, ptr %256, align 1
   %258 = zext i8 %257 to i64
   %259 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavAlawTable, i64 0, i64 %258
@@ -62993,7 +62993,7 @@ drwav_read_pcm_frames_f32__alaw.exit:             ; preds = %246, %249, %drwav_a
 .lr.ph.i.i70:                                     ; preds = %305, %.lr.ph.i.i70
   %.013.i.i71 = phi i64 [ %314, %.lr.ph.i.i70 ], [ 0, %305 ]
   %.0912.i.i72 = phi ptr [ %313, %.lr.ph.i.i70 ], [ %.02938.i66, %305 ]
-  %306 = getelementptr inbounds i8, ptr %4, i64 %.013.i.i71
+  %306 = getelementptr inbounds nuw i8, ptr %4, i64 %.013.i.i71
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i64
   %309 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavMulawTable, i64 0, i64 %308
@@ -63381,7 +63381,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %27, %33
 .lr.ph.i.i.i:                                     ; preds = %60, %.lr.ph.i.i.i
   %.012.i.i.i = phi i64 [ %67, %.lr.ph.i.i.i ], [ 0, %60 ]
   %.0811.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i ], [ %.03549.i, %60 ]
-  %61 = getelementptr inbounds i8, ptr %8, i64 %.012.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %.012.i.i.i
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw i32 %63, 24
@@ -63399,7 +63399,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %27, %33
 .lr.ph.i45.i.i:                                   ; preds = %68, %.lr.ph.i45.i.i
   %.012.i46.i.i = phi i64 [ %74, %.lr.ph.i45.i.i ], [ 0, %68 ]
   %.0811.i47.i.i = phi ptr [ %73, %.lr.ph.i45.i.i ], [ %.03549.i, %68 ]
-  %69 = getelementptr inbounds i16, ptr %8, i64 %.012.i46.i.i
+  %69 = getelementptr inbounds nuw i16, ptr %8, i64 %.012.i46.i.i
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i32
   %72 = shl nsw i32 %71, 16
@@ -63417,7 +63417,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %27, %33
   %.020.i.i.i = phi ptr [ %86, %.lr.ph.i49.i.i ], [ %.03549.i, %75 ]
   %.01619.i.i.i = phi i64 [ %87, %.lr.ph.i49.i.i ], [ 0, %75 ]
   %76 = mul i64 %.01619.i.i.i, 3
-  %77 = getelementptr inbounds i8, ptr %8, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 %76
   %78 = load i16, ptr %77, align 1
   %79 = zext i16 %78 to i32
   %80 = shl nuw nsw i32 %79, 8
@@ -63529,7 +63529,7 @@ drwav_read_pcm_frames_s32__pcm.exit:              ; preds = %50, %53, %drwav__pc
 .lr.ph.i.i35:                                     ; preds = %125, %.lr.ph.i.i35
   %.012.i.i = phi i64 [ %134, %.lr.ph.i.i35 ], [ 0, %125 ]
   %.0811.i.i = phi ptr [ %133, %.lr.ph.i.i35 ], [ %.01823.i, %125 ]
-  %129 = getelementptr inbounds i16, ptr %7, i64 %.012.i.i
+  %129 = getelementptr inbounds nuw i16, ptr %7, i64 %.012.i.i
   %130 = load i16, ptr %129, align 2
   %131 = sext i16 %130 to i32
   %132 = shl nsw i32 %131, 16
@@ -63633,7 +63633,7 @@ drwav_get_bytes_per_pcm_frame.exit.i40:           ; preds = %145, %151
 .lr.ph.i.i.us.i:                                  ; preds = %173, %.lr.ph.i.i.us.i
   %.012.i.i.us.i = phi i64 [ %180, %.lr.ph.i.i.us.i ], [ 0, %173 ]
   %.0811.i.i.us.i = phi ptr [ %179, %.lr.ph.i.i.us.i ], [ %.03041.us.i, %173 ]
-  %174 = getelementptr inbounds float, ptr %6, i64 %.012.i.i.us.i
+  %174 = getelementptr inbounds nuw float, ptr %6, i64 %.012.i.i.us.i
   %175 = load float, ptr %174, align 4
   %176 = fpext float %175 to double
   %177 = fmul double %176, 0x41E0000000000000
@@ -63675,7 +63675,7 @@ drwav__ieee_to_s32.exit.us.i:                     ; preds = %.lr.ph.i.i.us.i, %1
 .lr.ph.i9.i.us.i:                                 ; preds = %192, %.lr.ph.i9.i.us.i
   %.012.i10.i.us.i = phi i64 [ %198, %.lr.ph.i9.i.us.i ], [ 0, %192 ]
   %.0811.i11.i.us.i = phi ptr [ %197, %.lr.ph.i9.i.us.i ], [ %.03041.us45.i, %192 ]
-  %193 = getelementptr inbounds double, ptr %6, i64 %.012.i10.i.us.i
+  %193 = getelementptr inbounds nuw double, ptr %6, i64 %.012.i10.i.us.i
   %194 = load double, ptr %193, align 8
   %195 = fmul double %194, 0x41E0000000000000
   %196 = fptosi double %195 to i32
@@ -63800,7 +63800,7 @@ drwav_read_pcm_frames_s32__ieee.exit:             ; preds = %.preheader.split.us
 .lr.ph.i.i54:                                     ; preds = %251, %.lr.ph.i.i54
   %.013.i.i = phi i64 [ %260, %.lr.ph.i.i54 ], [ 0, %251 ]
   %.0912.i.i = phi ptr [ %259, %.lr.ph.i.i54 ], [ %.02938.i, %251 ]
-  %252 = getelementptr inbounds i8, ptr %5, i64 %.013.i.i
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 %.013.i.i
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i64
   %255 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavAlawTable, i64 0, i64 %254
@@ -63902,7 +63902,7 @@ drwav_read_pcm_frames_s32__alaw.exit:             ; preds = %242, %245, %drwav_a
 .lr.ph.i.i70:                                     ; preds = %301, %.lr.ph.i.i70
   %.013.i.i71 = phi i64 [ %310, %.lr.ph.i.i70 ], [ 0, %301 ]
   %.0912.i.i72 = phi ptr [ %309, %.lr.ph.i.i70 ], [ %.02938.i66, %301 ]
-  %302 = getelementptr inbounds i8, ptr %4, i64 %.013.i.i71
+  %302 = getelementptr inbounds nuw i8, ptr %4, i64 %.013.i.i71
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i64
   %305 = getelementptr inbounds nuw [256 x i16], ptr @g_drwavMulawTable, i64 0, i64 %304
@@ -67042,7 +67042,7 @@ ilog.exit393.i:                                   ; preds = %get_bits.exit.i
   %97 = load i8, ptr %96, align 4
   %98 = zext i8 %97 to i64
   %99 = add nsw i64 %98, -1
-  %100 = getelementptr inbounds [4 x i32], ptr @vorbis_decode_packet_rest.range_list, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i32], ptr @vorbis_decode_packet_rest.range_list, i64 0, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr inbounds nuw [16 x ptr], ptr %44, i64 0, i64 %indvars.iv636.i
   %103 = load ptr, ptr %102, align 8
@@ -68599,7 +68599,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
   %798 = load i32, ptr %797, align 4
   %.not379.i = icmp eq i32 %798, 0
   %799 = sext i32 %.0339595.i to i64
-  %800 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %799
+  %800 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %799
   br i1 %.not379.i, label %801, label %804
 
 801:                                              ; preds = %796
@@ -68611,7 +68611,7 @@ get_bits.exit.thread.i:                           ; preds = %._crit_edge581.i, %
   %.sink = phi i8 [ 0, %801 ], [ 1, %796 ]
   %.sink690.i = phi ptr [ %803, %801 ], [ null, %796 ]
   store i8 %.sink, ptr %800, align 1
-  %805 = getelementptr inbounds [16 x ptr], ptr %8, i64 0, i64 %799
+  %805 = getelementptr inbounds nuw [16 x ptr], ptr %8, i64 0, i64 %799
   store ptr %.sink690.i, ptr %805, align 8
   %806 = add nsw i32 %.0339595.i, 1
   br label %807
@@ -68885,7 +68885,7 @@ draw_line.exit.i.i:                               ; preds = %.lr.ph.i.i.i, %920,
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i432.i
   %944 = sext i32 %.044.lcssa.i.i to i64
-  %945 = getelementptr inbounds [256 x float], ptr @inverse_db_table, i64 0, i64 %944
+  %945 = getelementptr inbounds nuw [256 x float], ptr @inverse_db_table, i64 0, i64 %944
   %946 = load float, ptr %945, align 4
   %947 = zext nneg i32 %.045.lcssa.i.i to i64
   br label %948
@@ -77673,7 +77673,7 @@ drmp3_bs_get_bits.exit119.i:                      ; preds = %drmp3_bs_get_bits.e
   %.094.i = phi i32 [ %451, %drmp3_bs_get_bits.exit131.i ], [ %.019.i.i, %drmp3_bs_get_bits.exit.i ], [ %.019.i.i, %.lr.ph.i113.preheader.i ]
   %.0.i127 = phi i32 [ %390, %drmp3_bs_get_bits.exit131.i ], [ %407, %drmp3_bs_get_bits.exit.i ], [ %407, %.lr.ph.i113.preheader.i ]
   %452 = sext i32 %404 to i64
-  %453 = getelementptr inbounds [8 x [23 x i8]], ptr @drmp3_L3_read_side_info.g_scf_long, i64 0, i64 %452
+  %453 = getelementptr inbounds nuw [8 x [23 x i8]], ptr @drmp3_L3_read_side_info.g_scf_long, i64 0, i64 %452
   %454 = and i8 %.fr, 8
   %.not101.i = icmp eq i8 %454, 0
   %455 = select i1 %.not101.i, i32 9, i32 4
@@ -77965,7 +77965,7 @@ drmp3_bs_get_bits.exit215.i.thread:               ; preds = %585
   %612 = phi i32 [ %610, %609 ], [ %608, %607 ]
   %.sink456.i = phi i8 [ 0, %609 ], [ %456, %607 ]
   %.sink.i = phi i8 [ 39, %609 ], [ 30, %607 ]
-  %storemerge = getelementptr inbounds [8 x [40 x i8]], ptr %drmp3_L3_read_side_info.g_scf_mixed.pn, i64 0, i64 %452
+  %storemerge = getelementptr inbounds nuw [8 x [40 x i8]], ptr %drmp3_L3_read_side_info.g_scf_mixed.pn, i64 0, i64 %452
   store ptr %storemerge, ptr %.099.i, align 8
   store i8 %.sink456.i, ptr %549, align 1
   store i8 %.sink.i, ptr %550, align 2
@@ -78869,7 +78869,7 @@ drmp3_L3_decode_scalefactors.exit.i:              ; preds = %drmp3_L3_ldexp_q2.e
   %1141 = getelementptr inbounds nuw [32 x i16], ptr @drmp3_L3_huffman.tabindex, i64 0, i64 %1140
   %1142 = load i16, ptr %1141, align 2
   %1143 = sext i16 %1142 to i64
-  %1144 = getelementptr inbounds i16, ptr @drmp3_L3_huffman.tabs, i64 %1143
+  %1144 = getelementptr inbounds nuw i16, ptr @drmp3_L3_huffman.tabs, i64 %1143
   %1145 = getelementptr inbounds nuw [32 x i8], ptr @drmp3_L3_huffman.g_linbits, i64 0, i64 %1140
   %1146 = load i8, ptr %1145, align 1
   %1147 = zext i8 %1146 to i32
@@ -79002,7 +79002,7 @@ drmp3_L3_decode_scalefactors.exit.i:              ; preds = %drmp3_L3_ldexp_q2.e
 1195:                                             ; preds = %._crit_edge330.i.i
   %1196 = add i32 %1177, 31
   %1197 = sext i32 %1196 to i64
-  %1198 = getelementptr inbounds [145 x float], ptr @g_drmp3_pow43, i64 0, i64 %1197
+  %1198 = getelementptr inbounds nuw [145 x float], ptr @g_drmp3_pow43, i64 0, i64 %1197
   %1199 = load float, ptr %1198, align 4
   br label %drmp3_L3_pow_43.exit.i.i
 
@@ -80684,7 +80684,7 @@ drmp3_bs_get_bits.exit.i.i:                       ; preds = %._crit_edge.i.i.i, 
   %2059 = urem i16 %.019.i.i.i, 3
   %.zext.i.i = zext nneg i16 %2059 to i64
   %2060 = add nsw i64 %2034, %.zext.i.i
-  %2061 = getelementptr inbounds [54 x float], ptr @drmp3_L12_read_scalefactors.g_deq_L12, i64 0, i64 %2060
+  %2061 = getelementptr inbounds nuw [54 x float], ptr @drmp3_L12_read_scalefactors.g_deq_L12, i64 0, i64 %2060
   %2062 = load float, ptr %2061, align 4
   %2063 = udiv i16 %.019.i.i.i, 3
   %.zext37.i.i = zext nneg i16 %2063 to i32
@@ -82430,7 +82430,7 @@ define hidden i64 @drmp3_read_pcm_frames_f32(ptr noundef %0, i64 noundef %1, ptr
   %28 = load i32, ptr %11, align 4
   %29 = zext i32 %28 to i64
   %30 = mul i64 %27, %29
-  %31 = getelementptr inbounds i8, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   %32 = load i32, ptr %15, align 8
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 1
@@ -82475,7 +82475,7 @@ drmp3_read_pcm_frames_raw.exit:                   ; preds = %.preheader.split.i,
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
   %.08.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %52 ]
-  %59 = getelementptr inbounds i16, ptr %4, i64 %.08.i
+  %59 = getelementptr inbounds nuw i16, ptr %4, i64 %.08.i
   %60 = load i16, ptr %59, align 2
   %61 = sitofp i16 %60 to float
   %62 = fmul float %61, 0x3F00000000000000
@@ -84016,7 +84016,7 @@ define internal fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %
   %28 = load i32, ptr %5, align 4
   %29 = zext i32 %28 to i64
   %30 = mul i64 %27, %29
-  %31 = getelementptr inbounds i8, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   %32 = load i32, ptr %10, align 8
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 1
@@ -84693,7 +84693,7 @@ define hidden i32 @qoa_encode_frame(ptr nocapture noundef readonly %0, ptr nocap
   %102 = srem i32 %101, 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(32) %67, i64 32, i1 false)
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [16 x i32], ptr @qoa_reciprocal_tab, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [16 x i32], ptr @qoa_reciprocal_tab, i64 0, i64 %103
   %105 = load i32, ptr %104, align 4
   br label %106
 
@@ -101273,7 +101273,7 @@ ma_device_get_context.exit.i400:                  ; preds = %switch.lookup552, %
 switch.lookup558:                                 ; preds = %328, %ma_device_get_context.exit.i400
   %.0.i1.i401 = phi ptr [ %330, %328 ], [ null, %ma_device_get_context.exit.i400 ]
   %331 = sext i32 %.0.i398494 to i64
-  %switch.gep559 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %331
+  %switch.gep559 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %331
   %switch.load560 = load ptr, ptr %switch.gep559, align 8
   %332 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i401, i32 noundef 1, ptr noundef nonnull @.str.396, ptr noundef nonnull %switch.load560, i32 noundef %325, i32 noundef %324)
   br label %650
@@ -101787,7 +101787,7 @@ ma_device_get_context.exit.i458:                  ; preds = %switch.lookup576, %
 switch.lookup582:                                 ; preds = %576, %ma_device_get_context.exit.i458
   %.0.i1.i459 = phi ptr [ %578, %576 ], [ null, %ma_device_get_context.exit.i458 ]
   %579 = sext i32 %.0.i456520 to i64
-  %switch.gep583 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %579
+  %switch.gep583 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.ma_device_init__pulse.57, i64 0, i64 %579
   %switch.load584 = load ptr, ptr %switch.gep583, align 8
   %580 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i459, i32 noundef 1, ptr noundef nonnull @.str.404, ptr noundef nonnull %switch.load584, i32 noundef %573, i32 noundef %572)
   br label %650
@@ -101952,7 +101952,7 @@ ma_device_get_log.exit468:                        ; preds = %ma_device_get_conte
 switch.lookup567:                                 ; preds = %ma_device_get_log.exit443
   %switch.tableidx568 = add nsw i32 %521, -1
   %659 = sext i32 %switch.tableidx568 to i64
-  %switch.gep569 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %659
+  %switch.gep569 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %659
   %switch.load570 = load i32, ptr %switch.gep569, align 4
   br label %ma_result_from_pulse.exit445thread-pre-split
 
@@ -101997,7 +101997,7 @@ ma_log_post.exit423:                              ; preds = %396, %ma_device_get
 switch.lookup544:                                 ; preds = %ma_device_get_log.exit387
   %switch.tableidx = add nsw i32 %273, -1
   %676 = sext i32 %switch.tableidx to i64
-  %switch.gep545 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %676
+  %switch.gep545 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ma_device_init__pulse.54, i64 0, i64 %676
   %switch.load546 = load i32, ptr %switch.gep545, align 4
   br label %ma_result_from_pulse.exit
 
@@ -104026,7 +104026,7 @@ ma_strncpy_s.exit.i:                              ; preds = %129, %.lr.ph.i51.i
   br i1 %.not33.i58.i, label %.critedge.i60.i, label %142
 
 142:                                              ; preds = %.lr.ph.i56.i
-  %143 = getelementptr inbounds i8, ptr %4, i64 %.037.i57.i
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 %.037.i57.i
   store i8 %141, ptr %143, align 1
   %144 = add nuw i64 %.037.i57.i, 1
   %exitcond.not.i59.i = icmp eq i64 %144, %.027.i.i
@@ -104043,7 +104043,7 @@ ma_strncpy_s.exit.i:                              ; preds = %129, %.lr.ph.i51.i
   br i1 %or.cond36.i.i, label %149, label %151
 
 149:                                              ; preds = %.critedge.i60.i
-  %150 = getelementptr inbounds i8, ptr %4, i64 %.0.lcssa.i61.i
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa.i61.i
   store i8 0, ptr %150, align 1
   br label %ma_strncpy_s.exit63.i
 

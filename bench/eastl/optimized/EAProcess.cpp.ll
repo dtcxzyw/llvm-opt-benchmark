@@ -49,7 +49,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cond.i = tail call i64 @llvm.smin.i64(i64 %call.i, i64 1023)
-  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %cond.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %path8, i64 %cond.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
 
@@ -187,7 +187,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %cond.i = tail call i64 @llvm.smin.i64(i64 %call.i, i64 1023)
-  %arrayidx.i = getelementptr inbounds i8, ptr %path8, i64 %cond.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %path8, i64 %cond.i
   store i8 0, ptr %arrayidx.i, align 1
   br label %_ZN2EA4StdC21GetCurrentProcessPathEPcii.exit
 

@@ -23539,7 +23539,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_
   %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !61
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !63
   %21 = or i32 %20, 1
@@ -24277,7 +24277,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17throw_failed_implEPKcS2_S2_iS
   %7 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !61
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !63
   %13 = or i32 %12, 1
@@ -25176,7 +25176,7 @@ _ZN5boost14static_strings6testTSIiEEbT_PKcb.exit:
   %.130.i.idx.i.i.i = phi i64 [ %.130.i.add.i.i.i, %.preheader.i.i.i.i ], [ 20, %_ZN5boost14static_strings6testTSIiEEbT_PKcb.exit ]
   %.229.i.i.i.i = phi i64 [ %79, %.preheader.i.i.i.i ], [ 9223372036854775807, %_ZN5boost14static_strings6testTSIiEEbT_PKcb.exit ]
   %.130.i.add.i.i.i = add nsw i64 %.130.i.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr %20, i64 %.130.i.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 %.130.i.add.i.i.i
   %76 = urem i64 %.229.i.i.i.i, 10
   %77 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !9, !noalias !99
@@ -25209,7 +25209,7 @@ _ZN5boost14static_strings6testTSIxEEbT_PKcb.exit: ; preds = %.preheader.i.i.i.i
   %.02232.i.idx.i.i.i = phi i64 [ %.02232.i.add4.i.i.i, %.lr.ph.i.i.i.i ], [ 20, %_ZN5boost14static_strings6testTSIxEEbT_PKcb.exit ]
   %.12431.i.i.i.i = phi i64 [ %89, %.lr.ph.i.i.i.i ], [ 9223372036854775807, %_ZN5boost14static_strings6testTSIxEEbT_PKcb.exit ]
   %.02232.i.add4.i.i.i = add nsw i64 %.02232.i.idx.i.i.i, -1
-  %.ptr8.i.i.i = getelementptr inbounds i8, ptr %18, i64 %.02232.i.add4.i.i.i
+  %.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.02232.i.add4.i.i.i
   %86 = urem i64 %.12431.i.i.i.i, 10
   %87 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !9, !noalias !109
@@ -25680,7 +25680,7 @@ _ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   %.130.i.idx.i.i.i89 = phi i64 [ %.130.i.add.i.i.i91, %.preheader.i.i.i.i88 ], [ 80, %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit87 ]
   %.229.i.i.i.i90 = phi i64 [ %271, %.preheader.i.i.i.i88 ], [ 9223372036854775807, %_ZN5boost14static_stringseqILm25EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit87 ]
   %.130.i.add.i.i.i91 = add nsw i64 %.130.i.idx.i.i.i89, -4
-  %.ptr.i.i.i92 = getelementptr inbounds i8, ptr %9, i64 %.130.i.add.i.i.i91
+  %.ptr.i.i.i92 = getelementptr inbounds nuw i8, ptr %9, i64 %.130.i.add.i.i.i91
   %268 = urem i64 %.229.i.i.i.i90, 10
   %269 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %268
   %270 = load i32, ptr %269, align 4, !tbaa !160, !noalias !159
@@ -25714,7 +25714,7 @@ _ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit: ; preds = %.preheader.i.i.i.i
   %.02232.i.idx.i.i.i100 = phi i64 [ %.02232.i.add4.i.i.i102, %.lr.ph.i.i.i.i99 ], [ 80, %_ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit ]
   %.12431.i.i.i.i101 = phi i64 [ %281, %.lr.ph.i.i.i.i99 ], [ 9223372036854775807, %_ZN5boost14static_strings7testTWSIxEEbT_PKwb.exit ]
   %.02232.i.add4.i.i.i102 = add nsw i64 %.02232.i.idx.i.i.i100, -4
-  %.ptr8.i.i.i103 = getelementptr inbounds i8, ptr %7, i64 %.02232.i.add4.i.i.i102
+  %.ptr8.i.i.i103 = getelementptr inbounds nuw i8, ptr %7, i64 %.02232.i.add4.i.i.i102
   %278 = urem i64 %.12431.i.i.i.i101, 10
   %279 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !160, !noalias !171
@@ -26205,7 +26205,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.02232.i.idx.i.i = phi i64 [ %.02232.i.add4.i.i, %.lr.ph.i.i.i ], [ 11, %.lr.ph.preheader.i.i.i ]
   %.12431.i.i.i = phi i32 [ %16, %.lr.ph.i.i.i ], [ %spec.select, %.lr.ph.preheader.i.i.i ]
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -1
-  %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
+  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add4.i.i
   %12 = urem i32 %.12431.i.i.i, 10
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %13
@@ -26227,7 +26227,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 21:                                               ; preds = %17, %._crit_edge.i.i.i
   %.02232.i.add.i.i = add nsw i64 %.02232.i.idx.i.i, -2
-  %.ptr5.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add.i.i
+  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add.i.i
   store i8 45, ptr %.ptr5.i.i, align 1, !tbaa !9, !noalias !221
   br label %.loopexit.i.i
 
@@ -26235,7 +26235,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.130.i.idx.i.i = phi i64 [ %.130.i.add.i.i, %.preheader.i.i.i ], [ 11, %8 ]
   %.229.i.i.i = phi i32 [ %26, %.preheader.i.i.i ], [ %0, %8 ]
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -1
-  %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.130.i.add.i.i
   %22 = urem i32 %.229.i.i.i, 10
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %23
@@ -26433,7 +26433,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.02232.i.idx.i.i = phi i64 [ %.02232.i.add4.i.i, %.lr.ph.i.i.i ], [ 20, %.lr.ph.preheader.i.i.i ]
   %.12431.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %spec.select, %.lr.ph.preheader.i.i.i ]
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -1
-  %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
+  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add4.i.i
   %12 = urem i64 %.12431.i.i.i, 10
   %13 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !9, !noalias !238
@@ -26454,7 +26454,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
 
 20:                                               ; preds = %16, %._crit_edge.i.i.i
   %.02232.i.add.i.i = add nsw i64 %.02232.i.idx.i.i, -2
-  %.ptr5.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add.i.i
+  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add.i.i
   store i8 45, ptr %.ptr5.i.i, align 1, !tbaa !9, !noalias !238
   br label %.loopexit.i.i
 
@@ -26462,7 +26462,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   %.130.i.idx.i.i = phi i64 [ %.130.i.add.i.i, %.preheader.i.i.i ], [ 20, %8 ]
   %.229.i.i.i = phi i64 [ %24, %.preheader.i.i.i ], [ %0, %8 ]
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -1
-  %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.130.i.add.i.i
   %21 = urem i64 %.229.i.i.i, 10
   %22 = getelementptr inbounds nuw [11 x i8], ptr @.str.3963, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !9, !noalias !238
@@ -26838,7 +26838,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %.02232.i.idx.i.i = phi i64 [ %.02232.i.add4.i.i, %.lr.ph.i.i.i ], [ 44, %.lr.ph.preheader.i.i.i ]
   %.12431.i.i.i = phi i32 [ %15, %.lr.ph.i.i.i ], [ %spec.select, %.lr.ph.preheader.i.i.i ]
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -4
-  %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
+  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i32 %.12431.i.i.i, 10
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %12
@@ -26866,7 +26866,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %.130.i.idx.i.i = phi i64 [ %.130.i.add.i.i, %.preheader.i.i.i ], [ 44, %7 ]
   %.229.i.i.i = phi i32 [ %25, %.preheader.i.i.i ], [ %0, %7 ]
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -4
-  %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.130.i.add.i.i
   %21 = urem i32 %.229.i.i.i, 10
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %22
@@ -26879,13 +26879,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 .loopexit.sink.split.i.i:                         ; preds = %20, %3
   %.02232.i.add.sink.i.i = phi i64 [ %.02232.i.add.i.i, %20 ], [ 40, %3 ]
   %.sink.i.i = phi i32 [ 45, %20 ], [ 48, %3 ]
-  %.ptr5.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add.sink.i.i
+  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add.sink.i.i
   store i32 %.sink.i.i, ptr %.ptr5.i.i, align 4, !tbaa !160, !noalias !270
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i.i, %.loopexit.sink.split.i.i
   %.0.i.idx.i.i = phi i64 [ %.02232.i.add.sink.i.i, %.loopexit.sink.split.i.i ], [ %.130.i.add.i.i, %.preheader.i.i.i ]
-  %.0.i.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.i.idx.i.i
+  %.0.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.idx.i.i
   %gepdiff.i.i = sub nsw i64 44, %.0.i.idx.i.i
   %26 = ashr exact i64 %gepdiff.i.i, 2
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -27070,7 +27070,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %.02232.i.idx.i.i = phi i64 [ %.02232.i.add4.i.i, %.lr.ph.i.i.i ], [ 80, %.lr.ph.preheader.i.i.i ]
   %.12431.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i ], [ %spec.select, %.lr.ph.preheader.i.i.i ]
   %.02232.i.add4.i.i = add nsw i64 %.02232.i.idx.i.i, -4
-  %.ptr8.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add4.i.i
+  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add4.i.i
   %11 = urem i64 %.12431.i.i.i, 10
   %12 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !160, !noalias !291
@@ -27097,7 +27097,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   %.130.i.idx.i.i = phi i64 [ %.130.i.add.i.i, %.preheader.i.i.i ], [ 80, %7 ]
   %.229.i.i.i = phi i64 [ %23, %.preheader.i.i.i ], [ %0, %7 ]
   %.130.i.add.i.i = add nsw i64 %.130.i.idx.i.i, -4
-  %.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.130.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.130.i.add.i.i
   %20 = urem i64 %.229.i.i.i, 10
   %21 = getelementptr inbounds nuw [11 x i32], ptr @.str.6174, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !160, !noalias !291
@@ -27109,13 +27109,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
 .loopexit.sink.split.i.i:                         ; preds = %19, %3
   %.02232.i.add.sink.i.i = phi i64 [ %.02232.i.add.i.i, %19 ], [ 76, %3 ]
   %.sink.i.i = phi i32 [ 45, %19 ], [ 48, %3 ]
-  %.ptr5.i.i = getelementptr inbounds i8, ptr %4, i64 %.02232.i.add.sink.i.i
+  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.02232.i.add.sink.i.i
   store i32 %.sink.i.i, ptr %.ptr5.i.i, align 4, !tbaa !160, !noalias !291
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i.i, %.loopexit.sink.split.i.i
   %.0.i.idx.i.i = phi i64 [ %.02232.i.add.sink.i.i, %.loopexit.sink.split.i.i ], [ %.130.i.add.i.i, %.preheader.i.i.i ]
-  %.0.i.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.i.idx.i.i
+  %.0.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i.idx.i.i
   %gepdiff.i.i = sub nsw i64 80, %.0.i.idx.i.i
   %24 = ashr exact i64 %gepdiff.i.i, 2
   %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -40902,7 +40902,7 @@ _ZN5boost14static_strings6testFFINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i9016:                             ; preds = %.preheader.i.i.i9016.preheader, %._crit_edge.i.i.i9018
   %.sroa.022.0.idx.i.i = phi i64 [ %.sroa.022.0.add.i.i, %._crit_edge.i.i.i9018 ], [ %.add.i.i9015, %.preheader.i.i.i9016.preheader ]
   %.sroa.022.0.add.i.i = add nsw i64 %.sroa.022.0.idx.i.i, -1
-  %.ptr33.i.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i
+  %.ptr33.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i
   %4482 = load i8, ptr %.ptr33.i.i, align 1, !tbaa !9, !noalias !323
   br label %4484
 
@@ -40941,7 +40941,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9024:                             ; preds = %.preheader.i.i.i9024.preheader, %._crit_edge.i.i.i9030
   %.sroa.022.0.idx.i.i9025 = phi i64 [ %.sroa.022.0.add.i.i9026, %._crit_edge.i.i.i9030 ], [ %.add.i.i9022, %.preheader.i.i.i9024.preheader ]
   %.sroa.022.0.add.i.i9026 = add nsw i64 %.sroa.022.0.idx.i.i9025, -1
-  %.ptr33.i.i9027 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9026
+  %.ptr33.i.i9027 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9026
   %4491 = load i8, ptr %.ptr33.i.i9027, align 1, !tbaa !9, !noalias !326
   br label %4493
 
@@ -40981,7 +40981,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9039:                             ; preds = %4499, %._crit_edge.i.i.i9045
   %.sroa.022.0.idx.i.i9040 = phi i64 [ %.sroa.022.0.add.i.i9041, %._crit_edge.i.i.i9045 ], [ %.add.i.i9037, %4499 ]
   %.sroa.022.0.add.i.i9041 = add nsw i64 %.sroa.022.0.idx.i.i9040, -1
-  %.ptr33.i.i9042 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9041
+  %.ptr33.i.i9042 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9041
   %4502 = load i8, ptr %.ptr33.i.i9042, align 1, !tbaa !9, !noalias !329
   br label %4505
 
@@ -41026,7 +41026,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9053:                             ; preds = %.preheader.i.i.i9053.preheader, %._crit_edge.i.i.i9059
   %.sroa.022.0.idx.i.i9054 = phi i64 [ %.sroa.022.0.add.i.i9055, %._crit_edge.i.i.i9059 ], [ %.add.i.i9051, %.preheader.i.i.i9053.preheader ]
   %.sroa.022.0.add.i.i9055 = add nsw i64 %.sroa.022.0.idx.i.i9054, -1
-  %.ptr33.i.i9056 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9055
+  %.ptr33.i.i9056 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9055
   %4516 = load i8, ptr %.ptr33.i.i9056, align 1, !tbaa !9, !noalias !332
   br label %4519
 
@@ -41064,7 +41064,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9067:                             ; preds = %.preheader.i.i.i9067.preheader, %._crit_edge.i.i.i9073
   %.sroa.022.0.idx.i.i9068 = phi i64 [ %.sroa.022.0.add.i.i9069, %._crit_edge.i.i.i9073 ], [ %.add.i.i9065, %.preheader.i.i.i9067.preheader ]
   %.sroa.022.0.add.i.i9069 = add nsw i64 %.sroa.022.0.idx.i.i9068, -1
-  %.ptr33.i.i9070 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9069
+  %.ptr33.i.i9070 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9069
   %4526 = load i8, ptr %.ptr33.i.i9070, align 1, !tbaa !9, !noalias !335
   br label %4528
 
@@ -41103,7 +41103,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9081:                             ; preds = %.preheader.i.i.i9081.preheader, %._crit_edge.i.i.i9087
   %.sroa.022.0.idx.i.i9082 = phi i64 [ %.sroa.022.0.add.i.i9083, %._crit_edge.i.i.i9087 ], [ %.add.i.i9079, %.preheader.i.i.i9081.preheader ]
   %.sroa.022.0.add.i.i9083 = add nsw i64 %.sroa.022.0.idx.i.i9082, -1
-  %.ptr33.i.i9084 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9083
+  %.ptr33.i.i9084 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9083
   %4535 = load i8, ptr %.ptr33.i.i9084, align 1, !tbaa !9, !noalias !338
   br label %4537
 
@@ -41209,7 +41209,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9136:                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEPKcmm.exit, %._crit_edge.i.i.i9142
   %.sroa.022.0.idx.i.i9137 = phi i64 [ %.sroa.022.0.add.i.i9138, %._crit_edge.i.i.i9142 ], [ %.add30.i.i9134, %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEPKcmm.exit ]
   %.sroa.022.0.add.i.i9138 = add nsw i64 %.sroa.022.0.idx.i.i9137, -1
-  %.ptr33.i.i9139 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9138
+  %.ptr33.i.i9139 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9138
   %4562 = load i8, ptr %.ptr33.i.i9139, align 1, !tbaa !9, !noalias !350
   br label %4564
 
@@ -41247,7 +41247,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9154:                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEPKcm.exit9146, %._crit_edge.i.i.i9160
   %.sroa.022.0.idx.i.i9155 = phi i64 [ %.sroa.022.0.add.i.i9156, %._crit_edge.i.i.i9160 ], [ %.add30.i.i9152, %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEPKcm.exit9146 ]
   %.sroa.022.0.add.i.i9156 = add nsw i64 %.sroa.022.0.idx.i.i9155, -1
-  %.ptr33.i.i9157 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9156
+  %.ptr33.i.i9157 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9156
   %4571 = load i8, ptr %.ptr33.i.i9157, align 1, !tbaa !9, !noalias !353
   br label %4573
 
@@ -41286,7 +41286,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9171:                             ; preds = %.preheader.i.i.i9171.preheader, %._crit_edge.i.i.i9175
   %.sroa.022.0.idx.i.i9172 = phi i64 [ %.sroa.022.0.add.i.i9173, %._crit_edge.i.i.i9175 ], [ %.add.i.i9168, %.preheader.i.i.i9171.preheader ]
   %.sroa.022.0.add.i.i9173 = add nsw i64 %.sroa.022.0.idx.i.i9172, -1
-  %.ptr33.i.i9174 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9173
+  %.ptr33.i.i9174 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9173
   %4580 = load i8, ptr %.ptr33.i.i9174, align 1, !tbaa !9, !noalias !356
   %4581 = icmp eq i8 %4580, 49
   br i1 %4581, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i9178, label %._crit_edge.i.i.i9175
@@ -41313,7 +41313,7 @@ _ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_l
 .preheader.i.i.i9185:                             ; preds = %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEcm.exit, %.preheader.i.i.i9185
   %.sroa.022.0.idx.i.i9186 = phi i64 [ %.sroa.022.0.add.i.i9187, %.preheader.i.i.i9185 ], [ %.add30.i.i9183, %_ZNK5boost14static_strings19basic_static_stringILm5EcSt11char_traitsIcEE12find_last_ofEcm.exit ]
   %.sroa.022.0.add.i.i9187 = add nsw i64 %.sroa.022.0.idx.i.i9186, -1
-  %.ptr33.i.i9188 = getelementptr inbounds i8, ptr %0, i64 %.sroa.022.0.add.i.i9187
+  %.ptr33.i.i9188 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.022.0.add.i.i9187
   %4586 = load i8, ptr %.ptr33.i.i9188, align 1, !tbaa !9, !noalias !359
   %4587 = icmp ne i8 %4586, 53
   %.not10.i.i.i9190 = icmp ne i64 %.sroa.022.0.add.i.i9187, 1
@@ -41727,7 +41727,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i9903:                             ; preds = %.preheader.i.i.i9903, %.preheader.i.i.i9903.preheader
   %.sroa.022.0.idx.i.i9904 = phi i64 [ 4, %.preheader.i.i.i9903.preheader ], [ %.sroa.022.0.add.i.i9905, %.preheader.i.i.i9903 ]
   %.sroa.022.0.add.i.i9905 = add nsw i64 %.sroa.022.0.idx.i.i9904, -1
-  %.ptr33.i.i9906 = getelementptr inbounds i8, ptr %330, i64 %.sroa.022.0.add.i.i9905
+  %.ptr33.i.i9906 = getelementptr inbounds nuw i8, ptr %330, i64 %.sroa.022.0.add.i.i9905
   %4739 = load i8, ptr %.ptr33.i.i9906, align 1, !tbaa !9, !noalias !389
   %4740 = icmp ne i8 %4739, 99
   %.not10.i.i.i9910 = icmp ne i64 %.sroa.022.0.add.i.i9905, 2
@@ -41750,7 +41750,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i9921:                             ; preds = %.preheader.i.i.i9921.preheader, %._crit_edge.i.i.i9927
   %.sroa.022.0.idx.i.i9922 = phi i64 [ %.sroa.022.0.add.i.i9923, %._crit_edge.i.i.i9927 ], [ 4, %.preheader.i.i.i9921.preheader ]
   %.sroa.022.0.add.i.i9923 = add nsw i64 %.sroa.022.0.idx.i.i9922, -1
-  %.ptr33.i.i9924 = getelementptr inbounds i8, ptr %331, i64 %.sroa.022.0.add.i.i9923
+  %.ptr33.i.i9924 = getelementptr inbounds nuw i8, ptr %331, i64 %.sroa.022.0.add.i.i9923
   %4745 = load i8, ptr %.ptr33.i.i9924, align 1, !tbaa !9, !noalias !392
   br label %4747
 
@@ -41791,7 +41791,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i9939:                             ; preds = %.preheader.i.i.i9939.preheader, %._crit_edge.i.i.i9945
   %.sroa.022.0.idx.i.i9940 = phi i64 [ %.sroa.022.0.add.i.i9941, %._crit_edge.i.i.i9945 ], [ 4, %.preheader.i.i.i9939.preheader ]
   %.sroa.022.0.add.i.i9941 = add nsw i64 %.sroa.022.0.idx.i.i9940, -1
-  %.ptr33.i.i9942 = getelementptr inbounds i8, ptr %332, i64 %.sroa.022.0.add.i.i9941
+  %.ptr33.i.i9942 = getelementptr inbounds nuw i8, ptr %332, i64 %.sroa.022.0.add.i.i9941
   %4755 = load i8, ptr %.ptr33.i.i9942, align 1, !tbaa !9, !noalias !395
   br label %4757
 
@@ -41832,7 +41832,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i9957:                             ; preds = %.preheader.i.i.i9957.preheader, %._crit_edge.i.i.i9963
   %.sroa.022.0.idx.i.i9958 = phi i64 [ %.sroa.022.0.add.i.i9959, %._crit_edge.i.i.i9963 ], [ 4, %.preheader.i.i.i9957.preheader ]
   %.sroa.022.0.add.i.i9959 = add nsw i64 %.sroa.022.0.idx.i.i9958, -1
-  %.ptr33.i.i9960 = getelementptr inbounds i8, ptr %333, i64 %.sroa.022.0.add.i.i9959
+  %.ptr33.i.i9960 = getelementptr inbounds nuw i8, ptr %333, i64 %.sroa.022.0.add.i.i9959
   %4765 = load i8, ptr %.ptr33.i.i9960, align 1, !tbaa !9, !noalias !398
   br label %4767
 
@@ -41890,7 +41890,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i9979:                             ; preds = %.preheader.i.i.i9979, %.preheader.i.i.i9979.preheader
   %.sroa.022.0.idx.i.i9980 = phi i64 [ 4, %.preheader.i.i.i9979.preheader ], [ %.sroa.022.0.add.i.i9981, %.preheader.i.i.i9979 ]
   %.sroa.022.0.add.i.i9981 = add nsw i64 %.sroa.022.0.idx.i.i9980, -1
-  %.ptr33.i.i9982 = getelementptr inbounds i8, ptr %334, i64 %.sroa.022.0.add.i.i9981
+  %.ptr33.i.i9982 = getelementptr inbounds nuw i8, ptr %334, i64 %.sroa.022.0.add.i.i9981
   %4781 = load i8, ptr %.ptr33.i.i9982, align 1, !tbaa !9, !noalias !401
   %4782 = icmp ne i8 %4781, 103
   %.not10.i.i.i9986 = icmp ne i64 %.sroa.022.0.add.i.i9981, 2
@@ -41913,7 +41913,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i9997:                             ; preds = %.preheader.i.i.i9997.preheader, %._crit_edge.i.i.i10003
   %.sroa.022.0.idx.i.i9998 = phi i64 [ %.sroa.022.0.add.i.i9999, %._crit_edge.i.i.i10003 ], [ 4, %.preheader.i.i.i9997.preheader ]
   %.sroa.022.0.add.i.i9999 = add nsw i64 %.sroa.022.0.idx.i.i9998, -1
-  %.ptr33.i.i10000 = getelementptr inbounds i8, ptr %335, i64 %.sroa.022.0.add.i.i9999
+  %.ptr33.i.i10000 = getelementptr inbounds nuw i8, ptr %335, i64 %.sroa.022.0.add.i.i9999
   %4787 = load i8, ptr %.ptr33.i.i10000, align 1, !tbaa !9, !noalias !404
   br label %4789
 
@@ -41954,7 +41954,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10015:                            ; preds = %.preheader.i.i.i10015.preheader, %._crit_edge.i.i.i10021
   %.sroa.022.0.idx.i.i10016 = phi i64 [ %.sroa.022.0.add.i.i10017, %._crit_edge.i.i.i10021 ], [ 4, %.preheader.i.i.i10015.preheader ]
   %.sroa.022.0.add.i.i10017 = add nsw i64 %.sroa.022.0.idx.i.i10016, -1
-  %.ptr33.i.i10018 = getelementptr inbounds i8, ptr %336, i64 %.sroa.022.0.add.i.i10017
+  %.ptr33.i.i10018 = getelementptr inbounds nuw i8, ptr %336, i64 %.sroa.022.0.add.i.i10017
   %4797 = load i8, ptr %.ptr33.i.i10018, align 1, !tbaa !9, !noalias !407
   br label %4799
 
@@ -41995,7 +41995,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10033:                            ; preds = %.preheader.i.i.i10033.preheader, %._crit_edge.i.i.i10039
   %.sroa.022.0.idx.i.i10034 = phi i64 [ %.sroa.022.0.add.i.i10035, %._crit_edge.i.i.i10039 ], [ 4, %.preheader.i.i.i10033.preheader ]
   %.sroa.022.0.add.i.i10035 = add nsw i64 %.sroa.022.0.idx.i.i10034, -1
-  %.ptr33.i.i10036 = getelementptr inbounds i8, ptr %337, i64 %.sroa.022.0.add.i.i10035
+  %.ptr33.i.i10036 = getelementptr inbounds nuw i8, ptr %337, i64 %.sroa.022.0.add.i.i10035
   %4807 = load i8, ptr %.ptr33.i.i10036, align 1, !tbaa !9, !noalias !410
   br label %4809
 
@@ -42053,7 +42053,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10055:                            ; preds = %.preheader.i.i.i10055, %.preheader.i.i.i10055.preheader
   %.sroa.022.0.idx.i.i10056 = phi i64 [ 4, %.preheader.i.i.i10055.preheader ], [ %.sroa.022.0.add.i.i10057, %.preheader.i.i.i10055 ]
   %.sroa.022.0.add.i.i10057 = add nsw i64 %.sroa.022.0.idx.i.i10056, -1
-  %.ptr33.i.i10058 = getelementptr inbounds i8, ptr %338, i64 %.sroa.022.0.add.i.i10057
+  %.ptr33.i.i10058 = getelementptr inbounds nuw i8, ptr %338, i64 %.sroa.022.0.add.i.i10057
   %4823 = load i8, ptr %.ptr33.i.i10058, align 1, !tbaa !9, !noalias !413
   %4824 = icmp ne i8 %4823, 116
   %.not10.i.i.i10062 = icmp ne i64 %.sroa.022.0.add.i.i10057, 2
@@ -42076,7 +42076,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10073:                            ; preds = %.preheader.i.i.i10073.preheader, %._crit_edge.i.i.i10079
   %.sroa.022.0.idx.i.i10074 = phi i64 [ %.sroa.022.0.add.i.i10075, %._crit_edge.i.i.i10079 ], [ 4, %.preheader.i.i.i10073.preheader ]
   %.sroa.022.0.add.i.i10075 = add nsw i64 %.sroa.022.0.idx.i.i10074, -1
-  %.ptr33.i.i10076 = getelementptr inbounds i8, ptr %339, i64 %.sroa.022.0.add.i.i10075
+  %.ptr33.i.i10076 = getelementptr inbounds nuw i8, ptr %339, i64 %.sroa.022.0.add.i.i10075
   %4829 = load i8, ptr %.ptr33.i.i10076, align 1, !tbaa !9, !noalias !416
   br label %4831
 
@@ -42117,7 +42117,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10091:                            ; preds = %.preheader.i.i.i10091.preheader, %._crit_edge.i.i.i10097
   %.sroa.022.0.idx.i.i10092 = phi i64 [ %.sroa.022.0.add.i.i10093, %._crit_edge.i.i.i10097 ], [ 4, %.preheader.i.i.i10091.preheader ]
   %.sroa.022.0.add.i.i10093 = add nsw i64 %.sroa.022.0.idx.i.i10092, -1
-  %.ptr33.i.i10094 = getelementptr inbounds i8, ptr %340, i64 %.sroa.022.0.add.i.i10093
+  %.ptr33.i.i10094 = getelementptr inbounds nuw i8, ptr %340, i64 %.sroa.022.0.add.i.i10093
   %4839 = load i8, ptr %.ptr33.i.i10094, align 1, !tbaa !9, !noalias !419
   br label %4841
 
@@ -42158,7 +42158,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10109:                            ; preds = %.preheader.i.i.i10109.preheader, %._crit_edge.i.i.i10115
   %.sroa.022.0.idx.i.i10110 = phi i64 [ %.sroa.022.0.add.i.i10111, %._crit_edge.i.i.i10115 ], [ 4, %.preheader.i.i.i10109.preheader ]
   %.sroa.022.0.add.i.i10111 = add nsw i64 %.sroa.022.0.idx.i.i10110, -1
-  %.ptr33.i.i10112 = getelementptr inbounds i8, ptr %341, i64 %.sroa.022.0.add.i.i10111
+  %.ptr33.i.i10112 = getelementptr inbounds nuw i8, ptr %341, i64 %.sroa.022.0.add.i.i10111
   %4849 = load i8, ptr %.ptr33.i.i10112, align 1, !tbaa !9, !noalias !422
   br label %4851
 
@@ -42233,7 +42233,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10135:                            ; preds = %.preheader.i.i.i10135, %.preheader.i.i.i10135.preheader
   %.sroa.022.0.idx.i.i10136 = phi i64 [ 5, %.preheader.i.i.i10135.preheader ], [ %.sroa.022.0.add.i.i10137, %.preheader.i.i.i10135 ]
   %.sroa.022.0.add.i.i10137 = add nsw i64 %.sroa.022.0.idx.i.i10136, -1
-  %.ptr33.i.i10138 = getelementptr inbounds i8, ptr %342, i64 %.sroa.022.0.add.i.i10137
+  %.ptr33.i.i10138 = getelementptr inbounds nuw i8, ptr %342, i64 %.sroa.022.0.add.i.i10137
   %4871 = load i8, ptr %.ptr33.i.i10138, align 1, !tbaa !9, !noalias !425
   %4872 = icmp ne i8 %4871, 99
   %.not10.i.i.i10142 = icmp ne i64 %.sroa.022.0.add.i.i10137, 2
@@ -42256,7 +42256,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10153:                            ; preds = %.preheader.i.i.i10153.preheader, %._crit_edge.i.i.i10159
   %.sroa.022.0.idx.i.i10154 = phi i64 [ %.sroa.022.0.add.i.i10155, %._crit_edge.i.i.i10159 ], [ 5, %.preheader.i.i.i10153.preheader ]
   %.sroa.022.0.add.i.i10155 = add nsw i64 %.sroa.022.0.idx.i.i10154, -1
-  %.ptr33.i.i10156 = getelementptr inbounds i8, ptr %343, i64 %.sroa.022.0.add.i.i10155
+  %.ptr33.i.i10156 = getelementptr inbounds nuw i8, ptr %343, i64 %.sroa.022.0.add.i.i10155
   %4877 = load i8, ptr %.ptr33.i.i10156, align 1, !tbaa !9, !noalias !428
   br label %4879
 
@@ -42297,7 +42297,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10171:                            ; preds = %.preheader.i.i.i10171.preheader, %._crit_edge.i.i.i10177
   %.sroa.022.0.idx.i.i10172 = phi i64 [ %.sroa.022.0.add.i.i10173, %._crit_edge.i.i.i10177 ], [ 5, %.preheader.i.i.i10171.preheader ]
   %.sroa.022.0.add.i.i10173 = add nsw i64 %.sroa.022.0.idx.i.i10172, -1
-  %.ptr33.i.i10174 = getelementptr inbounds i8, ptr %344, i64 %.sroa.022.0.add.i.i10173
+  %.ptr33.i.i10174 = getelementptr inbounds nuw i8, ptr %344, i64 %.sroa.022.0.add.i.i10173
   %4887 = load i8, ptr %.ptr33.i.i10174, align 1, !tbaa !9, !noalias !431
   br label %4889
 
@@ -42338,7 +42338,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10189:                            ; preds = %.preheader.i.i.i10189.preheader, %._crit_edge.i.i.i10195
   %.sroa.022.0.idx.i.i10190 = phi i64 [ %.sroa.022.0.add.i.i10191, %._crit_edge.i.i.i10195 ], [ 5, %.preheader.i.i.i10189.preheader ]
   %.sroa.022.0.add.i.i10191 = add nsw i64 %.sroa.022.0.idx.i.i10190, -1
-  %.ptr33.i.i10192 = getelementptr inbounds i8, ptr %345, i64 %.sroa.022.0.add.i.i10191
+  %.ptr33.i.i10192 = getelementptr inbounds nuw i8, ptr %345, i64 %.sroa.022.0.add.i.i10191
   %4897 = load i8, ptr %.ptr33.i.i10192, align 1, !tbaa !9, !noalias !434
   br label %4899
 
@@ -42396,7 +42396,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10211:                            ; preds = %.preheader.i.i.i10211, %.preheader.i.i.i10211.preheader
   %.sroa.022.0.idx.i.i10212 = phi i64 [ 5, %.preheader.i.i.i10211.preheader ], [ %.sroa.022.0.add.i.i10213, %.preheader.i.i.i10211 ]
   %.sroa.022.0.add.i.i10213 = add nsw i64 %.sroa.022.0.idx.i.i10212, -1
-  %.ptr33.i.i10214 = getelementptr inbounds i8, ptr %346, i64 %.sroa.022.0.add.i.i10213
+  %.ptr33.i.i10214 = getelementptr inbounds nuw i8, ptr %346, i64 %.sroa.022.0.add.i.i10213
   %4913 = load i8, ptr %.ptr33.i.i10214, align 1, !tbaa !9, !noalias !437
   %4914 = icmp ne i8 %4913, 116
   %.not10.i.i.i10218 = icmp ne i64 %.sroa.022.0.add.i.i10213, 2
@@ -42419,7 +42419,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10229:                            ; preds = %.preheader.i.i.i10229.preheader, %._crit_edge.i.i.i10235
   %.sroa.022.0.idx.i.i10230 = phi i64 [ %.sroa.022.0.add.i.i10231, %._crit_edge.i.i.i10235 ], [ 5, %.preheader.i.i.i10229.preheader ]
   %.sroa.022.0.add.i.i10231 = add nsw i64 %.sroa.022.0.idx.i.i10230, -1
-  %.ptr33.i.i10232 = getelementptr inbounds i8, ptr %347, i64 %.sroa.022.0.add.i.i10231
+  %.ptr33.i.i10232 = getelementptr inbounds nuw i8, ptr %347, i64 %.sroa.022.0.add.i.i10231
   %4919 = load i8, ptr %.ptr33.i.i10232, align 1, !tbaa !9, !noalias !440
   br label %4921
 
@@ -42460,7 +42460,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10247:                            ; preds = %.preheader.i.i.i10247.preheader, %._crit_edge.i.i.i10253
   %.sroa.022.0.idx.i.i10248 = phi i64 [ %.sroa.022.0.add.i.i10249, %._crit_edge.i.i.i10253 ], [ 5, %.preheader.i.i.i10247.preheader ]
   %.sroa.022.0.add.i.i10249 = add nsw i64 %.sroa.022.0.idx.i.i10248, -1
-  %.ptr33.i.i10250 = getelementptr inbounds i8, ptr %348, i64 %.sroa.022.0.add.i.i10249
+  %.ptr33.i.i10250 = getelementptr inbounds nuw i8, ptr %348, i64 %.sroa.022.0.add.i.i10249
   %4929 = load i8, ptr %.ptr33.i.i10250, align 1, !tbaa !9, !noalias !443
   br label %4931
 
@@ -42501,7 +42501,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10265:                            ; preds = %.preheader.i.i.i10265.preheader, %._crit_edge.i.i.i10271
   %.sroa.022.0.idx.i.i10266 = phi i64 [ %.sroa.022.0.add.i.i10267, %._crit_edge.i.i.i10271 ], [ 5, %.preheader.i.i.i10265.preheader ]
   %.sroa.022.0.add.i.i10267 = add nsw i64 %.sroa.022.0.idx.i.i10266, -1
-  %.ptr33.i.i10268 = getelementptr inbounds i8, ptr %349, i64 %.sroa.022.0.add.i.i10267
+  %.ptr33.i.i10268 = getelementptr inbounds nuw i8, ptr %349, i64 %.sroa.022.0.add.i.i10267
   %4939 = load i8, ptr %.ptr33.i.i10268, align 1, !tbaa !9, !noalias !446
   br label %4941
 
@@ -42559,7 +42559,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10287:                            ; preds = %.preheader.i.i.i10287, %.preheader.i.i.i10287.preheader
   %.sroa.022.0.idx.i.i10288 = phi i64 [ 5, %.preheader.i.i.i10287.preheader ], [ %.sroa.022.0.add.i.i10289, %.preheader.i.i.i10287 ]
   %.sroa.022.0.add.i.i10289 = add nsw i64 %.sroa.022.0.idx.i.i10288, -1
-  %.ptr33.i.i10290 = getelementptr inbounds i8, ptr %350, i64 %.sroa.022.0.add.i.i10289
+  %.ptr33.i.i10290 = getelementptr inbounds nuw i8, ptr %350, i64 %.sroa.022.0.add.i.i10289
   %4955 = load i8, ptr %.ptr33.i.i10290, align 1, !tbaa !9, !noalias !449
   %4956 = icmp ne i8 %4955, 97
   %.not10.i.i.i10294 = icmp ne i64 %.sroa.022.0.add.i.i10289, 2
@@ -42582,7 +42582,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10305:                            ; preds = %.preheader.i.i.i10305.preheader, %._crit_edge.i.i.i10311
   %.sroa.022.0.idx.i.i10306 = phi i64 [ %.sroa.022.0.add.i.i10307, %._crit_edge.i.i.i10311 ], [ 5, %.preheader.i.i.i10305.preheader ]
   %.sroa.022.0.add.i.i10307 = add nsw i64 %.sroa.022.0.idx.i.i10306, -1
-  %.ptr33.i.i10308 = getelementptr inbounds i8, ptr %351, i64 %.sroa.022.0.add.i.i10307
+  %.ptr33.i.i10308 = getelementptr inbounds nuw i8, ptr %351, i64 %.sroa.022.0.add.i.i10307
   %4961 = load i8, ptr %.ptr33.i.i10308, align 1, !tbaa !9, !noalias !452
   br label %4963
 
@@ -42623,7 +42623,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10323:                            ; preds = %.preheader.i.i.i10323.preheader, %._crit_edge.i.i.i10329
   %.sroa.022.0.idx.i.i10324 = phi i64 [ %.sroa.022.0.add.i.i10325, %._crit_edge.i.i.i10329 ], [ 5, %.preheader.i.i.i10323.preheader ]
   %.sroa.022.0.add.i.i10325 = add nsw i64 %.sroa.022.0.idx.i.i10324, -1
-  %.ptr33.i.i10326 = getelementptr inbounds i8, ptr %352, i64 %.sroa.022.0.add.i.i10325
+  %.ptr33.i.i10326 = getelementptr inbounds nuw i8, ptr %352, i64 %.sroa.022.0.add.i.i10325
   %4971 = load i8, ptr %.ptr33.i.i10326, align 1, !tbaa !9, !noalias !455
   br label %4973
 
@@ -42664,7 +42664,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10341:                            ; preds = %.preheader.i.i.i10341.preheader, %._crit_edge.i.i.i10347
   %.sroa.022.0.idx.i.i10342 = phi i64 [ %.sroa.022.0.add.i.i10343, %._crit_edge.i.i.i10347 ], [ 5, %.preheader.i.i.i10341.preheader ]
   %.sroa.022.0.add.i.i10343 = add nsw i64 %.sroa.022.0.idx.i.i10342, -1
-  %.ptr33.i.i10344 = getelementptr inbounds i8, ptr %353, i64 %.sroa.022.0.add.i.i10343
+  %.ptr33.i.i10344 = getelementptr inbounds nuw i8, ptr %353, i64 %.sroa.022.0.add.i.i10343
   %4981 = load i8, ptr %.ptr33.i.i10344, align 1, !tbaa !9, !noalias !458
   br label %4983
 
@@ -42739,7 +42739,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10367:                            ; preds = %.preheader.i.i.i10367, %.preheader.i.i.i10367.preheader
   %.sroa.022.0.idx.i.i10368 = phi i64 [ 7, %.preheader.i.i.i10367.preheader ], [ %.sroa.022.0.add.i.i10369, %.preheader.i.i.i10367 ]
   %.sroa.022.0.add.i.i10369 = add nsw i64 %.sroa.022.0.idx.i.i10368, -1
-  %.ptr33.i.i10370 = getelementptr inbounds i8, ptr %354, i64 %.sroa.022.0.add.i.i10369
+  %.ptr33.i.i10370 = getelementptr inbounds nuw i8, ptr %354, i64 %.sroa.022.0.add.i.i10369
   %5003 = load i8, ptr %.ptr33.i.i10370, align 1, !tbaa !9, !noalias !461
   %5004 = icmp ne i8 %5003, 98
   %.not10.i.i.i10374 = icmp ne i64 %.sroa.022.0.add.i.i10369, 2
@@ -42762,7 +42762,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10385:                            ; preds = %.preheader.i.i.i10385.preheader, %._crit_edge.i.i.i10391
   %.sroa.022.0.idx.i.i10386 = phi i64 [ %.sroa.022.0.add.i.i10387, %._crit_edge.i.i.i10391 ], [ 7, %.preheader.i.i.i10385.preheader ]
   %.sroa.022.0.add.i.i10387 = add nsw i64 %.sroa.022.0.idx.i.i10386, -1
-  %.ptr33.i.i10388 = getelementptr inbounds i8, ptr %355, i64 %.sroa.022.0.add.i.i10387
+  %.ptr33.i.i10388 = getelementptr inbounds nuw i8, ptr %355, i64 %.sroa.022.0.add.i.i10387
   %5009 = load i8, ptr %.ptr33.i.i10388, align 1, !tbaa !9, !noalias !464
   br label %5011
 
@@ -42803,7 +42803,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10403:                            ; preds = %.preheader.i.i.i10403.preheader, %._crit_edge.i.i.i10409
   %.sroa.022.0.idx.i.i10404 = phi i64 [ %.sroa.022.0.add.i.i10405, %._crit_edge.i.i.i10409 ], [ 7, %.preheader.i.i.i10403.preheader ]
   %.sroa.022.0.add.i.i10405 = add nsw i64 %.sroa.022.0.idx.i.i10404, -1
-  %.ptr33.i.i10406 = getelementptr inbounds i8, ptr %356, i64 %.sroa.022.0.add.i.i10405
+  %.ptr33.i.i10406 = getelementptr inbounds nuw i8, ptr %356, i64 %.sroa.022.0.add.i.i10405
   %5019 = load i8, ptr %.ptr33.i.i10406, align 1, !tbaa !9, !noalias !467
   br label %5021
 
@@ -42844,7 +42844,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10421:                            ; preds = %.preheader.i.i.i10421.preheader, %._crit_edge.i.i.i10427
   %.sroa.022.0.idx.i.i10422 = phi i64 [ %.sroa.022.0.add.i.i10423, %._crit_edge.i.i.i10427 ], [ 7, %.preheader.i.i.i10421.preheader ]
   %.sroa.022.0.add.i.i10423 = add nsw i64 %.sroa.022.0.idx.i.i10422, -1
-  %.ptr33.i.i10424 = getelementptr inbounds i8, ptr %357, i64 %.sroa.022.0.add.i.i10423
+  %.ptr33.i.i10424 = getelementptr inbounds nuw i8, ptr %357, i64 %.sroa.022.0.add.i.i10423
   %5029 = load i8, ptr %.ptr33.i.i10424, align 1, !tbaa !9, !noalias !470
   br label %5031
 
@@ -42902,7 +42902,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10443:                            ; preds = %.preheader.i.i.i10443, %.preheader.i.i.i10443.preheader
   %.sroa.022.0.idx.i.i10444 = phi i64 [ 7, %.preheader.i.i.i10443.preheader ], [ %.sroa.022.0.add.i.i10445, %.preheader.i.i.i10443 ]
   %.sroa.022.0.add.i.i10445 = add nsw i64 %.sroa.022.0.idx.i.i10444, -1
-  %.ptr33.i.i10446 = getelementptr inbounds i8, ptr %358, i64 %.sroa.022.0.add.i.i10445
+  %.ptr33.i.i10446 = getelementptr inbounds nuw i8, ptr %358, i64 %.sroa.022.0.add.i.i10445
   %5045 = load i8, ptr %.ptr33.i.i10446, align 1, !tbaa !9, !noalias !473
   %5046 = icmp ne i8 %5045, 97
   %.not10.i.i.i10450 = icmp ne i64 %.sroa.022.0.add.i.i10445, 2
@@ -42925,7 +42925,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10461:                            ; preds = %.preheader.i.i.i10461.preheader, %._crit_edge.i.i.i10467
   %.sroa.022.0.idx.i.i10462 = phi i64 [ %.sroa.022.0.add.i.i10463, %._crit_edge.i.i.i10467 ], [ 7, %.preheader.i.i.i10461.preheader ]
   %.sroa.022.0.add.i.i10463 = add nsw i64 %.sroa.022.0.idx.i.i10462, -1
-  %.ptr33.i.i10464 = getelementptr inbounds i8, ptr %359, i64 %.sroa.022.0.add.i.i10463
+  %.ptr33.i.i10464 = getelementptr inbounds nuw i8, ptr %359, i64 %.sroa.022.0.add.i.i10463
   %5051 = load i8, ptr %.ptr33.i.i10464, align 1, !tbaa !9, !noalias !476
   br label %5053
 
@@ -42966,7 +42966,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10479:                            ; preds = %.preheader.i.i.i10479.preheader, %._crit_edge.i.i.i10485
   %.sroa.022.0.idx.i.i10480 = phi i64 [ %.sroa.022.0.add.i.i10481, %._crit_edge.i.i.i10485 ], [ 7, %.preheader.i.i.i10479.preheader ]
   %.sroa.022.0.add.i.i10481 = add nsw i64 %.sroa.022.0.idx.i.i10480, -1
-  %.ptr33.i.i10482 = getelementptr inbounds i8, ptr %360, i64 %.sroa.022.0.add.i.i10481
+  %.ptr33.i.i10482 = getelementptr inbounds nuw i8, ptr %360, i64 %.sroa.022.0.add.i.i10481
   %5061 = load i8, ptr %.ptr33.i.i10482, align 1, !tbaa !9, !noalias !479
   br label %5063
 
@@ -43007,7 +43007,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10497:                            ; preds = %.preheader.i.i.i10497.preheader, %._crit_edge.i.i.i10503
   %.sroa.022.0.idx.i.i10498 = phi i64 [ %.sroa.022.0.add.i.i10499, %._crit_edge.i.i.i10503 ], [ 7, %.preheader.i.i.i10497.preheader ]
   %.sroa.022.0.add.i.i10499 = add nsw i64 %.sroa.022.0.idx.i.i10498, -1
-  %.ptr33.i.i10500 = getelementptr inbounds i8, ptr %361, i64 %.sroa.022.0.add.i.i10499
+  %.ptr33.i.i10500 = getelementptr inbounds nuw i8, ptr %361, i64 %.sroa.022.0.add.i.i10499
   %5071 = load i8, ptr %.ptr33.i.i10500, align 1, !tbaa !9, !noalias !482
   br label %5073
 
@@ -43065,7 +43065,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10519:                            ; preds = %.preheader.i.i.i10519, %.preheader.i.i.i10519.preheader
   %.sroa.022.0.idx.i.i10520 = phi i64 [ 7, %.preheader.i.i.i10519.preheader ], [ %.sroa.022.0.add.i.i10521, %.preheader.i.i.i10519 ]
   %.sroa.022.0.add.i.i10521 = add nsw i64 %.sroa.022.0.idx.i.i10520, -1
-  %.ptr33.i.i10522 = getelementptr inbounds i8, ptr %362, i64 %.sroa.022.0.add.i.i10521
+  %.ptr33.i.i10522 = getelementptr inbounds nuw i8, ptr %362, i64 %.sroa.022.0.add.i.i10521
   %5087 = load i8, ptr %.ptr33.i.i10522, align 1, !tbaa !9, !noalias !485
   %5088 = icmp ne i8 %5087, 108
   %.not10.i.i.i10526 = icmp ne i64 %.sroa.022.0.add.i.i10521, 2
@@ -43088,7 +43088,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10537:                            ; preds = %.preheader.i.i.i10537.preheader, %._crit_edge.i.i.i10543
   %.sroa.022.0.idx.i.i10538 = phi i64 [ %.sroa.022.0.add.i.i10539, %._crit_edge.i.i.i10543 ], [ 7, %.preheader.i.i.i10537.preheader ]
   %.sroa.022.0.add.i.i10539 = add nsw i64 %.sroa.022.0.idx.i.i10538, -1
-  %.ptr33.i.i10540 = getelementptr inbounds i8, ptr %363, i64 %.sroa.022.0.add.i.i10539
+  %.ptr33.i.i10540 = getelementptr inbounds nuw i8, ptr %363, i64 %.sroa.022.0.add.i.i10539
   %5093 = load i8, ptr %.ptr33.i.i10540, align 1, !tbaa !9, !noalias !488
   br label %5095
 
@@ -43129,7 +43129,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10555:                            ; preds = %.preheader.i.i.i10555.preheader, %._crit_edge.i.i.i10561
   %.sroa.022.0.idx.i.i10556 = phi i64 [ %.sroa.022.0.add.i.i10557, %._crit_edge.i.i.i10561 ], [ 7, %.preheader.i.i.i10555.preheader ]
   %.sroa.022.0.add.i.i10557 = add nsw i64 %.sroa.022.0.idx.i.i10556, -1
-  %.ptr33.i.i10558 = getelementptr inbounds i8, ptr %364, i64 %.sroa.022.0.add.i.i10557
+  %.ptr33.i.i10558 = getelementptr inbounds nuw i8, ptr %364, i64 %.sroa.022.0.add.i.i10557
   %5103 = load i8, ptr %.ptr33.i.i10558, align 1, !tbaa !9, !noalias !491
   br label %5105
 
@@ -43170,7 +43170,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10573:                            ; preds = %.preheader.i.i.i10573.preheader, %._crit_edge.i.i.i10579
   %.sroa.022.0.idx.i.i10574 = phi i64 [ %.sroa.022.0.add.i.i10575, %._crit_edge.i.i.i10579 ], [ 7, %.preheader.i.i.i10573.preheader ]
   %.sroa.022.0.add.i.i10575 = add nsw i64 %.sroa.022.0.idx.i.i10574, -1
-  %.ptr33.i.i10576 = getelementptr inbounds i8, ptr %365, i64 %.sroa.022.0.add.i.i10575
+  %.ptr33.i.i10576 = getelementptr inbounds nuw i8, ptr %365, i64 %.sroa.022.0.add.i.i10575
   %5113 = load i8, ptr %.ptr33.i.i10576, align 1, !tbaa !9, !noalias !494
   br label %5115
 
@@ -43245,7 +43245,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10599:                            ; preds = %.preheader.i.i.i10599, %.preheader.i.i.i10599.preheader
   %.sroa.022.0.idx.i.i10600 = phi i64 [ 7, %.preheader.i.i.i10599.preheader ], [ %.sroa.022.0.add.i.i10601, %.preheader.i.i.i10599 ]
   %.sroa.022.0.add.i.i10601 = add nsw i64 %.sroa.022.0.idx.i.i10600, -1
-  %.ptr33.i.i10602 = getelementptr inbounds i8, ptr %366, i64 %.sroa.022.0.add.i.i10601
+  %.ptr33.i.i10602 = getelementptr inbounds nuw i8, ptr %366, i64 %.sroa.022.0.add.i.i10601
   %5135 = load i8, ptr %.ptr33.i.i10602, align 1, !tbaa !9, !noalias !497
   %5136 = icmp ne i8 %5135, 114
   %.not10.i.i.i10606 = icmp ne i64 %.sroa.022.0.add.i.i10601, 2
@@ -43268,7 +43268,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10617:                            ; preds = %.preheader.i.i.i10617.preheader, %._crit_edge.i.i.i10623
   %.sroa.022.0.idx.i.i10618 = phi i64 [ %.sroa.022.0.add.i.i10619, %._crit_edge.i.i.i10623 ], [ 7, %.preheader.i.i.i10617.preheader ]
   %.sroa.022.0.add.i.i10619 = add nsw i64 %.sroa.022.0.idx.i.i10618, -1
-  %.ptr33.i.i10620 = getelementptr inbounds i8, ptr %367, i64 %.sroa.022.0.add.i.i10619
+  %.ptr33.i.i10620 = getelementptr inbounds nuw i8, ptr %367, i64 %.sroa.022.0.add.i.i10619
   %5141 = load i8, ptr %.ptr33.i.i10620, align 1, !tbaa !9, !noalias !500
   br label %5143
 
@@ -43309,7 +43309,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10635:                            ; preds = %.preheader.i.i.i10635.preheader, %._crit_edge.i.i.i10641
   %.sroa.022.0.idx.i.i10636 = phi i64 [ %.sroa.022.0.add.i.i10637, %._crit_edge.i.i.i10641 ], [ 7, %.preheader.i.i.i10635.preheader ]
   %.sroa.022.0.add.i.i10637 = add nsw i64 %.sroa.022.0.idx.i.i10636, -1
-  %.ptr33.i.i10638 = getelementptr inbounds i8, ptr %368, i64 %.sroa.022.0.add.i.i10637
+  %.ptr33.i.i10638 = getelementptr inbounds nuw i8, ptr %368, i64 %.sroa.022.0.add.i.i10637
   %5151 = load i8, ptr %.ptr33.i.i10638, align 1, !tbaa !9, !noalias !503
   br label %5153
 
@@ -43350,7 +43350,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10653:                            ; preds = %.preheader.i.i.i10653.preheader, %._crit_edge.i.i.i10659
   %.sroa.022.0.idx.i.i10654 = phi i64 [ %.sroa.022.0.add.i.i10655, %._crit_edge.i.i.i10659 ], [ 7, %.preheader.i.i.i10653.preheader ]
   %.sroa.022.0.add.i.i10655 = add nsw i64 %.sroa.022.0.idx.i.i10654, -1
-  %.ptr33.i.i10656 = getelementptr inbounds i8, ptr %369, i64 %.sroa.022.0.add.i.i10655
+  %.ptr33.i.i10656 = getelementptr inbounds nuw i8, ptr %369, i64 %.sroa.022.0.add.i.i10655
   %5161 = load i8, ptr %.ptr33.i.i10656, align 1, !tbaa !9, !noalias !506
   br label %5163
 
@@ -43408,7 +43408,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10675:                            ; preds = %.preheader.i.i.i10675, %.preheader.i.i.i10675.preheader
   %.sroa.022.0.idx.i.i10676 = phi i64 [ 7, %.preheader.i.i.i10675.preheader ], [ %.sroa.022.0.add.i.i10677, %.preheader.i.i.i10675 ]
   %.sroa.022.0.add.i.i10677 = add nsw i64 %.sroa.022.0.idx.i.i10676, -1
-  %.ptr33.i.i10678 = getelementptr inbounds i8, ptr %370, i64 %.sroa.022.0.add.i.i10677
+  %.ptr33.i.i10678 = getelementptr inbounds nuw i8, ptr %370, i64 %.sroa.022.0.add.i.i10677
   %5177 = load i8, ptr %.ptr33.i.i10678, align 1, !tbaa !9, !noalias !509
   %5178 = icmp ne i8 %5177, 102
   %.not10.i.i.i10682 = icmp ne i64 %.sroa.022.0.add.i.i10677, 2
@@ -43431,7 +43431,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10693:                            ; preds = %.preheader.i.i.i10693.preheader, %._crit_edge.i.i.i10699
   %.sroa.022.0.idx.i.i10694 = phi i64 [ %.sroa.022.0.add.i.i10695, %._crit_edge.i.i.i10699 ], [ 7, %.preheader.i.i.i10693.preheader ]
   %.sroa.022.0.add.i.i10695 = add nsw i64 %.sroa.022.0.idx.i.i10694, -1
-  %.ptr33.i.i10696 = getelementptr inbounds i8, ptr %371, i64 %.sroa.022.0.add.i.i10695
+  %.ptr33.i.i10696 = getelementptr inbounds nuw i8, ptr %371, i64 %.sroa.022.0.add.i.i10695
   %5183 = load i8, ptr %.ptr33.i.i10696, align 1, !tbaa !9, !noalias !512
   br label %5185
 
@@ -43472,7 +43472,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10711:                            ; preds = %.preheader.i.i.i10711.preheader, %._crit_edge.i.i.i10717
   %.sroa.022.0.idx.i.i10712 = phi i64 [ %.sroa.022.0.add.i.i10713, %._crit_edge.i.i.i10717 ], [ 7, %.preheader.i.i.i10711.preheader ]
   %.sroa.022.0.add.i.i10713 = add nsw i64 %.sroa.022.0.idx.i.i10712, -1
-  %.ptr33.i.i10714 = getelementptr inbounds i8, ptr %372, i64 %.sroa.022.0.add.i.i10713
+  %.ptr33.i.i10714 = getelementptr inbounds nuw i8, ptr %372, i64 %.sroa.022.0.add.i.i10713
   %5193 = load i8, ptr %.ptr33.i.i10714, align 1, !tbaa !9, !noalias !515
   br label %5195
 
@@ -43513,7 +43513,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10729:                            ; preds = %.preheader.i.i.i10729.preheader, %._crit_edge.i.i.i10735
   %.sroa.022.0.idx.i.i10730 = phi i64 [ %.sroa.022.0.add.i.i10731, %._crit_edge.i.i.i10735 ], [ 7, %.preheader.i.i.i10729.preheader ]
   %.sroa.022.0.add.i.i10731 = add nsw i64 %.sroa.022.0.idx.i.i10730, -1
-  %.ptr33.i.i10732 = getelementptr inbounds i8, ptr %373, i64 %.sroa.022.0.add.i.i10731
+  %.ptr33.i.i10732 = getelementptr inbounds nuw i8, ptr %373, i64 %.sroa.022.0.add.i.i10731
   %5203 = load i8, ptr %.ptr33.i.i10732, align 1, !tbaa !9, !noalias !518
   br label %5205
 
@@ -43571,7 +43571,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10751:                            ; preds = %.preheader.i.i.i10751, %.preheader.i.i.i10751.preheader
   %.sroa.022.0.idx.i.i10752 = phi i64 [ 7, %.preheader.i.i.i10751.preheader ], [ %.sroa.022.0.add.i.i10753, %.preheader.i.i.i10751 ]
   %.sroa.022.0.add.i.i10753 = add nsw i64 %.sroa.022.0.idx.i.i10752, -1
-  %.ptr33.i.i10754 = getelementptr inbounds i8, ptr %374, i64 %.sroa.022.0.add.i.i10753
+  %.ptr33.i.i10754 = getelementptr inbounds nuw i8, ptr %374, i64 %.sroa.022.0.add.i.i10753
   %5219 = load i8, ptr %.ptr33.i.i10754, align 1, !tbaa !9, !noalias !521
   %5220 = icmp ne i8 %5219, 107
   %.not10.i.i.i10758 = icmp ne i64 %.sroa.022.0.add.i.i10753, 2
@@ -43594,7 +43594,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10769:                            ; preds = %.preheader.i.i.i10769.preheader, %._crit_edge.i.i.i10775
   %.sroa.022.0.idx.i.i10770 = phi i64 [ %.sroa.022.0.add.i.i10771, %._crit_edge.i.i.i10775 ], [ 7, %.preheader.i.i.i10769.preheader ]
   %.sroa.022.0.add.i.i10771 = add nsw i64 %.sroa.022.0.idx.i.i10770, -1
-  %.ptr33.i.i10772 = getelementptr inbounds i8, ptr %375, i64 %.sroa.022.0.add.i.i10771
+  %.ptr33.i.i10772 = getelementptr inbounds nuw i8, ptr %375, i64 %.sroa.022.0.add.i.i10771
   %5225 = load i8, ptr %.ptr33.i.i10772, align 1, !tbaa !9, !noalias !524
   br label %5227
 
@@ -43635,7 +43635,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10787:                            ; preds = %.preheader.i.i.i10787.preheader, %._crit_edge.i.i.i10793
   %.sroa.022.0.idx.i.i10788 = phi i64 [ %.sroa.022.0.add.i.i10789, %._crit_edge.i.i.i10793 ], [ 7, %.preheader.i.i.i10787.preheader ]
   %.sroa.022.0.add.i.i10789 = add nsw i64 %.sroa.022.0.idx.i.i10788, -1
-  %.ptr33.i.i10790 = getelementptr inbounds i8, ptr %376, i64 %.sroa.022.0.add.i.i10789
+  %.ptr33.i.i10790 = getelementptr inbounds nuw i8, ptr %376, i64 %.sroa.022.0.add.i.i10789
   %5235 = load i8, ptr %.ptr33.i.i10790, align 1, !tbaa !9, !noalias !527
   br label %5237
 
@@ -43676,7 +43676,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10805:                            ; preds = %.preheader.i.i.i10805.preheader, %._crit_edge.i.i.i10811
   %.sroa.022.0.idx.i.i10806 = phi i64 [ %.sroa.022.0.add.i.i10807, %._crit_edge.i.i.i10811 ], [ 7, %.preheader.i.i.i10805.preheader ]
   %.sroa.022.0.add.i.i10807 = add nsw i64 %.sroa.022.0.idx.i.i10806, -1
-  %.ptr33.i.i10808 = getelementptr inbounds i8, ptr %377, i64 %.sroa.022.0.add.i.i10807
+  %.ptr33.i.i10808 = getelementptr inbounds nuw i8, ptr %377, i64 %.sroa.022.0.add.i.i10807
   %5245 = load i8, ptr %.ptr33.i.i10808, align 1, !tbaa !9, !noalias !530
   br label %5247
 
@@ -43751,7 +43751,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10831:                            ; preds = %.preheader.i.i.i10831, %.preheader.i.i.i10831.preheader
   %.sroa.022.0.idx.i.i10832 = phi i64 [ 7, %.preheader.i.i.i10831.preheader ], [ %.sroa.022.0.add.i.i10833, %.preheader.i.i.i10831 ]
   %.sroa.022.0.add.i.i10833 = add nsw i64 %.sroa.022.0.idx.i.i10832, -1
-  %.ptr33.i.i10834 = getelementptr inbounds i8, ptr %378, i64 %.sroa.022.0.add.i.i10833
+  %.ptr33.i.i10834 = getelementptr inbounds nuw i8, ptr %378, i64 %.sroa.022.0.add.i.i10833
   %5267 = load i8, ptr %.ptr33.i.i10834, align 1, !tbaa !9, !noalias !533
   %5268 = icmp ne i8 %5267, 103
   %.not10.i.i.i10838 = icmp ne i64 %.sroa.022.0.add.i.i10833, 2
@@ -43774,7 +43774,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i10849:                            ; preds = %.preheader.i.i.i10849.preheader, %._crit_edge.i.i.i10855
   %.sroa.022.0.idx.i.i10850 = phi i64 [ %.sroa.022.0.add.i.i10851, %._crit_edge.i.i.i10855 ], [ 7, %.preheader.i.i.i10849.preheader ]
   %.sroa.022.0.add.i.i10851 = add nsw i64 %.sroa.022.0.idx.i.i10850, -1
-  %.ptr33.i.i10852 = getelementptr inbounds i8, ptr %379, i64 %.sroa.022.0.add.i.i10851
+  %.ptr33.i.i10852 = getelementptr inbounds nuw i8, ptr %379, i64 %.sroa.022.0.add.i.i10851
   %5273 = load i8, ptr %.ptr33.i.i10852, align 1, !tbaa !9, !noalias !536
   br label %5275
 
@@ -43815,7 +43815,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10867:                            ; preds = %.preheader.i.i.i10867.preheader, %._crit_edge.i.i.i10873
   %.sroa.022.0.idx.i.i10868 = phi i64 [ %.sroa.022.0.add.i.i10869, %._crit_edge.i.i.i10873 ], [ 7, %.preheader.i.i.i10867.preheader ]
   %.sroa.022.0.add.i.i10869 = add nsw i64 %.sroa.022.0.idx.i.i10868, -1
-  %.ptr33.i.i10870 = getelementptr inbounds i8, ptr %380, i64 %.sroa.022.0.add.i.i10869
+  %.ptr33.i.i10870 = getelementptr inbounds nuw i8, ptr %380, i64 %.sroa.022.0.add.i.i10869
   %5283 = load i8, ptr %.ptr33.i.i10870, align 1, !tbaa !9, !noalias !539
   br label %5285
 
@@ -43856,7 +43856,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10885:                            ; preds = %.preheader.i.i.i10885.preheader, %._crit_edge.i.i.i10891
   %.sroa.022.0.idx.i.i10886 = phi i64 [ %.sroa.022.0.add.i.i10887, %._crit_edge.i.i.i10891 ], [ 7, %.preheader.i.i.i10885.preheader ]
   %.sroa.022.0.add.i.i10887 = add nsw i64 %.sroa.022.0.idx.i.i10886, -1
-  %.ptr33.i.i10888 = getelementptr inbounds i8, ptr %381, i64 %.sroa.022.0.add.i.i10887
+  %.ptr33.i.i10888 = getelementptr inbounds nuw i8, ptr %381, i64 %.sroa.022.0.add.i.i10887
   %5293 = load i8, ptr %.ptr33.i.i10888, align 1, !tbaa !9, !noalias !542
   br label %5295
 
@@ -43914,7 +43914,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10907:                            ; preds = %.preheader.i.i.i10907, %.preheader.i.i.i10907.preheader
   %.sroa.022.0.idx.i.i10908 = phi i64 [ 7, %.preheader.i.i.i10907.preheader ], [ %.sroa.022.0.add.i.i10909, %.preheader.i.i.i10907 ]
   %.sroa.022.0.add.i.i10909 = add nsw i64 %.sroa.022.0.idx.i.i10908, -1
-  %.ptr33.i.i10910 = getelementptr inbounds i8, ptr %382, i64 %.sroa.022.0.add.i.i10909
+  %.ptr33.i.i10910 = getelementptr inbounds nuw i8, ptr %382, i64 %.sroa.022.0.add.i.i10909
   %5309 = load i8, ptr %.ptr33.i.i10910, align 1, !tbaa !9, !noalias !545
   %5310 = icmp ne i8 %5309, 97
   %.not10.i.i.i10914 = icmp ne i64 %.sroa.022.0.add.i.i10909, 2
@@ -43937,7 +43937,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10925:                            ; preds = %.preheader.i.i.i10925.preheader, %._crit_edge.i.i.i10931
   %.sroa.022.0.idx.i.i10926 = phi i64 [ %.sroa.022.0.add.i.i10927, %._crit_edge.i.i.i10931 ], [ 7, %.preheader.i.i.i10925.preheader ]
   %.sroa.022.0.add.i.i10927 = add nsw i64 %.sroa.022.0.idx.i.i10926, -1
-  %.ptr33.i.i10928 = getelementptr inbounds i8, ptr %383, i64 %.sroa.022.0.add.i.i10927
+  %.ptr33.i.i10928 = getelementptr inbounds nuw i8, ptr %383, i64 %.sroa.022.0.add.i.i10927
   %5315 = load i8, ptr %.ptr33.i.i10928, align 1, !tbaa !9, !noalias !548
   br label %5317
 
@@ -43978,7 +43978,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10943:                            ; preds = %.preheader.i.i.i10943.preheader, %._crit_edge.i.i.i10949
   %.sroa.022.0.idx.i.i10944 = phi i64 [ %.sroa.022.0.add.i.i10945, %._crit_edge.i.i.i10949 ], [ 7, %.preheader.i.i.i10943.preheader ]
   %.sroa.022.0.add.i.i10945 = add nsw i64 %.sroa.022.0.idx.i.i10944, -1
-  %.ptr33.i.i10946 = getelementptr inbounds i8, ptr %384, i64 %.sroa.022.0.add.i.i10945
+  %.ptr33.i.i10946 = getelementptr inbounds nuw i8, ptr %384, i64 %.sroa.022.0.add.i.i10945
   %5325 = load i8, ptr %.ptr33.i.i10946, align 1, !tbaa !9, !noalias !551
   br label %5327
 
@@ -44019,7 +44019,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i10961:                            ; preds = %.preheader.i.i.i10961.preheader, %._crit_edge.i.i.i10967
   %.sroa.022.0.idx.i.i10962 = phi i64 [ %.sroa.022.0.add.i.i10963, %._crit_edge.i.i.i10967 ], [ 7, %.preheader.i.i.i10961.preheader ]
   %.sroa.022.0.add.i.i10963 = add nsw i64 %.sroa.022.0.idx.i.i10962, -1
-  %.ptr33.i.i10964 = getelementptr inbounds i8, ptr %385, i64 %.sroa.022.0.add.i.i10963
+  %.ptr33.i.i10964 = getelementptr inbounds nuw i8, ptr %385, i64 %.sroa.022.0.add.i.i10963
   %5335 = load i8, ptr %.ptr33.i.i10964, align 1, !tbaa !9, !noalias !554
   br label %5337
 
@@ -44077,7 +44077,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i10983:                            ; preds = %.preheader.i.i.i10983, %.preheader.i.i.i10983.preheader
   %.sroa.022.0.idx.i.i10984 = phi i64 [ 7, %.preheader.i.i.i10983.preheader ], [ %.sroa.022.0.add.i.i10985, %.preheader.i.i.i10983 ]
   %.sroa.022.0.add.i.i10985 = add nsw i64 %.sroa.022.0.idx.i.i10984, -1
-  %.ptr33.i.i10986 = getelementptr inbounds i8, ptr %386, i64 %.sroa.022.0.add.i.i10985
+  %.ptr33.i.i10986 = getelementptr inbounds nuw i8, ptr %386, i64 %.sroa.022.0.add.i.i10985
   %5351 = load i8, ptr %.ptr33.i.i10986, align 1, !tbaa !9, !noalias !557
   %5352 = icmp ne i8 %5351, 106
   %.not10.i.i.i10990 = icmp ne i64 %.sroa.022.0.add.i.i10985, 2
@@ -44100,7 +44100,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11001:                            ; preds = %.preheader.i.i.i11001.preheader, %._crit_edge.i.i.i11007
   %.sroa.022.0.idx.i.i11002 = phi i64 [ %.sroa.022.0.add.i.i11003, %._crit_edge.i.i.i11007 ], [ 7, %.preheader.i.i.i11001.preheader ]
   %.sroa.022.0.add.i.i11003 = add nsw i64 %.sroa.022.0.idx.i.i11002, -1
-  %.ptr33.i.i11004 = getelementptr inbounds i8, ptr %387, i64 %.sroa.022.0.add.i.i11003
+  %.ptr33.i.i11004 = getelementptr inbounds nuw i8, ptr %387, i64 %.sroa.022.0.add.i.i11003
   %5357 = load i8, ptr %.ptr33.i.i11004, align 1, !tbaa !9, !noalias !560
   br label %5359
 
@@ -44141,7 +44141,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11019:                            ; preds = %.preheader.i.i.i11019.preheader, %._crit_edge.i.i.i11025
   %.sroa.022.0.idx.i.i11020 = phi i64 [ %.sroa.022.0.add.i.i11021, %._crit_edge.i.i.i11025 ], [ 7, %.preheader.i.i.i11019.preheader ]
   %.sroa.022.0.add.i.i11021 = add nsw i64 %.sroa.022.0.idx.i.i11020, -1
-  %.ptr33.i.i11022 = getelementptr inbounds i8, ptr %388, i64 %.sroa.022.0.add.i.i11021
+  %.ptr33.i.i11022 = getelementptr inbounds nuw i8, ptr %388, i64 %.sroa.022.0.add.i.i11021
   %5367 = load i8, ptr %.ptr33.i.i11022, align 1, !tbaa !9, !noalias !563
   br label %5369
 
@@ -44182,7 +44182,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11037:                            ; preds = %.preheader.i.i.i11037.preheader, %._crit_edge.i.i.i11043
   %.sroa.022.0.idx.i.i11038 = phi i64 [ %.sroa.022.0.add.i.i11039, %._crit_edge.i.i.i11043 ], [ 7, %.preheader.i.i.i11037.preheader ]
   %.sroa.022.0.add.i.i11039 = add nsw i64 %.sroa.022.0.idx.i.i11038, -1
-  %.ptr33.i.i11040 = getelementptr inbounds i8, ptr %389, i64 %.sroa.022.0.add.i.i11039
+  %.ptr33.i.i11040 = getelementptr inbounds nuw i8, ptr %389, i64 %.sroa.022.0.add.i.i11039
   %5377 = load i8, ptr %.ptr33.i.i11040, align 1, !tbaa !9, !noalias !566
   br label %5379
 
@@ -44439,7 +44439,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11295:                            ; preds = %.preheader.i.i.i11295, %.preheader.i.i.i11295.preheader
   %.sroa.022.0.idx.i.i11296 = phi i64 [ 4, %.preheader.i.i.i11295.preheader ], [ %.sroa.022.0.add.i.i11297, %.preheader.i.i.i11295 ]
   %.sroa.022.0.add.i.i11297 = add nsw i64 %.sroa.022.0.idx.i.i11296, -1
-  %.ptr33.i.i11298 = getelementptr inbounds i8, ptr %390, i64 %.sroa.022.0.add.i.i11297
+  %.ptr33.i.i11298 = getelementptr inbounds nuw i8, ptr %390, i64 %.sroa.022.0.add.i.i11297
   %5458 = load i8, ptr %.ptr33.i.i11298, align 1, !tbaa !9, !noalias !593
   %5459 = icmp ne i8 %5458, 112
   %.not10.i.i.i11302 = icmp ne i64 %.sroa.022.0.add.i.i11297, 2
@@ -44460,7 +44460,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11313:                            ; preds = %.preheader.i.i.i11313.preheader, %._crit_edge.i.i.i11319
   %.sroa.022.0.idx.i.i11314 = phi i64 [ %.sroa.022.0.add.i.i11315, %._crit_edge.i.i.i11319 ], [ 4, %.preheader.i.i.i11313.preheader ]
   %.sroa.022.0.add.i.i11315 = add nsw i64 %.sroa.022.0.idx.i.i11314, -1
-  %.ptr33.i.i11316 = getelementptr inbounds i8, ptr %391, i64 %.sroa.022.0.add.i.i11315
+  %.ptr33.i.i11316 = getelementptr inbounds nuw i8, ptr %391, i64 %.sroa.022.0.add.i.i11315
   %5463 = load i8, ptr %.ptr33.i.i11316, align 1, !tbaa !9, !noalias !596
   br label %5465
 
@@ -44499,7 +44499,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11331:                            ; preds = %.preheader.i.i.i11331.preheader, %._crit_edge.i.i.i11337
   %.sroa.022.0.idx.i.i11332 = phi i64 [ %.sroa.022.0.add.i.i11333, %._crit_edge.i.i.i11337 ], [ 4, %.preheader.i.i.i11331.preheader ]
   %.sroa.022.0.add.i.i11333 = add nsw i64 %.sroa.022.0.idx.i.i11332, -1
-  %.ptr33.i.i11334 = getelementptr inbounds i8, ptr %392, i64 %.sroa.022.0.add.i.i11333
+  %.ptr33.i.i11334 = getelementptr inbounds nuw i8, ptr %392, i64 %.sroa.022.0.add.i.i11333
   %5472 = load i8, ptr %.ptr33.i.i11334, align 1, !tbaa !9, !noalias !599
   br label %5474
 
@@ -44538,7 +44538,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11349:                            ; preds = %.preheader.i.i.i11349.preheader, %._crit_edge.i.i.i11355
   %.sroa.022.0.idx.i.i11350 = phi i64 [ %.sroa.022.0.add.i.i11351, %._crit_edge.i.i.i11355 ], [ 4, %.preheader.i.i.i11349.preheader ]
   %.sroa.022.0.add.i.i11351 = add nsw i64 %.sroa.022.0.idx.i.i11350, -1
-  %.ptr33.i.i11352 = getelementptr inbounds i8, ptr %393, i64 %.sroa.022.0.add.i.i11351
+  %.ptr33.i.i11352 = getelementptr inbounds nuw i8, ptr %393, i64 %.sroa.022.0.add.i.i11351
   %5481 = load i8, ptr %.ptr33.i.i11352, align 1, !tbaa !9, !noalias !602
   br label %5483
 
@@ -44594,7 +44594,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11371:                            ; preds = %.preheader.i.i.i11371, %.preheader.i.i.i11371.preheader
   %.sroa.022.0.idx.i.i11372 = phi i64 [ 4, %.preheader.i.i.i11371.preheader ], [ %.sroa.022.0.add.i.i11373, %.preheader.i.i.i11371 ]
   %.sroa.022.0.add.i.i11373 = add nsw i64 %.sroa.022.0.idx.i.i11372, -1
-  %.ptr33.i.i11374 = getelementptr inbounds i8, ptr %394, i64 %.sroa.022.0.add.i.i11373
+  %.ptr33.i.i11374 = getelementptr inbounds nuw i8, ptr %394, i64 %.sroa.022.0.add.i.i11373
   %5496 = load i8, ptr %.ptr33.i.i11374, align 1, !tbaa !9, !noalias !605
   %5497 = icmp ne i8 %5496, 97
   %.not10.i.i.i11378 = icmp ne i64 %.sroa.022.0.add.i.i11373, 2
@@ -44615,7 +44615,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11389:                            ; preds = %.preheader.i.i.i11389.preheader, %._crit_edge.i.i.i11395
   %.sroa.022.0.idx.i.i11390 = phi i64 [ %.sroa.022.0.add.i.i11391, %._crit_edge.i.i.i11395 ], [ 4, %.preheader.i.i.i11389.preheader ]
   %.sroa.022.0.add.i.i11391 = add nsw i64 %.sroa.022.0.idx.i.i11390, -1
-  %.ptr33.i.i11392 = getelementptr inbounds i8, ptr %395, i64 %.sroa.022.0.add.i.i11391
+  %.ptr33.i.i11392 = getelementptr inbounds nuw i8, ptr %395, i64 %.sroa.022.0.add.i.i11391
   %5501 = load i8, ptr %.ptr33.i.i11392, align 1, !tbaa !9, !noalias !608
   br label %5503
 
@@ -44654,7 +44654,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11407:                            ; preds = %.preheader.i.i.i11407.preheader, %._crit_edge.i.i.i11413
   %.sroa.022.0.idx.i.i11408 = phi i64 [ %.sroa.022.0.add.i.i11409, %._crit_edge.i.i.i11413 ], [ 4, %.preheader.i.i.i11407.preheader ]
   %.sroa.022.0.add.i.i11409 = add nsw i64 %.sroa.022.0.idx.i.i11408, -1
-  %.ptr33.i.i11410 = getelementptr inbounds i8, ptr %396, i64 %.sroa.022.0.add.i.i11409
+  %.ptr33.i.i11410 = getelementptr inbounds nuw i8, ptr %396, i64 %.sroa.022.0.add.i.i11409
   %5510 = load i8, ptr %.ptr33.i.i11410, align 1, !tbaa !9, !noalias !611
   br label %5512
 
@@ -44693,7 +44693,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11425:                            ; preds = %.preheader.i.i.i11425.preheader, %._crit_edge.i.i.i11431
   %.sroa.022.0.idx.i.i11426 = phi i64 [ %.sroa.022.0.add.i.i11427, %._crit_edge.i.i.i11431 ], [ 4, %.preheader.i.i.i11425.preheader ]
   %.sroa.022.0.add.i.i11427 = add nsw i64 %.sroa.022.0.idx.i.i11426, -1
-  %.ptr33.i.i11428 = getelementptr inbounds i8, ptr %397, i64 %.sroa.022.0.add.i.i11427
+  %.ptr33.i.i11428 = getelementptr inbounds nuw i8, ptr %397, i64 %.sroa.022.0.add.i.i11427
   %5519 = load i8, ptr %.ptr33.i.i11428, align 1, !tbaa !9, !noalias !614
   br label %5521
 
@@ -44749,7 +44749,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11447:                            ; preds = %.preheader.i.i.i11447, %.preheader.i.i.i11447.preheader
   %.sroa.022.0.idx.i.i11448 = phi i64 [ 4, %.preheader.i.i.i11447.preheader ], [ %.sroa.022.0.add.i.i11449, %.preheader.i.i.i11447 ]
   %.sroa.022.0.add.i.i11449 = add nsw i64 %.sroa.022.0.idx.i.i11448, -1
-  %.ptr33.i.i11450 = getelementptr inbounds i8, ptr %398, i64 %.sroa.022.0.add.i.i11449
+  %.ptr33.i.i11450 = getelementptr inbounds nuw i8, ptr %398, i64 %.sroa.022.0.add.i.i11449
   %5534 = load i8, ptr %.ptr33.i.i11450, align 1, !tbaa !9, !noalias !617
   %5535 = icmp ne i8 %5534, 114
   %.not10.i.i.i11454 = icmp ne i64 %.sroa.022.0.add.i.i11449, 2
@@ -44770,7 +44770,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11465:                            ; preds = %.preheader.i.i.i11465.preheader, %._crit_edge.i.i.i11471
   %.sroa.022.0.idx.i.i11466 = phi i64 [ %.sroa.022.0.add.i.i11467, %._crit_edge.i.i.i11471 ], [ 4, %.preheader.i.i.i11465.preheader ]
   %.sroa.022.0.add.i.i11467 = add nsw i64 %.sroa.022.0.idx.i.i11466, -1
-  %.ptr33.i.i11468 = getelementptr inbounds i8, ptr %399, i64 %.sroa.022.0.add.i.i11467
+  %.ptr33.i.i11468 = getelementptr inbounds nuw i8, ptr %399, i64 %.sroa.022.0.add.i.i11467
   %5539 = load i8, ptr %.ptr33.i.i11468, align 1, !tbaa !9, !noalias !620
   br label %5541
 
@@ -44809,7 +44809,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11483:                            ; preds = %.preheader.i.i.i11483.preheader, %._crit_edge.i.i.i11489
   %.sroa.022.0.idx.i.i11484 = phi i64 [ %.sroa.022.0.add.i.i11485, %._crit_edge.i.i.i11489 ], [ 4, %.preheader.i.i.i11483.preheader ]
   %.sroa.022.0.add.i.i11485 = add nsw i64 %.sroa.022.0.idx.i.i11484, -1
-  %.ptr33.i.i11486 = getelementptr inbounds i8, ptr %400, i64 %.sroa.022.0.add.i.i11485
+  %.ptr33.i.i11486 = getelementptr inbounds nuw i8, ptr %400, i64 %.sroa.022.0.add.i.i11485
   %5548 = load i8, ptr %.ptr33.i.i11486, align 1, !tbaa !9, !noalias !623
   br label %5550
 
@@ -44848,7 +44848,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11501:                            ; preds = %.preheader.i.i.i11501.preheader, %._crit_edge.i.i.i11507
   %.sroa.022.0.idx.i.i11502 = phi i64 [ %.sroa.022.0.add.i.i11503, %._crit_edge.i.i.i11507 ], [ 4, %.preheader.i.i.i11501.preheader ]
   %.sroa.022.0.add.i.i11503 = add nsw i64 %.sroa.022.0.idx.i.i11502, -1
-  %.ptr33.i.i11504 = getelementptr inbounds i8, ptr %401, i64 %.sroa.022.0.add.i.i11503
+  %.ptr33.i.i11504 = getelementptr inbounds nuw i8, ptr %401, i64 %.sroa.022.0.add.i.i11503
   %5557 = load i8, ptr %.ptr33.i.i11504, align 1, !tbaa !9, !noalias !626
   br label %5559
 
@@ -44921,7 +44921,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11527:                            ; preds = %.preheader.i.i.i11527, %.preheader.i.i.i11527.preheader
   %.sroa.022.0.idx.i.i11528 = phi i64 [ 8, %.preheader.i.i.i11527.preheader ], [ %.sroa.022.0.add.i.i11529, %.preheader.i.i.i11527 ]
   %.sroa.022.0.add.i.i11529 = add nsw i64 %.sroa.022.0.idx.i.i11528, -1
-  %.ptr33.i.i11530 = getelementptr inbounds i8, ptr %402, i64 %.sroa.022.0.add.i.i11529
+  %.ptr33.i.i11530 = getelementptr inbounds nuw i8, ptr %402, i64 %.sroa.022.0.add.i.i11529
   %5578 = load i8, ptr %.ptr33.i.i11530, align 1, !tbaa !9, !noalias !629
   %5579 = icmp ne i8 %5578, 106
   %.not10.i.i.i11534 = icmp ne i64 %.sroa.022.0.add.i.i11529, 2
@@ -44942,7 +44942,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11545:                            ; preds = %.preheader.i.i.i11545.preheader, %._crit_edge.i.i.i11551
   %.sroa.022.0.idx.i.i11546 = phi i64 [ %.sroa.022.0.add.i.i11547, %._crit_edge.i.i.i11551 ], [ 8, %.preheader.i.i.i11545.preheader ]
   %.sroa.022.0.add.i.i11547 = add nsw i64 %.sroa.022.0.idx.i.i11546, -1
-  %.ptr33.i.i11548 = getelementptr inbounds i8, ptr %403, i64 %.sroa.022.0.add.i.i11547
+  %.ptr33.i.i11548 = getelementptr inbounds nuw i8, ptr %403, i64 %.sroa.022.0.add.i.i11547
   %5583 = load i8, ptr %.ptr33.i.i11548, align 1, !tbaa !9, !noalias !632
   br label %5585
 
@@ -44981,7 +44981,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11563:                            ; preds = %.preheader.i.i.i11563.preheader, %._crit_edge.i.i.i11569
   %.sroa.022.0.idx.i.i11564 = phi i64 [ %.sroa.022.0.add.i.i11565, %._crit_edge.i.i.i11569 ], [ 8, %.preheader.i.i.i11563.preheader ]
   %.sroa.022.0.add.i.i11565 = add nsw i64 %.sroa.022.0.idx.i.i11564, -1
-  %.ptr33.i.i11566 = getelementptr inbounds i8, ptr %404, i64 %.sroa.022.0.add.i.i11565
+  %.ptr33.i.i11566 = getelementptr inbounds nuw i8, ptr %404, i64 %.sroa.022.0.add.i.i11565
   %5592 = load i8, ptr %.ptr33.i.i11566, align 1, !tbaa !9, !noalias !635
   br label %5594
 
@@ -45020,7 +45020,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11581:                            ; preds = %.preheader.i.i.i11581.preheader, %._crit_edge.i.i.i11587
   %.sroa.022.0.idx.i.i11582 = phi i64 [ %.sroa.022.0.add.i.i11583, %._crit_edge.i.i.i11587 ], [ 8, %.preheader.i.i.i11581.preheader ]
   %.sroa.022.0.add.i.i11583 = add nsw i64 %.sroa.022.0.idx.i.i11582, -1
-  %.ptr33.i.i11584 = getelementptr inbounds i8, ptr %405, i64 %.sroa.022.0.add.i.i11583
+  %.ptr33.i.i11584 = getelementptr inbounds nuw i8, ptr %405, i64 %.sroa.022.0.add.i.i11583
   %5601 = load i8, ptr %.ptr33.i.i11584, align 1, !tbaa !9, !noalias !638
   br label %5603
 
@@ -45076,7 +45076,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11603:                            ; preds = %.preheader.i.i.i11603.preheader, %._crit_edge.i.i.i11609
   %.sroa.022.0.idx.i.i11604 = phi i64 [ %.sroa.022.0.add.i.i11605, %._crit_edge.i.i.i11609 ], [ 8, %.preheader.i.i.i11603.preheader ]
   %.sroa.022.0.add.i.i11605 = add nsw i64 %.sroa.022.0.idx.i.i11604, -1
-  %.ptr33.i.i11606 = getelementptr inbounds i8, ptr %406, i64 %.sroa.022.0.add.i.i11605
+  %.ptr33.i.i11606 = getelementptr inbounds nuw i8, ptr %406, i64 %.sroa.022.0.add.i.i11605
   %5616 = load i8, ptr %.ptr33.i.i11606, align 1, !tbaa !9, !noalias !641
   %5617 = icmp eq i8 %5616, 114
   br i1 %5617, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i11612, label %._crit_edge.i.i.i11609
@@ -45104,7 +45104,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11621:                            ; preds = %.preheader.i.i.i11621.preheader, %._crit_edge.i.i.i11627
   %.sroa.022.0.idx.i.i11622 = phi i64 [ %.sroa.022.0.add.i.i11623, %._crit_edge.i.i.i11627 ], [ 8, %.preheader.i.i.i11621.preheader ]
   %.sroa.022.0.add.i.i11623 = add nsw i64 %.sroa.022.0.idx.i.i11622, -1
-  %.ptr33.i.i11624 = getelementptr inbounds i8, ptr %407, i64 %.sroa.022.0.add.i.i11623
+  %.ptr33.i.i11624 = getelementptr inbounds nuw i8, ptr %407, i64 %.sroa.022.0.add.i.i11623
   %5622 = load i8, ptr %.ptr33.i.i11624, align 1, !tbaa !9, !noalias !644
   br label %5624
 
@@ -45143,7 +45143,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11639:                            ; preds = %.preheader.i.i.i11639.preheader, %._crit_edge.i.i.i11645
   %.sroa.022.0.idx.i.i11640 = phi i64 [ %.sroa.022.0.add.i.i11641, %._crit_edge.i.i.i11645 ], [ 8, %.preheader.i.i.i11639.preheader ]
   %.sroa.022.0.add.i.i11641 = add nsw i64 %.sroa.022.0.idx.i.i11640, -1
-  %.ptr33.i.i11642 = getelementptr inbounds i8, ptr %408, i64 %.sroa.022.0.add.i.i11641
+  %.ptr33.i.i11642 = getelementptr inbounds nuw i8, ptr %408, i64 %.sroa.022.0.add.i.i11641
   %5631 = load i8, ptr %.ptr33.i.i11642, align 1, !tbaa !9, !noalias !647
   br label %5633
 
@@ -45182,7 +45182,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11657:                            ; preds = %.preheader.i.i.i11657.preheader, %._crit_edge.i.i.i11663
   %.sroa.022.0.idx.i.i11658 = phi i64 [ %.sroa.022.0.add.i.i11659, %._crit_edge.i.i.i11663 ], [ 8, %.preheader.i.i.i11657.preheader ]
   %.sroa.022.0.add.i.i11659 = add nsw i64 %.sroa.022.0.idx.i.i11658, -1
-  %.ptr33.i.i11660 = getelementptr inbounds i8, ptr %409, i64 %.sroa.022.0.add.i.i11659
+  %.ptr33.i.i11660 = getelementptr inbounds nuw i8, ptr %409, i64 %.sroa.022.0.add.i.i11659
   %5640 = load i8, ptr %.ptr33.i.i11660, align 1, !tbaa !9, !noalias !650
   br label %5642
 
@@ -45238,7 +45238,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11679:                            ; preds = %.preheader.i.i.i11679, %.preheader.i.i.i11679.preheader
   %.sroa.022.0.idx.i.i11680 = phi i64 [ 8, %.preheader.i.i.i11679.preheader ], [ %.sroa.022.0.add.i.i11681, %.preheader.i.i.i11679 ]
   %.sroa.022.0.add.i.i11681 = add nsw i64 %.sroa.022.0.idx.i.i11680, -1
-  %.ptr33.i.i11682 = getelementptr inbounds i8, ptr %410, i64 %.sroa.022.0.add.i.i11681
+  %.ptr33.i.i11682 = getelementptr inbounds nuw i8, ptr %410, i64 %.sroa.022.0.add.i.i11681
   %5655 = load i8, ptr %.ptr33.i.i11682, align 1, !tbaa !9, !noalias !653
   %5656 = icmp ne i8 %5655, 110
   %.not10.i.i.i11686 = icmp ne i64 %.sroa.022.0.add.i.i11681, 2
@@ -45259,7 +45259,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11697:                            ; preds = %.preheader.i.i.i11697.preheader, %._crit_edge.i.i.i11703
   %.sroa.022.0.idx.i.i11698 = phi i64 [ %.sroa.022.0.add.i.i11699, %._crit_edge.i.i.i11703 ], [ 8, %.preheader.i.i.i11697.preheader ]
   %.sroa.022.0.add.i.i11699 = add nsw i64 %.sroa.022.0.idx.i.i11698, -1
-  %.ptr33.i.i11700 = getelementptr inbounds i8, ptr %411, i64 %.sroa.022.0.add.i.i11699
+  %.ptr33.i.i11700 = getelementptr inbounds nuw i8, ptr %411, i64 %.sroa.022.0.add.i.i11699
   %5660 = load i8, ptr %.ptr33.i.i11700, align 1, !tbaa !9, !noalias !656
   br label %5662
 
@@ -45298,7 +45298,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11715:                            ; preds = %.preheader.i.i.i11715.preheader, %._crit_edge.i.i.i11721
   %.sroa.022.0.idx.i.i11716 = phi i64 [ %.sroa.022.0.add.i.i11717, %._crit_edge.i.i.i11721 ], [ 8, %.preheader.i.i.i11715.preheader ]
   %.sroa.022.0.add.i.i11717 = add nsw i64 %.sroa.022.0.idx.i.i11716, -1
-  %.ptr33.i.i11718 = getelementptr inbounds i8, ptr %412, i64 %.sroa.022.0.add.i.i11717
+  %.ptr33.i.i11718 = getelementptr inbounds nuw i8, ptr %412, i64 %.sroa.022.0.add.i.i11717
   %5669 = load i8, ptr %.ptr33.i.i11718, align 1, !tbaa !9, !noalias !659
   br label %5671
 
@@ -45337,7 +45337,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11733:                            ; preds = %.preheader.i.i.i11733.preheader, %._crit_edge.i.i.i11739
   %.sroa.022.0.idx.i.i11734 = phi i64 [ %.sroa.022.0.add.i.i11735, %._crit_edge.i.i.i11739 ], [ 8, %.preheader.i.i.i11733.preheader ]
   %.sroa.022.0.add.i.i11735 = add nsw i64 %.sroa.022.0.idx.i.i11734, -1
-  %.ptr33.i.i11736 = getelementptr inbounds i8, ptr %413, i64 %.sroa.022.0.add.i.i11735
+  %.ptr33.i.i11736 = getelementptr inbounds nuw i8, ptr %413, i64 %.sroa.022.0.add.i.i11735
   %5678 = load i8, ptr %.ptr33.i.i11736, align 1, !tbaa !9, !noalias !662
   br label %5680
 
@@ -45410,7 +45410,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11759:                            ; preds = %.preheader.i.i.i11759, %.preheader.i.i.i11759.preheader
   %.sroa.022.0.idx.i.i11760 = phi i64 [ 12, %.preheader.i.i.i11759.preheader ], [ %.sroa.022.0.add.i.i11761, %.preheader.i.i.i11759 ]
   %.sroa.022.0.add.i.i11761 = add nsw i64 %.sroa.022.0.idx.i.i11760, -1
-  %.ptr33.i.i11762 = getelementptr inbounds i8, ptr %414, i64 %.sroa.022.0.add.i.i11761
+  %.ptr33.i.i11762 = getelementptr inbounds nuw i8, ptr %414, i64 %.sroa.022.0.add.i.i11761
   %5699 = load i8, ptr %.ptr33.i.i11762, align 1, !tbaa !9, !noalias !665
   %5700 = icmp ne i8 %5699, 97
   %.not10.i.i.i11766 = icmp ne i64 %.sroa.022.0.add.i.i11761, 2
@@ -45431,7 +45431,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11777:                            ; preds = %.preheader.i.i.i11777.preheader, %._crit_edge.i.i.i11783
   %.sroa.022.0.idx.i.i11778 = phi i64 [ %.sroa.022.0.add.i.i11779, %._crit_edge.i.i.i11783 ], [ 12, %.preheader.i.i.i11777.preheader ]
   %.sroa.022.0.add.i.i11779 = add nsw i64 %.sroa.022.0.idx.i.i11778, -1
-  %.ptr33.i.i11780 = getelementptr inbounds i8, ptr %415, i64 %.sroa.022.0.add.i.i11779
+  %.ptr33.i.i11780 = getelementptr inbounds nuw i8, ptr %415, i64 %.sroa.022.0.add.i.i11779
   %5704 = load i8, ptr %.ptr33.i.i11780, align 1, !tbaa !9, !noalias !668
   br label %5706
 
@@ -45470,7 +45470,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11795:                            ; preds = %.preheader.i.i.i11795.preheader, %._crit_edge.i.i.i11801
   %.sroa.022.0.idx.i.i11796 = phi i64 [ %.sroa.022.0.add.i.i11797, %._crit_edge.i.i.i11801 ], [ 12, %.preheader.i.i.i11795.preheader ]
   %.sroa.022.0.add.i.i11797 = add nsw i64 %.sroa.022.0.idx.i.i11796, -1
-  %.ptr33.i.i11798 = getelementptr inbounds i8, ptr %416, i64 %.sroa.022.0.add.i.i11797
+  %.ptr33.i.i11798 = getelementptr inbounds nuw i8, ptr %416, i64 %.sroa.022.0.add.i.i11797
   %5713 = load i8, ptr %.ptr33.i.i11798, align 1, !tbaa !9, !noalias !671
   br label %5715
 
@@ -45509,7 +45509,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11813:                            ; preds = %.preheader.i.i.i11813.preheader, %._crit_edge.i.i.i11819
   %.sroa.022.0.idx.i.i11814 = phi i64 [ %.sroa.022.0.add.i.i11815, %._crit_edge.i.i.i11819 ], [ 12, %.preheader.i.i.i11813.preheader ]
   %.sroa.022.0.add.i.i11815 = add nsw i64 %.sroa.022.0.idx.i.i11814, -1
-  %.ptr33.i.i11816 = getelementptr inbounds i8, ptr %417, i64 %.sroa.022.0.add.i.i11815
+  %.ptr33.i.i11816 = getelementptr inbounds nuw i8, ptr %417, i64 %.sroa.022.0.add.i.i11815
   %5722 = load i8, ptr %.ptr33.i.i11816, align 1, !tbaa !9, !noalias !674
   br label %5724
 
@@ -45565,7 +45565,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11835:                            ; preds = %.preheader.i.i.i11835.preheader, %._crit_edge.i.i.i11841
   %.sroa.022.0.idx.i.i11836 = phi i64 [ %.sroa.022.0.add.i.i11837, %._crit_edge.i.i.i11841 ], [ 12, %.preheader.i.i.i11835.preheader ]
   %.sroa.022.0.add.i.i11837 = add nsw i64 %.sroa.022.0.idx.i.i11836, -1
-  %.ptr33.i.i11838 = getelementptr inbounds i8, ptr %418, i64 %.sroa.022.0.add.i.i11837
+  %.ptr33.i.i11838 = getelementptr inbounds nuw i8, ptr %418, i64 %.sroa.022.0.add.i.i11837
   %5737 = load i8, ptr %.ptr33.i.i11838, align 1, !tbaa !9, !noalias !677
   %5738 = icmp eq i8 %5737, 109
   br i1 %5738, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i11844, label %._crit_edge.i.i.i11841
@@ -45593,7 +45593,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11853:                            ; preds = %.preheader.i.i.i11853.preheader, %._crit_edge.i.i.i11859
   %.sroa.022.0.idx.i.i11854 = phi i64 [ %.sroa.022.0.add.i.i11855, %._crit_edge.i.i.i11859 ], [ 12, %.preheader.i.i.i11853.preheader ]
   %.sroa.022.0.add.i.i11855 = add nsw i64 %.sroa.022.0.idx.i.i11854, -1
-  %.ptr33.i.i11856 = getelementptr inbounds i8, ptr %419, i64 %.sroa.022.0.add.i.i11855
+  %.ptr33.i.i11856 = getelementptr inbounds nuw i8, ptr %419, i64 %.sroa.022.0.add.i.i11855
   %5743 = load i8, ptr %.ptr33.i.i11856, align 1, !tbaa !9, !noalias !680
   br label %5745
 
@@ -45632,7 +45632,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11871:                            ; preds = %.preheader.i.i.i11871.preheader, %._crit_edge.i.i.i11877
   %.sroa.022.0.idx.i.i11872 = phi i64 [ %.sroa.022.0.add.i.i11873, %._crit_edge.i.i.i11877 ], [ 12, %.preheader.i.i.i11871.preheader ]
   %.sroa.022.0.add.i.i11873 = add nsw i64 %.sroa.022.0.idx.i.i11872, -1
-  %.ptr33.i.i11874 = getelementptr inbounds i8, ptr %420, i64 %.sroa.022.0.add.i.i11873
+  %.ptr33.i.i11874 = getelementptr inbounds nuw i8, ptr %420, i64 %.sroa.022.0.add.i.i11873
   %5752 = load i8, ptr %.ptr33.i.i11874, align 1, !tbaa !9, !noalias !683
   br label %5754
 
@@ -45671,7 +45671,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11889:                            ; preds = %.preheader.i.i.i11889.preheader, %._crit_edge.i.i.i11895
   %.sroa.022.0.idx.i.i11890 = phi i64 [ %.sroa.022.0.add.i.i11891, %._crit_edge.i.i.i11895 ], [ 12, %.preheader.i.i.i11889.preheader ]
   %.sroa.022.0.add.i.i11891 = add nsw i64 %.sroa.022.0.idx.i.i11890, -1
-  %.ptr33.i.i11892 = getelementptr inbounds i8, ptr %421, i64 %.sroa.022.0.add.i.i11891
+  %.ptr33.i.i11892 = getelementptr inbounds nuw i8, ptr %421, i64 %.sroa.022.0.add.i.i11891
   %5761 = load i8, ptr %.ptr33.i.i11892, align 1, !tbaa !9, !noalias !686
   br label %5763
 
@@ -45727,7 +45727,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i11911:                            ; preds = %.preheader.i.i.i11911.preheader, %._crit_edge.i.i.i11917
   %.sroa.022.0.idx.i.i11912 = phi i64 [ %.sroa.022.0.add.i.i11913, %._crit_edge.i.i.i11917 ], [ 12, %.preheader.i.i.i11911.preheader ]
   %.sroa.022.0.add.i.i11913 = add nsw i64 %.sroa.022.0.idx.i.i11912, -1
-  %.ptr33.i.i11914 = getelementptr inbounds i8, ptr %422, i64 %.sroa.022.0.add.i.i11913
+  %.ptr33.i.i11914 = getelementptr inbounds nuw i8, ptr %422, i64 %.sroa.022.0.add.i.i11913
   %5776 = load i8, ptr %.ptr33.i.i11914, align 1, !tbaa !9, !noalias !689
   %5777 = icmp eq i8 %5776, 108
   br i1 %5777, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i11920, label %._crit_edge.i.i.i11917
@@ -45755,7 +45755,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11929:                            ; preds = %.preheader.i.i.i11929.preheader, %._crit_edge.i.i.i11935
   %.sroa.022.0.idx.i.i11930 = phi i64 [ %.sroa.022.0.add.i.i11931, %._crit_edge.i.i.i11935 ], [ 12, %.preheader.i.i.i11929.preheader ]
   %.sroa.022.0.add.i.i11931 = add nsw i64 %.sroa.022.0.idx.i.i11930, -1
-  %.ptr33.i.i11932 = getelementptr inbounds i8, ptr %423, i64 %.sroa.022.0.add.i.i11931
+  %.ptr33.i.i11932 = getelementptr inbounds nuw i8, ptr %423, i64 %.sroa.022.0.add.i.i11931
   %5782 = load i8, ptr %.ptr33.i.i11932, align 1, !tbaa !9, !noalias !692
   br label %5784
 
@@ -45794,7 +45794,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11947:                            ; preds = %.preheader.i.i.i11947.preheader, %._crit_edge.i.i.i11953
   %.sroa.022.0.idx.i.i11948 = phi i64 [ %.sroa.022.0.add.i.i11949, %._crit_edge.i.i.i11953 ], [ 12, %.preheader.i.i.i11947.preheader ]
   %.sroa.022.0.add.i.i11949 = add nsw i64 %.sroa.022.0.idx.i.i11948, -1
-  %.ptr33.i.i11950 = getelementptr inbounds i8, ptr %424, i64 %.sroa.022.0.add.i.i11949
+  %.ptr33.i.i11950 = getelementptr inbounds nuw i8, ptr %424, i64 %.sroa.022.0.add.i.i11949
   %5791 = load i8, ptr %.ptr33.i.i11950, align 1, !tbaa !9, !noalias !695
   br label %5793
 
@@ -45833,7 +45833,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i11965:                            ; preds = %.preheader.i.i.i11965.preheader, %._crit_edge.i.i.i11971
   %.sroa.022.0.idx.i.i11966 = phi i64 [ %.sroa.022.0.add.i.i11967, %._crit_edge.i.i.i11971 ], [ 12, %.preheader.i.i.i11965.preheader ]
   %.sroa.022.0.add.i.i11967 = add nsw i64 %.sroa.022.0.idx.i.i11966, -1
-  %.ptr33.i.i11968 = getelementptr inbounds i8, ptr %425, i64 %.sroa.022.0.add.i.i11967
+  %.ptr33.i.i11968 = getelementptr inbounds nuw i8, ptr %425, i64 %.sroa.022.0.add.i.i11967
   %5800 = load i8, ptr %.ptr33.i.i11968, align 1, !tbaa !9, !noalias !698
   br label %5802
 
@@ -45906,7 +45906,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i11991:                            ; preds = %.preheader.i.i.i11991.preheader, %._crit_edge.i.i.i11997
   %.sroa.022.0.idx.i.i11992 = phi i64 [ %.sroa.022.0.add.i.i11993, %._crit_edge.i.i.i11997 ], [ 12, %.preheader.i.i.i11991.preheader ]
   %.sroa.022.0.add.i.i11993 = add nsw i64 %.sroa.022.0.idx.i.i11992, -1
-  %.ptr33.i.i11994 = getelementptr inbounds i8, ptr %426, i64 %.sroa.022.0.add.i.i11993
+  %.ptr33.i.i11994 = getelementptr inbounds nuw i8, ptr %426, i64 %.sroa.022.0.add.i.i11993
   %5821 = load i8, ptr %.ptr33.i.i11994, align 1, !tbaa !9, !noalias !701
   %5822 = icmp eq i8 %5821, 113
   br i1 %5822, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i12000, label %._crit_edge.i.i.i11997
@@ -45934,7 +45934,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12009:                            ; preds = %.preheader.i.i.i12009.preheader, %._crit_edge.i.i.i12015
   %.sroa.022.0.idx.i.i12010 = phi i64 [ %.sroa.022.0.add.i.i12011, %._crit_edge.i.i.i12015 ], [ 12, %.preheader.i.i.i12009.preheader ]
   %.sroa.022.0.add.i.i12011 = add nsw i64 %.sroa.022.0.idx.i.i12010, -1
-  %.ptr33.i.i12012 = getelementptr inbounds i8, ptr %427, i64 %.sroa.022.0.add.i.i12011
+  %.ptr33.i.i12012 = getelementptr inbounds nuw i8, ptr %427, i64 %.sroa.022.0.add.i.i12011
   %5827 = load i8, ptr %.ptr33.i.i12012, align 1, !tbaa !9, !noalias !704
   br label %5829
 
@@ -45973,7 +45973,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12027:                            ; preds = %.preheader.i.i.i12027.preheader, %._crit_edge.i.i.i12033
   %.sroa.022.0.idx.i.i12028 = phi i64 [ %.sroa.022.0.add.i.i12029, %._crit_edge.i.i.i12033 ], [ 12, %.preheader.i.i.i12027.preheader ]
   %.sroa.022.0.add.i.i12029 = add nsw i64 %.sroa.022.0.idx.i.i12028, -1
-  %.ptr33.i.i12030 = getelementptr inbounds i8, ptr %428, i64 %.sroa.022.0.add.i.i12029
+  %.ptr33.i.i12030 = getelementptr inbounds nuw i8, ptr %428, i64 %.sroa.022.0.add.i.i12029
   %5836 = load i8, ptr %.ptr33.i.i12030, align 1, !tbaa !9, !noalias !707
   br label %5838
 
@@ -46012,7 +46012,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12045:                            ; preds = %.preheader.i.i.i12045.preheader, %._crit_edge.i.i.i12051
   %.sroa.022.0.idx.i.i12046 = phi i64 [ %.sroa.022.0.add.i.i12047, %._crit_edge.i.i.i12051 ], [ 12, %.preheader.i.i.i12045.preheader ]
   %.sroa.022.0.add.i.i12047 = add nsw i64 %.sroa.022.0.idx.i.i12046, -1
-  %.ptr33.i.i12048 = getelementptr inbounds i8, ptr %429, i64 %.sroa.022.0.add.i.i12047
+  %.ptr33.i.i12048 = getelementptr inbounds nuw i8, ptr %429, i64 %.sroa.022.0.add.i.i12047
   %5845 = load i8, ptr %.ptr33.i.i12048, align 1, !tbaa !9, !noalias !710
   br label %5847
 
@@ -46068,7 +46068,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12067:                            ; preds = %.preheader.i.i.i12067.preheader, %._crit_edge.i.i.i12073
   %.sroa.022.0.idx.i.i12068 = phi i64 [ %.sroa.022.0.add.i.i12069, %._crit_edge.i.i.i12073 ], [ 12, %.preheader.i.i.i12067.preheader ]
   %.sroa.022.0.add.i.i12069 = add nsw i64 %.sroa.022.0.idx.i.i12068, -1
-  %.ptr33.i.i12070 = getelementptr inbounds i8, ptr %430, i64 %.sroa.022.0.add.i.i12069
+  %.ptr33.i.i12070 = getelementptr inbounds nuw i8, ptr %430, i64 %.sroa.022.0.add.i.i12069
   %5860 = load i8, ptr %.ptr33.i.i12070, align 1, !tbaa !9, !noalias !713
   %5861 = icmp eq i8 %5860, 111
   br i1 %5861, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i12076, label %._crit_edge.i.i.i12073
@@ -46096,7 +46096,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12085:                            ; preds = %.preheader.i.i.i12085.preheader, %._crit_edge.i.i.i12091
   %.sroa.022.0.idx.i.i12086 = phi i64 [ %.sroa.022.0.add.i.i12087, %._crit_edge.i.i.i12091 ], [ 12, %.preheader.i.i.i12085.preheader ]
   %.sroa.022.0.add.i.i12087 = add nsw i64 %.sroa.022.0.idx.i.i12086, -1
-  %.ptr33.i.i12088 = getelementptr inbounds i8, ptr %431, i64 %.sroa.022.0.add.i.i12087
+  %.ptr33.i.i12088 = getelementptr inbounds nuw i8, ptr %431, i64 %.sroa.022.0.add.i.i12087
   %5866 = load i8, ptr %.ptr33.i.i12088, align 1, !tbaa !9, !noalias !716
   br label %5868
 
@@ -46135,7 +46135,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12103:                            ; preds = %.preheader.i.i.i12103.preheader, %._crit_edge.i.i.i12109
   %.sroa.022.0.idx.i.i12104 = phi i64 [ %.sroa.022.0.add.i.i12105, %._crit_edge.i.i.i12109 ], [ 12, %.preheader.i.i.i12103.preheader ]
   %.sroa.022.0.add.i.i12105 = add nsw i64 %.sroa.022.0.idx.i.i12104, -1
-  %.ptr33.i.i12106 = getelementptr inbounds i8, ptr %432, i64 %.sroa.022.0.add.i.i12105
+  %.ptr33.i.i12106 = getelementptr inbounds nuw i8, ptr %432, i64 %.sroa.022.0.add.i.i12105
   %5875 = load i8, ptr %.ptr33.i.i12106, align 1, !tbaa !9, !noalias !719
   br label %5877
 
@@ -46174,7 +46174,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12121:                            ; preds = %.preheader.i.i.i12121.preheader, %._crit_edge.i.i.i12127
   %.sroa.022.0.idx.i.i12122 = phi i64 [ %.sroa.022.0.add.i.i12123, %._crit_edge.i.i.i12127 ], [ 12, %.preheader.i.i.i12121.preheader ]
   %.sroa.022.0.add.i.i12123 = add nsw i64 %.sroa.022.0.idx.i.i12122, -1
-  %.ptr33.i.i12124 = getelementptr inbounds i8, ptr %433, i64 %.sroa.022.0.add.i.i12123
+  %.ptr33.i.i12124 = getelementptr inbounds nuw i8, ptr %433, i64 %.sroa.022.0.add.i.i12123
   %5884 = load i8, ptr %.ptr33.i.i12124, align 1, !tbaa !9, !noalias !722
   br label %5886
 
@@ -46230,7 +46230,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12143:                            ; preds = %.preheader.i.i.i12143.preheader, %._crit_edge.i.i.i12149
   %.sroa.022.0.idx.i.i12144 = phi i64 [ %.sroa.022.0.add.i.i12145, %._crit_edge.i.i.i12149 ], [ 12, %.preheader.i.i.i12143.preheader ]
   %.sroa.022.0.add.i.i12145 = add nsw i64 %.sroa.022.0.idx.i.i12144, -1
-  %.ptr33.i.i12146 = getelementptr inbounds i8, ptr %434, i64 %.sroa.022.0.add.i.i12145
+  %.ptr33.i.i12146 = getelementptr inbounds nuw i8, ptr %434, i64 %.sroa.022.0.add.i.i12145
   %5899 = load i8, ptr %.ptr33.i.i12146, align 1, !tbaa !9, !noalias !725
   %5900 = icmp eq i8 %5899, 105
   br i1 %5900, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i12152, label %._crit_edge.i.i.i12149
@@ -46258,7 +46258,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12161:                            ; preds = %.preheader.i.i.i12161.preheader, %._crit_edge.i.i.i12167
   %.sroa.022.0.idx.i.i12162 = phi i64 [ %.sroa.022.0.add.i.i12163, %._crit_edge.i.i.i12167 ], [ 12, %.preheader.i.i.i12161.preheader ]
   %.sroa.022.0.add.i.i12163 = add nsw i64 %.sroa.022.0.idx.i.i12162, -1
-  %.ptr33.i.i12164 = getelementptr inbounds i8, ptr %435, i64 %.sroa.022.0.add.i.i12163
+  %.ptr33.i.i12164 = getelementptr inbounds nuw i8, ptr %435, i64 %.sroa.022.0.add.i.i12163
   %5905 = load i8, ptr %.ptr33.i.i12164, align 1, !tbaa !9, !noalias !728
   br label %5907
 
@@ -46297,7 +46297,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12179:                            ; preds = %.preheader.i.i.i12179.preheader, %._crit_edge.i.i.i12185
   %.sroa.022.0.idx.i.i12180 = phi i64 [ %.sroa.022.0.add.i.i12181, %._crit_edge.i.i.i12185 ], [ 12, %.preheader.i.i.i12179.preheader ]
   %.sroa.022.0.add.i.i12181 = add nsw i64 %.sroa.022.0.idx.i.i12180, -1
-  %.ptr33.i.i12182 = getelementptr inbounds i8, ptr %436, i64 %.sroa.022.0.add.i.i12181
+  %.ptr33.i.i12182 = getelementptr inbounds nuw i8, ptr %436, i64 %.sroa.022.0.add.i.i12181
   %5914 = load i8, ptr %.ptr33.i.i12182, align 1, !tbaa !9, !noalias !731
   br label %5916
 
@@ -46336,7 +46336,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12197:                            ; preds = %.preheader.i.i.i12197.preheader, %._crit_edge.i.i.i12203
   %.sroa.022.0.idx.i.i12198 = phi i64 [ %.sroa.022.0.add.i.i12199, %._crit_edge.i.i.i12203 ], [ 12, %.preheader.i.i.i12197.preheader ]
   %.sroa.022.0.add.i.i12199 = add nsw i64 %.sroa.022.0.idx.i.i12198, -1
-  %.ptr33.i.i12200 = getelementptr inbounds i8, ptr %437, i64 %.sroa.022.0.add.i.i12199
+  %.ptr33.i.i12200 = getelementptr inbounds nuw i8, ptr %437, i64 %.sroa.022.0.add.i.i12199
   %5923 = load i8, ptr %.ptr33.i.i12200, align 1, !tbaa !9, !noalias !734
   br label %5925
 
@@ -46409,7 +46409,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i12223:                            ; preds = %.preheader.i.i.i12223.preheader, %._crit_edge.i.i.i12229
   %.sroa.022.0.idx.i.i12224 = phi i64 [ %.sroa.022.0.add.i.i12225, %._crit_edge.i.i.i12229 ], [ 12, %.preheader.i.i.i12223.preheader ]
   %.sroa.022.0.add.i.i12225 = add nsw i64 %.sroa.022.0.idx.i.i12224, -1
-  %.ptr33.i.i12226 = getelementptr inbounds i8, ptr %438, i64 %.sroa.022.0.add.i.i12225
+  %.ptr33.i.i12226 = getelementptr inbounds nuw i8, ptr %438, i64 %.sroa.022.0.add.i.i12225
   %5944 = load i8, ptr %.ptr33.i.i12226, align 1, !tbaa !9, !noalias !737
   %5945 = icmp eq i8 %5944, 106
   br i1 %5945, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i12232, label %._crit_edge.i.i.i12229
@@ -46437,7 +46437,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12241:                            ; preds = %.preheader.i.i.i12241.preheader, %._crit_edge.i.i.i12247
   %.sroa.022.0.idx.i.i12242 = phi i64 [ %.sroa.022.0.add.i.i12243, %._crit_edge.i.i.i12247 ], [ 12, %.preheader.i.i.i12241.preheader ]
   %.sroa.022.0.add.i.i12243 = add nsw i64 %.sroa.022.0.idx.i.i12242, -1
-  %.ptr33.i.i12244 = getelementptr inbounds i8, ptr %439, i64 %.sroa.022.0.add.i.i12243
+  %.ptr33.i.i12244 = getelementptr inbounds nuw i8, ptr %439, i64 %.sroa.022.0.add.i.i12243
   %5950 = load i8, ptr %.ptr33.i.i12244, align 1, !tbaa !9, !noalias !740
   br label %5952
 
@@ -46476,7 +46476,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12259:                            ; preds = %.preheader.i.i.i12259.preheader, %._crit_edge.i.i.i12265
   %.sroa.022.0.idx.i.i12260 = phi i64 [ %.sroa.022.0.add.i.i12261, %._crit_edge.i.i.i12265 ], [ 12, %.preheader.i.i.i12259.preheader ]
   %.sroa.022.0.add.i.i12261 = add nsw i64 %.sroa.022.0.idx.i.i12260, -1
-  %.ptr33.i.i12262 = getelementptr inbounds i8, ptr %440, i64 %.sroa.022.0.add.i.i12261
+  %.ptr33.i.i12262 = getelementptr inbounds nuw i8, ptr %440, i64 %.sroa.022.0.add.i.i12261
   %5959 = load i8, ptr %.ptr33.i.i12262, align 1, !tbaa !9, !noalias !743
   br label %5961
 
@@ -46515,7 +46515,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12277:                            ; preds = %.preheader.i.i.i12277.preheader, %._crit_edge.i.i.i12283
   %.sroa.022.0.idx.i.i12278 = phi i64 [ %.sroa.022.0.add.i.i12279, %._crit_edge.i.i.i12283 ], [ 12, %.preheader.i.i.i12277.preheader ]
   %.sroa.022.0.add.i.i12279 = add nsw i64 %.sroa.022.0.idx.i.i12278, -1
-  %.ptr33.i.i12280 = getelementptr inbounds i8, ptr %441, i64 %.sroa.022.0.add.i.i12279
+  %.ptr33.i.i12280 = getelementptr inbounds nuw i8, ptr %441, i64 %.sroa.022.0.add.i.i12279
   %5968 = load i8, ptr %.ptr33.i.i12280, align 1, !tbaa !9, !noalias !746
   br label %5970
 
@@ -46571,7 +46571,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12299:                            ; preds = %.preheader.i.i.i12299.preheader, %._crit_edge.i.i.i12305
   %.sroa.022.0.idx.i.i12300 = phi i64 [ %.sroa.022.0.add.i.i12301, %._crit_edge.i.i.i12305 ], [ 12, %.preheader.i.i.i12299.preheader ]
   %.sroa.022.0.add.i.i12301 = add nsw i64 %.sroa.022.0.idx.i.i12300, -1
-  %.ptr33.i.i12302 = getelementptr inbounds i8, ptr %442, i64 %.sroa.022.0.add.i.i12301
+  %.ptr33.i.i12302 = getelementptr inbounds nuw i8, ptr %442, i64 %.sroa.022.0.add.i.i12301
   %5983 = load i8, ptr %.ptr33.i.i12302, align 1, !tbaa !9, !noalias !749
   %5984 = icmp eq i8 %5983, 108
   br i1 %5984, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i12308, label %._crit_edge.i.i.i12305
@@ -46599,7 +46599,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12317:                            ; preds = %.preheader.i.i.i12317.preheader, %._crit_edge.i.i.i12323
   %.sroa.022.0.idx.i.i12318 = phi i64 [ %.sroa.022.0.add.i.i12319, %._crit_edge.i.i.i12323 ], [ 12, %.preheader.i.i.i12317.preheader ]
   %.sroa.022.0.add.i.i12319 = add nsw i64 %.sroa.022.0.idx.i.i12318, -1
-  %.ptr33.i.i12320 = getelementptr inbounds i8, ptr %443, i64 %.sroa.022.0.add.i.i12319
+  %.ptr33.i.i12320 = getelementptr inbounds nuw i8, ptr %443, i64 %.sroa.022.0.add.i.i12319
   %5989 = load i8, ptr %.ptr33.i.i12320, align 1, !tbaa !9, !noalias !752
   br label %5991
 
@@ -46638,7 +46638,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12335:                            ; preds = %.preheader.i.i.i12335.preheader, %._crit_edge.i.i.i12341
   %.sroa.022.0.idx.i.i12336 = phi i64 [ %.sroa.022.0.add.i.i12337, %._crit_edge.i.i.i12341 ], [ 12, %.preheader.i.i.i12335.preheader ]
   %.sroa.022.0.add.i.i12337 = add nsw i64 %.sroa.022.0.idx.i.i12336, -1
-  %.ptr33.i.i12338 = getelementptr inbounds i8, ptr %444, i64 %.sroa.022.0.add.i.i12337
+  %.ptr33.i.i12338 = getelementptr inbounds nuw i8, ptr %444, i64 %.sroa.022.0.add.i.i12337
   %5998 = load i8, ptr %.ptr33.i.i12338, align 1, !tbaa !9, !noalias !755
   br label %6000
 
@@ -46677,7 +46677,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12353:                            ; preds = %.preheader.i.i.i12353.preheader, %._crit_edge.i.i.i12359
   %.sroa.022.0.idx.i.i12354 = phi i64 [ %.sroa.022.0.add.i.i12355, %._crit_edge.i.i.i12359 ], [ 12, %.preheader.i.i.i12353.preheader ]
   %.sroa.022.0.add.i.i12355 = add nsw i64 %.sroa.022.0.idx.i.i12354, -1
-  %.ptr33.i.i12356 = getelementptr inbounds i8, ptr %445, i64 %.sroa.022.0.add.i.i12355
+  %.ptr33.i.i12356 = getelementptr inbounds nuw i8, ptr %445, i64 %.sroa.022.0.add.i.i12355
   %6007 = load i8, ptr %.ptr33.i.i12356, align 1, !tbaa !9, !noalias !758
   br label %6009
 
@@ -46733,7 +46733,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12375:                            ; preds = %.preheader.i.i.i12375, %.preheader.i.i.i12375.preheader
   %.sroa.022.0.idx.i.i12376 = phi i64 [ 12, %.preheader.i.i.i12375.preheader ], [ %.sroa.022.0.add.i.i12377, %.preheader.i.i.i12375 ]
   %.sroa.022.0.add.i.i12377 = add nsw i64 %.sroa.022.0.idx.i.i12376, -1
-  %.ptr33.i.i12378 = getelementptr inbounds i8, ptr %446, i64 %.sroa.022.0.add.i.i12377
+  %.ptr33.i.i12378 = getelementptr inbounds nuw i8, ptr %446, i64 %.sroa.022.0.add.i.i12377
   %6022 = load i8, ptr %.ptr33.i.i12378, align 1, !tbaa !9, !noalias !761
   %6023 = icmp ne i8 %6022, 111
   %.not10.i.i.i12382 = icmp ne i64 %.sroa.022.0.add.i.i12377, 2
@@ -46754,7 +46754,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12393:                            ; preds = %.preheader.i.i.i12393.preheader, %._crit_edge.i.i.i12399
   %.sroa.022.0.idx.i.i12394 = phi i64 [ %.sroa.022.0.add.i.i12395, %._crit_edge.i.i.i12399 ], [ 12, %.preheader.i.i.i12393.preheader ]
   %.sroa.022.0.add.i.i12395 = add nsw i64 %.sroa.022.0.idx.i.i12394, -1
-  %.ptr33.i.i12396 = getelementptr inbounds i8, ptr %447, i64 %.sroa.022.0.add.i.i12395
+  %.ptr33.i.i12396 = getelementptr inbounds nuw i8, ptr %447, i64 %.sroa.022.0.add.i.i12395
   %6027 = load i8, ptr %.ptr33.i.i12396, align 1, !tbaa !9, !noalias !764
   br label %6029
 
@@ -46793,7 +46793,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12411:                            ; preds = %.preheader.i.i.i12411.preheader, %._crit_edge.i.i.i12417
   %.sroa.022.0.idx.i.i12412 = phi i64 [ %.sroa.022.0.add.i.i12413, %._crit_edge.i.i.i12417 ], [ 12, %.preheader.i.i.i12411.preheader ]
   %.sroa.022.0.add.i.i12413 = add nsw i64 %.sroa.022.0.idx.i.i12412, -1
-  %.ptr33.i.i12414 = getelementptr inbounds i8, ptr %448, i64 %.sroa.022.0.add.i.i12413
+  %.ptr33.i.i12414 = getelementptr inbounds nuw i8, ptr %448, i64 %.sroa.022.0.add.i.i12413
   %6036 = load i8, ptr %.ptr33.i.i12414, align 1, !tbaa !9, !noalias !767
   br label %6038
 
@@ -46832,7 +46832,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12429:                            ; preds = %.preheader.i.i.i12429.preheader, %._crit_edge.i.i.i12435
   %.sroa.022.0.idx.i.i12430 = phi i64 [ %.sroa.022.0.add.i.i12431, %._crit_edge.i.i.i12435 ], [ 12, %.preheader.i.i.i12429.preheader ]
   %.sroa.022.0.add.i.i12431 = add nsw i64 %.sroa.022.0.idx.i.i12430, -1
-  %.ptr33.i.i12432 = getelementptr inbounds i8, ptr %449, i64 %.sroa.022.0.add.i.i12431
+  %.ptr33.i.i12432 = getelementptr inbounds nuw i8, ptr %449, i64 %.sroa.022.0.add.i.i12431
   %6045 = load i8, ptr %.ptr33.i.i12432, align 1, !tbaa !9, !noalias !770
   br label %6047
 
@@ -47102,7 +47102,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i12687:                            ; preds = %.preheader.i.i.i12687, %.preheader.i.i.i12687.preheader
   %.sroa.022.0.idx.i.i12688 = phi i64 [ 4, %.preheader.i.i.i12687.preheader ], [ %.sroa.022.0.add.i.i12689, %.preheader.i.i.i12687 ]
   %.sroa.022.0.add.i.i12689 = add nsw i64 %.sroa.022.0.idx.i.i12688, -1
-  %.ptr33.i.i12690 = getelementptr inbounds i8, ptr %450, i64 %.sroa.022.0.add.i.i12689
+  %.ptr33.i.i12690 = getelementptr inbounds nuw i8, ptr %450, i64 %.sroa.022.0.add.i.i12689
   %6129 = load i8, ptr %.ptr33.i.i12690, align 1, !tbaa !9, !noalias !800
   %6130 = icmp ne i8 %6129, 115
   %.not10.i.i.i12694 = icmp ne i64 %.sroa.022.0.add.i.i12689, 2
@@ -47123,7 +47123,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i12705:                            ; preds = %.preheader.i.i.i12705.preheader, %._crit_edge.i.i.i12711
   %.sroa.022.0.idx.i.i12706 = phi i64 [ %.sroa.022.0.add.i.i12707, %._crit_edge.i.i.i12711 ], [ 4, %.preheader.i.i.i12705.preheader ]
   %.sroa.022.0.add.i.i12707 = add nsw i64 %.sroa.022.0.idx.i.i12706, -1
-  %.ptr33.i.i12708 = getelementptr inbounds i8, ptr %451, i64 %.sroa.022.0.add.i.i12707
+  %.ptr33.i.i12708 = getelementptr inbounds nuw i8, ptr %451, i64 %.sroa.022.0.add.i.i12707
   %6134 = load i8, ptr %.ptr33.i.i12708, align 1, !tbaa !9, !noalias !803
   br label %6136
 
@@ -47162,7 +47162,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12723:                            ; preds = %.preheader.i.i.i12723.preheader, %._crit_edge.i.i.i12729
   %.sroa.022.0.idx.i.i12724 = phi i64 [ %.sroa.022.0.add.i.i12725, %._crit_edge.i.i.i12729 ], [ 4, %.preheader.i.i.i12723.preheader ]
   %.sroa.022.0.add.i.i12725 = add nsw i64 %.sroa.022.0.idx.i.i12724, -1
-  %.ptr33.i.i12726 = getelementptr inbounds i8, ptr %452, i64 %.sroa.022.0.add.i.i12725
+  %.ptr33.i.i12726 = getelementptr inbounds nuw i8, ptr %452, i64 %.sroa.022.0.add.i.i12725
   %6143 = load i8, ptr %.ptr33.i.i12726, align 1, !tbaa !9, !noalias !806
   br label %6145
 
@@ -47201,7 +47201,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12741:                            ; preds = %.preheader.i.i.i12741.preheader, %._crit_edge.i.i.i12747
   %.sroa.022.0.idx.i.i12742 = phi i64 [ %.sroa.022.0.add.i.i12743, %._crit_edge.i.i.i12747 ], [ 4, %.preheader.i.i.i12741.preheader ]
   %.sroa.022.0.add.i.i12743 = add nsw i64 %.sroa.022.0.idx.i.i12742, -1
-  %.ptr33.i.i12744 = getelementptr inbounds i8, ptr %453, i64 %.sroa.022.0.add.i.i12743
+  %.ptr33.i.i12744 = getelementptr inbounds nuw i8, ptr %453, i64 %.sroa.022.0.add.i.i12743
   %6152 = load i8, ptr %.ptr33.i.i12744, align 1, !tbaa !9, !noalias !809
   br label %6154
 
@@ -47257,7 +47257,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12763:                            ; preds = %.preheader.i.i.i12763, %.preheader.i.i.i12763.preheader
   %.sroa.022.0.idx.i.i12764 = phi i64 [ 4, %.preheader.i.i.i12763.preheader ], [ %.sroa.022.0.add.i.i12765, %.preheader.i.i.i12763 ]
   %.sroa.022.0.add.i.i12765 = add nsw i64 %.sroa.022.0.idx.i.i12764, -1
-  %.ptr33.i.i12766 = getelementptr inbounds i8, ptr %454, i64 %.sroa.022.0.add.i.i12765
+  %.ptr33.i.i12766 = getelementptr inbounds nuw i8, ptr %454, i64 %.sroa.022.0.add.i.i12765
   %6167 = load i8, ptr %.ptr33.i.i12766, align 1, !tbaa !9, !noalias !812
   %6168 = icmp ne i8 %6167, 111
   %.not10.i.i.i12770 = icmp ne i64 %.sroa.022.0.add.i.i12765, 2
@@ -47278,7 +47278,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12781:                            ; preds = %.preheader.i.i.i12781.preheader, %._crit_edge.i.i.i12787
   %.sroa.022.0.idx.i.i12782 = phi i64 [ %.sroa.022.0.add.i.i12783, %._crit_edge.i.i.i12787 ], [ 4, %.preheader.i.i.i12781.preheader ]
   %.sroa.022.0.add.i.i12783 = add nsw i64 %.sroa.022.0.idx.i.i12782, -1
-  %.ptr33.i.i12784 = getelementptr inbounds i8, ptr %455, i64 %.sroa.022.0.add.i.i12783
+  %.ptr33.i.i12784 = getelementptr inbounds nuw i8, ptr %455, i64 %.sroa.022.0.add.i.i12783
   %6172 = load i8, ptr %.ptr33.i.i12784, align 1, !tbaa !9, !noalias !815
   br label %6174
 
@@ -47317,7 +47317,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12799:                            ; preds = %.preheader.i.i.i12799.preheader, %._crit_edge.i.i.i12805
   %.sroa.022.0.idx.i.i12800 = phi i64 [ %.sroa.022.0.add.i.i12801, %._crit_edge.i.i.i12805 ], [ 4, %.preheader.i.i.i12799.preheader ]
   %.sroa.022.0.add.i.i12801 = add nsw i64 %.sroa.022.0.idx.i.i12800, -1
-  %.ptr33.i.i12802 = getelementptr inbounds i8, ptr %456, i64 %.sroa.022.0.add.i.i12801
+  %.ptr33.i.i12802 = getelementptr inbounds nuw i8, ptr %456, i64 %.sroa.022.0.add.i.i12801
   %6181 = load i8, ptr %.ptr33.i.i12802, align 1, !tbaa !9, !noalias !818
   br label %6183
 
@@ -47356,7 +47356,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12817:                            ; preds = %.preheader.i.i.i12817.preheader, %._crit_edge.i.i.i12823
   %.sroa.022.0.idx.i.i12818 = phi i64 [ %.sroa.022.0.add.i.i12819, %._crit_edge.i.i.i12823 ], [ 4, %.preheader.i.i.i12817.preheader ]
   %.sroa.022.0.add.i.i12819 = add nsw i64 %.sroa.022.0.idx.i.i12818, -1
-  %.ptr33.i.i12820 = getelementptr inbounds i8, ptr %457, i64 %.sroa.022.0.add.i.i12819
+  %.ptr33.i.i12820 = getelementptr inbounds nuw i8, ptr %457, i64 %.sroa.022.0.add.i.i12819
   %6190 = load i8, ptr %.ptr33.i.i12820, align 1, !tbaa !9, !noalias !821
   br label %6192
 
@@ -47412,7 +47412,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12839:                            ; preds = %.preheader.i.i.i12839, %.preheader.i.i.i12839.preheader
   %.sroa.022.0.idx.i.i12840 = phi i64 [ 4, %.preheader.i.i.i12839.preheader ], [ %.sroa.022.0.add.i.i12841, %.preheader.i.i.i12839 ]
   %.sroa.022.0.add.i.i12841 = add nsw i64 %.sroa.022.0.idx.i.i12840, -1
-  %.ptr33.i.i12842 = getelementptr inbounds i8, ptr %458, i64 %.sroa.022.0.add.i.i12841
+  %.ptr33.i.i12842 = getelementptr inbounds nuw i8, ptr %458, i64 %.sroa.022.0.add.i.i12841
   %6205 = load i8, ptr %.ptr33.i.i12842, align 1, !tbaa !9, !noalias !824
   %6206 = icmp ne i8 %6205, 108
   %.not10.i.i.i12846 = icmp ne i64 %.sroa.022.0.add.i.i12841, 2
@@ -47433,7 +47433,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12857:                            ; preds = %.preheader.i.i.i12857.preheader, %._crit_edge.i.i.i12863
   %.sroa.022.0.idx.i.i12858 = phi i64 [ %.sroa.022.0.add.i.i12859, %._crit_edge.i.i.i12863 ], [ 4, %.preheader.i.i.i12857.preheader ]
   %.sroa.022.0.add.i.i12859 = add nsw i64 %.sroa.022.0.idx.i.i12858, -1
-  %.ptr33.i.i12860 = getelementptr inbounds i8, ptr %459, i64 %.sroa.022.0.add.i.i12859
+  %.ptr33.i.i12860 = getelementptr inbounds nuw i8, ptr %459, i64 %.sroa.022.0.add.i.i12859
   %6210 = load i8, ptr %.ptr33.i.i12860, align 1, !tbaa !9, !noalias !827
   br label %6212
 
@@ -47472,7 +47472,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12875:                            ; preds = %.preheader.i.i.i12875.preheader, %._crit_edge.i.i.i12881
   %.sroa.022.0.idx.i.i12876 = phi i64 [ %.sroa.022.0.add.i.i12877, %._crit_edge.i.i.i12881 ], [ 4, %.preheader.i.i.i12875.preheader ]
   %.sroa.022.0.add.i.i12877 = add nsw i64 %.sroa.022.0.idx.i.i12876, -1
-  %.ptr33.i.i12878 = getelementptr inbounds i8, ptr %460, i64 %.sroa.022.0.add.i.i12877
+  %.ptr33.i.i12878 = getelementptr inbounds nuw i8, ptr %460, i64 %.sroa.022.0.add.i.i12877
   %6219 = load i8, ptr %.ptr33.i.i12878, align 1, !tbaa !9, !noalias !830
   br label %6221
 
@@ -47511,7 +47511,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12893:                            ; preds = %.preheader.i.i.i12893.preheader, %._crit_edge.i.i.i12899
   %.sroa.022.0.idx.i.i12894 = phi i64 [ %.sroa.022.0.add.i.i12895, %._crit_edge.i.i.i12899 ], [ 4, %.preheader.i.i.i12893.preheader ]
   %.sroa.022.0.add.i.i12895 = add nsw i64 %.sroa.022.0.idx.i.i12894, -1
-  %.ptr33.i.i12896 = getelementptr inbounds i8, ptr %461, i64 %.sroa.022.0.add.i.i12895
+  %.ptr33.i.i12896 = getelementptr inbounds nuw i8, ptr %461, i64 %.sroa.022.0.add.i.i12895
   %6228 = load i8, ptr %.ptr33.i.i12896, align 1, !tbaa !9, !noalias !833
   br label %6230
 
@@ -47584,7 +47584,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i12919:                            ; preds = %.preheader.i.i.i12919, %.preheader.i.i.i12919.preheader
   %.sroa.022.0.idx.i.i12920 = phi i64 [ 13, %.preheader.i.i.i12919.preheader ], [ %.sroa.022.0.add.i.i12921, %.preheader.i.i.i12919 ]
   %.sroa.022.0.add.i.i12921 = add nsw i64 %.sroa.022.0.idx.i.i12920, -1
-  %.ptr33.i.i12922 = getelementptr inbounds i8, ptr %462, i64 %.sroa.022.0.add.i.i12921
+  %.ptr33.i.i12922 = getelementptr inbounds nuw i8, ptr %462, i64 %.sroa.022.0.add.i.i12921
   %6249 = load i8, ptr %.ptr33.i.i12922, align 1, !tbaa !9, !noalias !836
   %6250 = icmp ne i8 %6249, 99
   %.not10.i.i.i12926 = icmp ne i64 %.sroa.022.0.add.i.i12921, 2
@@ -47605,7 +47605,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i12937:                            ; preds = %.preheader.i.i.i12937.preheader, %._crit_edge.i.i.i12943
   %.sroa.022.0.idx.i.i12938 = phi i64 [ %.sroa.022.0.add.i.i12939, %._crit_edge.i.i.i12943 ], [ 13, %.preheader.i.i.i12937.preheader ]
   %.sroa.022.0.add.i.i12939 = add nsw i64 %.sroa.022.0.idx.i.i12938, -1
-  %.ptr33.i.i12940 = getelementptr inbounds i8, ptr %463, i64 %.sroa.022.0.add.i.i12939
+  %.ptr33.i.i12940 = getelementptr inbounds nuw i8, ptr %463, i64 %.sroa.022.0.add.i.i12939
   %6254 = load i8, ptr %.ptr33.i.i12940, align 1, !tbaa !9, !noalias !839
   br label %6256
 
@@ -47644,7 +47644,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12955:                            ; preds = %.preheader.i.i.i12955.preheader, %._crit_edge.i.i.i12961
   %.sroa.022.0.idx.i.i12956 = phi i64 [ %.sroa.022.0.add.i.i12957, %._crit_edge.i.i.i12961 ], [ 13, %.preheader.i.i.i12955.preheader ]
   %.sroa.022.0.add.i.i12957 = add nsw i64 %.sroa.022.0.idx.i.i12956, -1
-  %.ptr33.i.i12958 = getelementptr inbounds i8, ptr %464, i64 %.sroa.022.0.add.i.i12957
+  %.ptr33.i.i12958 = getelementptr inbounds nuw i8, ptr %464, i64 %.sroa.022.0.add.i.i12957
   %6263 = load i8, ptr %.ptr33.i.i12958, align 1, !tbaa !9, !noalias !842
   br label %6265
 
@@ -47683,7 +47683,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i12973:                            ; preds = %.preheader.i.i.i12973.preheader, %._crit_edge.i.i.i12979
   %.sroa.022.0.idx.i.i12974 = phi i64 [ %.sroa.022.0.add.i.i12975, %._crit_edge.i.i.i12979 ], [ 13, %.preheader.i.i.i12973.preheader ]
   %.sroa.022.0.add.i.i12975 = add nsw i64 %.sroa.022.0.idx.i.i12974, -1
-  %.ptr33.i.i12976 = getelementptr inbounds i8, ptr %465, i64 %.sroa.022.0.add.i.i12975
+  %.ptr33.i.i12976 = getelementptr inbounds nuw i8, ptr %465, i64 %.sroa.022.0.add.i.i12975
   %6272 = load i8, ptr %.ptr33.i.i12976, align 1, !tbaa !9, !noalias !845
   br label %6274
 
@@ -47739,7 +47739,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i12995:                            ; preds = %.preheader.i.i.i12995.preheader, %._crit_edge.i.i.i13001
   %.sroa.022.0.idx.i.i12996 = phi i64 [ %.sroa.022.0.add.i.i12997, %._crit_edge.i.i.i13001 ], [ 13, %.preheader.i.i.i12995.preheader ]
   %.sroa.022.0.add.i.i12997 = add nsw i64 %.sroa.022.0.idx.i.i12996, -1
-  %.ptr33.i.i12998 = getelementptr inbounds i8, ptr %466, i64 %.sroa.022.0.add.i.i12997
+  %.ptr33.i.i12998 = getelementptr inbounds nuw i8, ptr %466, i64 %.sroa.022.0.add.i.i12997
   %6287 = load i8, ptr %.ptr33.i.i12998, align 1, !tbaa !9, !noalias !848
   %6288 = icmp eq i8 %6287, 106
   br i1 %6288, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13004, label %._crit_edge.i.i.i13001
@@ -47767,7 +47767,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13013:                            ; preds = %.preheader.i.i.i13013.preheader, %._crit_edge.i.i.i13019
   %.sroa.022.0.idx.i.i13014 = phi i64 [ %.sroa.022.0.add.i.i13015, %._crit_edge.i.i.i13019 ], [ 13, %.preheader.i.i.i13013.preheader ]
   %.sroa.022.0.add.i.i13015 = add nsw i64 %.sroa.022.0.idx.i.i13014, -1
-  %.ptr33.i.i13016 = getelementptr inbounds i8, ptr %467, i64 %.sroa.022.0.add.i.i13015
+  %.ptr33.i.i13016 = getelementptr inbounds nuw i8, ptr %467, i64 %.sroa.022.0.add.i.i13015
   %6293 = load i8, ptr %.ptr33.i.i13016, align 1, !tbaa !9, !noalias !851
   br label %6295
 
@@ -47806,7 +47806,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13031:                            ; preds = %.preheader.i.i.i13031.preheader, %._crit_edge.i.i.i13037
   %.sroa.022.0.idx.i.i13032 = phi i64 [ %.sroa.022.0.add.i.i13033, %._crit_edge.i.i.i13037 ], [ 13, %.preheader.i.i.i13031.preheader ]
   %.sroa.022.0.add.i.i13033 = add nsw i64 %.sroa.022.0.idx.i.i13032, -1
-  %.ptr33.i.i13034 = getelementptr inbounds i8, ptr %468, i64 %.sroa.022.0.add.i.i13033
+  %.ptr33.i.i13034 = getelementptr inbounds nuw i8, ptr %468, i64 %.sroa.022.0.add.i.i13033
   %6302 = load i8, ptr %.ptr33.i.i13034, align 1, !tbaa !9, !noalias !854
   br label %6304
 
@@ -47845,7 +47845,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13049:                            ; preds = %.preheader.i.i.i13049.preheader, %._crit_edge.i.i.i13055
   %.sroa.022.0.idx.i.i13050 = phi i64 [ %.sroa.022.0.add.i.i13051, %._crit_edge.i.i.i13055 ], [ 13, %.preheader.i.i.i13049.preheader ]
   %.sroa.022.0.add.i.i13051 = add nsw i64 %.sroa.022.0.idx.i.i13050, -1
-  %.ptr33.i.i13052 = getelementptr inbounds i8, ptr %469, i64 %.sroa.022.0.add.i.i13051
+  %.ptr33.i.i13052 = getelementptr inbounds nuw i8, ptr %469, i64 %.sroa.022.0.add.i.i13051
   %6311 = load i8, ptr %.ptr33.i.i13052, align 1, !tbaa !9, !noalias !857
   br label %6313
 
@@ -47901,7 +47901,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13071:                            ; preds = %.preheader.i.i.i13071, %.preheader.i.i.i13071.preheader
   %.sroa.022.0.idx.i.i13072 = phi i64 [ 13, %.preheader.i.i.i13071.preheader ], [ %.sroa.022.0.add.i.i13073, %.preheader.i.i.i13071 ]
   %.sroa.022.0.add.i.i13073 = add nsw i64 %.sroa.022.0.idx.i.i13072, -1
-  %.ptr33.i.i13074 = getelementptr inbounds i8, ptr %470, i64 %.sroa.022.0.add.i.i13073
+  %.ptr33.i.i13074 = getelementptr inbounds nuw i8, ptr %470, i64 %.sroa.022.0.add.i.i13073
   %6326 = load i8, ptr %.ptr33.i.i13074, align 1, !tbaa !9, !noalias !860
   %6327 = icmp ne i8 %6326, 106
   %.not10.i.i.i13078 = icmp ne i64 %.sroa.022.0.add.i.i13073, 2
@@ -47922,7 +47922,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13089:                            ; preds = %.preheader.i.i.i13089.preheader, %._crit_edge.i.i.i13095
   %.sroa.022.0.idx.i.i13090 = phi i64 [ %.sroa.022.0.add.i.i13091, %._crit_edge.i.i.i13095 ], [ 13, %.preheader.i.i.i13089.preheader ]
   %.sroa.022.0.add.i.i13091 = add nsw i64 %.sroa.022.0.idx.i.i13090, -1
-  %.ptr33.i.i13092 = getelementptr inbounds i8, ptr %471, i64 %.sroa.022.0.add.i.i13091
+  %.ptr33.i.i13092 = getelementptr inbounds nuw i8, ptr %471, i64 %.sroa.022.0.add.i.i13091
   %6331 = load i8, ptr %.ptr33.i.i13092, align 1, !tbaa !9, !noalias !863
   br label %6333
 
@@ -47961,7 +47961,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13107:                            ; preds = %.preheader.i.i.i13107.preheader, %._crit_edge.i.i.i13113
   %.sroa.022.0.idx.i.i13108 = phi i64 [ %.sroa.022.0.add.i.i13109, %._crit_edge.i.i.i13113 ], [ 13, %.preheader.i.i.i13107.preheader ]
   %.sroa.022.0.add.i.i13109 = add nsw i64 %.sroa.022.0.idx.i.i13108, -1
-  %.ptr33.i.i13110 = getelementptr inbounds i8, ptr %472, i64 %.sroa.022.0.add.i.i13109
+  %.ptr33.i.i13110 = getelementptr inbounds nuw i8, ptr %472, i64 %.sroa.022.0.add.i.i13109
   %6340 = load i8, ptr %.ptr33.i.i13110, align 1, !tbaa !9, !noalias !866
   br label %6342
 
@@ -48000,7 +48000,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13125:                            ; preds = %.preheader.i.i.i13125.preheader, %._crit_edge.i.i.i13131
   %.sroa.022.0.idx.i.i13126 = phi i64 [ %.sroa.022.0.add.i.i13127, %._crit_edge.i.i.i13131 ], [ 13, %.preheader.i.i.i13125.preheader ]
   %.sroa.022.0.add.i.i13127 = add nsw i64 %.sroa.022.0.idx.i.i13126, -1
-  %.ptr33.i.i13128 = getelementptr inbounds i8, ptr %473, i64 %.sroa.022.0.add.i.i13127
+  %.ptr33.i.i13128 = getelementptr inbounds nuw i8, ptr %473, i64 %.sroa.022.0.add.i.i13127
   %6349 = load i8, ptr %.ptr33.i.i13128, align 1, !tbaa !9, !noalias !869
   br label %6351
 
@@ -48073,7 +48073,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i13151:                            ; preds = %.preheader.i.i.i13151.preheader, %._crit_edge.i.i.i13157
   %.sroa.022.0.idx.i.i13152 = phi i64 [ %.sroa.022.0.add.i.i13153, %._crit_edge.i.i.i13157 ], [ 22, %.preheader.i.i.i13151.preheader ]
   %.sroa.022.0.add.i.i13153 = add nsw i64 %.sroa.022.0.idx.i.i13152, -1
-  %.ptr33.i.i13154 = getelementptr inbounds i8, ptr %474, i64 %.sroa.022.0.add.i.i13153
+  %.ptr33.i.i13154 = getelementptr inbounds nuw i8, ptr %474, i64 %.sroa.022.0.add.i.i13153
   %6370 = load i8, ptr %.ptr33.i.i13154, align 1, !tbaa !9, !noalias !872
   %6371 = icmp eq i8 %6370, 105
   br i1 %6371, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13160, label %._crit_edge.i.i.i13157
@@ -48101,7 +48101,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13169:                            ; preds = %.preheader.i.i.i13169.preheader, %._crit_edge.i.i.i13175
   %.sroa.022.0.idx.i.i13170 = phi i64 [ %.sroa.022.0.add.i.i13171, %._crit_edge.i.i.i13175 ], [ 22, %.preheader.i.i.i13169.preheader ]
   %.sroa.022.0.add.i.i13171 = add nsw i64 %.sroa.022.0.idx.i.i13170, -1
-  %.ptr33.i.i13172 = getelementptr inbounds i8, ptr %475, i64 %.sroa.022.0.add.i.i13171
+  %.ptr33.i.i13172 = getelementptr inbounds nuw i8, ptr %475, i64 %.sroa.022.0.add.i.i13171
   %6376 = load i8, ptr %.ptr33.i.i13172, align 1, !tbaa !9, !noalias !875
   br label %6378
 
@@ -48140,7 +48140,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13187:                            ; preds = %.preheader.i.i.i13187.preheader, %._crit_edge.i.i.i13193
   %.sroa.022.0.idx.i.i13188 = phi i64 [ %.sroa.022.0.add.i.i13189, %._crit_edge.i.i.i13193 ], [ 22, %.preheader.i.i.i13187.preheader ]
   %.sroa.022.0.add.i.i13189 = add nsw i64 %.sroa.022.0.idx.i.i13188, -1
-  %.ptr33.i.i13190 = getelementptr inbounds i8, ptr %476, i64 %.sroa.022.0.add.i.i13189
+  %.ptr33.i.i13190 = getelementptr inbounds nuw i8, ptr %476, i64 %.sroa.022.0.add.i.i13189
   %6385 = load i8, ptr %.ptr33.i.i13190, align 1, !tbaa !9, !noalias !878
   br label %6387
 
@@ -48179,7 +48179,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13205:                            ; preds = %.preheader.i.i.i13205.preheader, %._crit_edge.i.i.i13211
   %.sroa.022.0.idx.i.i13206 = phi i64 [ %.sroa.022.0.add.i.i13207, %._crit_edge.i.i.i13211 ], [ 22, %.preheader.i.i.i13205.preheader ]
   %.sroa.022.0.add.i.i13207 = add nsw i64 %.sroa.022.0.idx.i.i13206, -1
-  %.ptr33.i.i13208 = getelementptr inbounds i8, ptr %477, i64 %.sroa.022.0.add.i.i13207
+  %.ptr33.i.i13208 = getelementptr inbounds nuw i8, ptr %477, i64 %.sroa.022.0.add.i.i13207
   %6394 = load i8, ptr %.ptr33.i.i13208, align 1, !tbaa !9, !noalias !881
   br label %6396
 
@@ -48235,7 +48235,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13227:                            ; preds = %.preheader.i.i.i13227.preheader, %._crit_edge.i.i.i13233
   %.sroa.022.0.idx.i.i13228 = phi i64 [ %.sroa.022.0.add.i.i13229, %._crit_edge.i.i.i13233 ], [ 22, %.preheader.i.i.i13227.preheader ]
   %.sroa.022.0.add.i.i13229 = add nsw i64 %.sroa.022.0.idx.i.i13228, -1
-  %.ptr33.i.i13230 = getelementptr inbounds i8, ptr %478, i64 %.sroa.022.0.add.i.i13229
+  %.ptr33.i.i13230 = getelementptr inbounds nuw i8, ptr %478, i64 %.sroa.022.0.add.i.i13229
   %6409 = load i8, ptr %.ptr33.i.i13230, align 1, !tbaa !9, !noalias !884
   %6410 = icmp eq i8 %6409, 115
   br i1 %6410, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13236, label %._crit_edge.i.i.i13233
@@ -48263,7 +48263,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13245:                            ; preds = %.preheader.i.i.i13245.preheader, %._crit_edge.i.i.i13251
   %.sroa.022.0.idx.i.i13246 = phi i64 [ %.sroa.022.0.add.i.i13247, %._crit_edge.i.i.i13251 ], [ 22, %.preheader.i.i.i13245.preheader ]
   %.sroa.022.0.add.i.i13247 = add nsw i64 %.sroa.022.0.idx.i.i13246, -1
-  %.ptr33.i.i13248 = getelementptr inbounds i8, ptr %479, i64 %.sroa.022.0.add.i.i13247
+  %.ptr33.i.i13248 = getelementptr inbounds nuw i8, ptr %479, i64 %.sroa.022.0.add.i.i13247
   %6415 = load i8, ptr %.ptr33.i.i13248, align 1, !tbaa !9, !noalias !887
   br label %6417
 
@@ -48302,7 +48302,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13263:                            ; preds = %.preheader.i.i.i13263.preheader, %._crit_edge.i.i.i13269
   %.sroa.022.0.idx.i.i13264 = phi i64 [ %.sroa.022.0.add.i.i13265, %._crit_edge.i.i.i13269 ], [ 22, %.preheader.i.i.i13263.preheader ]
   %.sroa.022.0.add.i.i13265 = add nsw i64 %.sroa.022.0.idx.i.i13264, -1
-  %.ptr33.i.i13266 = getelementptr inbounds i8, ptr %480, i64 %.sroa.022.0.add.i.i13265
+  %.ptr33.i.i13266 = getelementptr inbounds nuw i8, ptr %480, i64 %.sroa.022.0.add.i.i13265
   %6424 = load i8, ptr %.ptr33.i.i13266, align 1, !tbaa !9, !noalias !890
   br label %6426
 
@@ -48341,7 +48341,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13281:                            ; preds = %.preheader.i.i.i13281.preheader, %._crit_edge.i.i.i13287
   %.sroa.022.0.idx.i.i13282 = phi i64 [ %.sroa.022.0.add.i.i13283, %._crit_edge.i.i.i13287 ], [ 22, %.preheader.i.i.i13281.preheader ]
   %.sroa.022.0.add.i.i13283 = add nsw i64 %.sroa.022.0.idx.i.i13282, -1
-  %.ptr33.i.i13284 = getelementptr inbounds i8, ptr %481, i64 %.sroa.022.0.add.i.i13283
+  %.ptr33.i.i13284 = getelementptr inbounds nuw i8, ptr %481, i64 %.sroa.022.0.add.i.i13283
   %6433 = load i8, ptr %.ptr33.i.i13284, align 1, !tbaa !9, !noalias !893
   br label %6435
 
@@ -48397,7 +48397,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13303:                            ; preds = %.preheader.i.i.i13303.preheader, %._crit_edge.i.i.i13309
   %.sroa.022.0.idx.i.i13304 = phi i64 [ %.sroa.022.0.add.i.i13305, %._crit_edge.i.i.i13309 ], [ 22, %.preheader.i.i.i13303.preheader ]
   %.sroa.022.0.add.i.i13305 = add nsw i64 %.sroa.022.0.idx.i.i13304, -1
-  %.ptr33.i.i13306 = getelementptr inbounds i8, ptr %482, i64 %.sroa.022.0.add.i.i13305
+  %.ptr33.i.i13306 = getelementptr inbounds nuw i8, ptr %482, i64 %.sroa.022.0.add.i.i13305
   %6448 = load i8, ptr %.ptr33.i.i13306, align 1, !tbaa !9, !noalias !896
   %6449 = icmp eq i8 %6448, 115
   br i1 %6449, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13312, label %._crit_edge.i.i.i13309
@@ -48425,7 +48425,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13321:                            ; preds = %.preheader.i.i.i13321.preheader, %._crit_edge.i.i.i13327
   %.sroa.022.0.idx.i.i13322 = phi i64 [ %.sroa.022.0.add.i.i13323, %._crit_edge.i.i.i13327 ], [ 22, %.preheader.i.i.i13321.preheader ]
   %.sroa.022.0.add.i.i13323 = add nsw i64 %.sroa.022.0.idx.i.i13322, -1
-  %.ptr33.i.i13324 = getelementptr inbounds i8, ptr %483, i64 %.sroa.022.0.add.i.i13323
+  %.ptr33.i.i13324 = getelementptr inbounds nuw i8, ptr %483, i64 %.sroa.022.0.add.i.i13323
   %6454 = load i8, ptr %.ptr33.i.i13324, align 1, !tbaa !9, !noalias !899
   br label %6456
 
@@ -48464,7 +48464,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13339:                            ; preds = %.preheader.i.i.i13339.preheader, %._crit_edge.i.i.i13345
   %.sroa.022.0.idx.i.i13340 = phi i64 [ %.sroa.022.0.add.i.i13341, %._crit_edge.i.i.i13345 ], [ 22, %.preheader.i.i.i13339.preheader ]
   %.sroa.022.0.add.i.i13341 = add nsw i64 %.sroa.022.0.idx.i.i13340, -1
-  %.ptr33.i.i13342 = getelementptr inbounds i8, ptr %484, i64 %.sroa.022.0.add.i.i13341
+  %.ptr33.i.i13342 = getelementptr inbounds nuw i8, ptr %484, i64 %.sroa.022.0.add.i.i13341
   %6463 = load i8, ptr %.ptr33.i.i13342, align 1, !tbaa !9, !noalias !902
   br label %6465
 
@@ -48503,7 +48503,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13357:                            ; preds = %.preheader.i.i.i13357.preheader, %._crit_edge.i.i.i13363
   %.sroa.022.0.idx.i.i13358 = phi i64 [ %.sroa.022.0.add.i.i13359, %._crit_edge.i.i.i13363 ], [ 22, %.preheader.i.i.i13357.preheader ]
   %.sroa.022.0.add.i.i13359 = add nsw i64 %.sroa.022.0.idx.i.i13358, -1
-  %.ptr33.i.i13360 = getelementptr inbounds i8, ptr %485, i64 %.sroa.022.0.add.i.i13359
+  %.ptr33.i.i13360 = getelementptr inbounds nuw i8, ptr %485, i64 %.sroa.022.0.add.i.i13359
   %6472 = load i8, ptr %.ptr33.i.i13360, align 1, !tbaa !9, !noalias !905
   br label %6474
 
@@ -48576,7 +48576,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i13383:                            ; preds = %.preheader.i.i.i13383.preheader, %._crit_edge.i.i.i13389
   %.sroa.022.0.idx.i.i13384 = phi i64 [ %.sroa.022.0.add.i.i13385, %._crit_edge.i.i.i13389 ], [ 22, %.preheader.i.i.i13383.preheader ]
   %.sroa.022.0.add.i.i13385 = add nsw i64 %.sroa.022.0.idx.i.i13384, -1
-  %.ptr33.i.i13386 = getelementptr inbounds i8, ptr %486, i64 %.sroa.022.0.add.i.i13385
+  %.ptr33.i.i13386 = getelementptr inbounds nuw i8, ptr %486, i64 %.sroa.022.0.add.i.i13385
   %6493 = load i8, ptr %.ptr33.i.i13386, align 1, !tbaa !9, !noalias !908
   %6494 = icmp eq i8 %6493, 111
   br i1 %6494, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13392, label %._crit_edge.i.i.i13389
@@ -48604,7 +48604,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13401:                            ; preds = %.preheader.i.i.i13401.preheader, %._crit_edge.i.i.i13407
   %.sroa.022.0.idx.i.i13402 = phi i64 [ %.sroa.022.0.add.i.i13403, %._crit_edge.i.i.i13407 ], [ 22, %.preheader.i.i.i13401.preheader ]
   %.sroa.022.0.add.i.i13403 = add nsw i64 %.sroa.022.0.idx.i.i13402, -1
-  %.ptr33.i.i13404 = getelementptr inbounds i8, ptr %487, i64 %.sroa.022.0.add.i.i13403
+  %.ptr33.i.i13404 = getelementptr inbounds nuw i8, ptr %487, i64 %.sroa.022.0.add.i.i13403
   %6499 = load i8, ptr %.ptr33.i.i13404, align 1, !tbaa !9, !noalias !911
   br label %6501
 
@@ -48643,7 +48643,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13419:                            ; preds = %.preheader.i.i.i13419.preheader, %._crit_edge.i.i.i13425
   %.sroa.022.0.idx.i.i13420 = phi i64 [ %.sroa.022.0.add.i.i13421, %._crit_edge.i.i.i13425 ], [ 22, %.preheader.i.i.i13419.preheader ]
   %.sroa.022.0.add.i.i13421 = add nsw i64 %.sroa.022.0.idx.i.i13420, -1
-  %.ptr33.i.i13422 = getelementptr inbounds i8, ptr %488, i64 %.sroa.022.0.add.i.i13421
+  %.ptr33.i.i13422 = getelementptr inbounds nuw i8, ptr %488, i64 %.sroa.022.0.add.i.i13421
   %6508 = load i8, ptr %.ptr33.i.i13422, align 1, !tbaa !9, !noalias !914
   br label %6510
 
@@ -48682,7 +48682,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13437:                            ; preds = %.preheader.i.i.i13437.preheader, %._crit_edge.i.i.i13443
   %.sroa.022.0.idx.i.i13438 = phi i64 [ %.sroa.022.0.add.i.i13439, %._crit_edge.i.i.i13443 ], [ 22, %.preheader.i.i.i13437.preheader ]
   %.sroa.022.0.add.i.i13439 = add nsw i64 %.sroa.022.0.idx.i.i13438, -1
-  %.ptr33.i.i13440 = getelementptr inbounds i8, ptr %489, i64 %.sroa.022.0.add.i.i13439
+  %.ptr33.i.i13440 = getelementptr inbounds nuw i8, ptr %489, i64 %.sroa.022.0.add.i.i13439
   %6517 = load i8, ptr %.ptr33.i.i13440, align 1, !tbaa !9, !noalias !917
   br label %6519
 
@@ -48738,7 +48738,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13459:                            ; preds = %.preheader.i.i.i13459.preheader, %._crit_edge.i.i.i13465
   %.sroa.022.0.idx.i.i13460 = phi i64 [ %.sroa.022.0.add.i.i13461, %._crit_edge.i.i.i13465 ], [ 22, %.preheader.i.i.i13459.preheader ]
   %.sroa.022.0.add.i.i13461 = add nsw i64 %.sroa.022.0.idx.i.i13460, -1
-  %.ptr33.i.i13462 = getelementptr inbounds i8, ptr %490, i64 %.sroa.022.0.add.i.i13461
+  %.ptr33.i.i13462 = getelementptr inbounds nuw i8, ptr %490, i64 %.sroa.022.0.add.i.i13461
   %6532 = load i8, ptr %.ptr33.i.i13462, align 1, !tbaa !9, !noalias !920
   %6533 = icmp eq i8 %6532, 97
   br i1 %6533, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13468, label %._crit_edge.i.i.i13465
@@ -48766,7 +48766,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13477:                            ; preds = %.preheader.i.i.i13477.preheader, %._crit_edge.i.i.i13483
   %.sroa.022.0.idx.i.i13478 = phi i64 [ %.sroa.022.0.add.i.i13479, %._crit_edge.i.i.i13483 ], [ 22, %.preheader.i.i.i13477.preheader ]
   %.sroa.022.0.add.i.i13479 = add nsw i64 %.sroa.022.0.idx.i.i13478, -1
-  %.ptr33.i.i13480 = getelementptr inbounds i8, ptr %491, i64 %.sroa.022.0.add.i.i13479
+  %.ptr33.i.i13480 = getelementptr inbounds nuw i8, ptr %491, i64 %.sroa.022.0.add.i.i13479
   %6538 = load i8, ptr %.ptr33.i.i13480, align 1, !tbaa !9, !noalias !923
   br label %6540
 
@@ -48805,7 +48805,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13495:                            ; preds = %.preheader.i.i.i13495.preheader, %._crit_edge.i.i.i13501
   %.sroa.022.0.idx.i.i13496 = phi i64 [ %.sroa.022.0.add.i.i13497, %._crit_edge.i.i.i13501 ], [ 22, %.preheader.i.i.i13495.preheader ]
   %.sroa.022.0.add.i.i13497 = add nsw i64 %.sroa.022.0.idx.i.i13496, -1
-  %.ptr33.i.i13498 = getelementptr inbounds i8, ptr %492, i64 %.sroa.022.0.add.i.i13497
+  %.ptr33.i.i13498 = getelementptr inbounds nuw i8, ptr %492, i64 %.sroa.022.0.add.i.i13497
   %6547 = load i8, ptr %.ptr33.i.i13498, align 1, !tbaa !9, !noalias !926
   br label %6549
 
@@ -48844,7 +48844,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13513:                            ; preds = %.preheader.i.i.i13513.preheader, %._crit_edge.i.i.i13519
   %.sroa.022.0.idx.i.i13514 = phi i64 [ %.sroa.022.0.add.i.i13515, %._crit_edge.i.i.i13519 ], [ 22, %.preheader.i.i.i13513.preheader ]
   %.sroa.022.0.add.i.i13515 = add nsw i64 %.sroa.022.0.idx.i.i13514, -1
-  %.ptr33.i.i13516 = getelementptr inbounds i8, ptr %493, i64 %.sroa.022.0.add.i.i13515
+  %.ptr33.i.i13516 = getelementptr inbounds nuw i8, ptr %493, i64 %.sroa.022.0.add.i.i13515
   %6556 = load i8, ptr %.ptr33.i.i13516, align 1, !tbaa !9, !noalias !929
   br label %6558
 
@@ -48900,7 +48900,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13535:                            ; preds = %.preheader.i.i.i13535.preheader, %._crit_edge.i.i.i13541
   %.sroa.022.0.idx.i.i13536 = phi i64 [ %.sroa.022.0.add.i.i13537, %._crit_edge.i.i.i13541 ], [ 22, %.preheader.i.i.i13535.preheader ]
   %.sroa.022.0.add.i.i13537 = add nsw i64 %.sroa.022.0.idx.i.i13536, -1
-  %.ptr33.i.i13538 = getelementptr inbounds i8, ptr %494, i64 %.sroa.022.0.add.i.i13537
+  %.ptr33.i.i13538 = getelementptr inbounds nuw i8, ptr %494, i64 %.sroa.022.0.add.i.i13537
   %6571 = load i8, ptr %.ptr33.i.i13538, align 1, !tbaa !9, !noalias !932
   %6572 = icmp eq i8 %6571, 103
   br i1 %6572, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13544, label %._crit_edge.i.i.i13541
@@ -48928,7 +48928,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13553:                            ; preds = %.preheader.i.i.i13553.preheader, %._crit_edge.i.i.i13559
   %.sroa.022.0.idx.i.i13554 = phi i64 [ %.sroa.022.0.add.i.i13555, %._crit_edge.i.i.i13559 ], [ 22, %.preheader.i.i.i13553.preheader ]
   %.sroa.022.0.add.i.i13555 = add nsw i64 %.sroa.022.0.idx.i.i13554, -1
-  %.ptr33.i.i13556 = getelementptr inbounds i8, ptr %495, i64 %.sroa.022.0.add.i.i13555
+  %.ptr33.i.i13556 = getelementptr inbounds nuw i8, ptr %495, i64 %.sroa.022.0.add.i.i13555
   %6577 = load i8, ptr %.ptr33.i.i13556, align 1, !tbaa !9, !noalias !935
   br label %6579
 
@@ -48967,7 +48967,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13571:                            ; preds = %.preheader.i.i.i13571.preheader, %._crit_edge.i.i.i13577
   %.sroa.022.0.idx.i.i13572 = phi i64 [ %.sroa.022.0.add.i.i13573, %._crit_edge.i.i.i13577 ], [ 22, %.preheader.i.i.i13571.preheader ]
   %.sroa.022.0.add.i.i13573 = add nsw i64 %.sroa.022.0.idx.i.i13572, -1
-  %.ptr33.i.i13574 = getelementptr inbounds i8, ptr %496, i64 %.sroa.022.0.add.i.i13573
+  %.ptr33.i.i13574 = getelementptr inbounds nuw i8, ptr %496, i64 %.sroa.022.0.add.i.i13573
   %6586 = load i8, ptr %.ptr33.i.i13574, align 1, !tbaa !9, !noalias !938
   br label %6588
 
@@ -49006,7 +49006,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13589:                            ; preds = %.preheader.i.i.i13589.preheader, %._crit_edge.i.i.i13595
   %.sroa.022.0.idx.i.i13590 = phi i64 [ %.sroa.022.0.add.i.i13591, %._crit_edge.i.i.i13595 ], [ 22, %.preheader.i.i.i13589.preheader ]
   %.sroa.022.0.add.i.i13591 = add nsw i64 %.sroa.022.0.idx.i.i13590, -1
-  %.ptr33.i.i13592 = getelementptr inbounds i8, ptr %497, i64 %.sroa.022.0.add.i.i13591
+  %.ptr33.i.i13592 = getelementptr inbounds nuw i8, ptr %497, i64 %.sroa.022.0.add.i.i13591
   %6595 = load i8, ptr %.ptr33.i.i13592, align 1, !tbaa !9, !noalias !941
   br label %6597
 
@@ -49079,7 +49079,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
 .preheader.i.i.i13615:                            ; preds = %.preheader.i.i.i13615.preheader, %._crit_edge.i.i.i13621
   %.sroa.022.0.idx.i.i13616 = phi i64 [ %.sroa.022.0.add.i.i13617, %._crit_edge.i.i.i13621 ], [ 22, %.preheader.i.i.i13615.preheader ]
   %.sroa.022.0.add.i.i13617 = add nsw i64 %.sroa.022.0.idx.i.i13616, -1
-  %.ptr33.i.i13618 = getelementptr inbounds i8, ptr %498, i64 %.sroa.022.0.add.i.i13617
+  %.ptr33.i.i13618 = getelementptr inbounds nuw i8, ptr %498, i64 %.sroa.022.0.add.i.i13617
   %6616 = load i8, ptr %.ptr33.i.i13618, align 1, !tbaa !9, !noalias !944
   %6617 = icmp eq i8 %6616, 113
   br i1 %6617, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13624, label %._crit_edge.i.i.i13621
@@ -49107,7 +49107,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13633:                            ; preds = %.preheader.i.i.i13633.preheader, %._crit_edge.i.i.i13639
   %.sroa.022.0.idx.i.i13634 = phi i64 [ %.sroa.022.0.add.i.i13635, %._crit_edge.i.i.i13639 ], [ 22, %.preheader.i.i.i13633.preheader ]
   %.sroa.022.0.add.i.i13635 = add nsw i64 %.sroa.022.0.idx.i.i13634, -1
-  %.ptr33.i.i13636 = getelementptr inbounds i8, ptr %499, i64 %.sroa.022.0.add.i.i13635
+  %.ptr33.i.i13636 = getelementptr inbounds nuw i8, ptr %499, i64 %.sroa.022.0.add.i.i13635
   %6622 = load i8, ptr %.ptr33.i.i13636, align 1, !tbaa !9, !noalias !947
   br label %6624
 
@@ -49146,7 +49146,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13651:                            ; preds = %.preheader.i.i.i13651.preheader, %._crit_edge.i.i.i13657
   %.sroa.022.0.idx.i.i13652 = phi i64 [ %.sroa.022.0.add.i.i13653, %._crit_edge.i.i.i13657 ], [ 22, %.preheader.i.i.i13651.preheader ]
   %.sroa.022.0.add.i.i13653 = add nsw i64 %.sroa.022.0.idx.i.i13652, -1
-  %.ptr33.i.i13654 = getelementptr inbounds i8, ptr %500, i64 %.sroa.022.0.add.i.i13653
+  %.ptr33.i.i13654 = getelementptr inbounds nuw i8, ptr %500, i64 %.sroa.022.0.add.i.i13653
   %6631 = load i8, ptr %.ptr33.i.i13654, align 1, !tbaa !9, !noalias !950
   br label %6633
 
@@ -49185,7 +49185,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13669:                            ; preds = %.preheader.i.i.i13669.preheader, %._crit_edge.i.i.i13675
   %.sroa.022.0.idx.i.i13670 = phi i64 [ %.sroa.022.0.add.i.i13671, %._crit_edge.i.i.i13675 ], [ 22, %.preheader.i.i.i13669.preheader ]
   %.sroa.022.0.add.i.i13671 = add nsw i64 %.sroa.022.0.idx.i.i13670, -1
-  %.ptr33.i.i13672 = getelementptr inbounds i8, ptr %501, i64 %.sroa.022.0.add.i.i13671
+  %.ptr33.i.i13672 = getelementptr inbounds nuw i8, ptr %501, i64 %.sroa.022.0.add.i.i13671
   %6640 = load i8, ptr %.ptr33.i.i13672, align 1, !tbaa !9, !noalias !953
   br label %6642
 
@@ -49241,7 +49241,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13691:                            ; preds = %.preheader.i.i.i13691.preheader, %._crit_edge.i.i.i13697
   %.sroa.022.0.idx.i.i13692 = phi i64 [ %.sroa.022.0.add.i.i13693, %._crit_edge.i.i.i13697 ], [ 22, %.preheader.i.i.i13691.preheader ]
   %.sroa.022.0.add.i.i13693 = add nsw i64 %.sroa.022.0.idx.i.i13692, -1
-  %.ptr33.i.i13694 = getelementptr inbounds i8, ptr %502, i64 %.sroa.022.0.add.i.i13693
+  %.ptr33.i.i13694 = getelementptr inbounds nuw i8, ptr %502, i64 %.sroa.022.0.add.i.i13693
   %6655 = load i8, ptr %.ptr33.i.i13694, align 1, !tbaa !9, !noalias !956
   %6656 = icmp eq i8 %6655, 98
   br i1 %6656, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13700, label %._crit_edge.i.i.i13697
@@ -49269,7 +49269,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13709:                            ; preds = %.preheader.i.i.i13709.preheader, %._crit_edge.i.i.i13715
   %.sroa.022.0.idx.i.i13710 = phi i64 [ %.sroa.022.0.add.i.i13711, %._crit_edge.i.i.i13715 ], [ 22, %.preheader.i.i.i13709.preheader ]
   %.sroa.022.0.add.i.i13711 = add nsw i64 %.sroa.022.0.idx.i.i13710, -1
-  %.ptr33.i.i13712 = getelementptr inbounds i8, ptr %503, i64 %.sroa.022.0.add.i.i13711
+  %.ptr33.i.i13712 = getelementptr inbounds nuw i8, ptr %503, i64 %.sroa.022.0.add.i.i13711
   %6661 = load i8, ptr %.ptr33.i.i13712, align 1, !tbaa !9, !noalias !959
   br label %6663
 
@@ -49308,7 +49308,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13727:                            ; preds = %.preheader.i.i.i13727.preheader, %._crit_edge.i.i.i13733
   %.sroa.022.0.idx.i.i13728 = phi i64 [ %.sroa.022.0.add.i.i13729, %._crit_edge.i.i.i13733 ], [ 22, %.preheader.i.i.i13727.preheader ]
   %.sroa.022.0.add.i.i13729 = add nsw i64 %.sroa.022.0.idx.i.i13728, -1
-  %.ptr33.i.i13730 = getelementptr inbounds i8, ptr %504, i64 %.sroa.022.0.add.i.i13729
+  %.ptr33.i.i13730 = getelementptr inbounds nuw i8, ptr %504, i64 %.sroa.022.0.add.i.i13729
   %6670 = load i8, ptr %.ptr33.i.i13730, align 1, !tbaa !9, !noalias !962
   br label %6672
 
@@ -49347,7 +49347,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13745:                            ; preds = %.preheader.i.i.i13745.preheader, %._crit_edge.i.i.i13751
   %.sroa.022.0.idx.i.i13746 = phi i64 [ %.sroa.022.0.add.i.i13747, %._crit_edge.i.i.i13751 ], [ 22, %.preheader.i.i.i13745.preheader ]
   %.sroa.022.0.add.i.i13747 = add nsw i64 %.sroa.022.0.idx.i.i13746, -1
-  %.ptr33.i.i13748 = getelementptr inbounds i8, ptr %505, i64 %.sroa.022.0.add.i.i13747
+  %.ptr33.i.i13748 = getelementptr inbounds nuw i8, ptr %505, i64 %.sroa.022.0.add.i.i13747
   %6679 = load i8, ptr %.ptr33.i.i13748, align 1, !tbaa !9, !noalias !965
   br label %6681
 
@@ -49403,7 +49403,7 @@ _ZN5boost14static_strings6testFLINS0_19basic_static_stringILm400EcSt11char_trait
 .preheader.i.i.i13767:                            ; preds = %.preheader.i.i.i13767.preheader, %._crit_edge.i.i.i13773
   %.sroa.022.0.idx.i.i13768 = phi i64 [ %.sroa.022.0.add.i.i13769, %._crit_edge.i.i.i13773 ], [ 22, %.preheader.i.i.i13767.preheader ]
   %.sroa.022.0.add.i.i13769 = add nsw i64 %.sroa.022.0.idx.i.i13768, -1
-  %.ptr33.i.i13770 = getelementptr inbounds i8, ptr %506, i64 %.sroa.022.0.add.i.i13769
+  %.ptr33.i.i13770 = getelementptr inbounds nuw i8, ptr %506, i64 %.sroa.022.0.add.i.i13769
   %6694 = load i8, ptr %.ptr33.i.i13770, align 1, !tbaa !9, !noalias !968
   %6695 = icmp eq i8 %6694, 99
   br i1 %6695, label %_ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoFbRS4_S7_EEET_SA_SA_T0_SB_T1_.exit.i.i13776, label %._crit_edge.i.i.i13773
@@ -49431,7 +49431,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13785:                            ; preds = %.preheader.i.i.i13785.preheader, %._crit_edge.i.i.i13791
   %.sroa.022.0.idx.i.i13786 = phi i64 [ %.sroa.022.0.add.i.i13787, %._crit_edge.i.i.i13791 ], [ 22, %.preheader.i.i.i13785.preheader ]
   %.sroa.022.0.add.i.i13787 = add nsw i64 %.sroa.022.0.idx.i.i13786, -1
-  %.ptr33.i.i13788 = getelementptr inbounds i8, ptr %507, i64 %.sroa.022.0.add.i.i13787
+  %.ptr33.i.i13788 = getelementptr inbounds nuw i8, ptr %507, i64 %.sroa.022.0.add.i.i13787
   %6700 = load i8, ptr %.ptr33.i.i13788, align 1, !tbaa !9, !noalias !971
   br label %6702
 
@@ -49470,7 +49470,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13803:                            ; preds = %.preheader.i.i.i13803.preheader, %._crit_edge.i.i.i13809
   %.sroa.022.0.idx.i.i13804 = phi i64 [ %.sroa.022.0.add.i.i13805, %._crit_edge.i.i.i13809 ], [ 22, %.preheader.i.i.i13803.preheader ]
   %.sroa.022.0.add.i.i13805 = add nsw i64 %.sroa.022.0.idx.i.i13804, -1
-  %.ptr33.i.i13806 = getelementptr inbounds i8, ptr %508, i64 %.sroa.022.0.add.i.i13805
+  %.ptr33.i.i13806 = getelementptr inbounds nuw i8, ptr %508, i64 %.sroa.022.0.add.i.i13805
   %6709 = load i8, ptr %.ptr33.i.i13806, align 1, !tbaa !9, !noalias !974
   br label %6711
 
@@ -49509,7 +49509,7 @@ _ZN5boost14static_strings6detail13find_first_ofISt16reverse_iteratorIPKcES5_PDoF
 .preheader.i.i.i13821:                            ; preds = %.preheader.i.i.i13821.preheader, %._crit_edge.i.i.i13827
   %.sroa.022.0.idx.i.i13822 = phi i64 [ %.sroa.022.0.add.i.i13823, %._crit_edge.i.i.i13827 ], [ 22, %.preheader.i.i.i13821.preheader ]
   %.sroa.022.0.add.i.i13823 = add nsw i64 %.sroa.022.0.idx.i.i13822, -1
-  %.ptr33.i.i13824 = getelementptr inbounds i8, ptr %509, i64 %.sroa.022.0.add.i.i13823
+  %.ptr33.i.i13824 = getelementptr inbounds nuw i8, ptr %509, i64 %.sroa.022.0.add.i.i13823
   %6718 = load i8, ptr %.ptr33.i.i13824, align 1, !tbaa !9, !noalias !977
   br label %6720
 
@@ -54276,17 +54276,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205.preheader: ; preds = %8173, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205.preheader, %8292
   %.idx23761 = phi i64 [ %.add23762, %8292 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205.preheader ]
   %.add23762 = add nsw i64 %.idx23761, -1
-  %.ptr23765 = getelementptr inbounds i8, ptr %628, i64 %.add23762
+  %.ptr23765 = getelementptr inbounds nuw i8, ptr %628, i64 %.add23762
   %8291 = load i8, ptr %.ptr23765, align 1, !tbaa !9, !noalias !1019
   %memchr.char0cmp.not20666 = icmp eq i8 %8291, 99
   br i1 %memchr.char0cmp.not20666, label %8292, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17209
 
 8292:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205
-  %.not3.i.i.i17207 = icmp eq i64 %.add23762, 2
+  %.not3.i.i.i17207 = icmp samesign eq i64 %.add23762, 2
   br i1 %.not3.i.i.i17207, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17209: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17205
-  %.ptr23763.le = getelementptr inbounds i8, ptr %628, i64 %.idx23761
+  %.ptr23763.le = getelementptr inbounds nuw i8, ptr %628, i64 %.idx23761
   %8293 = ptrtoint ptr %8290 to i64
   %8294 = ptrtoint ptr %.ptr23763.le to i64
   %.neg20957 = add i64 %8293, -5
@@ -54311,7 +54311,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215.preheader: ; preds = %8292, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215.preheader, %8302
   %.idx23766 = phi i64 [ %.add23767, %8302 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215.preheader ]
   %.add23767 = add nsw i64 %.idx23766, -1
-  %.ptr23769 = getelementptr inbounds i8, ptr %629, i64 %.add23767
+  %.ptr23769 = getelementptr inbounds nuw i8, ptr %629, i64 %.add23767
   %8301 = load i8, ptr %.ptr23769, align 1, !tbaa !9, !noalias !1022
   switch i8 %8301, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17219 [
     i8 108, label %8302
@@ -54323,7 +54323,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17217, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17219: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17215
-  %.ptr23768.le = getelementptr inbounds i8, ptr %629, i64 %.idx23766
+  %.ptr23768.le = getelementptr inbounds nuw i8, ptr %629, i64 %.idx23766
   %8303 = ptrtoint ptr %8300 to i64
   %8304 = ptrtoint ptr %.ptr23768.le to i64
   %.neg20960 = add i64 %8303, -5
@@ -54348,7 +54348,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225.preheader: ; preds = %8302, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225.preheader, %8314
   %.idx23771 = phi i64 [ %.add23772, %8314 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225.preheader ]
   %.add23772 = add nsw i64 %.idx23771, -1
-  %.ptr23774 = getelementptr inbounds i8, ptr %630, i64 %.add23772
+  %.ptr23774 = getelementptr inbounds nuw i8, ptr %630, i64 %.add23772
   %8311 = load i8, ptr %.ptr23774, align 1, !tbaa !9, !noalias !1025
   %8312 = sext i8 %8311 to i32
   %8313 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2192, i32 noundef %8312, i64 noundef 4) #36, !noalias !1025
@@ -54360,7 +54360,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17227, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17229: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17225
-  %.ptr23773.le = getelementptr inbounds i8, ptr %630, i64 %.idx23771
+  %.ptr23773.le = getelementptr inbounds nuw i8, ptr %630, i64 %.idx23771
   %8315 = ptrtoint ptr %8310 to i64
   %8316 = ptrtoint ptr %.ptr23773.le to i64
   %.neg20963 = add i64 %8315, -5
@@ -54385,7 +54385,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235.preheader: ; preds = %8314, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235.preheader, %8326
   %.idx23776 = phi i64 [ %.add23777, %8326 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235.preheader ]
   %.add23777 = add nsw i64 %.idx23776, -1
-  %.ptr23779 = getelementptr inbounds i8, ptr %631, i64 %.add23777
+  %.ptr23779 = getelementptr inbounds nuw i8, ptr %631, i64 %.add23777
   %8323 = load i8, ptr %.ptr23779, align 1, !tbaa !9, !noalias !1028
   %8324 = sext i8 %8323 to i32
   %8325 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2195, i32 noundef %8324, i64 noundef 5) #36, !noalias !1028
@@ -54397,7 +54397,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17237, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17239: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17235
-  %.ptr23778.le = getelementptr inbounds i8, ptr %631, i64 %.idx23776
+  %.ptr23778.le = getelementptr inbounds nuw i8, ptr %631, i64 %.idx23776
   %8327 = ptrtoint ptr %8322 to i64
   %8328 = ptrtoint ptr %.ptr23778.le to i64
   %.neg20966 = add i64 %8327, -5
@@ -54423,17 +54423,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249.preheader: ; preds = %8326, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249.preheader, %8337
   %.idx23781 = phi i64 [ %.add23782, %8337 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249.preheader ]
   %.add23782 = add nsw i64 %.idx23781, -1
-  %.ptr23785 = getelementptr inbounds i8, ptr %632, i64 %.add23782
+  %.ptr23785 = getelementptr inbounds nuw i8, ptr %632, i64 %.add23782
   %8336 = load i8, ptr %.ptr23785, align 1, !tbaa !9, !noalias !1031
   %memchr.char0cmp.not20668 = icmp eq i8 %8336, 103
   br i1 %memchr.char0cmp.not20668, label %8337, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17253
 
 8337:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249
-  %.not3.i.i.i17251 = icmp eq i64 %.add23782, 2
+  %.not3.i.i.i17251 = icmp samesign eq i64 %.add23782, 2
   br i1 %.not3.i.i.i17251, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17253: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17249
-  %.ptr23783.le = getelementptr inbounds i8, ptr %632, i64 %.idx23781
+  %.ptr23783.le = getelementptr inbounds nuw i8, ptr %632, i64 %.idx23781
   %8338 = ptrtoint ptr %8335 to i64
   %8339 = ptrtoint ptr %.ptr23783.le to i64
   %.neg20969 = add i64 %8338, -5
@@ -54458,7 +54458,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259.preheader: ; preds = %8337, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259.preheader, %8349
   %.idx23786 = phi i64 [ %.add23787, %8349 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259.preheader ]
   %.add23787 = add nsw i64 %.idx23786, -1
-  %.ptr23789 = getelementptr inbounds i8, ptr %633, i64 %.add23787
+  %.ptr23789 = getelementptr inbounds nuw i8, ptr %633, i64 %.add23787
   %8346 = load i8, ptr %.ptr23789, align 1, !tbaa !9, !noalias !1034
   %8347 = sext i8 %8346 to i32
   %8348 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2204, i32 noundef %8347, i64 noundef 5) #36, !noalias !1034
@@ -54470,7 +54470,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17261, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17263: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17259
-  %.ptr23788.le = getelementptr inbounds i8, ptr %633, i64 %.idx23786
+  %.ptr23788.le = getelementptr inbounds nuw i8, ptr %633, i64 %.idx23786
   %8350 = ptrtoint ptr %8345 to i64
   %8351 = ptrtoint ptr %.ptr23788.le to i64
   %.neg20972 = add i64 %8350, -5
@@ -54495,7 +54495,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269.preheader: ; preds = %8349, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269.preheader, %8361
   %.idx23791 = phi i64 [ %.add23792, %8361 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269.preheader ]
   %.add23792 = add nsw i64 %.idx23791, -1
-  %.ptr23794 = getelementptr inbounds i8, ptr %634, i64 %.add23792
+  %.ptr23794 = getelementptr inbounds nuw i8, ptr %634, i64 %.add23792
   %8358 = load i8, ptr %.ptr23794, align 1, !tbaa !9, !noalias !1037
   %8359 = sext i8 %8358 to i32
   %8360 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2207, i32 noundef %8359, i64 noundef 9) #36, !noalias !1037
@@ -54507,7 +54507,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17271, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17273: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17269
-  %.ptr23793.le = getelementptr inbounds i8, ptr %634, i64 %.idx23791
+  %.ptr23793.le = getelementptr inbounds nuw i8, ptr %634, i64 %.idx23791
   %8362 = ptrtoint ptr %8357 to i64
   %8363 = ptrtoint ptr %.ptr23793.le to i64
   %.neg20975 = add i64 %8362, -5
@@ -54532,7 +54532,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279.preheader: ; preds = %8361, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279.preheader, %8373
   %.idx23796 = phi i64 [ %.add23797, %8373 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279.preheader ]
   %.add23797 = add nsw i64 %.idx23796, -1
-  %.ptr23799 = getelementptr inbounds i8, ptr %635, i64 %.add23797
+  %.ptr23799 = getelementptr inbounds nuw i8, ptr %635, i64 %.add23797
   %8370 = load i8, ptr %.ptr23799, align 1, !tbaa !9, !noalias !1040
   %8371 = sext i8 %8370 to i32
   %8372 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2210, i32 noundef %8371, i64 noundef 10) #36, !noalias !1040
@@ -54544,7 +54544,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17281, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17283: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17279
-  %.ptr23798.le = getelementptr inbounds i8, ptr %635, i64 %.idx23796
+  %.ptr23798.le = getelementptr inbounds nuw i8, ptr %635, i64 %.idx23796
   %8374 = ptrtoint ptr %8369 to i64
   %8375 = ptrtoint ptr %.ptr23798.le to i64
   %.neg20978 = add i64 %8374, -5
@@ -54570,17 +54570,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293.preheader: ; preds = %8373, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293.preheader, %8384
   %.idx23801 = phi i64 [ %.add23802, %8384 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293.preheader ]
   %.add23802 = add nsw i64 %.idx23801, -1
-  %.ptr23805 = getelementptr inbounds i8, ptr %636, i64 %.add23802
+  %.ptr23805 = getelementptr inbounds nuw i8, ptr %636, i64 %.add23802
   %8383 = load i8, ptr %.ptr23805, align 1, !tbaa !9, !noalias !1043
   %memchr.char0cmp.not20669 = icmp eq i8 %8383, 116
   br i1 %memchr.char0cmp.not20669, label %8384, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17297
 
 8384:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293
-  %.not3.i.i.i17295 = icmp eq i64 %.add23802, 2
+  %.not3.i.i.i17295 = icmp samesign eq i64 %.add23802, 2
   br i1 %.not3.i.i.i17295, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17297: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17293
-  %.ptr23803.le = getelementptr inbounds i8, ptr %636, i64 %.idx23801
+  %.ptr23803.le = getelementptr inbounds nuw i8, ptr %636, i64 %.idx23801
   %8385 = ptrtoint ptr %8382 to i64
   %8386 = ptrtoint ptr %.ptr23803.le to i64
   %.neg20981 = add i64 %8385, -5
@@ -54605,7 +54605,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303.preheader: ; preds = %8384, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303.preheader, %8396
   %.idx23806 = phi i64 [ %.add23807, %8396 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303.preheader ]
   %.add23807 = add nsw i64 %.idx23806, -1
-  %.ptr23809 = getelementptr inbounds i8, ptr %637, i64 %.add23807
+  %.ptr23809 = getelementptr inbounds nuw i8, ptr %637, i64 %.add23807
   %8393 = load i8, ptr %.ptr23809, align 1, !tbaa !9, !noalias !1046
   %8394 = sext i8 %8393 to i32
   %8395 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2219, i32 noundef %8394, i64 noundef 10) #36, !noalias !1046
@@ -54617,7 +54617,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17305, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17307: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17303
-  %.ptr23808.le = getelementptr inbounds i8, ptr %637, i64 %.idx23806
+  %.ptr23808.le = getelementptr inbounds nuw i8, ptr %637, i64 %.idx23806
   %8397 = ptrtoint ptr %8392 to i64
   %8398 = ptrtoint ptr %.ptr23808.le to i64
   %8399 = add i64 %8398, 5
@@ -54641,7 +54641,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313.preheader: ; preds = %8396, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313.preheader, %8406
   %.idx23811 = phi i64 [ %.add23812, %8406 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313.preheader ]
   %.add23812 = add nsw i64 %.idx23811, -1
-  %.ptr23814 = getelementptr inbounds i8, ptr %638, i64 %.add23812
+  %.ptr23814 = getelementptr inbounds nuw i8, ptr %638, i64 %.add23812
   %8405 = load i8, ptr %.ptr23814, align 1, !tbaa !9, !noalias !1049
   switch i8 %8405, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17317 [
     i8 116, label %8406
@@ -54670,7 +54670,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17315, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17317: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17313
-  %.ptr23813.le = getelementptr inbounds i8, ptr %638, i64 %.idx23811
+  %.ptr23813.le = getelementptr inbounds nuw i8, ptr %638, i64 %.idx23811
   %8407 = ptrtoint ptr %8404 to i64
   %8408 = ptrtoint ptr %.ptr23813.le to i64
   %8409 = add i64 %8408, 5
@@ -54694,7 +54694,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323.preheader: ; preds = %8406, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323.preheader, %8418
   %.idx23816 = phi i64 [ %.add23817, %8418 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323.preheader ]
   %.add23817 = add nsw i64 %.idx23816, -1
-  %.ptr23819 = getelementptr inbounds i8, ptr %639, i64 %.add23817
+  %.ptr23819 = getelementptr inbounds nuw i8, ptr %639, i64 %.add23817
   %8415 = load i8, ptr %.ptr23819, align 1, !tbaa !9, !noalias !1052
   %8416 = add i8 %8415, -117
   %8417 = icmp ult i8 %8416, -20
@@ -54705,7 +54705,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17325, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17327: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17323
-  %.ptr23818.le = getelementptr inbounds i8, ptr %639, i64 %.idx23816
+  %.ptr23818.le = getelementptr inbounds nuw i8, ptr %639, i64 %.idx23816
   %8419 = ptrtoint ptr %8414 to i64
   %8420 = ptrtoint ptr %.ptr23818.le to i64
   %8421 = add i64 %8420, 5
@@ -54731,17 +54731,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341.preheader: ; preds = %8418, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341.preheader, %8430
   %.idx23821 = phi i64 [ %.add23822, %8430 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341.preheader ]
   %.add23822 = add nsw i64 %.idx23821, -1
-  %.ptr23825 = getelementptr inbounds i8, ptr %640, i64 %.add23822
+  %.ptr23825 = getelementptr inbounds nuw i8, ptr %640, i64 %.add23822
   %8429 = load i8, ptr %.ptr23825, align 1, !tbaa !9, !noalias !1055
   %memchr.char0cmp.not20670 = icmp eq i8 %8429, 99
   br i1 %memchr.char0cmp.not20670, label %8430, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17345
 
 8430:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341
-  %.not3.i.i.i17343 = icmp eq i64 %.add23822, 2
+  %.not3.i.i.i17343 = icmp samesign eq i64 %.add23822, 2
   br i1 %.not3.i.i.i17343, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17345: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17341
-  %.ptr23823.le = getelementptr inbounds i8, ptr %640, i64 %.idx23821
+  %.ptr23823.le = getelementptr inbounds nuw i8, ptr %640, i64 %.idx23821
   %8431 = ptrtoint ptr %8428 to i64
   %8432 = ptrtoint ptr %.ptr23823.le to i64
   %.neg20984 = add i64 %8431, -5
@@ -54766,7 +54766,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351.preheader: ; preds = %8430, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351.preheader, %8440
   %.idx23826 = phi i64 [ %.add23827, %8440 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351.preheader ]
   %.add23827 = add nsw i64 %.idx23826, -1
-  %.ptr23829 = getelementptr inbounds i8, ptr %641, i64 %.add23827
+  %.ptr23829 = getelementptr inbounds nuw i8, ptr %641, i64 %.add23827
   %8439 = load i8, ptr %.ptr23829, align 1, !tbaa !9, !noalias !1058
   switch i8 %8439, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17355 [
     i8 112, label %8440
@@ -54778,7 +54778,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17353, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17355: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17351
-  %.ptr23828.le = getelementptr inbounds i8, ptr %641, i64 %.idx23826
+  %.ptr23828.le = getelementptr inbounds nuw i8, ptr %641, i64 %.idx23826
   %8441 = ptrtoint ptr %8438 to i64
   %8442 = ptrtoint ptr %.ptr23828.le to i64
   %.neg20987 = add i64 %8441, -5
@@ -54803,7 +54803,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361.preheader: ; preds = %8440, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361.preheader, %8452
   %.idx23831 = phi i64 [ %.add23832, %8452 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361.preheader ]
   %.add23832 = add nsw i64 %.idx23831, -1
-  %.ptr23834 = getelementptr inbounds i8, ptr %642, i64 %.add23832
+  %.ptr23834 = getelementptr inbounds nuw i8, ptr %642, i64 %.add23832
   %8449 = load i8, ptr %.ptr23834, align 1, !tbaa !9, !noalias !1061
   %8450 = sext i8 %8449 to i32
   %8451 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2239, i32 noundef %8450, i64 noundef 4) #36, !noalias !1061
@@ -54815,7 +54815,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17363, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17365: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17361
-  %.ptr23833.le = getelementptr inbounds i8, ptr %642, i64 %.idx23831
+  %.ptr23833.le = getelementptr inbounds nuw i8, ptr %642, i64 %.idx23831
   %8453 = ptrtoint ptr %8448 to i64
   %8454 = ptrtoint ptr %.ptr23833.le to i64
   %.neg20990 = add i64 %8453, -5
@@ -54840,7 +54840,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371.preheader: ; preds = %8452, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371.preheader, %8464
   %.idx23836 = phi i64 [ %.add23837, %8464 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371.preheader ]
   %.add23837 = add nsw i64 %.idx23836, -1
-  %.ptr23839 = getelementptr inbounds i8, ptr %643, i64 %.add23837
+  %.ptr23839 = getelementptr inbounds nuw i8, ptr %643, i64 %.add23837
   %8461 = load i8, ptr %.ptr23839, align 1, !tbaa !9, !noalias !1064
   %8462 = sext i8 %8461 to i32
   %8463 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2242, i32 noundef %8462, i64 noundef 5) #36, !noalias !1064
@@ -54852,7 +54852,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17373, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17375: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17371
-  %.ptr23838.le = getelementptr inbounds i8, ptr %643, i64 %.idx23836
+  %.ptr23838.le = getelementptr inbounds nuw i8, ptr %643, i64 %.idx23836
   %8465 = ptrtoint ptr %8460 to i64
   %8466 = ptrtoint ptr %.ptr23838.le to i64
   %.neg20993 = add i64 %8465, -5
@@ -54878,17 +54878,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385.preheader: ; preds = %8464, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385.preheader, %8475
   %.idx23841 = phi i64 [ %.add23842, %8475 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385.preheader ]
   %.add23842 = add nsw i64 %.idx23841, -1
-  %.ptr23845 = getelementptr inbounds i8, ptr %644, i64 %.add23842
+  %.ptr23845 = getelementptr inbounds nuw i8, ptr %644, i64 %.add23842
   %8474 = load i8, ptr %.ptr23845, align 1, !tbaa !9, !noalias !1067
   %memchr.char0cmp.not20672 = icmp eq i8 %8474, 116
   br i1 %memchr.char0cmp.not20672, label %8475, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17389
 
 8475:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385
-  %.not3.i.i.i17387 = icmp eq i64 %.add23842, 2
+  %.not3.i.i.i17387 = icmp samesign eq i64 %.add23842, 2
   br i1 %.not3.i.i.i17387, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17389: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17385
-  %.ptr23843.le = getelementptr inbounds i8, ptr %644, i64 %.idx23841
+  %.ptr23843.le = getelementptr inbounds nuw i8, ptr %644, i64 %.idx23841
   %8476 = ptrtoint ptr %8473 to i64
   %8477 = ptrtoint ptr %.ptr23843.le to i64
   %.neg20996 = add i64 %8476, -5
@@ -54913,7 +54913,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395.preheader: ; preds = %8475, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395.preheader, %8487
   %.idx23846 = phi i64 [ %.add23847, %8487 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395.preheader ]
   %.add23847 = add nsw i64 %.idx23846, -1
-  %.ptr23849 = getelementptr inbounds i8, ptr %645, i64 %.add23847
+  %.ptr23849 = getelementptr inbounds nuw i8, ptr %645, i64 %.add23847
   %8484 = load i8, ptr %.ptr23849, align 1, !tbaa !9, !noalias !1070
   %8485 = sext i8 %8484 to i32
   %8486 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2251, i32 noundef %8485, i64 noundef 5) #36, !noalias !1070
@@ -54925,7 +54925,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17397, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17399: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17395
-  %.ptr23848.le = getelementptr inbounds i8, ptr %645, i64 %.idx23846
+  %.ptr23848.le = getelementptr inbounds nuw i8, ptr %645, i64 %.idx23846
   %8488 = ptrtoint ptr %8483 to i64
   %8489 = ptrtoint ptr %.ptr23848.le to i64
   %.neg20999 = add i64 %8488, -5
@@ -54950,7 +54950,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405.preheader: ; preds = %8487, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405.preheader, %8499
   %.idx23851 = phi i64 [ %.add23852, %8499 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405.preheader ]
   %.add23852 = add nsw i64 %.idx23851, -1
-  %.ptr23854 = getelementptr inbounds i8, ptr %646, i64 %.add23852
+  %.ptr23854 = getelementptr inbounds nuw i8, ptr %646, i64 %.add23852
   %8496 = load i8, ptr %.ptr23854, align 1, !tbaa !9, !noalias !1073
   %8497 = sext i8 %8496 to i32
   %8498 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2254, i32 noundef %8497, i64 noundef 9) #36, !noalias !1073
@@ -54962,7 +54962,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17407, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17409: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17405
-  %.ptr23853.le = getelementptr inbounds i8, ptr %646, i64 %.idx23851
+  %.ptr23853.le = getelementptr inbounds nuw i8, ptr %646, i64 %.idx23851
   %8500 = ptrtoint ptr %8495 to i64
   %8501 = ptrtoint ptr %.ptr23853.le to i64
   %.neg21002 = add i64 %8500, -5
@@ -54987,7 +54987,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415.preheader: ; preds = %8499, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415.preheader, %8511
   %.idx23856 = phi i64 [ %.add23857, %8511 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415.preheader ]
   %.add23857 = add nsw i64 %.idx23856, -1
-  %.ptr23859 = getelementptr inbounds i8, ptr %647, i64 %.add23857
+  %.ptr23859 = getelementptr inbounds nuw i8, ptr %647, i64 %.add23857
   %8508 = load i8, ptr %.ptr23859, align 1, !tbaa !9, !noalias !1076
   %8509 = sext i8 %8508 to i32
   %8510 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2257, i32 noundef %8509, i64 noundef 10) #36, !noalias !1076
@@ -54999,7 +54999,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17417, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17419: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17415
-  %.ptr23858.le = getelementptr inbounds i8, ptr %647, i64 %.idx23856
+  %.ptr23858.le = getelementptr inbounds nuw i8, ptr %647, i64 %.idx23856
   %8512 = ptrtoint ptr %8507 to i64
   %8513 = ptrtoint ptr %.ptr23858.le to i64
   %.neg21005 = add i64 %8512, -5
@@ -55025,17 +55025,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429.preheader: ; preds = %8511, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429.preheader, %8522
   %.idx23861 = phi i64 [ %.add23862, %8522 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429.preheader ]
   %.add23862 = add nsw i64 %.idx23861, -1
-  %.ptr23865 = getelementptr inbounds i8, ptr %648, i64 %.add23862
+  %.ptr23865 = getelementptr inbounds nuw i8, ptr %648, i64 %.add23862
   %8521 = load i8, ptr %.ptr23865, align 1, !tbaa !9, !noalias !1079
   %memchr.char0cmp.not20673 = icmp eq i8 %8521, 97
   br i1 %memchr.char0cmp.not20673, label %8522, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17433
 
 8522:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429
-  %.not3.i.i.i17431 = icmp eq i64 %.add23862, 2
+  %.not3.i.i.i17431 = icmp samesign eq i64 %.add23862, 2
   br i1 %.not3.i.i.i17431, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17433: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17429
-  %.ptr23863.le = getelementptr inbounds i8, ptr %648, i64 %.idx23861
+  %.ptr23863.le = getelementptr inbounds nuw i8, ptr %648, i64 %.idx23861
   %8523 = ptrtoint ptr %8520 to i64
   %8524 = ptrtoint ptr %.ptr23863.le to i64
   %.neg21008 = add i64 %8523, -5
@@ -55060,7 +55060,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439.preheader: ; preds = %8522, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439.preheader, %8534
   %.idx23866 = phi i64 [ %.add23867, %8534 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439.preheader ]
   %.add23867 = add nsw i64 %.idx23866, -1
-  %.ptr23869 = getelementptr inbounds i8, ptr %649, i64 %.add23867
+  %.ptr23869 = getelementptr inbounds nuw i8, ptr %649, i64 %.add23867
   %8531 = load i8, ptr %.ptr23869, align 1, !tbaa !9, !noalias !1082
   %8532 = sext i8 %8531 to i32
   %8533 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2266, i32 noundef %8532, i64 noundef 10) #36, !noalias !1082
@@ -55072,7 +55072,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17441, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17443: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17439
-  %.ptr23868.le = getelementptr inbounds i8, ptr %649, i64 %.idx23866
+  %.ptr23868.le = getelementptr inbounds nuw i8, ptr %649, i64 %.idx23866
   %8535 = ptrtoint ptr %8530 to i64
   %8536 = ptrtoint ptr %.ptr23868.le to i64
   %.neg21011 = add i64 %8535, -5
@@ -55097,7 +55097,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449.preheader: ; preds = %8534, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449.preheader, %8547
   %.idx23871 = phi i64 [ %.add23872, %8547 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449.preheader ]
   %.add23872 = add nsw i64 %.idx23871, -1
-  %.ptr23874 = getelementptr inbounds i8, ptr %650, i64 %.add23872
+  %.ptr23874 = getelementptr inbounds nuw i8, ptr %650, i64 %.add23872
   %8543 = load i8, ptr %.ptr23874, align 1, !tbaa !9, !noalias !1085
   %8544 = icmp ne i8 %8543, 116
   %8545 = add i8 %8543, -115
@@ -55110,7 +55110,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17451, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17453: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17449
-  %.ptr23873.le = getelementptr inbounds i8, ptr %650, i64 %.idx23871
+  %.ptr23873.le = getelementptr inbounds nuw i8, ptr %650, i64 %.idx23871
   %8548 = ptrtoint ptr %8542 to i64
   %8549 = ptrtoint ptr %.ptr23873.le to i64
   %8550 = add i64 %8549, 5
@@ -55134,7 +55134,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459.preheader: ; preds = %8547, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459.preheader, %8559
   %.idx23876 = phi i64 [ %.add23877, %8559 ], [ 5, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459.preheader ]
   %.add23877 = add nsw i64 %.idx23876, -1
-  %.ptr23879 = getelementptr inbounds i8, ptr %651, i64 %.add23877
+  %.ptr23879 = getelementptr inbounds nuw i8, ptr %651, i64 %.add23877
   %8556 = load i8, ptr %.ptr23879, align 1, !tbaa !9, !noalias !1088
   %8557 = add i8 %8556, -117
   %8558 = icmp ult i8 %8557, -20
@@ -55145,7 +55145,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17461, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17463: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17459
-  %.ptr23878.le = getelementptr inbounds i8, ptr %651, i64 %.idx23876
+  %.ptr23878.le = getelementptr inbounds nuw i8, ptr %651, i64 %.idx23876
   %8560 = ptrtoint ptr %8555 to i64
   %8561 = ptrtoint ptr %.ptr23878.le to i64
   %8562 = add i64 %8561, 5
@@ -55171,17 +55171,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477.preheader: ; preds = %8559, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477.preheader, %8571
   %.idx23881 = phi i64 [ %.add23882, %8571 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477.preheader ]
   %.add23882 = add nsw i64 %.idx23881, -1
-  %.ptr23885 = getelementptr inbounds i8, ptr %652, i64 %.add23882
+  %.ptr23885 = getelementptr inbounds nuw i8, ptr %652, i64 %.add23882
   %8570 = load i8, ptr %.ptr23885, align 1, !tbaa !9, !noalias !1091
   %memchr.char0cmp.not20677 = icmp eq i8 %8570, 98
   br i1 %memchr.char0cmp.not20677, label %8571, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17481
 
 8571:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477
-  %.not3.i.i.i17479 = icmp eq i64 %.add23882, 2
+  %.not3.i.i.i17479 = icmp samesign eq i64 %.add23882, 2
   br i1 %.not3.i.i.i17479, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17481: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17477
-  %.ptr23883.le = getelementptr inbounds i8, ptr %652, i64 %.idx23881
+  %.ptr23883.le = getelementptr inbounds nuw i8, ptr %652, i64 %.idx23881
   %8572 = ptrtoint ptr %8569 to i64
   %8573 = ptrtoint ptr %.ptr23883.le to i64
   %.neg21014 = add i64 %8572, -5
@@ -55206,18 +55206,18 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487.preheader: ; preds = %8571, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487.preheader, %8582
   %.idx23886 = phi i64 [ %.add23887, %8582 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487.preheader ]
   %.add23887 = add nsw i64 %.idx23886, -1
-  %.ptr23890 = getelementptr inbounds i8, ptr %653, i64 %.add23887
+  %.ptr23890 = getelementptr inbounds nuw i8, ptr %653, i64 %.add23887
   %8580 = load i8, ptr %.ptr23890, align 1, !tbaa !9, !noalias !1094
   %8581 = and i8 %8580, -17
   %.not.i.i.i17488.not = icmp eq i8 %8581, 99
   br i1 %.not.i.i.i17488.not, label %8582, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17491
 
 8582:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487
-  %.not3.i.i.i17489 = icmp eq i64 %.add23887, 2
+  %.not3.i.i.i17489 = icmp samesign eq i64 %.add23887, 2
   br i1 %.not3.i.i.i17489, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17491: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17487
-  %.ptr23888.le = getelementptr inbounds i8, ptr %653, i64 %.idx23886
+  %.ptr23888.le = getelementptr inbounds nuw i8, ptr %653, i64 %.idx23886
   %8583 = ptrtoint ptr %8579 to i64
   %8584 = ptrtoint ptr %.ptr23888.le to i64
   %.neg21017 = add i64 %8583, -5
@@ -55242,7 +55242,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497.preheader: ; preds = %8582, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497.preheader, %8594
   %.idx23891 = phi i64 [ %.add23892, %8594 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497.preheader ]
   %.add23892 = add nsw i64 %.idx23891, -1
-  %.ptr23894 = getelementptr inbounds i8, ptr %654, i64 %.add23892
+  %.ptr23894 = getelementptr inbounds nuw i8, ptr %654, i64 %.add23892
   %8591 = load i8, ptr %.ptr23894, align 1, !tbaa !9, !noalias !1097
   %8592 = sext i8 %8591 to i32
   %8593 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2286, i32 noundef %8592, i64 noundef 4) #36, !noalias !1097
@@ -55254,7 +55254,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17499, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17501: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17497
-  %.ptr23893.le = getelementptr inbounds i8, ptr %654, i64 %.idx23891
+  %.ptr23893.le = getelementptr inbounds nuw i8, ptr %654, i64 %.idx23891
   %8595 = ptrtoint ptr %8590 to i64
   %8596 = ptrtoint ptr %.ptr23893.le to i64
   %.neg21020 = add i64 %8595, -5
@@ -55279,7 +55279,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507.preheader: ; preds = %8594, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507.preheader, %8606
   %.idx23896 = phi i64 [ %.add23897, %8606 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507.preheader ]
   %.add23897 = add nsw i64 %.idx23896, -1
-  %.ptr23899 = getelementptr inbounds i8, ptr %655, i64 %.add23897
+  %.ptr23899 = getelementptr inbounds nuw i8, ptr %655, i64 %.add23897
   %8603 = load i8, ptr %.ptr23899, align 1, !tbaa !9, !noalias !1100
   %8604 = sext i8 %8603 to i32
   %8605 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2289, i32 noundef %8604, i64 noundef 5) #36, !noalias !1100
@@ -55291,7 +55291,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17509, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17511: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17507
-  %.ptr23898.le = getelementptr inbounds i8, ptr %655, i64 %.idx23896
+  %.ptr23898.le = getelementptr inbounds nuw i8, ptr %655, i64 %.idx23896
   %8607 = ptrtoint ptr %8602 to i64
   %8608 = ptrtoint ptr %.ptr23898.le to i64
   %.neg21023 = add i64 %8607, -5
@@ -55317,17 +55317,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521.preheader: ; preds = %8606, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521.preheader, %8617
   %.idx23901 = phi i64 [ %.add23902, %8617 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521.preheader ]
   %.add23902 = add nsw i64 %.idx23901, -1
-  %.ptr23905 = getelementptr inbounds i8, ptr %656, i64 %.add23902
+  %.ptr23905 = getelementptr inbounds nuw i8, ptr %656, i64 %.add23902
   %8616 = load i8, ptr %.ptr23905, align 1, !tbaa !9, !noalias !1103
   %memchr.char0cmp.not20679 = icmp eq i8 %8616, 97
   br i1 %memchr.char0cmp.not20679, label %8617, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17525
 
 8617:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521
-  %.not3.i.i.i17523 = icmp eq i64 %.add23902, 2
+  %.not3.i.i.i17523 = icmp samesign eq i64 %.add23902, 2
   br i1 %.not3.i.i.i17523, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17525: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17521
-  %.ptr23903.le = getelementptr inbounds i8, ptr %656, i64 %.idx23901
+  %.ptr23903.le = getelementptr inbounds nuw i8, ptr %656, i64 %.idx23901
   %8618 = ptrtoint ptr %8615 to i64
   %8619 = ptrtoint ptr %.ptr23903.le to i64
   %.neg21026 = add i64 %8618, -5
@@ -55352,7 +55352,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531.preheader: ; preds = %8617, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531.preheader, %8629
   %.idx23906 = phi i64 [ %.add23907, %8629 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531.preheader ]
   %.add23907 = add nsw i64 %.idx23906, -1
-  %.ptr23909 = getelementptr inbounds i8, ptr %657, i64 %.add23907
+  %.ptr23909 = getelementptr inbounds nuw i8, ptr %657, i64 %.add23907
   %8626 = load i8, ptr %.ptr23909, align 1, !tbaa !9, !noalias !1106
   %8627 = sext i8 %8626 to i32
   %8628 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2298, i32 noundef %8627, i64 noundef 5) #36, !noalias !1106
@@ -55364,7 +55364,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17533, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17535: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17531
-  %.ptr23908.le = getelementptr inbounds i8, ptr %657, i64 %.idx23906
+  %.ptr23908.le = getelementptr inbounds nuw i8, ptr %657, i64 %.idx23906
   %8630 = ptrtoint ptr %8625 to i64
   %8631 = ptrtoint ptr %.ptr23908.le to i64
   %.neg21029 = add i64 %8630, -5
@@ -55389,7 +55389,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541.preheader: ; preds = %8629, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541.preheader, %8641
   %.idx23911 = phi i64 [ %.add23912, %8641 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541.preheader ]
   %.add23912 = add nsw i64 %.idx23911, -1
-  %.ptr23914 = getelementptr inbounds i8, ptr %658, i64 %.add23912
+  %.ptr23914 = getelementptr inbounds nuw i8, ptr %658, i64 %.add23912
   %8638 = load i8, ptr %.ptr23914, align 1, !tbaa !9, !noalias !1109
   %8639 = sext i8 %8638 to i32
   %8640 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2301, i32 noundef %8639, i64 noundef 9) #36, !noalias !1109
@@ -55401,7 +55401,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17543, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17545: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17541
-  %.ptr23913.le = getelementptr inbounds i8, ptr %658, i64 %.idx23911
+  %.ptr23913.le = getelementptr inbounds nuw i8, ptr %658, i64 %.idx23911
   %8642 = ptrtoint ptr %8637 to i64
   %8643 = ptrtoint ptr %.ptr23913.le to i64
   %.neg21032 = add i64 %8642, -5
@@ -55426,7 +55426,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551.preheader: ; preds = %8641, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551.preheader, %8653
   %.idx23916 = phi i64 [ %.add23917, %8653 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551.preheader ]
   %.add23917 = add nsw i64 %.idx23916, -1
-  %.ptr23919 = getelementptr inbounds i8, ptr %659, i64 %.add23917
+  %.ptr23919 = getelementptr inbounds nuw i8, ptr %659, i64 %.add23917
   %8650 = load i8, ptr %.ptr23919, align 1, !tbaa !9, !noalias !1112
   %8651 = sext i8 %8650 to i32
   %8652 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2304, i32 noundef %8651, i64 noundef 10) #36, !noalias !1112
@@ -55438,7 +55438,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17553, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17555: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17551
-  %.ptr23918.le = getelementptr inbounds i8, ptr %659, i64 %.idx23916
+  %.ptr23918.le = getelementptr inbounds nuw i8, ptr %659, i64 %.idx23916
   %8654 = ptrtoint ptr %8649 to i64
   %8655 = ptrtoint ptr %.ptr23918.le to i64
   %.neg21035 = add i64 %8654, -5
@@ -55464,17 +55464,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565.preheader: ; preds = %8653, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565.preheader, %8664
   %.idx23921 = phi i64 [ %.add23922, %8664 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565.preheader ]
   %.add23922 = add nsw i64 %.idx23921, -1
-  %.ptr23925 = getelementptr inbounds i8, ptr %660, i64 %.add23922
+  %.ptr23925 = getelementptr inbounds nuw i8, ptr %660, i64 %.add23922
   %8663 = load i8, ptr %.ptr23925, align 1, !tbaa !9, !noalias !1115
   %memchr.char0cmp.not20680 = icmp eq i8 %8663, 108
   br i1 %memchr.char0cmp.not20680, label %8664, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17569
 
 8664:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565
-  %.not3.i.i.i17567 = icmp eq i64 %.add23922, 2
+  %.not3.i.i.i17567 = icmp samesign eq i64 %.add23922, 2
   br i1 %.not3.i.i.i17567, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17569: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17565
-  %.ptr23923.le = getelementptr inbounds i8, ptr %660, i64 %.idx23921
+  %.ptr23923.le = getelementptr inbounds nuw i8, ptr %660, i64 %.idx23921
   %8665 = ptrtoint ptr %8662 to i64
   %8666 = ptrtoint ptr %.ptr23923.le to i64
   %.neg21038 = add i64 %8665, -5
@@ -55499,7 +55499,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575.preheader: ; preds = %8664, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575.preheader, %8676
   %.idx23926 = phi i64 [ %.add23927, %8676 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575.preheader ]
   %.add23927 = add nsw i64 %.idx23926, -1
-  %.ptr23929 = getelementptr inbounds i8, ptr %661, i64 %.add23927
+  %.ptr23929 = getelementptr inbounds nuw i8, ptr %661, i64 %.add23927
   %8673 = load i8, ptr %.ptr23929, align 1, !tbaa !9, !noalias !1118
   %8674 = sext i8 %8673 to i32
   %8675 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2313, i32 noundef %8674, i64 noundef 10) #36, !noalias !1118
@@ -55511,7 +55511,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17577, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17579: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17575
-  %.ptr23928.le = getelementptr inbounds i8, ptr %661, i64 %.idx23926
+  %.ptr23928.le = getelementptr inbounds nuw i8, ptr %661, i64 %.idx23926
   %8677 = ptrtoint ptr %8672 to i64
   %8678 = ptrtoint ptr %.ptr23928.le to i64
   %.neg21041 = add i64 %8677, -5
@@ -55536,7 +55536,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585.preheader: ; preds = %8676, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585.preheader, %8688
   %.idx23931 = phi i64 [ %.add23932, %8688 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585.preheader ]
   %.add23932 = add nsw i64 %.idx23931, -1
-  %.ptr23934 = getelementptr inbounds i8, ptr %662, i64 %.add23932
+  %.ptr23934 = getelementptr inbounds nuw i8, ptr %662, i64 %.add23932
   %8685 = load i8, ptr %.ptr23934, align 1, !tbaa !9, !noalias !1121
   %8686 = add i8 %8685, -116
   %8687 = icmp ult i8 %8686, -19
@@ -55547,7 +55547,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17587, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17589: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17585
-  %.ptr23933.le = getelementptr inbounds i8, ptr %662, i64 %.idx23931
+  %.ptr23933.le = getelementptr inbounds nuw i8, ptr %662, i64 %.idx23931
   %8689 = ptrtoint ptr %8684 to i64
   %8690 = ptrtoint ptr %.ptr23933.le to i64
   %.neg21044 = add i64 %8689, -5
@@ -55572,7 +55572,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595.preheader: ; preds = %8688, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595.preheader, %8700
   %.idx23936 = phi i64 [ %.add23937, %8700 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595.preheader ]
   %.add23937 = add nsw i64 %.idx23936, -1
-  %.ptr23939 = getelementptr inbounds i8, ptr %663, i64 %.add23937
+  %.ptr23939 = getelementptr inbounds nuw i8, ptr %663, i64 %.add23937
   %8697 = load i8, ptr %.ptr23939, align 1, !tbaa !9, !noalias !1124
   %8698 = add i8 %8697, -117
   %8699 = icmp ult i8 %8698, -20
@@ -55583,7 +55583,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17597, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17599: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17595
-  %.ptr23938.le = getelementptr inbounds i8, ptr %663, i64 %.idx23936
+  %.ptr23938.le = getelementptr inbounds nuw i8, ptr %663, i64 %.idx23936
   %8701 = ptrtoint ptr %8696 to i64
   %8702 = ptrtoint ptr %.ptr23938.le to i64
   %8703 = add i64 %8702, 5
@@ -55609,17 +55609,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613.preheader: ; preds = %8700, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613.preheader, %8712
   %.idx23941 = phi i64 [ %.add23942, %8712 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613.preheader ]
   %.add23942 = add nsw i64 %.idx23941, -1
-  %.ptr23945 = getelementptr inbounds i8, ptr %664, i64 %.add23942
+  %.ptr23945 = getelementptr inbounds nuw i8, ptr %664, i64 %.add23942
   %8711 = load i8, ptr %.ptr23945, align 1, !tbaa !9, !noalias !1127
   %memchr.char0cmp.not20681 = icmp eq i8 %8711, 114
   br i1 %memchr.char0cmp.not20681, label %8712, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17617
 
 8712:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613
-  %.not3.i.i.i17615 = icmp eq i64 %.add23942, 2
+  %.not3.i.i.i17615 = icmp samesign eq i64 %.add23942, 2
   br i1 %.not3.i.i.i17615, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17617: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17613
-  %.ptr23943.le = getelementptr inbounds i8, ptr %664, i64 %.idx23941
+  %.ptr23943.le = getelementptr inbounds nuw i8, ptr %664, i64 %.idx23941
   %8713 = ptrtoint ptr %8710 to i64
   %8714 = ptrtoint ptr %.ptr23943.le to i64
   %.neg21047 = add i64 %8713, -5
@@ -55644,18 +55644,18 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623.preheader: ; preds = %8712, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623.preheader, %8723
   %.idx23946 = phi i64 [ %.add23947, %8723 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623.preheader ]
   %.add23947 = add nsw i64 %.idx23946, -1
-  %.ptr23950 = getelementptr inbounds i8, ptr %665, i64 %.add23947
+  %.ptr23950 = getelementptr inbounds nuw i8, ptr %665, i64 %.add23947
   %8721 = load i8, ptr %.ptr23950, align 1, !tbaa !9, !noalias !1130
   %8722 = and i8 %8721, -3
   %.not.i.i.i17624.not = icmp eq i8 %8722, 100
   br i1 %.not.i.i.i17624.not, label %8723, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17627
 
 8723:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623
-  %.not3.i.i.i17625 = icmp eq i64 %.add23947, 2
+  %.not3.i.i.i17625 = icmp samesign eq i64 %.add23947, 2
   br i1 %.not3.i.i.i17625, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17627: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17623
-  %.ptr23948.le = getelementptr inbounds i8, ptr %665, i64 %.idx23946
+  %.ptr23948.le = getelementptr inbounds nuw i8, ptr %665, i64 %.idx23946
   %8724 = ptrtoint ptr %8720 to i64
   %8725 = ptrtoint ptr %.ptr23948.le to i64
   %.neg21050 = add i64 %8724, -5
@@ -55680,7 +55680,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633.preheader: ; preds = %8723, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633.preheader, %8735
   %.idx23951 = phi i64 [ %.add23952, %8735 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633.preheader ]
   %.add23952 = add nsw i64 %.idx23951, -1
-  %.ptr23954 = getelementptr inbounds i8, ptr %666, i64 %.add23952
+  %.ptr23954 = getelementptr inbounds nuw i8, ptr %666, i64 %.add23952
   %8732 = load i8, ptr %.ptr23954, align 1, !tbaa !9, !noalias !1133
   %8733 = sext i8 %8732 to i32
   %8734 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2333, i32 noundef %8733, i64 noundef 4) #36, !noalias !1133
@@ -55692,7 +55692,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17635, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17637: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17633
-  %.ptr23953.le = getelementptr inbounds i8, ptr %666, i64 %.idx23951
+  %.ptr23953.le = getelementptr inbounds nuw i8, ptr %666, i64 %.idx23951
   %8736 = ptrtoint ptr %8731 to i64
   %8737 = ptrtoint ptr %.ptr23953.le to i64
   %.neg21053 = add i64 %8736, -5
@@ -55717,7 +55717,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643.preheader: ; preds = %8735, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643.preheader, %8747
   %.idx23956 = phi i64 [ %.add23957, %8747 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643.preheader ]
   %.add23957 = add nsw i64 %.idx23956, -1
-  %.ptr23959 = getelementptr inbounds i8, ptr %667, i64 %.add23957
+  %.ptr23959 = getelementptr inbounds nuw i8, ptr %667, i64 %.add23957
   %8744 = load i8, ptr %.ptr23959, align 1, !tbaa !9, !noalias !1136
   %8745 = sext i8 %8744 to i32
   %8746 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2336, i32 noundef %8745, i64 noundef 5) #36, !noalias !1136
@@ -55729,7 +55729,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17645, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17647: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17643
-  %.ptr23958.le = getelementptr inbounds i8, ptr %667, i64 %.idx23956
+  %.ptr23958.le = getelementptr inbounds nuw i8, ptr %667, i64 %.idx23956
   %8748 = ptrtoint ptr %8743 to i64
   %8749 = ptrtoint ptr %.ptr23958.le to i64
   %.neg21056 = add i64 %8748, -5
@@ -55755,17 +55755,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657.preheader: ; preds = %8747, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657.preheader, %8758
   %.idx23961 = phi i64 [ %.add23962, %8758 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657.preheader ]
   %.add23962 = add nsw i64 %.idx23961, -1
-  %.ptr23965 = getelementptr inbounds i8, ptr %668, i64 %.add23962
+  %.ptr23965 = getelementptr inbounds nuw i8, ptr %668, i64 %.add23962
   %8757 = load i8, ptr %.ptr23965, align 1, !tbaa !9, !noalias !1139
   %memchr.char0cmp.not20683 = icmp eq i8 %8757, 102
   br i1 %memchr.char0cmp.not20683, label %8758, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17661
 
 8758:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657
-  %.not3.i.i.i17659 = icmp eq i64 %.add23962, 2
+  %.not3.i.i.i17659 = icmp samesign eq i64 %.add23962, 2
   br i1 %.not3.i.i.i17659, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17661: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17657
-  %.ptr23963.le = getelementptr inbounds i8, ptr %668, i64 %.idx23961
+  %.ptr23963.le = getelementptr inbounds nuw i8, ptr %668, i64 %.idx23961
   %8759 = ptrtoint ptr %8756 to i64
   %8760 = ptrtoint ptr %.ptr23963.le to i64
   %.neg21059 = add i64 %8759, -5
@@ -55790,7 +55790,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667.preheader: ; preds = %8758, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667.preheader, %8770
   %.idx23966 = phi i64 [ %.add23967, %8770 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667.preheader ]
   %.add23967 = add nsw i64 %.idx23966, -1
-  %.ptr23969 = getelementptr inbounds i8, ptr %669, i64 %.add23967
+  %.ptr23969 = getelementptr inbounds nuw i8, ptr %669, i64 %.add23967
   %8767 = load i8, ptr %.ptr23969, align 1, !tbaa !9, !noalias !1142
   %8768 = sext i8 %8767 to i32
   %8769 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2345, i32 noundef %8768, i64 noundef 5) #36, !noalias !1142
@@ -55802,7 +55802,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17669, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17671: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17667
-  %.ptr23968.le = getelementptr inbounds i8, ptr %669, i64 %.idx23966
+  %.ptr23968.le = getelementptr inbounds nuw i8, ptr %669, i64 %.idx23966
   %8771 = ptrtoint ptr %8766 to i64
   %8772 = ptrtoint ptr %.ptr23968.le to i64
   %.neg21062 = add i64 %8771, -5
@@ -55827,7 +55827,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677.preheader: ; preds = %8770, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677.preheader, %8782
   %.idx23971 = phi i64 [ %.add23972, %8782 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677.preheader ]
   %.add23972 = add nsw i64 %.idx23971, -1
-  %.ptr23974 = getelementptr inbounds i8, ptr %670, i64 %.add23972
+  %.ptr23974 = getelementptr inbounds nuw i8, ptr %670, i64 %.add23972
   %8779 = load i8, ptr %.ptr23974, align 1, !tbaa !9, !noalias !1145
   %8780 = sext i8 %8779 to i32
   %8781 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2348, i32 noundef %8780, i64 noundef 9) #36, !noalias !1145
@@ -55839,7 +55839,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17679, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17681: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17677
-  %.ptr23973.le = getelementptr inbounds i8, ptr %670, i64 %.idx23971
+  %.ptr23973.le = getelementptr inbounds nuw i8, ptr %670, i64 %.idx23971
   %8783 = ptrtoint ptr %8778 to i64
   %8784 = ptrtoint ptr %.ptr23973.le to i64
   %.neg21065 = add i64 %8783, -5
@@ -55864,7 +55864,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687.preheader: ; preds = %8782, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687.preheader, %8794
   %.idx23976 = phi i64 [ %.add23977, %8794 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687.preheader ]
   %.add23977 = add nsw i64 %.idx23976, -1
-  %.ptr23979 = getelementptr inbounds i8, ptr %671, i64 %.add23977
+  %.ptr23979 = getelementptr inbounds nuw i8, ptr %671, i64 %.add23977
   %8791 = load i8, ptr %.ptr23979, align 1, !tbaa !9, !noalias !1148
   %8792 = sext i8 %8791 to i32
   %8793 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2351, i32 noundef %8792, i64 noundef 10) #36, !noalias !1148
@@ -55876,7 +55876,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17689, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17691: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17687
-  %.ptr23978.le = getelementptr inbounds i8, ptr %671, i64 %.idx23976
+  %.ptr23978.le = getelementptr inbounds nuw i8, ptr %671, i64 %.idx23976
   %8795 = ptrtoint ptr %8790 to i64
   %8796 = ptrtoint ptr %.ptr23978.le to i64
   %.neg21068 = add i64 %8795, -5
@@ -55902,17 +55902,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701.preheader: ; preds = %8794, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701.preheader, %8805
   %.idx23981 = phi i64 [ %.add23982, %8805 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701.preheader ]
   %.add23982 = add nsw i64 %.idx23981, -1
-  %.ptr23985 = getelementptr inbounds i8, ptr %672, i64 %.add23982
+  %.ptr23985 = getelementptr inbounds nuw i8, ptr %672, i64 %.add23982
   %8804 = load i8, ptr %.ptr23985, align 1, !tbaa !9, !noalias !1151
   %memchr.char0cmp.not20684 = icmp eq i8 %8804, 107
   br i1 %memchr.char0cmp.not20684, label %8805, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17705
 
 8805:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701
-  %.not3.i.i.i17703 = icmp eq i64 %.add23982, 2
+  %.not3.i.i.i17703 = icmp samesign eq i64 %.add23982, 2
   br i1 %.not3.i.i.i17703, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17705: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17701
-  %.ptr23983.le = getelementptr inbounds i8, ptr %672, i64 %.idx23981
+  %.ptr23983.le = getelementptr inbounds nuw i8, ptr %672, i64 %.idx23981
   %8806 = ptrtoint ptr %8803 to i64
   %8807 = ptrtoint ptr %.ptr23983.le to i64
   %.neg21071 = add i64 %8806, -5
@@ -55937,7 +55937,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711.preheader: ; preds = %8805, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711.preheader, %8817
   %.idx23986 = phi i64 [ %.add23987, %8817 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711.preheader ]
   %.add23987 = add nsw i64 %.idx23986, -1
-  %.ptr23989 = getelementptr inbounds i8, ptr %673, i64 %.add23987
+  %.ptr23989 = getelementptr inbounds nuw i8, ptr %673, i64 %.add23987
   %8814 = load i8, ptr %.ptr23989, align 1, !tbaa !9, !noalias !1154
   %8815 = sext i8 %8814 to i32
   %8816 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2360, i32 noundef %8815, i64 noundef 10) #36, !noalias !1154
@@ -55949,7 +55949,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17713, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17715: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17711
-  %.ptr23988.le = getelementptr inbounds i8, ptr %673, i64 %.idx23986
+  %.ptr23988.le = getelementptr inbounds nuw i8, ptr %673, i64 %.idx23986
   %8818 = ptrtoint ptr %8813 to i64
   %8819 = ptrtoint ptr %.ptr23988.le to i64
   %.neg21074 = add i64 %8818, -5
@@ -55974,7 +55974,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721.preheader: ; preds = %8817, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721.preheader, %8831
   %.idx23991 = phi i64 [ %.add23992, %8831 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721.preheader ]
   %.add23992 = add nsw i64 %.idx23991, -1
-  %.ptr23994 = getelementptr inbounds i8, ptr %674, i64 %.add23992
+  %.ptr23994 = getelementptr inbounds nuw i8, ptr %674, i64 %.add23992
   %8826 = load i8, ptr %.ptr23994, align 1, !tbaa !9, !noalias !1157
   %8827 = add i8 %8826, -106
   %8828 = icmp ult i8 %8827, -9
@@ -55988,7 +55988,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17723, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17725: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17721
-  %.ptr23993.le = getelementptr inbounds i8, ptr %674, i64 %.idx23991
+  %.ptr23993.le = getelementptr inbounds nuw i8, ptr %674, i64 %.idx23991
   %8832 = ptrtoint ptr %8825 to i64
   %8833 = ptrtoint ptr %.ptr23993.le to i64
   %.neg21077 = add i64 %8832, -5
@@ -56013,7 +56013,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731.preheader: ; preds = %8831, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731.preheader, %8843
   %.idx23996 = phi i64 [ %.add23997, %8843 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731.preheader ]
   %.add23997 = add nsw i64 %.idx23996, -1
-  %.ptr23999 = getelementptr inbounds i8, ptr %675, i64 %.add23997
+  %.ptr23999 = getelementptr inbounds nuw i8, ptr %675, i64 %.add23997
   %8840 = load i8, ptr %.ptr23999, align 1, !tbaa !9, !noalias !1160
   %8841 = add i8 %8840, -117
   %8842 = icmp ult i8 %8841, -20
@@ -56024,7 +56024,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17733, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17735: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17731
-  %.ptr23998.le = getelementptr inbounds i8, ptr %675, i64 %.idx23996
+  %.ptr23998.le = getelementptr inbounds nuw i8, ptr %675, i64 %.idx23996
   %8844 = ptrtoint ptr %8839 to i64
   %8845 = ptrtoint ptr %.ptr23998.le to i64
   %8846 = add i64 %8845, 5
@@ -56050,17 +56050,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749.preheader: ; preds = %8843, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749.preheader, %8855
   %.idx24001 = phi i64 [ %.add24002, %8855 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749.preheader ]
   %.add24002 = add nsw i64 %.idx24001, -1
-  %.ptr24005 = getelementptr inbounds i8, ptr %676, i64 %.add24002
+  %.ptr24005 = getelementptr inbounds nuw i8, ptr %676, i64 %.add24002
   %8854 = load i8, ptr %.ptr24005, align 1, !tbaa !9, !noalias !1163
   %memchr.char0cmp.not20688 = icmp eq i8 %8854, 103
   br i1 %memchr.char0cmp.not20688, label %8855, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17753
 
 8855:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749
-  %.not3.i.i.i17751 = icmp eq i64 %.add24002, 2
+  %.not3.i.i.i17751 = icmp samesign eq i64 %.add24002, 2
   br i1 %.not3.i.i.i17751, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17753: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17749
-  %.ptr24003.le = getelementptr inbounds i8, ptr %676, i64 %.idx24001
+  %.ptr24003.le = getelementptr inbounds nuw i8, ptr %676, i64 %.idx24001
   %8856 = ptrtoint ptr %8853 to i64
   %8857 = ptrtoint ptr %.ptr24003.le to i64
   %.neg21080 = add i64 %8856, -5
@@ -56085,7 +56085,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759.preheader: ; preds = %8855, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759.preheader, %8865
   %.idx24006 = phi i64 [ %.add24007, %8865 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759.preheader ]
   %.add24007 = add nsw i64 %.idx24006, -1
-  %.ptr24009 = getelementptr inbounds i8, ptr %677, i64 %.add24007
+  %.ptr24009 = getelementptr inbounds nuw i8, ptr %677, i64 %.add24007
   %8864 = load i8, ptr %.ptr24009, align 1, !tbaa !9, !noalias !1166
   switch i8 %8864, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17763 [
     i8 115, label %8865
@@ -56097,7 +56097,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17761, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17763: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17759
-  %.ptr24008.le = getelementptr inbounds i8, ptr %677, i64 %.idx24006
+  %.ptr24008.le = getelementptr inbounds nuw i8, ptr %677, i64 %.idx24006
   %8866 = ptrtoint ptr %8863 to i64
   %8867 = ptrtoint ptr %.ptr24008.le to i64
   %.neg21083 = add i64 %8866, -5
@@ -56122,7 +56122,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769.preheader: ; preds = %8865, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769.preheader, %8877
   %.idx24011 = phi i64 [ %.add24012, %8877 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769.preheader ]
   %.add24012 = add nsw i64 %.idx24011, -1
-  %.ptr24014 = getelementptr inbounds i8, ptr %678, i64 %.add24012
+  %.ptr24014 = getelementptr inbounds nuw i8, ptr %678, i64 %.add24012
   %8874 = load i8, ptr %.ptr24014, align 1, !tbaa !9, !noalias !1169
   %8875 = sext i8 %8874 to i32
   %8876 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2380, i32 noundef %8875, i64 noundef 4) #36, !noalias !1169
@@ -56134,7 +56134,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17771, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17773: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17769
-  %.ptr24013.le = getelementptr inbounds i8, ptr %678, i64 %.idx24011
+  %.ptr24013.le = getelementptr inbounds nuw i8, ptr %678, i64 %.idx24011
   %8878 = ptrtoint ptr %8873 to i64
   %8879 = ptrtoint ptr %.ptr24013.le to i64
   %.neg21086 = add i64 %8878, -5
@@ -56159,7 +56159,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779.preheader: ; preds = %8877, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779.preheader, %8889
   %.idx24016 = phi i64 [ %.add24017, %8889 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779.preheader ]
   %.add24017 = add nsw i64 %.idx24016, -1
-  %.ptr24019 = getelementptr inbounds i8, ptr %679, i64 %.add24017
+  %.ptr24019 = getelementptr inbounds nuw i8, ptr %679, i64 %.add24017
   %8886 = load i8, ptr %.ptr24019, align 1, !tbaa !9, !noalias !1172
   %8887 = sext i8 %8886 to i32
   %8888 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2383, i32 noundef %8887, i64 noundef 5) #36, !noalias !1172
@@ -56171,7 +56171,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17781, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17783: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17779
-  %.ptr24018.le = getelementptr inbounds i8, ptr %679, i64 %.idx24016
+  %.ptr24018.le = getelementptr inbounds nuw i8, ptr %679, i64 %.idx24016
   %8890 = ptrtoint ptr %8885 to i64
   %8891 = ptrtoint ptr %.ptr24018.le to i64
   %.neg21089 = add i64 %8890, -5
@@ -56197,17 +56197,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793.preheader: ; preds = %8889, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793.preheader, %8900
   %.idx24021 = phi i64 [ %.add24022, %8900 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793.preheader ]
   %.add24022 = add nsw i64 %.idx24021, -1
-  %.ptr24025 = getelementptr inbounds i8, ptr %680, i64 %.add24022
+  %.ptr24025 = getelementptr inbounds nuw i8, ptr %680, i64 %.add24022
   %8899 = load i8, ptr %.ptr24025, align 1, !tbaa !9, !noalias !1175
   %memchr.char0cmp.not20690 = icmp eq i8 %8899, 97
   br i1 %memchr.char0cmp.not20690, label %8900, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17797
 
 8900:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793
-  %.not3.i.i.i17795 = icmp eq i64 %.add24022, 2
+  %.not3.i.i.i17795 = icmp samesign eq i64 %.add24022, 2
   br i1 %.not3.i.i.i17795, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17797: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17793
-  %.ptr24023.le = getelementptr inbounds i8, ptr %680, i64 %.idx24021
+  %.ptr24023.le = getelementptr inbounds nuw i8, ptr %680, i64 %.idx24021
   %8901 = ptrtoint ptr %8898 to i64
   %8902 = ptrtoint ptr %.ptr24023.le to i64
   %.neg21092 = add i64 %8901, -5
@@ -56232,7 +56232,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803.preheader: ; preds = %8900, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803.preheader, %8912
   %.idx24026 = phi i64 [ %.add24027, %8912 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803.preheader ]
   %.add24027 = add nsw i64 %.idx24026, -1
-  %.ptr24029 = getelementptr inbounds i8, ptr %681, i64 %.add24027
+  %.ptr24029 = getelementptr inbounds nuw i8, ptr %681, i64 %.add24027
   %8909 = load i8, ptr %.ptr24029, align 1, !tbaa !9, !noalias !1178
   %8910 = sext i8 %8909 to i32
   %8911 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2392, i32 noundef %8910, i64 noundef 5) #36, !noalias !1178
@@ -56244,7 +56244,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17805, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17807: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17803
-  %.ptr24028.le = getelementptr inbounds i8, ptr %681, i64 %.idx24026
+  %.ptr24028.le = getelementptr inbounds nuw i8, ptr %681, i64 %.idx24026
   %8913 = ptrtoint ptr %8908 to i64
   %8914 = ptrtoint ptr %.ptr24028.le to i64
   %.neg21095 = add i64 %8913, -5
@@ -56269,7 +56269,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813.preheader: ; preds = %8912, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813.preheader, %8924
   %.idx24031 = phi i64 [ %.add24032, %8924 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813.preheader ]
   %.add24032 = add nsw i64 %.idx24031, -1
-  %.ptr24034 = getelementptr inbounds i8, ptr %682, i64 %.add24032
+  %.ptr24034 = getelementptr inbounds nuw i8, ptr %682, i64 %.add24032
   %8921 = load i8, ptr %.ptr24034, align 1, !tbaa !9, !noalias !1181
   %8922 = sext i8 %8921 to i32
   %8923 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2395, i32 noundef %8922, i64 noundef 9) #36, !noalias !1181
@@ -56281,7 +56281,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17815, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17817: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17813
-  %.ptr24033.le = getelementptr inbounds i8, ptr %682, i64 %.idx24031
+  %.ptr24033.le = getelementptr inbounds nuw i8, ptr %682, i64 %.idx24031
   %8925 = ptrtoint ptr %8920 to i64
   %8926 = ptrtoint ptr %.ptr24033.le to i64
   %.neg21098 = add i64 %8925, -5
@@ -56306,7 +56306,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823.preheader: ; preds = %8924, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823.preheader, %8936
   %.idx24036 = phi i64 [ %.add24037, %8936 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823.preheader ]
   %.add24037 = add nsw i64 %.idx24036, -1
-  %.ptr24039 = getelementptr inbounds i8, ptr %683, i64 %.add24037
+  %.ptr24039 = getelementptr inbounds nuw i8, ptr %683, i64 %.add24037
   %8933 = load i8, ptr %.ptr24039, align 1, !tbaa !9, !noalias !1184
   %8934 = sext i8 %8933 to i32
   %8935 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2398, i32 noundef %8934, i64 noundef 10) #36, !noalias !1184
@@ -56318,7 +56318,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17825, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17827: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17823
-  %.ptr24038.le = getelementptr inbounds i8, ptr %683, i64 %.idx24036
+  %.ptr24038.le = getelementptr inbounds nuw i8, ptr %683, i64 %.idx24036
   %8937 = ptrtoint ptr %8932 to i64
   %8938 = ptrtoint ptr %.ptr24038.le to i64
   %.neg21101 = add i64 %8937, -5
@@ -56344,17 +56344,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837.preheader: ; preds = %8936, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837.preheader, %8947
   %.idx24041 = phi i64 [ %.add24042, %8947 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837.preheader ]
   %.add24042 = add nsw i64 %.idx24041, -1
-  %.ptr24045 = getelementptr inbounds i8, ptr %684, i64 %.add24042
+  %.ptr24045 = getelementptr inbounds nuw i8, ptr %684, i64 %.add24042
   %8946 = load i8, ptr %.ptr24045, align 1, !tbaa !9, !noalias !1187
   %memchr.char0cmp.not20691 = icmp eq i8 %8946, 106
   br i1 %memchr.char0cmp.not20691, label %8947, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17841
 
 8947:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837
-  %.not3.i.i.i17839 = icmp eq i64 %.add24042, 2
+  %.not3.i.i.i17839 = icmp samesign eq i64 %.add24042, 2
   br i1 %.not3.i.i.i17839, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17841: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17837
-  %.ptr24043.le = getelementptr inbounds i8, ptr %684, i64 %.idx24041
+  %.ptr24043.le = getelementptr inbounds nuw i8, ptr %684, i64 %.idx24041
   %8948 = ptrtoint ptr %8945 to i64
   %8949 = ptrtoint ptr %.ptr24043.le to i64
   %.neg21104 = add i64 %8948, -5
@@ -56379,7 +56379,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847.preheader: ; preds = %8947, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847.preheader, %8959
   %.idx24046 = phi i64 [ %.add24047, %8959 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847.preheader ]
   %.add24047 = add nsw i64 %.idx24046, -1
-  %.ptr24049 = getelementptr inbounds i8, ptr %685, i64 %.add24047
+  %.ptr24049 = getelementptr inbounds nuw i8, ptr %685, i64 %.add24047
   %8956 = load i8, ptr %.ptr24049, align 1, !tbaa !9, !noalias !1190
   %8957 = sext i8 %8956 to i32
   %8958 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2407, i32 noundef %8957, i64 noundef 10) #36, !noalias !1190
@@ -56391,7 +56391,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17849, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17851: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17847
-  %.ptr24048.le = getelementptr inbounds i8, ptr %685, i64 %.idx24046
+  %.ptr24048.le = getelementptr inbounds nuw i8, ptr %685, i64 %.idx24046
   %8960 = ptrtoint ptr %8955 to i64
   %8961 = ptrtoint ptr %.ptr24048.le to i64
   %.neg21107 = add i64 %8960, -5
@@ -56416,7 +56416,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857.preheader: ; preds = %8959, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857.preheader, %8971
   %.idx24053 = phi i64 [ %.add24054, %8971 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857.preheader ]
   %.add24054 = add nsw i64 %.idx24053, -1
-  %.ptr24057 = getelementptr inbounds i8, ptr %686, i64 %.add24054
+  %.ptr24057 = getelementptr inbounds nuw i8, ptr %686, i64 %.add24054
   %8968 = load i8, ptr %.ptr24057, align 1, !tbaa !9, !noalias !1193
   %.fr24052 = freeze i8 %8968
   %8969 = add i8 %.fr24052, -97
@@ -56427,11 +56427,11 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857: ; preds = %_ZNSt11char_trai
   br i1 %or.cond20931, label %8971, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17861
 
 8971:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857
-  %.not3.i.i.i17859 = icmp eq i64 %.add24054, 2
+  %.not3.i.i.i17859 = icmp samesign eq i64 %.add24054, 2
   br i1 %.not3.i.i.i17859, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17861: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17857
-  %.ptr24055.le = getelementptr inbounds i8, ptr %686, i64 %.idx24053
+  %.ptr24055.le = getelementptr inbounds nuw i8, ptr %686, i64 %.idx24053
   %8972 = ptrtoint ptr %8967 to i64
   %8973 = ptrtoint ptr %.ptr24055.le to i64
   %8974 = add i64 %8973, 5
@@ -56455,7 +56455,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867.preheader: ; preds = %8971, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867.preheader, %8983
   %.idx24058 = phi i64 [ %.add24059, %8983 ], [ 7, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867.preheader ]
   %.add24059 = add nsw i64 %.idx24058, -1
-  %.ptr24061 = getelementptr inbounds i8, ptr %687, i64 %.add24059
+  %.ptr24061 = getelementptr inbounds nuw i8, ptr %687, i64 %.add24059
   %8980 = load i8, ptr %.ptr24061, align 1, !tbaa !9, !noalias !1196
   %8981 = add i8 %8980, -117
   %8982 = icmp ult i8 %8981, -20
@@ -56466,7 +56466,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i17869, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i17871: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i17867
-  %.ptr24060.le = getelementptr inbounds i8, ptr %687, i64 %.idx24058
+  %.ptr24060.le = getelementptr inbounds nuw i8, ptr %687, i64 %.idx24058
   %8984 = ptrtoint ptr %8979 to i64
   %8985 = ptrtoint ptr %.ptr24060.le to i64
   %8986 = add i64 %8985, 5
@@ -56611,17 +56611,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021.preheader: ; preds = %8983, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021.preheader, %9067
   %.idx24123 = phi i64 [ %.add24124, %9067 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021.preheader ]
   %.add24124 = add nsw i64 %.idx24123, -1
-  %.ptr24127 = getelementptr inbounds i8, ptr %696, i64 %.add24124
+  %.ptr24127 = getelementptr inbounds nuw i8, ptr %696, i64 %.add24124
   %9066 = load i8, ptr %.ptr24127, align 1, !tbaa !9, !noalias !1199
   %memchr.char0cmp.not20705 = icmp eq i8 %9066, 112
   br i1 %memchr.char0cmp.not20705, label %9067, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18025
 
 9067:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021
-  %.not3.i.i.i18023 = icmp eq i64 %.add24124, 2
+  %.not3.i.i.i18023 = icmp samesign eq i64 %.add24124, 2
   br i1 %.not3.i.i.i18023, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18025: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18021
-  %.ptr24125.le = getelementptr inbounds i8, ptr %696, i64 %.idx24123
+  %.ptr24125.le = getelementptr inbounds nuw i8, ptr %696, i64 %.idx24123
   %9068 = ptrtoint ptr %9065 to i64
   %9069 = ptrtoint ptr %.ptr24125.le to i64
   %.neg21110 = add i64 %9068, -10
@@ -56645,7 +56645,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031.preheader: ; preds = %9067, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031.preheader, %9077
   %.idx24128 = phi i64 [ %.add24129, %9077 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031.preheader ]
   %.add24129 = add nsw i64 %.idx24128, -1
-  %.ptr24131 = getelementptr inbounds i8, ptr %697, i64 %.add24129
+  %.ptr24131 = getelementptr inbounds nuw i8, ptr %697, i64 %.add24129
   %9076 = load i8, ptr %.ptr24131, align 1, !tbaa !9, !noalias !1202
   switch i8 %9076, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18035 [
     i8 107, label %9077
@@ -56657,7 +56657,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18033, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18035: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18031
-  %.ptr24130.le = getelementptr inbounds i8, ptr %697, i64 %.idx24128
+  %.ptr24130.le = getelementptr inbounds nuw i8, ptr %697, i64 %.idx24128
   %9078 = ptrtoint ptr %9075 to i64
   %9079 = ptrtoint ptr %.ptr24130.le to i64
   %9080 = add i64 %9078, -9
@@ -56680,7 +56680,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041.preheader: ; preds = %9077, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041.preheader, %9089
   %.idx24133 = phi i64 [ %.add24134, %9089 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041.preheader ]
   %.add24134 = add nsw i64 %.idx24133, -1
-  %.ptr24136 = getelementptr inbounds i8, ptr %698, i64 %.add24134
+  %.ptr24136 = getelementptr inbounds nuw i8, ptr %698, i64 %.add24134
   %9086 = load i8, ptr %.ptr24136, align 1, !tbaa !9, !noalias !1205
   %9087 = sext i8 %9086 to i32
   %9088 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2474, i32 noundef %9087, i64 noundef 4) #36, !noalias !1205
@@ -56692,7 +56692,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18043, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18045: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18041
-  %.ptr24135.le = getelementptr inbounds i8, ptr %698, i64 %.idx24133
+  %.ptr24135.le = getelementptr inbounds nuw i8, ptr %698, i64 %.idx24133
   %9090 = ptrtoint ptr %9085 to i64
   %9091 = ptrtoint ptr %.ptr24135.le to i64
   %.neg21113 = add i64 %9090, -10
@@ -56716,7 +56716,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051.preheader: ; preds = %9089, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051.preheader, %9101
   %.idx24138 = phi i64 [ %.add24139, %9101 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051.preheader ]
   %.add24139 = add nsw i64 %.idx24138, -1
-  %.ptr24141 = getelementptr inbounds i8, ptr %699, i64 %.add24139
+  %.ptr24141 = getelementptr inbounds nuw i8, ptr %699, i64 %.add24139
   %9098 = load i8, ptr %.ptr24141, align 1, !tbaa !9, !noalias !1208
   %9099 = sext i8 %9098 to i32
   %9100 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2477, i32 noundef %9099, i64 noundef 5) #36, !noalias !1208
@@ -56728,7 +56728,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18053, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18055: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18051
-  %.ptr24140.le = getelementptr inbounds i8, ptr %699, i64 %.idx24138
+  %.ptr24140.le = getelementptr inbounds nuw i8, ptr %699, i64 %.idx24138
   %9102 = ptrtoint ptr %9097 to i64
   %9103 = ptrtoint ptr %.ptr24140.le to i64
   %9104 = add i64 %9102, -9
@@ -56752,17 +56752,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065.preheader: ; preds = %9101, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065.preheader, %9112
   %.idx24143 = phi i64 [ %.add24144, %9112 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065.preheader ]
   %.add24144 = add nsw i64 %.idx24143, -1
-  %.ptr24147 = getelementptr inbounds i8, ptr %700, i64 %.add24144
+  %.ptr24147 = getelementptr inbounds nuw i8, ptr %700, i64 %.add24144
   %9111 = load i8, ptr %.ptr24147, align 1, !tbaa !9, !noalias !1211
   %memchr.char0cmp.not20707 = icmp eq i8 %9111, 97
   br i1 %memchr.char0cmp.not20707, label %9112, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18069
 
 9112:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065
-  %.not3.i.i.i18067 = icmp eq i64 %.add24144, 2
+  %.not3.i.i.i18067 = icmp samesign eq i64 %.add24144, 2
   br i1 %.not3.i.i.i18067, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18069: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18065
-  %.ptr24145.le = getelementptr inbounds i8, ptr %700, i64 %.idx24143
+  %.ptr24145.le = getelementptr inbounds nuw i8, ptr %700, i64 %.idx24143
   %9113 = ptrtoint ptr %9110 to i64
   %9114 = ptrtoint ptr %.ptr24145.le to i64
   %.neg21116 = add i64 %9113, -10
@@ -56786,7 +56786,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075.preheader: ; preds = %9112, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075.preheader, %9124
   %.idx24148 = phi i64 [ %.add24149, %9124 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075.preheader ]
   %.add24149 = add nsw i64 %.idx24148, -1
-  %.ptr24151 = getelementptr inbounds i8, ptr %701, i64 %.add24149
+  %.ptr24151 = getelementptr inbounds nuw i8, ptr %701, i64 %.add24149
   %9121 = load i8, ptr %.ptr24151, align 1, !tbaa !9, !noalias !1214
   %9122 = sext i8 %9121 to i32
   %9123 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2486, i32 noundef %9122, i64 noundef 5) #36, !noalias !1214
@@ -56798,7 +56798,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18077, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18079: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18075
-  %.ptr24150.le = getelementptr inbounds i8, ptr %701, i64 %.idx24148
+  %.ptr24150.le = getelementptr inbounds nuw i8, ptr %701, i64 %.idx24148
   %9125 = ptrtoint ptr %9120 to i64
   %9126 = ptrtoint ptr %.ptr24150.le to i64
   %9127 = add i64 %9125, -9
@@ -56821,7 +56821,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085.preheader: ; preds = %9124, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085.preheader, %9136
   %.idx24153 = phi i64 [ %.add24154, %9136 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085.preheader ]
   %.add24154 = add nsw i64 %.idx24153, -1
-  %.ptr24156 = getelementptr inbounds i8, ptr %702, i64 %.add24154
+  %.ptr24156 = getelementptr inbounds nuw i8, ptr %702, i64 %.add24154
   %9133 = load i8, ptr %.ptr24156, align 1, !tbaa !9, !noalias !1217
   %9134 = sext i8 %9133 to i32
   %9135 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2489, i32 noundef %9134, i64 noundef 9) #36, !noalias !1217
@@ -56833,7 +56833,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18087, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18089: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18085
-  %.ptr24155.le = getelementptr inbounds i8, ptr %702, i64 %.idx24153
+  %.ptr24155.le = getelementptr inbounds nuw i8, ptr %702, i64 %.idx24153
   %9137 = ptrtoint ptr %9132 to i64
   %9138 = ptrtoint ptr %.ptr24155.le to i64
   %.neg21119 = add i64 %9137, -10
@@ -56857,7 +56857,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095.preheader: ; preds = %9136, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095.preheader, %9148
   %.idx24158 = phi i64 [ %.add24159, %9148 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095.preheader ]
   %.add24159 = add nsw i64 %.idx24158, -1
-  %.ptr24161 = getelementptr inbounds i8, ptr %703, i64 %.add24159
+  %.ptr24161 = getelementptr inbounds nuw i8, ptr %703, i64 %.add24159
   %9145 = load i8, ptr %.ptr24161, align 1, !tbaa !9, !noalias !1220
   %9146 = sext i8 %9145 to i32
   %9147 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2492, i32 noundef %9146, i64 noundef 10) #36, !noalias !1220
@@ -56869,7 +56869,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18097, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18099: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18095
-  %.ptr24160.le = getelementptr inbounds i8, ptr %703, i64 %.idx24158
+  %.ptr24160.le = getelementptr inbounds nuw i8, ptr %703, i64 %.idx24158
   %9149 = ptrtoint ptr %9144 to i64
   %9150 = ptrtoint ptr %.ptr24160.le to i64
   %9151 = add i64 %9150, 10
@@ -56893,17 +56893,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109.preheader: ; preds = %9148, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109.preheader, %9159
   %.idx24163 = phi i64 [ %.add24164, %9159 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109.preheader ]
   %.add24164 = add nsw i64 %.idx24163, -1
-  %.ptr24167 = getelementptr inbounds i8, ptr %704, i64 %.add24164
+  %.ptr24167 = getelementptr inbounds nuw i8, ptr %704, i64 %.add24164
   %9158 = load i8, ptr %.ptr24167, align 1, !tbaa !9, !noalias !1223
   %memchr.char0cmp.not20708 = icmp eq i8 %9158, 114
   br i1 %memchr.char0cmp.not20708, label %9159, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18113
 
 9159:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109
-  %.not3.i.i.i18111 = icmp eq i64 %.add24164, 2
+  %.not3.i.i.i18111 = icmp samesign eq i64 %.add24164, 2
   br i1 %.not3.i.i.i18111, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18113: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18109
-  %.ptr24165.le = getelementptr inbounds i8, ptr %704, i64 %.idx24163
+  %.ptr24165.le = getelementptr inbounds nuw i8, ptr %704, i64 %.idx24163
   %9160 = ptrtoint ptr %9157 to i64
   %9161 = ptrtoint ptr %.ptr24165.le to i64
   %.neg21122 = add i64 %9160, -10
@@ -56927,7 +56927,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119.preheader: ; preds = %9159, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119.preheader, %9171
   %.idx24168 = phi i64 [ %.add24169, %9171 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119.preheader ]
   %.add24169 = add nsw i64 %.idx24168, -1
-  %.ptr24171 = getelementptr inbounds i8, ptr %705, i64 %.add24169
+  %.ptr24171 = getelementptr inbounds nuw i8, ptr %705, i64 %.add24169
   %9168 = load i8, ptr %.ptr24171, align 1, !tbaa !9, !noalias !1226
   %9169 = sext i8 %9168 to i32
   %9170 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2501, i32 noundef %9169, i64 noundef 10) #36, !noalias !1226
@@ -56939,7 +56939,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18121, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18123: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18119
-  %.ptr24170.le = getelementptr inbounds i8, ptr %705, i64 %.idx24168
+  %.ptr24170.le = getelementptr inbounds nuw i8, ptr %705, i64 %.idx24168
   %9172 = ptrtoint ptr %9167 to i64
   %9173 = ptrtoint ptr %.ptr24170.le to i64
   %9174 = add i64 %9173, 10
@@ -56962,7 +56962,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129.preheader: ; preds = %9171, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129.preheader, %9185
   %.idx24173 = phi i64 [ %.add24174, %9185 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129.preheader ]
   %.add24174 = add nsw i64 %.idx24173, -1
-  %.ptr24176 = getelementptr inbounds i8, ptr %706, i64 %.add24174
+  %.ptr24176 = getelementptr inbounds nuw i8, ptr %706, i64 %.add24174
   %9180 = load i8, ptr %.ptr24176, align 1, !tbaa !9, !noalias !1229
   %9181 = add i8 %9180, -114
   %9182 = icmp ult i8 %9181, -17
@@ -56976,7 +56976,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18131, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18133: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18129
-  %.ptr24175.le = getelementptr inbounds i8, ptr %706, i64 %.idx24173
+  %.ptr24175.le = getelementptr inbounds nuw i8, ptr %706, i64 %.idx24173
   %9186 = ptrtoint ptr %9179 to i64
   %9187 = ptrtoint ptr %.ptr24175.le to i64
   %9188 = add i64 %9187, 10
@@ -56999,7 +56999,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139.preheader: ; preds = %9185, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139.preheader, %9197
   %.idx24178 = phi i64 [ %.add24179, %9197 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139.preheader ]
   %.add24179 = add nsw i64 %.idx24178, -1
-  %.ptr24181 = getelementptr inbounds i8, ptr %707, i64 %.add24179
+  %.ptr24181 = getelementptr inbounds nuw i8, ptr %707, i64 %.add24179
   %9194 = load i8, ptr %.ptr24181, align 1, !tbaa !9, !noalias !1232
   %9195 = add i8 %9194, -117
   %9196 = icmp ult i8 %9195, -20
@@ -57010,7 +57010,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18141, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18143: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18139
-  %.ptr24180.le = getelementptr inbounds i8, ptr %707, i64 %.idx24178
+  %.ptr24180.le = getelementptr inbounds nuw i8, ptr %707, i64 %.idx24178
   %9198 = ptrtoint ptr %9193 to i64
   %9199 = ptrtoint ptr %.ptr24180.le to i64
   %9200 = add i64 %9199, 10
@@ -57035,17 +57035,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157.preheader: ; preds = %9197, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157.preheader, %9209
   %.idx24183 = phi i64 [ %.add24184, %9209 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157.preheader ]
   %.add24184 = add nsw i64 %.idx24183, -1
-  %.ptr24187 = getelementptr inbounds i8, ptr %708, i64 %.add24184
+  %.ptr24187 = getelementptr inbounds nuw i8, ptr %708, i64 %.add24184
   %9208 = load i8, ptr %.ptr24187, align 1, !tbaa !9, !noalias !1235
   %memchr.char0cmp.not20712 = icmp eq i8 %9208, 106
   br i1 %memchr.char0cmp.not20712, label %9209, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18161
 
 9209:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157
-  %.not3.i.i.i18159 = icmp eq i64 %.add24184, 2
+  %.not3.i.i.i18159 = icmp samesign eq i64 %.add24184, 2
   br i1 %.not3.i.i.i18159, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18161: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18157
-  %.ptr24185.le = getelementptr inbounds i8, ptr %708, i64 %.idx24183
+  %.ptr24185.le = getelementptr inbounds nuw i8, ptr %708, i64 %.idx24183
   %9210 = ptrtoint ptr %9207 to i64
   %9211 = ptrtoint ptr %.ptr24185.le to i64
   %.neg21125 = add i64 %9210, -10
@@ -57069,7 +57069,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167.preheader: ; preds = %9209, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167.preheader, %9219
   %.idx24188 = phi i64 [ %.add24189, %9219 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167.preheader ]
   %.add24189 = add nsw i64 %.idx24188, -1
-  %.ptr24191 = getelementptr inbounds i8, ptr %709, i64 %.add24189
+  %.ptr24191 = getelementptr inbounds nuw i8, ptr %709, i64 %.add24189
   %9218 = load i8, ptr %.ptr24191, align 1, !tbaa !9, !noalias !1238
   switch i8 %9218, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18171 [
     i8 113, label %9219
@@ -57081,7 +57081,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18169, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18171: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18167
-  %.ptr24190.le = getelementptr inbounds i8, ptr %709, i64 %.idx24188
+  %.ptr24190.le = getelementptr inbounds nuw i8, ptr %709, i64 %.idx24188
   %9220 = ptrtoint ptr %9217 to i64
   %9221 = ptrtoint ptr %.ptr24190.le to i64
   %.neg21128 = add i64 %9220, -10
@@ -57105,7 +57105,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177.preheader: ; preds = %9219, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177.preheader, %9231
   %.idx24193 = phi i64 [ %.add24194, %9231 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177.preheader ]
   %.add24194 = add nsw i64 %.idx24193, -1
-  %.ptr24196 = getelementptr inbounds i8, ptr %710, i64 %.add24194
+  %.ptr24196 = getelementptr inbounds nuw i8, ptr %710, i64 %.add24194
   %9228 = load i8, ptr %.ptr24196, align 1, !tbaa !9, !noalias !1241
   %9229 = sext i8 %9228 to i32
   %9230 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2521, i32 noundef %9229, i64 noundef 4) #36, !noalias !1241
@@ -57117,7 +57117,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18179, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18181: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18177
-  %.ptr24195.le = getelementptr inbounds i8, ptr %710, i64 %.idx24193
+  %.ptr24195.le = getelementptr inbounds nuw i8, ptr %710, i64 %.idx24193
   %9232 = ptrtoint ptr %9227 to i64
   %9233 = ptrtoint ptr %.ptr24195.le to i64
   %.neg21131 = add i64 %9232, -10
@@ -57141,7 +57141,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187.preheader: ; preds = %9231, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187.preheader, %9243
   %.idx24198 = phi i64 [ %.add24199, %9243 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187.preheader ]
   %.add24199 = add nsw i64 %.idx24198, -1
-  %.ptr24201 = getelementptr inbounds i8, ptr %711, i64 %.add24199
+  %.ptr24201 = getelementptr inbounds nuw i8, ptr %711, i64 %.add24199
   %9240 = load i8, ptr %.ptr24201, align 1, !tbaa !9, !noalias !1244
   %9241 = sext i8 %9240 to i32
   %9242 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2524, i32 noundef %9241, i64 noundef 5) #36, !noalias !1244
@@ -57153,7 +57153,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18189, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18191: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18187
-  %.ptr24200.le = getelementptr inbounds i8, ptr %711, i64 %.idx24198
+  %.ptr24200.le = getelementptr inbounds nuw i8, ptr %711, i64 %.idx24198
   %9244 = ptrtoint ptr %9239 to i64
   %9245 = ptrtoint ptr %.ptr24200.le to i64
   %.neg21134 = add i64 %9244, -10
@@ -57178,17 +57178,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201.preheader: ; preds = %9243, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201.preheader, %9254
   %.idx24203 = phi i64 [ %.add24204, %9254 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201.preheader ]
   %.add24204 = add nsw i64 %.idx24203, -1
-  %.ptr24207 = getelementptr inbounds i8, ptr %712, i64 %.add24204
+  %.ptr24207 = getelementptr inbounds nuw i8, ptr %712, i64 %.add24204
   %9253 = load i8, ptr %.ptr24207, align 1, !tbaa !9, !noalias !1247
   %memchr.char0cmp.not20714 = icmp eq i8 %9253, 114
   br i1 %memchr.char0cmp.not20714, label %9254, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18205
 
 9254:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201
-  %.not3.i.i.i18203 = icmp eq i64 %.add24204, 2
+  %.not3.i.i.i18203 = icmp samesign eq i64 %.add24204, 2
   br i1 %.not3.i.i.i18203, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18205: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18201
-  %.ptr24205.le = getelementptr inbounds i8, ptr %712, i64 %.idx24203
+  %.ptr24205.le = getelementptr inbounds nuw i8, ptr %712, i64 %.idx24203
   %9255 = ptrtoint ptr %9252 to i64
   %9256 = ptrtoint ptr %.ptr24205.le to i64
   %.neg21137 = add i64 %9255, -10
@@ -57212,7 +57212,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211.preheader: ; preds = %9254, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211.preheader, %9266
   %.idx24208 = phi i64 [ %.add24209, %9266 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211.preheader ]
   %.add24209 = add nsw i64 %.idx24208, -1
-  %.ptr24211 = getelementptr inbounds i8, ptr %713, i64 %.add24209
+  %.ptr24211 = getelementptr inbounds nuw i8, ptr %713, i64 %.add24209
   %9263 = load i8, ptr %.ptr24211, align 1, !tbaa !9, !noalias !1250
   %9264 = sext i8 %9263 to i32
   %9265 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2533, i32 noundef %9264, i64 noundef 5) #36, !noalias !1250
@@ -57224,7 +57224,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18213, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18215: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18211
-  %.ptr24210.le = getelementptr inbounds i8, ptr %713, i64 %.idx24208
+  %.ptr24210.le = getelementptr inbounds nuw i8, ptr %713, i64 %.idx24208
   %9267 = ptrtoint ptr %9262 to i64
   %9268 = ptrtoint ptr %.ptr24210.le to i64
   %.neg21140 = add i64 %9267, -10
@@ -57248,7 +57248,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221.preheader: ; preds = %9266, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221.preheader, %9278
   %.idx24213 = phi i64 [ %.add24214, %9278 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221.preheader ]
   %.add24214 = add nsw i64 %.idx24213, -1
-  %.ptr24216 = getelementptr inbounds i8, ptr %714, i64 %.add24214
+  %.ptr24216 = getelementptr inbounds nuw i8, ptr %714, i64 %.add24214
   %9275 = load i8, ptr %.ptr24216, align 1, !tbaa !9, !noalias !1253
   %9276 = sext i8 %9275 to i32
   %9277 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2536, i32 noundef %9276, i64 noundef 9) #36, !noalias !1253
@@ -57260,7 +57260,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18223, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18225: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18221
-  %.ptr24215.le = getelementptr inbounds i8, ptr %714, i64 %.idx24213
+  %.ptr24215.le = getelementptr inbounds nuw i8, ptr %714, i64 %.idx24213
   %9279 = ptrtoint ptr %9274 to i64
   %9280 = ptrtoint ptr %.ptr24215.le to i64
   %.neg21143 = add i64 %9279, -10
@@ -57284,7 +57284,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231.preheader: ; preds = %9278, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231.preheader, %9290
   %.idx24218 = phi i64 [ %.add24219, %9290 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231.preheader ]
   %.add24219 = add nsw i64 %.idx24218, -1
-  %.ptr24221 = getelementptr inbounds i8, ptr %715, i64 %.add24219
+  %.ptr24221 = getelementptr inbounds nuw i8, ptr %715, i64 %.add24219
   %9287 = load i8, ptr %.ptr24221, align 1, !tbaa !9, !noalias !1256
   %9288 = sext i8 %9287 to i32
   %9289 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2539, i32 noundef %9288, i64 noundef 10) #36, !noalias !1256
@@ -57296,7 +57296,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18233, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18235: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18231
-  %.ptr24220.le = getelementptr inbounds i8, ptr %715, i64 %.idx24218
+  %.ptr24220.le = getelementptr inbounds nuw i8, ptr %715, i64 %.idx24218
   %9291 = ptrtoint ptr %9286 to i64
   %9292 = ptrtoint ptr %.ptr24220.le to i64
   %.neg21146 = add i64 %9291, -10
@@ -57321,17 +57321,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245.preheader: ; preds = %9290, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245.preheader, %9301
   %.idx24223 = phi i64 [ %.add24224, %9301 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245.preheader ]
   %.add24224 = add nsw i64 %.idx24223, -1
-  %.ptr24227 = getelementptr inbounds i8, ptr %716, i64 %.add24224
+  %.ptr24227 = getelementptr inbounds nuw i8, ptr %716, i64 %.add24224
   %9300 = load i8, ptr %.ptr24227, align 1, !tbaa !9, !noalias !1259
   %memchr.char0cmp.not20715 = icmp eq i8 %9300, 110
   br i1 %memchr.char0cmp.not20715, label %9301, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18249
 
 9301:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245
-  %.not3.i.i.i18247 = icmp eq i64 %.add24224, 2
+  %.not3.i.i.i18247 = icmp samesign eq i64 %.add24224, 2
   br i1 %.not3.i.i.i18247, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18249: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18245
-  %.ptr24225.le = getelementptr inbounds i8, ptr %716, i64 %.idx24223
+  %.ptr24225.le = getelementptr inbounds nuw i8, ptr %716, i64 %.idx24223
   %9302 = ptrtoint ptr %9299 to i64
   %9303 = ptrtoint ptr %.ptr24225.le to i64
   %.neg21149 = add i64 %9302, -10
@@ -57355,7 +57355,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255.preheader: ; preds = %9301, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255.preheader, %9313
   %.idx24228 = phi i64 [ %.add24229, %9313 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255.preheader ]
   %.add24229 = add nsw i64 %.idx24228, -1
-  %.ptr24231 = getelementptr inbounds i8, ptr %717, i64 %.add24229
+  %.ptr24231 = getelementptr inbounds nuw i8, ptr %717, i64 %.add24229
   %9310 = load i8, ptr %.ptr24231, align 1, !tbaa !9, !noalias !1262
   %9311 = sext i8 %9310 to i32
   %9312 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2548, i32 noundef %9311, i64 noundef 10) #36, !noalias !1262
@@ -57367,7 +57367,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18257, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18259: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18255
-  %.ptr24230.le = getelementptr inbounds i8, ptr %717, i64 %.idx24228
+  %.ptr24230.le = getelementptr inbounds nuw i8, ptr %717, i64 %.idx24228
   %9314 = ptrtoint ptr %9309 to i64
   %9315 = ptrtoint ptr %.ptr24230.le to i64
   %.neg21152 = add i64 %9314, -10
@@ -57391,7 +57391,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265.preheader: ; preds = %9313, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265.preheader, %9327
   %.idx24233 = phi i64 [ %.add24234, %9327 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265.preheader ]
   %.add24234 = add nsw i64 %.idx24233, -1
-  %.ptr24236 = getelementptr inbounds i8, ptr %718, i64 %.add24234
+  %.ptr24236 = getelementptr inbounds nuw i8, ptr %718, i64 %.add24234
   %9322 = load i8, ptr %.ptr24236, align 1, !tbaa !9, !noalias !1265
   %9323 = add i8 %9322, -114
   %9324 = icmp ult i8 %9323, -17
@@ -57405,7 +57405,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18267, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18269: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18265
-  %.ptr24235.le = getelementptr inbounds i8, ptr %718, i64 %.idx24233
+  %.ptr24235.le = getelementptr inbounds nuw i8, ptr %718, i64 %.idx24233
   %9328 = ptrtoint ptr %9321 to i64
   %9329 = ptrtoint ptr %.ptr24235.le to i64
   %9330 = add i64 %9329, 10
@@ -57428,7 +57428,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275.preheader: ; preds = %9327, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275.preheader, %9339
   %.idx24238 = phi i64 [ %.add24239, %9339 ], [ 8, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275.preheader ]
   %.add24239 = add nsw i64 %.idx24238, -1
-  %.ptr24241 = getelementptr inbounds i8, ptr %719, i64 %.add24239
+  %.ptr24241 = getelementptr inbounds nuw i8, ptr %719, i64 %.add24239
   %9336 = load i8, ptr %.ptr24241, align 1, !tbaa !9, !noalias !1268
   %9337 = add i8 %9336, -117
   %9338 = icmp ult i8 %9337, -20
@@ -57439,7 +57439,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18277, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18279: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18275
-  %.ptr24240.le = getelementptr inbounds i8, ptr %719, i64 %.idx24238
+  %.ptr24240.le = getelementptr inbounds nuw i8, ptr %719, i64 %.idx24238
   %9340 = ptrtoint ptr %9335 to i64
   %9341 = ptrtoint ptr %.ptr24240.le to i64
   %9342 = add i64 %9341, 10
@@ -57464,17 +57464,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293.preheader: ; preds = %9339, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293.preheader, %9351
   %.idx24243 = phi i64 [ %.add24244, %9351 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293.preheader ]
   %.add24244 = add nsw i64 %.idx24243, -1
-  %.ptr24247 = getelementptr inbounds i8, ptr %720, i64 %.add24244
+  %.ptr24247 = getelementptr inbounds nuw i8, ptr %720, i64 %.add24244
   %9350 = load i8, ptr %.ptr24247, align 1, !tbaa !9, !noalias !1271
   %memchr.char0cmp.not20719 = icmp eq i8 %9350, 97
   br i1 %memchr.char0cmp.not20719, label %9351, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18297
 
 9351:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293
-  %.not3.i.i.i18295 = icmp eq i64 %.add24244, 2
+  %.not3.i.i.i18295 = icmp samesign eq i64 %.add24244, 2
   br i1 %.not3.i.i.i18295, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18297: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18293
-  %.ptr24245.le = getelementptr inbounds i8, ptr %720, i64 %.idx24243
+  %.ptr24245.le = getelementptr inbounds nuw i8, ptr %720, i64 %.idx24243
   %9352 = ptrtoint ptr %9349 to i64
   %9353 = ptrtoint ptr %.ptr24245.le to i64
   %.neg21155 = add i64 %9352, -10
@@ -57498,7 +57498,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303.preheader: ; preds = %9351, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303.preheader, %9361
   %.idx24248 = phi i64 [ %.add24249, %9361 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303.preheader ]
   %.add24249 = add nsw i64 %.idx24248, -1
-  %.ptr24251 = getelementptr inbounds i8, ptr %721, i64 %.add24249
+  %.ptr24251 = getelementptr inbounds nuw i8, ptr %721, i64 %.add24249
   %9360 = load i8, ptr %.ptr24251, align 1, !tbaa !9, !noalias !1274
   switch i8 %9360, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18307 [
     i8 113, label %9361
@@ -57510,7 +57510,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18305, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18307: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18303
-  %.ptr24250.le = getelementptr inbounds i8, ptr %721, i64 %.idx24248
+  %.ptr24250.le = getelementptr inbounds nuw i8, ptr %721, i64 %.idx24248
   %9362 = ptrtoint ptr %9359 to i64
   %9363 = ptrtoint ptr %.ptr24250.le to i64
   %.neg21158 = add i64 %9362, -10
@@ -57534,7 +57534,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313.preheader: ; preds = %9361, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313.preheader, %9373
   %.idx24253 = phi i64 [ %.add24254, %9373 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313.preheader ]
   %.add24254 = add nsw i64 %.idx24253, -1
-  %.ptr24256 = getelementptr inbounds i8, ptr %722, i64 %.add24254
+  %.ptr24256 = getelementptr inbounds nuw i8, ptr %722, i64 %.add24254
   %9370 = load i8, ptr %.ptr24256, align 1, !tbaa !9, !noalias !1277
   %9371 = sext i8 %9370 to i32
   %9372 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2568, i32 noundef %9371, i64 noundef 4) #36, !noalias !1277
@@ -57546,7 +57546,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18315, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18317: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18313
-  %.ptr24255.le = getelementptr inbounds i8, ptr %722, i64 %.idx24253
+  %.ptr24255.le = getelementptr inbounds nuw i8, ptr %722, i64 %.idx24253
   %9374 = ptrtoint ptr %9369 to i64
   %9375 = ptrtoint ptr %.ptr24255.le to i64
   %.neg21161 = add i64 %9374, -10
@@ -57570,7 +57570,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323.preheader: ; preds = %9373, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323.preheader, %9385
   %.idx24258 = phi i64 [ %.add24259, %9385 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323.preheader ]
   %.add24259 = add nsw i64 %.idx24258, -1
-  %.ptr24261 = getelementptr inbounds i8, ptr %723, i64 %.add24259
+  %.ptr24261 = getelementptr inbounds nuw i8, ptr %723, i64 %.add24259
   %9382 = load i8, ptr %.ptr24261, align 1, !tbaa !9, !noalias !1280
   %9383 = sext i8 %9382 to i32
   %9384 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2571, i32 noundef %9383, i64 noundef 5) #36, !noalias !1280
@@ -57582,7 +57582,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18325, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18327: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18323
-  %.ptr24260.le = getelementptr inbounds i8, ptr %723, i64 %.idx24258
+  %.ptr24260.le = getelementptr inbounds nuw i8, ptr %723, i64 %.idx24258
   %9386 = ptrtoint ptr %9381 to i64
   %9387 = ptrtoint ptr %.ptr24260.le to i64
   %.neg21164 = add i64 %9386, -10
@@ -57607,17 +57607,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337.preheader: ; preds = %9385, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337.preheader, %9396
   %.idx24263 = phi i64 [ %.add24264, %9396 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337.preheader ]
   %.add24264 = add nsw i64 %.idx24263, -1
-  %.ptr24267 = getelementptr inbounds i8, ptr %724, i64 %.add24264
+  %.ptr24267 = getelementptr inbounds nuw i8, ptr %724, i64 %.add24264
   %9395 = load i8, ptr %.ptr24267, align 1, !tbaa !9, !noalias !1283
   %memchr.char0cmp.not20721 = icmp eq i8 %9395, 109
   br i1 %memchr.char0cmp.not20721, label %9396, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18341
 
 9396:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337
-  %.not3.i.i.i18339 = icmp eq i64 %.add24264, 2
+  %.not3.i.i.i18339 = icmp samesign eq i64 %.add24264, 2
   br i1 %.not3.i.i.i18339, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18341: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18337
-  %.ptr24265.le = getelementptr inbounds i8, ptr %724, i64 %.idx24263
+  %.ptr24265.le = getelementptr inbounds nuw i8, ptr %724, i64 %.idx24263
   %9397 = ptrtoint ptr %9394 to i64
   %9398 = ptrtoint ptr %.ptr24265.le to i64
   %.neg21167 = add i64 %9397, -10
@@ -57641,7 +57641,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347.preheader: ; preds = %9396, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347.preheader, %9408
   %.idx24268 = phi i64 [ %.add24269, %9408 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347.preheader ]
   %.add24269 = add nsw i64 %.idx24268, -1
-  %.ptr24271 = getelementptr inbounds i8, ptr %725, i64 %.add24269
+  %.ptr24271 = getelementptr inbounds nuw i8, ptr %725, i64 %.add24269
   %9405 = load i8, ptr %.ptr24271, align 1, !tbaa !9, !noalias !1286
   %9406 = sext i8 %9405 to i32
   %9407 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2580, i32 noundef %9406, i64 noundef 5) #36, !noalias !1286
@@ -57653,7 +57653,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18349, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18351: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18347
-  %.ptr24270.le = getelementptr inbounds i8, ptr %725, i64 %.idx24268
+  %.ptr24270.le = getelementptr inbounds nuw i8, ptr %725, i64 %.idx24268
   %9409 = ptrtoint ptr %9404 to i64
   %9410 = ptrtoint ptr %.ptr24270.le to i64
   %.neg21170 = add i64 %9409, -10
@@ -57677,7 +57677,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357.preheader: ; preds = %9408, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357.preheader, %9420
   %.idx24273 = phi i64 [ %.add24274, %9420 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357.preheader ]
   %.add24274 = add nsw i64 %.idx24273, -1
-  %.ptr24276 = getelementptr inbounds i8, ptr %726, i64 %.add24274
+  %.ptr24276 = getelementptr inbounds nuw i8, ptr %726, i64 %.add24274
   %9417 = load i8, ptr %.ptr24276, align 1, !tbaa !9, !noalias !1289
   %9418 = sext i8 %9417 to i32
   %9419 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2583, i32 noundef %9418, i64 noundef 9) #36, !noalias !1289
@@ -57689,7 +57689,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18359, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18361: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18357
-  %.ptr24275.le = getelementptr inbounds i8, ptr %726, i64 %.idx24273
+  %.ptr24275.le = getelementptr inbounds nuw i8, ptr %726, i64 %.idx24273
   %9421 = ptrtoint ptr %9416 to i64
   %9422 = ptrtoint ptr %.ptr24275.le to i64
   %.neg21173 = add i64 %9421, -10
@@ -57713,7 +57713,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367.preheader: ; preds = %9420, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367.preheader, %9430
   %.idx24278 = phi i64 [ %.add24279, %9430 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367.preheader ]
   %.add24279 = add nsw i64 %.idx24278, -1
-  %.ptr24281 = getelementptr inbounds i8, ptr %727, i64 %.add24279
+  %.ptr24281 = getelementptr inbounds nuw i8, ptr %727, i64 %.add24279
   %9429 = load i8, ptr %.ptr24281, align 1, !tbaa !9, !noalias !1292
   switch i8 %9429, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18371 [
     i8 115, label %9430
@@ -57733,7 +57733,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18369, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18371: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18367
-  %.ptr24280.le = getelementptr inbounds i8, ptr %727, i64 %.idx24278
+  %.ptr24280.le = getelementptr inbounds nuw i8, ptr %727, i64 %.idx24278
   %9431 = ptrtoint ptr %9428 to i64
   %9432 = ptrtoint ptr %.ptr24280.le to i64
   %.neg21176 = add i64 %9431, -10
@@ -57758,17 +57758,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381.preheader: ; preds = %9430, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381.preheader, %9441
   %.idx24283 = phi i64 [ %.add24284, %9441 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381.preheader ]
   %.add24284 = add nsw i64 %.idx24283, -1
-  %.ptr24287 = getelementptr inbounds i8, ptr %728, i64 %.add24284
+  %.ptr24287 = getelementptr inbounds nuw i8, ptr %728, i64 %.add24284
   %9440 = load i8, ptr %.ptr24287, align 1, !tbaa !9, !noalias !1295
   %memchr.char0cmp.not20725 = icmp eq i8 %9440, 108
   br i1 %memchr.char0cmp.not20725, label %9441, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18385
 
 9441:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381
-  %.not3.i.i.i18383 = icmp eq i64 %.add24284, 2
+  %.not3.i.i.i18383 = icmp samesign eq i64 %.add24284, 2
   br i1 %.not3.i.i.i18383, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18385: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18381
-  %.ptr24285.le = getelementptr inbounds i8, ptr %728, i64 %.idx24283
+  %.ptr24285.le = getelementptr inbounds nuw i8, ptr %728, i64 %.idx24283
   %9442 = ptrtoint ptr %9439 to i64
   %9443 = ptrtoint ptr %.ptr24285.le to i64
   %.neg21179 = add i64 %9442, -10
@@ -57792,7 +57792,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391.preheader: ; preds = %9441, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391.preheader, %9453
   %.idx24288 = phi i64 [ %.add24289, %9453 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391.preheader ]
   %.add24289 = add nsw i64 %.idx24288, -1
-  %.ptr24291 = getelementptr inbounds i8, ptr %729, i64 %.add24289
+  %.ptr24291 = getelementptr inbounds nuw i8, ptr %729, i64 %.add24289
   %9450 = load i8, ptr %.ptr24291, align 1, !tbaa !9, !noalias !1298
   %9451 = sext i8 %9450 to i32
   %9452 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2595, i32 noundef %9451, i64 noundef 10) #36, !noalias !1298
@@ -57804,7 +57804,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18393, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18395: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18391
-  %.ptr24290.le = getelementptr inbounds i8, ptr %729, i64 %.idx24288
+  %.ptr24290.le = getelementptr inbounds nuw i8, ptr %729, i64 %.idx24288
   %9454 = ptrtoint ptr %9449 to i64
   %9455 = ptrtoint ptr %.ptr24290.le to i64
   %.neg21182 = add i64 %9454, -10
@@ -57828,7 +57828,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401.preheader: ; preds = %9453, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401.preheader, %9466
   %.idx24296 = phi i64 [ %.add24297, %9466 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401.preheader ]
   %.add24297 = add nsw i64 %.idx24296, -1
-  %.ptr24300 = getelementptr inbounds i8, ptr %730, i64 %.add24297
+  %.ptr24300 = getelementptr inbounds nuw i8, ptr %730, i64 %.add24297
   %9462 = load i8, ptr %.ptr24300, align 1, !tbaa !9, !noalias !1301
   %.fr24295 = freeze i8 %9462
   %9463 = and i8 %.fr24295, -9
@@ -57840,11 +57840,11 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401: ; preds = %_ZNSt11char_trai
   br i1 %or.cond23112, label %9466, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18405
 
 9466:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401
-  %.not3.i.i.i18403 = icmp eq i64 %.add24297, 2
+  %.not3.i.i.i18403 = icmp samesign eq i64 %.add24297, 2
   br i1 %.not3.i.i.i18403, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18405: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18401
-  %.ptr24298.le = getelementptr inbounds i8, ptr %730, i64 %.idx24296
+  %.ptr24298.le = getelementptr inbounds nuw i8, ptr %730, i64 %.idx24296
   %9467 = ptrtoint ptr %9461 to i64
   %9468 = ptrtoint ptr %.ptr24298.le to i64
   %.neg21185 = add i64 %9467, -10
@@ -57868,7 +57868,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411.preheader: ; preds = %9466, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411.preheader, %9478
   %.idx24301 = phi i64 [ %.add24302, %9478 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411.preheader ]
   %.add24302 = add nsw i64 %.idx24301, -1
-  %.ptr24304 = getelementptr inbounds i8, ptr %731, i64 %.add24302
+  %.ptr24304 = getelementptr inbounds nuw i8, ptr %731, i64 %.add24302
   %9475 = load i8, ptr %.ptr24304, align 1, !tbaa !9, !noalias !1304
   %9476 = add i8 %9475, -117
   %9477 = icmp ult i8 %9476, -20
@@ -57879,7 +57879,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18413, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18415: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18411
-  %.ptr24303.le = getelementptr inbounds i8, ptr %731, i64 %.idx24301
+  %.ptr24303.le = getelementptr inbounds nuw i8, ptr %731, i64 %.idx24301
   %9479 = ptrtoint ptr %9474 to i64
   %9480 = ptrtoint ptr %.ptr24303.le to i64
   %9481 = add i64 %9480, 10
@@ -57904,17 +57904,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429.preheader: ; preds = %9478, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429.preheader, %9490
   %.idx24306 = phi i64 [ %.add24307, %9490 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429.preheader ]
   %.add24307 = add nsw i64 %.idx24306, -1
-  %.ptr24310 = getelementptr inbounds i8, ptr %732, i64 %.add24307
+  %.ptr24310 = getelementptr inbounds nuw i8, ptr %732, i64 %.add24307
   %9489 = load i8, ptr %.ptr24310, align 1, !tbaa !9, !noalias !1307
   %memchr.char0cmp.not20735 = icmp eq i8 %9489, 113
   br i1 %memchr.char0cmp.not20735, label %9490, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18433
 
 9490:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429
-  %.not3.i.i.i18431 = icmp eq i64 %.add24307, 2
+  %.not3.i.i.i18431 = icmp samesign eq i64 %.add24307, 2
   br i1 %.not3.i.i.i18431, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18433: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18429
-  %.ptr24308.le = getelementptr inbounds i8, ptr %732, i64 %.idx24306
+  %.ptr24308.le = getelementptr inbounds nuw i8, ptr %732, i64 %.idx24306
   %9491 = ptrtoint ptr %9488 to i64
   %9492 = ptrtoint ptr %.ptr24308.le to i64
   %.neg21188 = add i64 %9491, -10
@@ -57938,7 +57938,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439.preheader: ; preds = %9490, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439.preheader, %9500
   %.idx24311 = phi i64 [ %.add24312, %9500 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439.preheader ]
   %.add24312 = add nsw i64 %.idx24311, -1
-  %.ptr24314 = getelementptr inbounds i8, ptr %733, i64 %.add24312
+  %.ptr24314 = getelementptr inbounds nuw i8, ptr %733, i64 %.add24312
   %9499 = load i8, ptr %.ptr24314, align 1, !tbaa !9, !noalias !1310
   switch i8 %9499, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18443 [
     i8 116, label %9500
@@ -57950,7 +57950,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18441, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18443: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18439
-  %.ptr24313.le = getelementptr inbounds i8, ptr %733, i64 %.idx24311
+  %.ptr24313.le = getelementptr inbounds nuw i8, ptr %733, i64 %.idx24311
   %9501 = ptrtoint ptr %9498 to i64
   %9502 = ptrtoint ptr %.ptr24313.le to i64
   %.neg21191 = add i64 %9501, -10
@@ -57974,7 +57974,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449.preheader: ; preds = %9500, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449.preheader, %9512
   %.idx24316 = phi i64 [ %.add24317, %9512 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449.preheader ]
   %.add24317 = add nsw i64 %.idx24316, -1
-  %.ptr24319 = getelementptr inbounds i8, ptr %734, i64 %.add24317
+  %.ptr24319 = getelementptr inbounds nuw i8, ptr %734, i64 %.add24317
   %9509 = load i8, ptr %.ptr24319, align 1, !tbaa !9, !noalias !1313
   %9510 = sext i8 %9509 to i32
   %9511 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2615, i32 noundef %9510, i64 noundef 4) #36, !noalias !1313
@@ -57986,7 +57986,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18451, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18453: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18449
-  %.ptr24318.le = getelementptr inbounds i8, ptr %734, i64 %.idx24316
+  %.ptr24318.le = getelementptr inbounds nuw i8, ptr %734, i64 %.idx24316
   %9513 = ptrtoint ptr %9508 to i64
   %9514 = ptrtoint ptr %.ptr24318.le to i64
   %.neg21194 = add i64 %9513, -10
@@ -58010,7 +58010,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459.preheader: ; preds = %9512, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459.preheader, %9524
   %.idx24321 = phi i64 [ %.add24322, %9524 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459.preheader ]
   %.add24322 = add nsw i64 %.idx24321, -1
-  %.ptr24324 = getelementptr inbounds i8, ptr %735, i64 %.add24322
+  %.ptr24324 = getelementptr inbounds nuw i8, ptr %735, i64 %.add24322
   %9521 = load i8, ptr %.ptr24324, align 1, !tbaa !9, !noalias !1316
   %9522 = sext i8 %9521 to i32
   %9523 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2618, i32 noundef %9522, i64 noundef 5) #36, !noalias !1316
@@ -58022,7 +58022,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18461, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18463: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18459
-  %.ptr24323.le = getelementptr inbounds i8, ptr %735, i64 %.idx24321
+  %.ptr24323.le = getelementptr inbounds nuw i8, ptr %735, i64 %.idx24321
   %9525 = ptrtoint ptr %9520 to i64
   %9526 = ptrtoint ptr %.ptr24323.le to i64
   %.neg21197 = add i64 %9525, -10
@@ -58047,17 +58047,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473.preheader: ; preds = %9524, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473.preheader, %9535
   %.idx24326 = phi i64 [ %.add24327, %9535 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473.preheader ]
   %.add24327 = add nsw i64 %.idx24326, -1
-  %.ptr24330 = getelementptr inbounds i8, ptr %736, i64 %.add24327
+  %.ptr24330 = getelementptr inbounds nuw i8, ptr %736, i64 %.add24327
   %9534 = load i8, ptr %.ptr24330, align 1, !tbaa !9, !noalias !1319
   %memchr.char0cmp.not20737 = icmp eq i8 %9534, 111
   br i1 %memchr.char0cmp.not20737, label %9535, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18477
 
 9535:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473
-  %.not3.i.i.i18475 = icmp eq i64 %.add24327, 2
+  %.not3.i.i.i18475 = icmp samesign eq i64 %.add24327, 2
   br i1 %.not3.i.i.i18475, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18477: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18473
-  %.ptr24328.le = getelementptr inbounds i8, ptr %736, i64 %.idx24326
+  %.ptr24328.le = getelementptr inbounds nuw i8, ptr %736, i64 %.idx24326
   %9536 = ptrtoint ptr %9533 to i64
   %9537 = ptrtoint ptr %.ptr24328.le to i64
   %.neg21200 = add i64 %9536, -10
@@ -58081,7 +58081,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483.preheader: ; preds = %9535, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483.preheader, %9547
   %.idx24331 = phi i64 [ %.add24332, %9547 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483.preheader ]
   %.add24332 = add nsw i64 %.idx24331, -1
-  %.ptr24334 = getelementptr inbounds i8, ptr %737, i64 %.add24332
+  %.ptr24334 = getelementptr inbounds nuw i8, ptr %737, i64 %.add24332
   %9544 = load i8, ptr %.ptr24334, align 1, !tbaa !9, !noalias !1322
   %9545 = sext i8 %9544 to i32
   %9546 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2627, i32 noundef %9545, i64 noundef 5) #36, !noalias !1322
@@ -58093,7 +58093,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18485, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18487: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18483
-  %.ptr24333.le = getelementptr inbounds i8, ptr %737, i64 %.idx24331
+  %.ptr24333.le = getelementptr inbounds nuw i8, ptr %737, i64 %.idx24331
   %9548 = ptrtoint ptr %9543 to i64
   %9549 = ptrtoint ptr %.ptr24333.le to i64
   %.neg21203 = add i64 %9548, -10
@@ -58117,7 +58117,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493.preheader: ; preds = %9547, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493.preheader, %9559
   %.idx24336 = phi i64 [ %.add24337, %9559 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493.preheader ]
   %.add24337 = add nsw i64 %.idx24336, -1
-  %.ptr24339 = getelementptr inbounds i8, ptr %738, i64 %.add24337
+  %.ptr24339 = getelementptr inbounds nuw i8, ptr %738, i64 %.add24337
   %9556 = load i8, ptr %.ptr24339, align 1, !tbaa !9, !noalias !1325
   %9557 = sext i8 %9556 to i32
   %9558 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2630, i32 noundef %9557, i64 noundef 9) #36, !noalias !1325
@@ -58129,7 +58129,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18495, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18497: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18493
-  %.ptr24338.le = getelementptr inbounds i8, ptr %738, i64 %.idx24336
+  %.ptr24338.le = getelementptr inbounds nuw i8, ptr %738, i64 %.idx24336
   %9560 = ptrtoint ptr %9555 to i64
   %9561 = ptrtoint ptr %.ptr24338.le to i64
   %.neg21206 = add i64 %9560, -10
@@ -58153,7 +58153,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503.preheader: ; preds = %9559, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503.preheader, %9571
   %.idx24341 = phi i64 [ %.add24342, %9571 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503.preheader ]
   %.add24342 = add nsw i64 %.idx24341, -1
-  %.ptr24344 = getelementptr inbounds i8, ptr %739, i64 %.add24342
+  %.ptr24344 = getelementptr inbounds nuw i8, ptr %739, i64 %.add24342
   %9568 = load i8, ptr %.ptr24344, align 1, !tbaa !9, !noalias !1328
   %9569 = sext i8 %9568 to i32
   %9570 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2633, i32 noundef %9569, i64 noundef 10) #36, !noalias !1328
@@ -58165,7 +58165,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18505, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18507: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18503
-  %.ptr24343.le = getelementptr inbounds i8, ptr %739, i64 %.idx24341
+  %.ptr24343.le = getelementptr inbounds nuw i8, ptr %739, i64 %.idx24341
   %9572 = ptrtoint ptr %9567 to i64
   %9573 = ptrtoint ptr %.ptr24343.le to i64
   %.neg21209 = add i64 %9572, -10
@@ -58190,17 +58190,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517.preheader: ; preds = %9571, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517.preheader, %9582
   %.idx24346 = phi i64 [ %.add24347, %9582 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517.preheader ]
   %.add24347 = add nsw i64 %.idx24346, -1
-  %.ptr24350 = getelementptr inbounds i8, ptr %740, i64 %.add24347
+  %.ptr24350 = getelementptr inbounds nuw i8, ptr %740, i64 %.add24347
   %9581 = load i8, ptr %.ptr24350, align 1, !tbaa !9, !noalias !1331
   %memchr.char0cmp.not20738 = icmp eq i8 %9581, 105
   br i1 %memchr.char0cmp.not20738, label %9582, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18521
 
 9582:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517
-  %.not3.i.i.i18519 = icmp eq i64 %.add24347, 2
+  %.not3.i.i.i18519 = icmp samesign eq i64 %.add24347, 2
   br i1 %.not3.i.i.i18519, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18521: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18517
-  %.ptr24348.le = getelementptr inbounds i8, ptr %740, i64 %.idx24346
+  %.ptr24348.le = getelementptr inbounds nuw i8, ptr %740, i64 %.idx24346
   %9583 = ptrtoint ptr %9580 to i64
   %9584 = ptrtoint ptr %.ptr24348.le to i64
   %.neg21212 = add i64 %9583, -10
@@ -58224,7 +58224,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527.preheader: ; preds = %9582, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527.preheader, %9594
   %.idx24351 = phi i64 [ %.add24352, %9594 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527.preheader ]
   %.add24352 = add nsw i64 %.idx24351, -1
-  %.ptr24354 = getelementptr inbounds i8, ptr %741, i64 %.add24352
+  %.ptr24354 = getelementptr inbounds nuw i8, ptr %741, i64 %.add24352
   %9591 = load i8, ptr %.ptr24354, align 1, !tbaa !9, !noalias !1334
   %9592 = sext i8 %9591 to i32
   %9593 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2642, i32 noundef %9592, i64 noundef 10) #36, !noalias !1334
@@ -58236,7 +58236,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18529, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18531: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18527
-  %.ptr24353.le = getelementptr inbounds i8, ptr %741, i64 %.idx24351
+  %.ptr24353.le = getelementptr inbounds nuw i8, ptr %741, i64 %.idx24351
   %9595 = ptrtoint ptr %9590 to i64
   %9596 = ptrtoint ptr %.ptr24353.le to i64
   %.neg21215 = add i64 %9595, -10
@@ -58260,7 +58260,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537.preheader: ; preds = %9594, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537.preheader, %9604
   %.idx24356 = phi i64 [ %.add24357, %9604 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537.preheader ]
   %.add24357 = add nsw i64 %.idx24356, -1
-  %.ptr24359 = getelementptr inbounds i8, ptr %742, i64 %.add24357
+  %.ptr24359 = getelementptr inbounds nuw i8, ptr %742, i64 %.add24357
   %9603 = load i8, ptr %.ptr24359, align 1, !tbaa !9, !noalias !1337
   switch i8 %9603, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18541 [
     i8 116, label %9604
@@ -58289,7 +58289,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18539, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18541: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18537
-  %.ptr24358.le = getelementptr inbounds i8, ptr %742, i64 %.idx24356
+  %.ptr24358.le = getelementptr inbounds nuw i8, ptr %742, i64 %.idx24356
   %9605 = ptrtoint ptr %9602 to i64
   %9606 = ptrtoint ptr %.ptr24358.le to i64
   %.neg21218 = add i64 %9605, -10
@@ -58313,7 +58313,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547.preheader: ; preds = %9604, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547.preheader, %9616
   %.idx24361 = phi i64 [ %.add24362, %9616 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547.preheader ]
   %.add24362 = add nsw i64 %.idx24361, -1
-  %.ptr24364 = getelementptr inbounds i8, ptr %743, i64 %.add24362
+  %.ptr24364 = getelementptr inbounds nuw i8, ptr %743, i64 %.add24362
   %9613 = load i8, ptr %.ptr24364, align 1, !tbaa !9, !noalias !1340
   %9614 = add i8 %9613, -117
   %9615 = icmp ult i8 %9614, -20
@@ -58324,7 +58324,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18549, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18551: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18547
-  %.ptr24363.le = getelementptr inbounds i8, ptr %743, i64 %.idx24361
+  %.ptr24363.le = getelementptr inbounds nuw i8, ptr %743, i64 %.idx24361
   %9617 = ptrtoint ptr %9612 to i64
   %9618 = ptrtoint ptr %.ptr24363.le to i64
   %9619 = add i64 %9618, 10
@@ -58349,17 +58349,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565.preheader: ; preds = %9616, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565.preheader, %9628
   %.idx24366 = phi i64 [ %.add24367, %9628 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565.preheader ]
   %.add24367 = add nsw i64 %.idx24366, -1
-  %.ptr24370 = getelementptr inbounds i8, ptr %744, i64 %.add24367
+  %.ptr24370 = getelementptr inbounds nuw i8, ptr %744, i64 %.add24367
   %9627 = load i8, ptr %.ptr24370, align 1, !tbaa !9, !noalias !1343
   %memchr.char0cmp.not20739 = icmp eq i8 %9627, 106
   br i1 %memchr.char0cmp.not20739, label %9628, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18569
 
 9628:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565
-  %.not3.i.i.i18567 = icmp eq i64 %.add24367, 2
+  %.not3.i.i.i18567 = icmp samesign eq i64 %.add24367, 2
   br i1 %.not3.i.i.i18567, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18569: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18565
-  %.ptr24368.le = getelementptr inbounds i8, ptr %744, i64 %.idx24366
+  %.ptr24368.le = getelementptr inbounds nuw i8, ptr %744, i64 %.idx24366
   %9629 = ptrtoint ptr %9626 to i64
   %9630 = ptrtoint ptr %.ptr24368.le to i64
   %.neg21221 = add i64 %9629, -10
@@ -58383,7 +58383,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575.preheader: ; preds = %9628, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575.preheader, %9638
   %.idx24371 = phi i64 [ %.add24372, %9638 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575.preheader ]
   %.add24372 = add nsw i64 %.idx24371, -1
-  %.ptr24374 = getelementptr inbounds i8, ptr %745, i64 %.add24372
+  %.ptr24374 = getelementptr inbounds nuw i8, ptr %745, i64 %.add24372
   %9637 = load i8, ptr %.ptr24374, align 1, !tbaa !9, !noalias !1346
   switch i8 %9637, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18579 [
     i8 116, label %9638
@@ -58395,7 +58395,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18577, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18579: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18575
-  %.ptr24373.le = getelementptr inbounds i8, ptr %745, i64 %.idx24371
+  %.ptr24373.le = getelementptr inbounds nuw i8, ptr %745, i64 %.idx24371
   %9639 = ptrtoint ptr %9636 to i64
   %9640 = ptrtoint ptr %.ptr24373.le to i64
   %.neg21224 = add i64 %9639, -10
@@ -58419,7 +58419,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585.preheader: ; preds = %9638, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585.preheader, %9650
   %.idx24376 = phi i64 [ %.add24377, %9650 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585.preheader ]
   %.add24377 = add nsw i64 %.idx24376, -1
-  %.ptr24379 = getelementptr inbounds i8, ptr %746, i64 %.add24377
+  %.ptr24379 = getelementptr inbounds nuw i8, ptr %746, i64 %.add24377
   %9647 = load i8, ptr %.ptr24379, align 1, !tbaa !9, !noalias !1349
   %9648 = sext i8 %9647 to i32
   %9649 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2662, i32 noundef %9648, i64 noundef 4) #36, !noalias !1349
@@ -58431,7 +58431,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18587, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18589: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18585
-  %.ptr24378.le = getelementptr inbounds i8, ptr %746, i64 %.idx24376
+  %.ptr24378.le = getelementptr inbounds nuw i8, ptr %746, i64 %.idx24376
   %9651 = ptrtoint ptr %9646 to i64
   %9652 = ptrtoint ptr %.ptr24378.le to i64
   %.neg21227 = add i64 %9651, -10
@@ -58455,7 +58455,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595.preheader: ; preds = %9650, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595.preheader, %9662
   %.idx24381 = phi i64 [ %.add24382, %9662 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595.preheader ]
   %.add24382 = add nsw i64 %.idx24381, -1
-  %.ptr24384 = getelementptr inbounds i8, ptr %747, i64 %.add24382
+  %.ptr24384 = getelementptr inbounds nuw i8, ptr %747, i64 %.add24382
   %9659 = load i8, ptr %.ptr24384, align 1, !tbaa !9, !noalias !1352
   %9660 = sext i8 %9659 to i32
   %9661 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2665, i32 noundef %9660, i64 noundef 5) #36, !noalias !1352
@@ -58467,7 +58467,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18597, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18599: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18595
-  %.ptr24383.le = getelementptr inbounds i8, ptr %747, i64 %.idx24381
+  %.ptr24383.le = getelementptr inbounds nuw i8, ptr %747, i64 %.idx24381
   %9663 = ptrtoint ptr %9658 to i64
   %9664 = ptrtoint ptr %.ptr24383.le to i64
   %.neg21230 = add i64 %9663, -10
@@ -58492,17 +58492,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609.preheader: ; preds = %9662, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609.preheader, %9673
   %.idx24386 = phi i64 [ %.add24387, %9673 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609.preheader ]
   %.add24387 = add nsw i64 %.idx24386, -1
-  %.ptr24390 = getelementptr inbounds i8, ptr %748, i64 %.add24387
+  %.ptr24390 = getelementptr inbounds nuw i8, ptr %748, i64 %.add24387
   %9672 = load i8, ptr %.ptr24390, align 1, !tbaa !9, !noalias !1355
   %memchr.char0cmp.not20741 = icmp eq i8 %9672, 108
   br i1 %memchr.char0cmp.not20741, label %9673, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18613
 
 9673:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609
-  %.not3.i.i.i18611 = icmp eq i64 %.add24387, 2
+  %.not3.i.i.i18611 = icmp samesign eq i64 %.add24387, 2
   br i1 %.not3.i.i.i18611, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18613: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18609
-  %.ptr24388.le = getelementptr inbounds i8, ptr %748, i64 %.idx24386
+  %.ptr24388.le = getelementptr inbounds nuw i8, ptr %748, i64 %.idx24386
   %9674 = ptrtoint ptr %9671 to i64
   %9675 = ptrtoint ptr %.ptr24388.le to i64
   %.neg21233 = add i64 %9674, -10
@@ -58526,7 +58526,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619.preheader: ; preds = %9673, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619.preheader, %9685
   %.idx24391 = phi i64 [ %.add24392, %9685 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619.preheader ]
   %.add24392 = add nsw i64 %.idx24391, -1
-  %.ptr24394 = getelementptr inbounds i8, ptr %749, i64 %.add24392
+  %.ptr24394 = getelementptr inbounds nuw i8, ptr %749, i64 %.add24392
   %9682 = load i8, ptr %.ptr24394, align 1, !tbaa !9, !noalias !1358
   %9683 = sext i8 %9682 to i32
   %9684 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2674, i32 noundef %9683, i64 noundef 5) #36, !noalias !1358
@@ -58538,7 +58538,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18621, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18623: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18619
-  %.ptr24393.le = getelementptr inbounds i8, ptr %749, i64 %.idx24391
+  %.ptr24393.le = getelementptr inbounds nuw i8, ptr %749, i64 %.idx24391
   %9686 = ptrtoint ptr %9681 to i64
   %9687 = ptrtoint ptr %.ptr24393.le to i64
   %.neg21236 = add i64 %9686, -10
@@ -58562,7 +58562,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629.preheader: ; preds = %9685, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629.preheader, %9697
   %.idx24396 = phi i64 [ %.add24397, %9697 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629.preheader ]
   %.add24397 = add nsw i64 %.idx24396, -1
-  %.ptr24399 = getelementptr inbounds i8, ptr %750, i64 %.add24397
+  %.ptr24399 = getelementptr inbounds nuw i8, ptr %750, i64 %.add24397
   %9694 = load i8, ptr %.ptr24399, align 1, !tbaa !9, !noalias !1361
   %9695 = sext i8 %9694 to i32
   %9696 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2677, i32 noundef %9695, i64 noundef 9) #36, !noalias !1361
@@ -58574,7 +58574,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18631, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18633: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18629
-  %.ptr24398.le = getelementptr inbounds i8, ptr %750, i64 %.idx24396
+  %.ptr24398.le = getelementptr inbounds nuw i8, ptr %750, i64 %.idx24396
   %9698 = ptrtoint ptr %9693 to i64
   %9699 = ptrtoint ptr %.ptr24398.le to i64
   %.neg21239 = add i64 %9698, -10
@@ -58598,7 +58598,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639.preheader: ; preds = %9697, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639.preheader, %9709
   %.idx24401 = phi i64 [ %.add24402, %9709 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639.preheader ]
   %.add24402 = add nsw i64 %.idx24401, -1
-  %.ptr24404 = getelementptr inbounds i8, ptr %751, i64 %.add24402
+  %.ptr24404 = getelementptr inbounds nuw i8, ptr %751, i64 %.add24402
   %9706 = load i8, ptr %.ptr24404, align 1, !tbaa !9, !noalias !1364
   %9707 = sext i8 %9706 to i32
   %9708 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2680, i32 noundef %9707, i64 noundef 10) #36, !noalias !1364
@@ -58610,7 +58610,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18641, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18643: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18639
-  %.ptr24403.le = getelementptr inbounds i8, ptr %751, i64 %.idx24401
+  %.ptr24403.le = getelementptr inbounds nuw i8, ptr %751, i64 %.idx24401
   %9710 = ptrtoint ptr %9705 to i64
   %9711 = ptrtoint ptr %.ptr24403.le to i64
   %.neg21242 = add i64 %9710, -10
@@ -58635,17 +58635,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653.preheader: ; preds = %9709, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653.preheader, %9720
   %.idx24406 = phi i64 [ %.add24407, %9720 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653.preheader ]
   %.add24407 = add nsw i64 %.idx24406, -1
-  %.ptr24410 = getelementptr inbounds i8, ptr %752, i64 %.add24407
+  %.ptr24410 = getelementptr inbounds nuw i8, ptr %752, i64 %.add24407
   %9719 = load i8, ptr %.ptr24410, align 1, !tbaa !9, !noalias !1367
   %memchr.char0cmp.not20742 = icmp eq i8 %9719, 111
   br i1 %memchr.char0cmp.not20742, label %9720, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18657
 
 9720:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653
-  %.not3.i.i.i18655 = icmp eq i64 %.add24407, 2
+  %.not3.i.i.i18655 = icmp samesign eq i64 %.add24407, 2
   br i1 %.not3.i.i.i18655, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18657: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18653
-  %.ptr24408.le = getelementptr inbounds i8, ptr %752, i64 %.idx24406
+  %.ptr24408.le = getelementptr inbounds nuw i8, ptr %752, i64 %.idx24406
   %9721 = ptrtoint ptr %9718 to i64
   %9722 = ptrtoint ptr %.ptr24408.le to i64
   %.neg21245 = add i64 %9721, -10
@@ -58669,7 +58669,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663.preheader: ; preds = %9720, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663.preheader, %9732
   %.idx24411 = phi i64 [ %.add24412, %9732 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663.preheader ]
   %.add24412 = add nsw i64 %.idx24411, -1
-  %.ptr24414 = getelementptr inbounds i8, ptr %753, i64 %.add24412
+  %.ptr24414 = getelementptr inbounds nuw i8, ptr %753, i64 %.add24412
   %9729 = load i8, ptr %.ptr24414, align 1, !tbaa !9, !noalias !1370
   %9730 = sext i8 %9729 to i32
   %9731 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2689, i32 noundef %9730, i64 noundef 10) #36, !noalias !1370
@@ -58681,7 +58681,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18665, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18667: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18663
-  %.ptr24413.le = getelementptr inbounds i8, ptr %753, i64 %.idx24411
+  %.ptr24413.le = getelementptr inbounds nuw i8, ptr %753, i64 %.idx24411
   %9733 = ptrtoint ptr %9728 to i64
   %9734 = ptrtoint ptr %.ptr24413.le to i64
   %.neg21248 = add i64 %9733, -10
@@ -58705,7 +58705,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673.preheader: ; preds = %9732, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673.preheader, %9742
   %.idx24416 = phi i64 [ %.add24417, %9742 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673.preheader ]
   %.add24417 = add nsw i64 %.idx24416, -1
-  %.ptr24419 = getelementptr inbounds i8, ptr %754, i64 %.add24417
+  %.ptr24419 = getelementptr inbounds nuw i8, ptr %754, i64 %.add24417
   %9741 = load i8, ptr %.ptr24419, align 1, !tbaa !9, !noalias !1373
   switch i8 %9741, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18677 [
     i8 116, label %9742
@@ -58734,7 +58734,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18675, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18677: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18673
-  %.ptr24418.le = getelementptr inbounds i8, ptr %754, i64 %.idx24416
+  %.ptr24418.le = getelementptr inbounds nuw i8, ptr %754, i64 %.idx24416
   %9743 = ptrtoint ptr %9740 to i64
   %9744 = ptrtoint ptr %.ptr24418.le to i64
   %9745 = add i64 %9744, 10
@@ -58757,7 +58757,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683.preheader: ; preds = %9742, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683.preheader, %9754
   %.idx24421 = phi i64 [ %.add24422, %9754 ], [ 12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683.preheader ]
   %.add24422 = add nsw i64 %.idx24421, -1
-  %.ptr24424 = getelementptr inbounds i8, ptr %755, i64 %.add24422
+  %.ptr24424 = getelementptr inbounds nuw i8, ptr %755, i64 %.add24422
   %9751 = load i8, ptr %.ptr24424, align 1, !tbaa !9, !noalias !1376
   %9752 = add i8 %9751, -117
   %9753 = icmp ult i8 %9752, -20
@@ -58768,7 +58768,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18685, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18687: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18683
-  %.ptr24423.le = getelementptr inbounds i8, ptr %755, i64 %.idx24421
+  %.ptr24423.le = getelementptr inbounds nuw i8, ptr %755, i64 %.idx24421
   %9755 = ptrtoint ptr %9750 to i64
   %9756 = ptrtoint ptr %.ptr24423.le to i64
   %9757 = add i64 %9756, 10
@@ -58939,17 +58939,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837.preheader: ; preds = %9754, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837.preheader, %9852
   %.idx24489 = phi i64 [ %.add24490, %9852 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837.preheader ]
   %.add24490 = add nsw i64 %.idx24489, -1
-  %.ptr24493 = getelementptr inbounds i8, ptr %766, i64 %.add24490
+  %.ptr24493 = getelementptr inbounds nuw i8, ptr %766, i64 %.add24490
   %9851 = load i8, ptr %.ptr24493, align 1, !tbaa !9, !noalias !1379
   %memchr.char0cmp.not20759 = icmp eq i8 %9851, 115
   br i1 %memchr.char0cmp.not20759, label %9852, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18841
 
 9852:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837
-  %.not3.i.i.i18839 = icmp eq i64 %.add24490, 2
+  %.not3.i.i.i18839 = icmp samesign eq i64 %.add24490, 2
   br i1 %.not3.i.i.i18839, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18841: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18837
-  %.ptr24491.le = getelementptr inbounds i8, ptr %766, i64 %.idx24489
+  %.ptr24491.le = getelementptr inbounds nuw i8, ptr %766, i64 %.idx24489
   %9853 = ptrtoint ptr %9850 to i64
   %9854 = ptrtoint ptr %.ptr24491.le to i64
   %.neg21251 = add i64 %9853, -20
@@ -58973,7 +58973,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847.preheader: ; preds = %9852, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847.preheader, %9862
   %.idx24494 = phi i64 [ %.add24495, %9862 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847.preheader ]
   %.add24495 = add nsw i64 %.idx24494, -1
-  %.ptr24497 = getelementptr inbounds i8, ptr %767, i64 %.add24495
+  %.ptr24497 = getelementptr inbounds nuw i8, ptr %767, i64 %.add24495
   %9861 = load i8, ptr %.ptr24497, align 1, !tbaa !9, !noalias !1382
   switch i8 %9861, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18851 [
     i8 105, label %9862
@@ -58985,7 +58985,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18849, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18851: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18847
-  %.ptr24496.le = getelementptr inbounds i8, ptr %767, i64 %.idx24494
+  %.ptr24496.le = getelementptr inbounds nuw i8, ptr %767, i64 %.idx24494
   %9863 = ptrtoint ptr %9860 to i64
   %9864 = ptrtoint ptr %.ptr24496.le to i64
   %9865 = add i64 %9863, -19
@@ -59008,7 +59008,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857.preheader: ; preds = %9862, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857.preheader, %9874
   %.idx24499 = phi i64 [ %.add24500, %9874 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857.preheader ]
   %.add24500 = add nsw i64 %.idx24499, -1
-  %.ptr24502 = getelementptr inbounds i8, ptr %768, i64 %.add24500
+  %.ptr24502 = getelementptr inbounds nuw i8, ptr %768, i64 %.add24500
   %9871 = load i8, ptr %.ptr24502, align 1, !tbaa !9, !noalias !1385
   %9872 = sext i8 %9871 to i32
   %9873 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2756, i32 noundef %9872, i64 noundef 4) #36, !noalias !1385
@@ -59020,7 +59020,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18859, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18861: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18857
-  %.ptr24501.le = getelementptr inbounds i8, ptr %768, i64 %.idx24499
+  %.ptr24501.le = getelementptr inbounds nuw i8, ptr %768, i64 %.idx24499
   %9875 = ptrtoint ptr %9870 to i64
   %9876 = ptrtoint ptr %.ptr24501.le to i64
   %9877 = add i64 %9875, -19
@@ -59043,7 +59043,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867.preheader: ; preds = %9874, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867.preheader, %9886
   %.idx24504 = phi i64 [ %.add24505, %9886 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867.preheader ]
   %.add24505 = add nsw i64 %.idx24504, -1
-  %.ptr24507 = getelementptr inbounds i8, ptr %769, i64 %.add24505
+  %.ptr24507 = getelementptr inbounds nuw i8, ptr %769, i64 %.add24505
   %9883 = load i8, ptr %.ptr24507, align 1, !tbaa !9, !noalias !1388
   %9884 = sext i8 %9883 to i32
   %9885 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2759, i32 noundef %9884, i64 noundef 5) #36, !noalias !1388
@@ -59055,7 +59055,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18869, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18871: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18867
-  %.ptr24506.le = getelementptr inbounds i8, ptr %769, i64 %.idx24504
+  %.ptr24506.le = getelementptr inbounds nuw i8, ptr %769, i64 %.idx24504
   %9887 = ptrtoint ptr %9882 to i64
   %9888 = ptrtoint ptr %.ptr24506.le to i64
   %.neg21254 = add i64 %9887, -20
@@ -59080,17 +59080,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881.preheader: ; preds = %9886, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881.preheader, %9897
   %.idx24509 = phi i64 [ %.add24510, %9897 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881.preheader ]
   %.add24510 = add nsw i64 %.idx24509, -1
-  %.ptr24513 = getelementptr inbounds i8, ptr %770, i64 %.add24510
+  %.ptr24513 = getelementptr inbounds nuw i8, ptr %770, i64 %.add24510
   %9896 = load i8, ptr %.ptr24513, align 1, !tbaa !9, !noalias !1391
   %memchr.char0cmp.not20761 = icmp eq i8 %9896, 111
   br i1 %memchr.char0cmp.not20761, label %9897, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18885
 
 9897:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881
-  %.not3.i.i.i18883 = icmp eq i64 %.add24510, 2
+  %.not3.i.i.i18883 = icmp samesign eq i64 %.add24510, 2
   br i1 %.not3.i.i.i18883, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18885: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18881
-  %.ptr24511.le = getelementptr inbounds i8, ptr %770, i64 %.idx24509
+  %.ptr24511.le = getelementptr inbounds nuw i8, ptr %770, i64 %.idx24509
   %9898 = ptrtoint ptr %9895 to i64
   %9899 = ptrtoint ptr %.ptr24511.le to i64
   %.neg21257 = add i64 %9898, -20
@@ -59114,7 +59114,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891.preheader: ; preds = %9897, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891.preheader, %9909
   %.idx24514 = phi i64 [ %.add24515, %9909 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891.preheader ]
   %.add24515 = add nsw i64 %.idx24514, -1
-  %.ptr24517 = getelementptr inbounds i8, ptr %771, i64 %.add24515
+  %.ptr24517 = getelementptr inbounds nuw i8, ptr %771, i64 %.add24515
   %9906 = load i8, ptr %.ptr24517, align 1, !tbaa !9, !noalias !1394
   %9907 = sext i8 %9906 to i32
   %9908 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2768, i32 noundef %9907, i64 noundef 5) #36, !noalias !1394
@@ -59126,7 +59126,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18893, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18895: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18891
-  %.ptr24516.le = getelementptr inbounds i8, ptr %771, i64 %.idx24514
+  %.ptr24516.le = getelementptr inbounds nuw i8, ptr %771, i64 %.idx24514
   %9910 = ptrtoint ptr %9905 to i64
   %9911 = ptrtoint ptr %.ptr24516.le to i64
   %.neg21260 = add i64 %9910, -20
@@ -59150,7 +59150,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901.preheader: ; preds = %9909, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901.preheader, %9921
   %.idx24519 = phi i64 [ %.add24520, %9921 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901.preheader ]
   %.add24520 = add nsw i64 %.idx24519, -1
-  %.ptr24522 = getelementptr inbounds i8, ptr %772, i64 %.add24520
+  %.ptr24522 = getelementptr inbounds nuw i8, ptr %772, i64 %.add24520
   %9918 = load i8, ptr %.ptr24522, align 1, !tbaa !9, !noalias !1397
   %9919 = sext i8 %9918 to i32
   %9920 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2771, i32 noundef %9919, i64 noundef 9) #36, !noalias !1397
@@ -59162,7 +59162,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18903, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18905: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18901
-  %.ptr24521.le = getelementptr inbounds i8, ptr %772, i64 %.idx24519
+  %.ptr24521.le = getelementptr inbounds nuw i8, ptr %772, i64 %.idx24519
   %9922 = ptrtoint ptr %9917 to i64
   %9923 = ptrtoint ptr %.ptr24521.le to i64
   %9924 = add i64 %9922, -19
@@ -59185,7 +59185,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911.preheader: ; preds = %9921, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911.preheader, %9933
   %.idx24524 = phi i64 [ %.add24525, %9933 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911.preheader ]
   %.add24525 = add nsw i64 %.idx24524, -1
-  %.ptr24527 = getelementptr inbounds i8, ptr %773, i64 %.add24525
+  %.ptr24527 = getelementptr inbounds nuw i8, ptr %773, i64 %.add24525
   %9930 = load i8, ptr %.ptr24527, align 1, !tbaa !9, !noalias !1400
   %9931 = sext i8 %9930 to i32
   %9932 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2774, i32 noundef %9931, i64 noundef 10) #36, !noalias !1400
@@ -59197,7 +59197,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18913, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18915: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18911
-  %.ptr24526.le = getelementptr inbounds i8, ptr %773, i64 %.idx24524
+  %.ptr24526.le = getelementptr inbounds nuw i8, ptr %773, i64 %.idx24524
   %9934 = ptrtoint ptr %9929 to i64
   %9935 = ptrtoint ptr %.ptr24526.le to i64
   %9936 = add i64 %9934, -19
@@ -59221,17 +59221,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925.preheader: ; preds = %9933, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925.preheader, %9944
   %.idx24529 = phi i64 [ %.add24530, %9944 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925.preheader ]
   %.add24530 = add nsw i64 %.idx24529, -1
-  %.ptr24533 = getelementptr inbounds i8, ptr %774, i64 %.add24530
+  %.ptr24533 = getelementptr inbounds nuw i8, ptr %774, i64 %.add24530
   %9943 = load i8, ptr %.ptr24533, align 1, !tbaa !9, !noalias !1403
   %memchr.char0cmp.not20762 = icmp eq i8 %9943, 108
   br i1 %memchr.char0cmp.not20762, label %9944, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18929
 
 9944:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925
-  %.not3.i.i.i18927 = icmp eq i64 %.add24530, 2
+  %.not3.i.i.i18927 = icmp samesign eq i64 %.add24530, 2
   br i1 %.not3.i.i.i18927, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18929: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18925
-  %.ptr24531.le = getelementptr inbounds i8, ptr %774, i64 %.idx24529
+  %.ptr24531.le = getelementptr inbounds nuw i8, ptr %774, i64 %.idx24529
   %9945 = ptrtoint ptr %9942 to i64
   %9946 = ptrtoint ptr %.ptr24531.le to i64
   %.neg21263 = add i64 %9945, -20
@@ -59255,7 +59255,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935.preheader: ; preds = %9944, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935.preheader, %9956
   %.idx24534 = phi i64 [ %.add24535, %9956 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935.preheader ]
   %.add24535 = add nsw i64 %.idx24534, -1
-  %.ptr24537 = getelementptr inbounds i8, ptr %775, i64 %.add24535
+  %.ptr24537 = getelementptr inbounds nuw i8, ptr %775, i64 %.add24535
   %9953 = load i8, ptr %.ptr24537, align 1, !tbaa !9, !noalias !1406
   %9954 = sext i8 %9953 to i32
   %9955 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2783, i32 noundef %9954, i64 noundef 10) #36, !noalias !1406
@@ -59267,7 +59267,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18937, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18939: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18935
-  %.ptr24536.le = getelementptr inbounds i8, ptr %775, i64 %.idx24534
+  %.ptr24536.le = getelementptr inbounds nuw i8, ptr %775, i64 %.idx24534
   %9957 = ptrtoint ptr %9952 to i64
   %9958 = ptrtoint ptr %.ptr24536.le to i64
   %9959 = add i64 %9957, -19
@@ -59290,7 +59290,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945.preheader: ; preds = %9956, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945.preheader, %9968
   %.idx24539 = phi i64 [ %.add24540, %9968 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945.preheader ]
   %.add24540 = add nsw i64 %.idx24539, -1
-  %.ptr24542 = getelementptr inbounds i8, ptr %776, i64 %.add24540
+  %.ptr24542 = getelementptr inbounds nuw i8, ptr %776, i64 %.add24540
   %9965 = load i8, ptr %.ptr24542, align 1, !tbaa !9, !noalias !1409
   %9966 = add i8 %9965, -116
   %9967 = icmp ult i8 %9966, -19
@@ -59301,7 +59301,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18947, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18949: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18945
-  %.ptr24541.le = getelementptr inbounds i8, ptr %776, i64 %.idx24539
+  %.ptr24541.le = getelementptr inbounds nuw i8, ptr %776, i64 %.idx24539
   %9969 = ptrtoint ptr %9964 to i64
   %9970 = ptrtoint ptr %.ptr24541.le to i64
   %9971 = add i64 %9970, 20
@@ -59324,7 +59324,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955.preheader: ; preds = %9968, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955.preheader, %9980
   %.idx24544 = phi i64 [ %.add24545, %9980 ], [ 4, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955.preheader ]
   %.add24545 = add nsw i64 %.idx24544, -1
-  %.ptr24547 = getelementptr inbounds i8, ptr %777, i64 %.add24545
+  %.ptr24547 = getelementptr inbounds nuw i8, ptr %777, i64 %.add24545
   %9977 = load i8, ptr %.ptr24547, align 1, !tbaa !9, !noalias !1412
   %9978 = add i8 %9977, -117
   %9979 = icmp ult i8 %9978, -20
@@ -59335,7 +59335,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18957, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18959: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18955
-  %.ptr24546.le = getelementptr inbounds i8, ptr %777, i64 %.idx24544
+  %.ptr24546.le = getelementptr inbounds nuw i8, ptr %777, i64 %.idx24544
   %9981 = ptrtoint ptr %9976 to i64
   %9982 = ptrtoint ptr %.ptr24546.le to i64
   %9983 = add i64 %9982, 20
@@ -59360,17 +59360,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973.preheader: ; preds = %9980, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973.preheader, %9992
   %.idx24549 = phi i64 [ %.add24550, %9992 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973.preheader ]
   %.add24550 = add nsw i64 %.idx24549, -1
-  %.ptr24553 = getelementptr inbounds i8, ptr %778, i64 %.add24550
+  %.ptr24553 = getelementptr inbounds nuw i8, ptr %778, i64 %.add24550
   %9991 = load i8, ptr %.ptr24553, align 1, !tbaa !9, !noalias !1415
   %memchr.char0cmp.not20763 = icmp eq i8 %9991, 99
   br i1 %memchr.char0cmp.not20763, label %9992, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18977
 
 9992:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973
-  %.not3.i.i.i18975 = icmp eq i64 %.add24550, 2
+  %.not3.i.i.i18975 = icmp samesign eq i64 %.add24550, 2
   br i1 %.not3.i.i.i18975, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18977: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18973
-  %.ptr24551.le = getelementptr inbounds i8, ptr %778, i64 %.idx24549
+  %.ptr24551.le = getelementptr inbounds nuw i8, ptr %778, i64 %.idx24549
   %9993 = ptrtoint ptr %9990 to i64
   %9994 = ptrtoint ptr %.ptr24551.le to i64
   %.neg21266 = add i64 %9993, -20
@@ -59394,7 +59394,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983.preheader: ; preds = %9992, 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983.preheader, %10002
   %.idx24554 = phi i64 [ %.add24555, %10002 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983.preheader ]
   %.add24555 = add nsw i64 %.idx24554, -1
-  %.ptr24557 = getelementptr inbounds i8, ptr %779, i64 %.add24555
+  %.ptr24557 = getelementptr inbounds nuw i8, ptr %779, i64 %.add24555
   %10001 = load i8, ptr %.ptr24557, align 1, !tbaa !9, !noalias !1418
   switch i8 %10001, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18987 [
     i8 107, label %10002
@@ -59406,7 +59406,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18985, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18987: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18983
-  %.ptr24556.le = getelementptr inbounds i8, ptr %779, i64 %.idx24554
+  %.ptr24556.le = getelementptr inbounds nuw i8, ptr %779, i64 %.idx24554
   %10003 = ptrtoint ptr %10000 to i64
   %10004 = ptrtoint ptr %.ptr24556.le to i64
   %.neg21269 = add i64 %10003, -20
@@ -59430,7 +59430,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993.preheader: ; preds = %10002,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993.preheader, %10012
   %.idx24559 = phi i64 [ %.add24560, %10012 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993.preheader ]
   %.add24560 = add nsw i64 %.idx24559, -1
-  %.ptr24562 = getelementptr inbounds i8, ptr %780, i64 %.add24560
+  %.ptr24562 = getelementptr inbounds nuw i8, ptr %780, i64 %.add24560
   %10011 = load i8, ptr %.ptr24562, align 1, !tbaa !9, !noalias !1421
   switch i8 %10011, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18997 [
     i8 109, label %10012
@@ -59444,7 +59444,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i18995, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i18997: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i18993
-  %.ptr24561.le = getelementptr inbounds i8, ptr %780, i64 %.idx24559
+  %.ptr24561.le = getelementptr inbounds nuw i8, ptr %780, i64 %.idx24559
   %10013 = ptrtoint ptr %10010 to i64
   %10014 = ptrtoint ptr %.ptr24561.le to i64
   %.neg21272 = add i64 %10013, -20
@@ -59468,7 +59468,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003.preheader: ; preds = %10012,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003.preheader, %10024
   %.idx24564 = phi i64 [ %.add24565, %10024 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003.preheader ]
   %.add24565 = add nsw i64 %.idx24564, -1
-  %.ptr24567 = getelementptr inbounds i8, ptr %781, i64 %.add24565
+  %.ptr24567 = getelementptr inbounds nuw i8, ptr %781, i64 %.add24565
   %10021 = load i8, ptr %.ptr24567, align 1, !tbaa !9, !noalias !1424
   %10022 = sext i8 %10021 to i32
   %10023 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2806, i32 noundef %10022, i64 noundef 5) #36, !noalias !1424
@@ -59480,7 +59480,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19005, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19007: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19003
-  %.ptr24566.le = getelementptr inbounds i8, ptr %781, i64 %.idx24564
+  %.ptr24566.le = getelementptr inbounds nuw i8, ptr %781, i64 %.idx24564
   %10025 = ptrtoint ptr %10020 to i64
   %10026 = ptrtoint ptr %.ptr24566.le to i64
   %.neg21275 = add i64 %10025, -20
@@ -59505,17 +59505,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017.preheader: ; preds = %10024,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017.preheader, %10035
   %.idx24569 = phi i64 [ %.add24570, %10035 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017.preheader ]
   %.add24570 = add nsw i64 %.idx24569, -1
-  %.ptr24573 = getelementptr inbounds i8, ptr %782, i64 %.add24570
+  %.ptr24573 = getelementptr inbounds nuw i8, ptr %782, i64 %.add24570
   %10034 = load i8, ptr %.ptr24573, align 1, !tbaa !9, !noalias !1427
   %memchr.char0cmp.not20771 = icmp eq i8 %10034, 106
   br i1 %memchr.char0cmp.not20771, label %10035, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19021
 
 10035:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017
-  %.not3.i.i.i19019 = icmp eq i64 %.add24570, 2
+  %.not3.i.i.i19019 = icmp samesign eq i64 %.add24570, 2
   br i1 %.not3.i.i.i19019, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19021: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19017
-  %.ptr24571.le = getelementptr inbounds i8, ptr %782, i64 %.idx24569
+  %.ptr24571.le = getelementptr inbounds nuw i8, ptr %782, i64 %.idx24569
   %10036 = ptrtoint ptr %10033 to i64
   %10037 = ptrtoint ptr %.ptr24571.le to i64
   %.neg21278 = add i64 %10036, -20
@@ -59539,7 +59539,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027.preheader: ; preds = %10035,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027.preheader, %10047
   %.idx24574 = phi i64 [ %.add24575, %10047 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027.preheader ]
   %.add24575 = add nsw i64 %.idx24574, -1
-  %.ptr24577 = getelementptr inbounds i8, ptr %783, i64 %.add24575
+  %.ptr24577 = getelementptr inbounds nuw i8, ptr %783, i64 %.add24575
   %10044 = load i8, ptr %.ptr24577, align 1, !tbaa !9, !noalias !1430
   %10045 = sext i8 %10044 to i32
   %10046 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2815, i32 noundef %10045, i64 noundef 5) #36, !noalias !1430
@@ -59551,7 +59551,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19029, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19031: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19027
-  %.ptr24576.le = getelementptr inbounds i8, ptr %783, i64 %.idx24574
+  %.ptr24576.le = getelementptr inbounds nuw i8, ptr %783, i64 %.idx24574
   %10048 = ptrtoint ptr %10043 to i64
   %10049 = ptrtoint ptr %.ptr24576.le to i64
   %.neg21281 = add i64 %10048, -20
@@ -59575,7 +59575,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037.preheader: ; preds = %10047,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037.preheader, %10059
   %.idx24579 = phi i64 [ %.add24580, %10059 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037.preheader ]
   %.add24580 = add nsw i64 %.idx24579, -1
-  %.ptr24582 = getelementptr inbounds i8, ptr %784, i64 %.add24580
+  %.ptr24582 = getelementptr inbounds nuw i8, ptr %784, i64 %.add24580
   %10056 = load i8, ptr %.ptr24582, align 1, !tbaa !9, !noalias !1433
   %10057 = sext i8 %10056 to i32
   %10058 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2818, i32 noundef %10057, i64 noundef 9) #36, !noalias !1433
@@ -59587,7 +59587,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19039, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19041: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19037
-  %.ptr24581.le = getelementptr inbounds i8, ptr %784, i64 %.idx24579
+  %.ptr24581.le = getelementptr inbounds nuw i8, ptr %784, i64 %.idx24579
   %10060 = ptrtoint ptr %10055 to i64
   %10061 = ptrtoint ptr %.ptr24581.le to i64
   %.neg21284 = add i64 %10060, -20
@@ -59611,7 +59611,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047.preheader: ; preds = %10059,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047.preheader, %10071
   %.idx24584 = phi i64 [ %.add24585, %10071 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047.preheader ]
   %.add24585 = add nsw i64 %.idx24584, -1
-  %.ptr24587 = getelementptr inbounds i8, ptr %785, i64 %.add24585
+  %.ptr24587 = getelementptr inbounds nuw i8, ptr %785, i64 %.add24585
   %10068 = load i8, ptr %.ptr24587, align 1, !tbaa !9, !noalias !1436
   %10069 = sext i8 %10068 to i32
   %10070 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2821, i32 noundef %10069, i64 noundef 10) #36, !noalias !1436
@@ -59623,7 +59623,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19049, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19051: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19047
-  %.ptr24586.le = getelementptr inbounds i8, ptr %785, i64 %.idx24584
+  %.ptr24586.le = getelementptr inbounds nuw i8, ptr %785, i64 %.idx24584
   %10072 = ptrtoint ptr %10067 to i64
   %10073 = ptrtoint ptr %.ptr24586.le to i64
   %.neg21287 = add i64 %10072, -20
@@ -59648,17 +59648,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061.preheader: ; preds = %10071,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061.preheader, %10082
   %.idx24589 = phi i64 [ %.add24590, %10082 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061.preheader ]
   %.add24590 = add nsw i64 %.idx24589, -1
-  %.ptr24593 = getelementptr inbounds i8, ptr %786, i64 %.add24590
+  %.ptr24593 = getelementptr inbounds nuw i8, ptr %786, i64 %.add24590
   %10081 = load i8, ptr %.ptr24593, align 1, !tbaa !9, !noalias !1439
   %memchr.char0cmp.not20772 = icmp eq i8 %10081, 106
   br i1 %memchr.char0cmp.not20772, label %10082, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19065
 
 10082:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061
-  %.not3.i.i.i19063 = icmp eq i64 %.add24590, 2
+  %.not3.i.i.i19063 = icmp samesign eq i64 %.add24590, 2
   br i1 %.not3.i.i.i19063, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19065: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19061
-  %.ptr24591.le = getelementptr inbounds i8, ptr %786, i64 %.idx24589
+  %.ptr24591.le = getelementptr inbounds nuw i8, ptr %786, i64 %.idx24589
   %10083 = ptrtoint ptr %10080 to i64
   %10084 = ptrtoint ptr %.ptr24591.le to i64
   %.neg21290 = add i64 %10083, -20
@@ -59682,7 +59682,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071.preheader: ; preds = %10082,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071.preheader, %10094
   %.idx24594 = phi i64 [ %.add24595, %10094 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071.preheader ]
   %.add24595 = add nsw i64 %.idx24594, -1
-  %.ptr24597 = getelementptr inbounds i8, ptr %787, i64 %.add24595
+  %.ptr24597 = getelementptr inbounds nuw i8, ptr %787, i64 %.add24595
   %10091 = load i8, ptr %.ptr24597, align 1, !tbaa !9, !noalias !1442
   %10092 = sext i8 %10091 to i32
   %10093 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2830, i32 noundef %10092, i64 noundef 10) #36, !noalias !1442
@@ -59694,7 +59694,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19073, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19075: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19071
-  %.ptr24596.le = getelementptr inbounds i8, ptr %787, i64 %.idx24594
+  %.ptr24596.le = getelementptr inbounds nuw i8, ptr %787, i64 %.idx24594
   %10095 = ptrtoint ptr %10090 to i64
   %10096 = ptrtoint ptr %.ptr24596.le to i64
   %.neg21293 = add i64 %10095, -20
@@ -59718,7 +59718,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081.preheader: ; preds = %10094,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081.preheader, %10108
   %.idx24599 = phi i64 [ %.add24600, %10108 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081.preheader ]
   %.add24600 = add nsw i64 %.idx24599, -1
-  %.ptr24602 = getelementptr inbounds i8, ptr %788, i64 %.add24600
+  %.ptr24602 = getelementptr inbounds nuw i8, ptr %788, i64 %.add24600
   %10103 = load i8, ptr %.ptr24602, align 1, !tbaa !9, !noalias !1445
   %10104 = add i8 %10103, -110
   %10105 = icmp ult i8 %10104, -13
@@ -59732,7 +59732,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19083, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19085: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19081
-  %.ptr24601.le = getelementptr inbounds i8, ptr %788, i64 %.idx24599
+  %.ptr24601.le = getelementptr inbounds nuw i8, ptr %788, i64 %.idx24599
   %10109 = ptrtoint ptr %10102 to i64
   %10110 = ptrtoint ptr %.ptr24601.le to i64
   %10111 = add i64 %10110, 20
@@ -59755,7 +59755,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091.preheader: ; preds = %10108,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091.preheader, %10120
   %.idx24604 = phi i64 [ %.add24605, %10120 ], [ 13, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091.preheader ]
   %.add24605 = add nsw i64 %.idx24604, -1
-  %.ptr24607 = getelementptr inbounds i8, ptr %789, i64 %.add24605
+  %.ptr24607 = getelementptr inbounds nuw i8, ptr %789, i64 %.add24605
   %10117 = load i8, ptr %.ptr24607, align 1, !tbaa !9, !noalias !1448
   %10118 = add i8 %10117, -117
   %10119 = icmp ult i8 %10118, -20
@@ -59766,7 +59766,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19093, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19095: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19091
-  %.ptr24606.le = getelementptr inbounds i8, ptr %789, i64 %.idx24604
+  %.ptr24606.le = getelementptr inbounds nuw i8, ptr %789, i64 %.idx24604
   %10121 = ptrtoint ptr %10116 to i64
   %10122 = ptrtoint ptr %.ptr24606.le to i64
   %10123 = add i64 %10122, 20
@@ -59791,17 +59791,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109.preheader: ; preds = %10120,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109.preheader, %10132
   %.idx24609 = phi i64 [ %.add24610, %10132 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109.preheader ]
   %.add24610 = add nsw i64 %.idx24609, -1
-  %.ptr24613 = getelementptr inbounds i8, ptr %790, i64 %.add24610
+  %.ptr24613 = getelementptr inbounds nuw i8, ptr %790, i64 %.add24610
   %10131 = load i8, ptr %.ptr24613, align 1, !tbaa !9, !noalias !1451
   %memchr.char0cmp.not20776 = icmp eq i8 %10131, 105
   br i1 %memchr.char0cmp.not20776, label %10132, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19113
 
 10132:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109
-  %.not3.i.i.i19111 = icmp eq i64 %.add24610, 2
+  %.not3.i.i.i19111 = icmp samesign eq i64 %.add24610, 2
   br i1 %.not3.i.i.i19111, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19113: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19109
-  %.ptr24611.le = getelementptr inbounds i8, ptr %790, i64 %.idx24609
+  %.ptr24611.le = getelementptr inbounds nuw i8, ptr %790, i64 %.idx24609
   %10133 = ptrtoint ptr %10130 to i64
   %10134 = ptrtoint ptr %.ptr24611.le to i64
   %.neg21296 = add i64 %10133, -20
@@ -59825,7 +59825,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119.preheader: ; preds = %10132,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119.preheader, %10142
   %.idx24614 = phi i64 [ %.add24615, %10142 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119.preheader ]
   %.add24615 = add nsw i64 %.idx24614, -1
-  %.ptr24617 = getelementptr inbounds i8, ptr %791, i64 %.add24615
+  %.ptr24617 = getelementptr inbounds nuw i8, ptr %791, i64 %.add24615
   %10141 = load i8, ptr %.ptr24617, align 1, !tbaa !9, !noalias !1454
   switch i8 %10141, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19123 [
     i8 114, label %10142
@@ -59837,7 +59837,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19121, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19123: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19119
-  %.ptr24616.le = getelementptr inbounds i8, ptr %791, i64 %.idx24614
+  %.ptr24616.le = getelementptr inbounds nuw i8, ptr %791, i64 %.idx24614
   %10143 = ptrtoint ptr %10140 to i64
   %10144 = ptrtoint ptr %.ptr24616.le to i64
   %.neg21299 = add i64 %10143, -20
@@ -59861,7 +59861,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129.preheader: ; preds = %10142,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129.preheader, %10154
   %.idx24619 = phi i64 [ %.add24620, %10154 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129.preheader ]
   %.add24620 = add nsw i64 %.idx24619, -1
-  %.ptr24622 = getelementptr inbounds i8, ptr %792, i64 %.add24620
+  %.ptr24622 = getelementptr inbounds nuw i8, ptr %792, i64 %.add24620
   %10151 = load i8, ptr %.ptr24622, align 1, !tbaa !9, !noalias !1457
   %10152 = sext i8 %10151 to i32
   %10153 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2850, i32 noundef %10152, i64 noundef 4) #36, !noalias !1457
@@ -59873,7 +59873,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19131, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19133: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19129
-  %.ptr24621.le = getelementptr inbounds i8, ptr %792, i64 %.idx24619
+  %.ptr24621.le = getelementptr inbounds nuw i8, ptr %792, i64 %.idx24619
   %10155 = ptrtoint ptr %10150 to i64
   %10156 = ptrtoint ptr %.ptr24621.le to i64
   %.neg21302 = add i64 %10155, -20
@@ -59897,7 +59897,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139.preheader: ; preds = %10154,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139.preheader, %10166
   %.idx24624 = phi i64 [ %.add24625, %10166 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139.preheader ]
   %.add24625 = add nsw i64 %.idx24624, -1
-  %.ptr24627 = getelementptr inbounds i8, ptr %793, i64 %.add24625
+  %.ptr24627 = getelementptr inbounds nuw i8, ptr %793, i64 %.add24625
   %10163 = load i8, ptr %.ptr24627, align 1, !tbaa !9, !noalias !1460
   %10164 = sext i8 %10163 to i32
   %10165 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2853, i32 noundef %10164, i64 noundef 5) #36, !noalias !1460
@@ -59909,7 +59909,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19141, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19143: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19139
-  %.ptr24626.le = getelementptr inbounds i8, ptr %793, i64 %.idx24624
+  %.ptr24626.le = getelementptr inbounds nuw i8, ptr %793, i64 %.idx24624
   %10167 = ptrtoint ptr %10162 to i64
   %10168 = ptrtoint ptr %.ptr24626.le to i64
   %.neg21305 = add i64 %10167, -20
@@ -59934,17 +59934,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153.preheader: ; preds = %10166,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153.preheader, %10177
   %.idx24629 = phi i64 [ %.add24630, %10177 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153.preheader ]
   %.add24630 = add nsw i64 %.idx24629, -1
-  %.ptr24633 = getelementptr inbounds i8, ptr %794, i64 %.add24630
+  %.ptr24633 = getelementptr inbounds nuw i8, ptr %794, i64 %.add24630
   %10176 = load i8, ptr %.ptr24633, align 1, !tbaa !9, !noalias !1463
   %memchr.char0cmp.not20778 = icmp eq i8 %10176, 115
   br i1 %memchr.char0cmp.not20778, label %10177, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19157
 
 10177:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153
-  %.not3.i.i.i19155 = icmp eq i64 %.add24630, 2
+  %.not3.i.i.i19155 = icmp samesign eq i64 %.add24630, 2
   br i1 %.not3.i.i.i19155, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19157: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19153
-  %.ptr24631.le = getelementptr inbounds i8, ptr %794, i64 %.idx24629
+  %.ptr24631.le = getelementptr inbounds nuw i8, ptr %794, i64 %.idx24629
   %10178 = ptrtoint ptr %10175 to i64
   %10179 = ptrtoint ptr %.ptr24631.le to i64
   %.neg21308 = add i64 %10178, -20
@@ -59968,7 +59968,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163.preheader: ; preds = %10177,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163.preheader, %10189
   %.idx24634 = phi i64 [ %.add24635, %10189 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163.preheader ]
   %.add24635 = add nsw i64 %.idx24634, -1
-  %.ptr24637 = getelementptr inbounds i8, ptr %795, i64 %.add24635
+  %.ptr24637 = getelementptr inbounds nuw i8, ptr %795, i64 %.add24635
   %10186 = load i8, ptr %.ptr24637, align 1, !tbaa !9, !noalias !1466
   %10187 = sext i8 %10186 to i32
   %10188 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2862, i32 noundef %10187, i64 noundef 5) #36, !noalias !1466
@@ -59980,7 +59980,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19165, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19167: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19163
-  %.ptr24636.le = getelementptr inbounds i8, ptr %795, i64 %.idx24634
+  %.ptr24636.le = getelementptr inbounds nuw i8, ptr %795, i64 %.idx24634
   %10190 = ptrtoint ptr %10185 to i64
   %10191 = ptrtoint ptr %.ptr24636.le to i64
   %.neg21311 = add i64 %10190, -20
@@ -60004,7 +60004,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173.preheader: ; preds = %10189,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173.preheader, %10201
   %.idx24639 = phi i64 [ %.add24640, %10201 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173.preheader ]
   %.add24640 = add nsw i64 %.idx24639, -1
-  %.ptr24642 = getelementptr inbounds i8, ptr %796, i64 %.add24640
+  %.ptr24642 = getelementptr inbounds nuw i8, ptr %796, i64 %.add24640
   %10198 = load i8, ptr %.ptr24642, align 1, !tbaa !9, !noalias !1469
   %10199 = sext i8 %10198 to i32
   %10200 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2865, i32 noundef %10199, i64 noundef 9) #36, !noalias !1469
@@ -60016,7 +60016,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19175, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19177: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19173
-  %.ptr24641.le = getelementptr inbounds i8, ptr %796, i64 %.idx24639
+  %.ptr24641.le = getelementptr inbounds nuw i8, ptr %796, i64 %.idx24639
   %10202 = ptrtoint ptr %10197 to i64
   %10203 = ptrtoint ptr %.ptr24641.le to i64
   %.neg21314 = add i64 %10202, -20
@@ -60040,7 +60040,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183.preheader: ; preds = %10201,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183.preheader, %10213
   %.idx24644 = phi i64 [ %.add24645, %10213 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183.preheader ]
   %.add24645 = add nsw i64 %.idx24644, -1
-  %.ptr24647 = getelementptr inbounds i8, ptr %797, i64 %.add24645
+  %.ptr24647 = getelementptr inbounds nuw i8, ptr %797, i64 %.add24645
   %10210 = load i8, ptr %.ptr24647, align 1, !tbaa !9, !noalias !1472
   %10211 = sext i8 %10210 to i32
   %10212 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2868, i32 noundef %10211, i64 noundef 10) #36, !noalias !1472
@@ -60052,7 +60052,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19185, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19187: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19183
-  %.ptr24646.le = getelementptr inbounds i8, ptr %797, i64 %.idx24644
+  %.ptr24646.le = getelementptr inbounds nuw i8, ptr %797, i64 %.idx24644
   %10214 = ptrtoint ptr %10209 to i64
   %10215 = ptrtoint ptr %.ptr24646.le to i64
   %.neg21317 = add i64 %10214, -20
@@ -60077,17 +60077,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197.preheader: ; preds = %10213,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197.preheader, %10224
   %.idx24649 = phi i64 [ %.add24650, %10224 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197.preheader ]
   %.add24650 = add nsw i64 %.idx24649, -1
-  %.ptr24653 = getelementptr inbounds i8, ptr %798, i64 %.add24650
+  %.ptr24653 = getelementptr inbounds nuw i8, ptr %798, i64 %.add24650
   %10223 = load i8, ptr %.ptr24653, align 1, !tbaa !9, !noalias !1475
   %memchr.char0cmp.not20779 = icmp eq i8 %10223, 115
   br i1 %memchr.char0cmp.not20779, label %10224, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19201
 
 10224:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197
-  %.not3.i.i.i19199 = icmp eq i64 %.add24650, 2
+  %.not3.i.i.i19199 = icmp samesign eq i64 %.add24650, 2
   br i1 %.not3.i.i.i19199, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19201: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19197
-  %.ptr24651.le = getelementptr inbounds i8, ptr %798, i64 %.idx24649
+  %.ptr24651.le = getelementptr inbounds nuw i8, ptr %798, i64 %.idx24649
   %10225 = ptrtoint ptr %10222 to i64
   %10226 = ptrtoint ptr %.ptr24651.le to i64
   %.neg21320 = add i64 %10225, -20
@@ -60111,7 +60111,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207.preheader: ; preds = %10224,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207.preheader, %10236
   %.idx24654 = phi i64 [ %.add24655, %10236 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207.preheader ]
   %.add24655 = add nsw i64 %.idx24654, -1
-  %.ptr24657 = getelementptr inbounds i8, ptr %799, i64 %.add24655
+  %.ptr24657 = getelementptr inbounds nuw i8, ptr %799, i64 %.add24655
   %10233 = load i8, ptr %.ptr24657, align 1, !tbaa !9, !noalias !1478
   %10234 = sext i8 %10233 to i32
   %10235 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2877, i32 noundef %10234, i64 noundef 10) #36, !noalias !1478
@@ -60123,7 +60123,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19209, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19211: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19207
-  %.ptr24656.le = getelementptr inbounds i8, ptr %799, i64 %.idx24654
+  %.ptr24656.le = getelementptr inbounds nuw i8, ptr %799, i64 %.idx24654
   %10237 = ptrtoint ptr %10232 to i64
   %10238 = ptrtoint ptr %.ptr24656.le to i64
   %.neg21323 = add i64 %10237, -20
@@ -60147,7 +60147,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217.preheader: ; preds = %10236,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217.preheader, %10248
   %.idx24659 = phi i64 [ %.add24660, %10248 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217.preheader ]
   %.add24660 = add nsw i64 %.idx24659, -1
-  %.ptr24662 = getelementptr inbounds i8, ptr %800, i64 %.add24660
+  %.ptr24662 = getelementptr inbounds nuw i8, ptr %800, i64 %.add24660
   %10245 = load i8, ptr %.ptr24662, align 1, !tbaa !9, !noalias !1481
   %10246 = add i8 %10245, -116
   %10247 = icmp ult i8 %10246, -19
@@ -60158,7 +60158,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19219, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19221: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19217
-  %.ptr24661.le = getelementptr inbounds i8, ptr %800, i64 %.idx24659
+  %.ptr24661.le = getelementptr inbounds nuw i8, ptr %800, i64 %.idx24659
   %10249 = ptrtoint ptr %10244 to i64
   %10250 = ptrtoint ptr %.ptr24661.le to i64
   %.neg21326 = add i64 %10249, -20
@@ -60182,7 +60182,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227.preheader: ; preds = %10248,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227.preheader, %10260
   %.idx24664 = phi i64 [ %.add24665, %10260 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227.preheader ]
   %.add24665 = add nsw i64 %.idx24664, -1
-  %.ptr24667 = getelementptr inbounds i8, ptr %801, i64 %.add24665
+  %.ptr24667 = getelementptr inbounds nuw i8, ptr %801, i64 %.add24665
   %10257 = load i8, ptr %.ptr24667, align 1, !tbaa !9, !noalias !1484
   %10258 = add i8 %10257, -117
   %10259 = icmp ult i8 %10258, -20
@@ -60193,7 +60193,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19229, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19231: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19227
-  %.ptr24666.le = getelementptr inbounds i8, ptr %801, i64 %.idx24664
+  %.ptr24666.le = getelementptr inbounds nuw i8, ptr %801, i64 %.idx24664
   %10261 = ptrtoint ptr %10256 to i64
   %10262 = ptrtoint ptr %.ptr24666.le to i64
   %10263 = add i64 %10262, 20
@@ -60218,17 +60218,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245.preheader: ; preds = %10260,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245.preheader, %10272
   %.idx24669 = phi i64 [ %.add24670, %10272 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245.preheader ]
   %.add24670 = add nsw i64 %.idx24669, -1
-  %.ptr24673 = getelementptr inbounds i8, ptr %802, i64 %.add24670
+  %.ptr24673 = getelementptr inbounds nuw i8, ptr %802, i64 %.add24670
   %10271 = load i8, ptr %.ptr24673, align 1, !tbaa !9, !noalias !1487
   %memchr.char0cmp.not20780 = icmp eq i8 %10271, 111
   br i1 %memchr.char0cmp.not20780, label %10272, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19249
 
 10272:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245
-  %.not3.i.i.i19247 = icmp eq i64 %.add24670, 2
+  %.not3.i.i.i19247 = icmp samesign eq i64 %.add24670, 2
   br i1 %.not3.i.i.i19247, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19249: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19245
-  %.ptr24671.le = getelementptr inbounds i8, ptr %802, i64 %.idx24669
+  %.ptr24671.le = getelementptr inbounds nuw i8, ptr %802, i64 %.idx24669
   %10273 = ptrtoint ptr %10270 to i64
   %10274 = ptrtoint ptr %.ptr24671.le to i64
   %.neg21329 = add i64 %10273, -20
@@ -60252,18 +60252,18 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255.preheader: ; preds = %10272,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255.preheader, %10283
   %.idx24674 = phi i64 [ %.add24675, %10283 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255.preheader ]
   %.add24675 = add nsw i64 %.idx24674, -1
-  %.ptr24678 = getelementptr inbounds i8, ptr %803, i64 %.add24675
+  %.ptr24678 = getelementptr inbounds nuw i8, ptr %803, i64 %.add24675
   %10281 = load i8, ptr %.ptr24678, align 1, !tbaa !9, !noalias !1490
   %10282 = and i8 %10281, -5
   %.not.i.i.i19256.not = icmp eq i8 %10282, 107
   br i1 %.not.i.i.i19256.not, label %10283, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19259
 
 10283:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255
-  %.not3.i.i.i19257 = icmp eq i64 %.add24675, 2
+  %.not3.i.i.i19257 = icmp samesign eq i64 %.add24675, 2
   br i1 %.not3.i.i.i19257, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19259: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19255
-  %.ptr24676.le = getelementptr inbounds i8, ptr %803, i64 %.idx24674
+  %.ptr24676.le = getelementptr inbounds nuw i8, ptr %803, i64 %.idx24674
   %10284 = ptrtoint ptr %10280 to i64
   %10285 = ptrtoint ptr %.ptr24676.le to i64
   %.neg21332 = add i64 %10284, -20
@@ -60287,7 +60287,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265.preheader: ; preds = %10283,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265.preheader, %10293
   %.idx24679 = phi i64 [ %.add24680, %10293 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265.preheader ]
   %.add24680 = add nsw i64 %.idx24679, -1
-  %.ptr24682 = getelementptr inbounds i8, ptr %804, i64 %.add24680
+  %.ptr24682 = getelementptr inbounds nuw i8, ptr %804, i64 %.add24680
   %10292 = load i8, ptr %.ptr24682, align 1, !tbaa !9, !noalias !1493
   switch i8 %10292, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19269 [
     i8 108, label %10293
@@ -60301,7 +60301,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19267, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19269: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19265
-  %.ptr24681.le = getelementptr inbounds i8, ptr %804, i64 %.idx24679
+  %.ptr24681.le = getelementptr inbounds nuw i8, ptr %804, i64 %.idx24679
   %10294 = ptrtoint ptr %10291 to i64
   %10295 = ptrtoint ptr %.ptr24681.le to i64
   %.neg21335 = add i64 %10294, -20
@@ -60325,7 +60325,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275.preheader: ; preds = %10293,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275.preheader, %10305
   %.idx24684 = phi i64 [ %.add24685, %10305 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275.preheader ]
   %.add24685 = add nsw i64 %.idx24684, -1
-  %.ptr24687 = getelementptr inbounds i8, ptr %805, i64 %.add24685
+  %.ptr24687 = getelementptr inbounds nuw i8, ptr %805, i64 %.add24685
   %10302 = load i8, ptr %.ptr24687, align 1, !tbaa !9, !noalias !1496
   %10303 = sext i8 %10302 to i32
   %10304 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2900, i32 noundef %10303, i64 noundef 5) #36, !noalias !1496
@@ -60337,7 +60337,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19277, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19279: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19275
-  %.ptr24686.le = getelementptr inbounds i8, ptr %805, i64 %.idx24684
+  %.ptr24686.le = getelementptr inbounds nuw i8, ptr %805, i64 %.idx24684
   %10306 = ptrtoint ptr %10301 to i64
   %10307 = ptrtoint ptr %.ptr24686.le to i64
   %.neg21338 = add i64 %10306, -20
@@ -60362,17 +60362,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289.preheader: ; preds = %10305,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289.preheader, %10316
   %.idx24689 = phi i64 [ %.add24690, %10316 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289.preheader ]
   %.add24690 = add nsw i64 %.idx24689, -1
-  %.ptr24693 = getelementptr inbounds i8, ptr %806, i64 %.add24690
+  %.ptr24693 = getelementptr inbounds nuw i8, ptr %806, i64 %.add24690
   %10315 = load i8, ptr %.ptr24693, align 1, !tbaa !9, !noalias !1499
   %memchr.char0cmp.not20785 = icmp eq i8 %10315, 97
   br i1 %memchr.char0cmp.not20785, label %10316, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19293
 
 10316:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289
-  %.not3.i.i.i19291 = icmp eq i64 %.add24690, 2
+  %.not3.i.i.i19291 = icmp samesign eq i64 %.add24690, 2
   br i1 %.not3.i.i.i19291, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19293: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19289
-  %.ptr24691.le = getelementptr inbounds i8, ptr %806, i64 %.idx24689
+  %.ptr24691.le = getelementptr inbounds nuw i8, ptr %806, i64 %.idx24689
   %10317 = ptrtoint ptr %10314 to i64
   %10318 = ptrtoint ptr %.ptr24691.le to i64
   %.neg21341 = add i64 %10317, -20
@@ -60396,7 +60396,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299.preheader: ; preds = %10316,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299.preheader, %10328
   %.idx24694 = phi i64 [ %.add24695, %10328 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299.preheader ]
   %.add24695 = add nsw i64 %.idx24694, -1
-  %.ptr24697 = getelementptr inbounds i8, ptr %807, i64 %.add24695
+  %.ptr24697 = getelementptr inbounds nuw i8, ptr %807, i64 %.add24695
   %10325 = load i8, ptr %.ptr24697, align 1, !tbaa !9, !noalias !1502
   %10326 = sext i8 %10325 to i32
   %10327 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2909, i32 noundef %10326, i64 noundef 5) #36, !noalias !1502
@@ -60408,7 +60408,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19301, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19303: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19299
-  %.ptr24696.le = getelementptr inbounds i8, ptr %807, i64 %.idx24694
+  %.ptr24696.le = getelementptr inbounds nuw i8, ptr %807, i64 %.idx24694
   %10329 = ptrtoint ptr %10324 to i64
   %10330 = ptrtoint ptr %.ptr24696.le to i64
   %.neg21344 = add i64 %10329, -20
@@ -60432,7 +60432,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309.preheader: ; preds = %10328,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309.preheader, %10340
   %.idx24699 = phi i64 [ %.add24700, %10340 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309.preheader ]
   %.add24700 = add nsw i64 %.idx24699, -1
-  %.ptr24702 = getelementptr inbounds i8, ptr %808, i64 %.add24700
+  %.ptr24702 = getelementptr inbounds nuw i8, ptr %808, i64 %.add24700
   %10337 = load i8, ptr %.ptr24702, align 1, !tbaa !9, !noalias !1505
   %10338 = sext i8 %10337 to i32
   %10339 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2912, i32 noundef %10338, i64 noundef 9) #36, !noalias !1505
@@ -60444,7 +60444,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19311, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19313: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19309
-  %.ptr24701.le = getelementptr inbounds i8, ptr %808, i64 %.idx24699
+  %.ptr24701.le = getelementptr inbounds nuw i8, ptr %808, i64 %.idx24699
   %10341 = ptrtoint ptr %10336 to i64
   %10342 = ptrtoint ptr %.ptr24701.le to i64
   %.neg21347 = add i64 %10341, -20
@@ -60468,7 +60468,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319.preheader: ; preds = %10340,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319.preheader, %10352
   %.idx24704 = phi i64 [ %.add24705, %10352 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319.preheader ]
   %.add24705 = add nsw i64 %.idx24704, -1
-  %.ptr24707 = getelementptr inbounds i8, ptr %809, i64 %.add24705
+  %.ptr24707 = getelementptr inbounds nuw i8, ptr %809, i64 %.add24705
   %10349 = load i8, ptr %.ptr24707, align 1, !tbaa !9, !noalias !1508
   %10350 = sext i8 %10349 to i32
   %10351 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.2915, i32 noundef %10350, i64 noundef 10) #36, !noalias !1508
@@ -60480,7 +60480,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19321, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19323: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19319
-  %.ptr24706.le = getelementptr inbounds i8, ptr %809, i64 %.idx24704
+  %.ptr24706.le = getelementptr inbounds nuw i8, ptr %809, i64 %.idx24704
   %10353 = ptrtoint ptr %10348 to i64
   %10354 = ptrtoint ptr %.ptr24706.le to i64
   %.neg21350 = add i64 %10353, -20
@@ -60505,17 +60505,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333.preheader: ; preds = %10352,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333.preheader, %10363
   %.idx24709 = phi i64 [ %.add24710, %10363 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333.preheader ]
   %.add24710 = add nsw i64 %.idx24709, -1
-  %.ptr24713 = getelementptr inbounds i8, ptr %810, i64 %.add24710
+  %.ptr24713 = getelementptr inbounds nuw i8, ptr %810, i64 %.add24710
   %10362 = load i8, ptr %.ptr24713, align 1, !tbaa !9, !noalias !1511
   %memchr.char0cmp.not20786 = icmp eq i8 %10362, 103
   br i1 %memchr.char0cmp.not20786, label %10363, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19337
 
 10363:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333
-  %.not3.i.i.i19335 = icmp eq i64 %.add24710, 2
+  %.not3.i.i.i19335 = icmp samesign eq i64 %.add24710, 2
   br i1 %.not3.i.i.i19335, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19337: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19333
-  %.ptr24711.le = getelementptr inbounds i8, ptr %810, i64 %.idx24709
+  %.ptr24711.le = getelementptr inbounds nuw i8, ptr %810, i64 %.idx24709
   %10364 = ptrtoint ptr %10361 to i64
   %10365 = ptrtoint ptr %.ptr24711.le to i64
   %.neg21353 = add i64 %10364, -20
@@ -60539,7 +60539,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343.preheader: ; preds = %10363,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343.preheader, %10375
   %.idx24714 = phi i64 [ %.add24715, %10375 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343.preheader ]
   %.add24715 = add nsw i64 %.idx24714, -1
-  %.ptr24717 = getelementptr inbounds i8, ptr %811, i64 %.add24715
+  %.ptr24717 = getelementptr inbounds nuw i8, ptr %811, i64 %.add24715
   %10372 = load i8, ptr %.ptr24717, align 1, !tbaa !9, !noalias !1514
   %10373 = sext i8 %10372 to i32
   %10374 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3237, i32 noundef %10373, i64 noundef 10) #36, !noalias !1514
@@ -60551,7 +60551,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19345, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19347: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19343
-  %.ptr24716.le = getelementptr inbounds i8, ptr %811, i64 %.idx24714
+  %.ptr24716.le = getelementptr inbounds nuw i8, ptr %811, i64 %.idx24714
   %10376 = ptrtoint ptr %10371 to i64
   %10377 = ptrtoint ptr %.ptr24716.le to i64
   %.neg21356 = add i64 %10376, -20
@@ -60575,7 +60575,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353.preheader: ; preds = %10375,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353.preheader, %10385
   %.idx24719 = phi i64 [ %.add24720, %10385 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353.preheader ]
   %.add24720 = add nsw i64 %.idx24719, -1
-  %.ptr24722 = getelementptr inbounds i8, ptr %812, i64 %.add24720
+  %.ptr24722 = getelementptr inbounds nuw i8, ptr %812, i64 %.add24720
   %10384 = load i8, ptr %.ptr24722, align 1, !tbaa !9, !noalias !1517
   switch i8 %10384, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19357 [
     i8 116, label %10385
@@ -60604,7 +60604,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19355, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19357: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19353
-  %.ptr24721.le = getelementptr inbounds i8, ptr %812, i64 %.idx24719
+  %.ptr24721.le = getelementptr inbounds nuw i8, ptr %812, i64 %.idx24719
   %10386 = ptrtoint ptr %10383 to i64
   %10387 = ptrtoint ptr %.ptr24721.le to i64
   %.neg21359 = add i64 %10386, -20
@@ -60628,7 +60628,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363.preheader: ; preds = %10385,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363.preheader, %10397
   %.idx24724 = phi i64 [ %.add24725, %10397 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363.preheader ]
   %.add24725 = add nsw i64 %.idx24724, -1
-  %.ptr24727 = getelementptr inbounds i8, ptr %813, i64 %.add24725
+  %.ptr24727 = getelementptr inbounds nuw i8, ptr %813, i64 %.add24725
   %10394 = load i8, ptr %.ptr24727, align 1, !tbaa !9, !noalias !1520
   %10395 = add i8 %10394, -117
   %10396 = icmp ult i8 %10395, -20
@@ -60639,7 +60639,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19365, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19367: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19363
-  %.ptr24726.le = getelementptr inbounds i8, ptr %813, i64 %.idx24724
+  %.ptr24726.le = getelementptr inbounds nuw i8, ptr %813, i64 %.idx24724
   %10398 = ptrtoint ptr %10393 to i64
   %10399 = ptrtoint ptr %.ptr24726.le to i64
   %10400 = add i64 %10399, 20
@@ -60664,17 +60664,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381.preheader: ; preds = %10397,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381.preheader, %10409
   %.idx24729 = phi i64 [ %.add24730, %10409 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381.preheader ]
   %.add24730 = add nsw i64 %.idx24729, -1
-  %.ptr24733 = getelementptr inbounds i8, ptr %814, i64 %.add24730
+  %.ptr24733 = getelementptr inbounds nuw i8, ptr %814, i64 %.add24730
   %10408 = load i8, ptr %.ptr24733, align 1, !tbaa !9, !noalias !1523
   %memchr.char0cmp.not20805 = icmp eq i8 %10408, 113
   br i1 %memchr.char0cmp.not20805, label %10409, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19385
 
 10409:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381
-  %.not3.i.i.i19383 = icmp eq i64 %.add24730, 2
+  %.not3.i.i.i19383 = icmp samesign eq i64 %.add24730, 2
   br i1 %.not3.i.i.i19383, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19385: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19381
-  %.ptr24731.le = getelementptr inbounds i8, ptr %814, i64 %.idx24729
+  %.ptr24731.le = getelementptr inbounds nuw i8, ptr %814, i64 %.idx24729
   %10410 = ptrtoint ptr %10407 to i64
   %10411 = ptrtoint ptr %.ptr24731.le to i64
   %.neg21362 = add i64 %10410, -20
@@ -60698,7 +60698,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391.preheader: ; preds = %10409,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391.preheader, %10419
   %.idx24734 = phi i64 [ %.add24735, %10419 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391.preheader ]
   %.add24735 = add nsw i64 %.idx24734, -1
-  %.ptr24737 = getelementptr inbounds i8, ptr %815, i64 %.add24735
+  %.ptr24737 = getelementptr inbounds nuw i8, ptr %815, i64 %.add24735
   %10418 = load i8, ptr %.ptr24737, align 1, !tbaa !9, !noalias !1526
   switch i8 %10418, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19395 [
     i8 111, label %10419
@@ -60710,7 +60710,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19393, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19395: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19391
-  %.ptr24736.le = getelementptr inbounds i8, ptr %815, i64 %.idx24734
+  %.ptr24736.le = getelementptr inbounds nuw i8, ptr %815, i64 %.idx24734
   %10420 = ptrtoint ptr %10417 to i64
   %10421 = ptrtoint ptr %.ptr24736.le to i64
   %.neg21365 = add i64 %10420, -20
@@ -60734,7 +60734,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401.preheader: ; preds = %10419,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401.preheader, %10431
   %.idx24739 = phi i64 [ %.add24740, %10431 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401.preheader ]
   %.add24740 = add nsw i64 %.idx24739, -1
-  %.ptr24742 = getelementptr inbounds i8, ptr %816, i64 %.add24740
+  %.ptr24742 = getelementptr inbounds nuw i8, ptr %816, i64 %.add24740
   %10428 = load i8, ptr %.ptr24742, align 1, !tbaa !9, !noalias !1529
   %10429 = sext i8 %10428 to i32
   %10430 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3257, i32 noundef %10429, i64 noundef 4) #36, !noalias !1529
@@ -60746,7 +60746,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19403, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19405: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19401
-  %.ptr24741.le = getelementptr inbounds i8, ptr %816, i64 %.idx24739
+  %.ptr24741.le = getelementptr inbounds nuw i8, ptr %816, i64 %.idx24739
   %10432 = ptrtoint ptr %10427 to i64
   %10433 = ptrtoint ptr %.ptr24741.le to i64
   %.neg21368 = add i64 %10432, -20
@@ -60770,7 +60770,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411.preheader: ; preds = %10431,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411.preheader, %10443
   %.idx24744 = phi i64 [ %.add24745, %10443 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411.preheader ]
   %.add24745 = add nsw i64 %.idx24744, -1
-  %.ptr24747 = getelementptr inbounds i8, ptr %817, i64 %.add24745
+  %.ptr24747 = getelementptr inbounds nuw i8, ptr %817, i64 %.add24745
   %10440 = load i8, ptr %.ptr24747, align 1, !tbaa !9, !noalias !1532
   %10441 = sext i8 %10440 to i32
   %10442 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3260, i32 noundef %10441, i64 noundef 5) #36, !noalias !1532
@@ -60782,7 +60782,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19413, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19415: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19411
-  %.ptr24746.le = getelementptr inbounds i8, ptr %817, i64 %.idx24744
+  %.ptr24746.le = getelementptr inbounds nuw i8, ptr %817, i64 %.idx24744
   %10444 = ptrtoint ptr %10439 to i64
   %10445 = ptrtoint ptr %.ptr24746.le to i64
   %.neg21371 = add i64 %10444, -20
@@ -60807,17 +60807,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425.preheader: ; preds = %10443,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425.preheader, %10454
   %.idx24749 = phi i64 [ %.add24750, %10454 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425.preheader ]
   %.add24750 = add nsw i64 %.idx24749, -1
-  %.ptr24753 = getelementptr inbounds i8, ptr %818, i64 %.add24750
+  %.ptr24753 = getelementptr inbounds nuw i8, ptr %818, i64 %.add24750
   %10453 = load i8, ptr %.ptr24753, align 1, !tbaa !9, !noalias !1535
   %memchr.char0cmp.not20807 = icmp eq i8 %10453, 98
   br i1 %memchr.char0cmp.not20807, label %10454, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19429
 
 10454:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425
-  %.not3.i.i.i19427 = icmp eq i64 %.add24750, 2
+  %.not3.i.i.i19427 = icmp samesign eq i64 %.add24750, 2
   br i1 %.not3.i.i.i19427, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19429: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19425
-  %.ptr24751.le = getelementptr inbounds i8, ptr %818, i64 %.idx24749
+  %.ptr24751.le = getelementptr inbounds nuw i8, ptr %818, i64 %.idx24749
   %10455 = ptrtoint ptr %10452 to i64
   %10456 = ptrtoint ptr %.ptr24751.le to i64
   %.neg21374 = add i64 %10455, -20
@@ -60841,7 +60841,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435.preheader: ; preds = %10454,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435.preheader, %10466
   %.idx24754 = phi i64 [ %.add24755, %10466 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435.preheader ]
   %.add24755 = add nsw i64 %.idx24754, -1
-  %.ptr24757 = getelementptr inbounds i8, ptr %819, i64 %.add24755
+  %.ptr24757 = getelementptr inbounds nuw i8, ptr %819, i64 %.add24755
   %10463 = load i8, ptr %.ptr24757, align 1, !tbaa !9, !noalias !1538
   %10464 = sext i8 %10463 to i32
   %10465 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3269, i32 noundef %10464, i64 noundef 5) #36, !noalias !1538
@@ -60853,7 +60853,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19437, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19439: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19435
-  %.ptr24756.le = getelementptr inbounds i8, ptr %819, i64 %.idx24754
+  %.ptr24756.le = getelementptr inbounds nuw i8, ptr %819, i64 %.idx24754
   %10467 = ptrtoint ptr %10462 to i64
   %10468 = ptrtoint ptr %.ptr24756.le to i64
   %.neg21377 = add i64 %10467, -20
@@ -60877,7 +60877,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445.preheader: ; preds = %10466,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445.preheader, %10478
   %.idx24759 = phi i64 [ %.add24760, %10478 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445.preheader ]
   %.add24760 = add nsw i64 %.idx24759, -1
-  %.ptr24762 = getelementptr inbounds i8, ptr %820, i64 %.add24760
+  %.ptr24762 = getelementptr inbounds nuw i8, ptr %820, i64 %.add24760
   %10475 = load i8, ptr %.ptr24762, align 1, !tbaa !9, !noalias !1541
   %10476 = sext i8 %10475 to i32
   %10477 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3272, i32 noundef %10476, i64 noundef 9) #36, !noalias !1541
@@ -60889,7 +60889,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19447, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19449: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19445
-  %.ptr24761.le = getelementptr inbounds i8, ptr %820, i64 %.idx24759
+  %.ptr24761.le = getelementptr inbounds nuw i8, ptr %820, i64 %.idx24759
   %10479 = ptrtoint ptr %10474 to i64
   %10480 = ptrtoint ptr %.ptr24761.le to i64
   %.neg21380 = add i64 %10479, -20
@@ -60913,7 +60913,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455.preheader: ; preds = %10478,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455.preheader, %10490
   %.idx24764 = phi i64 [ %.add24765, %10490 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455.preheader ]
   %.add24765 = add nsw i64 %.idx24764, -1
-  %.ptr24767 = getelementptr inbounds i8, ptr %821, i64 %.add24765
+  %.ptr24767 = getelementptr inbounds nuw i8, ptr %821, i64 %.add24765
   %10487 = load i8, ptr %.ptr24767, align 1, !tbaa !9, !noalias !1544
   %10488 = sext i8 %10487 to i32
   %10489 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3275, i32 noundef %10488, i64 noundef 10) #36, !noalias !1544
@@ -60925,7 +60925,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19457, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19459: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19455
-  %.ptr24766.le = getelementptr inbounds i8, ptr %821, i64 %.idx24764
+  %.ptr24766.le = getelementptr inbounds nuw i8, ptr %821, i64 %.idx24764
   %10491 = ptrtoint ptr %10486 to i64
   %10492 = ptrtoint ptr %.ptr24766.le to i64
   %.neg21383 = add i64 %10491, -20
@@ -60950,17 +60950,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469.preheader: ; preds = %10490,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469.preheader, %10501
   %.idx24769 = phi i64 [ %.add24770, %10501 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469.preheader ]
   %.add24770 = add nsw i64 %.idx24769, -1
-  %.ptr24773 = getelementptr inbounds i8, ptr %822, i64 %.add24770
+  %.ptr24773 = getelementptr inbounds nuw i8, ptr %822, i64 %.add24770
   %10500 = load i8, ptr %.ptr24773, align 1, !tbaa !9, !noalias !1547
   %memchr.char0cmp.not20808 = icmp eq i8 %10500, 99
   br i1 %memchr.char0cmp.not20808, label %10501, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19473
 
 10501:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469
-  %.not3.i.i.i19471 = icmp eq i64 %.add24770, 2
+  %.not3.i.i.i19471 = icmp samesign eq i64 %.add24770, 2
   br i1 %.not3.i.i.i19471, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19473: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19469
-  %.ptr24771.le = getelementptr inbounds i8, ptr %822, i64 %.idx24769
+  %.ptr24771.le = getelementptr inbounds nuw i8, ptr %822, i64 %.idx24769
   %10502 = ptrtoint ptr %10499 to i64
   %10503 = ptrtoint ptr %.ptr24771.le to i64
   %.neg21386 = add i64 %10502, -20
@@ -60984,7 +60984,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479.preheader: ; preds = %10501,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479.preheader, %10513
   %.idx24774 = phi i64 [ %.add24775, %10513 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479.preheader ]
   %.add24775 = add nsw i64 %.idx24774, -1
-  %.ptr24777 = getelementptr inbounds i8, ptr %823, i64 %.add24775
+  %.ptr24777 = getelementptr inbounds nuw i8, ptr %823, i64 %.add24775
   %10510 = load i8, ptr %.ptr24777, align 1, !tbaa !9, !noalias !1550
   %10511 = sext i8 %10510 to i32
   %10512 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.3284, i32 noundef %10511, i64 noundef 10) #36, !noalias !1550
@@ -60996,7 +60996,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19481, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19483: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19479
-  %.ptr24776.le = getelementptr inbounds i8, ptr %823, i64 %.idx24774
+  %.ptr24776.le = getelementptr inbounds nuw i8, ptr %823, i64 %.idx24774
   %10514 = ptrtoint ptr %10509 to i64
   %10515 = ptrtoint ptr %.ptr24776.le to i64
   %.neg21389 = add i64 %10514, -20
@@ -61020,7 +61020,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489.preheader: ; preds = %10513,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489.preheader, %10526
   %.idx24782 = phi i64 [ %.add24783, %10526 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489.preheader ]
   %.add24783 = add nsw i64 %.idx24782, -1
-  %.ptr24786 = getelementptr inbounds i8, ptr %824, i64 %.add24783
+  %.ptr24786 = getelementptr inbounds nuw i8, ptr %824, i64 %.add24783
   %10522 = load i8, ptr %.ptr24786, align 1, !tbaa !9, !noalias !1553
   %.fr24781 = freeze i8 %10522
   %10523 = and i8 %.fr24781, -9
@@ -61032,11 +61032,11 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489: ; preds = %_ZNSt11char_trai
   br i1 %or.cond23120, label %10526, label %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19493
 
 10526:                                            ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489
-  %.not3.i.i.i19491 = icmp eq i64 %.add24783, 2
+  %.not3.i.i.i19491 = icmp samesign eq i64 %.add24783, 2
   br i1 %.not3.i.i.i19491, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499.preheader, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19493: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19489
-  %.ptr24784.le = getelementptr inbounds i8, ptr %824, i64 %.idx24782
+  %.ptr24784.le = getelementptr inbounds nuw i8, ptr %824, i64 %.idx24782
   %10527 = ptrtoint ptr %10521 to i64
   %10528 = ptrtoint ptr %.ptr24784.le to i64
   %.neg21392 = add i64 %10527, -20
@@ -61060,7 +61060,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499.preheader: ; preds = %10526,
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499.preheader, %10538
   %.idx24787 = phi i64 [ %.add24788, %10538 ], [ 22, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499.preheader ]
   %.add24788 = add nsw i64 %.idx24787, -1
-  %.ptr24790 = getelementptr inbounds i8, ptr %825, i64 %.add24788
+  %.ptr24790 = getelementptr inbounds nuw i8, ptr %825, i64 %.add24788
   %10535 = load i8, ptr %.ptr24790, align 1, !tbaa !9, !noalias !1556
   %10536 = add i8 %10535, -117
   %10537 = icmp ult i8 %10536, -20
@@ -61071,7 +61071,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499: ; preds = %_ZNSt11char_trai
   br i1 %.not3.i.i.i19501, label %_ZN5boost14static_strings7testFLNINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit19504, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499, !llvm.loop !43
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcSt16reverse_iteratorIPKcEEET1_S9_S9_PKT0_m.exit.i.i19503: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i19499
-  %.ptr24789.le = getelementptr inbounds i8, ptr %825, i64 %.idx24787
+  %.ptr24789.le = getelementptr inbounds nuw i8, ptr %825, i64 %.idx24787
   %10539 = ptrtoint ptr %10534 to i64
   %10540 = ptrtoint ptr %.ptr24789.le to i64
   %10541 = add i64 %10540, 20
@@ -63438,7 +63438,7 @@ _ZN5boost14static_stringseqILm30EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   %1920 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %1921 = getelementptr i8, ptr %1919, i64 -24
   %1922 = load i64, ptr %1921, align 8
-  %1923 = getelementptr inbounds i8, ptr %31, i64 %1922
+  %1923 = getelementptr inbounds nuw i8, ptr %31, i64 %1922
   store ptr %1920, ptr %1923, align 8, !tbaa !61
   %1924 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %1925 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -63473,7 +63473,7 @@ _ZN5boost14static_stringseqILm400EcSt11char_traitsIcEEEbRKNS0_19basic_static_str
   %1938 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %1939 = getelementptr i8, ptr %1937, i64 -24
   %1940 = load i64, ptr %1939, align 8
-  %1941 = getelementptr inbounds i8, ptr %31, i64 %1940
+  %1941 = getelementptr inbounds nuw i8, ptr %31, i64 %1940
   store ptr %1938, ptr %1941, align 8, !tbaa !61
   %1942 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %1942, align 8, !tbaa !1566
@@ -76019,7 +76019,7 @@ _ZNK5boost6detail10lw_test_eqclINS_14static_strings19basic_static_stringILm20EcS
   %23 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !61
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !63
   %29 = or i32 %28, 1
@@ -79691,7 +79691,7 @@ _ZN5boost14static_stringseqILm10ELm10EcSt11char_traitsIcEEEbRKNS0_19basic_static
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %104 = getelementptr i8, ptr %102, i64 -24
   %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %2, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 %105
   store ptr %103, ptr %106, align 8, !tbaa !61
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %107, ptr %9, align 8, !tbaa !61
@@ -79725,7 +79725,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %121 = getelementptr i8, ptr %119, i64 -24
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %2, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
   store ptr %120, ptr %123, align 8, !tbaa !61
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %124, align 8, !tbaa !1566
@@ -90218,7 +90218,7 @@ _ZN5boost14static_stringseqILm30EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   %1472 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %1473 = getelementptr i8, ptr %1471, i64 -24
   %1474 = load i64, ptr %1473, align 8
-  %1475 = getelementptr inbounds i8, ptr %30, i64 %1474
+  %1475 = getelementptr inbounds nuw i8, ptr %30, i64 %1474
   store ptr %1472, ptr %1475, align 8, !tbaa !61
   %1476 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %1477 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -90253,7 +90253,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %1490 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %1491 = getelementptr i8, ptr %1489, i64 -24
   %1492 = load i64, ptr %1491, align 8
-  %1493 = getelementptr inbounds i8, ptr %30, i64 %1492
+  %1493 = getelementptr inbounds nuw i8, ptr %30, i64 %1492
   store ptr %1490, ptr %1493, align 8, !tbaa !61
   %1494 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %1494, align 8, !tbaa !1566
@@ -101699,7 +101699,7 @@ _ZN5boost6detail12test_resultsEv.exit:            ; preds = %0, %3, %5
   %11 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !61
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 240
   %16 = load ptr, ptr %15, align 8, !tbaa !70
   %.not.i.i.i = icmp eq ptr %16, null

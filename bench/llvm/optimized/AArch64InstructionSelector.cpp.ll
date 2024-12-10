@@ -7124,7 +7124,7 @@ switch.lookup:                                    ; preds = %1394, %1392
   %1401 = call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %1400) #24
   %switch.tableidx = add nsw i32 %1401, -32
   %1402 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %1402
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %1402
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %203, ptr noundef nonnull align 8 dereferenceable(70) %1)
   %1403 = load ptr, ptr %1396, align 8
@@ -10607,7 +10607,7 @@ switch.lookup1666:                                ; preds = %3192
   %3196 = call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %3195) #24
   %switch.tableidx1667 = add nsw i32 %3196, -32
   %3197 = sext i32 %switch.tableidx1667 to i64
-  %switch.gep1668 = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %3197
+  %switch.gep1668 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %3197
   %switch.load1669 = load i32, ptr %switch.gep1668, align 4
   %3198 = load ptr, ptr %1614, align 8
   %3199 = getelementptr inbounds nuw i8, ptr %3198, i64 64
@@ -21690,7 +21690,7 @@ switch.lookup:                                    ; preds = %_ZNK12_GLOBAL__N_12
   %381 = load i32, ptr %380, align 8
   %switch.tableidx = add nsw i32 %381, -32
   %382 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_126AArch64InstructionSelector19selectCompareBranchERN4llvm12MachineInstrERNS1_15MachineFunctionERNS1_19MachineRegisterInfoE, i64 0, i64 %382
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN12_GLOBAL__N_126AArch64InstructionSelector19selectCompareBranchERN4llvm12MachineInstrERNS1_15MachineFunctionERNS1_19MachineRegisterInfoE, i64 0, i64 %382
   %switch.load = load i64, ptr %switch.gep, align 8
   %383 = load ptr, ptr %73, align 8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 32
@@ -26679,7 +26679,7 @@ switch.lookup:                                    ; preds = %71
   %76 = load i32, ptr %75, align 8
   %switch.tableidx = add nsw i32 %76, -32
   %77 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %77
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %77
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %6, align 4
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 64
@@ -48167,7 +48167,7 @@ define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_126AArch64InstructionSelect
 switch.lookup:                                    ; preds = %30
   %switch.tableidx = add nsw i32 %.0103, -32
   %33 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector18emitConjunctionRecEN4llvm8RegisterERNS1_9AArch64CC8CondCodeEbS2_S4_RNS1_16MachineIRBuilderE, i64 0, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 4
   br label %_ZL24changeFPCCToANDAArch64CCN4llvm7CmpInst9PredicateERNS_9AArch64CC8CondCodeES4_.exit.thread
@@ -48881,7 +48881,7 @@ switch.lookup:                                    ; preds = %_ZNK4llvm3LLT13getS
   %.038 = phi i32 [ %155, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ %188, %_ZNK4llvm3LLT13getSizeInBitsEv.exit63 ], [ %216, %_ZNK4llvm3LLT13getSizeInBitsEv.exit82 ], [ 2492, %245 ], [ 2497, %244 ], [ 2496, %_ZNK4llvm3LLT13getSizeInBitsEv.exit101 ]
   %246 = xor i32 %5, 1
   %247 = sext i32 %246 to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector25emitConditionalComparisonEN4llvm8RegisterES2_NS1_7CmpInst9PredicateENS1_9AArch64CC8CondCodeES6_RNS1_16MachineIRBuilderE, i64 0, i64 %247
+  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZNK12_GLOBAL__N_126AArch64InstructionSelector25emitConditionalComparisonEN4llvm8RegisterES2_NS1_7CmpInst9PredicateENS1_9AArch64CC8CondCodeES6_RNS1_16MachineIRBuilderE, i64 0, i64 %247
   %switch.load = load i64, ptr %switch.gep, align 8
   store i32 %1, ptr %19, align 8
   %248 = getelementptr inbounds nuw i8, ptr %19, i64 16

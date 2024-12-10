@@ -1358,7 +1358,7 @@ define hidden void @Index8GrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   %.0105 = phi i32 [ %31, %26 ], [ %25, %10 ]
   %32 = load i32, ptr %9, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
@@ -1582,7 +1582,7 @@ define hidden void @IntArgbToIndex8GrayAlphaMaskBlit(ptr noundef %0, ptr noundef
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -1857,7 +1857,7 @@ define hidden void @IntArgbPreToIndex8GrayAlphaMaskBlit(ptr noundef %0, ptr noun
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2134,7 +2134,7 @@ define hidden void @IntRgbToIndex8GrayAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2177,7 +2177,7 @@ define hidden void @IntRgbToIndex8GrayAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %58 = load ptr, ptr %57, align 8
   %59 = sext i32 %52 to i64
   %60 = sext i32 %16 to i64
-  %61 = getelementptr inbounds [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %60, i64 255
+  %61 = getelementptr inbounds nuw [256 x [256 x i8]], ptr @mul8table, i64 0, i64 %60, i64 255
   %62 = sext i32 %53 to i64
   %63 = sext i32 %54 to i64
   br label %64

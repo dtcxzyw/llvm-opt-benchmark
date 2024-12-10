@@ -244,10 +244,10 @@ switch.lookup:
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = sext i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %9
+  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %9
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   %10 = load ptr, ptr %0, align 8
   store ptr @.str.1, ptr %2, align 8
@@ -470,10 +470,10 @@ switch.lookup:
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = sext i32 %3 to i64
-  %switch.gep23 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %10
+  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %10
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   store ptr %1, ptr %4, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -542,10 +542,10 @@ switch.lookup:
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = sext i32 %3 to i64
-  %switch.gep23 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %10
+  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang11ProfileList14isFileExcludedEN4llvm9StringRefENS_14CodeGenOptions16ProfileInstrKindE.3, i64 0, i64 %10
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   store ptr %1, ptr %4, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

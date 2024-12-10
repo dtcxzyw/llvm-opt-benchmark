@@ -4309,7 +4309,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !328
   store i16 %23, ptr %22, align 1, !alias.scope !328
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -4328,7 +4328,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !328
   store i16 %35, ptr %34, align 1, !alias.scope !328
   br label %36
@@ -4343,7 +4343,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !328
   store i16 %43, ptr %42, align 1, !alias.scope !328
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4351,7 +4351,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !328
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4393,7 +4393,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h28483e5d6d70d
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !347, !noalias !342, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -4463,7 +4463,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !367
   store i16 %23, ptr %22, align 1, !alias.scope !367
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -4482,7 +4482,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !367
   store i16 %35, ptr %34, align 1, !alias.scope !367
   br label %36
@@ -4497,7 +4497,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !367
   store i16 %43, ptr %42, align 1, !alias.scope !367
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4505,7 +4505,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !367
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4547,7 +4547,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h3eac427fd2cf1
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !386, !noalias !381, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -4617,7 +4617,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !406
   store i16 %23, ptr %22, align 1, !alias.scope !406
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -4636,7 +4636,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !406
   store i16 %35, ptr %34, align 1, !alias.scope !406
   br label %36
@@ -4651,7 +4651,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !406
   store i16 %43, ptr %42, align 1, !alias.scope !406
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4659,7 +4659,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !406
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4701,7 +4701,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h529b20ab51804
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !425, !noalias !420, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -4771,7 +4771,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !445
   store i16 %23, ptr %22, align 1, !alias.scope !445
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -4790,7 +4790,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !445
   store i16 %35, ptr %34, align 1, !alias.scope !445
   br label %36
@@ -4805,7 +4805,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !445
   store i16 %43, ptr %42, align 1, !alias.scope !445
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4813,7 +4813,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !445
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4855,7 +4855,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6689c0f1dafd5
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !464, !noalias !459, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -4918,7 +4918,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
   %17 = zext nneg i16 %16 to i64
   %18 = add i64 %.02838.i, -4
   %19 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %14
-  %20 = getelementptr inbounds i8, ptr %4, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   %21 = load i16, ptr %19, align 1, !noalias !468
   store i16 %21, ptr %20, align 1, !alias.scope !468
   %22 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %17
@@ -4937,7 +4937,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
   %.zext37.i = zext nneg i16 %29 to i64
   %30 = add i64 %.028.lcssa.i, -2
   %31 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %28
-  %32 = getelementptr inbounds i8, ptr %4, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   %33 = load i16, ptr %31, align 1, !noalias !468
   store i16 %33, ptr %32, align 1, !alias.scope !468
   br label %34
@@ -4952,7 +4952,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
   %37 = shl nuw nsw i64 %.027.i, 1
   %38 = add i64 %.129.i, -2
   %39 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %37
-  %40 = getelementptr inbounds i8, ptr %4, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %38
   %41 = load i16, ptr %39, align 1, !noalias !468
   store i16 %41, ptr %40, align 1, !alias.scope !468
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -4960,7 +4960,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
 42:                                               ; preds = %34
   %43 = add i64 %.129.i, -1
   %44 = trunc nuw nsw i64 %.027.i to i8
-  %45 = getelementptr inbounds i8, ptr %4, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %43
   %46 = or disjoint i8 %44, 48
   store i8 %46, ptr %45, align 1, !alias.scope !468
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5001,7 +5001,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h6b328a6fab8ef
 
 66:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %53
   %67 = phi i64 [ %49, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %53 ]
-  %68 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !alias.scope !487, !noalias !482, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds i8, ptr %70, i64 %67
@@ -5070,7 +5070,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !523
   store i16 %23, ptr %22, align 1, !alias.scope !523
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -5089,7 +5089,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !523
   store i16 %35, ptr %34, align 1, !alias.scope !523
   br label %36
@@ -5104,7 +5104,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !523
   store i16 %43, ptr %42, align 1, !alias.scope !523
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5112,7 +5112,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !523
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5154,7 +5154,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17h948f3b9226bdc
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !542, !noalias !537, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -5224,7 +5224,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !562
   store i16 %23, ptr %22, align 1, !alias.scope !562
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -5243,7 +5243,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !562
   store i16 %35, ptr %34, align 1, !alias.scope !562
   br label %36
@@ -5258,7 +5258,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !562
   store i16 %43, ptr %42, align 1, !alias.scope !562
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5266,7 +5266,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !562
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5308,7 +5308,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha7cd3af073c0d
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !581, !noalias !576, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -5496,7 +5496,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !640
   store i16 %23, ptr %22, align 1, !alias.scope !640
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -5515,7 +5515,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !640
   store i16 %35, ptr %34, align 1, !alias.scope !640
   br label %36
@@ -5530,7 +5530,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !640
   store i16 %43, ptr %42, align 1, !alias.scope !640
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5538,7 +5538,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !640
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5580,7 +5580,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17hd32f90a7eda97
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !659, !noalias !654, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69
@@ -5650,7 +5650,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02838.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %16
-  %22 = getelementptr inbounds i8, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !679
   store i16 %23, ptr %22, align 1, !alias.scope !679
   %24 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %19
@@ -5669,7 +5669,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %.zext37.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !679
   store i16 %35, ptr %34, align 1, !alias.scope !679
   br label %36
@@ -5684,7 +5684,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.2f3815982dd5534134d168c1207ce125.43, i64 %39
-  %42 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !679
   store i16 %43, ptr %42, align 1, !alias.scope !679
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5692,7 +5692,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !679
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit"
@@ -5734,7 +5734,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
 
 68:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit", %55
   %69 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h09cfd08373c2111bE.exit" ], [ %.pre.i.i.i.i, %55 ]
-  %70 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !698, !noalias !693, !nonnull !4, !noundef !4
   %73 = getelementptr inbounds i8, ptr %72, i64 %69

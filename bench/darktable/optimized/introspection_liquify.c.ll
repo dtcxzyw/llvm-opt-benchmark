@@ -2637,7 +2637,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %173 = load i8, ptr %172, align 4, !tbaa !112
   %174 = icmp eq i8 %173, -1
   %175 = sext i8 %173 to i64
-  %176 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %9, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [100 x %struct.dt_liquify_path_data_t], ptr %9, i64 0, i64 %175
   %177 = load i32, ptr %151, align 8, !tbaa !109
   %178 = and i32 %177, 4
   %179 = icmp eq i32 %178, 0

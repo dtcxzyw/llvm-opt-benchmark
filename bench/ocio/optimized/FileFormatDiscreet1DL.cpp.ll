@@ -585,7 +585,7 @@ while.cond.i.i.i:                                 ; preds = %if.end.i.i, %if.end
   %source.0.i.i.i = phi i16 [ %inc.i.i.i, %if.end.i.i.i ], [ -1, %if.end.i.i ]
   %inc.i.i.i = add i16 %source.0.i.i.i, 1
   %idxprom.i.i.i = sext i16 %inc.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %InString.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %InString.i.i, i64 %idxprom.i.i.i
   %32 = load i8, ptr %arrayidx.i.i.i, align 1
   switch i8 %32, label %if.end.i.i.i [
     i8 0, label %while.cond7.preheader.i.i.i
@@ -627,7 +627,7 @@ while.end15.split.loop.exit23.i.i.i:              ; preds = %land.rhs.i.i.i
 while.end15.i.i.i:                                ; preds = %while.cond7.i.i.i, %while.end15.split.loop.exit23.i.i.i
   %source.1.lcssa.i.i.i = phi i16 [ %37, %while.end15.split.loop.exit23.i.i.i ], [ %34, %while.cond7.i.i.i ]
   %idxprom17.i.i.i = sext i16 %source.1.lcssa.i.i.i to i64
-  %arrayidx18.i.i.i = getelementptr inbounds i8, ptr %InString.i.i, i64 %idxprom17.i.i.i
+  %arrayidx18.i.i.i = getelementptr inbounds nuw i8, ptr %InString.i.i, i64 %idxprom17.i.i.i
   %38 = load i8, ptr %arrayidx18.i.i.i, align 1
   %cmp20.not.i.i.i = icmp eq i8 %38, 0
   br i1 %cmp20.not.i.i.i, label %while.cond25.i.i.i.preheader, label %if.then21.i.i.i
@@ -643,7 +643,7 @@ while.cond25.i.i.i:                               ; preds = %while.cond25.i.i.i.
   %source.2.i.i.i = phi i16 [ %inc26.i.i.i, %while.cond25.i.i.i ], [ -1, %while.cond25.i.i.i.preheader ]
   %inc26.i.i.i = add i16 %source.2.i.i.i, 1
   %idxprom27.i.i.i = sext i16 %inc26.i.i.i to i64
-  %arrayidx28.i.i.i = getelementptr inbounds i8, ptr %InString.i.i, i64 %idxprom27.i.i.i
+  %arrayidx28.i.i.i = getelementptr inbounds nuw i8, ptr %InString.i.i, i64 %idxprom27.i.i.i
   %39 = load i8, ptr %arrayidx28.i.i.i, align 1
   %cmp30.i.i.i = icmp eq i8 %39, 32
   br i1 %cmp30.i.i.i, label %while.cond25.i.i.i, label %while.end32.i.i.i, !llvm.loop !11
@@ -657,11 +657,11 @@ while.cond37.i.i.i:                               ; preds = %while.end32.i.i.i, 
   %destination.0.i.i.i = phi i16 [ %inc41.i.i.i, %while.cond37.i.i.i ], [ 0, %while.end32.i.i.i ]
   %inc38.i.i.i = add i16 %source.3.i.i.i, 1
   %idxprom39.i.i.i = sext i16 %source.3.i.i.i to i64
-  %arrayidx40.i.i.i = getelementptr inbounds i8, ptr %InString.i.i, i64 %idxprom39.i.i.i
+  %arrayidx40.i.i.i = getelementptr inbounds nuw i8, ptr %InString.i.i, i64 %idxprom39.i.i.i
   %40 = load i8, ptr %arrayidx40.i.i.i, align 1
   %inc41.i.i.i = add i16 %destination.0.i.i.i, 1
   %idxprom42.i.i.i = sext i16 %destination.0.i.i.i to i64
-  %arrayidx43.i.i.i = getelementptr inbounds i8, ptr %InString.i.i, i64 %idxprom42.i.i.i
+  %arrayidx43.i.i.i = getelementptr inbounds nuw i8, ptr %InString.i.i, i64 %idxprom42.i.i.i
   store i8 %40, ptr %arrayidx43.i.i.i, align 1
   %tobool44.not.i.i.i = icmp eq i8 %40, 0
   br i1 %tobool44.not.i.i.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125ReplaceTabsAndStripSpacesEPc.exit.i.i, label %while.cond37.i.i.i, !llvm.loop !12
@@ -1165,7 +1165,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 invoke.cont16:                                    ; preds = %invoke.cont14
   %switch.tableidx = add nsw i32 %status.0.i.ph, -1
   %91 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalFileFormat4readERSiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13InterpolationE, i64 0, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull %switch.load)
           to label %invoke.cont20 unwind label %lpad6

@@ -2420,7 +2420,7 @@ _ZN5eastl9make_pairIRKNS_12basic_stringIcNS_9allocatorEEERKjEENS_4pairINS_24remo
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   %conv.i.i.i.i.i.i.i = zext nneg i8 %4 to i64
   %sub.i.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i.i
-  %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 %sub.i.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %sub.i.i.i.i.i.i.i
   %cond.i.i.i.i.i = select i1 %tobool.i.i5.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i, align 1
   %7 = load i32, ptr %value, align 4, !noalias !134

@@ -837,7 +837,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %43,
   %123 = shl i64 %122, %72
   %124 = trunc i64 %123 to i16
   %125 = sext i32 %103 to i64
-  %126 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds [64 x i16], ptr %64, i64 0, i64 %128
@@ -1370,7 +1370,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %.0154 = phi i32 [ %.1155, %171 ], [ %102, %140 ]
   %.8146 = phi i64 [ %.10148, %171 ], [ %.6144, %140 ]
   %.8 = phi i32 [ %.10, %171 ], [ %.6, %140 ]
-  %144 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds i16, ptr %64, i64 %146
@@ -1443,7 +1443,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
 
 173:                                              ; preds = %.split.loop.exit297
   %174 = sext i32 %.3131 to i64
-  %175 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = trunc i32 %.1 to i16
   %178 = sext i32 %176 to i64
@@ -1451,7 +1451,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   store i16 %177, ptr %179, align 2
   %180 = add nsw i32 %.1127225, 1
   %181 = sext i32 %.1127225 to i64
-  %182 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %181
   store i32 %176, ptr %182, align 4
   br label %183
 
@@ -1486,7 +1486,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %46,
   %indvars.iv257 = phi i64 [ %188, %.lr.ph233 ], [ %indvars.iv.next258, %215 ]
   %.13231 = phi i32 [ %.0133271, %.lr.ph233 ], [ %.15, %215 ]
   %.13151230 = phi i64 [ %.0138270, %.lr.ph233 ], [ %.15153, %215 ]
-  %191 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv257
+  %191 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv257
   %192 = load i32, ptr %191, align 4
   %193 = sext i32 %192 to i64
   %194 = getelementptr inbounds i16, ptr %64, i64 %193

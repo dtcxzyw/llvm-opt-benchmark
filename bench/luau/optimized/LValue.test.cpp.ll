@@ -1567,7 +1567,7 @@ define linkonce_odr dso_local void @_ZN4Luau8TypePath4PathD2Ev(ptr noundef nonnu
   %.05.i.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN4Luau7VariantIJNS0_8TypePath8PropertyENS2_5IndexENS2_9TypeFieldENS2_9PackFieldENS2_9ReductionEEEEEvPT_.exit.i.i.i.i ], [ %2, %1 ]
   %5 = load i32, ptr %.05.i.i.i.i, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEE9tableDtorE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   invoke void %8(ptr noundef nonnull %9)
@@ -1909,7 +1909,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %114 = getelementptr inbounds i8, ptr %113, i64 -64
   %115 = load i32, ptr %114, align 8
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %116
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %113, i64 -56
   invoke void %118(ptr noundef nonnull %119)
@@ -1929,7 +1929,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i: 
 124:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i
   %125 = load i32, ptr %21, align 8
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %126
   %128 = load ptr, ptr %127, align 8
   invoke void %128(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i unwind label %129
@@ -1944,7 +1944,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i: 
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %124
   %132 = load i32, ptr %20, align 8
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8
   invoke void %135(ptr noundef nonnull %99)
           to label %139 unwind label %136
@@ -2011,7 +2011,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %163 = getelementptr inbounds i8, ptr %162, i64 -64
   %164 = load i32, ptr %163, align 8
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %162, i64 -56
   invoke void %167(ptr noundef nonnull %168)
@@ -2031,7 +2031,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit118.
 173:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit118.i
   %174 = load i32, ptr %29, align 8
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %175
   %177 = load ptr, ptr %176, align 8
   invoke void %177(ptr noundef nonnull %156)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit119.i unwind label %178
@@ -2046,7 +2046,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit118.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit119.i: ; preds = %173
   %181 = load i32, ptr %28, align 8
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %182
   %184 = load ptr, ptr %183, align 8
   invoke void %184(ptr noundef nonnull %149)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i unwind label %185
@@ -2061,7 +2061,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit119.i: ; preds = %173
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit119.i
   %188 = load i32, ptr %27, align 8
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %189
   %191 = load ptr, ptr %190, align 8
   invoke void %191(ptr noundef nonnull %142)
           to label %195 unwind label %192
@@ -2219,7 +2219,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   %247 = getelementptr inbounds i8, ptr %246, i64 -64
   %248 = load i32, ptr %247, align 8
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %249
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds i8, ptr %246, i64 -56
   invoke void %251(ptr noundef nonnull %252)
@@ -2239,7 +2239,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.
 257:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.i
   %258 = load i32, ptr %21, align 8
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %259
   %261 = load ptr, ptr %260, align 8
   invoke void %261(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i unwind label %262
@@ -2254,7 +2254,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i: ; preds = %257
   %265 = load i32, ptr %20, align 8
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %266
   %268 = load ptr, ptr %267, align 8
   invoke void %268(ptr noundef nonnull %99)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit128.i unwind label %269
@@ -2276,7 +2276,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i: ; preds = %257
   %276 = getelementptr inbounds i8, ptr %275, i64 -64
   %277 = load i32, ptr %276, align 8
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %278
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %275, i64 -56
   invoke void %280(ptr noundef nonnull %281)
@@ -2296,7 +2296,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit130.
 286:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit130.i
   %287 = load i32, ptr %29, align 8
   %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %288
   %290 = load ptr, ptr %289, align 8
   invoke void %290(ptr noundef nonnull %156)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit131.i unwind label %291
@@ -2311,7 +2311,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit130.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit131.i: ; preds = %286
   %294 = load i32, ptr %28, align 8
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %295
   %297 = load ptr, ptr %296, align 8
   invoke void %297(ptr noundef nonnull %149)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i unwind label %298
@@ -2326,7 +2326,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit131.i: ; preds = %286
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit131.i
   %301 = load i32, ptr %27, align 8
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %302
   %304 = load ptr, ptr %303, align 8
   invoke void %304(ptr noundef nonnull %142)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit133.i unwind label %305
@@ -2435,7 +2435,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i: ; preds = %_ZN4Luau7Var
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %343 = sext i32 %340 to i64
-  %344 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %343
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i.i, i64 16
   %347 = invoke noundef zeroext i1 %345(ptr noundef nonnull %335, ptr noundef nonnull %346)
@@ -2485,7 +2485,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i: ; preds = %361
   %366 = sext i32 %363 to i64
-  %367 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %366
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %370 = invoke noundef zeroext i1 %368(ptr noundef nonnull %335, ptr noundef nonnull %369)
@@ -2531,7 +2531,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %384) #23
   %385 = load i32, ptr %43, align 8
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %386
   %388 = load ptr, ptr %387, align 8
   invoke void %388(ptr noundef nonnull %335)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit140.i unwind label %389
@@ -2585,7 +2585,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn65.i = phi { ptr, i32 } [ %398, %397 ], [ %lpad.loopexit262.i, %.loopexit260.i ], [ %lpad.loopexit265.i, %.loopexit.split-lp261.loopexit.i ], [ %lpad.loopexit.split-lp266.i, %.loopexit.split-lp261.loopexit.split-lp.i ]
   %400 = load i32, ptr %43, align 8
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %401
   %403 = load ptr, ptr %402, align 8
   invoke void %403(ptr noundef nonnull %335)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit141.i unwind label %404
@@ -2682,7 +2682,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit140.i: ; preds = %408, %383
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i162.i: ; preds = %.lr.ph.i.i.i157.i
   %434 = sext i32 %431 to i64
-  %435 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %434
+  %435 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %434
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i158.i, i64 16
   %438 = invoke noundef zeroext i1 %436(ptr noundef nonnull %426, ptr noundef nonnull %437)
@@ -2732,7 +2732,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i153.i: ; preds = %452
   %457 = sext i32 %454 to i64
-  %458 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %457
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i148.i, i64 16
   %461 = invoke noundef zeroext i1 %459(ptr noundef nonnull %426, ptr noundef nonnull %460)
@@ -2778,7 +2778,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %475) #23
   %476 = load i32, ptr %49, align 8
   %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %477
   %479 = load ptr, ptr %478, align 8
   invoke void %479(ptr noundef nonnull %426)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit169.i unwind label %480
@@ -2832,7 +2832,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn68.i = phi { ptr, i32 } [ %489, %488 ], [ %lpad.loopexit253.i, %.loopexit251.i ], [ %lpad.loopexit256.i, %.loopexit.split-lp252.loopexit.i ], [ %lpad.loopexit.split-lp257.i, %.loopexit.split-lp252.loopexit.split-lp.i ]
   %491 = load i32, ptr %49, align 8
   %492 = sext i32 %491 to i64
-  %493 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %492
   %494 = load ptr, ptr %493, align 8
   invoke void %494(ptr noundef nonnull %426)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170.i unwind label %495
@@ -2929,7 +2929,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit169.i: ; preds = %499, %474
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i191.i: ; preds = %.lr.ph.i.i.i186.i
   %525 = sext i32 %522 to i64
-  %526 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %525
   %527 = load ptr, ptr %526, align 8
   %528 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i187.i, i64 16
   %529 = invoke noundef zeroext i1 %527(ptr noundef nonnull %517, ptr noundef nonnull %528)
@@ -2979,7 +2979,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i182.i: ; preds = %543
   %548 = sext i32 %545 to i64
-  %549 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %548
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i177.i, i64 16
   %552 = invoke noundef zeroext i1 %550(ptr noundef nonnull %517, ptr noundef nonnull %551)
@@ -3025,7 +3025,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %566) #23
   %567 = load i32, ptr %55, align 8
   %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %568
   %570 = load ptr, ptr %569, align 8
   invoke void %570(ptr noundef nonnull %517)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit198.i unwind label %571
@@ -3079,7 +3079,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn71.i = phi { ptr, i32 } [ %580, %579 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit247.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp248.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %582 = load i32, ptr %55, align 8
   %583 = sext i32 %582 to i64
-  %584 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %583
   %585 = load ptr, ptr %584, align 8
   invoke void %585(ptr noundef nonnull %517)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit199.i unwind label %586
@@ -3236,7 +3236,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #23
   %645 = load i32, ptr %59, align 8
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %646
+  %647 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %646
   %648 = load ptr, ptr %647, align 8
   invoke void %648(ptr noundef nonnull %607)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit206.i unwind label %649
@@ -3274,7 +3274,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn74.i = phi { ptr, i32 } [ %658, %657 ], [ %656, %655 ], [ %630, %629 ]
   %659 = load i32, ptr %59, align 8
   %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %660
+  %661 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %660
   %662 = load ptr, ptr %661, align 8
   invoke void %662(ptr noundef nonnull %607)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit207.i unwind label %663
@@ -3430,7 +3430,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #23
   %722 = load i32, ptr %63, align 8
   %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %723
+  %724 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %723
   %725 = load ptr, ptr %724, align 8
   invoke void %725(ptr noundef nonnull %684)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit217.i unwind label %726
@@ -3468,7 +3468,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn77.i = phi { ptr, i32 } [ %735, %734 ], [ %733, %732 ], [ %707, %706 ]
   %736 = load i32, ptr %63, align 8
   %737 = sext i32 %736 to i64
-  %738 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %737
+  %738 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %737
   %739 = load ptr, ptr %738, align 8
   invoke void %739(ptr noundef nonnull %684)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit218.i unwind label %740
@@ -3624,7 +3624,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
   %799 = load i32, ptr %67, align 8
   %800 = sext i32 %799 to i64
-  %801 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %800
+  %801 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %800
   %802 = load ptr, ptr %801, align 8
   invoke void %802(ptr noundef nonnull %761)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit227.i unwind label %803
@@ -3662,7 +3662,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn80.i = phi { ptr, i32 } [ %812, %811 ], [ %810, %809 ], [ %784, %783 ]
   %813 = load i32, ptr %67, align 8
   %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %814
   %816 = load ptr, ptr %815, align 8
   invoke void %816(ptr noundef nonnull %761)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit228.i unwind label %817
@@ -3730,7 +3730,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit227.i: ; preds = %821, %798
   %837 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %838 = load i32, ptr %837, align 8
   %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
   %841 = load ptr, ptr %840, align 8
   %842 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
   invoke void %841(ptr noundef nonnull %842)
@@ -3778,7 +3778,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %859 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i231.i, i64 8
   %860 = load i32, ptr %859, align 8
   %861 = sext i32 %860 to i64
-  %862 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %861
+  %862 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %861
   %863 = load ptr, ptr %862, align 8
   %864 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i231.i, i64 16
   invoke void %863(ptr noundef nonnull %864)
@@ -4251,7 +4251,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %121 = getelementptr inbounds i8, ptr %120, i64 -64
   %122 = load i32, ptr %121, align 8
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %120, i64 -56
   invoke void %125(ptr noundef nonnull %126)
@@ -4271,7 +4271,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i: 
 131:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i
   %132 = load i32, ptr %22, align 8
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8
   invoke void %135(ptr noundef nonnull %114)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i unwind label %136
@@ -4286,7 +4286,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit.i: 
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %131
   %139 = load i32, ptr %21, align 8
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %140
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit109.i unwind label %143
@@ -4301,7 +4301,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %131
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit109.i: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i
   %146 = load i32, ptr %20, align 8
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %147
   %149 = load ptr, ptr %148, align 8
   invoke void %149(ptr noundef nonnull %99)
           to label %153 unwind label %150
@@ -4353,7 +4353,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %170 = getelementptr inbounds i8, ptr %169, i64 -64
   %171 = load i32, ptr %170, align 8
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %172
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %169, i64 -56
   invoke void %174(ptr noundef nonnull %175)
@@ -4373,7 +4373,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit119.
 180:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit119.i
   %181 = load i32, ptr %29, align 8
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %182
   %184 = load ptr, ptr %183, align 8
   invoke void %184(ptr noundef nonnull %163)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i unwind label %185
@@ -4388,7 +4388,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit119.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit120.i: ; preds = %180
   %188 = load i32, ptr %28, align 8
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %189
   %191 = load ptr, ptr %190, align 8
   invoke void %191(ptr noundef nonnull %156)
           to label %195 unwind label %192
@@ -4546,7 +4546,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   %247 = getelementptr inbounds i8, ptr %246, i64 -64
   %248 = load i32, ptr %247, align 8
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %249
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds i8, ptr %246, i64 -56
   invoke void %251(ptr noundef nonnull %252)
@@ -4566,7 +4566,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.
 257:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.i
   %258 = load i32, ptr %22, align 8
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %259
   %261 = load ptr, ptr %260, align 8
   invoke void %261(ptr noundef nonnull %114)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i unwind label %262
@@ -4581,7 +4581,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit126.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i: ; preds = %257
   %265 = load i32, ptr %21, align 8
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %266
   %268 = load ptr, ptr %267, align 8
   invoke void %268(ptr noundef nonnull %107)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit128.i unwind label %269
@@ -4596,7 +4596,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i: ; preds = %257
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit128.i: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit127.i
   %272 = load i32, ptr %20, align 8
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %273
   %275 = load ptr, ptr %274, align 8
   invoke void %275(ptr noundef nonnull %99)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit129.i unwind label %276
@@ -4618,7 +4618,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit128.i: ; preds = %_ZN4Luau7Var
   %283 = getelementptr inbounds i8, ptr %282, i64 -64
   %284 = load i32, ptr %283, align 8
   %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds i8, ptr %282, i64 -56
   invoke void %287(ptr noundef nonnull %288)
@@ -4638,7 +4638,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit131.
 293:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit131.i
   %294 = load i32, ptr %29, align 8
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %295
   %297 = load ptr, ptr %296, align 8
   invoke void %297(ptr noundef nonnull %163)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i unwind label %298
@@ -4653,7 +4653,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit131.
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i: ; preds = %293
   %301 = load i32, ptr %28, align 8
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %302
   %304 = load ptr, ptr %303, align 8
   invoke void %304(ptr noundef nonnull %156)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit133.i unwind label %305
@@ -4762,7 +4762,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit132.i: ; preds = %293
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %343 = sext i32 %340 to i64
-  %344 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %343
   %345 = load ptr, ptr %344, align 8
   %346 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i.i, i64 16
   %347 = invoke noundef zeroext i1 %345(ptr noundef nonnull %335, ptr noundef nonnull %346)
@@ -4812,7 +4812,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i.i: ; preds = %361
   %366 = sext i32 %363 to i64
-  %367 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %366
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   %370 = invoke noundef zeroext i1 %368(ptr noundef nonnull %335, ptr noundef nonnull %369)
@@ -4858,7 +4858,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %384) #23
   %385 = load i32, ptr %43, align 8
   %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %386
   %388 = load ptr, ptr %387, align 8
   invoke void %388(ptr noundef nonnull %335)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit140.i unwind label %389
@@ -4912,7 +4912,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn65.i = phi { ptr, i32 } [ %398, %397 ], [ %lpad.loopexit262.i, %.loopexit260.i ], [ %lpad.loopexit265.i, %.loopexit.split-lp261.loopexit.i ], [ %lpad.loopexit.split-lp266.i, %.loopexit.split-lp261.loopexit.split-lp.i ]
   %400 = load i32, ptr %43, align 8
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %401
   %403 = load ptr, ptr %402, align 8
   invoke void %403(ptr noundef nonnull %335)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit141.i unwind label %404
@@ -5009,7 +5009,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit140.i: ; preds = %408, %383
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i162.i: ; preds = %.lr.ph.i.i.i157.i
   %434 = sext i32 %431 to i64
-  %435 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %434
+  %435 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %434
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i158.i, i64 16
   %438 = invoke noundef zeroext i1 %436(ptr noundef nonnull %426, ptr noundef nonnull %437)
@@ -5059,7 +5059,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i153.i: ; preds = %452
   %457 = sext i32 %454 to i64
-  %458 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %457
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i148.i, i64 16
   %461 = invoke noundef zeroext i1 %459(ptr noundef nonnull %426, ptr noundef nonnull %460)
@@ -5105,7 +5105,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %475) #23
   %476 = load i32, ptr %49, align 8
   %477 = sext i32 %476 to i64
-  %478 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %477
+  %478 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %477
   %479 = load ptr, ptr %478, align 8
   invoke void %479(ptr noundef nonnull %426)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit169.i unwind label %480
@@ -5159,7 +5159,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn68.i = phi { ptr, i32 } [ %489, %488 ], [ %lpad.loopexit253.i, %.loopexit251.i ], [ %lpad.loopexit256.i, %.loopexit.split-lp252.loopexit.i ], [ %lpad.loopexit.split-lp257.i, %.loopexit.split-lp252.loopexit.split-lp.i ]
   %491 = load i32, ptr %49, align 8
   %492 = sext i32 %491 to i64
-  %493 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %492
   %494 = load ptr, ptr %493, align 8
   invoke void %494(ptr noundef nonnull %426)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170.i unwind label %495
@@ -5256,7 +5256,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit169.i: ; preds = %499, %474
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i191.i: ; preds = %.lr.ph.i.i.i186.i
   %525 = sext i32 %522 to i64
-  %526 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %525
   %527 = load ptr, ptr %526, align 8
   %528 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i187.i, i64 16
   %529 = invoke noundef zeroext i1 %527(ptr noundef nonnull %517, ptr noundef nonnull %528)
@@ -5306,7 +5306,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i182.i: ; preds = %543
   %548 = sext i32 %545 to i64
-  %549 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %548
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i177.i, i64 16
   %552 = invoke noundef zeroext i1 %550(ptr noundef nonnull %517, ptr noundef nonnull %551)
@@ -5352,7 +5352,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %566) #23
   %567 = load i32, ptr %55, align 8
   %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %568
+  %569 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %568
   %570 = load ptr, ptr %569, align 8
   invoke void %570(ptr noundef nonnull %517)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit198.i unwind label %571
@@ -5406,7 +5406,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn71.i = phi { ptr, i32 } [ %580, %579 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit247.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp248.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %582 = load i32, ptr %55, align 8
   %583 = sext i32 %582 to i64
-  %584 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %583
   %585 = load ptr, ptr %584, align 8
   invoke void %585(ptr noundef nonnull %517)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit199.i unwind label %586
@@ -5563,7 +5563,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #23
   %645 = load i32, ptr %59, align 8
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %646
+  %647 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %646
   %648 = load ptr, ptr %647, align 8
   invoke void %648(ptr noundef nonnull %607)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit206.i unwind label %649
@@ -5601,7 +5601,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn74.i = phi { ptr, i32 } [ %658, %657 ], [ %656, %655 ], [ %630, %629 ]
   %659 = load i32, ptr %59, align 8
   %660 = sext i32 %659 to i64
-  %661 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %660
+  %661 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %660
   %662 = load ptr, ptr %661, align 8
   invoke void %662(ptr noundef nonnull %607)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit207.i unwind label %663
@@ -5757,7 +5757,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #23
   %722 = load i32, ptr %63, align 8
   %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %723
+  %724 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %723
   %725 = load ptr, ptr %724, align 8
   invoke void %725(ptr noundef nonnull %684)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit217.i unwind label %726
@@ -5795,7 +5795,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn77.i = phi { ptr, i32 } [ %735, %734 ], [ %733, %732 ], [ %707, %706 ]
   %736 = load i32, ptr %63, align 8
   %737 = sext i32 %736 to i64
-  %738 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %737
+  %738 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %737
   %739 = load ptr, ptr %738, align 8
   invoke void %739(ptr noundef nonnull %684)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit218.i unwind label %740
@@ -5951,7 +5951,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
   %799 = load i32, ptr %67, align 8
   %800 = sext i32 %799 to i64
-  %801 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %800
+  %801 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %800
   %802 = load ptr, ptr %801, align 8
   invoke void %802(ptr noundef nonnull %761)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit227.i unwind label %803
@@ -5989,7 +5989,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn80.i = phi { ptr, i32 } [ %812, %811 ], [ %810, %809 ], [ %784, %783 ]
   %813 = load i32, ptr %67, align 8
   %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %814
   %816 = load ptr, ptr %815, align 8
   invoke void %816(ptr noundef nonnull %761)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit228.i unwind label %817
@@ -6057,7 +6057,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit227.i: ; preds = %821, %798
   %837 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %838 = load i32, ptr %837, align 8
   %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
   %841 = load ptr, ptr %840, align 8
   %842 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
   invoke void %841(ptr noundef nonnull %842)
@@ -6105,7 +6105,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %859 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i231.i, i64 8
   %860 = load i32, ptr %859, align 8
   %861 = sext i32 %860 to i64
-  %862 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %861
+  %862 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %861
   %863 = load ptr, ptr %862, align 8
   %864 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i231.i, i64 16
   invoke void %863(ptr noundef nonnull %864)
@@ -6762,7 +6762,7 @@ _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5F
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %193 = load i32, ptr %16, align 8
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = invoke noundef zeroext i1 %196(ptr noundef nonnull %83, ptr noundef nonnull %83)
           to label %.noexc71.i unwind label %229
@@ -6938,7 +6938,7 @@ _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5F
 
 _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5FieldEEEES6_EclERKS6_S9_.exit.i75.i: ; preds = %248
   %253 = sext i32 %249 to i64
-  %254 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %253
   %255 = load ptr, ptr %254, align 8
   %256 = invoke noundef zeroext i1 %255(ptr noundef nonnull %83, ptr noundef nonnull %152)
           to label %.noexc76.i unwind label %271
@@ -7042,7 +7042,7 @@ _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5F
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %290 = load i32, ptr %22, align 8
   %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %291
   %293 = load ptr, ptr %292, align 8
   %294 = invoke noundef zeroext i1 %293(ptr noundef nonnull %152, ptr noundef nonnull %152)
           to label %.noexc82.i unwind label %309
@@ -7594,7 +7594,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   %495 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %496 = load i32, ptr %495, align 8
   %497 = sext i32 %496 to i64
-  %498 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %497
   %499 = load ptr, ptr %498, align 8
   %500 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
   invoke void %499(ptr noundef nonnull %500)
@@ -7631,7 +7631,7 @@ _ZNSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4T
 _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit.i: ; preds = %509, %_ZNSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4TypeEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ENS0_12LValueHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %512 = load i32, ptr %22, align 8
   %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %513
+  %514 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %513
   %515 = load ptr, ptr %514, align 8
   invoke void %515(ptr noundef nonnull %152)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i unwind label %516
@@ -7648,7 +7648,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %_ZNSt13unordere
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #23
   %519 = load i32, ptr %16, align 8
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %520
   %522 = load ptr, ptr %521, align 8
   invoke void %522(ptr noundef nonnull %83)
           to label %549 unwind label %523
@@ -7674,7 +7674,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %_ZNSt13unordere
   %.pn35.pn.pn.i = phi { ptr, i32 } [ %.pn35.pn.i, %527 ], [ %.pn33.i, %470 ], [ %425, %424 ], [ %226, %225 ], [ %.pn31.i, %423 ], [ %386, %385 ], [ %.pn29.i, %384 ], [ %347, %346 ], [ %.pn27.i, %345 ], [ %308, %307 ], [ %.pn25.i, %306 ], [ %270, %269 ], [ %.pn.i, %268 ], [ %228, %227 ]
   %529 = load i32, ptr %22, align 8
   %530 = sext i32 %529 to i64
-  %531 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %530
   %532 = load ptr, ptr %531, align 8
   invoke void %532(ptr noundef nonnull %152)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit101.i unwind label %533
@@ -7700,7 +7700,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit101.i: ; preds = %528, %223, %
   %.pn35.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.i, %536 ], [ %eh.lpad-body55.i, %.body54.i ]
   %538 = load i32, ptr %16, align 8
   %539 = sext i32 %538 to i64
-  %540 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %539
+  %540 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %539
   %541 = load ptr, ptr %540, align 8
   invoke void %541(ptr noundef nonnull %83)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit102.i unwind label %542
@@ -8293,7 +8293,7 @@ _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5F
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %202 = load i32, ptr %17, align 8
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = invoke noundef zeroext i1 %205(ptr noundef nonnull %88, ptr noundef nonnull %88)
           to label %.noexc71.i unwind label %238
@@ -8469,7 +8469,7 @@ _ZNK7doctest6detail20RelationalComparatorILi1EN4Luau7VariantIJNS2_6SymbolENS2_5F
 
 _ZNK7doctest6detail20RelationalComparatorILi1EN4Luau7VariantIJNS2_6SymbolENS2_5FieldEEEES6_EclERKS6_S9_.exit.i.i: ; preds = %257
   %262 = sext i32 %258 to i64
-  %263 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %262
   %264 = load ptr, ptr %263, align 8
   %265 = invoke noundef zeroext i1 %264(ptr noundef nonnull %88, ptr noundef nonnull %161)
           to label %.noexc74.i unwind label %279
@@ -8572,7 +8572,7 @@ _ZNK7doctest6detail20RelationalComparatorILi0EN4Luau7VariantIJNS2_6SymbolENS2_5F
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %298 = load i32, ptr %24, align 8
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = invoke noundef zeroext i1 %301(ptr noundef nonnull %161, ptr noundef nonnull %161)
           to label %.noexc79.i unwind label %317
@@ -9124,7 +9124,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit.i: ; p
   %502 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %503 = load i32, ptr %502, align 8
   %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %504
+  %505 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %504
   %506 = load ptr, ptr %505, align 8
   %507 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
   invoke void %506(ptr noundef nonnull %507)
@@ -9161,7 +9161,7 @@ _ZNSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4T
 _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEED2Ev.exit.i: ; preds = %516, %_ZNSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4TypeEESaISA_ENSt8__detail10_Select1stESt8equal_toIS4_ENS0_12LValueHasherENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
   %519 = load i32, ptr %24, align 8
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %520
   %522 = load ptr, ptr %521, align 8
   invoke void %522(ptr noundef nonnull %161)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i unwind label %523
@@ -9178,7 +9178,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %_ZNSt13unordere
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #23
   %526 = load i32, ptr %17, align 8
   %527 = sext i32 %526 to i64
-  %528 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %527
   %529 = load ptr, ptr %528, align 8
   invoke void %529(ptr noundef nonnull %88)
           to label %556 unwind label %530
@@ -9204,7 +9204,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit.i: ; preds = %_ZNSt13unordere
   %.pn35.pn.pn.i = phi { ptr, i32 } [ %.pn35.pn.i, %534 ], [ %.pn33.i, %477 ], [ %432, %431 ], [ %235, %234 ], [ %.pn31.i, %430 ], [ %393, %392 ], [ %.pn29.i, %391 ], [ %355, %354 ], [ %.pn27.i, %353 ], [ %316, %315 ], [ %.pn25.i, %314 ], [ %278, %277 ], [ %.pn.i, %276 ], [ %237, %236 ]
   %536 = load i32, ptr %24, align 8
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %537
+  %538 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %537
   %539 = load ptr, ptr %538, align 8
   invoke void %539(ptr noundef nonnull %161)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit97.i unwind label %540
@@ -9230,7 +9230,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit97.i: ; preds = %535, %232, %2
   %.pn35.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn35.pn.pn.pn.pn.i, %543 ], [ %eh.lpad-body55.i, %.body54.i ]
   %545 = load i32, ptr %17, align 8
   %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %546
+  %547 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %546
   %548 = load ptr, ptr %547, align 8
   invoke void %548(ptr noundef nonnull %88)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit98.i unwind label %549
@@ -9478,7 +9478,7 @@ define linkonce_odr dso_local void @_ZNSt13unordered_mapIN4Luau7VariantIJNS0_6Sy
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   invoke void %9(ptr noundef nonnull %10)
@@ -9729,7 +9729,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN4Luau7VariantIJNS0
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_key_equals_trIS5_EEbRKT_RKNS_16_Hash_node_valueISB_Lb1EEE.exit: ; preds = %11
   %16 = sext i32 %13 to i64
-  %17 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.020.032, i64 16
   %20 = tail call noundef zeroext i1 %18(ptr noundef nonnull %10, ptr noundef nonnull %19)
@@ -9779,7 +9779,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_equals_trIS5_EEbRKT_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i: ; preds = %36
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %45 = tail call noundef zeroext i1 %43(ptr noundef nonnull %32, ptr noundef nonnull %44)
@@ -9810,7 +9810,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %55 = load i32, ptr %1, align 8
   store i32 %55, ptr %54, align 8
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_6SymbolENS_5FieldEEEC1ERKS3_E5table, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_6SymbolENS_5FieldEEEC1ERKS3_E5table, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9985,7 +9985,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN4Luau7VariantIJNS0_6Symbo
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void %9(ptr noundef nonnull %10)
@@ -10412,7 +10412,7 @@ _ZN4Luau14TypedAllocatorINS_4TypeEE8unfreezeEv.exit: ; preds = %.noexc, %4
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %29, %.lr.ph.i1
   %31 = load i32, ptr %25, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
   invoke void %34(ptr noundef nonnull %35)
@@ -10503,7 +10503,7 @@ define linkonce_odr dso_local void @_ZN4Luau4TypeD2Ev(ptr noundef nonnull align 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %1, %5
   %7 = load i32, ptr %0, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %10(ptr noundef nonnull %11)
@@ -10553,7 +10553,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4
 define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE6fnDtorISB_EEvPv(ptr noundef %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_16BooleanSingletonENS_15StringSingletonEEE9tableDtorE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void %5(ptr noundef nonnull %6)
@@ -11765,7 +11765,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9UnionT
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %21, %18
   %23 = load i32, ptr %3, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   invoke void %26(ptr noundef nonnull %11)
           to label %_ZN4Luau4TypeD2Ev.exit unwind label %27
@@ -11780,7 +11780,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i:
 _ZN4Luau4TypeD2Ev.exit:                           ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
   %30 = load i32, ptr %4, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   invoke void %33(ptr noundef nonnull %5)
           to label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit unwind label %34
@@ -11801,7 +11801,7 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
   call void @_ZN4Luau4TypeD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3) #23
   %39 = load i32, ptr %4, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [20 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEE9tableDtorE, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
   invoke void %42(ptr noundef nonnull %5)
           to label %_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit4 unwind label %43
@@ -13495,7 +13495,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i: ; preds = %17
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %26 = tail call noundef zeroext i1 %24(ptr noundef nonnull %13, ptr noundef nonnull %25)
@@ -13527,7 +13527,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %36 = load i32, ptr %1, align 8
   store i32 %36, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableMoveE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableMoveE, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13767,7 +13767,7 @@ _ZN4Luau14TypedAllocatorINS_11TypePackVarEE8unfreezeEv.exit: ; preds = %.noexc, 
   %25 = getelementptr inbounds %"struct.Luau::TypePackVar", ptr %18, i64 %.012.i
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [8 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEE9tableDtorE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEE9tableDtorE, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   invoke void %29(ptr noundef nonnull %30)
@@ -13939,7 +13939,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableIN4Luau7VariantIJNS0_6Symbo
   %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 16
   invoke void %9(ptr noundef nonnull %10)
@@ -14343,7 +14343,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %171 = getelementptr inbounds i8, ptr %170, i64 -64
   %172 = load i32, ptr %171, align 8
   %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %173
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds i8, ptr %170, i64 -56
   invoke void %175(ptr noundef nonnull %176)
@@ -14363,7 +14363,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit: ; 
 181:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit
   %182 = load i32, ptr %33, align 8
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %183
   %185 = load ptr, ptr %184, align 8
   invoke void %185(ptr noundef nonnull %164)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit unwind label %186
@@ -14378,7 +14378,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit: ; 
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit: ; preds = %181
   %189 = load i32, ptr %32, align 8
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %190
   %192 = load ptr, ptr %191, align 8
   invoke void %192(ptr noundef nonnull %156)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit148 unwind label %193
@@ -14393,7 +14393,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit: ; preds = %181
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit148: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit
   %196 = load i32, ptr %31, align 8
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %197
   %199 = load ptr, ptr %198, align 8
   invoke void %199(ptr noundef nonnull %148)
           to label %203 unwind label %200
@@ -14459,7 +14459,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %226 = getelementptr inbounds i8, ptr %225, i64 -64
   %227 = load i32, ptr %226, align 8
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %228
   %230 = load ptr, ptr %229, align 8
   %231 = getelementptr inbounds i8, ptr %225, i64 -56
   invoke void %230(ptr noundef nonnull %231)
@@ -14479,7 +14479,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit161:
 236:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit161
   %237 = load i32, ptr %41, align 8
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %238
   %240 = load ptr, ptr %239, align 8
   invoke void %240(ptr noundef nonnull %220)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit162 unwind label %241
@@ -14494,7 +14494,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit161:
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit162: ; preds = %236
   %244 = load i32, ptr %40, align 8
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %245
   %247 = load ptr, ptr %246, align 8
   invoke void %247(ptr noundef nonnull %213)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit163 unwind label %248
@@ -14509,7 +14509,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit162: ; preds = %236
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit163: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit162
   %251 = load i32, ptr %39, align 8
   %252 = sext i32 %251 to i64
-  %253 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %252
+  %253 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %252
   %254 = load ptr, ptr %253, align 8
   invoke void %254(ptr noundef nonnull %206)
           to label %258 unwind label %255
@@ -14687,7 +14687,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EimEEbRKT0_RKT1_.exit: ; pre
   %314 = getelementptr inbounds i8, ptr %313, i64 -64
   %315 = load i32, ptr %314, align 8
   %316 = sext i32 %315 to i64
-  %317 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %316
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %313, i64 -56
   invoke void %318(ptr noundef nonnull %319)
@@ -14707,7 +14707,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit169:
 324:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit169
   %325 = load i32, ptr %33, align 8
   %326 = sext i32 %325 to i64
-  %327 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %326
   %328 = load ptr, ptr %327, align 8
   invoke void %328(ptr noundef nonnull %164)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170 unwind label %329
@@ -14722,7 +14722,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit169:
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170: ; preds = %324
   %332 = load i32, ptr %32, align 8
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %333
+  %334 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %333
   %335 = load ptr, ptr %334, align 8
   invoke void %335(ptr noundef nonnull %156)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit171 unwind label %336
@@ -14737,7 +14737,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170: ; preds = %324
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit171: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit170
   %339 = load i32, ptr %31, align 8
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %340
   %342 = load ptr, ptr %341, align 8
   invoke void %342(ptr noundef nonnull %148)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit172 unwind label %343
@@ -14759,7 +14759,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit171: ; preds = %_ZN4Luau7Varia
   %350 = getelementptr inbounds i8, ptr %349, i64 -64
   %351 = load i32, ptr %350, align 8
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %352
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %349, i64 -56
   invoke void %354(ptr noundef nonnull %355)
@@ -14779,7 +14779,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit174:
 360:                                              ; preds = %_ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit174
   %361 = load i32, ptr %41, align 8
   %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %362
   %364 = load ptr, ptr %363, align 8
   invoke void %364(ptr noundef nonnull %220)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit175 unwind label %365
@@ -14794,7 +14794,7 @@ _ZNSt4pairIKN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeEED2Ev.exit174:
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit175: ; preds = %360
   %368 = load i32, ptr %40, align 8
   %369 = sext i32 %368 to i64
-  %370 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %369
   %371 = load ptr, ptr %370, align 8
   invoke void %371(ptr noundef nonnull %213)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit176 unwind label %372
@@ -14809,7 +14809,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit175: ; preds = %360
 _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit176: ; preds = %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit175
   %375 = load i32, ptr %39, align 8
   %376 = sext i32 %375 to i64
-  %377 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %376
   %378 = load ptr, ptr %377, align 8
   invoke void %378(ptr noundef nonnull %206)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit177 unwind label %379
@@ -14918,7 +14918,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit176: ; preds = %_ZN4Luau7Varia
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %417 = sext i32 %414 to i64
-  %418 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %417
   %419 = load ptr, ptr %418, align 8
   %420 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i, i64 16
   %421 = invoke noundef zeroext i1 %419(ptr noundef nonnull %409, ptr noundef nonnull %420)
@@ -14968,7 +14968,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i: ; preds = %435
   %440 = sext i32 %437 to i64
-  %441 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %440
+  %441 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %440
   %442 = load ptr, ptr %441, align 8
   %443 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   %444 = invoke noundef zeroext i1 %442(ptr noundef nonnull %409, ptr noundef nonnull %443)
@@ -15014,7 +15014,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %458) #23
   %459 = load i32, ptr %55, align 8
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %460
+  %461 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %460
   %462 = load ptr, ptr %461, align 8
   invoke void %462(ptr noundef nonnull %409)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit184 unwind label %463
@@ -15068,7 +15068,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn80 = phi { ptr, i32 } [ %472, %471 ], [ %lpad.loopexit405, %.loopexit403 ], [ %lpad.loopexit408, %.loopexit.split-lp404.loopexit ], [ %lpad.loopexit.split-lp409, %.loopexit.split-lp404.loopexit.split-lp ]
   %474 = load i32, ptr %55, align 8
   %475 = sext i32 %474 to i64
-  %476 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %475
+  %476 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %475
   %477 = load ptr, ptr %476, align 8
   invoke void %477(ptr noundef nonnull %409)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit185 unwind label %478
@@ -15165,7 +15165,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit184: ; preds = %457, %482
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i206: ; preds = %.lr.ph.i.i.i201
   %508 = sext i32 %505 to i64
-  %509 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %508
   %510 = load ptr, ptr %509, align 8
   %511 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i202, i64 16
   %512 = invoke noundef zeroext i1 %510(ptr noundef nonnull %500, ptr noundef nonnull %511)
@@ -15215,7 +15215,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i197: ; preds = %526
   %531 = sext i32 %528 to i64
-  %532 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %531
+  %532 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %531
   %533 = load ptr, ptr %532, align 8
   %534 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i192, i64 16
   %535 = invoke noundef zeroext i1 %533(ptr noundef nonnull %500, ptr noundef nonnull %534)
@@ -15261,7 +15261,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %549) #23
   %550 = load i32, ptr %61, align 8
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %551
+  %552 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %551
   %553 = load ptr, ptr %552, align 8
   invoke void %553(ptr noundef nonnull %500)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit213 unwind label %554
@@ -15315,7 +15315,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn83 = phi { ptr, i32 } [ %563, %562 ], [ %lpad.loopexit396, %.loopexit394 ], [ %lpad.loopexit399, %.loopexit.split-lp395.loopexit ], [ %lpad.loopexit.split-lp400, %.loopexit.split-lp395.loopexit.split-lp ]
   %565 = load i32, ptr %61, align 8
   %566 = sext i32 %565 to i64
-  %567 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %566
   %568 = load ptr, ptr %567, align 8
   invoke void %568(ptr noundef nonnull %500)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit214 unwind label %569
@@ -15412,7 +15412,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit213: ; preds = %548, %573
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i235: ; preds = %.lr.ph.i.i.i230
   %599 = sext i32 %596 to i64
-  %600 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %599
+  %600 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %599
   %601 = load ptr, ptr %600, align 8
   %602 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i231, i64 16
   %603 = invoke noundef zeroext i1 %601(ptr noundef nonnull %591, ptr noundef nonnull %602)
@@ -15462,7 +15462,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i226: ; preds = %617
   %622 = sext i32 %619 to i64
-  %623 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %622
   %624 = load ptr, ptr %623, align 8
   %625 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i221, i64 16
   %626 = invoke noundef zeroext i1 %624(ptr noundef nonnull %591, ptr noundef nonnull %625)
@@ -15508,7 +15508,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %640) #23
   %641 = load i32, ptr %67, align 8
   %642 = sext i32 %641 to i64
-  %643 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %642
+  %643 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %642
   %644 = load ptr, ptr %643, align 8
   invoke void %644(ptr noundef nonnull %591)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit242 unwind label %645
@@ -15562,7 +15562,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn86 = phi { ptr, i32 } [ %654, %653 ], [ %lpad.loopexit387, %.loopexit385 ], [ %lpad.loopexit390, %.loopexit.split-lp386.loopexit ], [ %lpad.loopexit.split-lp391, %.loopexit.split-lp386.loopexit.split-lp ]
   %656 = load i32, ptr %67, align 8
   %657 = sext i32 %656 to i64
-  %658 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %657
+  %658 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %657
   %659 = load ptr, ptr %658, align 8
   invoke void %659(ptr noundef nonnull %591)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit243 unwind label %660
@@ -15659,7 +15659,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit242: ; preds = %639, %664
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i264: ; preds = %.lr.ph.i.i.i259
   %690 = sext i32 %687 to i64
-  %691 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %690
+  %691 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %690
   %692 = load ptr, ptr %691, align 8
   %693 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i260, i64 16
   %694 = invoke noundef zeroext i1 %692(ptr noundef nonnull %682, ptr noundef nonnull %693)
@@ -15709,7 +15709,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i255: ; preds = %708
   %713 = sext i32 %710 to i64
-  %714 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %713
   %715 = load ptr, ptr %714, align 8
   %716 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i250, i64 16
   %717 = invoke noundef zeroext i1 %715(ptr noundef nonnull %682, ptr noundef nonnull %716)
@@ -15755,7 +15755,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %731) #23
   %732 = load i32, ptr %73, align 8
   %733 = sext i32 %732 to i64
-  %734 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %733
+  %734 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %733
   %735 = load ptr, ptr %734, align 8
   invoke void %735(ptr noundef nonnull %682)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit271 unwind label %736
@@ -15809,7 +15809,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn89 = phi { ptr, i32 } [ %745, %744 ], [ %lpad.loopexit378, %.loopexit376 ], [ %lpad.loopexit381, %.loopexit.split-lp377.loopexit ], [ %lpad.loopexit.split-lp382, %.loopexit.split-lp377.loopexit.split-lp ]
   %747 = load i32, ptr %73, align 8
   %748 = sext i32 %747 to i64
-  %749 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %748
   %750 = load ptr, ptr %749, align 8
   invoke void %750(ptr noundef nonnull %682)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit272 unwind label %751
@@ -15906,7 +15906,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit271: ; preds = %730, %755
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS7_RKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i293: ; preds = %.lr.ph.i.i.i288
   %781 = sext i32 %778 to i64
-  %782 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %781
   %783 = load ptr, ptr %782, align 8
   %784 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i.i289, i64 16
   %785 = invoke noundef zeroext i1 %783(ptr noundef nonnull %773, ptr noundef nonnull %784)
@@ -15956,7 +15956,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pa
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i.i.i.i284: ; preds = %799
   %804 = sext i32 %801 to i64
-  %805 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %804
+  %805 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %804
   %806 = load ptr, ptr %805, align 8
   %807 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i279, i64 16
   %808 = invoke noundef zeroext i1 %806(ptr noundef nonnull %773, ptr noundef nonnull %807)
@@ -16002,7 +16002,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %822) #23
   %823 = load i32, ptr %79, align 8
   %824 = sext i32 %823 to i64
-  %825 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %824
+  %825 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %824
   %826 = load ptr, ptr %825, align 8
   invoke void %826(ptr noundef nonnull %773)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit300 unwind label %827
@@ -16056,7 +16056,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %.pn92 = phi { ptr, i32 } [ %836, %835 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit372, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp373, %.loopexit.split-lp.loopexit.split-lp ]
   %838 = load i32, ptr %79, align 8
   %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %839
   %841 = load ptr, ptr %840, align 8
   invoke void %841(ptr noundef nonnull %773)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit301 unwind label %842
@@ -16213,7 +16213,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #23
   %901 = load i32, ptr %83, align 8
   %902 = sext i32 %901 to i64
-  %903 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %902
+  %903 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %902
   %904 = load ptr, ptr %903, align 8
   invoke void %904(ptr noundef nonnull %863)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit308 unwind label %905
@@ -16251,7 +16251,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn95 = phi { ptr, i32 } [ %914, %913 ], [ %912, %911 ], [ %886, %885 ]
   %915 = load i32, ptr %83, align 8
   %916 = sext i32 %915 to i64
-  %917 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %916
+  %917 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %916
   %918 = load ptr, ptr %917, align 8
   invoke void %918(ptr noundef nonnull %863)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit309 unwind label %919
@@ -16407,7 +16407,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #23
   %978 = load i32, ptr %87, align 8
   %979 = sext i32 %978 to i64
-  %980 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %979
+  %980 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %979
   %981 = load ptr, ptr %980, align 8
   invoke void %981(ptr noundef nonnull %940)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit319 unwind label %982
@@ -16445,7 +16445,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn98 = phi { ptr, i32 } [ %991, %990 ], [ %989, %988 ], [ %963, %962 ]
   %992 = load i32, ptr %87, align 8
   %993 = sext i32 %992 to i64
-  %994 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %993
+  %994 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %993
   %995 = load ptr, ptr %994, align 8
   invoke void %995(ptr noundef nonnull %940)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit320 unwind label %996
@@ -16601,7 +16601,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #23
   %1055 = load i32, ptr %91, align 8
   %1056 = sext i32 %1055 to i64
-  %1057 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1056
+  %1057 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1056
   %1058 = load ptr, ptr %1057, align 8
   invoke void %1058(ptr noundef nonnull %1017)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit329 unwind label %1059
@@ -16639,7 +16639,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn101 = phi { ptr, i32 } [ %1068, %1067 ], [ %1066, %1065 ], [ %1040, %1039 ]
   %1069 = load i32, ptr %91, align 8
   %1070 = sext i32 %1069 to i64
-  %1071 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1070
+  %1071 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1070
   %1072 = load ptr, ptr %1071, align 8
   invoke void %1072(ptr noundef nonnull %1017)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit330 unwind label %1073
@@ -16795,7 +16795,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #23
   %1132 = load i32, ptr %95, align 8
   %1133 = sext i32 %1132 to i64
-  %1134 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1133
+  %1134 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1133
   %1135 = load ptr, ptr %1134, align 8
   invoke void %1135(ptr noundef nonnull %1094)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit340 unwind label %1136
@@ -16833,7 +16833,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn104 = phi { ptr, i32 } [ %1145, %1144 ], [ %1143, %1142 ], [ %1117, %1116 ]
   %1146 = load i32, ptr %95, align 8
   %1147 = sext i32 %1146 to i64
-  %1148 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1147
+  %1148 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1147
   %1149 = load ptr, ptr %1148, align 8
   invoke void %1149(ptr noundef nonnull %1094)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit341 unwind label %1150
@@ -16989,7 +16989,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #23
   %1209 = load i32, ptr %99, align 8
   %1210 = sext i32 %1209 to i64
-  %1211 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1210
+  %1211 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1210
   %1212 = load ptr, ptr %1211, align 8
   invoke void %1212(ptr noundef nonnull %1171)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit350 unwind label %1213
@@ -17027,7 +17027,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %.pn107 = phi { ptr, i32 } [ %1222, %1221 ], [ %1220, %1219 ], [ %1194, %1193 ]
   %1223 = load i32, ptr %99, align 8
   %1224 = sext i32 %1223 to i64
-  %1225 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1224
+  %1225 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1224
   %1226 = load ptr, ptr %1225, align 8
   invoke void %1226(ptr noundef nonnull %1171)
           to label %_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit351 unwind label %1227
@@ -17095,7 +17095,7 @@ _ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEED2Ev.exit350: ; preds = %1208, %1231
   %1247 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %1248 = load i32, ptr %1247, align 8
   %1249 = sext i32 %1248 to i64
-  %1250 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1249
+  %1250 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1249
   %1251 = load ptr, ptr %1250, align 8
   %1252 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
   invoke void %1251(ptr noundef nonnull %1252)
@@ -17143,7 +17143,7 @@ _ZNSt13unordered_mapIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEEPKNS0_4TypeENS0_1
   %1269 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i354, i64 8
   %1270 = load i32, ptr %1269, align 8
   %1271 = sext i32 %1270 to i64
-  %1272 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1271
+  %1272 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %1271
   %1273 = load ptr, ptr %1272, align 8
   %1274 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i354, i64 16
   invoke void %1273(ptr noundef nonnull %1274)
@@ -17386,7 +17386,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN4Luau7Varian
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN4Luau7VariantIJNS_6SymbolENS_5FieldEEE9tableDtorE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void %6(ptr noundef nonnull %7)
@@ -17678,7 +17678,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 _ZNKSt8__detail15_Hashtable_baseIN4Luau7VariantIJNS1_6SymbolENS1_5FieldEEEESt4pairIKS5_PKNS1_4TypeEENS_10_Select1stESt8equal_toIS5_ENS1_12LValueHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS7_mRKNS_16_Hash_node_valueISB_Lb1EEE.exit.i.i: ; preds = %17
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZNK4Luau7VariantIJNS_6SymbolENS_5FieldEEEeqERKS3_E5table, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %26 = tail call noundef zeroext i1 %24(ptr noundef nonnull %13, ptr noundef nonnull %25)
@@ -17710,7 +17710,7 @@ _ZNKSt10_HashtableIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEESt4pairIKS4_PKNS0_4
   %36 = load i32, ptr %1, align 8
   store i32 %36, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_6SymbolENS_5FieldEEEC1ERKS3_E5table, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [2 x ptr], ptr @_ZZN4Luau7VariantIJNS_6SymbolENS_5FieldEEEC1ERKS3_E5table, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8

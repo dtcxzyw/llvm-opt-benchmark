@@ -1917,13 +1917,13 @@ define void @_ZNK10open_spiel6spades11SpadesState14ActionToStringB5cxx11Eil(ptr 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %10 = sdiv i32 %8, 13
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kSuitCharE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1, !noalias !7
   store i8 %13, ptr %5, align 1, !noalias !7
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = srem i32 %8, 13
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kRankCharE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kRankCharE, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !noalias !7
   store i8 %18, ptr %14, align 1, !noalias !7
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #26, !noalias !7
@@ -3073,12 +3073,12 @@ _ZN10open_spiel6spades5Trick4PlayEii.exit:        ; preds = %.sink.split.i, %100
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   %104 = sext i32 %.pre-phi to i64
-  %105 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kSuitCharE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kSuitCharE, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1, !noalias !24
   store i8 %106, ptr %8, align 1, !noalias !24
   %107 = srem i32 %89, 13
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kRankCharE, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6spades12_GLOBAL__N_19kRankCharE, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1, !noalias !24
   store i8 %110, ptr %48, align 1, !noalias !24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26, !noalias !24

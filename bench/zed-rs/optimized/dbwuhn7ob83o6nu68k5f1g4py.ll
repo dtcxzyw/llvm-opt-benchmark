@@ -437,7 +437,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %15 = load i64, ptr %14, align 8, !alias.scope !134, !noalias !114, !noundef !7
   %16 = sub nuw i64 %15, %13
-  %17 = getelementptr inbounds { [4 x i64] }, ptr %4, i64 %13
+  %17 = getelementptr inbounds nuw { [4 x i64] }, ptr %4, i64 %13
   invoke void @"_ZN4core3ptr58drop_in_place$LT$$u5b$project..EntitySubscription$u5d$$GT$17hcc050c19ce4d3d87E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 %17, i64 noundef %16)
           to label %"_ZN4core3ptr93drop_in_place$LT$core..array..iter..IntoIter$LT$project..EntitySubscription$C$5_usize$GT$$GT$17h8f9b44ad243d053fE.exit.i" unwind label %18, !noalias !114
 
@@ -464,7 +464,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %25 = load i64, ptr %24, align 8, !alias.scope !156, !noalias !114, !noundef !7
   %26 = sub nuw i64 %25, %23
-  %27 = getelementptr inbounds { [4 x i64] }, ptr %4, i64 %23
+  %27 = getelementptr inbounds nuw { [4 x i64] }, ptr %4, i64 %23
   call void @"_ZN4core3ptr58drop_in_place$LT$$u5b$project..EntitySubscription$u5d$$GT$17hcc050c19ce4d3d87E.llvm.9059106379889279541"(ptr noalias noundef nonnull align 8 %27, i64 noundef %26), !noalias !114
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4)

@@ -2080,7 +2080,7 @@ do.body:                                          ; preds = %if.end1116, %do.bod
   %n.17 = phi i32 [ %div1126, %do.body ], [ %n.15, %if.end1116 ]
   %s.28.idx = phi i64 [ %s.28.add, %do.body ], [ %s.26.idx, %if.end1116 ]
   %s.28.add = add nsw i64 %s.28.idx, -2
-  %add.ptr1121.ptr = getelementptr inbounds i8, ptr %num, i64 %s.28.add
+  %add.ptr1121.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.28.add
   %rem1122 = urem i32 %n.17, 100
   %mul1123 = shl nuw nsw i32 %rem1122, 1
   %idxprom1124 = zext nneg i32 %mul1123 to i64
@@ -2105,7 +2105,7 @@ while.body1131:                                   ; preds = %if.end1128, %if.end
 
 if.then1138:                                      ; preds = %while.body1131
   %s.29.add592 = add nsw i64 %s.29.idx770, -1
-  %incdec.ptr1139.ptr = getelementptr inbounds i8, ptr %num, i64 %s.29.add592
+  %incdec.ptr1139.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.29.add592
   store i8 %209, ptr %incdec.ptr1139.ptr, align 1
   %incdec.ptr1140 = getelementptr inbounds i8, ptr %o.0768, i64 -1
   br label %if.end1149
@@ -2116,7 +2116,7 @@ if.else1141:                                      ; preds = %while.body1131
   %212 = trunc nuw nsw i32 %rem1142 to i8
   %conv1146 = or disjoint i8 %212, 48
   %s.29.add = add nsw i64 %s.29.idx770, -1
-  %incdec.ptr1147.ptr = getelementptr inbounds i8, ptr %num, i64 %s.29.add
+  %incdec.ptr1147.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.29.add
   store i8 %conv1146, ptr %incdec.ptr1147.ptr, align 1
   %div1148 = udiv i32 %n.18769, 10
   br label %if.end1149
@@ -2135,7 +2135,7 @@ while.end1150:                                    ; preds = %if.end1149, %do.bod
   %o.0.lcssa = phi ptr [ %gep, %if.end1128 ], [ %gep, %do.body ], [ %o.1, %if.end1149 ]
   %o.0.lcssa1065 = ptrtoint ptr %o.0.lcssa to i64
   %cmp1151 = icmp eq i64 %storemerge, 0
-  %s.29.ptr.le.le = getelementptr inbounds i8, ptr %num, i64 %s.29.idx.lcssa765
+  %s.29.ptr.le.le = getelementptr inbounds nuw i8, ptr %num, i64 %s.29.idx.lcssa765
   br i1 %cmp1151, label %if.then1153, label %while.cond1167.preheader
 
 while.cond1167.preheader:                         ; preds = %while.end1150
@@ -2204,7 +2204,7 @@ while.body1170:                                   ; preds = %while.body1170.lr.p
 
 if.then1177:                                      ; preds = %while.body1170
   %s.32.add593 = add nsw i64 %s.32.idx784, -1
-  %incdec.ptr1178.ptr = getelementptr inbounds i8, ptr %num, i64 %s.32.add593
+  %incdec.ptr1178.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.32.add593
   store i8 %209, ptr %incdec.ptr1178.ptr, align 1
   %incdec.ptr1179 = getelementptr inbounds i8, ptr %o.2783, i64 -1
   br label %if.end1182
@@ -2212,7 +2212,7 @@ if.then1177:                                      ; preds = %while.body1170
 if.else1180:                                      ; preds = %while.body1170
   %inc1174 = add i32 %218, 1
   %s.32.add = add nsw i64 %s.32.idx784, -1
-  %incdec.ptr1181.ptr = getelementptr inbounds i8, ptr %num, i64 %s.32.add
+  %incdec.ptr1181.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.32.add
   store i8 48, ptr %incdec.ptr1181.ptr, align 1
   br label %if.end1182
 
@@ -2220,7 +2220,7 @@ if.end1182:                                       ; preds = %if.else1180, %if.th
   %219 = phi i32 [ 0, %if.then1177 ], [ %inc1174, %if.else1180 ]
   %o.3 = phi ptr [ %incdec.ptr1179, %if.then1177 ], [ %o.2783, %if.else1180 ]
   %s.33.idx = phi i64 [ %s.32.add593, %if.then1177 ], [ %s.32.add, %if.else1180 ]
-  %s.32.ptr = getelementptr inbounds i8, ptr %num, i64 %s.33.idx
+  %s.32.ptr = getelementptr inbounds nuw i8, ptr %num, i64 %s.33.idx
   %cmp1168.not = icmp eq ptr %s.32.ptr, %o.3
   br i1 %cmp1168.not, label %for.cond1106.backedge, label %while.body1170, !llvm.loop !19
 
@@ -3641,7 +3641,7 @@ if.then60:                                        ; preds = %if.else
 if.then61:                                        ; preds = %if.then60
   %dec = add nsw i32 %sub58, -1
   %idxprom67 = sext i32 %dec to i64
-  %arrayidx68 = getelementptr inbounds [22 x double], ptr @stbsp__negbot, i64 0, i64 %idxprom67
+  %arrayidx68 = getelementptr inbounds nuw [22 x double], ptr @stbsp__negbot, i64 0, i64 %idxprom67
   %9 = load double, ptr %arrayidx68, align 8
   %mul69 = fmul double %d, %9
   %10 = bitcast double %d to i64
@@ -3657,7 +3657,7 @@ if.then61:                                        ; preds = %if.then60
   %15 = tail call double @llvm.fmuladd.f64(double %11, double %sub121, double %14)
   %16 = tail call double @llvm.fmuladd.f64(double %sub93, double %13, double %15)
   %17 = tail call double @llvm.fmuladd.f64(double %sub93, double %sub121, double %16)
-  %arrayidx128 = getelementptr inbounds [22 x double], ptr @stbsp__negboterr, i64 0, i64 %idxprom67
+  %arrayidx128 = getelementptr inbounds nuw [22 x double], ptr @stbsp__negboterr, i64 0, i64 %idxprom67
   %18 = load double, ptr %arrayidx128, align 8
   %19 = tail call double @llvm.fmuladd.f64(double %d, double %18, double %17)
   br label %if.end130
@@ -3703,7 +3703,7 @@ if.else209:                                       ; preds = %if.else
 if.then211:                                       ; preds = %if.else209
   %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %sub58, i32 22)
   %idxprom221 = sext i32 %spec.store.select1 to i64
-  %arrayidx222 = getelementptr inbounds [23 x double], ptr @stbsp__bot, i64 0, i64 %idxprom221
+  %arrayidx222 = getelementptr inbounds nuw [23 x double], ptr @stbsp__bot, i64 0, i64 %idxprom221
   %31 = load double, ptr %arrayidx222, align 8
   %mul223 = fmul double %d, %31
   %32 = bitcast double %d to i64

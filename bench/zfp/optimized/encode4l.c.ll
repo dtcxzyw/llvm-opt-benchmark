@@ -1410,7 +1410,7 @@ pad_block_int64.exit105.us161.us.us.i:            ; preds = %pad_block_int64.exi
 
 .preheader112.i:                                  ; preds = %20, %98, %.preheader113.i
   %.170.lcssa.i = phi ptr [ %.069148.i, %.preheader113.i ], [ %100, %98 ], [ %23, %20 ]
-  %91 = getelementptr inbounds i8, ptr %11, i64 %.pre.i
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 %.pre.i
   br label %.preheader109.i
 
 .preheader111.i:                                  ; preds = %.preheader111.lr.ph.i, %98

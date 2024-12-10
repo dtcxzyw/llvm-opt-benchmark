@@ -2818,7 +2818,7 @@ invoke.cont:                                      ; preds = %if.end4
   %4 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #21, !srcloc !17
   %idxprom = sext i32 %call5 to i64
-  %arrayidx = getelementptr inbounds [129 x i16], ptr %tzIDKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i16], ptr %tzIDKey, i64 0, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   %fTZNamesMap = getelementptr inbounds nuw i8, ptr %this, i64 240
   %5 = load ptr, ptr %fTZNamesMap, align 8
@@ -2944,7 +2944,7 @@ if.end9:                                          ; preds = %invoke.cont
   %10 = load i32, ptr %fLength.i, align 4
   %cond.i20 = select i1 %cmp.i.i17, i32 %10, i32 %shr.i.i18
   %idxprom = sext i32 %cond.i20 to i64
-  %arrayidx = getelementptr inbounds [129 x i16], ptr %mzIDKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i16], ptr %mzIDKey, i64 0, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   %fMZNamesMap = getelementptr inbounds nuw i8, ptr %this, i64 248
   %11 = load ptr, ptr %fMZNamesMap, align 8
@@ -4299,7 +4299,7 @@ if.end11.i.i:                                     ; preds = %if.then7.i.i
   store ptr null, ptr %tzID13.i.i, align 8
   %sext = shl i64 %indvars.iv.i, 32
   %8 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %call8.i.i, align 8
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie, ptr noundef nonnull %7, ptr noundef nonnull %call8.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -4387,7 +4387,7 @@ if.end11.i.i25:                                   ; preds = %if.then7.i.i22
   store ptr %14, ptr %tzID13.i.i27, align 8
   %sext71 = shl i64 %indvars.iv.i19, 32
   %18 = ashr exact i64 %sext71, 32
-  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %18
+  %switch.gep69 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %18
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   store i32 %switch.load70, ptr %call8.i.i23, align 8
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie22, ptr noundef nonnull %17, ptr noundef nonnull %call8.i.i23, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -6319,7 +6319,7 @@ if.end5:                                          ; preds = %invoke.cont
   %11 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i27, i32 %11, i32 %shr.i.i
   %idxprom = sext i32 %cond.i to i64
-  %arrayidx = getelementptr inbounds [129 x i16], ptr %mzIDKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i16], ptr %mzIDKey, i64 0, i64 %idxprom
   store i16 0, ptr %arrayidx, align 2
   call void @umtx_lock_75(ptr noundef nonnull @_ZZN6icu_7517TZDBTimeZoneNames16getMetaZoneNamesERKNS_13UnicodeStringER10UErrorCodeE17gTZDBNamesMapLock)
   %12 = load ptr, ptr @_ZN6icu_75L13gTZDBNamesMapE, align 8

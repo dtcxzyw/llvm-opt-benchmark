@@ -525,7 +525,7 @@ define noalias ptr @prte_schizo_base_getline(ptr nocapture noundef %0) local_unn
 4:                                                ; preds = %1
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   %6 = add i64 %5, -1
-  %7 = getelementptr inbounds [2048 x i8], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2048 x i8], ptr %2, i64 0, i64 %6
   store i8 0, ptr %7, align 1
   %8 = call noalias ptr @strdup(ptr noundef nonnull %2) #17
   br label %9
@@ -580,7 +580,7 @@ define noundef zeroext i1 @prte_schizo_base_check_prte_param(ptr noundef %0) loc
 
 10:                                               ; preds = %.lr.ph
   %11 = add i64 %.01013, 1
-  %12 = getelementptr inbounds [0 x ptr], ptr @prte_framework_names, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [0 x ptr], ptr @prte_framework_names, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -781,7 +781,7 @@ sub_2:                                            ; preds = %sub_1
 
 112:                                              ; preds = %.lr.ph.i
   %113 = add i64 %.01013.i, 1
-  %114 = getelementptr inbounds [0 x ptr], ptr @prte_framework_names, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [0 x ptr], ptr @prte_framework_names, i64 0, i64 %113
   %115 = load ptr, ptr %114, align 8
   %.not.i = icmp eq ptr %115, null
   br i1 %.not.i, label %.sink.split95, label %.lr.ph.i, !llvm.loop !9

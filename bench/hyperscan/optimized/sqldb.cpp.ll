@@ -141,7 +141,7 @@ invoke.cont:
   %vtable = load ptr, ptr %ref.tmp, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %vbase.offset
   %_M_streambuf_state.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8
   %and.i.i.i = and i32 %0, 5
@@ -151,7 +151,7 @@ invoke.cont:
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %vbase.offset.i.i
   store ptr %2, ptr %add.ptr.i.i, align 8
   %_M_filebuf.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %_M_filebuf.i.i) #18
@@ -160,7 +160,7 @@ invoke.cont:
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ifstreamIcSt11char_traitsIcEE, i64 16), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %3, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %vbase.offset.i.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 8
   %_M_gcount.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_gcount.i.i.i, align 8

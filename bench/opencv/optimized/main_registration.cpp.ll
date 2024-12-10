@@ -1421,7 +1421,7 @@ _ZN13RobustMatcher22setDescriptorExtractorERKN2cv3PtrINS0_9Feature2DEEE.exit: ; 
 476:                                              ; preds = %473
   %477 = load i32, ptr getelementptr inbounds nuw (i8, ptr @registration, i64 8), align 8
   %478 = sext i32 %477 to i64
-  %479 = getelementptr inbounds [8 x i32], ptr @_ZL3pts, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i32], ptr @_ZL3pts, i64 0, i64 %478
   %480 = load i32, ptr %479, align 4
   %481 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mesh, i64 16), align 8
   %482 = sext i32 %480 to i64
@@ -3347,7 +3347,7 @@ define internal void @_ZL24onMouseModelRegistrationiiiiPv(i32 noundef %0, i32 no
 
 13:                                               ; preds = %9
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds [8 x i32], ptr @_ZL3pts, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i32], ptr @_ZL3pts, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %1 to float
   %18 = sitofp i32 %2 to float

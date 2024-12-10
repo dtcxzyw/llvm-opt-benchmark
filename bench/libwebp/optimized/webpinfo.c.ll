@@ -697,7 +697,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
   %246 = load i32, ptr %78, align 4
   %247 = load i32, ptr %79, align 4
   %248 = sext i32 %247 to i64
-  %249 = getelementptr inbounds [3 x ptr], ptr @kFormats, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [3 x ptr], ptr @kFormats, i64 0, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %243, i32 noundef %244, i32 noundef %245, i32 noundef %246, ptr noundef %250, i32 noundef %247)
   br label %252

@@ -299,7 +299,7 @@ for.body.i:                                       ; preds = %if.end62.i, %for.co
 
 lor.lhs.false67.i:                                ; preds = %for.body.i
   %6 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx72.i = getelementptr inbounds [32 x ptr], ptr %val.i, i64 0, i64 %6
+  %arrayidx72.i = getelementptr inbounds nuw [32 x ptr], ptr %val.i, i64 0, i64 %6
   %7 = load ptr, ptr %arrayidx72.i, align 8
   %call73.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call64.i, ptr noundef %7, ptr noundef nonnull %call9.i, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool74.not.i = icmp eq i32 %call73.i, 0
@@ -402,7 +402,7 @@ for.body119.i:                                    ; preds = %for.end114.i, %for.
   br i1 %tobool121.not.i, label %err.i, label %for.cond117.i
 
 if.end127.i:                                      ; preds = %for.cond117.i, %for.end114.i
-  %arrayidx129.i = getelementptr inbounds [32 x ptr], ptr %val.i, i64 0, i64 %wvalue.0.lcssa.i
+  %arrayidx129.i = getelementptr inbounds nuw [32 x ptr], ptr %val.i, i64 0, i64 %wvalue.0.lcssa.i
   %10 = load ptr, ptr %arrayidx129.i, align 8
   %call130.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %10, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool131.not.i = icmp eq i32 %call130.i, 0
@@ -830,7 +830,7 @@ for.body:                                         ; preds = %if.end75, %for.cond
 
 lor.lhs.false80:                                  ; preds = %for.body
   %2 = add nsw i64 %indvars.iv, -1
-  %arrayidx85 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %2
+  %arrayidx85 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %2
   %3 = load ptr, ptr %arrayidx85, align 8
   %call86 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call77, ptr noundef %3, ptr noundef nonnull %call14, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool87.not = icmp eq i32 %call86, 0
@@ -982,7 +982,7 @@ for.body170:                                      ; preds = %for.end164, %for.co
   br i1 %tobool172.not, label %err, label %for.cond167
 
 if.end178:                                        ; preds = %for.cond167, %for.end164
-  %arrayidx180 = getelementptr inbounds [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
+  %arrayidx180 = getelementptr inbounds nuw [32 x ptr], ptr %val, i64 0, i64 %wvalue.0.lcssa
   %17 = load ptr, ptr %arrayidx180, align 8
   %call181 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call15, ptr noundef nonnull %call15, ptr noundef %17, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool182.not = icmp eq i32 %call181, 0
@@ -2222,7 +2222,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 lor.lhs.false101:                                 ; preds = %for.body
   %4 = add nsw i64 %indvars.iv, -1
-  %arrayidx106 = getelementptr inbounds [32 x ptr], ptr %val1, i64 0, i64 %4
+  %arrayidx106 = getelementptr inbounds nuw [32 x ptr], ptr %val1, i64 0, i64 %4
   %5 = load ptr, ptr %arrayidx106, align 8
   %call107 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call98, ptr noundef %5, ptr noundef nonnull %call8, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool108.not = icmp eq i32 %call107, 0
@@ -2289,7 +2289,7 @@ for.body147:                                      ; preds = %for.body147.prehead
 
 lor.lhs.false152:                                 ; preds = %for.body147
   %8 = add nsw i64 %indvars.iv163, -1
-  %arrayidx157 = getelementptr inbounds [32 x ptr], ptr %val2, i64 0, i64 %8
+  %arrayidx157 = getelementptr inbounds nuw [32 x ptr], ptr %val2, i64 0, i64 %8
   %9 = load ptr, ptr %arrayidx157, align 8
   %call158 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call148, ptr noundef %9, ptr noundef nonnull %call8, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool159.not = icmp eq i32 %call158, 0
@@ -2410,7 +2410,7 @@ land.lhs.true233:                                 ; preds = %if.end231
 if.then235:                                       ; preds = %land.lhs.true233
   %shr = ashr i32 %wvalue1.1, 1
   %idxprom236 = sext i32 %shr to i64
-  %arrayidx237 = getelementptr inbounds [32 x ptr], ptr %val1, i64 0, i64 %idxprom236
+  %arrayidx237 = getelementptr inbounds nuw [32 x ptr], ptr %val1, i64 0, i64 %idxprom236
   %10 = load ptr, ptr %arrayidx237, align 8
   %call238 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call9, ptr noundef nonnull %call9, ptr noundef %10, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool239.not = icmp eq i32 %call238, 0
@@ -2429,7 +2429,7 @@ land.lhs.true244:                                 ; preds = %if.end242
 if.then246:                                       ; preds = %land.lhs.true244
   %shr247 = ashr i32 %wvalue2.1, 1
   %idxprom248 = sext i32 %shr247 to i64
-  %arrayidx249 = getelementptr inbounds [32 x ptr], ptr %val2, i64 0, i64 %idxprom248
+  %arrayidx249 = getelementptr inbounds nuw [32 x ptr], ptr %val2, i64 0, i64 %idxprom248
   %11 = load ptr, ptr %arrayidx249, align 8
   %call250 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call9, ptr noundef nonnull %call9, ptr noundef %11, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool251.not = icmp eq i32 %call250, 0

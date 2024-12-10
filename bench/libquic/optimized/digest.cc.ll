@@ -491,10 +491,10 @@ invoke.cont14.i:                                  ; preds = %if.end13.i
 if.end25.lr.ph.lr.ph.lr.ph.i:                     ; preds = %invoke.cont14.i
   %add.i = add i64 %mul.i, 2
   %add40.i = add i64 %mul.i, 3
-  %arrayidx42.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %mul.i
+  %arrayidx42.i = getelementptr inbounds nuw [4228 x i8], ptr %line.i, i64 0, i64 %mul.i
   %add46.i = or disjoint i64 %mul.i, 1
-  %arrayidx47.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %add46.i
-  %arrayidx81.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %add.i
+  %arrayidx47.i = getelementptr inbounds nuw [4228 x i8], ptr %line.i, i64 0, i64 %add46.i
+  %arrayidx81.i = getelementptr inbounds nuw [4228 x i8], ptr %line.i, i64 0, i64 %add.i
   %filename_.i38.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0248, i64 8
   br label %if.end25.lr.ph.lr.ph.i
 
@@ -534,7 +534,7 @@ if.end25.i:                                       ; preds = %if.then29.i, %if.en
   %draining_overlong_line.0112.i = phi i1 [ %draining_overlong_line.0.ph76128.i, %if.end25.lr.ph.i ], [ %cmp30.i, %if.then29.i ]
   %call27.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line.i) #22
   %sub.i = add i64 %call27.i, -1
-  %arrayidx.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [4228 x i8], ptr %line.i, i64 0, i64 %sub.i
   %40 = load i8, ptr %arrayidx.i, align 1
   br i1 %draining_overlong_line.0112.i, label %if.then29.i, label %if.end33.i
 
@@ -546,7 +546,7 @@ if.then29.i:                                      ; preds = %if.end25.i
   br i1 %cmp.i87, label %if.then18.i, label %if.end25.i, !llvm.loop !11
 
 if.end33.i:                                       ; preds = %if.end25.i
-  %arrayidx.i.le = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %sub.i
+  %arrayidx.i.le = getelementptr inbounds nuw [4228 x i8], ptr %line.i, i64 0, i64 %sub.i
   %cmp37.not.i = icmp eq i8 %40, 10
   br i1 %cmp37.not.i, label %land.end.i, label %land.rhs.i
 

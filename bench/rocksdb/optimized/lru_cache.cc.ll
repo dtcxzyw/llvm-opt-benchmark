@@ -4346,7 +4346,7 @@ entry:
   %0 = load double, ptr %high_pri_pool_ratio_, align 8
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 200, ptr noundef nonnull @.str.1, double noundef %0) #27
   %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #32
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %call4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %call4
   %sub = sub i64 200, %call4
   %low_pri_pool_ratio_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load double, ptr %low_pri_pool_ratio_, align 8

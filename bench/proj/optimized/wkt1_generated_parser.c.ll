@@ -219,7 +219,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
 
 40:                                               ; preds = %38
   %41 = sext i32 %.0149 to i64
-  %42 = getelementptr inbounds [289 x i16], ptr @yypact, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [289 x i16], ptr @yypact, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i32
   %45 = icmp eq i16 %43, -131
@@ -283,7 +283,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
 
 76:                                               ; preds = %59, %61, %40
   %.4 = phi i32 [ %.0148, %40 ], [ %.6, %59 ], [ %.6, %61 ]
-  %77 = getelementptr inbounds [289 x i8], ptr @yydefact, i64 0, i64 %41
+  %77 = getelementptr inbounds nuw [289 x i8], ptr @yydefact, i64 0, i64 %41
   %78 = load i8, ptr %77, align 1
   %79 = sext i8 %78 to i32
   %80 = icmp eq i8 %78, 0
@@ -293,7 +293,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   %.0182 = phi i32 [ %79, %76 ], [ %72, %71 ]
   %.7 = phi i32 [ %.4, %76 ], [ %.6, %71 ]
   %82 = sext i32 %.0182 to i64
-  %83 = getelementptr inbounds [115 x i8], ptr @yyr2, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [115 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i64
   %86 = sub nsw i64 1, %85
@@ -304,11 +304,11 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   %91 = getelementptr inbounds i16, ptr %.2162, i64 %89
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %88, ptr %92, align 4
-  %93 = getelementptr inbounds [115 x i8], ptr @yyr1, i64 0, i64 %82
+  %93 = getelementptr inbounds nuw [115 x i8], ptr @yyr1, i64 0, i64 %82
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i64
   %96 = add nsw i64 %95, -37
-  %97 = getelementptr inbounds [72 x i16], ptr @yypgoto, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [72 x i16], ptr @yypgoto, i64 0, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = sext i16 %98 to i32
   %100 = load i16, ptr %91, align 2
@@ -329,7 +329,7 @@ define hidden range(i32 0, 3) i32 @pj_wkt1_parse(ptr noundef %0) local_unnamed_a
   br label %112
 
 110:                                              ; preds = %103, %81
-  %111 = getelementptr inbounds [72 x i16], ptr @yydefgoto, i64 0, i64 %96
+  %111 = getelementptr inbounds nuw [72 x i16], ptr @yydefgoto, i64 0, i64 %96
   br label %112
 
 112:                                              ; preds = %110, %108
@@ -437,11 +437,11 @@ define internal fastcc range(i32 0, 3) i32 @yysyntax_error(ptr nocapture noundef
 5:                                                ; preds = %3
   %6 = load i16, ptr %1, align 2
   %7 = sext i16 %6 to i64
-  %8 = getelementptr inbounds [289 x i16], ptr @yypact, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [289 x i16], ptr @yypact, i64 0, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i32
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [110 x ptr], ptr @yytname, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 34
@@ -507,7 +507,7 @@ yytnamerr.exit:                                   ; preds = %.preheader26.split.
   %.17118 = phi i32 [ 1, %.lr.ph.preheader ], [ %.272, %64 ]
   %.17417 = phi i64 [ %.019.i, %.lr.ph.preheader ], [ %.275, %64 ]
   %37 = add nsw i64 %indvars.iv, %35
-  %38 = getelementptr inbounds [256 x i16], ptr @yycheck, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x i16], ptr @yycheck, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = icmp eq i64 %indvars.iv, %40
@@ -520,10 +520,10 @@ yytnamerr.exit:                                   ; preds = %.preheader26.split.
   br i1 %44, label %.thread7, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds [110 x ptr], ptr @yytname, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [110 x ptr], ptr @yytname, i64 0, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = sext i32 %.17118 to i64
-  %49 = getelementptr inbounds [5 x ptr], ptr %4, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %48
   store ptr %47, ptr %49, align 8
   %50 = load i8, ptr %47, align 1
   %51 = icmp eq i8 %50, 34
@@ -657,7 +657,7 @@ yystrlen.exit:                                    ; preds = %.lr.ph.split.i
 89:                                               ; preds = %84
   %90 = add nsw i32 %.0, 1
   %91 = sext i32 %.0 to i64
-  %92 = getelementptr inbounds [5 x ptr], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [5 x ptr], ptr %4, i64 0, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 34

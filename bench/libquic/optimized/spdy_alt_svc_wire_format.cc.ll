@@ -1763,7 +1763,7 @@ sw.default:                                       ; preds = %if.end22
 invoke.cont25:                                    ; preds = %sw.default
   %shr = ashr i32 %conv, 4
   %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [17 x i8], ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [17 x i8], ptr @__const._ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB5cxx11ERKSt6vectorINS0_18AlternativeServiceESaIS2_EE.kNibbleToHex, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext %8)
           to label %invoke.cont27 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit

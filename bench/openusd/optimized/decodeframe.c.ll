@@ -8272,7 +8272,7 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond154.not, label %._crit_edge132, label %.lr.ph131.split.us, !llvm.loop !77
 
 .lr.ph128.us:                                     ; preds = %65
-  %69 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv151
+  %69 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv151
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %wide.trip.count149 = zext nneg i32 %67 to i64
@@ -8438,7 +8438,7 @@ mem_get_varsize.exit:                             ; preds = %105, %106, %109, %1
   br i1 %139, label %.lr.ph128, label %._crit_edge.split
 
 .lr.ph128:                                        ; preds = %136
-  %140 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv160
+  %140 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %indvars.iv160
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
   %wide.trip.count158 = zext nneg i32 %138 to i64
@@ -8555,7 +8555,7 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
 185:                                              ; preds = %._crit_edge132
   %186 = add nsw i32 %9, -2
   %187 = sext i32 %186 to i64
-  %188 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = icmp sgt i32 %11, 0
   br i1 %190, label %.lr.ph137, label %.loopexit
@@ -8563,7 +8563,7 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
 .lr.ph137:                                        ; preds = %185
   %191 = add nsw i32 %9, -1
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %192
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 48008
   %196 = sext i32 %35 to i64
@@ -12185,7 +12185,7 @@ aom_read_literal_.exit.i328:                      ; preds = %.preheader384
   %177 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store i32 %175, ptr %177, align 4
   %178 = sext i32 %175 to i64
-  %179 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %178
   %180 = load i32, ptr %179, align 16
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %182, label %190
@@ -12449,7 +12449,7 @@ aom_read_literal_.exit.i:                         ; preds = %335
   %340 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store i32 %338, ptr %340, align 4
   %341 = sext i32 %338 to i64
-  %342 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %341
   %343 = load i32, ptr %342, align 16
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %345, label %353

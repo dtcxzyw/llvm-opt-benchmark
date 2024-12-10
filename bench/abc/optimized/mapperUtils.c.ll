@@ -440,7 +440,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   %45 = sext i32 %.0.in33.i to i64
   %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %45
   %46 = load i32, ptr %gep.i, align 4
-  %47 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv40.i
+  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv40.i
   store i32 %46, ptr %47, align 4
   %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, -1
   %48 = icmp sgt i64 %indvars.iv.next41.i, %44
@@ -449,7 +449,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre46.i, %.._crit_edge_crit_edge.i ], [ %44, %.lr.ph.i ]
-  %50 = getelementptr inbounds i32, ptr %2, i64 %.pre-phi.i
+  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %.pre-phi.i
   %51 = trunc nuw nsw i64 %indvars.iv43.i to i32
   store i32 %51, ptr %50, align 4
   br label %52

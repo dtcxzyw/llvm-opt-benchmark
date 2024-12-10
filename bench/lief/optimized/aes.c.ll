@@ -178,7 +178,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 255, %34
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = shl i32 %38, 1
   %40 = lshr i32 %38, 7
@@ -206,7 +206,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   store i8 %57, ptr %58, align 1
   %59 = trunc i64 %indvars.iv110.i to i8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr @RSb, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %60
   store i8 %59, ptr %61, align 1
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 256
@@ -254,26 +254,26 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %92 = add nsw i32 %91, %25
   %93 = srem i32 %92, 255
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %91, %27
   %98 = srem i32 %97, 255
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = shl i32 %101, 8
   %103 = xor i32 %102, %96
   %104 = add nsw i32 %91, %29
   %105 = srem i32 %104, 255
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = shl i32 %108, 16
   %110 = xor i32 %103, %109
   %111 = add nsw i32 %91, %31
   %112 = srem i32 %111, 255
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = shl i32 %115, 24
   %117 = xor i32 %110, %116

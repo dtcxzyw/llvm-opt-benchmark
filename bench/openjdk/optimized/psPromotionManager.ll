@@ -2524,7 +2524,7 @@ _ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %133, align 8
   %134 = sext i32 %130 to i64
-  %135 = getelementptr inbounds [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %134
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.0.i.i.i13) #12
   br label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit
@@ -3681,7 +3681,7 @@ _ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds
   %494 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %0, ptr %494, align 8
   %495 = sext i32 %491 to i64
-  %496 = getelementptr inbounds [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 0, i64 %495
   %497 = load ptr, ptr %496, align 8
   call void %497(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull %.0.i.i.i110) #12
   br label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit

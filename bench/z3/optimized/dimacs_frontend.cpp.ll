@@ -376,7 +376,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %vtable = load ptr, ptr %in, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont7 unwind label %lpad6.loopexit.split-lp
 
@@ -387,7 +387,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont7
   %vtable8 = load ptr, ptr %in, align 8
   %vbase.offset.ptr9 = getelementptr i8, ptr %vtable8, i64 -24
   %vbase.offset10 = load i64, ptr %vbase.offset.ptr9, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %in, i64 %vbase.offset10
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %in, i64 %vbase.offset10
   %call13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr11)
           to label %invoke.cont12 unwind label %lpad6.loopexit.split-lp
 
@@ -1470,7 +1470,7 @@ invoke.cont11:                                    ; preds = %if.then
   %vtable = load ptr, ptr %in, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in, i64 %vbase.offset
   %call14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont13 unwind label %lpad12
 
@@ -1481,7 +1481,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont13
   %vtable15 = load ptr, ptr %in, align 8
   %vbase.offset.ptr16 = getelementptr i8, ptr %vtable15, i64 -24
   %vbase.offset17 = load i64, ptr %vbase.offset.ptr16, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %in, i64 %vbase.offset17
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %in, i64 %vbase.offset17
   %call20 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr18)
           to label %invoke.cont19 unwind label %lpad12
 

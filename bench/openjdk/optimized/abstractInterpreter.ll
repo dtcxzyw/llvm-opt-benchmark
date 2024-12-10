@@ -412,7 +412,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @_ZN19AbstractInterpreter18set_entry_for_kindENS_10MethodKindEPh(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %3
   store ptr %1, ptr %4, align 8
   ret void
 }
@@ -541,7 +541,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %49, %66
 
 82:                                               ; preds = %2
   %83 = sext i32 %15 to i64
-  %84 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 2
   %.not.i21 = icmp eq i16 %86, 0
@@ -599,7 +599,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
@@ -711,7 +711,7 @@ define hidden noundef ptr @_ZN19AbstractInterpreter26deopt_continue_after_entryE
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %4, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %4 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = tail call noundef i32 @_ZNK6Method8bci_fromEPh(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1) #11
   %20 = load i8, ptr %1, align 1
@@ -1069,7 +1069,7 @@ _ZN21Bytecode_loadconstantC2ERK12methodHandlei.exit: ; preds = %_ZN12methodHandl
 
 211:                                              ; preds = %_ZN9Bytecodes9length_atEP6MethodPh.exit
   %212 = sext i32 %18 to i64
-  %213 = getelementptr inbounds [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes12_result_typeE, i64 0, i64 %212
   %214 = load i8, ptr %213, align 1
   br label %_ZN12ResourceMarkD2Ev.exit
 
@@ -1139,7 +1139,7 @@ define hidden noundef ptr @_ZN19AbstractInterpreter21deopt_reexecute_entryEP6Met
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %5
   %7 = phi i32 [ %6, %5 ], [ %4, %2 ]
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 191
   br i1 %11, label %12, label %14

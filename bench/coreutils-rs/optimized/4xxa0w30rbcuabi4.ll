@@ -5817,7 +5817,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i: ; preds = %814
   %961 = load i64, ptr %947, align 8, !noalias !1102, !noundef !12
   %962 = load i64, ptr %948, align 8, !noalias !1102, !noundef !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1102
-  %963 = getelementptr inbounds i8, ptr @anon.e57680840012d442217e529731f5d014.115, i64 %.0.i
+  %963 = getelementptr inbounds nuw i8, ptr @anon.e57680840012d442217e529731f5d014.115, i64 %.0.i
   %964 = sub i64 %961, %.0.i
   %965 = load i64, ptr %.sroa.5.0..sroa_idx.i131, align 8, !alias.scope !1116, !noalias !1123, !noundef !12
   %966 = load i64, ptr %18, align 8, !alias.scope !1116, !noalias !1123, !noundef !12
@@ -5872,7 +5872,7 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i: ; preds = %814
 
 988:                                              ; preds = %.noexc14.i, %953
   %989 = phi i64 [ %955, %953 ], [ %.pre.i.i.i134, %.noexc14.i ]
-  %990 = getelementptr inbounds i8, ptr @anon.e57680840012d442217e529731f5d014.115, i64 %.0.i
+  %990 = getelementptr inbounds nuw i8, ptr @anon.e57680840012d442217e529731f5d014.115, i64 %.0.i
   %991 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1115, !noalias !1113, !nonnull !12, !noundef !12
   %992 = getelementptr inbounds i8, ptr %991, i64 %989
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %992, ptr nonnull readonly align 1 %990, i64 %954, i1 false), !noalias !1098

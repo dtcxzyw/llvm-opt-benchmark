@@ -533,7 +533,7 @@ output_byte.exit56:                               ; preds = %40, %56, %61
   %67 = add nsw i32 %66, %65
   store i32 %67, ptr %6, align 4
   %68 = sext i32 %.050 to i64
-  %69 = getelementptr inbounds [9 x i8], ptr @rmask, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [9 x i8], ptr @rmask, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
   %71 = trunc i32 %.049 to i8
   %72 = and i8 %70, %71

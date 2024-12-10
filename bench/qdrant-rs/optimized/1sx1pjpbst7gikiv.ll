@@ -493,7 +493,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h9cc0afff644bf853E.exit.i.i.i.i.i.i.i": ; preds = %78
   %80 = add nsw i64 %79, -1
-  %81 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1, !alias.scope !80, !noalias !81, !noundef !5
   %.not.i.not.i.i.i.i.i.i.i = icmp eq i8 %82, %62
   br i1 %.not.i.not.i.i.i.i.i.i.i, label %78, label %83

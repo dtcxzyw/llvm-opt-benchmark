@@ -60,7 +60,7 @@ if.end7:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds nuw i8, ptr %target, i64 2
   %2 = load i32, ptr %signatureLength, align 4
   %idx.ext = sext i32 %2 to i64
-  %add.ptr13 = getelementptr inbounds i8, ptr %start, i64 %idx.ext
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %start, i64 %idx.ext
   call void @ucnv_toUnicode_75(ptr noundef %call8, ptr noundef nonnull %pTarget, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pStart, ptr noundef nonnull %add.ptr13, ptr noundef null, i8 noundef signext 0, ptr noundef %error)
   %3 = load ptr, ptr %pStart, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
@@ -346,7 +346,7 @@ if.end45:                                         ; preds = %if.then42, %if.then
   call void @ucnv_getInvalidChars_75(ptr noundef %15, ptr noundef nonnull %context, ptr noundef nonnull %len, ptr noundef nonnull %error1)
   %16 = load i8, ptr %len, align 1
   %idxprom = sext i8 %16 to i64
-  %arrayidx = getelementptr inbounds [21 x i8], ptr %context, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [21 x i8], ptr %context, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %17 = load ptr, ptr %source, align 8
   %sub.ptr.lhs.cast48 = ptrtoint ptr %17 to i64
@@ -364,7 +364,7 @@ if.end45:                                         ; preds = %if.then42, %if.then
   %sub61 = sub i32 %conv53, %19
   %conv62 = sext i32 %sub61 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %preContext, ptr nonnull align 1 %add.ptr60, i64 %conv62, i1 false)
-  %arrayidx65 = getelementptr inbounds [21 x i8], ptr %preContext, i64 0, i64 %conv62
+  %arrayidx65 = getelementptr inbounds nuw [21 x i8], ptr %preContext, i64 0, i64 %conv62
   store i8 0, ptr %arrayidx65, align 1
   %add67 = shl i64 %sub52, 32
   %sext86 = add i64 %add67, 85899345920
@@ -376,7 +376,7 @@ if.end45:                                         ; preds = %if.then42, %if.then
   %sub84 = sub i32 %cond81, %21
   %conv85 = sext i32 %sub84 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %postContext, ptr align 1 %17, i64 %conv85, i1 false)
-  %arrayidx88 = getelementptr inbounds [21 x i8], ptr %postContext, i64 0, i64 %conv85
+  %arrayidx88 = getelementptr inbounds nuw [21 x i8], ptr %postContext, i64 0, i64 %conv85
   store i8 0, ptr %arrayidx88, align 1
   %22 = load i8, ptr %showWarning, align 8
   %cmp91 = icmp eq i8 %22, 1
@@ -598,7 +598,7 @@ if.then31:                                        ; preds = %if.end28
 if.then33:                                        ; preds = %if.then31
   %spec.select = call i32 @llvm.smin.i32(i32 %length.0, i32 20)
   %idxprom = sext i32 %spec.select to i64
-  %arrayidx = getelementptr inbounds [21 x i8], ptr %context, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [21 x i8], ptr %context, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %10 = load ptr, ptr %currentPos, align 8
   call void @u_UCharsToChars_75(ptr noundef %10, ptr noundef nonnull %context, i32 noundef %spec.select)
@@ -1007,7 +1007,7 @@ if.then8:                                         ; preds = %if.then2
   %8 = load ptr, ptr %conv, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %target, i64 2
   %idx.ext = sext i32 %call11 to i64
-  %add.ptr17 = getelementptr inbounds i8, ptr %start, i64 %idx.ext
+  %add.ptr17 = getelementptr inbounds nuw i8, ptr %start, i64 %idx.ext
   call void @ucnv_toUnicode_75(ptr noundef %8, ptr noundef nonnull %pTarget, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pStart, ptr noundef nonnull %add.ptr17, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %error)
   %9 = load i32, ptr %error, align 4
   %cmp18 = icmp eq i32 %9, 15

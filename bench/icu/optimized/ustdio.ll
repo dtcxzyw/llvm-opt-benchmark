@@ -636,7 +636,7 @@ if.end42:                                         ; preds = %cond.true25, %if.th
   br i1 %cmp50.not, label %if.else61, label %if.then51
 
 if.then51:                                        ; preds = %if.end42
-  %add.ptr = getelementptr inbounds i8, ptr %charBuffer, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %charBuffer, i64 %idx.ext
   %add.ptr56 = getelementptr inbounds nuw i8, ptr %f, i64 2152
   %10 = load ptr, ptr %fFile, align 8
   %call58 = call i32 @feof(ptr noundef %10) #14

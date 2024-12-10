@@ -336,7 +336,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %97 = load ptr, ptr %9, align 8
   %98 = getelementptr i8, ptr %97, i64 -24
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %9, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 %99
   %101 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %100)
           to label %102 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -360,8 +360,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
           to label %110 unwind label %.loopexit.split-lp.loopexit.i
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %10, i64 %109
-  %.not4774.i = icmp eq i64 %109, 0
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 %109
+  %.not4774.i = icmp samesign eq i64 %109, 0
   br i1 %.not4774.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %110, %149

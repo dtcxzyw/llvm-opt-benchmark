@@ -35,7 +35,7 @@ if.end:                                           ; preds = %if.then
   %1 = load i16, ptr %index_right_or_value_, align 2
   %conv8 = sext i16 %1 to i32
   %idxprom9 = sext i32 %inc to i64
-  %arrayidx10 = getelementptr inbounds [16 x i32], ptr %stack, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [16 x i32], ptr %stack, i64 0, i64 %idxprom9
   store i32 %conv8, ptr %arrayidx10, align 4
   %conv14 = zext nneg i16 %0 to i32
   br label %while.body.backedge
@@ -326,7 +326,7 @@ if.end.i116:                                      ; preds = %if.then.i115
   %20 = load i16, ptr %index_right_or_value_.i118, align 2
   %conv8.i = sext i16 %20 to i32
   %idxprom9.i = sext i32 %inc.i117 to i64
-  %arrayidx10.i = getelementptr inbounds [16 x i32], ptr %stack.i, i64 0, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds nuw [16 x i32], ptr %stack.i, i64 0, i64 %idxprom9.i
   store i32 %conv8.i, ptr %arrayidx10.i, align 4
   %conv14.i = zext nneg i16 %19 to i32
   br label %while.body.i109.backedge
@@ -1161,7 +1161,7 @@ for.body7:                                        ; preds = %for.end, %for.body7
   %code.021 = phi i16 [ 0, %for.end ], [ %shl, %for.body7 ]
   %i.120 = phi i64 [ 1, %for.end ], [ %inc12, %for.body7 ]
   %sub = add nsw i64 %i.120, -1
-  %arrayidx8 = getelementptr inbounds [16 x i16], ptr %bl_count, i64 0, i64 %sub
+  %arrayidx8 = getelementptr inbounds nuw [16 x i16], ptr %bl_count, i64 0, i64 %sub
   %2 = load i16, ptr %arrayidx8, align 2
   %add = add i16 %2, %code.021
   %shl = shl i16 %add, 1

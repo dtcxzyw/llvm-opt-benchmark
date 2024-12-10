@@ -60,7 +60,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z11testFStreamiPPc(i32 noundef %0
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %_ZL10testNoFilev.exit unwind label %14
 
@@ -152,7 +152,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %46
   %48 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
           to label %49 unwind label %.loopexit25.i
 
@@ -213,7 +213,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %70 = load ptr, ptr %3, align 8
   %71 = getelementptr i8, ptr %70, i64 -24
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %3, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   %74 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %73)
           to label %75 unwind label %.loopexit23.i
 
@@ -268,7 +268,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   %92 = load ptr, ptr %3, align 8
   %93 = getelementptr i8, ptr %92, i64 -24
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %94
   %96 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %95)
           to label %97 unwind label %.loopexit23.i
 

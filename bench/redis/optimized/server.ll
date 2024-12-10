@@ -651,7 +651,7 @@ if.else:                                          ; preds = %if.end7
   %call13 = call i64 @strftime(ptr noundef nonnull %buf, i64 noundef 64, ptr noundef nonnull @.str.3, ptr noundef nonnull %tm) #40
   %sext = shl i64 %call13, 32
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
   %sub = sub nsw i64 64, %idx.ext
   %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %7 = load i64, ptr %tv_usec, align 8
@@ -2740,7 +2740,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %add3 = add i64 %add, %cond
   %call4 = tail call i64 @getClientOutputBufferMemoryUsage(ptr noundef nonnull %c) #40
   %idxprom = sext i32 %time_idx to i64
-  %arrayidx = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %idxprom
   %3 = load i64, ptr %arrayidx, align 8
   %cmp = icmp ugt i64 %add3, %3
   br i1 %cmp, label %if.then, label %if.end
@@ -2750,7 +2750,7 @@ if.then:                                          ; preds = %cond.end
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %arrayidx8 = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %idxprom
+  %arrayidx8 = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %idxprom
   %4 = load i64, ptr %arrayidx8, align 8
   %cmp9 = icmp ugt i64 %call4, %4
   br i1 %cmp9, label %if.then10, label %if.end13
@@ -3031,9 +3031,9 @@ entry:
   %rem5.lhs.trunc = add nsw i8 %5, 1
   %rem517 = srem i8 %rem5.lhs.trunc, 8
   %idxprom = sext i8 %rem517 to i64
-  %arrayidx = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %idxprom
   store i64 0, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %idxprom
   store i64 0, ptr %arrayidx7, align 8
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8
   %len818 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -3047,8 +3047,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %cmp = icmp slt i32 %div, 5
   %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 5)
   %iterations.0 = select i1 %cmp, i32 %cond, i32 %div
-  %arrayidx.i = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %rem
-  %arrayidx8.i = getelementptr inbounds [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %rem
+  %arrayidx.i = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemInput, i64 0, i64 %rem
+  %arrayidx8.i = getelementptr inbounds nuw [8 x i64], ptr @ClientsPeakMemOutput, i64 0, i64 %rem
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.cond.backedge

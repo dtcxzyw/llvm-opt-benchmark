@@ -282,7 +282,7 @@ call.i.noexc6:                                    ; preds = %if.else
 
 .noexc8:                                          ; preds = %call.i.noexc6
   %call.i.i3 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostbuf) #16
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %hostbuf, i64 %call.i.i3
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %hostbuf, i64 %call.i.i3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %hostbuf, ptr noundef nonnull %add.ptr.i4)
           to label %return unwind label %lpad.i5
 

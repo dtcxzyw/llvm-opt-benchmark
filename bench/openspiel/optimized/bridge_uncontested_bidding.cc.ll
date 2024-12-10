@@ -4205,7 +4205,7 @@ _ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %104
   %110 = ptrtoint ptr %106 to i64
   %111 = sub i64 %110, %96
   %gepdiff = sub nsw i64 8, %111
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %15, i64 %111
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %15, i64 %111
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %106, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %112 = getelementptr inbounds i8, ptr %106, i64 %gepdiff
   store ptr %112, ptr %105, align 8
@@ -5871,7 +5871,7 @@ define internal noundef zeroext i1 @_ZN10open_spiel26bridge_uncontested_bidding1
   %6 = srem i32 %5, 4
   %7 = sdiv i32 %5, 4
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 4
@@ -6791,7 +6791,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %reass.sub = sub i32 %118, %.159.lcssa
   %119 = add i32 %reass.sub, 3
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [52 x i32], ptr %11, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [52 x i32], ptr %11, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %.not66 = icmp eq i32 %122, 0
   br i1 %.not66, label %127, label %123
@@ -6834,7 +6834,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 133:                                              ; preds = %.preheader95
   %134 = add nsw i32 %.050103, 1
   %135 = sext i32 %.050103 to i64
-  %136 = getelementptr inbounds [52 x i32], ptr %10, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [52 x i32], ptr %10, i64 0, i64 %135
   %137 = trunc nuw nsw i64 %indvars.iv122 to i32
   store i32 %137, ptr %136, align 4
   br label %138

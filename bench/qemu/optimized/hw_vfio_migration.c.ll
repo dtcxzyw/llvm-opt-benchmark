@@ -606,7 +606,7 @@ if.end11:                                         ; preds = %if.then4, %if.then7
   %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %state) #16
   %switch.tableidx = add nsw i32 %new_state.0, -1
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.vfio_vmstate_change, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.vfio_vmstate_change, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1751,7 +1751,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call7 = call ptr @strerror(i32 noundef %2) #16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %3, ptr noundef nonnull %switch.load, ptr noundef %call7) #16
@@ -1759,7 +1759,7 @@ if.then4:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %5 = sext i32 %switch.tableidx to i64
-  %switch.gep61 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %5
+  %switch.gep61 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %5
   %switch.load62 = load ptr, ptr %switch.gep61, align 8
   %call11 = call ptr @strerror(i32 noundef %2) #16
   %6 = icmp ult i32 %recover_state, 8
@@ -1768,7 +1768,7 @@ if.end:                                           ; preds = %if.then
 switch.lookup:                                    ; preds = %if.end
   %switch.tableidx66 = add i32 %recover_state, -1
   %7 = sext i32 %switch.tableidx66 to i64
-  %switch.gep67 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %7
+  %switch.gep67 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %7
   %switch.load68 = load ptr, ptr %switch.gep67, align 8
   br label %mig_state_to_str.exit47
 
@@ -1825,7 +1825,7 @@ if.end38:                                         ; preds = %if.end35, %if.end25
   %15 = load ptr, ptr %name39, align 8
   %switch.tableidx63 = add nsw i32 %new_state, -1
   %16 = sext i32 %switch.tableidx63 to i64
-  %switch.gep64 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %16
+  %switch.gep64 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %16
   %switch.load65 = load ptr, ptr %switch.gep64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %17 = load i32, ptr @trace_events_enabled_count, align 4

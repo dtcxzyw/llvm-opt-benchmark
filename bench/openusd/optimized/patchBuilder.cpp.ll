@@ -599,7 +599,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far12PatchBuilder14IsPatchReg
   %.in = select i1 %.not60, i32 %89, i32 %90
   %91 = add nsw i32 %.in, -1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag"], ptr %8, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::ETag"], ptr %8, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, 2
   %.not62 = icmp eq i8 %95, 0
@@ -2615,7 +2615,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   %.pn.i205 = phi ptr [ %289, %280 ], [ %292, %290 ]
   %293 = add nsw i32 %.0298, 1
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %294
   %296 = load i32, ptr %295, align 4
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i32, ptr %.pn.i205, i64 %297
@@ -2627,7 +2627,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   store i32 %299, ptr %303, align 4
   %304 = add nsw i32 %.0298, 2
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %305
+  %306 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %305
   %307 = load i32, ptr %306, align 4
   %308 = sext i32 %307 to i64
   %309 = getelementptr inbounds i32, ptr %.pn.i205, i64 %308
@@ -2825,7 +2825,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   store i32 %.0149, ptr %437, align 4
   %438 = add nsw i32 %.0299, 1
   %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %439
+  %440 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %439
   %441 = load i32, ptr %440, align 4
   %442 = sext i32 %441 to i64
   %443 = getelementptr inbounds i32, ptr %.pn.i235, i64 %442
@@ -2951,7 +2951,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_113getFacePointsERKNS0_3Vtr8internal5Leve
   %529 = shl i64 %storemerge.i242, 32
   %sext305 = add i64 %529, 8589934592
   %530 = ashr exact i64 %sext305, 32
-  %531 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %530
+  %531 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %530
   %532 = load i32, ptr %531, align 4
   %533 = sext i32 %532 to i64
   %534 = getelementptr inbounds i32, ptr %.pn.i250, i64 %533
@@ -3524,7 +3524,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj64ELb1EEC2Ej.exit: ; preds =
 
 142:                                              ; preds = %125
   %143 = sext i32 %127 to i64
-  %144 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %143
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds i32, ptr %.sroa.0102.0.i, i64 %146
@@ -3564,7 +3564,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj64ELb1EEC2Ej.exit: ; preds =
 167:                                              ; preds = %157
   %168 = add nsw i32 %.080119.i, 2
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [6 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_18fastMod3EiE9mod3Array, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = sext i32 %171 to i64
   %173 = getelementptr inbounds i32, ptr %.sroa.0102.0.i, i64 %172

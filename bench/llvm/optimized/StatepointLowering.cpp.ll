@@ -736,7 +736,7 @@ define dso_local { ptr, i32 } @_ZN4llvm23StatepointLoweringState17allocateStackS
 14:                                               ; preds = %4
   %15 = zext i16 %1 to i64
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %17, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -7271,7 +7271,7 @@ _ZN4llvm19SelectionDAGBuilder8setValueEPKNS_5ValueENS_7SDValueE.exit140: ; preds
 345:                                              ; preds = %339
   %346 = zext i16 %.sroa.0.0.copyload.i.i to i64
   %347 = add nsw i64 %346, -1
-  %348 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %347
   %.sroa.0.0.copyload.i.i141 = load i64, ptr %348, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %348, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -8076,7 +8076,7 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %76
 99:                                               ; preds = %93
   %100 = zext i16 %.sroa.0.0.copyload.i.i.i.i to i64
   %101 = add nsw i64 %100, -1
-  %102 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %101
   %.sroa.0.0.copyload.i.i3.i.i = load i64, ptr %102, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %102, i64 8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -8395,7 +8395,7 @@ define internal fastcc void @_ZL32reservePreviousStackSlotForValuePKN4llvm5Value
 15:                                               ; preds = %9
   %16 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %17
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %18, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -8807,7 +8807,7 @@ define internal fastcc void @_ZL28lowerIncomingStatepointValueN4llvm7SDValueEbRN
 27:                                               ; preds = %21
   %28 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
   %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %29
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %30, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8

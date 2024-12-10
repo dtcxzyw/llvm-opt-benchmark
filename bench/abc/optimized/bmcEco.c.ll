@@ -1577,7 +1577,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %66
   %71 = tail call i32 @Bmc_EcoPatch(ptr noundef %64, i32 noundef %.val39.val, i32 noundef %.val40.val)
   %switch.tableidx = add nsw i32 %71, 1
   %72 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_EcoMiterTest, i64 0, i64 %72
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.Bmc_EcoMiterTest, i64 0, i64 %72
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts33 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
   tail call void @Gia_ManStop(ptr noundef %64) #12

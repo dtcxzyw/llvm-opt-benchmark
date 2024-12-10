@@ -321,7 +321,7 @@ entry:
   %s.i = alloca %struct.rx_state, align 8
   %pkt.i = alloca ptr, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @rx_scripts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @rx_scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkt.i)
@@ -826,7 +826,7 @@ if.end:                                           ; preds = %entry
   %rem2 = srem i32 %div, 4
   %div3 = sdiv i32 %idx, 12
   %idxprom.i = sext i32 %div3 to i64
-  %arrayidx.i = getelementptr inbounds [20 x ptr], ptr @pkt_hdr_tests, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [20 x ptr], ptr @pkt_hdr_tests, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %expected_len.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3 = load i64, ptr %expected_len.i, align 8
@@ -864,7 +864,7 @@ entry:
   %msg.i = alloca %struct.bio_msg_st, align 8
   %args.i = alloca %struct.ossl_qtx_args_st, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr @tx_scripts, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x ptr], ptr @tx_scripts, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %msg.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %args.i)
@@ -1431,7 +1431,7 @@ entry:
   %hpr = alloca %struct.quic_hdr_protector_st, align 8
   %hpr_key = alloca [32 x i8], align 16
   %idxprom = sext i32 %tidx to i64
-  %arrayidx = getelementptr inbounds [20 x ptr], ptr @pkt_hdr_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x ptr], ptr @pkt_hdr_tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %hdr, i8 0, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ptrs, i8 0, i64 32, i1 false)

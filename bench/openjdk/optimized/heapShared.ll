@@ -1836,7 +1836,7 @@ _ZN10HeapShared20make_cached_oop_infoEP7oopDesc.exit: ; preds = %219, %229
   %231 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %232 = load i32, ptr %231, align 4, !noalias !14
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19PointsToOopsCheckerE6_tableE, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19PointsToOopsCheckerE6_tableE, i64 0, i64 %233
   %235 = load ptr, ptr %234, align 8, !noalias !14
   call void %235(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #20, !noalias !14
   %236 = load i8, ptr %216, align 8, !noalias !14
@@ -2214,7 +2214,7 @@ _ZN7oopDesc11oop_iterateI19PointsToOopsCheckerEEvPT_.exit: ; preds = %16, %26
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19PointsToOopsCheckerE6_tableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI19PointsToOopsCheckerE6_tableE, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #20
   %33 = load i8, ptr %12, align 8
@@ -3478,7 +3478,7 @@ _ZN7oopDesc11oop_iterateI24WalkOopAndArchiveClosureEEvPT_.exit: ; preds = %227, 
   %239 = getelementptr inbounds nuw i8, ptr %.0.i.i45, i64 12
   %240 = load i32, ptr %239, align 4
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI24WalkOopAndArchiveClosureE6_tableE, i64 0, i64 %241
+  %242 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI24WalkOopAndArchiveClosureE6_tableE, i64 0, i64 %241
   %243 = load ptr, ptr %242, align 8
   call void %243(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i45) #20
   %244 = call noundef zeroext i1 @_ZN12CDSEnumKlass11is_enum_objEP7oopDesc(ptr noundef nonnull %2) #20

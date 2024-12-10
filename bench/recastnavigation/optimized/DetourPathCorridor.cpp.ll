@@ -1163,7 +1163,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor12movePositionEPKfP14dtNavMeshQuer
   %69 = xor i32 %68, -1
   %70 = add i32 %31, %69
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %6, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv72.i
   store i32 %73, ptr %74, align 4

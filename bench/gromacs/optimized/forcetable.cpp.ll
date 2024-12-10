@@ -2045,7 +2045,7 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 .thread.i84:                                      ; preds = %switch.hole_check, %288
   %290 = sext i32 %237 to i64
-  %291 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %290, i32 1
+  %291 = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %290, i32 1
   %292 = load i8, ptr %291, align 8
   %293 = trunc i8 %292 to i1
   %.in.in.v.i = select i1 %293, i64 72, i64 4
@@ -2065,7 +2065,7 @@ switch.hole_check:                                ; preds = %288
 .thread365.i:                                     ; preds = %switch.hole_check, %.thread.i84
   %295 = phi i1 [ %294, %.thread.i84 ], [ true, %switch.hole_check ]
   %296 = sext i32 %237 to i64
-  %297 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %296, i32 1
+  %297 = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %296, i32 1
   %298 = load i8, ptr %297, align 8
   %299 = trunc i8 %298 to i1
   br i1 %299, label %300, label %303
@@ -2087,17 +2087,17 @@ switch.hole_check:                                ; preds = %288
   %308 = phi i1 [ %305, %303 ], [ %302, %300 ], [ true, %.thread.i84 ]
   %309 = trunc i8 %306 to i1
   %310 = load double, ptr %231, align 8
-  %311 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi
+  %311 = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.pre-phi
   br i1 %309, label %316, label %319
 
 .thread369.i:                                     ; preds = %_ZN11t_tabledataD2Ev.exit
   %.phi.trans.insert.i = sext i32 %237 to i64
-  %.phi.trans.insert391.i = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i, i32 1
+  %.phi.trans.insert391.i = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i, i32 1
   %.pre.i = load i8, ptr %.phi.trans.insert391.i, align 8
   %.pre.fr.i = freeze i8 %.pre.i
   %.pre393.i = trunc i8 %.pre.fr.i to i1
   %312 = load double, ptr %231, align 8
-  %313 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i
+  %313 = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i
   br i1 %.pre393.i, label %314, label %315
 
 314:                                              ; preds = %.thread369.i
@@ -2755,7 +2755,7 @@ switch.hole_check:                                ; preds = %288
   %677 = getelementptr inbounds nuw %struct.t_tabledata, ptr %676, i64 %indvars.iv153
   %678 = load i32, ptr %677, align 8
   %679 = sext i32 %237 to i64
-  %680 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %679
+  %680 = getelementptr inbounds nuw [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %679
   %681 = load ptr, ptr %680, align 16
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 8
   %683 = load double, ptr %682, align 8

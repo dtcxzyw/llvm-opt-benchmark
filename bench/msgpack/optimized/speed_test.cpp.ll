@@ -374,7 +374,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %24 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 240
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   %30 = icmp eq ptr %29, null
@@ -411,7 +411,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %49 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 240
   %54 = load ptr, ptr %53, align 8, !tbaa !7
   %55 = icmp eq ptr %54, null
@@ -487,7 +487,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %90 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %91 = getelementptr i8, ptr %90, i64 -24
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 240
   %95 = load ptr, ptr %94, align 8, !tbaa !7
   %96 = icmp eq ptr %95, null
@@ -638,7 +638,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %167 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %168 = getelementptr i8, ptr %167, i64 -24
   %169 = load i64, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 240
   %172 = load ptr, ptr %171, align 8, !tbaa !7
   %173 = icmp eq ptr %172, null
@@ -751,7 +751,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %231 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %232 = getelementptr i8, ptr %231, i64 -24
   %233 = load i64, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 240
   %236 = load ptr, ptr %235, align 8, !tbaa !7
   %237 = icmp eq ptr %236, null
@@ -905,7 +905,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %311 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %312 = getelementptr i8, ptr %311, i64 -24
   %313 = load i64, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %313
+  %314 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %313
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 240
   %316 = load ptr, ptr %315, align 8, !tbaa !7
   %317 = icmp eq ptr %316, null
@@ -968,7 +968,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %346 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %347 = getelementptr i8, ptr %346, i64 -24
   %348 = load i64, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %348
+  %349 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 240
   %351 = load ptr, ptr %350, align 8, !tbaa !7
   %352 = icmp eq ptr %351, null
@@ -1107,7 +1107,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %420 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !4
   %421 = getelementptr i8, ptr %420, i64 -24
   %422 = load i64, ptr %421, align 8
-  %423 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %422
+  %423 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %422
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 240
   %425 = load ptr, ptr %424, align 8, !tbaa !7
   %426 = icmp eq ptr %425, null
@@ -1242,7 +1242,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %490 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %491 = getelementptr i8, ptr %489, i64 -24
   %492 = load i64, ptr %491, align 8
-  %493 = getelementptr inbounds i8, ptr %12, i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr %12, i64 %492
   store ptr %490, ptr %493, align 8, !tbaa !4
   %494 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %495 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1277,7 +1277,7 @@ define dso_local void @_Z20test_map_pack_unpackv() local_unnamed_addr #5 persona
   %511 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %512 = getelementptr i8, ptr %510, i64 -24
   %513 = load i64, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %12, i64 %513
+  %514 = getelementptr inbounds nuw i8, ptr %12, i64 %513
   store ptr %511, ptr %514, align 8, !tbaa !4
   %515 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %515, align 8, !tbaa !86

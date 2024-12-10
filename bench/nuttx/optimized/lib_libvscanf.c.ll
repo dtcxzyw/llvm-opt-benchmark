@@ -652,7 +652,7 @@ switch.early.test:                                ; preds = %239
   %244 = trunc i32 %.12583675 to i8
   %245 = add nsw i32 %.5383676, 1
   %246 = sext i32 %.5383676 to i64
-  %247 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %246
   store i8 %244, ptr %247, align 1
   %248 = load ptr, ptr %10, align 8
   %249 = call i32 %248(ptr noundef nonnull %0) #7
@@ -807,7 +807,7 @@ switch.early.test:                                ; preds = %239
   %296 = trunc i32 %.18683 to i8
   %297 = add nsw i32 %.11684, 1
   %298 = sext i32 %.11684 to i64
-  %299 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %298
   store i8 %296, ptr %299, align 1
   %300 = load ptr, ptr %10, align 8
   %301 = call i32 %300(ptr noundef nonnull %0) #7
@@ -827,7 +827,7 @@ switch.early.test:                                ; preds = %239
   %.0375 = phi i32 [ 10, %217 ], [ 10, %.preheader602 ], [ 16, %231 ], [ 8, %.preheader605 ], [ 2, %.preheader607 ], [ 10, %224 ], [ 10, %222 ], [ %.1376685, %291 ], [ %.2377, %.thread594 ], [ 16, %.thread589 ], [ 16, %switch.early.test ], [ 8, %257 ], [ 8, %255 ], [ 2, %269 ], [ 2, %267 ]
   %.1349 = phi i1 [ %.0348, %217 ], [ true, %.preheader602 ], [ false, %231 ], [ false, %.preheader605 ], [ false, %.preheader607 ], [ %.0348, %224 ], [ %.0348, %222 ], [ true, %.thread594 ], [ true, %291 ], [ false, %.thread589 ], [ false, %switch.early.test ], [ false, %257 ], [ false, %255 ], [ false, %269 ], [ false, %267 ]
   %304 = sext i32 %.4382 to i64
-  %305 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %304
   store i8 0, ptr %305, align 1
   %306 = call ptr @__errno() #7
   %307 = load i32, ptr %306, align 4
@@ -1074,7 +1074,7 @@ switch.early.test:                                ; preds = %239
 ._crit_edge712:                                   ; preds = %._crit_edge712.loopexit, %379
   %.21.lcssa = phi i32 [ %.20.lcssa, %379 ], [ %.22820, %._crit_edge712.loopexit ]
   %.13.lcssa = phi i64 [ 0, %379 ], [ %398, %._crit_edge712.loopexit ]
-  %399 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %.13.lcssa
+  %399 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %.13.lcssa
   store i8 0, ptr %399, align 1
   %400 = call ptr @__errno() #7
   %401 = load i32, ptr %400, align 4

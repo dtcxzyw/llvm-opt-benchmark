@@ -25286,9 +25286,9 @@ switch.lookup:
   %3 = icmp ult i64 %2, 8
   %4 = xor i64 %1, -9223372036854775808
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1
@@ -25416,9 +25416,9 @@ switch.lookup:
   %10 = icmp ult i64 %9, 8
   %11 = xor i64 %8, -9223372036854775808
   %12 = select i1 %10, i64 %11, i64 0
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep13 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %12
+  %switch.gep13 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %12
   %switch.load14 = load ptr, ptr %switch.gep13, align 8
   store ptr %switch.load14, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -28919,9 +28919,9 @@ switch.lookup:
   %4 = icmp ult i64 %3, 8
   %5 = xor i64 %2, -9223372036854775808
   %6 = select i1 %4, i64 %5, i64 0
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %6
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %or.cond.i = icmp slt i64 %2, 0
   br i1 %or.cond.i, label %"_ZN4core3ptr47drop_in_place$LT$just..attribute..Attribute$GT$17h3985bca9acb06605E.llvm.9118937971122011336.exit", label %7
@@ -28963,9 +28963,9 @@ switch.lookup:
   %3 = icmp ult i64 %2, 8
   %4 = xor i64 %1, -9223372036854775808
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E", i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN4just9attribute95_$LT$impl$u20$core..convert..From$LT$$RF$just..attribute..Attribute$GT$$u20$for$u20$$RF$str$GT$4from17h6a7ec9a7873b2624E.14", i64 0, i64 %5
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load, 1

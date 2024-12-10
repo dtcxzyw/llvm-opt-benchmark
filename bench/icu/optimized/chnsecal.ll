@@ -1803,7 +1803,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then3
   %idxprom = sext i32 %call4 to i64
-  %arrayidx = getelementptr inbounds [13 x ptr], ptr @_ZN6icu_75L23gTemporalLeapMonthCodesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [13 x ptr], ptr @_ZN6icu_75L23gTemporalLeapMonthCodesE, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   br label %return
 

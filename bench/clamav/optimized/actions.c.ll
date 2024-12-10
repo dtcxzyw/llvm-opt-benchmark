@@ -540,7 +540,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr nocapture noundef n
 .preheader:                                       ; preds = %17, %31
   %.162 = phi i32 [ %.2, %31 ], [ %13, %17 ]
   %.03261 = phi i64 [ %32, %31 ], [ 0, %17 ]
-  %21 = getelementptr inbounds [2048 x ptr], ptr %3, i64 0, i64 %.03261
+  %21 = getelementptr inbounds nuw [2048 x ptr], ptr %3, i64 0, i64 %.03261
   %22 = load ptr, ptr %21, align 8
   %char0 = load i8, ptr %22, align 1
   %23 = icmp eq i8 %char0, 0

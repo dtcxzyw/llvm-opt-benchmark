@@ -715,7 +715,7 @@ Q_.exit.i:                                        ; preds = %if.end.i.i, %if.the
 
 if.then.i37:                                      ; preds = %Q_.exit.i
   %idxprom.i38 = sext i32 %58 to i64
-  %fn.i = getelementptr inbounds [6 x %struct.menu_item], ptr %menus.i, i64 0, i64 %idxprom.i38, i32 3
+  %fn.i = getelementptr inbounds nuw [6 x %struct.menu_item], ptr %menus.i, i64 0, i64 %idxprom.i38, i32 3
   %59 = load ptr, ptr %fn.i, align 8
   %call3.i = call i32 %59() #14
   %cmp4.not.i = icmp eq i32 %call3.i, 10

@@ -1196,7 +1196,7 @@ while.body168.lr.ph:                              ; preds = %for.cond163
 while.body168:                                    ; preds = %while.body168.lr.ph, %if.end182
   %indvars.iv241 = phi i64 [ %50, %while.body168.lr.ph ], [ %indvars.iv.next242, %if.end182 ]
   %nextOffset.0203 = phi i32 [ %offset.0, %while.body168.lr.ph ], [ %nextOffset.2, %if.end182 ]
-  %arrayidx170 = getelementptr inbounds [256 x i8], ptr %table, i64 0, i64 %indvars.iv241
+  %arrayidx170 = getelementptr inbounds nuw [256 x i8], ptr %table, i64 0, i64 %indvars.iv241
   %51 = load i8, ptr %arrayidx170, align 1
   %cmp172 = icmp eq i8 %51, -1
   br i1 %cmp172, label %if.end182, label %if.else

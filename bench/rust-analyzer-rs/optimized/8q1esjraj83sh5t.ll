@@ -2193,7 +2193,7 @@ define hidden noundef i128 @"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$
 switch.lookup:                                    ; preds = %2
   %10 = shl i64 %.sroa.0.0.copyload.i, 48
   %11 = ashr i64 %10, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit
 
@@ -2271,7 +2271,7 @@ define hidden noundef i128 @"_ZN15ra_ap_rustc_abi6layout16LayoutCalculator11scal
 switch.lookup:                                    ; preds = %2
   %9 = shl i64 %.sroa.0.0.copyload.i, 48
   %10 = ashr i64 %9, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit
 
@@ -3656,7 +3656,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 switch.lookup:                                    ; preds = %3
   %6 = shl i64 %.sroa.47.0.copyload, 48
   %7 = ashr i64 %6, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923.exit"
 
@@ -3792,7 +3792,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 switch.lookup:                                    ; preds = %3
   %6 = shl i64 %.sroa.46.0.copyload, 48
   %7 = ashr i64 %6, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17hb78312f2778796b3E.llvm.371848337259013923.exit"
 
@@ -7564,7 +7564,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u
 switch.lookup:                                    ; preds = %3
   %10 = shl i64 %.sroa.0.0.copyload.i.i, 48
   %11 = ashr i64 %10, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN15ra_ap_rustc_abi6layout16LayoutCalculator11scalar_pair28_$u7b$$u7b$closure$u7d$$u7d$17h2c21787d3ed5a6a4E.llvm.371848337259013923.exit"
 
@@ -7639,7 +7639,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u
 switch.lookup:                                    ; preds = %3
   %11 = shl i64 %.sroa.0.0.copyload.i.i, 48
   %12 = ashr i64 %11, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN4core4iter6traits8iterator8Iterator10max_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17he8e7637ba1024046E.llvm.371848337259013923", i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6c9569670fc064f6E.llvm.371848337259013923.exit"
 
@@ -21940,7 +21940,7 @@ define internal fastcc void @_ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E(
 switch.lookup:                                    ; preds = %2
   %4 = shl i64 %1, 48
   %5 = ashr i64 %4, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit
 
@@ -21994,7 +21994,7 @@ define internal fastcc void @_ZN6hir_ty6layout6scalar17h6b893632bc4ec3a1E(ptr no
 switch.lookup:                                    ; preds = %3
   %7 = shl i64 %2, 48
   %8 = ashr i64 %7, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN6hir_ty6layout11scalar_unit17ha3b647a2b6d0aa83E.exit
 
@@ -71347,7 +71347,7 @@ define internal fastcc void @_ZN6hir_ty3mir4eval9Evaluator20compute_discriminant
 switch.lookup:                                    ; preds = %60
   %62 = shl i64 %.sroa.3.0.copyload, 48
   %63 = ashr i64 %62, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %63
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6hir_ty3mir4eval9Evaluator20compute_discriminant17h65af50db8f09e57bE, i64 0, i64 %63
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %128
 
@@ -102460,10 +102460,10 @@ define noundef range(i8 0, 37) i8 @_ZN6hir_ty5FnAbi8from_str17h3afce03883f9b892E
 define { ptr, i64 } @_ZN6hir_ty5FnAbi6as_str17h2a855245a7dc2ea5E(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [37 x ptr], ptr @switch.table._ZN6hir_ty5FnAbi6as_str17h2a855245a7dc2ea5E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @switch.table._ZN6hir_ty5FnAbi6as_str17h2a855245a7dc2ea5E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [37 x i64], ptr @switch.table._ZN6hir_ty5FnAbi6as_str17h2a855245a7dc2ea5E.289, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [37 x i64], ptr @switch.table._ZN6hir_ty5FnAbi6as_str17h2a855245a7dc2ea5E.289, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

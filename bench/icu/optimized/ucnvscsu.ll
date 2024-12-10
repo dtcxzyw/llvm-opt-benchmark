@@ -432,7 +432,7 @@ sw.bb105:                                         ; preds = %while.body39.us
   br i1 %cmp107, label %if.then108, label %if.else115
 
 if.then108:                                       ; preds = %sw.bb105
-  %arrayidx110 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom109
+  %arrayidx110 = getelementptr inbounds nuw [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom109
   %19 = load i32, ptr %arrayidx110, align 4
   %add112 = add i32 %19, %conv106
   %conv113 = trunc i32 %add112 to i16
@@ -1033,7 +1033,7 @@ sw.bb134:                                         ; preds = %while.body59.us
   br i1 %cmp136, label %if.then137, label %if.else148
 
 if.then137:                                       ; preds = %sw.bb134
-  %arrayidx139 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom138
+  %arrayidx139 = getelementptr inbounds nuw [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom138
   %22 = load i32, ptr %arrayidx139, align 4
   %add141 = add i32 %22, %conv135
   %conv142 = trunc i32 %add141 to i16

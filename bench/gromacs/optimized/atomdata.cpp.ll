@@ -174,7 +174,7 @@ $_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString17LJCombinationRule(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [3 x ptr], ptr @_ZZ17enumValueToString17LJCombinationRuleE24s_ljCombinationRuleNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZ17enumValueToString17LJCombinationRuleE24s_ljCombinationRuleNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -2793,7 +2793,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE5clearEv.exit.i: ; 
 
 331:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE5clearEv.exit.i
   %332 = sext i32 %325 to i64
-  %333 = getelementptr inbounds [3 x ptr], ptr @_ZZ17enumValueToString17LJCombinationRuleE24s_ljCombinationRuleNames, i64 0, i64 %332
+  %333 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZ17enumValueToString17LJCombinationRuleE24s_ljCombinationRuleNames, i64 0, i64 %332
   %334 = load ptr, ptr %333, align 8
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.14, ptr noundef %334)
           to label %335 unwind label %329
@@ -5586,7 +5586,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   store i64 %.sroa.24.0.copyload, ptr %24, align 8
   %63 = sdiv i32 %62, 64
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds [2 x i64], ptr %5, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = srem i32 %62, 64
   %68 = zext nneg i32 %67 to i64
@@ -5601,7 +5601,7 @@ define internal void @_ZN16nbnxn_atomdata_t23reduceForcesOverThreadsEv.omp_outli
   %73 = load ptr, ptr %72, align 8
   %74 = add nsw i32 %.04262, 1
   %75 = sext i32 %.04262 to i64
-  %76 = getelementptr inbounds [128 x ptr], ptr %10, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [128 x ptr], ptr %10, i64 0, i64 %75
   store ptr %73, ptr %76, align 8
   br label %77
 
@@ -6244,7 +6244,7 @@ define void @_ZN16nbnxn_atomdata_t16clearForceBufferEi(ptr nocapture noundef non
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %1, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [2 x i64], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 0, i64 %21
   store i64 %19, ptr %22, align 8
   %.not.i = icmp eq ptr %11, %9
   br i1 %.not.i, label %_ZL18clearBufferFlaggedILi3EEviN3gmx8ArrayRefIKSt5arrayImLm2EEEENS1_IfEE.exit, label %.lr.ph.i

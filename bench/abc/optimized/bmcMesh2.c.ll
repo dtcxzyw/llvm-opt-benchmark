@@ -56,7 +56,7 @@ define i32 @Bmc_MeshAddOneHotness2(ptr noundef %0, i32 noundef %1, i32 noundef %
 12:                                               ; preds = %9
   %13 = add nsw i32 %.02229, 1
   %14 = sext i32 %.02229 to i64
-  %15 = getelementptr inbounds [100 x i32], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [100 x i32], ptr %4, i64 0, i64 %14
   %16 = trunc nsw i64 %indvars.iv to i32
   store i32 %16, ptr %15, align 4
   br label %17
@@ -222,7 +222,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = add nsw i32 %59, %58
   %61 = add nsw i64 %indvars.iv, -1
-  %62 = getelementptr inbounds [102 x [2 x i32]], ptr %18, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [102 x [2 x i32]], ptr %18, i64 0, i64 %61
   store i32 %60, ptr %62, align 8
   %63 = lshr i64 %.val463, 32
   %64 = trunc nuw i64 %63 to i32
@@ -275,7 +275,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 
 .lr.ph598:                                        ; preds = %.lr.ph598.preheader, %.lr.ph598
   %indvars.iv776 = phi i64 [ %85, %.lr.ph598.preheader ], [ %indvars.iv.next777, %.lr.ph598 ]
-  %86 = getelementptr inbounds [102 x [2 x i32]], ptr %18, i64 0, i64 %indvars.iv776
+  %86 = getelementptr inbounds nuw [102 x [2 x i32]], ptr %18, i64 0, i64 %indvars.iv776
   %87 = load i32, ptr %86, align 8
   %88 = add nsw i32 %87, 97
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
@@ -589,7 +589,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %210 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %211 = icmp sgt i32 %3, 1
   %212 = sext i32 %3 to i64
-  %213 = getelementptr inbounds i32, ptr %20, i64 %212
+  %213 = getelementptr inbounds nuw i32, ptr %20, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %215 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %216 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -689,7 +689,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %255 = getelementptr inbounds nuw [12 x [2 x i32]], ptr @__const.Bmc_MeshTest2.Conf, i64 0, i64 %indvars.iv845
   %256 = load i32, ptr %255, align 8
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = add nsw i32 %259, %.2404666.us
   %261 = shl i32 %260, 1
@@ -702,7 +702,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   %264 = getelementptr inbounds nuw i8, ptr %255, i64 4
   %265 = load i32, ptr %264, align 4
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [4 x i32], ptr %21, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i32], ptr %21, i64 0, i64 %266
   %268 = load i32, ptr %267, align 4
   %269 = add nsw i32 %268, %.2404666.us
   %270 = shl i32 %269, 1
@@ -712,7 +712,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %341, ptr %20, align 16
   store i32 %328, ptr %209, align 4
   store i32 %254, ptr %210, align 8
-  %273 = getelementptr inbounds [4 x i32], ptr %22, i64 0, i64 %257
+  %273 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %257
   %274 = load i32, ptr %273, align 4
   %275 = load i32, ptr %324, align 8
   %276 = add nsw i32 %275, %274
@@ -722,7 +722,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
   store i32 %341, ptr %20, align 16
   store i32 %328, ptr %209, align 4
   store i32 %254, ptr %210, align 8
-  %279 = getelementptr inbounds [4 x i32], ptr %22, i64 0, i64 %266
+  %279 = getelementptr inbounds nuw [4 x i32], ptr %22, i64 0, i64 %266
   %280 = load i32, ptr %279, align 4
   %281 = load i32, ptr %325, align 4
   %282 = add nsw i32 %281, %280
@@ -824,7 +824,7 @@ Abc_Clock.exit:                                   ; preds = %5, %25
 .preheader572.us:                                 ; preds = %.preheader572.lr.ph.us, %248
   %indvars.iv849 = phi i64 [ %221, %.preheader572.lr.ph.us ], [ %indvars.iv.next850, %248 ]
   %.8661.us = phi i32 [ %.6429.lcssa.us, %.preheader572.lr.ph.us ], [ %249, %248 ]
-  %324 = getelementptr inbounds [102 x [2 x i32]], ptr %18, i64 0, i64 %indvars.iv849
+  %324 = getelementptr inbounds nuw [102 x [2 x i32]], ptr %18, i64 0, i64 %indvars.iv849
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %326 = trunc i64 %indvars.iv849 to i32
   %.tr923 = add i32 %225, %326
@@ -1008,7 +1008,7 @@ Abc_Clock.exit469:                                ; preds = %351, %355
 400:                                              ; preds = %397
   %401 = add nsw i32 %.02229.i478.us, 1
   %402 = sext i32 %.02229.i478.us to i64
-  %403 = getelementptr inbounds [100 x i32], ptr %11, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw [100 x i32], ptr %11, i64 0, i64 %402
   %404 = trunc nsw i64 %indvars.iv.i477.us to i32
   store i32 %404, ptr %403, align 4
   br label %405
@@ -1097,7 +1097,7 @@ Bmc_MeshAddOneHotness2.exit501.us.Bmc_MeshAddOneHotness2.exit530.us_crit_edge: ;
 426:                                              ; preds = %423
   %427 = add nsw i32 %.02229.i507.us, 1
   %428 = sext i32 %.02229.i507.us to i64
-  %429 = getelementptr inbounds [100 x i32], ptr %9, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw [100 x i32], ptr %9, i64 0, i64 %428
   %430 = trunc nsw i64 %indvars.iv.i506.us to i32
   store i32 %430, ptr %429, align 4
   br label %431
@@ -1179,7 +1179,7 @@ Bmc_MeshAddOneHotness2.exit530.us:                ; preds = %.loopexit.i521.us, 
 451:                                              ; preds = %448
   %452 = add nsw i32 %.02229.i536.us, 1
   %453 = sext i32 %.02229.i536.us to i64
-  %454 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %453
+  %454 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %453
   %455 = trunc nsw i64 %indvars.iv.i535.us to i32
   store i32 %455, ptr %454, align 4
   br label %456
@@ -1272,7 +1272,7 @@ Bmc_MeshAddOneHotness2.exit559.us:                ; preds = %.loopexit.i550.us, 
 482:                                              ; preds = %479
   %483 = add nsw i32 %.02229.i.us, 1
   %484 = sext i32 %.02229.i.us to i64
-  %485 = getelementptr inbounds [100 x i32], ptr %13, i64 0, i64 %484
+  %485 = getelementptr inbounds nuw [100 x i32], ptr %13, i64 0, i64 %484
   %486 = trunc nsw i64 %indvars.iv.i.us to i32
   store i32 %486, ptr %485, align 4
   br label %487

@@ -97,7 +97,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString13StopCondition(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [4 x ptr], ptr @__const._Z17enumValueToString13StopCondition.stopConditionNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._Z17enumValueToString13StopCondition.stopConditionNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -758,7 +758,7 @@ define void @_Z22gmx_set_stop_condition13StopCondition(i32 noundef %0) local_unn
 define noundef ptr @_Z19gmx_get_signal_namev() local_unnamed_addr #16 {
   %1 = load volatile i32, ptr @_ZL16last_signal_name, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZL15gmx_signal_name, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [8 x ptr], ptr @_ZL15gmx_signal_name, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

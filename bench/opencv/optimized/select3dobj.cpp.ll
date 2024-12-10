@@ -1438,7 +1438,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %535 = ptrtoint ptr %533 to i64
   %536 = ptrtoint ptr %534 to i64
   %537 = sub i64 %535, %536
-  %538 = getelementptr inbounds [1000 x i8], ptr %173, i64 0, i64 %537
+  %538 = getelementptr inbounds nuw [1000 x i8], ptr %173, i64 0, i64 %537
   store i8 0, ptr %538, align 1
   %539 = invoke i32 @system(ptr noundef nonnull %173)
           to label %540 unwind label %509

@@ -1798,31 +1798,31 @@ _ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i:    ; preds = %.lr.ph.i.i49.i.i
 
 492:                                              ; preds = %_ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i
   %493 = sext i32 %488 to i64
-  %494 = getelementptr inbounds [32 x ptr], ptr @_ZN5ZXing5AztecL11UPPER_TABLEE, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN5ZXing5AztecL11UPPER_TABLEE, i64 0, i64 %493
   %495 = load ptr, ptr %494, align 8, !noalias !24
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 
 496:                                              ; preds = %_ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i
   %497 = sext i32 %488 to i64
-  %498 = getelementptr inbounds [32 x ptr], ptr @_ZN5ZXing5AztecL11LOWER_TABLEE, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN5ZXing5AztecL11LOWER_TABLEE, i64 0, i64 %497
   %499 = load ptr, ptr %498, align 8, !noalias !24
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 
 500:                                              ; preds = %_ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i
   %501 = sext i32 %488 to i64
-  %502 = getelementptr inbounds [32 x ptr], ptr @_ZN5ZXing5AztecL11MIXED_TABLEE, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN5ZXing5AztecL11MIXED_TABLEE, i64 0, i64 %501
   %503 = load ptr, ptr %502, align 8, !noalias !24
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 
 504:                                              ; preds = %_ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i
   %505 = sext i32 %488 to i64
-  %506 = getelementptr inbounds [32 x ptr], ptr @_ZN5ZXing5AztecL11PUNCT_TABLEE, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw [32 x ptr], ptr @_ZN5ZXing5AztecL11PUNCT_TABLEE, i64 0, i64 %505
   %507 = load ptr, ptr %506, align 8, !noalias !24
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 
 508:                                              ; preds = %_ZN5ZXing12BitArrayView8readBitsEi.exit53.i.i
   %509 = sext i32 %488 to i64
-  %510 = getelementptr inbounds [16 x ptr], ptr @_ZN5ZXing5AztecL11DIGIT_TABLEE, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [16 x ptr], ptr @_ZN5ZXing5AztecL11DIGIT_TABLEE, i64 0, i64 %509
   %511 = load ptr, ptr %510, align 8, !noalias !24
   br label %_ZN5ZXing5AztecL12GetCharacterENS0_5TableEi.exit.i.i
 

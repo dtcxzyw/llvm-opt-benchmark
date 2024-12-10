@@ -174,7 +174,7 @@ define internal void @value_changed_event_cb(ptr noundef %0) #0 {
   %12 = load i8, ptr %5, align 2, !tbaa !10
   %13 = sext i8 %12 to i64
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr inbounds [12 x ptr], ptr @month_names_def, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [12 x ptr], ptr @month_names_def, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef %11, ptr noundef %16) #2
   ret void

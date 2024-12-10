@@ -176,7 +176,7 @@ define void @spring_electrical_control_print(ptr nocapture noundef readonly %0) 
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [7 x ptr], ptr @smoothings, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [7 x ptr], ptr @smoothings, i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %64 = load i32, ptr %63, align 4
@@ -191,7 +191,7 @@ define void @spring_electrical_control_print(ptr nocapture noundef readonly %0) 
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [4 x ptr], ptr @tschemes, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [4 x ptr], ptr @tschemes, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.10, ptr noundef %77) #23
   %79 = load ptr, ptr @stderr, align 8

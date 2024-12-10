@@ -1447,10 +1447,10 @@ define hidden void @initLUT(i32 noundef %0) local_unnamed_addr #4 {
   %2 = add nsw i32 %0, -100
   %3 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [151 x ptr], ptr @lcdGammaLUT, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [151 x ptr], ptr @lcdGammaLUT, i64 0, i64 %4
   store ptr %3, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %7 = getelementptr inbounds [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw [151 x ptr], ptr @lcdInvGammaLUT, i64 0, i64 %4
   store ptr %6, ptr %7, align 8
   %8 = icmp eq i32 %0, 100
   br i1 %8, label %.preheader, label %14

@@ -643,7 +643,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread: ; pred
   %119 = load ptr, ptr %13, align 8
   %120 = getelementptr i8, ptr %119, i64 -24
   %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %13, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %13, i64 %121
   %123 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %122)
           to label %124 unwind label %165
 
@@ -691,7 +691,7 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread: ; pred
   %142 = load ptr, ptr %13, align 8
   %143 = getelementptr i8, ptr %142, i64 -24
   %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %13, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %13, i64 %144
   %146 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %145)
           to label %147 unwind label %165
 

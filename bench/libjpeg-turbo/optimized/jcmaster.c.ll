@@ -305,7 +305,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %147 = getelementptr inbounds nuw [4 x i32], ptr %142, i64 0, i64 %indvars.iv307.i
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds [10 x [64 x i32]], ptr %4, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [10 x [64 x i32]], ptr %4, i64 0, i64 %149
   br i1 %132, label %161, label %151
 
 151:                                              ; preds = %146
@@ -476,7 +476,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %219 = getelementptr inbounds nuw [4 x i32], ptr %217, i64 0, i64 %indvars.iv312.i
   %220 = load i32, ptr %219, align 4
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [10 x i32], ptr %3, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4
   %.not230.i = icmp eq i32 %223, 0
   br i1 %.not230.i, label %231, label %224

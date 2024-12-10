@@ -259,11 +259,11 @@ define internal fastcc void @Io_WriteVerilogInt(ptr noundef nonnull %0, ptr noca
   %25 = shl i64 %5, 32
   %sext.i = add i64 %25, 4294967296
   %26 = ashr exact i64 %sext.i, 32
-  %27 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %26
   store i8 32, ptr %27, align 1
   %sext37.i = add i64 %25, 8589934592
   %28 = ashr exact i64 %sext37.i, 32
-  %29 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %28
   store i8 0, ptr %29, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -542,11 +542,11 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %87
   %148 = shl i64 %128, 32
   %sext.i.i = add i64 %148, 4294967296
   %149 = ashr exact i64 %sext.i.i, 32
-  %150 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %149
   store i8 32, ptr %150, align 1
   %sext37.i.i = add i64 %148, 8589934592
   %151 = ashr exact i64 %sext37.i.i, 32
-  %152 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %151
   store i8 0, ptr %152, align 1
   br label %Io_WriteVerilogGetName.exit.i
 
@@ -644,11 +644,11 @@ Io_WriteVerilogGetName.exit.i:                    ; preds = %140, %._crit_edge49
   %188 = shl i64 %168, 32
   %sext.i236.i = add i64 %188, 4294967296
   %189 = ashr exact i64 %sext.i236.i, 32
-  %190 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %189
   store i8 32, ptr %190, align 1
   %sext37.i237.i = add i64 %188, 8589934592
   %191 = ashr exact i64 %sext37.i237.i, 32
-  %192 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %191
   store i8 0, ptr %192, align 1
   br label %Io_WriteVerilogGetName.exit258.i
 
@@ -750,11 +750,11 @@ Io_WriteVerilogGetName.exit258.i:                 ; preds = %180, %._crit_edge49
   %228 = shl i64 %208, 32
   %sext.i261.i = add i64 %228, 4294967296
   %229 = ashr exact i64 %sext.i261.i, 32
-  %230 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %229
   store i8 32, ptr %230, align 1
   %sext37.i262.i = add i64 %228, 8589934592
   %231 = ashr exact i64 %sext37.i262.i, 32
-  %232 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %231
   store i8 0, ptr %232, align 1
   br label %Io_WriteVerilogGetName.exit283.i
 
@@ -852,11 +852,11 @@ Io_WriteVerilogGetName.exit283.i:                 ; preds = %220, %._crit_edge49
   %268 = shl i64 %248, 32
   %sext.i286.i = add i64 %268, 4294967296
   %269 = ashr exact i64 %sext.i286.i, 32
-  %270 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %269
   store i8 32, ptr %270, align 1
   %sext37.i287.i = add i64 %268, 8589934592
   %271 = ashr exact i64 %sext37.i287.i, 32
-  %272 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %271
   store i8 0, ptr %272, align 1
   br label %Io_WriteVerilogGetName.exit308.i
 
@@ -1047,11 +1047,11 @@ Abc_Base10Log.exit315.i:                          ; preds = %.lr.ph.i310.i, %288
   %348 = shl i64 %328, 32
   %sext.i318.i = add i64 %348, 4294967296
   %349 = ashr exact i64 %sext.i318.i, 32
-  %350 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %349
+  %350 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %349
   store i8 32, ptr %350, align 1
   %sext37.i319.i = add i64 %348, 8589934592
   %351 = ashr exact i64 %sext37.i319.i, 32
-  %352 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %351
   store i8 0, ptr %352, align 1
   br label %Io_WriteVerilogGetName.exit340.i
 
@@ -1149,11 +1149,11 @@ Io_WriteVerilogGetName.exit340.i:                 ; preds = %340, %._crit_edge49
   %385 = shl i64 %365, 32
   %sext.i343.i = add i64 %385, 4294967296
   %386 = ashr exact i64 %sext.i343.i, 32
-  %387 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %386
   store i8 32, ptr %387, align 1
   %sext37.i344.i = add i64 %385, 8589934592
   %388 = ashr exact i64 %sext37.i344.i, 32
-  %389 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %388
   store i8 0, ptr %389, align 1
   br label %Io_WriteVerilogGetName.exit365.i
 
@@ -1240,11 +1240,11 @@ Io_WriteVerilogGetName.exit365.i:                 ; preds = %377, %._crit_edge49
   %419 = shl i64 %399, 32
   %sext.i368.i = add i64 %419, 4294967296
   %420 = ashr exact i64 %sext.i368.i, 32
-  %421 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %420
+  %421 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %420
   store i8 32, ptr %421, align 1
   %sext37.i369.i = add i64 %419, 8589934592
   %422 = ashr exact i64 %sext37.i369.i, 32
-  %423 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %422
   store i8 0, ptr %423, align 1
   br label %Io_WriteVerilogGetName.exit390.i
 
@@ -1326,11 +1326,11 @@ Io_WriteVerilogGetName.exit390.i:                 ; preds = %411, %._crit_edge49
   %447 = shl i64 %427, 32
   %sext.i393.i = add i64 %447, 4294967296
   %448 = ashr exact i64 %sext.i393.i, 32
-  %449 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %448
   store i8 32, ptr %449, align 1
   %sext37.i394.i = add i64 %447, 8589934592
   %450 = ashr exact i64 %sext37.i394.i, 32
-  %451 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %450
   store i8 0, ptr %451, align 1
   br label %Io_WriteVerilogGetName.exit415.i
 
@@ -1417,11 +1417,11 @@ Io_WriteVerilogGetName.exit415.i:                 ; preds = %439, %._crit_edge49
   %480 = shl i64 %460, 32
   %sext.i418.i = add i64 %480, 4294967296
   %481 = ashr exact i64 %sext.i418.i, 32
-  %482 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %481
+  %482 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %481
   store i8 32, ptr %482, align 1
   %sext37.i419.i = add i64 %480, 8589934592
   %483 = ashr exact i64 %sext37.i419.i, 32
-  %484 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %483
   store i8 0, ptr %484, align 1
   br label %Io_WriteVerilogGetName.exit440.i
 
@@ -1564,11 +1564,11 @@ Io_WriteVerilogGetName.exit440.i:                 ; preds = %472, %._crit_edge49
   %542 = shl i64 %522, 32
   %sext.i443.i = add i64 %542, 4294967296
   %543 = ashr exact i64 %sext.i443.i, 32
-  %544 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %543
+  %544 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %543
   store i8 32, ptr %544, align 1
   %sext37.i444.i = add i64 %542, 8589934592
   %545 = ashr exact i64 %sext37.i444.i, 32
-  %546 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %545
+  %546 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %545
   store i8 0, ptr %546, align 1
   br label %Io_WriteVerilogGetName.exit465.i
 
@@ -1662,11 +1662,11 @@ Io_WriteVerilogGetName.exit465.i:                 ; preds = %534, %._crit_edge49
   %580 = shl i64 %560, 32
   %sext.i468.i = add i64 %580, 4294967296
   %581 = ashr exact i64 %sext.i468.i, 32
-  %582 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %581
+  %582 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %581
   store i8 32, ptr %582, align 1
   %sext37.i469.i = add i64 %580, 8589934592
   %583 = ashr exact i64 %sext37.i469.i, 32
-  %584 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %583
+  %584 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %583
   store i8 0, ptr %584, align 1
   br label %Io_WriteVerilogGetName.exit490.i
 
@@ -1763,11 +1763,11 @@ Io_WriteVerilogGetName.exit490.i:                 ; preds = %572, %._crit_edge49
   %617 = shl i64 %597, 32
   %sext.i493.i = add i64 %617, 4294967296
   %618 = ashr exact i64 %sext.i493.i, 32
-  %619 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %618
   store i8 32, ptr %619, align 1
   %sext37.i494.i = add i64 %617, 8589934592
   %620 = ashr exact i64 %sext37.i494.i, 32
-  %621 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %620
+  %621 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %620
   store i8 0, ptr %621, align 1
   br label %Io_WriteVerilogGetName.exit515.i
 
@@ -2176,11 +2176,11 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %4
   %70 = shl i64 %50, 32
   %sext.i = add i64 %70, 4294967296
   %71 = ashr exact i64 %sext.i, 32
-  %72 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %71
   store i8 32, ptr %72, align 1
   %sext37.i = add i64 %70, 8589934592
   %73 = ashr exact i64 %sext37.i, 32
-  %74 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %73
   store i8 0, ptr %74, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -2278,11 +2278,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %62, %._crit_edge.i,
   %110 = shl i64 %90, 32
   %sext.i246 = add i64 %110, 4294967296
   %111 = ashr exact i64 %sext.i246, 32
-  %112 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %111
   store i8 32, ptr %112, align 1
   %sext37.i247 = add i64 %110, 8589934592
   %113 = ashr exact i64 %sext37.i247, 32
-  %114 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %113
   store i8 0, ptr %114, align 1
   br label %Io_WriteVerilogGetName.exit268
 
@@ -2384,11 +2384,11 @@ Io_WriteVerilogGetName.exit268:                   ; preds = %102, %._crit_edge.i
   %150 = shl i64 %130, 32
   %sext.i271 = add i64 %150, 4294967296
   %151 = ashr exact i64 %sext.i271, 32
-  %152 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %151
   store i8 32, ptr %152, align 1
   %sext37.i272 = add i64 %150, 8589934592
   %153 = ashr exact i64 %sext37.i272, 32
-  %154 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %153
   store i8 0, ptr %154, align 1
   br label %Io_WriteVerilogGetName.exit293
 
@@ -2486,11 +2486,11 @@ Io_WriteVerilogGetName.exit293:                   ; preds = %142, %._crit_edge.i
   %190 = shl i64 %170, 32
   %sext.i296 = add i64 %190, 4294967296
   %191 = ashr exact i64 %sext.i296, 32
-  %192 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %191
   store i8 32, ptr %192, align 1
   %sext37.i297 = add i64 %190, 8589934592
   %193 = ashr exact i64 %sext37.i297, 32
-  %194 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %193
   store i8 0, ptr %194, align 1
   br label %Io_WriteVerilogGetName.exit318
 
@@ -2626,11 +2626,11 @@ Io_WriteVerilogGetName.exit318:                   ; preds = %182, %._crit_edge.i
   %246 = shl i64 %226, 32
   %sext.i321 = add i64 %246, 4294967296
   %247 = ashr exact i64 %sext.i321, 32
-  %248 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %247
   store i8 32, ptr %248, align 1
   %sext37.i322 = add i64 %246, 8589934592
   %249 = ashr exact i64 %sext37.i322, 32
-  %250 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %249
   store i8 0, ptr %250, align 1
   br label %Io_WriteVerilogGetName.exit343
 
@@ -2731,11 +2731,11 @@ Io_WriteVerilogGetName.exit343:                   ; preds = %238, %._crit_edge.i
   %286 = shl i64 %266, 32
   %sext.i346 = add i64 %286, 4294967296
   %287 = ashr exact i64 %sext.i346, 32
-  %288 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %287
   store i8 32, ptr %288, align 1
   %sext37.i347 = add i64 %286, 8589934592
   %289 = ashr exact i64 %sext37.i347, 32
-  %290 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %289
   store i8 0, ptr %290, align 1
   br label %Io_WriteVerilogGetName.exit368
 
@@ -2966,11 +2966,11 @@ Abc_Base10Log.exit375:                            ; preds = %.lr.ph.i370, %.crit
   %388 = shl i64 %368, 32
   %sext.i378 = add i64 %388, 4294967296
   %389 = ashr exact i64 %sext.i378, 32
-  %390 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %389
+  %390 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %389
   store i8 32, ptr %390, align 1
   %sext37.i379 = add i64 %388, 8589934592
   %391 = ashr exact i64 %sext37.i379, 32
-  %392 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %391
   store i8 0, ptr %392, align 1
   br label %Io_WriteVerilogGetName.exit400
 
@@ -3069,11 +3069,11 @@ Io_WriteVerilogGetName.exit400:                   ; preds = %380, %._crit_edge.i
   %425 = shl i64 %405, 32
   %sext.i403 = add i64 %425, 4294967296
   %426 = ashr exact i64 %sext.i403, 32
-  %427 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %426
+  %427 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %426
   store i8 32, ptr %427, align 1
   %sext37.i404 = add i64 %425, 8589934592
   %428 = ashr exact i64 %sext37.i404, 32
-  %429 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %428
   store i8 0, ptr %429, align 1
   br label %Io_WriteVerilogGetName.exit425
 
@@ -3175,11 +3175,11 @@ Io_WriteVerilogGetName.exit425:                   ; preds = %417, %._crit_edge.i
   %470 = shl i64 %450, 32
   %sext.i428 = add i64 %470, 4294967296
   %471 = ashr exact i64 %sext.i428, 32
-  %472 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %471
   store i8 32, ptr %472, align 1
   %sext37.i429 = add i64 %470, 8589934592
   %473 = ashr exact i64 %sext37.i429, 32
-  %474 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %473
   store i8 0, ptr %474, align 1
   br label %Io_WriteVerilogGetName.exit450
 
@@ -3285,11 +3285,11 @@ Io_WriteVerilogGetName.exit450:                   ; preds = %462, %._crit_edge.i
   %509 = shl i64 %489, 32
   %sext.i453 = add i64 %509, 4294967296
   %510 = ashr exact i64 %sext.i453, 32
-  %511 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %510
+  %511 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %510
   store i8 32, ptr %511, align 1
   %sext37.i454 = add i64 %509, 8589934592
   %512 = ashr exact i64 %sext37.i454, 32
-  %513 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %512
+  %513 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %512
   store i8 0, ptr %513, align 1
   br label %Io_WriteVerilogGetName.exit475
 
@@ -3472,11 +3472,11 @@ Io_WriteVerilogGetName.exit475:                   ; preds = %501, %._crit_edge.i
   %585 = shl i64 %565, 32
   %sext.i478 = add i64 %585, 4294967296
   %586 = ashr exact i64 %sext.i478, 32
-  %587 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %586
   store i8 32, ptr %587, align 1
   %sext37.i479 = add i64 %585, 8589934592
   %588 = ashr exact i64 %sext37.i479, 32
-  %589 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %588
+  %589 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %588
   store i8 0, ptr %589, align 1
   br label %Io_WriteVerilogGetName.exit500
 
@@ -3569,11 +3569,11 @@ Io_WriteVerilogGetName.exit500:                   ; preds = %577, %._crit_edge.i
   %621 = shl i64 %601, 32
   %sext.i503 = add i64 %621, 4294967296
   %622 = ashr exact i64 %sext.i503, 32
-  %623 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %622
   store i8 32, ptr %623, align 1
   %sext37.i504 = add i64 %621, 8589934592
   %624 = ashr exact i64 %sext37.i504, 32
-  %625 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %624
+  %625 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %624
   store i8 0, ptr %625, align 1
   br label %Io_WriteVerilogGetName.exit525
 
@@ -3676,11 +3676,11 @@ define void @Io_WriteVerilogLutInt(ptr nocapture noundef %0, ptr nocapture nound
   %26 = shl i64 %6, 32
   %sext.i = add i64 %26, 4294967296
   %27 = ashr exact i64 %sext.i, 32
-  %28 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %27
   store i8 32, ptr %28, align 1
   %sext37.i = add i64 %26, 8589934592
   %29 = ashr exact i64 %sext37.i, 32
-  %30 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %29
   store i8 0, ptr %30, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -3916,11 +3916,11 @@ define internal fastcc void @Io_WriteVerilogPis(ptr nocapture noundef %0, ptr no
   %37 = shl i64 %17, 32
   %sext.i = add i64 %37, 4294967296
   %38 = ashr exact i64 %sext.i, 32
-  %39 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %38
   store i8 32, ptr %39, align 1
   %sext37.i = add i64 %37, 8589934592
   %40 = ashr exact i64 %sext37.i, 32
-  %41 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %40
   store i8 0, ptr %41, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -4013,11 +4013,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %29, %._crit_edge.i,
   %72 = shl i64 %52, 32
   %sext.i27 = add i64 %72, 4294967296
   %73 = ashr exact i64 %sext.i27, 32
-  %74 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %73
   store i8 32, ptr %74, align 1
   %sext37.i28 = add i64 %72, 8589934592
   %75 = ashr exact i64 %sext37.i28, 32
-  %76 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %75
   store i8 0, ptr %76, align 1
   br label %Io_WriteVerilogGetName.exit49
 
@@ -4167,11 +4167,11 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
   %48 = shl i64 %28, 32
   %sext.i = add i64 %48, 4294967296
   %49 = ashr exact i64 %sext.i, 32
-  %50 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %49
   store i8 32, ptr %50, align 1
   %sext37.i = add i64 %48, 8589934592
   %51 = ashr exact i64 %sext37.i, 32
-  %52 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %51
   store i8 0, ptr %52, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -4264,11 +4264,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   %83 = shl i64 %63, 32
   %sext.i43 = add i64 %83, 4294967296
   %84 = ashr exact i64 %sext.i43, 32
-  %85 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %84
   store i8 32, ptr %85, align 1
   %sext37.i44 = add i64 %83, 8589934592
   %86 = ashr exact i64 %sext37.i44, 32
-  %87 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %86
   store i8 0, ptr %87, align 1
   br label %Io_WriteVerilogGetName.exit65
 
@@ -4433,11 +4433,11 @@ define internal fastcc void @Io_WriteVerilogRegs(ptr nocapture noundef %0, ptr n
   %49 = shl i64 %29, 32
   %sext.i = add i64 %49, 4294967296
   %50 = ashr exact i64 %sext.i, 32
-  %51 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %50
   store i8 32, ptr %51, align 1
   %sext37.i = add i64 %49, 8589934592
   %52 = ashr exact i64 %sext37.i, 32
-  %53 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %52
   store i8 0, ptr %53, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -4530,11 +4530,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %41, %._crit_edge.i,
   %84 = shl i64 %64, 32
   %sext.i37 = add i64 %84, 4294967296
   %85 = ashr exact i64 %sext.i37, 32
-  %86 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %85
   store i8 32, ptr %86, align 1
   %sext37.i38 = add i64 %84, 8589934592
   %87 = ashr exact i64 %sext37.i38, 32
-  %88 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %87
   store i8 0, ptr %88, align 1
   br label %Io_WriteVerilogGetName.exit59
 
@@ -4904,11 +4904,11 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   %64 = shl i64 %44, 32
   %sext.i = add i64 %64, 4294967296
   %65 = ashr exact i64 %sext.i, 32
-  %66 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %65
   store i8 32, ptr %66, align 1
   %sext37.i = add i64 %64, 8589934592
   %67 = ashr exact i64 %sext37.i, 32
-  %68 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %67
   store i8 0, ptr %68, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -5001,11 +5001,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   %99 = shl i64 %79, 32
   %sext.i169 = add i64 %99, 4294967296
   %100 = ashr exact i64 %sext.i169, 32
-  %101 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %100
   store i8 32, ptr %101, align 1
   %sext37.i170 = add i64 %99, 8589934592
   %102 = ashr exact i64 %sext37.i170, 32
-  %103 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %102
   store i8 0, ptr %103, align 1
   br label %Io_WriteVerilogGetName.exit191
 
@@ -5144,11 +5144,11 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   %156 = shl i64 %136, 32
   %sext.i194 = add i64 %156, 4294967296
   %157 = ashr exact i64 %sext.i194, 32
-  %158 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %157
   store i8 32, ptr %158, align 1
   %sext37.i195 = add i64 %156, 8589934592
   %159 = ashr exact i64 %sext37.i195, 32
-  %160 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %159
   store i8 0, ptr %160, align 1
   br label %Io_WriteVerilogGetName.exit216
 
@@ -5241,11 +5241,11 @@ Io_WriteVerilogGetName.exit216:                   ; preds = %148, %._crit_edge.i
   %191 = shl i64 %171, 32
   %sext.i219 = add i64 %191, 4294967296
   %192 = ashr exact i64 %sext.i219, 32
-  %193 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %192
   store i8 32, ptr %193, align 1
   %sext37.i220 = add i64 %191, 8589934592
   %194 = ashr exact i64 %sext37.i220, 32
-  %195 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %194
   store i8 0, ptr %195, align 1
   br label %Io_WriteVerilogGetName.exit241
 
@@ -5407,11 +5407,11 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   %253 = shl i64 %233, 32
   %sext.i244 = add i64 %253, 4294967296
   %254 = ashr exact i64 %sext.i244, 32
-  %255 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %254
   store i8 32, ptr %255, align 1
   %sext37.i245 = add i64 %253, 8589934592
   %256 = ashr exact i64 %sext37.i245, 32
-  %257 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %256
   store i8 0, ptr %257, align 1
   br label %Io_WriteVerilogGetName.exit266
 
@@ -5504,11 +5504,11 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   %288 = shl i64 %268, 32
   %sext.i269 = add i64 %288, 4294967296
   %289 = ashr exact i64 %sext.i269, 32
-  %290 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %289
   store i8 32, ptr %290, align 1
   %sext37.i270 = add i64 %288, 8589934592
   %291 = ashr exact i64 %sext37.i270, 32
-  %292 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %291
   store i8 0, ptr %292, align 1
   br label %Io_WriteVerilogGetName.exit291
 
@@ -5648,11 +5648,11 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   %349 = shl i64 %329, 32
   %sext.i295 = add i64 %349, 4294967296
   %350 = ashr exact i64 %sext.i295, 32
-  %351 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %350
   store i8 32, ptr %351, align 1
   %sext37.i296 = add i64 %349, 8589934592
   %352 = ashr exact i64 %sext37.i296, 32
-  %353 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %352
   store i8 0, ptr %353, align 1
   br label %Io_WriteVerilogGetName.exit317
 
@@ -5745,11 +5745,11 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   %384 = shl i64 %364, 32
   %sext.i320 = add i64 %384, 4294967296
   %385 = ashr exact i64 %sext.i320, 32
-  %386 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %385
   store i8 32, ptr %386, align 1
   %sext37.i321 = add i64 %384, 8589934592
   %387 = ashr exact i64 %sext37.i321, 32
-  %388 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %387
   store i8 0, ptr %388, align 1
   br label %Io_WriteVerilogGetName.exit342
 
@@ -5910,11 +5910,11 @@ define internal fastcc void @Io_WriteVerilogLatches(ptr nocapture noundef %0, pt
   %51 = shl i64 %31, 32
   %sext.i = add i64 %51, 4294967296
   %52 = ashr exact i64 %sext.i, 32
-  %53 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %52
   store i8 32, ptr %53, align 1
   %sext37.i = add i64 %51, 8589934592
   %54 = ashr exact i64 %sext37.i, 32
-  %55 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %54
   store i8 0, ptr %55, align 1
   br label %Io_WriteVerilogGetName.exit
 
@@ -6012,11 +6012,11 @@ Io_WriteVerilogGetName.exit:                      ; preds = %43, %._crit_edge.i,
   %90 = shl i64 %70, 32
   %sext.i74 = add i64 %90, 4294967296
   %91 = ashr exact i64 %sext.i74, 32
-  %92 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %91
   store i8 32, ptr %92, align 1
   %sext37.i75 = add i64 %90, 8589934592
   %93 = ashr exact i64 %sext37.i75, 32
-  %94 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %93
   store i8 0, ptr %94, align 1
   br label %Io_WriteVerilogGetName.exit96
 
@@ -6206,11 +6206,11 @@ Io_WriteVerilogGetName.exit96:                    ; preds = %82, %._crit_edge.i8
   %167 = shl i64 %147, 32
   %sext.i99 = add i64 %167, 4294967296
   %168 = ashr exact i64 %sext.i99, 32
-  %169 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %168
   store i8 32, ptr %169, align 1
   %sext37.i100 = add i64 %167, 8589934592
   %170 = ashr exact i64 %sext37.i100, 32
-  %171 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %170
   store i8 0, ptr %171, align 1
   br label %Io_WriteVerilogGetName.exit121
 
@@ -6311,11 +6311,11 @@ Io_WriteVerilogGetName.exit121:                   ; preds = %159, %._crit_edge.i
   %207 = shl i64 %187, 32
   %sext.i124 = add i64 %207, 4294967296
   %208 = ashr exact i64 %sext.i124, 32
-  %209 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %208
   store i8 32, ptr %209, align 1
   %sext37.i125 = add i64 %207, 8589934592
   %210 = ashr exact i64 %sext37.i125, 32
-  %211 = getelementptr inbounds [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw [500 x i8], ptr @Io_WriteVerilogGetName.Buffer, i64 0, i64 %210
   store i8 0, ptr %211, align 1
   br label %Io_WriteVerilogGetName.exit146
 

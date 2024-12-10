@@ -4061,7 +4061,7 @@ _ZN12_GLOBAL__N_119MCDCRecordProcessor17processMCDCRecordEv.exit: ; preds = %._c
 608:                                              ; preds = %608, %_ZN12_GLOBAL__N_119MCDCRecordProcessor17processMCDCRecordEv.exit
   %.idx.i = phi i64 [ 608, %_ZN12_GLOBAL__N_119MCDCRecordProcessor17processMCDCRecordEv.exit ], [ %.add.i, %608 ]
   %.add.i = add nsw i64 %.idx.i, -168
-  %.ptr1.i = getelementptr inbounds i8, ptr %12, i64 %.add.i
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %12, i64 %.add.i
   call void @_ZN4llvm11SmallVectorISt4pairINS_8coverage10MCDCRecord10TestVectorENS3_9CondStateEELj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %.ptr1.i) #28
   %609 = icmp eq i64 %.add.i, 272
   br i1 %609, label %_ZNSt5arrayIN4llvm11SmallVectorISt4pairINS0_8coverage10MCDCRecord10TestVectorENS4_9CondStateEELj1EEELm2EED2Ev.exit.i, label %608
@@ -21203,7 +21203,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 

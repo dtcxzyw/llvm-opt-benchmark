@@ -3505,7 +3505,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i.i.i.i.i.i.i.i.i: ; preds = %
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %225, i64 %223
   %conv.i.i.i15.i.i.i.i.i.i.i.i.i = zext nneg i8 %224 to i64
   %sub.i.i.i16.i.i.i.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i15.i.i.i.i.i.i.i.i.i
-  %add.ptr.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 %sub.i.i.i16.i.i.i.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 %sub.i.i.i16.i.i.i.i.i.i.i.i.i
   %cond.i17.i.i.i.i.i.i.i.i.i = select i1 %tobool.i.i13.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %cond.i17.i.i.i.i.i.i.i.i.i, i8 %218, i64 1, i1 false)
   %cond.i17.i.i.i.i.i.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.i.i13.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i.i.i.i.i.i.i
@@ -6060,7 +6060,7 @@ while.cond.i:                                     ; preds = %_ZN5eastl17find_fir
   br i1 %cmp2.not.i2518, label %_ZN5eastl12find_last_ofIPiS1_EET_S2_S2_T0_S3_.exit, label %land.rhs.i2519
 
 land.rhs.i2519:                                   ; preds = %while.cond.i
-  %incdec.ptr.i2517.ptr = getelementptr inbounds i8, ptr @constinit.129, i64 %it1.0.i.add
+  %incdec.ptr.i2517.ptr = getelementptr inbounds nuw i8, ptr @constinit.129, i64 %it1.0.i.add
   %447 = load i32, ptr %incdec.ptr.i2517.ptr, align 4
   br label %land.rhs.i.i2520
 
@@ -6099,7 +6099,7 @@ while.cond.i2574:                                 ; preds = %_ZN5eastl12find_las
   br i1 %cmp2.not.i2577, label %_ZN5eastl12find_last_ofIPiS1_NS_8equal_toIiEEEET_S4_S4_T0_S5_T1_.exit, label %land.rhs.i2578
 
 land.rhs.i2578:                                   ; preds = %while.cond.i2574
-  %incdec.ptr.i2576.ptr = getelementptr inbounds i8, ptr @constinit.129, i64 %it1.0.i2575.add
+  %incdec.ptr.i2576.ptr = getelementptr inbounds nuw i8, ptr @constinit.129, i64 %it1.0.i2575.add
   %450 = load i32, ptr %incdec.ptr.i2576.ptr, align 4
   br label %land.rhs.i.i2579
 
@@ -6138,7 +6138,7 @@ while.cond.i2644.loopexit:                        ; preds = %land.rhs.i.i2649
 
 land.rhs.i2648:                                   ; preds = %_ZN5eastl12find_last_ofIPiS1_NS_8equal_toIiEEEET_S4_S4_T0_S5_T1_.exit, %while.cond.i2644.loopexit
   %incdec.ptr.i264615153.idx = phi i64 [ 36, %_ZN5eastl12find_last_ofIPiS1_NS_8equal_toIiEEEET_S4_S4_T0_S5_T1_.exit ], [ %incdec.ptr.i264615153.add, %while.cond.i2644.loopexit ]
-  %incdec.ptr.i264615153.ptr = getelementptr inbounds i8, ptr @constinit.129, i64 %incdec.ptr.i264615153.idx
+  %incdec.ptr.i264615153.ptr = getelementptr inbounds nuw i8, ptr @constinit.129, i64 %incdec.ptr.i264615153.idx
   %453 = load i32, ptr %incdec.ptr.i264615153.ptr, align 4
   br label %land.rhs.i.i2649
 
@@ -6182,7 +6182,7 @@ while.cond.i2716.loopexit:                        ; preds = %land.rhs.i.i2721
 
 land.rhs.i2720:                                   ; preds = %_ZN5eastl16find_last_not_ofIPiS1_EET_S2_S2_T0_S3_.exit, %while.cond.i2716.loopexit
   %it1.0.i2717.add15154 = phi i64 [ 36, %_ZN5eastl16find_last_not_ofIPiS1_EET_S2_S2_T0_S3_.exit ], [ %it1.0.i2717.add, %while.cond.i2716.loopexit ]
-  %incdec.ptr.i2718.ptr = getelementptr inbounds i8, ptr @constinit.129, i64 %it1.0.i2717.add15154
+  %incdec.ptr.i2718.ptr = getelementptr inbounds nuw i8, ptr @constinit.129, i64 %it1.0.i2717.add15154
   %457 = load i32, ptr %incdec.ptr.i2718.ptr, align 4
   br label %land.rhs.i.i2721
 
@@ -13508,7 +13508,7 @@ _ZN5eastl12reverse_copyIPiS1_EET0_T_S3_S2_.exit7131: ; preds = %for.body.i7123, 
   %sub.ptr.lhs.cast.i7133 = ptrtoint ptr %intArray13859.sroa.11.1 to i64
   %sub.ptr.rhs.cast.i7134 = ptrtoint ptr %intArray13859.sroa.0.1 to i64
   %sub.ptr.sub.i7135 = sub i64 %sub.ptr.lhs.cast.i7133, %sub.ptr.rhs.cast.i7134
-  %add.ptr3894 = getelementptr inbounds i8, ptr %intArray23860, i64 %sub.ptr.sub.i7135
+  %add.ptr3894 = getelementptr inbounds nuw i8, ptr %intArray23860, i64 %sub.ptr.sub.i7135
   %cmp3895 = icmp eq ptr %result.addr.0.lcssa.i7130, %add.ptr3894
   %call3897 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3895, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 2131, ptr noundef nonnull @.str.248)
           to label %invoke.cont3896 unwind label %lpad3865.loopexit.split-lp
@@ -13879,7 +13879,7 @@ invoke.cont4002:                                  ; preds = %invoke.cont3997
   %add.ptr.i.i.i7344 = getelementptr inbounds i8, ptr %1431, i64 %1432
   %conv.i.i.i.i7345 = zext nneg i8 %1430 to i64
   %sub.i.i.i.i7346 = sub nsw i64 23, %conv.i.i.i.i7345
-  %add.ptr.i1.i.i7347 = getelementptr inbounds i8, ptr %sTest, i64 %sub.i.i.i.i7346
+  %add.ptr.i1.i.i7347 = getelementptr inbounds nuw i8, ptr %sTest, i64 %sub.i.i.i.i7346
   %cond.i.i7348 = select i1 %tobool.i.i.i7339, ptr %add.ptr.i.i.i7344, ptr %add.ptr.i1.i.i7347
   %cmp.not4.i.i7350 = icmp eq ptr %spec.select.i.i7340, %cond.i.i7348
   br i1 %cmp.not4.i.i7350, label %invoke.cont4007, label %land.rhs.lr.ph.i.i
@@ -13919,7 +13919,7 @@ invoke.cont4012:                                  ; preds = %invoke.cont4007
   %add.ptr.i.i.i7369 = getelementptr inbounds i8, ptr %1436, i64 %1437
   %conv.i.i.i.i7370 = zext nneg i8 %1435 to i64
   %sub.i.i.i.i7371 = sub nsw i64 23, %conv.i.i.i.i7370
-  %add.ptr.i1.i.i7372 = getelementptr inbounds i8, ptr %sTest, i64 %sub.i.i.i.i7371
+  %add.ptr.i1.i.i7372 = getelementptr inbounds nuw i8, ptr %sTest, i64 %sub.i.i.i.i7371
   %cond.i.i7373 = select i1 %tobool.i.i.i7364, ptr %add.ptr.i.i.i7369, ptr %add.ptr.i1.i.i7372
   %cmp.not4.i.i7375 = icmp eq ptr %spec.select.i.i7365, %cond.i.i7373
   br i1 %cmp.not4.i.i7375, label %invoke.cont4018, label %land.rhs.i7379
@@ -15206,7 +15206,7 @@ invoke.cont4369:                                  ; preds = %invoke.cont4364
   %add.ptr.i.i.i8236 = getelementptr inbounds i8, ptr %1621, i64 %1622
   %conv.i.i.i.i8237 = zext nneg i8 %1620 to i64
   %sub.i.i.i.i8238 = sub nsw i64 23, %conv.i.i.i.i8237
-  %add.ptr.i1.i.i8239 = getelementptr inbounds i8, ptr %sTest4355, i64 %sub.i.i.i.i8238
+  %add.ptr.i1.i.i8239 = getelementptr inbounds nuw i8, ptr %sTest4355, i64 %sub.i.i.i.i8238
   %cond.i.i8240 = select i1 %tobool.i.i.i8231, ptr %add.ptr.i.i.i8236, ptr %add.ptr.i1.i.i8239
   %sub.ptr.lhs.cast.i.i.i6.i.i.i = ptrtoint ptr %cond.i.i8240 to i64
   %sub.ptr.rhs.cast.i.i.i7.i.i.i = ptrtoint ptr %spec.select.i.i8232 to i64
@@ -15274,7 +15274,7 @@ invoke.cont4380:                                  ; preds = %invoke.cont4375
   %add.ptr.i.i.i8263 = getelementptr inbounds i8, ptr %1628, i64 %1629
   %conv.i.i.i.i8264 = zext nneg i8 %1627 to i64
   %sub.i.i.i.i8265 = sub nsw i64 23, %conv.i.i.i.i8264
-  %add.ptr.i1.i.i8266 = getelementptr inbounds i8, ptr %sTest4355, i64 %sub.i.i.i.i8265
+  %add.ptr.i1.i.i8266 = getelementptr inbounds nuw i8, ptr %sTest4355, i64 %sub.i.i.i.i8265
   %cond.i.i8267 = select i1 %tobool.i.i.i8258, ptr %add.ptr.i.i.i8263, ptr %add.ptr.i1.i.i8266
   %cmp.i.not2.i.i.i.i8269 = icmp eq ptr %cond.i.i8267, %spec.select.i.i8259
   br i1 %cmp.i.not2.i.i.i.i8269, label %_ZN5eastl6searchINS_16reverse_iteratorIPcEENS1_IPKcEEEET_S7_S7_T0_S8_.exit.i.i8290, label %land.rhs.i.i.i8272
@@ -15336,7 +15336,7 @@ invoke.cont4390:                                  ; preds = %invoke.cont4386
   %add.ptr.i.i.i8310 = getelementptr inbounds i8, ptr %1635, i64 %1636
   %conv.i.i.i.i8311 = zext nneg i8 %1634 to i64
   %sub.i.i.i.i8312 = sub nsw i64 23, %conv.i.i.i.i8311
-  %add.ptr.i1.i.i8313 = getelementptr inbounds i8, ptr %sTest4355, i64 %sub.i.i.i.i8312
+  %add.ptr.i1.i.i8313 = getelementptr inbounds nuw i8, ptr %sTest4355, i64 %sub.i.i.i.i8312
   %cond.i.i8314 = select i1 %tobool.i.i.i8305, ptr %add.ptr.i.i.i8310, ptr %add.ptr.i1.i.i8313
   %sub.ptr.lhs.cast.i.i.i6.i.i.i8316 = ptrtoint ptr %cond.i.i8314 to i64
   %sub.ptr.rhs.cast.i.i.i7.i.i.i8317 = ptrtoint ptr %spec.select.i.i8306 to i64

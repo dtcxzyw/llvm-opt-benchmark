@@ -104,7 +104,7 @@ define internal fastcc noundef i32 @"_ZZN7xgboost6common16GetCGroupV1CountERKNSt
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
           to label %11 unwind label %46
 

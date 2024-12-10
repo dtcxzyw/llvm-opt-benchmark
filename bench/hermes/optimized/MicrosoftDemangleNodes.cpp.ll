@@ -6548,7 +6548,7 @@ while.body:                                       ; preds = %entry, %while.body
   %conv = trunc nuw nsw i64 %rem to i8
   %add = or disjoint i8 %conv, 48
   %TempPtr.0.add19 = add nsw i64 %TempPtr.0.idx21, -1
-  %incdec.ptr.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.0.add19
+  %incdec.ptr.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.0.add19
   store i8 %add, ptr %incdec.ptr.ptr, align 1
   %div = udiv i64 %N.addr.020, 10
   %tobool.not = icmp ult i64 %N.addr.020, 10
@@ -6559,13 +6559,13 @@ while.end:                                        ; preds = %while.body
 
 if.then6:                                         ; preds = %while.end
   %TempPtr.0.add = add nsw i64 %TempPtr.0.idx21, -2
-  %incdec.ptr7.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.0.add
+  %incdec.ptr7.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.0.add
   store i8 45, ptr %incdec.ptr7.ptr, align 1
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %while.end
   %TempPtr.1.idx = phi i64 [ %TempPtr.0.add, %if.then6 ], [ %TempPtr.0.add19, %while.end ]
-  %TempPtr.1.ptr = getelementptr inbounds i8, ptr %Temp, i64 %TempPtr.1.idx
+  %TempPtr.1.ptr = getelementptr inbounds nuw i8, ptr %Temp, i64 %TempPtr.1.idx
   %gepdiff = sub nsw i64 21, %TempPtr.1.idx
   %cmp.i.i = icmp eq i64 %TempPtr.1.idx, 21
   br i1 %cmp.i.i, label %return, label %if.end.i.i

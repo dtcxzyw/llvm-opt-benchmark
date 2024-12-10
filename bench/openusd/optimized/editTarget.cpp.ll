@@ -223,7 +223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %2
 
 41:                                               ; preds = %34
   %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %42
   %.not14.i.i.i = icmp eq i32 %36, 0
   br i1 %.not14.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -747,7 +747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 164:                                              ; preds = %157
   %165 = sext i32 %159 to i64
-  %166 = getelementptr inbounds %"struct.std::pair", ptr %12, i64 %165
+  %166 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %165
   %.not14.i.i.i = icmp eq i32 %159, 0
   br i1 %.not14.i.i.i, label %.loopexit34, label %.lr.ph.i.i.i
 
@@ -896,7 +896,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
 
 221:                                              ; preds = %214
   %222 = sext i32 %216 to i64
-  %223 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %222
+  %223 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i64 %222
   %.not14.i.i.i27 = icmp eq i32 %216, 0
   br i1 %.not14.i.i.i27, label %.loopexit, label %.lr.ph.i.i.i28
 
@@ -1125,7 +1125,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %5
 
 75:                                               ; preds = %68
   %76 = sext i32 %70 to i64
-  %77 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %76
+  %77 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %76
   %.not14.i.i.i = icmp eq i32 %70, 0
   br i1 %.not14.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 

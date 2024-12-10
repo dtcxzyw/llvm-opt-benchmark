@@ -920,7 +920,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   %idxprom.i.i = sext i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i.i

@@ -2438,7 +2438,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 739:                                              ; preds = %737
   %740 = sext i32 %660 to i64
-  %741 = getelementptr inbounds i8, ptr @_ZN5ZXing10DataMatrix22DecodedBitStreamParserL20C40_SHIFT2_SET_CHARSE, i64 %740
+  %741 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing10DataMatrix22DecodedBitStreamParserL20C40_SHIFT2_SET_CHARSE, i64 %740
   %742 = load i8, ptr %741, align 1, !noalias !15
   %743 = trunc nuw i8 %.sroa.0.1131.i to i1
   %744 = select i1 %743, i8 -128, i8 0
@@ -2614,7 +2614,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 814:                                              ; preds = %812
   %815 = sext i32 %660 to i64
-  %816 = getelementptr inbounds [32 x i8], ptr @_ZN5ZXing10DataMatrix22DecodedBitStreamParserL21TEXT_SHIFT3_SET_CHARSE, i64 0, i64 %815
+  %816 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5ZXing10DataMatrix22DecodedBitStreamParserL21TEXT_SHIFT3_SET_CHARSE, i64 0, i64 %815
   %817 = load i8, ptr %816, align 1, !noalias !15
   %818 = trunc nuw i8 %.sroa.0.1131.i to i1
   %819 = select i1 %818, i8 -128, i8 0

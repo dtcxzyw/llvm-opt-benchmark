@@ -207,14 +207,14 @@ for.end:                                          ; preds = %for.body, %entry
   %mul7.i = fmul float %div, %.lcssa74
   store float %mul7.i, ptr %arrayidx5.i, align 4
   %idxprom = sext i32 %splitAxis to i64
-  %arrayidx = getelementptr inbounds float, ptr %means, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %means, i64 %idxprom
   %11 = load float, ptr %arrayidx, align 4
   br i1 %cmp75, label %for.body17.lr.ph, label %for.end38
 
 for.body17.lr.ph:                                 ; preds = %for.end
   %m_data.i39 = getelementptr inbounds nuw i8, ptr %primitive_boxes, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %center18, i64 8
-  %arrayidx33 = getelementptr inbounds float, ptr %center18, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds nuw float, ptr %center18, i64 %idxprom
   %temp.sroa.0.16.m_max.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %temp.sroa.0.i, i64 16
   %13 = sext i32 %startIndex to i64
   %wide.trip.count88 = sext i32 %endIndex to i64

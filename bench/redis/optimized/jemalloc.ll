@@ -10727,9 +10727,9 @@ sw.epilog.i494:                                   ; preds = %for.body.i492, %for
 
 if.end.i495:                                      ; preds = %sw.epilog.i494
   %inc.i = add i64 %opts_len.012.i, 1
-  %arrayidx16.i = getelementptr inbounds i8, ptr @opt_stats_print_opts, i64 %opts_len.012.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr @opt_stats_print_opts, i64 %opts_len.012.i
   store i8 %66, ptr %arrayidx16.i, align 1
-  %arrayidx17.i = getelementptr inbounds i8, ptr @opt_stats_print_opts, i64 %inc.i
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr @opt_stats_print_opts, i64 %inc.i
   store i8 0, ptr %arrayidx17.i, align 1
   br label %for.inc.i
 
@@ -10845,9 +10845,9 @@ sw.epilog.i517:                                   ; preds = %for.body.i513, %for
 
 if.end.i525:                                      ; preds = %sw.epilog.i517
   %inc.i526 = add i64 %opts_len.012.i515, 1
-  %arrayidx16.i527 = getelementptr inbounds i8, ptr @opt_stats_interval_opts, i64 %opts_len.012.i515
+  %arrayidx16.i527 = getelementptr inbounds nuw i8, ptr @opt_stats_interval_opts, i64 %opts_len.012.i515
   store i8 %72, ptr %arrayidx16.i527, align 1
-  %arrayidx17.i528 = getelementptr inbounds i8, ptr @opt_stats_interval_opts, i64 %inc.i526
+  %arrayidx17.i528 = getelementptr inbounds nuw i8, ptr @opt_stats_interval_opts, i64 %inc.i526
   store i8 0, ptr %arrayidx17.i528, align 1
   br label %for.inc.i521
 

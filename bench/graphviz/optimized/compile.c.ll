@@ -1317,7 +1317,7 @@ tvtypeToStr.exit:                                 ; preds = %switch.lookup, %12
 14:                                               ; preds = %13
   %15 = add nsw i32 %6, -27
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [5 x ptr], ptr @typenames, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [5 x ptr], ptr @typenames, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.42, ptr noundef %18) #24
   br label %agxbfree.exit
@@ -1555,7 +1555,7 @@ define internal range(i32 -1, 1) i32 @binary(ptr nocapture noundef %0, ptr nocap
 define internal ptr @typeName(i32 noundef %0) #6 {
   %2 = add nsw i32 %0, -27
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [5 x ptr], ptr @typenames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [5 x ptr], ptr @typenames, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -4696,7 +4696,7 @@ deparse.exit77:                                   ; preds = %agxbclear.exit.thre
   %132 = load i64, ptr %131, align 8
   %133 = sext i8 %.023.i to i64
   %134 = add nsw i64 %133, -95
-  %135 = getelementptr inbounds [28 x i64], ptr @CharMask, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [28 x i64], ptr @CharMask, i64 0, i64 %134
   %136 = load i64, ptr %135, align 8
   %137 = and i64 %136, %132
   %.not31.i = icmp eq i64 %137, 0
@@ -4711,7 +4711,7 @@ deparse.exit77:                                   ; preds = %agxbclear.exit.thre
 142:                                              ; preds = %142, %138
   %.0.i = phi i16 [ %140, %138 ], [ %146, %142 ]
   %143 = sext i16 %.0.i to i64
-  %144 = getelementptr inbounds [69 x %struct.TrieTrans], ptr @TrieTransTbl, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [69 x %struct.TrieTrans], ptr @TrieTransTbl, i64 0, i64 %143
   %145 = load i16, ptr %144, align 4
   %.not32.i = icmp eq i16 %145, %141
   %146 = add i16 %.0.i, 1
@@ -6372,7 +6372,7 @@ define internal fastcc zeroext i16 @typeChk(i16 noundef zeroext %0, ptr noundef 
 
 36:                                               ; preds = %.sink.split, %20, %21, %24
   %37 = load i64, ptr %17, align 8
-  %38 = getelementptr inbounds [27 x [2 x i16]], ptr @tchk, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [27 x [2 x i16]], ptr @tchk, i64 0, i64 %37
   %39 = load i16, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %41 = load i16, ptr %40, align 2

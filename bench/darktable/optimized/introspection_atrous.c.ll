@@ -792,38 +792,38 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %121 = phi i64 [ %149, %.preheader15 ], [ %115, %.loopexit18 ]
   %122 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %59, i64 0, i64 %121
   %123 = load float, ptr %122, align 8, !tbaa !98
-  %124 = getelementptr inbounds [20 x float], ptr %14, i64 0, i64 %121
+  %124 = getelementptr inbounds nuw [20 x float], ptr %14, i64 0, i64 %121
   store float %123, ptr %124, align 4, !tbaa !60
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %126 = load float, ptr %125, align 4, !tbaa !100
-  %127 = getelementptr inbounds [20 x float], ptr %15, i64 0, i64 %121
+  %127 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %121
   store float %126, ptr %127, align 4, !tbaa !60
   %128 = add nuw nsw i64 %121, 1
   %129 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %59, i64 0, i64 %128
   %130 = load float, ptr %129, align 8, !tbaa !98
-  %131 = getelementptr inbounds [20 x float], ptr %14, i64 0, i64 %128
+  %131 = getelementptr inbounds nuw [20 x float], ptr %14, i64 0, i64 %128
   store float %130, ptr %131, align 4, !tbaa !60
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %133 = load float, ptr %132, align 4, !tbaa !100
-  %134 = getelementptr inbounds [20 x float], ptr %15, i64 0, i64 %128
+  %134 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %128
   store float %133, ptr %134, align 4, !tbaa !60
   %135 = add nuw nsw i64 %121, 2
   %136 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %59, i64 0, i64 %135
   %137 = load float, ptr %136, align 8, !tbaa !98
-  %138 = getelementptr inbounds [20 x float], ptr %14, i64 0, i64 %135
+  %138 = getelementptr inbounds nuw [20 x float], ptr %14, i64 0, i64 %135
   store float %137, ptr %138, align 4, !tbaa !60
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %140 = load float, ptr %139, align 4, !tbaa !100
-  %141 = getelementptr inbounds [20 x float], ptr %15, i64 0, i64 %135
+  %141 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %135
   store float %140, ptr %141, align 4, !tbaa !60
   %142 = add nuw nsw i64 %121, 3
   %143 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %59, i64 0, i64 %142
   %144 = load float, ptr %143, align 8, !tbaa !98
-  %145 = getelementptr inbounds [20 x float], ptr %14, i64 0, i64 %142
+  %145 = getelementptr inbounds nuw [20 x float], ptr %14, i64 0, i64 %142
   store float %144, ptr %145, align 4, !tbaa !60
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %147 = load float, ptr %146, align 4, !tbaa !100
-  %148 = getelementptr inbounds [20 x float], ptr %15, i64 0, i64 %142
+  %148 = getelementptr inbounds nuw [20 x float], ptr %15, i64 0, i64 %142
   store float %147, ptr %148, align 4, !tbaa !60
   %149 = add nuw nsw i64 %121, 4
   %150 = icmp eq i64 %149, %60
@@ -957,38 +957,38 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %237 = phi i64 [ %265, %.preheader11 ], [ %231, %.loopexit14 ]
   %238 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %175, i64 0, i64 %237
   %239 = load float, ptr %238, align 8, !tbaa !98
-  %240 = getelementptr inbounds [20 x float], ptr %12, i64 0, i64 %237
+  %240 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %237
   store float %239, ptr %240, align 4, !tbaa !60
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %242 = load float, ptr %241, align 4, !tbaa !100
-  %243 = getelementptr inbounds [20 x float], ptr %13, i64 0, i64 %237
+  %243 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %237
   store float %242, ptr %243, align 4, !tbaa !60
   %244 = add nuw nsw i64 %237, 1
   %245 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %175, i64 0, i64 %244
   %246 = load float, ptr %245, align 8, !tbaa !98
-  %247 = getelementptr inbounds [20 x float], ptr %12, i64 0, i64 %244
+  %247 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %244
   store float %246, ptr %247, align 4, !tbaa !60
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %249 = load float, ptr %248, align 4, !tbaa !100
-  %250 = getelementptr inbounds [20 x float], ptr %13, i64 0, i64 %244
+  %250 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %244
   store float %249, ptr %250, align 4, !tbaa !60
   %251 = add nuw nsw i64 %237, 2
   %252 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %175, i64 0, i64 %251
   %253 = load float, ptr %252, align 8, !tbaa !98
-  %254 = getelementptr inbounds [20 x float], ptr %12, i64 0, i64 %251
+  %254 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %251
   store float %253, ptr %254, align 4, !tbaa !60
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %256 = load float, ptr %255, align 4, !tbaa !100
-  %257 = getelementptr inbounds [20 x float], ptr %13, i64 0, i64 %251
+  %257 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %251
   store float %256, ptr %257, align 4, !tbaa !60
   %258 = add nuw nsw i64 %237, 3
   %259 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %175, i64 0, i64 %258
   %260 = load float, ptr %259, align 8, !tbaa !98
-  %261 = getelementptr inbounds [20 x float], ptr %12, i64 0, i64 %258
+  %261 = getelementptr inbounds nuw [20 x float], ptr %12, i64 0, i64 %258
   store float %260, ptr %261, align 4, !tbaa !60
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 4
   %263 = load float, ptr %262, align 4, !tbaa !100
-  %264 = getelementptr inbounds [20 x float], ptr %13, i64 0, i64 %258
+  %264 = getelementptr inbounds nuw [20 x float], ptr %13, i64 0, i64 %258
   store float %263, ptr %264, align 4, !tbaa !60
   %265 = add nuw nsw i64 %237, 4
   %266 = icmp eq i64 %265, %176
@@ -1130,38 +1130,38 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %361 = phi i64 [ %389, %.preheader7 ], [ %355, %.loopexit10 ]
   %362 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %299, i64 0, i64 %361
   %363 = load float, ptr %362, align 8, !tbaa !98
-  %364 = getelementptr inbounds [20 x float], ptr %10, i64 0, i64 %361
+  %364 = getelementptr inbounds nuw [20 x float], ptr %10, i64 0, i64 %361
   store float %363, ptr %364, align 4, !tbaa !60
   %365 = getelementptr inbounds nuw i8, ptr %362, i64 4
   %366 = load float, ptr %365, align 4, !tbaa !100
-  %367 = getelementptr inbounds [20 x float], ptr %11, i64 0, i64 %361
+  %367 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %361
   store float %366, ptr %367, align 4, !tbaa !60
   %368 = add nuw nsw i64 %361, 1
   %369 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %299, i64 0, i64 %368
   %370 = load float, ptr %369, align 8, !tbaa !98
-  %371 = getelementptr inbounds [20 x float], ptr %10, i64 0, i64 %368
+  %371 = getelementptr inbounds nuw [20 x float], ptr %10, i64 0, i64 %368
   store float %370, ptr %371, align 4, !tbaa !60
   %372 = getelementptr inbounds nuw i8, ptr %369, i64 4
   %373 = load float, ptr %372, align 4, !tbaa !100
-  %374 = getelementptr inbounds [20 x float], ptr %11, i64 0, i64 %368
+  %374 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %368
   store float %373, ptr %374, align 4, !tbaa !60
   %375 = add nuw nsw i64 %361, 2
   %376 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %299, i64 0, i64 %375
   %377 = load float, ptr %376, align 8, !tbaa !98
-  %378 = getelementptr inbounds [20 x float], ptr %10, i64 0, i64 %375
+  %378 = getelementptr inbounds nuw [20 x float], ptr %10, i64 0, i64 %375
   store float %377, ptr %378, align 4, !tbaa !60
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %380 = load float, ptr %379, align 4, !tbaa !100
-  %381 = getelementptr inbounds [20 x float], ptr %11, i64 0, i64 %375
+  %381 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %375
   store float %380, ptr %381, align 4, !tbaa !60
   %382 = add nuw nsw i64 %361, 3
   %383 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %299, i64 0, i64 %382
   %384 = load float, ptr %383, align 8, !tbaa !98
-  %385 = getelementptr inbounds [20 x float], ptr %10, i64 0, i64 %382
+  %385 = getelementptr inbounds nuw [20 x float], ptr %10, i64 0, i64 %382
   store float %384, ptr %385, align 4, !tbaa !60
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 4
   %387 = load float, ptr %386, align 4, !tbaa !100
-  %388 = getelementptr inbounds [20 x float], ptr %11, i64 0, i64 %382
+  %388 = getelementptr inbounds nuw [20 x float], ptr %11, i64 0, i64 %382
   store float %387, ptr %388, align 4, !tbaa !60
   %389 = add nuw nsw i64 %361, 4
   %390 = icmp eq i64 %389, %300
@@ -1296,38 +1296,38 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %478 = phi i64 [ %506, %.preheader3 ], [ %472, %.loopexit6 ]
   %479 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %416, i64 0, i64 %478
   %480 = load float, ptr %479, align 8, !tbaa !98
-  %481 = getelementptr inbounds [20 x float], ptr %8, i64 0, i64 %478
+  %481 = getelementptr inbounds nuw [20 x float], ptr %8, i64 0, i64 %478
   store float %480, ptr %481, align 4, !tbaa !60
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 4
   %483 = load float, ptr %482, align 4, !tbaa !100
-  %484 = getelementptr inbounds [20 x float], ptr %9, i64 0, i64 %478
+  %484 = getelementptr inbounds nuw [20 x float], ptr %9, i64 0, i64 %478
   store float %483, ptr %484, align 4, !tbaa !60
   %485 = add nuw nsw i64 %478, 1
   %486 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %416, i64 0, i64 %485
   %487 = load float, ptr %486, align 8, !tbaa !98
-  %488 = getelementptr inbounds [20 x float], ptr %8, i64 0, i64 %485
+  %488 = getelementptr inbounds nuw [20 x float], ptr %8, i64 0, i64 %485
   store float %487, ptr %488, align 4, !tbaa !60
   %489 = getelementptr inbounds nuw i8, ptr %486, i64 4
   %490 = load float, ptr %489, align 4, !tbaa !100
-  %491 = getelementptr inbounds [20 x float], ptr %9, i64 0, i64 %485
+  %491 = getelementptr inbounds nuw [20 x float], ptr %9, i64 0, i64 %485
   store float %490, ptr %491, align 4, !tbaa !60
   %492 = add nuw nsw i64 %478, 2
   %493 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %416, i64 0, i64 %492
   %494 = load float, ptr %493, align 8, !tbaa !98
-  %495 = getelementptr inbounds [20 x float], ptr %8, i64 0, i64 %492
+  %495 = getelementptr inbounds nuw [20 x float], ptr %8, i64 0, i64 %492
   store float %494, ptr %495, align 4, !tbaa !60
   %496 = getelementptr inbounds nuw i8, ptr %493, i64 4
   %497 = load float, ptr %496, align 4, !tbaa !100
-  %498 = getelementptr inbounds [20 x float], ptr %9, i64 0, i64 %492
+  %498 = getelementptr inbounds nuw [20 x float], ptr %9, i64 0, i64 %492
   store float %497, ptr %498, align 4, !tbaa !60
   %499 = add nuw nsw i64 %478, 3
   %500 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %416, i64 0, i64 %499
   %501 = load float, ptr %500, align 8, !tbaa !98
-  %502 = getelementptr inbounds [20 x float], ptr %8, i64 0, i64 %499
+  %502 = getelementptr inbounds nuw [20 x float], ptr %8, i64 0, i64 %499
   store float %501, ptr %502, align 4, !tbaa !60
   %503 = getelementptr inbounds nuw i8, ptr %500, i64 4
   %504 = load float, ptr %503, align 4, !tbaa !100
-  %505 = getelementptr inbounds [20 x float], ptr %9, i64 0, i64 %499
+  %505 = getelementptr inbounds nuw [20 x float], ptr %9, i64 0, i64 %499
   store float %504, ptr %505, align 4, !tbaa !60
   %506 = add nuw nsw i64 %478, 4
   %507 = icmp eq i64 %506, %417
@@ -1461,38 +1461,38 @@ define internal fastcc range(i32 -2147483648, 2147483646) i32 @get_scales(ptr no
   %594 = phi i64 [ %622, %.preheader ], [ %588, %.loopexit2 ]
   %595 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %532, i64 0, i64 %594
   %596 = load float, ptr %595, align 8, !tbaa !98
-  %597 = getelementptr inbounds [20 x float], ptr %6, i64 0, i64 %594
+  %597 = getelementptr inbounds nuw [20 x float], ptr %6, i64 0, i64 %594
   store float %596, ptr %597, align 4, !tbaa !60
   %598 = getelementptr inbounds nuw i8, ptr %595, i64 4
   %599 = load float, ptr %598, align 4, !tbaa !100
-  %600 = getelementptr inbounds [20 x float], ptr %7, i64 0, i64 %594
+  %600 = getelementptr inbounds nuw [20 x float], ptr %7, i64 0, i64 %594
   store float %599, ptr %600, align 4, !tbaa !60
   %601 = add nuw nsw i64 %594, 1
   %602 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %532, i64 0, i64 %601
   %603 = load float, ptr %602, align 8, !tbaa !98
-  %604 = getelementptr inbounds [20 x float], ptr %6, i64 0, i64 %601
+  %604 = getelementptr inbounds nuw [20 x float], ptr %6, i64 0, i64 %601
   store float %603, ptr %604, align 4, !tbaa !60
   %605 = getelementptr inbounds nuw i8, ptr %602, i64 4
   %606 = load float, ptr %605, align 4, !tbaa !100
-  %607 = getelementptr inbounds [20 x float], ptr %7, i64 0, i64 %601
+  %607 = getelementptr inbounds nuw [20 x float], ptr %7, i64 0, i64 %601
   store float %606, ptr %607, align 4, !tbaa !60
   %608 = add nuw nsw i64 %594, 2
   %609 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %532, i64 0, i64 %608
   %610 = load float, ptr %609, align 8, !tbaa !98
-  %611 = getelementptr inbounds [20 x float], ptr %6, i64 0, i64 %608
+  %611 = getelementptr inbounds nuw [20 x float], ptr %6, i64 0, i64 %608
   store float %610, ptr %611, align 4, !tbaa !60
   %612 = getelementptr inbounds nuw i8, ptr %609, i64 4
   %613 = load float, ptr %612, align 4, !tbaa !100
-  %614 = getelementptr inbounds [20 x float], ptr %7, i64 0, i64 %608
+  %614 = getelementptr inbounds nuw [20 x float], ptr %7, i64 0, i64 %608
   store float %613, ptr %614, align 4, !tbaa !60
   %615 = add nuw nsw i64 %594, 3
   %616 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %532, i64 0, i64 %615
   %617 = load float, ptr %616, align 8, !tbaa !98
-  %618 = getelementptr inbounds [20 x float], ptr %6, i64 0, i64 %615
+  %618 = getelementptr inbounds nuw [20 x float], ptr %6, i64 0, i64 %615
   store float %617, ptr %618, align 4, !tbaa !60
   %619 = getelementptr inbounds nuw i8, ptr %616, i64 4
   %620 = load float, ptr %619, align 4, !tbaa !100
-  %621 = getelementptr inbounds [20 x float], ptr %7, i64 0, i64 %615
+  %621 = getelementptr inbounds nuw [20 x float], ptr %7, i64 0, i64 %615
   store float %620, ptr %621, align 4, !tbaa !60
   %622 = add nuw nsw i64 %594, 4
   %623 = icmp eq i64 %622, %533
@@ -2469,7 +2469,7 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %35 = getelementptr inbounds [5 x [6 x float]], ptr %30, i64 0, i64 %32, i64 %27
   store float %34, ptr %35, align 4, !tbaa !60
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !184
   %39 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.67, ptr noundef %38, ptr noundef nonnull @.str.24) #21
   br label %258
@@ -2558,7 +2558,7 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %117 = fptrunc <2 x double> %116 to <2 x float>
   store <2 x float> %117, ptr %91, align 4, !tbaa !60
   %118 = sext i32 %1 to i64
-  %119 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 16, !tbaa !184
   %121 = icmp eq i32 %15, 2
   %122 = select i1 %121, ptr @.str.69, ptr @.str.25
@@ -2654,7 +2654,7 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %206 = fptrunc <2 x double> %205 to <2 x float>
   store <2 x float> %206, ptr %180, align 4, !tbaa !60
   %207 = sext i32 %1 to i64
-  %208 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %207
   %209 = load ptr, ptr %208, align 16, !tbaa !184
   %210 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #21
   %211 = load float, ptr %140, align 4, !tbaa !60
@@ -2707,7 +2707,7 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %246 = phi i64 [ %222, %220 ], [ %234, %223 ]
   %247 = phi i64 [ %221, %220 ], [ %225, %223 ]
   %248 = sext i32 %1 to i64
-  %249 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %248
   %250 = load ptr, ptr %249, align 16, !tbaa !184
   %251 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #21
   %252 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -5131,38 +5131,38 @@ define internal noundef range(i32 0, 2) i32 @area_button_press(ptr noundef %0, p
   %205 = phi i64 [ %233, %.preheader ], [ %199, %.loopexit46 ]
   %206 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %142, i64 0, i64 %205
   %207 = load float, ptr %206, align 8, !tbaa !98
-  %208 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %205
+  %208 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %205
   store float %207, ptr %208, align 4, !tbaa !60
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %210 = load float, ptr %209, align 4, !tbaa !100
-  %211 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %205
+  %211 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %205
   store float %210, ptr %211, align 4, !tbaa !60
   %212 = add nuw nsw i64 %205, 1
   %213 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %142, i64 0, i64 %212
   %214 = load float, ptr %213, align 8, !tbaa !98
-  %215 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %212
+  %215 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %212
   store float %214, ptr %215, align 4, !tbaa !60
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 4
   %217 = load float, ptr %216, align 4, !tbaa !100
-  %218 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %212
+  %218 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %212
   store float %217, ptr %218, align 4, !tbaa !60
   %219 = add nuw nsw i64 %205, 2
   %220 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %142, i64 0, i64 %219
   %221 = load float, ptr %220, align 8, !tbaa !98
-  %222 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %219
+  %222 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %219
   store float %221, ptr %222, align 4, !tbaa !60
   %223 = getelementptr inbounds nuw i8, ptr %220, i64 4
   %224 = load float, ptr %223, align 4, !tbaa !100
-  %225 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %219
+  %225 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %219
   store float %224, ptr %225, align 4, !tbaa !60
   %226 = add nuw nsw i64 %205, 3
   %227 = getelementptr inbounds [20 x %struct.CurveAnchorPoint], ptr %142, i64 0, i64 %226
   %228 = load float, ptr %227, align 8, !tbaa !98
-  %229 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %226
+  %229 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %226
   store float %228, ptr %229, align 4, !tbaa !60
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %231 = load float, ptr %230, align 4, !tbaa !100
-  %232 = getelementptr inbounds [20 x float], ptr %5, i64 0, i64 %226
+  %232 = getelementptr inbounds nuw [20 x float], ptr %5, i64 0, i64 %226
   store float %231, ptr %232, align 4, !tbaa !60
   %233 = add nuw nsw i64 %205, 4
   %234 = icmp eq i64 %233, %143

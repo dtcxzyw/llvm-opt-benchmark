@@ -249,11 +249,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit47.i: ; preds = %._crit_edge.loopexit.i46.i, %61
   %.0.lcssa.i40.i = phi double [ 0.000000e+00, %61 ], [ %73, %._crit_edge.loopexit.i46.i ]
   %74 = sext i32 %57 to i64
-  %75 = getelementptr inbounds [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %74
   %76 = load double, ptr %75, align 8
   %77 = fmul double %.0.lcssa.i40.i, %76
   %78 = sext i32 %59 to i64
-  %79 = getelementptr inbounds [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = fmul double %77, %80
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit

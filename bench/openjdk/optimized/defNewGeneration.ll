@@ -2860,7 +2860,7 @@ _ZN7oopDesc11oop_iterateI21PromoteFailureClosureEEvPT_.exit: ; preds = %51, %61
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI21PromoteFailureClosureE6_tableE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI21PromoteFailureClosureE6_tableE, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %.0.i.i) #19
   %68 = load ptr, ptr %11, align 8

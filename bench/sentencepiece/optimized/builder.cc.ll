@@ -3213,7 +3213,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %211
   %218 = ptrtoint ptr %213 to i64
   %219 = sub i64 %218, %202
   %gepdiff = sub nsw i64 4, %219
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %91, i64 %219
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %91, i64 %219
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %213, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %220 = getelementptr inbounds i8, ptr %213, i64 %gepdiff
   store ptr %220, ptr %212, align 8
@@ -3402,7 +3402,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2264: ; preds = %2
   %293 = ptrtoint ptr %288 to i64
   %294 = sub i64 %293, %277
   %gepdiff3133 = sub nsw i64 4, %294
-  %.sink.i.i25.i2262.ptr = getelementptr inbounds i8, ptr %93, i64 %294
+  %.sink.i.i25.i2262.ptr = getelementptr inbounds nuw i8, ptr %93, i64 %294
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %288, ptr nonnull align 4 %.sink.i.i25.i2262.ptr, i64 %gepdiff3133, i1 false)
   %295 = getelementptr inbounds i8, ptr %288, i64 %gepdiff3133
   store ptr %295, ptr %287, align 8
@@ -3591,7 +3591,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2281: ; preds = %3
   %368 = ptrtoint ptr %363 to i64
   %369 = sub i64 %368, %352
   %gepdiff3134 = sub nsw i64 4, %369
-  %.sink.i.i25.i2279.ptr = getelementptr inbounds i8, ptr %95, i64 %369
+  %.sink.i.i25.i2279.ptr = getelementptr inbounds nuw i8, ptr %95, i64 %369
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %363, ptr nonnull align 4 %.sink.i.i25.i2279.ptr, i64 %gepdiff3134, i1 false)
   %370 = getelementptr inbounds i8, ptr %363, i64 %gepdiff3134
   store ptr %370, ptr %362, align 8
@@ -3780,7 +3780,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2298: ; preds = %4
   %443 = ptrtoint ptr %438 to i64
   %444 = sub i64 %443, %427
   %gepdiff3135 = sub nsw i64 4, %444
-  %.sink.i.i25.i2296.ptr = getelementptr inbounds i8, ptr %97, i64 %444
+  %.sink.i.i25.i2296.ptr = getelementptr inbounds nuw i8, ptr %97, i64 %444
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %438, ptr nonnull align 4 %.sink.i.i25.i2296.ptr, i64 %gepdiff3135, i1 false)
   %445 = getelementptr inbounds i8, ptr %438, i64 %gepdiff3135
   store ptr %445, ptr %437, align 8
@@ -3969,7 +3969,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2315: ; preds = %5
   %518 = ptrtoint ptr %513 to i64
   %519 = sub i64 %518, %502
   %gepdiff3136 = sub nsw i64 4, %519
-  %.sink.i.i25.i2313.ptr = getelementptr inbounds i8, ptr %99, i64 %519
+  %.sink.i.i25.i2313.ptr = getelementptr inbounds nuw i8, ptr %99, i64 %519
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %513, ptr nonnull align 4 %.sink.i.i25.i2313.ptr, i64 %gepdiff3136, i1 false)
   %520 = getelementptr inbounds i8, ptr %513, i64 %gepdiff3136
   store ptr %520, ptr %512, align 8
@@ -4158,7 +4158,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2332: ; preds = %5
   %593 = ptrtoint ptr %588 to i64
   %594 = sub i64 %593, %577
   %gepdiff3137 = sub nsw i64 4, %594
-  %.sink.i.i25.i2330.ptr = getelementptr inbounds i8, ptr %101, i64 %594
+  %.sink.i.i25.i2330.ptr = getelementptr inbounds nuw i8, ptr %101, i64 %594
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %588, ptr nonnull align 4 %.sink.i.i25.i2330.ptr, i64 %gepdiff3137, i1 false)
   %595 = getelementptr inbounds i8, ptr %588, i64 %gepdiff3137
   store ptr %595, ptr %587, align 8
@@ -4347,7 +4347,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2349: ; preds = %6
   %668 = ptrtoint ptr %663 to i64
   %669 = sub i64 %668, %652
   %gepdiff3138 = sub nsw i64 4, %669
-  %.sink.i.i25.i2347.ptr = getelementptr inbounds i8, ptr %103, i64 %669
+  %.sink.i.i25.i2347.ptr = getelementptr inbounds nuw i8, ptr %103, i64 %669
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %663, ptr nonnull align 4 %.sink.i.i25.i2347.ptr, i64 %gepdiff3138, i1 false)
   %670 = getelementptr inbounds i8, ptr %663, i64 %gepdiff3138
   store ptr %670, ptr %662, align 8
@@ -4536,7 +4536,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2366: ; preds = %7
   %743 = ptrtoint ptr %738 to i64
   %744 = sub i64 %743, %727
   %gepdiff3139 = sub nsw i64 4, %744
-  %.sink.i.i25.i2364.ptr = getelementptr inbounds i8, ptr %105, i64 %744
+  %.sink.i.i25.i2364.ptr = getelementptr inbounds nuw i8, ptr %105, i64 %744
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %738, ptr nonnull align 4 %.sink.i.i25.i2364.ptr, i64 %gepdiff3139, i1 false)
   %745 = getelementptr inbounds i8, ptr %738, i64 %gepdiff3139
   store ptr %745, ptr %737, align 8
@@ -4725,7 +4725,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2383: ; preds = %8
   %818 = ptrtoint ptr %813 to i64
   %819 = sub i64 %818, %802
   %gepdiff3140 = sub nsw i64 4, %819
-  %.sink.i.i25.i2381.ptr = getelementptr inbounds i8, ptr %107, i64 %819
+  %.sink.i.i25.i2381.ptr = getelementptr inbounds nuw i8, ptr %107, i64 %819
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %813, ptr nonnull align 4 %.sink.i.i25.i2381.ptr, i64 %gepdiff3140, i1 false)
   %820 = getelementptr inbounds i8, ptr %813, i64 %gepdiff3140
   store ptr %820, ptr %812, align 8
@@ -4914,7 +4914,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2400: ; preds = %8
   %893 = ptrtoint ptr %888 to i64
   %894 = sub i64 %893, %877
   %gepdiff3141 = sub nsw i64 4, %894
-  %.sink.i.i25.i2398.ptr = getelementptr inbounds i8, ptr %109, i64 %894
+  %.sink.i.i25.i2398.ptr = getelementptr inbounds nuw i8, ptr %109, i64 %894
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %888, ptr nonnull align 4 %.sink.i.i25.i2398.ptr, i64 %gepdiff3141, i1 false)
   %895 = getelementptr inbounds i8, ptr %888, i64 %gepdiff3141
   store ptr %895, ptr %887, align 8
@@ -5103,7 +5103,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2417: ; preds = %9
   %968 = ptrtoint ptr %963 to i64
   %969 = sub i64 %968, %952
   %gepdiff3142 = sub nsw i64 4, %969
-  %.sink.i.i25.i2415.ptr = getelementptr inbounds i8, ptr %111, i64 %969
+  %.sink.i.i25.i2415.ptr = getelementptr inbounds nuw i8, ptr %111, i64 %969
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %963, ptr nonnull align 4 %.sink.i.i25.i2415.ptr, i64 %gepdiff3142, i1 false)
   %970 = getelementptr inbounds i8, ptr %963, i64 %gepdiff3142
   store ptr %970, ptr %962, align 8
@@ -5292,7 +5292,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2434: ; preds = %1
   %1043 = ptrtoint ptr %1038 to i64
   %1044 = sub i64 %1043, %1027
   %gepdiff3143 = sub nsw i64 4, %1044
-  %.sink.i.i25.i2432.ptr = getelementptr inbounds i8, ptr %113, i64 %1044
+  %.sink.i.i25.i2432.ptr = getelementptr inbounds nuw i8, ptr %113, i64 %1044
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %1038, ptr nonnull align 4 %.sink.i.i25.i2432.ptr, i64 %gepdiff3143, i1 false)
   %1045 = getelementptr inbounds i8, ptr %1038, i64 %gepdiff3143
   store ptr %1045, ptr %1037, align 8
@@ -5481,7 +5481,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2451: ; preds = %1
   %1118 = ptrtoint ptr %1113 to i64
   %1119 = sub i64 %1118, %1102
   %gepdiff3144 = sub nsw i64 4, %1119
-  %.sink.i.i25.i2449.ptr = getelementptr inbounds i8, ptr %115, i64 %1119
+  %.sink.i.i25.i2449.ptr = getelementptr inbounds nuw i8, ptr %115, i64 %1119
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %1113, ptr nonnull align 4 %.sink.i.i25.i2449.ptr, i64 %gepdiff3144, i1 false)
   %1120 = getelementptr inbounds i8, ptr %1113, i64 %gepdiff3144
   store ptr %1120, ptr %1112, align 8
@@ -5670,7 +5670,7 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i2468: ; preds = %1
   %1193 = ptrtoint ptr %1188 to i64
   %1194 = sub i64 %1193, %1177
   %gepdiff3145 = sub nsw i64 4, %1194
-  %.sink.i.i25.i2466.ptr = getelementptr inbounds i8, ptr %117, i64 %1194
+  %.sink.i.i25.i2466.ptr = getelementptr inbounds nuw i8, ptr %117, i64 %1194
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %1188, ptr nonnull align 4 %.sink.i.i25.i2466.ptr, i64 %gepdiff3145, i1 false)
   %1195 = getelementptr inbounds i8, ptr %1188, i64 %gepdiff3145
   store ptr %1195, ptr %1187, align 8

@@ -109,7 +109,7 @@ define dso_local void @_ZN11cmJSONStateC2ERKNSt7__cxx1112basic_stringIcSt11char_
   %22 = load ptr, ptr %9, align 8
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %24
   %26 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %25)
           to label %27 unwind label %48
 
@@ -200,7 +200,7 @@ _ZN11cmJSONState8AddErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %59 = load ptr, ptr %9, align 8
   %60 = getelementptr i8, ptr %59, i64 -24
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %9, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 %61
   %63 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %62)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %64
 

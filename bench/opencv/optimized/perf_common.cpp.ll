@@ -4108,7 +4108,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %_ZN7testing15Assert
   %75 = load ptr, ptr %3, align 8
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 %77
   %79 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %78)
           to label %80 unwind label %17
 

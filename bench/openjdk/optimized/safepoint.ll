@@ -1482,7 +1482,7 @@ define hidden void @_ZN16SafepointTracing3endEv() local_unnamed_addr #2 align 2 
 18:                                               ; preds = %16
   %19 = load i32, ptr @_ZN16SafepointTracing13_current_typeE, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr @_ZN16SafepointTracing17_last_app_time_nsE, align 8
   %24 = load i64, ptr @_ZN16SafepointTracing29_last_safepoint_begin_time_nsE, align 8
@@ -2133,7 +2133,7 @@ define hidden void @_ZN16SafepointTracing14statistics_logEv() local_unnamed_addr
   store i32 %storemerge, ptr @_ZZN16SafepointTracing14statistics_logEvE15_cur_stat_index, align 4
   %11 = load i32, ptr @_ZN16SafepointTracing13_current_typeE, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @_ZN16SafepointTracing12_nof_threadsE, align 4
   %16 = load i32, ptr @_ZN16SafepointTracing12_nof_runningE, align 4

@@ -198691,7 +198691,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit: ; preds = %i
 if.end22:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit, %if.end14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i, i8 0, i64 40, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv3
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv3
   %cmp123.i.i = icmp ugt i32 %spec.select, 99
   br i1 %cmp123.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -198875,7 +198875,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end22:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i, i8 0, i64 40, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv3
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv3
   %cmp123.i.i = icmp ugt i32 %value, 99
   br i1 %cmp123.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -199096,7 +199096,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit: ; preds = %i
 if.end22:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit, %if.end14
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i, i8 0, i64 80, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv3
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv3
   %cmp123.i.i = icmp ugt i64 %spec.select, 99
   br i1 %cmp123.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -199279,7 +199279,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end22:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i, i8 0, i64 80, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv3
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv3
   %cmp123.i.i = icmp ugt i64 %value, 99
   br i1 %cmp123.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -199547,7 +199547,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit: ; preds = %i
 if.end26:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit, %if.end18
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %buffer.i, i8 0, i64 156, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv5
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv5
   %cmp224.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i.i, 99
   br i1 %cmp224.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -199760,7 +199760,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end26:                                         ; preds = %_ZN3fmt3v106detail12count_digitsEo.exit, %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %buffer.i, i8 0, i64 156, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %conv5
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %conv5
   %cmp224.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i.i, 99
   br i1 %cmp224.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -200082,7 +200082,7 @@ if.end.i19:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i.i, i8 0, i64 40, i1 false)
   %idx.ext.i.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i32 %arg.i.sroa.0.0.extract.trunc, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -201391,7 +201391,7 @@ invoke.cont3:                                     ; preds = %entry, %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i, i8 0, i64 80, i1 false)
   %idx.ext.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp123.i.i = icmp ugt i64 %value, 99
   br i1 %cmp123.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -203565,7 +203565,7 @@ invoke.cont4:                                     ; preds = %if.end12.i.i, %if.t
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %buffer.i, i8 0, i64 156, i1 false)
   %idx.ext.i.i = sext i32 %retval.0.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp224.i.i = icmp ugt i128 %value.sroa.0.0.insert.insert, 99
   br i1 %cmp224.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -204671,7 +204671,7 @@ _ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_R
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i.i, i8 0, i64 40, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i32 %13, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -205095,7 +205095,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %buffer.i.i, i8 0, i64 9, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   %.str.810..str.811.i10.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i11.i.i
 
@@ -205478,7 +205478,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %buffer.i.i, i8 0, i64 33, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -205859,7 +205859,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %buffer.i.i, i8 0, i64 11, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -207954,7 +207954,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i.i, i8 0, i64 40, i1 false)
   %idx.ext.i.i.i = sext i32 %significand_size to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i32 %significand, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -208095,7 +208095,7 @@ invoke.cont12:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i.i6, i8 0, i64 10, i1 false)
   %idx.ext.i.i.i7 = sext i32 %significand_size to i64
-  %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %buffer.i.i6, i64 %idx.ext.i.i.i7
+  %add.ptr.i.i.i8 = getelementptr inbounds nuw i8, ptr %buffer.i.i6, i64 %idx.ext.i.i.i7
   %cmp119.i.i.i = icmp ugt i32 %significand, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i15, label %while.end.i.i.i9
 
@@ -209344,7 +209344,7 @@ _ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEiwEET_S7_T0_R
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %buffer.i.i, i8 0, i64 40, i1 false)
   %idx.ext.i.i.i = sext i32 %42 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i32 %39, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -210720,7 +210720,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i.i, i8 0, i64 80, i1 false)
   %idx.ext.i.i.i = sext i32 %significand_size to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i64 %significand, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -210860,7 +210860,7 @@ invoke.cont12:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i.i5, i8 0, i64 20, i1 false)
   %idx.ext.i.i.i6 = sext i32 %significand_size to i64
-  %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %buffer.i.i5, i64 %idx.ext.i.i.i6
+  %add.ptr.i.i.i7 = getelementptr inbounds nuw i8, ptr %buffer.i.i5, i64 %idx.ext.i.i.i6
   %cmp119.i.i.i = icmp ugt i64 %significand, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i16, label %while.end.i.i.i8
 
@@ -211886,7 +211886,7 @@ _ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEiwEET_S7_T0_R
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i.i, i8 0, i64 80, i1 false)
   %idx.ext.i.i.i = sext i32 %42 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i64 %39, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -212727,7 +212727,7 @@ if.end84:                                         ; preds = %_ZN3fmt3v106detail6
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i32 %abs_e.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -218896,7 +218896,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.th
 if.end.i:                                         ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIwEEEaSEOw.exit13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %buffer.i, i8 0, i64 17, i1 false)
   %idx.ext.i8.i = sext i32 %12 to i64
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i8.i
+  %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i8.i
   br label %do.body.i11.i
 
 do.body.i11.i:                                    ; preds = %do.body.i11.i, %if.end.i
@@ -222272,7 +222272,7 @@ if.end.i19:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i.i, i8 0, i64 80, i1 false)
   %idx.ext.i.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i64 %arg.coerce0, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -223362,7 +223362,7 @@ _ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_R
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %buffer.i.i, i8 0, i64 80, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp123.i.i.i = icmp ugt i64 %13, 99
   br i1 %cmp123.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -223784,7 +223784,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %buffer.i.i, i8 0, i64 17, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   %.str.810..str.811.i10.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i11.i.i
 
@@ -224167,7 +224167,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %buffer.i.i, i8 0, i64 65, i1 false)
   %idx.ext.i9.i.i = sext i32 %15 to i64
-  %add.ptr.i10.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
+  %add.ptr.i10.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
   br label %do.body.i11.i.i
 
 do.body.i11.i.i:                                  ; preds = %do.body.i11.i.i, %if.end.i.i
@@ -224549,7 +224549,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %buffer.i.i, i8 0, i64 22, i1 false)
   %idx.ext.i9.i.i = sext i32 %15 to i64
-  %add.ptr.i10.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
+  %add.ptr.i10.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
   br label %do.body.i11.i.i
 
 do.body.i11.i.i:                                  ; preds = %do.body.i11.i.i, %if.end.i.i
@@ -224727,7 +224727,7 @@ if.end.i22:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %buffer.i.i, i8 0, i64 156, i1 false)
   %idx.ext.i.i.i = sext i32 %retval.0.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp224.i.i.i = icmp ugt i128 %agg.tmp2.sroa.0.0.copyload, 99
   br i1 %cmp224.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -225819,7 +225819,7 @@ _ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_R
   call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(156) %buffer.i.i, i8 0, i64 156, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp224.i.i.i = icmp ugt i128 %13, 99
   br i1 %cmp224.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -226246,7 +226246,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %buffer.i.i, i8 0, i64 33, i1 false)
   %idx.ext.i12.i.i = sext i32 %15 to i64
-  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i12.i.i
+  %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i12.i.i
   %.str.810..str.811.i14.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i15.i.i
 
@@ -226630,7 +226630,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %buffer.i.i, i8 0, i64 129, i1 false)
   %idx.ext.i13.i.i = sext i32 %15 to i64
-  %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
   br label %do.body.i15.i.i
 
 do.body.i15.i.i:                                  ; preds = %do.body.i15.i.i, %if.end.i.i
@@ -227012,7 +227012,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
 if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail10to_pointerIwEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i, %_ZN3fmt3v106detail6fill_nISt20back_insert_iteratorINS1_6bufferIwEEEmwEET_S7_T0_RKT1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %buffer.i.i, i8 0, i64 43, i1 false)
   %idx.ext.i13.i.i = sext i32 %15 to i64
-  %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
   br label %do.body.i15.i.i
 
 do.body.i15.i.i:                                  ; preds = %do.body.i15.i.i, %if.end.i.i
@@ -227788,7 +227788,7 @@ if.end73:                                         ; preds = %_ZN3fmt3v106detail6
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i = ashr i64 %add.i.i133, 32
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i32 %abs_e.0, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -228203,7 +228203,7 @@ if.then127:                                       ; preds = %if.then125.thread, 
   %conv128 = trunc i64 %prod.2309315 to i32
   %sub129 = sub nsw i32 8, %27
   %idxprom.i = sext i32 %sub129 to i64
-  %arrayidx.i120 = getelementptr inbounds [9 x i32], ptr @.str.834, i64 0, i64 %idxprom.i
+  %arrayidx.i120 = getelementptr inbounds nuw [9 x i32], ptr @.str.834, i64 0, i64 %idxprom.i
   %34 = load i32, ptr %arrayidx.i120, align 4
   %cmp131.not = icmp ugt i32 %34, %conv128
   br i1 %cmp131.not, label %lor.rhs, label %if.then199
@@ -228620,7 +228620,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end25:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i, i8 0, i64 10, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %conv4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %conv4
   %cmp119.i.i = icmp ugt i32 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -228794,7 +228794,7 @@ if.end.i:                                         ; preds = %while.end.i
 if.end25:                                         ; preds = %entry, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i, i8 0, i64 20, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %conv4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %conv4
   %cmp119.i.i = icmp ugt i64 %value, 99
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -234629,7 +234629,7 @@ if.end.i23:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i.i = ashr i64 %add.i.i, 32
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i32 %arg.i.sroa.0.0.extract.trunc, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -235792,7 +235792,7 @@ _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %buffer.i.i, i8 0, i64 10, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i32 %13, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -236259,7 +236259,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %18, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %buffer.i.i, i8 0, i64 9, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   %.str.810..str.811.i10.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i11.i.i
 
@@ -236695,7 +236695,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %buffer.i.i, i8 0, i64 33, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -237129,7 +237129,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %buffer.i.i, i8 0, i64 11, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   br label %do.body.i10.i.i
 
 do.body.i10.i.i:                                  ; preds = %do.body.i10.i.i, %if.end.i.i
@@ -237863,7 +237863,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 2, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -237978,7 +237978,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 4, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -238093,7 +238093,7 @@ _ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit: ; preds = %do.body.i
 while.body.i.i:                                   ; preds = %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit
   %11 = phi i64 [ %.pre.i.i18, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %add7.i.i, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
   %begin.addr.011.i.i.idx = phi i64 [ 0, %_ZN3fmt3v106detail11format_uintILj4EcjEEPT0_S4_T1_ib.exit ], [ %begin.addr.011.i.i.add, %_ZSt20uninitialized_copy_nIPKcmPcET1_T_T0_S3_.exit.i.i ]
-  %begin.addr.011.i.i.ptr = getelementptr inbounds i8, ptr %buf, i64 %begin.addr.011.i.i.idx
+  %begin.addr.011.i.i.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %begin.addr.011.i.i.idx
   %gepdiff = sub nsw i64 8, %begin.addr.011.i.i.idx
   %add.i.i19 = add i64 %gepdiff, %11
   %12 = load i64, ptr %capacity_.i.i.i, align 8
@@ -238228,7 +238228,7 @@ if.end.i23:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i.i = sext i32 %sub.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i64 %arg.coerce0, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -239401,7 +239401,7 @@ _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %buffer.i.i, i8 0, i64 20, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp119.i.i.i = icmp ugt i64 %13, 99
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -239865,7 +239865,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %18, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %buffer.i.i, i8 0, i64 17, i1 false)
   %idx.ext.i8.i.i = sext i32 %15 to i64
-  %add.ptr.i9.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i8.i.i
   %.str.810..str.811.i10.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i11.i.i
 
@@ -240300,7 +240300,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %buffer.i.i, i8 0, i64 65, i1 false)
   %idx.ext.i9.i.i = sext i32 %15 to i64
-  %add.ptr.i10.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
+  %add.ptr.i10.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
   br label %do.body.i11.i.i
 
 do.body.i11.i.i:                                  ; preds = %do.body.i11.i.i, %if.end.i.i
@@ -240734,7 +240734,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %buffer.i.i, i8 0, i64 22, i1 false)
   %idx.ext.i9.i.i = sext i32 %15 to i64
-  %add.ptr.i10.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
+  %add.ptr.i10.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i9.i.i
   br label %do.body.i11.i.i
 
 do.body.i11.i.i:                                  ; preds = %do.body.i11.i.i, %if.end.i.i
@@ -240925,7 +240925,7 @@ if.end.i26:                                       ; preds = %_ZNSt20back_insert_
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %buffer.i.i, i8 0, i64 39, i1 false)
   %idx.ext.i.i.i = sext i32 %retval.0.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp220.i.i.i = icmp ugt i128 %agg.tmp3.sroa.0.0.copyload, 99
   br i1 %cmp220.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -242100,7 +242100,7 @@ _ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %buffer.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(39) %buffer.i.i, i8 0, i64 39, i1 false)
   %idx.ext.i.i.i = sext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i.i.i
   %cmp220.i.i.i = icmp ugt i128 %13, 99
   br i1 %cmp220.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -242569,7 +242569,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %18, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %buffer.i.i, i8 0, i64 33, i1 false)
   %idx.ext.i12.i.i = sext i32 %15 to i64
-  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i12.i.i
+  %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i12.i.i
   %.str.810..str.811.i14.i.i = select i1 %tobool.i, ptr @.str.810, ptr @.str.811
   br label %do.body.i15.i.i
 
@@ -243005,7 +243005,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %buffer.i.i, i8 0, i64 129, i1 false)
   %idx.ext.i13.i.i = sext i32 %15 to i64
-  %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
   br label %do.body.i15.i.i
 
 do.body.i15.i.i:                                  ; preds = %do.body.i15.i.i, %if.end.i.i
@@ -243439,7 +243439,7 @@ if.end.i.i:                                       ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i.i = phi i64 [ %16, %_ZN3fmt3v106detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit ], [ %add.i.i.i4, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %buffer.i.i, i8 0, i64 43, i1 false)
   %idx.ext.i13.i.i = sext i32 %15 to i64
-  %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
+  %add.ptr.i14.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %idx.ext.i13.i.i
   br label %do.body.i15.i.i
 
 do.body.i15.i.i:                                  ; preds = %do.body.i15.i.i, %if.end.i.i
@@ -248453,7 +248453,7 @@ if.end.i:                                         ; preds = %_ZN3fmt3v106detail1
   %.pre.i.i.i.i = phi i64 [ %13, %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit13 ], [ %add.i.i15, %_ZN3fmt3v106detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valueENS0_8appenderESt20back_insert_iteratorINS1_6bufferIS3_EEEE4typeEm.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %buffer.i, i8 0, i64 17, i1 false)
   %idx.ext.i8.i = sext i32 %12 to i64
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i8.i
+  %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %idx.ext.i8.i
   br label %do.body.i11.i
 
 do.body.i11.i:                                    ; preds = %do.body.i11.i, %if.end.i
@@ -248938,7 +248938,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %conv2.i.i19 = and i32 %2, 1
   %idx.ext3.i.i20 = zext nneg i32 %conv2.i.i19 to i64
   %add.ptr4.i.i21 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i18, i64 %idx.ext3.i.i20
-  %arrayidx8.i.i22 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i17
+  %arrayidx8.i.i22 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i17
   %3 = load i32, ptr %arrayidx8.i.i22, align 4
   %and.i.i23 = and i32 %3, %conv.i.i13
   %shl.i.i24 = shl nuw nsw i32 %and.i.i23, 18
@@ -248959,10 +248959,10 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %9 = and i8 %8, 63
   %and20.i.i34 = zext nneg i8 %9 to i32
   %or22.i.i35 = or disjoint i32 %or17.i.i32, %and20.i.i34
-  %arrayidx24.i.i36 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i17
+  %arrayidx24.i.i36 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i17
   %10 = load i32, ptr %arrayidx24.i.i36, align 4
   %shr25.i.i37 = lshr i32 %or22.i.i35, %10
-  %arrayidx27.i.i38 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i17
+  %arrayidx27.i.i38 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i17
   %11 = load i32, ptr %arrayidx27.i.i38, align 4
   %cmp.i.i39 = icmp ult i32 %shr25.i.i37, %11
   %shl29.i.i40 = select i1 %cmp.i.i39, i32 64, i32 0
@@ -248983,7 +248983,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %or48.i.i50 = or disjoint i32 %or43.i.i49, %shl37.i.i45
   %or52.i.i51 = or disjoint i32 %or48.i.i50, %shl33.i.i43
   %xor.i.i52 = xor i32 %or52.i.i51, 42
-  %arrayidx54.i.i53 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i17
+  %arrayidx54.i.i53 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i17
   %17 = load i32, ptr %arrayidx54.i.i53, align 4
   %shr55.i.i54 = lshr i32 %xor.i.i52, %17
   %tobool.not.i55 = icmp eq i32 %shr55.i.i54, 0
@@ -249046,7 +249046,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %conv2.i.i = and i32 %20, 1
   %idx.ext3.i.i = zext nneg i32 %conv2.i.i to i64
   %add.ptr4.i.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i7, i64 %idx.ext3.i.i
-  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %21 = load i32, ptr %arrayidx8.i.i, align 4
   %and.i.i = and i32 %21, %conv.i.i
   %shl.i.i = shl nuw nsw i32 %and.i.i, 18
@@ -249067,10 +249067,10 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %27 = and i8 %26, 63
   %and20.i.i = zext nneg i8 %27 to i32
   %or22.i.i = or disjoint i32 %or17.i.i, %and20.i.i
-  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %28 = load i32, ptr %arrayidx24.i.i, align 4
   %shr25.i.i = lshr i32 %or22.i.i, %28
-  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %29 = load i32, ptr %arrayidx27.i.i, align 4
   %cmp.i.i9 = icmp ult i32 %shr25.i.i, %29
   %shl29.i.i = select i1 %cmp.i.i9, i32 64, i32 0
@@ -249091,7 +249091,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %or48.i.i = or disjoint i32 %or43.i.i, %shl37.i.i
   %or52.i.i = or disjoint i32 %or48.i.i, %shl33.i.i
   %xor.i.i = xor i32 %or52.i.i, 42
-  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %35 = load i32, ptr %arrayidx54.i.i, align 4
   %shr55.i.i = lshr i32 %xor.i.i, %35
   %tobool.not.i = icmp eq i32 %shr55.i.i, 0
@@ -249499,7 +249499,7 @@ for.body:                                         ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr @.str.841, i64 0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %idx.ext.i.i = sext i8 %1 to i64
-  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %2 = load i32, ptr %arrayidx8.i.i, align 4
   %arrayidx9.i.i = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %3 = load i8, ptr %arrayidx9.i.i, align 1
@@ -249507,11 +249507,11 @@ for.body:                                         ; preds = %for.cond
   %4 = load i8, ptr %arrayidx13.i.i, align 1
   %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr %p.1, i64 3
   %5 = load i8, ptr %arrayidx18.i.i, align 1
-  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %6 = load i32, ptr %arrayidx24.i.i, align 4
-  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %7 = load i32, ptr %arrayidx27.i.i, align 4
-  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %8 = load i32, ptr %arrayidx54.i.i, align 4
   %9 = load i64, ptr %decode.sroa.3.0.copyload, align 8
   %cmp.not.i.not.i = icmp eq i64 %9, 0
@@ -249610,11 +249610,11 @@ if.end21:                                         ; preds = %do.body
   %arrayidx.i.i21 = getelementptr inbounds nuw [32 x i8], ptr @.str.841, i64 0, i64 %idxprom.i.i20
   %20 = load i8, ptr %arrayidx.i.i21, align 1
   %idx.ext.i.i22 = sext i8 %20 to i64
-  %arrayidx54.i.i29 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i22
+  %arrayidx54.i.i29 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i22
   %21 = load i32, ptr %arrayidx54.i.i29, align 4
-  %arrayidx27.i.i28 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i22
+  %arrayidx27.i.i28 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i22
   %22 = load i32, ptr %arrayidx27.i.i28, align 4
-  %arrayidx24.i.i27 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i22
+  %arrayidx24.i.i27 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i22
   %23 = load i32, ptr %arrayidx24.i.i27, align 4
   %arrayidx18.i.i26 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 3
   %24 = load i8, ptr %arrayidx18.i.i26, align 1
@@ -249622,7 +249622,7 @@ if.end21:                                         ; preds = %do.body
   %25 = load i8, ptr %arrayidx13.i.i25, align 1
   %arrayidx9.i.i24 = getelementptr inbounds nuw i8, ptr %buf_ptr.0, i64 1
   %26 = load i8, ptr %arrayidx9.i.i24, align 1
-  %arrayidx8.i.i23 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i22
+  %arrayidx8.i.i23 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i22
   %27 = load i32, ptr %arrayidx8.i.i23, align 4
   %dec.i.i32 = add i64 %dec.i.i3284, -1
   store i64 %dec.i.i32, ptr %decode.sroa.3.0.copyload, align 8
@@ -249848,7 +249848,7 @@ entry:
   %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr @.str.841, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %idx.ext.i = sext i8 %1 to i64
-  %arrayidx8.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i
+  %arrayidx8.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i
   %2 = load i32, ptr %arrayidx8.i, align 4
   %and.i = and i32 %2, %conv.i
   %shl.i = shl nuw nsw i32 %and.i, 18
@@ -249869,10 +249869,10 @@ entry:
   %8 = and i8 %7, 63
   %and20.i = zext nneg i8 %8 to i32
   %or22.i = or disjoint i32 %or17.i, %and20.i
-  %arrayidx24.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i
+  %arrayidx24.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i
   %9 = load i32, ptr %arrayidx24.i, align 4
   %shr25.i = lshr i32 %or22.i, %9
-  %arrayidx27.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i
+  %arrayidx27.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i
   %10 = load i32, ptr %arrayidx27.i, align 4
   %cmp.i = icmp ult i32 %shr25.i, %10
   %shl29.i = select i1 %cmp.i, i32 64, i32 0
@@ -249893,7 +249893,7 @@ entry:
   %or48.i = or disjoint i32 %or43.i, %shl37.i
   %or52.i = or disjoint i32 %or48.i, %shl33.i
   %xor.i = xor i32 %or52.i, 42
-  %arrayidx54.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i
+  %arrayidx54.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i
   %16 = load i32, ptr %arrayidx54.i, align 4
   %shr55.i = lshr i32 %xor.i, %16
   %tobool.not = icmp eq i32 %shr55.i, 0
@@ -250030,7 +250030,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %conv2.i.i41 = and i32 %7, 1
   %idx.ext3.i.i42 = zext nneg i32 %conv2.i.i41 to i64
   %add.ptr4.i.i43 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i40, i64 %idx.ext3.i.i42
-  %arrayidx8.i.i44 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i39
+  %arrayidx8.i.i44 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i39
   %8 = load i32, ptr %arrayidx8.i.i44, align 4
   %and.i.i45 = and i32 %8, %conv.i.i35
   %shl.i.i46 = shl nuw nsw i32 %and.i.i45, 18
@@ -250051,10 +250051,10 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %14 = and i8 %13, 63
   %and20.i.i56 = zext nneg i8 %14 to i32
   %or22.i.i57 = or disjoint i32 %or17.i.i54, %and20.i.i56
-  %arrayidx24.i.i58 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i39
+  %arrayidx24.i.i58 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i39
   %15 = load i32, ptr %arrayidx24.i.i58, align 4
   %shr25.i.i59 = lshr i32 %or22.i.i57, %15
-  %arrayidx27.i.i60 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i39
+  %arrayidx27.i.i60 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i39
   %16 = load i32, ptr %arrayidx27.i.i60, align 4
   %cmp.i.i61 = icmp ult i32 %shr25.i.i59, %16
   %shl29.i.i62 = select i1 %cmp.i.i61, i32 64, i32 0
@@ -250075,7 +250075,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %_ZZN3
   %or48.i.i72 = or disjoint i32 %or43.i.i71, %shl37.i.i67
   %or52.i.i73 = or disjoint i32 %or48.i.i72, %shl33.i.i65
   %xor.i.i74 = xor i32 %or52.i.i73, 42
-  %arrayidx54.i.i75 = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i39
+  %arrayidx54.i.i75 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i39
   %22 = load i32, ptr %arrayidx54.i.i75, align 4
   %shr55.i.i76 = lshr i32 %xor.i.i74, %22
   %tobool.not.i77 = icmp eq i32 %shr55.i.i76, 0
@@ -250138,7 +250138,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %conv2.i.i = and i32 %25, 1
   %idx.ext3.i.i = zext nneg i32 %conv2.i.i to i64
   %add.ptr4.i.i29 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i28, i64 %idx.ext3.i.i
-  %arrayidx8.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.masks, i64 0, i64 %idx.ext.i.i
   %26 = load i32, ptr %arrayidx8.i.i, align 4
   %and.i.i = and i32 %26, %conv.i.i
   %shl.i.i = shl nuw nsw i32 %and.i.i, 18
@@ -250159,10 +250159,10 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %32 = and i8 %31, 63
   %and20.i.i = zext nneg i8 %32 to i32
   %or22.i.i = or disjoint i32 %or17.i.i, %and20.i.i
-  %arrayidx24.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shiftc, i64 0, i64 %idx.ext.i.i
   %33 = load i32, ptr %arrayidx24.i.i, align 4
   %shr25.i.i = lshr i32 %or22.i.i, %33
-  %arrayidx27.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.mins, i64 0, i64 %idx.ext.i.i
   %34 = load i32, ptr %arrayidx27.i.i, align 4
   %cmp.i.i30 = icmp ult i32 %shr25.i.i, %34
   %shl29.i.i = select i1 %cmp.i.i30, i32 64, i32 0
@@ -250183,7 +250183,7 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt3v106detail
   %or48.i.i = or disjoint i32 %or43.i.i, %shl37.i.i
   %or52.i.i = or disjoint i32 %or48.i.i, %shl33.i.i
   %xor.i.i = xor i32 %or52.i.i, 42
-  %arrayidx54.i.i = getelementptr inbounds [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
+  %arrayidx54.i.i = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN3fmt3v106detail11utf8_decodeEPKcPjPi.shifte, i64 0, i64 %idx.ext.i.i
   %40 = load i32, ptr %arrayidx54.i.i, align 4
   %shr55.i.i = lshr i32 %xor.i.i, %40
   %tobool.not.i = icmp eq i32 %shr55.i.i, 0

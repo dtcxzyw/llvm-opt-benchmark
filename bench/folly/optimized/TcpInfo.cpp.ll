@@ -2037,7 +2037,7 @@ lpad:                                             ; preds = %while.body
 while.exit17:                                     ; preds = %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %conv.i43 = phi i64 [ %conv.i, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ], [ %conv.i44, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result9) #18
-  %arrayidx.i.i = getelementptr inbounds [9 x %"class.folly::Range"], ptr @_ZN5folly12_GLOBAL__N_18kCcNamesE, i64 0, i64 %conv.i43
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x %"class.folly::Range"], ptr @_ZN5folly12_GLOBAL__N_18kCcNamesE, i64 0, i64 %conv.i43
   %hasValue.i.i31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false), !tbaa.struct !139
   store i8 1, ptr %hasValue.i.i31, align 8, !tbaa !141

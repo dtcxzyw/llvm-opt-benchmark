@@ -297,7 +297,7 @@ entry:
   %downgraded_pkey = alloca ptr, align 8
   store ptr null, ptr %downgraded_pkey, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x %struct.test_stanza_st], ptr @test_stanzas, i64 0, i64 %idxprom
   %call = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 514, ptr noundef nonnull @.str.33, ptr noundef nonnull %arrayidx) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %end, label %lor.lhs.false

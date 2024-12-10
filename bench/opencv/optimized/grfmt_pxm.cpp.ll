@@ -1592,7 +1592,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit189:         ; preds = %.noexc188, %187
 
 219:                                              ; preds = %211
   %220 = sext i32 %spec.select to i64
-  %221 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %220
   %222 = load i8, ptr %221, align 1
   %223 = getelementptr inbounds nuw i8, ptr %195, i64 %indvars.iv264
   store i8 %222, ptr %223, align 1

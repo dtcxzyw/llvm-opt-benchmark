@@ -255,10 +255,10 @@ define i32 @If_CutSopBalancePinDelaysInt(ptr nocapture noundef readonly %0, ptr 
   %25 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = sext i32 %.099106 to i64
-  %28 = getelementptr inbounds i64, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %27
   store i64 %26, ptr %28, align 8
   %29 = add nsw i32 %.099106, 1
-  %30 = getelementptr inbounds i32, ptr %8, i64 %27
+  %30 = getelementptr inbounds nuw i32, ptr %8, i64 %27
   store i32 %24, ptr %30, align 4
   %31 = icmp sgt i32 %.099106, 0
   br i1 %31, label %.preheader.split.us.i, label %If_LogCounterPinDelays.exit
@@ -423,10 +423,10 @@ If_LogPinDelaysMulti.exit:                        ; preds = %If_CutPinDelayMax.e
   %.1.lcssa140 = phi i32 [ %.2, %._crit_edge ], [ %.027112, %15 ], [ %.2, %If_CutPinDelayMax.exit.loopexit.us.i46 ]
   %104 = load i64, ptr %6, align 16
   %105 = sext i32 %.098110 to i64
-  %106 = getelementptr inbounds i64, ptr %7, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %7, i64 %105
   store i64 %104, ptr %106, align 8
   %107 = add nsw i32 %.098110, 1
-  %108 = getelementptr inbounds i32, ptr %9, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr %9, i64 %105
   store i32 %.1.lcssa140, ptr %108, align 4
   %109 = icmp sgt i32 %.098110, 0
   br i1 %109, label %.preheader.i48, label %If_LogCounterPinDelays.exit76
@@ -898,7 +898,7 @@ define i32 @If_CutSopBalanceEvalInt(ptr nocapture noundef readonly %0, ptr nocap
 .split59:                                         ; preds = %24
   %.pre.i = sext i32 %.0206211 to i64
   %28 = add nsw i32 %.0206211, 1
-  %29 = getelementptr inbounds i32, ptr %8, i64 %.pre.i
+  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i
   store i32 %27, ptr %29, align 4
   %30 = icmp sgt i32 %.0206211, 0
   br i1 %30, label %.preheader.split.us.i, label %If_LogCounterAddAig.exit
@@ -961,10 +961,10 @@ If_LogCounterAddAig.exit:                         ; preds = %.preheader.split.us
   %57 = load i32, ptr %56, align 4
   %58 = xor i32 %57, 1
   %.pre.i82 = sext i32 %.0206211 to i64
-  %59 = getelementptr inbounds i32, ptr %9, i64 %.pre.i82
+  %59 = getelementptr inbounds nuw i32, ptr %9, i64 %.pre.i82
   store i32 %58, ptr %59, align 4
   %60 = add nsw i32 %.0206211, 1
-  %61 = getelementptr inbounds i32, ptr %8, i64 %.pre.i82
+  %61 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i82
   store i32 %27, ptr %61, align 4
   %62 = icmp sgt i32 %.0206211, 0
   br i1 %62, label %.preheader.split.i, label %If_LogCounterAddAig.exit92
@@ -1171,7 +1171,7 @@ If_LogCounterAddAig.exit92:                       ; preds = %.preheader.split.i,
 .split62:                                         ; preds = %155
   %.pre.i93 = sext i32 %.0206211 to i64
   %159 = add nsw i32 %.0206211, 1
-  %160 = getelementptr inbounds i32, ptr %8, i64 %.pre.i93
+  %160 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i93
   store i32 %158, ptr %160, align 4
   %161 = icmp sgt i32 %.0206211, 0
   br i1 %161, label %.preheader.split.us.i95, label %If_LogCounterAddAig.exit103
@@ -1233,10 +1233,10 @@ If_LogCounterAddAig.exit103:                      ; preds = %.preheader.split.us
   %187 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %188 = load i32, ptr %187, align 4
   %.pre.i105 = sext i32 %.0206211 to i64
-  %189 = getelementptr inbounds i32, ptr %9, i64 %.pre.i105
+  %189 = getelementptr inbounds nuw i32, ptr %9, i64 %.pre.i105
   store i32 %188, ptr %189, align 4
   %190 = add nsw i32 %.0206211, 1
-  %191 = getelementptr inbounds i32, ptr %8, i64 %.pre.i105
+  %191 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.i105
   store i32 %158, ptr %191, align 4
   %192 = icmp sgt i32 %.0206211, 0
   br i1 %192, label %.preheader.split.i108, label %If_LogCounterAddAig.exit124
@@ -1603,7 +1603,7 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
   store i32 %353, ptr %6, align 4
   %.pre.i128 = sext i32 %.0204217 to i64
   %354 = add nsw i32 %.0204217, 1
-  %355 = getelementptr inbounds i32, ptr %10, i64 %.pre.i128
+  %355 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre.i128
   store i32 %.153.lcssa252, ptr %355, align 4
   %356 = icmp sgt i32 %.0204217, 0
   br i1 %356, label %.preheader.split.us.i130, label %If_LogCounterAddAig.exit138
@@ -1658,10 +1658,10 @@ If_LogCreateAndXor.exit196:                       ; preds = %.Vec_IntGrow.exit10
   %378 = load i32, ptr %9, align 16
   %379 = xor i32 %378, 1
   %.pre.i140 = sext i32 %.0204217 to i64
-  %380 = getelementptr inbounds i32, ptr %11, i64 %.pre.i140
+  %380 = getelementptr inbounds nuw i32, ptr %11, i64 %.pre.i140
   store i32 %379, ptr %380, align 4
   %381 = add nsw i32 %.0204217, 1
-  %382 = getelementptr inbounds i32, ptr %10, i64 %.pre.i140
+  %382 = getelementptr inbounds nuw i32, ptr %10, i64 %.pre.i140
   store i32 %.153.lcssa251255, ptr %382, align 4
   %383 = icmp sgt i32 %.0204217, 0
   br i1 %383, label %.preheader.split.i143, label %If_LogCounterAddAig.exit138

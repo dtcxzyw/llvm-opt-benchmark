@@ -4367,7 +4367,7 @@ _ZN3gmxL13isNullOrEmptyEPKc.exit.thread:          ; preds = %267, %273, %_ZN3gmx
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i
   %311 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) @fftwf_version) #17, !noalias !33
-  %312 = getelementptr inbounds i8, ptr @fftwf_version, i64 %311
+  %312 = getelementptr inbounds nuw i8, ptr @fftwf_version, i64 %311
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @fftwf_version, ptr noundef nonnull %312)
           to label %_ZN12_GLOBAL__N_126getCpuFftDescriptionStringB5cxx11Ev.exit.i unwind label %313
 

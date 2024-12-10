@@ -1559,7 +1559,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %switch.tableidx = add nsw i16 %2, -1
   %26 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [41 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE", i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [41 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE", i64 0, i64 %26
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %27 = icmp ugt i64 %4, 4294967295
@@ -1742,7 +1742,7 @@ switch.lookup:                                    ; preds = %.noexc
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %switch.tableidx = add nsw i16 %2, -5
   %24 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E", i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [24 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E", i64 0, i64 %24
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
@@ -5714,7 +5714,7 @@ switch.lookup:
   store i32 %5, ptr %172, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171)
   %174 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hfbe10cd0d9df2f0aE, i64 0, i64 %174
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN5image5image12ImageDecoder11total_bytes17hfbe10cd0d9df2f0aE, i64 0, i64 %174
   %switch.load = load i64, ptr %switch.gep, align 8
   %175 = zext i32 %4 to i64
   %176 = zext i32 %5 to i64

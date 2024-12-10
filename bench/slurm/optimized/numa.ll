@@ -352,7 +352,7 @@ define range(i32 0, 2) i32 @get_memset(ptr noundef %0, ptr nocapture noundef rea
   %90 = trunc i64 %89 to i32
   %sext.i = shl i64 %89, 32
   %91 = ashr exact i64 %sext.i, 32
-  %92 = getelementptr inbounds i8, ptr %9, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 %91
   %93 = call i32 @numa_max_node() #7
   %94 = icmp sgt i32 %90, 1
   %lhsv = load i16, ptr %9, align 16

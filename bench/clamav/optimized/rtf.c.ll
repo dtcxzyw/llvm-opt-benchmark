@@ -1029,7 +1029,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
   %68 = trunc i16 %67 to i8
   %69 = or i8 %47, %68
   %70 = add i64 %.1196260, 1
-  %71 = getelementptr inbounds [8192 x i8], ptr %4, i64 0, i64 %.1196260
+  %71 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %.1196260
   store i8 %69, ptr %71, align 1
   br label %72
 
@@ -1089,7 +1089,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
 
 93:                                               ; preds = %88
   %94 = zext i8 %92 to i32
-  %95 = getelementptr inbounds [8 x i8], ptr @rtf_data_magic, i64 0, i64 %.5202265
+  %95 = getelementptr inbounds nuw [8 x i8], ptr @rtf_data_magic, i64 0, i64 %.5202265
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %97, i32 noundef %94, i64 noundef %86) #9

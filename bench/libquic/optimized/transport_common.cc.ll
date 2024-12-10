@@ -462,7 +462,7 @@ for.cond1.preheader:                              ; preds = %if.end.i
   %shl = shl nuw i64 1, %sh_prom
   %div = sdiv i32 %sock, 64
   %idxprom7 = sext i32 %div to i64
-  %arrayidx8 = getelementptr inbounds [16 x i64], ptr %read_fds, i64 0, i64 %idxprom7
+  %arrayidx8 = getelementptr inbounds nuw [16 x i64], ptr %read_fds, i64 0, i64 %idxprom7
   %add = add nsw i32 %sock, 1
   br label %for.cond1.outer
 

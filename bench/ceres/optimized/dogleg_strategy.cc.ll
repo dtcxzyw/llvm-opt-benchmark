@@ -4446,7 +4446,7 @@ _ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14Tr
   %87 = load double, ptr %86, align 8
   store double %85, ptr %86, align 8
   store double %87, ptr %83, align 8
-  %88 = getelementptr inbounds i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i8 1, ptr %88, align 1
   %.035.in.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %57, i64 %.03560.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.035.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %.035.in.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4

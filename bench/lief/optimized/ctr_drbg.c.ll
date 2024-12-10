@@ -359,7 +359,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 23:                                               ; preds = %21
   %24 = load ptr, ptr %16, align 8
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 %22
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %27 = call i32 %24(ptr noundef %25, ptr noundef nonnull %26, i64 noundef %3) #13
   %.not41 = icmp eq i32 %27, 0
   br i1 %.not41, label %28, label %62
@@ -376,7 +376,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
   br i1 %or.cond, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 %.030
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %.030
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %1, i64 %2, i1 false)
   %35 = add i64 %.030, %2
   br label %36

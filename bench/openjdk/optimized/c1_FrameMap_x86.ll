@@ -193,7 +193,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %61 = trunc i64 %60 to i32
   %62 = sub i32 %61, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = shl i32 %65, 14
   %67 = shl i32 %65, 23
@@ -211,7 +211,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %76 = trunc i64 %75 to i32
   %77 = sub i32 %76, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = shl i32 %80, 14
   br i1 %or.cond.i, label %82, label %_Z17is_reference_type9BasicTypeb.exit
@@ -326,7 +326,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @_ZN8FrameMap9nr2xmmregEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [32 x %class.XMMRegister], ptr @_ZN8FrameMap9_xmm_regsE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [32 x %class.XMMRegister], ptr @_ZN8FrameMap9_xmm_regsE, i64 0, i64 %2
   %.sroa.0.0.copyload = load i32, ptr %3, align 4
   ret i32 %.sroa.0.0.copyload
 }
@@ -602,7 +602,7 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   %122 = trunc i64 %121 to i32
   %123 = sub i32 %122, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = shl i32 %126, 14
   %128 = or disjoint i32 %127, 27

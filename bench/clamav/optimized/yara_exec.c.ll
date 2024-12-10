@@ -252,7 +252,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 .preheader:                                       ; preds = %23
   %.6643 = add nsw i32 %.0520, -1
   %.pn644 = sext i32 %.6643 to i64
-  %.1517.in645 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %.pn644
+  %.1517.in645 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %.pn644
   %.1517646 = load i64, ptr %.1517.in645, align 8
   %.not647 = icmp eq i64 %.1517646, -1483400188077313
   br i1 %.not647, label %._crit_edge, label %.lr.ph
@@ -288,7 +288,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.0.copyload = load i64, ptr %39, align 1
   %40 = add nsw i32 %.0520, 1
   %41 = sext i32 %.0520 to i64
-  %42 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %41
   store i64 %.0.copyload, ptr %42, align 8
   br label %899
 
@@ -300,7 +300,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %46 = getelementptr inbounds nuw i8, ptr %.0525, i64 1
   %.0.copyload392 = load i64, ptr %46, align 1
   %47 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
-  %48 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload392
+  %48 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload392
   store i64 0, ptr %48, align 8
   br label %899
 
@@ -310,9 +310,9 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %51 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
   %52 = add nsw i32 %.0520, -1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %53
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload394
+  %56 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload394
   %57 = load i64, ptr %56, align 8
   %58 = add nsw i64 %57, %55
   store i64 %58, ptr %56, align 8
@@ -322,7 +322,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %60 = getelementptr inbounds nuw i8, ptr %.0525, i64 1
   %.0.copyload396 = load i64, ptr %60, align 1
   %61 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
-  %62 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload396
+  %62 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload396
   %63 = load i64, ptr %62, align 8
   %64 = add nsw i64 %63, 1
   store i64 %64, ptr %62, align 8
@@ -336,11 +336,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %68 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.0525, i64 1
   %.0.copyload398 = load i64, ptr %69, align 1
-  %70 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload398
+  %70 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload398
   %71 = load i64, ptr %70, align 8
   %72 = add nsw i32 %.0520, 1
   %73 = sext i32 %.0520 to i64
-  %74 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %73
   store i64 %71, ptr %74, align 8
   br label %899
 
@@ -350,9 +350,9 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %77 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
   %78 = add nsw i32 %.0520, -1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload400
+  %82 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload400
   store i64 %81, ptr %82, align 8
   br label %899
 
@@ -362,7 +362,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %85 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
   %86 = add nsw i32 %.0520, -1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %87
   %89 = load i64, ptr %88, align 8
   %.not600 = icmp eq i64 %89, -1483400188077313
   %90 = icmp slt i32 %.0520, 16385
@@ -375,7 +375,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %90, label %93, label %.loopexit634
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %.0.copyload402
+  %94 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %.0.copyload402
   %95 = load i64, ptr %94, align 8
   store i64 %95, ptr %88, align 8
   br label %899
@@ -387,7 +387,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 98:                                               ; preds = %96
   %99 = add nsw i32 %.0520, -1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %100
   %102 = load i64, ptr %101, align 8
   %.not599 = icmp eq i64 %102, -1483400188077313
   br i1 %.not599, label %107, label %103
@@ -409,11 +409,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 110:                                              ; preds = %109
   %111 = add nsw i32 %.0520, -2
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = add nsw i32 %.0520, -1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %116
   %118 = load i64, ptr %117, align 8
   %.not598 = icmp sgt i64 %114, %118
   br i1 %.not598, label %123, label %119
@@ -431,11 +431,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 125:                                              ; preds = %23
   %126 = add nsw i32 %.0520, -1
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %127
   %129 = load i64, ptr %128, align 8
   %130 = add nsw i32 %.0520, -2
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %131
   %133 = load i64, ptr %132, align 8
   %134 = icmp eq i64 %133, -1483400188077313
   %135 = icmp eq i64 %129, -1483400188077313
@@ -461,11 +461,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 142:                                              ; preds = %23
   %143 = add nsw i32 %.0520, -1
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %144
   %146 = load i64, ptr %145, align 8
   %147 = add nsw i32 %.0520, -2
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %148
   %150 = load i64, ptr %149, align 8
   %151 = icmp eq i64 %150, -1483400188077313
   br i1 %151, label %152, label %155
@@ -497,7 +497,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 162:                                              ; preds = %23
   %163 = add nsw i32 %.0520, -1
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %164
   %166 = load i64, ptr %165, align 8
   %167 = icmp eq i64 %166, -1483400188077313
   %168 = icmp slt i32 %.0520, 16385
@@ -526,11 +526,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 176:                                              ; preds = %174
   %177 = add nsw i32 %.0520, -2
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %178
   %180 = load i64, ptr %179, align 8
   %181 = add nsw i32 %.0520, -1
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %182
   %184 = load i64, ptr %183, align 8
   %185 = icmp ne i64 %180, -1483400188077313
   %186 = icmp ne i64 %184, -1483400188077313
@@ -548,11 +548,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 191:                                              ; preds = %189
   %192 = add nsw i32 %.0520, -2
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = add nsw i32 %.0520, -1
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %197
   %199 = load i64, ptr %198, align 8
   %200 = icmp ne i64 %195, -1483400188077313
   %201 = icmp ne i64 %199, -1483400188077313
@@ -570,11 +570,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 206:                                              ; preds = %204
   %207 = add nsw i32 %.0520, -2
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %208
   %210 = load i64, ptr %209, align 8
   %211 = add nsw i32 %.0520, -1
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %212
   %214 = load i64, ptr %213, align 8
   %215 = icmp ne i64 %210, -1483400188077313
   %216 = icmp ne i64 %214, -1483400188077313
@@ -592,11 +592,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 221:                                              ; preds = %219
   %222 = add nsw i32 %.0520, -2
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %223
+  %224 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %223
   %225 = load i64, ptr %224, align 8
   %226 = add nsw i32 %.0520, -1
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %227
   %229 = load i64, ptr %228, align 8
   %230 = icmp ne i64 %225, -1483400188077313
   %231 = icmp ne i64 %229, -1483400188077313
@@ -614,11 +614,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 236:                                              ; preds = %234
   %237 = add nsw i32 %.0520, -2
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = add nsw i32 %.0520, -1
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %242
   %244 = load i64, ptr %243, align 8
   %245 = icmp ne i64 %240, -1483400188077313
   %246 = icmp ne i64 %244, -1483400188077313
@@ -636,11 +636,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 251:                                              ; preds = %249
   %252 = add nsw i32 %.0520, -2
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %253
   %255 = load i64, ptr %254, align 8
   %256 = add nsw i32 %.0520, -1
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %257
+  %258 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %257
   %259 = load i64, ptr %258, align 8
   %260 = icmp ne i64 %255, -1483400188077313
   %261 = icmp ne i64 %259, -1483400188077313
@@ -654,11 +654,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 264:                                              ; preds = %23
   %265 = add nsw i32 %.0520, -1
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %266
   %268 = load i64, ptr %267, align 8
   %269 = add nsw i32 %.0520, -2
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %270
   %272 = load i64, ptr %271, align 8
   %273 = icmp eq i64 %272, -1483400188077313
   %274 = icmp eq i64 %268, -1483400188077313
@@ -688,11 +688,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 285:                                              ; preds = %23
   %286 = add nsw i32 %.0520, -1
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %287
   %289 = load i64, ptr %288, align 8
   %290 = add nsw i32 %.0520, -2
   %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %291
   %293 = load i64, ptr %292, align 8
   %294 = icmp eq i64 %293, -1483400188077313
   %295 = icmp eq i64 %289, -1483400188077313
@@ -722,7 +722,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 306:                                              ; preds = %23
   %307 = add nsw i32 %.0520, -1
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %308
   %310 = load i64, ptr %309, align 8
   %311 = icmp eq i64 %310, -1483400188077313
   %312 = icmp slt i32 %.0520, 16385
@@ -753,11 +753,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 322:                                              ; preds = %320
   %323 = add nsw i32 %.0520, -2
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %324
   %326 = load i64, ptr %325, align 8
   %327 = add nsw i32 %.0520, -1
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %328
   %330 = load i64, ptr %329, align 8
   %331 = icmp eq i64 %326, -1483400188077313
   %332 = icmp eq i64 %330, -1483400188077313
@@ -774,11 +774,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 337:                                              ; preds = %335
   %338 = add nsw i32 %.0520, -2
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %339
   %341 = load i64, ptr %340, align 8
   %342 = add nsw i32 %.0520, -1
   %343 = sext i32 %342 to i64
-  %344 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %343
   %345 = load i64, ptr %344, align 8
   %346 = icmp eq i64 %341, -1483400188077313
   %347 = icmp eq i64 %345, -1483400188077313
@@ -795,11 +795,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 352:                                              ; preds = %350
   %353 = add nsw i32 %.0520, -2
   %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %354
   %356 = load i64, ptr %355, align 8
   %357 = add nsw i32 %.0520, -1
   %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %358
   %360 = load i64, ptr %359, align 8
   %361 = icmp eq i64 %356, -1483400188077313
   %362 = icmp eq i64 %360, -1483400188077313
@@ -812,11 +812,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 365:                                              ; preds = %23
   %366 = add nsw i32 %.0520, -1
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %367
   %369 = load i64, ptr %368, align 8
   %370 = add nsw i32 %.0520, -2
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %371
   %373 = load i64, ptr %372, align 8
   %374 = icmp slt i32 %.0520, 16386
   br i1 %374, label %375, label %.loopexit634
@@ -839,11 +839,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 382:                                              ; preds = %23
   %383 = add nsw i32 %.0520, -1
   %384 = sext i32 %383 to i64
-  %385 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %384
   %386 = load i64, ptr %385, align 8
   %387 = add nsw i32 %.0520, -2
   %388 = sext i32 %387 to i64
-  %389 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %388
+  %389 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %388
   %390 = load i64, ptr %389, align 8
   %391 = icmp slt i32 %.0520, 16386
   br i1 %391, label %392, label %.loopexit634
@@ -870,7 +870,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 401:                                              ; preds = %399
   %402 = add nsw i32 %.0520, -1
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %403
+  %404 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %403
   %405 = load i64, ptr %404, align 8
   %406 = icmp eq i64 %405, -1483400188077313
   %407 = xor i64 %405, -1
@@ -885,11 +885,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 411:                                              ; preds = %409
   %412 = add nsw i32 %.0520, -2
   %413 = sext i32 %412 to i64
-  %414 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %413
+  %414 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %413
   %415 = load i64, ptr %414, align 8
   %416 = add nsw i32 %.0520, -1
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %417
   %419 = load i64, ptr %418, align 8
   %420 = icmp eq i64 %415, -1483400188077313
   %421 = icmp eq i64 %419, -1483400188077313
@@ -906,11 +906,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 426:                                              ; preds = %424
   %427 = add nsw i32 %.0520, -2
   %428 = sext i32 %427 to i64
-  %429 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %428
   %430 = load i64, ptr %429, align 8
   %431 = add nsw i32 %.0520, -1
   %432 = sext i32 %431 to i64
-  %433 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %432
   %434 = load i64, ptr %433, align 8
   %435 = icmp eq i64 %430, -1483400188077313
   %436 = icmp eq i64 %434, -1483400188077313
@@ -927,11 +927,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 441:                                              ; preds = %439
   %442 = add nsw i32 %.0520, -2
   %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %443
+  %444 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %443
   %445 = load i64, ptr %444, align 8
   %446 = add nsw i32 %.0520, -1
   %447 = sext i32 %446 to i64
-  %448 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %447
+  %448 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %447
   %449 = load i64, ptr %448, align 8
   %450 = icmp eq i64 %445, -1483400188077313
   %451 = icmp eq i64 %449, -1483400188077313
@@ -958,14 +958,14 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %466 = zext i8 %465 to i64
   %467 = add nsw i32 %.0520, 1
   %468 = sext i32 %.0520 to i64
-  %469 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %468
   store i64 %466, ptr %469, align 8
   br label %899
 
 470:                                              ; preds = %23
   %471 = add nsw i32 %.0520, -1
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %472
+  %473 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %472
   %474 = load i64, ptr %473, align 8
   %475 = getelementptr inbounds nuw i8, ptr %.0525, i64 8
   switch i64 %474, label %476 [
@@ -1003,14 +1003,14 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %492 = ptrtoint ptr %487 to i64
   %493 = add nsw i32 %.0520, 1
   %494 = sext i32 %.0520 to i64
-  %495 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %494
+  %495 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %494
   store i64 %492, ptr %495, align 8
   br label %899
 
 496:                                              ; preds = %23
   %497 = add nsw i32 %.0520, -1
   %498 = sext i32 %497 to i64
-  %499 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %498
+  %499 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %498
   %500 = load i64, ptr %499, align 8
   %501 = icmp eq i64 %500, -1483400188077313
   br i1 %501, label %502, label %505
@@ -1090,7 +1090,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.2522.lcssa = phi i32 [ %.0520, %523 ], [ %533, %.lr.ph666.preheader ]
   %534 = add nsw i32 %.2522.lcssa, -1
   %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %535
+  %536 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %535
   %537 = load i64, ptr %536, align 8
   %538 = inttoptr i64 %537 to ptr
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 48
@@ -1117,7 +1117,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 551:                                              ; preds = %549
   %552 = add nsw i32 %.0520, -1
   %553 = sext i32 %552 to i64
-  %554 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %553
+  %554 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %553
   %555 = load i64, ptr %554, align 8
   %556 = inttoptr i64 %555 to ptr
   %557 = load ptr, ptr %16, align 8
@@ -1139,7 +1139,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %569 = add nsw i32 %.0520, -1
   %570 = add nsw i32 %.0520, -2
   %571 = sext i32 %570 to i64
-  %572 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %571
   %573 = load i64, ptr %572, align 8
   %574 = icmp eq i64 %573, -1483400188077313
   br i1 %574, label %575, label %578
@@ -1163,7 +1163,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 584:                                              ; preds = %578
   %585 = sext i32 %569 to i64
-  %586 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %585
+  %586 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %585
   %587 = load i64, ptr %586, align 8
   %588 = inttoptr i64 %587 to ptr
   %589 = getelementptr inbounds nuw i8, ptr %583, i64 8
@@ -1220,11 +1220,11 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 612:                                              ; preds = %23
   %613 = add nsw i32 %.0520, -2
   %614 = sext i32 %613 to i64
-  %615 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %614
   %616 = load i64, ptr %615, align 8
   %617 = add nsw i32 %.0520, -3
   %618 = sext i32 %617 to i64
-  %619 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %618
   %620 = load i64, ptr %619, align 8
   %621 = icmp eq i64 %620, -1483400188077313
   %622 = icmp eq i64 %616, -1483400188077313
@@ -1251,7 +1251,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 632:                                              ; preds = %626
   %633 = add nsw i32 %.0520, -1
   %634 = sext i32 %633 to i64
-  %635 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %634
+  %635 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %634
   %636 = load i64, ptr %635, align 8
   %637 = inttoptr i64 %636 to ptr
   %638 = getelementptr inbounds nuw i8, ptr %631, i64 8
@@ -1313,7 +1313,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 661:                                              ; preds = %659
   %662 = add nsw i32 %.0520, -1
   %663 = sext i32 %662 to i64
-  %664 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %663
   %665 = load i64, ptr %664, align 8
   %666 = inttoptr i64 %665 to ptr
   %667 = load ptr, ptr %18, align 8
@@ -1334,7 +1334,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %679 = add nsw i32 %.0520, -1
   %680 = add nsw i32 %.0520, -2
   %681 = sext i32 %680 to i64
-  %682 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %681
+  %682 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %681
   %683 = load i64, ptr %682, align 8
   %684 = icmp eq i64 %683, -1483400188077313
   br i1 %684, label %685, label %688
@@ -1361,7 +1361,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 697:                                              ; preds = %688
   %698 = sext i32 %679 to i64
-  %699 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %698
+  %699 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %698
   %700 = load i64, ptr %699, align 8
   %701 = inttoptr i64 %700 to ptr
   %702 = getelementptr inbounds nuw i8, ptr %694, i64 8
@@ -1416,7 +1416,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %spec.select = add nuw nsw i32 %.3648, %729
   %730 = add nuw nsw i32 %.0510649, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.1517.in = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %indvars.iv.next
+  %.1517.in = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %indvars.iv.next
   %.1517 = load i64, ptr %.1517.in, align 8
   %.not = icmp eq i64 %.1517, -1483400188077313
   br i1 %.not, label %._crit_edge.loopexit, label %722
@@ -1433,7 +1433,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.6.lcssa = phi i32 [ %.6643, %.preheader ], [ %732, %._crit_edge.loopexit ]
   %733 = add nsw i32 %.6.in.lcssa, -2
   %734 = sext i32 %733 to i64
-  %735 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %734
+  %735 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %734
   %736 = load i64, ptr %735, align 8
   %.not561 = icmp eq i64 %736, -1483400188077313
   %737 = icmp slt i32 %.6.in.lcssa, 16386
@@ -1466,7 +1466,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %748 = load i64, ptr %2, align 8
   %749 = add nsw i32 %.0520, 1
   %750 = sext i32 %.0520 to i64
-  %751 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %750
+  %751 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %750
   store i64 %748, ptr %751, align 8
   br label %899
 
@@ -1478,7 +1478,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
   %755 = load i64, ptr %15, align 8
   %756 = add nsw i32 %.0520, 1
   %757 = sext i32 %.0520 to i64
-  %758 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %757
+  %758 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %757
   store i64 %755, ptr %758, align 8
   br label %899
 
@@ -1489,7 +1489,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 761:                                              ; preds = %759
   %762 = add nsw i32 %.0520, -1
   %763 = sext i32 %762 to i64
-  %764 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %763
+  %764 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %763
   %765 = load i64, ptr %764, align 8
   %766 = load ptr, ptr %14, align 8
   %767 = add i64 %765, 1
@@ -1522,7 +1522,7 @@ read_int8_t.exit:                                 ; preds = %761, %770, %774
 779:                                              ; preds = %777
   %780 = add nsw i32 %.0520, -1
   %781 = sext i32 %780 to i64
-  %782 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %781
+  %782 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %781
   %783 = load i64, ptr %782, align 8
   %784 = load ptr, ptr %14, align 8
   %785 = add i64 %783, 2
@@ -1555,7 +1555,7 @@ read_int16_t.exit:                                ; preds = %779, %788, %792
 797:                                              ; preds = %795
   %798 = add nsw i32 %.0520, -1
   %799 = sext i32 %798 to i64
-  %800 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %799
+  %800 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %799
   %801 = load i64, ptr %800, align 8
   %802 = load ptr, ptr %14, align 8
   %803 = add i64 %801, 4
@@ -1588,7 +1588,7 @@ read_int32_t.exit:                                ; preds = %797, %806, %810
 815:                                              ; preds = %813
   %816 = add nsw i32 %.0520, -1
   %817 = sext i32 %816 to i64
-  %818 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %817
+  %818 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %817
   %819 = load i64, ptr %818, align 8
   %820 = load ptr, ptr %14, align 8
   %821 = add i64 %819, 1
@@ -1621,7 +1621,7 @@ read_uint8_t.exit:                                ; preds = %815, %824, %828
 833:                                              ; preds = %831
   %834 = add nsw i32 %.0520, -1
   %835 = sext i32 %834 to i64
-  %836 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %835
+  %836 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %835
   %837 = load i64, ptr %836, align 8
   %838 = load ptr, ptr %14, align 8
   %839 = add i64 %837, 2
@@ -1654,7 +1654,7 @@ read_uint16_t.exit:                               ; preds = %833, %842, %846
 851:                                              ; preds = %849
   %852 = add nsw i32 %.0520, -1
   %853 = sext i32 %852 to i64
-  %854 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %853
+  %854 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %853
   %855 = load i64, ptr %854, align 8
   %856 = load ptr, ptr %14, align 8
   %857 = add i64 %855, 4
@@ -1687,11 +1687,11 @@ read_uint32_t.exit:                               ; preds = %851, %860, %864
 869:                                              ; preds = %867
   %870 = add nsw i32 %.0520, -2
   %871 = sext i32 %870 to i64
-  %872 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %871
+  %872 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %871
   %873 = load i64, ptr %872, align 8
   %874 = add nsw i32 %.0520, -1
   %875 = sext i32 %874 to i64
-  %876 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %875
+  %876 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %875
   %877 = load i64, ptr %876, align 8
   %878 = inttoptr i64 %873 to ptr
   %879 = inttoptr i64 %877 to ptr
@@ -1705,7 +1705,7 @@ read_uint32_t.exit:                               ; preds = %851, %860, %864
   %884 = add nsw i32 %.0520, -1
   %885 = add nsw i32 %.0520, -2
   %886 = sext i32 %885 to i64
-  %887 = getelementptr inbounds [16384 x i64], ptr %7, i64 0, i64 %886
+  %887 = getelementptr inbounds nuw [16384 x i64], ptr %7, i64 0, i64 %886
   %888 = load i64, ptr %887, align 8
   %889 = inttoptr i64 %888 to ptr
   %890 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %889) #8

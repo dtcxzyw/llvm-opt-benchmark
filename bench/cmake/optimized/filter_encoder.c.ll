@@ -79,7 +79,7 @@ define dso_local i32 @lzma_filters_update(ptr nocapture noundef readonly %0, ptr
   %.020 = phi i64 [ %19, %.lr.ph ], [ 0, %.preheader ]
   %15 = xor i64 %.020, -1
   %16 = add i64 %.017, %15
-  %17 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %16
   %18 = getelementptr inbounds %struct.lzma_filter, ptr %1, i64 %.020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   %19 = add nuw i64 %.020, 1
@@ -87,7 +87,7 @@ define dso_local i32 @lzma_filters_update(ptr nocapture noundef readonly %0, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %20 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %.017
+  %20 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %.017
   store i64 -1, ptr %20, align 16
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64

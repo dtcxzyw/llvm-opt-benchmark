@@ -18589,7 +18589,7 @@ switch.lookup:
   %9 = and i8 %8, -2
   store i8 %9, ptr %7, align 8
   %10 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 8
   ret void
@@ -19436,7 +19436,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
 11:                                               ; preds = %37, %9
   %.016 = phi i32 [ %7, %9 ], [ %42, %37 ]
   %12 = sext i32 %.016 to i64
-  %13 = getelementptr inbounds [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %12, i64 0
+  %13 = getelementptr inbounds nuw [20 x [20 x i32]], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 0, i64 %12, i64 0
   %14 = load i32, ptr %13, align 16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
@@ -19445,7 +19445,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
   %16 = phi i32 [ %34, %31 ], [ %14, %11 ]
   %.01520 = phi i64 [ %32, %31 ], [ 0, %11 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [20 x i8], ptr %6, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %6, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %31, label %21

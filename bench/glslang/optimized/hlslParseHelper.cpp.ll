@@ -3517,7 +3517,7 @@ switch.lookup:                                    ; preds = %157
   %298 = load ptr, ptr %297, align 8
   %299 = load i32, ptr %298, align 8
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %300
   store i8 1, ptr %301, align 1
   br label %.loopexit.i
 
@@ -3557,7 +3557,7 @@ switch.lookup:                                    ; preds = %157
   %328 = load ptr, ptr %327, align 8
   %329 = load i32, ptr %328, align 8
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %330
   store i8 1, ptr %331, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %332 = load ptr, ptr %309, align 8
@@ -3580,7 +3580,7 @@ switch.lookup:                                    ; preds = %157
   %345 = load ptr, ptr %344, align 8
   %346 = call noundef i32 %345(ptr noundef nonnull align 8 dereferenceable(152) %342) #24
   %347 = sext i32 %346 to i64
-  %348 = getelementptr inbounds i8, ptr %5, i64 %347
+  %348 = getelementptr inbounds nuw i8, ptr %5, i64 %347
   %349 = ptrtoint ptr %348 to i64
   %350 = ashr i64 %347, 2
   %351 = icmp sgt i64 %350, 0
@@ -5825,7 +5825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   %58 = add nsw i32 %57, 1
   %59 = add nsw i32 %.03348, 1
   %60 = sext i32 %.03348 to i64
-  %61 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %60
   store i32 %58, ptr %61, align 4
   br label %62
 
@@ -32226,7 +32226,7 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %80, %76, %59
 
 .preheader227.lr.ph:                              ; preds = %._crit_edge262
   %269 = sext i32 %3 to i64
-  %270 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %269
   %271 = load i32, ptr %270, align 4
   %272 = icmp sgt i32 %113, 0
   tail call void @llvm.assume(i1 %272)
@@ -53711,7 +53711,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
 switch.lookup:                                    ; preds = %182
   %switch.tableidx = add nsw i32 %.090146, -1
   %184 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_10TQualifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE, i64 0, i64 %184
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_10TQualifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE, i64 0, i64 %184
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang10TQualifier20getLayoutDepthStringENS_12TLayoutDepthE.exit
 
@@ -60485,7 +60485,7 @@ _ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit: ; pred
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate17setInputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx = add nsw i32 %8, -1
   %15 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext19handleInputGeometryERKNS_10TSourceLocERKNS_15TLayoutGeometryE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext19handleInputGeometryERKNS_10TSourceLocERKNS_15TLayoutGeometryE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
@@ -60564,7 +60564,7 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit: ; pre
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit
   %switch.tableidx = add nsw i32 %11, -1
   %18 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 344
@@ -60871,7 +60871,7 @@ _ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit.i: ; p
 switch.lookup:                                    ; preds = %_ZN7glslang13TIntermediate18setOutputPrimitiveENS_15TLayoutGeometryE.exit.i
   %switch.tableidx = add nsw i32 %18, -1
   %44 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE, i64 0, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 344
@@ -60912,7 +60912,7 @@ _ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit10.i: ; pre
 switch.lookup94:                                  ; preds = %57
   %switch.tableidx95 = add i32 %18, -1
   %59 = sext i32 %switch.tableidx95 to i64
-  %switch.gep96 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.98, i64 0, i64 %59
+  %switch.gep96 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN7glslang16HlslParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.98, i64 0, i64 %59
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   br label %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit72
 

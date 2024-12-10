@@ -66,7 +66,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %.1165 = phi ptr [ %138, %158 ], [ %49, %48 ]
   %.1 = phi i32 [ %.7, %158 ], [ -2, %48 ]
   %.1174.add = add nsw i64 %.1174.idx, 1
-  %.0173.ptr = getelementptr inbounds i8, ptr %3, i64 %.1174.add
+  %.0173.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.1174.add
   %8 = trunc nsw i32 %.1171 to i8
   store i8 %8, ptr %.0173.ptr, align 1
   %.not = icmp slt i64 %.1174.idx, 9998
@@ -82,7 +82,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 11:                                               ; preds = %9
   %12 = sext i32 %.0170275 to i64
-  %13 = getelementptr inbounds [33 x i8], ptr @_ZL6yypact, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [33 x i8], ptr @_ZL6yypact, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = shl nuw i64 1, %12
@@ -154,7 +154,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 51:                                               ; preds = %33, %35, %11
   %.3 = phi i32 [ %.0154277, %11 ], [ %.5, %33 ], [ %.5, %35 ]
-  %52 = getelementptr inbounds [33 x i8], ptr @_ZL8yydefact, i64 0, i64 %12
+  %52 = getelementptr inbounds nuw [33 x i8], ptr @_ZL8yydefact, i64 0, i64 %12
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
   %55 = and i64 %16, 26216448
@@ -165,7 +165,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %.0163 = phi i32 [ %54, %51 ], [ %47, %46 ]
   %.7 = phi i32 [ %.3, %51 ], [ %.5, %46 ]
   %57 = sext i32 %.0163 to i64
-  %58 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr2, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [25 x i8], ptr @_ZL4yyr2, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i64
   %61 = sub nsw i64 1, %60
@@ -319,14 +319,14 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %136 = sub nsw i64 0, %60
   %137 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.0164276, i64 %136
   %.0173.add = sub nsw i64 %.0173.idx274, %60
-  %.ptr196 = getelementptr inbounds i8, ptr %3, i64 %.0173.add
+  %.ptr196 = getelementptr inbounds nuw i8, ptr %3, i64 %.0173.add
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %.sroa.0.0, ptr %138, align 8
-  %139 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %57
+  %139 = getelementptr inbounds nuw [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %57
   %140 = load i8, ptr %139, align 1
   %141 = sext i8 %140 to i64
   %142 = add nsw i64 %141, -15
-  %143 = getelementptr inbounds [10 x i8], ptr @_ZL7yypgoto, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [10 x i8], ptr @_ZL7yypgoto, i64 0, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = sext i8 %144 to i32
   %146 = load i8, ptr %.ptr196, align 1
@@ -347,7 +347,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %158
 
 156:                                              ; preds = %149, %135
-  %157 = getelementptr inbounds [10 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %142
+  %157 = getelementptr inbounds nuw [10 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %142
   br label %158
 
 158:                                              ; preds = %156, %154
@@ -357,7 +357,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %7
 
 161:                                              ; preds = %51
-  %.0173.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.0173.idx274
+  %.0173.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0173.idx274
   %162 = icmp eq i32 %.3, -2
   br i1 %162, label %169, label %163
 
@@ -458,7 +458,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %.thread.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %3
-  %8 = getelementptr inbounds [33 x i8], ptr @_ZL6yypact, i64 0, i64 %5
+  %8 = getelementptr inbounds nuw [33 x i8], ptr @_ZL6yypact, i64 0, i64 %5
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = sub nsw i32 41, %10
@@ -472,7 +472,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %28 ]
   %14 = add nsw i64 %indvars.iv.i.i, %13
-  %15 = getelementptr inbounds [41 x i8], ptr @_ZL7yycheck, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [41 x i8], ptr @_ZL7yycheck, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i64
   %18 = and i64 %17, 4294967295
@@ -552,7 +552,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   %39 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [26 x ptr], ptr @_ZL7yytname, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [26 x ptr], ptr @_ZL7yytname, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 34
@@ -628,10 +628,10 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
 65:                                               ; preds = %60
   %66 = add nsw i32 %.0, 1
   %67 = sext i32 %.0 to i64
-  %68 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [26 x ptr], ptr @_ZL7yytname, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [26 x ptr], ptr @_ZL7yytname, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 34

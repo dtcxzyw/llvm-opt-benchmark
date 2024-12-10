@@ -2711,7 +2711,7 @@ switch.lookup:                                    ; preds = %11
   %switch.tableidx = shl i64 %4, 32
   %sext = add i64 %switch.tableidx, -21474836480
   %15 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %25
 

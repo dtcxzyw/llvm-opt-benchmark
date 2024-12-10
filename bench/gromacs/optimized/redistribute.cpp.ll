@@ -1427,9 +1427,9 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   %.not283 = icmp slt i32 %547, %74
   %695 = trunc nuw i64 %549 to i32
   %696 = shl nuw i32 65536, %695
-  %697 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %548
+  %697 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %548
   %698 = shl nuw i32 131072, %695
-  %699 = getelementptr inbounds [3 x float], ptr %21, i64 0, i64 %548
+  %699 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %548
   %700 = add nuw nsw i64 %indvars.iv652, 1
   %wide.trip.count = zext nneg i32 %684 to i64
   %701 = ptrtoint ptr %668 to i64
@@ -1500,7 +1500,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   %743 = load i64, ptr %14, align 8
   %.not293 = icmp ne i32 %720, 0
   %744 = zext i1 %.not293 to i32
-  %745 = getelementptr inbounds [3 x float], ptr %33, i64 0, i64 %548
+  %745 = getelementptr inbounds nuw [3 x float], ptr %33, i64 0, i64 %548
   %746 = load float, ptr %745, align 4
   invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %742, ptr noundef nonnull %.pre684, i64 noundef %743, i32 noundef %734, i32 noundef %547, i32 noundef %744, i1 noundef zeroext false, float noundef 0.000000e+00, ptr noundef %33, ptr noundef %33, float noundef %746) #23
           to label %747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1601,7 +1601,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
 
 .loopexit:                                        ; preds = %.lr.ph558, %._crit_edge710
   %.0252 = phi float [ %790, %._crit_edge710 ], [ %799, %.lr.ph558 ]
-  %800 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %766
+  %800 = getelementptr inbounds nuw [3 x float], ptr %22, i64 0, i64 %766
   %801 = load float, ptr %800, align 4
   %802 = fcmp ult float %.0252, %801
   %brmerge = or i1 %773, %802
@@ -1612,7 +1612,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br label %810
 
 805:                                              ; preds = %.loopexit
-  %806 = getelementptr inbounds [3 x float], ptr %21, i64 0, i64 %766
+  %806 = getelementptr inbounds nuw [3 x float], ptr %21, i64 0, i64 %766
   %807 = load float, ptr %806, align 4
   %808 = fcmp olt float %.0252, %807
   br i1 %808, label %809, label %810
@@ -1845,7 +1845,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 ._crit_edge564.thread741:                         ; preds = %811, %._crit_edge564
   %.1257.lcssa743 = phi i32 [ %.2, %._crit_edge564 ], [ %.pre-phi726, %811 ]
   %934 = sext i32 %.1257.lcssa743 to i64
-  %935 = getelementptr inbounds [6 x i32], ptr %27, i64 0, i64 %934
+  %935 = getelementptr inbounds nuw [6 x i32], ptr %27, i64 0, i64 %934
   %936 = load i32, ptr %935, align 4
   %937 = shl i32 %936, 1
   %938 = add i32 %937, 2
@@ -2607,7 +2607,7 @@ define internal void @_Z18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stat
   %202 = getelementptr inbounds nuw [3 x i32], ptr %71, i64 0, i64 %indvars.iv.i.i
   %203 = load i32, ptr %202, align 4
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds [3 x i32], ptr %19, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [3 x i32], ptr %19, i64 0, i64 %204
   %206 = load i32, ptr %205, align 4
   switch i32 %206, label %222 [
     i32 1, label %207
@@ -3273,7 +3273,7 @@ _ZL17rotate_state_atomP7t_statei.exit.thread.i:   ; preds = %_ZL17rotate_state_a
   %587 = getelementptr inbounds nuw [3 x i32], ptr %348, i64 0, i64 %indvars.iv.i.i50
   %588 = load i32, ptr %587, align 4
   %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds [3 x i32], ptr %17, i64 0, i64 %589
+  %590 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %589
   %591 = load i32, ptr %590, align 4
   switch i32 %591, label %607 [
     i32 1, label %592

@@ -3236,7 +3236,7 @@ sub_0916:                                         ; preds = %908
   %999 = getelementptr inbounds nuw i8, ptr %14, i64 552
   %switch.tableidx = add nsw i32 %.4565, -1
   %1000 = sext i32 %switch.tableidx to i64
-  %switch.gep1708 = getelementptr inbounds [14 x ptr], ptr @switch.table.main.31, i64 0, i64 %1000
+  %switch.gep1708 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.main.31, i64 0, i64 %1000
   br label %1001
 
 1001:                                             ; preds = %.lr.ph1208, %1457
@@ -4970,7 +4970,7 @@ define internal fastcc noundef nonnull ptr @output_format_name(i32 noundef range
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, -1
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.output_format_name, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.output_format_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

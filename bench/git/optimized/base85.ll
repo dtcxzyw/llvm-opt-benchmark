@@ -21,7 +21,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %idxprom4.i = sext i8 %1 to i64
-  %arrayidx5.i = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [256 x i8], ptr @de85, i64 0, i64 %idxprom4.i
   %2 = trunc nuw nsw i64 %indvars.iv.next.i to i8
   store i8 %2, ptr %arrayidx5.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 85

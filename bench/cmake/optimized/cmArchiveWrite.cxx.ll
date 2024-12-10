@@ -1988,7 +1988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %128 = load ptr, ptr %21, align 8
   %129 = getelementptr i8, ptr %128, i64 -24
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %21, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %21, i64 %130
   %132 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %131)
           to label %133 unwind label %151
 
@@ -1999,7 +1999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %135 = load ptr, ptr %21, align 8
   %136 = getelementptr i8, ptr %135, i64 -24
   %137 = load i64, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %21, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %21, i64 %137
   %139 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %138)
           to label %140 unwind label %151
 
@@ -2423,7 +2423,7 @@ define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite7AddDataEPKcm(ptr nounde
   %15 = load ptr, ptr %7, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %.loopexit.split-lp
 

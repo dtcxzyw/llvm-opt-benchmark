@@ -315,10 +315,10 @@ define internal range(i32 -18, 1) i32 @mca_base_var_enum_auto_bool_get_value(ptr
 
 6:                                                ; preds = %4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [3 x i32], ptr @__const.mca_base_var_enum_auto_bool_get_value.values, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x i32], ptr @__const.mca_base_var_enum_auto_bool_get_value.values, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds [3 x ptr], ptr @__const.mca_base_var_enum_auto_bool_get_value.strings, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw [3 x ptr], ptr @__const.mca_base_var_enum_auto_bool_get_value.strings, i64 0, i64 %7
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %3, align 8
   br label %12

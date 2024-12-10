@@ -2011,7 +2011,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 
 42:                                               ; preds = %.lr.ph, %40
   %.095167 = phi i64 [ 1, %.lr.ph ], [ %41, %40 ]
-  %43 = getelementptr inbounds i8, ptr %4, i64 %.095167
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %.095167
   %44 = load i8, ptr %43, align 1
   %.not109.not = icmp eq i8 %44, %39
   br i1 %.not109.not, label %40, label %.split175.us.preheader
@@ -2071,7 +2071,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %21, %27
 
 55:                                               ; preds = %55, %.preheader.us.us
   %.196170.us.us = phi i64 [ 0, %.preheader.us.us ], [ %59, %55 ]
-  %56 = getelementptr inbounds i8, ptr %4, i64 %.196170.us.us
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 %.196170.us.us
   %57 = load i8, ptr %56, align 1
   %58 = getelementptr inbounds i8, ptr %.0100173.us.us, i64 %.196170.us.us
   store i8 %57, ptr %58, align 1
@@ -2255,7 +2255,7 @@ _ZNK2cv3Mat8elemSizeEv.exit114:                   ; preds = %_ZNK2cv3Mat8elemSiz
 
 .preheader123.us.us.us.us.us:                     ; preds = %133, %.preheader123.us.us.us.us.us
   %.097134.us.us.us.us.us = phi i64 [ %138, %.preheader123.us.us.us.us.us ], [ 0, %133 ]
-  %135 = getelementptr inbounds i8, ptr %4, i64 %.097134.us.us.us.us.us
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 %.097134.us.us.us.us.us
   %136 = load i8, ptr %135, align 1
   %137 = getelementptr inbounds i8, ptr %.088136.us.us.us.us.us, i64 %.097134.us.us.us.us.us
   store i8 %136, ptr %137, align 1
@@ -27557,7 +27557,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 38:                                               ; preds = %.preheader, %38
   %indvars.iv102 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next103, %38 ]
   %39 = add nsw i64 %indvars.iv102, %29
-  %40 = getelementptr inbounds [8 x i32], ptr @_ZZN6cvtestL17calcSobelKernel1DEiiiRSt6vectorIiSaIiEEE6scharr, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6cvtestL17calcSobelKernel1DEiiiRSt6vectorIiSaIiEEE6scharr, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %3, align 8
   %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv102

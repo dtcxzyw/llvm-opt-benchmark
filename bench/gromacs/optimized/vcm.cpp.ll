@@ -79,7 +79,7 @@ $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString19ComRemovalAlgorithm(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [4 x ptr], ptr @_ZZ17enumValueToString19ComRemovalAlgorithmE24comRemovalAlgorithmNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ17enumValueToString19ComRemovalAlgorithmE24comRemovalAlgorithmNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -144,7 +144,7 @@ define void @_ZN5t_vcmC2ERK16SimulationGroupsRK10t_inputrec(ptr noundef nonnull 
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %47
   %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 71, ptr noundef nonnull @.str.5, ptr noundef %49) #23
           to label %50 unwind label %53
@@ -1133,7 +1133,7 @@ define void @_Z20reportComRemovalInfoP8_IO_FILERK5t_vcm(ptr noundef %0, ptr noca
 
 6:                                                ; preds = %3
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds [4 x ptr], ptr @_ZZ17enumValueToString19ComRemovalAlgorithmE24comRemovalAlgorithmNames, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZ17enumValueToString19ComRemovalAlgorithmE24comRemovalAlgorithmNames, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef %9) #16
   %11 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 64, i64 1, ptr nonnull %0)

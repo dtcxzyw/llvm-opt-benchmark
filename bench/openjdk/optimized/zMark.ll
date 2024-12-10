@@ -2108,7 +2108,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOp
   %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #15
   br label %138
@@ -2149,7 +2149,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOp
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb1EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %81
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i6) #15
   br label %138
@@ -2188,7 +2188,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOp
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 12
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional1EEE6_tableE, i64 0, i64 %106
   %108 = load ptr, ptr %107, align 8
   call void %108(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i7) #15
   br label %138
@@ -2231,7 +2231,7 @@ _ZN9ZIterator11oop_iterateI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOp
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i9, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEE6_tableE, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ZMarkBarrierFollowOopClosureILb0EL21ZGenerationIdOptional0EEE6_tableE, i64 0, i64 %135
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i9) #15
   br label %138

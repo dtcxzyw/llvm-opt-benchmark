@@ -2428,7 +2428,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %605 = getelementptr inbounds nuw i8, ptr %603, i64 1
   %606 = load i8, ptr %605, align 1, !tbaa !151
   %607 = sext i8 %604 to i64
-  %608 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %607
+  %608 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = zext nneg i8 %604 to i64
   %611 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %610
@@ -2437,7 +2437,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %614 = add nsw i32 %612, 1
   store i32 %614, ptr %611, align 4, !tbaa !86
   %615 = sext i8 %606 to i64
-  %616 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %615
+  %616 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %615
   %617 = load i32, ptr %616, align 4
   %618 = zext nneg i8 %606 to i64
   %619 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %618
@@ -3851,7 +3851,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1578 = getelementptr inbounds nuw i8, ptr %1576, i64 1
   %1579 = load i8, ptr %1578, align 1, !tbaa !151
   %1580 = sext i8 %1577 to i64
-  %1581 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1580
+  %1581 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1580
   %1582 = load i32, ptr %1581, align 4
   %1583 = zext nneg i8 %1577 to i64
   %1584 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %1583
@@ -3860,7 +3860,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1587 = add nsw i32 %1585, 1
   store i32 %1587, ptr %1584, align 4, !tbaa !86
   %1588 = sext i8 %1579 to i64
-  %1589 = getelementptr inbounds [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1588
+  %1589 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZNK8rawspeed16FujiDecompressor10decompressEv.49, i64 0, i64 %1588
   %1590 = load i32, ptr %1589, align 4
   %1591 = zext nneg i8 %1579 to i64
   %1592 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %1591

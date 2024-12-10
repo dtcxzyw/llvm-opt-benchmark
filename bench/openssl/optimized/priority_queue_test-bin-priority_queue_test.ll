@@ -315,7 +315,7 @@ err:                                              ; preds = %lor.lhs.false162, %
 define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef range(i32 -1, 2) %reserve, i32 noundef range(i32 -2, 3) %order, i32 noundef %count, i32 noundef range(i32 -5, 5001) %remove, i32 noundef range(i32 -1, 2) %random, i32 noundef range(i32 -1, 2) %popfree) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %order to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @test_size_t_priority_queue_int.orders, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @test_size_t_priority_queue_int.orders, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq i32 %reserve, 0
   %cond = select i1 %tobool.not, ptr @.str.9, ptr @.str.8
@@ -450,13 +450,13 @@ while.body:                                       ; preds = %while.cond.preheade
   %call74 = tail call i32 @test_random() #8
   %rem = urem i32 %call74, %count
   %idxprom75 = sext i32 %rem to i64
-  %arrayidx76 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw [500000 x i64], ptr @test_size_t_priority_queue_int.values, i64 0, i64 %idxprom75
   %4 = load i64, ptr %arrayidx76, align 8
   %cmp77.not = icmp eq i64 %4, -1
   br i1 %cmp77.not, label %if.end91, label %if.then79
 
 if.then79:                                        ; preds = %while.body
-  %arrayidx81 = getelementptr inbounds [500000 x i64], ptr @test_size_t_priority_queue_int.ref, i64 0, i64 %idxprom75
+  %arrayidx81 = getelementptr inbounds nuw [500000 x i64], ptr @test_size_t_priority_queue_int.ref, i64 0, i64 %idxprom75
   %5 = load i64, ptr %arrayidx81, align 8
   %call.i51 = tail call ptr @ossl_pqueue_remove(ptr noundef %call.i, i64 noundef %5) #8
   %call85 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %call.i51, ptr noundef nonnull %arrayidx76) #8

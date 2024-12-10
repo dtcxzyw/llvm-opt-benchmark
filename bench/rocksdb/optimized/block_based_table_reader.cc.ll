@@ -7401,7 +7401,7 @@ invoke.cont196:                                   ; preds = %_ZNSt6vectorIN7rock
   br i1 %cmp.i483.not, label %for.inc221, label %invoke.cont208
 
 invoke.cont208:                                   ; preds = %invoke.cont196
-  %arrayidx.i.i = getelementptr inbounds [32 x %"struct.rocksdb::BasicTypedCacheInterface<rocksdb::Block_kData, rocksdb::CacheEntryRole::kDataBlock>::TypedAsyncLookupHandle"], ptr %async_handles, i64 0, i64 %cache_lookup_count.01669
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x %"struct.rocksdb::BasicTypedCacheInterface<rocksdb::Block_kData, rocksdb::CacheEntryRole::kDataBlock>::TypedAsyncLookupHandle"], ptr %async_handles, i64 0, i64 %cache_lookup_count.01669
   %150 = load ptr, ptr %rep_22, align 8
   %base_cache_key = getelementptr inbounds nuw i8, ptr %150, i64 304
   %shr.i = lshr i64 %v.sroa.0.1, 2
@@ -7409,7 +7409,7 @@ invoke.cont208:                                   ; preds = %invoke.cont196
   %offset_etc64_.i.i = getelementptr inbounds nuw i8, ptr %150, i64 312
   %152 = load i64, ptr %offset_etc64_.i.i, align 8
   %xor.i.i = xor i64 %152, %shr.i
-  %arrayidx.i.i484 = getelementptr inbounds [32 x %"class.rocksdb::CacheKey"], ptr %cache_keys, i64 0, i64 %cache_lookup_count.01669
+  %arrayidx.i.i484 = getelementptr inbounds nuw [32 x %"class.rocksdb::CacheKey"], ptr %cache_keys, i64 0, i64 %cache_lookup_count.01669
   store i64 %151, ptr %arrayidx.i.i484, align 8
   %ref.tmp200.sroa.2.0.call205.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i484, i64 8
   store i64 %xor.i.i, ptr %ref.tmp200.sroa.2.0.call205.sroa_idx, align 8
@@ -7582,7 +7582,7 @@ invoke.cont252:                                   ; preds = %if.end247
   br label %for.inc295
 
 if.else:                                          ; preds = %if.end247
-  %arrayidx.i.i529 = getelementptr inbounds [32 x %"struct.rocksdb::BasicTypedCacheInterface<rocksdb::Block_kData, rocksdb::CacheEntryRole::kDataBlock>::TypedAsyncLookupHandle"], ptr %async_handles, i64 0, i64 %lookup_idx.01681
+  %arrayidx.i.i529 = getelementptr inbounds nuw [32 x %"struct.rocksdb::BasicTypedCacheInterface<rocksdb::Block_kData, rocksdb::CacheEntryRole::kDataBlock>::TypedAsyncLookupHandle"], ptr %async_handles, i64 0, i64 %lookup_idx.01681
   %call.i530 = invoke noundef ptr @_ZN7rocksdb5Cache17AsyncLookupHandle6ResultEv(ptr noundef nonnull align 8 dereferenceable(74) %arrayidx.i.i529)
           to label %invoke.cont255 unwind label %lpad77.loopexit
 
@@ -7591,7 +7591,7 @@ invoke.cont255:                                   ; preds = %if.else
   br i1 %tobool257.not, label %invoke.cont279, label %if.then258
 
 if.then258:                                       ; preds = %invoke.cont255
-  %arrayidx.i.i531 = getelementptr inbounds [32 x %"class.rocksdb::CachableEntry"], ptr %results, i64 0, i64 %i234.01682
+  %arrayidx.i.i531 = getelementptr inbounds nuw [32 x %"class.rocksdb::CachableEntry"], ptr %results, i64 0, i64 %i234.01682
   %vtable.i532 = load ptr, ptr %77, align 8
   %vfn.i533 = getelementptr inbounds nuw i8, ptr %vtable.i532, i64 64
   %183 = load ptr, ptr %vfn.i533, align 8
@@ -8102,7 +8102,7 @@ if.then385:                                       ; preds = %do.body
   %251 = load i64, ptr %size_.i690, align 8
   %cmp2.i691 = icmp eq i64 %251, 0
   %252 = select i1 %cmp.i689, i1 %cmp2.i691, i1 false
-  %arrayidx.i.i692 = getelementptr inbounds [32 x %"class.rocksdb::CachableEntry"], ptr %results, i64 0, i64 %idx_in_batch.1
+  %arrayidx.i.i692 = getelementptr inbounds nuw [32 x %"class.rocksdb::CachableEntry"], ptr %results, i64 0, i64 %idx_in_batch.1
   %253 = load ptr, ptr %arrayidx.i.i692, align 8
   %tobool396 = icmp eq ptr %253, null
   %or.cond.not = and i1 %tobool396, %252
@@ -8137,7 +8137,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit701:                   ; preds = %invoke.cont401, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i700
   store ptr null, ptr %state_.i.i693, align 8
-  %arrayidx.i.i703 = getelementptr inbounds [32 x %"class.rocksdb::Status"], ptr %statuses, i64 0, i64 %idx_in_batch.1
+  %arrayidx.i.i703 = getelementptr inbounds nuw [32 x %"class.rocksdb::Status"], ptr %statuses, i64 0, i64 %idx_in_batch.1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i704)
   %257 = load i8, ptr %arrayidx.i.i703, align 8
   store i8 %257, ptr %agg.tmp406, align 8
@@ -31000,7 +31000,7 @@ if.end302:                                        ; preds = %invoke.cont299
   %vtable303 = load ptr, ptr %out_stream, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable303, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %out_stream, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out_stream, i64 %vbase.offset
   %call305 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont304 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
@@ -52554,7 +52554,7 @@ entry:
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
   call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #34
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad

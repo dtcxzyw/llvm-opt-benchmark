@@ -4412,7 +4412,7 @@ switch.lookup1129:                                ; preds = %.loopexit987
   %360 = load i8, ptr %182, align 1, !range !547, !noundef !11
   %switch.tableidx1130 = add nsw i8 %360, -1
   %361 = sext i8 %switch.tableidx1130 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %361
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %361
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %360 to i64
   %362 = invoke noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17hf862a6a4a03ab35cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
@@ -8019,7 +8019,7 @@ switch.lookup1120:                                ; preds = %.loopexit992
   %374 = load i8, ptr %182, align 1, !range !547, !noundef !11
   %switch.tableidx1121 = add nsw i8 %374, -1
   %375 = sext i8 %switch.tableidx1121 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %375
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN23pulldown_cmark_to_cmark25cmark_resume_with_options17hde9e6efbcfbb00a8E, i64 0, i64 %375
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = zext nneg i8 %374 to i64
   %376 = invoke noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$9write_str17hf862a6a4a03ab35cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %93, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef %switch.offset)
@@ -20356,7 +20356,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h51d69ff0d1e275d2E.exit.i.i.i": ; preds = %51
   %53 = add nsw i64 %52, -1
-  %54 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !alias.scope !3846, !noalias !3847, !noundef !11
   %.not.i.not.i.i.i = icmp eq i8 %55, %31
   br i1 %.not.i.not.i.i.i, label %51, label %56

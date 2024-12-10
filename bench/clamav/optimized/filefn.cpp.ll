@@ -808,7 +808,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   br i1 %.not39, label %.loopexit40, label %32
 
 32:                                               ; preds = %.critedge
-  %33 = getelementptr inbounds i32, ptr %5, i64 %.132.lcssa
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %.132.lcssa
   br label %34
 
 34:                                               ; preds = %34, %32
@@ -821,7 +821,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
 .loopexit40:                                      ; preds = %34, %.critedge
   %.029 = phi ptr [ %5, %.critedge ], [ %.1, %34 ]
   %38 = call i64 @wcslen(ptr noundef nonnull %5) #16
-  %39 = getelementptr inbounds i32, ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %38
   %.048 = getelementptr inbounds i8, ptr %39, i64 -4
   %40 = icmp ugt ptr %.048, %.029
   br i1 %40, label %.lr.ph50, label %._crit_edge

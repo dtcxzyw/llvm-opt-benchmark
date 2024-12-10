@@ -4175,7 +4175,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE4colsEv.exit:
   %191 = load ptr, ptr %6, align 8
   %192 = getelementptr i8, ptr %191, i64 -24
   %193 = load i64, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %6, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 %193
   %195 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %194)
           to label %196 unwind label %.loopexit.split-lp
 

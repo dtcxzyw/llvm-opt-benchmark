@@ -3355,7 +3355,7 @@ _ZSt22__uninitialized_copy_aIPKdPddET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %255
   %261 = ptrtoint ptr %257 to i64
   %262 = sub i64 %261, %247
   %gepdiff = sub nsw i64 8, %262
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %36, i64 %262
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %36, i64 %262
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %257, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %263 = getelementptr inbounds i8, ptr %257, i64 %gepdiff
   store ptr %263, ptr %256, align 8

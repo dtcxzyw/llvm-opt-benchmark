@@ -417,7 +417,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
 
 17:                                               ; preds = %.thread.thread
   %18 = sext i32 %.02235 to i64
-  %19 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %18
   store i8 %12, ptr %19, align 1
   br label %20
 
@@ -454,7 +454,7 @@ define hidden void @getALSAVersion(ptr noundef %0, i32 noundef %1) local_unnamed
 .critedge:                                        ; preds = %24, %27
   %.2.lcssa = phi i32 [ %smin, %24 ], [ %25, %27 ]
   %32 = sext i32 %.2.lcssa to i64
-  %33 = getelementptr inbounds [200 x i8], ptr @ALSAVersionString, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [200 x i8], ptr @ALSAVersionString, i64 0, i64 %32
   store i8 0, ptr %33, align 1
   br label %34
 

@@ -4476,7 +4476,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
 
 306:                                              ; preds = %305
   %307 = add i64 %.04.i, -1
-  %308 = getelementptr inbounds i8, ptr %8, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 %307
   %309 = load i8, ptr %308, align 1
   %.not5.i = icmp eq i8 %309, 0
   br i1 %.not5.i, label %305, label %h5tools_is_zero.exit

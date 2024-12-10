@@ -4933,7 +4933,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %.0161 = phi i64 [ %34, %.lr.ph ], [ 0, %29 ]
   %34 = add nuw nsw i64 %.0161, 1
   %35 = sub i64 %32, %34
-  %36 = getelementptr inbounds i8, ptr @H5T_NATIVE_FLOAT_POS_INF_g, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT_POS_INF_g, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT_POS_INF_g, i64 %.0161
   %39 = load i8, ptr %38, align 1
@@ -4967,7 +4967,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %.1162 = phi i64 [ %52, %.lr.ph163 ], [ 0, %47 ]
   %52 = add nuw nsw i64 %.1162, 1
   %53 = sub i64 %50, %52
-  %54 = getelementptr inbounds i8, ptr @H5T_NATIVE_FLOAT_NEG_INF_g, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT_NEG_INF_g, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT_NEG_INF_g, i64 %.1162
   %57 = load i8, ptr %56, align 1
@@ -5034,7 +5034,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %93 = load i64, ptr %92, align 8
   %94 = add nuw nsw i64 %.2164, 1
   %95 = sub i64 %93, %94
-  %96 = getelementptr inbounds i8, ptr @H5T_NATIVE_DOUBLE_POS_INF_g, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_DOUBLE_POS_INF_g, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_DOUBLE_POS_INF_g, i64 %.2164
   %99 = load i8, ptr %98, align 1
@@ -5071,7 +5071,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %114 = load i64, ptr %113, align 8
   %115 = add nuw nsw i64 %.3166, 1
   %116 = sub i64 %114, %115
-  %117 = getelementptr inbounds i8, ptr @H5T_NATIVE_DOUBLE_NEG_INF_g, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_DOUBLE_NEG_INF_g, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_DOUBLE_NEG_INF_g, i64 %.3166
   %120 = load i8, ptr %119, align 1
@@ -5135,7 +5135,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %.4168 = phi i64 [ %154, %.lr.ph169 ], [ 0, %149 ]
   %154 = add nuw nsw i64 %.4168, 1
   %155 = sub i64 %152, %154
-  %156 = getelementptr inbounds i8, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, i64 %.4168
   %159 = load i8, ptr %158, align 1
@@ -5169,7 +5169,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__init_inf() unnamed_addr #0 {
   %.5170 = phi i64 [ %172, %.lr.ph171 ], [ 0, %167 ]
   %172 = add nuw nsw i64 %.5170, 1
   %173 = sub i64 %170, %172
-  %174 = getelementptr inbounds i8, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = getelementptr inbounds nuw i8, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, i64 %.5170
   %177 = load i8, ptr %176, align 1
@@ -13375,7 +13375,7 @@ define range(i32 -1, 1) i32 @H5T_set_version(ptr noundef %0, ptr noundef %1) loc
   %3 = alloca i32, align 4
   %4 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #17
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [6 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -13412,7 +13412,7 @@ H5T__upgrade_version.exit:                        ; preds = %13
   %24 = phi i32 [ %.pre11, %H5T__upgrade_version.exit ], [ %11, %2 ]
   %25 = call i32 @H5F_get_high_bound(ptr noundef %0) #17
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [6 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [6 x i32], ptr @H5O_dtype_ver_bounds, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp ugt i32 %24, %28
   br i1 %29, label %30, label %34

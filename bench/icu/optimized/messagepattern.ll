@@ -5688,7 +5688,7 @@ if.end65:                                         ; preds = %if.end57
   %call67 = call double @strtod(ptr noundef nonnull %numberChars, ptr noundef nonnull %end) #18
   %27 = load ptr, ptr %end, align 8
   %idx.ext = sext i32 %sub54 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %numberChars, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %numberChars, i64 %idx.ext
   %cmp69.not = icmp eq ptr %27, %add.ptr
   br i1 %cmp69.not, label %if.end71, label %for.end
 

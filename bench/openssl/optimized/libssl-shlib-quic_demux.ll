@@ -662,7 +662,7 @@ for.body58.i:                                     ; preds = %ossl_list_urxe_inse
   %i.153.i = phi i64 [ 0, %for.body58.lr.ph.i ], [ %inc65.i, %ossl_list_urxe_insert_tail.exit.i17 ]
   %urxe.152.i = phi ptr [ %urx_free.val.i, %for.body58.lr.ph.i ], [ %urxe.1.val.i, %ossl_list_urxe_insert_tail.exit.i17 ]
   %urxe.1.val.i = load ptr, ptr %urxe.152.i, align 8
-  %data_len61.i = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.153.i, i32 1
+  %data_len61.i = getelementptr inbounds nuw [32 x %struct.bio_msg_st], ptr %msg.i, i64 0, i64 %i.153.i, i32 1
   %15 = load i64, ptr %data_len61.i, align 8
   %data_len62.i = getelementptr inbounds nuw i8, ptr %urxe.152.i, i64 16
   store i64 %15, ptr %data_len62.i, align 8

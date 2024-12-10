@@ -2932,10 +2932,10 @@ define noundef nonnull ptr @"_ZN116_$LT$alloc..boxed..Box$LT$std..path..Path$GT$
 define { ptr, i64 } @_ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E(i8 noundef %0) unnamed_addr #3 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [17 x i64], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E.61, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN12clap_builder5error4kind9ErrorKind6as_str17h902cf109f6cac986E.61, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

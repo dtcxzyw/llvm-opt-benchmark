@@ -88,7 +88,7 @@ define hidden noundef i32 @_ZNK15Bytecode_invoke18size_of_parametersEv(ptr nocap
 
 15:                                               ; preds = %1
   %16 = sext i32 %10 to i64
-  %17 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 128
   %.not.i.i.i = icmp eq i16 %19, 0
@@ -116,7 +116,7 @@ _ZNK19Bytecode_member_ref9signatureEv.exit:       ; preds = %14, %15
 
 _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %_ZNK19Bytecode_member_ref9signatureEv.exit
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, -3
   %spec.select.i = icmp ne i32 %36, 184
@@ -150,7 +150,7 @@ define hidden noundef ptr @_ZNK19Bytecode_member_ref9signatureEv(ptr nocapture n
 
 14:                                               ; preds = %1
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 128
   %.not.i.i = icmp eq i16 %18, 0
@@ -195,7 +195,7 @@ define hidden noundef ptr @_ZNK19Bytecode_member_ref5klassEv(ptr nocapture nound
 
 14:                                               ; preds = %1
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 128
   %.not.i.i = icmp eq i16 %18, 0
@@ -228,7 +228,7 @@ define hidden noundef i32 @_ZNK19Bytecode_member_ref5indexEv(ptr nocapture nound
 
 8:                                                ; preds = %1
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 128
   %.not.i = icmp eq i16 %12, 0
@@ -264,7 +264,7 @@ define hidden noundef ptr @_ZNK19Bytecode_member_ref4nameEv(ptr nocapture nounde
 
 14:                                               ; preds = %1
   %15 = sext i32 %9 to i64
-  %16 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 128
   %.not.i.i = icmp eq i16 %18, 0
@@ -277,7 +277,7 @@ define hidden noundef ptr @_ZNK19Bytecode_member_ref4nameEv(ptr nocapture nounde
 _ZNK19Bytecode_member_ref5indexEv.exit:           ; preds = %13, %14
   %.pre-phi = phi i64 [ 186, %13 ], [ %15, %14 ]
   %.0.i = phi i32 [ %.0.i.i.i.i, %13 ], [ %20, %14 ]
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %.pre-phi
   %22 = load i32, ptr %21, align 4
   %23 = tail call noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68) %7, i32 noundef %.0.i, i32 noundef %22) #9
   %24 = zext i16 %23 to i32
@@ -311,7 +311,7 @@ define hidden noundef zeroext i8 @_ZNK19Bytecode_member_ref11result_typeEv(ptr n
 
 15:                                               ; preds = %1
   %16 = sext i32 %10 to i64
-  %17 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 128
   %.not.i.i.i = icmp eq i16 %19, 0
@@ -401,7 +401,7 @@ _ZNK8Bytecode11invoke_codeEv.exit.thread:         ; preds = %_ZN18constantPoolHa
 
 _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %37 = sext i32 %33 to i64
-  %38 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %33, 186
   %41 = load ptr, ptr %0, align 8
@@ -416,7 +416,7 @@ _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %_ZN18constantPoolHa
   %.pre-phi = phi i64 [ 233, %_ZNK8Bytecode11invoke_codeEv.exit.thread ], [ %37, %_ZNK8Bytecode11invoke_codeEv.exit ]
   %45 = phi ptr [ %36, %_ZNK8Bytecode11invoke_codeEv.exit.thread ], [ %42, %_ZNK8Bytecode11invoke_codeEv.exit ]
   %46 = phi i32 [ 233, %_ZNK8Bytecode11invoke_codeEv.exit.thread ], [ %39, %_ZNK8Bytecode11invoke_codeEv.exit ]
-  %47 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %.pre-phi
+  %47 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %.pre-phi
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 128
   %.not.i.i = icmp eq i16 %49, 0
@@ -453,7 +453,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZNK19Bytecode_member_ref10pool_i
 
 _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %1
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 186
   %11 = icmp eq i32 %3, 186
@@ -469,7 +469,7 @@ _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %1
   br label %_ZNK19Bytecode_member_ref19resolved_indy_entryEv.exit
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %7
+  %17 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %7
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 128
   %.not.i.i.i = icmp eq i16 %19, 0
@@ -507,7 +507,7 @@ _ZNK19Bytecode_member_ref19resolved_indy_entryEv.exit: ; preds = %15, %16
 37:                                               ; preds = %.thread, %35
   %.pre-phi = phi i64 [ 233, %.thread ], [ %7, %35 ]
   %38 = phi ptr [ %6, %.thread ], [ %13, %35 ]
-  %39 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %.pre-phi
+  %39 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %.pre-phi
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 128
   %.not.i.i.i1 = icmp eq i16 %41, 0
@@ -557,7 +557,7 @@ define hidden noundef nonnull ptr @_ZNK19Bytecode_member_ref19resolved_indy_entr
 
 8:                                                ; preds = %1
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 128
   %.not.i.i = icmp eq i16 %12, 0
@@ -600,7 +600,7 @@ define hidden noundef nonnull ptr @_ZNK19Bytecode_member_ref21resolved_method_en
 
 8:                                                ; preds = %1
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 128
   %.not.i.i = icmp eq i16 %12, 0
@@ -638,7 +638,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZNK21Bytecode_loadconstant9raw_i
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 18
   %8 = load ptr, ptr %0, align 8
@@ -651,7 +651,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZNK21Bytecode_loadconstant9raw_i
   br label %19
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
+  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 128
   %.not.i = icmp eq i16 %16, 0
@@ -671,7 +671,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZNK21Bytecode_loadconstant10pool
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 18
   %8 = load ptr, ptr %0, align 8
@@ -684,7 +684,7 @@ define hidden noundef range(i32 0, 65536) i32 @_ZNK21Bytecode_loadconstant10pool
   br label %_ZNK21Bytecode_loadconstant9raw_indexEv.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
+  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 128
   %.not.i.i = icmp eq i16 %16, 0
@@ -727,7 +727,7 @@ define hidden noundef zeroext i8 @_ZNK21Bytecode_loadconstant11result_typeEv(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 18
   %8 = load ptr, ptr %0, align 8
@@ -740,7 +740,7 @@ define hidden noundef zeroext i8 @_ZNK21Bytecode_loadconstant11result_typeEv(ptr
   br label %_ZNK21Bytecode_loadconstant9raw_indexEv.exit.i
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
+  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %4
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 128
   %.not.i.i.i = icmp eq i16 %16, 0
@@ -789,7 +789,7 @@ define hidden noundef ptr @_ZNK21Bytecode_loadconstant16resolve_constantEP10Java
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 18
   %12 = load ptr, ptr %0, align 8
@@ -802,7 +802,7 @@ define hidden noundef ptr @_ZNK21Bytecode_loadconstant16resolve_constantEP10Java
   br label %_ZNK21Bytecode_loadconstant9raw_indexEv.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %8
+  %18 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %8
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 128
   %.not.i.i = icmp eq i16 %20, 0

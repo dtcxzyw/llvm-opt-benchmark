@@ -695,7 +695,7 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
 
 66:                                               ; preds = %61
   %67 = add nsw i64 %.sroa.0.0.sroa.speculated.i, -1
-  %68 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1, !alias.scope !116, !noundef !4
   %70 = icmp ne i8 %69, 13
   %71 = icmp ne i8 %63, 10
@@ -734,7 +734,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit19.preheader.i: ; preds = %_ZN5r
   br i1 %77, label %78, label %82, !prof !106
 
 78:                                               ; preds = %.lr.ph.i
-  %79 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.sroa.0.129.i
+  %79 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %.sroa.0.129.i
   %80 = load i8, ptr %79, align 1, !alias.scope !120, !noundef !4
   %81 = icmp slt i8 %80, -64
   br i1 %81, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit16.backedge.i, label %83
@@ -745,7 +745,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit19.preheader.i: ; preds = %_ZN5r
 
 83:                                               ; preds = %78
   %84 = add i64 %.sroa.0.1.in28.i, -2
-  %85 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %84
   %86 = load i8, ptr %85, align 1, !alias.scope !120, !noundef !4
   %87 = icmp ne i8 %86, 13
   %88 = icmp ne i8 %80, 10
@@ -772,7 +772,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit19.thread.i: ; preds = %_ZN5rope
   br i1 %93, label %94, label %98, !prof !106
 
 94:                                               ; preds = %.lr.ph35.i
-  %95 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.sroa.05.134.i
+  %95 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %.sroa.05.134.i
   %96 = load i8, ptr %95, align 1, !alias.scope !124, !noundef !4
   %97 = icmp slt i8 %96, -64
   br i1 %97, label %_ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit19.backedge.i, label %99
@@ -783,7 +783,7 @@ _ZN5ropey4crlf8is_break17hbb99524973515bbeE.exit19.thread.i: ; preds = %_ZN5rope
   unreachable
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds [0 x i8], ptr %10, i64 0, i64 %.sroa.05.1.in33.i
+  %100 = getelementptr inbounds nuw [0 x i8], ptr %10, i64 0, i64 %.sroa.05.1.in33.i
   %101 = load i8, ptr %100, align 1, !alias.scope !124, !noundef !4
   %102 = icmp ne i8 %101, 13
   %103 = icmp ne i8 %96, 10

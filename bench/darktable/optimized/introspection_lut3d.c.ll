@@ -2271,7 +2271,7 @@ define hidden zeroext i8 @calculate_clut_compressed(ptr noundef %0, ptr nocaptur
   %8 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %7, ptr noundef nonnull %5, ptr noundef null) #29
   %9 = call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef %8, i64 noundef 512) #29
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #31
   %13 = sub i64 512, %12
   %14 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull @.str.7, i64 noundef %13) #29
@@ -5567,7 +5567,7 @@ define internal void @filepath_callback(ptr noundef %0, ptr noundef %1) #1 {
 
 60:                                               ; preds = %.preheader, %66
   %61 = phi i64 [ %67, %66 ], [ %.ph, %.preheader ]
-  %62 = getelementptr inbounds i8, ptr %3, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !57
   %64 = icmp eq i8 %63, 92
   br i1 %64, label %65, label %66

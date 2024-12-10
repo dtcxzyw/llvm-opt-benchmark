@@ -7168,7 +7168,7 @@ _ZN3gmx12_GLOBAL__N_137calculateFELambdaMarginalDistributionERKNS_8BiasGridENS_8
 .lr.ph:                                           ; preds = %_ZN3gmx12_GLOBAL__N_137calculateFELambdaMarginalDistributionERKNS_8BiasGridENS_8ArrayRefIKiEENS4_IKdEE.exit
   %sext = shl i64 %10, 32
   %57 = ashr exact i64 %sext, 32
-  %58 = getelementptr inbounds [4 x double], ptr %7, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %61

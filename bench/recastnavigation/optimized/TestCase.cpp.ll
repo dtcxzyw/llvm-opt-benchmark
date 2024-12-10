@@ -174,7 +174,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 37:                                               ; preds = %35, %.lr.ph.i
   %38 = add nsw i32 %.01526.i, 1
   %39 = sext i32 %.01526.i to i64
-  %40 = getelementptr inbounds i8, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   store i8 %31, ptr %40, align 1
   %41 = icmp sgt i32 %.01526.i, 509
   br label %42
@@ -189,7 +189,7 @@ define dso_local noundef zeroext i1 @_ZN8TestCase4loadERKNSt7__cxx1112basic_stri
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %42
   %44 = sext i32 %.1.i to i64
-  %45 = getelementptr inbounds i8, ptr %3, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %44
   store i8 0, ptr %45, align 1
   %46 = load i8, ptr %3, align 16
   switch i8 %46, label %65 [

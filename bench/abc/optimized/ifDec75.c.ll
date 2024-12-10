@@ -855,7 +855,7 @@ define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr nocapture n
   %28 = shl nuw i32 1, %27
   %.fr.i.i = freeze i32 %28
   %29 = sext i32 %.fr.i.i to i64
-  %30 = getelementptr inbounds i64, ptr %8, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %8, i64 %29
   %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %.fr.i.i, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
   br i1 %26, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -991,7 +991,7 @@ Abc_TtHasVar.exit.i.loopexit:                     ; preds = %62
 .lr.ph61.i.i:                                     ; preds = %70
   %73 = select i1 %26, i32 1, i32 %.fr.i.i
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %8, i64 %74
+  %75 = getelementptr inbounds nuw i64, ptr %8, i64 %74
   %76 = icmp sgt i32 %73, 0
   %wide.trip.count72.i.i.i = zext nneg i32 %73 to i64
   br i1 %76, label %.lr.ph61.split.us.split.us.preheader.i.i, label %Abc_TtMinimumBase.exit
@@ -1092,7 +1092,7 @@ Abc_TtHasVar.exit.i.loopexit:                     ; preds = %62
 .lr.ph64.i.us.us.us.us.i.i:                       ; preds = %.lr.ph.us.us.i.i
   %107 = trunc nsw i64 %indvars.iv.next103.i.i to i32
   %108 = shl nuw nsw i32 1, %107
-  %109 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next103.i.i
+  %109 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next103.i.i
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load i64, ptr %111, align 8

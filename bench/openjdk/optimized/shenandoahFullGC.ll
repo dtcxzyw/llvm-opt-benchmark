@@ -3998,7 +3998,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahAdjustPointersClosureEEvPT_.exit: ; preds =
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahAdjustPointersClosureE6_tableE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahAdjustPointersClosureE6_tableE, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #13
   ret void

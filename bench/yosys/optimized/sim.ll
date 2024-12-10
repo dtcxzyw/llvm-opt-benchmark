@@ -7577,7 +7577,7 @@ _ZN12_GLOBAL__N_19SimWorker13run_cosim_fstEPN5Yosys5RTLIL6ModuleEi.exit: ; preds
   %2209 = load ptr, ptr %63, align 8
   %2210 = getelementptr i8, ptr %2209, i64 -24
   %2211 = load i64, ptr %2210, align 8
-  %2212 = getelementptr inbounds i8, ptr %63, i64 %2211
+  %2212 = getelementptr inbounds nuw i8, ptr %63, i64 %2211
   %2213 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %2212)
           to label %2214 unwind label %.loopexit.split-lp382.i
 
@@ -8273,7 +8273,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit123.i.backedge:  ; preds = %2530, %2523, %2518
   %2539 = load ptr, ptr %82, align 8
   %2540 = getelementptr i8, ptr %2539, i64 -24
   %2541 = load i64, ptr %2540, align 8
-  %2542 = getelementptr inbounds i8, ptr %82, i64 %2541
+  %2542 = getelementptr inbounds nuw i8, ptr %82, i64 %2541
   %2543 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %2542)
           to label %2544 unwind label %2552
 
@@ -8334,7 +8334,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit123.i.backedge:  ; preds = %2530, %2523, %2518
   %2581 = load ptr, ptr %82, align 8
   %2582 = getelementptr i8, ptr %2581, i64 -24
   %2583 = load i64, ptr %2582, align 8
-  %2584 = getelementptr inbounds i8, ptr %82, i64 %2583
+  %2584 = getelementptr inbounds nuw i8, ptr %82, i64 %2583
   %2585 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %2584)
           to label %2586 unwind label %.loopexit.i341
 
@@ -9873,7 +9873,7 @@ _ZN12_GLOBAL__N_19SimWorker23run_cosim_aiger_witnessEPN5Yosys5RTLIL6ModuleE.exit
   %3042 = load ptr, ptr %35, align 8
   %3043 = getelementptr i8, ptr %3042, i64 -24
   %3044 = load i64, ptr %3043, align 8
-  %3045 = getelementptr inbounds i8, ptr %35, i64 %3044
+  %3045 = getelementptr inbounds nuw i8, ptr %35, i64 %3044
   %3046 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %3045)
           to label %3047 unwind label %3055
 
@@ -9978,7 +9978,7 @@ _ZN12_GLOBAL__N_19SimWorker16register_signalsEv.exit.i: ; preds = %3061
   %3108 = load ptr, ptr %35, align 8
   %3109 = getelementptr i8, ptr %3108, i64 -24
   %3110 = load i64, ptr %3109, align 8
-  %3111 = getelementptr inbounds i8, ptr %35, i64 %3110
+  %3111 = getelementptr inbounds nuw i8, ptr %35, i64 %3110
   %3112 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %3111)
           to label %3113 unwind label %.loopexit291.i
 
@@ -23334,7 +23334,7 @@ define internal void @_ZN12_GLOBAL__N_19AIWWriter5writeERSt3mapIibSt4lessIiESaIS
   %44 = load ptr, ptr %19, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %19, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 %46
   %48 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
           to label %49 unwind label %.loopexit.split-lp426
 

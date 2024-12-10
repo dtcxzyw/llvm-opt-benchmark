@@ -553,7 +553,7 @@ define linkonce_odr hidden void @_ZN2cv5GNode4PrivD2Ev(ptr noundef nonnull align
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %5, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void %8(ptr noundef nonnull %9)
@@ -603,7 +603,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv5GNode4PrivELN9__gn
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm16ELm8EE4typeE, ptr %9, align 8
   %10 = load i64, ptr %8, align 8
-  %11 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void %12(ptr noundef nonnull %13)

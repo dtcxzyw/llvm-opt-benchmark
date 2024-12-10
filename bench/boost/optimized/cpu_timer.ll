@@ -58,7 +58,7 @@ define void @_ZN5boost5timer6formatERKNS0_9cpu_timesEsRKNSt7__cxx1112basic_strin
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 5, ptr %10, align 4, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -130,7 +130,7 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %41 = getelementptr i8, ptr %39, i64 -24
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
   store ptr %40, ptr %43, align 8, !tbaa !3
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %44, ptr %13, align 8, !tbaa !3
@@ -164,7 +164,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %61, align 8, !tbaa !33

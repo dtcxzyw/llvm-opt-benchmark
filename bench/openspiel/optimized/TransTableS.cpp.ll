@@ -1162,7 +1162,7 @@ _ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmallExbiiRb.exit: ; pre
   %61 = getelementptr inbounds nuw i8, ptr %.02238.i, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %.039.i to i64
-  %64 = getelementptr inbounds i32, ptr %8, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %8, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, %62
   %67 = load i32, ptr %.02238.i, align 8

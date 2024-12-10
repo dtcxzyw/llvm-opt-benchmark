@@ -3505,7 +3505,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
 arraydestroy.body.i.i.i:                          ; preds = %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i
   %arraydestroy.elementPast.i.idx.i.i = phi i64 [ 24, %_ZN7rocksdb6StatusD2Ev.exit.i.i ], [ %arraydestroy.elementPast.i.add.i.i, %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i ]
   %arraydestroy.elementPast.i.add.i.i = add nsw i64 %arraydestroy.elementPast.i.idx.i.i, -8
-  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds i8, ptr %decoder, i64 %arraydestroy.elementPast.i.add.i.i
+  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %decoder, i64 %arraydestroy.elementPast.i.add.i.i
   %56 = load ptr, ptr %arraydestroy.element.i.ptr.i.i, align 8
   %cmp.not.i.i1.i.i = icmp eq ptr %56, null
   br i1 %cmp.not.i.i1.i.i, label %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %delete.notnull.i.i.i.i.i
@@ -5973,7 +5973,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_del
 arraydestroy.body.i.i.i:                          ; preds = %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit.i.i
   %arraydestroy.elementPast.i.idx.i.i = phi i64 [ 24, %_ZN7rocksdb6StatusD2Ev.exit.i.i ], [ %arraydestroy.elementPast.i.add.i.i, %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i ]
   %arraydestroy.elementPast.i.add.i.i = add nsw i64 %arraydestroy.elementPast.i.idx.i.i, -8
-  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds i8, ptr %decoder, i64 %arraydestroy.elementPast.i.add.i.i
+  %arraydestroy.element.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %decoder, i64 %arraydestroy.elementPast.i.add.i.i
   %82 = load ptr, ptr %arraydestroy.element.i.ptr.i.i, align 8
   %cmp.not.i.i1.i.i = icmp eq ptr %82, null
   br i1 %cmp.not.i.i1.i.i, label %_ZNSt10unique_ptrIN7rocksdb20PlainTableFileReader6BufferESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %delete.notnull.i.i.i.i.i

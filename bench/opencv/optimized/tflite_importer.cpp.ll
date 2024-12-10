@@ -10220,7 +10220,7 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit: ; preds = %54
   %58 = and i32 %57, 4
   %59 = add nsw i32 %58, %37
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [4 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024052114TFLiteImporter11parseConcatERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024052114TFLiteImporter11parseConcatERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %5, align 4
   br label %63
@@ -10377,7 +10377,7 @@ _ZN2cv3dnn14dnn4_v20240521L14normalize_axisEii.exit: ; preds = %62
   %66 = select i1 %65, i32 5, i32 0
   %67 = add nsw i32 %66, %45
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [5 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024052114TFLiteImporter9parsePackERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [5 x i32], ptr @_ZZN2cv3dnn14dnn4_v2024052114TFLiteImporter9parsePackERKN13opencv_tflite8OperatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsEE5remap, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %6, align 4
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i34
@@ -20364,7 +20364,7 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %80, %78, %76, %_ZNS
   %86 = load ptr, ptr %4, align 8
   %87 = getelementptr i8, ptr %86, i64 -24
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 %88
   %90 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %89)
           to label %91 unwind label %20
 

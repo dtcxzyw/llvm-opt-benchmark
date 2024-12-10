@@ -8091,7 +8091,7 @@ switch.lookup:
   %44 = zext i32 %5 to i64
   %45 = mul nuw i64 %44, %43
   %46 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$6encode17h641cd7b772fad72bE.llvm.15109044229312055141", i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN5image6codecs4jpeg7encoder20JpegEncoder$LT$W$GT$6encode17h641cd7b772fad72bE.llvm.15109044229312055141", i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
   %47 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %switch.load)
   %48 = extractvalue { i64, i1 } %47, 0

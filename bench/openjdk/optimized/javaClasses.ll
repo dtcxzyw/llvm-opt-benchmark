@@ -920,7 +920,7 @@ declare ptr @JVM_Clone(ptr noundef, ptr noundef) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN11JavaClasses23compute_injected_offsetE15InjectedFieldID(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [24 x %class.InjectedField], ptr @_ZN11JavaClasses16_injected_fieldsE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [24 x %class.InjectedField], ptr @_ZN11JavaClasses16_injected_fieldsE, i64 0, i64 %2
   %4 = tail call noundef i32 @_ZN13InjectedField14compute_offsetEv(ptr noundef nonnull align 4 dereferenceable(16) %3)
   ret i32 %4
 }
@@ -930,7 +930,7 @@ define hidden noundef i32 @_ZN13InjectedField14compute_offsetEv(ptr nocapture no
   %2 = alloca %class.AllFieldStream, align 8
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [0 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 448
   %8 = load ptr, ptr %7, align 8
@@ -994,7 +994,7 @@ define hidden noundef i32 @_ZN13InjectedField14compute_offsetEv(ptr nocapture no
   %.0.i.i = load ptr, ptr %43, align 8
   %44 = load i32, ptr %19, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %.0.i.i, %47
   br i1 %48, label %49, label %63
@@ -1009,7 +1009,7 @@ define hidden noundef i32 @_ZN13InjectedField14compute_offsetEv(ptr nocapture no
   %.0.i.i7 = load ptr, ptr %.0.in.i.i6, align 8
   %55 = load i32, ptr %21, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %.0.i.i7, %58
   br i1 %59, label %60, label %63
@@ -1064,13 +1064,13 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %63, %65
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %89) #19
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %95) #19
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 12

@@ -7887,7 +7887,7 @@ define linkonce_odr void @_ZNK5Eigen12PartialPivLUINS_6MatrixIdLi3ELi3ELi0ELi3EL
   %20 = load double, ptr %19, align 8
   store double %18, ptr %19, align 8
   store double %20, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i
   store i8 1, ptr %21, align 1
   %.035.in.in.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %.03560.i.i.i.i.i.i.i.i
   %.035.in.i.i.i.i.i.i.i.i = load i32, ptr %.035.in.in.i.i.i.i.i.i.i.i, align 4

@@ -371,13 +371,13 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %71 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv60.i
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds float, ptr %4, i64 %73
+  %74 = getelementptr inbounds nuw float, ptr %4, i64 %73
   %75 = load float, ptr %74, align 4
   %76 = sext i32 %.03949.i to i64
-  %77 = getelementptr inbounds i32, ptr %3, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %3, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds float, ptr %4, i64 %79
+  %80 = getelementptr inbounds nuw float, ptr %4, i64 %79
   %81 = load float, ptr %80, align 4
   %82 = fcmp ogt float %75, %81
   %83 = trunc nuw nsw i64 %indvars.iv60.i to i32
@@ -396,7 +396,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %87 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv63.i
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %.039.lcssa.i to i64
-  %90 = getelementptr inbounds i32, ptr %3, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %89
   %91 = load i32, ptr %90, align 4
   store i32 %91, ptr %87, align 4
   store i32 %88, ptr %90, align 4
@@ -685,13 +685,13 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %93 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv60.i
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds float, ptr %4, i64 %95
+  %96 = getelementptr inbounds nuw float, ptr %4, i64 %95
   %97 = load float, ptr %96, align 4
   %98 = sext i32 %.03949.i to i64
-  %99 = getelementptr inbounds i32, ptr %3, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %3, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds float, ptr %4, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %4, i64 %101
   %103 = load float, ptr %102, align 4
   %104 = fcmp ogt float %97, %103
   %105 = trunc nuw nsw i64 %indvars.iv60.i to i32
@@ -710,7 +710,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %109 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv63.i
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %.039.lcssa.i to i64
-  %112 = getelementptr inbounds i32, ptr %3, i64 %111
+  %112 = getelementptr inbounds nuw i32, ptr %3, i64 %111
   %113 = load i32, ptr %112, align 4
   store i32 %113, ptr %109, align 4
   store i32 %110, ptr %112, align 4
@@ -978,13 +978,13 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
   %72 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv60.i
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %4, i64 %74
+  %75 = getelementptr inbounds nuw float, ptr %4, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = sext i32 %.03949.i to i64
-  %78 = getelementptr inbounds i32, ptr %3, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw float, ptr %4, i64 %80
   %82 = load float, ptr %81, align 4
   %83 = fcmp ogt float %76, %82
   %84 = trunc nuw nsw i64 %indvars.iv60.i to i32
@@ -1003,7 +1003,7 @@ define float @Nwk_NodePropagateRequired(ptr nocapture noundef readonly %0, i32 n
   %88 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv63.i
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %.039.lcssa.i to i64
-  %91 = getelementptr inbounds i32, ptr %3, i64 %90
+  %91 = getelementptr inbounds nuw i32, ptr %3, i64 %90
   %92 = load i32, ptr %91, align 4
   store i32 %92, ptr %88, align 4
   store i32 %89, ptr %91, align 4

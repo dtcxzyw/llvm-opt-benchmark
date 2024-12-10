@@ -120,7 +120,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %37 = load float, ptr %36, align 4
   %38 = add nsw i32 %.02126.us.i, 1
   %39 = sext i32 %.02126.us.i to i64
-  %40 = getelementptr inbounds float, ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw float, ptr %14, i64 %39
   store float %37, ptr %40, align 4
   br label %41
 
@@ -152,7 +152,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %44 = load float, ptr %43, align 4
   %45 = add nsw i32 %.02126.us31.us.i, 1
   %46 = sext i32 %.02126.us31.us.i to i64
-  %47 = getelementptr inbounds float, ptr %14, i64 %46
+  %47 = getelementptr inbounds nuw float, ptr %14, i64 %46
   store float %44, ptr %47, align 4
   br label %48
 
@@ -177,7 +177,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %52 = load float, ptr %51, align 4
   %53 = add nsw i32 %.02126.us31.us57.i, 1
   %54 = sext i32 %.02126.us31.us57.i to i64
-  %55 = getelementptr inbounds float, ptr %14, i64 %54
+  %55 = getelementptr inbounds nuw float, ptr %14, i64 %54
   store float %52, ptr %55, align 4
   br label %56
 
@@ -209,7 +209,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %60 = load float, ptr %59, align 4
   %61 = add nsw i32 %.02126.us40.us.i, 1
   %62 = sext i32 %.02126.us40.us.i to i64
-  %63 = getelementptr inbounds float, ptr %14, i64 %62
+  %63 = getelementptr inbounds nuw float, ptr %14, i64 %62
   store float %60, ptr %63, align 4
   br label %64
 
@@ -700,7 +700,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 .sink.split.i301:                                 ; preds = %.split.us.i294, %298
   %299 = add nsw i32 %.027.us.i295, 1
   %300 = sext i32 %.027.us.i295 to i64
-  %301 = getelementptr inbounds float, ptr %14, i64 %300
+  %301 = getelementptr inbounds nuw float, ptr %14, i64 %300
   %302 = load float, ptr %301, align 4
   %303 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv378
   store float %302, ptr %303, align 4
@@ -729,7 +729,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 .sink.split94.i293:                               ; preds = %.split.split.us.split.us.i286
   %306 = add nsw i32 %.027.us30.us.i287, 1
   %307 = sext i32 %.027.us30.us.i287 to i64
-  %308 = getelementptr inbounds float, ptr %14, i64 %307
+  %308 = getelementptr inbounds nuw float, ptr %14, i64 %307
   %309 = load float, ptr %308, align 4
   %310 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv381
   store float %309, ptr %310, align 4
@@ -758,7 +758,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 312:                                              ; preds = %.split.split.split.us.split.i
   %313 = add nsw i32 %.027.us39.i, 1
   %314 = sext i32 %.027.us39.i to i64
-  %315 = getelementptr inbounds float, ptr %14, i64 %314
+  %315 = getelementptr inbounds nuw float, ptr %14, i64 %314
   %316 = load float, ptr %315, align 4
   %317 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.i
   store float %316, ptr %317, align 4

@@ -6449,7 +6449,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Er
           cleanup
   %40 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !588, !noalias !578, !noundef !4
   %41 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !588, !noalias !578, !noundef !4
-  %42 = getelementptr inbounds { [5 x i64] }, ptr %6, i64 %40
+  %42 = getelementptr inbounds nuw { [5 x i64] }, ptr %6, i64 %40
   %43 = sub nuw i64 %41, %40
   invoke void @"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17hf58ca43128e8f7a2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 %42, i64 noundef %43)
           to label %.body.i17 unwind label %54, !noalias !595
@@ -6466,7 +6466,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Er
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f0cafc42198102cE.exit.thread.i.i": ; preds = %51, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f0cafc42198102cE.exit.i.i"
   %47 = phi i64 [ %52, %51 ], [ %44, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f0cafc42198102cE.exit.i.i" ]
-  %48 = getelementptr inbounds { [5 x i64] }, ptr %6, i64 %47
+  %48 = getelementptr inbounds nuw { [5 x i64] }, ptr %6, i64 %47
   %49 = sub nuw i64 %52, %47
   invoke void @"_ZN4core3ptr125drop_in_place$LT$$u5b$$LP$clap_builder..error..context..ContextKind$C$clap_builder..error..context..ContextValue$RP$$u5d$$GT$17hf58ca43128e8f7a2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 %48, i64 noundef %49)
           to label %60 unwind label %56, !noalias !600

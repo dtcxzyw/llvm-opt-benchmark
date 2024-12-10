@@ -10600,7 +10600,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   %75 = zext nneg i16 %74 to i64
   %76 = add i64 %.02836.i, -4
   %77 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.89, i64 %72
-  %78 = getelementptr inbounds i8, ptr %43, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 %76
   %79 = load i16, ptr %77, align 1, !noalias !1451
   store i16 %79, ptr %78, align 1, !alias.scope !1451
   %80 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.89, i64 %75
@@ -10619,7 +10619,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   %.zext35.i = zext nneg i16 %87 to i64
   %88 = add i64 %.028.lcssa.i, -2
   %89 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.89, i64 %86
-  %90 = getelementptr inbounds i8, ptr %43, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %43, i64 %88
   %91 = load i16, ptr %89, align 1, !noalias !1451
   store i16 %91, ptr %90, align 1, !alias.scope !1451
   br label %92
@@ -10634,7 +10634,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   %95 = shl nuw nsw i64 %.027.i, 1
   %96 = add i64 %.129.i, -2
   %97 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.89, i64 %95
-  %98 = getelementptr inbounds i8, ptr %43, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %43, i64 %96
   %99 = load i16, ptr %97, align 1, !noalias !1451
   store i16 %99, ptr %98, align 1, !alias.scope !1451
   br label %124
@@ -10642,7 +10642,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
 100:                                              ; preds = %92
   %101 = add i64 %.129.i, -1
   %102 = trunc nuw nsw i64 %.027.i to i8
-  %103 = getelementptr inbounds i8, ptr %43, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %43, i64 %101
   %104 = or disjoint i8 %102, 48
   store i8 %104, ptr %103, align 1, !alias.scope !1451
   br label %124
@@ -10722,7 +10722,7 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
 124:                                              ; preds = %100, %94
   %.2.i = phi i64 [ %101, %100 ], [ %96, %94 ]
   %125 = sub i64 20, %.2.i
-  %126 = getelementptr inbounds i8, ptr %43, i64 %.2.i
+  %126 = getelementptr inbounds nuw i8, ptr %43, i64 %.2.i
   invoke void @_ZN4http6header5value11HeaderValue16try_from_generic17h7093fb61120fa171E(ptr noalias nocapture noundef nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %39, ptr noalias noundef nonnull readonly align 1 %126, i64 noundef %125)
           to label %127 unwind label %151
 

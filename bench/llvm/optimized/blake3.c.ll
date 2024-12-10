@@ -1263,8 +1263,8 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
 .lr.ph1204:                                       ; preds = %.lr.ph1204.preheader, %.lr.ph1204
   %.010801203 = phi i64 [ %582, %.lr.ph1204 ], [ 0, %.lr.ph1204.preheader ]
   %579 = shl i64 %.010801203, 6
-  %580 = getelementptr inbounds i8, ptr %15, i64 %579
-  %581 = getelementptr inbounds [16 x ptr], ptr %4, i64 0, i64 %.010801203
+  %580 = getelementptr inbounds nuw i8, ptr %15, i64 %579
+  %581 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.010801203
   store ptr %580, ptr %581, align 8
   %582 = add nuw i64 %.010801203, 1
   %exitcond.not = icmp eq i64 %.010801203, %577
@@ -1278,7 +1278,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
 
 585:                                              ; preds = %._crit_edge1205
   %586 = shl i64 %578, 5
-  %587 = getelementptr inbounds i8, ptr %16, i64 %586
+  %587 = getelementptr inbounds nuw i8, ptr %16, i64 %586
   %588 = shl i64 %578, 6
   %589 = getelementptr inbounds nuw i8, ptr %15, i64 %588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %587, ptr noundef nonnull align 16 dereferenceable(32) %589, i64 32, i1 false)
@@ -2532,7 +2532,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %or.cond = select i1 %179, i1 %180, i1 false
   %181 = shl i64 %178, 5
   %182 = select i1 %or.cond, i64 64, i64 %181
-  %183 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [1024 x i8], ptr %12, i64 0, i64 %182
   %184 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %0, i64 noundef %173, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %12)
   %185 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef nonnull %175, i64 noundef %174, ptr noundef %2, i64 noundef %177, i8 noundef zeroext %4, ptr noundef %183)
   %186 = icmp eq i64 %184, 1
@@ -2556,8 +2556,8 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
 .lr.ph299:                                        ; preds = %.lr.ph299.preheader, %.lr.ph299
   %.0270297 = phi i64 [ %197, %.lr.ph299 ], [ 0, %.lr.ph299.preheader ]
   %194 = shl i64 %.0270297, 6
-  %195 = getelementptr inbounds i8, ptr %12, i64 %194
-  %196 = getelementptr inbounds [16 x ptr], ptr %11, i64 0, i64 %.0270297
+  %195 = getelementptr inbounds nuw i8, ptr %12, i64 %194
+  %196 = getelementptr inbounds nuw [16 x ptr], ptr %11, i64 0, i64 %.0270297
   store ptr %195, ptr %196, align 8
   %197 = add nuw i64 %.0270297, 1
   %exitcond310.not = icmp eq i64 %.0270297, %192
@@ -2579,7 +2579,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %202 = shl i64 %.0270.lcssa, 5
   %203 = getelementptr inbounds i8, ptr %5, i64 %202
   %204 = shl i64 %.0270.lcssa, 6
-  %205 = getelementptr inbounds i8, ptr %12, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %12, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %203, ptr noundef nonnull align 16 dereferenceable(32) %205, i64 32, i1 false)
   %206 = add nuw i64 %.0270.lcssa, 1
   br label %207

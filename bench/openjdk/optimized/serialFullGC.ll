@@ -856,7 +856,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit: ; preds = %_ZNK7oopDes
   %22 = phi i32 [ %15, %_ZNK7oopDesc11is_objArrayEv.exit ], [ %19, %_ZNK7oopDesc11is_objArrayEv.exit.thread ]
   %.0.i.i3 = phi ptr [ %13, %_ZNK7oopDesc11is_objArrayEv.exit ], [ %17, %_ZNK7oopDesc11is_objArrayEv.exit.thread ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.0.i.i3) #16
   br label %26
@@ -1178,7 +1178,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i: ; preds = %_ZNK7oopD
   %85 = phi i32 [ %43, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %47, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i3.i = phi ptr [ %41, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %45, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %86
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.0.i.i3.i) #16
   br label %_ZN12SerialFullGC13follow_objectEP7oopDesc.exit
@@ -1310,7 +1310,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i: ; preds = %_ZNK7oo
   %30 = phi i32 [ %23, %_ZNK7oopDesc11is_objArrayEv.exit.i.i ], [ %27, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i.i ]
   %.0.i.i3.i.i = phi ptr [ %21, %_ZNK7oopDesc11is_objArrayEv.exit.i.i ], [ %25, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i.i ]
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %.0.i.i3.i.i) #16
   br label %_ZN12SerialFullGC11follow_rootIP7oopDescEEvPT_.exit
@@ -1377,7 +1377,7 @@ _ZN7oopDesc11oop_iterateI18MarkAndPushClosureEEvPT_.exit.i.i: ; preds = %_ZNK7oo
   %38 = phi i32 [ %31, %_ZNK7oopDesc11is_objArrayEv.exit.i.i ], [ %35, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i.i ]
   %.0.i.i3.i.i = phi ptr [ %29, %_ZNK7oopDesc11is_objArrayEv.exit.i.i ], [ %33, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i.i ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18MarkAndPushClosureE6_tableE, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull @_ZN12SerialFullGC21mark_and_push_closureE, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %.0.i.i3.i.i) #16
   br label %_ZN12SerialFullGC11follow_rootI9narrowOopEEvPT_.exit
@@ -4644,7 +4644,7 @@ _ZN7oopDesc16oop_iterate_sizeI20AdjustPointerClosureEEmPT_.exit: ; preds = %42, 
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20AdjustPointerClosureE6_tableE, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI20AdjustPointerClosureE6_tableE, i64 0, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef nonnull @_ZN12SerialFullGC22adjust_pointer_closureE, ptr noundef nonnull align 8 dereferenceable(16) %.01617, ptr noundef nonnull %.0.i.i) #16
   %82 = getelementptr inbounds ptr, ptr %.01617, i64 %.0.i4.i

@@ -158,7 +158,7 @@ define range(i32 0, 2) i32 @opal_pack_homogeneous_contig_with_gaps_checksum(ptr 
 
 21:                                               ; preds = %4
   %22 = sext i16 %17 to i64
-  %23 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8

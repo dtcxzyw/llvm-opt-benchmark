@@ -606,7 +606,7 @@ Pla_ManExpendDirNum.exit.thread:                  ; preds = %44
 57:                                               ; preds = %.lr.ph.i
   %58 = add nsw i32 %.011.i, 1
   %59 = sext i32 %.011.i to i64
-  %60 = getelementptr inbounds i32, ptr %5, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %5, i64 %59
   store i32 %.0910.i, ptr %60, align 4
   br label %61
 
@@ -618,7 +618,7 @@ Pla_ManExpendDirNum.exit.thread:                  ; preds = %44
 
 Pla_ManExpendDirNum.exit:                         ; preds = %61
   %63 = sext i32 %.1.i to i64
-  %64 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -752,7 +752,7 @@ Pla_ManExpendDirNum.exit:                         ; preds = %61
 152:                                              ; preds = %.lr.ph.i124
   %153 = add nsw i32 %.011.i125, 1
   %154 = sext i32 %.011.i125 to i64
-  %155 = getelementptr inbounds i32, ptr %6, i64 %154
+  %155 = getelementptr inbounds nuw i32, ptr %6, i64 %154
   store i32 %.0910.i126, ptr %155, align 4
   br label %156
 

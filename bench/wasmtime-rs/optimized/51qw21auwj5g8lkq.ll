@@ -3084,10 +3084,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [21 x ptr], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = sext i8 %.0.val to i64
-  %switch.gep6 = getelementptr inbounds [21 x i64], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18, i64 0, i64 %6
+  %switch.gep6 = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZN13wasmtime_wast9component8mismatch17h1fc70858aad392d9E.18, i64 0, i64 %6
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   store ptr %switch.load, ptr %3, align 8
   store i64 %switch.load7, ptr %4, align 8

@@ -1176,7 +1176,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idx.ext = sext i32 %id to i64
-  %add.ptr = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %idx.ext
   br label %return
 
 if.end:                                           ; preds = %entry

@@ -552,7 +552,7 @@ sub_0:
 
 35:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 16 %6, i64 %33, i1 false)
-  %36 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %33
+  %36 = getelementptr inbounds nuw [4097 x i8], ptr %5, i64 0, i64 %33
   store i8 0, ptr %36, align 1
   br label %37
 
@@ -564,7 +564,7 @@ sub_0:
 39:                                               ; preds = %37
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %40, %25
-  %42 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [4097 x i8], ptr %5, i64 0, i64 %41
   store i8 0, ptr %42, align 1
   %43 = load i8, ptr %5, align 16
   %44 = icmp eq i8 %43, 0
@@ -591,16 +591,16 @@ sub_0:
 
 54:                                               ; preds = %47
   %55 = add i64 %49, -1
-  %56 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %.not43 = icmp eq i8 %57, 47
   br i1 %.not43, label %60, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %54
-  %58 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %49
+  %58 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %49
   store i8 47, ptr %58, align 1
   %.sink53 = add i64 %49, 1
-  %59 = getelementptr inbounds [4097 x i8], ptr %3, i64 0, i64 %.sink53
+  %59 = getelementptr inbounds nuw [4097 x i8], ptr %3, i64 0, i64 %.sink53
   store i8 0, ptr %59, align 1
   br label %60
 
@@ -608,23 +608,23 @@ sub_0:
   %.034 = phi i64 [ %49, %54 ], [ %.sink53, %.sink.split ]
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %62 = add i64 %.1, -1
-  %63 = getelementptr inbounds [4097 x i8], ptr %5, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [4097 x i8], ptr %5, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 47
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %60
   %67 = add i64 %61, -1
-  %68 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %.not44 = icmp eq i8 %69, 47
   br i1 %.not44, label %74, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %61
+  %71 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %61
   store i8 47, ptr %71, align 1
   %72 = add i64 %61, 1
-  %73 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %72
   store i8 0, ptr %73, align 1
   br label %74
 
@@ -640,7 +640,7 @@ sub_0:
 
 79:                                               ; preds = %77
   %80 = add i64 %.034, -1
-  %81 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %.not45 = icmp eq i8 %82, 47
   br i1 %.not45, label %83, label %.loopexit
@@ -1218,7 +1218,7 @@ tsrm_realpath_str.exit309.backedge:               ; preds = %127, %144, %111, %1
 
 113:                                              ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %.0234323, i64 %107, i1 false)
-  %114 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %107
+  %114 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %107
   store i8 47, ptr %114, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %gep, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
@@ -1359,7 +1359,7 @@ tsrm_realpath_str.exit309.thread:                 ; preds = %146
 
 174:                                              ; preds = %.critedge9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 1 %162, i64 %.0, i1 false)
-  %175 = getelementptr inbounds i8, ptr %4, i64 %.lcssa329
+  %175 = getelementptr inbounds nuw i8, ptr %4, i64 %.lcssa329
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %176, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
   store ptr %4, ptr %5, align 8

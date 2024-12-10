@@ -2615,7 +2615,7 @@ define internal void @_ZN12_GLOBAL__N_111Smt2Backend7executeERPSoNSt7__cxx1112ba
   %94 = load ptr, ptr %39, align 8
   %95 = getelementptr i8, ptr %94, i64 -24
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %39, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %39, i64 %96
   %98 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %97)
           to label %99 unwind label %.loopexit.split-lp456.loopexit
 

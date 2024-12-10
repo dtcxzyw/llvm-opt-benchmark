@@ -572,7 +572,7 @@ if.then30.i.i:                                    ; preds = %cond.end27.i.i
   %sub32.i.i = add nsw i32 %37, -6
   %shr33.i.i = ashr i32 %conv9.i, %sub32.i.i
   %idxprom34.i.i = sext i32 %shr33.i.i to i64
-  %arrayidx35.i.i = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom34.i.i
+  %arrayidx35.i.i = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom34.i.i
   %38 = load i32, ptr %arrayidx35.i.i, align 4
   %shr36.i.i = lshr i32 %cond28.i.i, 1
   %sub37.i.i = add nsw i32 %shr36.i.i, -7
@@ -604,7 +604,7 @@ if.then49.i.i:                                    ; preds = %if.else.i.i
   %sub52.i.i = add nsw i32 %39, -6
   %shr53.i.i = ashr i32 %conv9.i, %sub52.i.i
   %idxprom54.i.i = sext i32 %shr53.i.i to i64
-  %arrayidx55.i.i = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom54.i.i
+  %arrayidx55.i.i = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom54.i.i
   %40 = load i32, ptr %arrayidx55.i.i, align 4
   %shr56.i.i = lshr i32 %cond28.i.i, 1
   %sub57.i.i = sub nuw nsw i32 7, %shr56.i.i
@@ -615,7 +615,7 @@ if.then49.i.i:                                    ; preds = %if.else.i.i
 if.else60.i.i:                                    ; preds = %if.else.i.i
   %sext.i = shl i64 %sub.ptr.sub.i, 30
   %idxprom61.i.i = ashr i64 %sext.i, 32
-  %arrayidx62.i.i = getelementptr inbounds [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom61.i.i
+  %arrayidx62.i.i = getelementptr inbounds nuw [256 x i32], ptr @sqq_table, i64 0, i64 %idxprom61.i.i
   %41 = load i32, ptr %arrayidx62.i.i, align 4
   %shr63.i.i = ashr i32 %41, 4
   br label %ss_isqrt.exit.i
@@ -1784,7 +1784,7 @@ if.end45.i.i:                                     ; preds = %for.body39.i.i, %if
 
 do.body.i.i:                                      ; preds = %if.end45.i.i
   %idxprom53.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx54.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom53.i.i
+  %arrayidx54.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom53.i.i
   store ptr null, ptr %arrayidx54.i.i, align 16
   %b58.i.i = getelementptr inbounds nuw i8, ptr %arrayidx54.i.i, i64 8
   store ptr %first.addr.0.i104.i, ptr %b58.i.i, align 8
@@ -1796,7 +1796,7 @@ do.body.i.i:                                      ; preds = %if.end45.i.i
   %e.i.i = getelementptr inbounds nuw i8, ptr %arrayidx54.i.i, i64 28
   store i32 0, ptr %e.i.i, align 4
   %idxprom70.i.i = sext i32 %inc.i.i to i64
-  %arrayidx71.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom70.i.i
+  %arrayidx71.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom70.i.i
   store ptr %add.ptr.i.i269, ptr %arrayidx71.i.i, align 16
   %b75.i.i = getelementptr inbounds nuw i8, ptr %arrayidx71.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b75.i.i, align 8
@@ -1826,7 +1826,7 @@ if.then99.i.i:                                    ; preds = %if.end88.i.i
 
 do.body107.i.i:                                   ; preds = %if.then99.i.i
   %idxprom108.i.i = sext i32 %ssize.1.i.i to i64
-  %arrayidx109.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom108.i.i
+  %arrayidx109.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom108.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx109.i.i, align 16
   %b113.i.i = getelementptr inbounds nuw i8, ptr %arrayidx109.i.i, i64 8
   store ptr %last.addr.0.i103.i, ptr %b113.i.i, align 8
@@ -1979,7 +1979,7 @@ do.body151.i.i:                                   ; preds = %if.else.i.i272
 if.end155.i.i:                                    ; preds = %do.body151.i.i
   %dec.i.i = add nsw i32 %ssize.1.i.i, -1
   %idxprom156.i.i = sext i32 %dec.i.i to i64
-  %arrayidx157.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom156.i.i
+  %arrayidx157.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom156.i.i
   %149 = load ptr, ptr %arrayidx157.i.i, align 16
   %b161.i.i = getelementptr inbounds nuw i8, ptr %arrayidx157.i.i, i64 8
   %150 = load ptr, ptr %b161.i.i, align 8
@@ -1997,7 +1997,7 @@ if.else174.i.i:                                   ; preds = %if.end88.i.i
 
 do.body182.i.i:                                   ; preds = %if.else174.i.i
   %idxprom183.i.i = sext i32 %ssize.1.i.i to i64
-  %arrayidx184.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom183.i.i
+  %arrayidx184.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom183.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx184.i.i, align 16
   %b188.i.i = getelementptr inbounds nuw i8, ptr %arrayidx184.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b188.i.i, align 8
@@ -2150,7 +2150,7 @@ do.body227.i.i:                                   ; preds = %if.else212.i.i
 if.end231.i.i:                                    ; preds = %do.body227.i.i
   %dec232.i.i = add nsw i32 %ssize.1.i.i, -1
   %idxprom233.i.i = sext i32 %dec232.i.i to i64
-  %arrayidx234.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom233.i.i
+  %arrayidx234.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom233.i.i
   %166 = load ptr, ptr %arrayidx234.i.i, align 16
   %b238.i.i = getelementptr inbounds nuw i8, ptr %arrayidx234.i.i, i64 8
   %167 = load ptr, ptr %b238.i.i, align 8
@@ -2165,7 +2165,7 @@ if.end231.i.i:                                    ; preds = %do.body227.i.i
 if.then255.i.i:                                   ; preds = %if.then.i.i
   %dec256.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom257.i.i = sext i32 %dec256.i.i to i64
-  %arrayidx258.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom257.i.i
+  %arrayidx258.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom257.i.i
   %b259.i.i = getelementptr inbounds nuw i8, ptr %arrayidx258.i.i, i64 8
   %171 = load ptr, ptr %b259.i.i, align 8
   %c262.i.i = getelementptr inbounds nuw i8, ptr %arrayidx258.i.i, i64 16
@@ -2406,7 +2406,7 @@ do.body288.i.i:                                   ; preds = %for.inc76.i.i.i, %f
 if.end292.i.i:                                    ; preds = %do.body288.i.i
   %dec293.i.i = add nsw i32 %ssize.0.ph.i.i, -2
   %idxprom294.i.i = sext i32 %dec293.i.i to i64
-  %arrayidx295.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom294.i.i
+  %arrayidx295.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom294.i.i
   %188 = load ptr, ptr %arrayidx295.i.i, align 16
   %b299.i.i = getelementptr inbounds nuw i8, ptr %arrayidx295.i.i, i64 8
   %189 = load ptr, ptr %b299.i.i, align 8
@@ -2571,7 +2571,7 @@ if.then376.i.i:                                   ; preds = %if.end4.i.i.i, %if.
 
 do.body388.i.i:                                   ; preds = %if.then376.i.i
   %idxprom389.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx390.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom389.i.i
+  %arrayidx390.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom389.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx390.i.i, align 16
   %b394.i.i = getelementptr inbounds nuw i8, ptr %arrayidx390.i.i, i64 8
   store ptr %incdec.ptr350.i.i, ptr %b394.i.i, align 8
@@ -2592,7 +2592,7 @@ if.else409.i.i:                                   ; preds = %if.then376.i.i
 
 do.body417.i.i:                                   ; preds = %if.else409.i.i
   %idxprom420.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx421.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom420.i.i
+  %arrayidx421.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom420.i.i
   store ptr %add.ptr419.i.i, ptr %arrayidx421.i.i, align 16
   %b425.i.i = getelementptr inbounds nuw i8, ptr %arrayidx421.i.i, i64 8
   store ptr %first.addr.2.i.i, ptr %b425.i.i, align 8
@@ -2629,7 +2629,7 @@ do.body459.i.i:                                   ; preds = %if.end450.i.i
 if.end463.i.i:                                    ; preds = %do.body459.i.i
   %dec464.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom465.i.i = sext i32 %dec464.i.i to i64
-  %arrayidx466.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom465.i.i
+  %arrayidx466.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom465.i.i
   %207 = load ptr, ptr %arrayidx466.i.i, align 16
   %b470.i.i = getelementptr inbounds nuw i8, ptr %arrayidx466.i.i, i64 8
   %208 = load ptr, ptr %b470.i.i, align 8
@@ -2648,7 +2648,7 @@ do.body485.i.i:                                   ; preds = %if.end328.i.i
 if.end489.i.i:                                    ; preds = %do.body485.i.i
   %dec490.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom491.i.i = sext i32 %dec490.i.i to i64
-  %arrayidx492.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom491.i.i
+  %arrayidx492.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom491.i.i
   %212 = load ptr, ptr %arrayidx492.i.i, align 16
   %b496.i.i = getelementptr inbounds nuw i8, ptr %arrayidx492.i.i, i64 8
   %213 = load ptr, ptr %b496.i.i, align 8
@@ -3620,7 +3620,7 @@ if.then655.i.i:                                   ; preds = %if.then644.i.i
 do.body663.i.i:                                   ; preds = %if.then655.i.i
   %add.ptr665.i.i = getelementptr inbounds i32, ptr %ISAd.addr.0.ph.i.i, i64 %idx.ext733.i.i
   %idxprom666.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx667.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom666.i.i
+  %arrayidx667.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom666.i.i
   store ptr %add.ptr665.i.i, ptr %arrayidx667.i.i, align 16
   %b671.i.i = getelementptr inbounds nuw i8, ptr %arrayidx667.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b671.i.i, align 8
@@ -3632,7 +3632,7 @@ do.body663.i.i:                                   ; preds = %if.then655.i.i
   %e681.i.i = getelementptr inbounds nuw i8, ptr %arrayidx667.i.i, i64 28
   store i32 %trlink.0.ph.i.i, ptr %e681.i.i, align 4
   %idxprom685.i.i = sext i32 %inc678.i.i to i64
-  %arrayidx686.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom685.i.i
+  %arrayidx686.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom685.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx686.i.i, align 16
   %b690.i.i = getelementptr inbounds nuw i8, ptr %arrayidx686.i.i, i64 8
   store ptr %add.ptr147.i.i, ptr %b690.i.i, align 8
@@ -3652,7 +3652,7 @@ if.else703.i.i:                                   ; preds = %if.then655.i.i
 
 do.body711.i.i:                                   ; preds = %if.else703.i.i
   %idxprom714.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx715.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom714.i.i
+  %arrayidx715.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom714.i.i
   store ptr %add.ptr713.i.i, ptr %arrayidx715.i.i, align 16
   %b719.i.i = getelementptr inbounds nuw i8, ptr %arrayidx715.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b719.i.i, align 8
@@ -3672,7 +3672,7 @@ if.else737.i.i:                                   ; preds = %if.then644.i.i
 if.then748.i.i:                                   ; preds = %if.else737.i.i
   %cmp753.i.i251 = icmp sgt i64 %sub.ptr.div637.i.i, 1
   %idxprom757.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx758.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom757.i.i
+  %arrayidx758.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom757.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx758.i.i, align 16
   %b762.i.i = getelementptr inbounds nuw i8, ptr %arrayidx758.i.i, i64 8
   store ptr %add.ptr147.i.i, ptr %b762.i.i, align 8
@@ -3688,7 +3688,7 @@ if.then748.i.i:                                   ; preds = %if.else737.i.i
 
 do.body756.i.i:                                   ; preds = %if.then748.i.i
   %idxprom778.i.i = sext i32 %inc769.i.i to i64
-  %arrayidx779.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom778.i.i
+  %arrayidx779.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom778.i.i
   store ptr %add.ptr777.i.i, ptr %arrayidx779.i.i, align 16
   %b783.i.i = getelementptr inbounds nuw i8, ptr %arrayidx779.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b783.i.i, align 8
@@ -3703,7 +3703,7 @@ do.body756.i.i:                                   ; preds = %if.then748.i.i
 
 do.body820.i.i:                                   ; preds = %if.else737.i.i
   %idxprom821.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx822.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom821.i.i
+  %arrayidx822.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom821.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx822.i.i, align 16
   %b826.i.i = getelementptr inbounds nuw i8, ptr %arrayidx822.i.i, i64 8
   store ptr %add.ptr147.i.i, ptr %b826.i.i, align 8
@@ -3715,7 +3715,7 @@ do.body820.i.i:                                   ; preds = %if.else737.i.i
   %e836.i.i = getelementptr inbounds nuw i8, ptr %arrayidx822.i.i, i64 28
   store i32 %trlink.0.ph.i.i, ptr %e836.i.i, align 4
   %idxprom840.i.i = sext i32 %inc833.i.i to i64
-  %arrayidx841.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom840.i.i
+  %arrayidx841.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom840.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx841.i.i, align 16
   %b845.i.i = getelementptr inbounds nuw i8, ptr %arrayidx841.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b845.i.i, align 8
@@ -3740,7 +3740,7 @@ if.then873.i.i:                                   ; preds = %if.else862.i.i
 do.body881.i.i:                                   ; preds = %if.then873.i.i
   %add.ptr883.i.i = getelementptr inbounds i32, ptr %ISAd.addr.0.ph.i.i, i64 %idx.ext733.i.i
   %idxprom884.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx885.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom884.i.i
+  %arrayidx885.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom884.i.i
   store ptr %add.ptr883.i.i, ptr %arrayidx885.i.i, align 16
   %b889.i.i = getelementptr inbounds nuw i8, ptr %arrayidx885.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b889.i.i, align 8
@@ -3752,7 +3752,7 @@ do.body881.i.i:                                   ; preds = %if.then873.i.i
   %e899.i.i = getelementptr inbounds nuw i8, ptr %arrayidx885.i.i, i64 28
   store i32 %trlink.0.ph.i.i, ptr %e899.i.i, align 4
   %idxprom903.i.i = sext i32 %inc896.i.i to i64
-  %arrayidx904.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom903.i.i
+  %arrayidx904.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom903.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx904.i.i, align 16
   %b908.i.i = getelementptr inbounds nuw i8, ptr %arrayidx904.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b908.i.i, align 8
@@ -3772,7 +3772,7 @@ if.else921.i.i:                                   ; preds = %if.then873.i.i
 
 do.body929.i.i:                                   ; preds = %if.else921.i.i
   %idxprom932.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx933.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom932.i.i
+  %arrayidx933.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom932.i.i
   store ptr %add.ptr931.i.i, ptr %arrayidx933.i.i, align 16
   %b937.i.i = getelementptr inbounds nuw i8, ptr %arrayidx933.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b937.i.i, align 8
@@ -3792,7 +3792,7 @@ if.else955.i.i:                                   ; preds = %if.else862.i.i
 if.then966.i.i:                                   ; preds = %if.else955.i.i
   %cmp971.i.i = icmp sgt i64 %sub.ptr.div112.i.i, 1
   %idxprom975.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx976.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom975.i.i
+  %arrayidx976.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom975.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx976.i.i, align 16
   %b980.i.i = getelementptr inbounds nuw i8, ptr %arrayidx976.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b980.i.i, align 8
@@ -3808,7 +3808,7 @@ if.then966.i.i:                                   ; preds = %if.else955.i.i
 
 do.body974.i.i:                                   ; preds = %if.then966.i.i
   %idxprom996.i.i = sext i32 %inc987.i.i to i64
-  %arrayidx997.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom996.i.i
+  %arrayidx997.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom996.i.i
   store ptr %add.ptr995.i.i, ptr %arrayidx997.i.i, align 16
   %b1001.i.i = getelementptr inbounds nuw i8, ptr %arrayidx997.i.i, i64 8
   store ptr %add.ptr141.i.i, ptr %b1001.i.i, align 8
@@ -3823,7 +3823,7 @@ do.body974.i.i:                                   ; preds = %if.then966.i.i
 
 do.body1038.i.i:                                  ; preds = %if.else955.i.i
   %idxprom1039.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx1040.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1039.i.i
+  %arrayidx1040.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1039.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx1040.i.i, align 16
   %b1044.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1040.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b1044.i.i, align 8
@@ -3835,7 +3835,7 @@ do.body1038.i.i:                                  ; preds = %if.else955.i.i
   %e1054.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1040.i.i, i64 28
   store i32 %trlink.0.ph.i.i, ptr %e1054.i.i, align 4
   %idxprom1058.i.i = sext i32 %inc1051.i.i to i64
-  %arrayidx1059.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1058.i.i
+  %arrayidx1059.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1058.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx1059.i.i, align 16
   %b1063.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1059.i.i, i64 8
   store ptr %add.ptr147.i.i, ptr %b1063.i.i, align 8
@@ -3873,7 +3873,7 @@ if.then1106.i.i:                                  ; preds = %if.end1095.i.i
 
 do.body1114.i.i:                                  ; preds = %if.then1106.i.i
   %idxprom1115.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx1116.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1115.i.i
+  %arrayidx1116.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1115.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx1116.i.i, align 16
   %b1120.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1116.i.i, i64 8
   store ptr %add.ptr147.i.i, ptr %b1120.i.i, align 8
@@ -3897,7 +3897,7 @@ do.body1142.i.i:                                  ; preds = %if.else1133.i.i
 if.end1146.i.i:                                   ; preds = %do.body1142.i.i
   %dec1147.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom1148.i.i = sext i32 %dec1147.i.i to i64
-  %arrayidx1149.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1148.i.i
+  %arrayidx1149.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1148.i.i
   %372 = load ptr, ptr %arrayidx1149.i.i, align 16
   %b1153.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1149.i.i, i64 8
   %373 = load ptr, ptr %b1153.i.i, align 8
@@ -3915,7 +3915,7 @@ if.else1167.i.i:                                  ; preds = %if.end1095.i.i
 
 do.body1175.i.i:                                  ; preds = %if.else1167.i.i
   %idxprom1176.i.i = sext i32 %ssize.0.ph.i.i to i64
-  %arrayidx1177.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1176.i.i
+  %arrayidx1177.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1176.i.i
   store ptr %ISAd.addr.0.ph.i.i, ptr %arrayidx1177.i.i, align 16
   %b1181.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1177.i.i, i64 8
   store ptr %first.addr.0.ph.i.i, ptr %b1181.i.i, align 8
@@ -3939,7 +3939,7 @@ do.body1203.i.i:                                  ; preds = %if.else1194.i.i
 if.end1207.i.i:                                   ; preds = %do.body1203.i.i
   %dec1208.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom1209.i.i = sext i32 %dec1208.i.i to i64
-  %arrayidx1210.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1209.i.i
+  %arrayidx1210.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1209.i.i
   %377 = load ptr, ptr %arrayidx1210.i.i, align 16
   %b1214.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1210.i.i, i64 8
   %378 = load ptr, ptr %b1214.i.i, align 8
@@ -4032,7 +4032,7 @@ do.body1255.i.i:                                  ; preds = %if.then1250.i.i, %i
 if.end1259.i.i:                                   ; preds = %do.body1255.i.i
   %dec1260.i.i = add nsw i32 %ssize.0.ph.i.i, -1
   %idxprom1261.i.i = sext i32 %dec1260.i.i to i64
-  %arrayidx1262.i.i = getelementptr inbounds [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1261.i.i
+  %arrayidx1262.i.i = getelementptr inbounds nuw [64 x %struct.anon.1], ptr %stack.i.i, i64 0, i64 %idxprom1261.i.i
   %386 = load ptr, ptr %arrayidx1262.i.i, align 16
   %b1266.i.i = getelementptr inbounds nuw i8, ptr %arrayidx1262.i.i, i64 8
   %387 = load ptr, ptr %b1266.i.i, align 8
@@ -5097,7 +5097,7 @@ if.then15:                                        ; preds = %do.body
 if.end16:                                         ; preds = %do.body
   %dec = add nsw i32 %ssize.0, -1
   %idxprom = sext i32 %dec to i64
-  %arrayidx = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8
   %b20 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %14 = load ptr, ptr %b20, align 8
@@ -5546,7 +5546,7 @@ if.then87:                                        ; preds = %if.end76
 
 do.body95:                                        ; preds = %if.then87
   %idxprom96 = sext i32 %ssize.0 to i64
-  %arrayidx97 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom96
+  %arrayidx97 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom96
   store ptr %a.0.lcssa, ptr %arrayidx97, align 8
   %b101 = getelementptr inbounds nuw i8, ptr %arrayidx97, i64 8
   store ptr %last.addr.0, ptr %b101, align 8
@@ -5580,7 +5580,7 @@ if.else116:                                       ; preds = %if.end76
 
 do.body124:                                       ; preds = %if.else116
   %idxprom125 = sext i32 %ssize.0 to i64
-  %arrayidx126 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom125
+  %arrayidx126 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom125
   store ptr %first.addr.3, ptr %arrayidx126, align 8
   %b130 = getelementptr inbounds nuw i8, ptr %arrayidx126, i64 8
   store ptr %a.0.lcssa, ptr %b130, align 8
@@ -6406,7 +6406,7 @@ if.then391:                                       ; preds = %cond.end
 
 do.body403:                                       ; preds = %if.then391
   %idxprom404 = sext i32 %ssize.0 to i64
-  %arrayidx405 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom404
+  %arrayidx405 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom404
   store ptr %cond, ptr %arrayidx405, align 8
   %b409 = getelementptr inbounds nuw i8, ptr %arrayidx405, i64 8
   store ptr %add.ptr371, ptr %b409, align 8
@@ -6437,7 +6437,7 @@ ss_ilg.exit493:                                   ; preds = %cond.true.i482, %co
   %d423 = getelementptr inbounds nuw i8, ptr %arrayidx405, i64 20
   store i32 %cond.i488, ptr %d423, align 4
   %idxprom426 = sext i32 %inc420 to i64
-  %arrayidx427 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom426
+  %arrayidx427 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom426
   store ptr %add.ptr371, ptr %arrayidx427, align 8
   %b431 = getelementptr inbounds nuw i8, ptr %arrayidx427, i64 8
   store ptr %last.addr.0, ptr %b431, align 8
@@ -6451,7 +6451,7 @@ ss_ilg.exit493:                                   ; preds = %cond.true.i482, %co
 if.else440:                                       ; preds = %if.then391
   %cmp449.not = icmp sgt i64 %sub.ptr.div384, %sub.ptr.div537
   %idxprom491 = sext i32 %ssize.0 to i64
-  %arrayidx492 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom491
+  %arrayidx492 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom491
   store ptr %add.ptr371, ptr %arrayidx492, align 8
   %b496 = getelementptr inbounds nuw i8, ptr %arrayidx492, i64 8
   store ptr %last.addr.0, ptr %b496, align 8
@@ -6461,7 +6461,7 @@ if.else440:                                       ; preds = %if.then391
   %d503 = getelementptr inbounds nuw i8, ptr %arrayidx492, i64 20
   store i32 %dec28, ptr %d503, align 4
   %idxprom506 = sext i32 %inc500 to i64
-  %arrayidx507 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom506
+  %arrayidx507 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom506
   %b511 = getelementptr inbounds nuw i8, ptr %arrayidx507, i64 8
   br i1 %cmp449.not, label %do.body490, label %do.body452
 
@@ -6529,7 +6529,7 @@ if.else529:                                       ; preds = %cond.end
 
 do.body541:                                       ; preds = %if.else529
   %idxprom542 = sext i32 %ssize.0 to i64
-  %arrayidx543 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom542
+  %arrayidx543 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom542
   store ptr %cond, ptr %arrayidx543, align 8
   %b547 = getelementptr inbounds nuw i8, ptr %arrayidx543, i64 8
   store ptr %add.ptr371, ptr %b547, align 8
@@ -6560,7 +6560,7 @@ ss_ilg.exit535:                                   ; preds = %cond.true.i524, %co
   %d561 = getelementptr inbounds nuw i8, ptr %arrayidx543, i64 20
   store i32 %cond.i530, ptr %d561, align 4
   %idxprom564 = sext i32 %inc558 to i64
-  %arrayidx565 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom564
+  %arrayidx565 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom564
   store ptr %first.addr.0, ptr %arrayidx565, align 8
   %b569 = getelementptr inbounds nuw i8, ptr %arrayidx565, i64 8
   store ptr %add.ptr365, ptr %b569, align 8
@@ -6574,7 +6574,7 @@ ss_ilg.exit535:                                   ; preds = %cond.true.i524, %co
 if.else578:                                       ; preds = %if.else529
   %cmp587.not = icmp sgt i64 %sub.ptr.div335, %sub.ptr.div537
   %idxprom629 = sext i32 %ssize.0 to i64
-  %arrayidx630 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom629
+  %arrayidx630 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom629
   store ptr %first.addr.0, ptr %arrayidx630, align 8
   %b634 = getelementptr inbounds nuw i8, ptr %arrayidx630, i64 8
   store ptr %add.ptr365, ptr %b634, align 8
@@ -6584,7 +6584,7 @@ if.else578:                                       ; preds = %if.else529
   %d641 = getelementptr inbounds nuw i8, ptr %arrayidx630, i64 20
   store i32 %dec28, ptr %d641, align 4
   %idxprom644 = sext i32 %inc638 to i64
-  %arrayidx645 = getelementptr inbounds [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom644
+  %arrayidx645 = getelementptr inbounds nuw [16 x %struct.anon], ptr %stack, i64 0, i64 %idxprom644
   %b649 = getelementptr inbounds nuw i8, ptr %arrayidx645, i64 8
   br i1 %cmp587.not, label %do.body628, label %do.body590
 
@@ -7358,7 +7358,7 @@ do.body45:                                        ; preds = %cond.true.i258, %if
 if.end49:                                         ; preds = %do.body45
   %dec = add nsw i32 %ssize.0, -1
   %idxprom = sext i32 %dec to i64
-  %arrayidx = getelementptr inbounds [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom
   %60 = load ptr, ptr %arrayidx, align 16
   %b = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %61 = load ptr, ptr %b, align 8
@@ -7832,7 +7832,7 @@ do.body121:                                       ; preds = %cond.true.i407, %if
 if.end125:                                        ; preds = %do.body121
   %dec126 = add nsw i32 %ssize.0, -1
   %idxprom127 = sext i32 %dec126 to i64
-  %arrayidx128 = getelementptr inbounds [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom127
+  %arrayidx128 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom127
   %110 = load ptr, ptr %arrayidx128, align 16
   %b132 = getelementptr inbounds nuw i8, ptr %arrayidx128, i64 8
   %111 = load ptr, ptr %b132, align 8
@@ -8024,7 +8024,7 @@ if.end263:                                        ; preds = %if.end263.loopexit7
 
 do.body275:                                       ; preds = %if.end263
   %idxprom276 = sext i32 %ssize.0 to i64
-  %arrayidx277 = getelementptr inbounds [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom276
+  %arrayidx277 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom276
   store ptr %r.0, ptr %arrayidx277, align 16
   %b281 = getelementptr inbounds nuw i8, ptr %arrayidx277, i64 8
   store ptr %add.ptr232, ptr %b281, align 8
@@ -8048,7 +8048,7 @@ if.else295:                                       ; preds = %if.end263
   %xor302 = xor i32 %next.0, 6
   %next.2 = select i1 %or.cond216, i32 %xor302, i32 %next.0
   %idxprom305 = sext i32 %ssize.0 to i64
-  %arrayidx306 = getelementptr inbounds [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom305
+  %arrayidx306 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom305
   store ptr %first.addr.0, ptr %arrayidx306, align 16
   %b310 = getelementptr inbounds nuw i8, ptr %arrayidx306, i64 8
   store ptr %add.ptr230, ptr %b310, align 8
@@ -8337,7 +8337,7 @@ do.body398:                                       ; preds = %cond.true.i570, %if
 if.end402:                                        ; preds = %do.body398
   %dec403 = add nsw i32 %ssize.0, -1
   %idxprom404 = sext i32 %dec403 to i64
-  %arrayidx405 = getelementptr inbounds [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom404
+  %arrayidx405 = getelementptr inbounds nuw [32 x %struct.anon.0], ptr %stack, i64 0, i64 %idxprom404
   %153 = load ptr, ptr %arrayidx405, align 16
   %b409 = getelementptr inbounds nuw i8, ptr %arrayidx405, i64 8
   %154 = load ptr, ptr %b409, align 8

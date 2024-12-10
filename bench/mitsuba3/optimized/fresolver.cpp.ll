@@ -659,12 +659,12 @@ define void @_ZNK7mitsuba12FileResolver9to_stringEv(ptr dead_on_unwind noalias w
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %11 = getelementptr i8, ptr %9, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   store ptr %10, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %16
   invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %17, ptr noundef nonnull %8)
           to label %18 unwind label %21
 
@@ -807,7 +807,7 @@ _ZNSt3__1lsB8ne190000INS_11char_traitsIcEEEERNS_13basic_ostreamIcT_EES6_PKc.exit
   %68 = load ptr, ptr %5, align 8
   %69 = getelementptr i8, ptr %68, i64 -24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   invoke void @_ZNKSt3__18ios_base6getlocEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::locale") align 8 %3, ptr noundef nonnull align 8 dereferenceable(148) %71)
           to label %.noexc15 unwind label %.loopexit
@@ -853,7 +853,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %85 = getelementptr i8, ptr %83, i64 -24
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %86
   store ptr %84, ptr %87, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %8, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #16

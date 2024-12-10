@@ -23185,7 +23185,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i16
   %1 = sext i8 %input to i16
@@ -23408,7 +23408,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i32
   %1 = sext i8 %input to i32
@@ -23629,7 +23629,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = sext i8 %input to i64
   %cmp.i = icmp sgt i64 %0, %conv.i
@@ -23852,7 +23852,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -24122,7 +24122,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i16
   %cmp.not.i = icmp slt i16 %input, %conv2
@@ -24344,7 +24344,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i32
   %1 = sext i16 %input to i32
@@ -24565,7 +24565,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = sext i16 %input to i64
   %cmp.i = icmp sgt i64 %0, %conv.i
@@ -24788,7 +24788,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -25058,7 +25058,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i32
   %sext53 = shl i32 %conv2, 16
@@ -25283,7 +25283,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv2 = trunc i64 %0 to i32
   %cmp.not.i = icmp slt i32 %input, %conv2
@@ -25502,7 +25502,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = sext i32 %input to i64
   %cmp.i = icmp sgt i64 %0, %conv.i
@@ -25725,7 +25725,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -25995,7 +25995,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %sext = shl i64 %0, 48
   %conv.i = ashr exact i64 %sext, 48
@@ -26215,7 +26215,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %sext = shl i64 %0, 32
   %conv.i = ashr exact i64 %sext, 32
@@ -26436,7 +26436,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %cmp.i = icmp sgt i64 %0, %input
   %sub.i = sub nsw i64 0, %0
@@ -26658,7 +26658,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -26928,7 +26928,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i8 %input to i64
   %sext = shl i64 %0, 48
@@ -27146,7 +27146,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i8 %input to i64
   %sext = shl i64 %0, 32
@@ -27364,7 +27364,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i8 %input to i64
   %cmp.i.not = icmp ugt i64 %0, %conv.i
@@ -27584,7 +27584,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -27854,7 +27854,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i16 %input to i64
   %sext = shl i64 %0, 48
@@ -28072,7 +28072,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i16 %input to i64
   %sext = shl i64 %0, 32
@@ -28290,7 +28290,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i16 %input to i64
   %cmp.i.not = icmp ugt i64 %0, %conv.i
@@ -28510,7 +28510,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -28780,7 +28780,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i32 %input to i64
   %sext = shl i64 %0, 48
@@ -28998,7 +28998,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i32 %input to i64
   %sext = shl i64 %0, 32
@@ -29216,7 +29216,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %conv.i = zext i32 %input to i64
   %cmp.i.not = icmp ugt i64 %0, %conv.i
@@ -29436,7 +29436,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -29706,7 +29706,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %sext = shl i64 %0, 48
   %conv.i = ashr exact i64 %sext, 48
@@ -29923,7 +29923,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %sext = shl i64 %0, 32
   %conv.i = ashr exact i64 %sext, 32
@@ -30140,7 +30140,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN6duckdb13NumericHelper13POWERS_OF_TENE, i64 0, i64 %sub
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !12
   %cmp.i.not = icmp ugt i64 %0, %input
   br i1 %cmp.i.not, label %if.end, label %if.then
@@ -30359,7 +30359,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hinput) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -30637,7 +30637,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   %call = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(16) %max_width)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
@@ -30879,7 +30879,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   %call = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(16) %max_width)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
@@ -31121,7 +31121,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   %call = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(16) %max_width)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
@@ -31363,7 +31363,7 @@ entry:
   %conv = zext i8 %width to i64
   %conv1 = zext i8 %scale to i64
   %sub = sub nsw i64 %conv, %conv1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_width, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !197
   %call = call noundef zeroext i1 @_ZNK6duckdb9hugeint_tgeERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(16) %max_width)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #26
@@ -61038,7 +61038,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !1027
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -61271,7 +61271,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !1027
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -61482,7 +61482,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !1027
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #26
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -61688,7 +61688,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !1027
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #26
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 
@@ -66132,7 +66132,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !1134
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -66365,7 +66365,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !1134
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -66576,7 +66576,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !1134
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #26
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -66782,7 +66782,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !1134
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #26
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 
@@ -71108,7 +71108,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 8, !tbaa !1240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp35.i.i.i.i.i = icmp ugt i64 %31, 99
   br i1 %cmp35.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -71343,7 +71343,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 8, !tbaa !1240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp35.i.i.i.i.i101 = icmp ugt i64 %67, 99
   br i1 %cmp35.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -71556,7 +71556,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 8, !tbaa !1240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #26
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp35.i.i.i.i.i171 = icmp ugt i64 %97, 99
   br i1 %cmp35.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -71764,7 +71764,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 8, !tbaa !1240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i216) #26
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp35.i.i.i.i.i242 = icmp ugt i64 %128, 99
   br i1 %cmp35.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -76207,7 +76207,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 8, !tbaa !1346
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp35.i.i.i.i.i = icmp ugt i64 %31, 99
   br i1 %cmp35.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -76442,7 +76442,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 8, !tbaa !1346
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp35.i.i.i.i.i101 = icmp ugt i64 %67, 99
   br i1 %cmp35.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -76655,7 +76655,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 8, !tbaa !1346
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i145) #26
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp35.i.i.i.i.i171 = icmp ugt i64 %97, 99
   br i1 %cmp35.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -76863,7 +76863,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 8, !tbaa !1346
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buffer.i.i.i.i216) #26
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp35.i.i.i.i.i242 = icmp ugt i64 %128, 99
   br i1 %cmp35.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -81098,7 +81098,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 16, !tbaa !1455
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp36.i.i.i.i.i = icmp ugt i128 %.fr, 99
   br i1 %cmp36.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -81335,7 +81335,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 16, !tbaa !1455
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp36.i.i.i.i.i101 = icmp ugt i128 %.fr19, 99
   br i1 %cmp36.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -81550,7 +81550,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 16, !tbaa !1455
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #26
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp36.i.i.i.i.i171 = icmp ugt i128 %.fr17, 99
   br i1 %cmp36.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -81760,7 +81760,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 16, !tbaa !1455
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i216) #26
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp36.i.i.i.i.i242 = icmp ugt i128 %.fr21, 99
   br i1 %cmp36.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -84039,7 +84039,7 @@ if.then10:                                        ; preds = %_ZN10duckdb_fmt2v68
 if.end11:                                         ; preds = %if.then10, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   %ref.tmp.0 = phi ptr [ %incdec.ptr, %if.then10 ], [ %add.ptr.i.i, %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit ]
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i) #26
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %conv6
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %conv6
   %cmp36.i.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i.fr, 99
   br i1 %cmp36.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -86157,7 +86157,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 16, !tbaa !1563
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp36.i.i.i.i.i = icmp ugt i128 %.fr, 99
   br i1 %cmp36.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -86394,7 +86394,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 16, !tbaa !1563
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp36.i.i.i.i.i101 = icmp ugt i128 %.fr19, 99
   br i1 %cmp36.i.i.i.i.i101, label %while.body.i.i.i.i.i125, label %while.end.i.i.i.i.i102
 
@@ -86609,7 +86609,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i165:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i168, align 16, !tbaa !1563
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i145) #26
   %idx.ext.i.i.i.i.i169 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i170 = getelementptr inbounds i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
+  %add.ptr.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i145, i64 %idx.ext.i.i.i.i.i169
   %cmp36.i.i.i.i.i171 = icmp ugt i128 %.fr17, 99
   br i1 %cmp36.i.i.i.i.i171, label %while.body.i.i.i.i.i195, label %while.end.i.i.i.i.i172
 
@@ -86819,7 +86819,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i236:         ; preds = %if.then.i.i.i.i.i23
   %129 = load i32, ptr %num_digits.i.i239, align 16, !tbaa !1563
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i.i.i216) #26
   %idx.ext.i.i.i.i.i240 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i241 = getelementptr inbounds i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
+  %add.ptr.i.i.i.i.i241 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i216, i64 %idx.ext.i.i.i.i.i240
   %cmp36.i.i.i.i.i242 = icmp ugt i128 %.fr21, 99
   br i1 %cmp36.i.i.i.i.i242, label %while.body.i.i.i.i.i266, label %while.end.i.i.i.i.i243
 
@@ -89068,7 +89068,7 @@ if.end11:                                         ; preds = %if.then.i.i.i.i, %_
   %ptr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 8
   %3 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !858
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %buffer.i.i) #26
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %conv6
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i, i64 %conv6
   %cmp36.i.i.i = icmp ugt i128 %n.sroa.0.0.insert.insert.i, 99
   br i1 %cmp36.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
@@ -92209,7 +92209,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %if.then.i.i.i.i.i, 
   %32 = load i32, ptr %num_digits.i.i, align 4, !tbaa !1687
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i) #26
   %idx.ext.i.i.i.i.i = sext i32 %32 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cmp33.i.i.i.i.i = icmp ugt i32 %31, 99
   br i1 %cmp33.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i
 
@@ -92442,7 +92442,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i95:          ; preds = %if.then.i.i.i.i.i92
   %68 = load i32, ptr %num_digits.i.i98, align 4, !tbaa !1687
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i75) #26
   %idx.ext.i.i.i.i.i99 = sext i32 %68 to i64
-  %add.ptr.i.i.i.i.i100 = getelementptr inbounds i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
+  %add.ptr.i.i.i.i.i100 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i75, i64 %idx.ext.i.i.i.i.i99
   %cmp33.i.i.i.i.i101 = icmp ugt i32 %67, 99
   br i1 %cmp33.i.i.i.i.i101, label %while.body.i.i.i.i.i124, label %while.end.i.i.i.i.i102
 
@@ -92653,7 +92653,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i163:         ; preds = %if.then.i.i.i.i.i16
   %98 = load i32, ptr %num_digits.i.i166, align 4, !tbaa !1687
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i143) #26
   %idx.ext.i.i.i.i.i167 = sext i32 %98 to i64
-  %add.ptr.i.i.i.i.i168 = getelementptr inbounds i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
+  %add.ptr.i.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i143, i64 %idx.ext.i.i.i.i.i167
   %cmp33.i.i.i.i.i169 = icmp ugt i32 %97, 99
   br i1 %cmp33.i.i.i.i.i169, label %while.body.i.i.i.i.i192, label %while.end.i.i.i.i.i170
 
@@ -92859,7 +92859,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i232:         ; preds = %if.then.i.i.i.i.i22
   %129 = load i32, ptr %num_digits.i.i235, align 4, !tbaa !1687
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buffer.i.i.i.i212) #26
   %idx.ext.i.i.i.i.i236 = sext i32 %129 to i64
-  %add.ptr.i.i.i.i.i237 = getelementptr inbounds i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
+  %add.ptr.i.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i212, i64 %idx.ext.i.i.i.i.i236
   %cmp33.i.i.i.i.i238 = icmp ugt i32 %128, 99
   br i1 %cmp33.i.i.i.i.i238, label %while.body.i.i.i.i.i261, label %while.end.i.i.i.i.i239
 
@@ -104413,7 +104413,7 @@ while.end:                                        ; preds = %while.body, %while.
   %.lcssa = phi i16 [ %8, %while.cond.preheader ], [ %sub, %while.body ]
   %conv6 = zext nneg i16 %.lcssa to i64
   %sub15 = add nsw i64 %conv6, -1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub15
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub15
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp19) #26
   call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i64 noundef 5)
@@ -104686,7 +104686,7 @@ while.end:                                        ; preds = %while.body, %while.
   %.lcssa = phi i16 [ %8, %while.cond.preheader ], [ %sub, %while.body ]
   %conv6 = zext nneg i16 %.lcssa to i64
   %sub15 = add nsw i64 %conv6, -1
-  %arrayidx = getelementptr inbounds [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub15
+  %arrayidx = getelementptr inbounds nuw [40 x %"struct.duckdb::hugeint_t"], ptr @_ZN6duckdb7Hugeint13POWERS_OF_TENE, i64 0, i64 %sub15
   %call17 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %decimal, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp19) #26
   call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19, i64 noundef 5)

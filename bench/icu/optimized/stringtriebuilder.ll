@@ -842,18 +842,18 @@ do.end:                                           ; preds = %land.end
 do.body36:                                        ; preds = %do.cond48, %do.end
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %do.cond48 ], [ %indvars.iv73, %do.end ]
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  %arrayidx38 = getelementptr inbounds [4 x i8], ptr %isFinal, i64 0, i64 %indvars.iv.next76
+  %arrayidx38 = getelementptr inbounds nuw [4 x i8], ptr %isFinal, i64 0, i64 %indvars.iv.next76
   %9 = load i8, ptr %arrayidx38, align 1
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %if.then, label %do.cond48
 
 if.then:                                          ; preds = %do.body36
-  %arrayidx40 = getelementptr inbounds [5 x i32], ptr %starts, i64 0, i64 %indvars.iv.next76
+  %arrayidx40 = getelementptr inbounds nuw [5 x i32], ptr %starts, i64 0, i64 %indvars.iv.next76
   %10 = load i32, ptr %arrayidx40, align 4
-  %arrayidx43 = getelementptr inbounds [5 x i32], ptr %starts, i64 0, i64 %indvars.iv75
+  %arrayidx43 = getelementptr inbounds nuw [5 x i32], ptr %starts, i64 0, i64 %indvars.iv75
   %11 = load i32, ptr %arrayidx43, align 4
   %call45 = tail call noundef i32 @_ZN6icu_7517StringTrieBuilder9writeNodeEiii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %10, i32 noundef %11, i32 noundef %add)
-  %arrayidx47 = getelementptr inbounds [4 x i32], ptr %jumpTargets, i64 0, i64 %indvars.iv.next76
+  %arrayidx47 = getelementptr inbounds nuw [4 x i32], ptr %jumpTargets, i64 0, i64 %indvars.iv.next76
   store i32 %call45, ptr %arrayidx47, align 4
   br label %do.cond48
 

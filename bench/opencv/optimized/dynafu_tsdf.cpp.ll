@@ -9012,7 +9012,7 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu17MarchCubesInvokerclERKNS_5Range
   %.sroa.28.4714 = phi ptr [ %.sroa.28.7, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backEOS2_.exit510 ], [ %.sroa.28.2720, %392 ]
   %396 = load ptr, ptr %12, align 8
   %397 = sext i32 %395 to i64
-  %398 = getelementptr inbounds [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %400 = load float, ptr %399, align 8
   %401 = load float, ptr %398, align 4
@@ -9153,7 +9153,7 @@ _ZNSt16allocator_traitsISaIN2cv3VecIfLi4EEEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_
   %472 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %112, i64 %471
   %473 = load i32, ptr %472, align 4
   %474 = sext i32 %473 to i64
-  %475 = getelementptr inbounds [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %474
   %476 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %477 = load float, ptr %476, align 8
   %478 = load float, ptr %475, align 4
@@ -9298,7 +9298,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_
   %552 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN2cv6dynafu8triTableE, i64 0, i64 %112, i64 %551
   %553 = load i32, ptr %552, align 4
   %554 = sext i32 %553 to i64
-  %555 = getelementptr inbounds [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %554
+  %555 = getelementptr inbounds nuw [12 x %"class.cv::Point3_.1"], ptr %4, i64 0, i64 %554
   %556 = getelementptr inbounds nuw i8, ptr %550, i64 8
   %557 = load float, ptr %556, align 8
   %558 = load float, ptr %555, align 4

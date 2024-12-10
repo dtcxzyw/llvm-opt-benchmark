@@ -71762,7 +71762,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %168, %_ZNK5clang4Ty
 
 .thread:                                          ; preds = %220, %213, %227, %.loopexit
   %251 = sext i32 %33 to i64
-  %252 = getelementptr inbounds [46 x [3 x i8]], ptr @_ZZN5clang4Sema34CheckOverloadedOperatorDeclarationEPNS_12FunctionDeclEE12OperatorUses, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw [46 x [3 x i8]], ptr @_ZZN5clang4Sema34CheckOverloadedOperatorDeclarationEPNS_12FunctionDeclEE12OperatorUses, i64 0, i64 %251
   %253 = load i8, ptr %252, align 1
   %254 = trunc i8 %253 to i1
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 1

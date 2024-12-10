@@ -782,7 +782,7 @@ define void @Dau_VerifyFile(ptr nocapture noundef readonly %0) local_unnamed_add
   %.0811 = phi i32 [ 0, %.lr.ph ], [ %32, %31 ]
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %9 = add i64 %8, -1
-  %10 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 10
   br i1 %12, label %13, label %14
@@ -794,7 +794,7 @@ define void @Dau_VerifyFile(ptr nocapture noundef readonly %0) local_unnamed_add
 14:                                               ; preds = %13, %7
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %16 = add i64 %15, -1
-  %17 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 13
   br i1 %19, label %20, label %21
@@ -881,7 +881,7 @@ define noundef ptr @Dau_ConstructAigFromFile(ptr nocapture noundef readonly %0) 
   %.01114 = phi i32 [ 0, %.lr.ph ], [ %28, %24 ]
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %12 = add i64 %11, -1
-  %13 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 10
   br i1 %15, label %16, label %17
@@ -893,7 +893,7 @@ define noundef ptr @Dau_ConstructAigFromFile(ptr nocapture noundef readonly %0) 
 17:                                               ; preds = %16, %10
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %19 = add i64 %18, -1
-  %20 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 13
   br i1 %22, label %23, label %24
@@ -2162,7 +2162,7 @@ Dtt_ManCheckHash.exit.thread:                     ; preds = %.lr.ph.i, %Vec_IntP
   %119 = zext i32 %118 to i64
   %120 = shl i64 %.13240, %119
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %121
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %120, %123
   %125 = and i64 %123, %.13240
@@ -2186,7 +2186,7 @@ Dtt_ManCheckHash.exit.thread:                     ; preds = %.lr.ph.i, %Vec_IntP
   %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv52
   %135 = load i32, ptr %134, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %136
   %138 = load i64, ptr %137, align 8
   %139 = and i64 %138, %.132.lcssa
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -4110,7 +4110,7 @@ define range(i32 -1, 2) i32 @Dtt_Check(i32 noundef %0, i32 noundef %1, i32 nound
 
 switch.lookup:                                    ; preds = %13
   %17 = sext i32 %12 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %3, align 4
   br label %Dtt_ProcessType.exit
@@ -4129,7 +4129,7 @@ switch.lookup:                                    ; preds = %13
 switch.lookup71:                                  ; preds = %22
   %switch.tableidx = add nsw i32 %12, -1
   %25 = sext i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
+  %switch.gep72 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   store i32 %switch.load73, ptr %3, align 4
   br label %Dtt_ProcessType.exit
@@ -4194,7 +4194,7 @@ switch.lookup71:                                  ; preds = %22
 switch.lookup74:                                  ; preds = %48
   %switch.tableidx75 = add nsw i32 %12, -3
   %52 = sext i32 %switch.tableidx75 to i64
-  %switch.gep76 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
+  %switch.gep76 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
   %switch.load77 = load i32, ptr %switch.gep76, align 4
   store i32 %switch.load77, ptr %3, align 4
   br label %Dtt_ProcessType.exit
@@ -4214,7 +4214,7 @@ switch.lookup74:                                  ; preds = %48
 switch.lookup78:                                  ; preds = %57
   %switch.tableidx79 = add nsw i32 %12, -4
   %61 = sext i32 %switch.tableidx79 to i64
-  %switch.gep80 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
+  %switch.gep80 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
   %switch.load81 = load i32, ptr %switch.gep80, align 4
   store i32 %switch.load81, ptr %3, align 4
   br label %Dtt_ProcessType.exit
@@ -4263,11 +4263,11 @@ define void @Dtt_FindNP(ptr nocapture noundef readonly %0, i32 noundef %1, i32 n
   %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %22, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %24, align 4
   store i32 %25, ptr %28, align 4
@@ -4417,13 +4417,13 @@ Dtt_ProcessType.exit:                             ; preds = %35
   %90 = zext i32 %89 to i64
   %91 = shl i64 %.169, %90
   %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %91, %94
   %96 = and i64 %94, %.169
   %97 = lshr i64 %96, %90
   %98 = or i64 %95, %97
-  %99 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %92
+  %99 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %92
   %100 = load i32, ptr %99, align 4
   %101 = xor i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -4445,7 +4445,7 @@ Dtt_ProcessType.exit:                             ; preds = %35
   %108 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv87
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = and i64 %112, %.1.lcssa
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -4460,11 +4460,11 @@ Dtt_ProcessType.exit:                             ; preds = %35
   %123 = and i64 %122, %.1.lcssa
   %124 = lshr i64 %123, %118
   %125 = or i64 %120, %124
-  %126 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %110
+  %126 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %110
   %127 = load i32, ptr %126, align 4
   %128 = add nsw i32 %109, 1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   store i32 %131, ptr %126, align 4
   store i32 %127, ptr %130, align 4

@@ -2906,7 +2906,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 176
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 184
   %78 = load i64, ptr %77, align 8
@@ -3040,7 +3040,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 176
   %157 = load i32, ptr %156, align 8
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %158
   %160 = load i64, ptr %159, align 8
   %161 = call i32 @H5S_hyper_clip_unlim(ptr noundef %155, i64 noundef %160) #14
   %.not473 = icmp eq i32 %161, 0
@@ -3058,7 +3058,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 176
   %170 = load i32, ptr %169, align 8
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %171
   %173 = load i64, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %168, i64 184
   store i64 %173, ptr %174, align 8
@@ -3377,7 +3377,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %364 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %363, i64 %.1414530, i32 16
   %365 = load i32, ptr %364, align 4
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %366
   %368 = load i64, ptr %367, align 8
   %369 = add i64 %368, 1
   br label %385
@@ -3399,7 +3399,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %380 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %379, i64 %.1414530, i32 16
   %381 = load i32, ptr %380, align 4
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds [32 x i64], ptr %4, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %382
   %384 = load i64, ptr %383, align 8
   br label %385
 
@@ -3420,7 +3420,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %392 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %391, i64 %.1414530, i32 16
   %393 = load i32, ptr %392, align 4
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %394
   %396 = load i64, ptr %395, align 8
   %397 = icmp eq i64 %396, -1
   br i1 %397, label %405, label %398
@@ -3639,7 +3639,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %515 = getelementptr inbounds nuw i8, ptr %512, i64 176
   %516 = load i32, ptr %515, align 8
   %517 = sext i32 %516 to i64
-  %518 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %517
+  %518 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %517
   %519 = load i64, ptr %518, align 8
   %520 = call i32 @H5S_hyper_clip_unlim(ptr noundef %514, i64 noundef %519) #14
   %.not448 = icmp eq i32 %520, 0
@@ -3854,7 +3854,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_set_extent_unlim(ptr noundef %0) local
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 180
   %638 = load i32, ptr %637, align 4
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %639
   %641 = load i64, ptr %640, align 8
   %642 = getelementptr inbounds nuw i8, ptr %636, i64 192
   store i64 %641, ptr %642, align 8
@@ -4744,7 +4744,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture r
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 180
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = call i64 @H5S_hyper_get_clip_extent_match(ptr noundef %80, ptr noundef %81, i64 noundef %86, i1 noundef zeroext false) #14
   %88 = load ptr, ptr %26, align 8
@@ -4830,7 +4830,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture r
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 176
   %137 = load i32, ptr %136, align 8
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %138
   %140 = load i64, ptr %139, align 8
   %.not232.i = icmp ugt i64 %87, %140
   br i1 %.not232.i, label %163, label %141
@@ -4841,7 +4841,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture r
   %144 = getelementptr inbounds nuw i8, ptr %135, i64 180
   %145 = load i32, ptr %144, align 4
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %146
   %148 = load i64, ptr %147, align 8
   %149 = call i32 @H5S_hyper_clip_unlim(ptr noundef %143, i64 noundef %148) #14
   %.not235.i = icmp eq i32 %149, 0
@@ -4893,7 +4893,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__virtual_pre_io(ptr nocapture r
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 176
   %182 = load i32, ptr %181, align 8
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %183
   %185 = load i64, ptr %184, align 8
   %186 = call i32 @H5S_hyper_clip_unlim(ptr noundef %180, i64 noundef %185) #14
   %.not234.i = icmp eq i32 %186, 0
@@ -5308,7 +5308,7 @@ H5D__virtual_init_all.exit:                       ; preds = %361, %.preheader.i
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 180
   %410 = load i32, ptr %409, align 4
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %411
   %413 = load i64, ptr %412, align 8
   %414 = call i64 @H5S_hyper_get_first_inc_block(ptr noundef %408, i64 noundef %413, ptr noundef null) #14
   %415 = load ptr, ptr %373, align 8
@@ -5320,7 +5320,7 @@ H5D__virtual_init_all.exit:                       ; preds = %361, %.preheader.i
   %420 = getelementptr inbounds nuw i8, ptr %418, i64 180
   %421 = load i32, ptr %420, align 4
   %422 = sext i32 %421 to i64
-  %423 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %422
+  %423 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %422
   %424 = load i64, ptr %423, align 8
   %425 = call i64 @H5S_hyper_get_first_inc_block(ptr noundef %419, i64 noundef %424, ptr noundef nonnull %10) #14
   %426 = load ptr, ptr %373, align 8

@@ -1963,7 +1963,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 
 .lr.ph.us:                                        ; preds = %35, %47
   %.05565.us = phi i64 [ %48, %47 ], [ 0, %35 ]
-  %38 = getelementptr inbounds [12 x i8], ptr %4, i64 0, i64 %.05565.us
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 0, i64 %.05565.us
   %39 = load i8, ptr %38, align 1
   %40 = getelementptr inbounds i8, ptr %32, i64 %.05565.us
   %41 = load i8, ptr %40, align 1

@@ -330,7 +330,7 @@ if.end12:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %nonce, ptr nonnull align 1 %nonce_prefix_, i64 %4, i1 false)
   %call15 = call noundef i64 @_ZN3net9QuicUtils25PackPathIdAndPacketNumberEhm(i8 noundef zeroext %path_id, i64 noundef %packet_number)
   %5 = load i64, ptr %nonce_prefix_size_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 %5
+  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce, i64 %5
   store i64 %call15, ptr %add.ptr, align 1
   %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call18 = call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ctx_)

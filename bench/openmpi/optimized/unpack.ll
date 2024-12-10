@@ -4842,7 +4842,7 @@ switch.hole_check:                                ; preds = %39
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %42 = sext i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [42 x i64], ptr @switch.table.pmix20_bfrop_unpack_darray, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [42 x i64], ptr @switch.table.pmix20_bfrop_unpack_darray, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %sext = shl i64 %34, 32
   %43 = ashr exact i64 %sext, 32

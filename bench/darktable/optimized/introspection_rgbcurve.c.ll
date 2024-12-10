@@ -3348,9 +3348,9 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %751 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %752 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %753 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %754 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %21
-  %755 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %21
-  %756 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 %21
+  %754 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %21
+  %755 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %21
+  %756 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %21
   %757 = sitofp i32 %547 to double
   %758 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %759 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3459,19 +3459,19 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %820 = fdiv reassoc nsz arcp contract afn double %819, %818
   call void @pango_font_description_set_absolute_size(ptr noundef %812, double noundef %820) #24
   call void @pango_layout_set_font_description(ptr noundef %813, ptr noundef %812) #24
-  %821 = getelementptr inbounds [4 x float], ptr %8, i64 0, i64 %21
+  %821 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %21
   %822 = load float, ptr %821, align 4, !tbaa !13
   %823 = load float, ptr %440, align 8, !tbaa !123
   %824 = load float, ptr %442, align 4, !tbaa !124
   %825 = fsub reassoc nsz arcp contract afn float %822, %824
   %826 = fmul reassoc nsz arcp contract afn float %825, %823
   store float %826, ptr %821, align 4, !tbaa !13
-  %827 = getelementptr inbounds [4 x float], ptr %9, i64 0, i64 %21
+  %827 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %21
   %828 = load float, ptr %827, align 4, !tbaa !13
   %829 = fsub reassoc nsz arcp contract afn float %828, %824
   %830 = fmul reassoc nsz arcp contract afn float %829, %823
   store float %830, ptr %827, align 4, !tbaa !13
-  %831 = getelementptr inbounds [4 x float], ptr %7, i64 0, i64 %21
+  %831 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %21
   %832 = load float, ptr %831, align 4, !tbaa !13
   %833 = fsub reassoc nsz arcp contract afn float %832, %824
   %834 = fmul reassoc nsz arcp contract afn float %833, %823
@@ -6518,7 +6518,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %514 = load i32, ptr %211, align 4, !tbaa !6
   %515 = add nsw i32 %514, -1
   %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds [3 x [20 x %struct.dt_iop_rgbcurve_node_t]], ptr %8, i64 0, i64 0, i64 %516
+  %517 = getelementptr inbounds nuw [3 x [20 x %struct.dt_iop_rgbcurve_node_t]], ptr %8, i64 0, i64 0, i64 %516
   %518 = load float, ptr %517, align 8, !tbaa !37
   %519 = fmul reassoc nsz arcp contract afn float %518, 0x3FE6666660000000
   %520 = fmul reassoc nsz arcp contract afn float %518, 0x3FE99999A0000000

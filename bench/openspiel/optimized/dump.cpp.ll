@@ -1088,7 +1088,7 @@ define void @_Z10NodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noalias w
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
-  %43 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %38, i8 noundef zeroext %44)
           to label %46 unwind label %57
@@ -1097,7 +1097,7 @@ define void @_Z10NodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noalias w
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = sext i8 %48 to i64
-  %50 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %45, i8 noundef zeroext %51)
           to label %53 unwind label %57
@@ -1178,7 +1178,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
 28:                                               ; preds = %25
   %29 = load i32, ptr %6, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef zeroext %32)
           to label %34 unwind label %85
@@ -1195,7 +1195,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
 39:                                               ; preds = %36
   %40 = load i32, ptr %8, align 4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %38, i8 noundef zeroext %43)
           to label %45 unwind label %85
@@ -1213,7 +1213,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %49, i8 noundef zeroext %55)
           to label %57 unwind label %85
@@ -1231,7 +1231,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %61, i8 noundef zeroext %67)
           to label %69 unwind label %85
@@ -1382,7 +1382,7 @@ define void @_Z9PosToTextB5cxx11RK3posii(ptr dead_on_unwind noalias writable sre
   %41 = getelementptr inbounds [50 x i32], ptr %39, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [4 x i8], ptr @cardHand, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @cardHand, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %37, i8 noundef zeroext %45)
           to label %47 unwind label %66
@@ -1405,7 +1405,7 @@ define void @_Z9PosToTextB5cxx11RK3posii(ptr dead_on_unwind noalias writable sre
   %56 = getelementptr inbounds [50 x i32], ptr %39, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [4 x i8], ptr @cardHand, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @cardHand, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %52, i8 noundef zeroext %60)
           to label %62 unwind label %66
@@ -2100,7 +2100,7 @@ define void @_Z7TopMoveB5cxx11bRK8moveType(ptr dead_on_unwind noalias writable s
 9:                                                ; preds = %6
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef zeroext %13)
           to label %15 unwind label %24
@@ -2109,7 +2109,7 @@ define void @_Z7TopMoveB5cxx11bRK8moveType(ptr dead_on_unwind noalias writable s
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %14, i8 noundef zeroext %20)
           to label %22 unwind label %24
@@ -2223,7 +2223,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
 
 22:                                               ; preds = %19
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef zeroext %25)
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2242,7 +2242,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [4 x i8], ptr @cardHand, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @cardHand, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %31, i8 noundef zeroext %37)
           to label %39 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2284,7 +2284,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
   %55 = getelementptr inbounds nuw [3 x i32], ptr %42, i64 0, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %53, i8 noundef zeroext %59)
           to label %61 unwind label %.loopexit.split-lp.loopexit
@@ -2296,7 +2296,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
 63:                                               ; preds = %61
   %64 = load i32, ptr %45, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %62, i8 noundef zeroext %67)
           to label %69 unwind label %.loopexit.split-lp.loopexit

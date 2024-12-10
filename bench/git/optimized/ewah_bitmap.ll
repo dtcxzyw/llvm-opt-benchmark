@@ -1527,7 +1527,7 @@ entry:
 if.then:                                          ; preds = %entry
   %dec = add i64 %0, -1
   store i64 %dec, ptr @bitmap_pool_size, align 8
-  %arrayidx = getelementptr inbounds [16 x ptr], ptr @bitmap_pool, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %dec
   %1 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -1593,7 +1593,7 @@ if.end3:                                          ; preds = %lor.lhs.false
   store ptr %4, ptr %rlw.i, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr @bitmap_pool_size, align 8
-  %arrayidx = getelementptr inbounds [16 x ptr], ptr @bitmap_pool, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [16 x ptr], ptr @bitmap_pool, i64 0, i64 %0
   store ptr %self, ptr %arrayidx, align 8
   br label %return
 

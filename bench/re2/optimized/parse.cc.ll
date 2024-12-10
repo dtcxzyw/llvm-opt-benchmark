@@ -677,9 +677,9 @@ define noundef i32 @_ZN3re213CycleFoldRuneEi(i32 noundef %r) local_unnamed_addr 
 entry:
   %0 = load i32, ptr @_ZN3re220num_unicode_casefoldE, align 4
   %idx.ext.i = sext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::CaseFold", ptr @_ZN3re216unicode_casefoldE, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr @_ZN3re216unicode_casefoldE, i64 %idx.ext.i
   %cmp21.i = icmp sgt i32 %0, 0
-  br i1 %cmp21.i, label %while.body.i, label %return
+  br i1 %cmp21.i, label %while.body.i, label %while.end.i.thread
 
 while.body.i:                                     ; preds = %entry, %if.end.i
   %f.addr.023.i = phi ptr [ %f.addr.1.i, %if.end.i ], [ @_ZN3re216unicode_casefoldE, %entry ]
@@ -709,22 +709,22 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
 
 while.end.i:                                      ; preds = %if.end.i
   %cmp16.i.not = icmp ult ptr %f.addr.1.i, %add.ptr.i
-  br i1 %cmp16.i.not, label %while.end.i.lor.lhs.false_crit_edge, label %return
+  br i1 %cmp16.i.not, label %lor.lhs.false, label %return
 
-while.end.i.lor.lhs.false_crit_edge:              ; preds = %while.end.i
-  %.pre = load i32, ptr %f.addr.1.i, align 4
-  br label %lor.lhs.false
+while.end.i.thread:                               ; preds = %entry
+  %cmp16.i17.not = icmp eq i32 %0, 0
+  br i1 %cmp16.i17.not, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %land.lhs.true.i, %while.end.i.lor.lhs.false_crit_edge
-  %3 = phi i32 [ %.pre, %while.end.i.lor.lhs.false_crit_edge ], [ %1, %land.lhs.true.i ]
-  %4 = phi i64 [ %f.addr.1.idx.i, %while.end.i.lor.lhs.false_crit_edge ], [ %idxprom.i, %land.lhs.true.i ]
+lor.lhs.false:                                    ; preds = %land.lhs.true.i, %while.end.i, %while.end.i.thread
+  %retval.0.i15 = phi ptr [ @_ZN3re216unicode_casefoldE, %while.end.i.thread ], [ %f.addr.1.i, %while.end.i ], [ %arrayidx.i, %land.lhs.true.i ]
+  %3 = load i32, ptr %retval.0.i15, align 4
   %cmp1 = icmp slt i32 %r, %3
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %delta.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %4, i32 2
-  %5 = load i32, ptr %delta.i, align 4
-  switch i32 %5, label %sw.default.i [
+  %delta.i = getelementptr inbounds nuw i8, ptr %retval.0.i15, i64 8
+  %4 = load i32, ptr %delta.i, align 4
+  switch i32 %4, label %sw.default.i [
     i32 1073741824, label %sw.bb.i
     i32 1, label %sw.bb2.i
     i32 1073741825, label %sw.bb8.i
@@ -732,18 +732,18 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 sw.default.i:                                     ; preds = %if.end
-  %add.i9 = add nsw i32 %5, %r
+  %add.i9 = add nsw i32 %4, %r
   br label %return
 
 sw.bb.i:                                          ; preds = %if.end
   %sub.i8 = sub nsw i32 %r, %3
-  %6 = and i32 %sub.i8, 1
-  %tobool.not.i = icmp eq i32 %6, 0
+  %5 = and i32 %sub.i8, 1
+  %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %sw.bb2.i, label %return
 
 sw.bb2.i:                                         ; preds = %sw.bb.i, %if.end
-  %7 = and i32 %r, 1
-  %cmp.i7 = icmp eq i32 %7, 0
+  %6 = and i32 %r, 1
+  %cmp.i7 = icmp eq i32 %6, 0
   br i1 %cmp.i7, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %sw.bb2.i
@@ -756,13 +756,13 @@ if.end6.i:                                        ; preds = %sw.bb2.i
 
 sw.bb8.i:                                         ; preds = %if.end
   %sub10.i = sub nsw i32 %r, %3
-  %8 = and i32 %sub10.i, 1
-  %tobool12.not.i = icmp eq i32 %8, 0
+  %7 = and i32 %sub10.i, 1
+  %tobool12.not.i = icmp eq i32 %7, 0
   br i1 %tobool12.not.i, label %sw.bb15.i, label %return
 
 sw.bb15.i:                                        ; preds = %sw.bb8.i, %if.end
-  %9 = and i32 %r, -2147483647
-  %cmp17.i = icmp eq i32 %9, 1
+  %8 = and i32 %r, -2147483647
+  %cmp17.i = icmp eq i32 %8, 1
   br i1 %cmp17.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %sw.bb15.i
@@ -773,8 +773,8 @@ if.end20.i:                                       ; preds = %sw.bb15.i
   %sub21.i = add nsw i32 %r, -1
   br label %return
 
-return:                                           ; preds = %entry, %while.end.i, %if.end20.i, %if.then18.i, %sw.bb8.i, %if.end6.i, %if.then4.i, %sw.bb.i, %sw.default.i, %lor.lhs.false
-  %retval.0 = phi i32 [ %r, %lor.lhs.false ], [ %add.i9, %sw.default.i ], [ %add19.i, %if.then18.i ], [ %sub21.i, %if.end20.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %r, %sw.bb.i ], [ %r, %sw.bb8.i ], [ %r, %while.end.i ], [ %r, %entry ]
+return:                                           ; preds = %while.end.i, %while.end.i.thread, %if.end20.i, %if.then18.i, %sw.bb8.i, %if.end6.i, %if.then4.i, %sw.bb.i, %sw.default.i, %lor.lhs.false
+  %retval.0 = phi i32 [ %r, %lor.lhs.false ], [ %add.i9, %sw.default.i ], [ %add19.i, %if.then18.i ], [ %sub21.i, %if.end20.i ], [ %add5.i, %if.then4.i ], [ %sub7.i, %if.end6.i ], [ %r, %sw.bb.i ], [ %r, %sw.bb8.i ], [ %r, %while.end.i.thread ], [ %r, %while.end.i ]
   ret i32 %retval.0
 }
 
@@ -787,74 +787,11 @@ entry:
   br i1 %tobool.not, label %if.end22, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr @_ZN3re220num_unicode_casefoldE, align 4
-  %idx.ext.i.i = sext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.re2::CaseFold", ptr @_ZN3re216unicode_casefoldE, i64 %idx.ext.i.i
-  %cmp21.i.i = icmp sgt i32 %1, 0
-  br i1 %cmp21.i.i, label %while.body.i.i, label %if.end22
+  %call2 = tail call noundef i32 @_ZN3re213CycleFoldRuneEi(i32 noundef %r)
+  %cmp.not = icmp eq i32 %call2, %r
+  br i1 %cmp.not, label %if.end22, label %if.then
 
-while.body.i.i:                                   ; preds = %land.lhs.true, %if.end.i.i
-  %f.addr.023.i.i = phi ptr [ %f.addr.1.i.i, %if.end.i.i ], [ @_ZN3re216unicode_casefoldE, %land.lhs.true ]
-  %n.addr.022.i.i = phi i32 [ %n.addr.1.i.i, %if.end.i.i ], [ %1, %land.lhs.true ]
-  %div19.i.i = lshr i32 %n.addr.022.i.i, 1
-  %idxprom.i.i = zext nneg i32 %div19.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i, i64 %idxprom.i.i
-  %2 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp1.not.i.i = icmp sgt i32 %2, %r
-  br i1 %cmp1.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %while.body.i.i
-  %hi.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
-  %3 = load i32, ptr %hi.i.i, align 4
-  %cmp4.not.i.i = icmp sgt i32 %r, %3
-  br i1 %cmp4.not.i.i, label %if.end.i.i, label %lor.lhs.false.i
-
-if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %while.body.i.i
-  %add.i.i = add nuw nsw i32 %div19.i.i, 1
-  %sub.i.i = sub nsw i32 %n.addr.022.i.i, %add.i.i
-  %n.addr.1.i.i = select i1 %cmp1.not.i.i, i32 %div19.i.i, i32 %sub.i.i
-  %narrow.i.i = select i1 %cmp1.not.i.i, i32 0, i32 %add.i.i
-  %f.addr.1.idx.i.i = zext nneg i32 %narrow.i.i to i64
-  %f.addr.1.i.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i, i64 %f.addr.1.idx.i.i
-  %cmp.i.i = icmp sgt i32 %n.addr.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !7
-
-while.end.i.i:                                    ; preds = %if.end.i.i
-  %cmp16.i.not.i = icmp ult ptr %f.addr.1.i.i, %add.ptr.i.i
-  br i1 %cmp16.i.not.i, label %while.end.i.lor.lhs.false_crit_edge.i, label %if.end22
-
-while.end.i.lor.lhs.false_crit_edge.i:            ; preds = %while.end.i.i
-  %.pre.i = load i32, ptr %f.addr.1.i.i, align 4
-  br label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %land.lhs.true.i.i, %while.end.i.lor.lhs.false_crit_edge.i
-  %4 = phi i32 [ %.pre.i, %while.end.i.lor.lhs.false_crit_edge.i ], [ %2, %land.lhs.true.i.i ]
-  %5 = phi i64 [ %f.addr.1.idx.i.i, %while.end.i.lor.lhs.false_crit_edge.i ], [ %idxprom.i.i, %land.lhs.true.i.i ]
-  %cmp1.i = icmp slt i32 %r, %4
-  br i1 %cmp1.i, label %if.end22, label %if.end.i
-
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %delta.i.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i, i64 %5, i32 2
-  %6 = load i32, ptr %delta.i.i, align 4
-  switch i32 %6, label %if.then [
-    i32 1073741824, label %sw.bb.i.i
-    i32 0, label %if.end22
-    i32 1073741825, label %sw.bb8.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %if.end.i
-  %sub.i8.i = sub nsw i32 %r, %4
-  %7 = and i32 %sub.i8.i, 1
-  %tobool.not.i.i = icmp eq i32 %7, 0
-  br i1 %tobool.not.i.i, label %if.then, label %if.end22
-
-sw.bb8.i.i:                                       ; preds = %if.end.i
-  %sub10.i.i = sub nsw i32 %r, %4
-  %8 = and i32 %sub10.i.i, 1
-  %tobool12.not.i.i = icmp eq i32 %8, 0
-  br i1 %tobool12.not.i.i, label %if.then, label %if.end22
-
-if.then:                                          ; preds = %if.end.i, %sw.bb8.i.i, %sw.bb.i.i
+if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %and.i16 = and i32 %0, 16382
   invoke void @_ZN3re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %call3, i32 noundef 20, i32 noundef %and.i16)
@@ -870,133 +807,38 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   store ptr %call9, ptr %ccb_, align 8
   br label %do.body
 
-do.body:                                          ; preds = %_ZN3re213CycleFoldRuneEi.exit68, %invoke.cont11
-  %r.addr.0 = phi i32 [ %r, %invoke.cont11 ], [ %retval.0.i21, %_ZN3re213CycleFoldRuneEi.exit68 ]
-  %9 = load i32, ptr %this, align 8
-  %and.i17 = and i32 %9, 2048
+do.body:                                          ; preds = %if.end, %invoke.cont11
+  %r.addr.0 = phi i32 [ %r, %invoke.cont11 ], [ %call19, %if.end ]
+  %1 = load i32, ptr %this, align 8
+  %and.i17 = and i32 %1, 2048
   %tobool14 = icmp eq i32 %and.i17, 0
   %cmp15 = icmp ne i32 %r.addr.0, 10
   %or.cond = or i1 %cmp15, %tobool14
-  br i1 %or.cond, label %if.then16, label %while.body.i.i22.preheader
+  br i1 %or.cond, label %if.then16, label %if.end
 
 if.then16:                                        ; preds = %do.body
-  %10 = load ptr, ptr %ccb_, align 8
-  %call18 = tail call noundef zeroext i1 @_ZN3re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %r.addr.0, i32 noundef %r.addr.0)
-  br label %while.body.i.i22.preheader
-
-while.body.i.i22.preheader:                       ; preds = %do.body, %if.then16
-  br label %while.body.i.i22
+  %2 = load ptr, ptr %ccb_, align 8
+  %call18 = tail call noundef zeroext i1 @_ZN3re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %r.addr.0, i32 noundef %r.addr.0)
+  br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %11 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad10:                                           ; preds = %invoke.cont8
-  %12 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-while.body.i.i22:                                 ; preds = %while.body.i.i22.preheader, %if.end.i.i56
-  %f.addr.023.i.i23 = phi ptr [ %f.addr.1.i.i62, %if.end.i.i56 ], [ @_ZN3re216unicode_casefoldE, %while.body.i.i22.preheader ]
-  %n.addr.022.i.i24 = phi i32 [ %n.addr.1.i.i59, %if.end.i.i56 ], [ %1, %while.body.i.i22.preheader ]
-  %div19.i.i25 = lshr i32 %n.addr.022.i.i24, 1
-  %idxprom.i.i26 = zext nneg i32 %div19.i.i25 to i64
-  %arrayidx.i.i27 = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i23, i64 %idxprom.i.i26
-  %13 = load i32, ptr %arrayidx.i.i27, align 4
-  %cmp1.not.i.i28 = icmp sgt i32 %13, %r.addr.0
-  br i1 %cmp1.not.i.i28, label %if.end.i.i56, label %land.lhs.true.i.i29
-
-land.lhs.true.i.i29:                              ; preds = %while.body.i.i22
-  %hi.i.i30 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i27, i64 4
-  %14 = load i32, ptr %hi.i.i30, align 4
-  %cmp4.not.i.i31 = icmp sgt i32 %r.addr.0, %14
-  br i1 %cmp4.not.i.i31, label %if.end.i.i56, label %lor.lhs.false.i32
-
-if.end.i.i56:                                     ; preds = %land.lhs.true.i.i29, %while.body.i.i22
-  %add.i.i57 = add nuw nsw i32 %div19.i.i25, 1
-  %sub.i.i58 = sub nsw i32 %n.addr.022.i.i24, %add.i.i57
-  %n.addr.1.i.i59 = select i1 %cmp1.not.i.i28, i32 %div19.i.i25, i32 %sub.i.i58
-  %narrow.i.i60 = select i1 %cmp1.not.i.i28, i32 0, i32 %add.i.i57
-  %f.addr.1.idx.i.i61 = zext nneg i32 %narrow.i.i60 to i64
-  %f.addr.1.i.i62 = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i23, i64 %f.addr.1.idx.i.i61
-  %cmp.i.i63 = icmp sgt i32 %n.addr.1.i.i59, 0
-  br i1 %cmp.i.i63, label %while.body.i.i22, label %while.end.i.i64, !llvm.loop !7
-
-while.end.i.i64:                                  ; preds = %if.end.i.i56
-  %cmp16.i.not.i65 = icmp ult ptr %f.addr.1.i.i62, %add.ptr.i.i
-  br i1 %cmp16.i.not.i65, label %while.end.i.lor.lhs.false_crit_edge.i66, label %_ZN3re213CycleFoldRuneEi.exit68
-
-while.end.i.lor.lhs.false_crit_edge.i66:          ; preds = %while.end.i.i64
-  %.pre.i67 = load i32, ptr %f.addr.1.i.i62, align 4
-  br label %lor.lhs.false.i32
-
-lor.lhs.false.i32:                                ; preds = %land.lhs.true.i.i29, %while.end.i.lor.lhs.false_crit_edge.i66
-  %15 = phi i32 [ %.pre.i67, %while.end.i.lor.lhs.false_crit_edge.i66 ], [ %13, %land.lhs.true.i.i29 ]
-  %16 = phi i64 [ %f.addr.1.idx.i.i61, %while.end.i.lor.lhs.false_crit_edge.i66 ], [ %idxprom.i.i26, %land.lhs.true.i.i29 ]
-  %cmp1.i33 = icmp slt i32 %r.addr.0, %15
-  br i1 %cmp1.i33, label %_ZN3re213CycleFoldRuneEi.exit68, label %if.end.i34
-
-if.end.i34:                                       ; preds = %lor.lhs.false.i32
-  %delta.i.i35 = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.i23, i64 %16, i32 2
-  %17 = load i32, ptr %delta.i.i35, align 4
-  switch i32 %17, label %sw.default.i.i54 [
-    i32 1073741824, label %sw.bb.i.i51
-    i32 1, label %sw.bb2.i.i45
-    i32 1073741825, label %sw.bb8.i.i42
-    i32 -1, label %sw.bb15.i.i36
-  ]
-
-sw.default.i.i54:                                 ; preds = %if.end.i34
-  %add.i9.i55 = add nsw i32 %17, %r.addr.0
-  br label %_ZN3re213CycleFoldRuneEi.exit68
-
-sw.bb.i.i51:                                      ; preds = %if.end.i34
-  %sub.i8.i52 = sub nsw i32 %r.addr.0, %15
-  %18 = and i32 %sub.i8.i52, 1
-  %tobool.not.i.i53 = icmp eq i32 %18, 0
-  br i1 %tobool.not.i.i53, label %sw.bb2.i.i45, label %_ZN3re213CycleFoldRuneEi.exit68
-
-sw.bb2.i.i45:                                     ; preds = %sw.bb.i.i51, %if.end.i34
-  %19 = and i32 %r.addr.0, 1
-  %cmp.i7.i46 = icmp eq i32 %19, 0
-  br i1 %cmp.i7.i46, label %if.then4.i.i49, label %if.end6.i.i47
-
-if.then4.i.i49:                                   ; preds = %sw.bb2.i.i45
-  %add5.i.i50 = or disjoint i32 %r.addr.0, 1
-  br label %_ZN3re213CycleFoldRuneEi.exit68
-
-if.end6.i.i47:                                    ; preds = %sw.bb2.i.i45
-  %sub7.i.i48 = add nsw i32 %r.addr.0, -1
-  br label %_ZN3re213CycleFoldRuneEi.exit68
-
-sw.bb8.i.i42:                                     ; preds = %if.end.i34
-  %sub10.i.i43 = sub nsw i32 %r.addr.0, %15
-  %20 = and i32 %sub10.i.i43, 1
-  %tobool12.not.i.i44 = icmp eq i32 %20, 0
-  br i1 %tobool12.not.i.i44, label %sw.bb15.i.i36, label %_ZN3re213CycleFoldRuneEi.exit68
-
-sw.bb15.i.i36:                                    ; preds = %sw.bb8.i.i42, %if.end.i34
-  %21 = and i32 %r.addr.0, -2147483647
-  %cmp17.i.i37 = icmp eq i32 %21, 1
-  br i1 %cmp17.i.i37, label %if.then18.i.i40, label %if.end20.i.i38
-
-if.then18.i.i40:                                  ; preds = %sw.bb15.i.i36
-  %add19.i.i41 = add nuw nsw i32 %r.addr.0, 1
-  br label %_ZN3re213CycleFoldRuneEi.exit68
-
-if.end20.i.i38:                                   ; preds = %sw.bb15.i.i36
-  %sub21.i.i39 = add nsw i32 %r.addr.0, -1
-  br label %_ZN3re213CycleFoldRuneEi.exit68
-
-_ZN3re213CycleFoldRuneEi.exit68:                  ; preds = %while.end.i.i64, %lor.lhs.false.i32, %sw.default.i.i54, %sw.bb.i.i51, %if.then4.i.i49, %if.end6.i.i47, %sw.bb8.i.i42, %if.then18.i.i40, %if.end20.i.i38
-  %retval.0.i21 = phi i32 [ %r.addr.0, %lor.lhs.false.i32 ], [ %add.i9.i55, %sw.default.i.i54 ], [ %add19.i.i41, %if.then18.i.i40 ], [ %sub21.i.i39, %if.end20.i.i38 ], [ %add5.i.i50, %if.then4.i.i49 ], [ %sub7.i.i48, %if.end6.i.i47 ], [ %r.addr.0, %sw.bb.i.i51 ], [ %r.addr.0, %sw.bb8.i.i42 ], [ %r.addr.0, %while.end.i.i64 ]
-  %cmp20.not = icmp eq i32 %retval.0.i21, %r
+if.end:                                           ; preds = %do.body, %if.then16
+  %call19 = tail call noundef i32 @_ZN3re213CycleFoldRuneEi(i32 noundef %r.addr.0)
+  %cmp20.not = icmp eq i32 %call19, %r
   br i1 %cmp20.not, label %return.sink.split, label %do.body, !llvm.loop !8
 
-if.end22:                                         ; preds = %if.end.i, %land.lhs.true, %while.end.i.i, %sw.bb8.i.i, %sw.bb.i.i, %lor.lhs.false.i, %entry
-  %and.i69 = and i32 %0, 2048
-  %tobool25 = icmp ne i32 %and.i69, 0
+if.end22:                                         ; preds = %land.lhs.true, %entry
+  %and.i18 = and i32 %0, 2048
+  %tobool25 = icmp ne i32 %and.i18, 0
   %cmp27 = icmp eq i32 %r, 10
   %or.cond1 = and i1 %cmp27, %tobool25
   br i1 %or.cond1, label %if.then28, label %if.end34
@@ -1007,7 +849,7 @@ if.then28:                                        ; preds = %if.end22
           to label %return.sink.split unwind label %lpad31
 
 lpad31:                                           ; preds = %if.then28
-  %22 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1017,22 +859,22 @@ if.end34:                                         ; preds = %if.end22
 
 if.end38:                                         ; preds = %if.end34
   %call40 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  %23 = load i32, ptr %this, align 8
-  invoke void @_ZN3re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %call40, i32 noundef 3, i32 noundef %23)
+  %6 = load i32, ptr %this, align 8
+  invoke void @_ZN3re26RegexpC1ENS_8RegexpOpENS0_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(40) %call40, i32 noundef 3, i32 noundef %6)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.end38
-  %24 = getelementptr inbounds nuw i8, ptr %call40, i64 24
-  store i32 %r, ptr %24, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %call40, i64 24
+  store i32 %r, ptr %7, align 8
   br label %return.sink.split
 
 lpad42:                                           ; preds = %if.end38
-  %25 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-return.sink.split:                                ; preds = %_ZN3re213CycleFoldRuneEi.exit68, %if.then28, %invoke.cont43
-  %call40.sink = phi ptr [ %call40, %invoke.cont43 ], [ %call29, %if.then28 ], [ %call3, %_ZN3re213CycleFoldRuneEi.exit68 ]
+return.sink.split:                                ; preds = %if.end, %if.then28, %invoke.cont43
+  %call40.sink = phi ptr [ %call40, %invoke.cont43 ], [ %call29, %if.then28 ], [ %call3, %if.end ]
   %call44 = tail call noundef zeroext i1 @_ZN3re26Regexp10ParseState10PushRegexpEPS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %call40.sink)
   br label %return
 
@@ -1040,9 +882,9 @@ return:                                           ; preds = %return.sink.split, 
   ret i1 true
 
 eh.resume:                                        ; preds = %lpad42, %lpad31, %lpad10, %lpad
-  %call40.sink103 = phi ptr [ %call40, %lpad42 ], [ %call29, %lpad31 ], [ %call9, %lpad10 ], [ %call3, %lpad ]
-  %.pn = phi { ptr, i32 } [ %25, %lpad42 ], [ %22, %lpad31 ], [ %12, %lpad10 ], [ %11, %lpad ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call40.sink103) #29
+  %call40.sink19 = phi ptr [ %call40, %lpad42 ], [ %call29, %lpad31 ], [ %call9, %lpad10 ], [ %call3, %lpad ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad42 ], [ %5, %lpad31 ], [ %4, %lpad10 ], [ %3, %lpad ]
+  tail call void @_ZdlPv(ptr noundef nonnull %call40.sink19) #29
   resume { ptr, i32 } %.pn
 }
 
@@ -2495,7 +2337,7 @@ while.body42.lr.ph:                               ; preds = %if.end39
 while.body42:                                     ; preds = %while.body42.lr.ph, %if.end69
   %d.265 = phi i64 [ %d.0, %while.body42.lr.ph ], [ %dec, %if.end69 ]
   %dec = add i64 %d.265, -1
-  %arrayidx43 = getelementptr inbounds [4 x ptr], ptr %stk, i64 0, i64 %dec
+  %arrayidx43 = getelementptr inbounds nuw [4 x ptr], ptr %stk, i64 0, i64 %dec
   %12 = load ptr, ptr %arrayidx43, align 8
   %nsub_.i49 = getelementptr inbounds nuw i8, ptr %12, i64 6
   %13 = load i16, ptr %nsub_.i49, align 2
@@ -4453,107 +4295,166 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZN3re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %cc, i32 noundef %lo, i32 noundef %hi)
   %cmp5.not46 = icmp sle i32 %lo, %hi
-  %or.cond48.not = and i1 %cmp5.not46, %call2
-  br i1 %or.cond48.not, label %while.body.lr.ph, label %while.end
+  %or.cond.not = and i1 %cmp5.not46, %call2
+  br i1 %or.cond.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
   %2 = load i32, ptr @_ZN3re220num_unicode_casefoldE, align 4
   %idx.ext.i = sext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::CaseFold", ptr @_ZN3re216unicode_casefoldE, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr @_ZN3re216unicode_casefoldE, i64 %idx.ext.i
   %cmp21.i = icmp sgt i32 %2, 0
   %add38 = add nsw i32 %depth, 1
-  br i1 %cmp21.i, label %while.body, label %while.end
+  br i1 %cmp21.i, label %while.body.us, label %while.body.lr.ph.split
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %lo.addr.047 = phi i32 [ %lo.addr.0.be, %while.cond.backedge ], [ %lo, %while.body.lr.ph ]
-  br label %while.body.i
+while.body.us:                                    ; preds = %while.body.lr.ph, %while.cond.backedge.us
+  %lo.addr.047.us = phi i32 [ %lo.addr.0.be.us, %while.cond.backedge.us ], [ %lo, %while.body.lr.ph ]
+  br label %while.body.i.us
 
-while.body.i:                                     ; preds = %while.body, %if.end.i
-  %f.addr.023.i = phi ptr [ %f.addr.1.i, %if.end.i ], [ @_ZN3re216unicode_casefoldE, %while.body ]
-  %n.addr.022.i = phi i32 [ %n.addr.1.i, %if.end.i ], [ %2, %while.body ]
-  %div19.i = lshr i32 %n.addr.022.i, 1
-  %idxprom.i = zext nneg i32 %div19.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %idxprom.i
-  %3 = load i32, ptr %arrayidx.i, align 4
-  %cmp1.not.i = icmp sgt i32 %3, %lo.addr.047
-  br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true.i
+while.body.i.us:                                  ; preds = %while.body.us, %if.end.i.us
+  %f.addr.023.i.us = phi ptr [ %f.addr.1.i.us, %if.end.i.us ], [ @_ZN3re216unicode_casefoldE, %while.body.us ]
+  %n.addr.022.i.us = phi i32 [ %n.addr.1.i.us, %if.end.i.us ], [ %2, %while.body.us ]
+  %div19.i.us = lshr i32 %n.addr.022.i.us, 1
+  %idxprom.i.us = zext nneg i32 %div19.i.us to i64
+  %arrayidx.i.us = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.us, i64 %idxprom.i.us
+  %3 = load i32, ptr %arrayidx.i.us, align 4
+  %cmp1.not.i.us = icmp sgt i32 %3, %lo.addr.047.us
+  br i1 %cmp1.not.i.us, label %if.end.i.us, label %land.lhs.true.i.us
 
-land.lhs.true.i:                                  ; preds = %while.body.i
-  %hi.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
-  %4 = load i32, ptr %hi.i, align 4
-  %cmp4.not.i = icmp sgt i32 %lo.addr.047, %4
-  br i1 %cmp4.not.i, label %if.end.i, label %if.end9
+land.lhs.true.i.us:                               ; preds = %while.body.i.us
+  %hi.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.us, i64 4
+  %4 = load i32, ptr %hi.i.us, align 4
+  %cmp4.not.i.us = icmp sgt i32 %lo.addr.047.us, %4
+  br i1 %cmp4.not.i.us, label %if.end.i.us, label %if.end9.us
 
-if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %add.i = add nuw nsw i32 %div19.i, 1
-  %sub.i = sub nsw i32 %n.addr.022.i, %add.i
-  %n.addr.1.i = select i1 %cmp1.not.i, i32 %div19.i, i32 %sub.i
-  %narrow.i = select i1 %cmp1.not.i, i32 0, i32 %add.i
-  %f.addr.1.idx.i = zext nneg i32 %narrow.i to i64
-  %f.addr.1.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %f.addr.1.idx.i
-  %cmp.i = icmp sgt i32 %n.addr.1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !7
+if.end.i.us:                                      ; preds = %land.lhs.true.i.us, %while.body.i.us
+  %add.i.us = add nuw nsw i32 %div19.i.us, 1
+  %sub.i.us = sub nsw i32 %n.addr.022.i.us, %add.i.us
+  %n.addr.1.i.us = select i1 %cmp1.not.i.us, i32 %div19.i.us, i32 %sub.i.us
+  %narrow.i.us = select i1 %cmp1.not.i.us, i32 0, i32 %add.i.us
+  %f.addr.1.idx.i.us = zext nneg i32 %narrow.i.us to i64
+  %f.addr.1.i.us = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i.us, i64 %f.addr.1.idx.i.us
+  %cmp.i.us = icmp sgt i32 %n.addr.1.i.us, 0
+  br i1 %cmp.i.us, label %while.body.i.us, label %while.end.i.us, !llvm.loop !7
 
-while.end.i:                                      ; preds = %if.end.i
-  %cmp16.i.not = icmp ult ptr %f.addr.1.i, %add.ptr.i
-  br i1 %cmp16.i.not, label %while.end.i.if.end9_crit_edge, label %while.end
+while.end.i.us:                                   ; preds = %if.end.i.us
+  %cmp16.i.us.not = icmp ult ptr %f.addr.1.i.us, %add.ptr.i
+  br i1 %cmp16.i.us.not, label %while.end.i.us.if.end9.us_crit_edge, label %while.end
 
-while.end.i.if.end9_crit_edge:                    ; preds = %while.end.i
-  %.pre = load i32, ptr %f.addr.1.i, align 4
-  br label %if.end9
+while.end.i.us.if.end9.us_crit_edge:              ; preds = %while.end.i.us
+  %.pre52 = load i32, ptr %f.addr.1.i.us, align 4
+  br label %if.end9.us
 
-if.end9:                                          ; preds = %land.lhs.true.i, %while.end.i.if.end9_crit_edge
-  %5 = phi i32 [ %.pre, %while.end.i.if.end9_crit_edge ], [ %3, %land.lhs.true.i ]
-  %retval.0.i37 = phi ptr [ %f.addr.1.i, %while.end.i.if.end9_crit_edge ], [ %arrayidx.i, %land.lhs.true.i ]
-  %cmp11 = icmp slt i32 %lo.addr.047, %5
+if.end9.us:                                       ; preds = %land.lhs.true.i.us, %while.end.i.us.if.end9.us_crit_edge
+  %5 = phi i32 [ %.pre52, %while.end.i.us.if.end9.us_crit_edge ], [ %3, %land.lhs.true.i.us ]
+  %retval.0.i37.us = phi ptr [ %f.addr.1.i.us, %while.end.i.us.if.end9.us_crit_edge ], [ %arrayidx.i.us, %land.lhs.true.i.us ]
+  %cmp11.us = icmp slt i32 %lo.addr.047.us, %5
+  br i1 %cmp11.us, label %while.cond.backedge.us, label %if.end14.us
+
+if.end14.us:                                      ; preds = %if.end9.us
+  %hi15.us = getelementptr inbounds nuw i8, ptr %retval.0.i37.us, i64 4
+  %6 = load i32, ptr %hi15.us, align 4
+  %.sroa.speculated.us = tail call i32 @llvm.smin.i32(i32 %6, i32 %hi)
+  %delta.us = getelementptr inbounds nuw i8, ptr %retval.0.i37.us, i64 8
+  %7 = load i32, ptr %delta.us, align 4
+  switch i32 %7, label %sw.default.us [
+    i32 1, label %sw.bb.us
+    i32 -1, label %sw.bb27.us
+  ]
+
+sw.bb27.us:                                       ; preds = %if.end14.us
+  %8 = and i32 %lo.addr.047.us, 1
+  %sext.us = add nsw i32 %8, -1
+  %9 = and i32 %.sroa.speculated.us, -2147483647
+  %cmp34.us = icmp eq i32 %9, 1
+  %inc36.us = zext i1 %cmp34.us to i32
+  %spec.select26.us = add nuw nsw i32 %.sroa.speculated.us, %inc36.us
+  br label %sw.epilog.us
+
+sw.bb.us:                                         ; preds = %if.end14.us
+  %10 = and i32 %lo.addr.047.us, -2147483647
+  %cmp20.us = icmp eq i32 %10, 1
+  %dec.us = sext i1 %cmp20.us to i32
+  %spec.select25.us = or i32 %.sroa.speculated.us, 1
+  br label %sw.epilog.us
+
+sw.default.us:                                    ; preds = %if.end14.us
+  %add19.us = add nsw i32 %.sroa.speculated.us, %7
+  br label %sw.epilog.us
+
+sw.epilog.us:                                     ; preds = %sw.default.us, %sw.bb.us, %sw.bb27.us
+  %.pn.us = phi i32 [ %7, %sw.default.us ], [ %dec.us, %sw.bb.us ], [ %sext.us, %sw.bb27.us ]
+  %hi1.0.us = phi i32 [ %add19.us, %sw.default.us ], [ %spec.select25.us, %sw.bb.us ], [ %spec.select26.us, %sw.bb27.us ]
+  %lo1.0.us = add nsw i32 %.pn.us, %lo.addr.047.us
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %cc, i32 noundef %lo1.0.us, i32 noundef %hi1.0.us, i32 noundef %add38)
+  %11 = load i32, ptr %hi15.us, align 4
+  %add40.us = add nsw i32 %11, 1
+  br label %while.cond.backedge.us
+
+while.cond.backedge.us:                           ; preds = %sw.epilog.us, %if.end9.us
+  %lo.addr.0.be.us = phi i32 [ %add40.us, %sw.epilog.us ], [ %5, %if.end9.us ]
+  %cmp5.not.us = icmp sgt i32 %lo.addr.0.be.us, %hi
+  br i1 %cmp5.not.us, label %while.end, label %while.body.us, !llvm.loop !46
+
+while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
+  %cmp16.i39.not = icmp eq i32 %2, 0
+  br i1 %cmp16.i39.not, label %while.end, label %while.body.preheader
+
+while.body.preheader:                             ; preds = %while.body.lr.ph.split
+  %.pre51 = load i32, ptr @_ZN3re216unicode_casefoldE, align 4
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.preheader, %while.cond.backedge
+  %12 = phi i32 [ %19, %while.cond.backedge ], [ %.pre51, %while.body.preheader ]
+  %lo.addr.047 = phi i32 [ %lo.addr.0.be, %while.cond.backedge ], [ %lo, %while.body.preheader ]
+  %cmp11 = icmp slt i32 %lo.addr.047, %12
   br i1 %cmp11, label %while.cond.backedge, label %if.end14
 
-if.end14:                                         ; preds = %if.end9
-  %hi15 = getelementptr inbounds nuw i8, ptr %retval.0.i37, i64 4
-  %6 = load i32, ptr %hi15, align 4
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %6, i32 %hi)
-  %delta = getelementptr inbounds nuw i8, ptr %retval.0.i37, i64 8
-  %7 = load i32, ptr %delta, align 4
-  switch i32 %7, label %sw.default [
+if.end14:                                         ; preds = %while.body
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3re216unicode_casefoldE, i64 4), align 4
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %13, i32 %hi)
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3re216unicode_casefoldE, i64 8), align 4
+  switch i32 %14, label %sw.default [
     i32 1, label %sw.bb
     i32 -1, label %sw.bb27
   ]
 
 sw.default:                                       ; preds = %if.end14
-  %add19 = add nsw i32 %.sroa.speculated, %7
+  %add19 = add nsw i32 %.sroa.speculated, %14
   br label %sw.epilog
 
 sw.bb:                                            ; preds = %if.end14
-  %8 = and i32 %lo.addr.047, -2147483647
-  %cmp20 = icmp eq i32 %8, 1
+  %15 = and i32 %lo.addr.047, -2147483647
+  %cmp20 = icmp eq i32 %15, 1
   %dec = sext i1 %cmp20 to i32
   %spec.select25 = or i32 %.sroa.speculated, 1
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end14
-  %9 = and i32 %lo.addr.047, 1
-  %sext = add nsw i32 %9, -1
-  %10 = and i32 %.sroa.speculated, -2147483647
-  %cmp34 = icmp eq i32 %10, 1
+  %16 = and i32 %lo.addr.047, 1
+  %sext = add nsw i32 %16, -1
+  %17 = and i32 %.sroa.speculated, -2147483647
+  %cmp34 = icmp eq i32 %17, 1
   %inc36 = zext i1 %cmp34 to i32
   %spec.select26 = add nuw nsw i32 %.sroa.speculated, %inc36
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb27, %sw.bb, %sw.default
-  %.pn = phi i32 [ %7, %sw.default ], [ %dec, %sw.bb ], [ %sext, %sw.bb27 ]
+  %.pn = phi i32 [ %14, %sw.default ], [ %dec, %sw.bb ], [ %sext, %sw.bb27 ]
   %hi1.0 = phi i32 [ %add19, %sw.default ], [ %spec.select25, %sw.bb ], [ %spec.select26, %sw.bb27 ]
   %lo1.0 = add nsw i32 %.pn, %lo.addr.047
   tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %cc, i32 noundef %lo1.0, i32 noundef %hi1.0, i32 noundef %add38)
-  %11 = load i32, ptr %hi15, align 4
-  %add40 = add nsw i32 %11, 1
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN3re216unicode_casefoldE, i64 4), align 4
+  %add40 = add nsw i32 %18, 1
+  %.pre = load i32, ptr @_ZN3re216unicode_casefoldE, align 4
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %sw.epilog, %if.end9
-  %lo.addr.0.be = phi i32 [ %add40, %sw.epilog ], [ %5, %if.end9 ]
+while.cond.backedge:                              ; preds = %sw.epilog, %while.body
+  %19 = phi i32 [ %.pre, %sw.epilog ], [ %12, %while.body ]
+  %lo.addr.0.be = phi i32 [ %add40, %sw.epilog ], [ %12, %while.body ]
   %cmp5.not = icmp sgt i32 %lo.addr.0.be, %hi
   br i1 %cmp5.not, label %while.end, label %while.body, !llvm.loop !46
 
-while.end:                                        ; preds = %while.cond.backedge, %while.end.i, %while.body.lr.ph, %if.end, %invoke.cont
+while.end:                                        ; preds = %while.cond.backedge, %while.cond.backedge.us, %while.end.i.us, %while.body.lr.ph.split, %if.end, %invoke.cont
   ret void
 }
 

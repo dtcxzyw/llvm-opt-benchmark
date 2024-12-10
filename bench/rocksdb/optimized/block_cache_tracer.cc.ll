@@ -2576,7 +2576,7 @@ while.cond:                                       ; preds = %invoke.cont21, %inv
   %vtable11 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
   %vbase.offset13 = load i64, ptr %vbase.offset.ptr12, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset13
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset13
   %call17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr14)
           to label %invoke.cont16 unwind label %lpad15.loopexit
 

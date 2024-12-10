@@ -404,7 +404,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit: ; preds = %16, %26
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %.0.i.i) #12
   ret void
@@ -518,7 +518,7 @@ define hidden void @_ZN10DFSClosure12closure_implE13UnifiedOopRefP7oopDesc(ptr n
   %42 = or i64 %37, %41
   store i64 %42, ptr %40, align 8
   %43 = load i64, ptr %6, align 8
-  %44 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %43
   store i64 %1, ptr %44, align 8
   %45 = load volatile i64, ptr %2, align 8
   %46 = and i64 %45, 3
@@ -566,7 +566,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit: ; preds = %60, %70
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i) #12
   %77 = load i64, ptr %6, align 8
@@ -613,7 +613,7 @@ define hidden void @_ZN10DFSClosure9add_chainEv(ptr nocapture noundef nonnull re
   %24 = add i64 %.029, 1
   %25 = sub nuw i64 %23, %.029
   %26 = getelementptr %class.Edge, ptr %20, i64 %24
-  %27 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %25
   %.sroa.01.0.copyload = load i64, ptr %27, align 8
   call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %26, i64 %.sroa.01.0.copyload) #12
   %28 = getelementptr inbounds %class.Edge, ptr %20, i64 %.029
@@ -2762,7 +2762,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI10DFSClosureE5Table1
   %72 = or i64 %67, %71
   store i64 %72, ptr %70, align 8
   %73 = load i64, ptr %18, align 8
-  %74 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
   store i64 %36, ptr %74, align 8
   %75 = load volatile i64, ptr %32, align 8
   %76 = and i64 %75, 3
@@ -2809,7 +2809,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %99, %89
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %.0.i.i.i) #12
   %106 = load i64, ptr %18, align 8
@@ -2930,7 +2930,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI10DFSClosureE5Table1
   %71 = or i64 %66, %70
   store i64 %71, ptr %69, align 8
   %72 = load i64, ptr %18, align 8
-  %73 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
   store i64 %35, ptr %73, align 8
   %74 = load volatile i64, ptr %32, align 8
   %75 = and i64 %74, 3
@@ -2977,7 +2977,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %98, %88
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %.0.i.i.i) #12
   %105 = load i64, ptr %18, align 8
@@ -3122,7 +3122,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
   %73 = or i64 %68, %72
   store i64 %73, ptr %71, align 8
   %74 = load i64, ptr %19, align 8
-  %75 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %74
   store i64 %37, ptr %75, align 8
   %76 = load volatile i64, ptr %33, align 8
   %77 = and i64 %76, 3
@@ -3169,7 +3169,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %100, %90
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %.0.i.i.i) #12
   %107 = load i64, ptr %19, align 8
@@ -4305,7 +4305,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   %72 = or i64 %67, %71
   store i64 %72, ptr %70, align 8
   %73 = load i64, ptr %19, align 8
-  %74 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
   store i64 %36, ptr %74, align 8
   %75 = load volatile i64, ptr %33, align 8
   %76 = and i64 %75, 3
@@ -4352,7 +4352,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %99, %89
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %.0.i.i.i) #12
   %106 = load i64, ptr %19, align 8
@@ -4630,7 +4630,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
   %71 = or i64 %66, %70
   store i64 %71, ptr %69, align 8
   %72 = load i64, ptr %17, align 8
-  %73 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
   store i64 %35, ptr %73, align 8
   %74 = load volatile i64, ptr %31, align 8
   %75 = and i64 %74, 3
@@ -4677,7 +4677,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %98, %88
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %.0.i.i.i) #12
   %105 = load i64, ptr %17, align 8
@@ -4830,7 +4830,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   %70 = or i64 %65, %69
   store i64 %70, ptr %68, align 8
   %71 = load i64, ptr %17, align 8
-  %72 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %71
   store i64 %34, ptr %72, align 8
   %73 = load volatile i64, ptr %31, align 8
   %74 = and i64 %73, 3
@@ -4877,7 +4877,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %97, %87
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %.0.i.i.i) #12
   %104 = load i64, ptr %17, align 8
@@ -5050,7 +5050,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %72 = or i64 %67, %71
   store i64 %72, ptr %70, align 8
   %73 = load i64, ptr %18, align 8
-  %74 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %73
   store i64 %36, ptr %74, align 8
   %75 = load volatile i64, ptr %32, align 8
   %76 = and i64 %75, 3
@@ -5097,7 +5097,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %99, %89
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %.0.i.i.i) #12
   %106 = load i64, ptr %18, align 8
@@ -5218,7 +5218,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   %71 = or i64 %66, %70
   store i64 %71, ptr %69, align 8
   %72 = load i64, ptr %18, align 8
-  %73 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %72
   store i64 %35, ptr %73, align 8
   %74 = load volatile i64, ptr %32, align 8
   %75 = and i64 %74, 3
@@ -5265,7 +5265,7 @@ _ZN7oopDesc11oop_iterateI10DFSClosureEEvPT_.exit.i: ; preds = %98, %88
   %100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10DFSClosureE6_tableE, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %.0.i.i.i) #12
   %105 = load i64, ptr %18, align 8

@@ -588,9 +588,9 @@ entry:
 if.else.i:                                        ; preds = %entry
   %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buffer.i, ptr noundef nonnull dereferenceable(1) %path) #19
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #22
-  %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 %call3.i
-  %cmp5.i = icmp sgt i64 %call3.i, 0
-  br i1 %cmp5.i, label %land.lhs.true.i, label %if.end.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %call3.i
+  %cmp5.not.i = icmp eq i64 %call3.i, 0
+  br i1 %cmp5.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
@@ -702,9 +702,9 @@ entry:
 if.else.i:                                        ; preds = %entry
   %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buffer.i, ptr noundef nonnull dereferenceable(1) %path) #19
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #22
-  %add.ptr.i = getelementptr inbounds i8, ptr %buffer.i, i64 %call3.i
-  %cmp5.i = icmp sgt i64 %call3.i, 0
-  br i1 %cmp5.i, label %land.lhs.true.i, label %if.end.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %call3.i
+  %cmp5.not.i = icmp eq i64 %call3.i, 0
+  br i1 %cmp5.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1

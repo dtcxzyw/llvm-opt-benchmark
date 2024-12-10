@@ -68578,7 +68578,7 @@ define hidden void @"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13546)
   %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17haa6c14baef1f9db1E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17haa6c14baef1f9db1E", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13549)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3), !noalias !13552
@@ -69107,7 +69107,7 @@ define hidden void @"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13636)
   %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17heb8bd3992bc8a67dE", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17heb8bd3992bc8a67dE", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.idx.cast = zext i8 %1 to i64
   %switch.offset = add nuw nsw i64 %switch.idx.cast, 4
@@ -80737,10 +80737,10 @@ define hidden void @"_ZN5typst11foundations4none95_$LT$impl$u20$typst..foundatio
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15797)
   %5 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E", i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = sext i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E.528", i64 0, i64 %6
+  %switch.gep2 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN5typst11foundations4none95_$LT$impl$u20$typst..foundations..cast..IntoValue$u20$for$u20$core..option..Option$LT$T$GT$$GT$10into_value17h61597f4083cfc329E.528", i64 0, i64 %6
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15800)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3), !noalias !15803
@@ -93975,7 +93975,7 @@ define noundef double @_ZN5typst6layout3abs3Abs3raw17h9c9860891736cbb5E(double n
 define noundef double @_ZN5typst6layout3abs3Abs9with_unit17he1c3205cf673858fE(double noundef %0, i8 noundef %1) unnamed_addr #2 {
 switch.lookup:
   %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
   %switch.load = load double, ptr %switch.gep, align 8
   %3 = fmul double %0, %switch.load
   %.0.i.inv.i = fcmp ord double %3, 0.000000e+00
@@ -94023,7 +94023,7 @@ define noundef double @_ZN5typst6layout3abs3Abs6to_raw17h5852c1581d7c8b39E(doubl
 define noundef double @_ZN5typst6layout3abs3Abs7to_unit17hd6477d52ad93be5eE(double noundef %0, i8 noundef %1) unnamed_addr #2 {
 switch.lookup:
   %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %2
   %switch.load = load double, ptr %switch.gep, align 8
   %3 = fdiv double %0, %switch.load
   ret double %3
@@ -94310,7 +94310,7 @@ define noundef double @"_ZN76_$LT$typst..layout..abs..Abs$u20$as$u20$typst..foun
 define hidden noundef double @_ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x double], ptr @switch.table._ZN5typst6layout3abs7AbsUnit9raw_scale17hb23d6c3d0026c236E.llvm.13383457361836014260, i64 0, i64 %1
   %switch.load = load double, ptr %switch.gep, align 8
   ret double %switch.load
 }
@@ -130433,10 +130433,10 @@ _ZN4core3cmp9PartialEq2ne17h60d9bcdda25a175aE.llvm.13383457361836014260.exit.i.i
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17h64a41c5202caa18cE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E.530", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [9 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h87e001db371f70b0E.530", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -137183,14 +137183,14 @@ define void @"_ZN5typst6layout4grid1_98_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   store <2 x i64> <i64 8, i64 144>, ptr %36, align 16
-  %79 = getelementptr inbounds [2 x i64], ptr %36, i64 0, i64 %.0..0..0..0..pr
+  %79 = getelementptr inbounds nuw [2 x i64], ptr %36, i64 0, i64 %.0..0..0..0..pr
   %80 = load i64, ptr %79, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 8 %66, i64 %80, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   store <2 x i64> <i64 8, i64 144>, ptr %35, align 16
   %.0..0..0..0.218 = load i64, ptr %64, align 8
-  %81 = getelementptr inbounds [2 x i64], ptr %35, i64 0, i64 %.0..0..0..0.218
+  %81 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %.0..0..0..0.218
   %82 = load i64, ptr %81, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %67, ptr nonnull align 8 %64, i64 %82, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
@@ -137254,14 +137254,14 @@ define void @"_ZN5typst6layout4grid1_98_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %60)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store <2 x i64> <i64 8, i64 144>, ptr %34, align 16
-  %99 = getelementptr inbounds [2 x i64], ptr %34, i64 0, i64 %.0..0..0..0.4.pr
+  %99 = getelementptr inbounds nuw [2 x i64], ptr %34, i64 0, i64 %.0..0..0..0.4.pr
   %100 = load i64, ptr %99, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %62, i64 %100, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   store <2 x i64> <i64 8, i64 144>, ptr %33, align 16
   %.0..0..0..0.217 = load i64, ptr %60, align 8
-  %101 = getelementptr inbounds [2 x i64], ptr %33, i64 0, i64 %.0..0..0..0.217
+  %101 = getelementptr inbounds nuw [2 x i64], ptr %33, i64 0, i64 %.0..0..0..0.217
   %102 = load i64, ptr %101, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 8 %60, i64 %102, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
@@ -137328,14 +137328,14 @@ define void @"_ZN5typst6layout4grid1_98_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
   store <2 x i64> <i64 8, i64 144>, ptr %32, align 16
-  %119 = getelementptr inbounds [2 x i64], ptr %32, i64 0, i64 %.0..0..0..0.14.pr
+  %119 = getelementptr inbounds nuw [2 x i64], ptr %32, i64 0, i64 %.0..0..0..0.14.pr
   %120 = load i64, ptr %119, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr nonnull align 8 %58, i64 %120, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   store <2 x i64> <i64 8, i64 144>, ptr %31, align 16
   %.0..0..0..0.216 = load i64, ptr %56, align 8
-  %121 = getelementptr inbounds [2 x i64], ptr %31, i64 0, i64 %.0..0..0..0.216
+  %121 = getelementptr inbounds nuw [2 x i64], ptr %31, i64 0, i64 %.0..0..0..0.216
   %122 = load i64, ptr %121, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %56, i64 %122, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
@@ -137404,7 +137404,7 @@ define void @"_ZN5typst6layout4grid1_98_$LT$impl$u20$typst..foundations..element
 139:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store <2 x i64> <i64 8, i64 144>, ptr %30, align 16
-  %140 = getelementptr inbounds [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0.24.pr
+  %140 = getelementptr inbounds nuw [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0.24.pr
   %141 = load i64, ptr %140, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %54, i64 %141, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
@@ -137587,7 +137587,7 @@ define void @"_ZN5typst6layout4grid1_98_$LT$impl$u20$typst..foundations..element
 201:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store <2 x i64> <i64 8, i64 144>, ptr %29, align 16
-  %202 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.35.pr
+  %202 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.35.pr
   %203 = load i64, ptr %202, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %50, i64 %203, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
@@ -138486,14 +138486,14 @@ define void @"_ZN5typst6layout4grid1_92_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30)
   store <2 x i64> <i64 8, i64 144>, ptr %30, align 16
-  %77 = getelementptr inbounds [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0..pr
+  %77 = getelementptr inbounds nuw [2 x i64], ptr %30, i64 0, i64 %.0..0..0..0..pr
   %78 = load i64, ptr %77, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %61, i64 %78, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store <2 x i64> <i64 8, i64 144>, ptr %29, align 16
   %.0..0..0..0.178 = load i64, ptr %59, align 8
-  %79 = getelementptr inbounds [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.178
+  %79 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 0, i64 %.0..0..0..0.178
   %80 = load i64, ptr %79, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %59, i64 %80, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
@@ -138643,14 +138643,14 @@ define void @"_ZN5typst6layout4grid1_92_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store <2 x i64> <i64 8, i64 144>, ptr %28, align 16
-  %122 = getelementptr inbounds [2 x i64], ptr %28, i64 0, i64 %.0..0..0..0.4.pr
+  %122 = getelementptr inbounds nuw [2 x i64], ptr %28, i64 0, i64 %.0..0..0..0.4.pr
   %123 = load i64, ptr %122, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %57, i64 %123, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
   store <2 x i64> <i64 8, i64 144>, ptr %27, align 16
   %.0..0..0..0.177 = load i64, ptr %55, align 8
-  %124 = getelementptr inbounds [2 x i64], ptr %27, i64 0, i64 %.0..0..0..0.177
+  %124 = getelementptr inbounds nuw [2 x i64], ptr %27, i64 0, i64 %.0..0..0..0.177
   %125 = load i64, ptr %124, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 8 %55, i64 %125, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
@@ -138800,14 +138800,14 @@ define void @"_ZN5typst6layout4grid1_92_$LT$impl$u20$typst..foundations..element
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   store <2 x i64> <i64 8, i64 144>, ptr %26, align 16
-  %167 = getelementptr inbounds [2 x i64], ptr %26, i64 0, i64 %.0..0..0..0.14.pr
+  %167 = getelementptr inbounds nuw [2 x i64], ptr %26, i64 0, i64 %.0..0..0..0.14.pr
   %168 = load i64, ptr %167, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %53, i64 %168, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   store <2 x i64> <i64 8, i64 144>, ptr %25, align 16
   %.0..0..0..0.176 = load i64, ptr %51, align 8
-  %169 = getelementptr inbounds [2 x i64], ptr %25, i64 0, i64 %.0..0..0..0.176
+  %169 = getelementptr inbounds nuw [2 x i64], ptr %25, i64 0, i64 %.0..0..0..0.176
   %170 = load i64, ptr %169, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %51, i64 %170, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
@@ -138875,7 +138875,7 @@ define void @"_ZN5typst6layout4grid1_92_$LT$impl$u20$typst..foundations..element
 187:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   store <2 x i64> <i64 8, i64 144>, ptr %24, align 16
-  %188 = getelementptr inbounds [2 x i64], ptr %24, i64 0, i64 %.0..0..0..0.24.pr
+  %188 = getelementptr inbounds nuw [2 x i64], ptr %24, i64 0, i64 %.0..0..0..0.24.pr
   %189 = load i64, ptr %188, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %50, i64 %189, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
@@ -139142,7 +139142,7 @@ define void @"_ZN5typst6layout4grid1_92_$LT$impl$u20$typst..foundations..element
 271:                                              ; preds = %267
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   store <2 x i64> <i64 8, i64 144>, ptr %23, align 16
-  %272 = getelementptr inbounds [2 x i64], ptr %23, i64 0, i64 %.0..0..0..0.35.pr
+  %272 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %.0..0..0..0.35.pr
   %273 = load i64, ptr %272, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %46, i64 %273, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
@@ -142668,10 +142668,10 @@ define void @"_ZN5typst6layout4grid1_97_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17hedaeb740fed396f2E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h7890ea0112fd30a1E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h7890ea0112fd30a1E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -146696,10 +146696,10 @@ define void @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17h40948d7a0d9e63c6E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h060e9fb9a2493c40E.534", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -150747,10 +150747,10 @@ define void @"_ZN5typst6layout4grid1_96_$LT$impl$u20$typst..foundations..cast..I
 define { ptr, i64 } @_ZN5typst6layout4grid1_6Fields6to_str17hf0ea9299af0b86abE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE.536", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN69_$LT$typst..layout..grid.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcbc60c3a491d262dE.536", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -158994,10 +158994,10 @@ define hidden void @"_ZN70_$LT$typst..layout..spacing..Spacing$u20$as$u20$core..
 define { ptr, i64 } @_ZN5typst4math6cancel1_6Fields6to_str17h08816fa6be316931E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E.538", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN69_$LT$typst..math..cancel.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h025464348456c737E.538", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -164776,10 +164776,10 @@ common.resume:                                    ; preds = %.body, %17
 define { ptr, i64 } @_ZN5typst5model12bibliography1_6Fields6to_str17h5aedf2dc8d2e091eE(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E.543", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN76_$LT$typst..model..bibliography.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hd138327a16ef7c81E.543", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -169168,10 +169168,10 @@ common.resume:                                    ; preds = %7, %12
 define { ptr, i64 } @_ZN5typst5model4cite1_6Fields6to_str17h0d92883c6578e9b6E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E.545", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN68_$LT$typst..model..cite.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hfa2f736ae363de91E.545", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -173644,10 +173644,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$typst..model..cite..CiteGroup$u20
 define { ptr, i64 } @_ZN5typst5model8document1_6Fields6to_str17h370113d65079cf42E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E.548", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN72_$LT$typst..model..document.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h0afc413b6d480af2E.548", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -176436,10 +176436,10 @@ default.unreachable4:                             ; preds = %16, %2
 define { ptr, i64 } @_ZN5typst5model5quote1_6Fields6to_str17h5c21f3e04f4e9c30E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E.550", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN69_$LT$typst..model..quote.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17hcb148bb0caf38f16E.550", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -181176,10 +181176,10 @@ default.unreachable1:                             ; preds = %2
 define { ptr, i64 } @_ZN5typst9visualize4path1_6Fields6to_str17hc306dda8bc8b9d40E(i8 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E.552", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN72_$LT$typst..visualize..path.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17ha110e95fd1027066E.552", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -189739,10 +189739,10 @@ define void @"_ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..found
 switch.lookup:
   %2 = alloca { i8, [16 x i8] }, align 1
   %3 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E", i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E.553", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN88_$LT$typst..model..cite..CitationForm$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h144137f85823c366E.553", i64 0, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42215)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2), !noalias !42218

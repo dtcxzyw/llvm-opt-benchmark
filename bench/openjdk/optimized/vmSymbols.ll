@@ -130,11 +130,11 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal noundef range(i32 -1, 2) i32 @_ZL20compare_vmsymbol_sidPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %1, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %6, %10
   %12 = icmp ugt ptr %6, %10
@@ -258,7 +258,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit6:         ; preds = %.lr.ph.i2
 define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone %0) local_unnamed_addr #5 align 2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not37 = icmp ugt ptr %0, %5
   br i1 %.not37, label %8, label %6
@@ -271,7 +271,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
 8:                                                ; preds = %1
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %narrow.not = icmp ult ptr %0, %12
   br i1 %narrow.not, label %14, label %13
@@ -290,10 +290,10 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   %.02842 = phi i32 [ 1168, %14 ], [ %.1, %25 ]
   %.02941 = phi i32 [ 2, %14 ], [ %.130, %25 ]
   %17 = sext i32 %.043 to i64
-  %18 = getelementptr inbounds [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %0, %22
   br i1 %23, label %24, label %25
@@ -332,7 +332,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
 7:                                                ; preds = %1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not37.i = icmp ugt ptr %5, %11
   br i1 %.not37.i, label %14, label %12
@@ -345,7 +345,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
 14:                                               ; preds = %7
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4676), align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %narrow.not.i = icmp ult ptr %5, %18
   br i1 %narrow.not.i, label %20, label %19
@@ -364,10 +364,10 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   %.02842.i = phi i32 [ 1168, %20 ], [ %.1.i, %31 ]
   %.02941.i = phi i32 [ 2, %20 ], [ %.130.i, %31 ]
   %23 = sext i32 %.043.i to i64
-  %24 = getelementptr inbounds [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %5, %28
   br i1 %29, label %30, label %31

@@ -41901,7 +41901,7 @@ _ZNK4llvm8SmallSetINS_3omp6ClauseELj2ESt4lessIS2_EE8containsERKS2_.exit164.threa
 switch.lookup:                                    ; preds = %302
   %switch.tableidx = add nsw i32 %.1, -2
   %305 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE, i64 0, i64 %305
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE, i64 0, i64 %305
   %switch.load = load i32, ptr %switch.gep, align 4
   %306 = and i64 %.sroa.489.0.copyload.i, 4
   %307 = icmp ne i64 %306, 0
@@ -42838,7 +42838,7 @@ switch.lookup330:                                 ; preds = %_ZNK4llvm8SmallSetI
   %682 = and i32 %681, 63
   %switch.tableidx331 = add nsw i32 %682, -10
   %683 = sext i32 %switch.tableidx331 to i64
-  %switch.gep332 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.527, i64 0, i64 %683
+  %switch.gep332 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction22EmitOMPAtomicDirectiveERKNS_18OMPAtomicDirectiveE.527, i64 0, i64 %683
   %switch.load333 = load i32, ptr %switch.gep332, align 4
   call void @_ZN5clang7CodeGen15CodeGenFunction10EmitLValueEPKNS_4ExprENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %3, ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %268, i32 noundef 0) #19
   %684 = getelementptr inbounds nuw i8, ptr %3, i64 8

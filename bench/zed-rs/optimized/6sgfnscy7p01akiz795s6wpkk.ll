@@ -1032,7 +1032,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %98 = getelementptr inbounds nuw i64, ptr %12, i64 %96
   %99 = load i64, ptr %98, align 8, !alias.scope !569, !noalias !452, !noundef !4
   %100 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %99
-  %101 = getelementptr inbounds { i64, [7 x i64] }, ptr %13, i64 %99
+  %101 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %13, i64 %99
   %102 = icmp eq i64 %99, 0
   %.sroa.013.0.i = select i1 %102, i64 %16, i64 %23
   %103 = icmp ult i64 %.sroa.0.0.i, %.sroa.013.0.i
@@ -1422,7 +1422,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %94 = getelementptr inbounds nuw i64, ptr %3, i64 %92
   %95 = load i64, ptr %94, align 8, !alias.scope !695, !noalias !683, !noundef !4
   %96 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 %95
-  %97 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %4, i64 %95
+  %97 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %4, i64 %95
   %98 = icmp eq i64 %95, 0
   %.sroa.013.0.i = select i1 %98, i64 %7, i64 %56
   %99 = icmp ult i64 %.sroa.0.0.i, %.sroa.013.0.i
@@ -1707,7 +1707,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %112 = getelementptr inbounds nuw i64, ptr %3, i64 %110
   %113 = load i64, ptr %112, align 8, !alias.scope !725, !noalias !713, !noundef !4
   %114 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %113
-  %115 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %113
+  %115 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %113
   %116 = icmp eq i64 %113, 0
   %.sroa.013.0.i = select i1 %116, i64 %7, i64 %70
   %117 = icmp ult i64 %.sroa.0.0.i, %.sroa.013.0.i
@@ -1993,7 +1993,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %112 = getelementptr inbounds nuw i64, ptr %3, i64 %110
   %113 = load i64, ptr %112, align 8, !alias.scope !755, !noalias !743, !noundef !4
   %114 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %113
-  %115 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %4, i64 %113
+  %115 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %4, i64 %113
   %116 = icmp eq i64 %113, 0
   %.sroa.013.0.i = select i1 %116, i64 %7, i64 %70
   %117 = icmp ult i64 %.sroa.0.0.i, %.sroa.013.0.i

@@ -338,7 +338,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert45 = sext i32 %.pre to i64
-  %.phi.trans.insert46 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45
+  %.phi.trans.insert46 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45
   %.pre47 = load i64, ptr %.phi.trans.insert46, align 8
   br label %.critedge2
 
@@ -382,7 +382,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %26, 1
   %35 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %34
@@ -396,7 +396,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %39, 1
   %48 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %47
@@ -404,7 +404,7 @@ define i64 @Cnf_CutDeriveTruth(ptr nocapture noundef readnone %0, ptr nocapture 
   %50 = xor i64 %49, %46
   %51 = and i64 %50, %37
   %52 = sext i32 %23 to i64
-  %53 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %52
   store i64 %51, ptr %53, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %.val28 = load i32, ptr %7, align 4
@@ -1024,7 +1024,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %.phi.trans.insert.i177 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 40
   %.pre.i178 = load i32, ptr %.phi.trans.insert.i177, align 8
   %.phi.trans.insert45.i = sext i32 %.pre.i178 to i64
-  %.phi.trans.insert46.i = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
+  %.phi.trans.insert46.i = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
   %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8
   br label %Cnf_CutDeriveTruth.exit
 
@@ -1068,7 +1068,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 40
   %297 = load i32, ptr %296, align 8
   %298 = sext i32 %297 to i64
-  %299 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %298
   %300 = load i64, ptr %299, align 8
   %301 = and i64 %293, 1
   %302 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %301
@@ -1082,7 +1082,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 40
   %310 = load i32, ptr %309, align 8
   %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %311
   %313 = load i64, ptr %312, align 8
   %314 = and i64 %306, 1
   %315 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %314
@@ -1090,7 +1090,7 @@ Vec_IntPush.exit176:                              ; preds = %.Vec_IntGrow.exit10
   %317 = xor i64 %316, %313
   %318 = and i64 %317, %304
   %319 = sext i32 %290 to i64
-  %320 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %319
   store i64 %318, ptr %320, align 8
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %.val28.i = load i32, ptr %27, align 4
@@ -2587,7 +2587,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.024.lcssa.i, i64 40
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert45.i = sext i32 %.pre.i to i64
-  %.phi.trans.insert46.i = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
+  %.phi.trans.insert46.i = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %.phi.trans.insert45.i
   %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8
   br label %Cnf_CutDeriveTruth.exit
 
@@ -2631,7 +2631,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %61, 1
   %70 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %69
@@ -2645,7 +2645,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = and i64 %74, 1
   %83 = getelementptr inbounds nuw [2 x i64], ptr @Cnf_CutDeriveTruth.C, i64 0, i64 %82
@@ -2653,7 +2653,7 @@ define i32 @Cnf_CutCountClauses(ptr nocapture readnone %0, ptr nocapture noundef
   %85 = xor i64 %84, %81
   %86 = and i64 %85, %72
   %87 = sext i32 %58 to i64
-  %88 = getelementptr inbounds [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [256 x i64], ptr @Cnf_CutDeriveTruth.S, i64 0, i64 %87
   store i64 %86, ptr %88, align 8
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %.val28.i = load i32, ptr %42, align 4

@@ -191,12 +191,12 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %143 = load float, ptr %142, align 4
   %144 = fmul float %., %143
   %145 = add nsw i64 %indvars.iv, -1
-  %146 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %145
   store float %144, ptr %146, align 4
   %147 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
   %148 = load float, ptr %147, align 4
   %149 = fmul float %., %148
-  %150 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %145
+  %150 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %145
   store float %149, ptr %150, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -219,11 +219,11 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.0304340 = phi float [ 0.000000e+00, %.loopexit335 ], [ %167, %154 ]
   %.0307339 = phi float [ 0.000000e+00, %.loopexit335 ], [ %166, %154 ]
   %155 = add nsw i64 %indvars.iv364, -1
-  %156 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %155
   %157 = load float, ptr %156, align 4
   %158 = fsub float %157, %153
   %159 = fdiv float 1.000000e+00, %158
-  %160 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %155
+  %160 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %155
   %161 = load float, ptr %160, align 4
   %162 = fmul float %161, %159
   %163 = fmul float %159, %162
@@ -377,11 +377,11 @@ define void @slaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.2306344 = phi float [ 0.000000e+00, %250 ], [ %267, %252 ]
   %.1308343 = phi float [ 0.000000e+00, %250 ], [ %264, %252 ]
   %253 = add nsw i64 %indvars.iv368, -1
-  %254 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %253
   %255 = load float, ptr %254, align 4
   %256 = fsub float %255, %251
   %257 = fdiv float 1.000000e+00, %256
-  %258 = getelementptr inbounds [3 x float], ptr %10, i64 0, i64 %253
+  %258 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %253
   %259 = load float, ptr %258, align 4
   %260 = fmul float %259, %257
   %261 = fmul float %257, %260

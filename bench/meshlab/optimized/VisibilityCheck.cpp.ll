@@ -10223,7 +10223,7 @@ define linkonce_odr void @_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE11Transform
   %41 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %40
   %42 = shl i64 %indvars.iv.i.i.i, 2
   %43 = add nuw nsw i64 %42, %indvars.iv15.i.i.i
-  %44 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [16 x float], ptr %2, i64 0, i64 %43
   %45 = load float, ptr %41, align 4, !alias.scope !81
   %46 = load float, ptr %44, align 4, !alias.scope !81
   store float %46, ptr %41, align 4, !alias.scope !81
@@ -11146,7 +11146,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE26GetWorldToExtrinsicsMatrixEv.exit: ; preds = %
   %116 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %115
   %117 = shl i64 %indvars.iv.i.i, 2
   %118 = add nuw nsw i64 %117, %indvars.iv15.i.i
-  %119 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %118
   %120 = load float, ptr %116, align 4, !alias.scope !97
   %121 = load float, ptr %119, align 4, !alias.scope !97
   store float %121, ptr %116, align 4, !alias.scope !97
@@ -12395,7 +12395,7 @@ define void @_ZN25VisibilityCheck_ShadowMap19updateShadowTextureEv(ptr nocapture
   %24 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %23
   %25 = shl i64 %indvars.iv.i.i, 2
   %26 = add nuw nsw i64 %25, %indvars.iv15.i.i
-  %27 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %26
   %28 = load float, ptr %24, align 4, !alias.scope !118
   %29 = load float, ptr %27, align 4, !alias.scope !118
   store float %29, ptr %24, align 4, !alias.scope !118
@@ -12425,7 +12425,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader:  ; preds = %30
   %34 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %33
   %35 = shl i64 %indvars.iv.i.i.i, 2
   %36 = add nuw nsw i64 %35, %indvars.iv15.i.i.i
-  %37 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %36
   %38 = load float, ptr %34, align 4, !alias.scope !121
   %39 = load float, ptr %37, align 4, !alias.scope !121
   store float %39, ptr %34, align 4, !alias.scope !121
@@ -12459,7 +12459,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %40
   %45 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %44
   %46 = shl i64 %indvars.iv.i.i29, 2
   %47 = add nuw nsw i64 %46, %indvars.iv15.i.i28
-  %48 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %47
   %49 = load float, ptr %45, align 4, !alias.scope !124
   %50 = load float, ptr %48, align 4, !alias.scope !124
   store float %50, ptr %45, align 4, !alias.scope !124
@@ -12489,7 +12489,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit34.preheader: ; preds = %51
   %55 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %54
   %56 = shl i64 %indvars.iv.i.i.i41, 2
   %57 = add nuw nsw i64 %56, %indvars.iv15.i.i.i40
-  %58 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %57
   %59 = load float, ptr %55, align 4, !alias.scope !127
   %60 = load float, ptr %58, align 4, !alias.scope !127
   store float %60, ptr %55, align 4, !alias.scope !127

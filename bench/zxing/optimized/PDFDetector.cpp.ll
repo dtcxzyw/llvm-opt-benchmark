@@ -1475,7 +1475,7 @@ _ZNSt5arrayIN5ZXing8NullableINS0_11ResultPointEEELm8EEC2Ev.exit.i: ; preds = %_Z
   %48 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6Pdf417L21INDEXES_START_PATTERNE, i64 %indvars.iv.i.i
   %49 = load i32, ptr %48, align 4, !noalias !21
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [8 x %"class.ZXing::Nullable"], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %9, i64 0, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull readonly align 8 dereferenceable(24) %47, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -1502,7 +1502,7 @@ _ZN5ZXing6Pdf417L12CopyToResultERSt5arrayINS_8NullableINS_11ResultPointEEELm8EER
   %63 = getelementptr inbounds nuw i32, ptr @_ZN5ZXing6Pdf417L20INDEXES_STOP_PATTERNE, i64 %indvars.iv.i21.i
   %64 = load i32, ptr %63, align 4, !noalias !21
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [8 x %"class.ZXing::Nullable"], ptr %9, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [8 x %"class.ZXing::Nullable"], ptr %9, i64 0, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull readonly align 8 dereferenceable(24) %62, i64 24, i1 false)
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, 4

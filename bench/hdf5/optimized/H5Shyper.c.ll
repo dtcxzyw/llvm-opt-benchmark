@@ -14332,7 +14332,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
 
 .thread:                                          ; preds = %H5S__hyper_is_regular.exit, %116
   %118 = sext i32 %110 to i64
-  %119 = getelementptr inbounds [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   br label %130
 
@@ -14351,7 +14351,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
 
 126:                                              ; preds = %124
   %127 = sext i32 %110 to i64
-  %128 = getelementptr inbounds [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %127
   %129 = load i32, ptr %128, align 4
   br label %130
 
@@ -14359,7 +14359,7 @@ H5S__hyper_is_regular.exit:                       ; preds = %73, %H5S__hyper_reb
   %.087 = phi i32 [ %123, %122 ], [ %120, %.thread ], [ 2, %116 ], [ %129, %126 ], [ 1, %124 ]
   %131 = load i32, ptr %8, align 4
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sds_hyper_ver_bounds, i64 0, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = icmp ugt i32 %.087, %134
   br i1 %135, label %136, label %148

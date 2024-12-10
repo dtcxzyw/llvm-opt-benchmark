@@ -6380,7 +6380,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds ptr, ptr %classnames, i64 %i.089
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
-  %arrayidx2 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %i.089
+  %arrayidx2 = getelementptr inbounds nuw [6 x i64], ptr %lengths, i64 0, i64 %i.089
   store i64 %call, ptr %arrayidx2, align 8
   %inc = add nuw i64 %i.089, 1
   %exitcond.not = icmp eq i64 %inc, %count
@@ -6576,7 +6576,7 @@ invoke.cont36.lr.ph:                              ; preds = %cond.end
 
 invoke.cont36:                                    ; preds = %invoke.cont36.lr.ph, %for.inc44
   %i28.091 = phi i64 [ 0, %invoke.cont36.lr.ph ], [ %inc45, %for.inc44 ]
-  %arrayidx38 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %i28.091
+  %arrayidx38 = getelementptr inbounds nuw [6 x i64], ptr %lengths, i64 0, i64 %i28.091
   %20 = load i64, ptr %arrayidx38, align 8
   %cmp39 = icmp eq i64 %sub.ptr.sub.i.i36, %20
   br i1 %cmp39, label %land.lhs.true, label %for.inc44

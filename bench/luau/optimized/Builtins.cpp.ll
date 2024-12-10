@@ -1625,13 +1625,13 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile14BuiltinVisitorD2Ev(ptr nou
 define dso_local { i64, i32 } @_ZN4Luau7Compile14getBuiltinInfoEi(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [78 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [78 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep2 = getelementptr inbounds [78 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.2, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw [78 x i64], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.2, i64 0, i64 %2
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %3 = sext i32 %0 to i64
-  %switch.gep4 = getelementptr inbounds [78 x i32], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.3, i64 0, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw [78 x i32], ptr @switch.table._ZN4Luau7Compile14getBuiltinInfoEi.3, i64 0, i64 %3
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %.sroa.01.0.insert.insert = or disjoint i64 %switch.load3, %switch.load
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.01.0.insert.insert, 0

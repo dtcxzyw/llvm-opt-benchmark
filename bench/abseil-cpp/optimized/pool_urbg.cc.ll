@@ -301,7 +301,7 @@ if.then.i1:                                       ; preds = %_ZN4absl9call_onceI
 
 _ZN4absl15random_internal12_GLOBAL__N_19GetPoolIDEv.exit: ; preds = %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit, %if.then.i1
   %18 = phi i64 [ %rem.i, %if.then.i1 ], [ %16, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit ]
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %18
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %18
   %19 = load ptr, ptr %arrayidx, align 8
   ret ptr %19
 }

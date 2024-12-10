@@ -380,7 +380,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google8protobuflsERSo
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
   %22 = and i32 %13, 16970
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i32, ptr %23, align 8

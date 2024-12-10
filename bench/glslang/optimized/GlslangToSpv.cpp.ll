@@ -800,7 +800,7 @@ define noundef zeroext i1 @_ZN7glslang12OutputSpvBinERKSt6vectorIjSaIjEEPKc(ptr 
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %9 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %8) #20
   br i1 %9, label %19, label %.preheader
 
@@ -872,7 +872,7 @@ define noundef zeroext i1 @_ZN7glslang12OutputSpvHexERKSt6vectorIjSaIjEEPKcS6_(p
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   %9 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %8) #20
   br i1 %9, label %10, label %12
 

@@ -70,14 +70,14 @@ if.then18:                                        ; preds = %for.body14
   br i1 %cmp21.not, label %if.else26, label %if.then23
 
 if.then23:                                        ; preds = %if.then18
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %conv
   store i32 2105376, ptr %add.ptr, align 1
   br label %if.end42
 
 if.else26:                                        ; preds = %if.then18
   %add.ptr31 = getelementptr inbounds nuw i8, ptr %add.ptr29, i64 %indvars.iv
   %7 = load i8, ptr %add.ptr31, align 1
-  %add.ptr36 = getelementptr inbounds i8, ptr %buf, i64 %conv
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %buf, i64 %conv
   %conv37 = zext i8 %7 to i32
   %cmp38 = icmp eq i64 %indvars.iv, 7
   %cond40 = select i1 %cmp38, i32 45, i32 32
@@ -101,7 +101,7 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp48, label %if.then50, label %if.end56
 
 if.then50:                                        ; preds = %for.end
-  %add.ptr53 = getelementptr inbounds i8, ptr %buf, i64 %conv46
+  %add.ptr53 = getelementptr inbounds nuw i8, ptr %buf, i64 %conv46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr53, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false) #6
   %add55 = add nsw i32 %n.1, 2
   br label %if.end56
@@ -130,10 +130,10 @@ if.then71:                                        ; preds = %if.end66
   %or.cond = icmp ult i8 %10, 95
   %narrow = select i1 %or.cond, i8 %9, i8 46
   %inc92 = add nsw i32 %n.365, 1
-  %arrayidx = getelementptr inbounds [289 x i8], ptr %buf, i64 0, i64 %conv67
+  %arrayidx = getelementptr inbounds nuw [289 x i8], ptr %buf, i64 0, i64 %conv67
   store i8 %narrow, ptr %arrayidx, align 1
   %idxprom93 = sext i32 %inc92 to i64
-  %arrayidx94 = getelementptr inbounds [289 x i8], ptr %buf, i64 0, i64 %idxprom93
+  %arrayidx94 = getelementptr inbounds nuw [289 x i8], ptr %buf, i64 0, i64 %idxprom93
   store i8 0, ptr %arrayidx94, align 1
   br label %for.inc96
 
@@ -159,10 +159,10 @@ for.end98.if.end109_crit_edge:                    ; preds = %for.end98
 if.then103:                                       ; preds = %for.end98
   %conv99 = sext i32 %n.3.lcssa to i64
   %inc104 = add nsw i32 %n.3.lcssa, 1
-  %arrayidx106 = getelementptr inbounds [289 x i8], ptr %buf, i64 0, i64 %conv99
+  %arrayidx106 = getelementptr inbounds nuw [289 x i8], ptr %buf, i64 0, i64 %conv99
   store i8 10, ptr %arrayidx106, align 1
   %idxprom107 = sext i32 %inc104 to i64
-  %arrayidx108 = getelementptr inbounds [289 x i8], ptr %buf, i64 0, i64 %idxprom107
+  %arrayidx108 = getelementptr inbounds nuw [289 x i8], ptr %buf, i64 0, i64 %idxprom107
   store i8 0, ptr %arrayidx108, align 1
   br label %if.end109
 

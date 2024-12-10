@@ -76,7 +76,7 @@ define range(i32 23, 22) i32 @cli_vm_execute(ptr noundef readonly %0, ptr nounde
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %ptr_register_glob_fixedid.exit
   %.0450912279 = phi i64 [ %45, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
-  %15 = getelementptr inbounds [0 x %struct.cli_apiglobal], ptr @cli_globals, i64 0, i64 %.0450912279
+  %15 = getelementptr inbounds nuw [0 x %struct.cli_apiglobal], ptr @cli_globals, i64 0, i64 %.0450912279
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64

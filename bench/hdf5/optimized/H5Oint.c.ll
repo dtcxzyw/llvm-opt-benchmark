@@ -343,7 +343,7 @@ define ptr @H5O_create_ohdr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.011.i = select i1 %or.cond.not.i, i32 2, i32 1
   %46 = call i32 @H5F_get_low_bound(ptr noundef %0) #11
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 255
   %51 = icmp samesign ugt i32 %.011.i, %50
@@ -352,7 +352,7 @@ define ptr @H5O_create_ohdr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 52:                                               ; preds = %42
   %53 = call i32 @H5F_get_low_bound(ptr noundef %0) #11
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 255
   br label %58
@@ -361,7 +361,7 @@ define ptr @H5O_create_ohdr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %59 = phi i32 [ %57, %52 ], [ %.011.i, %42 ]
   %60 = call i32 @H5F_get_high_bound(ptr noundef %0) #11
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp ugt i32 %59, %63
   br i1 %64, label %65, label %72
@@ -1169,7 +1169,7 @@ H5O__obj_class_real.exit.thread13:                ; preds = %1
 
 10:                                               ; preds = %.preheader
   %11 = add nsw i64 %.0.i, -1
-  %12 = getelementptr inbounds [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -2467,7 +2467,7 @@ define range(i32 -1, 1) i32 @H5O_obj_type(ptr nocapture noundef readonly %0, ptr
 
 11:                                               ; preds = %.preheader
   %12 = add nsw i64 %.0.i.i, -1
-  %13 = getelementptr inbounds [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -2916,7 +2916,7 @@ define range(i32 -1, 1) i32 @H5O_get_info(ptr nocapture noundef readonly %0, ptr
 
 12:                                               ; preds = %.preheader
   %13 = add nsw i64 %.0.i, -1
-  %14 = getelementptr inbounds [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
@@ -3137,7 +3137,7 @@ define range(i32 -1, 1) i32 @H5O_get_native_info(ptr noundef %0, ptr noundef %1,
 
 12:                                               ; preds = %.preheader
   %13 = add nsw i64 %.0.i, -1
-  %14 = getelementptr inbounds [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
@@ -3431,7 +3431,7 @@ define range(i32 -1, 1) i32 @H5O_get_rc_and_type(ptr nocapture noundef readonly 
 
 14:                                               ; preds = %.preheader
   %15 = add nsw i64 %.0.i.i, -1
-  %16 = getelementptr inbounds [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [3 x ptr], ptr @H5O_obj_class_g, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8

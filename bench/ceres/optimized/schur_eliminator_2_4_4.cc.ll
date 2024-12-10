@@ -23271,7 +23271,7 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELi1ELi0ELi4ELi1EEENS_13Cw
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %28, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %22, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %24 = getelementptr inbounds double, ptr %4, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw double, ptr %4, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %25 = getelementptr inbounds double, ptr %9, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %26 = load double, ptr %25, align 8
   %27 = fmul double %7, %26

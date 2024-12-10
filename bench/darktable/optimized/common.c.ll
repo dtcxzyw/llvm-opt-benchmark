@@ -651,7 +651,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
 465:                                              ; preds = %209
   %466 = load i32, ptr %151, align 4, !tbaa !15
   %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds double, ptr %5, i64 %467
+  %468 = getelementptr inbounds nuw double, ptr %5, i64 %467
   %469 = load double, ptr %468, align 8, !tbaa !13
   store double 0.000000e+00, ptr %468, align 8, !tbaa !13
   store double %469, ptr %5, align 16, !tbaa !13
@@ -677,7 +677,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %487 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %488 = load i32, ptr %487, align 4, !tbaa !15
   %489 = sext i32 %488 to i64
-  %490 = getelementptr inbounds double, ptr %5, i64 %489
+  %490 = getelementptr inbounds nuw double, ptr %5, i64 %489
   %491 = load double, ptr %490, align 8, !tbaa !13
   %492 = extractelement <4 x double> %479, i64 0
   store double %492, ptr %490, align 8, !tbaa !13
@@ -706,7 +706,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %511 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %512 = load i32, ptr %511, align 4, !tbaa !15
   %513 = sext i32 %512 to i64
-  %514 = getelementptr inbounds double, ptr %5, i64 %513
+  %514 = getelementptr inbounds nuw double, ptr %5, i64 %513
   %515 = load double, ptr %514, align 8, !tbaa !13
   %516 = extractelement <4 x double> %498, i64 0
   store double %516, ptr %514, align 8, !tbaa !13
@@ -730,7 +730,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %531 = getelementptr inbounds nuw i8, ptr %151, i64 12
   %532 = load i32, ptr %531, align 4, !tbaa !15
   %533 = sext i32 %532 to i64
-  %534 = getelementptr inbounds double, ptr %5, i64 %533
+  %534 = getelementptr inbounds nuw double, ptr %5, i64 %533
   %535 = load double, ptr %534, align 8, !tbaa !13
   %536 = extractelement <4 x double> %522, i64 0
   store double %536, ptr %534, align 8, !tbaa !13
@@ -750,7 +750,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %547 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %548 = load i32, ptr %547, align 4, !tbaa !15
   %549 = sext i32 %548 to i64
-  %550 = getelementptr inbounds double, ptr %5, i64 %549
+  %550 = getelementptr inbounds nuw double, ptr %5, i64 %549
   %551 = load double, ptr %550, align 8, !tbaa !13
   %552 = extractelement <4 x double> %542, i64 0
   store double %552, ptr %550, align 8, !tbaa !13
@@ -765,7 +765,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %559 = getelementptr inbounds nuw i8, ptr %151, i64 20
   %560 = load i32, ptr %559, align 4, !tbaa !15
   %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds double, ptr %5, i64 %561
+  %562 = getelementptr inbounds nuw double, ptr %5, i64 %561
   %563 = load double, ptr %562, align 8, !tbaa !13
   %564 = extractelement <4 x double> %558, i64 0
   store double %564, ptr %562, align 8, !tbaa !13
@@ -787,7 +787,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %577 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %578 = load i32, ptr %577, align 4, !tbaa !15
   %579 = sext i32 %578 to i64
-  %580 = getelementptr inbounds double, ptr %5, i64 %579
+  %580 = getelementptr inbounds nuw double, ptr %5, i64 %579
   %581 = load double, ptr %580, align 8, !tbaa !13
   %582 = extractelement <2 x double> %572, i64 0
   store double %582, ptr %580, align 8, !tbaa !13
@@ -804,7 +804,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %591 = getelementptr inbounds nuw i8, ptr %151, i64 28
   %592 = load i32, ptr %591, align 4, !tbaa !15
   %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds double, ptr %5, i64 %593
+  %594 = getelementptr inbounds nuw double, ptr %5, i64 %593
   %595 = load double, ptr %594, align 8, !tbaa !13
   %596 = extractelement <2 x double> %590, i64 0
   store double %596, ptr %594, align 8, !tbaa !13

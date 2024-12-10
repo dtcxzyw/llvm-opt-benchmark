@@ -10362,7 +10362,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
 
 61:                                               ; preds = %46
   %62 = add nsw i64 %indvar, -1
-  %63 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %62
   %64 = load double, ptr %63, align 8
   %65 = trunc nuw nsw i64 %indvar to i32
   %66 = uitofp nneg i32 %65 to double
@@ -10395,7 +10395,7 @@ define range(i32 -28, 1) i32 @IDAGetDky(ptr noundef %0, double noundef %1, i32 n
   %indvars.iv97 = phi i64 [ %58, %.lr.ph ], [ %indvars.iv.next98, %76 ]
   %.17788 = phi double [ %.076, %.lr.ph ], [ %84, %76 ]
   %77 = add nsw i64 %indvars.iv97, -1
-  %78 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %77
   %79 = load double, ptr %78, align 8
   %80 = fadd double %41, %.17788
   %81 = fmul double %80, %store_forwarded
@@ -10565,7 +10565,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 
 63:                                               ; preds = %48
   %64 = add nsw i64 %indvar, -1
-  %65 = getelementptr inbounds [6 x double], ptr %5, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [6 x double], ptr %5, i64 0, i64 %64
   %66 = load double, ptr %65, align 8
   %67 = trunc nuw nsw i64 %indvar to i32
   %68 = uitofp nneg i32 %67 to double
@@ -10598,7 +10598,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
   %indvars.iv97 = phi i64 [ %60, %.lr.ph ], [ %indvars.iv.next98, %78 ]
   %.17788 = phi double [ %.076, %.lr.ph ], [ %86, %78 ]
   %79 = add nsw i64 %indvars.iv97, -1
-  %80 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %79
   %81 = load double, ptr %80, align 8
   %82 = fadd double %41, %.17788
   %83 = fmul double %82, %store_forwarded
@@ -10827,7 +10827,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
 
 77:                                               ; preds = %62
   %78 = add nsw i64 %indvar, -1
-  %79 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = trunc nuw nsw i64 %indvar to i32
   %82 = uitofp nneg i32 %81 to double
@@ -10860,7 +10860,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, 
   %indvars.iv122 = phi i64 [ %74, %.lr.ph ], [ %indvars.iv.next123, %92 ]
   %.192109 = phi double [ %.091, %.lr.ph ], [ %100, %92 ]
   %93 = add nsw i64 %indvars.iv122, -1
-  %94 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %93
   %95 = load double, ptr %94, align 8
   %96 = fadd double %53, %.192109
   %97 = fmul double %96, %store_forwarded
@@ -11205,7 +11205,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
 
 82:                                               ; preds = %67
   %83 = add nsw i64 %indvar, -1
-  %84 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %83
   %85 = load double, ptr %84, align 8
   %86 = trunc nuw nsw i64 %indvar to i32
   %87 = uitofp nneg i32 %86 to double
@@ -11238,7 +11238,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef 
   %indvars.iv124 = phi i64 [ %79, %.lr.ph ], [ %indvars.iv.next125, %97 ]
   %.194111 = phi double [ %.093, %.lr.ph ], [ %105, %97 ]
   %98 = add nsw i64 %indvars.iv124, -1
-  %99 = getelementptr inbounds [6 x double], ptr %7, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [6 x double], ptr %7, i64 0, i64 %98
   %100 = load double, ptr %99, align 8
   %101 = fadd double %58, %.194111
   %102 = fmul double %101, %store_forwarded

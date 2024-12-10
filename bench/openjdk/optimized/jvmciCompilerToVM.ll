@@ -2201,7 +2201,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
@@ -29761,7 +29761,7 @@ define hidden noundef zeroext range(i8 0, 2) i8 @_Z23c2v_attachCurrentThreadP7JN
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef 0, i32 noundef %46, ptr noundef nonnull %9) #16
   %50 = sext i32 %46 to i64
-  %51 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %50
   store i8 0, ptr %51, align 1
   store i32 65538, ptr %10, align 8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8

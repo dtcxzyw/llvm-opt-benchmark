@@ -10261,10 +10261,10 @@ _ZN4llvm13AtomicRMWInst4InitENS0_5BinOpEPNS_5ValueES3_NS_5AlignENS_14AtomicOrder
 define dso_local { ptr, i64 } @_ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [18 x i64], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [18 x ptr], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE.27, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @switch.table._ZN4llvm13AtomicRMWInst16getOperationNameENS0_5BinOpE.27, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -19048,7 +19048,7 @@ _ZN4llvm8FCmpInst10isEqualityENS_7CmpInst9PredicateE.exit: ; preds = %7, %switch
 define dso_local noundef range(i32 0, 42) i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19122,7 +19122,7 @@ define dso_local noundef range(i32 32, 42) i32 @_ZN4llvm8ICmpInst18getSignedPred
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst18getSignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19132,7 +19132,7 @@ define dso_local noundef range(i32 32, 38) i32 @_ZN4llvm8ICmpInst20getUnsignedPr
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm8ICmpInst20getUnsignedPredicateENS_7CmpInst9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -19141,7 +19141,7 @@ switch.lookup:
 define dso_local noundef range(i32 0, 42) i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %0) local_unnamed_addr #10 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [42 x i32], ptr @switch.table._ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

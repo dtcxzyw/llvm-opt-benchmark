@@ -3362,7 +3362,7 @@ while.cond185.i.i:                                ; preds = %for.end180.i.i, %la
 
 land.rhs187.i.i:                                  ; preds = %while.cond185.i.i
   %sub189.i.i = add nsw i64 %numcodes_cl.0.i.i, -1
-  %arrayidx190.i.i = getelementptr inbounds [19 x i32], ptr @_ZL10CLCL_ORDER, i64 0, i64 %sub189.i.i
+  %arrayidx190.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZL10CLCL_ORDER, i64 0, i64 %sub189.i.i
   %130 = load i32, ptr %arrayidx190.i.i, align 4
   %idxprom191.i.i = zext i32 %130 to i64
   %arrayidx192.i.i = getelementptr inbounds nuw i32, ptr %129, i64 %idxprom191.i.i

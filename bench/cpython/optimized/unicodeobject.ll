@@ -22541,7 +22541,7 @@ define dso_local range(i32 -1, 1) i32 @_PyUnicodeWriter_PrepareKindInternal(ptr 
 entry:
   %switch.tableidx = add nsw i32 %kind, -1
   %0 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._PyUnicodeWriter_PrepareKindInternal, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._PyUnicodeWriter_PrepareKindInternal, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   %call = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef %writer, i64 noundef 0, i32 noundef %switch.load)
   ret i32 %call

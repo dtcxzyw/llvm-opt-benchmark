@@ -625,7 +625,7 @@ _ZN6hermes2vmL10isLeapYearEi.exit.thread6.i:      ; preds = %if.end.i.i, %if.end
   %rem3.lhs.trunc.i = add nsw i8 %3, 42
   %rem38.i = srem i8 %rem3.lhs.trunc.i, 28
   %idxprom.i = sext i8 %rem38.i to i64
-  %arrayidx.i = getelementptr inbounds [28 x i32], ptr @_ZN6hermes2vmL26epochDaysForYear2006To2033E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [28 x i32], ptr @_ZN6hermes2vmL26epochDaysForYear2006To2033E, i64 0, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
   br label %_ZN6hermes2vmL25equivalentYearAsEpochDaysEii.exit
 
@@ -1258,7 +1258,7 @@ entry:
   %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
   %idxprom5 = zext nneg i32 %call1 to i64
   %arrayidx6 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -1414,7 +1414,7 @@ entry:
   %cond.i.i.i = select i1 %cmp.i.i.i, double %add.i.i.i, double %call.i.i.i
   %conv.i.i = fptosi double %cond.i.i.i to i32
   %idxprom.i = sext i32 %conv.i.i to i64
-  %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom.i
   %idxprom5.i = zext nneg i32 %call1.i to i64
   %arrayidx6.i = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -1571,7 +1571,7 @@ entry:
   %cond.i.i = select i1 %cmp.i.i, double %add.i.i, double %call.i.i
   %conv.i = fptosi double %cond.i.i to i32
   %idxprom = sext i32 %conv.i to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x ptr], ptr @_ZN6hermes2vmL12weekdayNamesE, i64 0, i64 %idxprom
   %idxprom5 = zext nneg i32 %call1 to i64
   %arrayidx6 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %idxprom5
   call void @llvm.experimental.noalias.scope.decl(metadata !32)

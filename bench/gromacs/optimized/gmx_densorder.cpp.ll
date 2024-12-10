@@ -1901,7 +1901,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit142.i:     ; preds = %635, %632
 
 .noexc143.i:                                      ; preds = %.noexc.i83
   %674 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
-  %675 = getelementptr inbounds i8, ptr %15, i64 %674
+  %675 = getelementptr inbounds nuw i8, ptr %15, i64 %674
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull %15, ptr noundef nonnull %675)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i84 unwind label %676
 
@@ -2058,7 +2058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit158.i:
 
 .noexc160.i:                                      ; preds = %.noexc159.i
   %707 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
-  %708 = getelementptr inbounds i8, ptr %15, i64 %707
+  %708 = getelementptr inbounds nuw i8, ptr %15, i64 %707
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull %15, ptr noundef nonnull %708)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit163.i unwind label %709
 

@@ -812,7 +812,7 @@ default.unreachable:                              ; preds = %.preheader
 249:                                              ; preds = %244
   %250 = add nsw i32 %.01621.i.i, 1
   %251 = sext i32 %.01621.i.i to i64
-  %252 = getelementptr inbounds ptr, ptr %7, i64 %251
+  %252 = getelementptr inbounds nuw ptr, ptr %7, i64 %251
   store ptr %.022.i.i, ptr %252, align 8
   br label %253
 
@@ -3795,7 +3795,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh10removeTile
 77:                                               ; preds = %72
   %78 = add nsw i32 %.01621.i, 1
   %79 = sext i32 %.01621.i to i64
-  %80 = getelementptr inbounds ptr, ptr %5, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %5, i64 %79
   store ptr %.022.i, ptr %80, align 8
   br label %81
 
@@ -4036,7 +4036,7 @@ default.unreachable:                              ; preds = %145
 191:                                              ; preds = %186
   %192 = add nsw i32 %.01621.i.i, 1
   %193 = sext i32 %.01621.i.i to i64
-  %194 = getelementptr inbounds ptr, ptr %5, i64 %193
+  %194 = getelementptr inbounds nuw ptr, ptr %5, i64 %193
   store ptr %.022.i.i, ptr %194, align 8
   br label %195
 

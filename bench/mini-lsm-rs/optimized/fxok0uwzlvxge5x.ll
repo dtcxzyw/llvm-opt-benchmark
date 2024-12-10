@@ -8176,7 +8176,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %156, %154
 
 ._crit_edge.i:                                    ; preds = %170
   %196 = add nuw nsw i64 %.0.i91, 8
-  %197 = getelementptr inbounds i8, ptr %5, i64 %.0.i91
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i91
   %.0.copyload.i = load i64, ptr %197, align 1, !alias.scope !2259, !noalias !2265
   %.promoted22.i = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !2256, !noalias !2261
   %198 = xor i64 %.0.copyload.i, %.promoted22.i
@@ -8217,7 +8217,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i: ; preds = %156, %154
   br i1 %218, label %222, label %230
 
 219:                                              ; preds = %214
-  %220 = getelementptr inbounds i8, ptr %5, i64 %.09.lcssa.i
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 %.09.lcssa.i
   %.0.copyload.i19.i = load i32, ptr %220, align 1, !alias.scope !2272, !noalias !2265
   %221 = zext i32 %.0.copyload.i19.i to i64
   br label %216

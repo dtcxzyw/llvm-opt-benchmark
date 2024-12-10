@@ -75,7 +75,7 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   %4 = load i64, ptr %count.i116, align 8
   %inc.i117 = add i64 %4, 1
   store i64 %inc.i117, ptr %count.i116, align 8
-  %arrayidx.i118 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %4
+  %arrayidx.i118 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %4
   store ptr %call.i119, ptr %arrayidx.i118, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i119, i8 0, i64 %div, i1 false)
   %5 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
@@ -89,7 +89,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont6
   %6 = load i64, ptr %count.i116, align 8
   %inc.i124 = add i64 %6, 1
   store i64 %inc.i124, ptr %count.i116, align 8
-  %arrayidx.i125 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %6
+  %arrayidx.i125 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %6
   store ptr %call.i126, ptr %arrayidx.i125, align 8
   %live.i = getelementptr inbounds nuw i8, ptr %table, i64 68
   br label %for.body
@@ -122,7 +122,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit135:  ; preds = %for.end
   %12 = load i64, ptr %count.i116, align 8
   %inc.i132 = add i64 %12, 1
   store i64 %inc.i132, ptr %count.i116, align 8
-  %arrayidx.i133 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %12
+  %arrayidx.i133 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %12
   store ptr %call.i134, ptr %arrayidx.i133, align 8
   %cmp18148.not = icmp ult i64 %index_count, 3
   br i1 %cmp18148.not, label %for.end38, label %for.body19
@@ -388,7 +388,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %47 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i = add i64 %i.0.i, -1
-  %arrayidx.i145 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
+  %arrayidx.i145 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
   %48 = load ptr, ptr %arrayidx.i145, align 8
   invoke void %47(ptr noundef %48)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !15
@@ -651,7 +651,7 @@ invoke.cont6:                                     ; preds = %invoke.cont5
   %3 = load i64, ptr %count.i80, align 8
   %inc.i81 = add i64 %3, 1
   store i64 %inc.i81, ptr %count.i80, align 8
-  %arrayidx.i82 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %3
+  %arrayidx.i82 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %3
   store ptr %call.i83, ptr %arrayidx.i82, align 8
   %4 = load ptr, ptr %adjacency, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i83, ptr align 4 %4, i64 %mul.i78, i1 false)
@@ -663,7 +663,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   %6 = load i64, ptr %count.i80, align 8
   %inc.i89 = add i64 %6, 1
   store i64 %inc.i89, ptr %count.i80, align 8
-  %arrayidx.i90 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %6
+  %arrayidx.i90 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %6
   store ptr %call.i91, ptr %arrayidx.i90, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i91, i8 0, i64 %mul.i78, i1 false)
   %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
@@ -677,7 +677,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   %8 = load i64, ptr %count.i80, align 8
   %inc.i97 = add i64 %8, 1
   store i64 %inc.i97, ptr %count.i80, align 8
-  %arrayidx.i98 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %8
+  %arrayidx.i98 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %8
   store ptr %call.i99, ptr %arrayidx.i98, align 8
   %9 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %call.i104 = invoke noundef ptr %9(i64 noundef %div)
@@ -687,7 +687,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   %10 = load i64, ptr %count.i80, align 8
   %inc.i102 = add i64 %10, 1
   store i64 %inc.i102, ptr %count.i80, align 8
-  %arrayidx.i103 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %10
+  %arrayidx.i103 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %10
   store ptr %call.i104, ptr %arrayidx.i103, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i104, i8 0, i64 %div, i1 false)
   %add = add i32 %cache_size, 1
@@ -947,7 +947,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i113:                                    ; preds = %for.cond.i
   %32 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i114 = add i64 %i.0.i, -1
-  %arrayidx.i115 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i114
+  %arrayidx.i115 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i114
   %33 = load ptr, ptr %arrayidx.i115, align 8
   invoke void %32(ptr noundef %33)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !15

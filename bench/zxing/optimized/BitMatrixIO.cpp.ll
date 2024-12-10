@@ -755,7 +755,7 @@ define void @_ZN5ZXing9SaveAsPBMERKNS_9BitMatrixENSt7__cxx1112basic_stringIcSt11
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSt14basic_ofstreamIcSt11char_traitsIcEE, i64 24), align 8
   %61 = getelementptr i8, ptr %59, i64 -24
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 %62
   store ptr %60, ptr %63, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZNSt13basic_filebufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(240) %64) #17

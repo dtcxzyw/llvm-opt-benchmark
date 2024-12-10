@@ -10446,7 +10446,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19, %_ZN
 
 if.then23:                                        ; preds = %invoke.cont21
   %idx.ext = sext i32 %call6 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext
   %sub = sub nsw i64 2048, %idx.ext
   %call25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %base_value) #22
   %call26 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_value) #22
@@ -10460,7 +10460,7 @@ if.else:                                          ; preds = %invoke.cont13, %inv
 invoke.cont34:                                    ; preds = %if.else
   %idx.ext29 = sext i32 %call6 to i64
   %sub32 = sub nsw i64 2048, %idx.ext29
-  %add.ptr30 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext29
   %call35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #22
   %call36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr30, i64 noundef %sub32, ptr noundef nonnull @.str.50, ptr noundef %call35) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #22
@@ -10900,7 +10900,7 @@ invoke.cont41:                                    ; preds = %land.lhs.true, %inv
 
 if.then43:                                        ; preds = %invoke.cont41
   %idx.ext = sext i32 %call40 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext
   %sub = sub nsw i64 2048, %idx.ext
   %call45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %base_value) #22
   %call46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %file_value) #22
@@ -10914,7 +10914,7 @@ if.else:                                          ; preds = %invoke.cont41
 invoke.cont54:                                    ; preds = %if.else
   %idx.ext49 = sext i32 %call40 to i64
   %sub52 = sub nsw i64 2048, %idx.ext49
-  %add.ptr50 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext49
+  %add.ptr50 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext49
   %call55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #22
   %call56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr50, i64 noundef %sub52, ptr noundef nonnull @.str.53, ptr noundef %call55) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53) #22

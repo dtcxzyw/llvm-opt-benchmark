@@ -7585,7 +7585,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearBERS2_.exit: ; preds = %12, %1
   br i1 %.not67, label %138, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %119
+  %133 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %119
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.080, i64 32
   %136 = load i32, ptr %135, align 4
@@ -7612,7 +7612,7 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearBERS2_.exit: ; preds = %12, %1
   br i1 %.not68, label %156, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %142
+  %151 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromVFERS2_.BORDERFLAG, i64 0, i64 %142
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.080, i64 32
   %154 = load i32, ptr %153, align 4
@@ -34740,11 +34740,11 @@ _ZNK5Eigen9FullPivLUINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE4rankEv.exit.thread: ; p
 45:                                               ; preds = %45, %.lr.ph.i.i.i.i.i.i.i.i
   %46 = phi double [ %.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %48, %45 ]
   %.03560.i.i.i.i.i.i.i.i = phi i64 [ %.03558.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.035.i.i.i.i.i.i.i.i, %45 ]
-  %47 = getelementptr inbounds double, ptr %5, i64 %.03560.i.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds nuw double, ptr %5, i64 %.03560.i.i.i.i.i.i.i.i
   %48 = load double, ptr %47, align 8
   store double %46, ptr %47, align 8
   store double %48, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 %.03560.i.i.i.i.i.i.i.i
   store i8 1, ptr %49, align 1
   %.035.in.in.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %.03560.i.i.i.i.i.i.i.i
   %.035.in.i.i.i.i.i.i.i.i = load i32, ptr %.035.in.in.i.i.i.i.i.i.i.i, align 4
@@ -34758,7 +34758,7 @@ _ZNK5Eigen9FullPivLUINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE4rankEv.exit.thread: ; p
   %51 = getelementptr inbounds nuw i32, ptr %33, i64 %.054.i.i.i.i.i.i.i.i
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds double, ptr %5, i64 %53
+  %54 = getelementptr inbounds nuw double, ptr %5, i64 %53
   %55 = load double, ptr %50, align 8
   store double %55, ptr %54, align 8
   %56 = add nuw nsw i64 %.054.i.i.i.i.i.i.i.i, 1
@@ -36074,7 +36074,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %8 = call noundef i32 %1(ptr noundef nonnull %7, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %15

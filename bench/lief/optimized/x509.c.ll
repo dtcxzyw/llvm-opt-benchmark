@@ -1015,7 +1015,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 .thread:                                          ; preds = %53, %42
   %.16990.sink = phi i64 [ %.068101, %42 ], [ %.169, %53 ]
   %.sink = phi i8 [ 63, %42 ], [ %spec.select, %53 ]
-  %55 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.16990.sink
+  %55 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %.16990.sink
   store i8 %.sink, ptr %55, align 1
   %56 = add nuw i64 %.070100, 1
   %57 = add nuw nsw i64 %.16990.sink, 1
@@ -1025,7 +1025,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 ._crit_edge104:                                   ; preds = %.thread, %34
   %.068.lcssa = phi i64 [ 0, %34 ], [ %57, %.thread ]
-  %60 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.068.lcssa
+  %60 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %.068.lcssa
   store i8 0, ptr %60, align 1
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %35, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #12
   %62 = icmp slt i32 %61, 0

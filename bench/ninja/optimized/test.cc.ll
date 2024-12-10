@@ -2421,7 +2421,7 @@ _ZN12_GLOBAL__N_116GetSystemTempDirB5cxx11Ev.exit: ; preds = %_ZNSt7__cxx1112bas
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %42 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %41) #25
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %7)
-  %endptr = getelementptr inbounds i8, ptr %7, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %7, i64 %strlen
   store i64 24866934413088813, ptr %endptr, align 1
   %43 = call ptr @mkdtemp(ptr noundef nonnull %7) #25
   %.not = icmp eq ptr %43, null

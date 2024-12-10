@@ -2442,7 +2442,7 @@ switch.lookup:
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 4
   %3 = sext i8 %.sroa.5.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !788, !noalias !791
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2467,7 +2467,7 @@ switch.lookup:
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 4
   %3 = sext i8 %.sroa.4.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %.sroa.0.0.copyload, ptr %0, align 4, !alias.scope !793, !noalias !796
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4863,7 +4863,7 @@ switch.lookup:
   %.sroa.75.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.75.0.copyload = load i8, ptr %.sroa.75.0..sroa_idx, align 4
   %2 = sext i8 %.sroa.75.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1766)
   %3 = load ptr, ptr %0, align 8, !alias.scope !1766, !noalias !1769, !nonnull !23, !align !107, !noundef !23
@@ -4894,7 +4894,7 @@ switch.lookup:
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4
   %3 = sext i8 %.sroa.6.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @"switch.table._ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf2ee3f21ff862a14E.llvm.6093752533286553222", i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.4.vec.insert = insertelement <4 x i32> %2, i32 %switch.load, i64 1
   %.sroa.01.12.vec.insert = shufflevector <4 x i32> %.sroa.01.4.vec.insert, <4 x i32> %2, <4 x i32> <i32 0, i32 1, i32 6, i32 7>

@@ -802,7 +802,7 @@ define hidden noundef i32 @_ZN23ExceptionMessageBuilder14do_instructionEi(ptr no
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit.i:   ; preds = %14, %2
   %16 = phi i32 [ %15, %14 ], [ %13, %2 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, 239
   br i1 %20, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i.i, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread.i.i
@@ -870,7 +870,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %_ZN9Bytecodes7code_
   %52 = phi i32 [ %47, %49 ], [ %47, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %45, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.thread ]
   %53 = phi i32 [ %51, %49 ], [ %48, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %45, %_ZN9Bytecodes7code_atEPK6MethodPh.exit.thread ]
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %1, 1
   %58 = icmp eq i32 %56, 196
@@ -891,7 +891,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %_ZN9Bytecodes7code_
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
   %66 = phi i32 [ %65, %63 ], [ %62, %59 ]
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %1, 2
   br label %71
@@ -2443,7 +2443,7 @@ define hidden noundef i32 @_ZN23ExceptionMessageBuilder17get_NPE_null_slotEi(ptr
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %2 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %1, 1
   %20 = icmp eq i32 %18, 196
@@ -2464,7 +2464,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %13
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit39:   ; preds = %21, %25
   %28 = phi i32 [ %27, %25 ], [ %24, %21 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %1, 2
   br label %33
@@ -2637,7 +2637,7 @@ define hidden noundef zeroext i1 @_ZN23ExceptionMessageBuilder16print_NPE_cause0
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %26, %36
   %38 = phi i32 [ %37, %36 ], [ %35, %26 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add nuw nsw i32 %25, 1
   %43 = icmp eq i32 %41, 196
@@ -2658,7 +2658,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %26, %36
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit113:  ; preds = %44, %48
   %51 = phi i32 [ %50, %48 ], [ %47, %44 ]
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = add nuw nsw i32 %25, 2
   br label %56
@@ -3291,7 +3291,7 @@ define hidden void @_ZN23ExceptionMessageBuilder23print_NPE_failed_actionEP12out
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %3, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %3 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %2, 1
   %20 = icmp eq i32 %18, 196
@@ -3312,7 +3312,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %3, %13
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit55:   ; preds = %21, %25
   %28 = phi i32 [ %27, %25 ], [ %24, %21 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %2, 2
   br label %33

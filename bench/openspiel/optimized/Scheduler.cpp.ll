@@ -1329,7 +1329,7 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
   %43 = load i32, ptr %42, align 8
   %44 = load i32, ptr %22, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [2 x [5 x double]], ptr @SORT_SOLVE_FANOUT, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [2 x [5 x double]], ptr @SORT_SOLVE_FANOUT, i64 0, i64 %45
   %47 = sitofp i32 %43 to double
   %48 = load double, ptr %46, align 8
   %49 = fcmp ogt double %48, %47
@@ -1465,7 +1465,7 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [2 x [5 x double]], ptr @SORT_CALC_FANOUT, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [2 x [5 x double]], ptr @SORT_CALC_FANOUT, i64 0, i64 %26
   %28 = sitofp i32 %23 to double
   %29 = load double, ptr %27, align 8
   %30 = fcmp ogt double %29, %28
@@ -1637,7 +1637,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   %43 = load i32, ptr %42, align 8
   %44 = load i32, ptr %22, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [2 x [4 x double]], ptr @SORT_TRACE_DEPTH, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [2 x [4 x double]], ptr @SORT_TRACE_DEPTH, i64 0, i64 %45
   %47 = icmp slt i32 %43, 2
   br i1 %47, label %48, label %50
 
@@ -1683,7 +1683,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
   %73 = load i32, ptr %72, align 8
   %74 = load i32, ptr %22, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [2 x [5 x double]], ptr @SORT_TRACE_FANOUT, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [2 x [5 x double]], ptr @SORT_TRACE_FANOUT, i64 0, i64 %75
   %77 = sitofp i32 %73 to double
   %78 = load double, ptr %76, align 8
   %79 = fcmp ogt double %78, %77

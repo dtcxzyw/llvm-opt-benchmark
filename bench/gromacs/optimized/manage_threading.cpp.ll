@@ -262,7 +262,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
 
 107:                                              ; preds = %58
   %108 = sext i32 %.085129.i to i64
-  %109 = getelementptr inbounds [94 x %struct.ilist_data_t], ptr %7, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [94 x %struct.ilist_data_t], ptr %7, i64 0, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i32 %26, ptr %110, align 8
   store ptr %27, ptr %109, align 16

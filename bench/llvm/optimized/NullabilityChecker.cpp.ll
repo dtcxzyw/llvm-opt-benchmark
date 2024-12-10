@@ -1680,7 +1680,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
 
 switch.lookup:                                    ; preds = %159, %157
   %162 = sext i8 %.sroa.2.0.copyload to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %162
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %162
   %switch.load = load ptr, ptr %switch.gep, align 8
   %163 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #22
   %164 = load ptr, ptr %123, align 8
@@ -5707,7 +5707,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_114NullabilityMapEEENS0_17Progra
   %.073 = phi ptr [ %63, %62 ], [ %.val24, %59 ]
   %.val = load i8, ptr %.0.i.i14.i, align 8
   %65 = sext i8 %.val to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %65
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118NullabilityChecker21NullabilityBugVisitor9VisitNodeEPKN5clang4ento12ExplodedNodeERNS3_18BugReporterContextERNS3_22PathSensitiveBugReportE, i64 0, i64 %65
   %switch.load = load ptr, ptr %switch.gep, align 8
   %66 = load i8, ptr %switch.load, align 1
   %.not.i = icmp eq i8 %66, 0

@@ -39303,7 +39303,7 @@ switch.lookup:                                    ; preds = %7
   store i8 0, ptr %23, align 4
   %28 = load i32, ptr %6, align 8
   %29 = sext i32 %28 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang4Sema28CheckMicrosoftIfExistsSymbolEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoE, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang4Sema28CheckMicrosoftIfExistsSymbolEPNS_5ScopeERNS_12CXXScopeSpecERKNS_19DeclarationNameInfoE, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN5clang12LookupResultD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %6) #25
   br label %30
@@ -98846,7 +98846,7 @@ switch.lookup:                                    ; preds = %15, %12, %10
   %.sroa.0.0.copyload.i26 = load i32, ptr %28, align 4
   %switch.tableidx = add nsw i8 %24, -81
   %29 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %29
   %switch.load = load i16, ptr %switch.gep, align 2
   %.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.0.0.copyload.i26 to i64
   %.sroa.0.0.insert.insert.i.i = tail call i64 @llvm.fshl.i64(i64 %.sroa.2.0.insert.ext.i.i, i64 %.sroa.0.0.copyload.i20, i64 32)
@@ -188770,7 +188770,7 @@ switch.lookup:                                    ; preds = %15, %12, %10
   %.sroa.0.0.copyload.i26 = load i32, ptr %28, align 4
   %switch.tableidx = add nsw i8 %24, -81
   %29 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE25TransformCXXNamedCastExprEPNS_16CXXNamedCastExprE, i64 0, i64 %29
   %switch.load = load i16, ptr %switch.gep, align 2
   %.sroa.2.0.insert.ext.i.i = zext i32 %.sroa.0.0.copyload.i26 to i64
   %.sroa.0.0.insert.insert.i.i = tail call i64 @llvm.fshl.i64(i64 %.sroa.2.0.insert.ext.i.i, i64 %.sroa.0.0.copyload.i20, i64 32)

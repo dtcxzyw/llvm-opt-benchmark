@@ -1693,7 +1693,7 @@ if.then.i.i:                                      ; preds = %if.then6.i
   %conv.i.i.i = trunc nuw i64 %26 to i32
   %call1.i.i = call i32 @luaO_ceillog2(i32 noundef %conv.i.i.i) #12
   %idxprom.i.i = sext i32 %call1.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %nums.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %nums.i, i64 %idxprom.i.i
   %28 = load i32, ptr %arrayidx.i.i, align 4
   %inc.i.i = add i32 %28, 1
   store i32 %inc.i.i, ptr %arrayidx.i.i, align 4
@@ -1732,7 +1732,7 @@ if.then.i81:                                      ; preds = %if.then.i
   %conv.i.i = trunc nuw i64 %31 to i32
   %call1.i82 = call i32 @luaO_ceillog2(i32 noundef %conv.i.i) #12
   %idxprom.i83 = sext i32 %call1.i82 to i64
-  %arrayidx.i84 = getelementptr inbounds i32, ptr %nums.i, i64 %idxprom.i83
+  %arrayidx.i84 = getelementptr inbounds nuw i32, ptr %nums.i, i64 %idxprom.i83
   %33 = load i32, ptr %arrayidx.i84, align 4
   %inc.i85 = add i32 %33, 1
   store i32 %inc.i85, ptr %arrayidx.i84, align 4

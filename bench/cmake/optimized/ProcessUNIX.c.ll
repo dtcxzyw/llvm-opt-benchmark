@@ -4506,7 +4506,7 @@ define internal fastcc void @kwsysProcessKill(i32 noundef %0) unnamed_addr #3 {
 24:                                               ; preds = %22
   %25 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 1024, ptr noundef nonnull %23)
   %26 = call i32 @fclose(ptr noundef nonnull %23)
-  %27 = getelementptr inbounds [1025 x i8], ptr %3, i64 0, i64 %25
+  %27 = getelementptr inbounds nuw [1025 x i8], ptr %3, i64 0, i64 %25
   store i8 0, ptr %27, align 1
   %.not30 = icmp eq i64 %25, 0
   br i1 %.not30, label %38, label %28

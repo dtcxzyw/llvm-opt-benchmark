@@ -411,7 +411,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %29 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !18
   %31 = add nsw i64 %indvars.iv, %26
-  %32 = getelementptr inbounds [14 x i8], ptr %3, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [14 x i8], ptr %3, i64 0, i64 %31
   store i8 %30, ptr %32, align 1, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not106 = icmp eq i64 %indvars.iv, 0

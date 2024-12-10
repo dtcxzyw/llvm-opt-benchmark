@@ -2416,7 +2416,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop.preh
 for.body.i.i.i1084.preheader:                     ; preds = %arrayctor.loop, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i
   %parentPosition.0.i1053 = phi i64 [ %dec.i1054, %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i ], [ 2, %arrayctor.loop ]
   %dec.i1054 = add nsw i64 %parentPosition.0.i1053, -1
-  %add.ptr.i1055 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %dec.i1054
+  %add.ptr.i1055 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %dec.i1054
   %temp.sroa.0.0.copyload.i1056 = load i32, ptr %add.ptr.i1055, align 16
   br label %for.body.i.i.i1084
 
@@ -2424,15 +2424,15 @@ for.body.i.i.i1084:                               ; preds = %for.body.i.i.i1084.
   %position.addr.023.i.i.i1087 = phi i64 [ %spec.select.i.i.i1092, %for.body.i.i.i1084 ], [ %dec.i1054, %for.body.i.i.i1084.preheader ]
   %childPosition.0.in24.i.i.i1086 = shl nsw i64 %position.addr.023.i.i.i1087, 1
   %childPosition.025.i.i.i1085 = add nsw i64 %childPosition.0.in24.i.i.i1086, 2
-  %add.ptr.i.i.i1088 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %childPosition.025.i.i.i1085
+  %add.ptr.i.i.i1088 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %childPosition.025.i.i.i1085
   %sub.i.i.i1089 = or disjoint i64 %childPosition.0.in24.i.i.i1086, 1
-  %add.ptr1.i.i.i1090 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %sub.i.i.i1089
+  %add.ptr1.i.i.i1090 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %sub.i.i.i1089
   %212 = load i32, ptr %add.ptr.i.i.i1088, align 16
   %213 = load i32, ptr %add.ptr1.i.i.i1090, align 16
   %cmp.i.i.i.i1091 = icmp slt i32 %212, %213
   %spec.select.i.i.i1092 = select i1 %cmp.i.i.i.i1091, i64 %sub.i.i.i1089, i64 %childPosition.025.i.i.i1085
-  %add.ptr2.i.i.i1093 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %spec.select.i.i.i1092
-  %add.ptr4.i.i.i1094 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %position.addr.023.i.i.i1087
+  %add.ptr2.i.i.i1093 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %spec.select.i.i.i1092
+  %add.ptr4.i.i.i1094 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %position.addr.023.i.i.i1087
   %214 = load i32, ptr %add.ptr2.i.i.i1093, align 16
   store i32 %214, ptr %add.ptr4.i.i.i1094, align 16
   %cmp.i.i.i1097 = icmp slt i64 %spec.select.i.i.i1092, 2
@@ -2442,20 +2442,20 @@ land.rhs.i.i.i.i.i1068:                           ; preds = %for.body.i.i.i1084,
   %position.addr.014.i.i.i.i.i1069 = phi i64 [ %parentPosition.015.i.i.i.i.i1071, %for.body.i.i.i.i.i1077 ], [ %spec.select.i.i.i1092, %for.body.i.i.i1084 ]
   %parentPosition.015.in.i.i.i.i.i1070 = add nsw i64 %position.addr.014.i.i.i.i.i1069, -1
   %parentPosition.015.i.i.i.i.i1071 = ashr i64 %parentPosition.015.in.i.i.i.i.i1070, 1
-  %add.ptr.i.i.i.i.i1072 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %parentPosition.015.i.i.i.i.i1071
+  %add.ptr.i.i.i.i.i1072 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %parentPosition.015.i.i.i.i.i1071
   %215 = load i32, ptr %add.ptr.i.i.i.i.i1072, align 16
   %cmp.i.i.i.i.i.i1073 = icmp slt i32 %215, %temp.sroa.0.0.copyload.i1056
   br i1 %cmp.i.i.i.i.i.i1073, label %for.body.i.i.i.i.i1077, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i
 
 for.body.i.i.i.i.i1077:                           ; preds = %land.rhs.i.i.i.i.i1068
-  %add.ptr3.i.i.i.i.i1078 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %position.addr.014.i.i.i.i.i1069
+  %add.ptr3.i.i.i.i.i1078 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %position.addr.014.i.i.i.i.i1069
   store i32 %215, ptr %add.ptr3.i.i.i.i.i1078, align 16
   %cmp.i.i.i.i.not.i1079 = icmp slt i64 %parentPosition.015.i.i.i.i.i1071, %parentPosition.0.i1053
   br i1 %cmp.i.i.i.i.not.i1079, label %_ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i, label %land.rhs.i.i.i.i.i1068, !llvm.loop !35
 
 _ZN5eastl11adjust_heapIP7Align16lS1_EEvT_T0_S4_S4_OT1_.exit.i: ; preds = %for.body.i.i.i.i.i1077, %land.rhs.i.i.i.i.i1068
   %position.addr.0.lcssa.i.i.i.i.i1074.ph = phi i64 [ %parentPosition.015.i.i.i.i.i1071, %for.body.i.i.i.i.i1077 ], [ %position.addr.014.i.i.i.i.i1069, %land.rhs.i.i.i.i.i1068 ]
-  %add.ptr7.i.i.i.i.i1075 = getelementptr inbounds %struct.Align16, ptr %heap297, i64 %position.addr.0.lcssa.i.i.i.i.i1074.ph
+  %add.ptr7.i.i.i.i.i1075 = getelementptr inbounds nuw %struct.Align16, ptr %heap297, i64 %position.addr.0.lcssa.i.i.i.i.i1074.ph
   store i32 %temp.sroa.0.0.copyload.i1056, ptr %add.ptr7.i.i.i.i.i1075, align 16
   %cmp2.not.i1076 = icmp eq i64 %dec.i1054, 0
   br i1 %cmp2.not.i1076, label %for.body.i.i1102, label %for.body.i.i.i1084.preheader, !llvm.loop !36

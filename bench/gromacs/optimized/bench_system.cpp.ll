@@ -233,7 +233,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %._ZNSt6vectorIfSaIf
   %.03750.i = phi i32 [ %64, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
   %.03849.i = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %60 = sext i32 %.03849.i to i64
-  %61 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = shl nsw i32 %62, 1
   store i32 %63, ptr %61, align 4

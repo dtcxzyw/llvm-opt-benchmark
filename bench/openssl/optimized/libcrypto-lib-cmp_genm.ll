@@ -262,7 +262,7 @@ for.end:                                          ; preds = %for.body35, %for.co
   br label %return
 
 if.end40:                                         ; preds = %for.body
-  %add.ptr = getelementptr inbounds i8, ptr %name, i64 %call29
+  %add.ptr = getelementptr inbounds nuw i8, ptr %name, i64 %call29
   %0 = trunc i64 %call29 to i32
   %conv = sub i32 128, %0
   %call42 = call i32 @OBJ_obj2txt(ptr noundef nonnull %add.ptr, i32 noundef %conv, ptr noundef %call28, i32 noundef 0) #4
@@ -271,7 +271,7 @@ if.end40:                                         ; preds = %for.body
 
 if.then45:                                        ; preds = %if.end40
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %name)
-  %endptr = getelementptr inbounds i8, ptr %name, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %name, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 10, i1 false)
   br label %if.end48
 

@@ -7860,7 +7860,7 @@ define void @_ZN6Unpack8Unpack29Eb(ptr noundef nonnull align 8 dereferenceable(5
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.1214 = phi i32 [ %.0100219, %.lr.ph ], [ %14, %11 ]
   %.0109212 = phi i32 [ 0, %.lr.ph ], [ %13, %11 ]
-  %12 = getelementptr inbounds [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x i32], ptr @_ZZN6Unpack8Unpack29EbE7DDecode, i64 0, i64 %indvars.iv
   store i32 %.1214, ptr %12, align 4
   %13 = add nuw nsw i32 %.0109212, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

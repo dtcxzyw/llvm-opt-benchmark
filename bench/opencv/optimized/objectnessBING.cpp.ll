@@ -344,7 +344,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %21 = load i32, ptr %20, align 8
   %22 = load i32, ptr %13, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.5, double noundef %19, i32 noundef %21, ptr noundef %25)
           to label %26 unwind label %70
@@ -401,7 +401,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %48 = load i32, ptr %20, align 8
   %49 = load i32, ptr %13, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull @.str.6, double noundef %47, i32 noundef %48, ptr noundef %52)
           to label %53 unwind label %77
@@ -4766,7 +4766,7 @@ _ZN2cv8saliency7CmTimer4StopEv.exit.thread:       ; preds = %_ZN2cv8saliency14Ob
   store i8 0, ptr %17, align 8
   %128 = load i32, ptr %28, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8
   br label %142
 
@@ -4777,7 +4777,7 @@ _ZN2cv8saliency7CmTimer4StopEv.exit:              ; preds = %_ZN2cv8saliency14Ob
   %134 = trunc i8 %.pre87 to i1
   %135 = load i32, ptr %28, align 4
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %136
   %138 = load ptr, ptr %137, align 8
   br i1 %134, label %139, label %142
 

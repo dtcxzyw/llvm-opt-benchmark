@@ -81,7 +81,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %indvars.iv67 = phi i64 [ %28, %.preheader42 ], [ %indvars.iv.next68, %31 ]
   %32 = tail call noundef ptr @_ZNK11XMMRegister15XMMRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %27) #2
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
-  %33 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv67
+  %33 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv67
   store ptr %32, ptr %33, align 8
   %lftr.wideiv = trunc i64 %indvars.iv.next68 to i32
   %exitcond.not = icmp eq i32 %29, %lftr.wideiv
@@ -119,7 +119,7 @@ define hidden void @_ZN9VMRegImpl11set_regNameEv() local_unnamed_addr #0 align 2
   %45 = phi i1 [ true, %.preheader40 ], [ false, %44 ]
   %46 = tail call noundef ptr @_ZNK9KRegister13KRegisterImpl4nameEv(ptr noundef nonnull align 1 dereferenceable(1) %41) #2
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
-  %47 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv70
+  %47 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %indvars.iv70
   store ptr %46, ptr %47, align 8
   br i1 %45, label %44, label %48, !llvm.loop !11
 

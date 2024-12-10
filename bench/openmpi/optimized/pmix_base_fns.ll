@@ -281,7 +281,7 @@ define void @opal_pmix_setup_nspace_tracker() local_unnamed_addr #0 {
 
 27:                                               ; preds = %.lr.ph.i.i
   %28 = add i64 %.01013.i.i, 1
-  %29 = getelementptr inbounds [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %check_pmix_param.exit.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -389,7 +389,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i63.i, %49
 
 75:                                               ; preds = %.lr.ph.i68.i
   %76 = add i64 %.01013.i69.i, 1
-  %77 = getelementptr inbounds [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [0 x ptr], ptr @pmix_framework_names, i64 0, i64 %76
   %78 = load ptr, ptr %77, align 8
   %.not.i70.i = icmp eq ptr %78, null
   br i1 %.not.i70.i, label %check_pmix_param.exit72.i, label %.lr.ph.i68.i, !llvm.loop !4

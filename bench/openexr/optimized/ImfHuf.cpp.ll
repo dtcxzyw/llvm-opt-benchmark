@@ -629,7 +629,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %whi
   %indvars.iv.i.i = phi i64 [ 0, %while.end128.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %arrayidx6.i.i = getelementptr inbounds nuw i64, ptr %call.i4647.i, i64 %indvars.iv.i.i
   %66 = load i64, ptr %arrayidx6.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %66
+  %arrayidx7.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %66
   %67 = load i64, ptr %arrayidx7.i.i, align 8
   %add.i.i = add i64 %67, 1
   store i64 %add.i.i, ptr %arrayidx7.i.i, align 8
@@ -1674,7 +1674,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   %indvars.iv.i.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next.i.i, %for.body4.i.i ]
   %arrayidx6.i.i = getelementptr inbounds nuw i64, ptr %call.i, i64 %indvars.iv.i.i
   %34 = load i64, ptr %arrayidx6.i.i, align 8
-  %arrayidx7.i.i = getelementptr inbounds [59 x i64], ptr %n.i.i, i64 0, i64 %34
+  %arrayidx7.i.i = getelementptr inbounds nuw [59 x i64], ptr %n.i.i, i64 0, i64 %34
   %35 = load i64, ptr %arrayidx7.i.i, align 8
   %add.i48.i = add i64 %35, 1
   store i64 %add.i48.i, ptr %arrayidx7.i.i, align 8

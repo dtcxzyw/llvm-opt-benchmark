@@ -409,7 +409,7 @@ Curl_parse_port.exit.thread:                      ; preds = %87, %74, %76, %88, 
 110:                                              ; preds = %107
   %111 = call i64 @strtoul(ptr noundef nonnull %.042.i, ptr noundef nonnull %8, i32 noundef 0) #10
   %112 = sext i32 %.043.i to i64
-  %113 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %112
   store i64 %111, ptr %113, align 8
   %114 = load ptr, ptr %8, align 8
   %115 = load i8, ptr %114, align 1
@@ -2303,7 +2303,7 @@ switch.early.test.i.i:                            ; preds = %26
   %44 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next79.i.i
   %45 = load i8, ptr %44, align 1
   %46 = call signext i8 @Curl_raw_tolower(i8 noundef signext %45) #10
-  %47 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next79.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.next79.i.i
   store i8 %46, ptr %47, align 1
   %48 = icmp eq i64 %indvars.iv.next79.i.i, 0
   br i1 %48, label %Curl_is_absolute_url.exit.i, label %43, !llvm.loop !7

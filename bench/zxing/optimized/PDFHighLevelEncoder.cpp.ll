@@ -1014,7 +1014,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   %104 = sext i32 %39 to i64
-  %105 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !30
   %107 = sext i8 %106 to i32
   store i32 %107, ptr %11, align 4, !tbaa !10
@@ -1219,7 +1219,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
   %191 = sext i32 %39 to i64
-  %192 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %191
   %193 = load i8, ptr %192, align 1, !tbaa !30
   %194 = sext i8 %193 to i32
   store i32 %194, ptr %17, align 4, !tbaa !10
@@ -1436,7 +1436,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L10EncodeTextERKNSt7__cxx111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
   %285 = sext i32 %39 to i64
-  %286 = getelementptr inbounds [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [128 x i8], ptr @_ZN5ZXing6Pdf417L11PUNCTUATIONE, i64 0, i64 %285
   %287 = load i8, ptr %286, align 1, !tbaa !30
   %288 = sext i8 %287 to i32
   store i32 %288, ptr %23, align 4, !tbaa !10
@@ -1837,7 +1837,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L12EncodeBinaryERKNSt7__cxx1112basi
 
 .preheader:                                       ; preds = %.preheader10, %77
   %68 = phi i64 [ %78, %77 ], [ 4, %.preheader10 ]
-  %69 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %68
   %70 = load ptr, ptr %22, align 8, !tbaa !12
   %71 = load ptr, ptr %24, align 8, !tbaa !13
   %72 = icmp eq ptr %70, %71

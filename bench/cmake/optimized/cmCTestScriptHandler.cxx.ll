@@ -5214,7 +5214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit147: ;
 
 .noexc149:                                        ; preds = %.noexc148
   %219 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #22
-  %220 = getelementptr inbounds i8, ptr %35, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr %35, i64 %219
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull %35, ptr noundef nonnull %220)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit152 unwind label %221
 
@@ -5249,7 +5249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit152: ;
 
 .noexc154:                                        ; preds = %.noexc153
   %229 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #22
-  %230 = getelementptr inbounds i8, ptr %35, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %35, i64 %229
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull %35, ptr noundef nonnull %230)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit157 unwind label %231
 
@@ -6369,7 +6369,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %205 = load ptr, ptr %21, align 8
   %206 = getelementptr i8, ptr %205, i64 -24
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %21, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %21, i64 %207
   %209 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %208)
           to label %210 unwind label %219
 
@@ -7546,7 +7546,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCTestScriptHandler17WriteInitialCach
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %21
 

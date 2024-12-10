@@ -17976,7 +17976,7 @@ invoke.cont96.i:                                  ; preds = %for.end95.i
   %vtable.i = load ptr, ptr %fout.i, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %fout.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %fout.i, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef 4)
           to label %invoke.cont98.i unwind label %lpad97.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
@@ -18709,7 +18709,7 @@ if.else222.i.i:                                   ; preds = %if.then208.i.i
 if.then226.i.i:                                   ; preds = %invoke.cont219.i.i
   %switch.tableidx = add nsw i32 %new_type.addr.0138.i.i, -10
   %66 = sext i32 %switch.tableidx to i64
-  %switch.gep846 = getelementptr inbounds [5 x i32], ptr @switch.table.llama_model_quantize.91, i64 0, i64 %66
+  %switch.gep846 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.llama_model_quantize.91, i64 0, i64 %66
   %switch.load847 = load i32, ptr %switch.gep846, align 4
   %call235.i.i = invoke ptr @ggml_type_name(i32 noundef %switch.load847)
           to label %invoke.cont234.i.i unwind label %lpad2.i.i
@@ -23540,7 +23540,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %rng_ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %rng_ss, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %rng_ss, i64 %vbase.offset.i
   %_M_flags.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
   %0 = load i32, ptr %_M_flags.i.i, align 8
   store i32 4098, ptr %_M_flags.i.i, align 8
@@ -23566,13 +23566,11 @@ do.body:                                          ; preds = %for.end.i
   %vtable9.i = load ptr, ptr %rng_ss, align 8
   %vbase.offset.ptr10.i = getelementptr i8, ptr %vtable9.i, i64 -24
   %vbase.offset11.i = load i64, ptr %vbase.offset.ptr10.i, align 8
-  %add.ptr12.i = getelementptr inbounds i8, ptr %rng_ss, i64 %vbase.offset11.i
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %rng_ss, i64 %vbase.offset11.i
   %_M_flags.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr12.i, i64 24
   store i32 %0, ptr %_M_flags.i10.i, align 8
-  %vtable = load ptr, ptr %rng_ss, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr8 = getelementptr inbounds i8, ptr %rng_ss, i64 %vbase.offset
+  %vbase.offset = load i64, ptr %vbase.offset.ptr10.i, align 8
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %rng_ss, i64 %vbase.offset
   %call10 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr8)
           to label %invoke.cont9 unwind label %lpad6.loopexit.split-lp
 
@@ -47197,7 +47195,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
   %call3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #46
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %call3
   %sub = sub i64 256, %call3
   %arrayidx7 = getelementptr inbounds nuw [4 x i64], ptr %ne, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx7, align 8
@@ -49716,7 +49714,7 @@ entry:
   %call = call noundef i32 %__convf(ptr noundef nonnull %0, i64 noundef %__n, ptr noundef %__fmt, ptr noundef nonnull %__args)
   call void @llvm.va_end.p0(ptr nonnull %__args)
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #47
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -54514,7 +54512,7 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit12:                ; preds = %_ZNKSt6vectorIlSaIl
   %5 = phi ptr [ %8, %_ZNKSt6vectorIlSaIlEE2atEm.exit12 ], [ %4, %_ZNKSt6vectorIlSaIlEE2atEm.exit ]
   %i.018 = phi i64 [ %inc, %_ZNKSt6vectorIlSaIlEE2atEm.exit12 ], [ 1, %_ZNKSt6vectorIlSaIlEE2atEm.exit ]
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #46
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call5
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %call5
   %sub = sub i64 256, %call5
   %add.ptr.i.i = getelementptr inbounds i64, ptr %5, i64 %i.018
   %6 = load i64, ptr %add.ptr.i.i, align 8

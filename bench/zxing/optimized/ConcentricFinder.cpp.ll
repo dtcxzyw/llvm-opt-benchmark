@@ -898,7 +898,7 @@ _ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EER
   %34 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %7, i64 0, i64 %indvars.iv.i
   %35 = add nsw i64 %indvars.iv.i, %32
   %36 = srem i64 %35, 4
-  %37 = getelementptr inbounds [4 x %"struct.ZXing::PointT"], ptr %8, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %8, i64 0, i64 %36
   %38 = load double, ptr %34, align 8, !noalias !15
   %39 = load double, ptr %37, align 8, !noalias !15
   %40 = fadd double %38, %39

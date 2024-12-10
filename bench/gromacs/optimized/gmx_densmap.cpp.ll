@@ -1406,7 +1406,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit330:       ; preds = %_ZL13gmx_snew_implI
 
 638:                                              ; preds = %634
   %639 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #19
-  %640 = getelementptr inbounds i8, ptr %17, i64 %639
+  %640 = getelementptr inbounds nuw i8, ptr %17, i64 %639
   %641 = load ptr, ptr @_ZZ11gmx_densmapiPPcE5eaver, align 16
   %642 = load i8, ptr %641, align 1
   %643 = sext i8 %642 to i32
@@ -1573,7 +1573,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit334:       ; preds = %711, %714
 
 .noexc336:                                        ; preds = %.noexc335
   %716 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
-  %717 = getelementptr inbounds i8, ptr %17, i64 %716
+  %717 = getelementptr inbounds nuw i8, ptr %17, i64 %716
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %17, ptr noundef nonnull %717)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %718
 

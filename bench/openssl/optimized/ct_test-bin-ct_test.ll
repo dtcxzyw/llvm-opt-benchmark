@@ -537,7 +537,7 @@ read_text_file.exit:                              ; preds = %if.then, %if.end.i
 
 if.end:                                           ; preds = %read_text_file.exit
   %idxprom = sext i32 %len.0.i to i64
-  %arrayidx = getelementptr inbounds [8096 x i8], ptr %expected_sct_text, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8096 x i8], ptr %expected_sct_text, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   br label %if.end5
 

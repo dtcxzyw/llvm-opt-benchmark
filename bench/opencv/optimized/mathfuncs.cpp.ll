@@ -7971,7 +7971,7 @@ define internal void @_ZN2cvL6iPow8sEPKaPaii(ptr nocapture noundef readonly %0, 
 38:                                               ; preds = %.lr.ph.i
   %39 = sext i8 %35 to i64
   %40 = add nsw i64 %39, 2
-  %41 = getelementptr inbounds [5 x i8], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   br label %43
 
@@ -8178,7 +8178,7 @@ define internal void @_ZN2cvL7iPow16sEPKsPsii(ptr nocapture noundef readonly %0,
 38:                                               ; preds = %.lr.ph.i
   %39 = sext i16 %35 to i64
   %40 = add nsw i64 %39, 2
-  %41 = getelementptr inbounds [5 x i16], ptr %5, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [5 x i16], ptr %5, i64 0, i64 %40
   %42 = load i16, ptr %41, align 2
   br label %43
 
@@ -8282,7 +8282,7 @@ define internal void @_ZN2cvL7iPow32sEPKiPiii(ptr nocapture noundef readonly %0,
 34:                                               ; preds = %.lr.ph.i
   %35 = add nsw i32 %31, 2
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   br label %39
 

@@ -2344,13 +2344,13 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   tail call void @Abc_NtkDelete(ptr noundef nonnull %54) #17
   %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.159, ptr noundef %.059) #17
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
   store i16 34, ptr %endptr, align 1
   %strlen77 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr78 = getelementptr inbounds i8, ptr %4, i64 %strlen77
+  %endptr78 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %endptr78, ptr noundef nonnull align 1 dereferenceable(23) @.str.160, i64 23, i1 false)
   %strlen79 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr80 = getelementptr inbounds i8, ptr %4, i64 %strlen79
+  %endptr80 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr80, ptr noundef nonnull align 1 dereferenceable(3) @.str.161, i64 3, i1 false)
   %60 = icmp sgt i32 %1, 1
   br i1 %60, label %.lr.ph.preheader, label %._crit_edge
@@ -2371,13 +2371,13 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
   %strlen81 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr82 = getelementptr inbounds i8, ptr %4, i64 %strlen81
+  %endptr82 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr82, ptr noundef nonnull align 1 dereferenceable(3) @.str.161, i64 3, i1 false)
   %strlen83 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr84 = getelementptr inbounds i8, ptr %4, i64 %strlen83
+  %endptr84 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %endptr84, ptr noundef nonnull align 1 dereferenceable(25) @.str.163, i64 25, i1 false)
   %strlen85 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr86 = getelementptr inbounds i8, ptr %4, i64 %strlen85
+  %endptr86 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen85
   store i16 34, ptr %endptr86, align 1
   %65 = call i32 @Util_SignalSystem(ptr noundef nonnull %4) #17
   %.not87 = icmp eq i32 %65, 0
@@ -2583,13 +2583,13 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
   tail call void @Abc_NtkDelete(ptr noundef nonnull %54) #17
   %59 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.159, ptr noundef %.059) #17
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
   store i16 34, ptr %endptr, align 1
   %strlen77 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr78 = getelementptr inbounds i8, ptr %4, i64 %strlen77
+  %endptr78 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %endptr78, ptr noundef nonnull align 1 dereferenceable(25) @.str.181, i64 25, i1 false)
   %strlen79 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr80 = getelementptr inbounds i8, ptr %4, i64 %strlen79
+  %endptr80 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr80, ptr noundef nonnull align 1 dereferenceable(3) @.str.161, i64 3, i1 false)
   %60 = icmp sgt i32 %1, 1
   br i1 %60, label %.lr.ph.preheader, label %._crit_edge
@@ -2610,13 +2610,13 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
   %strlen81 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr82 = getelementptr inbounds i8, ptr %4, i64 %strlen81
+  %endptr82 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr82, ptr noundef nonnull align 1 dereferenceable(3) @.str.161, i64 3, i1 false)
   %strlen83 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr84 = getelementptr inbounds i8, ptr %4, i64 %strlen83
+  %endptr84 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %endptr84, ptr noundef nonnull align 1 dereferenceable(27) @.str.182, i64 27, i1 false)
   %strlen85 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr86 = getelementptr inbounds i8, ptr %4, i64 %strlen85
+  %endptr86 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen85
   store i16 34, ptr %endptr86, align 1
   %65 = call i32 @Util_SignalSystem(ptr noundef nonnull %4) #17
   %.not87 = icmp eq i32 %65, 0

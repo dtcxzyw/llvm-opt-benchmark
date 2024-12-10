@@ -4376,7 +4376,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit.thread3089: ; preds = %_ZNK
   %1392 = load ptr, ptr %172, align 8
   %1393 = getelementptr i8, ptr %1392, i64 -24
   %1394 = load i64, ptr %1393, align 8
-  %1395 = getelementptr inbounds i8, ptr %172, i64 %1394
+  %1395 = getelementptr inbounds nuw i8, ptr %172, i64 %1394
   %1396 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %1395)
           to label %1397 unwind label %.loopexit1651
 
@@ -9039,7 +9039,7 @@ _ZNSt3setIPN5Yosys5RTLIL4WireESt4lessIS3_ESaIS3_EED2Ev.exit1060: ; preds = %.bod
   %3173 = load ptr, ptr %211, align 8
   %3174 = getelementptr i8, ptr %3173, i64 -24
   %3175 = load i64, ptr %3174, align 8
-  %3176 = getelementptr inbounds i8, ptr %211, i64 %3175
+  %3176 = getelementptr inbounds nuw i8, ptr %211, i64 %3175
   %3177 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %3176)
           to label %3178 unwind label %3182
 

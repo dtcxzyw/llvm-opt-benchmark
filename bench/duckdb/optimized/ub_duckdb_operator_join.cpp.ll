@@ -12394,7 +12394,7 @@ for.body.us.preheader:                            ; preds = %for.cond.preheader
 
 if.then43:                                        ; preds = %if.then40
   %13 = load i64, ptr %position_in_chunk.i137, align 8, !tbaa !568
-  %arrayidx = getelementptr inbounds [2048 x i8], ptr %found_match, i64 0, i64 %13
+  %arrayidx = getelementptr inbounds nuw [2048 x i8], ptr %found_match, i64 0, i64 %13
   store i8 1, ptr %arrayidx, align 1, !tbaa !24
   br label %do.cond
 
@@ -43002,7 +43002,7 @@ if.end73.us.i:                                    ; preds = %while.cond.us.i
   br i1 %cmp74.not.us.i, label %for.inc.i, label %if.then75.us.i
 
 if.then75.us.i:                                   ; preds = %if.end73.us.i
-  %arrayidx.us.i = getelementptr inbounds i8, ptr %found_match, i64 %l_entry_idx.1.us.i
+  %arrayidx.us.i = getelementptr inbounds nuw i8, ptr %found_match, i64 %l_entry_idx.1.us.i
   store i8 1, ptr %arrayidx.us.i, align 1, !tbaa !24
   %inc.us.i = add i64 %l_entry_idx.1.us.i, 1
   %33 = load ptr, ptr %l_ptr.i, align 8, !tbaa !23
@@ -43033,7 +43033,7 @@ lpad61.i:                                         ; preds = %if.end.i
   br label %ehcleanup.i
 
 if.then75.i:                                      ; preds = %while.cond.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %found_match, i64 %l_entry_idx.1.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %found_match, i64 %l_entry_idx.1.i
   store i8 1, ptr %arrayidx.i, align 1, !tbaa !24
   %inc.i = add i64 %l_entry_idx.1.i, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr212.i, i64 %13

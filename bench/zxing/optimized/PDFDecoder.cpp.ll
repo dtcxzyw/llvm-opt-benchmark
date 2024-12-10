@@ -2620,7 +2620,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 187:                                              ; preds = %185
   %188 = sext i32 %93 to i64
-  %189 = getelementptr inbounds i8, ptr @.str.5, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %188
   %190 = load i8, ptr %189, align 1
   br label %220
 
@@ -2658,7 +2658,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 203:                                              ; preds = %201
   %204 = sext i32 %93 to i64
-  %205 = getelementptr inbounds i8, ptr @.str.6, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %204
   %206 = load i8, ptr %205, align 1
   br label %220
 
@@ -2681,7 +2681,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
 
 216:                                              ; preds = %214
   %217 = sext i32 %93 to i64
-  %218 = getelementptr inbounds i8, ptr @.str.6, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %217
   %219 = load i8, ptr %218, align 1
   br label %220
 
@@ -3338,7 +3338,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKS
   %39 = zext nneg i32 %38 to i64
   %40 = xor i64 %indvars.iv, -1
   %41 = add nsw i64 %28, %40
-  %42 = getelementptr inbounds [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %41
   store ptr %36, ptr %20, align 8
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %43, ptr %22, align 8
@@ -3578,7 +3578,7 @@ _ZN5ZXing10BigIntegerC2IiEET_PNSt9enable_ifIXaasr3stdE13is_integral_vIS2_Esr3std
 
 20:                                               ; preds = %18
   %21 = add nsw i64 %.05, -1
-  %22 = getelementptr inbounds [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %21
   store ptr %19, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %23, ptr %14, align 8

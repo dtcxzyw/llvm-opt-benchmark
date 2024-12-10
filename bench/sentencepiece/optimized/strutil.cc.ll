@@ -2602,7 +2602,7 @@ _ZN6google8protobuf14DoubleToBufferEdPc.exit:     ; preds = %7, %10, %13, %20
 
 .noexc2:                                          ; preds = %.noexc
   %22 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #29
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, ptr noundef nonnull %23)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %24
 
@@ -2688,7 +2688,7 @@ define void @_ZN6google8protobuf10SimpleFtoaB5cxx11Ef(ptr dead_on_unwind noalias
 
 .noexc2:                                          ; preds = %.noexc
   %7 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %8)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %9
 
@@ -2917,7 +2917,7 @@ define noundef double @_ZN6google8protobuf8internal14NoLocaleStrtodEPKcPPc(ptr n
 .critedge.i:                                      ; preds = %24, %18
   %25 = add nsw i32 %19, -1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1, !noalias !28
   %.not20.i = icmp eq i8 %28, 53
   br i1 %.not20.i, label %.critedge23.i, label %29

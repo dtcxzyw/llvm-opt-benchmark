@@ -1084,7 +1084,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %53, %49
 228:                                              ; preds = %226
   %229 = load i32, ptr %178, align 4
   %230 = sext i32 %217 to i64
-  %231 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %230
   %232 = load i8, ptr %231, align 1
   %233 = invoke noundef ptr @_ZN2cv11FillUniGrayEPhRS0_iiRiiih(ptr noundef %.5, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %227, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %229, i32 noundef %216, i8 noundef zeroext %232)
           to label %234 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit

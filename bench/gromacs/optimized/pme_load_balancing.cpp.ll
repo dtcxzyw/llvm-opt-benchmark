@@ -2555,7 +2555,7 @@ define internal fastcc void @_ZL21print_loadbal_limitedP8_IO_FILES0_lP20pme_load
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [5 x ptr], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -2744,7 +2744,7 @@ _ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i: ; preds = %53, %48
 
 64:                                               ; preds = %_ZL15pme_loadbal_endP20pme_load_balancing_t.exit.i
   %65 = sext i32 %47 to i64
-  %66 = getelementptr inbounds [5 x ptr], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL17enumValueToString21PmeLoadBalancingLimit.pmeLoadBalancingLimitNames, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.40, ptr noundef %67) #23
   %69 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 55, i64 1, ptr nonnull %1)

@@ -1084,7 +1084,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread14: ; pr
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   switch i32 %68, label %_Z17is_reference_type9BasicTypeb.exit [
@@ -1164,7 +1164,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i:  ; preds = %22, %17
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 186
   %34 = icmp eq i32 %32, 233
@@ -1231,7 +1231,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i:  ; preds = %17, %12
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.i: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 186
   %29 = icmp eq i32 %27, 233
@@ -1465,7 +1465,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %3, %12
 
 _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %24
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, -3
   %spec.select.i = icmp ne i32 %32, 184
@@ -1551,7 +1551,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %3, %12
 
 _ZNK15Bytecode_invoke15is_invokestaticEv.exit.i:  ; preds = %30
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, -3
   %spec.select.i = icmp ne i32 %38, 184
@@ -3559,7 +3559,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread33: ; pr
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %74
   %76 = load i32, ptr %75, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   switch i32 %76, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread31 [
@@ -3630,7 +3630,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread38: ; 
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i24
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   switch i32 %109, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit29.thread36 [
@@ -4090,7 +4090,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
@@ -4285,7 +4285,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread54: ; pr
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   switch i32 %46, label %.thread78 [
@@ -4362,7 +4362,7 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread62: ; 
 
 _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49: ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit.i.i44
   %82 = sext i32 %80 to i64
-  %83 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   switch i32 %84, label %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit49.thread60 [
@@ -6210,7 +6210,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %6, %11
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 186
   %23 = icmp eq i32 %21, 233
@@ -6253,7 +6253,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %2, %8
 
 _ZNK15Bytecode_invoke16is_invokevirtualEv.exit:   ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 182
   br i1 %19, label %20, label %_ZNK15Bytecode_invoke16is_invokevirtualEv.exit.thread

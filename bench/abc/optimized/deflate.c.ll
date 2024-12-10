@@ -415,22 +415,22 @@ define range(i32 -2, 1) i32 @deflateReset(ptr noundef %0) local_unnamed_addr #0 
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 180
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 1
+  %61 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 1
   %62 = load i16, ptr %61, align 2
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60
   %66 = load i16, ptr %65, align 16
   %67 = zext i16 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 188
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 2
+  %69 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 2
   %70 = load i16, ptr %69, align 4
   %71 = zext i16 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 3
+  %73 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %60, i32 3
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 172
@@ -668,7 +668,7 @@ define range(i32 -5, 2) i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 n
 16:                                               ; preds = %12
   %17 = load i32, ptr %13, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %18, i32 4
+  %19 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %18, i32 4
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i32 %spec.store.select to i64
   %22 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %21, i32 4
@@ -1901,7 +1901,7 @@ flush_pending.exit395:                            ; preds = %flush_pending.exit3
   %724 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %725 = load i32, ptr %724, align 4
   %726 = sext i32 %725 to i64
-  %727 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %726, i32 4
+  %727 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %726, i32 4
   %728 = load ptr, ptr %727, align 8
   %729 = tail call i32 %728(ptr noundef nonnull %6, i32 noundef %1) #9
   br label %730

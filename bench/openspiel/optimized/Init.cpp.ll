@@ -534,7 +534,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %67 = trunc nuw nsw i64 %indvars.iv168 to i32
   %68 = xor i32 %.188, %67
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %69
   %71 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %indvars.iv168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %71, ptr noundef nonnull align 4 dereferenceable(116) %70, i64 116, i1 false)
   %72 = and i32 %.186, %67
@@ -580,7 +580,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %100 = getelementptr inbounds [7 x i32], ptr %90, i64 0, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds [15 x i32], ptr @__const._Z13InitConstantsv.botside, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [15 x i32], ptr @__const._Z13InitConstantsv.botside, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, %98
   %106 = getelementptr inbounds nuw i8, ptr %71, i64 88
@@ -1052,7 +1052,7 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr nocapture noundef non
   %21 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = zext nneg i32 %18 to i64
   %27 = sext i32 %20 to i64

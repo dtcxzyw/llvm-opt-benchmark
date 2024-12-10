@@ -924,7 +924,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .preheader49:                                     ; preds = %615, %.preheader49
   %621 = phi i64 [ %624, %.preheader49 ], [ 1, %615 ]
   %622 = add nsw i64 %621, -1
-  %623 = getelementptr inbounds [4 x i32], ptr %29, i64 0, i64 %622
+  %623 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %622
   store i32 1, ptr %623, align 4, !tbaa !3
   %624 = add nuw nsw i64 %621, 1
   %625 = icmp eq i64 %624, 5

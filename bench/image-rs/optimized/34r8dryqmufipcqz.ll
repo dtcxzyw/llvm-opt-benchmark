@@ -7113,8 +7113,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i:                                 ; preds = %.lr.ph.i20.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i"
   %.sroa.8.023.i21.i.i.i = phi i64 [ %241, %.lr.ph.i20.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i" ]
   %241 = add nuw i64 %.sroa.8.023.i21.i.i.i, 1
-  %242 = getelementptr inbounds i32, ptr %95, i64 %.sroa.8.023.i21.i.i.i
-  %243 = getelementptr inbounds float, ptr %94, i64 %.sroa.8.023.i21.i.i.i
+  %242 = getelementptr inbounds nuw i32, ptr %95, i64 %.sroa.8.023.i21.i.i.i
+  %243 = getelementptr inbounds nuw float, ptr %94, i64 %.sroa.8.023.i21.i.i.i
   %244 = load i32, ptr %242, align 4, !alias.scope !1860, !noalias !1865, !noundef !19
   %245 = uitofp i32 %244 to float
   store float %245, ptr %243, align 4, !alias.scope !1863, !noalias !1866
@@ -7795,8 +7795,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i:                               ; preds = %.lr.ph.i20.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i = phi i64 [ %442, %.lr.ph.i20.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i" ]
   %442 = add nuw i64 %.sroa.8.023.i21.i.i.i.i, 1
-  %443 = getelementptr inbounds i32, ptr %76, i64 %.sroa.8.023.i21.i.i.i.i
-  %444 = getelementptr inbounds float, ptr %75, i64 %.sroa.8.023.i21.i.i.i.i
+  %443 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.8.023.i21.i.i.i.i
+  %444 = getelementptr inbounds nuw float, ptr %75, i64 %.sroa.8.023.i21.i.i.i.i
   %445 = load i32, ptr %443, align 4, !alias.scope !2068, !noalias !2073, !noundef !19
   %446 = uitofp i32 %445 to float
   store float %446, ptr %444, align 4, !alias.scope !2071, !noalias !2074
@@ -8470,8 +8470,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i.i:                             ; preds = %.lr.ph.i20.i.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i.i = phi i64 [ %641, %.lr.ph.i20.i.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i" ]
   %641 = add nuw i64 %.sroa.8.023.i21.i.i.i.i.i, 1
-  %642 = getelementptr inbounds i32, ptr %57, i64 %.sroa.8.023.i21.i.i.i.i.i
-  %643 = getelementptr inbounds float, ptr %56, i64 %.sroa.8.023.i21.i.i.i.i.i
+  %642 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.8.023.i21.i.i.i.i.i
+  %643 = getelementptr inbounds nuw float, ptr %56, i64 %.sroa.8.023.i21.i.i.i.i.i
   %644 = load i32, ptr %642, align 4, !alias.scope !2276, !noalias !2281, !noundef !19
   %645 = uitofp i32 %644 to float
   store float %645, ptr %643, align 4, !alias.scope !2279, !noalias !2282
@@ -9143,8 +9143,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i.i.i:                           ; preds = %.lr.ph.i20.i.i.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i.i.i = phi i64 [ %839, %.lr.ph.i20.i.i.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i.i" ]
   %839 = add nuw i64 %.sroa.8.023.i21.i.i.i.i.i.i, 1
-  %840 = getelementptr inbounds i32, ptr %38, i64 %.sroa.8.023.i21.i.i.i.i.i.i
-  %841 = getelementptr inbounds float, ptr %37, i64 %.sroa.8.023.i21.i.i.i.i.i.i
+  %840 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.8.023.i21.i.i.i.i.i.i
+  %841 = getelementptr inbounds nuw float, ptr %37, i64 %.sroa.8.023.i21.i.i.i.i.i.i
   %842 = load i32, ptr %840, align 4, !alias.scope !2482, !noalias !2487, !noundef !19
   %843 = uitofp i32 %842 to float
   store float %843, ptr %841, align 4, !alias.scope !2485, !noalias !2488
@@ -10423,8 +10423,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i:                                 ; preds = %.lr.ph.i20.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i"
   %.sroa.8.023.i21.i.i.i = phi i64 [ %241, %.lr.ph.i20.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i" ]
   %241 = add nuw i64 %.sroa.8.023.i21.i.i.i, 1
-  %242 = getelementptr inbounds i32, ptr %95, i64 %.sroa.8.023.i21.i.i.i
-  %243 = getelementptr inbounds float, ptr %94, i64 %.sroa.8.023.i21.i.i.i
+  %242 = getelementptr inbounds nuw i32, ptr %95, i64 %.sroa.8.023.i21.i.i.i
+  %243 = getelementptr inbounds nuw float, ptr %94, i64 %.sroa.8.023.i21.i.i.i
   %244 = load i32, ptr %242, align 4, !alias.scope !2738, !noalias !2743, !noundef !19
   %245 = uitofp i32 %244 to float
   store float %245, ptr %243, align 4, !alias.scope !2741, !noalias !2744
@@ -11105,8 +11105,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i:                               ; preds = %.lr.ph.i20.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i = phi i64 [ %442, %.lr.ph.i20.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i" ]
   %442 = add nuw i64 %.sroa.8.023.i21.i.i.i.i, 1
-  %443 = getelementptr inbounds i32, ptr %76, i64 %.sroa.8.023.i21.i.i.i.i
-  %444 = getelementptr inbounds float, ptr %75, i64 %.sroa.8.023.i21.i.i.i.i
+  %443 = getelementptr inbounds nuw i32, ptr %76, i64 %.sroa.8.023.i21.i.i.i.i
+  %444 = getelementptr inbounds nuw float, ptr %75, i64 %.sroa.8.023.i21.i.i.i.i
   %445 = load i32, ptr %443, align 4, !alias.scope !2946, !noalias !2951, !noundef !19
   %446 = uitofp i32 %445 to float
   store float %446, ptr %444, align 4, !alias.scope !2949, !noalias !2952
@@ -11780,8 +11780,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i.i:                             ; preds = %.lr.ph.i20.i.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i.i = phi i64 [ %641, %.lr.ph.i20.i.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i" ]
   %641 = add nuw i64 %.sroa.8.023.i21.i.i.i.i.i, 1
-  %642 = getelementptr inbounds i32, ptr %57, i64 %.sroa.8.023.i21.i.i.i.i.i
-  %643 = getelementptr inbounds float, ptr %56, i64 %.sroa.8.023.i21.i.i.i.i.i
+  %642 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.8.023.i21.i.i.i.i.i
+  %643 = getelementptr inbounds nuw float, ptr %56, i64 %.sroa.8.023.i21.i.i.i.i.i
   %644 = load i32, ptr %642, align 4, !alias.scope !3154, !noalias !3159, !noundef !19
   %645 = uitofp i32 %644 to float
   store float %645, ptr %643, align 4, !alias.scope !3157, !noalias !3160
@@ -12453,8 +12453,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h923dc4ea89c6d0efE.exit.i.i.i
 .lr.ph.i20.i.i.i.i.i.i:                           ; preds = %.lr.ph.i20.i.i.i.i.i.i, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i.i"
   %.sroa.8.023.i21.i.i.i.i.i.i = phi i64 [ %839, %.lr.ph.i20.i.i.i.i.i.i ], [ 0, %"_ZN37_$LT$u32$u20$as$u20$exr..io..Data$GT$10read_slice17h67ea292f50d5e86cE.exit18.thread.i.i.i.i.i.i" ]
   %839 = add nuw i64 %.sroa.8.023.i21.i.i.i.i.i.i, 1
-  %840 = getelementptr inbounds i32, ptr %38, i64 %.sroa.8.023.i21.i.i.i.i.i.i
-  %841 = getelementptr inbounds float, ptr %37, i64 %.sroa.8.023.i21.i.i.i.i.i.i
+  %840 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.8.023.i21.i.i.i.i.i.i
+  %841 = getelementptr inbounds nuw float, ptr %37, i64 %.sroa.8.023.i21.i.i.i.i.i.i
   %842 = load i32, ptr %840, align 4, !alias.scope !3360, !noalias !3365, !noundef !19
   %843 = uitofp i32 %842 to float
   store float %843, ptr %841, align 4, !alias.scope !3363, !noalias !3366
@@ -19108,7 +19108,7 @@ switch.lookup:
   store i32 %5, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   %44 = sext i8 %6 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %44
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %44
   %switch.load = load i64, ptr %switch.gep, align 8
   %45 = zext i32 %4 to i64
   %46 = zext i32 %5 to i64
@@ -19170,7 +19170,7 @@ switch.lookup10:                                  ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !4857
   store i64 %46, ptr %34, align 8, !noalias !4857
   %60 = sext i8 %6 to i64
-  %switch.gep11 = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %60
+  %switch.gep11 = getelementptr inbounds nuw [10 x i64], ptr @"switch.table._ZN94_$LT$image..codecs..openexr..OpenExrEncoder$LT$W$GT$$u20$as$u20$image..image..ImageEncoder$GT$11write_image17h580a8782ec6b83e7E.179", i64 0, i64 %60
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %61 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 %switch.load12)
   %62 = extractvalue { i64, i1 } %61, 1

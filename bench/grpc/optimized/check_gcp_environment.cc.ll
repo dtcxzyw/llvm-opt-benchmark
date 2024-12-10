@@ -21,7 +21,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = call i64 @fread(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef 256, ptr noundef nonnull %call)
-  %arrayidx = getelementptr inbounds [257 x i8], ptr %buf, i64 0, i64 %call1
+  %arrayidx = getelementptr inbounds nuw [257 x i8], ptr %buf, i64 0, i64 %call1
   store i8 0, ptr %arrayidx, align 1
   %0 = load i8, ptr %buf, align 16
   %cmp1.i = icmp eq i8 %0, 0
@@ -38,7 +38,7 @@ while.cond.i:                                     ; preds = %land.rhs.i, %if.end
   br i1 %cmp2.not.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %end.0.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buf, i64 %end.0.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv3.i = sext i8 %1 to i32
   %call4.i = tail call i32 @isspace(i32 noundef %conv3.i) #6
@@ -51,7 +51,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
 
 land.rhs8.i:                                      ; preds = %while.end.i, %while.body14.i
   %start.020.i = phi i64 [ %inc.i, %while.body14.i ], [ 0, %while.end.i ]
-  %arrayidx9.i = getelementptr inbounds i8, ptr %buf, i64 %start.020.i
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %buf, i64 %start.020.i
   %2 = load i8, ptr %arrayidx9.i, align 1
   %conv10.i = sext i8 %2 to i32
   %call11.i = tail call i32 @isspace(i32 noundef %conv10.i) #6
@@ -73,7 +73,7 @@ if.then17.i:                                      ; preds = %while.end15.i, %whi
   %sub18.i = sub nuw i64 %end.0.i, %start.0.lcssa24.i
   %add.i = add i64 %sub18.i, 2
   %call19.i = tail call ptr @gpr_zalloc(i64 noundef %add.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %start.0.lcssa24.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %start.0.lcssa24.i
   %add21.i = add i64 %sub18.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call19.i, ptr nonnull readonly align 1 %add.ptr.i, i64 %add21.i, i1 false)
   br label %_ZL4trimPKc.exit

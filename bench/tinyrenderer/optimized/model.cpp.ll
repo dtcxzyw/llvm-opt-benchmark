@@ -125,7 +125,7 @@ define dso_local void @_ZN5ModelC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   %43 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %42)
           to label %44 unwind label %47
 
@@ -177,7 +177,7 @@ define dso_local void @_ZN5ModelC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %71 = load ptr, ptr %4, align 8
   %72 = getelementptr i8, ptr %71, i64 -24
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 %73
   %75 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %74)
           to label %76 unwind label %.loopexit181
 

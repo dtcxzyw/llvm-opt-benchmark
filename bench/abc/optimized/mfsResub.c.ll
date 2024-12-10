@@ -376,7 +376,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %128 = or disjoint i32 %127, 1
   %129 = add nsw i32 %.0137240, 1
   %130 = sext i32 %.0137240 to i64
-  %131 = getelementptr inbounds [12 x i32], ptr %8, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %130
   store i32 %128, ptr %131, align 4
   br label %132
 
@@ -397,7 +397,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %139 = load ptr, ptr %138, align 8
   %140 = sext i32 %.0137.lcssa to i64
-  %141 = getelementptr inbounds i32, ptr %8, i64 %140
+  %141 = getelementptr inbounds nuw i32, ptr %8, i64 %140
   %142 = load ptr, ptr %0, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = load i32, ptr %143, align 4
@@ -600,7 +600,7 @@ Abc_Clock.exit191:                                ; preds = %Abc_NtkMfsUpdateNet
   %252 = getelementptr i8, ptr %0, i64 216
   %253 = add nsw i32 %.0137.lcssa, 1
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds i32, ptr %8, i64 %254
+  %255 = getelementptr inbounds nuw i32, ptr %8, i64 %254
   br label %256
 
 256:                                              ; preds = %.loopexit, %247
@@ -1215,7 +1215,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %129 = or disjoint i32 %128, 1
   %130 = add nsw i32 %.0154317, 1
   %131 = sext i32 %.0154317 to i64
-  %132 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %131
   store i32 %129, ptr %132, align 4
   br label %133
 
@@ -1236,7 +1236,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %140 = load ptr, ptr %139, align 8
   %141 = sext i32 %.0154.lcssa to i64
-  %142 = getelementptr inbounds i32, ptr %9, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %9, i64 %141
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %145 = load i32, ptr %144, align 4
@@ -1467,10 +1467,10 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
   %256 = getelementptr i8, ptr %0, i64 216
   %257 = add nsw i32 %.0154.lcssa, 1
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %258
   %260 = add nsw i32 %.0154.lcssa, 2
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds i32, ptr %9, i64 %261
+  %262 = getelementptr inbounds nuw i32, ptr %9, i64 %261
   br label %263
 
 263:                                              ; preds = %.loopexit288, %254

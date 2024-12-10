@@ -3672,7 +3672,7 @@ Gia_FormStrTransform.exit:                        ; preds = %10
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
   %putchar.i = tail call i32 @putchar(i32 40)
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %27 = getelementptr inbounds i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %4, ptr noundef nonnull %27)
   %putchar3.i = call i32 @putchar(i32 41)
   %putchar4.i = call i32 @putchar(i32 10)
@@ -3957,7 +3957,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %172 = xor i32 %171, %168
   store i32 %172, ptr %88, align 4
   %173 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %174 = getelementptr inbounds i8, ptr %4, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 %173
   %175 = call i32 @Gia_ManRealizeFormula_rec(ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %174, i32 noundef %.lcssa142)
   br label %.sink.split
 
@@ -4191,7 +4191,7 @@ Gia_ManAppendCi.exit136:                          ; preds = %.Vec_IntGrow.exit10
   %301 = xor i32 %300, %297
   store i32 %301, ptr %60, align 4
   %302 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
-  %303 = getelementptr inbounds i8, ptr %4, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr %4, i64 %302
   %304 = call i32 @Gia_ManRealizeFormula_rec(ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %303, i32 noundef %.lcssa)
   %305 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store i32 %304, ptr %305, align 4

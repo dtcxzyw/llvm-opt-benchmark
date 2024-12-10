@@ -1387,7 +1387,7 @@ define internal fastcc void @_ZL16fit_to_referencePA3_fPfS0_P5edpar(ptr nocaptur
 
 152:                                              ; preds = %145
   %153 = sext i32 %.2118.i to i64
-  %154 = getelementptr inbounds [6 x double], ptr %6, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [6 x double], ptr %6, i64 0, i64 %153
   store double -1.000000e+04, ptr %154, align 8
   %155 = load ptr, ptr %79, align 8
   br label %156

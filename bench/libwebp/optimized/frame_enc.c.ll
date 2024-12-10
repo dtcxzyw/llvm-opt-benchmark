@@ -34,7 +34,7 @@ define hidden i32 @VP8EncLoop(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load i32, ptr %8, align 8
   %10 = ashr i32 %9, 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [8 x i8], ptr @kAverageBytesPerMB, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @kAverageBytesPerMB, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1118,7 +1118,7 @@ InitPassStats.exit:                               ; preds = %35, %38
   %46 = load i32, ptr %45, align 8
   %47 = ashr i32 %46, 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [8 x i8], ptr @kAverageBytesPerMB, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @kAverageBytesPerMB, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = mul i32 %8, %6
@@ -1983,7 +1983,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
 
 32:                                               ; preds = %19
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %33, i64 %36
@@ -2141,7 +2141,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
 .loopexit:                                        ; preds = %128, %59, %52, %80, %84, %38
   %.sink112 = phi i64 [ 1, %38 ], [ 2, %84 ], [ 2, %80 ], [ 2, %52 ], [ 2, %59 ], [ 2, %128 ]
   %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
+  %138 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv.next
   %139 = load i8, ptr %138, align 1
   %140 = tail call i32 @VP8PutBitUniform(ptr noundef %0, i32 noundef %23) #7
   %141 = icmp eq i64 %indvars.iv.next, 16

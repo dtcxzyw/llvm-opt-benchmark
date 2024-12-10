@@ -781,7 +781,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_
   %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !27
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !49
   %21 = or i32 %20, 1
@@ -1032,7 +1032,7 @@ _ZN5boost6detail12test_resultsEv.exit:            ; preds = %0, %3, %5
   %11 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !27
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZSt4cerr, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 240
   %16 = load ptr, ptr %15, align 8, !tbaa !34
   %.not.i.i.i = icmp eq ptr %16, null

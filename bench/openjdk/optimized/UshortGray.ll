@@ -1510,7 +1510,7 @@ define hidden void @UshortGrayAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 
   %.0109 = phi i32 [ %28, %26 ], [ %24, %10 ]
   %30 = load i32, ptr %9, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
@@ -1901,7 +1901,7 @@ define hidden void @IntArgbToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noundef
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2426,7 +2426,7 @@ define hidden void @IntArgbPreToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noun
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2681,7 +2681,7 @@ define hidden void @IntRgbToUshortGrayAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [0 x %struct.AlphaFunc], ptr @AlphaRules, i64 0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32

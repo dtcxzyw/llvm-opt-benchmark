@@ -1920,7 +1920,7 @@ for.cond.preheader:                               ; preds = %if.end52
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.0128 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds [4 x %struct.grpc_metadata], ptr %creds_md, i64 0, i64 %i.0128
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.grpc_metadata], ptr %creds_md, i64 0, i64 %i.0128
   %29 = load ptr, ptr %arrayidx, align 16
   %cmp.i = icmp ugt ptr %29, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i45, label %invoke.cont61

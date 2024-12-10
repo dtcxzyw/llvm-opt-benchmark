@@ -170,7 +170,7 @@ define range(i32 -1, 2) i32 @Par(ptr nocapture noundef readonly %0, ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [6 x [4 x i8]], ptr @__const.Par.seats, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @__const.Par.seats, i64 0, i64 %49
   %51 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %50) #13
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = load i32, ptr %52, align 4
@@ -178,10 +178,10 @@ define range(i32 -1, 2) i32 @Par(ptr nocapture noundef readonly %0, ptr noundef 
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   store i8 %62, ptr %6, align 1
   store i8 120, ptr %33, align 1
@@ -212,7 +212,7 @@ define range(i32 -1, 2) i32 @Par(ptr nocapture noundef readonly %0, ptr noundef 
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [6 x [4 x i8]], ptr @__const.Par.seats, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [6 x [4 x i8]], ptr @__const.Par.seats, i64 0, i64 %76
   %78 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %77) #13
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %80 = load i32, ptr %79, align 4
@@ -266,10 +266,10 @@ _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup8
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %99
   %101 = load i8, ptr %100, align 1
   store i8 %101, ptr %6, align 1
   store i8 0, ptr %33, align 1
@@ -407,7 +407,7 @@ define range(i32 -1, 2) i32 @SidesParBin(ptr nocapture noundef readonly %0, ptr 
   %38 = load i32, ptr %36, align 4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %37, i32 %38)
   %39 = sext i32 %.0433616 to i64
-  %40 = getelementptr inbounds [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %39
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %41, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -508,14 +508,14 @@ _Z8rawscoreiii.exit:                              ; preds = %62, %60, %58, %_Z8r
 78:                                               ; preds = %.lr.ph, %83
   %indvars.iv709 = phi i64 [ %indvars.iv707, %.lr.ph ], [ %indvars.iv.next710, %83 ]
   %indvars.iv.next710 = add nsw i64 %indvars.iv709, -1
-  %79 = getelementptr inbounds [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %indvars.iv.next710
+  %79 = getelementptr inbounds nuw [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %indvars.iv.next710
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 4
   %82 = icmp sgt i32 %.sroa.2.0.copyload, %81
   br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %indvars.iv709
+  %84 = getelementptr inbounds nuw [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %indvars.iv709
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 4 dereferenceable(12) %79, i64 12, i1 false)
   %85 = icmp eq i64 %indvars.iv.next710, 0
   br i1 %85, label %.critedge, label %78, !llvm.loop !9
@@ -524,7 +524,7 @@ _Z8rawscoreiii.exit:                              ; preds = %62, %60, %58, %_Z8r
   %.0428.lcssa = phi i64 [ 0, %83 ], [ %indvars.iv709, %78 ]
   %sext = shl i64 %.0428.lcssa, 32
   %86 = ashr exact i64 %sext, 32
-  %87 = getelementptr inbounds [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [5 x %struct.par_suits_type], ptr %8, i64 0, i64 %86
   store i64 %77, ptr %87, align 4
   %.sroa.2.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx126, align 4
@@ -738,7 +738,7 @@ _Z8rawscoreiii.exit496:                           ; preds = %146, %143, %138, %1
 173:                                              ; preds = %._crit_edge770, %.thread543
   %174 = phi i32 [ %.pre, %._crit_edge770 ], [ 0, %.thread543 ]
   %175 = sext i32 %162 to i64
-  %176 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %175
   store i32 1, ptr %176, align 4
   %177 = add nuw nsw i32 %.ph836, 1
   %178 = sext i32 %174 to i64
@@ -865,7 +865,7 @@ _Z8rawscoreiii.exit496:                           ; preds = %146, %143, %138, %1
   %218 = getelementptr inbounds nuw [5 x [2 x %struct.best_par_type]], ptr %5, i64 0, i64 %indvars.iv741, i64 %indvars.iv746
   %219 = load i32, ptr %218, align 8
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %220
   %222 = load i32, ptr %221, align 4
   %223 = sext i32 %222 to i64
   br i1 %.not474, label %237, label %224
@@ -988,7 +988,7 @@ _Z9SideSeatsiiiiiP16parResultsMaster.exit:        ; preds = %230, %235, %236, %2
   %278 = getelementptr inbounds nuw [5 x [2 x %struct.best_par_type]], ptr %5, i64 0, i64 %indvars.iv728, i64 %indvars.iv746
   %279 = load i32, ptr %278, align 8
   %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw [5 x i32], ptr @__const.SidesParBin.denom_conv, i64 0, i64 %280
   %282 = load i32, ptr %281, align 4
   %283 = sext i32 %282 to i64
   br i1 %259, label %297, label %284
@@ -1140,9 +1140,9 @@ _Z8rawscoreiii.exit506:                           ; preds = %_Z13VulnerDefSideii
 .lr.ph656:                                        ; preds = %_Z8rawscoreiii.exit506, %_Z8rawscoreiii.exit506.us
   %.0539.lcssa = phi i32 [ %.0539642.us, %_Z8rawscoreiii.exit506.us ], [ %.0539642, %_Z8rawscoreiii.exit506 ]
   %330 = sext i32 %279 to i64
-  %331 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %330
+  %331 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %330
   %332 = load i32, ptr %331, align 4
-  %333 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %330
+  %333 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %330
   %334 = load i32, ptr %333, align 4
   %335 = tail call i32 @llvm.smax.i32(i32 %332, i32 %334)
   br i1 %263, label %.lr.ph656.split, label %_Z8rawscoreiii.exit521._crit_edge
@@ -1956,14 +1956,14 @@ define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32
 30:                                               ; preds = %.lr.ph, %35
   %indvars.iv118 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next119, %35 ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
-  %31 = getelementptr inbounds [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %indvars.iv.next119
+  %31 = getelementptr inbounds nuw [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %indvars.iv.next119
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp slt i32 %.sroa.2.0.copyload, %33
   br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %indvars.iv118
+  %36 = getelementptr inbounds nuw [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %indvars.iv118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %36, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false)
   %37 = icmp eq i64 %indvars.iv.next119, 0
   br i1 %37, label %.critedge, label %30, !llvm.loop !28
@@ -1972,7 +1972,7 @@ define i32 @DealerParBin(ptr noundef %0, ptr nocapture noundef writeonly %1, i32
   %.0.lcssa = phi i64 [ 0, %35 ], [ %indvars.iv118, %30 ]
   %sext = shl i64 %.0.lcssa, 32
   %38 = ashr exact i64 %sext, 32
-  %39 = getelementptr inbounds [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [10 x %struct.parContr2Type], ptr %6, i64 0, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %39, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0, i64 12, i1 false)
   %.sroa.2.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx6, align 4

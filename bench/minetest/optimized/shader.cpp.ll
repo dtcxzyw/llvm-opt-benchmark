@@ -6938,7 +6938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2249: ; preds = %i
   %469 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i2250 = getelementptr i8, ptr %468, i64 -24
   %vbase.offset.i.i2251 = load i64, ptr %vbase.offset.ptr.i.i2250, align 8
-  %add.ptr.i.i2252 = getelementptr inbounds i8, ptr %shaders_header, i64 %vbase.offset.i.i2251
+  %add.ptr.i.i2252 = getelementptr inbounds nuw i8, ptr %shaders_header, i64 %vbase.offset.i.i2251
   store ptr %469, ptr %add.ptr.i.i2252, align 8, !tbaa !58
   %470 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %470, ptr %add.ptr, align 8, !tbaa !58
@@ -6970,7 +6970,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %475 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %474, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %shaders_header, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %shaders_header, i64 %vbase.offset.i.i.i.i
   store ptr %475, ptr %add.ptr.i.i.i.i, align 8, !tbaa !58
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %shaders_header, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !143

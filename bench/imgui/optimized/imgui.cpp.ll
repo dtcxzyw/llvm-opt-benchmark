@@ -1794,7 +1794,7 @@ cond.end35:                                       ; preds = %cond.end25, %cond.t
   %cond36 = phi i8 [ %7, %cond.true31 ], [ 0, %cond.end25 ]
   %conv40 = zext i8 %spec.select to i32
   %idxprom41 = sext i8 %2 to i64
-  %arrayidx42 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 0, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 0, i64 %idxprom41
   %8 = load i32, ptr %arrayidx42, align 4
   %and = and i32 %8, %conv40
   %shl = shl nuw nsw i32 %and, 18
@@ -1809,11 +1809,11 @@ cond.end35:                                       ; preds = %cond.end25, %cond.t
   %conv53 = zext i8 %cond36 to i32
   %and54 = and i32 %conv53, 63
   %or56 = or disjoint i32 %or51, %and54
-  %arrayidx58 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 0, i64 %idxprom41
+  %arrayidx58 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 0, i64 %idxprom41
   %9 = load i32, ptr %arrayidx58, align 4
   %shr59 = lshr i32 %or56, %9
   store i32 %shr59, ptr %out_char, align 4
-  %arrayidx61 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 0, i64 %idxprom41
+  %arrayidx61 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 0, i64 %idxprom41
   %10 = load i32, ptr %arrayidx61, align 4
   %cmp62 = icmp ult i32 %shr59, %10
   %shl64 = select i1 %cmp62, i32 64, i32 0
@@ -1833,7 +1833,7 @@ cond.end35:                                       ; preds = %cond.end25, %cond.t
   %or83 = or disjoint i32 %or78, %shl72
   %or87 = or disjoint i32 %or83, %shl68
   %xor = xor i32 %or87, 42
-  %arrayidx89 = getelementptr inbounds [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shifte, i64 0, i64 %idxprom41
+  %arrayidx89 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shifte, i64 0, i64 %idxprom41
   %11 = load i32, ptr %arrayidx89, align 4
   %shr90 = lshr i32 %xor, %11
   %tobool91.not = icmp eq i32 %shr90, 0
@@ -9152,7 +9152,7 @@ while.end:                                        ; preds = %while.body, %entry
 define noundef nonnull ptr @_ZN5ImGui15GetStyleVarInfoEi(i32 noundef %idx) local_unnamed_addr #23 {
 entry:
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -9161,7 +9161,7 @@ define void @_ZN5ImGui12PushStyleVarEif(i32 noundef %idx, float noundef %val) lo
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %idxprom.i = sext i32 %idx to i64
-  %arrayidx.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
   %Count = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %1 = load i32, ptr %Count, align 4
   %cmp1 = icmp eq i32 %1, 1
@@ -9222,7 +9222,7 @@ define void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef %idx, ptr nocapture 
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %idxprom.i = sext i32 %idx to i64
-  %arrayidx.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
   %Count = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %1 = load i32, ptr %Count, align 4
   %cmp1 = icmp eq i32 %1, 2
@@ -9307,7 +9307,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %arrayidx.i = getelementptr i8, ptr %5, i64 -12
   %6 = load i32, ptr %arrayidx.i, align 4
   %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i16 = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i16 = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i
   %Offset.i = getelementptr inbounds nuw i8, ptr %arrayidx.i16, i64 8
   %7 = load i32, ptr %Offset.i, align 4
   %idx.ext.i = zext i32 %7 to i64
@@ -30311,7 +30311,7 @@ land.lhs.true62:                                  ; preds = %_ZN5ImGui10GetKeyDa
 land.lhs.true70:                                  ; preds = %land.lhs.true62
   %shr.i = ashr i32 %conv, 5
   %idxprom.i99 = sext i32 %shr.i to i64
-  %arrayidx.i100 = getelementptr inbounds [21 x i32], ptr %key_changed_mask, i64 0, i64 %idxprom.i99
+  %arrayidx.i100 = getelementptr inbounds nuw [21 x i32], ptr %key_changed_mask, i64 0, i64 %idxprom.i99
   %32 = load i32, ptr %arrayidx.i100, align 4
   %and.i = and i32 %conv, 31
   %shl.i = shl nuw i32 1, %and.i
@@ -30335,7 +30335,7 @@ if.end77:                                         ; preds = %_ZN5ImGui10GetKeyDa
   %shl.i.i = shl nuw i32 1, %and.i.i101
   %shr.i.i = ashr i32 %conv, 5
   %idxprom.i.i102 = sext i32 %shr.i.i to i64
-  %arrayidx.i.i103 = getelementptr inbounds i32, ptr %key_changed_mask, i64 %idxprom.i.i102
+  %arrayidx.i.i103 = getelementptr inbounds nuw i32, ptr %key_changed_mask, i64 %idxprom.i.i102
   %36 = load i32, ptr %arrayidx.i.i103, align 4
   %or.i.i = or i32 %36, %shl.i.i
   store i32 %or.i.i, ptr %arrayidx.i.i103, align 4
@@ -30569,7 +30569,7 @@ if.then9.i:                                       ; preds = %do.body5.i
   %MouseSource.i = getelementptr inbounds nuw i8, ptr %arrayidx.i129, i64 20
   %69 = load i32, ptr %MouseSource.i, align 4
   %idxprom.i.i143 = sext i32 %69 to i64
-  %arrayidx.i.i144 = getelementptr inbounds [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i.i143
+  %arrayidx.i.i144 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i.i143
   %70 = load ptr, ptr %arrayidx.i.i144, align 8
   tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.586, ptr noundef nonnull %.str.94..str.95, double noundef %conv.i, double noundef %conv12.i, ptr noundef %70)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -30591,7 +30591,7 @@ if.then24.i:                                      ; preds = %do.body20.i
   %MouseSource26.i = getelementptr inbounds nuw i8, ptr %arrayidx.i129, i64 20
   %75 = load i32, ptr %MouseSource26.i, align 4
   %idxprom.i34.i = sext i32 %75 to i64
-  %arrayidx.i35.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i34.i
+  %arrayidx.i35.i = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i34.i
   %76 = load ptr, ptr %arrayidx.i35.i, align 8
   tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.587, ptr noundef nonnull %.str.94..str.95, i32 noundef %73, ptr noundef nonnull %cond.i, ptr noundef %76)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -30613,7 +30613,7 @@ if.then38.i:                                      ; preds = %do.body34.i
   %MouseSource41.i = getelementptr inbounds nuw i8, ptr %arrayidx.i129, i64 20
   %81 = load i32, ptr %MouseSource41.i, align 4
   %idxprom.i36.i = sext i32 %81 to i64
-  %arrayidx.i37.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i36.i
+  %arrayidx.i37.i = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i36.i
   %82 = load ptr, ptr %arrayidx.i37.i, align 8
   tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.590, ptr noundef nonnull %.str.94..str.95, double noundef %conv39.i, double noundef %conv40.i, ptr noundef %82)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -35813,7 +35813,7 @@ if.end.i.i877:                                    ; preds = %if.then.i.i882, %la
 if.then6.i.i:                                     ; preds = %if.end.i.i877
   %spec.select.i.i = select i1 %cmp5.not.i.i878, i8 %737, i8 %738
   %idxprom.i318.i = sext i8 %spec.select.i.i to i64
-  %arrayidx.i319.i = getelementptr inbounds [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %idxprom.i318.i
+  %arrayidx.i319.i = getelementptr inbounds nuw [4 x %struct.ImGuiResizeBorderDef], ptr @_ZL17resize_border_def, i64 0, i64 %idxprom.i318.i
   %739 = load float, ptr %Pos656, align 8
   %740 = load float, ptr %343, align 4
   %741 = load float, ptr %Size547, align 8
@@ -38064,7 +38064,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %for.end.i.i
   %arrayidx.i.i.i.i = getelementptr i8, ptr %72, i64 -12
   %73 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i.i.i.i = sext i32 %73 to i64
-  %arrayidx.i16.i.i.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i.i.i
+  %arrayidx.i16.i.i.i = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i.i.i
   %Offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i16.i.i.i, i64 8
   %74 = load i32, ptr %Offset.i.i.i.i, align 4
   %idx.ext.i.i.i.i = zext i32 %74 to i64
@@ -41143,7 +41143,7 @@ while.body.i:                                     ; preds = %if.end22.i, %while.
   %arrayidx.i.i125 = getelementptr i8, ptr %51, i64 -12
   %52 = load i32, ptr %arrayidx.i.i125, align 4
   %idxprom.i.i126 = sext i32 %52 to i64
-  %arrayidx.i16.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i126
+  %arrayidx.i16.i = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i126
   %Offset.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i16.i, i64 8
   %53 = load i32, ptr %Offset.i.i, align 4
   %idx.ext.i.i = zext i32 %53 to i64
@@ -44456,7 +44456,7 @@ if.end66:                                         ; preds = %if.else58, %if.then
 for.body61.i:                                     ; preds = %for.inc175.i, %if.end66
   %indvars.iv198.i = phi i64 [ %52, %if.end66 ], [ %indvars.iv.next199.i, %for.inc175.i ]
   %53 = icmp ne i64 %indvars.iv198.i, -1
-  %arrayidx67.i = getelementptr inbounds [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order.119, i64 0, i64 %indvars.iv198.i
+  %arrayidx67.i = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order.119, i64 0, i64 %indvars.iv198.i
   %cond69.in.i = select i1 %53, ptr %arrayidx67.i, ptr %AutoPosLastDirection68
   %cond69.i = load i32, ptr %cond69.in.i, align 4
   %cmp72.i = icmp eq i32 %cond69.i, %51
@@ -52430,7 +52430,7 @@ while.body.lr.ph.i80:                             ; preds = %if.end83
   %arrayidx.i.i84 = getelementptr i8, ptr %85, i64 -12
   %86 = load i32, ptr %arrayidx.i.i84, align 4
   %idxprom.i.i = sext i32 %86 to i64
-  %arrayidx.i16.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i
+  %arrayidx.i16.i = getelementptr inbounds nuw [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i
   %Offset.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i16.i, i64 8
   %87 = load i32, ptr %Offset.i.i, align 4
   %idx.ext.i.i = zext i32 %87 to i64
@@ -56468,7 +56468,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.inc
   %indvars.iv = phi i64 [ %9, %if.then ], [ %indvars.iv.next, %for.inc ]
   %10 = icmp ne i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order, i64 0, i64 %indvars.iv
   %cond5.in = select i1 %10, ptr %arrayidx, ptr %last_dir
   %cond5 = load i32, ptr %cond5.in, align 4
   %cmp7 = icmp eq i32 %cond5, %4
@@ -56542,7 +56542,7 @@ if.then54:                                        ; preds = %if.end51, %if.end51
 for.body61:                                       ; preds = %if.then54, %for.inc175
   %indvars.iv198 = phi i64 [ %12, %if.then54 ], [ %indvars.iv.next199, %for.inc175 ]
   %13 = icmp ne i64 %indvars.iv198, -1
-  %arrayidx67 = getelementptr inbounds [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order.119, i64 0, i64 %indvars.iv198
+  %arrayidx67 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_PiRK6ImRectS6_24ImGuiPopupPositionPolicy.dir_prefered_order.119, i64 0, i64 %indvars.iv198
   %cond69.in = select i1 %13, ptr %arrayidx67, ptr %last_dir
   %cond69 = load i32, ptr %cond69.in, align 4
   %cmp72 = icmp eq i32 %cond69, %11
@@ -65864,7 +65864,7 @@ for.end649:                                       ; preds = %for.inc647
   %MouseSource = getelementptr inbounds nuw i8, ptr %0, i64 3680
   %599 = load i32, ptr %MouseSource, align 8
   %idxprom.i1268 = sext i32 %599 to i64
-  %arrayidx.i1269 = getelementptr inbounds [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i1268
+  %arrayidx.i1269 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 0, i64 %idxprom.i1268
   %600 = load ptr, ptr %arrayidx.i1269, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.284, ptr noundef %600)
   %PenPressure = getelementptr inbounds nuw i8, ptr %0, i64 14548
@@ -70309,7 +70309,7 @@ entry:
   %cond = select i1 %cmp.not, ptr @.str.362, ptr @.str.3
   %call2 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.361, ptr noundef %label, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %cond)
   %idx.ext = sext i32 %call2 to i64
-  %add.ptr3 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext
   %5 = load i32, ptr %tab_bar, align 8
   %cmp790 = icmp sgt i32 %5, 0
   br i1 %cmp790, label %for.body.lr.ph, label %for.end

@@ -1026,9 +1026,9 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %112 = fsub float %107, %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5, i8 0, i64 3, i1 false), !alias.scope !8
   %113 = sext i32 %108 to i64
-  %114 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %113
   %115 = sext i32 %110 to i64
-  %116 = getelementptr inbounds [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [55 x %"class.cv::Vec.2"], ptr @_ZZL12computeColorffE10colorWheel, i64 0, i64 %115
   %117 = fsub float 1.000000e+00, %112
   %118 = fcmp ugt float %sqrt.i, 1.000000e+00
   %119 = fneg float %sqrt.i

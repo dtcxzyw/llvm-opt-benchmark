@@ -4620,7 +4620,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %.07490 = phi i64 [ 0, %59 ], [ %75, %61 ]
   %62 = trunc nuw nsw i64 %indvars.iv to i32
   %63 = add i32 %.07592, %62
-  %64 = getelementptr inbounds i8, ptr %5, i64 %.07490
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 %.07490
   %65 = load ptr, ptr %41, align 8
   %66 = zext i32 %63 to i64
   %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
@@ -4661,7 +4661,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %.07193 = phi i64 [ 0, %84 ], [ %96, %86 ]
   %87 = trunc nuw nsw i64 %indvars.iv111 to i32
   %88 = add i32 %.07295, %87
-  %89 = getelementptr inbounds i8, ptr %8, i64 %.07193
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 %.07193
   %90 = load ptr, ptr %55, align 8
   %91 = zext i32 %88 to i64
   %92 = getelementptr inbounds nuw i64, ptr %90, i64 %91
@@ -4711,7 +4711,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %.06897 = phi i64 [ 0, %112 ], [ %124, %114 ]
   %115 = trunc nuw nsw i64 %indvars.iv115 to i32
   %116 = add i32 %.06999, %115
-  %117 = getelementptr inbounds i8, ptr %11, i64 %.06897
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 %.06897
   %118 = load ptr, ptr %108, align 8
   %119 = zext i32 %116 to i64
   %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119

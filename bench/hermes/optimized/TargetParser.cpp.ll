@@ -8396,7 +8396,7 @@ _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.spli
   %retval.0.i.in = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le.i, %return.split.loop.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %retval.0.i = load i32, ptr %retval.0.i.in, align 8
   %7 = sext i32 %retval.0.i to i64
-  %switch.gep = getelementptr inbounds [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -8451,7 +8451,7 @@ _ZN4llvh3ARM9parseArchENS_9StringRefE.exit:       ; preds = %entry, %return.spli
   %retval.0.i.in = phi ptr [ %A.sroa.39.0.__begin1.0.ptr.sroa_idx.le.i, %return.split.loop.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_19ARCHNamesE, i64 56), %entry ]
   %retval.0.i = load i32, ptr %retval.0.i.in, align 8
   %7 = sext i32 %retval.0.i to i64
-  %switch.gep = getelementptr inbounds [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [34 x i32], ptr @switch.table._ZN4llvh3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

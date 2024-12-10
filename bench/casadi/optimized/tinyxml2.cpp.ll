@@ -1163,7 +1163,7 @@ define noundef ptr @_ZN8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0
 90:                                               ; preds = %83, %70
   %91 = phi i64 [ 1, %70 ], [ %89, %83 ]
   %.2.i = phi i64 [ %.1, %70 ], [ %88, %83 ]
-  %92 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [7 x i64], ptr %4, i64 0, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = or i64 %93, %.2.i
   %95 = trunc i64 %94 to i8
@@ -1301,7 +1301,7 @@ define void @_ZN8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 noundef %0, ptr 
 38:                                               ; preds = %18, %31
   %39 = phi i64 [ 1, %18 ], [ %37, %31 ]
   %.2 = phi i64 [ %0, %18 ], [ %36, %31 ]
-  %40 = getelementptr inbounds [7 x i64], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [7 x i64], ptr %4, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = or i64 %41, %.2
   %43 = trunc i64 %42 to i8

@@ -458,7 +458,7 @@ define void @_ZN4SSAO9runShaderER12MeshDocumentP6GLArea(ptr nocapture noundef no
   %33 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %32
   %34 = shl i64 %indvars.iv.i.i, 2
   %35 = add nuw nsw i64 %34, %indvars.iv15.i.i
-  %36 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %35
   %37 = load float, ptr %33, align 4
   %38 = load float, ptr %36, align 4
   store float %38, ptr %33, align 4
@@ -660,7 +660,7 @@ _ZN12MeshDocument17MeshRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12Mesh
   %118 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %117
   %119 = shl i64 %indvars.iv.i.i36, 2
   %120 = add nuw nsw i64 %119, %indvars.iv15.i.i35
-  %121 = getelementptr inbounds [16 x float], ptr %8, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %120
   %122 = load float, ptr %118, align 4, !alias.scope !8
   %123 = load float, ptr %121, align 4, !alias.scope !8
   store float %123, ptr %118, align 4, !alias.scope !8
@@ -700,7 +700,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %124
   %134 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %133
   %135 = shl i64 %indvars.iv.i.i43, 2
   %136 = add nuw nsw i64 %135, %indvars.iv15.i.i42
-  %137 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %136
   %138 = load float, ptr %134, align 4, !alias.scope !11
   %139 = load float, ptr %137, align 4, !alias.scope !11
   store float %139, ptr %134, align 4, !alias.scope !11

@@ -1735,7 +1735,7 @@ define internal fastcc noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef reado
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %12 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %4) #15
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %endptr = getelementptr inbounds i8, ptr %5, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %5, i64 %strlen
   store i32 6712357, ptr %endptr, align 1
   %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %.not12 = icmp eq i32 %13, 1
@@ -1761,7 +1761,7 @@ define internal fastcc noundef ptr @_ZL14scan_vecparamsPKcS0_i(ptr noundef reado
   %21 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
   store float %20, ptr %21, align 4
   %strlen13 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr14 = getelementptr inbounds i8, ptr %4, i64 %strlen13
+  %endptr14 = getelementptr inbounds nuw i8, ptr %4, i64 %strlen13
   store i32 7547429, ptr %endptr14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

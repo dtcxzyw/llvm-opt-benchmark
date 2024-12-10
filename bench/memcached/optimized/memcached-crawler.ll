@@ -158,7 +158,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %brmerge36, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %lor.lhs.false, %land.lhs.true
-  %arrayidx12 = getelementptr inbounds [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds nuw [256 x %struct.crawler], ptr @crawlers, i64 0, i64 %idxprom
   %reclaimed = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 48
   %7 = load i64, ptr %reclaimed, align 8
   %inc = add i64 %7, 1

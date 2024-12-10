@@ -30278,9 +30278,9 @@ switch.lookup26:                                  ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   %switch.tableidx = add nsw i64 %45, -2
-  %switch.gep27 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching7MatchCx10definition17hef423178cdaa7962E.249, i64 0, i64 %switch.tableidx
+  %switch.gep27 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching7MatchCx10definition17hef423178cdaa7962E.249, i64 0, i64 %switch.tableidx
   %switch.load28 = load i64, ptr %switch.gep27, align 8
-  %switch.gep29 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching7MatchCx10definition17hef423178cdaa7962E.250, i64 0, i64 %switch.tableidx
+  %switch.gep29 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching7MatchCx10definition17hef423178cdaa7962E.250, i64 0, i64 %switch.tableidx
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   store ptr %switch.load30, ptr %24, align 8
   %95 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -30852,9 +30852,9 @@ switch.lookup30:                                  ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %switch.tableidx = add nsw i64 %32, -2
-  %switch.gep31 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.258, i64 0, i64 %switch.tableidx
+  %switch.gep31 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.258, i64 0, i64 %switch.tableidx
   %switch.load32 = load i64, ptr %switch.gep31, align 8
-  %switch.gep33 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %switch.tableidx
+  %switch.gep33 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %switch.tableidx
   %switch.load34 = load ptr, ptr %switch.gep33, align 8
   store ptr %switch.load34, ptr %19, align 8
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 8

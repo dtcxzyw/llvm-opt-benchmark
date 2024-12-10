@@ -6180,7 +6180,7 @@ define dso_local void @_ZN15cmDocumentation10PrintNamesERSoRKNSt7__cxx1112basic_
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 %18
   %20 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %19)
           to label %21 unwind label %.loopexit38
 

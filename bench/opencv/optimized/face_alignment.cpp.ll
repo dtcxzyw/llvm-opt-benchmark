@@ -1509,11 +1509,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   store float %217, ptr %225, align 4
   %.sroa.5.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %225, i64 4
   store float %221, ptr %.sroa.5.0..sroa_idx18, align 4
-  %226 = getelementptr inbounds [200 x float], ptr %15, i64 0, i64 %.265182
+  %226 = getelementptr inbounds nuw [200 x float], ptr %15, i64 0, i64 %.265182
   %227 = load float, ptr %226, align 4
   %228 = fadd float %227, %217
   store float %228, ptr %226, align 4
-  %229 = getelementptr inbounds [200 x float], ptr %16, i64 0, i64 %.265182
+  %229 = getelementptr inbounds nuw [200 x float], ptr %16, i64 0, i64 %.265182
   %230 = load float, ptr %229, align 4
   %231 = fadd float %230, %221
   store float %231, ptr %229, align 4
@@ -1735,7 +1735,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
 
 315:                                              ; preds = %.lr.ph188, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
   %.0187 = phi i64 [ 0, %.lr.ph188 ], [ %370, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit ]
-  %316 = getelementptr inbounds [200 x float], ptr %15, i64 0, i64 %.0187
+  %316 = getelementptr inbounds nuw [200 x float], ptr %15, i64 0, i64 %.0187
   %317 = load float, ptr %316, align 4
   %318 = load ptr, ptr %92, align 8
   %319 = load ptr, ptr %13, align 8
@@ -1746,7 +1746,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
   %324 = uitofp i64 %323 to float
   %325 = fdiv float %317, %324
   store float %325, ptr %316, align 4
-  %326 = getelementptr inbounds [200 x float], ptr %16, i64 0, i64 %.0187
+  %326 = getelementptr inbounds nuw [200 x float], ptr %16, i64 0, i64 %.0187
   %327 = load float, ptr %326, align 4
   %328 = fdiv float %327, %324
   store float %328, ptr %326, align 4

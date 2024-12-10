@@ -4570,7 +4570,7 @@ entry:
   store ptr null, ptr %sig_r, align 8
   store ptr null, ptr %sig_s, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [724 x %struct.ecdsa_cavs_kat_t], ptr @ecdsa_cavs_kats, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %md_nid4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %md_nid4, align 4

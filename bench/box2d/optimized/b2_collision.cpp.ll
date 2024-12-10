@@ -735,7 +735,7 @@ for.body17:                                       ; preds = %for.body, %for.cond
 if.then24:                                        ; preds = %for.cond15, %for.body
   %inc25 = add nsw i32 %n.0193, 1
   %idxprom26 = sext i32 %n.0193 to i64
-  %arrayidx27 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %idxprom26
   store float %1, ptr %arrayidx27, align 8
   %arrayidx27.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 4
   store float %2, ptr %arrayidx27.sroa_idx, align 4
@@ -897,7 +897,7 @@ for.inc111.sink.split:                            ; preds = %if.then103, %if.the
   %rightCount.1.ph = phi i32 [ %inc99, %if.then96 ], [ %rightCount.0205, %if.then103 ]
   %leftCount.1.ph = phi i32 [ %leftCount.0206, %if.then96 ], [ %inc106, %if.then103 ]
   %idxprom100 = sext i32 %rightCount.0205.sink to i64
-  %arrayidx101 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %rightPoints.sink, i64 0, i64 %idxprom100
+  %arrayidx101 = getelementptr inbounds nuw [6 x %struct.b2Vec2], ptr %rightPoints.sink, i64 0, i64 %idxprom100
   %33 = load i64, ptr %arrayidx92, align 8
   store i64 %33, ptr %arrayidx101, align 8
   br label %for.inc111
@@ -1179,7 +1179,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then22:                                        ; preds = %for.body
   %inc25 = add nsw i32 %rightCount.165, 1
   %idxprom26 = sext i32 %rightCount.165 to i64
-  %arrayidx27 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %rightPoints, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %rightPoints, i64 0, i64 %idxprom26
   %12 = load i64, ptr %arrayidx15, align 4
   store i64 %12, ptr %arrayidx27, align 8
   br label %for.inc

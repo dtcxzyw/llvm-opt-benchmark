@@ -727,7 +727,7 @@ switch.early.test.i:                              ; preds = %26
 28:                                               ; preds = %switch.early.test.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 1 dereferenceable(127) @.str.2, i8 noundef zeroext 2)
   %29 = sext i32 %3 to i64
-  %30 = getelementptr inbounds [16 x ptr], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [16 x ptr], ptr @__const._ZL17enumValueToString15InputOutputType.ioTypeNames, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 117, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef %31, ptr noundef %5, i32 noundef %6) #14
           to label %32 unwind label %33

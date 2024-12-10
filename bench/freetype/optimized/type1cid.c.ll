@@ -2100,7 +2100,7 @@ define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i6
 
 19:                                               ; preds = %15
   %20 = call i64 @FT_Stream_Pos(ptr noundef nonnull %.192.val) #13
-  %21 = getelementptr inbounds i8, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
   %22 = sub i64 0, %12
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   br label %24

@@ -71,14 +71,14 @@ if.then.i:                                        ; preds = %if.end
 
 if.else.i:                                        ; preds = %if.end
   %idxprom.i = sext i32 %1 to i64
-  %rawsz2.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
+  %rawsz2.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
   br label %oidcpy_with_padding.exit
 
 oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else.i
   %hashsz.0.in.i = phi ptr [ %rawsz2.i, %if.else.i ], [ %rawsz.i, %if.then.i ]
   %hashsz.0.i = load i64, ptr %hashsz.0.in.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull readonly align 4 %oid, i64 %hashsz.0.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   %algo8.i = getelementptr inbounds nuw i8, ptr %k, i64 32
@@ -117,7 +117,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
-  %rawsz2.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
+  %rawsz2.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
   br label %oidcpy_with_padding.exit
 
 oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else.i
@@ -125,7 +125,7 @@ oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else
   %hashsz.0.in.i = phi ptr [ %rawsz2.i, %if.else.i ], [ %rawsz.i, %if.then.i ]
   %hashsz.0.i = load i64, ptr %hashsz.0.in.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %k, ptr nonnull readonly align 4 %oid, i64 %hashsz.0.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   %algo8.i = getelementptr inbounds nuw i8, ptr %k, i64 32
@@ -200,7 +200,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %3 = load i64, ptr %2, align 8
-  %arrayidx = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 %3
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %k, i64 0, i64 %3
   %4 = load i8, ptr %arrayidx, align 1
   %last_byte = getelementptr inbounds nuw i8, ptr %arg, i64 28
   %5 = load i8, ptr %last_byte, align 4

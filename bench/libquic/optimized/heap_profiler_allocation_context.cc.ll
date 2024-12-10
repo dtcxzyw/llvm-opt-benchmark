@@ -240,7 +240,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.07 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %value = getelementptr inbounds [48 x %"struct.base::trace_event::StackFrame"], ptr %backtrace, i64 0, i64 %i.07, i32 1
   %1 = load ptr, ptr %value, align 8
-  %arrayidx2 = getelementptr inbounds [48 x ptr], ptr %values, i64 0, i64 %i.07
+  %arrayidx2 = getelementptr inbounds nuw [48 x ptr], ptr %values, i64 0, i64 %i.07
   store ptr %1, ptr %arrayidx2, align 8
   %inc = add nuw i64 %i.07, 1
   %cmp.not = icmp eq i64 %inc, %0
@@ -271,7 +271,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %entry ]
   %value.i = getelementptr inbounds [48 x %"struct.base::trace_event::StackFrame"], ptr %ctx, i64 0, i64 %i.07.i, i32 1
   %1 = load ptr, ptr %value.i, align 8
-  %arrayidx2.i = getelementptr inbounds [48 x ptr], ptr %values.i, i64 0, i64 %i.07.i
+  %arrayidx2.i = getelementptr inbounds nuw [48 x ptr], ptr %values.i, i64 0, i64 %i.07.i
   store ptr %1, ptr %arrayidx2.i, align 8
   %inc.i = add nuw i64 %i.07.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, %0

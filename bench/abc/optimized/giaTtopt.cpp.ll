@@ -371,7 +371,7 @@ _ZL14Abc_UtilStrsavPc.exit89:                     ; preds = %_ZL14Abc_UtilStrsav
 .lr.ph111:                                        ; preds = %54
   %58 = icmp sgt i32 %.val79, 5
   %59 = sext i32 %.val79 to i64
-  %60 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %59
   br i1 %58, label %.lr.ph111.split.us, label %.lr.ph111.split
 
 .lr.ph111.split.us:                               ; preds = %.lr.ph111, %.loopexit.us
@@ -2398,7 +2398,7 @@ _ZL14Abc_UtilStrsavPc.exit87:                     ; preds = %_ZL14Abc_UtilStrsav
 .lr.ph108:                                        ; preds = %83
   %87 = icmp sgt i32 %.val75, 5
   %88 = sext i32 %.val75 to i64
-  %89 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %88
   br label %90
 
 90:                                               ; preds = %.lr.ph108, %138
@@ -5350,7 +5350,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit31:              ; preds = %52, %58
   %100 = zext nneg i32 %95 to i64
   %101 = lshr i64 %99, %100
   %102 = sext i32 %73 to i64
-  %103 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %102
   %104 = load i64, ptr %103, align 8
   %105 = ashr i32 %71, %91
   %106 = srem i32 %71, %93
@@ -5816,7 +5816,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   %152 = zext i32 %148 to i64
   %153 = lshr i64 %151, %152
   %154 = sext i32 %147 to i64
-  %155 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable8swapmaskE, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable8swapmaskE, i64 0, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = and i64 %153, %156
   %158 = xor i64 %157, %151
@@ -7176,7 +7176,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   %73 = zext nneg i32 %67 to i64
   %74 = lshr i64 %72, %73
   %75 = sext i32 %6 to i64
-  %76 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = and i64 %74, %77
   %.not = icmp eq i64 %78, 0
@@ -8525,7 +8525,7 @@ _ZN5Ttopt10TruthTable5ImplyEiii.exit:             ; preds = %31
   %61 = zext nneg i32 %55 to i64
   %62 = lshr i64 %60, %61
   %63 = sext i32 %34 to i64
-  %64 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = ashr i32 %28, %51
   %67 = srem i32 %28, %53
@@ -9368,7 +9368,7 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %66, %68, %
   %102 = zext nneg i32 %97 to i64
   %103 = lshr i64 %101, %102
   %104 = sext i32 %81 to i64
-  %105 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = and i64 %103, %106
   %.not.i = icmp eq i64 %107, 0
@@ -9610,7 +9610,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare4SwapEi(ptr noundef nonnull a
   %69 = zext i32 %65 to i64
   %70 = lshr i64 %68, %69
   %71 = sext i32 %64 to i64
-  %72 = getelementptr inbounds [5 x i64], ptr @_ZN5Ttopt10TruthTable8swapmaskE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [5 x i64], ptr @_ZN5Ttopt10TruthTable8swapmaskE, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %70, %73
   %75 = xor i64 %74, %68
@@ -9735,7 +9735,7 @@ define linkonce_odr void @_ZN5Ttopt18TruthTableLevelTSM17BDDRebuildByMergeEi(ptr
   %55 = zext nneg i32 %50 to i64
   %56 = lshr i64 %54, %55
   %57 = sext i32 %28 to i64
-  %58 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %56, %59
   %61 = ashr i32 %25, %46
@@ -10140,7 +10140,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit25:              ; preds = %33, %26, %_ZNSt6vec
   %70 = zext nneg i32 %65 to i64
   %71 = lshr i64 %69, %70
   %72 = sext i32 %49 to i64
-  %73 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %71, %74
   %.not.i = icmp eq i64 %75, 0
@@ -10290,7 +10290,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare17BDDRebuildByMergeEi(ptr nou
   %48 = zext nneg i32 %43 to i64
   %49 = lshr i64 %47, %48
   %50 = sext i32 %21 to i64
-  %51 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %49, %52
   %54 = ashr i32 %17, %39
@@ -10376,7 +10376,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare5MergeEiiib(ptr noundef nonnu
   %37 = zext nneg i32 %31 to i64
   %38 = lshr i64 %36, %37
   %39 = sext i32 %8 to i64
-  %40 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %38, %41
   %43 = ashr i32 %1, %27
@@ -11589,7 +11589,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
 
 84:                                               ; preds = %3
   %85 = sext i32 %6 to i64
-  %86 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = sub nsw i32 6, %6
   %89 = ashr i32 %1, %88
@@ -11741,7 +11741,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare14CopyFuncMaskedEiiib(ptr nou
 
 38:                                               ; preds = %5
   %39 = sext i32 %8 to i64
-  %40 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = sub nsw i32 6, %8
   %43 = ashr i32 %1, %42
@@ -12092,7 +12092,7 @@ _ZNSt6vectorIS_ISt4pairIiiESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %45, %47, %
   %80 = zext nneg i32 %75 to i64
   %81 = lshr i64 %79, %80
   %82 = sext i32 %59 to i64
-  %83 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %81, %84
   %.not.i = icmp eq i64 %85, 0
@@ -12275,7 +12275,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare13CompleteMergeEv(ptr noundef
 
 .._crit_edge.i_crit_edge:                         ; preds = %65
   %.phi.trans.insert = sext i32 %24 to i64
-  %.phi.trans.insert23 = getelementptr inbounds [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert23 = getelementptr inbounds nuw [7 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %.phi.trans.insert
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8
   %.pre25 = load ptr, ptr %6, align 8
   %.pre26 = sub nsw i32 6, %24
@@ -12295,7 +12295,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCare13CompleteMergeEv(ptr noundef
   %77 = zext nneg i32 %72 to i64
   %78 = lshr i64 %76, %77
   %79 = sext i32 %24 to i64
-  %80 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = and i64 %78, %81
   br label %._crit_edge.i
@@ -12388,7 +12388,7 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewrite15ShiftToMajorityEii(ptr n
   %30 = zext i32 %24 to i64
   %31 = lshr i64 %29, %30
   %32 = sext i32 %6 to i64
-  %33 = getelementptr inbounds [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [0 x i64], ptr @_ZN5Ttopt10TruthTable4onesE, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %31, %34
   %36 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %35)

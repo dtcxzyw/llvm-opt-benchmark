@@ -122,7 +122,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit63: ; pre
 switch.lookup:                                    ; preds = %35
   %switch.tableidx = add nsw i32 %33, -10
   %36 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.2, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.2, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5clang14BinaryOperator18negateComparisonOpENS_18BinaryOperatorKindE.exit
 
@@ -264,14 +264,14 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit77.thread: ; preds = %_ZN5clang4e
   %116 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %115, i64 noundef 0, i64 %110) #10
   %switch.tableidx108 = add nsw i32 %65, -10
   %117 = sext i32 %switch.tableidx108 to i64
-  %switch.gep109 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.1, i64 0, i64 %117
+  %switch.gep109 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.1, i64 0, i64 %117
   %switch.load110 = load i32, ptr %switch.gep109, align 4
   br i1 %4, label %_ZN5clang14BinaryOperator18negateComparisonOpENS_18BinaryOperatorKindE.exit80, label %switch.lookup111
 
 switch.lookup111:                                 ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit77.thread
   %switch.tableidx112 = add nsw i32 %switch.load110, -10
   %118 = sext i32 %switch.tableidx112 to i64
-  %switch.gep113 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.2, i64 0, i64 %118
+  %switch.gep113 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN5clang4ento23RangedConstraintManager9assumeSymEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprEb.2, i64 0, i64 %118
   %switch.load114 = load i32, ptr %switch.gep113, align 4
   br label %_ZN5clang14BinaryOperator18negateComparisonOpENS_18BinaryOperatorKindE.exit80
 

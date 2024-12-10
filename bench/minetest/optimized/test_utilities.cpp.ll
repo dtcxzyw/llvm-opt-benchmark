@@ -3578,7 +3578,7 @@ while.cond3.i.i141:                               ; preds = %land.rhs5.i.i154, %
 
 land.rhs5.i.i154:                                 ; preds = %while.cond3.i.i141
   %sub.i.i155 = add nsw i64 %back.0.i.i142, -1
-  %add.ptr.i25.i.i156 = getelementptr inbounds i8, ptr @.str.55, i64 %sub.i.i155
+  %add.ptr.i25.i.i156 = getelementptr inbounds nuw i8, ptr @.str.55, i64 %sub.i.i155
   %0 = load i8, ptr %add.ptr.i25.i.i156, align 1, !tbaa !24
   %conv7.i.i = sext i8 %0 to i32
   %call8.i.i157 = tail call i32 @isspace(i32 noundef %conv7.i.i) #33
@@ -3698,7 +3698,7 @@ while.cond3.i.i190:                               ; preds = %land.rhs5.i.i203, %
 
 land.rhs5.i.i203:                                 ; preds = %while.cond3.i.i190
   %sub.i.i204 = add nsw i64 %back.0.i.i191, -1
-  %add.ptr.i25.i.i205 = getelementptr inbounds i8, ptr @.str.57, i64 %sub.i.i204
+  %add.ptr.i25.i.i205 = getelementptr inbounds nuw i8, ptr @.str.57, i64 %sub.i.i204
   %6 = load i8, ptr %add.ptr.i25.i.i205, align 1, !tbaa !24
   %conv7.i.i206 = sext i8 %6 to i32
   %call8.i.i207 = tail call i32 @isspace(i32 noundef %conv7.i.i206) #33
@@ -3791,7 +3791,7 @@ while.cond3.i.i240:                               ; preds = %land.rhs5.i.i253, %
 
 land.rhs5.i.i253:                                 ; preds = %while.cond3.i.i240
   %sub.i.i254 = add nsw i64 %back.0.i.i241, -1
-  %add.ptr.i25.i.i255 = getelementptr inbounds i8, ptr @.str.59, i64 %sub.i.i254
+  %add.ptr.i25.i.i255 = getelementptr inbounds nuw i8, ptr @.str.59, i64 %sub.i.i254
   %12 = load i8, ptr %add.ptr.i25.i.i255, align 1, !tbaa !24
   %conv7.i.i256 = sext i8 %12 to i32
   %call8.i.i257 = tail call i32 @isspace(i32 noundef %conv7.i.i256) #33
@@ -3870,7 +3870,7 @@ while.cond3.i.i290:                               ; preds = %land.rhs5.i.i303, %
 
 land.rhs5.i.i303:                                 ; preds = %while.cond3.i.i290
   %sub.i.i304 = add nsw i64 %back.0.i.i291, -1
-  %add.ptr.i25.i.i305 = getelementptr inbounds i8, ptr @.str.61, i64 %sub.i.i304
+  %add.ptr.i25.i.i305 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %sub.i.i304
   %18 = load i8, ptr %add.ptr.i25.i.i305, align 1, !tbaa !24
   %conv7.i.i306 = sext i8 %18 to i32
   %call8.i.i307 = tail call i32 @isspace(i32 noundef %conv7.i.i306) #33
@@ -3947,7 +3947,7 @@ while.cond3.i.i340:                               ; preds = %land.rhs5.i.i353, %
 
 land.rhs5.i.i353:                                 ; preds = %while.cond3.i.i340
   %sub.i.i354 = add nsw i64 %back.0.i.i341, -1
-  %add.ptr.i25.i.i355 = getelementptr inbounds i8, ptr @.str.64, i64 %sub.i.i354
+  %add.ptr.i25.i.i355 = getelementptr inbounds nuw i8, ptr @.str.64, i64 %sub.i.i354
   %24 = load i8, ptr %add.ptr.i25.i.i355, align 1, !tbaa !24
   %conv7.i.i356 = sext i8 %24 to i32
   %call8.i.i357 = tail call i32 @isspace(i32 noundef %conv7.i.i356) #33
@@ -10344,7 +10344,7 @@ invoke.cont10:                                    ; preds = %if.else.i.i, %if.th
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %11, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %oss, i64 %vbase.offset.i.i
   store ptr %12, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %oss, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !4

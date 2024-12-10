@@ -516,7 +516,7 @@ define dso_local noundef range(i32 -128, 821) i32 @_ZN11V3LexerBase5yylexEv(ptr 
   %214 = load ptr, ptr @_ZSt3cin, align 8
   %215 = getelementptr i8, ptr %214, i64 -24
   %216 = load i64, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %216
   %218 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %217)
   %219 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %213, ptr noundef %218)
   br label %220
@@ -538,7 +538,7 @@ define dso_local noundef range(i32 -128, 821) i32 @_ZN11V3LexerBase5yylexEv(ptr 
   %232 = load ptr, ptr @_ZSt4cout, align 8
   %233 = getelementptr i8, ptr %232, i64 -24
   %234 = load i64, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %234
   %236 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %235)
   %237 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %231, ptr noundef %236)
   br label %238
@@ -711,7 +711,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
   %334 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %333
   %335 = load i8, ptr %334, align 1
   %336 = sext i32 %.1 to i64
-  %337 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %336
   %338 = load i16, ptr %337, align 2
   %.not182 = icmp eq i16 %338, 0
   br i1 %.not182, label %340, label %339
@@ -722,12 +722,12 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
   br label %340
 
 340:                                              ; preds = %339, %331
-  %341 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %336
+  %341 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %336
   %342 = load i16, ptr %341, align 2
   %343 = sext i16 %342 to i64
   %344 = zext i8 %335 to i64
   %345 = add nsw i64 %343, %344
-  %346 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %345
   %347 = load i16, ptr %346, align 2
   %348 = sext i16 %347 to i32
   %.not1836146 = icmp eq i32 %.1, %348
@@ -737,7 +737,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
   %349 = phi i64 [ %362, %357 ], [ %344, %340 ]
   %350 = phi i64 [ %358, %357 ], [ %336, %340 ]
   %.01716147 = phi i8 [ %.1172, %357 ], [ %335, %340 ]
-  %351 = getelementptr inbounds [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %350
   %352 = load i16, ptr %351, align 2
   %353 = icmp sgt i16 %352, 4669
   br i1 %353, label %354, label %357
@@ -750,24 +750,24 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
 357:                                              ; preds = %354, %.lr.ph
   %.1172 = phi i8 [ %356, %354 ], [ %.01716147, %.lr.ph ]
   %358 = sext i16 %352 to i64
-  %359 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %358
   %360 = load i16, ptr %359, align 2
   %361 = sext i16 %360 to i64
   %362 = zext i8 %.1172 to i64
   %363 = add nsw i64 %361, %362
-  %364 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %363
+  %364 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %363
   %365 = load i16, ptr %364, align 2
   %.not183 = icmp eq i16 %352, %365
   br i1 %.not183, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %357, %340
   %.lcssa = phi i64 [ %345, %340 ], [ %363, %357 ]
-  %366 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
+  %366 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %367 = load i16, ptr %366, align 2
   %368 = sext i16 %367 to i32
   %369 = getelementptr inbounds nuw i8, ptr %.164, i64 1
   %370 = sext i16 %367 to i64
-  %371 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %370
   %372 = load i16, ptr %371, align 2
   %.not184 = icmp eq i16 %372, 8864
   br i1 %.not184, label %.outer, label %331, !llvm.loop !7
@@ -782,7 +782,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
   %.265 = phi ptr [ %397, %395 ], [ %.265.ph, %.outer ]
   %.3 = phi i32 [ %398, %395 ], [ %.3.ph, %.outer ]
   %374 = sext i32 %.3 to i64
-  %375 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %374
   %376 = load i16, ptr %375, align 2
   %377 = icmp eq i16 %376, 0
   br i1 %377, label %378, label %384
@@ -791,7 +791,7 @@ _ZN11V3LexerBase21yyensure_buffer_stackEv.exit:   ; preds = %253, %.critedge385,
   %379 = load ptr, ptr %310, align 8
   %380 = load i32, ptr %309, align 8
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %381
   %383 = load i16, ptr %382, align 2
   br label %384
 
@@ -19680,7 +19680,7 @@ define dso_local noundef i32 @_ZN11V3LexerBase21yy_get_previous_stateEv(ptr noca
 21:                                               ; preds = %15, %17
   %22 = phi i8 [ %20, %17 ], [ 1, %15 ]
   %23 = sext i32 %.01724 to i64
-  %24 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %.not20 = icmp eq i16 %25, 0
   br i1 %.not20, label %27, label %26
@@ -19691,12 +19691,12 @@ define dso_local noundef i32 @_ZN11V3LexerBase21yy_get_previous_stateEv(ptr noca
   br label %27
 
 27:                                               ; preds = %26, %21
-  %28 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %23
+  %28 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %23
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
   %31 = zext i8 %22 to i64
   %32 = add nsw i64 %30, %31
-  %33 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i32
   %.not2122 = icmp eq i32 %.01724, %35
@@ -19706,7 +19706,7 @@ define dso_local noundef i32 @_ZN11V3LexerBase21yy_get_previous_stateEv(ptr noca
   %36 = phi i64 [ %49, %44 ], [ %31, %27 ]
   %37 = phi i64 [ %45, %44 ], [ %23, %27 ]
   %.023 = phi i8 [ %.1, %44 ], [ %22, %27 ]
-  %38 = getelementptr inbounds [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = icmp sgt i16 %39, 4669
   br i1 %40, label %41, label %44
@@ -19719,19 +19719,19 @@ define dso_local noundef i32 @_ZN11V3LexerBase21yy_get_previous_stateEv(ptr noca
 44:                                               ; preds = %41, %.lr.ph
   %.1 = phi i8 [ %43, %41 ], [ %.023, %.lr.ph ]
   %45 = sext i16 %39 to i64
-  %46 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i64
   %49 = zext i8 %.1 to i64
   %50 = add nsw i64 %48, %49
-  %51 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
   %.not21 = icmp eq i16 %39, %52
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %44, %27
   %.lcssa = phi i64 [ %32, %27 ], [ %50, %44 ]
-  %53 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
+  %53 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %.01625, i64 1
@@ -19746,7 +19746,7 @@ define dso_local noundef i32 @_ZN11V3LexerBase21yy_get_previous_stateEv(ptr noca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef range(i32 -32768, 32768) i32 @_ZN11V3LexerBase16yy_try_NUL_transEi(ptr nocapture noundef nonnull align 8 dereferenceable(732) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [4670 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %11, label %6
@@ -19761,11 +19761,11 @@ define dso_local noundef range(i32 -32768, 32768) i32 @_ZN11V3LexerBase16yy_try_
   br label %11
 
 11:                                               ; preds = %6, %2
-  %12 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %3
+  %12 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %3
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i64
   %15 = add nsw i64 %14, 1
-  %16 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %.not1516 = icmp eq i32 %1, %18
@@ -19773,21 +19773,21 @@ define dso_local noundef range(i32 -32768, 32768) i32 @_ZN11V3LexerBase16yy_try_
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %19 = phi i64 [ %22, %.lr.ph ], [ %3, %11 ]
-  %20 = getelementptr inbounds [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL6yy_def, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [4800 x i16], ptr @_ZL7yy_base, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i64
   %26 = add nsw i64 %25, 1
-  %27 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_chk, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not15 = icmp eq i16 %21, %28
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.lcssa = phi i64 [ %15, %11 ], [ %26, %.lr.ph ]
-  %29 = getelementptr inbounds [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
+  %29 = getelementptr inbounds nuw [8949 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 4669
   %narrow = select i1 %31, i16 0, i16 %30
@@ -21576,13 +21576,13 @@ define linkonce_odr dso_local void @_ZN7V3LexerC2Ev(ptr noundef nonnull align 8 
   %3 = load ptr, ptr @_ZSt3cin, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %5
   %7 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %6)
   tail call void @_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %7)
   %8 = load ptr, ptr @_ZSt4cout, align 8
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %10
   %12 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %11)
           to label %13 unwind label %15
 

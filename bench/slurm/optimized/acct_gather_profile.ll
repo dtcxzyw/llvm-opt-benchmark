@@ -1124,7 +1124,7 @@ acct_gather_profile_test.exit60:                  ; preds = %55
 switch.lookup:                                    ; preds = %59
   %sext252 = shl i64 %indvars.iv, 32
   %62 = ashr exact i64 %sext252, 32
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._timer_thread, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._timer_thread, i64 0, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.56, ptr noundef nonnull %switch.load) #14
   br label %63

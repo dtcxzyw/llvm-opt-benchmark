@@ -2700,7 +2700,7 @@ if.then.i142.i:                                   ; preds = %land.lhs.true39.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true39.i
   %idxprom.i138.i = sext i32 %132 to i64
-  %arrayidx.i139.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i138.i
+  %arrayidx.i139.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i138.i
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i142.i
@@ -4169,7 +4169,7 @@ if.then.i:                                        ; preds = %nth_midxed_object_o
 
 if.else.i:                                        ; preds = %nth_midxed_object_oid.exit115
   %idxprom.i = sext i32 %32 to i64
-  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i, %if.else.i
@@ -5753,7 +5753,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else.i:                                        ; preds = %if.then
   %idxprom.i = sext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i, %if.else.i
@@ -6071,7 +6071,7 @@ if.then.i:                                        ; preds = %entry
 
 if.else.i:                                        ; preds = %entry
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   br label %oidcmp.exit
 
 oidcmp.exit:                                      ; preds = %if.then.i, %if.else.i

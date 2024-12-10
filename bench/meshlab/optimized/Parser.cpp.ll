@@ -1248,7 +1248,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %16, %21
   br i1 %38, label %.critedge, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw [12 x [87 x i8]], ptr @_ZZN14VrmlTranslator6Parser7StartOfEiE3set, i64 0, i64 0, i64 %35
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %.critedge, label %43

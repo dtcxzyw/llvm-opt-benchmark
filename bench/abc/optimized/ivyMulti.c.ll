@@ -97,7 +97,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %50, i32 1
+  %51 = getelementptr inbounds nuw [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %50, i32 1
   %52 = load i32, ptr %51, align 8
   br i1 %.not140, label %.critedge, label %53
 
@@ -110,7 +110,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %60, i32 1
+  %61 = getelementptr inbounds nuw [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %60, i32 1
   %62 = load i32, ptr %61, align 8
   %63 = or i32 %62, %52
   br label %.critedge
@@ -152,12 +152,12 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 
 78:                                               ; preds = %75
   %79 = sext i32 %.1111155 to i64
-  %80 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %79
+  %80 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %79
   store ptr %68, ptr %80, align 16
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %83, i32 1
+  %84 = getelementptr inbounds nuw [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %83, i32 1
   %85 = load i32, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %85, ptr %86, align 8
@@ -296,7 +296,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
 
 .critedge123:                                     ; preds = %146, %.preheader
   %154 = sext i32 %.4165 to i64
-  %155 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %154
+  %155 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %154
   store ptr %139, ptr %155, align 16
   %156 = load i32, ptr %119, align 8
   %157 = getelementptr inbounds nuw i8, ptr %122, i64 8

@@ -1746,7 +1746,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 37:                                               ; preds = %33
   %38 = trunc nuw i32 %36 to i8
   %39 = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %39
   store i8 %38, ptr %40, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1754,7 +1754,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 
 ._crit_edge:                                      ; preds = %37, %17, %26
   %41 = sext i32 %5 to i64
-  %42 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %41
   store i8 0, ptr %42, align 1
   %43 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %41)
   store ptr %43, ptr %1, align 8

@@ -50,7 +50,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17ArchVStringPrintfB5cxx11EPKc
 
 .noexc19:                                         ; preds = %.noexc
   %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
-  %16 = getelementptr inbounds i8, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, ptr noundef nonnull %16)
           to label %19 unwind label %17
 

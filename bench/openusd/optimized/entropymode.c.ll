@@ -199,7 +199,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr nocapture noundef rea
 
 67:                                               ; preds = %._crit_edge
   %68 = sext i32 %.082.lcssa to i64
-  %69 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [18 x i32], ptr %9, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %5, i64 %68
   %72 = load i8, ptr %71, align 1
@@ -209,9 +209,9 @@ define hidden i32 @av1_get_palette_color_index_context(ptr nocapture noundef rea
 .lr.ph101:                                        ; preds = %67, %.lr.ph101
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph101 ], [ %68, %67 ]
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
-  %74 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %indvars.iv.next120
+  %74 = getelementptr inbounds nuw [18 x i32], ptr %9, i64 0, i64 %indvars.iv.next120
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %indvars.iv119
+  %76 = getelementptr inbounds nuw [18 x i32], ptr %9, i64 0, i64 %indvars.iv119
   store i32 %75, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next120
   %78 = load i8, ptr %77, align 1
@@ -272,7 +272,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr nocapture noundef rea
 
 105:                                              ; preds = %98
   %106 = sext i32 %104 to i64
-  %107 = getelementptr inbounds [9 x i32], ptr @palette_color_index_context_lookup, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [9 x i32], ptr @palette_color_index_context_lookup, i64 0, i64 %106
   %108 = load i32, ptr %107, align 4
   ret i32 %108
 }
@@ -386,9 +386,9 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr nocapture noundef re
   %57 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %.081 to i64
-  %60 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %59
   store i32 %58, ptr %60, align 4
-  %61 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %59
   store i32 %55, ptr %61, align 4
   %62 = add nsw i32 %.081, 1
   br label %63
@@ -534,7 +534,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr nocapture noundef re
 
 127:                                              ; preds = %120
   %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds [9 x i32], ptr @palette_color_index_context_lookup, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [9 x i32], ptr @palette_color_index_context_lookup, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
   ret i32 %130
 }

@@ -4390,7 +4390,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit41.i:      ; preds = %1719, %1716
 .noexc370:                                        ; preds = %1755
   %1756 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #28
   %1757 = add i64 %1756, -1
-  %1758 = getelementptr inbounds [4096 x i8], ptr %11, i64 0, i64 %1757
+  %1758 = getelementptr inbounds nuw [4096 x i8], ptr %11, i64 0, i64 %1757
   %1759 = load i8, ptr %1758, align 1
   %1760 = icmp eq i8 %1759, 93
   br i1 %1760, label %1761, label %.loopexit.sink.split.i

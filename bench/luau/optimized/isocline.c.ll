@@ -8559,7 +8559,7 @@ attr_update_property.exit:                        ; preds = %138
   %.060108 = phi i64 [ %.161, %238 ], [ 0, %208 ]
   %211 = add nsw i64 %.059109, %.060108
   %212 = sdiv i64 %211, 2
-  %213 = getelementptr inbounds [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %212
   %214 = load ptr, ptr %213, align 16
   %215 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %214, ptr noundef nonnull dereferenceable(1) %.0) #33
   %216 = icmp slt i32 %215, 0
@@ -8692,7 +8692,7 @@ define internal fastcc noundef ptr @attr_update_color(ptr noundef returned %0, p
   %.02934 = phi i64 [ %.130, %37 ], [ 171, %13 ]
   %23 = add nsw i64 %.02835, %.02934
   %24 = sdiv i64 %23, 2
-  %25 = getelementptr inbounds [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 16
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %2) #33
   %28 = icmp slt i32 %27, 0
@@ -11843,7 +11843,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %27 = add nsw i32 %.01821.i.i.i, %.01722.i.i.i
   %28 = sdiv i32 %27, 2
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %29
+  %30 = getelementptr inbounds nuw %struct.interval, ptr @mk_wcwidth.combining, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %21, %32
@@ -11908,7 +11908,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %64 = add nsw i32 %.01821.i.i37.i, %.01722.i.i36.i
   %65 = sdiv i32 %64, 2
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %66
+  %67 = getelementptr inbounds nuw %struct.interval, ptr @mk_wcwidth.combining, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %58, %69
@@ -11943,7 +11943,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %80 = add nsw i32 %.01821.i.i.i45.i, %.01722.i.i.i44.i
   %81 = sdiv i32 %80, 2
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.interval, ptr @mk_is_wide_char.wide, i64 %82
+  %83 = getelementptr inbounds nuw %struct.interval, ptr @mk_is_wide_char.wide, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = icmp sgt i32 %58, %85
@@ -12015,7 +12015,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %124 = add nsw i32 %.01821.i.i55.i, %.01722.i.i54.i
   %125 = sdiv i32 %124, 2
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %126
+  %127 = getelementptr inbounds nuw %struct.interval, ptr @mk_wcwidth.combining, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %117, %129
@@ -12051,7 +12051,7 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %141 = add nsw i32 %.01821.i.i.i63.i, %.01722.i.i.i62.i
   %142 = sdiv i32 %141, 2
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds %struct.interval, ptr @mk_is_wide_char.wide, i64 %143
+  %144 = getelementptr inbounds nuw %struct.interval, ptr @mk_is_wide_char.wide, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = icmp sgt i32 %117, %146
@@ -17442,12 +17442,12 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
 
 155:                                              ; preds = %153, %.thread.i
   %.pre-phi101.i = phi i64 [ %147, %.thread.i ], [ %141, %153 ]
-  %156 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i
+  %156 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i
   %157 = icmp eq i64 %.061.us.i, %125
   br i1 %157, label %._crit_edge92.i, label %158
 
 ._crit_edge92.i:                                  ; preds = %155
-  %.phi.trans.insert93.i = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i, i32 2
+  %.phi.trans.insert93.i = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi101.i, i32 2
   %.pre94.i = load i64, ptr %.phi.trans.insert93.i, align 8
   br label %166
 
@@ -17494,7 +17494,7 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
   %177 = or disjoint i64 %.05868.us.i, 1
   %178 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %177
   %179 = load i8, ptr %178, align 1
-  %180 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.060.us.i
+  %180 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.060.us.i
   store i8 %179, ptr %180, align 16
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i64 %.061.us.i, ptr %181, align 8
@@ -17541,7 +17541,7 @@ ic_strlen.exit.split.split.us.preheader.i.split:  ; preds = %ic_strlen.exit.spli
 
 .thread.us77.i:                                   ; preds = %192
   %194 = load i8, ptr %187, align 1
-  %195 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.060.us72.i212
+  %195 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.060.us72.i212
   store i8 %194, ptr %195, align 16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store i64 %.061.us71.i211, ptr %196, align 8
@@ -22228,7 +22228,7 @@ tty_cpop.exit.i24:                                ; preds = %24
   %40 = shl nuw i64 1, %39
   %41 = sdiv i32 %37, 64
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [16 x i64], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i64], ptr %5, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = or i64 %40, %44
   store i64 %45, ptr %43, align 8
@@ -24242,7 +24242,7 @@ term_write_direct.exit.i.i:                       ; preds = %26
 
 .loopexit.i.i.i:                                  ; preds = %59, %47, %56
   %.1.i17.i.i = phi i64 [ %57, %56 ], [ %.038.i.i.i, %47 ], [ 128, %59 ]
-  %62 = getelementptr inbounds i8, ptr %5, i64 %.1.i17.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i17.i.i
   store i8 0, ptr %62, align 1
   call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.284, ptr noundef nonnull %5)
   br label %tty_read_esc_response.exit.i.i
@@ -25996,7 +25996,7 @@ ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit
   %51 = or disjoint i64 %.04569.us, 1
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %51
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds [65 x %struct.brace_s], ptr %5, i64 0, i64 %.050.us
+  %54 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %5, i64 0, i64 %.050.us
   store i8 %53, ptr %54, align 16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 %.048.us, ptr %55, align 8
@@ -26049,7 +26049,7 @@ ic_strlen.exit62.us76:                            ; preds = %62, %ic_strlen.exit
 
 .thread.us80:                                     ; preds = %69
   %71 = load i8, ptr %61, align 1
-  %72 = getelementptr inbounds [65 x %struct.brace_s], ptr %5, i64 0, i64 %.050.us74
+  %72 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %5, i64 0, i64 %.050.us74
   store i8 %71, ptr %72, align 16
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %.048.us75, ptr %73, align 8

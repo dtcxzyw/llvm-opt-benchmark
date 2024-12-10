@@ -1306,7 +1306,7 @@ _ZNR4absl7debian28optionalIiE5valueEv.exit7:      ; preds = %_ZNR4absl7debian28o
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %40 = sdiv i32 %.sroa.612.0.extract.trunc, %34
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel9gin_rummyL9kSuitCharE, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel9gin_rummyL9kSuitCharE, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   store i8 %43, ptr %39, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #24

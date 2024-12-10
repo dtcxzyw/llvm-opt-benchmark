@@ -427,7 +427,7 @@ _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %.lr.ph, %210
   %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %203 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %202)
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds [4 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [4 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %204
   %.sroa.0.0.copyload = load double, ptr %205, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
@@ -571,7 +571,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %249, %256, %262
   %.0.i61 = phi ptr [ %251, %249 ], [ %261, %256 ], [ %274, %262 ]
   %275 = load i32, ptr %.0.i61, align 4
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds [4 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw [4 x %"class.cv::Scalar_"], ptr %5, i64 0, i64 %276
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 %.sroa.0.0.insert.insert, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %277, i32 noundef -1, i32 noundef 8, i32 noundef 0)
           to label %278 unwind label %279
 

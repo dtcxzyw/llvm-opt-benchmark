@@ -1002,7 +1002,7 @@ _ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i: ; preds = %
   %371 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i, i64 12
   %372 = load i32, ptr %371, align 4
   %373 = sext i32 %372 to i64
-  %374 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %373
+  %374 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %373
   %375 = load ptr, ptr %374, align 8
   tail call void %375(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %.037, ptr noundef %.0.i.i6.i, ptr %55, i64 %276) #11
   br label %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit
@@ -1072,7 +1072,7 @@ _ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i55: ; preds =
   %413 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i56, i64 12
   %414 = load i32, ptr %413, align 4
   %415 = sext i32 %414 to i64
-  %416 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %415
+  %416 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OldGenScanClosureE6_tableE, i64 0, i64 %415
   %417 = load ptr, ptr %416, align 8
   tail call void %417(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %.037, ptr noundef %.0.i.i6.i56, ptr %55, i64 %399) #11
   br label %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit
@@ -1606,7 +1606,7 @@ _ZN7oopDesc11oop_iterateI26SerialCheckForUnmarkedOopsEEvPT_.exit: ; preds = %15,
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26SerialCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26SerialCheckForUnmarkedOopsE6_tableE, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #11
   %32 = load ptr, ptr %11, align 8

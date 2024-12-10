@@ -348,7 +348,7 @@ if.end44:                                         ; preds = %_ZL19findStateFromE
   %23 = trunc nuw nsw i64 %indvars.iv31.i to i32
   %sext76 = shl i64 %indvars.iv31.i, 32
   %idxprom48 = ashr exact i64 %sext76, 32
-  %arrayidx49 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %idxprom48
+  %arrayidx49 = getelementptr inbounds nuw [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %idxprom48
   %call51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx49) #9
   %24 = load ptr, ptr %converter, align 8
   %toULength53 = getelementptr inbounds nuw i8, ptr %24, i64 64
@@ -956,7 +956,7 @@ for.body83:                                       ; preds = %if.end79, %for.body
   %shr = lshr i32 %44, %mul
   %conv84 = trunc i32 %shr to i8
   %indvars.iv.next136 = add nsw i64 %indvars.iv135, 1
-  %arrayidx87 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv135
+  %arrayidx87 = getelementptr inbounds nuw [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv135
   store i8 %conv84, ptr %arrayidx87, align 1
   %cmp82 = icmp sgt i32 %n.0.in111, 1
   br i1 %cmp82, label %for.body83, label %if.end123.loopexit121, !llvm.loop !14

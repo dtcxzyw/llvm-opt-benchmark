@@ -2071,7 +2071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit77: ; 
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [3 x ptr], ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #24
   %61 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -2140,7 +2140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit87: ; 
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [3 x ptr], ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [3 x ptr], ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #24
   %81 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %20)

@@ -2733,9 +2733,9 @@ for.body41:                                       ; preds = %for.cond39.preheade
 
 if.then53:                                        ; preds = %for.body41
   %idxprom54 = sext i32 %numshared.1522 to i64
-  %arrayidx55 = getelementptr inbounds [3 x i32], ptr %sharedVertsA, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw [3 x i32], ptr %sharedVertsA, i64 0, i64 %idxprom54
   store i32 %42, ptr %arrayidx55, align 4
-  %arrayidx57 = getelementptr inbounds [3 x i32], ptr %sharedVertsB, i64 0, i64 %idxprom54
+  %arrayidx57 = getelementptr inbounds nuw [3 x i32], ptr %sharedVertsB, i64 0, i64 %idxprom54
   %48 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %48, ptr %arrayidx57, align 4
   %inc = add nsw i32 %numshared.1522, 1

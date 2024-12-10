@@ -140,7 +140,7 @@ define void @Bac_ManSetupTypes(ptr nocapture noundef writeonly %0, ptr nocapture
 
 Bac_GetTypeId.exit:                               ; preds = %8, %.split.loop.exit9.i
   %.06.i = phi i64 [ %9, %.split.loop.exit9.i ], [ -1, %8 ]
-  %10 = getelementptr inbounds [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %.06.i
+  %10 = getelementptr inbounds nuw [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %.06.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
@@ -175,7 +175,7 @@ define noundef nonnull ptr @Bac_NtkGenerateName(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %3
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @Bac_NtkGenerateName.Buffer) #22
-  %16 = getelementptr inbounds i8, ptr @Bac_NtkGenerateName.Buffer, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @Bac_NtkGenerateName.Buffer, i64 %15
   %17 = getelementptr i8, ptr %2, i64 8
   br label %18
 

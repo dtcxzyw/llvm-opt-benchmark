@@ -2227,7 +2227,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %76, %80
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit
   %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   switch i32 %86, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %87
@@ -5051,7 +5051,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %42, %48
 
 56:                                               ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   br label %_ZNK8Bytecode11invoke_codeEv.exit
 

@@ -36127,7 +36127,7 @@ push_heap.exit.i:                                 ; preds = %262, %.lr.ph.i.i100
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge108.i ], [ %indvars.iv.next.i.i, %.preheader28.i.i ]
   %286 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.i
   %287 = load i64, ptr %286, align 8
-  %288 = getelementptr inbounds [59 x i64], ptr %11, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw [59 x i64], ptr %11, i64 0, i64 %287
   %289 = load i64, ptr %288, align 8
   %290 = add i64 %289, 1
   store i64 %290, ptr %288, align 8
@@ -36155,7 +36155,7 @@ push_heap.exit.i:                                 ; preds = %262, %.lr.ph.i.i100
   br i1 %.not.i102.i, label %304, label %298
 
 298:                                              ; preds = %.preheader.i.i
-  %299 = getelementptr inbounds [59 x i64], ptr %11, i64 0, i64 %297
+  %299 = getelementptr inbounds nuw [59 x i64], ptr %11, i64 0, i64 %297
   %300 = load i64, ptr %299, align 8
   %301 = add i64 %300, 1
   store i64 %301, ptr %299, align 8
@@ -44174,7 +44174,7 @@ float_to_half.exit:                               ; preds = %70, %73, %83, %85, 
   %299 = getelementptr inbounds nuw [64 x i32], ptr @toZigZag.remap, i64 0, i64 %indvars.iv.i158.us
   %300 = load i32, ptr %299, align 4
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds i16, ptr %6, i64 %301
+  %302 = getelementptr inbounds nuw i16, ptr %6, i64 %301
   %303 = load i16, ptr %302, align 2
   %304 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i158.us
   store i16 %303, ptr %304, align 2
@@ -52379,7 +52379,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %293
   %indvars.iv.i.i68 = phi i64 [ 0, %._crit_edge93.i ], [ %indvars.iv.next.i.i69, %.preheader28.i.i ]
   %325 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i68
   %326 = load i64, ptr %325, align 8
-  %327 = getelementptr inbounds [59 x i64], ptr %8, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw [59 x i64], ptr %8, i64 0, i64 %326
   %328 = load i64, ptr %327, align 8
   %329 = add i64 %328, 1
   store i64 %329, ptr %327, align 8
@@ -52411,7 +52411,7 @@ getBits.exit48.i:                                 ; preds = %.lr.ph.i46.i, %293
   br i1 %.not.i.i, label %344, label %338
 
 338:                                              ; preds = %.preheader.i.i71
-  %339 = getelementptr inbounds [59 x i64], ptr %8, i64 0, i64 %337
+  %339 = getelementptr inbounds nuw [59 x i64], ptr %8, i64 0, i64 %337
   %340 = load i64, ptr %339, align 8
   %341 = add i64 %340, 1
   store i64 %341, ptr %339, align 8

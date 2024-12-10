@@ -241,7 +241,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   %conv.i.i = and i8 %7, 127
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %sub.i.i = sub nsw i64 9, %indvars.iv.i.i
-  %arrayidx.i.i = getelementptr inbounds [10 x i8], ptr %buff.i.i24, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i24, i64 0, i64 %sub.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %x.addr.0.i.i, 7
   %cmp.not.i.i = icmp ult i64 %x.addr.0.i.i, 128
@@ -287,7 +287,7 @@ do.body.i.i34:                                    ; preds = %do.body.i.i34, %dum
   %conv.i.i37 = and i8 %16, 127
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %sub.i.i39 = sub nsw i64 9, %indvars.iv.i.i35
-  %arrayidx.i.i40 = getelementptr inbounds [10 x i8], ptr %buff.i.i32, i64 0, i64 %sub.i.i39
+  %arrayidx.i.i40 = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i32, i64 0, i64 %sub.i.i39
   store i8 %conv.i.i37, ptr %arrayidx.i.i40, align 1
   %shr.i.i41 = lshr i64 %x.addr.0.i.i36, 7
   %cmp.not.i.i42 = icmp ult i64 %x.addr.0.i.i36, 128
@@ -391,7 +391,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %dum
   %conv.i.i.i = and i8 %38, 127
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %sub.i.i.i = sub nsw i64 9, %indvars.iv.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [10 x i8], ptr %buff.i.i.i, i64 0, i64 %sub.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i.i, i64 0, i64 %sub.i.i.i
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr.i.i.i = lshr i64 %x.addr.0.i.i.i, 7
   %cmp.not.i.i.i = icmp ult i64 %x.addr.0.i.i.i, 128
@@ -453,7 +453,7 @@ do.body.i.i.i82:                                  ; preds = %do.body.i.i.i82, %d
   %conv.i.i.i85 = and i8 %51, 127
   %indvars.iv.next.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i83, 1
   %sub.i.i.i87 = sub nsw i64 9, %indvars.iv.i.i.i83
-  %arrayidx.i.i.i88 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i80, i64 0, i64 %sub.i.i.i87
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i.i80, i64 0, i64 %sub.i.i.i87
   store i8 %conv.i.i.i85, ptr %arrayidx.i.i.i88, align 1
   %shr.i.i.i89 = lshr i64 %x.addr.0.i.i.i84, 7
   %cmp.not.i.i.i90 = icmp ult i64 %x.addr.0.i.i.i84, 128
@@ -584,7 +584,7 @@ do.body.i.i.i110:                                 ; preds = %do.body.i.i.i110, %
   %conv.i.i.i113 = and i8 %75, 127
   %indvars.iv.next.i.i.i114 = add nuw nsw i64 %indvars.iv.i.i.i111, 1
   %sub.i.i.i115 = sub nsw i64 9, %indvars.iv.i.i.i111
-  %arrayidx.i.i.i116 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i108, i64 0, i64 %sub.i.i.i115
+  %arrayidx.i.i.i116 = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i.i108, i64 0, i64 %sub.i.i.i115
   store i8 %conv.i.i.i113, ptr %arrayidx.i.i.i116, align 1
   %shr.i.i.i117 = lshr i64 %x.addr.0.i.i.i112, 7
   %cmp.not.i.i.i118 = icmp ult i64 %x.addr.0.i.i.i112, 128
@@ -707,7 +707,7 @@ do.body.i.i186:                                   ; preds = %do.body.i.i186, %du
   %conv.i.i189 = and i8 %99, 127
   %indvars.iv.next.i.i190 = add nuw nsw i64 %indvars.iv.i.i187, 1
   %sub.i.i191 = sub nsw i64 9, %indvars.iv.i.i187
-  %arrayidx.i.i192 = getelementptr inbounds [10 x i8], ptr %buff.i.i184, i64 0, i64 %sub.i.i191
+  %arrayidx.i.i192 = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i184, i64 0, i64 %sub.i.i191
   store i8 %conv.i.i189, ptr %arrayidx.i.i192, align 1
   %shr.i.i193 = lshr i64 %x.addr.0.i.i188, 7
   %cmp.not.i.i194 = icmp ult i64 %x.addr.0.i.i188, 128
@@ -779,7 +779,7 @@ do.body.i.i.i146:                                 ; preds = %do.body.i.i.i146, %
   %conv.i.i.i149 = and i8 %111, 127
   %indvars.iv.next.i.i.i150 = add nuw nsw i64 %indvars.iv.i.i.i147, 1
   %sub.i.i.i151 = sub nsw i64 9, %indvars.iv.i.i.i147
-  %arrayidx.i.i.i152 = getelementptr inbounds [10 x i8], ptr %buff.i.i.i145, i64 0, i64 %sub.i.i.i151
+  %arrayidx.i.i.i152 = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i.i145, i64 0, i64 %sub.i.i.i151
   store i8 %conv.i.i.i149, ptr %arrayidx.i.i.i152, align 1
   %shr.i.i.i153 = lshr i64 %x.addr.0.i.i.i148, 7
   %cmp.not.i.i.i154 = icmp ult i64 %x.addr.0.i.i.i148, 128
@@ -849,7 +849,7 @@ do.body.i.i45.i:                                  ; preds = %do.body.i.i45.i, %c
   %conv.i.i48.i = and i8 %125, 127
   %indvars.iv.next.i.i49.i = add nuw nsw i64 %indvars.iv.i.i46.i, 1
   %sub.i.i50.i = sub nsw i64 9, %indvars.iv.i.i46.i
-  %arrayidx.i.i51.i = getelementptr inbounds [10 x i8], ptr %buff.i.i43.i, i64 0, i64 %sub.i.i50.i
+  %arrayidx.i.i51.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i43.i, i64 0, i64 %sub.i.i50.i
   store i8 %conv.i.i48.i, ptr %arrayidx.i.i51.i, align 1
   %shr.i.i52.i = lshr i64 %x.addr.0.i.i47.i, 7
   %cmp.not.i.i53.i = icmp ult i64 %x.addr.0.i.i47.i, 128
@@ -910,7 +910,7 @@ do.body.i.i68.i:                                  ; preds = %do.body.i.i68.i, %f
   %conv.i.i71.i = and i8 %135, 127
   %indvars.iv.next.i.i72.i = add nuw nsw i64 %indvars.iv.i.i69.i, 1
   %sub.i.i73.i = sub nsw i64 9, %indvars.iv.i.i69.i
-  %arrayidx.i.i74.i = getelementptr inbounds [10 x i8], ptr %buff.i.i66.i, i64 0, i64 %sub.i.i73.i
+  %arrayidx.i.i74.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i66.i, i64 0, i64 %sub.i.i73.i
   store i8 %conv.i.i71.i, ptr %arrayidx.i.i74.i, align 1
   %shr.i.i75.i = lshr i64 %x.addr.0.i.i70.i, 7
   %cmp.not.i.i76.i = icmp ult i64 %x.addr.0.i.i70.i, 128
@@ -951,7 +951,7 @@ do.body.i.i91.i:                                  ; preds = %do.body.i.i91.i, %d
   %conv.i.i94.i = and i8 %144, 127
   %indvars.iv.next.i.i95.i = add nuw nsw i64 %indvars.iv.i.i92.i, 1
   %sub.i.i96.i = sub nsw i64 9, %indvars.iv.i.i92.i
-  %arrayidx.i.i97.i = getelementptr inbounds [10 x i8], ptr %buff.i.i89.i, i64 0, i64 %sub.i.i96.i
+  %arrayidx.i.i97.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i89.i, i64 0, i64 %sub.i.i96.i
   store i8 %conv.i.i94.i, ptr %arrayidx.i.i97.i, align 1
   %shr.i.i98.i = lshr i64 %x.addr.0.i.i93.i, 7
   %cmp.not.i.i99.i = icmp ult i64 %x.addr.0.i.i93.i, 128
@@ -1005,7 +1005,7 @@ do.body.i.i114.i:                                 ; preds = %do.body.i.i114.i, %
   %conv.i.i117.i = and i8 %154, 127
   %indvars.iv.next.i.i118.i = add nuw nsw i64 %indvars.iv.i.i115.i, 1
   %sub.i.i119.i = sub nsw i64 9, %indvars.iv.i.i115.i
-  %arrayidx.i.i120.i = getelementptr inbounds [10 x i8], ptr %buff.i.i112.i, i64 0, i64 %sub.i.i119.i
+  %arrayidx.i.i120.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i112.i, i64 0, i64 %sub.i.i119.i
   store i8 %conv.i.i117.i, ptr %arrayidx.i.i120.i, align 1
   %shr.i.i121.i = lshr i64 %x.addr.0.i.i116.i, 7
   %cmp.not.i.i122.i = icmp ult i64 %x.addr.0.i.i116.i, 128
@@ -1069,7 +1069,7 @@ do.body.i.i137.i:                                 ; preds = %do.body.i.i137.i, %
   %conv.i.i140.i = and i8 %165, 127
   %indvars.iv.next.i.i141.i = add nuw nsw i64 %indvars.iv.i.i138.i, 1
   %sub.i.i142.i = sub nsw i64 9, %indvars.iv.i.i138.i
-  %arrayidx.i.i143.i = getelementptr inbounds [10 x i8], ptr %buff.i.i135.i, i64 0, i64 %sub.i.i142.i
+  %arrayidx.i.i143.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i135.i, i64 0, i64 %sub.i.i142.i
   store i8 %conv.i.i140.i, ptr %arrayidx.i.i143.i, align 1
   %shr.i.i144.i = lshr i64 %x.addr.0.i.i139.i, 7
   %cmp.not.i.i145.i = icmp ult i64 %x.addr.0.i.i139.i, 128
@@ -1111,7 +1111,7 @@ do.body.i.i160.i:                                 ; preds = %do.body.i.i160.i, %
   %conv.i.i163.i = and i8 %175, 127
   %indvars.iv.next.i.i164.i = add nuw nsw i64 %indvars.iv.i.i161.i, 1
   %sub.i.i165.i = sub nsw i64 9, %indvars.iv.i.i161.i
-  %arrayidx.i.i166.i = getelementptr inbounds [10 x i8], ptr %buff.i.i158.i, i64 0, i64 %sub.i.i165.i
+  %arrayidx.i.i166.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i158.i, i64 0, i64 %sub.i.i165.i
   store i8 %conv.i.i163.i, ptr %arrayidx.i.i166.i, align 1
   %shr.i.i167.i = lshr i64 %x.addr.0.i.i162.i, 7
   %cmp.not.i.i168.i = icmp ult i64 %x.addr.0.i.i162.i, 128
@@ -1164,7 +1164,7 @@ do.body.i.i183.i:                                 ; preds = %do.body.i.i183.i, %
   %conv.i.i186.i = and i8 %185, 127
   %indvars.iv.next.i.i187.i = add nuw nsw i64 %indvars.iv.i.i184.i, 1
   %sub.i.i188.i = sub nsw i64 9, %indvars.iv.i.i184.i
-  %arrayidx.i.i189.i = getelementptr inbounds [10 x i8], ptr %buff.i.i181.i, i64 0, i64 %sub.i.i188.i
+  %arrayidx.i.i189.i = getelementptr inbounds nuw [10 x i8], ptr %buff.i.i181.i, i64 0, i64 %sub.i.i188.i
   store i8 %conv.i.i186.i, ptr %arrayidx.i.i189.i, align 1
   %shr.i.i190.i = lshr i64 %x.addr.0.i.i185.i, 7
   %cmp.not.i.i191.i = icmp ult i64 %x.addr.0.i.i185.i, 128
@@ -1274,7 +1274,7 @@ do.body.i9:                                       ; preds = %do.body.i9, %cond.e
   %conv.i12 = and i8 %6, 127
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i10, 1
   %sub.i14 = sub nsw i64 9, %indvars.iv.i10
-  %arrayidx.i15 = getelementptr inbounds [10 x i8], ptr %buff.i8, i64 0, i64 %sub.i14
+  %arrayidx.i15 = getelementptr inbounds nuw [10 x i8], ptr %buff.i8, i64 0, i64 %sub.i14
   store i8 %conv.i12, ptr %arrayidx.i15, align 1
   %shr.i16 = lshr i64 %x.addr.0.i11, 7
   %cmp.not.i17 = icmp ult i64 %x.addr.0.i11, 128

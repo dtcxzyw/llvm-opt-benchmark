@@ -12566,10 +12566,10 @@ switch.lookup:
   %5 = load i8, ptr %0, align 1, !range !1779, !noundef !4
   %switch.tableidx = add nsw i8 %5, -1
   %6 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E", i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = sext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E.95", i64 0, i64 %7
+  %switch.gep2 = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E.95", i64 0, i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8

@@ -220,7 +220,7 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   %reass.sub = sub i32 %33, %5
   %.reass.reass = add i32 %reass.sub, 3
   %34 = sext i32 %.reass.reass to i64
-  %35 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   br label %37
 
@@ -236,7 +236,7 @@ define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 
   %reass.sub104 = sub i32 %38, %4
   %39 = add i32 %reass.sub104, 3
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [7 x i32], ptr @kWeight, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [7 x i32], ptr @kWeight, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = mul i32 %36, %42
   %44 = getelementptr inbounds i8, ptr %.090, i64 %indvars.iv

@@ -8521,7 +8521,7 @@ _ZNSt6vectorIPN2cv16ChessBoardCornerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: 
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %92, align 4
@@ -21408,7 +21408,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KDTreeIndexINS_9L2_SimpleIfEEE9mea
 92:                                               ; preds = %.lr.ph34.i
   %93 = add nsw i32 %.033.i, 1
   %94 = sext i32 %.033.i to i64
-  %95 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %94
   store i64 %.02431.i, ptr %95, align 8
   %96 = icmp sgt i32 %.033.i, 0
   br i1 %96, label %.lr.ph.preheader.i, label %.critedge.i
@@ -21465,7 +21465,7 @@ _ZN7cvflann11KDTreeIndexINS_9L2_SimpleIfEEE14selectDivisionEPf.exit: ; preds = %
   %122 = fmul double %.0.lcssa.i, %121
   %123 = fptosi double %122 to i32
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %124
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)

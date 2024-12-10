@@ -10551,7 +10551,7 @@ define void @_ZNK10open_spiel11negotiation15NegotiationGame11SetRNGStateERKNSt7_
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   store i32 4098, ptr %12, align 8
@@ -10577,7 +10577,7 @@ define void @_ZNK10open_spiel11negotiation15NegotiationGame11SetRNGStateERKNSt7_
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 %13, ptr %26, align 8
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %3) #32

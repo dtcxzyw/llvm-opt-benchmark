@@ -509,7 +509,7 @@ if.end9:                                          ; preds = %if.then5
   %sext = shl i64 %sub.ptr.sub, 32
   %conv10 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %tmp, ptr nonnull align 1 %src, i64 %conv10, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %tmp, i64 %conv10
+  %arrayidx = getelementptr inbounds nuw i8, ptr %tmp, i64 %conv10
   store i8 0, ptr %arrayidx, align 1
   br label %if.end11
 

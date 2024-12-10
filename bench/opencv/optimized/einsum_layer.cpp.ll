@@ -5012,7 +5012,7 @@ _ZN2cv3dnn13letterToIndexEc.exit.thread:          ; preds = %97, %_ZN2cv3dnn13le
 
 100:                                              ; preds = %_ZN2cv3dnn13letterToIndexEc.exit
   %101 = sext i32 %.0.i to i64
-  %102 = getelementptr inbounds [52 x i32], ptr %3, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [52 x i32], ptr %3, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %106, label %105

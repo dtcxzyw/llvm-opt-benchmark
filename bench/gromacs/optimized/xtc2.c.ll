@@ -193,7 +193,7 @@ Ptngc_find_magic_index.exit450:                   ; preds = %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %sext = shl i64 %indvars.iv.i, 32
   %.phi.trans.insert824 = ashr exact i64 %sext, 32
-  %.phi.trans.insert825 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %.phi.trans.insert824
+  %.phi.trans.insert825 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %.phi.trans.insert824
   br label %.preheader29.i
 
 .preheader29.i:                                   ; preds = %.loopexit.i, %Ptngc_find_magic_index.exit450
@@ -209,7 +209,7 @@ Ptngc_find_magic_index.exit450:                   ; preds = %71
   %76 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i451
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   call void @Ptngc_largeint_mul(i32 noundef %80, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 4) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
@@ -258,7 +258,7 @@ compute_magic_bits.exit:                          ; preds = %92
   %.1372 = call i32 @llvm.smax.i32(i32 %74, i32 %spec.select)
   %93 = sdiv i32 %.1372, 2
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = load i32, ptr %2, align 4
   %98 = icmp sgt i32 %97, 0
@@ -506,7 +506,7 @@ positive_int.exit466:                             ; preds = %142, %145, %147
   %191 = getelementptr inbounds nuw i32, ptr %13, i64 %190
   %192 = load i32, ptr %191, align 4
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %193
   %195 = load i32, ptr %194, align 4
   call void @Ptngc_largeint_mul(i32 noundef %195, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %6, ptr noundef nonnull align 16 dereferenceable(76) %7, i64 76, i1 false)
@@ -644,7 +644,7 @@ insert_batch.exit:                                ; preds = %231
 
 .preheader.i471:                                  ; preds = %insert_batch.exit
   %258 = sext i32 %.pre831 to i64
-  %259 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %258
   br label %260
 
 260:                                              ; preds = %positive_int.exit.thread.i, %.preheader.i471
@@ -686,7 +686,7 @@ is_quite_large.exit.thread:                       ; preds = %positive_int.exit.i
 
 .preheader.i478:                                  ; preds = %is_quite_large.exit.thread
   %272 = sext i32 %.pre831 to i64
-  %273 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %272
   br label %274
 
 274:                                              ; preds = %positive_int.exit.thread.i480, %.preheader.i478
@@ -962,7 +962,7 @@ swapdecide.exit:                                  ; preds = %337, %339, %347
   %380 = getelementptr inbounds nuw i32, ptr %13, i64 %379
   %381 = load i32, ptr %380, align 4
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %382
   %384 = load i32, ptr %383, align 4
   call void @Ptngc_largeint_mul(i32 noundef %384, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %4, ptr noundef nonnull align 16 dereferenceable(76) %5, i64 76, i1 false)
@@ -1429,7 +1429,7 @@ Ptngc_find_magic_index.exit544:                   ; preds = %516
 546:                                              ; preds = %540
   %547 = add nsw i32 %.2339, %.0373727
   %548 = sext i32 %547 to i64
-  %549 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %548
   %550 = load i32, ptr %549, align 4
   %551 = uitofp i32 %550 to double
   %552 = fmul double %551, %551
@@ -1771,7 +1771,7 @@ define internal fastcc void @trajcoder_base_compress(ptr nocapture noundef nonnu
   %12 = getelementptr inbounds nuw i32, ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   call void @Ptngc_largeint_mul(i32 noundef %16, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, ptr noundef nonnull align 16 dereferenceable(76) %6, i64 76, i1 false)
@@ -2164,7 +2164,7 @@ readbits.exit192:                                 ; preds = %143, %147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %.phi.trans.insert661 = sext i32 %87 to i64
-  %.phi.trans.insert662 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %.phi.trans.insert661
+  %.phi.trans.insert662 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %.phi.trans.insert661
   br label %.preheader29.i
 
 .preheader29.i:                                   ; preds = %.loopexit.i, %readbits.exit192
@@ -2180,7 +2180,7 @@ readbits.exit192:                                 ; preds = %143, %147
   %148 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %149 = load i32, ptr %148, align 4
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %150
   %152 = load i32, ptr %151, align 4
   call void @Ptngc_largeint_mul(i32 noundef %152, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 4) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
@@ -2523,7 +2523,7 @@ readmanybits.exit:                                ; preds = %._crit_edge.i, %rea
   %265 = getelementptr inbounds nuw i32, ptr %13, i64 %264
   %266 = load i32, ptr %265, align 4
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = call i32 @Ptngc_largeint_div(i32 noundef %269, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %9, ptr noundef nonnull align 16 dereferenceable(76) %10, i64 76, i1 false)
@@ -2717,7 +2717,7 @@ readmanybits.exit234:                             ; preds = %._crit_edge.i204, %
   %336 = getelementptr inbounds nuw i32, ptr %17, i64 %335
   %337 = load i32, ptr %336, align 4
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %338
   %340 = load i32, ptr %339, align 4
   %341 = call i32 @Ptngc_largeint_div(i32 noundef %340, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %7, ptr noundef nonnull align 16 dereferenceable(76) %8, i64 76, i1 false)
@@ -3119,7 +3119,7 @@ readmanybits.exit301:                             ; preds = %._crit_edge.i271, %
   %504 = getelementptr inbounds nuw i32, ptr %13, i64 %503
   %505 = load i32, ptr %504, align 4
   %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds [92 x i32], ptr @magic, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [92 x i32], ptr @magic, i64 0, i64 %506
   %508 = load i32, ptr %507, align 4
   %509 = call i32 @Ptngc_largeint_div(i32 noundef %508, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 19) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %5, ptr noundef nonnull align 16 dereferenceable(76) %6, i64 76, i1 false)

@@ -1085,7 +1085,7 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true16.i, 
 
 do.end24.i:                                       ; preds = %land.lhs.true19.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %temp.i, ptr align 1 %ptr1.01865.i, i64 %sub.ptr.sub.i, i1 false)
-  %add.ptr29.i = getelementptr inbounds i8, ptr %temp.i, i64 %sub.ptr.sub.i
+  %add.ptr29.i = getelementptr inbounds nuw i8, ptr %temp.i, i64 %sub.ptr.sub.i
   %sub30.i = sub nsw i64 17, %sub.ptr.sub.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr29.i, i8 0, i64 %sub30.i, i1 false)
   %tobool31.not.i = icmp eq i64 %len, 0

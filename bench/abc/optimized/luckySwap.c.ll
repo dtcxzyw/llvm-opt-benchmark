@@ -520,7 +520,7 @@ define void @Kit_TruthChangePhase_64bit(ptr nocapture noundef %0, i32 noundef %1
 
 .lr.ph38:                                         ; preds = %.preheader
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds [6 x i64], ptr @mask0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [6 x i64], ptr @mask0, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = shl nuw nsw i32 1, %2
   %15 = zext nneg i32 %14 to i64
@@ -631,7 +631,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr nocapture noundef %0, i32 nound
 .lr.ph64:                                         ; preds = %10
   %12 = shl nuw nsw i32 1, %2
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Kit_TruthSwapAdjacentVars_64bit.PMasks, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8

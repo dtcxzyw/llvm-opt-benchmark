@@ -2005,7 +2005,7 @@ opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %73
   %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %108 = load i32, ptr %101, align 4
   %109 = sext i32 %.06382 to i64
-  %110 = getelementptr inbounds ptr, ptr %8, i64 %109
+  %110 = getelementptr inbounds nuw ptr, ptr %8, i64 %109
   %111 = call i32 %107(ptr noundef %.06283, i64 noundef %99, ptr noundef nonnull @ompi_mpi_int, i32 noundef %105, i32 noundef %108, ptr noundef %16, ptr noundef nonnull %110) #14
   %.not71 = icmp eq i32 %111, 0
   br i1 %.not71, label %113, label %112
@@ -2927,7 +2927,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
-  %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
+  %.038.in = getelementptr inbounds nuw [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = sext i32 %.038 to i64
@@ -3089,7 +3089,7 @@ define internal i32 @ompi_comm_allreduce_group_recv_complete(ptr noundef %0) #3 
   %70 = load ptr, ptr %59, align 8
   %71 = add nsw i32 %.01823.i, 1
   %72 = sext i32 %.01823.i to i64
-  %73 = getelementptr inbounds ptr, ptr %2, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr %2, i64 %72
   %74 = call i32 %65(ptr noundef %66, i64 noundef %68, ptr noundef nonnull @ompi_mpi_int, i32 noundef %63, i32 noundef %69, i32 noundef 4, ptr noundef %70, ptr noundef nonnull %73) #14
   %.not21.i = icmp eq i32 %74, 0
   br i1 %.not21.i, label %75, label %ompi_comm_allreduce_group_broadcast.exit
@@ -3144,7 +3144,7 @@ define internal i32 @ompi_comm_allreduce_group_broadcast(ptr noundef %0) #3 {
   %22 = load ptr, ptr %11, align 8
   %23 = add nsw i32 %.01823, 1
   %24 = sext i32 %.01823 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %24
   %26 = call i32 %17(ptr noundef %18, i64 noundef %20, ptr noundef nonnull @ompi_mpi_int, i32 noundef %15, i32 noundef %21, i32 noundef 4, ptr noundef %22, ptr noundef nonnull %25) #14
   %.not21 = icmp eq i32 %26, 0
   br i1 %.not21, label %27, label %.loopexit

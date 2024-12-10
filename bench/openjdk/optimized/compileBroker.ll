@@ -7714,7 +7714,7 @@ define hidden void @_ZN13CompileBroker11print_timesEbb(i1 noundef zeroext %0, i1
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph ], [ 1, %29 ]
   %31 = add nsw i64 %indvars.iv64, -1
-  %32 = getelementptr inbounds [4 x %class.CompilerStatistics], ptr @_ZN13CompileBroker16_stats_per_levelE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [4 x %class.CompilerStatistics], ptr @_ZN13CompileBroker16_stats_per_levelE, i64 0, i64 %31
   %33 = trunc nuw nsw i64 %indvars.iv64 to i32
   %34 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.108, i32 noundef %33) #20
   call void @_ZN13CompileBroker11print_timesEPKcP18CompilerStatistics(ptr noundef nonnull %3, ptr noundef nonnull %32)

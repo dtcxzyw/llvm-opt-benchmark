@@ -570,7 +570,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14cmCacheManager1
   %75 = load ptr, ptr %9, align 8
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %9, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 %77
   %79 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %78)
           to label %80 unwind label %81
 
@@ -618,7 +618,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN14cmCacheManager1
   %106 = load ptr, ptr %9, align 8
   %107 = getelementptr i8, ptr %106, i64 -24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %9, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 %108
   %110 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %109)
           to label %111 unwind label %.loopexit277
 
@@ -731,7 +731,7 @@ thread-pre-split:                                 ; preds = %143
   %145 = load ptr, ptr %9, align 8
   %146 = getelementptr i8, ptr %145, i64 -24
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %9, i64 %147
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 %147
   %149 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %148)
           to label %thread-pre-split unwind label %.loopexit, !llvm.loop !28
 
@@ -3283,7 +3283,7 @@ define dso_local noundef zeroext i1 @_ZN14cmCacheManager9SaveCacheERKNSt7__cxx11
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr i8, ptr %48, i64 -24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 %50
   %52 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %51)
           to label %53 unwind label %59
 
@@ -4144,7 +4144,7 @@ _ZNK14cmCacheManager10CacheEntry11GetPropertyERKNSt7__cxx1112basic_stringIcSt11c
   %297 = load ptr, ptr %38, align 8
   %298 = getelementptr i8, ptr %297, i64 -24
   %299 = load i64, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %38, i64 %299
+  %300 = getelementptr inbounds nuw i8, ptr %38, i64 %299
   %301 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %300)
           to label %302 unwind label %308
 

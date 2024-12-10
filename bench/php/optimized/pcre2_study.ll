@@ -310,7 +310,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %127 = select i1 %.cmp93, i32 %.077.frozen, i32 %.urem
   %128 = add nsw i32 %126, %127
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %129
   %131 = load i16, ptr %130, align 2
   %132 = zext i16 %131 to i64
   %133 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %132
@@ -413,7 +413,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 switch.lookup:                                    ; preds = %175
   %switch.tableidx = add nsw i32 %176, 3
   %182 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %182
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._pcre2_study_8, i64 0, i64 %182
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %183
 

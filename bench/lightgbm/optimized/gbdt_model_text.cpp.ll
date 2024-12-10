@@ -413,7 +413,7 @@ define void @_ZNK8LightGBM4GBDT9DumpModelB5cxx11Eiii(ptr dead_on_unwind noalias 
           to label %.noexc unwind label %.loopexit.split-lp126.loopexit.split-lp
 
 .noexc:                                           ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %16, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 %34
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %15, ptr noundef nonnull align 8 dereferenceable(264) %36, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %37 unwind label %.loopexit.split-lp126.loopexit.split-lp
 
@@ -688,7 +688,7 @@ define void @_ZNK8LightGBM4GBDT9DumpModelB5cxx11Eiii(ptr dead_on_unwind noalias 
           to label %.noexc53 unwind label %266
 
 .noexc53:                                         ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %20, i64 %168
+  %170 = getelementptr inbounds nuw i8, ptr %20, i64 %168
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %14, ptr noundef nonnull align 8 dereferenceable(264) %170, ptr noundef nonnull align 8 dereferenceable(8) %169)
           to label %171 unwind label %266
 
@@ -1335,7 +1335,7 @@ _ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph.i75
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !21
 
 .noexc.i.i:                                       ; preds = %.noexc79
-  %407 = getelementptr inbounds i8, ptr %8, i64 %405
+  %407 = getelementptr inbounds nuw i8, ptr %8, i64 %405
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %407, ptr noundef nonnull align 8 dereferenceable(8) %406)
           to label %409 unwind label %.loopexit.split-lp.i.i, !noalias !21
 
@@ -1930,7 +1930,7 @@ define internal fastcc void @_ZN8LightGBM7CommonCL4JoinINSt7__cxx1112basic_strin
           to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !30
 
 .noexc.i:                                         ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %.loopexit.split-lp.i, !noalias !30
 
@@ -2048,7 +2048,7 @@ define internal fastcc void @_ZN8LightGBM7CommonCL4JoinIaEENSt7__cxx1112basic_st
           to label %.noexc.i unwind label %.loopexit.split-lp.i, !noalias !34
 
 .noexc.i:                                         ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %22 unwind label %.loopexit.split-lp.i, !noalias !34
 
@@ -4175,7 +4175,7 @@ define void @_ZNK8LightGBM4GBDT13ModelToIfElseB5cxx11Ei(ptr dead_on_unwind noali
           to label %.noexc unwind label %.loopexit.split-lp78.loopexit.split-lp
 
 .noexc:                                           ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %7, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %16
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %18, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %19 unwind label %.loopexit.split-lp78.loopexit.split-lp
 
@@ -4399,7 +4399,7 @@ define void @_ZNK8LightGBM4GBDT13ModelToIfElseB5cxx11Ei(ptr dead_on_unwind noali
           to label %.noexc47 unwind label %.loopexit.split-lp72
 
 .noexc47:                                         ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %9, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %9, i64 %112
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(264) %114, ptr noundef nonnull align 8 dereferenceable(8) %113)
           to label %115 unwind label %.loopexit.split-lp72
 
@@ -4665,7 +4665,7 @@ define void @_ZNK8LightGBM4GBDT13ModelToIfElseB5cxx11Ei(ptr dead_on_unwind noali
           to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc50:                                         ; preds = %227
-  %232 = getelementptr inbounds i8, ptr %11, i64 %230
+  %232 = getelementptr inbounds nuw i8, ptr %11, i64 %230
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %232, ptr noundef nonnull align 8 dereferenceable(8) %231)
           to label %233 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5445,7 +5445,7 @@ define noundef zeroext i1 @_ZNK8LightGBM4GBDT17SaveModelToIfElseEiPKc(ptr nounde
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %58
 
@@ -5456,7 +5456,7 @@ define noundef zeroext i1 @_ZNK8LightGBM4GBDT17SaveModelToIfElseEiPKc(ptr nounde
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
   %22 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %23
 
@@ -5616,7 +5616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt19istreambuf_iteratorI
   %79 = load ptr, ptr %4, align 8
   %80 = getelementptr i8, ptr %79, i64 -24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 %81
   %83 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %82)
           to label %84 unwind label %58
 
@@ -5995,7 +5995,7 @@ define void @_ZNK8LightGBM4GBDT17SaveModelToStringB5cxx11Eiii(ptr dead_on_unwind
           to label %.noexc unwind label %96
 
 .noexc:                                           ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %11, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 %29
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %31, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %32 unwind label %96
 
@@ -6393,7 +6393,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
           to label %.noexc.i.i unwind label %.loopexit.split-lp.i.i, !noalias !78
 
 .noexc.i.i:                                       ; preds = %.noexc43
-  %206 = getelementptr inbounds i8, ptr %9, i64 %204
+  %206 = getelementptr inbounds nuw i8, ptr %9, i64 %204
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %7, ptr noundef nonnull align 8 dereferenceable(264) %206, ptr noundef nonnull align 8 dereferenceable(8) %205)
           to label %208 unwind label %.loopexit.split-lp.i.i, !noalias !78
 
@@ -11215,7 +11215,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %842 = load ptr, ptr %72, align 8
   %843 = getelementptr i8, ptr %842, i64 -24
   %844 = load i64, ptr %843, align 8
-  %845 = getelementptr inbounds i8, ptr %72, i64 %844
+  %845 = getelementptr inbounds nuw i8, ptr %72, i64 %844
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %845, i32 noundef 0)
           to label %846 unwind label %785
 
@@ -11445,7 +11445,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %919 = load ptr, ptr %72, align 8
   %920 = getelementptr i8, ptr %919, i64 -24
   %921 = load i64, ptr %920, align 8
-  %922 = getelementptr inbounds i8, ptr %72, i64 %921
+  %922 = getelementptr inbounds nuw i8, ptr %72, i64 %921
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %922, i32 noundef 0)
           to label %923 unwind label %785
 

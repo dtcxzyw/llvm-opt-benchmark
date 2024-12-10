@@ -2633,14 +2633,14 @@ if.end.i44:                                       ; preds = %do.end8
 
 if.then2.i.i:                                     ; preds = %if.end.i44
   %5 = load i8, ptr %add.ptr.i.i, align 1
-  %arrayidx4.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
   %6 = load i8, ptr %arrayidx4.i.i, align 1
   %and23.i.i = and i8 %6, %5
   %cmp936.i.i = icmp sgt i64 %length, 0
   br i1 %cmp936.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then2.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   br label %while.body.i.i
 
@@ -2992,14 +2992,14 @@ if.end.i43:                                       ; preds = %while.end15
 
 if.then2.i.i:                                     ; preds = %if.end.i43
   %5 = load i8, ptr %add.ptr.i.i, align 1
-  %arrayidx4.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
   %6 = load i8, ptr %arrayidx4.i.i, align 1
   %and23.i.i = and i8 %6, %5
   %cmp936.i.i = icmp sgt i64 %length, 0
   br i1 %cmp936.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then2.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   br label %while.body.i.i
 
@@ -3236,14 +3236,14 @@ if.end.i45:                                       ; preds = %while.end16
 
 if.then2.i.i:                                     ; preds = %if.end.i45
   %8 = load i8, ptr %add.ptr.i.i, align 1
-  %arrayidx4.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
   %9 = load i8, ptr %arrayidx4.i.i, align 1
   %and23.i.i = and i8 %9, %8
   %cmp950.i.i = icmp sgt i64 %add.i.i, 0
   br i1 %cmp950.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then2.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
   %11 = load ptr, ptr %values, align 8
   br label %while.body.i.i
@@ -3476,14 +3476,14 @@ if.end.i46:                                       ; preds = %do.end9
 
 if.then2.i.i:                                     ; preds = %if.end.i46
   %8 = load i8, ptr %add.ptr.i.i, align 1
-  %arrayidx4.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem.i.i
   %9 = load i8, ptr %arrayidx4.i.i, align 1
   %and23.i.i = and i8 %9, %8
   %cmp950.i.i = icmp sgt i64 %add.i.i, 0
   br i1 %cmp950.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then2.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %10 = load i8, ptr %arrayidx.i.i, align 1
   %11 = load ptr, ptr %values, align 8
   br label %while.body.i.i
@@ -4089,7 +4089,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %div.i.i.i
   %5 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i.i = srem i64 %4, 8
-  %arrayidx5.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
   %6 = load i8, ptr %arrayidx5.i.i.i, align 1
   %7 = xor i8 %6, -1
   %xor105.i.i.i = and i8 %5, %7
@@ -4109,7 +4109,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 %div.i.i.i.i
   %12 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %rem.i.i.i.i = srem i64 %11, 8
-  %arrayidx5.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
+  %arrayidx5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
   %13 = load i8, ptr %arrayidx5.i.i.i.i, align 1
   %14 = xor i8 %13, -1
   %xor105.i.i.i.i = and i8 %12, %14
@@ -4234,7 +4234,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 %div.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %rem.i.i = srem i64 %4, 8
-  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %6 = load i8, ptr %arrayidx5.i.i, align 1
   %7 = xor i8 %6, -1
   %xor105.i.i = and i8 %5, %7
@@ -6492,14 +6492,14 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %0 = load i8, ptr %add.ptr, align 1
-  %arrayidx4 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem
   %1 = load i8, ptr %arrayidx4, align 1
   %and23 = and i8 %1, %0
   %cmp939 = icmp sgt i64 %length, 0
   br i1 %cmp939, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then2
-  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem
   %2 = load i8, ptr %arrayidx, align 1
   %3 = getelementptr inbounds nuw i8, ptr %g, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %g, i64 8

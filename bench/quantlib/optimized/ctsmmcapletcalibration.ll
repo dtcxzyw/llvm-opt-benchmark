@@ -2258,7 +2258,7 @@ invoke.cont383:                                   ; preds = %invoke.cont374
   %vtable.i = load ptr, ptr %_ql_msg_stream372, align 8, !tbaa !14
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i355 = getelementptr inbounds i8, ptr %_ql_msg_stream372, i64 %vbase.offset.i
+  %add.ptr.i355 = getelementptr inbounds nuw i8, ptr %_ql_msg_stream372, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i355, i64 8
   store i64 16, ptr %_M_precision.i.i, align 8, !tbaa !75
   %199 = load ptr, ptr %mktCapletVols, align 8, !tbaa !32

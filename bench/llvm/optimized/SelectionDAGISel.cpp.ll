@@ -10119,7 +10119,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel12CheckAndMaskEN
 20:                                               ; preds = %5
   %21 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
   %22 = add nsw i64 %21, -1
-  %23 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %22
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %23, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -10342,7 +10342,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16SelectionDAGISel11CheckOrMaskENS
 21:                                               ; preds = %5
   %22 = zext i16 %.sroa.0.0.copyload.i.i.i to i64
   %23 = add nsw i64 %22, -1
-  %24 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %23
   %.sroa.0.0.copyload.i.i3.i = load i64, ptr %24, align 16
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8

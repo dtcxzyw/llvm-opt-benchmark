@@ -1471,7 +1471,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %87 = fmul float %81, %86
   %88 = shl nsw i32 %.0125.us, 1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %89
   store float %87, ptr %90, align 8
   %91 = add nuw nsw i32 %83, 2
   %92 = zext nneg i32 %91 to i64
@@ -1480,7 +1480,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %95 = fmul float %81, %94
   %96 = or disjoint i32 %88, 1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %97
   store float %95, ptr %98, align 4
   %99 = add i32 %.0125.us, 1
   %100 = sext i32 %99 to i64
@@ -1493,14 +1493,14 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %105 = shl nsw i32 %149, 1
   %106 = add nsw i32 %105, 2
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %107
   store float %104, ptr %108, align 8
   %109 = load float, ptr %146, align 4
   %110 = fmul float %43, %143
   %111 = tail call float @llvm.fmuladd.f32(float %109, float %44, float %110)
   %112 = add nsw i32 %105, 3
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %113
   store float %111, ptr %114, align 4
   %115 = add nsw i32 %102, 3
   br label %116
@@ -1522,7 +1522,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %122 = fmul float %44, %121
   %123 = tail call float @llvm.fmuladd.f32(float %119, float %43, float %122)
   %124 = shl nsw i64 %indvars.iv169, 1
-  %125 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %124
   store float %123, ptr %125, align 8
   %126 = load float, ptr %.0110119.us, align 4
   %127 = fneg float %126
@@ -1530,7 +1530,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %129 = fmul float %43, %128
   %130 = tail call float @llvm.fmuladd.f32(float %127, float %44, float %129)
   %131 = or disjoint i64 %124, 1
-  %132 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %131
   store float %130, ptr %132, align 4
   %133 = load float, ptr %.0109120.us, align 4
   %134 = getelementptr inbounds nuw i8, ptr %.0109120.us, i64 4
@@ -1538,14 +1538,14 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %136 = fmul float %135, %76
   %137 = tail call float @llvm.fmuladd.f32(float %133, float %43, float %136)
   %138 = add nsw i64 %124, 2
-  %139 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %138
   store float %137, ptr %139, align 8
   %140 = load float, ptr %.0109120.us, align 4
   %141 = load float, ptr %134, align 4
   %142 = fmul float %43, %141
   %143 = tail call float @llvm.fmuladd.f32(float %140, float %44, float %142)
   %144 = add nsw i64 %124, 3
-  %145 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %144
   store float %143, ptr %145, align 4
   %146 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, 2
@@ -1573,7 +1573,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %157 = load float, ptr %156, align 4
   %158 = fmul float %152, %157
   %159 = shl nuw i64 %indvars.iv165, 1
-  %160 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %159
   store float %158, ptr %160, align 8
   %161 = add nuw nsw i32 %154, 2
   %162 = zext nneg i32 %161 to i64
@@ -1581,17 +1581,17 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %164 = load float, ptr %163, align 4
   %165 = fmul float %152, %164
   %166 = or disjoint i64 %159, 1
-  %167 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %166
   store float %165, ptr %167, align 4
   %168 = fmul float %165, %76
   %169 = tail call float @llvm.fmuladd.f32(float %158, float %43, float %168)
   %170 = add nuw nsw i64 %159, 4
-  %171 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %170
   store float %169, ptr %171, align 8
   %172 = fmul float %43, %165
   %173 = tail call float @llvm.fmuladd.f32(float %158, float %44, float %172)
   %174 = add nuw nsw i64 %159, 5
-  %175 = getelementptr inbounds [258 x float], ptr %10, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [258 x float], ptr %10, i64 0, i64 %174
   store float %173, ptr %175, align 4
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 2
   %176 = add nuw nsw i32 %.0111124.us130, 1

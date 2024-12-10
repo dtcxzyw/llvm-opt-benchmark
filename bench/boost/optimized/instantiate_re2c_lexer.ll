@@ -1101,7 +1101,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIPc
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %14
@@ -1130,7 +1130,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %25
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15 unwind label %47
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %29 = getelementptr inbounds [7 x ptr], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %11
+  %29 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %11
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %.not.i16 = icmp eq ptr %30, null
   br i1 %.not.i16, label %31, label %39
@@ -1235,7 +1235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %74 = getelementptr i8, ptr %72, i64 -24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %75
   store ptr %73, ptr %76, align 8, !tbaa !3
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %77, ptr %10, align 8, !tbaa !3
@@ -1269,7 +1269,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %91 = getelementptr i8, ptr %89, i64 -24
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 %92
   store ptr %90, ptr %93, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %94, align 8, !tbaa !82
@@ -2590,7 +2590,7 @@ _ZN5boost4wave8cpplexer18cpplexer_exceptionC2EmmPKc.exit: ; preds = %10, %12
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer16lexing_exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !70
   store i32 %19, ptr %16, align 8, !tbaa !104
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1052
@@ -45677,7 +45677,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIPK
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !70
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %14
@@ -45706,7 +45706,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %25
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15 unwind label %47
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %29 = getelementptr inbounds [7 x ptr], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %11
+  %29 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 0, i64 %11
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %.not.i16 = icmp eq ptr %30, null
   br i1 %.not.i16, label %31, label %39
@@ -45811,7 +45811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %74 = getelementptr i8, ptr %72, i64 -24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %75
   store ptr %73, ptr %76, align 8, !tbaa !3
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %77, ptr %10, align 8, !tbaa !3
@@ -45845,7 +45845,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %91 = getelementptr i8, ptr %89, i64 -24
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 %92
   store ptr %90, ptr %93, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %94, align 8, !tbaa !82

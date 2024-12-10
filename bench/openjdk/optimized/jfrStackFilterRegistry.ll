@@ -63,7 +63,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEP13_jobjectArrayS1_P1
   %20 = add nsw i64 %17, -1
   %21 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %22
   store ptr %12, ptr %23, align 8
   store i64 %20, ptr @_ZL16_free_list_index, align 8
   br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
@@ -83,7 +83,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEP13_jobjectArrayS1_P1
   br label %_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter.exit
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %25
+  %31 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %25
   store ptr %12, ptr %31, align 8
   %32 = add nsw i64 %25, 1
   store i64 %32, ptr @_ZL6_index, align 8
@@ -115,7 +115,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter(pt
   %5 = add nsw i64 %2, -1
   %6 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %7
   store ptr %0, ptr %8, align 8
   store i64 %5, ptr @_ZL16_free_list_index, align 8
   br label %18
@@ -135,7 +135,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter(pt
   br label %18
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %10
   store ptr %0, ptr %16, align 8
   %17 = add nsw i64 %10, 1
   store i64 %17, ptr @_ZL6_index, align 8
@@ -172,7 +172,7 @@ define hidden noundef ptr @_ZN22JfrStackFilterRegistry6lookupEl(i64 noundef %0) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22JfrStackFilterRegistry6removeEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %0
+  %2 = getelementptr inbounds nuw [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %0
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -190,7 +190,7 @@ define hidden void @_ZN22JfrStackFilterRegistry6removeEl(i64 noundef %0) local_u
 9:                                                ; preds = %6
   %10 = add nsw i64 %7, 1
   store i64 %10, ptr @_ZL16_free_list_index, align 8
-  %11 = getelementptr inbounds [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %7
   store i64 %0, ptr %11, align 8
   br label %12
 

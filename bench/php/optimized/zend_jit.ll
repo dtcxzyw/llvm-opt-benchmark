@@ -68542,7 +68542,7 @@ jit_CONST_ADDR.exit641:                           ; preds = %577, %569, %jit_ADD
 
 switch.lookup:                                    ; preds = %jit_CONST_ADDR.exit641
   %644 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj, i64 0, i64 %644
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj, i64 0, i64 %644
   %switch.load = load ptr, ptr %switch.gep, align 8
   %645 = ptrtoint ptr %switch.load to i64
   %646 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %643, i64 noundef %645) #33
@@ -68584,7 +68584,7 @@ jit_CONST_FUNC.exit660:                           ; preds = %650, %661
 
 switch.lookup856:                                 ; preds = %jit_CONST_ADDR.exit641
   %667 = sext i8 %switch.tableidx to i64
-  %switch.gep858 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.39, i64 0, i64 %667
+  %switch.gep858 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.39, i64 0, i64 %667
   %switch.load859 = load ptr, ptr %switch.gep858, align 8
   %668 = ptrtoint ptr %switch.load859 to i64
   %669 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %643, i64 noundef %668) #33
@@ -68803,7 +68803,7 @@ jit_if_TYPED_REF.exit:                            ; preds = %768, %776
   %784 = load i8, ptr %783, align 4
   %switch.tableidx861 = add nsw i8 %784, 124
   %785 = sext i8 %switch.tableidx861 to i64
-  %switch.gep862 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.40, i64 0, i64 %785
+  %switch.gep862 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.40, i64 0, i64 %785
   %switch.load863 = load ptr, ptr %switch.gep862, align 8
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %786 = ptrtoint ptr %switch.load863 to i64
@@ -69539,7 +69539,7 @@ switch.lookup864:                                 ; preds = %.thread799
   %1183 = load i8, ptr %1182, align 4
   %switch.tableidx865 = add nsw i8 %1183, 124
   %1184 = sext i8 %switch.tableidx865 to i64
-  %switch.gep866 = getelementptr inbounds [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.41, i64 0, i64 %1184
+  %switch.gep866 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.zend_jit_incdec_obj.41, i64 0, i64 %1184
   %switch.load867 = load ptr, ptr %switch.gep866, align 8
   call fastcc void @jit_SET_EX_OPLINE(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %1185 = getelementptr inbounds nuw i8, ptr %0, i64 248

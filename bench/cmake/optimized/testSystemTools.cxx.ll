@@ -8134,7 +8134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i233:
   %2409 = load ptr, ptr %135, align 8
   %2410 = getelementptr i8, ptr %2409, i64 -24
   %2411 = load i64, ptr %2410, align 8
-  %2412 = getelementptr inbounds i8, ptr %135, i64 %2411
+  %2412 = getelementptr inbounds nuw i8, ptr %135, i64 %2411
   %2413 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %2412)
           to label %2414 unwind label %2425
 
@@ -8380,7 +8380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i246:
   %2488 = load ptr, ptr %129, align 8
   %2489 = getelementptr i8, ptr %2488, i64 -24
   %2490 = load i64, ptr %2489, align 8
-  %2491 = getelementptr inbounds i8, ptr %129, i64 %2490
+  %2491 = getelementptr inbounds nuw i8, ptr %129, i64 %2490
   %2492 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %2491)
           to label %2493 unwind label %2504
 
@@ -8450,7 +8450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i246:
   %2517 = load ptr, ptr %130, align 8
   %2518 = getelementptr i8, ptr %2517, i64 -24
   %2519 = load i64, ptr %2518, align 8
-  %2520 = getelementptr inbounds i8, ptr %130, i64 %2519
+  %2520 = getelementptr inbounds nuw i8, ptr %130, i64 %2519
   %2521 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %2520)
           to label %2522 unwind label %2529
 
@@ -9284,7 +9284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40.i: 
   %2766 = load ptr, ptr %99, align 8, !noalias !12
   %2767 = getelementptr i8, ptr %2766, i64 -24
   %2768 = load i64, ptr %2767, align 8, !noalias !12
-  %2769 = getelementptr inbounds i8, ptr %99, i64 %2768
+  %2769 = getelementptr inbounds nuw i8, ptr %99, i64 %2768
   %2770 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %2769)
           to label %2771 unwind label %2783, !noalias !12
 
@@ -11695,7 +11695,7 @@ define internal fastcc noundef zeroext i1 @_ZL9writeFilePKcS0_(ptr noundef %0, p
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
           to label %11 unwind label %18
 

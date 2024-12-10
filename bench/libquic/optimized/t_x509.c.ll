@@ -738,7 +738,7 @@ switch.early.test:                                ; preds = %lor.lhs.false
 if.end27:                                         ; preds = %lor.lhs.false, %for.body, %switch.early.test
   %.fr.sink = phi i8 [ %switch.select29, %switch.early.test ], [ 46, %for.body ], [ %.fr, %lor.lhs.false ]
   %idxprom25 = sext i32 %n.024 to i64
-  %arrayidx26 = getelementptr inbounds [80 x i8], ptr %buf, i64 0, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds nuw [80 x i8], ptr %buf, i64 0, i64 %idxprom25
   store i8 %.fr.sink, ptr %arrayidx26, align 1
   %inc = add nsw i32 %n.024, 1
   %cmp28 = icmp sgt i32 %n.024, 78

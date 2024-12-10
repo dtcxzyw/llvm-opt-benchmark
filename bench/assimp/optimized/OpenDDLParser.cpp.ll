@@ -144,7 +144,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden noundef ptr @_ZN10ODDLParser12getTypeTokenENS_5Value9ValueTypeE(i32 noundef %type) local_unnamed_addr #3 {
 entry:
   %conv = sext i32 %type to i64
-  %arrayidx = getelementptr inbounds [14 x ptr], ptr @_ZN10ODDLParser7GrammarL18PrimitiveTypeTokenE, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [14 x ptr], ptr @_ZN10ODDLParser7GrammarL18PrimitiveTypeTokenE, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }

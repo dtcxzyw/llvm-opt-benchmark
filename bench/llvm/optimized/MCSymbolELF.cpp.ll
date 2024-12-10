@@ -142,7 +142,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCSymbolELF11isSignatureEv(ptr n
 define dso_local void @_ZNK4llvm11MCSymbolELF7setTypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %2 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZNK4llvm11MCSymbolELF7setTypeEj, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZNK4llvm11MCSymbolELF7setTypeEj, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8

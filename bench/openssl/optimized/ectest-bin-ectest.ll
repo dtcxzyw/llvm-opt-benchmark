@@ -3437,7 +3437,7 @@ entry:
   store ptr null, ptr %z, align 8
   store ptr null, ptr %cof, align 8
   %idx.ext = sext i32 %n to i64
-  %add.ptr = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.c2_curve_test, ptr @char2_curve_tests, i64 %idx.ext
   %call = tail call ptr @BN_CTX_new() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @.str.77, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -3937,7 +3937,7 @@ entry:
   %n = alloca ptr, align 8
   %order = alloca ptr, align 8
   %idx.ext = sext i32 %idx to i64
-  %add.ptr = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.nistp_test_params, ptr @nistp_tests_params, i64 %idx.ext
   store ptr null, ptr %p, align 8
   store ptr null, ptr %a, align 8
   store ptr null, ptr %b, align 8

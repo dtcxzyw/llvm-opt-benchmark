@@ -26,7 +26,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then3:                                         ; preds = %for.body
   %idxprom = sext i32 %count.0105 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %idxprom
   store i64 %i.0106, ptr %arrayidx4, align 8
   %inc = add nsw i32 %count.0105, 1
   %cmp5 = icmp sgt i32 %count.0105, 3
@@ -386,7 +386,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then3:                                         ; preds = %for.body
   %idxprom = sext i32 %count.0105 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %idxprom
   store i64 %i.0106, ptr %arrayidx4, align 8
   %inc = add nsw i32 %count.0105, 1
   %cmp5 = icmp sgt i32 %count.0105, 3
@@ -752,7 +752,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then3:                                         ; preds = %for.body
   %idxprom = sext i32 %count.0105 to i64
-  %arrayidx4 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %idxprom
   store i64 %i.0106, ptr %arrayidx4, align 8
   %inc = add nsw i32 %count.0105, 1
   %cmp5 = icmp sgt i32 %count.0105, 3

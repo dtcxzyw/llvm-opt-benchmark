@@ -1257,7 +1257,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %124, %126
   %130 = load i64, ptr %14, align 8
   %131 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i91, i64 noundef %130) #14
   %132 = load i64, ptr %14, align 8
-  %133 = getelementptr inbounds ptr, ptr @_ZL16CPU_arch_strings, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr @_ZL16CPU_arch_strings, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not40 = icmp eq ptr %134, null
   br i1 %.not40, label %_ZN4llvm11raw_ostreamlsEc.exit, label %135

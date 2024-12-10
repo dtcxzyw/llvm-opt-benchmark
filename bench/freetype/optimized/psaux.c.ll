@@ -12352,12 +12352,12 @@ ps_builder_check_points.exit1389.thread:          ; preds = %1144, %ps_builder_c
   %1160 = load i32, ptr %13, align 4
   %1161 = add nsw i32 %1159, -2
   %1162 = sext i32 %1161 to i64
-  %1163 = getelementptr inbounds [6 x i32], ptr %17, i64 0, i64 %1162
+  %1163 = getelementptr inbounds nuw [6 x i32], ptr %17, i64 0, i64 %1162
   store i32 %1160, ptr %1163, align 8
   %1164 = load i32, ptr %14, align 4
   %1165 = add nsw i32 %1159, -1
   %1166 = sext i32 %1165 to i64
-  %1167 = getelementptr inbounds [6 x i32], ptr %17, i64 0, i64 %1166
+  %1167 = getelementptr inbounds nuw [6 x i32], ptr %17, i64 0, i64 %1166
   store i32 %1164, ptr %1167, align 4
   switch i32 %1141, label %.backedge.backedge [
     i32 6, label %1168
@@ -12741,7 +12741,7 @@ cf2_stack_setReal.exit1394:                       ; preds = %1218, %1220, %1222,
 1356:                                             ; preds = %1354
   %1357 = add nsw i32 %.1979, -1
   %1358 = sext i32 %1357 to i64
-  %1359 = getelementptr inbounds [3 x i32], ptr %15, i64 0, i64 %1358
+  %1359 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %1358
   %1360 = load i32, ptr %1359, align 4
   call fastcc void @cf2_stack_pushFixed(ptr noundef %118, i32 noundef %1360)
   br label %.backedge.backedge

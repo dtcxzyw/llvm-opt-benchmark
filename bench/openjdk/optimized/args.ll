@@ -196,7 +196,7 @@ readArgFile.exit.thread.i:                        ; preds = %50
 
 53:                                               ; preds = %50
   store ptr %3, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 %51
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %51
   store ptr %54, ptr %48, align 8
   %55 = call fastcc ptr @nextToken(ptr noundef %4)
   %.not1819.i.i = icmp eq ptr %55, null

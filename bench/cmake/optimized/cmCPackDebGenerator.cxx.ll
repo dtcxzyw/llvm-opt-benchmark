@@ -8299,7 +8299,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %168 = load ptr, ptr %80, align 8
   %169 = getelementptr i8, ptr %168, i64 -24
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %80, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr %80, i64 %170
   %172 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %171)
           to label %173 unwind label %192
 
@@ -9447,7 +9447,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %519 = load ptr, ptr %31, align 8
   %520 = getelementptr i8, ptr %519, i64 -24
   %521 = load i64, ptr %520, align 8
-  %522 = getelementptr inbounds i8, ptr %31, i64 %521
+  %522 = getelementptr inbounds nuw i8, ptr %31, i64 %521
   %523 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %522)
           to label %524 unwind label %541
 

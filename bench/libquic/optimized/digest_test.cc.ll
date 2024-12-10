@@ -208,14 +208,14 @@ for.body.i.i:                                     ; preds = %if.end26.i, %for.bo
   %arrayidx1.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i.i
   %15 = load i8, ptr %arrayidx1.i.i, align 1
   %mul.i.i = shl nuw i64 %i.013.i.i, 1
-  %arrayidx2.i.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i.i, i64 0, i64 %mul.i.i
+  %arrayidx2.i.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i.i, i64 0, i64 %mul.i.i
   store i8 %15, ptr %arrayidx2.i.i, align 2
   %16 = and i8 %13, 15
   %idxprom5.i.i = zext nneg i8 %16 to i64
   %arrayidx6.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i.i
   %17 = load i8, ptr %arrayidx6.i.i, align 1
   %add.i.i = or disjoint i64 %mul.i.i, 1
-  %arrayidx8.i.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i.i, i64 0, i64 %add.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i.i, i64 0, i64 %add.i.i
   store i8 %17, ptr %arrayidx8.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %conv.i
@@ -371,14 +371,14 @@ for.body.i30.i:                                   ; preds = %if.end98.i, %for.bo
   %arrayidx1.i34.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i33.i
   %44 = load i8, ptr %arrayidx1.i34.i, align 1
   %mul.i35.i = shl nuw i64 %i.013.i31.i, 1
-  %arrayidx2.i36.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i28.i, i64 0, i64 %mul.i35.i
+  %arrayidx2.i36.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i28.i, i64 0, i64 %mul.i35.i
   store i8 %44, ptr %arrayidx2.i36.i, align 2
   %45 = and i8 %42, 15
   %idxprom5.i37.i = zext nneg i8 %45 to i64
   %arrayidx6.i38.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i37.i
   %46 = load i8, ptr %arrayidx6.i38.i, align 1
   %add.i39.i = or disjoint i64 %mul.i35.i, 1
-  %arrayidx8.i40.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i28.i, i64 0, i64 %add.i39.i
+  %arrayidx8.i40.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i28.i, i64 0, i64 %add.i39.i
   store i8 %46, ptr %arrayidx8.i40.i, align 1
   %inc.i41.i = add nuw nsw i64 %i.013.i31.i, 1
   %exitcond.not.i42.i = icmp eq i64 %inc.i41.i, %conv100.i
@@ -443,21 +443,21 @@ invoke.cont129.i:                                 ; preds = %invoke.cont127.i
 
 for.body.i16:                                     ; preds = %invoke.cont129.i, %for.body.i16
   %i.013.i17 = phi i64 [ %inc.i27, %for.body.i16 ], [ 0, %invoke.cont129.i ]
-  %arrayidx.i18 = getelementptr inbounds i8, ptr %digest.i, i64 %i.013.i17
+  %arrayidx.i18 = getelementptr inbounds nuw i8, ptr %digest.i, i64 %i.013.i17
   %55 = load i8, ptr %arrayidx.i18, align 1
   %56 = lshr i8 %55, 4
   %idxprom.i19 = zext nneg i8 %56 to i64
   %arrayidx1.i20 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i19
   %57 = load i8, ptr %arrayidx1.i20, align 1
   %mul.i21 = shl i64 %i.013.i17, 1
-  %arrayidx2.i22 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul.i21
+  %arrayidx2.i22 = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul.i21
   store i8 %57, ptr %arrayidx2.i22, align 2
   %58 = and i8 %55, 15
   %idxprom5.i23 = zext nneg i8 %58 to i64
   %arrayidx6.i24 = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i23
   %59 = load i8, ptr %arrayidx6.i24, align 1
   %add.i25 = or disjoint i64 %mul.i21, 1
-  %arrayidx8.i26 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %add.i25
+  %arrayidx8.i26 = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i14, i64 0, i64 %add.i25
   store i8 %59, ptr %arrayidx8.i26, align 1
   %inc.i27 = add nuw i64 %i.013.i17, 1
   %exitcond.not.i28 = icmp eq i64 %inc.i27, %call130.i
@@ -465,7 +465,7 @@ for.body.i16:                                     ; preds = %invoke.cont129.i, %
 
 for.end.i29:                                      ; preds = %for.body.i16, %invoke.cont129.i
   %mul9.i30 = shl i64 %call130.i, 1
-  %arrayidx10.i31 = getelementptr inbounds [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul9.i30
+  %arrayidx10.i31 = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i14, i64 0, i64 %mul9.i30
   store i8 0, ptr %arrayidx10.i31, align 2
   %call.i33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i14, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i34 = icmp eq i32 %call.i33, 0
@@ -508,14 +508,14 @@ for.body.i7:                                      ; preds = %invoke.cont146.i, %
   %arrayidx1.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom.i
   %66 = load i8, ptr %arrayidx1.i, align 1
   %mul.i = shl i64 %i.013.i, 1
-  %arrayidx2.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul.i
+  %arrayidx2.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul.i
   store i8 %66, ptr %arrayidx2.i, align 2
   %67 = and i8 %64, 15
   %idxprom5.i = zext nneg i8 %67 to i64
   %arrayidx6.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZL13CompareDigestPK10TestVectorPKhmE9kHexTable, i64 0, i64 %idxprom5.i
   %68 = load i8, ptr %arrayidx6.i, align 1
   %add.i = or disjoint i64 %mul.i, 1
-  %arrayidx8.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %add.i
+  %arrayidx8.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i, i64 0, i64 %add.i
   store i8 %68, ptr %arrayidx8.i, align 1
   %inc.i8 = add nuw i64 %i.013.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i8, %call147.i
@@ -523,7 +523,7 @@ for.body.i7:                                      ; preds = %invoke.cont146.i, %
 
 for.end.i9:                                       ; preds = %for.body.i7, %invoke.cont146.i
   %mul9.i = shl i64 %call147.i, 1
-  %arrayidx10.i = getelementptr inbounds [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul9.i
+  %arrayidx10.i = getelementptr inbounds nuw [129 x i8], ptr %digest_hex.i, i64 0, i64 %mul9.i
   store i8 0, ptr %arrayidx10.i, align 2
   %call.i10 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %digest_hex.i, ptr noundef nonnull dereferenceable(1) %18) #10
   %cmp11.not.i = icmp eq i32 %call.i10, 0

@@ -1668,7 +1668,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr nonnull sret(%"class.std::locale") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %invoke.cont2 unwind label %lpad
 
@@ -1677,7 +1677,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %vtable3 = load ptr, ptr %ss, align 8
   %vbase.offset.ptr4 = getelementptr i8, ptr %vtable3, i64 -24
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset5
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset5
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr6, i64 8
   store i64 15, ptr %_M_precision.i, align 8
   invoke void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %ss, i32 noundef %indent)

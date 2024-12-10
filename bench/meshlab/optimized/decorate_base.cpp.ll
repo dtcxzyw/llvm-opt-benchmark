@@ -2324,7 +2324,7 @@ _ZN7QStringD2Ev.exit216:                          ; preds = %71, %_ZN9QtPrivate8
   %82 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %81
   %83 = shl i64 %indvars.iv.i.i.i, 2
   %84 = add nuw nsw i64 %83, %indvars.iv15.i.i.i
-  %85 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %84
   %86 = load float, ptr %82, align 4, !alias.scope !43
   %87 = load float, ptr %85, align 4, !alias.scope !43
   store float %87, ptr %82, align 4, !alias.scope !43
@@ -2365,7 +2365,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %88
   %95 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %94
   %96 = shl i64 %indvars.iv.i.i.i219, 2
   %97 = add nuw nsw i64 %96, %indvars.iv15.i.i.i218
-  %98 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %97
   %99 = load float, ptr %95, align 4, !alias.scope !48
   %100 = load float, ptr %98, align 4, !alias.scope !48
   store float %100, ptr %95, align 4, !alias.scope !48
@@ -3212,7 +3212,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %63, %_ZN9QtPrivate8
   %74 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %73
   %75 = shl i64 %indvars.iv.i.i.i, 2
   %76 = add nuw nsw i64 %75, %indvars.iv15.i.i.i
-  %77 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %76
   %78 = load float, ptr %74, align 4, !alias.scope !57
   %79 = load float, ptr %77, align 4, !alias.scope !57
   store float %79, ptr %74, align 4, !alias.scope !57
@@ -4989,7 +4989,7 @@ define void @_ZN18DecorateBasePlugin14DrawBBoxCornerER9MeshModelb(ptr nocapture 
   %27 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %26
   %28 = shl i64 %indvars.iv.i.i.i, 2
   %29 = add nuw nsw i64 %28, %indvars.iv15.i.i.i
-  %30 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %29
   %31 = load float, ptr %27, align 4, !alias.scope !120
   %32 = load float, ptr %30, align 4, !alias.scope !120
   store float %32, ptr %27, align 4, !alias.scope !120

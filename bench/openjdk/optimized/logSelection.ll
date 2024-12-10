@@ -1019,7 +1019,7 @@ _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i4
 .sink.split:                                      ; preds = %.split.us, %64
   %.us-phi66.sink = phi i64 [ %57, %64 ], [ %.us-phi66, %.split.us ]
   %.2.ph = phi i32 [ %65, %64 ], [ %.169, %.split.us ]
-  %87 = getelementptr inbounds [5 x %class.LogSelection], ptr %3, i64 0, i64 %.us-phi66.sink
+  %87 = getelementptr inbounds nuw [5 x %class.LogSelection], ptr %3, i64 0, i64 %.us-phi66.sink
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %87, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
   br label %88
 

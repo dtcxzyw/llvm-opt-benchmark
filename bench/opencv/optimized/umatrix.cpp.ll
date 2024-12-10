@@ -1981,7 +1981,7 @@ _ZNK2cv4UMat5emptyEv.exit.thread:                 ; preds = %35, %_ZNK2cv4UMat5e
   %74 = getelementptr inbounds i32, ptr %72, i64 %.02145
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %.02145
+  %77 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %.02145
   store i64 %76, ptr %77, align 8
   %78 = add nuw i64 %.02145, 1
   %exitcond.not = icmp eq i64 %78, %70
@@ -1990,7 +1990,7 @@ _ZNK2cv4UMat5emptyEv.exit.thread:                 ; preds = %35, %_ZNK2cv4UMat5e
 ._crit_edge:                                      ; preds = %73
   %79 = add nsw i32 %41, -1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = mul i64 %82, %69
   store i64 %83, ptr %81, align 8
@@ -2018,7 +2018,7 @@ _ZNK2cv4UMat5emptyEv.exit.thread:                 ; preds = %35, %_ZNK2cv4UMat5e
   br i1 %exitcond47.not, label %_ZNK2cv4UMat8ndoffsetEPm.exit, label %88, !llvm.loop !11
 
 _ZNK2cv4UMat8ndoffsetEPm.exit:                    ; preds = %88, %._crit_edge
-  %94 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %80
+  %94 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %80
   %95 = load i64, ptr %94, align 8
   %96 = mul i64 %95, %69
   store i64 %96, ptr %94, align 8
@@ -2134,7 +2134,7 @@ _ZNK2cv4UMat8ndoffsetEPm.exit41:                  ; preds = %141, %._ZNK2cv4UMat
   %148 = load i32, ptr %40, align 4
   %149 = add nsw i32 %148, -1
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %150
   %152 = load i64, ptr %151, align 8
   %153 = mul i64 %152, %69
   store i64 %153, ptr %151, align 8

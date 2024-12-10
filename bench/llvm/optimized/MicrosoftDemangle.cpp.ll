@@ -3934,7 +3934,7 @@ switch.lookup:                                    ; preds = %147, %142
   %149 = call fastcc noundef i32 @_ZL17guessCharByteSizePKhjm(ptr noundef %4, i32 noundef %143, i64 noundef %.sroa.0.0.i)
   %switch.tableidx = add nsw i32 %149, -1
   %150 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %150
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %34, align 4
   %.lhs.trunc = trunc i64 %indvars.iv130 to i8
@@ -4876,7 +4876,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %2, %15
   %34 = zext nneg i8 %25 to i64
   %.v.i27.i = select i1 %or.cond.i23.i, i64 -48, i64 -55
   %35 = add nsw i64 %.v.i27.i, %34
-  %36 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit28.i
 
@@ -5090,7 +5090,7 @@ _ZN4llvm11ms_demangle9Demangler36demangleConversionOperatorIdentifierERSt17basic
   %79 = zext nneg i8 %11 to i64
   %.v.i = select i1 %or.cond.i, i64 -48, i64 -55
   %80 = add nsw i64 %.v.i, %79
-  %81 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Basic, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Basic, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit
 
@@ -5161,7 +5161,7 @@ _ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNod
   %115 = zext nneg i8 %11 to i64
   %.v.i27 = select i1 %or.cond.i23, i64 -48, i64 -55
   %116 = add nsw i64 %.v.i27, %115
-  %117 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit28
 
@@ -5327,7 +5327,7 @@ _ZN4llvm11ms_demangle9Demangler33demangleLiteralOperatorIdentifierERSt17basic_st
   %192 = zext nneg i8 %11 to i64
   %.v.i40 = select i1 %or.cond.i36, i64 -48, i64 -55
   %193 = add nsw i64 %.v.i40, %192
-  %194 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE11DoubleUnder, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE11DoubleUnder, i64 0, i64 %193
   %195 = load i8, ptr %194, align 1
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit41
 
@@ -5665,17 +5665,17 @@ define dso_local noundef zeroext i8 @_ZN4llvm11ms_demangle9Demangler30translateI
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Basic, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Basic, i64 0, i64 %10
   %13 = load i8, ptr %12, align 1
   br label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %10
+  %15 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %10
   %16 = load i8, ptr %15, align 1
   br label %21
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE11DoubleUnder, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE11DoubleUnder, i64 0, i64 %10
   %19 = load i8, ptr %18, align 1
   br label %21
 
@@ -8914,7 +8914,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
 41:                                               ; preds = %39
   %42 = zext nneg i8 %9 to i64
   %43 = add nsw i64 %42, -97
-  %44 = getelementptr inbounds [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %46, ptr %.sroa.27.0..sroa_idx, align 8
@@ -8930,7 +8930,7 @@ _ZL15startsWithDigitSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %
 50:                                               ; preds = %48
   %51 = zext nneg i8 %9 to i64
   %52 = add nsw i64 %51, -65
-  %53 = getelementptr inbounds [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup.19, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [26 x i8], ptr @__const._ZN4llvm11ms_demangle9Demangler19demangleCharLiteralERSt17basic_string_viewIcSt11char_traitsIcEE.Lookup.19, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.27.0.copyload, i64 2
   store ptr %55, ptr %.sroa.27.0..sroa_idx, align 8
@@ -9516,7 +9516,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   %224 = phi i1 [ true, %.preheader.i ], [ false, %223 ]
   %.11112.i = phi i32 [ %.01016.i, %.preheader.i ], [ %232, %223 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %225 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %indvars.iv.i
+  %225 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 0, i64 %indvars.iv.i
   %226 = trunc i32 %.11112.i to i8
   %227 = and i8 %226, 15
   %228 = icmp samesign ult i8 %227, 10
@@ -9535,10 +9535,10 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %._ZN4llvm16i
   %.09.lcssa.i = phi i32 [ 15, %221 ], [ %233, %._crit_edge.loopexit.i ]
   %234 = add nsw i32 %.09.lcssa.i, -1
   %235 = sext i32 %.09.lcssa.i to i64
-  %236 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 0, i64 %235
   store i8 120, ptr %236, align 1
   %237 = sext i32 %234 to i64
-  %238 = getelementptr inbounds [17 x i8], ptr %3, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw [17 x i8], ptr %3, i64 0, i64 %237
   store i8 92, ptr %238, align 1
   %239 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %238) #23
   %.not.i.i.i = icmp eq i64 %239, 0
@@ -10058,14 +10058,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %114 = trunc nuw nsw i64 %113 to i8
   %115 = or disjoint i8 %114, 48
   %.0.add.i.i.i = add nsw i64 %.0.idx.i.i.i, -1
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
   store i8 %115, ptr %.ptr.i.i.i, align 1
   %116 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
   br i1 %.not.i.i.i, label %117, label %112, !llvm.loop !18
 
 117:                                              ; preds = %112
-  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0.add.i.i.i
   %gepdiff.i.i.i = sub nsw i64 22, %.0.idx.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.0.add.i.i.i, 21
   br i1 %.not.i.i.i.i, label %_ZN4llvm16itanium_demangle12OutputBufferlsEm.exit, label %118

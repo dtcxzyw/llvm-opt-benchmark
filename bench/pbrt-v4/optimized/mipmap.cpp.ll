@@ -818,7 +818,7 @@ if.then113:                                       ; preds = %for.body100
   %conv115 = fptosi float %mul114 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %conv115, i32 127)
   %idxprom = sext i32 %.sroa.speculated to i64
-  %arrayidx = getelementptr inbounds [128 x float], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x float], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 0, i64 %idxprom
   %9 = load float, ptr %arrayidx, align 4
   %10 = load ptr, ptr %ptr.i.i40, align 8
   %arrayidx.i.i79 = getelementptr inbounds nuw %"class.pbrt::Image", ptr %10, i64 %conv.i38
@@ -1747,7 +1747,7 @@ if.then113:                                       ; preds = %for.body100
   %conv115 = fptosi float %mul114 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %conv115, i32 127)
   %idxprom = sext i32 %.sroa.speculated to i64
-  %arrayidx = getelementptr inbounds [128 x float], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x float], ptr @_ZN4pbrtL12MIPFilterLUTE, i64 0, i64 %idxprom
   %7 = load float, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %va.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %vb.i)

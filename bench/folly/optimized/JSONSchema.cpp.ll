@@ -28113,7 +28113,7 @@ while.end.i:                                      ; preds = %while.body.i, %_ZN5
   %spec.select.i.i10 = phi i64 [ %add.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %spec.select.i.i11, %while.body.i ]
   %pos.0.i.lcssa = phi i64 [ %add.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %sub.i, %while.body.i ]
   %v.addr.0.i.lcssa = phi i64 [ %v, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %div.i, %while.body.i ]
-  %arrayidx2.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.0.i.lcssa
+  %arrayidx2.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.0.i.lcssa
   %21 = load i16, ptr %arrayidx2.i, align 2, !tbaa !1447
   %cmp3.i = icmp eq i64 %pos.0.i.lcssa, 2
   br i1 %cmp3.i, label %if.then.i, label %if.else.i, !prof !12
@@ -36915,7 +36915,7 @@ if.then.i:                                        ; preds = %_ZNK5boost13re_deta
 
 _ZN5boost13re_detail_50020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %if.then.i, %_ZNK5boost13re_detail_50023character_pointer_rangeIcEeqERKS2_.exit.i, %land.lhs.true.i, %_ZSt11lower_boundIPKN5boost13re_detail_50023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i
   %retval.0.i = phi i64 [ %26, %if.then.i ], [ 0, %_ZNK5boost13re_detail_50023character_pointer_rangeIcEeqERKS2_.exit.i ], [ 0, %_ZSt11lower_boundIPKN5boost13re_detail_50023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ 0, %land.lhs.true.i ]
-  %arrayidx = getelementptr inbounds [22 x i32], ptr @_ZZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [22 x i32], ptr @_ZZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 0, i64 %retval.0.i
   br label %return
 
 return:                                           ; preds = %_ZN5boost13re_detail_50020get_default_class_idIcEEiPKT_S4_.exit, %cleanup
@@ -49993,7 +49993,7 @@ entry:
   %_M_gcount.i = getelementptr inbounds nuw i8, ptr %is, i64 8
   store i64 0, ptr %_M_gcount.i, align 8, !tbaa !1971
   %vbase.offset.i = load i64, ptr @_ZTVSi, align 8
-  %add.ptr2.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr2.i, ptr noundef nonnull %sbuf)
           to label %invoke.cont unwind label %lpad.i
 
@@ -50008,7 +50008,7 @@ invoke.cont:                                      ; preds = %entry
   %vtable = load ptr, ptr %is, align 8, !tbaa !26
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %_M_ios_locale.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 208
   call void @_ZNSt6localeC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %_M_ios_locale.i) #41
   %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetINSt7__cxx118numpunctIcEEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
@@ -50137,7 +50137,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
   %vtable15 = load ptr, ptr %is, align 8, !tbaa !26
   %vbase.offset.ptr16 = getelementptr i8, ptr %vtable15, i64 -24
   %vbase.offset17 = load i64, ptr %vbase.offset.ptr16, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset17
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr18, i32 noundef 0)
           to label %invoke.cont19 unwind label %lpad12
 
@@ -50146,7 +50146,7 @@ invoke.cont19:                                    ; preds = %invoke.cont13
   %vtable.i80 = load ptr, ptr %is, align 8, !tbaa !26
   %vbase.offset.ptr.i81 = getelementptr i8, ptr %vtable.i80, i64 -24
   %vbase.offset.i82 = load i64, ptr %vbase.offset.ptr.i81, align 8
-  %add.ptr.i83 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i82
+  %add.ptr.i83 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i82
   %_M_flags.i.i98 = getelementptr inbounds nuw i8, ptr %add.ptr.i83, i64 24
   %15 = load i32, ptr %_M_flags.i.i98, align 8, !tbaa !1974
   %and.i.i.i.i99 = and i32 %15, -75
@@ -50226,7 +50226,7 @@ cleanup:                                          ; preds = %invoke.cont43, %inv
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSi, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %26, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i
   store ptr %27, ptr %add.ptr.i.i, align 8, !tbaa !26
   store i64 0, ptr %_M_gcount.i, align 8, !tbaa !1971
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #41
@@ -50243,7 +50243,7 @@ ehcleanup49:                                      ; preds = %lpad30, %lpad12, %l
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTSi, i64 8), align 8
   %vbase.offset.ptr.i.i90 = getelementptr i8, ptr %28, i64 -24
   %vbase.offset.i.i91 = load i64, ptr %vbase.offset.ptr.i.i90, align 8
-  %add.ptr.i.i92 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i91
+  %add.ptr.i.i92 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i.i91
   store ptr %29, ptr %add.ptr.i.i92, align 8, !tbaa !26
   store i64 0, ptr %_M_gcount.i, align 8, !tbaa !1971
   br label %ehcleanup51

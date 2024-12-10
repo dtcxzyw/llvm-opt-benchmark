@@ -1247,7 +1247,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call.i.noexc ], [ 0, %for.body.i.preheader ]
   %sext = shl i64 %indvars.iv.i, 32
   %45 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %45
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds nuw [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns.ptr, i64 0, i64 %indvars.iv.i
   %call.i58 = invoke noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1844,7 +1844,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %sext = shl i64 %indvars.iv, 32
   %0 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx = getelementptr inbounds nuw [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns13, i64 0, i64 %indvars.iv
   %call = tail call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -2173,7 +2173,7 @@ for.body.i:                                       ; preds = %delete.end47, %for.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %delete.end47 ]
   %sext = shl i64 %indvars.iv.i, 32
   %13 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds nuw [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns37, i64 0, i64 %indvars.iv.i
   %call.i = call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -7380,7 +7380,7 @@ if.then7:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %idxprom = sext i32 %fieldIdx.037 to i64
-  %arrayidx10 = getelementptr inbounds [3 x i32], ptr %fieldLen, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw [3 x i32], ptr %fieldLen, i64 0, i64 %idxprom
   %12 = load i32, ptr %arrayidx10, align 4
   %cmp11.not = icmp eq i32 %12, -1
   br i1 %cmp11.not, label %if.end13, label %for.end
@@ -7391,7 +7391,7 @@ if.end13:                                         ; preds = %if.else
 
 if.else17:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %idxprom18 = sext i32 %fieldIdx.037 to i64
-  %arrayidx19 = getelementptr inbounds [3 x i32], ptr %fieldLen, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [3 x i32], ptr %fieldLen, i64 0, i64 %idxprom18
   %13 = load i32, ptr %arrayidx19, align 4
   %cmp20 = icmp eq i32 %13, -1
   br i1 %cmp20, label %for.end, label %if.end23
@@ -7405,7 +7405,7 @@ if.end23:                                         ; preds = %if.else17
   br i1 %cmp29, label %for.end, label %if.end31
 
 if.end31:                                         ; preds = %if.end23
-  %arrayidx33 = getelementptr inbounds [3 x i32], ptr %fieldVal, i64 0, i64 %idxprom18
+  %arrayidx33 = getelementptr inbounds nuw [3 x i32], ptr %fieldVal, i64 0, i64 %idxprom18
   %15 = load i32, ptr %arrayidx33, align 4
   %mul = mul nsw i32 %15, 10
   %add = add nsw i32 %mul, %cond
@@ -9035,7 +9035,7 @@ while.body.preheader:                             ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.preheader, %if.end10
   %indvars.iv = phi i64 [ %6, %while.body.preheader ], [ %indvars.iv.next, %if.end10 ]
-  %arrayidx7 = getelementptr inbounds [3 x i32], ptr %fields, i64 0, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw [3 x i32], ptr %fields, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx7, align 4
   %cmp8.not = icmp eq i32 %8, 0
   br i1 %cmp8.not, label %if.end10, label %while.end.loopexit.split.loop.exit

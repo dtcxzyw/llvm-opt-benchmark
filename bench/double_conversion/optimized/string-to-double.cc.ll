@@ -680,7 +680,7 @@ while.body216:                                    ; preds = %while.body216.lr.ph
 if.then218:                                       ; preds = %while.body216
   %inc = add nsw i32 %buffer_pos.0443, 1
   %idxprom = sext i32 %buffer_pos.0443 to i64
-  %arrayidx = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom
   store i8 %79, ptr %arrayidx, align 1
   %inc219 = add nsw i32 %significant_digits.0447, 1
   br label %if.end225
@@ -866,7 +866,7 @@ while.body287:                                    ; preds = %while.body287.lr.ph
 if.then289:                                       ; preds = %while.body287
   %inc290 = add nsw i32 %buffer_pos.4464, 1
   %idxprom291 = sext i32 %buffer_pos.4464 to i64
-  %arrayidx292 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom291
+  %arrayidx292 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom291
   store i8 %99, ptr %arrayidx292, align 1
   %inc293 = add nsw i32 %significant_digits.3466, 1
   %dec294 = add nsw i32 %exponent.4467, -1
@@ -1184,7 +1184,7 @@ parsing_done:                                     ; preds = %parsing_done.sink.s
 if.then415:                                       ; preds = %parsing_done
   store ptr %buffer, ptr %start, align 8
   %idx.ext419 = sext i32 %buffer_pos.2 to i64
-  %add.ptr420 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext419
+  %add.ptr420 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext419
   %separator_422 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %127 = load i16, ptr %separator_422, align 8
   %junk_string_value_424 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1208,7 +1208,7 @@ if.end431:                                        ; preds = %land.lhs.true256, %
 if.then433:                                       ; preds = %if.end431
   %inc434 = add nsw i32 %buffer_pos.2524, 1
   %idxprom435 = sext i32 %buffer_pos.2524 to i64
-  %arrayidx436 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom435
+  %arrayidx436 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom435
   store i8 49, ptr %arrayidx436, align 1
   %dec437 = add nsw i32 %add413526, -1
   br label %if.end438
@@ -1217,7 +1217,7 @@ if.end438:                                        ; preds = %if.then433, %if.end
   %buffer_pos.6 = phi i32 [ %inc434, %if.then433 ], [ %buffer_pos.2524, %if.end431 ]
   %exponent.7 = phi i32 [ %dec437, %if.then433 ], [ %add413526, %if.end431 ]
   %idxprom439 = sext i32 %buffer_pos.6 to i64
-  %arrayidx440 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom439
+  %arrayidx440 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom439
   store i8 0, ptr %arrayidx440, align 1
   %130 = zext i32 %buffer_pos.6 to i64
   br label %for.cond.i
@@ -1902,7 +1902,7 @@ if.then225:                                       ; preds = %while.body223
   %conv226 = trunc nuw i16 %77 to i8
   %inc = add nsw i32 %buffer_pos.0365, 1
   %idxprom = sext i32 %buffer_pos.0365 to i64
-  %arrayidx = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom
   store i8 %conv226, ptr %arrayidx, align 1
   %inc227 = add nsw i32 %significant_digits.0369, 1
   br label %if.end233
@@ -2082,7 +2082,7 @@ if.then298:                                       ; preds = %while.body296
   %conv299 = trunc nuw i16 %97 to i8
   %inc300 = add nsw i32 %buffer_pos.4386, 1
   %idxprom301 = sext i32 %buffer_pos.4386 to i64
-  %arrayidx302 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom301
+  %arrayidx302 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom301
   store i8 %conv299, ptr %arrayidx302, align 1
   %inc303 = add nsw i32 %significant_digits.3388, 1
   %dec304 = add nsw i32 %exponent.4389, -1
@@ -2364,7 +2364,7 @@ parsing_done:                                     ; preds = %parsing_done.loopex
 if.then426:                                       ; preds = %parsing_done
   store ptr %buffer, ptr %start, align 8
   %idx.ext430 = sext i32 %buffer_pos.2 to i64
-  %add.ptr431 = getelementptr inbounds i8, ptr %buffer, i64 %idx.ext430
+  %add.ptr431 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext430
   %separator_433 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %123 = load i16, ptr %separator_433, align 8
   %junk_string_value_435 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2389,7 +2389,7 @@ if.end443:                                        ; preds = %land.lhs.true264, %
 if.then445:                                       ; preds = %if.end443
   %inc446 = add nsw i32 %buffer_pos.2438, 1
   %idxprom447 = sext i32 %buffer_pos.2438 to i64
-  %arrayidx448 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom447
+  %arrayidx448 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom447
   store i8 49, ptr %arrayidx448, align 1
   %dec449 = add nsw i32 %add424440, -1
   br label %if.end450
@@ -2398,7 +2398,7 @@ if.end450:                                        ; preds = %if.then445, %if.end
   %buffer_pos.6 = phi i32 [ %inc446, %if.then445 ], [ %buffer_pos.2438, %if.end443 ]
   %exponent.7 = phi i32 [ %dec449, %if.then445 ], [ %add424440, %if.end443 ]
   %idxprom451 = sext i32 %buffer_pos.6 to i64
-  %arrayidx452 = getelementptr inbounds [782 x i8], ptr %buffer, i64 0, i64 %idxprom451
+  %arrayidx452 = getelementptr inbounds nuw [782 x i8], ptr %buffer, i64 0, i64 %idxprom451
   store i8 0, ptr %arrayidx452, align 1
   %126 = zext i32 %buffer_pos.6 to i64
   br label %for.cond.i

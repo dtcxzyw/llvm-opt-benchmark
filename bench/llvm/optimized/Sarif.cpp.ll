@@ -1708,10 +1708,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %_ZN4llvm4j
   %115 = getelementptr inbounds nuw i8, ptr %.0159, i64 132
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %116 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE, i64 0, i64 %117
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE, i64 0, i64 %117
   %switch.load = load i64, ptr %switch.gep, align 8
   %118 = sext i32 %116 to i64
-  %switch.gep167 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE.4, i64 0, i64 %118
+  %switch.gep167 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE.4, i64 0, i64 %118
   %switch.load168 = load ptr, ptr %switch.gep167, align 8
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr nonnull %switch.load168, i64 %switch.load)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr nonnull @.str.9, i64 4)
@@ -2989,10 +2989,10 @@ switch.lookup:                                    ; preds = %.lr.ph, %_ZN4llvm4j
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr nonnull @.str.58, i64 10), !noalias !102
   %52 = load i32, ptr %47, align 4, !noalias !102
   %53 = sext i32 %52 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter17createThreadFlowsEN4llvm8ArrayRefINS_10ThreadFlowEEE, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter17createThreadFlowsEN4llvm8ArrayRefINS_10ThreadFlowEEE, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = sext i32 %52 to i64
-  %switch.gep44 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter17createThreadFlowsEN4llvm8ArrayRefINS_10ThreadFlowEEE.3, i64 0, i64 %54
+  %switch.gep44 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter17createThreadFlowsEN4llvm8ArrayRefINS_10ThreadFlowEEE.3, i64 0, i64 %54
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr nonnull %switch.load45, i64 %switch.load), !noalias !102
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 20, i1 false), !alias.scope !102
@@ -4170,10 +4170,10 @@ switch.lookup:                                    ; preds = %_ZN4llvm4json5Array
   %.val2.i = load i32, ptr %161, align 4
   %.0.i = select i1 %164, i32 %.val.i, i32 %.val2.i
   %165 = sext i32 %.0.i to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE, i64 0, i64 %165
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE, i64 0, i64 %165
   %switch.load = load i64, ptr %switch.gep, align 8
   %166 = sext i32 %.0.i to i64
-  %switch.gep50 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE.4, i64 0, i64 %166
+  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang19SarifDocumentWriter12appendResultERKNS_11SarifResultE.4, i64 0, i64 %166
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr nonnull %switch.load51, i64 %switch.load)
   call void @_ZN4llvm4json9ObjectKeyC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr nonnull @.str.8, i64 5)

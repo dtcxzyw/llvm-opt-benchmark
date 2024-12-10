@@ -568,11 +568,11 @@ define void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   br i1 %.not, label %39, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds [39 x i64], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw [39 x i64], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 0, i64 %33
   %36 = load i64, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %36, i1 false)
   %.0..0..0..0. = load i64, ptr %5, align 8
-  %37 = getelementptr inbounds [39 x i64], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 0, i64 %.0..0..0..0.
+  %37 = getelementptr inbounds nuw [39 x i64], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 0, i64 %.0..0..0..0.
   %38 = load i64, ptr %37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %5, i64 %38, i1 false)
   %.sroa.010.0.insert.ext = zext i32 %.sroa.024.0.copyload to i64

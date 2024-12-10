@@ -4325,7 +4325,7 @@ define noundef i32 @_Z10get_eeenumPSt6vectorI9t_inpfileSaIS0_EEPKcPKS5_P14Warnin
   %31 = load ptr, ptr %2, align 8
   %32 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %30, ptr noundef %1, ptr noundef %31) #21
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %5, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %34, ptr noundef nonnull align 1 dereferenceable(22) @.str.31, i64 22, i1 false)
   %35 = load ptr, ptr %2, align 8
   %.not4248 = icmp eq ptr %35, null
@@ -4340,7 +4340,7 @@ define noundef i32 @_Z10get_eeenumPSt6vectorI9t_inpfileSaIS0_EEPKcPKS5_P14Warnin
   %37 = phi ptr [ %35, %.lr.ph51.preheader ], [ %43, %.lr.ph51 ]
   %.03749 = phi i32 [ %36, %.lr.ph51.preheader ], [ %41, %.lr.ph51 ]
   %38 = sext i32 %.03749 to i64
-  %39 = getelementptr inbounds i8, ptr %5, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %38
   %40 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef nonnull %37) #21
   %41 = add nsw i32 %40, %.03749
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1

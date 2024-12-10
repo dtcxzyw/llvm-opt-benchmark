@@ -4692,7 +4692,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %52
+  %59 = getelementptr inbounds nuw [101 x i32], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 0, i64 %52
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, 1
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %61, i32 %.sroa.speculated66)

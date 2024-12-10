@@ -9213,7 +9213,7 @@ node_new_str_crude_char.exit:                     ; preds = %node_new_str_with_o
 
 915:                                              ; preds = %907
   %916 = sext i32 %912 to i64
-  %917 = getelementptr inbounds i8, ptr %25, i64 %916
+  %917 = getelementptr inbounds nuw i8, ptr %25, i64 %916
   %918 = getelementptr inbounds nuw i8, ptr %calloc.i.i.i356, i64 36
   %919 = getelementptr inbounds nuw i8, ptr %calloc.i.i.i356, i64 16
   store ptr %918, ptr %919, align 8
@@ -11429,7 +11429,7 @@ node_new_cclass.exit.thread:                      ; preds = %.thread318
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 136
   %150 = load ptr, ptr %149, align 8
   %151 = sext i32 %136 to i64
-  %152 = getelementptr inbounds i8, ptr %20, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %20, i64 %151
   %153 = call i32 %150(ptr noundef nonnull %20, ptr noundef nonnull %152) #25
   %.not291 = icmp eq i32 %153, 0
   br i1 %.not291, label %prs_posix_bracket.exit.thread, label %154
@@ -12553,7 +12553,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 121:                                              ; preds = %115
   %122 = add nsw i32 %.094120, -1
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 8
   %.not105 = icmp eq i32 %126, 0
@@ -12566,7 +12566,7 @@ onig_node_free.exit:                              ; preds = %.lr.ph125, %66
 
 129:                                              ; preds = %127
   %130 = sext i32 %119 to i64
-  %131 = getelementptr inbounds i8, ptr %5, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %calloc.i.i112, i64 36
   %133 = getelementptr inbounds nuw i8, ptr %calloc.i.i112, i64 16
   store ptr %132, ptr %133, align 8
@@ -12600,7 +12600,7 @@ node_new_str.exit:                                ; preds = %129
 
 144:                                              ; preds = %121
   %145 = sext i32 %119 to i64
-  %146 = getelementptr inbounds i8, ptr %5, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 %145
   %147 = call i32 @onig_node_str_cat(ptr noundef nonnull %125, ptr noundef nonnull %5, ptr noundef nonnull %146)
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %node_new_cclass.exit.thread, label %152
@@ -12609,7 +12609,7 @@ node_new_str.exit:                                ; preds = %129
   %calloc.i.i.sink = phi ptr [ %calloc.i.i, %101 ], [ %calloc.i.i, %105 ], [ %calloc.i.i112, %140 ], [ %calloc.i.i112, %136 ]
   %149 = add nsw i32 %.094120, 1
   %150 = sext i32 %.094120 to i64
-  %151 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [3 x ptr], ptr %6, i64 0, i64 %150
   store ptr %calloc.i.i.sink, ptr %151, align 8
   br label %152
 
@@ -15434,7 +15434,7 @@ define internal fastcc i32 @prs_callout_args(i32 noundef range(i32 0, 2) %0, ptr
   %.2122.us = phi i32 [ 0, %31 ], [ 1, %25 ]
   %.1118.us = phi ptr [ %.011731.us, %31 ], [ %.233.us, %25 ]
   %.2115.idx.us = phi i64 [ %.0113.add.us, %31 ], [ %.0113.idx32.us, %25 ]
-  %.0113.ptr.us = getelementptr inbounds i8, ptr %7, i64 %.2115.idx.us
+  %.0113.ptr.us = getelementptr inbounds nuw i8, ptr %7, i64 %.2115.idx.us
   %34 = icmp ult ptr %21, %2
   br i1 %34, label %.lr.ph.split.us, label %.loopexit
 

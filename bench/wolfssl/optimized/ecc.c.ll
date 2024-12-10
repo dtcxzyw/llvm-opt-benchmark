@@ -74,7 +74,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %name = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 2
+  %name = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 2
   %1 = load ptr, ptr %name, align 8
   br label %return
 
@@ -1898,7 +1898,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = sext i32 %curve_idx to i64
-  %id = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 1
+  %id = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom, i32 1
   %1 = load i32, ptr %id, align 4
   br label %return
 
@@ -1929,7 +1929,7 @@ for.inc.i:                                        ; preds = %for.body.i
 if.end:                                           ; preds = %for.body.i
   %sext = shl i64 %indvars.iv.i, 32
   %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr inbounds [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.ecc_set_type], ptr @ecc_sets, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 8
   br label %return
 

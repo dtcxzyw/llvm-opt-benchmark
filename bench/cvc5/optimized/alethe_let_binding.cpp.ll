@@ -1181,7 +1181,7 @@ invoke.cont181:                                   ; preds = %invoke.cont178
   %vtable = load ptr, ptr %ss177, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr183 = getelementptr inbounds i8, ptr %ss177, i64 %vbase.offset
+  %add.ptr183 = getelementptr inbounds nuw i8, ptr %ss177, i64 %vbase.offset
   invoke void @_ZN4cvc58internal7options7ioutils19applyOutputLanguageERSt8ios_baseNS0_8LanguageE(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr183, i32 noundef 0)
           to label %invoke.cont184 unwind label %lpad180
 
@@ -1189,7 +1189,7 @@ invoke.cont184:                                   ; preds = %invoke.cont181
   %vtable185 = load ptr, ptr %ss177, align 8
   %vbase.offset.ptr186 = getelementptr i8, ptr %vtable185, i64 -24
   %vbase.offset187 = load i64, ptr %vbase.offset.ptr186, align 8
-  %add.ptr188 = getelementptr inbounds i8, ptr %ss177, i64 %vbase.offset187
+  %add.ptr188 = getelementptr inbounds nuw i8, ptr %ss177, i64 %vbase.offset187
   invoke void @_ZN4cvc58internal7options7ioutils14applyDagThreshERSt8ios_basel(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr188, i64 noundef 0)
           to label %invoke.cont189 unwind label %lpad180
 
@@ -1197,7 +1197,7 @@ invoke.cont189:                                   ; preds = %invoke.cont184
   %vtable190 = load ptr, ptr %ss177, align 8
   %vbase.offset.ptr191 = getelementptr i8, ptr %vtable190, i64 -24
   %vbase.offset192 = load i64, ptr %vbase.offset.ptr191, align 8
-  %add.ptr193 = getelementptr inbounds i8, ptr %ss177, i64 %vbase.offset192
+  %add.ptr193 = getelementptr inbounds nuw i8, ptr %ss177, i64 %vbase.offset192
   invoke void @_ZN4cvc58internal7options7ioutils20applyFlattenHOChainsERSt8ios_baseb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr193, i1 noundef zeroext true)
           to label %invoke.cont194 unwind label %lpad180
 
@@ -2888,7 +2888,7 @@ invoke.cont458:                                   ; preds = %invoke.cont455
   %vtable460 = load ptr, ptr %ss452, align 8
   %vbase.offset.ptr461 = getelementptr i8, ptr %vtable460, i64 -24
   %vbase.offset462 = load i64, ptr %vbase.offset.ptr461, align 8
-  %add.ptr463 = getelementptr inbounds i8, ptr %ss452, i64 %vbase.offset462
+  %add.ptr463 = getelementptr inbounds nuw i8, ptr %ss452, i64 %vbase.offset462
   invoke void @_ZN4cvc58internal7options7ioutils19applyOutputLanguageERSt8ios_baseNS0_8LanguageE(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr463, i32 noundef 0)
           to label %invoke.cont464 unwind label %lpad457
 
@@ -2896,7 +2896,7 @@ invoke.cont464:                                   ; preds = %invoke.cont458
   %vtable465 = load ptr, ptr %ss452, align 8
   %vbase.offset.ptr466 = getelementptr i8, ptr %vtable465, i64 -24
   %vbase.offset467 = load i64, ptr %vbase.offset.ptr466, align 8
-  %add.ptr468 = getelementptr inbounds i8, ptr %ss452, i64 %vbase.offset467
+  %add.ptr468 = getelementptr inbounds nuw i8, ptr %ss452, i64 %vbase.offset467
   invoke void @_ZN4cvc58internal7options7ioutils14applyDagThreshERSt8ios_basel(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr468, i64 noundef 0)
           to label %invoke.cont469 unwind label %lpad457
 
@@ -2904,7 +2904,7 @@ invoke.cont469:                                   ; preds = %invoke.cont464
   %vtable470 = load ptr, ptr %ss452, align 8
   %vbase.offset.ptr471 = getelementptr i8, ptr %vtable470, i64 -24
   %vbase.offset472 = load i64, ptr %vbase.offset.ptr471, align 8
-  %add.ptr473 = getelementptr inbounds i8, ptr %ss452, i64 %vbase.offset472
+  %add.ptr473 = getelementptr inbounds nuw i8, ptr %ss452, i64 %vbase.offset472
   invoke void @_ZN4cvc58internal7options7ioutils20applyFlattenHOChainsERSt8ios_baseb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr473, i1 noundef zeroext true)
           to label %invoke.cont474 unwind label %lpad457
 

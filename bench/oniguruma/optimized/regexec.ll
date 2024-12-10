@@ -2110,7 +2110,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %92 = add nsw i64 %91, 5120
   %93 = alloca i8, i64 %92, align 16
   store ptr %93, ptr %17, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 %91
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %91
   store ptr %94, ptr %18, align 8
   store ptr %94, ptr %19, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 5120
@@ -11161,7 +11161,7 @@ define range(i32 -2147483648, 1) i32 @onig_setup_builtin_monitors_by_ascii_encod
   store i32 62, ptr %3, align 16
   %5 = tail call i32 @onigenc_str_bytelen_null(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull @.str) #29
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr @.str, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @.str, i64 %6
   %8 = call i32 @onig_set_callout_of_name(ptr noundef nonnull @OnigEncodingASCII, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull @onig_builtin_monitor, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3) #29
   %.0 = call i32 @llvm.smin.i32(i32 %8, i32 0)
   ret i32 %.0

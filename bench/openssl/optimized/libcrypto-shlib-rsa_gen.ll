@@ -361,7 +361,7 @@ if.end128:                                        ; preds = %for.body117, %if.th
   %prime.0 = load ptr, ptr %prime.0.in, align 8
   tail call void @BN_set_flags(ptr noundef %prime.0, i32 noundef 4) #3
   %idxprom130 = sext i32 %i.2252 to i64
-  %arrayidx131 = getelementptr inbounds [5 x i32], ptr %bitsr, i64 0, i64 %idxprom130
+  %arrayidx131 = getelementptr inbounds nuw [5 x i32], ptr %bitsr, i64 0, i64 %idxprom130
   %19 = load i32, ptr %arrayidx131, align 4
   %cmp138236 = icmp sgt i32 %i.2252, 0
   %add189 = add nsw i32 %19, %bitse.0251

@@ -976,7 +976,7 @@ define internal i32 @fork_proc(ptr nocapture noundef readonly %0, ptr noundef %1
 84:                                               ; preds = %78
   %85 = load i32, ptr %67, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [512 x i8], ptr %5, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %86
   store i8 0, ptr %87, align 1
   br label %88
 
@@ -999,7 +999,7 @@ define internal i32 @fork_proc(ptr nocapture noundef readonly %0, ptr noundef %1
 97:                                               ; preds = %91
   %98 = load i32, ptr %68, align 4
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [512 x i8], ptr %6, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [512 x i8], ptr %6, i64 0, i64 %99
   store i8 0, ptr %100, align 1
   br label %101
 

@@ -15730,7 +15730,7 @@ entry:
   %2 = load ptr, ptr %interp.i, align 8
   %watchers = getelementptr inbounds nuw i8, ptr %2, i64 305208
   %3 = sext i32 %event to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._PyDict_SendEvent, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._PyDict_SendEvent, i64 0, i64 %3
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end6

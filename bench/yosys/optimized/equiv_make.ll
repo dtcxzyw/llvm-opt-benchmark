@@ -2054,7 +2054,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit73:              ; preds = %243, %249, %256
   %312 = load ptr, ptr %61, align 8
   %313 = getelementptr i8, ptr %312, i64 -24
   %314 = load i64, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %61, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %61, i64 %314
   %316 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %315)
           to label %317 unwind label %.loopexit165.i
 
@@ -3159,7 +3159,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit18.i:            ; preds = %753, %746, %.body82
   %786 = load ptr, ptr %39, align 8
   %787 = getelementptr i8, ptr %786, i64 -24
   %788 = load i64, ptr %787, align 8
-  %789 = getelementptr inbounds i8, ptr %39, i64 %788
+  %789 = getelementptr inbounds nuw i8, ptr %39, i64 %788
   %790 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %789)
           to label %791 unwind label %.loopexit119.i
 

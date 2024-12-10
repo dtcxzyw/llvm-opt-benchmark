@@ -5396,7 +5396,7 @@ declare void @srand(i32 noundef) local_unnamed_addr #15
 define internal fastcc range(i32 0, 6) i32 @Abc_TtIsTopDecomposable(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #16 {
   %5 = shl i32 %3, 2
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [32 x i64], ptr @s_Truths8, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8, i64 0, i64 %6
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph.preheader.i, label %Abc_TtIsSubsetWithMask.exit.thread
 
@@ -5424,7 +5424,7 @@ define internal fastcc range(i32 0, 6) i32 @Abc_TtIsTopDecomposable(ptr noundef 
   br i1 %.not.i, label %9, label %Abc_TtIsSubsetWithMask.exit
 
 Abc_TtIsSubsetWithMask.exit:                      ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds [32 x i64], ptr @s_Truths8Neg, i64 0, i64 %6
+  %19 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8Neg, i64 0, i64 %6
   br label %.lr.ph.i27
 
 20:                                               ; preds = %.lr.ph.i27
@@ -5508,7 +5508,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_TtCofsOppositeWithMask(ptr nound
   %8 = shl nuw nsw i32 1, %3
   %9 = zext nneg i32 %8 to i64
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %wide.trip.count63 = zext nneg i32 %2 to i64
   br label %14
@@ -11313,7 +11313,7 @@ Abc_TtMask.exit.thread:                           ; preds = %5
   %24 = load i32, ptr %19, align 4
   %25 = shl i32 %24, 2
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [32 x i64], ptr @s_Truths8, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8, i64 0, i64 %26
   br label %.lr.ph.i46.us
 
 .lr.ph.i46.us:                                    ; preds = %.lr.ph.i46.us, %.lr.ph.preheader.i44.us
@@ -11332,7 +11332,7 @@ Abc_TtMask.exit.thread:                           ; preds = %5
   %33 = load i32, ptr %19, align 4
   %34 = shl i32 %33, 2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [32 x i64], ptr @s_Truths8Neg, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8Neg, i64 0, i64 %35
   br label %.lr.ph.i39.us
 
 .lr.ph.i39.us:                                    ; preds = %.lr.ph.i39.us, %.lr.ph.preheader.i37.us
@@ -11351,7 +11351,7 @@ Abc_TtMask.exit.thread:                           ; preds = %5
   %42 = load i32, ptr %19, align 4
   %43 = shl i32 %42, 2
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [32 x i64], ptr @s_Truths8, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8, i64 0, i64 %44
   br label %.lr.ph.i33.us
 
 .lr.ph.i33.us:                                    ; preds = %.lr.ph.i33.us, %.lr.ph.preheader.i31.us
@@ -11628,7 +11628,7 @@ Ses_CheckGatesConsistency.exit._crit_edge:        ; preds = %Ses_CheckGatesConsi
 109:                                              ; preds = %98
   %110 = shl nsw i32 %103, 2
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [32 x i64], ptr @s_Truths8, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8, i64 0, i64 %111
   br label %118
 
 113:                                              ; preds = %98
@@ -11646,7 +11646,7 @@ Ses_CheckGatesConsistency.exit._crit_edge:        ; preds = %Ses_CheckGatesConsi
 121:                                              ; preds = %118
   %122 = shl nsw i32 %106, 2
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds [32 x i64], ptr @s_Truths8, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i64], ptr @s_Truths8, i64 0, i64 %123
   br label %130
 
 125:                                              ; preds = %118

@@ -6495,7 +6495,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge508, %._
 
 1061:                                             ; preds = %1056
   %1062 = sext i32 %1060 to i64
-  %1063 = getelementptr inbounds [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1062
+  %1063 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1062
   %1064 = load ptr, ptr %1063, align 8
   invoke void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %45, ptr noundef %1064)
           to label %.noexc314 unwind label %.loopexit.split-lp448.loopexit.split-lp.loopexit
@@ -6570,7 +6570,7 @@ _ZL10box_dh_topbP7t_psrec.exit:                   ; preds = %._crit_edge508, %._
 
 1102:                                             ; preds = %.loopexit79.i
   %1103 = sext i32 %1101 to i64
-  %1104 = getelementptr inbounds [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1103
+  %1104 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL10linecolors, i64 0, i64 %1103
   %1105 = load ptr, ptr %1104, align 8
   invoke void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %45, ptr noundef %1105)
           to label %.noexc316 unwind label %.loopexit.split-lp448.loopexit.split-lp.loopexit

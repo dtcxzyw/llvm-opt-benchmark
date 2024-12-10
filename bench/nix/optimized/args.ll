@@ -7208,7 +7208,7 @@ _ZN7testing7MessageD2Ev.exit50:                   ; preds = %216, %_ZNKSt14defau
 _ZN2rc6detail13SuccessResultD2Ev.exit:            ; preds = %_ZN2rc6detail13SuccessResultC2ERKS1_.exit.thread, %_ZN7testing7MessageD2Ev.exit
   %222 = load i64, ptr %14, align 8
   %223 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %224 = getelementptr inbounds [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %222
+  %224 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %222
   %225 = load ptr, ptr %224, align 8
   invoke void %225(ptr noundef nonnull %223)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit unwind label %226
@@ -7259,7 +7259,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNKSt7__cxx1112bas
   %.pn20 = phi { ptr, i32 } [ %178, %177 ], [ %176, %175 ], [ %.pn16.pn.pn, %221 ]
   %238 = load i64, ptr %14, align 8
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %240 = getelementptr inbounds [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %238
+  %240 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %238
   %241 = load ptr, ptr %240, align 8
   invoke void %241(ptr noundef nonnull %239)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51 unwind label %242
@@ -8696,7 +8696,7 @@ _ZN7testing7MessageD2Ev.exit50:                   ; preds = %216, %_ZNKSt14defau
 _ZN2rc6detail13SuccessResultD2Ev.exit:            ; preds = %_ZN2rc6detail13SuccessResultC2ERKS1_.exit.thread, %_ZN7testing7MessageD2Ev.exit
   %222 = load i64, ptr %14, align 8
   %223 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %224 = getelementptr inbounds [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %222
+  %224 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %222
   %225 = load ptr, ptr %224, align 8
   invoke void %225(ptr noundef nonnull %223)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit unwind label %226
@@ -8747,7 +8747,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNKSt7__cxx1112bas
   %.pn20 = phi { ptr, i32 } [ %178, %177 ], [ %176, %175 ], [ %.pn16.pn.pn, %221 ]
   %238 = load i64, ptr %14, align 8
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %240 = getelementptr inbounds [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %238
+  %240 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 0, i64 %238
   %241 = load ptr, ptr %240, align 8
   invoke void %241(ptr noundef nonnull %239)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51 unwind label %242

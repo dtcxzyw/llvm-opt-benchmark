@@ -229,7 +229,7 @@ mac_init.exit:                                    ; preds = %12
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.05585.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %48 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05585.i
+  %48 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.05585.i
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, 54
   store i8 %50, ptr %48, align 1
@@ -242,7 +242,7 @@ mac_init.exit:                                    ; preds = %12
   br label %._crit_edge89.i
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds i8, ptr %7, i64 %47
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 %47
   %53 = sub i64 %41, %47
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 54, i64 %53, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -250,7 +250,7 @@ mac_init.exit:                                    ; preds = %12
 
 55:                                               ; preds = %55, %._crit_edge.i22
   %.186.i = phi i64 [ 0, %._crit_edge.i22 ], [ %60, %55 ]
-  %56 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.186.i
+  %56 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 0, i64 %.186.i
   %57 = load i8, ptr %56, align 1
   %58 = xor i8 %57, 106
   %59 = getelementptr inbounds [128 x i8], ptr %54, i64 0, i64 %.186.i

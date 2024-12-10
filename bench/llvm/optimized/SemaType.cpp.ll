@@ -21707,7 +21707,7 @@ _ZL21recordNullabilitySeenRN5clang4SemaENS_14SourceLocationE.exit: ; preds = %46
 
 switch.lookup:                                    ; preds = %.thread
   %204 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZL29CheckNullabilityTypeSpecifierRN5clang4SemaEPN12_GLOBAL__N_119TypeProcessingStateEPNS_10ParsedAttrERNS_8QualTypeENS_15NullabilityKindENS_14SourceLocationEbbb, i64 0, i64 %204
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL29CheckNullabilityTypeSpecifierRN5clang4SemaEPN12_GLOBAL__N_119TypeProcessingStateEPNS_10ParsedAttrERNS_8QualTypeENS_15NullabilityKindENS_14SourceLocationEbbb, i64 0, i64 %204
   %switch.load = load i32, ptr %switch.gep, align 4
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %206 = load ptr, ptr %205, align 8

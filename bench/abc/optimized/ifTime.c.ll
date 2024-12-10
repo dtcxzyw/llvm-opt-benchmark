@@ -294,13 +294,13 @@ define float @If_CutDelay(ptr nocapture noundef readonly %0, ptr nocapture nound
   %79 = getelementptr inbounds nuw i32, ptr @If_CutDelay.pPinPerm, i64 %indvars.iv53.i
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds float, ptr @If_CutDelay.pPinDelays, i64 %81
+  %82 = getelementptr inbounds nuw float, ptr @If_CutDelay.pPinDelays, i64 %81
   %83 = load float, ptr %82, align 4
   %84 = sext i32 %.03744.i to i64
-  %85 = getelementptr inbounds i32, ptr @If_CutDelay.pPinPerm, i64 %84
+  %85 = getelementptr inbounds nuw i32, ptr @If_CutDelay.pPinPerm, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds float, ptr @If_CutDelay.pPinDelays, i64 %87
+  %88 = getelementptr inbounds nuw float, ptr @If_CutDelay.pPinDelays, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = fcmp ogt float %83, %89
   %91 = trunc nuw nsw i64 %indvars.iv53.i to i32
@@ -319,7 +319,7 @@ define float @If_CutDelay(ptr nocapture noundef readonly %0, ptr nocapture nound
   %95 = getelementptr inbounds nuw i32, ptr @If_CutDelay.pPinPerm, i64 %indvars.iv56.i
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %.037.lcssa.i to i64
-  %98 = getelementptr inbounds i32, ptr @If_CutDelay.pPinPerm, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr @If_CutDelay.pPinPerm, i64 %97
   %99 = load i32, ptr %98, align 4
   store i32 %99, ptr %95, align 4
   store i32 %96, ptr %98, align 4
@@ -353,7 +353,7 @@ If_CutSortInputPins.exit:                         ; preds = %100, %.critedge.i
   %107 = getelementptr inbounds nuw [32 x i32], ptr @If_CutDelay.pPinPerm, i64 0, i64 %indvars.iv191
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [32 x float], ptr @If_CutDelay.pPinDelays, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [32 x float], ptr @If_CutDelay.pPinDelays, i64 0, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv191
   %113 = load float, ptr %112, align 4
@@ -673,13 +673,13 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr nocapture readnone %1, 
   %81 = getelementptr inbounds nuw i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %indvars.iv53.i
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr @If_CutPropagateRequired.pPinDelays, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr @If_CutPropagateRequired.pPinDelays, i64 %83
   %85 = load float, ptr %84, align 4
   %86 = sext i32 %.03744.i to i64
-  %87 = getelementptr inbounds i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds float, ptr @If_CutPropagateRequired.pPinDelays, i64 %89
+  %90 = getelementptr inbounds nuw float, ptr @If_CutPropagateRequired.pPinDelays, i64 %89
   %91 = load float, ptr %90, align 4
   %92 = fcmp ogt float %85, %91
   %93 = trunc nuw nsw i64 %indvars.iv53.i to i32
@@ -698,7 +698,7 @@ define void @If_CutPropagateRequired(ptr noundef %0, ptr nocapture readnone %1, 
   %97 = getelementptr inbounds nuw i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %indvars.iv56.i
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %.037.lcssa.i to i64
-  %100 = getelementptr inbounds i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr @If_CutPropagateRequired.pPinPerm, i64 %99
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %97, align 4
   store i32 %98, ptr %100, align 4

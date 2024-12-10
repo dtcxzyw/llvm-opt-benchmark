@@ -18118,7 +18118,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
   %59 = zext nneg i16 %58 to i64
   %60 = add i64 %.sroa.012.031.i.i.i.i.i.i.i.i.i.i.i.i, -4
   %61 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %56
-  %62 = getelementptr inbounds i8, ptr %3, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 %60
   %63 = load i16, ptr %61, align 1, !noalias !4597
   store i16 %63, ptr %62, align 1, !alias.scope !4594, !noalias !4593
   %64 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %59
@@ -18137,7 +18137,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
   %.zext30.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i16 %71 to i64
   %72 = add i64 %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i, -2
   %73 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %70
-  %74 = getelementptr inbounds i8, ptr %3, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   %75 = load i16, ptr %73, align 1, !noalias !4597
   store i16 %75, ptr %74, align 1, !alias.scope !4594, !noalias !4593
   br label %76
@@ -18152,7 +18152,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
   %79 = shl nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %80 = add i64 %.sroa.012.1.i.i.i.i.i.i.i.i.i.i.i.i, -2
   %81 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %79
-  %82 = getelementptr inbounds i8, ptr %3, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 %80
   %83 = load i16, ptr %81, align 1, !noalias !4597
   store i16 %83, ptr %82, align 1, !alias.scope !4594, !noalias !4593
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i.i.i.i"
@@ -18160,7 +18160,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
 84:                                               ; preds = %76
   %85 = add i64 %.sroa.012.1.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %86 = trunc nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i.i.i to i8
-  %87 = getelementptr inbounds i8, ptr %3, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %85
   %88 = or disjoint i8 %86, 48
   store i8 %88, ptr %87, align 1, !alias.scope !4594, !noalias !4593
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i.i.i.i"
@@ -18180,7 +18180,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6bc7d9c493432aa3E.exit.i.i.i.i": ; preds = %93, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i.i.i.i"
   %94 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %93 ], [ %49, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i.i.i.i.i.i.i" ]
-  %95 = getelementptr inbounds i8, ptr %3, i64 %.sroa.012.2.i.i.i.i.i.i.i.i.i.i.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.012.2.i.i.i.i.i.i.i.i.i.i.i.i
   %96 = load ptr, ptr %28, align 8, !alias.scope !4598, !noalias !4607, !nonnull !4, !noundef !4
   %97 = getelementptr inbounds i8, ptr %96, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr nonnull readonly align 1 %95, i64 %89, i1 false), !noalias !4593
@@ -18387,7 +18387,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
   %44 = zext nneg i16 %43 to i64
   %45 = add i64 %.sroa.012.031.i.i.i.i.i.i, -4
   %46 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %41
-  %47 = getelementptr inbounds i8, ptr %3, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %45
   %48 = load i16, ptr %46, align 1, !noalias !4695
   store i16 %48, ptr %47, align 1, !alias.scope !4695
   %49 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %44
@@ -18406,7 +18406,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
   %.zext30.i.i.i.i.i.i = zext nneg i16 %56 to i64
   %57 = add i64 %.sroa.012.0.lcssa.i.i.i.i.i.i, -2
   %58 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %55
-  %59 = getelementptr inbounds i8, ptr %3, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %57
   %60 = load i16, ptr %58, align 1, !noalias !4695
   store i16 %60, ptr %59, align 1, !alias.scope !4695
   br label %61
@@ -18421,7 +18421,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
   %64 = shl nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i, 1
   %65 = add i64 %.sroa.012.1.i.i.i.i.i.i, -2
   %66 = getelementptr inbounds nuw i8, ptr @anon.ba3dcd79d1f1284eca4f9ec32bb43d60.123, i64 %64
-  %67 = getelementptr inbounds i8, ptr %3, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 %65
   %68 = load i16, ptr %66, align 1, !noalias !4695
   store i16 %68, ptr %67, align 1, !alias.scope !4695
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i"
@@ -18429,7 +18429,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
 69:                                               ; preds = %61
   %70 = add i64 %.sroa.012.1.i.i.i.i.i.i, -1
   %71 = trunc nuw nsw i64 %.sroa.06.0.i.i.i.i.i.i to i8
-  %72 = getelementptr inbounds i8, ptr %3, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %70
   %73 = or disjoint i8 %71, 48
   store i8 %73, ptr %72, align 1, !alias.scope !4695
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i"
@@ -18453,7 +18453,7 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h5d2110e86032334dE.exit: ; pr
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h39e107ce07adb8dfE.exit.i": ; preds = %81, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i"
   %82 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i.i, %81 ], [ %77, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i.i.i.i" ]
-  %83 = getelementptr inbounds i8, ptr %3, i64 %.sroa.012.2.i.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.012.2.i.i.i.i.i.i
   %84 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !4698, !noalias !4707, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds i8, ptr %85, i64 %82

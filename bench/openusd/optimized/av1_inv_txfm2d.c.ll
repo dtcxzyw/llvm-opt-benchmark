@@ -505,7 +505,7 @@ set_flip_cfg.exit:                                ; preds = %switch.lookup, %3
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 %32, ptr %33, align 1
   %34 = zext i8 %13 to i64
-  %35 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %27, i64 %34
+  %35 = getelementptr inbounds nuw [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %27, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 50
   store i8 %36, ptr %37, align 2
@@ -518,7 +518,7 @@ set_flip_cfg.exit:                                ; preds = %switch.lookup, %3
 
 40:                                               ; preds = %39, %set_flip_cfg.exit
   %41 = zext i8 %15 to i64
-  %42 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26, i64 %41
+  %42 = getelementptr inbounds nuw [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 51
   store i8 %43, ptr %44, align 1
@@ -648,10 +648,10 @@ set_flip_cfg.exit.i:
   %30 = getelementptr inbounds [5 x [5 x i8]], ptr @av1_inv_cos_bit_row, i64 0, i64 %26, i64 %27
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %14 to i64
-  %33 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %27, i64 %32
+  %33 = getelementptr inbounds nuw [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %27, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %16 to i64
-  %36 = getelementptr inbounds [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26, i64 %35
+  %36 = getelementptr inbounds nuw [5 x [4 x i8]], ptr @av1_txfm_type_ls, i64 0, i64 %26, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %34 to i64
   %39 = getelementptr inbounds nuw [12 x i8], ptr @av1_txfm_stage_num_list, i64 0, i64 %38

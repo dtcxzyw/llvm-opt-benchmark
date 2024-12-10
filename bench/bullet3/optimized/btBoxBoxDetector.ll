@@ -231,7 +231,7 @@ for.body105:                                      ; preds = %for.body105.prehead
 for.end110:                                       ; preds = %for.body105, %if.end84
   %cmp8693133136 = phi i1 [ false, %if.end84 ], [ true, %for.body105 ]
   %idxprom111 = sext i32 %i0 to i64
-  %arrayidx112 = getelementptr inbounds [8 x i32], ptr %avail, i64 0, i64 %idxprom111
+  %arrayidx112 = getelementptr inbounds nuw [8 x i32], ptr %avail, i64 0, i64 %idxprom111
   store i32 0, ptr %arrayidx112, align 4
   store i32 %i0, ptr %iret, align 4
   %cmp115101 = icmp sgt i32 %m, 1
@@ -241,7 +241,7 @@ for.body116.lr.ph:                                ; preds = %for.end110
   %iret.addr.0100 = getelementptr inbounds nuw i8, ptr %iret, i64 4
   %conv117 = uitofp nneg i32 %m to float
   %div118 = fdiv float 0x401921FB60000000, %conv117
-  %arrayidx121 = getelementptr inbounds [8 x float], ptr %A, i64 0, i64 %idxprom111
+  %arrayidx121 = getelementptr inbounds nuw [8 x float], ptr %A, i64 0, i64 %idxprom111
   %31 = load float, ptr %arrayidx121, align 4
   br i1 %cmp8693133136, label %for.body116.us.preheader, label %for.body116
 
@@ -294,7 +294,7 @@ for.inc144.us:                                    ; preds = %if.then141.us, %if.
 
 for.cond126.for.end146_crit_edge.us:              ; preds = %for.inc144.us
   %idxprom147.us = sext i32 %38 to i64
-  %arrayidx148.us = getelementptr inbounds [8 x i32], ptr %avail, i64 0, i64 %idxprom147.us
+  %arrayidx148.us = getelementptr inbounds nuw [8 x i32], ptr %avail, i64 0, i64 %idxprom147.us
   store i32 0, ptr %arrayidx148.us, align 4
   %inc151.us = add nuw nsw i32 %j.0102.us, 1
   %iret.addr.0.us = getelementptr inbounds nuw i8, ptr %iret.addr.0103.us, i64 4
@@ -1515,14 +1515,14 @@ for.body1148:                                     ; preds = %for.body1119, %for.
   %305 = load float, ptr %arrayidx1160, align 4
   %306 = call float @llvm.fmuladd.f32(float %297, float %305, float %303)
   %307 = add nsw i64 %indvars.iv1022, %298
-  %arrayidx1165 = getelementptr inbounds [24 x float], ptr %point, i64 0, i64 %307
+  %arrayidx1165 = getelementptr inbounds nuw [24 x float], ptr %point, i64 0, i64 %307
   store float %306, ptr %arrayidx1165, align 4
   %indvars.iv.next1023 = add nuw nsw i64 %indvars.iv1022, 1
   %exitcond1029.not = icmp eq i64 %indvars.iv.next1023, 3
   br i1 %exitcond1029.not, label %for.end1168, label %for.body1148, !llvm.loop !21
 
 for.end1168:                                      ; preds = %for.body1148
-  %add.ptr1175 = getelementptr inbounds float, ptr %point, i64 %298
+  %add.ptr1175 = getelementptr inbounds nuw float, ptr %point, i64 %298
   %308 = load float, ptr %add.ptr1175, align 4
   %arrayidx3.i753 = getelementptr inbounds nuw i8, ptr %add.ptr1175, i64 4
   %309 = load float, ptr %arrayidx3.i753, align 4
@@ -1533,7 +1533,7 @@ for.end1168:                                      ; preds = %for.body1148
   %312 = call noundef float @llvm.fmuladd.f32(float %normal2.sroa.12.0, float %311, float %310)
   %sub1177 = fsub float %289, %312
   %idxprom1178 = sext i32 %cnum.0987 to i64
-  %arrayidx1179 = getelementptr inbounds [8 x float], ptr %dep, i64 0, i64 %idxprom1178
+  %arrayidx1179 = getelementptr inbounds nuw [8 x float], ptr %dep, i64 0, i64 %idxprom1178
   store float %sub1177, ptr %arrayidx1179, align 4
   %cmp1182 = fcmp ult float %sub1177, 0.000000e+00
   br i1 %cmp1182, label %for.inc1200, label %if.then1183
@@ -1541,11 +1541,11 @@ for.end1168:                                      ; preds = %for.body1148
 if.then1183:                                      ; preds = %for.end1168
   %mul1187 = shl nsw i32 %cnum.0987, 1
   %idxprom1188 = sext i32 %mul1187 to i64
-  %arrayidx1189 = getelementptr inbounds [16 x float], ptr %ret, i64 0, i64 %idxprom1188
+  %arrayidx1189 = getelementptr inbounds nuw [16 x float], ptr %ret, i64 0, i64 %idxprom1188
   store float %292, ptr %arrayidx1189, align 8
   %add1195 = or disjoint i32 %mul1187, 1
   %idxprom1196 = sext i32 %add1195 to i64
-  %arrayidx1197 = getelementptr inbounds [16 x float], ptr %ret, i64 0, i64 %idxprom1196
+  %arrayidx1197 = getelementptr inbounds nuw [16 x float], ptr %ret, i64 0, i64 %idxprom1196
   store float %294, ptr %arrayidx1197, align 4
   %inc1198 = add nsw i32 %cnum.0987, 1
   br label %for.inc1200
@@ -1710,7 +1710,7 @@ for.cond1307.preheader:                           ; preds = %for.end1301, %for.i
 for.body1309:                                     ; preds = %for.cond1307.preheader, %for.body1309
   %indvars.iv1066 = phi i64 [ 0, %for.cond1307.preheader ], [ %indvars.iv.next1067, %for.body1309 ]
   %343 = add nsw i64 %indvars.iv1066, %342
-  %arrayidx1315 = getelementptr inbounds [24 x float], ptr %point, i64 0, i64 %343
+  %arrayidx1315 = getelementptr inbounds nuw [24 x float], ptr %point, i64 0, i64 %343
   %344 = load float, ptr %arrayidx1315, align 4
   %arrayidx1317 = getelementptr inbounds nuw float, ptr %pa871.0964, i64 %indvars.iv1066
   %345 = load float, ptr %arrayidx1317, align 4
@@ -1732,7 +1732,7 @@ for.end1324:                                      ; preds = %for.body1309
   %retval.sroa.0.4.vec.insert.i783 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i782, float %fneg4.i779, i64 1
   %retval.sroa.3.12.vec.insert.i784 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i781, i64 0
   %idxprom1332 = sext i32 %341 to i64
-  %arrayidx1333 = getelementptr inbounds [8 x float], ptr %dep, i64 0, i64 %idxprom1332
+  %arrayidx1333 = getelementptr inbounds nuw [8 x float], ptr %dep, i64 0, i64 %idxprom1332
   br i1 %cmp873, label %if.then1326, label %if.else1337
 
 if.then1326:                                      ; preds = %for.end1324

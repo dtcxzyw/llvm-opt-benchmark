@@ -142769,7 +142769,7 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 

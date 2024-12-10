@@ -405,7 +405,7 @@ if.then8.i93:                                     ; preds = %if.else.i91
 if.end.i95:                                       ; preds = %if.then8.i93
   %call18.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %full_host.i, ptr noundef nonnull dereferenceable(1) %24) #12
   %call20.i = call i64 @strcspn(ptr noundef nonnull %full_host.i, ptr noundef nonnull @.str.27) #13
-  %arrayidx21.i = getelementptr inbounds [262 x i8], ptr %full_host.i, i64 0, i64 %call20.i
+  %arrayidx21.i = getelementptr inbounds nuw [262 x i8], ptr %full_host.i, i64 0, i64 %call20.i
   store i8 0, ptr %arrayidx21.i, align 1
   br label %if.end29.i
 
@@ -793,7 +793,7 @@ if.end127:                                        ; preds = %for.inc216.i, %if.e
 
 if.then130:                                       ; preds = %if.end127
   %call132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %content_sha256_hdr) #13
-  %add.ptr136 = getelementptr inbounds i8, ptr %content_sha256_hdr, i64 %call132
+  %add.ptr136 = getelementptr inbounds nuw i8, ptr %content_sha256_hdr, i64 %call132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %add.ptr136, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
   br label %if.end137
 

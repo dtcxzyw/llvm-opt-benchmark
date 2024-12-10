@@ -2495,7 +2495,7 @@ while.end128:                                     ; preds = %while.body104.us, %
   %fplace.0221 = phi i32 [ 0, %while.cond101.outer ], [ %5, %if.end121.us250 ], [ 0, %while.cond101.outer.us ], [ 0, %if.then114.us ], [ %spec.store.select2, %while.body104.us ]
   %max.addr.3 = phi i32 [ %spec.store.select2, %while.cond101.outer ], [ %5, %if.end121.us250 ], [ 0, %if.then114.us ], [ %smin, %while.cond101.outer.us ], [ %spec.store.select2, %while.body104.us ]
   %idxprom129 = sext i32 %fplace.0221 to i64
-  %arrayidx130 = getelementptr inbounds [20 x i8], ptr %fconvert, i64 0, i64 %idxprom129
+  %arrayidx130 = getelementptr inbounds nuw [20 x i8], ptr %fconvert, i64 0, i64 %idxprom129
   store i8 0, ptr %arrayidx130, align 1
   %cmp131 = icmp eq i32 %realstyle.0197, 1
   br i1 %cmp131, label %if.then133, label %if.end170
@@ -2512,7 +2512,7 @@ do.body142:                                       ; preds = %do.body142, %if.the
   %tmpexp.1 = phi i32 [ %div149208, %do.body142 ], [ %tmpexp.0, %if.then133 ]
   %rem143 = srem i32 %tmpexp.1, 10
   %idxprom144 = sext i32 %rem143 to i64
-  %arrayidx145 = getelementptr inbounds [11 x i8], ptr @.str.6, i64 0, i64 %idxprom144
+  %arrayidx145 = getelementptr inbounds nuw [11 x i8], ptr @.str.6, i64 0, i64 %idxprom144
   %9 = load i8, ptr %arrayidx145, align 1
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %arrayidx148 = getelementptr inbounds nuw [20 x i8], ptr %econvert, i64 0, i64 %indvars.iv300

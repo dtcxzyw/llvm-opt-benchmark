@@ -627,7 +627,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   %.082.lcssa.ph.i.i = phi i64 [ %.082103.i.i, %.lr.ph.i.i ], [ %.082103.i.i, %153 ], [ %.1.i.i, %166 ]
   %170 = icmp eq i64 %.082.lcssa.ph.i.i, 1024
   %spec.select99.i.i = select i1 %170, i64 1023, i64 %.082.lcssa.ph.i.i
-  %171 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %spec.select99.i.i
+  %171 = getelementptr inbounds nuw [1024 x i8], ptr %15, i64 0, i64 %spec.select99.i.i
   store i8 0, ptr %171, align 1
   %172 = load i32, ptr %24, align 4
   %173 = and i32 %172, 1040

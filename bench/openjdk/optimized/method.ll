@@ -3987,7 +3987,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
@@ -4418,7 +4418,7 @@ define hidden noundef zeroext i1 @_ZNK6Method9is_getterEv(ptr noundef nonnull al
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %9, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %9 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %.not3 = icmp eq i32 %18, 42
   br i1 %.not3, label %19, label %41
@@ -4438,7 +4438,7 @@ _ZNK6Method12java_code_atEi.exit:                 ; preds = %9, %13
 _ZNK6Method12java_code_atEi.exit6:                ; preds = %19, %24
   %26 = phi i32 [ %25, %24 ], [ %23, %19 ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %.not4 = icmp eq i32 %29, 180
   br i1 %.not4, label %30, label %41
@@ -4458,7 +4458,7 @@ _ZNK6Method12java_code_atEi.exit6:                ; preds = %19, %24
 _ZNK6Method12java_code_atEi.exit8:                ; preds = %30, %35
   %37 = phi i32 [ %36, %35 ], [ %34, %30 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %.off = add i32 %40, -172
   %switch = icmp ult i32 %.off, 5
@@ -4492,7 +4492,7 @@ define hidden noundef zeroext i1 @_ZNK6Method9is_setterEv(ptr noundef nonnull al
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %6, %10
   %12 = phi i32 [ %11, %10 ], [ %9, %6 ]
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %.not2 = icmp eq i32 %15, 42
   br i1 %.not2, label %16, label %59
@@ -4512,7 +4512,7 @@ _ZNK6Method12java_code_atEi.exit:                 ; preds = %6, %10
 _ZNK6Method12java_code_atEi.exit8:                ; preds = %16, %21
   %23 = phi i32 [ %22, %21 ], [ %20, %16 ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, -27
   %28 = tail call i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 30)
@@ -4553,7 +4553,7 @@ _ZNK6Method12java_code_atEi.exit8:                ; preds = %16, %21
 _ZNK6Method12java_code_atEi.exit10:               ; preds = %37, %42
   %44 = phi i32 [ %43, %42 ], [ %41, %37 ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %.not5 = icmp eq i32 %47, 181
   br i1 %.not5, label %48, label %59
@@ -4573,7 +4573,7 @@ _ZNK6Method12java_code_atEi.exit10:               ; preds = %37, %42
 _ZNK6Method12java_code_atEi.exit12:               ; preds = %48, %53
   %55 = phi i32 [ %54, %53 ], [ %52, %48 ]
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   %.not6 = icmp eq i32 %58, 177
   br label %59
@@ -4609,7 +4609,7 @@ define hidden noundef zeroext i1 @_ZNK6Method18is_constant_getterEv(ptr noundef 
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %9, %13
   %15 = phi i32 [ %14, %13 ], [ %12, %9 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = icmp ult i32 %19, 20
@@ -4630,7 +4630,7 @@ _ZNK6Method12java_code_atEi.exit:                 ; preds = %9, %13
 _ZNK6Method12java_code_atEi.exit3:                ; preds = %21, %26
   %28 = phi i32 [ %27, %26 ], [ %25, %21 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %31, 239
   br i1 %32, label %33, label %_ZN9Bytecodes10length_forENS_4CodeE.exit
@@ -4665,7 +4665,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit:         ; preds = %_ZNK6Method12java_c
 _ZNK6Method12java_code_atEi.exit5:                ; preds = %41, %48
   %50 = phi i32 [ %49, %48 ], [ %47, %41 ]
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, -172
   %55 = icmp ult i32 %54, 6
@@ -6237,7 +6237,7 @@ define hidden void @_ZN6Method11link_methodERK12methodHandleP10JavaThread(ptr no
 14:                                               ; preds = %11
   %15 = tail call noundef i32 @_ZN19AbstractInterpreter11method_kindERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %1) #24
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8

@@ -1304,7 +1304,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail6Buffer10put_uint32Ej(ptr no
   %7 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = add i64 %.0, -1
-  %10 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %9
   store i8 %8, ptr %10, align 1
   %11 = udiv i32 %.07, 10
   %.not = icmp ult i32 %.07, 10
@@ -1356,7 +1356,7 @@ _ZN8nanobind6detail6Buffer6expandEm.exit.i:       ; preds = %19
 
 _ZN8nanobind6detail6Buffer3putEPKcm.exit:         ; preds = %12, %_ZN8nanobind6detail6Buffer6expandEm.exit.i
   %38 = phi ptr [ %37, %_ZN8nanobind6detail6Buffer6expandEm.exit.i ], [ %15, %12 ]
-  %39 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %9
+  %39 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %39, i64 %13, i1 false)
   %40 = load ptr, ptr %14, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %13

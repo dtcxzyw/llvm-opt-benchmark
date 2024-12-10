@@ -132,7 +132,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .preheader:                                       ; preds = %65, %.preheader
   %indvars.iv346 = phi i64 [ %indvars.iv.next347, %.preheader ], [ 1, %65 ]
   %68 = add nsw i64 %indvars.iv346, -1
-  %69 = getelementptr inbounds [4 x i32], ptr %19, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i32], ptr %19, i64 0, i64 %68
   store i32 1, ptr %69, align 4
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 5

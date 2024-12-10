@@ -230,7 +230,7 @@ _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5
   %.sroa.01.132 = phi i64 [ %36, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ], [ %.sroa.01.0, %34 ]
   %.sroa.017.131 = phi i64 [ %.sroa.0.0.i, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ], [ %.sroa.017.0, %34 ]
   %36 = add i64 %.sroa.01.132, -1
-  %37 = getelementptr inbounds i8, ptr %7, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 %36
   %38 = load i8, ptr %37, align 1, !noundef !4
   %.not = icmp ult i8 %38, %.sroa.025.0
   br i1 %.not, label %._crit_edge, label %41
@@ -238,14 +238,14 @@ _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5
 ._crit_edge:                                      ; preds = %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit, %.lr.ph, %34
   %.sroa.017.1.lcssa = phi i64 [ %.sroa.017.0, %34 ], [ %.sroa.017.131, %.lr.ph ], [ %.sroa.0.0.i, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ]
   %.sroa.01.1.lcssa = phi i64 [ %.sroa.01.0, %34 ], [ %.sroa.01.132, %.lr.ph ], [ 1, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable5drift13logical_mergeNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB16_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ]
-  %39 = getelementptr inbounds i64, ptr %8, i64 %.sroa.01.1.lcssa
+  %39 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.01.1.lcssa
   store i64 %.sroa.017.1.lcssa, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 %.sroa.01.1.lcssa
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.01.1.lcssa
   store i8 %.sroa.025.0, ptr %40, align 1
   br i1 %21, label %74, label %78
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i64, ptr %8, i64 %36
+  %42 = getelementptr inbounds nuw i64, ptr %8, i64 %36
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = lshr i64 %43, 1
   %45 = lshr i64 %.sroa.017.131, 1

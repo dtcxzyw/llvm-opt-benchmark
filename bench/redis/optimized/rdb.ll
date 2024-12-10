@@ -224,7 +224,7 @@ entry:
   %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 1024, ptr noundef nonnull @.str, i64 noundef %0, i32 noundef %linenum) #22
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %idx.ext = sext i32 %call to i64
-  %add.ptr = getelementptr inbounds i8, ptr %msg, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %idx.ext
   %sub = sub nsw i64 1024, %idx.ext
   %call4 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef %reason, ptr noundef nonnull %ap) #22
   call void @llvm.va_end.p0(ptr nonnull %ap)
@@ -3024,7 +3024,7 @@ if.else6:                                         ; preds = %if.else3
   %call9 = call i32 @fpconv_dtoa(double noundef %val, ptr noundef nonnull %add.ptr8) #22
   %add = add nsw i32 %call9, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx10 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx10, align 1
   br label %if.end
 

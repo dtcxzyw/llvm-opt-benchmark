@@ -2398,7 +2398,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %310
   %313 = sub nuw i64 %.03245.i, %.03344.i
   %314 = lshr i64 %313, 1
   %315 = add i64 %314, %.03344.i
-  %316 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %315
+  %316 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %315
   %317 = load i32, ptr %316, align 8
   %318 = icmp ult i32 %317, %305
   br i1 %318, label %319, label %326
@@ -2409,7 +2409,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %310
   br i1 %321, label %322, label %333
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %320
+  %323 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %320
   %324 = load i32, ptr %323, align 8
   %325 = icmp ugt i32 %324, %305
   br i1 %325, label %lxb_encoding_decode_gb18030_range.exit, label %333
@@ -2424,7 +2424,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %310
   br i1 %.not.i, label %lxb_encoding_decode_gb18030_range.exit, label %330
 
 330:                                              ; preds = %328
-  %331 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %329
+  %331 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %329
   %332 = load i32, ptr %331, align 8
   %.not43.i = icmp ugt i32 %332, %305
   br i1 %.not43.i, label %333, label %lxb_encoding_decode_gb18030_range.exit
@@ -2438,7 +2438,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %310
 lxb_encoding_decode_gb18030_range.exit:           ; preds = %322, %326, %328, %330, %333
   %335 = phi i32 [ %317, %333 ], [ %332, %330 ], [ %317, %326 ], [ %317, %322 ], [ %317, %328 ]
   %.136.i = phi i64 [ %315, %333 ], [ %329, %330 ], [ %315, %326 ], [ %315, %322 ], [ 1, %328 ]
-  %336 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i, i32 1
+  %336 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i, i32 1
   %337 = load i32, ptr %336, align 4
   %338 = sub i32 %305, %335
   %339 = add i32 %338, %337
@@ -7583,7 +7583,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   %111 = sub nuw i64 %.03245.i, %.03344.i
   %112 = lshr i64 %111, 1
   %113 = add i64 %112, %.03344.i
-  %114 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %113
+  %114 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %113
   %115 = load i32, ptr %114, align 8
   %116 = icmp ult i32 %115, %105
   br i1 %116, label %117, label %124
@@ -7594,7 +7594,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br i1 %119, label %120, label %131
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %118
+  %121 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %118
   %122 = load i32, ptr %121, align 8
   %123 = icmp ugt i32 %122, %105
   br i1 %123, label %._crit_edge.i, label %131
@@ -7609,7 +7609,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br i1 %.not.i, label %._crit_edge.i, label %128
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %127
+  %129 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %127
   %130 = load i32, ptr %129, align 8
   %.not43.i = icmp ugt i32 %130, %105
   br i1 %.not43.i, label %131, label %._crit_edge.i
@@ -7623,7 +7623,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
 ._crit_edge.i:                                    ; preds = %131, %128, %126, %124, %120
   %133 = phi i32 [ %115, %131 ], [ %130, %128 ], [ %115, %124 ], [ %115, %120 ], [ %115, %126 ]
   %.136.i = phi i64 [ %113, %131 ], [ %127, %128 ], [ %113, %124 ], [ %113, %120 ], [ 1, %126 ]
-  %134 = getelementptr inbounds %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i, i32 1
+  %134 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i, i32 1
   %135 = load i32, ptr %134, align 4
   %136 = sub i32 %105, %133
   %137 = add i32 %136, %135
@@ -7661,7 +7661,7 @@ define hidden i32 @lxb_encoding_decode_ibm866_single(ptr nocapture noundef readn
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_ibm866, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_ibm866, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -7933,7 +7933,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_10_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_10, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_10, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -7959,7 +7959,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_13_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_13, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_13, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -7985,7 +7985,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_14_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_14, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_14, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8011,7 +8011,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_15_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_15, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_15, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8037,7 +8037,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_16_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_16, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_16, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8063,7 +8063,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_2_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_2, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_2, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8089,7 +8089,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_3_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_3, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_3, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8115,7 +8115,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_4_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_4, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_4, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8141,7 +8141,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_5_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_5, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_5, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8167,7 +8167,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_6_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_6, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_6, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8193,7 +8193,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_7_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_7, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_7, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8219,7 +8219,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_8_single(ptr nocapture noundef r
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_8, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_8, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8245,7 +8245,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_8_i_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_8, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_iso_8859_8, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8271,7 +8271,7 @@ define hidden i32 @lxb_encoding_decode_koi8_r_single(ptr nocapture noundef readn
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_koi8_r, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_koi8_r, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8297,7 +8297,7 @@ define hidden i32 @lxb_encoding_decode_koi8_u_single(ptr nocapture noundef readn
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_koi8_u, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_koi8_u, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8754,7 +8754,7 @@ define hidden i32 @lxb_encoding_decode_macintosh_single(ptr nocapture noundef re
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_macintosh, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_macintosh, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8785,7 +8785,7 @@ define hidden i32 @lxb_encoding_decode_windows_1250_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1250, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1250, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8811,7 +8811,7 @@ define hidden i32 @lxb_encoding_decode_windows_1251_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1251, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1251, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8837,7 +8837,7 @@ define hidden i32 @lxb_encoding_decode_windows_1252_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1252, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1252, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8863,7 +8863,7 @@ define hidden i32 @lxb_encoding_decode_windows_1253_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1253, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1253, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8889,7 +8889,7 @@ define hidden i32 @lxb_encoding_decode_windows_1254_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1254, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1254, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8915,7 +8915,7 @@ define hidden i32 @lxb_encoding_decode_windows_1255_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1255, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1255, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8941,7 +8941,7 @@ define hidden i32 @lxb_encoding_decode_windows_1256_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1256, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1256, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8967,7 +8967,7 @@ define hidden i32 @lxb_encoding_decode_windows_1257_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1257, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1257, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -8993,7 +8993,7 @@ define hidden i32 @lxb_encoding_decode_windows_1258_single(ptr nocapture noundef
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1258, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_1258, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -9019,7 +9019,7 @@ define hidden i32 @lxb_encoding_decode_windows_874_single(ptr nocapture noundef 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_874, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_windows_874, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -9045,7 +9045,7 @@ define hidden i32 @lxb_encoding_decode_x_mac_cyrillic_single(ptr nocapture nound
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
   %13 = add nsw i64 %12, -128
-  %14 = getelementptr inbounds [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 0, i64 %13, i32 2
+  %14 = getelementptr inbounds nuw [128 x %struct.lxb_encoding_single_index_t], ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 0, i64 %13, i32 2
   %15 = load i32, ptr %14, align 4
   br label %16
 

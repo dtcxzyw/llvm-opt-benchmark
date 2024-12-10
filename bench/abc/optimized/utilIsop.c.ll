@@ -100,12 +100,12 @@ split:                                            ; preds = %20, %29, %.preheade
   %.pre-phi87 = phi i64 [ %.pre86, %.preheader._crit_edge ], [ %22, %29 ], [ %22, %20 ]
   %.0.lcssa = phi i32 [ %15, %.preheader._crit_edge ], [ %indvars, %29 ], [ %indvars, %20 ]
   %33 = sext i32 %.0.lcssa to i64
-  %34 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, %0
   %37 = shl i64 %36, %.pre-phi87
   %38 = or i64 %37, %36
-  %39 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %33
+  %39 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %33
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, %0
   %42 = lshr i64 %41, %.pre-phi87
@@ -1122,12 +1122,12 @@ split:                                            ; preds = %11, %.preheader._cr
   %.pre-phi80 = phi i64 [ %.pre79, %.preheader._crit_edge ], [ %13, %11 ]
   %.0.lcssa = phi i32 [ %6, %.preheader._crit_edge ], [ %indvars, %11 ]
   %20 = sext i32 %.0.lcssa to i64
-  %21 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %0
   %24 = shl i64 %23, %.pre-phi80
   %25 = or i64 %24, %23
-  %26 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %20
+  %26 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %20
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %0
   %29 = lshr i64 %28, %.pre-phi80
@@ -1885,7 +1885,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %78 = xor i32 %77, %.0.i
   %79 = ashr i32 %78, 6
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i64, ptr %9, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %9, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = and i32 %78, 63
   %84 = zext nneg i32 %83 to i64
@@ -1915,7 +1915,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %97 = load i64, ptr %96, align 8
   %98 = or i64 %97, %93
   store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i64, ptr %8, i64 %95
+  %99 = getelementptr inbounds nuw i64, ptr %8, i64 %95
   %100 = load i64, ptr %99, align 8
   %101 = xor i64 %100, %93
   store i64 %101, ptr %99, align 8
@@ -1964,7 +1964,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %.reass.reass = xor i32 %116, %invariant.op
   %117 = ashr i32 %.reass.reass, 6
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i64, ptr %9, i64 %118
+  %119 = getelementptr inbounds nuw i64, ptr %9, i64 %118
   %120 = load i64, ptr %119, align 8
   %121 = and i32 %.reass.reass, 63
   %122 = zext nneg i32 %121 to i64
@@ -2034,11 +2034,11 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %151 = load i64, ptr %150, align 8
   %152 = or i64 %151, %147
   store i64 %152, ptr %150, align 8
-  %153 = getelementptr inbounds i64, ptr %8, i64 %139
+  %153 = getelementptr inbounds nuw i64, ptr %8, i64 %139
   %154 = load i64, ptr %153, align 8
   %155 = xor i64 %154, %137
   store i64 %155, ptr %153, align 8
-  %156 = getelementptr inbounds i64, ptr %8, i64 %149
+  %156 = getelementptr inbounds nuw i64, ptr %8, i64 %149
   %157 = load i64, ptr %156, align 8
   %158 = and i64 %157, %147
   %.not188 = icmp eq i64 %158, 0
@@ -2107,11 +2107,11 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %207 = load i64, ptr %206, align 8
   %208 = or i64 %207, %203
   store i64 %208, ptr %206, align 8
-  %209 = getelementptr inbounds i64, ptr %8, i64 %176
+  %209 = getelementptr inbounds nuw i64, ptr %8, i64 %176
   %210 = load i64, ptr %209, align 8
   %211 = xor i64 %210, %174
   store i64 %211, ptr %209, align 8
-  %212 = getelementptr inbounds i64, ptr %8, i64 %186
+  %212 = getelementptr inbounds nuw i64, ptr %8, i64 %186
   %213 = load i64, ptr %212, align 8
   %214 = and i64 %213, %184
   %.not184 = icmp eq i64 %214, 0
@@ -2123,7 +2123,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br label %217
 
 217:                                              ; preds = %215, %171
-  %218 = getelementptr inbounds i64, ptr %8, i64 %196
+  %218 = getelementptr inbounds nuw i64, ptr %8, i64 %196
   %219 = load i64, ptr %218, align 8
   %220 = and i64 %219, %194
   %.not185 = icmp eq i64 %220, 0
@@ -2135,7 +2135,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   br label %223
 
 223:                                              ; preds = %221, %217
-  %224 = getelementptr inbounds i64, ptr %8, i64 %205
+  %224 = getelementptr inbounds nuw i64, ptr %8, i64 %205
   %225 = load i64, ptr %224, align 8
   %226 = and i64 %225, %203
   %.not186 = icmp eq i64 %226, 0
@@ -2166,7 +2166,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %241 = shl nuw i64 1, %240
   %242 = ashr i32 %.0.i, 6
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i64, ptr %7, i64 %243
+  %244 = getelementptr inbounds nuw i64, ptr %7, i64 %243
   %245 = load i64, ptr %244, align 8
   %246 = or i64 %245, %241
   store i64 %246, ptr %244, align 8
@@ -2177,7 +2177,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %251 = shl nuw i64 1, %250
   %252 = ashr i32 %248, 6
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds i64, ptr %7, i64 %253
+  %254 = getelementptr inbounds nuw i64, ptr %7, i64 %253
   %255 = load i64, ptr %254, align 8
   %256 = or i64 %255, %251
   store i64 %256, ptr %254, align 8
@@ -2188,7 +2188,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %261 = shl nuw i64 1, %260
   %262 = ashr i32 %258, 6
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i64, ptr %7, i64 %263
+  %264 = getelementptr inbounds nuw i64, ptr %7, i64 %263
   %265 = load i64, ptr %264, align 8
   %266 = or i64 %265, %261
   store i64 %266, ptr %264, align 8
@@ -2198,7 +2198,7 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %270 = shl nuw i64 1, %269
   %271 = ashr i32 %267, 6
   %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds i64, ptr %7, i64 %272
+  %273 = getelementptr inbounds nuw i64, ptr %7, i64 %272
   %274 = load i64, ptr %273, align 8
   %275 = or i64 %274, %270
   store i64 %275, ptr %273, align 8

@@ -457,7 +457,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   call void @qsort(ptr noundef nonnull %7, i64 noundef %122, i64 noundef 4, ptr noundef nonnull @PaletteCompareColorsForQsort) #10
   %124 = ashr i32 %3, 1
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %7, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %7, i64 %125
   %127 = load i32, ptr %7, align 16
   br label %128
 
@@ -484,7 +484,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   %137 = add nsw i32 %..017.i.i.i.i, %.016..i.i.i.i
   %138 = ashr i32 %137, 1
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i32, ptr %7, i64 %139
+  %140 = getelementptr inbounds nuw i32, ptr %7, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, %130
   br i1 %142, label %SearchColorNoIdx.exit.i.i.i, label %.lr.ph.i.i.i.i
@@ -492,7 +492,7 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
 SearchColorNoIdx.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i, %128, %.preheader.i.i.i.i
   %.0.i.i.i.i = phi i32 [ %124, %.preheader.i.i.i.i ], [ 0, %128 ], [ %138, %.lr.ph.i.i.i.i ]
   %143 = sext i32 %.0.i.i.i.i to i64
-  %144 = getelementptr inbounds i32, ptr %6, i64 %143
+  %144 = getelementptr inbounds nuw i32, ptr %6, i64 %143
   %145 = trunc nuw i64 %indvars.iv.i.i.i to i32
   store i32 %145, ptr %144, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -562,7 +562,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
   %167 = add nsw i32 %..017.i.us.i.i, %.016..i.us.i.i
   %168 = ashr i32 %167, 1
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %7, i64 %169
+  %170 = getelementptr inbounds nuw i32, ptr %7, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = icmp eq i32 %171, %158
   br i1 %172, label %SearchColorNoIdx.exit.us.i.i, label %.lr.ph.i.us.i.i
@@ -570,7 +570,7 @@ PrepareMapToPalette.exit.preheader.i.i:           ; preds = %SearchColorNoIdx.ex
 SearchColorNoIdx.exit.us.i.i:                     ; preds = %.lr.ph.i.us.i.i, %159, %.preheader.i.us.i.i
   %.0.i.us.i.i = phi i32 [ %124, %.preheader.i.us.i.i ], [ 0, %159 ], [ %168, %.lr.ph.i.us.i.i ]
   %173 = sext i32 %.0.i.us.i.i to i64
-  %174 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %173
   %175 = load i32, ptr %174, align 4
   br label %176
 
@@ -642,7 +642,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.lr.ph.i.us.i.i, %1
   %208 = add nsw i32 %..017.i.i.i, %.016..i.i.i
   %209 = ashr i32 %208, 1
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %7, i64 %210
+  %211 = getelementptr inbounds nuw i32, ptr %7, i64 %210
   %212 = load i32, ptr %211, align 4
   %213 = icmp eq i32 %212, %199
   br i1 %213, label %SearchColorNoIdx.exit.i.i, label %.lr.ph.i.i.i
@@ -650,7 +650,7 @@ SearchColorNoIdx.exit.us.i.i:                     ; preds = %.lr.ph.i.us.i.i, %1
 SearchColorNoIdx.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %200, %.preheader.i.i.i
   %.0.i.i.i = phi i32 [ %124, %.preheader.i.i.i ], [ 0, %200 ], [ %209, %.lr.ph.i.i.i ]
   %214 = sext i32 %.0.i.i.i to i64
-  %215 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %214
+  %215 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %214
   %216 = load i32, ptr %215, align 4
   br label %217
 

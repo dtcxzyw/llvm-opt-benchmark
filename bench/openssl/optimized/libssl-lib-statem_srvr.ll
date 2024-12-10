@@ -3277,7 +3277,7 @@ for.body:                                         ; preds = %if.end39, %for.body
   %nonce.0103 = phi i64 [ %14, %if.end39 ], [ %shr, %for.body ]
   %conv44 = trunc i64 %nonce.0103 to i8
   %sub = add nsw i64 %i.0104, -1
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %tick_nonce, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %tick_nonce, i64 0, i64 %sub
   store i8 %conv44, ptr %arrayidx, align 1
   %shr = lshr i64 %nonce.0103, 8
   %cmp41.not = icmp eq i64 %sub, 0

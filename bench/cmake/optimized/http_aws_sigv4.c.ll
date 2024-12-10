@@ -404,7 +404,7 @@ calc_payload_hash.exit.thread.i:                  ; preds = %117
 156:                                              ; preds = %153
   %157 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %152) #12
   %158 = call i64 @strcspn(ptr noundef nonnull %5, ptr noundef nonnull @.str.27) #13
-  %159 = getelementptr inbounds [262 x i8], ptr %5, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [262 x i8], ptr %5, i64 0, i64 %158
   store i8 0, ptr %159, align 1
   br label %165
 
@@ -792,7 +792,7 @@ make_headers.exit.thread:                         ; preds = %186, %.lr.ph219.i, 
 
 270:                                              ; preds = %.loopexit
   %271 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #13
-  %272 = getelementptr inbounds i8, ptr %22, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr %22, i64 %271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %272, ptr noundef nonnull align 1 dereferenceable(3) @.str.14, i64 3, i1 false)
   br label %273
 

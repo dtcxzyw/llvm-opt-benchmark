@@ -261,7 +261,7 @@ entry:
   %call1 = tail call i64 @luaL_optinteger(ptr noundef %L, i32 noundef 2, i64 noundef 0) #8
   %conv = trunc i64 %call1 to i32
   %idxprom = sext i32 %call to i64
-  %arrayidx = getelementptr inbounds [7 x i32], ptr @luaB_collectgarbage.optsnum, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr @luaB_collectgarbage.optsnum, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4, !tbaa !4
   %call2 = tail call i32 @lua_gc(ptr noundef %L, i32 noundef %0, i32 noundef %conv) #8
   switch i32 %0, label %sw.default [

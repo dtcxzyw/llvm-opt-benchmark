@@ -1853,7 +1853,7 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
 
 81:                                               ; preds = %78, %76, %64
   %82 = phi i64 [ 2047, %64 ], [ %80, %78 ], [ 0, %76 ]
-  %83 = getelementptr inbounds i32, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !67
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %83, align 4, !tbaa !67
@@ -1879,7 +1879,7 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
 
 100:                                              ; preds = %97, %95, %81
   %101 = phi i64 [ 2047, %81 ], [ %99, %97 ], [ 0, %95 ]
-  %102 = getelementptr inbounds i32, ptr %3, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %3, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !67
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %102, align 4, !tbaa !67
@@ -1914,7 +1914,7 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
 
 123:                                              ; preds = %120, %118, %108
   %124 = phi i64 [ 2047, %108 ], [ %122, %120 ], [ 0, %118 ]
-  %125 = getelementptr inbounds i32, ptr %3, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %3, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !67
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %125, align 4, !tbaa !67
@@ -2058,7 +2058,7 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
 
 215:                                              ; preds = %226, %213
   %216 = phi i64 [ %214, %213 ], [ %227, %226 ]
-  %217 = getelementptr inbounds i32, ptr %3, i64 %216
+  %217 = getelementptr inbounds nuw i32, ptr %3, i64 %216
   %218 = load i32, ptr %217, align 4, !tbaa !67
   %219 = sext i32 %218 to i64
   %220 = icmp sgt i64 %210, %219
@@ -2090,7 +2090,7 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
 
 235:                                              ; preds = %246, %233
   %236 = phi i64 [ %234, %233 ], [ %247, %246 ]
-  %237 = getelementptr inbounds i32, ptr %3, i64 %236
+  %237 = getelementptr inbounds nuw i32, ptr %3, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !67
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %210, %239

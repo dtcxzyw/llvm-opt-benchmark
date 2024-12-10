@@ -3506,12 +3506,12 @@ define noundef zeroext i1 @_ZN10open_spiel9laser_tag13LaserTagState11ResolveMove
   %13 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %6
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111row_offsetsE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111row_offsetsE, i64 0, i64 %15
   %17 = sext i32 %2 to i64
   %18 = getelementptr inbounds [10 x i32], ptr %16, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %8
-  %21 = getelementptr inbounds [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111col_offsetsE, i64 0, i64 %15
+  %21 = getelementptr inbounds nuw [4 x %"struct.std::array.50"], ptr @_ZN10open_spiel9laser_tag12_GLOBAL__N_111col_offsetsE, i64 0, i64 %15
   %22 = getelementptr inbounds [10 x i32], ptr %21, i64 0, i64 %17
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %11

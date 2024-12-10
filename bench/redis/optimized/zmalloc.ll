@@ -882,7 +882,7 @@ while.cond.preheader:                             ; preds = %if.end
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %sext = shl i64 %call, 32
   %conv13 = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %line, i64 %conv13
+  %add.ptr = getelementptr inbounds nuw i8, ptr %line, i64 %conv13
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end25

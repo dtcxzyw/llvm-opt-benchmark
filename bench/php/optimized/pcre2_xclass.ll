@@ -69,7 +69,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.v
   %39 = sdiv i32 %0, 128
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %40
   %42 = srem i32 %0, 128
   %43 = and i32 %0, -33
   %44 = add i32 %0, -58
@@ -488,7 +488,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %369 = shl nuw nsw i32 %368, 7
   %370 = add nsw i32 %369, %42
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %371
+  %372 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %371
   %373 = load i16, ptr %372, align 2
   %374 = zext i16 %373 to i64
   %375 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %374

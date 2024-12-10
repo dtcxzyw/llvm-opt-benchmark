@@ -250,7 +250,7 @@ invoke.cont63:                                    ; preds = %if.end62
 
 do.body69:                                        ; preds = %do.body69.backedge, %invoke.cont63
   %off.2 = phi i64 [ 0, %invoke.cont63 ], [ %spec.select40, %do.body69.backedge ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %password, i64 0, i64 %off.2
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %password, i64 0, i64 %off.2
   %sub70 = sub i64 255, %off.2
   %call72 = invoke i64 @read(i32 noundef 0, ptr noundef nonnull %arrayidx, i64 noundef %sub70)
           to label %invoke.cont71 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.split-lp.loopexit

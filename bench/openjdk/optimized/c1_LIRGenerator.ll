@@ -22749,7 +22749,7 @@ define hidden void @_ZN12LIRGenerator9do_InvokeEP6Invoke(ptr noundef nonnull ali
   store i8 88, ptr %86, align 1
   %87 = load i32, ptr %47, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.4, i32 noundef 2860, ptr noundef nonnull @.str.8, ptr noundef %90) #18
   unreachable
@@ -24880,7 +24880,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %82, %61
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %88
   %90 = phi i32 [ %89, %88 ], [ %87, %_ZN8ciMethod4codeEv.exit.i ]
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = load ptr, ptr %22, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 88
@@ -25266,7 +25266,7 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 
 56:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   switch i32 %59, label %60 [
     i32 185, label %69

@@ -254,7 +254,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %29, %_ZN4llvm17Mach
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 3, ptr %39, align 1, !alias.scope !9
   %40 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %40
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %11, ptr %10, align 8, !alias.scope !14
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -448,7 +448,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit34.i:              ; preds = %30, %_ZN4llvm17Mach
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 3, ptr %40, align 1, !alias.scope !36
   %41 = sext i8 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK4llvm29AArch64_MachoTargetObjectFile20getAuthPtrSlotSymbolERKNS_13TargetMachineEPNS_17MachineModuleInfoEPKNS_8MCSymbolENS_13AArch64PACKey2IDEt, i64 0, i64 %41
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %11, ptr %10, align 8, !alias.scope !41
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16

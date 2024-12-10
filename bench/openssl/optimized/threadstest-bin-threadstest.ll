@@ -765,7 +765,7 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   %4 = load i64, ptr @multi_num_threads, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr @multi_num_threads, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr @multi_threads, i64 %4
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %4
   %call.i.i = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_provider_load_unload) #8
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   %conv.i.i = zext i1 %cmp.i.i to i32
@@ -787,7 +787,7 @@ for.cond.i9:                                      ; preds = %for.body.i4
 
 for.body.i4:                                      ; preds = %if.end15, %for.cond.i9
   %i.04.i = phi i64 [ %inc.i10, %for.cond.i9 ], [ 0, %if.end15 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %7 = load i64, ptr %arrayidx.i, align 8
   %call.i.i5 = tail call i32 @pthread_join(i64 noundef %7, ptr noundef null) #8
   %cmp.i.i6 = icmp eq i32 %call.i.i5, 0
@@ -929,7 +929,7 @@ for.body.i:                                       ; preds = %lor.lhs.false, %for
   %1 = load i64, ptr @multi_num_threads, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr @multi_num_threads, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr @multi_threads, i64 %1
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %1
   %call.i.i = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %thread_func) #8
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   %conv.i.i = zext i1 %cmp.i.i to i32
@@ -958,7 +958,7 @@ for.cond.i7:                                      ; preds = %for.body.i2
 
 for.body.i2:                                      ; preds = %if.end4, %for.cond.i7
   %i.04.i = phi i64 [ %inc.i8, %for.cond.i7 ], [ 0, %if.end4 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %4 = load i64, ptr %arrayidx.i, align 8
   %call.i.i3 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef null) #8
   %cmp.i.i4 = icmp eq i32 %call.i.i3, 0
@@ -1071,7 +1071,7 @@ lor.lhs.false:                                    ; preds = %for.body
   %3 = load ptr, ptr @multi_libctx, align 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %call11 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %3, ptr noundef %4) #8
-  %arrayidx12 = getelementptr inbounds [5 x ptr], ptr @multi_provider, i64 0, i64 %n.08
+  %arrayidx12 = getelementptr inbounds nuw [5 x ptr], ptr @multi_provider, i64 0, i64 %n.08
   store ptr %call11, ptr %arrayidx12, align 8
   %call13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 309, ptr noundef nonnull @.str.44, ptr noundef %call11) #8
   %tobool14.not = icmp eq i32 %call13, 0
@@ -1469,7 +1469,7 @@ for.body.i.preheader:                             ; preds = %lor.lhs.false5
   %3 = load i64, ptr @multi_num_threads, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr @multi_num_threads, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr @multi_threads, i64 %3
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %3
   %call.i.i = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_shared_evp_pkey) #8
   %cmp.i.i = icmp eq i32 %call.i.i, 0
   %conv.i.i = zext i1 %cmp.i.i to i32
@@ -1488,7 +1488,7 @@ for.body.i5.preheader:                            ; preds = %for.cond.i
   %5 = load i64, ptr @multi_num_threads, align 8
   %inc.i7 = add i64 %5, 1
   store i64 %inc.i7, ptr @multi_num_threads, align 8
-  %add.ptr.i8 = getelementptr inbounds i64, ptr @multi_threads, i64 %5
+  %add.ptr.i8 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %5
   %call.i.i9 = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i8, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %worker) #8
   %cmp.i.i10 = icmp eq i32 %call.i.i9, 0
   %conv.i.i11 = zext i1 %cmp.i.i10 to i32
@@ -1510,7 +1510,7 @@ for.cond.i24:                                     ; preds = %for.body.i19
 
 for.body.i19:                                     ; preds = %for.cond.i14, %for.cond.i24
   %i.04.i = phi i64 [ %inc.i25, %for.cond.i24 ], [ 0, %for.cond.i14 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %8 = load i64, ptr %arrayidx.i, align 8
   %call.i.i20 = tail call i32 @pthread_join(i64 noundef %8, ptr noundef null) #8
   %cmp.i.i21 = icmp eq i32 %call.i.i20, 0

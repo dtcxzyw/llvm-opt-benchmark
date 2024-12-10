@@ -5787,7 +5787,7 @@ define void @_ZN16EditSelectPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonn
   %53 = getelementptr inbounds nuw [16 x float], ptr %17, i64 0, i64 %52
   %54 = shl i64 %indvars.iv.i.i.i, 2
   %55 = add nuw nsw i64 %54, %indvars.iv15.i.i.i
-  %56 = getelementptr inbounds [16 x float], ptr %17, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x float], ptr %17, i64 0, i64 %55
   %57 = load float, ptr %53, align 4, !alias.scope !62
   %58 = load float, ptr %56, align 4, !alias.scope !62
   store float %58, ptr %53, align 4, !alias.scope !62
@@ -6744,7 +6744,7 @@ _ZN7QStringD2Ev.exit202:                          ; preds = %_ZN7QStringD2Ev.exi
   %292 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %291
   %293 = shl i64 %indvars.iv.i.i.i211, 2
   %294 = add nuw nsw i64 %293, %indvars.iv15.i.i.i210
-  %295 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %294
   %296 = load float, ptr %292, align 4, !alias.scope !67
   %297 = load float, ptr %295, align 4, !alias.scope !67
   store float %297, ptr %292, align 4, !alias.scope !67

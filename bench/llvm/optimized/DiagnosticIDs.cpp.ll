@@ -699,7 +699,7 @@ define dso_local { ptr, i64 } @_ZNK5clang13DiagnosticIDs14getDescriptionEj(ptr n
   %5 = ptrtoint ptr %3 to i64
   %6 = sub i64 %5, ptrtoint (ptr @_ZN12_GLOBAL__N_114StaticDiagInfoE to i64)
   %7 = sdiv exact i64 %6, 10
-  %8 = getelementptr inbounds [6579 x i32], ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [6579 x i32], ptr @_ZN12_GLOBAL__N_132StaticDiagInfoDescriptionOffsetsE, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_126StaticDiagInfoDescriptionsE, i64 %10
@@ -758,7 +758,7 @@ _ZL19getBuiltinDiagClassj.exit.thread:            ; preds = %14, %_ZL19getBuilti
   %20 = tail call noundef i32 @_ZNK5clang13DiagnosticIDs21getDiagnosticSeverityEjNS_14SourceLocationERKNS_17DiagnosticsEngineE(ptr nonnull align 8 poison, i32 noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(1304) %3) #26
   %switch.tableidx = add nsw i32 %20, -1
   %21 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZNK5clang13DiagnosticIDs18getDiagnosticLevelEjNS_14SourceLocationERKNS_17DiagnosticsEngineE, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL7toLevelN5clang4diag8SeverityE.exit
 
@@ -1109,7 +1109,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds =
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumentationENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2, i32 3
+  %3 = getelementptr inbounds nuw [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2, i32 3
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1121,7 +1121,7 @@ define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs29getWarningOptionDocumen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN5clang13DiagnosticIDs24getWarningOptionForGroupENS_4diag5GroupE(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %2
   %.val = load i16, ptr %3, align 8
   %4 = zext i16 %.val to i64
   %5 = getelementptr inbounds nuw i8, ptr @_ZL14DiagGroupNames, i64 %4
@@ -1392,7 +1392,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit6: ; preds = %48, %51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  %52 = getelementptr inbounds [22607 x i8], ptr @_ZL14DiagGroupNames, i64 0, i64 %31
+  %52 = getelementptr inbounds nuw [22607 x i8], ptr @_ZL14DiagGroupNames, i64 0, i64 %31
   %53 = load i8, ptr %52, align 1
   %.not = icmp eq i8 %53, 0
   br i1 %.not, label %54, label %27, !llvm.loop !19
@@ -1576,7 +1576,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %25, %29
   %.030 = phi ptr [ %48, %.lr.ph32 ], [ %41, %._crit_edge ]
   %.229 = phi i1 [ %47, %.lr.ph32 ], [ %.019.lcssa, %._crit_edge ]
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [1055 x %"struct.(anonymous namespace)::WarningOption"], ptr @_ZL11OptionTable, i64 0, i64 %44
   %46 = tail call fastcc noundef zeroext i1 @_ZL21getDiagnosticsInGroupN5clang4diag6FlavorEPKN12_GLOBAL__N_113WarningOptionERN4llvm15SmallVectorImplIjEE(i32 noundef %0, ptr noundef nonnull %45, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %47 = and i1 %.229, %46
   %48 = getelementptr inbounds nuw i8, ptr %.030, i64 2

@@ -5240,7 +5240,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   %25 = load ptr, ptr %7, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 17, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7719,7 +7719,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i374:          ; preds = %_ZNK8V3Number6bitIs
 
 .noexc382:                                        ; preds = %.noexc381
   %532 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #30
-  %533 = getelementptr inbounds i8, ptr %22, i64 %532
+  %533 = getelementptr inbounds nuw i8, ptr %22, i64 %532
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %22, ptr noundef nonnull %533)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385 unwind label %534
 
@@ -20487,12 +20487,12 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
 
 .lr.ph347:                                        ; preds = %_ZNK12V3NumberData3numEv.exit264
   %359 = sext i32 %271 to i64
-  %360 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 0, i64 %359
   %361 = load i32, ptr %360, align 4
   %362 = zext i32 %361 to i64
   %363 = add nsw i32 %123, -2
   %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 0, i64 %364
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %368 = zext nneg i32 %123 to i64
@@ -20510,7 +20510,7 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
   %377 = zext i32 %376 to i64
   %378 = shl nuw i64 %377, 32
   %379 = add nsw i64 %374, -1
-  %380 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %379
   %381 = load i32, ptr %380, align 4
   %382 = zext i32 %381 to i64
   %383 = or disjoint i64 %378, %382
@@ -20518,7 +20518,7 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
   %385 = mul i64 %384, %362
   %.recomposed = urem i64 %383, %362
   %386 = add nsw i64 %374, -2
-  %387 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %386
   br label %388
 
 388:                                              ; preds = %399, %373

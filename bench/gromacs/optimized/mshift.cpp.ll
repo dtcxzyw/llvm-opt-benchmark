@@ -1143,7 +1143,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI15InteractionListEbP14E
 
 .lr.ph71:                                         ; preds = %6
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %17, i32 2
+  %18 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %17, i32 2
   %19 = icmp eq i32 %1, 64
   %20 = icmp eq ptr %4, %5
   %21 = load i32, ptr %18, align 16
@@ -2924,7 +2924,7 @@ define internal fastcc noundef zeroext i1 @_ZL9mk_igraphI7t_ilistEbP14EdgesGener
 
 .lr.ph72:                                         ; preds = %6
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %10, i32 2
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = icmp eq i32 %1, 64
   %14 = icmp eq ptr %4, %5

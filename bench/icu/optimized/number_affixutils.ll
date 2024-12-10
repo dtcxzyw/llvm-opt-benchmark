@@ -295,7 +295,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %1
   %switch.load = load i8, ptr %switch.gep, align 1
   ret i8 %switch.load
 }
@@ -423,7 +423,7 @@ switch.hole_check:                                ; preds = %if.then10
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %17 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [15 x i8], ptr @switch.table._ZN6icu_756number4impl10AffixUtils8unescapeERKNS_13UnicodeStringERNS_22FormattedStringBuilderEiRKNS1_14SymbolProviderENS6_5FieldER10UErrorCode, i64 0, i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %add11 = add nsw i32 %length.030, %position
   %call20 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %output, i32 noundef %add11, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp12, i8 %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)

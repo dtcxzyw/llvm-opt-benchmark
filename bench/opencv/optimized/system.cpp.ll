@@ -1136,7 +1136,7 @@ define void @_ZN2cv22getHardwareFeatureNameB5cxx11Ei(ptr dead_on_unwind noalias 
 
 _ZN2cvL16getHWFeatureNameEi.exit:                 ; preds = %2
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not.not = icmp eq ptr %7, null
   br i1 %.not.not, label %.thread, label %8
@@ -1210,7 +1210,7 @@ define void @_ZN2cv18getCPUFeaturesLineB5cxx11Ev(ptr dead_on_unwind noalias nonn
 _ZN2cvL20getHWFeatureNameSafeEi.exit:             ; preds = %12
   %14 = load i32, ptr %4, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   %18 = select i1 %.not.i, ptr @.str.123, ptr %17
@@ -5717,7 +5717,7 @@ _ZN2cv10HWFeatures13checkFeaturesEPKiib.exit:     ; preds = %188
   br i1 %202, label %.sink.split.sink.split.i, label %.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %196
-  %203 = getelementptr inbounds [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %197
+  %203 = getelementptr inbounds nuw [512 x ptr], ptr @_ZN2cvL16g_hwFeatureNamesE, i64 0, i64 %197
   %204 = load ptr, ptr %203, align 8
   br label %.sink.split.i
 

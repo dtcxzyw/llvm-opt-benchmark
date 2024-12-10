@@ -73,7 +73,7 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %17)
           to label %19 unwind label %24
 
@@ -145,7 +145,7 @@ define dso_local noundef range(i32 0, 3) i32 @main(i32 noundef %0, ptr nocapture
   %51 = load ptr, ptr %6, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %53
   %55 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %54)
           to label %56 unwind label %60
 

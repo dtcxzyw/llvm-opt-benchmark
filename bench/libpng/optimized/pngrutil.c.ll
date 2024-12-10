@@ -5682,7 +5682,7 @@ define void @png_do_read_interlace(ptr noundef %0, ptr noundef %1, i32 noundef %
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds [7 x i32], ptr @png_do_read_interlace.png_pass_inc, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [7 x i32], ptr @png_do_read_interlace.png_pass_inc, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = mul i32 %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 19

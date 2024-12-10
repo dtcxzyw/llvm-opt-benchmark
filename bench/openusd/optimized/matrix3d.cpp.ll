@@ -1750,7 +1750,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %74 = fadd double %71, %73
   %75 = fmul double %68, 4.000000e+00
   %76 = fdiv double %74, %75
-  %77 = getelementptr inbounds [3 x double], ptr %3, i64 0, i64 %55
+  %77 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %55
   store double %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw double, ptr %61, i64 %17
   %79 = load double, ptr %78, align 8

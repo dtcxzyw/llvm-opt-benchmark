@@ -160,7 +160,7 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString9Directive(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -472,7 +472,7 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
 96:                                               ; preds = %2
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(131) @.str.42, i8 noundef zeroext 2)
   %97 = sext i32 %0 to i64
-  %98 = getelementptr inbounds [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [42 x ptr], ptr @_ZZ17enumValueToString9DirectiveE14directiveNames, i64 0, i64 %97
   %99 = load ptr, ptr %98, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 243, ptr noundef nonnull @.str.54, ptr noundef %99, ptr noundef nonnull @.str.42, i32 noundef 243) #16
           to label %100 unwind label %101
@@ -869,7 +869,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE20DeprecatedDirec
   br i1 %.sroa.2.0.i30, label %_ZNRSt8optionalI20DeprecatedDirectivesE5valueEv.exit, label %_ZNRSt8optionalI9DirectiveE5valueEv.exit
 
 _ZNRSt8optionalI20DeprecatedDirectivesE5valueEv.exit: ; preds = %62
-  %63 = getelementptr inbounds [5 x i32], ptr @_ZZ7str2dirPcE32s_deprecatedDirectiveToDirective, i64 0, i64 %.sroa.03.0.i
+  %63 = getelementptr inbounds nuw [5 x i32], ptr @_ZZ7str2dirPcE32s_deprecatedDirectiveToDirective, i64 0, i64 %.sroa.03.0.i
   %64 = load i32, ptr %63, align 4
   br label %_ZNRSt8optionalI9DirectiveE5valueEv.exit
 
@@ -2394,7 +2394,7 @@ define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr n
 
 _Z9DS_SearchP8DirStack9Directive.exit.thread:     ; preds = %5, %2
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds [42 x ptr], ptr @_ZL9necessary, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [42 x ptr], ptr @_ZL9necessary, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 41

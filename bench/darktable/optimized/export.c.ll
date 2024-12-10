@@ -1849,7 +1849,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr nocapture readnone %1) 
 31:                                               ; preds = %30, %27
   %32 = add nsw i32 %19, 1
   %33 = sext i32 %19 to i64
-  %34 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [30 x i8], ptr %3, i64 0, i64 %33
   store i8 47, ptr %34, align 1, !tbaa !72
   br label %53
 
@@ -1869,7 +1869,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr nocapture readnone %1) 
   %41 = icmp eq i64 %15, %40
   %42 = add nsw i32 %19, 1
   %43 = sext i32 %19 to i64
-  %44 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [30 x i8], ptr %3, i64 0, i64 %43
   br i1 %41, label %45, label %46
 
 45:                                               ; preds = %39
@@ -1887,7 +1887,7 @@ define internal void @_scale_changed(ptr noundef %0, ptr nocapture readnone %1) 
 49:                                               ; preds = %47
   %50 = add nsw i32 %19, 1
   %51 = sext i32 %19 to i64
-  %52 = getelementptr inbounds [30 x i8], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [30 x i8], ptr %3, i64 0, i64 %51
   store i8 %21, ptr %52, align 1, !tbaa !72
   br label %53
 

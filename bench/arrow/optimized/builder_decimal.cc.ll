@@ -411,7 +411,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %div.i.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %rem.i.i.i.i = srem i64 %8, 8
-  %arrayidx5.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
+  %arrayidx5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
   %10 = load i8, ptr %arrayidx5.i.i.i.i, align 1
   %xor105.i.i.i.i = or i8 %10, %9
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -460,7 +460,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %div.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i.i = srem i64 %5, 8
-  %arrayidx5.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
   %7 = load i8, ptr %arrayidx5.i.i.i, align 1
   %xor105.i.i.i = or i8 %7, %6
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
@@ -488,7 +488,7 @@ entry:
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %div.i.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %rem.i.i.i.i.i = srem i64 %1, 8
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
   %3 = load i8, ptr %arrayidx5.i.i.i.i.i, align 1
   %xor105.i.i.i.i.i = or i8 %3, %2
   store i8 %xor105.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
@@ -2118,7 +2118,7 @@ do.end8:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %div.i.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %rem.i.i.i.i = srem i64 %8, 8
-  %arrayidx5.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
+  %arrayidx5.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i
   %10 = load i8, ptr %arrayidx5.i.i.i.i, align 1
   %xor105.i.i.i.i = or i8 %10, %9
   store i8 %xor105.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -2163,7 +2163,7 @@ entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %div.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i.i = srem i64 %5, 8
-  %arrayidx5.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
   %7 = load i8, ptr %arrayidx5.i.i.i, align 1
   %xor105.i.i.i = or i8 %7, %6
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
@@ -2188,7 +2188,7 @@ entry:
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %div.i.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %rem.i.i.i.i.i = srem i64 %1, 8
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
   %3 = load i8, ptr %arrayidx5.i.i.i.i.i, align 1
   %xor105.i.i.i.i.i = or i8 %3, %2
   store i8 %xor105.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1

@@ -801,7 +801,7 @@ thread-pre-split276:                              ; preds = %304, %309
   %334 = shl nuw i64 1, %333
   %335 = sdiv i32 %331, 64
   %336 = sext i32 %335 to i64
-  %337 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %336
   %338 = load i64, ptr %337, align 8
   %339 = or i64 %334, %338
   store i64 %339, ptr %337, align 8

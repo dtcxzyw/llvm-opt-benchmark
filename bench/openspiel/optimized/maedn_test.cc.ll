@@ -3006,7 +3006,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13G
           to label %1082 unwind label %.loopexit.i28
 
 1082:                                             ; preds = %._crit_edge.i.i
-  %1083 = getelementptr inbounds [11 x ptr], ptr @_ZN10open_spiel5maedn12_GLOBAL__N_137MINIMAL_WINS_EXPECTED_TERMINAL_STATESE, i64 0, i64 %indvars.iv375.i
+  %1083 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN10open_spiel5maedn12_GLOBAL__N_137MINIMAL_WINS_EXPECTED_TERMINAL_STATESE, i64 0, i64 %indvars.iv375.i
   %1084 = load ptr, ptr %1083, align 8
   store ptr %1084, ptr %70, align 8
   %1085 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef %1084) #19

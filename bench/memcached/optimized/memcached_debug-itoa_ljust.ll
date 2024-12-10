@@ -158,7 +158,7 @@ sw.bb20.i:                                        ; preds = %if.then2, %sw.bb17.
   %p.addr.8.i = phi ptr [ %p.addr.7.i, %sw.bb17.i ], [ %p, %if.then2 ]
   %u.addr.6.i = phi i32 [ %sub19.i, %sw.bb17.i ], [ %u, %if.then2 ]
   %idxprom.i32.i = sext i32 %u.addr.6.i to i64
-  %arrayidx.i33.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i
+  %arrayidx.i33.i = getelementptr inbounds nuw i16, ptr @lut, i64 %idxprom.i32.i
   %9 = load i16, ptr %arrayidx.i33.i, align 2
   store i16 %9, ptr %p.addr.8.i, align 1
   %add.ptr.i34.i = getelementptr inbounds nuw i8, ptr %p.addr.8.i, i64 2
@@ -335,7 +335,7 @@ sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.th
   %p.addr.8.i.i = phi ptr [ %p.addr.7.i.i, %sw.bb17.i.i ], [ %p.addr.0, %if.then2.i ]
   %u.addr.6.i.i = phi i32 [ %sub19.i.i, %sw.bb17.i.i ], [ %u.0, %if.then2.i ]
   %idxprom.i32.i.i = sext i32 %u.addr.6.i.i to i64
-  %arrayidx.i33.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i.i
+  %arrayidx.i33.i.i = getelementptr inbounds nuw i16, ptr @lut, i64 %idxprom.i32.i.i
   %9 = load i16, ptr %arrayidx.i33.i.i, align 2
   store i16 %9, ptr %p.addr.8.i.i, align 1
   %add.ptr.i34.i.i = getelementptr inbounds nuw i8, ptr %p.addr.8.i.i, i64 2
@@ -505,7 +505,7 @@ sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.th
   %p.addr.8.i.i = phi ptr [ %p.addr.7.i.i, %sw.bb17.i.i ], [ %p, %if.then2.i ]
   %u.addr.6.i.i = phi i32 [ %sub19.i.i, %sw.bb17.i.i ], [ %conv, %if.then2.i ]
   %idxprom.i32.i.i = sext i32 %u.addr.6.i.i to i64
-  %arrayidx.i33.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i.i
+  %arrayidx.i33.i.i = getelementptr inbounds nuw i16, ptr @lut, i64 %idxprom.i32.i.i
   %9 = load i16, ptr %arrayidx.i33.i.i, align 2
   store i16 %9, ptr %p.addr.8.i.i, align 1
   %add.ptr.i34.i.i = getelementptr inbounds nuw i8, ptr %p.addr.8.i.i, i64 2
@@ -558,7 +558,7 @@ if.end:                                           ; preds = %entry
   %mul18.neg.i = mul i32 %div15.i, -100
   %sub19.i = add i32 %mul18.neg.i, %sub13.i
   %idxprom.i32.i = sext i32 %sub19.i to i64
-  %arrayidx.i33.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i
+  %arrayidx.i33.i = getelementptr inbounds nuw i16, ptr @lut, i64 %idxprom.i32.i
   %14 = load i16, ptr %arrayidx.i33.i, align 2
   store i16 %14, ptr %add.ptr.i31.i, align 1
   %add.ptr.i34.i = getelementptr inbounds nuw i8, ptr %call3, i64 9

@@ -311,7 +311,7 @@ define hidden noundef ptr @_ZNK18RepositoryIterator15fully_qualifiedEPKc(ptr noc
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %5
   %7 = sub nsw i64 4097, %5
   %8 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef nonnull @.str, ptr noundef %1) #17
   %.not = icmp eq i32 %8, -1
@@ -342,7 +342,7 @@ define hidden noundef ptr @_ZNK18RepositoryIterator6filterEPKc(ptr nocapture nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %14
   %16 = sub nsw i64 4097, %14
   %17 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %15, i64 noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %1) #17
   %.not.i = icmp eq i32 %17, -1
@@ -656,7 +656,7 @@ define hidden noundef ptr @_ZNK18RepositoryIterator4nextEv(ptr nocapture noundef
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %15
   %17 = sub nsw i64 4097, %15
   %18 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %16, i64 noundef %17, ptr noundef nonnull @.str, ptr noundef %12) #17
   %.not.i = icmp eq i32 %18, -1
@@ -715,7 +715,7 @@ _ZNK18RepositoryIterator4nextEv.exit.i.i.lr.ph:   ; preds = %_ZNK18RepositoryIte
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load i32, ptr %18, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %21
   %23 = sub nsw i64 4097, %21
   %24 = sext i32 %.promoted to i64
   br label %_ZNK18RepositoryIterator4nextEv.exit.i.i
@@ -1288,7 +1288,7 @@ define internal fastcc noundef ptr @_ZL26create_emergency_dump_pathv() unnamed_a
 
 8:                                                ; preds = %6, %3
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZL12_path_buffer) #18
-  %10 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %9
   %11 = sub i64 4097, %9
   %12 = tail call noundef ptr @_ZN2os14file_separatorEv() #17
   %13 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull @.str, ptr noundef %12) #17
@@ -1306,7 +1306,7 @@ _ZL18get_dump_directoryv.exit:                    ; preds = %8
   %switch.select = select i1 %switch.selectcmp, ptr @_ZL19vm_soe_filename_fmt, ptr @_ZL21vm_error_filename_fmt
   %switch.selectcmp8 = icmp eq i32 %18, 1
   %switch.select9 = select i1 %switch.selectcmp8, ptr @_ZL19vm_oom_filename_fmt, ptr %switch.select
-  %19 = getelementptr inbounds i8, ptr @_ZL12_path_buffer, i64 %15
+  %19 = getelementptr inbounds nuw i8, ptr @_ZL12_path_buffer, i64 %15
   %20 = sub i64 4097, %15
   %21 = tail call noundef zeroext i1 @_ZN9Arguments15copy_expand_pidEPKcmPcm(ptr noundef nonnull %switch.select9, i64 noundef 16, ptr noundef nonnull %19, i64 noundef %20) #17
   %22 = select i1 %21, ptr @_ZL12_path_buffer, ptr null

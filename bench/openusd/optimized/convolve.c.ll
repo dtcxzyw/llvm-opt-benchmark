@@ -332,7 +332,7 @@ define hidden void @av1_convolve_2d_sobel_y_c(ptr nocapture noundef readonly %0,
 
 ._crit_edge63:                                    ; preds = %._crit_edge.us, %.preheader58.lr.ph
   %35 = sext i32 %4 to i64
-  %36 = getelementptr inbounds i16, ptr %9, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %9, i64 %35
   %37 = select i1 %.not, ptr @av1_convolve_2d_sobel_y_c.sobel_a, ptr @av1_convolve_2d_sobel_y_c.sobel_b
   %38 = icmp sgt i32 %5, 0
   %39 = icmp sgt i32 %4, 0
@@ -513,7 +513,7 @@ define hidden void @av1_convolve_2d_sr_c(ptr nocapture noundef readonly %0, i32 
 ._crit_edge:                                      ; preds = %._crit_edge97.split.us.us.us, %._crit_edge97.split.us101, %.preheader93.lr.ph, %11
   %70 = mul nsw i32 %19, %4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i16, ptr %12, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr %12, i64 %71
   %73 = and i32 %9, 15
   %.val84 = load ptr, ptr %7, align 8
   %74 = mul nuw nsw i32 %73, %15
@@ -917,7 +917,7 @@ define hidden void @av1_dist_wtd_convolve_2d_c(ptr nocapture noundef readonly %0
 ._crit_edge:                                      ; preds = %._crit_edge121.split.us.us.us, %._crit_edge121.split.us125, %.preheader117.lr.ph, %11
   %74 = mul nsw i32 %23, %4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %12, i64 %75
+  %76 = getelementptr inbounds nuw i16, ptr %12, i64 %75
   %77 = and i32 %9, 15
   %.val = load ptr, ptr %7, align 8
   %78 = mul nuw nsw i32 %77, %19
@@ -1635,7 +1635,7 @@ define hidden void @av1_convolve_2d_scale_c(ptr nocapture noundef readonly %0, i
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %92 = mul nsw i32 %34, %4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %14, i64 %93
+  %94 = getelementptr inbounds nuw i16, ptr %14, i64 %93
   %95 = sext i32 %34 to i64
   %96 = zext nneg i32 %4 to i64
   %97 = sext i32 %26 to i64
@@ -2692,7 +2692,7 @@ define hidden void @av1_highbd_convolve_2d_sr_c(ptr nocapture noundef readonly %
 ._crit_edge:                                      ; preds = %._crit_edge100.split.us.us.us, %._crit_edge100.split.us103, %.preheader95.lr.ph, %12
   %74 = mul nsw i32 %20, %4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %13, i64 %75
+  %76 = getelementptr inbounds nuw i16, ptr %13, i64 %75
   %77 = and i32 %9, 15
   %.val = load ptr, ptr %7, align 8
   %78 = mul nuw nsw i32 %77, %16
@@ -2935,7 +2935,7 @@ define hidden void @av1_highbd_dist_wtd_convolve_2d_c(ptr nocapture noundef read
 ._crit_edge:                                      ; preds = %._crit_edge124.split.us.us.us, %._crit_edge124.split.us127, %.preheader119.lr.ph, %12
   %78 = mul nsw i32 %24, %4
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i16, ptr %13, i64 %79
+  %80 = getelementptr inbounds nuw i16, ptr %13, i64 %79
   %81 = add nsw i32 %11, 14
   %82 = sub i32 %81, %28
   %83 = and i32 %9, 15
@@ -3736,7 +3736,7 @@ define hidden void @av1_highbd_convolve_2d_scale_c(ptr nocapture noundef readonl
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %96 = mul nsw i32 %25, %4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %15, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %15, i64 %97
   %99 = sext i32 %25 to i64
   %100 = zext nneg i32 %4 to i64
   %101 = sext i32 %29 to i64
@@ -4399,7 +4399,7 @@ define hidden void @av1_wiener_convolve_add_src_c(ptr nocapture noundef readonly
   %29 = add nsw i32 %28, 7
   %30 = shl nsw i32 %29, 7
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %12, i64 %31
+  %32 = getelementptr inbounds nuw i16, ptr %12, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %32, i8 0, i64 128, i1 false)
   %.neg = mul i64 %1, -3
   %33 = getelementptr inbounds i8, ptr %0, i64 %.neg

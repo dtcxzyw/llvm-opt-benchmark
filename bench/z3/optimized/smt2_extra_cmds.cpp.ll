@@ -412,7 +412,7 @@ entry:
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3badEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -423,7 +423,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont
   %vtable2 = load ptr, ptr %is, align 8
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -24
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
-  %add.ptr5 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset4
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset4
   %call7 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr5)
           to label %invoke.cont6 unwind label %lpad
 

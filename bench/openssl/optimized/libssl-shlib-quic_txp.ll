@@ -1980,7 +1980,7 @@ for.cond40.preheader.i.i:                         ; preds = %if.end35.i.i116
 
 for.body.i.i:                                     ; preds = %for.cond40.preheader.i.i, %tx_helper_append_iovec.exit.i.i
   %i.139.i.i = phi i64 [ %inc.i217.i, %tx_helper_append_iovec.exit.i.i ], [ 0, %for.cond40.preheader.i.i ]
-  %arrayidx42.i.i = getelementptr inbounds [2 x %struct.ossl_qtx_iovec_st], ptr %iov.i.i82, i64 0, i64 %i.139.i.i
+  %arrayidx42.i.i = getelementptr inbounds nuw [2 x %struct.ossl_qtx_iovec_st], ptr %iov.i.i82, i64 0, i64 %i.139.i.i
   %135 = load ptr, ptr %arrayidx42.i.i, align 16
   %buf_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx42.i.i, i64 8
   %136 = load i64, ptr %buf_len.i.i, align 8

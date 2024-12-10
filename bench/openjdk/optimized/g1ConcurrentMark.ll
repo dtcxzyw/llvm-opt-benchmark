@@ -4064,7 +4064,7 @@ _ZN7oopDesc16oop_iterate_sizeI23G1RootRegionScanClosureEEmPT_.exit: ; preds = %3
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23G1RootRegionScanClosureE6_tableE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23G1RootRegionScanClosureE6_tableE, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.011, ptr noundef nonnull %.0.i.i) #22
   %78 = getelementptr inbounds ptr, ptr %.011, i64 %.0.i4.i
@@ -4635,7 +4635,7 @@ define hidden void @_ZN16G1ConcurrentMark11print_statsEv(ptr nocapture noundef n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN16G1ConcurrentMark22verify_location_stringENS_14VerifyLocationE(i32 noundef %0) local_unnamed_addr #11 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [5 x ptr], ptr @_ZZN16G1ConcurrentMark22verify_location_stringENS_14VerifyLocationEE16location_strings, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZN16G1ConcurrentMark22verify_location_stringENS_14VerifyLocationEE16location_strings, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -4649,7 +4649,7 @@ define hidden void @_ZN16G1ConcurrentMark19verify_during_pauseEN14G1HeapVerifier
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [5 x ptr], ptr @_ZZN16G1ConcurrentMark22verify_location_stringENS_14VerifyLocationEE16location_strings, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [5 x ptr], ptr @_ZZN16G1ConcurrentMark22verify_location_stringENS_14VerifyLocationEE16location_strings, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr @VerifyDuringGC, align 1
   %14 = trunc i8 %13 to i1
@@ -10576,7 +10576,7 @@ _ZN7oopDesc16oop_iterate_sizeI14G1CMOopClosureEEmPT_.exit: ; preds = %95, %98, %
   %130 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI14G1CMOopClosureE6_tableE, i64 0, i64 %132
   %134 = load ptr, ptr %133, align 8
   tail call void %134(ptr noundef %76, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.0.i.i) #22
   br label %135

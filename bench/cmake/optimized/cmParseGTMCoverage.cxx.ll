@@ -366,7 +366,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage12ReadMCovFileEPKc(p
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %24
 
@@ -1077,7 +1077,7 @@ define dso_local noundef zeroext i1 @_ZN18cmParseGTMCoverage23FindFunctionInMump
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %12
   %14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %15 unwind label %16
 

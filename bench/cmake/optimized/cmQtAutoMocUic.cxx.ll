@@ -7448,7 +7448,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT16SettingsFileReadEv.exit: ; preds = %188, %19
   %227 = load ptr, ptr %35, align 8
   %228 = getelementptr i8, ptr %227, i64 -24
   %229 = load i64, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %35, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %35, i64 %229
   %231 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %230)
           to label %232 unwind label %233
 
@@ -8817,7 +8817,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT8InitJobsEv.exit: ; preds = %736, %_ZNKSt14def
   %780 = load ptr, ptr %19, align 8
   %781 = getelementptr i8, ptr %780, i64 -24
   %782 = load i64, ptr %781, align 8
-  %783 = getelementptr inbounds i8, ptr %19, i64 %782
+  %783 = getelementptr inbounds nuw i8, ptr %19, i64 %782
   %784 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %783)
           to label %785 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
@@ -33785,7 +33785,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %177 = load ptr, ptr %13, align 8
   %178 = getelementptr i8, ptr %177, i64 -24
   %179 = load i64, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %13, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 %179
   %181 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %180)
           to label %182 unwind label %.loopexit.split-lp
 
@@ -33921,7 +33921,7 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT4JobT11MessagePathB5cxx11ESt17basic_string_vi
   %228 = load ptr, ptr %13, align 8
   %229 = getelementptr i8, ptr %228, i64 -24
   %230 = load i64, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %13, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %13, i64 %230
   %232 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %231)
           to label %233 unwind label %.loopexit
 

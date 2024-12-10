@@ -957,7 +957,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
   %325 = load ptr, ptr %13, align 8
   %326 = getelementptr i8, ptr %325, i64 -24
   %327 = load i64, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %13, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr %13, i64 %327
   %329 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %328)
           to label %330 unwind label %.loopexit.split-lp169.i
 
@@ -989,7 +989,7 @@ _ZN5Yosys5RTLILL7id2cstrERKNS0_8IdStringE.exit.i: ; preds = %317
   %335 = load ptr, ptr %13, align 8
   %336 = getelementptr i8, ptr %335, i64 -24
   %337 = load i64, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %13, i64 %337
+  %338 = getelementptr inbounds nuw i8, ptr %13, i64 %337
   %339 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %338)
           to label %340 unwind label %.loopexit168.i
 

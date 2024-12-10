@@ -2302,7 +2302,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %17 = or i32 %.027.lcssa.i, %16
   %18 = add nsw i32 %.02629.i, 1
   %19 = sext i32 %.02629.i to i64
-  %20 = getelementptr inbounds i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
   store i32 %17, ptr %20, align 4
   %21 = getelementptr inbounds nuw i32, ptr %1, i64 %.pre-phi.i
   %22 = load i32, ptr %21, align 4
@@ -2371,7 +2371,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i11, %.threa
   %38 = load i32, ptr %37, align 4
   %39 = ashr i32 %38, 16
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %38, 65535
   %44 = zext nneg i32 %43 to i64
@@ -2506,7 +2506,7 @@ Abc_ZddCombPrint.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %39 = load i32, ptr %38, align 4
   %40 = ashr i32 %39, 16
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %5, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %39, 65535
   %45 = zext nneg i32 %44 to i64
@@ -3139,7 +3139,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %35 = or i32 %.027.lcssa.i, %34
   %36 = add nsw i32 %.02629.i, 1
   %37 = sext i32 %.02629.i to i64
-  %38 = getelementptr inbounds i32, ptr %3, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %3, i64 %37
   store i32 %35, ptr %38, align 4
   %39 = getelementptr inbounds nuw i32, ptr %20, i64 %.pre-phi.i
   %40 = load i32, ptr %39, align 4
@@ -3245,7 +3245,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
   %66 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv29.i.i
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %.024.i.i to i64
-  %69 = getelementptr inbounds i32, ptr %3, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %3, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %67, %70
   %72 = trunc nuw nsw i64 %indvars.iv29.i.i to i32
@@ -3259,7 +3259,7 @@ Abc_ZddPermPrint.exit73:                          ; preds = %.lr.ph.i69
   %73 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv32.i.i
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %spec.select.i.i to i64
-  %76 = getelementptr inbounds i32, ptr %3, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %3, i64 %75
   %77 = load i32, ptr %76, align 4
   store i32 %77, ptr %73, align 4
   store i32 %74, ptr %76, align 4
@@ -3633,13 +3633,13 @@ Abc_Clock.exit71:                                 ; preds = %Abc_ZddManCreatePer
   %64 = load i32, ptr %63, align 8
   %65 = add nsw i32 %64, -1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, -1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [24 x i32], ptr %6, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i32], ptr %6, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %67, align 4
   store i32 %68, ptr %73, align 4
@@ -3682,7 +3682,7 @@ split.i:                                          ; preds = %.preheader.i, %._cr
   %86 = or i32 %.027.lcssa.i, %85
   %87 = add nsw i32 %.02629.i, 1
   %88 = sext i32 %.02629.i to i64
-  %89 = getelementptr inbounds i32, ptr %5, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %88
   store i32 %86, ptr %89, align 4
   %90 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi.i
   %91 = load i32, ptr %90, align 4
@@ -3729,7 +3729,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   %103 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv29.i.i
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %.024.i.i to i64
-  %106 = getelementptr inbounds i32, ptr %5, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %5, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = icmp slt i32 %104, %107
   %109 = trunc nuw nsw i64 %indvars.iv29.i.i to i32
@@ -3743,7 +3743,7 @@ Abc_ZddPerm2Comb.exit:                            ; preds = %Abc_ZddPerm2Comb.ex
   %110 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv32.i.i
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %spec.select.i.i to i64
-  %113 = getelementptr inbounds i32, ptr %5, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %112
   %114 = load i32, ptr %113, align 4
   store i32 %114, ptr %110, align 4
   store i32 %111, ptr %113, align 4

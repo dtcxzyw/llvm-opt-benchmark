@@ -706,7 +706,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i8
   %13 = or disjoint i8 %12, 48
-  %14 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.021
+  %14 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %.021
   store i8 %13, ptr %14, align 1
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
@@ -718,7 +718,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
 
 17:                                               ; preds = %16
   %18 = add i64 %.122, 1
-  %19 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %.122
+  %19 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %.122
   store i8 45, ptr %19, align 1
   br label %20
 
@@ -731,7 +731,7 @@ define void @_Z4itoalPcm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %.028 = phi i64 [ %26, %.lr.ph ], [ 0, %20 ]
   %21 = xor i64 %.028, -1
   %22 = add i64 %.2, %21
-  %23 = getelementptr inbounds [50 x i8], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [50 x i8], ptr %4, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = getelementptr inbounds i8, ptr %1, i64 %.028
   store i8 %24, ptr %25, align 1
@@ -766,7 +766,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %11 = urem i64 %.1, 10
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = or disjoint i32 %12, 48
-  %14 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.021
+  %14 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.021
   store i32 %13, ptr %14, align 4
   %15 = udiv i64 %.1, 10
   %.not27 = icmp samesign ult i64 %.1, 10
@@ -778,7 +778,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
 
 17:                                               ; preds = %16
   %18 = add i64 %.122, 1
-  %19 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.122
+  %19 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.122
   store i32 45, ptr %19, align 4
   br label %20
 
@@ -791,7 +791,7 @@ define void @_Z4itoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, i64
   %.028 = phi i64 [ %26, %.lr.ph ], [ 0, %20 ]
   %21 = xor i64 %.028, -1
   %22 = add i64 %.2, %21
-  %23 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i32, ptr %1, i64 %.028
   store i32 %24, ptr %25, align 4
@@ -846,7 +846,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, 
 
 22:                                               ; preds = %21
   %23 = add i64 %.122.i, 1
-  %24 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %.122.i
+  %24 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %.122.i
   store i32 45, ptr %24, align 4
   br label %25
 
@@ -859,7 +859,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, 
   %.028.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %25 ]
   %26 = xor i64 %.028.i, -1
   %27 = add nsw i64 %.2.i, %26
-  %28 = getelementptr inbounds [50 x i32], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [50 x i32], ptr %4, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i32, ptr %5, i64 %.028.i
   store i32 %29, ptr %30, align 4
@@ -868,7 +868,7 @@ define void @_Z7fmtitoalPwm(i64 noundef %0, ptr nocapture noundef writeonly %1, 
   br i1 %exitcond30.not.i, label %_Z4itoalPwm.exit, label %.lr.ph.i, !llvm.loop !18
 
 _Z4itoalPwm.exit:                                 ; preds = %.lr.ph.i, %25
-  %32 = getelementptr inbounds i32, ptr %5, i64 %.2.i
+  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.i
   store i32 0, ptr %32, align 4
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
   %33 = load i32, ptr %5, align 16

@@ -1108,7 +1108,7 @@ _ZN7oopDesc11oop_iterateI27PCIterateMarkAndPushClosureEEvPT_.exit.i: ; preds = %
   %61 = phi i32 [ %49, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %53, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %.0.i.i5.i = phi ptr [ %47, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %51, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ]
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPushClosureE6_tableE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI27PCIterateMarkAndPushClosureE6_tableE, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %.0.i.i5.i) #25
   br label %_ZN20ParCompactionManager15follow_contentsEP7oopDesc.exit
@@ -6314,7 +6314,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i.i:                ; preds = %40, %30
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %.0.i.i.i.i.i, ptr %11, i64 %84) #25
   %90 = getelementptr inbounds ptr, ptr %26, i64 %.0.i6.i.i.i.i
@@ -6483,7 +6483,7 @@ _ZNK7oopDesc5klassEv.exit.i.i24.i.i:              ; preds = %151, %141
   %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i25.i.i, i64 12
   %194 = load i32, ptr %193, align 4
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   tail call void %197(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull %.0.i.i.i25.i.i, ptr %11, i64 %95) #25
   %198 = getelementptr inbounds ptr, ptr %136, i64 %.0.i6.i.i26.i.i
@@ -6682,7 +6682,7 @@ _ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i: ; preds =
   %116 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI22PCAdjustPointerClosureE6_tableE, i64 0, i64 %118
   %120 = load ptr, ptr %119, align 8
   tail call void %120(ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %.0.i.i.i.i) #25
   %121 = getelementptr inbounds ptr, ptr %59, i64 %.0.i4.i.i.i

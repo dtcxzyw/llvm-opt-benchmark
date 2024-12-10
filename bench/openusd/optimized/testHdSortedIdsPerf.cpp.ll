@@ -5546,7 +5546,7 @@ define internal fastcc void @"_ZZL13_GetInitPathsvENK3$_0clEv"() unnamed_addr #5
 
 .noexc25:                                         ; preds = %.noexc
   %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %19 = getelementptr inbounds i8, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1, ptr noundef nonnull %19)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %20
 

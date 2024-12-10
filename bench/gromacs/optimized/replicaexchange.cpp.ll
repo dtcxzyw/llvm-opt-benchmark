@@ -648,7 +648,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
   %221 = load i32, ptr %99, align 4
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %222
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds [4 x ptr], ptr %198, i64 0, i64 %222
   %226 = load ptr, ptr %225, align 8
@@ -678,7 +678,7 @@ define noundef ptr @_Z21init_replica_exchangeP8_IO_FILEPK14gmx_multisim_tiPK10t_
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 1 dereferenceable(131) @.str.1, i8 noundef zeroext 2)
   %239 = load i32, ptr %99, align 4
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZL17enumValueToString19ReplicaExchangeType.replicateExchangeTypeNames, i64 0, i64 %240
   %242 = load ptr, ptr %241, align 8
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef 389, ptr noundef nonnull @.str.27, ptr noundef %242) #20
           to label %243 unwind label %244

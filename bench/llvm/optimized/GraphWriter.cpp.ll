@@ -623,7 +623,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit119: ; preds = %81
   call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef 32) #17
   %.sroa.11.2 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   %93 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #15
   store ptr %switch.load, ptr %.sroa.11.2, align 8
@@ -676,7 +676,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit119: ; preds = %81
 
 switch.lookup:                                    ; preds = %119, %117
   %120 = sext i32 %3 to i64
-  %switch.gep532 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %120
+  %switch.gep532 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 0, i64 %120
   %switch.load533 = load ptr, ptr %switch.gep532, align 8
   %121 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load533) #15
   %122 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvm9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull %switch.load533, i64 %121, ptr noundef nonnull align 8 dereferenceable(32) %11)

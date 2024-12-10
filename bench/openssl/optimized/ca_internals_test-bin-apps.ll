@@ -5815,7 +5815,7 @@ for.body13:                                       ; preds = %for.body.preheader,
   %shl = shl nuw i64 1, %sh_prom
   %div = sdiv i32 %2, 64
   %idxprom23 = sext i32 %div to i64
-  %arrayidx24 = getelementptr inbounds [16 x i64], ptr %asyncfds, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw [16 x i64], ptr %asyncfds, i64 0, i64 %idxprom23
   %3 = load i64, ptr %arrayidx24, align 8
   %or = or i64 %shl, %3
   store i64 %or, ptr %arrayidx24, align 8

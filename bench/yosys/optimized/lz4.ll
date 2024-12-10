@@ -1565,7 +1565,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
   br i1 %140, label %141, label %160
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds [8 x i64], ptr %12, i64 0, i64 %139
+  %142 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %139
   %143 = load i64, ptr %142, align 8
   %144 = load i8, ptr %93, align 1
   store i8 %144, ptr %70, align 1
@@ -1581,7 +1581,7 @@ _ZL12LZ4_wildCopyPvPKvS_.exit:                    ; preds = %86
   %152 = load i8, ptr %151, align 1
   %153 = getelementptr inbounds nuw i8, ptr %70, i64 3
   store i8 %152, ptr %153, align 1
-  %154 = getelementptr inbounds [8 x i64], ptr @__const._ZL22LZ4_decompress_genericPKcPciiiiiiPKhS3_m.dec32table, i64 0, i64 %139
+  %154 = getelementptr inbounds nuw [8 x i64], ptr @__const._ZL22LZ4_decompress_genericPKcPciiiiiiPKhS3_m.dec32table, i64 0, i64 %139
   %155 = load i64, ptr %154, align 8
   %156 = getelementptr inbounds i8, ptr %93, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %70, i64 4

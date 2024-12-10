@@ -1502,7 +1502,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt5IsValEPKcPiPd(ptr noundef %
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %24 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %23)
           to label %25 unwind label %30
 
@@ -1534,7 +1534,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt5IsValEPKcPiPd(ptr noundef %
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 %37
   %39 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %38)
           to label %40 unwind label %30
 

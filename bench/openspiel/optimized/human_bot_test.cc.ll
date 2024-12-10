@@ -3061,7 +3061,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit:
           to label %12 unwind label %25
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %10
   %14 = invoke noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %13, ptr noundef %11)
           to label %15 unwind label %25
 

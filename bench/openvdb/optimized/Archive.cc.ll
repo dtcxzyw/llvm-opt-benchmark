@@ -19063,7 +19063,7 @@ entry:
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset
   %_M_word_size.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 192
   %0 = load i32, ptr %_M_word_size.i, align 8
   %cmp.i = icmp ult i32 %call, %0
@@ -19090,7 +19090,7 @@ _ZNSt8ios_base5iwordEi.exit:                      ; preds = %cond.true.i, %cond.
   store i64 6216166092331827744, ptr %_M_iword.i, align 8
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
-  %add.ptr7 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset6
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset6
   %_M_word_size.i16 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 192
   %3 = load i32, ptr %_M_word_size.i16, align 8
   %cmp.i17 = icmp ult i32 %2, %3
@@ -19123,7 +19123,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
   %vbase.offset13 = load i64, ptr %vbase.offset.ptr12, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset13
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset13
   %_M_word_size.i25 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 192
   %6 = load i32, ptr %_M_word_size.i25, align 8
   %7 = zext i32 %6 to i64
@@ -19161,7 +19161,7 @@ land.lhs.true:                                    ; preds = %_ZNSt8ios_base5iwor
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %vbase.offset.ptr19 = getelementptr i8, ptr %vtable18, i64 -24
   %vbase.offset20 = load i64, ptr %vbase.offset.ptr19, align 8
-  %add.ptr21 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset20
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset20
   %_M_word_size.i36 = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 192
   %14 = load i32, ptr %_M_word_size.i36, align 8
   %cmp.i37 = icmp ugt i32 %14, %13
@@ -19188,7 +19188,7 @@ if.then24:                                        ; preds = %_ZNSt8ios_base5pwor
   %vtable25 = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr26 = getelementptr i8, ptr %vtable25, i64 -24
   %vbase.offset27 = load i64, ptr %vbase.offset.ptr26, align 8
-  %add.ptr28 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset27
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset27
   %_M_word_size.i46 = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 192
   %17 = load i32, ptr %_M_word_size.i46, align 8
   %cmp.i47 = icmp ugt i32 %17, %13
@@ -19285,7 +19285,7 @@ entry:
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset
   %0 = load i32, ptr %this, align 4
   %_M_word_size.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 192
   %1 = load i32, ptr %_M_word_size.i, align 8
@@ -19314,7 +19314,7 @@ invoke.cont:                                      ; preds = %cond.false.i.invoke
   store i64 0, ptr %_M_iword.i, align 8
   %vbase.offset.ptr3 = getelementptr i8, ptr %vtable2, i64 -24
   %vbase.offset4 = load i64, ptr %vbase.offset.ptr3, align 8
-  %add.ptr5 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset4
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset4
   %3 = load i32, ptr %this, align 4
   %_M_word_size.i2 = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 192
   %4 = load i32, ptr %_M_word_size.i2, align 8
@@ -26209,7 +26209,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -26235,7 +26235,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -33755,7 +33755,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -33781,7 +33781,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -41186,7 +41186,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -41212,7 +41212,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -48930,7 +48930,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -48956,7 +48956,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -56838,7 +56838,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -56864,7 +56864,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -64440,7 +64440,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -64466,7 +64466,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 
@@ -72643,7 +72643,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   %vtable = load ptr, ptr %is, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %is, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset
   %meta = getelementptr inbounds nuw i8, ptr %4, i64 32
   invoke void @_ZN7openvdb5v11_02io20setStreamMetadataPtrERSt8ios_baseRSt10shared_ptrINS1_14StreamMetadataEEb(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %meta, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad13
@@ -72669,7 +72669,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
   %vtable27 = load ptr, ptr %is, align 8
   %vbase.offset.ptr28 = getelementptr i8, ptr %vtable27, i64 -24
   %vbase.offset29 = load i64, ptr %vbase.offset.ptr28, align 8
-  %add.ptr30 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset29
+  %add.ptr30 = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset29
   %call32 = invoke noundef zeroext i1 @_ZN7openvdb5v11_02io12getHalfFloatERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr30)
           to label %invoke.cont31 unwind label %lpad17
 

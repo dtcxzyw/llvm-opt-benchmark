@@ -2804,7 +2804,7 @@ Vec_IntGrow.exit.i:                               ; preds = %33, %24
 Vec_IntFind.exit.us:                              ; preds = %47, %._crit_edge.loopexit.split.loop.exit12.i.us
   %.07.i.us = phi i64 [ %48, %._crit_edge.loopexit.split.loop.exit12.i.us ], [ -1, %47 ]
   %49 = and i32 %41, 1
-  %50 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i.us
+  %50 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i.us
   %51 = load i64, ptr %50, align 8
   %sext = add nsw i32 %49, -1
   %52 = sext i32 %sext to i64
@@ -8117,7 +8117,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr nocapture noundef readnone %0, i32 nounde
   %35 = xor i64 %34, %32
   %36 = add nsw i32 %.196145.us, 1
   %37 = sext i32 %.196145.us to i64
-  %38 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [64 x i64], ptr %9, i64 0, i64 %37
   store i64 %35, ptr %38, align 8
   br label %39
 

@@ -214,7 +214,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = load i8, ptr %up.029, align 1
   %conv6 = zext i8 %5 to i32
   %6 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %6
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %6
   %7 = load i32, ptr %arrayidx, align 4
   %mul = mul i32 %7, %conv6
   %add = add i32 %mul, %hi.030
@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = load i8, ptr %up.022, align 1
   %conv23 = zext i8 %4 to i32
   %5 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %5
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %5
   %6 = load i32, ptr %arrayidx, align 4
   %mul = mul i32 %6, %conv23
   %add = add i32 %mul, %hi.023
@@ -362,7 +362,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
   br label %cond.end
@@ -439,7 +439,7 @@ if.end36:                                         ; preds = %lor.lhs.false, %if.
 
 cond.true40:                                      ; preds = %if.end36
   %idxprom42 = sext i32 %6 to i64
-  %arrayidx43 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom42
   %7 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %7 to i32
   br label %cond.end50
@@ -1394,7 +1394,7 @@ if.else220:                                       ; preds = %if.end209
 
 cond.end:                                         ; preds = %if.else220
   %idxprom = sext i32 %d.4 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %34 = load i8, ptr %arrayidx, align 1
   %conv222 = zext i8 %34 to i32
   %35 = add nsw i64 %idxprom, -46
@@ -1923,7 +1923,7 @@ if.end.i:                                         ; preds = %if.then49
 
 if.then2.i:                                       ; preds = %if.end.i
   %idxprom.i = sext i32 %sub40 to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i, align 4
   %15 = trunc i32 %14 to i8
   %conv3.i = mul i8 %11, %15
@@ -1936,7 +1936,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 cond.true.i:                                      ; preds = %if.end5.i
   %idxprom7.i = sext i32 %9 to i64
-  %arrayidx8.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i
+  %arrayidx8.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i
   %16 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %16 to i32
   br label %cond.end.i
@@ -1954,7 +1954,7 @@ cond.end21.i:                                     ; preds = %cond.end.i
 
 cond.true26.i:                                    ; preds = %cond.end.i
   %idxprom14.i = sext i32 %sub40 to i64
-  %arrayidx15.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14.i
   %17 = load i8, ptr %arrayidx15.i, align 1
   %idx.ext2352.i = zext i8 %17 to i64
   %conv29.i = zext i8 %17 to i32
@@ -2007,12 +2007,12 @@ cond.end56.i:                                     ; preds = %cond.true46.i, %if.
 
 for.body63.lr.ph.i:                               ; preds = %cond.end56.i
   %idxprom65.i = sext i32 %sub39.i to i64
-  %arrayidx66.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
   %20 = load i32, ptr %arrayidx66.i, align 4
-  %arrayidx71.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
+  %arrayidx71.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
   %21 = load i32, ptr %arrayidx71.i, align 4
   %idxprom80.i = sext i32 %sub38.i to i64
-  %arrayidx81.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
+  %arrayidx81.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
   %22 = load i32, ptr %arrayidx81.i, align 4
   br label %for.body63.i
 
@@ -2303,7 +2303,7 @@ if.end.i:                                         ; preds = %if.then97, %if.end1
 if.then2.i:                                       ; preds = %if.end.i
   %20 = load i8, ptr %lsu69.ptr, align 1
   %idxprom.i = sext i32 %sub111390 to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i, align 4
   %22 = trunc i32 %21 to i8
   %conv3.i = mul i8 %20, %22
@@ -2316,7 +2316,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 cond.true.i:                                      ; preds = %if.end5.i
   %idxprom7.i = sext i32 %19 to i64
-  %arrayidx8.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i
+  %arrayidx8.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i
   %23 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %23 to i32
   br label %cond.end.i
@@ -2334,7 +2334,7 @@ cond.end21.i:                                     ; preds = %cond.end.i
 
 cond.true26.i:                                    ; preds = %cond.end.i
   %idxprom14.i = sext i32 %sub111390 to i64
-  %arrayidx15.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14.i
   %24 = load i8, ptr %arrayidx15.i, align 1
   %idx.ext2352.i = zext i8 %24 to i64
   %conv29.i = zext i8 %24 to i32
@@ -2386,12 +2386,12 @@ cond.end56.i:                                     ; preds = %cond.true46.i, %if.
 
 for.body63.lr.ph.i:                               ; preds = %cond.end56.i
   %idxprom65.i = sext i32 %25 to i64
-  %arrayidx66.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
   %28 = load i32, ptr %arrayidx66.i, align 4
-  %arrayidx71.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
+  %arrayidx71.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
   %29 = load i32, ptr %arrayidx71.i, align 4
   %idxprom80.i = sext i32 %sub38.i to i64
-  %arrayidx81.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
+  %arrayidx81.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
   %30 = load i32, ptr %arrayidx81.i, align 4
   br label %for.body63.i
 
@@ -2570,7 +2570,7 @@ land.lhs.true191:                                 ; preds = %if.then185
 
 lor.lhs.false:                                    ; preds = %land.lhs.true191
   %idxprom = sext i32 %51 to i64
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom
   %52 = load i32, ptr %arrayidx, align 4
   %cmp195 = icmp slt i32 %add189, %52
   br i1 %cmp195, label %if.then196, label %if.end297
@@ -2612,7 +2612,7 @@ if.end215:                                        ; preds = %if.then213, %if.the
 
 cond.true:                                        ; preds = %if.end215
   %idxprom224 = sext i32 %53 to i64
-  %arrayidx225 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom224
+  %arrayidx225 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom224
   %54 = load i8, ptr %arrayidx225, align 1
   %conv226 = zext i8 %54 to i32
   br label %cond.end
@@ -2708,7 +2708,7 @@ if.end5.i263:                                     ; preds = %if.end.i260
 
 cond.true.i342:                                   ; preds = %if.end5.i263
   %idxprom7.i343 = sext i32 %63 to i64
-  %arrayidx8.i344 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i343
+  %arrayidx8.i344 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7.i343
   %67 = load i8, ptr %arrayidx8.i344, align 1
   %conv9.i345 = zext i8 %67 to i32
   br label %cond.end.i265
@@ -2775,12 +2775,12 @@ cond.end56.i283:                                  ; preds = %cond.true46.i325, %
 
 for.body63.lr.ph.i289:                            ; preds = %cond.end56.i283
   %idxprom65.i290 = sext i32 %sub39.i279 to i64
-  %arrayidx66.i291 = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i290
+  %arrayidx66.i291 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i290
   %71 = load i32, ptr %arrayidx66.i291, align 4
-  %arrayidx71.i292 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i290
+  %arrayidx71.i292 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i290
   %72 = load i32, ptr %arrayidx71.i292, align 4
   %idxprom80.i293 = sext i32 %sub38.i278 to i64
-  %arrayidx81.i294 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i293
+  %arrayidx81.i294 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i293
   %73 = load i32, ptr %arrayidx81.i294, align 4
   br label %for.body63.i295
 
@@ -2869,7 +2869,7 @@ cond.end291:                                      ; preds = %if.end278, %cond.tr
   %cond292 = phi i32 [ %79, %cond.true281 ], [ %padding.1, %if.end278 ]
   %sub294 = sub nsw i32 %padding.1, %cond292
   %idxprom295 = sext i32 %sub294 to i64
-  %arrayidx296 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom295
+  %arrayidx296 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom295
   %80 = load i32, ptr %arrayidx296, align 4
   br label %if.end297
 
@@ -2903,7 +2903,7 @@ if.then316:                                       ; preds = %lor.lhs.false312, %
 
 cond.true318:                                     ; preds = %if.then316
   %idxprom319 = sext i32 %maxdigits.0 to i64
-  %arrayidx320 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom319
+  %arrayidx320 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom319
   %83 = load i8, ptr %arrayidx320, align 1
   %conv321 = zext i8 %83 to i32
   br label %cond.end326
@@ -2943,7 +2943,7 @@ if.end342:                                        ; preds = %if.then333, %cond.e
 
 cond.true353:                                     ; preds = %if.end342
   %idxprom355 = sext i32 %87 to i64
-  %arrayidx356 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom355
+  %arrayidx356 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom355
   %88 = load i8, ptr %arrayidx356, align 1
   %conv357 = zext i8 %88 to i32
   br label %cond.end363
@@ -2957,7 +2957,7 @@ cond.end363:                                      ; preds = %if.end342, %cond.tr
 
 cond.true369:                                     ; preds = %cond.end363
   %idxprom371 = sext i32 %89 to i64
-  %arrayidx372 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom371
+  %arrayidx372 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom371
   %90 = load i8, ptr %arrayidx372, align 1
   %conv373 = zext i8 %90 to i32
   br label %cond.end379
@@ -3039,7 +3039,7 @@ if.end420:                                        ; preds = %if.end418, %if.end3
 
 cond.true425:                                     ; preds = %if.end420
   %idxprom427 = sext i32 %99 to i64
-  %arrayidx428 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom427
+  %arrayidx428 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom427
   %100 = load i8, ptr %arrayidx428, align 1
   %conv429 = zext i8 %100 to i32
   br label %cond.end435
@@ -3205,7 +3205,7 @@ if.end:                                           ; preds = %lor.lhs.false10
 
 cond.true:                                        ; preds = %if.end
   %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
   %conv26 = zext i8 %5 to i32
   br label %cond.end
@@ -3221,7 +3221,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 
 cond.true31:                                      ; preds = %cond.end
   %idxprom33 = sext i32 %6 to i64
-  %arrayidx34 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
   %7 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %7 to i32
   br label %cond.end41
@@ -3241,7 +3241,7 @@ cond.end76.thread:                                ; preds = %cond.end41
 
 cond.end76:                                       ; preds = %cond.end41
   %idxprom50 = sext i32 %8 to i64
-  %arrayidx51 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
   %9 = load i8, ptr %arrayidx51, align 1
   %idx.ext6070 = zext i8 %9 to i64
   %conv70 = zext i8 %9 to i32
@@ -3543,7 +3543,7 @@ if.else71:                                        ; preds = %if.else60
 
 cond.true:                                        ; preds = %if.else71
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   %conv74 = zext i8 %7 to i32
   br label %cond.end
@@ -3557,7 +3557,7 @@ cond.end:                                         ; preds = %if.else71, %cond.tr
 
 cond.true80:                                      ; preds = %cond.end
   %idxprom82 = sext i32 %8 to i64
-  %arrayidx83 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom82
+  %arrayidx83 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom82
   %9 = load i8, ptr %arrayidx83, align 1
   %conv84 = zext i8 %9 to i32
   br label %cond.end90
@@ -3927,7 +3927,7 @@ if.then:                                          ; preds = %entry
 
 cond.end:                                         ; preds = %if.then
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv3 = zext i8 %2 to i32
   %3 = add nsw i64 %idxprom, -38
@@ -4021,7 +4021,7 @@ if.then26:                                        ; preds = %if.end21
 
 cond.end40:                                       ; preds = %if.then26
   %idxprom32 = sext i32 %17 to i64
-  %arrayidx33 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom32
   %18 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %18 to i32
   %19 = add nsw i64 %idxprom32, -38
@@ -4567,7 +4567,7 @@ cond.end.thread:                                  ; preds = %if.end170
 
 cond.end:                                         ; preds = %if.end170
   %idxprom = sext i32 %add171 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %33 = load i8, ptr %arrayidx, align 1
   %conv178 = zext i8 %33 to i64
   %34 = add i32 %0, -47
@@ -4606,7 +4606,7 @@ if.end188:                                        ; preds = %if.then180.if.end18
 
 cond.true198:                                     ; preds = %if.end188
   %idxprom199 = sext i32 %spec.select to i64
-  %arrayidx200 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom199
+  %arrayidx200 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom199
   %38 = load i8, ptr %arrayidx200, align 1
   %conv201 = zext i8 %38 to i32
   br label %cond.end206
@@ -4650,7 +4650,7 @@ if.end227:                                        ; preds = %if.then218.if.end22
 
 cond.end243:                                      ; preds = %if.end227
   %idxprom235 = sext i32 %40 to i64
-  %arrayidx236 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom235
+  %arrayidx236 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom235
   %41 = load i8, ptr %arrayidx236, align 1
   %conv237 = zext i8 %41 to i32
   %cmp250.not438 = icmp eq i32 %40, 0
@@ -4691,7 +4691,7 @@ for.end257:                                       ; preds = %for.body254.prehead
 
 cond.true260:                                     ; preds = %for.end257
   %idxprom262 = sext i32 %51 to i64
-  %arrayidx263 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom262
+  %arrayidx263 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom262
   %52 = load i8, ptr %arrayidx263, align 1
   %conv264 = zext i8 %52 to i32
   br label %cond.end270
@@ -4762,7 +4762,7 @@ if.then312:                                       ; preds = %for.end308
 
 cond.true315:                                     ; preds = %if.then312
   %idxprom317 = sext i32 %58 to i64
-  %arrayidx318 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom317
+  %arrayidx318 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom317
   %59 = load i8, ptr %arrayidx318, align 1
   %conv319 = zext i8 %59 to i32
   br label %cond.end325
@@ -4793,7 +4793,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 cond.end.i:                                       ; preds = %if.end3.i
   %idxprom.i = sext i32 %cut.0 to i64
-  %arrayidx.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom.i
   %60 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %60 to i32
   %sub5.i = add nsw i32 %conv.i, -1
@@ -4825,7 +4825,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 cond.true29.i:                                    ; preds = %cond.end.i
   %idxprom31.i = sext i32 %sub5.i to i64
-  %arrayidx32.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31.i
   %62 = load i8, ptr %arrayidx32.i, align 1
   %63 = zext i8 %62 to i64
   %add.ptr42.i = getelementptr inbounds nuw i8, ptr %var1.0, i64 %63
@@ -4833,7 +4833,7 @@ cond.true29.i:                                    ; preds = %cond.end.i
   %conv45.i = zext i8 %64 to i32
   %shr.i = lshr i32 %conv45.i, %sub7.i
   %idxprom46.i = sext i32 %sub7.i to i64
-  %arrayidx47.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46.i
+  %arrayidx47.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46.i
   %65 = load i32, ptr %arrayidx47.i, align 4
   %mul48.i = mul i32 %shr.i, %65
   %shr49.i = lshr i32 %mul48.i, 17
@@ -4847,10 +4847,10 @@ cond.true29.i:                                    ; preds = %cond.end.i
   br i1 %cmp5460.i, label %_ZL15decShiftToLeastPhii.exit, label %if.end56.lr.ph.i
 
 if.end56.lr.ph.i:                                 ; preds = %cond.true29.i
-  %arrayidx66.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46.i
+  %arrayidx66.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46.i
   %66 = load i32, ptr %arrayidx66.i, align 4
   %idxprom71.i = sext i32 %sub52.i to i64
-  %arrayidx72.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71.i
+  %arrayidx72.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71.i
   %67 = load i32, ptr %arrayidx72.i, align 4
   br label %if.end56.i
 
@@ -5200,7 +5200,7 @@ _ZL12decGetDigitsPhi.exit:                        ; preds = %for.body.i394, %if.
 
 cond.true546:                                     ; preds = %_ZL12decGetDigitsPhi.exit
   %idxprom547 = sext i32 %digits.0.lcssa.i to i64
-  %arrayidx548 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom547
+  %arrayidx548 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom547
   %107 = load i8, ptr %arrayidx548, align 1
   %conv549 = zext i8 %107 to i32
   br label %cond.end554
@@ -5220,7 +5220,7 @@ if.then565:                                       ; preds = %cond.end554
 
 cond.true571:                                     ; preds = %if.then565
   %idxprom573 = sext i32 %108 to i64
-  %arrayidx574 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom573
+  %arrayidx574 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom573
   %109 = load i8, ptr %arrayidx574, align 1
   %conv575 = zext i8 %109 to i32
   br label %cond.end581
@@ -5299,7 +5299,7 @@ if.else626:                                       ; preds = %if.end634, %for.con
   %117 = load i8, ptr %up.1.lcssa, align 1
   %conv627 = zext i8 %117 to i32
   %idxprom628 = sext i32 %quotdigits.0.lcssa to i64
-  %arrayidx629 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom628
+  %arrayidx629 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom628
   %118 = load i32, ptr %arrayidx629, align 4
   %sub630 = add i32 %118, -1
   %cmp631.not = icmp eq i32 %sub630, %conv627
@@ -5326,7 +5326,7 @@ if.end643:                                        ; preds = %if.then621, %if.the
 
 cond.true652:                                     ; preds = %if.end643
   %idxprom654 = sext i32 %121 to i64
-  %arrayidx655 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom654
+  %arrayidx655 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom654
   %122 = load i8, ptr %arrayidx655, align 1
   %conv656 = zext i8 %122 to i32
   br label %cond.end662
@@ -5692,7 +5692,7 @@ if.end.i154:                                      ; preds = %if.then47
 
 if.then2.i:                                       ; preds = %if.end.i154
   %idxprom.i160 = sext i32 %sub49 to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i160
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i160
   %14 = load i32, ptr %arrayidx.i, align 4
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %lsu.i152, align 1
@@ -5741,12 +5741,12 @@ cond.end56.i:                                     ; preds = %cond.true46.i, %if.
   %add.ptr59.i = getelementptr inbounds nuw i8, ptr %lsu.i152, i64 %idx.ext58.i
   %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr59.i, i64 -1
   %idxprom65.i = sext i32 %sub39.i to i64
-  %arrayidx66.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
   %18 = load i32, ptr %arrayidx66.i, align 4
-  %arrayidx71.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
+  %arrayidx71.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
   %19 = load i32, ptr %arrayidx71.i, align 4
   %idxprom80.i = sext i32 %sub38.i to i64
-  %arrayidx81.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
+  %arrayidx81.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
   %20 = load i32, ptr %arrayidx81.i, align 4
   %scevgep = getelementptr i8, ptr %res, i64 %add.ptr11.i.ptr.ptr.add
   %shr.i = lshr i32 1, %sub39.i
@@ -5849,7 +5849,7 @@ if.then95:                                        ; preds = %if.else78
 
 cond.true99:                                      ; preds = %if.then95
   %idxprom = sext i32 %26 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %30 = load i8, ptr %arrayidx, align 1
   %conv101 = zext i8 %30 to i32
   br label %cond.end106
@@ -5895,7 +5895,7 @@ if.end124:                                        ; preds = %if.end121, %if.else
 
 cond.true138:                                     ; preds = %if.end124
   %idxprom140 = sext i32 %mul136 to i64
-  %arrayidx141 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom140
+  %arrayidx141 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom140
   %34 = load i8, ptr %arrayidx141, align 2
   %conv142 = zext i8 %34 to i32
   br label %cond.end148
@@ -5927,7 +5927,7 @@ if.end164:                                        ; preds = %if.then157, %cond.e
 
 cond.true167:                                     ; preds = %if.end164
   %idxprom169 = sext i32 %add165 to i64
-  %arrayidx170 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom169
+  %arrayidx170 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom169
   %36 = load i8, ptr %arrayidx170, align 1
   %conv171 = zext i8 %36 to i32
   br label %cond.end177
@@ -6316,7 +6316,7 @@ if.end:                                           ; preds = %land.lhs.true.i66, 
 
 cond.true:                                        ; preds = %if.end
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %29 = load i8, ptr %arrayidx, align 1
   %conv21 = zext i8 %29 to i32
   br label %cond.end
@@ -6834,7 +6834,7 @@ if.else243:                                       ; preds = %if.end59
 
 cond.true:                                        ; preds = %if.else243
   %idxprom248 = sext i32 %13 to i64
-  %arrayidx249 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom248
+  %arrayidx249 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom248
   %44 = load i8, ptr %arrayidx249, align 1
   %conv250 = zext i8 %44 to i32
   br label %cond.end267
@@ -6842,7 +6842,7 @@ cond.true:                                        ; preds = %if.else243
 cond.end267:                                      ; preds = %if.else243, %cond.true
   %cond = phi i32 [ %conv250, %cond.true ], [ %13, %if.else243 ]
   %idxprom259 = sext i32 %12 to i64
-  %arrayidx260 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom259
+  %arrayidx260 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom259
   %45 = load i8, ptr %arrayidx260, align 1
   %conv261 = zext i8 %45 to i32
   %add269 = add nuw nsw i32 %cond, %conv261
@@ -6875,7 +6875,7 @@ if.end281:                                        ; preds = %if.then274.if.end28
 
 cond.true284:                                     ; preds = %if.end281
   %idxprom286 = sext i32 %47 to i64
-  %arrayidx287 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom286
+  %arrayidx287 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom286
   %48 = load i8, ptr %arrayidx287, align 1
   %conv288 = zext i8 %48 to i32
   br label %cond.end294
@@ -6893,7 +6893,7 @@ cond.end310.thread:                               ; preds = %cond.end294
 
 cond.end310:                                      ; preds = %cond.end294
   %idxprom302 = sext i32 %49 to i64
-  %arrayidx303 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom302
+  %arrayidx303 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom302
   %50 = load i8, ptr %arrayidx303, align 1
   %idx.ext312 = zext i8 %50 to i64
   %cmp317207.not = icmp eq i32 %49, 0
@@ -7045,7 +7045,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 cond.true:                                        ; preds = %if.end
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx, align 1
   %conv11 = zext i8 %3 to i32
   br label %cond.end
@@ -7065,7 +7065,7 @@ cond.end44.thread:                                ; preds = %cond.end
 
 cond.end44:                                       ; preds = %cond.end
   %idxprom18 = sext i32 %4 to i64
-  %arrayidx19 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom18
   %5 = load i8, ptr %arrayidx19, align 1
   %idx.ext2851 = zext i8 %5 to i64
   %conv38 = zext i8 %5 to i32
@@ -7736,7 +7736,7 @@ _ZL9decGetIntPK9decNumber.exit.thread:            ; preds = %if.then87.i, %uprv_
   %48 = phi i32 [ %spec.select257, %_ZL9decGetIntPK9decNumber.exit ], [ %47, %if.then87.i ], [ 0, %uprv_decNumberFromInt32_75.exit176 ]
   %sub183 = add nsw i32 %48, -10
   %idxprom184 = sext i32 %sub183 to i64
-  %arrayidx185 = getelementptr inbounds [90 x i16], ptr @_ZL4LNnn, i64 0, i64 %idxprom184
+  %arrayidx185 = getelementptr inbounds nuw [90 x i16], ptr @_ZL4LNnn, i64 0, i64 %idxprom184
   %49 = load i16, ptr %arrayidx185, align 2
   %conv186 = zext i16 %49 to i32
   %shr = lshr i32 %conv186, 2
@@ -8350,7 +8350,7 @@ cond.end.thread:                                  ; preds = %if.else22
 
 cond.end:                                         ; preds = %if.else22
   %idxprom = sext i32 %17 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %18 = load i8, ptr %arrayidx, align 1
   %idx.ext = zext i8 %18 to i64
   %cmp3438.not = icmp eq i32 %17, 0
@@ -8381,7 +8381,7 @@ for.end:                                          ; preds = %for.body
 cond.true38:                                      ; preds = %cond.end, %for.end
   %20 = phi i32 [ %.pre, %for.end ], [ %17, %cond.end ]
   %idxprom40 = sext i32 %20 to i64
-  %arrayidx41 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom40
   %21 = load i8, ptr %arrayidx41, align 1
   %conv42 = zext i8 %21 to i32
   br label %cond.end48
@@ -8425,7 +8425,7 @@ cond.end29.i:                                     ; preds = %if.end.i35, %cond.t
 
 if.then34.i:                                      ; preds = %cond.end29.i
   %idxprom35.i = sext i32 %sub32.i to i64
-  %arrayidx36.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom35.i
   %24 = load i32, ptr %arrayidx36.i, align 4
   %25 = load i8, ptr %add.ptr1129.i, align 1
   %conv37.i = zext i8 %25 to i32
@@ -9174,7 +9174,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %up.0.lcssa.i = phi ptr [ %lsu.i, %if.then ], [ %scevgep.i, %if.then.preheader.i ]
   %count.0.lcssa.i = phi i32 [ %2, %if.then ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %8 = trunc i32 %7 to i8
   %conv.i = add i8 %8, -1
@@ -9268,7 +9268,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then, %if.then.p
   %up.0.lcssa.i = phi ptr [ %lsu.i, %if.then ], [ %scevgep.i, %if.then.preheader.i ]
   %count.0.lcssa.i = phi i32 [ %1, %if.then ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %7 = trunc i32 %6 to i8
   %conv.i = add i8 %7, -1
@@ -9458,7 +9458,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then19, %if.then
   %up.0.lcssa.i = phi ptr [ %lsu.i, %if.then19 ], [ %scevgep.i, %if.then.preheader.i ]
   %count.0.lcssa.i = phi i32 [ %18, %if.then19 ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i, align 4
   %24 = trunc i32 %23 to i8
   %conv.i = add i8 %24, -1
@@ -9500,7 +9500,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit42: ; preds = %if.then26, %if.th
   %up.0.lcssa.i30 = phi ptr [ %lsu.i28, %if.then26 ], [ %scevgep.i41, %if.then.preheader.i40 ]
   %count.0.lcssa.i31 = phi i32 [ %28, %if.then26 ], [ 1, %if.then.preheader.i40 ]
   %idxprom.i32 = sext i32 %count.0.lcssa.i31 to i64
-  %arrayidx.i33 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i32
+  %arrayidx.i33 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i32
   %33 = load i32, ptr %arrayidx.i33, align 4
   %34 = trunc i32 %33 to i8
   %conv.i34 = add i8 %34, -1
@@ -9737,7 +9737,7 @@ if.end82:                                         ; preds = %if.end61
 
 cond.true:                                        ; preds = %if.end82
   %idxprom = sext i32 %19 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %20 = load i8, ptr %arrayidx, align 1
   %conv93 = zext i8 %20 to i32
   br label %cond.end
@@ -9751,7 +9751,7 @@ cond.end:                                         ; preds = %if.end82, %cond.tru
 
 cond.true100:                                     ; preds = %cond.end
   %idxprom102 = sext i32 %21 to i64
-  %arrayidx103 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom102
   %22 = load i8, ptr %arrayidx103, align 1
   %conv104 = zext i8 %22 to i32
   br label %cond.end110
@@ -9926,7 +9926,7 @@ if.end:                                           ; preds = %lor.lhs.false10
 
 cond.true:                                        ; preds = %if.end
   %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
   %conv26 = zext i8 %5 to i32
   br label %cond.end
@@ -9942,7 +9942,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 
 cond.true31:                                      ; preds = %cond.end
   %idxprom33 = sext i32 %6 to i64
-  %arrayidx34 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
   %7 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %7 to i32
   br label %cond.end41
@@ -9962,7 +9962,7 @@ cond.end76.thread:                                ; preds = %cond.end41
 
 cond.end76:                                       ; preds = %cond.end41
   %idxprom50 = sext i32 %8 to i64
-  %arrayidx51 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
   %9 = load i8, ptr %arrayidx51, align 1
   %idx.ext6069 = zext i8 %9 to i64
   %conv70 = zext i8 %9 to i32
@@ -10298,7 +10298,7 @@ if.end.i:                                         ; preds = %if.then59
 
 if.then2.i:                                       ; preds = %if.end.i
   %idxprom.i = sext i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx.i, align 4
   %10 = trunc i32 %9 to i8
   store i8 %10, ptr %lsu.i142, align 1
@@ -10347,12 +10347,12 @@ cond.end56.i:                                     ; preds = %cond.true46.i, %if.
   %add.ptr59.i = getelementptr inbounds nuw i8, ptr %lsu.i142, i64 %idx.ext58.i
   %add.ptr60.i = getelementptr inbounds i8, ptr %add.ptr59.i, i64 -1
   %idxprom65.i = sext i32 %sub39.i to i64
-  %arrayidx66.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65.i
   %13 = load i32, ptr %arrayidx66.i, align 4
-  %arrayidx71.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
+  %arrayidx71.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65.i
   %14 = load i32, ptr %arrayidx71.i, align 4
   %idxprom80.i = sext i32 %sub38.i to i64
-  %arrayidx81.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
+  %arrayidx81.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80.i
   %15 = load i32, ptr %arrayidx81.i, align 4
   %scevgep = getelementptr i8, ptr %res, i64 %add.ptr11.i.ptr.ptr.add
   %shr.i = lshr i32 1, %sub39.i
@@ -10708,7 +10708,7 @@ cond.end223.thread:                               ; preds = %if.end212
 
 cond.end223:                                      ; preds = %if.end212
   %idxprom = sext i32 %46 to i64
-  %arrayidx217 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx217 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %47 = load i8, ptr %arrayidx217, align 1
   %conv218 = zext i8 %47 to i64
   %narrow = add nuw nsw i64 %conv218, 11
@@ -10969,7 +10969,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %0 = load i8, ptr %uar, align 1
   %idxprom = sext i32 %shift to i64
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %2 = trunc i32 %1 to i8
   %conv3 = mul i8 %0, %2
@@ -10982,7 +10982,7 @@ if.end5:                                          ; preds = %if.end
 
 cond.true:                                        ; preds = %if.end5
   %idxprom7 = sext i32 %digits to i64
-  %arrayidx8 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7
+  %arrayidx8 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom7
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   br label %cond.end
@@ -11001,7 +11001,7 @@ cond.end21:                                       ; preds = %cond.end
 
 cond.true26:                                      ; preds = %cond.end
   %idxprom14 = sext i32 %shift to i64
-  %arrayidx15 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom14
   %4 = load i8, ptr %arrayidx15, align 1
   %idx.ext2352 = zext i8 %4 to i64
   %conv29 = zext i8 %4 to i32
@@ -11052,12 +11052,12 @@ cond.end56:                                       ; preds = %if.else, %cond.true
 
 for.body63.lr.ph:                                 ; preds = %cond.end56
   %idxprom65 = sext i32 %sub39 to i64
-  %arrayidx66 = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom65
   %7 = load i32, ptr %arrayidx66, align 4
-  %arrayidx71 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65
+  %arrayidx71 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom65
   %8 = load i32, ptr %arrayidx71, align 4
   %idxprom80 = sext i32 %sub38 to i64
-  %arrayidx81 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom80
   %9 = load i32, ptr %arrayidx81, align 4
   br label %for.body63
 
@@ -11755,7 +11755,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 cond.end.i:                                       ; preds = %if.end3.i
   %idxprom.i = sext i32 %d.1 to i64
-  %arrayidx.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom.i
   %13 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %13 to i32
   %sub5.i = add nsw i32 %conv.i, -1
@@ -11787,7 +11787,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 cond.true29.i:                                    ; preds = %cond.end.i
   %idxprom31.i = sext i32 %sub5.i to i64
-  %arrayidx32.i = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31.i
   %15 = load i8, ptr %arrayidx32.i, align 1
   %16 = zext i8 %15 to i64
   %add.ptr42.i = getelementptr inbounds nuw i8, ptr %lsu, i64 %16
@@ -11795,7 +11795,7 @@ cond.true29.i:                                    ; preds = %cond.end.i
   %conv45.i = zext i8 %17 to i32
   %shr.i = lshr i32 %conv45.i, %sub7.i
   %idxprom46.i = sext i32 %sub7.i to i64
-  %arrayidx47.i = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46.i
+  %arrayidx47.i = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46.i
   %18 = load i32, ptr %arrayidx47.i, align 4
   %mul48.i = mul i32 %shr.i, %18
   %shr49.i = lshr i32 %mul48.i, 17
@@ -11809,10 +11809,10 @@ cond.true29.i:                                    ; preds = %cond.end.i
   br i1 %cmp5460.i, label %_ZL15decShiftToLeastPhii.exit, label %if.end56.lr.ph.i
 
 if.end56.lr.ph.i:                                 ; preds = %cond.true29.i
-  %arrayidx66.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46.i
+  %arrayidx66.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46.i
   %19 = load i32, ptr %arrayidx66.i, align 4
   %idxprom71.i = sext i32 %sub52.i to i64
-  %arrayidx72.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71.i
+  %arrayidx72.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71.i
   %20 = load i32, ptr %arrayidx72.i, align 4
   br label %if.end56.i
 
@@ -12145,7 +12145,7 @@ if.then35:                                        ; preds = %land.lhs.true30
 
 cond.true:                                        ; preds = %if.then35
   %idxprom = sext i32 %20 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %21 = load i8, ptr %arrayidx, align 1
   %conv39 = zext i8 %21 to i32
   br label %cond.end
@@ -12159,7 +12159,7 @@ cond.end:                                         ; preds = %if.then35, %cond.tr
 
 cond.true47:                                      ; preds = %cond.end
   %idxprom49 = sext i32 %17 to i64
-  %arrayidx50 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom49
   %22 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %22 to i32
   br label %cond.end57
@@ -12193,7 +12193,7 @@ for.end:                                          ; preds = %for.body.preheader,
 
 cond.true69:                                      ; preds = %for.end
   %idxprom71 = sext i32 %31 to i64
-  %arrayidx72 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom71
   %32 = load i8, ptr %arrayidx72, align 1
   %conv73 = zext i8 %32 to i32
   br label %cond.end79
@@ -12380,7 +12380,7 @@ if.end3:                                          ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end3
   %idxprom = sext i32 %shift to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %sub5 = add nsw i32 %conv, -1
@@ -12420,7 +12420,7 @@ for.end:                                          ; preds = %for.body, %cond.end
 
 cond.true29:                                      ; preds = %cond.end
   %idxprom31 = sext i32 %sub5 to i64
-  %arrayidx32 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom31
   %2 = load i8, ptr %arrayidx32, align 1
   %3 = zext i8 %2 to i64
   %add.ptr42 = getelementptr inbounds nuw i8, ptr %uar, i64 %3
@@ -12428,7 +12428,7 @@ cond.true29:                                      ; preds = %cond.end
   %conv45 = zext i8 %4 to i32
   %shr = lshr i32 %conv45, %sub7
   %idxprom46 = sext i32 %sub7 to i64
-  %arrayidx47 = getelementptr inbounds [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds nuw [5 x i32], ptr @_ZL7multies, i64 0, i64 %idxprom46
   %5 = load i32, ptr %arrayidx47, align 4
   %mul48 = mul i32 %shr, %5
   %shr49 = lshr i32 %mul48, 17
@@ -12441,10 +12441,10 @@ cond.true29:                                      ; preds = %cond.end
   br i1 %cmp5460, label %for.end82, label %if.end56.lr.ph
 
 if.end56.lr.ph:                                   ; preds = %cond.true29
-  %arrayidx66 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46
+  %arrayidx66 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom46
   %7 = load i32, ptr %arrayidx66, align 4
   %idxprom71 = sext i32 %sub52 to i64
-  %arrayidx72 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom71
   %8 = load i32, ptr %arrayidx72, align 4
   br label %if.end56
 
@@ -13001,7 +13001,7 @@ cond.end:                                         ; preds = %if.end
 
 cond.true17:                                      ; preds = %if.end
   %idxprom = sext i32 %sub to i64
-  %arrayidx7 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx7, align 1
   %idx.ext26 = zext i8 %1 to i64
   %conv22 = zext i8 %1 to i32
@@ -13019,7 +13019,7 @@ cond.end29:                                       ; preds = %cond.end, %cond.tru
 
 if.then34:                                        ; preds = %cond.end29
   %idxprom35 = sext i32 %sub32 to i64
-  %arrayidx36 = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom35
   %2 = load i32, ptr %arrayidx36, align 4
   %3 = load i8, ptr %add.ptr1129, align 1
   %conv37 = zext i8 %3 to i32
@@ -13247,7 +13247,7 @@ if.end37:                                         ; preds = %if.end30
 
 cond.true52:                                      ; preds = %if.end37
   %idxprom = sext i32 %21 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %22 = load i8, ptr %arrayidx, align 1
   %conv54 = zext i8 %22 to i32
   br label %cond.end59
@@ -13787,7 +13787,7 @@ if.then295:                                       ; preds = %if.end293
 
 cond.true300:                                     ; preds = %if.then295
   %idxprom302 = sext i32 %95 to i64
-  %arrayidx303 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom302
+  %arrayidx303 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom302
   %96 = load i8, ptr %arrayidx303, align 1
   %conv304 = zext i8 %96 to i32
   br label %cond.end310
@@ -14288,7 +14288,7 @@ if.end:                                           ; preds = %lor.lhs.false10
 
 cond.true:                                        ; preds = %if.end
   %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
   %conv26 = zext i8 %5 to i32
   br label %cond.end
@@ -14304,7 +14304,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 
 cond.true31:                                      ; preds = %cond.end
   %idxprom33 = sext i32 %6 to i64
-  %arrayidx34 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom33
   %7 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %7 to i32
   br label %cond.end41
@@ -14324,7 +14324,7 @@ cond.end76.thread:                                ; preds = %cond.end41
 
 cond.end76:                                       ; preds = %cond.end41
   %idxprom50 = sext i32 %8 to i64
-  %arrayidx51 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom50
   %9 = load i8, ptr %arrayidx51, align 1
   %idx.ext6069 = zext i8 %9 to i64
   %conv70 = zext i8 %9 to i32
@@ -14662,7 +14662,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %1 to i32
   br label %cond.end
@@ -15039,7 +15039,7 @@ if.end21:                                         ; preds = %entry
 
 cond.end:                                         ; preds = %if.end21
   %idxprom = sext i32 %exp to i64
-  %arrayidx = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %conv23 = zext i8 %2 to i32
   %add24 = add nuw nsw i32 %blength, %conv23
@@ -15397,7 +15397,7 @@ if.end174:                                        ; preds = %if.end93, %if.end16
 
 cond.true:                                        ; preds = %if.end174
   %idxprom180 = sext i32 %35 to i64
-  %arrayidx181 = getelementptr inbounds [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom180
+  %arrayidx181 = getelementptr inbounds nuw [50 x i8], ptr @_ZL8d2utable, i64 0, i64 %idxprom180
   %36 = load i8, ptr %arrayidx181, align 1
   %conv182 = zext i8 %36 to i32
   br label %cond.end
@@ -15497,7 +15497,7 @@ _ZL14decSetMaxValueP9decNumberP10decContext.exit: ; preds = %if.then28, %if.then
   %up.0.lcssa.i = phi ptr [ %lsu, %if.then28 ], [ %scevgep.i, %if.then.preheader.i ]
   %count.0.lcssa.i = phi i32 [ %9, %if.then28 ], [ 1, %if.then.preheader.i ]
   %idxprom.i = sext i32 %count.0.lcssa.i to i64
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr @_ZL9DECPOWERS, i64 0, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i, align 4
   %15 = trunc i32 %14 to i8
   %conv.i = add i8 %15, -1

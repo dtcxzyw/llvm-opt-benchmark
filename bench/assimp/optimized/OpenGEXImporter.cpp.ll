@@ -3685,7 +3685,7 @@ while.body.i:                                     ; preds = %if.end9, %while.bod
   %next.03.i = phi ptr [ %8, %while.body.i ], [ %7, %if.end9 ]
   %i.02.i = phi i64 [ %inc.i, %while.body.i ], [ 1, %if.end9 ]
   %call2.i = tail call noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %next.03.i)
-  %arrayidx3.i = getelementptr inbounds [16 x float], ptr %m.i, i64 0, i64 %i.02.i
+  %arrayidx3.i = getelementptr inbounds nuw [16 x float], ptr %m.i, i64 0, i64 %i.02.i
   store float %call2.i, ptr %arrayidx3.i, align 4
   %m_next4.i = getelementptr inbounds nuw i8, ptr %next.03.i, i64 24
   %8 = load ptr, ptr %m_next4.i, align 8

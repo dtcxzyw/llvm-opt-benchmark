@@ -2924,7 +2924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   %18 = add i64 %14, -1
-  %19 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 10
   br i1 %21, label %29, label %11, !llvm.loop !22

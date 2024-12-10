@@ -4845,7 +4845,7 @@ for.inc.i:                                        ; preds = %if.else.i, %for.bod
 
 _Z12getCleanNamePKcPc.exit:                       ; preds = %for.inc.i, %if.then91
   %idxprom14.i = sext i32 %.sroa.speculated.i to i64
-  %arrayidx15.i = getelementptr inbounds i8, ptr %cleanName, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %cleanName, i64 %idxprom14.i
   store i8 0, ptr %arrayidx15.i, align 1
   %47 = load i16, ptr %arrayidx8, align 2
   %48 = load ptr, ptr %m_data.i.i, align 8
@@ -4975,7 +4975,7 @@ for.inc.i217:                                     ; preds = %if.else.i222, %for.
 
 _Z12getCleanNamePKcPc.exit223:                    ; preds = %for.inc.i217, %if.then158
   %idxprom14.i209 = sext i32 %.sroa.speculated.i207 to i64
-  %arrayidx15.i210 = getelementptr inbounds i8, ptr %cleanName159, i64 %idxprom14.i209
+  %arrayidx15.i210 = getelementptr inbounds nuw i8, ptr %cleanName159, i64 %idxprom14.i209
   store i8 0, ptr %arrayidx15.i210, align 1
   call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.4, ptr noundef %call7, ptr noundef %elemPtr.0283, ptr noundef nonnull %dbarray)
   br i1 %cmp101256, label %for.body165, label %for.end169
@@ -5062,7 +5062,7 @@ for.inc.i236:                                     ; preds = %if.else.i241, %for.
 
 _Z12getCleanNamePKcPc.exit242:                    ; preds = %for.inc.i236, %for.end205
   %idxprom14.i228 = sext i32 %.sroa.speculated.i226 to i64
-  %arrayidx15.i229 = getelementptr inbounds i8, ptr %cleanName206, i64 %idxprom14.i228
+  %arrayidx15.i229 = getelementptr inbounds nuw i8, ptr %cleanName206, i64 %idxprom14.i228
   store i8 0, ptr %arrayidx15.i229, align 1
   %cmp209 = icmp eq i32 %mul.i, 1
   br i1 %cmp209, label %if.end215.thread, label %if.end215

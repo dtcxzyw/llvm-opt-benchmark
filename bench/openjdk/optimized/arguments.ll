@@ -1696,7 +1696,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i18 = phi i64 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = add i64 %.012.i18, 1
-  %10 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not.not.i = icmp eq ptr %11, null
   br i1 %.not.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i, !llvm.loop !9
@@ -1774,7 +1774,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i10 = phi i64 [ %10, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %10 = add i64 %.012.i10, 1
-  %11 = getelementptr inbounds [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [21 x %struct.SpecialFlag], ptr @_ZL17special_jvm_flags, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not.not.i = icmp eq ptr %12, null
   br i1 %.not.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !9
@@ -3333,7 +3333,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   %26 = trunc i32 %.060 to i8
   %27 = add nsw i32 %.04654, 1
   %28 = sext i32 %.04654 to i64
-  %29 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %28
   store i8 %26, ptr %29, align 1
   br label %73
 
@@ -3352,7 +3352,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
 
 36:                                               ; preds = %33, %30
   %37 = sext i32 %.04654 to i64
-  %38 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %37
   store i8 0, ptr %38, align 1
   %39 = load i8, ptr @PrintVMOptions, align 1
   %40 = trunc i8 %39 to i1
@@ -3415,7 +3415,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %59, %61
   %69 = trunc i32 %.060 to i8
   %70 = add nsw i32 %.04654, 1
   %71 = sext i32 %.04654 to i64
-  %72 = getelementptr inbounds [1024 x i8], ptr %4, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %71
   store i8 %69, ptr %72, align 1
   br label %73
 

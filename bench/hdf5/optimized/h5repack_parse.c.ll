@@ -127,7 +127,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = sext i32 %.0262362 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = icmp eq i8 %37, 44
   %41 = icmp eq i64 %indvars.iv, %34
@@ -144,7 +144,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 44:                                               ; preds = %42
   %45 = add nsw i32 %.0262362, 1
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %46
   store i8 0, ptr %47, align 1
   br label %48
 
@@ -231,7 +231,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.0282398
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.0282398
   store i8 0, ptr %83, align 1
   %84 = add i64 %.0275.in399, 2
   %.phi.trans.insert432 = getelementptr inbounds i8, ptr %0, i64 %84
@@ -262,13 +262,13 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %93, label %96, label %98
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.0282398
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.0282398
   store i8 %86, ptr %97, align 1
   br label %116
 
 98:                                               ; preds = %95
   %99 = sext i32 %.1254 to i64
-  %100 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %99
   store i8 %86, ptr %100, align 1
   %101 = add nuw nsw i32 %.1254, 1
   %102 = icmp eq i32 %101, 2
@@ -340,7 +340,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.2284389
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.2284389
   store i8 0, ptr %130, align 1
   %131 = add i64 %.2277.in390, 2
   %.phi.trans.insert430 = getelementptr inbounds i8, ptr %0, i64 %131
@@ -371,13 +371,13 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %140, label %143, label %145
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.2284389
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.2284389
   store i8 %133, ptr %144, align 1
   br label %163
 
 145:                                              ; preds = %142
   %146 = sext i32 %.4257 to i64
-  %147 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %146
   store i8 %133, ptr %147, align 1
   %148 = add nuw nsw i32 %.4257, 1
   %149 = icmp eq i32 %148, 2
@@ -462,7 +462,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 179:                                              ; preds = %175
   %180 = sext i32 %.0248380 to i64
-  %181 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %180
   store i8 0, ptr %181, align 1
   %182 = icmp eq i32 %.6259378, -1
   br i1 %182, label %183, label %185
@@ -546,7 +546,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 215:                                              ; preds = %212
   %216 = sext i32 %.1249 to i64
-  %217 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %216
   store i8 %203, ptr %217, align 1
   %218 = add i64 %.3285375, 1
   %219 = add nsw i32 %.1249, 1
@@ -577,7 +577,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   unreachable
 
 230:                                              ; preds = %222
-  %231 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.4286370
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.4286370
   store i8 %224, ptr %231, align 1
   %232 = add i64 %.4286370, 1
   %.6281 = add nuw i64 %.6281371, 1
@@ -588,7 +588,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   %.4286.lcssa.sink = phi i64 [ 0, %.preheader334 ], [ %221, %._crit_edge384.loopexit ], [ 0, %.preheader335 ], [ %232, %230 ]
   %.1283.ph = phi i64 [ 0, %.preheader334 ], [ %218, %._crit_edge384.loopexit ], [ 0, %.preheader335 ], [ %232, %230 ]
   %.3245.ph = phi i32 [ 0, %.preheader334 ], [ %.7, %._crit_edge384.loopexit ], [ 0, %.preheader335 ], [ 0, %230 ]
-  %234 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %.4286.lcssa.sink
+  %234 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %.4286.lcssa.sink
   store i8 0, ptr %234, align 1
   br label %.loopexit
 
@@ -930,7 +930,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1
   %34 = sext i32 %.0121154 to i64
-  %35 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %34
   store i8 %33, ptr %35, align 1
   %36 = icmp eq i8 %33, 44
   %37 = icmp eq i64 %indvars.iv, %30
@@ -947,7 +947,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 40:                                               ; preds = %38
   %41 = add nsw i32 %.0121154, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %42
   store i8 0, ptr %43, align 1
   br label %44
 
@@ -1058,7 +1058,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = sext i32 %.2158 to i64
-  %88 = getelementptr inbounds [10 x i8], ptr %6, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %87
   store i8 %86, ptr %88, align 1
   %89 = add nsw i32 %.2158, 1
   %90 = load ptr, ptr %78, align 8
@@ -1117,7 +1117,7 @@ switch.early.test:                                ; preds = %83
 
 110:                                              ; preds = %109
   %111 = sext i32 %89 to i64
-  %112 = getelementptr inbounds [10 x i8], ptr %6, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [10 x i8], ptr %6, i64 0, i64 %111
   store i8 0, ptr %112, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.15, i64 5)
   %113 = icmp eq i32 %bcmp, 0

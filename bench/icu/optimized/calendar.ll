@@ -8989,7 +8989,7 @@ if.end:                                           ; preds = %if.end8.i, %if.end8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %10 = load i32, ptr %arrayidx.i, align 4
   %11 = sext i32 %10 to i64
-  %arrayidx = getelementptr inbounds [13 x ptr], ptr @_ZN6icu_75L19gTemporalMonthCodesE, i64 0, i64 %11
+  %arrayidx = getelementptr inbounds nuw [13 x ptr], ptr @_ZN6icu_75L19gTemporalMonthCodesE, i64 0, i64 %11
   %12 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -12400,7 +12400,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
 
 invoke.cont17:                                    ; preds = %invoke.cont13
   %idxprom = sext i32 %call18 to i64
-  %arrayidx = getelementptr inbounds [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp15, ptr noundef %10, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont19 unwind label %lpad

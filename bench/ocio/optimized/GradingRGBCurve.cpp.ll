@@ -2001,7 +2001,7 @@ invoke.cont3:                                     ; preds = %catch
 switch.lookup:                                    ; preds = %invoke.cont3
   %sext = shl i64 %indvars.iv, 32
   %7 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %switch.load)
           to label %invoke.cont9 unwind label %lpad4

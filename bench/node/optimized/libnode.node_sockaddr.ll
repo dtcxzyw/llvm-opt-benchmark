@@ -964,7 +964,7 @@ if.end15.i:                                       ; preds = %if.end.i
   %sub4.i = xor i32 %notmask.i14, -1
   %sub6.i = sub nsw i32 8, %conv2.i
   %shl7.i = shl i32 %sub4.i, %sub6.i
-  %add.ptr16.i = getelementptr inbounds i8, ptr %ip_mask.i, i64 %conv11.i
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %ip_mask.i, i64 %conv11.i
   %7 = load i8, ptr %add.ptr16.i, align 1
   %arrayidx21.i = getelementptr inbounds i8, ptr %sin6_addr.i, i64 %conv11.i
   %8 = load i8, ptr %arrayidx21.i, align 1
@@ -7436,7 +7436,7 @@ do.end8:                                          ; preds = %entry, %entry
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %host) #22
-  %add.ptr.i = getelementptr inbounds i8, ptr %host, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %host, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %host, ptr noundef nonnull %add.ptr.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   ret void

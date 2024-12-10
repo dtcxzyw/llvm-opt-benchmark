@@ -56,7 +56,7 @@ entry:
   %sa.i = alloca %union.anon, align 4
   %shr = ashr i32 %idx, 1
   %idxprom = sext i32 %shr to i64
-  %arrayidx = getelementptr inbounds [3 x i32], ptr @families, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x i32], ptr @families, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %sa.i)
   %.sink.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %sa.i, i64 4

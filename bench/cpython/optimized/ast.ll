@@ -1772,11 +1772,11 @@ if.then63:                                        ; preds = %sw.epilog
   %15 = load ptr, ptr @PyExc_ValueError, align 8
   %switch.tableidx = add nsw i32 %ctx, -1
   %16 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.tableidx181 = add nsw i32 %actual_ctx.0, -1
   %17 = sext i32 %switch.tableidx181 to i64
-  %switch.gep182 = getelementptr inbounds [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %17
+  %switch.gep182 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.validate_expr.4, i64 0, i64 %17
   %switch.load183 = load ptr, ptr %switch.gep182, align 8
   %call66 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load183) #5
   br label %return

@@ -29598,7 +29598,7 @@ switch.lookup:                                    ; preds = %133
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i = zext i56 %.sroa.7.sroa.0.0.copyload.i.i to i64
   %sext = shl i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i, 56
   %135 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %135
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %135
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %143
 
@@ -31149,7 +31149,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit461
 switch.lookup1229:                                ; preds = %645
   %647 = shl i64 %.sroa.8502.0.copyload, 48
   %648 = ashr i64 %647, 56
-  %switch.gep1230 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %648
+  %switch.gep1230 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %648
   %switch.load1231 = load i64, ptr %switch.gep1230, align 8
   br label %653
 
@@ -31394,7 +31394,7 @@ define hidden void @_ZN15ra_ap_rustc_abi6layout16LayoutCalculator10univariant17h
 switch.lookup:                                    ; preds = %36
   %40 = shl i64 %.sroa.055.0.copyload, 48
   %41 = ashr i64 %40, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %41
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %41
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit
 
@@ -31500,7 +31500,7 @@ switch.lookup96:                                  ; preds = %71
   %.sroa.4.0.extract.trunc.i79 = zext i56 %.sroa.6.sroa.0.0.copyload to i64
   %sext = shl i64 %.sroa.4.0.extract.trunc.i79, 56
   %73 = ashr exact i64 %sext, 56
-  %switch.gep97 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %73
+  %switch.gep97 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %73
   %switch.load98 = load i64, ptr %switch.gep97, align 8
   br label %83
 
@@ -32006,7 +32006,7 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit: ; preds = %_ZN15ra_ap
 switch.lookup154:                                 ; preds = %_ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit
   %73 = shl i64 %.sroa.389.0.copyload, 48
   %74 = ashr i64 %73, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %74
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %74
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit36
 
@@ -32061,7 +32061,7 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit36: ; preds = %switch.l
 switch.lookup155:                                 ; preds = %85
   %87 = shl i64 %.sroa.389.0.copyload, 48
   %88 = ashr i64 %87, 56
-  %switch.gep156 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %88
+  %switch.gep156 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %88
   %switch.load157 = load i64, ptr %switch.gep156, align 8
   br label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i
 
@@ -32141,7 +32141,7 @@ _ZN15ra_ap_rustc_abi5Niche11from_scalar17hdac70681a9fc54a5E.exit: ; preds = %_ZN
 switch.lookup158:                                 ; preds = %105
   %107 = shl i64 %.sroa.392.0.copyload, 48
   %108 = ashr i64 %107, 56
-  %switch.gep159 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %108
+  %switch.gep159 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %108
   %switch.load160 = load i64, ptr %switch.gep159, align 8
   br label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i41
 
@@ -32228,7 +32228,7 @@ switch.lookup161:                                 ; preds = %"_ZN106_$LT$core..i
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i = zext i56 %.sroa.8.sroa.0.031.i.i.i to i64
   %sext = shl i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i, 56
   %127 = ashr exact i64 %sext, 56
-  %switch.gep162 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %127
+  %switch.gep162 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %127
   %switch.load163 = load i64, ptr %switch.gep162, align 8
   br label %_ZN4core4iter6traits8iterator8Iterator4fold17h42064159ac407ddbE.exit.i.i.i.i
 
@@ -32366,21 +32366,21 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit.i.i.i.i.i.i.i.i.i: 
 switch.lookup164:                                 ; preds = %.lr.ph.split.us.split.us.i.i.i.i.i
   %sext175 = shl i64 %.sroa.872.41.extract.shift, 56
   %158 = ashr exact i64 %sext175, 56
-  %switch.gep165 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %158
+  %switch.gep165 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %158
   %switch.load166 = load i64, ptr %switch.gep165, align 8
   br label %._crit_edge.sink.split.i.i.i.i.i
 
 switch.lookup167:                                 ; preds = %.lr.ph.split.split.us.split.us.i.i.i.i.i
   %sext174 = shl i64 %.sroa.872.41.extract.shift, 56
   %159 = ashr exact i64 %sext174, 56
-  %switch.gep168 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %159
+  %switch.gep168 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %159
   %switch.load169 = load i64, ptr %switch.gep168, align 8
   br label %._crit_edge.sink.split.i.i.i.i.i
 
 switch.lookup170:                                 ; preds = %.lr.ph.split.split.split.us.i.i.i.i.i
   %sext173 = shl i64 %.sroa.872.41.extract.shift, 56
   %160 = ashr exact i64 %sext173, 56
-  %switch.gep171 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %160
+  %switch.gep171 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %160
   %switch.load172 = load i64, ptr %switch.gep171, align 8
   br label %._crit_edge.sink.split.i.i.i.i.i
 
@@ -33627,7 +33627,7 @@ default.unreachable:                              ; preds = %1002, %1023, %1164,
 switch.lookup:                                    ; preds = %225
   %228 = shl i64 %.sroa.3.0.copyload.i, 48
   %229 = ashr i64 %228, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %229
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %229
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit.thread.i
 
@@ -33746,7 +33746,7 @@ _ZN15ra_ap_rustc_abi6Scalar4size17h0f15ca3752f633fbE.exit.thread.i: ; preds = %s
 switch.lookup588:                                 ; preds = %261
   %263 = shl i64 %.sroa.3.0.copyload.i, 48
   %264 = ashr i64 %263, 56
-  %switch.gep589 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %264
+  %switch.gep589 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %264
   %switch.load590 = load i64, ptr %switch.gep589, align 8
   br label %_ZN15ra_ap_rustc_abi5Niche9available17ha45c18d9d701302cE.exit.i.i
 
@@ -33856,7 +33856,7 @@ _ZN15ra_ap_rustc_abi5Niche11from_scalar17hdac70681a9fc54a5E.exit.thread.i: ; pre
 switch.lookup591:                                 ; preds = %292
   %294 = shl i64 %.sroa.5148.0.copyload.i, 48
   %295 = ashr i64 %294, 56
-  %switch.gep592 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %295
+  %switch.gep592 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %295
   %switch.load593 = load i64, ptr %switch.gep592, align 8
   br label %303
 
@@ -33903,7 +33903,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
 switch.lookup594:                                 ; preds = %303
   %310 = shl i64 %.sroa.3.0.copyload.i, 48
   %311 = ashr i64 %310, 56
-  %switch.gep595 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %311
+  %switch.gep595 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %311
   %switch.load596 = load i64, ptr %switch.gep595, align 8
   br label %320
 
@@ -34056,7 +34056,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
 switch.lookup597:                                 ; preds = %347
   %350 = shl i64 %.sroa.045.0.copyload.i, 48
   %351 = ashr i64 %350, 56
-  %switch.gep598 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %351
+  %switch.gep598 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %351
   %switch.load599 = load i64, ptr %switch.gep598, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit115.invoke.i
 
@@ -34093,7 +34093,7 @@ switch.lookup597:                                 ; preds = %347
 switch.lookup600:                                 ; preds = %358
   %361 = shl i64 %.sroa.046.0.copyload.i, 48
   %362 = ashr i64 %361, 56
-  %switch.gep601 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %362
+  %switch.gep601 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %362
   %switch.load602 = load i64, ptr %switch.gep601, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit105.i
 
@@ -34148,7 +34148,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit105.i: ; preds = %sw
 switch.lookup603:                                 ; preds = %376
   %379 = shl i64 %.sroa.047.0.copyload.i, 48
   %380 = ashr i64 %379, 56
-  %switch.gep604 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %380
+  %switch.gep604 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %380
   %switch.load605 = load i64, ptr %switch.gep604, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit110.i
 
@@ -34190,7 +34190,7 @@ _ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit110.i: ; preds = %sw
 switch.lookup606:                                 ; preds = %388
   %391 = shl i64 %.sroa.048.0.copyload.i, 48
   %392 = ashr i64 %391, 56
-  %switch.gep607 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %392
+  %switch.gep607 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %392
   %switch.load608 = load i64, ptr %switch.gep607, align 8
   br label %_ZN15ra_ap_rustc_abi9Primitive4size17h599845172a93e519E.exit115.invoke.i
 
@@ -34615,7 +34615,7 @@ switch.lookup609:                                 ; preds = %548
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i = zext i56 %.sroa.8.sroa.0.0.copyload.i.i.i.i.i to i64
   %sext = shl i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, 56
   %551 = ashr exact i64 %sext, 56
-  %switch.gep610 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %551
+  %switch.gep610 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %551
   %switch.load611 = load i64, ptr %switch.gep610, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4aff1ae3429c5836E.exit.i.i.i.i"
 
@@ -35031,7 +35031,7 @@ switch.lookup621:                                 ; preds = %638
   %.sroa.4.0.extract.trunc.i.i.i71 = zext i56 %.sroa.10.0.ph.i.i to i64
   %sext664 = shl i64 %.sroa.4.0.extract.trunc.i.i.i71, 56
   %641 = ashr exact i64 %sext664, 56
-  %switch.gep622 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %641
+  %switch.gep622 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %641
   %switch.load623 = load i64, ptr %switch.gep622, align 8
   br label %646
 
@@ -35555,7 +35555,7 @@ _ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit.thread794.i: ; p
 
 switch.lookup626:                                 ; preds = %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$17h6f0d9972c8aaeeccE.exit.i"
   %799 = sext i8 %spec.select.i to i64
-  %switch.gep627 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %799
+  %switch.gep627 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %799
   %switch.load628 = load i64, ptr %switch.gep627, align 8
   br label %_ZN15ra_ap_rustc_abi7Integer9from_attr17ha96d989b657756c7E.exit.thread.i
 
@@ -36048,7 +36048,7 @@ switch.lookup630:                                 ; preds = %933
   store i64 %switch.load632, ptr %58, align 8, !noalias !13744
   %switch.tableidx = add nsw i8 %.1410.i, -1
   %938 = sext i8 %switch.tableidx to i64
-  %switch.gep662 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1104, i64 0, i64 %938
+  %switch.gep662 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1104, i64 0, i64 %938
   %switch.load663 = load i64, ptr %switch.gep662, align 8
   %.val490.i = load ptr, ptr %.sroa.433.0..sroa_idx.i, align 8, !noalias !13744, !nonnull !4, !noundef !4
   %939 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -36125,7 +36125,7 @@ switch.lookup630:                                 ; preds = %933
 switch.lookup633:                                 ; preds = %920, %933, %._crit_edge1020.i
   %.2411.i = phi i8 [ %.1410.i, %._crit_edge1020.i ], [ %935, %933 ], [ %918, %920 ]
   %963 = sext i8 %.2411.i to i64
-  %switch.gep634 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %963
+  %switch.gep634 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %963
   %switch.load635 = load i64, ptr %switch.gep634, align 8
   %964 = zext nneg i64 %switch.load635 to i128
   %965 = lshr i128 -1, %964
@@ -36155,7 +36155,7 @@ switch.lookup633:                                 ; preds = %920, %933, %._crit_
 
 switch.lookup636:                                 ; preds = %975
   %979 = sext i8 %.2411.i to i64
-  %switch.gep637 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %979
+  %switch.gep637 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %979
   %switch.load638 = load i64, ptr %switch.gep637, align 8
   %980 = load i64, ptr %69, align 8, !noalias !13744, !noundef !4
   %981 = icmp eq i64 %switch.load638, %980
@@ -36430,7 +36430,7 @@ switch.lookup639:                                 ; preds = %.thread848.i
   %.sroa.4.0.extract.trunc.i574.i = zext i56 %.sroa.11151.sroa.0.0.ph.i.ph.ph684 to i64
   %sext666 = shl i64 %.sroa.4.0.extract.trunc.i574.i, 56
   %1060 = ashr exact i64 %sext666, 56
-  %switch.gep640 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %1060
+  %switch.gep640 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %1060
   %switch.load641 = load i64, ptr %switch.gep640, align 8
   %1061 = icmp eq i64 %.val482.i, %switch.load641
   br i1 %1061, label %1062, label %switch.lookup652
@@ -36456,7 +36456,7 @@ switch.lookup639:                                 ; preds = %.thread848.i
 switch.lookup642:                                 ; preds = %.thread847.i
   %sext665 = shl i64 %.sroa.4170.sroa.0.0.in.i873, 56
   %1073 = ashr exact i64 %sext665, 56
-  %switch.gep643 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %1073
+  %switch.gep643 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %1073
   %switch.load644 = load i64, ptr %switch.gep643, align 8
   %1074 = icmp eq i64 %.val482.i, %switch.load644
   br i1 %1074, label %switch.lookup645, label %switch.lookup652
@@ -36707,7 +36707,7 @@ switch.lookup652:                                 ; preds = %972, %1036, %1046, 
   %.sroa.7210.0860.i = phi i8 [ %.sroa.7210.1.i, %.thread831.i ], [ 1, %988 ], [ %.sroa.7210.0877.i, %.thread831.thread866.i ], [ %.sroa.7210.0877.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ 1, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i560.i" ], [ 1, %1029 ], [ 1, %1023 ], [ 1, %1023 ], [ 1, %1023 ], [ 1, %switch.lookup645 ], [ 1, %switch.lookup642 ], [ 1, %1058 ], [ 1, %.thread847.i ], [ 1, %.thread848.i ], [ 1, %1056 ], [ 1, %1066 ], [ 1, %switch.lookup639 ], [ 1, %1046 ], [ 1, %1036 ], [ 1, %972 ]
   %.sroa.0207.0859.i = phi i8 [ %.sroa.0207.1.i, %.thread831.i ], [ 4, %988 ], [ %.sroa.0207.0876.i, %.thread831.thread866.i ], [ %.sroa.0207.0876.i, %"_ZN15ra_ap_rustc_abi27FieldsShape$LT$FieldIdx$GT$5count17h4912f727bc7e5f50E.exit.thread.i" ], [ 4, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8222ab05b9f1b412E.exit.i.i560.i" ], [ 4, %1029 ], [ 4, %1023 ], [ 4, %1023 ], [ 4, %1023 ], [ 4, %switch.lookup645 ], [ 4, %switch.lookup642 ], [ 4, %1058 ], [ 4, %.thread847.i ], [ 4, %.thread848.i ], [ 4, %1056 ], [ 4, %1066 ], [ 4, %switch.lookup639 ], [ 4, %1046 ], [ 4, %1036 ], [ 0, %972 ]
   %1150 = sext i8 %.2411.i to i64
-  %switch.gep653 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %1150
+  %switch.gep653 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout16LayoutCalculator24layout_of_struct_or_enum17h92c4e073a74132d2E.1102, i64 0, i64 %1150
   %switch.load654 = load i64, ptr %switch.gep653, align 8
   %1151 = zext nneg i64 %switch.load654 to i128
   %1152 = lshr i128 -1, %1151
@@ -37023,7 +37023,7 @@ switch.lookup655:                                 ; preds = %1191
 switch.lookup658:                                 ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3cd7272c55d5a385E.exit.i"
   %1209 = shl i64 %.sroa.5775.0.copyload.i, 48
   %1210 = ashr i64 %1209, 56
-  %switch.gep659 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %1210
+  %switch.gep659 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %1210
   %switch.load660 = load i64, ptr %switch.gep659, align 8
   br label %"_ZN15ra_ap_rustc_abi6layout14layout_of_enum28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0d5f41f259e8eeecE.exit.i628.i"
 
@@ -37671,7 +37671,7 @@ define internal fastcc void @_ZN15ra_ap_rustc_abi6layout19format_field_niches17h
 switch.lookup:                                    ; preds = %118
   %120 = shl i64 %.sroa.6.0.copyload, 48
   %121 = ashr i64 %120, 56
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %121
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN15ra_ap_rustc_abi6layout19format_field_niches17h51c39390f16bb0a9E, i64 0, i64 %121
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %129
 
@@ -37753,7 +37753,7 @@ _ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956.exi
 switch.lookup89:                                  ; preds = %137
   %142 = shl i64 %.sroa.6.0.copyload, 48
   %143 = ashr i64 %142, 56
-  %switch.gep90 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %143
+  %switch.gep90 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hbe7bd0decc2e6fa8E.llvm.13094975786070861856, i64 0, i64 %143
   %switch.load91 = load i64, ptr %switch.gep90, align 8
   br label %148
 
@@ -89218,7 +89218,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -89951,7 +89951,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -90684,7 +90684,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -91417,7 +91417,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -92150,7 +92150,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -92883,7 +92883,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
@@ -93616,7 +93616,7 @@ switch.lookup:
   %24 = alloca i32, align 4
   store i32 %1, ptr %24, align 4
   %25 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN6hir_ty11diagnostics10decl_check13DeclValidator46create_incorrect_case_diagnostic_for_item_name17he03add99997fada1E, i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)

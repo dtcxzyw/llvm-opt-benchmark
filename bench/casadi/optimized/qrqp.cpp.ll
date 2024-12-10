@@ -2096,7 +2096,7 @@ _ZN6casadi17casadi_qr_colcombIdEEvPT_PKS1_PKxS6_S1_x.exit: ; preds = %.lr.ph.i74
   br label %_ZN6casadi25casadi_qrqp_print_colcombIdEEiPNS_16casadi_qrqp_dataIT_EEPcmx.exit
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds i8, ptr %7, i64 %.05266.i
+  %287 = getelementptr inbounds nuw i8, ptr %7, i64 %.05266.i
   %288 = trunc i64 %.05465.i to i32
   %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %287, i64 noundef %.057.lcssa.i, ptr noundef nonnull @.str.170, i32 noundef %288) #24
   br label %290

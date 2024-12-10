@@ -71,7 +71,7 @@ define void @Lpk_CreateVarOrder(ptr nocapture noundef readonly %0, ptr nocapture
 23:                                               ; preds = %18
   %24 = add nsw i32 %.03949, 1
   %25 = sext i32 %.03949 to i64
-  %26 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %25
   store i32 %22, ptr %26, align 4
   br label %36
 
@@ -146,7 +146,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
 52:                                               ; preds = %49
   %53 = add nsw i32 %.03752, 1
   %54 = sext i32 %.03752 to i64
-  %55 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %54
   store i32 %.053, ptr %55, align 4
   br label %.critedge2
 
@@ -211,7 +211,7 @@ define void @Lpk_CreateCommonOrder(ptr nocapture noundef readonly %0, ptr nocapt
   %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv111
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 0, i64 %14
   store i32 0, ptr %15, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114

@@ -531,10 +531,10 @@ _resume:                                          ; preds = %invoke.cont6, %if.e
   %cs.1 = phi i32 [ %cs.2, %if.end5303 ], [ 746, %invoke.cont6 ]
   %p.2 = phi ptr [ %incdec.ptr5304, %if.end5303 ], [ %call1, %invoke.cont6 ]
   %idxprom = sext i32 %cs.1 to i64
-  %arrayidx = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 0, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %idx.ext = sext i16 %3 to i64
-  %add.ptr14 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext
+  %add.ptr14 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext
   %4 = load i16, ptr %add.ptr14, align 2
   %cmp16.not12048 = icmp eq i16 %4, 0
   br i1 %cmp16.not12048, label %while.end, label %while.body.preheader
@@ -559,14 +559,14 @@ while.end:                                        ; preds = %while.body, %_resum
   %ts.3.lcssa = phi ptr [ %ts.2, %_resume ], [ %spec.select, %while.body ]
   %6 = load i8, ptr %p.2, align 1
   %conv19 = sext i8 %6 to i16
-  %arrayidx21 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L19_regex_cond_lengthsE, i64 0, i64 %idxprom
+  %arrayidx21 = getelementptr inbounds nuw [850 x i8], ptr @_ZN3ue2L19_regex_cond_lengthsE, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx21, align 1
-  %arrayidx24 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L19_regex_cond_offsetsE, i64 0, i64 %idxprom
+  %arrayidx24 = getelementptr inbounds nuw [850 x i8], ptr @_ZN3ue2L19_regex_cond_offsetsE, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx24, align 1
   %conv25 = sext i8 %8 to i32
   %mul = shl nsw i32 %conv25, 1
   %idx.ext26 = sext i32 %mul to i64
-  %add.ptr27 = getelementptr inbounds i16, ptr @_ZN3ue2L16_regex_cond_keysE, i64 %idx.ext26
+  %add.ptr27 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L16_regex_cond_keysE, i64 %idx.ext26
   %cmp28 = icmp sgt i8 %7, 0
   br i1 %cmp28, label %if.then29, label %if.end97
 
@@ -612,7 +612,7 @@ if.else51:                                        ; preds = %if.else
   %sub.ptr.sub57 = sub i64 %sub.ptr.lhs.cast55, %sub.ptr.rhs.cast56
   %shr59 = ashr i64 %sub.ptr.sub57, 2
   %add = add nsw i64 %shr59, %conv54
-  %arrayidx60 = getelementptr inbounds [48 x i8], ptr @_ZN3ue2L18_regex_cond_spacesE, i64 0, i64 %add
+  %arrayidx60 = getelementptr inbounds nuw [48 x i8], ptr @_ZN3ue2L18_regex_cond_spacesE, i64 0, i64 %add
   %12 = load i8, ptr %arrayidx60, align 1
   switch i8 %12, label %if.end97 [
     i8 0, label %sw.bb62
@@ -649,14 +649,14 @@ if.end95:                                         ; preds = %if.then49, %if.then
 
 if.end97:                                         ; preds = %if.end95, %if.then29, %sw.bb82, %sw.bb71, %sw.bb62, %if.else51, %while.end
   %_widec.0 = phi i16 [ %conv19, %if.else51 ], [ %conv19, %while.end ], [ %spec.select5690, %sw.bb62 ], [ %spec.select5691, %sw.bb71 ], [ %spec.select5692, %sw.bb82 ], [ %conv19, %if.then29 ], [ %conv19, %if.end95 ]
-  %arrayidx99 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L18_regex_key_offsetsE, i64 0, i64 %idxprom
+  %arrayidx99 = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L18_regex_key_offsetsE, i64 0, i64 %idxprom
   %15 = load i16, ptr %arrayidx99, align 2
   %idx.ext101 = sext i16 %15 to i64
-  %add.ptr102 = getelementptr inbounds i16, ptr @_ZN3ue2L17_regex_trans_keysE, i64 %idx.ext101
-  %arrayidx104 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L20_regex_index_offsetsE, i64 0, i64 %idxprom
+  %add.ptr102 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L17_regex_trans_keysE, i64 %idx.ext101
+  %arrayidx104 = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L20_regex_index_offsetsE, i64 0, i64 %idxprom
   %16 = load i16, ptr %arrayidx104, align 2
   %conv105 = sext i16 %16 to i32
-  %arrayidx107 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L21_regex_single_lengthsE, i64 0, i64 %idxprom
+  %arrayidx107 = getelementptr inbounds nuw [850 x i8], ptr @_ZN3ue2L21_regex_single_lengthsE, i64 0, i64 %idxprom
   %17 = load i8, ptr %arrayidx107, align 1
   %conv108 = sext i8 %17 to i32
   %cmp109 = icmp sgt i8 %17, 0
@@ -715,7 +715,7 @@ while.end148:                                     ; preds = %if.end147, %if.then
 if.end152:                                        ; preds = %while.end148, %if.end97
   %_trans.0 = phi i32 [ %add151, %while.end148 ], [ %conv105, %if.end97 ]
   %_keys.0 = phi ptr [ %add.ptr115, %while.end148 ], [ %add.ptr102, %if.end97 ]
-  %arrayidx154 = getelementptr inbounds [850 x i8], ptr @_ZN3ue2L20_regex_range_lengthsE, i64 0, i64 %idxprom
+  %arrayidx154 = getelementptr inbounds nuw [850 x i8], ptr @_ZN3ue2L20_regex_range_lengthsE, i64 0, i64 %idxprom
   %19 = load i8, ptr %arrayidx154, align 1
   %conv155 = sext i8 %19 to i32
   %cmp156 = icmp sgt i8 %19, 0
@@ -817,7 +817,7 @@ _eof_trans:                                       ; preds = %if.then5314, %_matc
 
 if.end214:                                        ; preds = %_eof_trans
   %idx.ext218 = sext i16 %24 to i64
-  %add.ptr219 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext218
+  %add.ptr219 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext218
   %25 = load i16, ptr %add.ptr219, align 2
   %cmp224.not12012 = icmp eq i16 %25, 0
   br i1 %cmp224.not12012, label %_again, label %while.body225.lr.ph
@@ -15905,10 +15905,10 @@ _again:                                           ; preds = %sw.epilog5283, %if.
   %cs.2 = phi i32 [ %conv208, %_eof_trans ], [ %conv208, %if.end214 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4417 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4198 ], [ 848, %sw.bb4101 ], [ 818, %if.end3999 ], [ 559, %if.end3978 ], [ 818, %if.end3957 ], [ 559, %if.end3936 ], [ 787, %if.end3350 ], [ 849, %sw.bb3334 ], [ 838, %sw.bb3224 ], [ 746, %sw.bb3152 ], [ 746, %sw.bb3148 ], [ %858, %sw.bb3096 ], [ 746, %sw.bb3020 ], [ 819, %sw.bb3017 ], [ 819, %sw.bb3014 ], [ 843, %if.end3008 ], [ 819, %if.then2983 ], [ 746, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit1782 ], [ 818, %if.end2477 ], [ 559, %if.end2459 ], [ 818, %if.end2441 ], [ 559, %if.end2423 ], [ 843, %if.end2337 ], [ %595, %if.end2104 ], [ %584, %if.end2083 ], [ %573, %if.end2062 ], [ %562, %if.end2041 ], [ %551, %if.end2020 ], [ %540, %if.end1999 ], [ %529, %if.end1978 ], [ %516, %invoke.cont1941 ], [ %513, %invoke.cont1931 ], [ %510, %invoke.cont1921 ], [ %507, %invoke.cont1911 ], [ %504, %invoke.cont1901 ], [ %501, %invoke.cont1891 ], [ %498, %invoke.cont1881 ], [ %495, %invoke.cont1871 ], [ %492, %invoke.cont1861 ], [ %487, %invoke.cont1835 ], [ %484, %invoke.cont1825 ], [ %481, %invoke.cont1815 ], [ %478, %invoke.cont1805 ], [ %475, %invoke.cont1795 ], [ %472, %invoke.cont1785 ], [ %469, %invoke.cont1775 ], [ %466, %invoke.cont1765 ], [ %463, %invoke.cont1755 ], [ %460, %invoke.cont1745 ], [ %455, %invoke.cont1719 ], [ %452, %invoke.cont1709 ], [ %449, %invoke.cont1699 ], [ %446, %invoke.cont1689 ], [ %443, %invoke.cont1679 ], [ %440, %invoke.cont1669 ], [ %437, %invoke.cont1659 ], [ %434, %invoke.cont1649 ], [ %431, %invoke.cont1639 ], [ %428, %invoke.cont1629 ], [ %425, %invoke.cont1619 ], [ %422, %invoke.cont1609 ], [ %419, %invoke.cont1599 ], [ %416, %invoke.cont1589 ], [ %413, %invoke.cont1579 ], [ %410, %invoke.cont1569 ], [ %407, %invoke.cont1559 ], [ %404, %invoke.cont1549 ], [ %401, %invoke.cont1539 ], [ %398, %invoke.cont1529 ], [ %395, %invoke.cont1519 ], [ %392, %invoke.cont1509 ], [ %389, %invoke.cont1499 ], [ %386, %invoke.cont1489 ], [ %383, %invoke.cont1479 ], [ %380, %invoke.cont1469 ], [ %377, %invoke.cont1459 ], [ %374, %invoke.cont1449 ], [ %371, %invoke.cont1439 ], [ %368, %invoke.cont1429 ], [ %365, %invoke.cont1419 ], [ %362, %invoke.cont1409 ], [ %359, %invoke.cont1399 ], [ %356, %invoke.cont1389 ], [ %353, %invoke.cont1379 ], [ %350, %invoke.cont1369 ], [ %347, %invoke.cont1359 ], [ %344, %invoke.cont1349 ], [ %341, %invoke.cont1339 ], [ %338, %invoke.cont1329 ], [ %335, %invoke.cont1319 ], [ %332, %invoke.cont1309 ], [ %329, %invoke.cont1299 ], [ %326, %invoke.cont1289 ], [ %323, %invoke.cont1279 ], [ %320, %invoke.cont1269 ], [ %317, %invoke.cont1259 ], [ %314, %invoke.cont1249 ], [ %311, %invoke.cont1239 ], [ %308, %invoke.cont1229 ], [ %305, %invoke.cont1219 ], [ %302, %invoke.cont1209 ], [ %299, %invoke.cont1199 ], [ %296, %invoke.cont1189 ], [ %293, %invoke.cont1179 ], [ %290, %invoke.cont1169 ], [ %287, %invoke.cont1159 ], [ %284, %invoke.cont1149 ], [ %281, %invoke.cont1139 ], [ %278, %invoke.cont1129 ], [ %275, %invoke.cont1119 ], [ %272, %invoke.cont1109 ], [ %269, %invoke.cont1099 ], [ %266, %invoke.cont1089 ], [ %263, %invoke.cont1079 ], [ %260, %invoke.cont1069 ], [ %257, %invoke.cont1059 ], [ %254, %invoke.cont1049 ], [ %251, %invoke.cont1039 ], [ %248, %invoke.cont1029 ], [ %245, %invoke.cont1019 ], [ %242, %invoke.cont1009 ], [ %239, %invoke.cont999 ], [ %236, %invoke.cont989 ], [ %233, %invoke.cont979 ], [ %230, %invoke.cont969 ], [ %227, %invoke.cont959 ], [ %224, %invoke.cont949 ], [ %221, %invoke.cont939 ], [ %218, %invoke.cont929 ], [ %215, %invoke.cont919 ], [ %212, %invoke.cont909 ], [ %209, %invoke.cont899 ], [ %206, %invoke.cont889 ], [ %203, %invoke.cont879 ], [ %200, %invoke.cont869 ], [ %197, %invoke.cont859 ], [ %194, %invoke.cont849 ], [ %191, %invoke.cont839 ], [ %188, %invoke.cont829 ], [ %185, %invoke.cont819 ], [ %182, %invoke.cont809 ], [ %179, %invoke.cont799 ], [ %176, %invoke.cont789 ], [ %173, %invoke.cont779 ], [ %170, %invoke.cont769 ], [ %167, %invoke.cont759 ], [ %164, %invoke.cont749 ], [ %161, %invoke.cont739 ], [ %158, %invoke.cont729 ], [ %155, %invoke.cont719 ], [ %152, %invoke.cont709 ], [ %149, %invoke.cont699 ], [ %146, %invoke.cont689 ], [ %143, %invoke.cont679 ], [ %140, %invoke.cont669 ], [ %137, %invoke.cont659 ], [ %134, %invoke.cont649 ], [ %131, %invoke.cont639 ], [ %128, %invoke.cont629 ], [ %125, %invoke.cont619 ], [ %122, %invoke.cont609 ], [ %119, %invoke.cont599 ], [ %116, %invoke.cont589 ], [ %113, %invoke.cont579 ], [ %110, %invoke.cont569 ], [ %107, %invoke.cont559 ], [ %104, %invoke.cont549 ], [ %101, %invoke.cont539 ], [ %98, %invoke.cont529 ], [ %95, %invoke.cont519 ], [ %92, %invoke.cont509 ], [ %89, %invoke.cont499 ], [ %86, %invoke.cont489 ], [ %83, %invoke.cont479 ], [ %80, %invoke.cont469 ], [ %77, %invoke.cont459 ], [ %74, %invoke.cont449 ], [ %55, %if.end309 ], [ 790, %if.end299 ], [ %conv208, %sw.epilog5283 ]
   %p.4 = phi ptr [ %p.3, %_eof_trans ], [ %p.3, %if.end214 ], [ %add.ptr5104, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4417 ], [ %incdec.ptr4722, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4198 ], [ %p.512026, %sw.bb4101 ], [ %incdec.ptr3987, %if.end3999 ], [ %incdec.ptr3966, %if.end3978 ], [ %incdec.ptr3945, %if.end3957 ], [ %incdec.ptr3924, %if.end3936 ], [ %incdec.ptr3338, %if.end3350 ], [ %p.512026, %sw.bb3334 ], [ %p.512026, %sw.bb3224 ], [ %p.512026, %sw.bb3152 ], [ %p.512026, %sw.bb3148 ], [ %p.512026, %sw.bb3096 ], [ %p.512026, %sw.bb3020 ], [ %incdec.ptr3019, %sw.bb3017 ], [ %incdec.ptr3016, %sw.bb3014 ], [ %p.512026, %if.end3008 ], [ %incdec.ptr2984, %if.then2983 ], [ %p.512026, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit1782 ], [ %incdec.ptr2465, %if.end2477 ], [ %incdec.ptr2447, %if.end2459 ], [ %incdec.ptr2429, %if.end2441 ], [ %incdec.ptr2411, %if.end2423 ], [ %p.512026, %if.end2337 ], [ %p.512026, %if.end2104 ], [ %p.512026, %if.end2083 ], [ %p.512026, %if.end2062 ], [ %p.512026, %if.end2041 ], [ %p.512026, %if.end2020 ], [ %p.512026, %if.end1999 ], [ %p.512026, %if.end1978 ], [ %add.ptr1936, %invoke.cont1941 ], [ %add.ptr1926, %invoke.cont1931 ], [ %add.ptr1916, %invoke.cont1921 ], [ %add.ptr1906, %invoke.cont1911 ], [ %add.ptr1896, %invoke.cont1901 ], [ %add.ptr1886, %invoke.cont1891 ], [ %add.ptr1876, %invoke.cont1881 ], [ %add.ptr1866, %invoke.cont1871 ], [ %add.ptr1856, %invoke.cont1861 ], [ %incdec.ptr1830, %invoke.cont1835 ], [ %incdec.ptr1820, %invoke.cont1825 ], [ %incdec.ptr1810, %invoke.cont1815 ], [ %incdec.ptr1800, %invoke.cont1805 ], [ %incdec.ptr1790, %invoke.cont1795 ], [ %incdec.ptr1780, %invoke.cont1785 ], [ %incdec.ptr1770, %invoke.cont1775 ], [ %incdec.ptr1760, %invoke.cont1765 ], [ %incdec.ptr1750, %invoke.cont1755 ], [ %incdec.ptr1740, %invoke.cont1745 ], [ %p.512026, %invoke.cont1719 ], [ %p.512026, %invoke.cont1709 ], [ %p.512026, %invoke.cont1699 ], [ %p.512026, %invoke.cont1689 ], [ %p.512026, %invoke.cont1679 ], [ %p.512026, %invoke.cont1669 ], [ %p.512026, %invoke.cont1659 ], [ %p.512026, %invoke.cont1649 ], [ %p.512026, %invoke.cont1639 ], [ %p.512026, %invoke.cont1629 ], [ %p.512026, %invoke.cont1619 ], [ %p.512026, %invoke.cont1609 ], [ %p.512026, %invoke.cont1599 ], [ %p.512026, %invoke.cont1589 ], [ %p.512026, %invoke.cont1579 ], [ %p.512026, %invoke.cont1569 ], [ %p.512026, %invoke.cont1559 ], [ %p.512026, %invoke.cont1549 ], [ %p.512026, %invoke.cont1539 ], [ %p.512026, %invoke.cont1529 ], [ %p.512026, %invoke.cont1519 ], [ %p.512026, %invoke.cont1509 ], [ %p.512026, %invoke.cont1499 ], [ %p.512026, %invoke.cont1489 ], [ %p.512026, %invoke.cont1479 ], [ %p.512026, %invoke.cont1469 ], [ %p.512026, %invoke.cont1459 ], [ %p.512026, %invoke.cont1449 ], [ %p.512026, %invoke.cont1439 ], [ %p.512026, %invoke.cont1429 ], [ %p.512026, %invoke.cont1419 ], [ %p.512026, %invoke.cont1409 ], [ %p.512026, %invoke.cont1399 ], [ %p.512026, %invoke.cont1389 ], [ %p.512026, %invoke.cont1379 ], [ %p.512026, %invoke.cont1369 ], [ %p.512026, %invoke.cont1359 ], [ %p.512026, %invoke.cont1349 ], [ %p.512026, %invoke.cont1339 ], [ %p.512026, %invoke.cont1329 ], [ %p.512026, %invoke.cont1319 ], [ %p.512026, %invoke.cont1309 ], [ %p.512026, %invoke.cont1299 ], [ %p.512026, %invoke.cont1289 ], [ %p.512026, %invoke.cont1279 ], [ %p.512026, %invoke.cont1269 ], [ %p.512026, %invoke.cont1259 ], [ %p.512026, %invoke.cont1249 ], [ %p.512026, %invoke.cont1239 ], [ %p.512026, %invoke.cont1229 ], [ %p.512026, %invoke.cont1219 ], [ %p.512026, %invoke.cont1209 ], [ %p.512026, %invoke.cont1199 ], [ %p.512026, %invoke.cont1189 ], [ %p.512026, %invoke.cont1179 ], [ %p.512026, %invoke.cont1169 ], [ %p.512026, %invoke.cont1159 ], [ %p.512026, %invoke.cont1149 ], [ %p.512026, %invoke.cont1139 ], [ %p.512026, %invoke.cont1129 ], [ %p.512026, %invoke.cont1119 ], [ %p.512026, %invoke.cont1109 ], [ %p.512026, %invoke.cont1099 ], [ %p.512026, %invoke.cont1089 ], [ %p.512026, %invoke.cont1079 ], [ %p.512026, %invoke.cont1069 ], [ %p.512026, %invoke.cont1059 ], [ %p.512026, %invoke.cont1049 ], [ %p.512026, %invoke.cont1039 ], [ %p.512026, %invoke.cont1029 ], [ %p.512026, %invoke.cont1019 ], [ %p.512026, %invoke.cont1009 ], [ %p.512026, %invoke.cont999 ], [ %p.512026, %invoke.cont989 ], [ %p.512026, %invoke.cont979 ], [ %p.512026, %invoke.cont969 ], [ %p.512026, %invoke.cont959 ], [ %p.512026, %invoke.cont949 ], [ %p.512026, %invoke.cont939 ], [ %p.512026, %invoke.cont929 ], [ %p.512026, %invoke.cont919 ], [ %p.512026, %invoke.cont909 ], [ %p.512026, %invoke.cont899 ], [ %p.512026, %invoke.cont889 ], [ %p.512026, %invoke.cont879 ], [ %p.512026, %invoke.cont869 ], [ %p.512026, %invoke.cont859 ], [ %p.512026, %invoke.cont849 ], [ %p.512026, %invoke.cont839 ], [ %p.512026, %invoke.cont829 ], [ %p.512026, %invoke.cont819 ], [ %p.512026, %invoke.cont809 ], [ %p.512026, %invoke.cont799 ], [ %p.512026, %invoke.cont789 ], [ %p.512026, %invoke.cont779 ], [ %p.512026, %invoke.cont769 ], [ %p.512026, %invoke.cont759 ], [ %p.512026, %invoke.cont749 ], [ %p.512026, %invoke.cont739 ], [ %p.512026, %invoke.cont729 ], [ %p.512026, %invoke.cont719 ], [ %p.512026, %invoke.cont709 ], [ %p.512026, %invoke.cont699 ], [ %p.512026, %invoke.cont689 ], [ %p.512026, %invoke.cont679 ], [ %p.512026, %invoke.cont669 ], [ %p.512026, %invoke.cont659 ], [ %p.512026, %invoke.cont649 ], [ %p.512026, %invoke.cont639 ], [ %p.512026, %invoke.cont629 ], [ %p.512026, %invoke.cont619 ], [ %p.512026, %invoke.cont609 ], [ %p.512026, %invoke.cont599 ], [ %p.512026, %invoke.cont589 ], [ %p.512026, %invoke.cont579 ], [ %p.512026, %invoke.cont569 ], [ %p.512026, %invoke.cont559 ], [ %p.512026, %invoke.cont549 ], [ %p.512026, %invoke.cont539 ], [ %p.512026, %invoke.cont529 ], [ %p.512026, %invoke.cont519 ], [ %p.512026, %invoke.cont509 ], [ %p.512026, %invoke.cont499 ], [ %p.512026, %invoke.cont489 ], [ %p.512026, %invoke.cont479 ], [ %p.512026, %invoke.cont469 ], [ %p.512026, %invoke.cont459 ], [ %p.512026, %invoke.cont449 ], [ %p.512026, %if.end309 ], [ %incdec.ptr290, %if.end299 ], [ %p.6, %sw.epilog5283 ]
   %idxprom5285 = sext i32 %cs.2 to i64
-  %arrayidx5286 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 0, i64 %idxprom5285
+  %arrayidx5286 = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 0, i64 %idxprom5285
   %1661 = load i16, ptr %arrayidx5286, align 2
   %idx.ext5288 = sext i16 %1661 to i64
-  %add.ptr5289 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext5288
+  %add.ptr5289 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext5288
   %1662 = load i16, ptr %add.ptr5289, align 2
   %cmp5294.not12043 = icmp eq i16 %1662, 0
   br i1 %cmp5294.not12043, label %while.end5300, label %while.body5295.preheader
@@ -15967,7 +15967,7 @@ _test_eof:                                        ; preds = %if.end5303, %invoke
 
 if.then5309:                                      ; preds = %_test_eof
   %idxprom5310 = sext i32 %cs.0 to i64
-  %arrayidx5311 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L16_regex_eof_transE, i64 0, i64 %idxprom5310
+  %arrayidx5311 = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L16_regex_eof_transE, i64 0, i64 %idxprom5310
   %1664 = load i16, ptr %arrayidx5311, align 2
   %cmp5313 = icmp sgt i16 %1664, 0
   br i1 %cmp5313, label %if.then5314, label %if.end5319
@@ -15978,10 +15978,10 @@ if.then5314:                                      ; preds = %if.then5309
   br label %_eof_trans
 
 if.end5319:                                       ; preds = %if.then5309
-  %arrayidx5321 = getelementptr inbounds [850 x i16], ptr @_ZN3ue2L18_regex_eof_actionsE, i64 0, i64 %idxprom5310
+  %arrayidx5321 = getelementptr inbounds nuw [850 x i16], ptr @_ZN3ue2L18_regex_eof_actionsE, i64 0, i64 %idxprom5310
   %1665 = load i16, ptr %arrayidx5321, align 2
   %idx.ext5323 = sext i16 %1665 to i64
-  %add.ptr5324 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext5323
+  %add.ptr5324 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %idx.ext5323
   %1666 = load i16, ptr %add.ptr5324, align 2
   %conv5326 = sext i16 %1666 to i32
   br label %while.cond5327

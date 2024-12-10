@@ -2562,7 +2562,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %97 = getelementptr inbounds i32, ptr %93, i64 %96
   store i32 0, ptr %97, align 4
   %98 = sext i32 %.15179 to i64
-  %99 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %98
   %100 = load i64, ptr %99, align 8
   %101 = load i32, ptr %11, align 4
   %102 = load i32, ptr %2, align 8
@@ -2637,7 +2637,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
   %132 = load i32, ptr %131, align 4
   %133 = add nsw i32 %132, 1
   store i32 %133, ptr %131, align 4
-  %134 = getelementptr inbounds [64 x i64], ptr %7, i64 0, i64 %.pre-phi
+  %134 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %.pre-phi
   %135 = load i64, ptr %134, align 8
   %136 = add nsw i32 %.15179, 97
   %putchar = tail call i32 @putchar(i32 %136)

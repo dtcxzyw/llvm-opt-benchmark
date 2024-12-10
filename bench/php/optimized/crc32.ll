@@ -69,7 +69,7 @@ define range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr nocapture noundef 
   br i1 %.not9.i, label %php_crc32_bulk_update.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %5, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

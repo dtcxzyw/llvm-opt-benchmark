@@ -612,7 +612,7 @@ define noundef zeroext i1 @_ZN14debug_module_t4loadEmmPh(ptr nocapture noundef n
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr @_ZL13debug_rom_raw, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr @_ZL13debug_rom_raw, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 -2048
   br label %.sink.split
 

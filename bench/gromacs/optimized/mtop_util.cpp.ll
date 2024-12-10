@@ -323,7 +323,7 @@ define noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %2
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %12, i32 2
+  %13 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %12, i32 2
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14

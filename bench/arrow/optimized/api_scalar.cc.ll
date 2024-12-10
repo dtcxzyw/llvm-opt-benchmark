@@ -55092,14 +55092,14 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %0 = load i8, ptr %add.ptr, align 1
-  %arrayidx4 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem
   %1 = load i8, ptr %arrayidx4, align 1
   %and23 = and i8 %1, %0
   %cmp939 = icmp sgt i64 %length, 0
   br i1 %cmp939, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then2
-  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem
   %2 = load i8, ptr %arrayidx, align 1
   %3 = getelementptr inbounds nuw i8, ptr %g, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %g, i64 8

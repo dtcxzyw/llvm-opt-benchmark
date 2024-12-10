@@ -4945,7 +4945,7 @@ define internal void @aspect_presets_changed(ptr noundef %0, ptr noundef %1) #4 
 65:                                               ; preds = %59
   %66 = add nsw i32 %52, 1
   %67 = sext i32 %52 to i64
-  %68 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %67
   store i8 %51, ptr %68, align 1, !tbaa !195
   br label %69
 
@@ -4966,7 +4966,7 @@ define internal void @aspect_presets_changed(ptr noundef %0, ptr noundef %1) #4 
 79:                                               ; preds = %77, %46
   %80 = phi i32 [ 1, %46 ], [ %70, %77 ]
   %81 = phi i64 [ 0, %46 ], [ %78, %77 ]
-  %82 = getelementptr inbounds [100 x i8], ptr %3, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [100 x i8], ptr %3, i64 0, i64 %81
   store i8 0, ptr %82, align 1, !tbaa !195
   %83 = call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #26
   %84 = trunc i64 %83 to i32

@@ -2113,7 +2113,7 @@ _ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit: ; preds = 
 if.then40:                                        ; preds = %_ZNSt3mapIiSt7complexIdESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit
   %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 40
   %19 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %19
+  %arrayidx = getelementptr inbounds nuw [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   br label %if.end50
 
@@ -2123,7 +2123,7 @@ if.else43:                                        ; preds = %for.body, %_ZNSt8_R
   %21 = extractvalue { double, double } %call45, 0
   %22 = extractvalue { double, double } %call45, 1
   %23 = add nsw i64 %indvars.iv, -1
-  %arrayidx49 = getelementptr inbounds [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %23
+  %arrayidx49 = getelementptr inbounds nuw [4 x %"class.std::complex"], ptr %fMinusN, i64 0, i64 %23
   store double %21, ptr %arrayidx49, align 16
   %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx49, i64 8
   store double %22, ptr %ref.tmp44.sroa.4.0.arrayidx49.sroa_idx, align 8, !tbaa !33

@@ -627,7 +627,7 @@ define void @_ZNK10open_spiel7othello4Move8ToStringB5cxx11Ev(ptr dead_on_unwind 
   %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [9 x i8], ptr @.str.24, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [9 x i8], ptr @.str.24, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1, !noalias !4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24, !noalias !4
   %15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)

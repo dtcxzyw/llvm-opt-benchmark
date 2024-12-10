@@ -5461,19 +5461,19 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %197, %162, %.prehea
 
 211:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
   %212 = sext i32 %.1101 to i64
-  %213 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4
   br i1 %30, label %215, label %.critedge111
 
 215:                                              ; preds = %211
   %216 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.1101, i32 noundef %214)
-  %217 = getelementptr inbounds [4 x [4 x i64]], ptr %3, i64 0, i64 %212
+  %217 = getelementptr inbounds nuw [4 x [4 x i64]], ptr %3, i64 0, i64 %212
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %217, i32 noundef %214) #23
   br label %.critedge111
 
 .critedge111:                                     ; preds = %211, %215
   %218 = load ptr, ptr %37, align 8
-  %219 = getelementptr inbounds [4 x [16 x i32]], ptr %5, i64 0, i64 %212
+  %219 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %5, i64 0, i64 %212
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %222 = call i32 @Sfm_LibImplementGatesArea(ptr noundef %218, ptr noundef nonnull %219, i32 noundef %214, i32 noundef %.1, ptr noundef nonnull %220, ptr noundef nonnull %221) #23
@@ -6453,19 +6453,19 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %304, %269, %.prehea
   br i1 %36, label %320, label %._crit_edge
 
 320:                                              ; preds = %318
-  %321 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %319
+  %321 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %319
   %322 = load i32, ptr %321, align 4
   %323 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.1182, i32 noundef %322)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %318, %320
   %324 = load ptr, ptr %54, align 8
-  %325 = getelementptr inbounds [4 x [16 x i32]], ptr %7, i64 0, i64 %319
+  %325 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %7, i64 0, i64 %319
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %328 = call i32 @Sfm_LibImplementGatesDelay(ptr noundef %324, ptr noundef nonnull %325, ptr noundef %.1202, ptr noundef %.1197, ptr noundef %.1192, ptr noundef %.1187, ptr noundef nonnull %326, ptr noundef nonnull %327) #23
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %330 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %319
+  %330 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %319
   %331 = load i32, ptr %330, align 4
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds [9 x i32], ptr %329, i64 0, i64 %332

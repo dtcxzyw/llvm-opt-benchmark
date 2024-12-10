@@ -5577,7 +5577,7 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h9e3801ce2c37ec
 58:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h9e3801ce2c37ecf3E.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1669)
   %59 = add nsw i64 %1, -1
-  %60 = getelementptr inbounds i64, ptr %4, i64 %59
+  %60 = getelementptr inbounds nuw i64, ptr %4, i64 %59
   %61 = getelementptr inbounds i64, ptr %0, i64 %59
   %62 = getelementptr i8, ptr %11, i64 -8
   br label %.lr.ph.i12

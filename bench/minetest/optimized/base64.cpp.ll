@@ -529,7 +529,7 @@ _ZL9is_base64h.exit:                              ; preds = %land.rhs
 while.body:                                       ; preds = %_ZL9is_base64h.exit, %land.rhs
   %inc = add nsw i32 %i.0181, 1
   %idxprom = sext i32 %i.0181 to i64
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %char_array_4, i64 0, i64 %idxprom
   store i8 %1, ptr %arrayidx, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp12 = icmp eq i32 %inc, 4

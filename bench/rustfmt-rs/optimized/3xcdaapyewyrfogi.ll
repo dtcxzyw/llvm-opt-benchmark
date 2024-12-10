@@ -1403,7 +1403,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02838.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %12
-  %18 = getelementptr inbounds i8, ptr %4, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !244
   store i16 %19, ptr %18, align 1, !alias.scope !244
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
@@ -1422,7 +1422,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %.zext37.i = zext nneg i16 %27 to i64
   %28 = add i64 %.028.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %26
-  %30 = getelementptr inbounds i8, ptr %4, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !244
   store i16 %31, ptr %30, align 1, !alias.scope !244
   br label %32
@@ -1437,7 +1437,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
   %35 = shl nuw nsw i64 %.027.i, 1
   %36 = add i64 %.129.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %35
-  %38 = getelementptr inbounds i8, ptr %4, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !244
   store i16 %39, ptr %38, align 1, !alias.scope !244
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit"
@@ -1445,7 +1445,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
 40:                                               ; preds = %32
   %41 = add i64 %.129.i, -1
   %42 = trunc nuw nsw i64 %.027.i to i8
-  %43 = getelementptr inbounds i8, ptr %4, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !244
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit"
@@ -1469,7 +1469,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter9write_u3217hc59
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h6c3ff3ec38990f1cE.llvm.15131964271339581801.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit", %52
   %53 = phi i64 [ %48, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit" ], [ %.pre.i.i.i.i, %52 ]
-  %54 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !264, !noalias !261, !nonnull !10, !noundef !10
   %57 = getelementptr inbounds i8, ptr %56, i64 %53
@@ -6843,7 +6843,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02838.i.i.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !1411
   store i16 %19, ptr %18, align 1, !alias.scope !1408, !noalias !1407
   %20 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %15
@@ -6862,7 +6862,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %.zext37.i.i.i = zext nneg i16 %27 to i64
   %28 = add i64 %.028.lcssa.i.i.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !1411
   store i16 %31, ptr %30, align 1, !alias.scope !1408, !noalias !1407
   br label %32
@@ -6877,7 +6877,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
   %35 = shl nuw nsw i64 %.027.i.i.i, 1
   %36 = add i64 %.129.i.i.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !1411
   store i16 %39, ptr %38, align 1, !alias.scope !1408, !noalias !1407
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i"
@@ -6885,7 +6885,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
 40:                                               ; preds = %32
   %41 = add i64 %.129.i.i.i, -1
   %42 = trunc nuw nsw i64 %.027.i.i.i to i8
-  %43 = getelementptr inbounds i8, ptr %3, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !1408, !noalias !1407
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i"
@@ -6909,7 +6909,7 @@ define hidden noalias noundef align 8 ptr @"_ZN5serde3ser5impls55_$LT$impl$u20$s
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_u3217h358a01ddf92fd88aE.llvm.15131964271339581801.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i", %52
   %53 = phi i64 [ %48, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i" ], [ %.pre.i.i.i.i.i.i, %52 ]
-  %54 = getelementptr inbounds i8, ptr %3, i64 %.2.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.2.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !1430, !noalias !1427, !nonnull !10, !noundef !10
   %57 = getelementptr inbounds i8, ptr %56, i64 %53
@@ -8164,7 +8164,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %29 = zext nneg i16 %28 to i64
   %30 = add i64 %.02838.i.i.i.i, -4
   %31 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %26
-  %32 = getelementptr inbounds i8, ptr %3, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %30
   %33 = load i16, ptr %31, align 1, !noalias !1781
   store i16 %33, ptr %32, align 1, !alias.scope !1778, !noalias !1777
   %34 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %29
@@ -8183,7 +8183,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %.zext37.i.i.i.i = zext nneg i16 %41 to i64
   %42 = add i64 %.028.lcssa.i.i.i.i, -2
   %43 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %40
-  %44 = getelementptr inbounds i8, ptr %3, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
   %45 = load i16, ptr %43, align 1, !noalias !1781
   store i16 %45, ptr %44, align 1, !alias.scope !1778, !noalias !1777
   br label %46
@@ -8198,7 +8198,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
   %49 = shl nuw nsw i64 %.027.i.i.i.i, 1
   %50 = add i64 %.129.i.i.i.i, -2
   %51 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %49
-  %52 = getelementptr inbounds i8, ptr %3, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 %50
   %53 = load i16, ptr %51, align 1, !noalias !1781
   store i16 %53, ptr %52, align 1, !alias.scope !1778, !noalias !1777
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i.i"
@@ -8206,7 +8206,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 54:                                               ; preds = %46
   %55 = add i64 %.129.i.i.i.i, -1
   %56 = trunc nuw nsw i64 %.027.i.i.i.i to i8
-  %57 = getelementptr inbounds i8, ptr %3, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %55
   %58 = or disjoint i8 %56, 48
   store i8 %58, ptr %57, align 1, !alias.scope !1778, !noalias !1777
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i.i"
@@ -8230,7 +8230,7 @@ define hidden noalias noundef align 8 ptr @"_ZN83_$LT$serde_json..ser..Compound$
 
 67:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i.i", %66
   %68 = phi i64 [ %62, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i.i.i" ], [ %.pre.i.i.i.i.i.i.i, %66 ]
-  %69 = getelementptr inbounds i8, ptr %3, i64 %.2.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %.2.i.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %71 = load ptr, ptr %70, align 8, !alias.scope !1800, !noalias !1797, !nonnull !10, !noundef !10
   %72 = getelementptr inbounds i8, ptr %71, i64 %68
@@ -13391,7 +13391,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %14 = zext nneg i16 %13 to i64
   %15 = add i64 %.02838.i.i, -4
   %16 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %11
-  %17 = getelementptr inbounds i8, ptr %3, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %15
   %18 = load i16, ptr %16, align 1, !noalias !2217
   store i16 %18, ptr %17, align 1, !alias.scope !2214, !noalias !2211
   %19 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %14
@@ -13410,7 +13410,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %.zext37.i.i = zext nneg i16 %26 to i64
   %27 = add i64 %.028.lcssa.i.i, -2
   %28 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   %30 = load i16, ptr %28, align 1, !noalias !2217
   store i16 %30, ptr %29, align 1, !alias.scope !2214, !noalias !2211
   br label %31
@@ -13425,7 +13425,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
   %34 = shl nuw nsw i64 %.027.i.i, 1
   %35 = add i64 %.129.i.i, -2
   %36 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.72, i64 %34
-  %37 = getelementptr inbounds i8, ptr %3, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %35
   %38 = load i16, ptr %36, align 1, !noalias !2217
   store i16 %38, ptr %37, align 1, !alias.scope !2214, !noalias !2211
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i"
@@ -13433,7 +13433,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 39:                                               ; preds = %31
   %40 = add i64 %.129.i.i, -1
   %41 = trunc nuw nsw i64 %.027.i.i to i8
-  %42 = getelementptr inbounds i8, ptr %3, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %40
   %43 = or disjoint i8 %41, 48
   store i8 %43, ptr %42, align 1, !alias.scope !2214, !noalias !2211
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i"
@@ -13457,7 +13457,7 @@ define hidden noalias noundef align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..se
 
 _ZN10serde_json3ser9Formatter9write_u3217hc591269485925b43E.llvm.15131964271339581801.exit: ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i", %51
   %52 = phi i64 [ %47, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hc022b14edce0cd97E.llvm.15131964271339581801.exit.i" ], [ %.pre.i.i.i.i.i, %51 ]
-  %53 = getelementptr inbounds i8, ptr %3, i64 %.2.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %.2.i.i
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !2236, !noalias !2233, !nonnull !10, !noundef !10
   %56 = getelementptr inbounds i8, ptr %55, i64 %52
@@ -40424,7 +40424,7 @@ define hidden void @_ZN15rustfmt_nightly5shape6Indent15to_string_inner17h347d1f2
   unreachable
 
 "_ZN4core3str6traits117_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeInclusive$LT$usize$GT$$GT$5index17hd68266ff0bcac055E.exit": ; preds = %48, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.15131964271339581801.exit7.i.i"
-  %55 = getelementptr inbounds i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.287, i64 %3
+  %55 = getelementptr inbounds nuw i8, ptr @anon.87cf9f699931e7f72e5feaf785e04e8d.287, i64 %3
   %56 = sub nsw i64 %39, %3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %55, ptr %57, align 8

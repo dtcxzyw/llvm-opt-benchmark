@@ -532,7 +532,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
   %293 = getelementptr inbounds nuw [4 x i32], ptr %288, i64 0, i64 %indvars.iv265.i
   %294 = load i32, ptr %293, align 4
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds [10 x [64 x i32]], ptr %4, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [10 x [64 x i32]], ptr %4, i64 0, i64 %295
   br i1 %278, label %307, label %297
 
 297:                                              ; preds = %292
@@ -681,7 +681,7 @@ initial_setup.exit:                               ; preds = %85, %._crit_edge.i,
   %355 = getelementptr inbounds nuw [4 x i32], ptr %353, i64 0, i64 %indvars.iv270.i
   %356 = load i32, ptr %355, align 4
   %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds [10 x i32], ptr %3, i64 0, i64 %357
+  %358 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %357
   %359 = load i32, ptr %358, align 4
   %.not194.i = icmp eq i32 %359, 0
   br i1 %.not194.i, label %367, label %360

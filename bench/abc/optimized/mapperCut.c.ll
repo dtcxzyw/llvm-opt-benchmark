@@ -457,7 +457,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   %169 = getelementptr inbounds nuw i8, ptr %158, i64 76
   %170 = load i8, ptr %169, align 4
   %171 = sext i8 %170 to i64
-  %172 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [7 x ptr], ptr %6, i64 0, i64 %171
   %173 = load ptr, ptr %172, align 8
   store ptr %173, ptr %158, align 8
   store ptr %158, ptr %172, align 8
@@ -544,7 +544,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 76
   %217 = load i8, ptr %216, align 4
   %218 = sext i8 %217 to i64
-  %219 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw [7 x ptr], ptr %6, i64 0, i64 %218
   %220 = load ptr, ptr %219, align 8
   store ptr %220, ptr %205, align 8
   store ptr %205, ptr %219, align 8
@@ -617,7 +617,7 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   %262 = getelementptr inbounds nuw i8, ptr %251, i64 76
   %263 = load i8, ptr %262, align 4
   %264 = sext i8 %263 to i64
-  %265 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [7 x ptr], ptr %6, i64 0, i64 %264
   %266 = load ptr, ptr %265, align 8
   store ptr %266, ptr %251, align 8
   store ptr %251, ptr %265, align 8
@@ -1181,7 +1181,7 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 76
   %44 = load i8, ptr %43, align 4
   %45 = sext i8 %44 to i64
-  %46 = getelementptr inbounds [7 x ptr], ptr %9, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [7 x ptr], ptr %9, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %35, align 8
   store ptr %35, ptr %46, align 8

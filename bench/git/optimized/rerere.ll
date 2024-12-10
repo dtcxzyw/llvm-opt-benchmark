@@ -3158,7 +3158,7 @@ if.end12:                                         ; preds = %lor.lhs.false
   %shr = and i32 %and, 3
   %sub13 = add nsw i32 %shr, -1
   %idxprom14 = sext i32 %sub13 to i64
-  %arrayidx15 = getelementptr inbounds [3 x %struct.s_mmfile], ptr %mmfile, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [3 x %struct.s_mmfile], ptr %mmfile, i64 0, i64 %idxprom14
   %7 = load ptr, ptr %arrayidx15, align 16
   %tobool16.not = icmp eq ptr %7, null
   br i1 %tobool16.not, label %if.then17, label %if.end25

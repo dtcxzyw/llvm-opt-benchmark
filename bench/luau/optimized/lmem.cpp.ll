@@ -1100,7 +1100,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %4
   store i32 %.02530.i.i, ptr %5, align 4
   %6 = add nuw nsw i32 %.02530.i.i, 8
   %7 = icmp samesign ult i32 %.02530.i.i, 56
@@ -1112,7 +1112,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %10
   store i32 %.02431.i.i, ptr %11, align 4
   %12 = add nuw nsw i32 %.02431.i.i, 16
   %13 = icmp samesign ult i32 %.02431.i.i, 240
@@ -1124,7 +1124,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %16
   store i32 %.02332.i.i, ptr %17, align 4
   %18 = add nuw nsw i32 %.02332.i.i, 32
   %19 = icmp samesign ult i32 %.02332.i.i, 480
@@ -1141,7 +1141,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #7 section ".text.startup" {
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %24
   store i32 %.02233.i.i, ptr %25, align 4
   %26 = add nuw nsw i32 %.02233.i.i, 64
   %27 = icmp samesign ult i32 %.02233.i.i, 961

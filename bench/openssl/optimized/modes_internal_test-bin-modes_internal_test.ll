@@ -164,7 +164,7 @@ entry:
   %ctx = alloca %struct.gcm128_context, align 8
   %key = alloca %struct.aes_key_st, align 4
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x %struct.gcm128_data], ptr @gcm128_vectors, i64 0, i64 %idxprom
   %K.sroa.0.0.copyload = load i64, ptr %arrayidx, align 16
   %K.sroa.2.0.K1.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %K.sroa.2.0.copyload = load ptr, ptr %K.sroa.2.0.K1.sroa_idx, align 8
@@ -299,7 +299,7 @@ entry:
   %ciphertext = alloca [64 x i8], align 16
   %vector = alloca [64 x i8], align 16
   %idxprom = sext i32 %num to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.SIZED_DATA], ptr @aes_cts128_vectors, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.SIZED_DATA], ptr @aes_cts128_vectors, i64 0, i64 %idxprom
   %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %arrayidx, align 16
@@ -340,7 +340,7 @@ lor.lhs.false:                                    ; preds = %cts128_decrypt_key_
   br i1 %tobool14.not, label %return, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false
-  %add.ptr = getelementptr inbounds i8, ptr %vector, i64 %1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %vector, i64 %1
   %idx.neg = sub i64 0, %call5
   %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.4, i32 noundef 207, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %iv, i64 noundef 16, ptr noundef nonnull %add.ptr18, i64 noundef 16) #5

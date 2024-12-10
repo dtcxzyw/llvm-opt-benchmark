@@ -259,7 +259,7 @@ call.i.noexc:                                     ; preds = %entry
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #21
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -647,7 +647,7 @@ call.i.noexc:                                     ; preds = %entry
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #21
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buf, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -1161,7 +1161,7 @@ call.i.noexc:                                     ; preds = %entry
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer) #21
-  %add.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %call.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
 

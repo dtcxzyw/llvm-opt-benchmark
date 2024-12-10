@@ -354,7 +354,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_xz_open(ptr nocapture 
 32:                                               ; preds = %27
   %33 = load i32, ptr %4, align 8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [10 x %struct.option_value], ptr @option_values, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [10 x %struct.option_value], ptr @option_values, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i32 %36, ptr %37, align 8

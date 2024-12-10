@@ -1122,7 +1122,7 @@ _ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEEEvPT_
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEE6_tableE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb0ELb0ELb1EEE6_tableE, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i) #8
   br label %_ZN20ShenandoahBarrierSet13clone_markingEP7oopDesc.exit
@@ -1214,7 +1214,7 @@ _ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEEEvPT_
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i6, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEE6_tableE, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb0ELb0EEE6_tableE, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   call void %106(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i.i6) #8
   br label %_ZN20ShenandoahBarrierSet12clone_updateEP7oopDesc.exit
@@ -2146,7 +2146,7 @@ _ZN7oopDesc11oop_iterateI33ShenandoahUpdateRefsForOopClosureILb1ELb1ELb0EEEEvPT_
   %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb1ELb0EEE6_tableE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI33ShenandoahUpdateRefsForOopClosureILb1ELb1ELb0EEE6_tableE, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #8
   %74 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8

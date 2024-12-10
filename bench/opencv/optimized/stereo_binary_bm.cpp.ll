@@ -4784,7 +4784,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16PrefilterInvokerclERKNS_5RangeE
   %168 = ashr i32 %167, 10
   %169 = add nsw i32 %168, 1280
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [2816 x i8], ptr %4, i64 0, i64 %170
   %172 = load i8, ptr %171, align 1
   store i8 %172, ptr %129, align 1
   br i1 %96, label %.lr.ph195.i, label %._crit_edge196.i
@@ -4828,7 +4828,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16PrefilterInvokerclERKNS_5RangeE
   %204 = ashr i32 %203, 10
   %205 = add nsw i32 %204, 1280
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw [2816 x i8], ptr %4, i64 0, i64 %206
   %208 = load i8, ptr %207, align 1
   %209 = getelementptr inbounds nuw i8, ptr %129, i64 %indvars.iv236.i
   store i8 %208, ptr %209, align 1
@@ -4870,7 +4870,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo16PrefilterInvokerclERKNS_5RangeE
   %236 = ashr i32 %235, 10
   %237 = add nsw i32 %236, 1280
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds [2816 x i8], ptr %4, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [2816 x i8], ptr %4, i64 0, i64 %238
   %240 = load i8, ptr %239, align 1
   %241 = getelementptr inbounds nuw i8, ptr %129, i64 %217
   store i8 %240, ptr %241, align 1

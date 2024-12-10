@@ -164,7 +164,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_case(i32 noundef %i) #0 {
 entry:
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.anon], ptr @test_cases, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.anon], ptr @test_cases, i64 0, i64 %idxprom
   %desc = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %desc, align 8
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 539, ptr noundef nonnull @.str.3, ptr noundef %0) #6
@@ -198,7 +198,7 @@ entry:
   %param.i = alloca %struct.ossl_param_st, align 8
   %val.i = alloca i64, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [37 x %struct.int_from_text_test_st], ptr @int_from_text_test_cases, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [37 x %struct.int_from_text_test_st], ptr @int_from_text_test_cases, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %param.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   %arrayidx1.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8

@@ -2136,7 +2136,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %16 = zext nneg i16 %15 to i64
   %17 = add i64 %.02638.i.i.i, -4
   %18 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %20 = load i16, ptr %18, align 1, !noalias !583
   store i16 %20, ptr %19, align 1, !alias.scope !580, !noalias !579
   %21 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %16
@@ -2155,7 +2155,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %.zext37.i.i.i = zext nneg i16 %28 to i64
   %29 = add i64 %.026.lcssa.i.i.i, -2
   %30 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %32 = load i16, ptr %30, align 1, !noalias !583
   store i16 %32, ptr %31, align 1, !alias.scope !580, !noalias !579
   br label %33
@@ -2170,7 +2170,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
   %36 = shl nuw nsw i64 %.025.i.i.i, 1
   %37 = add i64 %.127.i.i.i, -2
   %38 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %36
-  %39 = getelementptr inbounds i8, ptr %3, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 %37
   %40 = load i16, ptr %38, align 1, !noalias !583
   store i16 %40, ptr %39, align 1, !alias.scope !580, !noalias !579
   br label %46
@@ -2178,7 +2178,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
 41:                                               ; preds = %33
   %42 = add i64 %.127.i.i.i, -1
   %43 = trunc nuw nsw i64 %.025.i.i.i to i8
-  %44 = getelementptr inbounds i8, ptr %3, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
   %45 = or disjoint i8 %43, 48
   store i8 %45, ptr %44, align 1, !alias.scope !580, !noalias !579
   br label %46
@@ -2189,13 +2189,13 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
 
 47:                                               ; preds = %46
   %48 = add i64 %.2.i.i.i, -1
-  %49 = getelementptr inbounds i8, ptr %3, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %48
   store i8 45, ptr %49, align 1, !alias.scope !580, !noalias !579
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i": ; preds = %47, %46
   %.3.i.i.i = phi i64 [ %.2.i.i.i, %46 ], [ %48, %47 ]
-  %gepdiff.i.i = sub nsw i64 11, %.3.i.i.i
+  %gepdiff.i.i = sub nuw nsw i64 11, %.3.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %51 = load i64, ptr %50, align 8, !alias.scope !584, !noundef !13
   %52 = load i64, ptr %4, align 8, !alias.scope !584, !noundef !13
@@ -2210,7 +2210,7 @@ define hidden void @_ZN10pdf_writer6object3Obj9primitive17h44973ec2be0caef3E.llv
 
 "_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17hf7c6579870e85f2cE.llvm.16528140993567049526.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i", %55
   %56 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i.i" ], [ %.pre.i.i.i, %55 ]
-  %57 = getelementptr inbounds i8, ptr %3, i64 %.3.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i.i.i
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !589, !nonnull !13, !noundef !13
   %60 = getelementptr inbounds i8, ptr %59, i64 %56
@@ -5392,7 +5392,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.02638.i.i, -4
   %48 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %43
-  %49 = getelementptr inbounds i8, ptr %3, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %47
   %50 = load i16, ptr %48, align 1, !noalias !1352
   store i16 %50, ptr %49, align 1, !alias.scope !1349, !noalias !1346
   %51 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %46
@@ -5411,7 +5411,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %.zext37.i.i = zext nneg i16 %58 to i64
   %59 = add i64 %.026.lcssa.i.i, -2
   %60 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %57
-  %61 = getelementptr inbounds i8, ptr %3, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %59
   %62 = load i16, ptr %60, align 1, !noalias !1352
   store i16 %62, ptr %61, align 1, !alias.scope !1349, !noalias !1346
   br label %63
@@ -5426,7 +5426,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
   %66 = shl nuw nsw i64 %.025.i.i, 1
   %67 = add i64 %.127.i.i, -2
   %68 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %66
-  %69 = getelementptr inbounds i8, ptr %3, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %67
   %70 = load i16, ptr %68, align 1, !noalias !1352
   store i16 %70, ptr %69, align 1, !alias.scope !1349, !noalias !1346
   br label %76
@@ -5434,7 +5434,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 71:                                               ; preds = %63
   %72 = add i64 %.127.i.i, -1
   %73 = trunc nuw nsw i64 %.025.i.i to i8
-  %74 = getelementptr inbounds i8, ptr %3, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 %72
   %75 = or disjoint i8 %73, 48
   store i8 %75, ptr %74, align 1, !alias.scope !1349, !noalias !1346
   br label %76
@@ -5445,13 +5445,13 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 
 77:                                               ; preds = %76
   %78 = add i64 %.2.i.i, -1
-  %79 = getelementptr inbounds i8, ptr %3, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %78
   store i8 45, ptr %79, align 1, !alias.scope !1349, !noalias !1346
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i": ; preds = %77, %76
   %.3.i.i = phi i64 [ %.2.i.i, %76 ], [ %78, %77 ]
-  %gepdiff.i = sub nsw i64 11, %.3.i.i
+  %gepdiff.i = sub nuw nsw i64 11, %.3.i.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !1353, !noundef !13
   %82 = load i64, ptr %1, align 8, !alias.scope !1353, !noundef !13
@@ -5466,7 +5466,7 @@ _ZN3ryu6buffer6Buffer6format17hbb7cd26635e8b898E.exit.i: ; preds = %16, %14
 
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", %85
   %86 = phi i64 [ %81, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i" ], [ %.pre.i.i2, %85 ]
-  %87 = getelementptr inbounds i8, ptr %3, i64 %.3.i.i
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i.i
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8, !alias.scope !1358, !nonnull !13, !noundef !13
   %90 = getelementptr inbounds i8, ptr %89, i64 %86
@@ -5514,7 +5514,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02638.i.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !1365
   store i16 %19, ptr %18, align 1, !alias.scope !1362, !noalias !1359
   %20 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %15
@@ -5533,7 +5533,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %.zext37.i.i = zext nneg i16 %27 to i64
   %28 = add i64 %.026.lcssa.i.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !1365
   store i16 %31, ptr %30, align 1, !alias.scope !1362, !noalias !1359
   br label %32
@@ -5548,7 +5548,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
   %35 = shl nuw nsw i64 %.025.i.i, 1
   %36 = add i64 %.127.i.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !1365
   store i16 %39, ptr %38, align 1, !alias.scope !1362, !noalias !1359
   br label %45
@@ -5556,7 +5556,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
 40:                                               ; preds = %32
   %41 = add i64 %.127.i.i, -1
   %42 = trunc nuw nsw i64 %.025.i.i to i8
-  %43 = getelementptr inbounds i8, ptr %3, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !1362, !noalias !1359
   br label %45
@@ -5567,13 +5567,13 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
 
 46:                                               ; preds = %45
   %47 = add i64 %.2.i.i, -1
-  %48 = getelementptr inbounds i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
   store i8 45, ptr %48, align 1, !alias.scope !1362, !noalias !1359
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i": ; preds = %46, %45
   %.3.i.i = phi i64 [ %.2.i.i, %45 ], [ %47, %46 ]
-  %gepdiff.i = sub nsw i64 11, %.3.i.i
+  %gepdiff.i = sub nuw nsw i64 11, %.3.i.i
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !1366, !noundef !13
   %51 = load i64, ptr %1, align 8, !alias.scope !1366, !noundef !13
@@ -5588,7 +5588,7 @@ define hidden void @"_ZN53_$LT$i32$u20$as$u20$pdf_writer..object..Primitive$GT$5
 
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", %54
   %55 = phi i64 [ %50, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i" ], [ %.pre.i.i, %54 ]
-  %56 = getelementptr inbounds i8, ptr %3, i64 %.3.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i.i
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !1371, !nonnull !13, !noundef !13
   %59 = getelementptr inbounds i8, ptr %58, i64 %55
@@ -7911,7 +7911,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %15 = zext nneg i16 %14 to i64
   %16 = add i64 %.02638.i, -4
   %17 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %19 = load i16, ptr %17, align 1, !noalias !1800
   store i16 %19, ptr %18, align 1, !alias.scope !1800
   %20 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %15
@@ -7930,7 +7930,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %.zext37.i = zext nneg i16 %27 to i64
   %28 = add i64 %.026.lcssa.i, -2
   %29 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %28
   %31 = load i16, ptr %29, align 1, !noalias !1800
   store i16 %31, ptr %30, align 1, !alias.scope !1800
   br label %32
@@ -7945,7 +7945,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
   %35 = shl nuw nsw i64 %.025.i, 1
   %36 = add i64 %.127.i, -2
   %37 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = load i16, ptr %37, align 1, !noalias !1800
   store i16 %39, ptr %38, align 1, !alias.scope !1800
   br label %45
@@ -7953,7 +7953,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 40:                                               ; preds = %32
   %41 = add i64 %.127.i, -1
   %42 = trunc nuw nsw i64 %.025.i to i8
-  %43 = getelementptr inbounds i8, ptr %3, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !1800
   br label %45
@@ -7964,13 +7964,13 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 
 46:                                               ; preds = %45
   %47 = add i64 %.2.i, -1
-  %48 = getelementptr inbounds i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
   store i8 45, ptr %48, align 1, !alias.scope !1800
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit": ; preds = %45, %46
   %.3.i = phi i64 [ %.2.i, %45 ], [ %47, %46 ]
-  %gepdiff = sub nsw i64 11, %.3.i
+  %gepdiff = sub nuw nsw i64 11, %.3.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !1803, !noundef !13
   %51 = load i64, ptr %0, align 8, !alias.scope !1803, !noundef !13
@@ -7985,7 +7985,7 @@ define hidden void @"_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3b2b0e81eaa0fadcE.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit", %54
   %55 = phi i64 [ %50, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit" ], [ %.pre.i, %54 ]
-  %56 = getelementptr inbounds i8, ptr %3, i64 %.3.i
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !alias.scope !1808, !nonnull !13, !noundef !13
   %59 = getelementptr inbounds i8, ptr %58, i64 %55
@@ -8873,7 +8873,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %16 = zext nneg i16 %15 to i64
   %17 = add i64 %.02638.i.i, -4
   %18 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %20 = load i16, ptr %18, align 1, !noalias !1913
   store i16 %20, ptr %19, align 1, !alias.scope !1910, !noalias !1907
   %21 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %16
@@ -8892,7 +8892,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %.zext37.i.i = zext nneg i16 %28 to i64
   %29 = add i64 %.026.lcssa.i.i, -2
   %30 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %32 = load i16, ptr %30, align 1, !noalias !1913
   store i16 %32, ptr %31, align 1, !alias.scope !1910, !noalias !1907
   br label %33
@@ -8907,7 +8907,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
   %36 = shl nuw nsw i64 %.025.i.i, 1
   %37 = add i64 %.127.i.i, -2
   %38 = getelementptr inbounds nuw i8, ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.100, i64 %36
-  %39 = getelementptr inbounds i8, ptr %3, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 %37
   %40 = load i16, ptr %38, align 1, !noalias !1913
   store i16 %40, ptr %39, align 1, !alias.scope !1910, !noalias !1907
   br label %46
@@ -8915,7 +8915,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 41:                                               ; preds = %33
   %42 = add i64 %.127.i.i, -1
   %43 = trunc nuw nsw i64 %.025.i.i to i8
-  %44 = getelementptr inbounds i8, ptr %3, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 %42
   %45 = or disjoint i8 %43, 48
   store i8 %45, ptr %44, align 1, !alias.scope !1910, !noalias !1907
   br label %46
@@ -8926,13 +8926,13 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 
 47:                                               ; preds = %46
   %48 = add i64 %.2.i.i, -1
-  %49 = getelementptr inbounds i8, ptr %3, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %48
   store i8 45, ptr %49, align 1, !alias.scope !1910, !noalias !1907
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i": ; preds = %47, %46
   %.3.i.i = phi i64 [ %.2.i.i, %46 ], [ %48, %47 ]
-  %gepdiff.i = sub nsw i64 11, %.3.i.i
+  %gepdiff.i = sub nuw nsw i64 11, %.3.i.i
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8, !alias.scope !1914, !noundef !13
   %52 = load i64, ptr %1, align 8, !alias.scope !1914, !noundef !13
@@ -8947,7 +8947,7 @@ define hidden void @"_ZN73_$LT$pdf_writer..object..Ref$u20$as$u20$pdf_writer..ob
 
 "_ZN69_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$pdf_writer..buf..BufExt$GT$8push_int17ha1c8b648b2087586E.llvm.16528140993567049526.exit": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i", %55
   %56 = phi i64 [ %51, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i32$GT$5write17h0150fa5b27f51b6aE.exit.i" ], [ %.pre.i.i, %55 ]
-  %57 = getelementptr inbounds i8, ptr %3, i64 %.3.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 %.3.i.i
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8, !alias.scope !1919, !nonnull !13, !noundef !13
   %60 = getelementptr inbounds i8, ptr %59, i64 %56

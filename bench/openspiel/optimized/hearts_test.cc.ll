@@ -3357,12 +3357,12 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22), !noalias !9
   %986 = sdiv i32 %985, 4
   %987 = sext i32 %986 to i64
-  %988 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %987
+  %988 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %987
   %989 = load i8, ptr %988, align 1, !noalias !26
   store i8 %989, ptr %21, align 1, !noalias !26
   %990 = srem i32 %985, 4
   %991 = sext i32 %990 to i64
-  %992 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %991
+  %992 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %991
   %993 = load i8, ptr %992, align 1, !noalias !26
   store i8 %993, ptr %635, align 1, !noalias !26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #21, !noalias !29
@@ -3431,12 +3431,12 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20), !noalias !9
   %1009 = sdiv i32 %1008, 4
   %1010 = sext i32 %1009 to i64
-  %1011 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %1010
+  %1011 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %1010
   %1012 = load i8, ptr %1011, align 1, !noalias !30
   store i8 %1012, ptr %19, align 1, !noalias !30
   %1013 = srem i32 %1008, 4
   %1014 = sext i32 %1013 to i64
-  %1015 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %1014
+  %1015 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %1014
   %1016 = load i8, ptr %1015, align 1, !noalias !30
   store i8 %1016, ptr %640, align 1, !noalias !30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21, !noalias !33
@@ -3622,12 +3622,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %._crit_edge508.i.i,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18), !noalias !9
   %1065 = sdiv i32 %1064, 4
   %1066 = sext i32 %1065 to i64
-  %1067 = getelementptr inbounds [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %1066
+  %1067 = getelementptr inbounds nuw [14 x i8], ptr @_ZN10open_spiel6heartsL9kRankCharE, i64 0, i64 %1066
   %1068 = load i8, ptr %1067, align 1, !noalias !39
   store i8 %1068, ptr %17, align 1, !noalias !39
   %1069 = srem i32 %1064, 4
   %1070 = sext i32 %1069 to i64
-  %1071 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %1070
+  %1071 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6heartsL9kSuitCharE, i64 0, i64 %1070
   %1072 = load i8, ptr %1071, align 1, !noalias !39
   store i8 %1072, ptr %648, align 1, !noalias !39
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #21, !noalias !42

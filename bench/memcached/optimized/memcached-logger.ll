@@ -798,7 +798,7 @@ if.then5.us:                                      ; preds = %if.end.us
   %sfd.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %sfd.us, align 8
   %idxprom6.us = sext i32 %nfd.048.us to i64
-  %arrayidx7.us = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom6.us
+  %arrayidx7.us = getelementptr inbounds nuw [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom6.us
   store i32 %3, ptr %arrayidx7.us, align 8
   %events.us = getelementptr inbounds nuw i8, ptr %arrayidx7.us, i64 4
   store i16 4, ptr %events.us, align 4
@@ -840,7 +840,7 @@ lor.lhs.false.us56:                               ; preds = %for.body.us50
   %sfd11.us = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %sfd11.us, align 8
   %idxprom12.us = sext i32 %nfd.048.us52 to i64
-  %arrayidx13.us = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12.us
+  %arrayidx13.us = getelementptr inbounds nuw [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12.us
   store i32 %7, ptr %arrayidx13.us, align 8
   %events17.us = getelementptr inbounds nuw i8, ptr %arrayidx13.us, i64 4
   %. = select i1 %cmp4.not.us62, i16 1, i16 4
@@ -874,7 +874,7 @@ if.end:                                           ; preds = %for.body
   %sfd11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %sfd11, align 8
   %idxprom12 = sext i32 %nfd.048 to i64
-  %arrayidx13 = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds nuw [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12
   store i32 %10, ptr %arrayidx13, align 8
   %events17 = getelementptr inbounds nuw i8, ptr %arrayidx13, i64 4
   %.102 = select i1 %cmp4.not, i16 1, i16 4
@@ -924,7 +924,7 @@ for.body33:                                       ; preds = %for.cond30.preheade
 if.end46:                                         ; preds = %for.body33
   store i32 0, ptr %data_size, align 4
   %idxprom47 = sext i32 %nfd.380 to i64
-  %revents = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom47, i32 2
+  %revents = getelementptr inbounds nuw [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom47, i32 2
   %13 = load i16, ptr %revents, align 2
   %14 = and i16 %13, 1
   %tobool50.not = icmp eq i16 %14, 0
@@ -1064,7 +1064,7 @@ entry:
   %id = getelementptr inbounds nuw i8, ptr %w, i64 12
   %0 = load i32, ptr %id, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [20 x ptr], ptr @watchers, i64 0, i64 %idxprom
   store ptr null, ptr %arrayidx, align 8
   %1 = load ptr, ptr %w, align 8
   tail call void @sidethread_conn_close(ptr noundef %1) #18
@@ -1657,7 +1657,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @__const._logger_parse_ise.cmd_map, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @__const._logger_parse_ise.cmd_map, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   br label %if.end
 
@@ -1677,7 +1677,7 @@ if.end:                                           ; preds = %if.then, %entry
   %5 = load i64, ptr %gid, align 8
   %6 = load i32, ptr %data, align 4
   %idxprom8 = sext i32 %6 to i64
-  %arrayidx9 = getelementptr inbounds [6 x ptr], ptr @__const._logger_parse_ise.status_map, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw [6 x ptr], ptr @__const._logger_parse_ise.status_map, i64 0, i64 %idxprom8
   %7 = load ptr, ptr %arrayidx9, align 8
   %ttl = getelementptr inbounds nuw i8, ptr %e, i64 44
   %8 = load i32, ptr %ttl, align 4
@@ -1873,7 +1873,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
   %conv4 = zext i16 %rport.0 to i32
   %6 = load i32, ptr %data, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const._logger_parse_cce.transport_map, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const._logger_parse_cce.transport_map, i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
   %sfd = getelementptr inbounds nuw i8, ptr %e, i64 44
   %8 = load i32, ptr %sfd, align 4
@@ -1928,12 +1928,12 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
   %conv4 = zext i16 %rport.0 to i32
   %6 = load i32, ptr %data, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const._logger_parse_cce.transport_map, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const._logger_parse_cce.transport_map, i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
   %reason = getelementptr inbounds nuw i8, ptr %e, i64 40
   %8 = load i32, ptr %reason, align 4
   %idxprom5 = sext i32 %8 to i64
-  %arrayidx6 = getelementptr inbounds [4 x ptr], ptr @__const._logger_parse_cce.reason_map, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw [4 x ptr], ptr @__const._logger_parse_cce.reason_map, i64 0, i64 %idxprom5
   %9 = load ptr, ptr %arrayidx6, align 8
   %sfd = getelementptr inbounds nuw i8, ptr %e, i64 44
   %10 = load i32, ptr %sfd, align 4
@@ -2016,7 +2016,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const._logger_parse_ide.cmd_map, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const._logger_parse_ide.cmd_map, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   br label %if.end
 

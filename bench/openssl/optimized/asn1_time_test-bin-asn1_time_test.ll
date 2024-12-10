@@ -228,7 +228,7 @@ entry:
 define internal i32 @test_table_compare(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.compare_testdata], ptr @tbl_compare_testdata, i64 0, i64 %idxprom
   %t2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %call = tail call i32 @ASN1_TIME_compare(ptr noundef nonnull %arrayidx, ptr noundef nonnull %t2) #4
   %result = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
@@ -336,7 +336,7 @@ err:                                              ; preds = %if.end29, %if.then3
 define internal range(i32 0, 2) i32 @convert_asn1_to_time_t(i32 noundef %idx) #0 {
 entry:
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x %struct.TESTDATA_asn1_to_utc], ptr @asn1_to_utc, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %call = tail call i64 @ossl_asn1_string_to_time_t(ptr noundef %0) #4
   %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8

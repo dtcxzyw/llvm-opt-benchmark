@@ -114,7 +114,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
 
 43:                                               ; preds = %40
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds [128 x %struct.va_input], ptr %8, i64 0, i64 %44, i32 1
+  %45 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %8, i64 0, i64 %44, i32 1
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
   %48 = icmp slt i32 %47, 0
@@ -139,7 +139,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [128 x %struct.va_input], ptr %8, i64 0, i64 %59, i32 1
+  %60 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %8, i64 0, i64 %59, i32 1
   %61 = load i64, ptr %60, align 8
   %62 = trunc i64 %61 to i32
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %62, i32 -1)
@@ -300,7 +300,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
 .lr.ph495:                                        ; preds = %.preheader319, %.lr.ph495
   %.0324.idx.i494 = phi i64 [ %.0324.add.i, %.lr.ph495 ], [ 324, %.preheader319 ]
   %.1333.i493 = phi i64 [ %122, %.lr.ph495 ], [ %.1333.i.ph, %.preheader319 ]
-  %.0324.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.0324.idx.i494
+  %.0324.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0324.idx.i494
   %119 = urem i64 %.1333.i493, 10
   %120 = trunc nuw nsw i64 %119 to i8
   %121 = or disjoint i8 %120, 48
@@ -313,7 +313,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
 .lr.ph490:                                        ; preds = %.lr.ph490.preheader, %.lr.ph490
   %.2326.idx.i489 = phi i64 [ %.2326.add.i, %.lr.ph490 ], [ 324, %.lr.ph490.preheader ]
   %.2334.i488 = phi i64 [ %126, %.lr.ph490 ], [ %.2334.i.ph, %.lr.ph490.preheader ]
-  %.2326.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.2326.idx.i489
+  %.2326.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.2326.idx.i489
   %123 = and i64 %.2334.i488, %115
   %124 = getelementptr inbounds nuw i8, ptr %.2353.i169.ph, i64 %123
   %125 = load i8, ptr %124, align 1
@@ -343,7 +343,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
   br i1 %or.cond4.i, label %.thread, label %137
 
 .thread:                                          ; preds = %.loopexit320
-  %.1325.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.1325.idx.i
+  %.1325.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.1325.idx.i
   %.1325.add.i = add nsw i64 %.1325.idx.i, -1
   store i8 48, ptr %.1325.ptr.i, align 1
   %136 = add nsw i32 %133, -1
@@ -536,7 +536,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
 
 206:                                              ; preds = %.lr.ph525
   %.6330.add.i523 = add i64 %.6330.add.i523.in, 1
-  %.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.6330.add.i523
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.6330.add.i523
   %207 = load i8, ptr %.ptr.i, align 1
   %208 = getelementptr inbounds nuw i8, ptr %.sroa.0.10521, i64 1
   store i8 %207, ptr %.sroa.0.10521, align 1
@@ -1874,7 +1874,7 @@ dollarstring.exit.thread:                         ; preds = %32, %.critedge.i, %
   %273 = shl nuw nsw i32 1, %272
   %274 = sdiv i32 %.4197, 8
   %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %275
   %277 = load i8, ptr %276, align 1
   %278 = trunc nuw i32 %273 to i8
   %279 = or i8 %277, %278
@@ -1924,7 +1924,7 @@ dollarstring.exit.thread:                         ; preds = %32, %.critedge.i, %
   %301 = shl nuw nsw i32 1, %300
   %302 = sdiv i32 %.5192, 8
   %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %303
   %305 = load i8, ptr %304, align 1
   %306 = trunc nuw i32 %301 to i8
   %307 = or i8 %305, %306
@@ -1950,7 +1950,7 @@ dollarstring.exit.thread:                         ; preds = %32, %.critedge.i, %
   %315 = shl nuw nsw i32 1, %314
   %316 = sdiv i32 %spec.select245, 8
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %317
   %319 = load i8, ptr %318, align 1
   %320 = trunc nuw i32 %315 to i8
   %321 = or i8 %319, %320
@@ -2407,7 +2407,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
 
 39:                                               ; preds = %36
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %40, i32 1
+  %41 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %40, i32 1
   %42 = load i64, ptr %41, align 8
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
@@ -2432,7 +2432,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %55, i32 1
+  %56 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %55, i32 1
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %58, i32 -1)
@@ -2590,7 +2590,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
 .lr.ph208:                                        ; preds = %.preheader104, %.lr.ph208
   %.0324.idx207 = phi i64 [ %.0324.add, %.lr.ph208 ], [ 324, %.preheader104 ]
   %.1333206 = phi i64 [ %116, %.lr.ph208 ], [ %.1333.ph, %.preheader104 ]
-  %.0324.ptr = getelementptr inbounds i8, ptr %8, i64 %.0324.idx207
+  %.0324.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.0324.idx207
   %113 = urem i64 %.1333206, 10
   %114 = trunc nuw nsw i64 %113 to i8
   %115 = or disjoint i8 %114, 48
@@ -2603,7 +2603,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %.lr.ph203
   %.2326.idx202 = phi i64 [ %.2326.add, %.lr.ph203 ], [ 324, %.lr.ph203.preheader ]
   %.2334201 = phi i64 [ %120, %.lr.ph203 ], [ %.2334.ph, %.lr.ph203.preheader ]
-  %.2326.ptr = getelementptr inbounds i8, ptr %8, i64 %.2326.idx202
+  %.2326.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.2326.idx202
   %117 = and i64 %.2334201, %109
   %118 = getelementptr inbounds nuw i8, ptr %.23532.ph, i64 %117
   %119 = load i8, ptr %118, align 1
@@ -2633,7 +2633,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   br i1 %or.cond4, label %.thread, label %131
 
 .thread:                                          ; preds = %.loopexit105
-  %.1325.ptr = getelementptr inbounds i8, ptr %8, i64 %.1325.idx
+  %.1325.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.1325.idx
   %.1325.add = add nsw i64 %.1325.idx, -1
   store i8 48, ptr %.1325.ptr, align 1
   %130 = add nsw i32 %127, -1
@@ -2833,7 +2833,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %.6330.add226.in = phi i64 [ %.6330.add226, %209 ], [ %.4328.idx, %.lr.ph228.preheader ]
   %.13367225 = phi i32 [ %210, %209 ], [ %.11365, %.lr.ph228.preheader ]
   %.6330.add226 = add nsw i64 %.6330.add226.in, 1
-  %.ptr = getelementptr inbounds i8, ptr %8, i64 %.6330.add226
+  %.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.6330.add226
   %206 = load i8, ptr %.ptr, align 1
   %207 = zext i8 %206 to i32
   %208 = call i32 @fputc(i32 noundef %207, ptr noundef %0)
@@ -3418,7 +3418,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
 
 39:                                               ; preds = %36
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %40, i32 1
+  %41 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %40, i32 1
   %42 = load i64, ptr %41, align 8
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
@@ -3443,7 +3443,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [128 x %struct.va_input], ptr %7, i64 0, i64 %55, i32 1
+  %56 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %7, i64 0, i64 %55, i32 1
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %58, i32 -1)
@@ -3601,7 +3601,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
 .lr.ph108:                                        ; preds = %.preheader30, %.lr.ph108
   %.0324.idx107 = phi i64 [ %.0324.add, %.lr.ph108 ], [ 324, %.preheader30 ]
   %.1333106 = phi i64 [ %118, %.lr.ph108 ], [ %.1333.ph, %.preheader30 ]
-  %.0324.ptr = getelementptr inbounds i8, ptr %8, i64 %.0324.idx107
+  %.0324.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.0324.idx107
   %115 = urem i64 %.1333106, 10
   %116 = trunc nuw nsw i64 %115 to i8
   %117 = or disjoint i8 %116, 48
@@ -3614,7 +3614,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %.2326.idx102 = phi i64 [ %.2326.add, %.lr.ph103 ], [ 324, %.lr.ph103.preheader ]
   %.2334101 = phi i64 [ %122, %.lr.ph103 ], [ %.2334.ph, %.lr.ph103.preheader ]
-  %.2326.ptr = getelementptr inbounds i8, ptr %8, i64 %.2326.idx102
+  %.2326.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.2326.idx102
   %119 = and i64 %.2334101, %111
   %120 = getelementptr inbounds nuw i8, ptr %.23532.ph, i64 %119
   %121 = load i8, ptr %120, align 1
@@ -3644,7 +3644,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   br i1 %or.cond4, label %.thread, label %133
 
 .thread:                                          ; preds = %.loopexit31
-  %.1325.ptr = getelementptr inbounds i8, ptr %8, i64 %.1325.idx
+  %.1325.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.1325.idx
   %.1325.add = add nsw i64 %.1325.idx, -1
   store i8 48, ptr %.1325.ptr, align 1
   %132 = add nsw i32 %129, -1
@@ -3814,7 +3814,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %190 = phi ptr [ %193, %.lr.ph127 ], [ %.pre178, %.lr.ph127.preheader ]
   %.6330.idx125 = phi i64 [ %.6330.add, %.lr.ph127 ], [ %.4328.idx, %.lr.ph127.preheader ]
   %.6330.add = add nsw i64 %.6330.idx125, 1
-  %.ptr = getelementptr inbounds i8, ptr %8, i64 %.6330.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.6330.add
   %191 = load i8, ptr %.ptr, align 1
   store i8 %191, ptr %190, align 1
   %192 = load ptr, ptr %0, align 8
@@ -4436,7 +4436,7 @@ alloc_addbyter.exit:                              ; preds = %48
 
 62:                                               ; preds = %59
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds [128 x %struct.va_input], ptr %27, i64 0, i64 %63, i32 1
+  %64 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %27, i64 0, i64 %63, i32 1
   %65 = load i64, ptr %64, align 8
   %66 = trunc i64 %65 to i32
   %67 = icmp slt i32 %66, 0
@@ -4461,7 +4461,7 @@ alloc_addbyter.exit:                              ; preds = %48
   %76 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [128 x %struct.va_input], ptr %27, i64 0, i64 %78, i32 1
+  %79 = getelementptr inbounds nuw [128 x %struct.va_input], ptr %27, i64 0, i64 %78, i32 1
   %80 = load i64, ptr %79, align 8
   %81 = trunc i64 %80 to i32
   %spec.store.select = call i32 @llvm.smax.i32(i32 %81, i32 -1)
@@ -4650,7 +4650,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
 .lr.ph201:                                        ; preds = %.preheader69, %.lr.ph201
   %.0324.idx200 = phi i64 [ %.0324.add, %.lr.ph201 ], [ 324, %.preheader69 ]
   %.1333199 = phi i64 [ %148, %.lr.ph201 ], [ %.1333.ph, %.preheader69 ]
-  %.0324.ptr = getelementptr inbounds i8, ptr %28, i64 %.0324.idx200
+  %.0324.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.0324.idx200
   %145 = urem i64 %.1333199, 10
   %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, 48
@@ -4663,7 +4663,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %.2326.idx195 = phi i64 [ %.2326.add, %.lr.ph196 ], [ 324, %.lr.ph196.preheader ]
   %.2334194 = phi i64 [ %152, %.lr.ph196 ], [ %.2334.ph, %.lr.ph196.preheader ]
-  %.2326.ptr = getelementptr inbounds i8, ptr %28, i64 %.2326.idx195
+  %.2326.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.2326.idx195
   %149 = and i64 %.2334194, %141
   %150 = getelementptr inbounds nuw i8, ptr %.235310.ph, i64 %149
   %151 = load i8, ptr %150, align 1
@@ -4693,7 +4693,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
   br i1 %or.cond4, label %.thread, label %163
 
 .thread:                                          ; preds = %.loopexit70
-  %.1325.ptr = getelementptr inbounds i8, ptr %28, i64 %.1325.idx
+  %.1325.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.1325.idx
   %.1325.add = add nsw i64 %.1325.idx, -1
   store i8 48, ptr %.1325.ptr, align 1
   %162 = add nsw i32 %159, -1
@@ -4972,7 +4972,7 @@ alloc_addbyter.exit117:                           ; preds = %.lr.ph213
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %270
   %.6330.add219.in = phi i64 [ %.6330.add219, %270 ], [ %.4328.idx, %.lr.ph221.preheader ]
   %.6330.add219 = add nsw i64 %.6330.add219.in, 1
-  %.ptr = getelementptr inbounds i8, ptr %28, i64 %.6330.add219
+  %.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.6330.add219
   %264 = load i8, ptr %.ptr, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %264, ptr %12, align 1

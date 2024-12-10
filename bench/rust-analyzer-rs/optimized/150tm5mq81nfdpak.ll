@@ -2893,7 +2893,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %23 ], [ 36, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.70, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.70, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !435
   store i64 %31, ptr %9, align 8, !noalias !435
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2accb9d05ff7914bE.exit"
@@ -2998,7 +2998,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %23 ], [ 28, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.73, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.73, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !465
   store i64 %31, ptr %9, align 8, !noalias !465
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3751557bcaaa86dE.exit"
@@ -3117,7 +3117,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %23 ], [ 29, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.71, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.71, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !494
   store i64 %31, ptr %9, align 8, !noalias !494
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ea2fa193e7c52c8E.exit"
@@ -3210,7 +3210,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %23 ], [ 39, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.63, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.63, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !517
   store i64 %31, ptr %9, align 8, !noalias !517
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h28b610c264a14484E.exit"
@@ -5177,7 +5177,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ 0, %22 ], [ 25, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.72, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.8f2350cd0fec4540471ce4074fa4f68a.72, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -9348,7 +9348,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h8df572aa387b3e
 
 .backedge.i:                                      ; preds = %17, %.lr.ph.split.i
   %.not.i = icmp ult i64 %11, 3
-  %16 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.e8178081a04f5a40d05a21ea80afa5d9.206.llvm.13980997071044408516, i64 %12
+  %16 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.e8178081a04f5a40d05a21ea80afa5d9.206.llvm.13980997071044408516, i64 %12
   %.0.i = select i1 %.not.i, ptr %16, ptr null
   %exitcond.not.i = icmp eq i64 %12, 4
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i

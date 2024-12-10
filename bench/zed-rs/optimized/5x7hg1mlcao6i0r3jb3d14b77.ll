@@ -95628,7 +95628,7 @@ common.resume:                                    ; preds = %89, %.body, %.body.
   br label %"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..context..KeyContext$GT$17h07d1c70719b0cb60E.exit7.i.i.i"
 
 113:                                              ; preds = %"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..context..KeyContext$GT$17h07d1c70719b0cb60E.exit7.i.i.i"
-  %114 = getelementptr inbounds [0 x { { { [6 x i64] }, i64 } }], ptr %14, i64 0, i64 %.sroa.0.1.i.i.i
+  %114 = getelementptr inbounds nuw [0 x { { { [6 x i64] }, i64 } }], ptr %14, i64 0, i64 %.sroa.0.1.i.i.i
   %115 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8c792e6d7bba3cffE.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(56) %114)
           to label %"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..context..KeyContext$GT$17h07d1c70719b0cb60E.exit7.i.i.i" unwind label %116
@@ -95882,7 +95882,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree12dispatch_key17hd917abd
   br label %83
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i47
+  %88 = getelementptr inbounds nuw [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i47
   %89 = add i64 %.sroa.0.1.i.i.i47, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h331c0fc925462c00E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %88) #67
           to label %83 unwind label %90
@@ -96068,7 +96068,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree12dispatch_key17hd917abd
   br label %130
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i59
+  %135 = getelementptr inbounds nuw [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i59
   %136 = add i64 %.sroa.0.1.i.i.i59, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h331c0fc925462c00E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %135) #67
           to label %130 unwind label %137
@@ -96224,7 +96224,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree12dispatch_key17hd917abd
   br label %176
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i73
+  %181 = getelementptr inbounds nuw [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %20, i64 0, i64 %.sroa.0.1.i.i.i73
   %182 = add i64 %.sroa.0.1.i.i.i73, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h331c0fc925462c00E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %181) #67
           to label %176 unwind label %183
@@ -96545,7 +96545,7 @@ define internal fastcc void @_ZN4gpui12key_dispatch12DispatchTree13replay_prefix
   br label %42
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %11, i64 0, i64 %.sroa.0.1.i.i.i
+  %47 = getelementptr inbounds nuw [0 x { { i64, [6 x i64] }, { { { { ptr, ptr } }, {} }, {} }, { { [14 x i64] }, i64 } }], ptr %11, i64 0, i64 %.sroa.0.1.i.i.i
   %48 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$gpui..keymap..binding..KeyBinding$GT$17h331c0fc925462c00E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %47) #67
           to label %42 unwind label %49

@@ -1516,7 +1516,7 @@ call.i71.noexc:                                   ; preds = %invoke.cont40
 
 .noexc78:                                         ; preds = %call.i71.noexc
   %call.i.i73 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #25
-  %add.ptr.i74 = getelementptr inbounds i8, ptr %filename, i64 %call.i.i73
+  %add.ptr.i74 = getelementptr inbounds nuw i8, ptr %filename, i64 %call.i.i73
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43, ptr noundef nonnull %filename, ptr noundef nonnull %add.ptr.i74)
           to label %invoke.cont47 unwind label %lpad.i75
 

@@ -241,7 +241,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %41 = phi i64 [ %25, %31 ], [ %157, %155 ]
   %42 = lshr i64 %40, 1
   %43 = add i64 %42, %41
-  %44 = getelementptr inbounds [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %95, label %47

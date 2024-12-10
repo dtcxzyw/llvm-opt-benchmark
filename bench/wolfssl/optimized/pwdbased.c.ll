@@ -128,7 +128,7 @@ if.then77:                                        ; preds = %if.then73
   %arrayidx80 = getelementptr inbounds i8, ptr %iv, i64 %idxprom79
   %sub81 = sub nsw i32 %call11, %digestLeft.0
   %idxprom82 = sext i32 %sub81 to i64
-  %arrayidx83 = getelementptr inbounds [64 x i8], ptr %digest, i64 0, i64 %idxprom82
+  %arrayidx83 = getelementptr inbounds nuw [64 x i8], ptr %digest, i64 0, i64 %idxprom82
   %conv84 = sext i32 %cond.i65 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx80, ptr nonnull align 1 %arrayidx83, i64 %conv84, i1 false)
   br label %if.end85

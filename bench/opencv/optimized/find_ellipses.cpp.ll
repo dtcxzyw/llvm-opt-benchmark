@@ -2023,7 +2023,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit.us: ; preds = %_ZNSt6v
 
 122:                                              ; preds = %106
   %123 = sext i32 %.0109158.us to i64
-  %124 = getelementptr inbounds [2048 x %"class.cv::Point_.10"], ptr %6, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [2048 x %"class.cv::Point_.10"], ptr %6, i64 0, i64 %123
   %.sroa.3.0.insert.ext.us = zext i32 %112 to i64
   %.sroa.3.0.insert.shift.us = shl nuw i64 %.sroa.3.0.insert.ext.us, 32
   %.sroa.0.0.insert.ext.us = zext i32 %111 to i64
@@ -15275,7 +15275,7 @@ _ZN2cv4Mat_IfEC2EiiRKf.exit:                      ; preds = %.noexc
   %115 = fptosi float %114 to i32
   %116 = sdiv i32 %115, %.sroa.speculated461
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds [64 x i32], ptr %16, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [64 x i32], ptr %16, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %118, align 4

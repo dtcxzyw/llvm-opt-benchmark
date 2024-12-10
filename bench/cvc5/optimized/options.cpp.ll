@@ -1002,7 +1002,7 @@ invoke.cont8:                                     ; preds = %.noexc10, %if.else.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #18
   %inc = add i64 %i.014, 1
-  %arrayidx = getelementptr inbounds [767 x %struct.option], ptr @_ZN4cvc54mainL14cmdlineOptionsE, i64 0, i64 %inc
+  %arrayidx = getelementptr inbounds nuw [767 x %struct.option], ptr @_ZN4cvc54mainL14cmdlineOptionsE, i64 0, i64 %inc
   %6 = load ptr, ptr %arrayidx, align 16
   %cmp.not = icmp eq ptr %6, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4

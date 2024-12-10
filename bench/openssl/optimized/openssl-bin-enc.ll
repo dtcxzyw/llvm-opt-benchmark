@@ -841,7 +841,7 @@ if.then440:                                       ; preds = %if.then429
 if.end442:                                        ; preds = %if.then429
   %conv445 = sext i32 %call430 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %key, ptr nonnull align 16 %tmpkeyiv, i64 %conv445, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %tmpkeyiv, i64 %conv445
+  %add.ptr = getelementptr inbounds nuw i8, ptr %tmpkeyiv, i64 %conv445
   %conv448 = sext i32 %call431 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %iv, ptr nonnull align 1 %add.ptr, i64 %conv448, i1 false)
   br label %if.end459

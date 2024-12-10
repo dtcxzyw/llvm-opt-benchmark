@@ -40,7 +40,7 @@ define noalias noundef ptr @Dau_DsdDivisors(ptr nocapture noundef readonly %0, i
   %20 = icmp sgt i32 %19, 0
   %wide.trip.count.i = zext i32 %19 to i64
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds i64, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %21
   %.not.i = icmp eq i32 %17, 31
   %smax.i = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
   %wide.trip.count129.i = zext nneg i32 %smax.i to i64

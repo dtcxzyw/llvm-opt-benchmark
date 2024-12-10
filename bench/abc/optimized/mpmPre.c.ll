@@ -778,7 +778,7 @@ define i64 @Ifd_ObjTruth_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %2, align 4
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
   br label %52
 
@@ -3266,7 +3266,7 @@ define noundef nonnull ptr @Ifd_ManComputeMatches(ptr nocapture noundef readonly
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nsw i32 %.027, 1
   %9 = sext i32 %.027 to i64
-  %10 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %9
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4
   br label %20
@@ -3274,10 +3274,10 @@ define noundef nonnull ptr @Ifd_ManComputeMatches(ptr nocapture noundef readonly
 12:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %13 = add nsw i32 %.027, -1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr %2, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %17
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %19, ptr %18, align 4
   br label %20
@@ -3350,7 +3350,7 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
 17:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %18 = add nsw i32 %.027.i, 1
   %19 = sext i32 %.027.i to i64
-  %20 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %21, ptr %20, align 4
   br label %30
@@ -3358,10 +3358,10 @@ define i32 @Ifd_ManFindDsd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4
 22:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %23 = add nsw i32 %.027.i, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [100 x i32], ptr @Ifd_ManComputeMatches.pMatches, i64 0, i64 %27
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %29, ptr %28, align 4
   br label %30
@@ -4385,11 +4385,11 @@ define noundef i32 @Ifd_ManDsdTest4() local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [6 x i32], ptr %1, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [6 x i32], ptr %1, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %8, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [6 x i32], ptr %1, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [6 x i32], ptr %1, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %10, align 4
   store i32 %11, ptr %14, align 4
@@ -4491,7 +4491,7 @@ Vec_WrdStart.exit.split.us.split.us:              ; preds = %Vec_WrdStart.exit
   %33 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, -1
   %39 = and i64 %.145.us.us.us, %38
@@ -4509,7 +4509,7 @@ Vec_WrdStart.exit.split.us.split.us:              ; preds = %Vec_WrdStart.exit
   %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, %45
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -4582,7 +4582,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
   %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv49
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %.043.us
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -4612,7 +4612,7 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
   %43 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = xor i64 %47, -1
   %49 = and i64 %.141.us, %48

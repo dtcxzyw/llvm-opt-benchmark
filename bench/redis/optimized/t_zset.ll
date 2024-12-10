@@ -329,7 +329,7 @@ for.cond58.preheader:                             ; preds = %zslRandomLevel.exit
 for.body61:                                       ; preds = %for.cond58.preheader, %for.body61
   %indvars.iv95 = phi i64 [ %16, %for.cond58.preheader ], [ %indvars.iv.next96, %for.body61 ]
   %24 = load ptr, ptr %zsl, align 8
-  %arrayidx66 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv95
+  %arrayidx66 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv95
   store ptr %24, ptr %arrayidx66, align 8
   %span72.idx = shl nsw i64 %indvars.iv95, 4
   %25 = getelementptr i8, ptr %24, i64 32
@@ -606,7 +606,7 @@ while.body:                                       ; preds = %land.rhs14.while.bo
 
 while.end:                                        ; preds = %land.rhs14, %lor.rhs, %while.body, %while.cond.preheader
   %x.1.lcssa = phi ptr [ %x.040, %while.cond.preheader ], [ %7, %while.body ], [ %x.131, %lor.rhs ], [ %x.131, %land.rhs14 ]
-  %arrayidx27 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx27 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1.lcssa, ptr %arrayidx27, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !16
@@ -801,7 +801,7 @@ while.body:                                       ; preds = %land.rhs13.while.bo
 
 while.end:                                        ; preds = %land.rhs13, %lor.rhs, %while.body, %while.cond.preheader
   %x.1.lcssa = phi ptr [ %x.052, %while.cond.preheader ], [ %7, %while.body ], [ %x.143, %lor.rhs ], [ %x.143, %land.rhs13 ]
-  %arrayidx26 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx26 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1.lcssa, ptr %arrayidx26, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !18
@@ -1525,7 +1525,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cond.in.i, label %while.cond, label %while.end, !llvm.loop !28
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %arrayidx12 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1, ptr %arrayidx12, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !29
@@ -1762,7 +1762,7 @@ while.body:                                       ; preds = %zslLexValueGteMin.e
 
 while.end:                                        ; preds = %zslLexValueGteMin.exit, %while.body, %if.end4.i.i, %cond.false.i, %if.end4.i9.i, %while.cond.preheader
   %x.1.lcssa = phi ptr [ %x.070, %while.cond.preheader ], [ %x.157, %if.end4.i9.i ], [ %x.157, %cond.false.i ], [ %x.157, %if.end4.i.i ], [ %12, %while.body ], [ %x.157, %zslLexValueGteMin.exit ]
-  %arrayidx12 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1.lcssa, ptr %arrayidx12, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !32
@@ -2118,7 +2118,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp5, label %while.cond, label %while.end, !llvm.loop !34
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %arrayidx17 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
+  %arrayidx17 = getelementptr inbounds nuw [32 x ptr], ptr %update, i64 0, i64 %indvars.iv.next
   store ptr %x.1, ptr %arrayidx17, align 8
   %cmp = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp, label %while.cond.preheader, label %for.end, !llvm.loop !35
@@ -10136,7 +10136,7 @@ while.body.i41.i:                                 ; preds = %land.rhs14.while.bo
 
 while.end.i.i:                                    ; preds = %while.body.i41.i, %land.rhs14.i.i, %lor.rhs.i.i, %while.cond.preheader.i.i
   %x.1.lcssa.i.i = phi ptr [ %x.040.i.i, %while.cond.preheader.i.i ], [ %53, %while.body.i41.i ], [ %x.131.i.i, %lor.rhs.i.i ], [ %x.131.i.i, %land.rhs14.i.i ]
-  %arrayidx27.i.i = getelementptr inbounds [32 x ptr], ptr %update.i.i, i64 0, i64 %indvars.iv.next.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw [32 x ptr], ptr %update.i.i, i64 0, i64 %indvars.iv.next.i.i
   store ptr %x.1.lcssa.i.i, ptr %arrayidx27.i.i, align 8
   %cmp.i38.i = icmp sgt i64 %indvars.iv.i.i, 1
   br i1 %cmp.i38.i, label %while.cond.preheader.i.i, label %for.end.i.i, !llvm.loop !16
@@ -13523,7 +13523,7 @@ if.end44:                                         ; preds = %if.then29, %if.else
   %cmp89 = icmp eq i32 %where, 1
   %cond48 = select i1 %cmp89, i64 -2, i64 0
   %idxprom128 = sext i32 %where to i64
-  %arrayidx129 = getelementptr inbounds [2 x ptr], ptr @__const.genericZpopCommand.events, i64 0, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds nuw [2 x ptr], ptr @__const.genericZpopCommand.events, i64 0, i64 %idxprom128
   br label %do.body
 
 do.body:                                          ; preds = %sdslen.exit, %if.end44

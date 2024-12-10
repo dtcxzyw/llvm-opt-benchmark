@@ -5166,7 +5166,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.us.i39:          ; preds = %.lr.ph51.i
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.us.i39
-  %61 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 %.031.us48.i
+  %61 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.031.us48.i
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -5213,7 +5213,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i34:             ; preds = %.lr.ph.i31
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i34
-  %76 = getelementptr inbounds [8 x i32], ptr %11, i64 0, i64 %.03144.i
+  %76 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %.03144.i
   %77 = load i32, ptr %76, align 4
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -5345,7 +5345,7 @@ _ZNSt5arrayIiLm8EE4fillERKi.exit.i.i:             ; preds = %118, %113
   %.18.i.i = phi i32 [ %114, %115 ], [ %.07.i.i, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i.i ]
   %.1.i.i = phi i32 [ %116, %115 ], [ %.0.i.i40, %_ZNSt5arrayIiLm8EE4fillERKi.exit.i.i ]
   %119 = sext i32 %.1.i.i to i64
-  %120 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %119
   %121 = load i32, ptr %120, align 4, !alias.scope !51
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4, !alias.scope !51

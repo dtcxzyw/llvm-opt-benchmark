@@ -1801,7 +1801,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
   %33 = add i64 %26, %4
   %34 = call i32 @H5F_get_low_bound(ptr noundef %0) #6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 255
   %39 = icmp eq i32 %38, 0
@@ -1810,7 +1810,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
 40:                                               ; preds = %32
   %41 = call i32 @H5F_get_low_bound(ptr noundef %0) #6
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 255
   %46 = icmp eq i32 %45, 1
@@ -1827,7 +1827,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
   %52 = select i1 %51, i32 2, i32 1
   %53 = call i32 @H5F_get_low_bound(ptr noundef %0) #6
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 255
   %58 = icmp samesign ugt i32 %52, %57
@@ -1840,7 +1840,7 @@ define i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr n
 61:                                               ; preds = %49
   %62 = call i32 @H5F_get_low_bound(ptr noundef %0) #6
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [6 x i32], ptr @H5O_obj_ver_bounds, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 255
   %67 = icmp eq i32 %66, 1

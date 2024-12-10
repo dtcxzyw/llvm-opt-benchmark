@@ -2928,7 +2928,7 @@ define hidden void @_ZN4ncnn12draw_text_c1EPhiiiPKciiij(ptr nocapture noundef %0
 30:                                               ; preds = %28
   %31 = add nsw i32 %23, -33
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %32
   tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %33, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated66 = tail call i32 @llvm.smax.i32(i32 %.08596, i32 0)
   %34 = add nsw i32 %.08596, %10
@@ -3057,7 +3057,7 @@ define hidden void @_ZN4ncnn12draw_text_c2EPhiiiPKciiij(ptr nocapture noundef %0
 31:                                               ; preds = %29
   %32 = add nsw i32 %24, -33
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %33
   tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %34, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated71 = tail call i32 @llvm.smax.i32(i32 %.090101, i32 0)
   %35 = add nsw i32 %.090101, %10
@@ -3199,7 +3199,7 @@ define hidden void @_ZN4ncnn12draw_text_c3EPhiiiPKciiij(ptr nocapture noundef %0
 32:                                               ; preds = %30
   %33 = add nsw i32 %25, -33
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
   tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %35, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %.095106, i32 0)
   %36 = add nsw i32 %.095106, %10
@@ -3351,7 +3351,7 @@ define hidden void @_ZN4ncnn12draw_text_c4EPhiiiPKciiij(ptr nocapture noundef %0
 32:                                               ; preds = %30
   %33 = add nsw i32 %25, -33
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [94 x [400 x i8]], ptr @_ZN4ncnnL14mono_font_dataE, i64 0, i64 %34
   tail call void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef nonnull %35, ptr noundef nonnull %13, i32 noundef %7)
   %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %.0100111, i32 0)
   %36 = add nsw i32 %.0100111, %10

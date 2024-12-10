@@ -8270,7 +8270,7 @@ _ZN3syn9lookahead9peek_impl17h22fc71ab2d851a14E.exit1058: ; preds = %758, %.noex
   br i1 %965, label %969, label %966
 
 966:                                              ; preds = %962
-  %967 = getelementptr inbounds [39 x i64], ptr @anon.00fe6f9d8d0d95a622c519f842c3cf7b.42, i64 0, i64 %.0..0..0..0..0..0..0..0.456.pr
+  %967 = getelementptr inbounds nuw [39 x i64], ptr @anon.00fe6f9d8d0d95a622c519f842c3cf7b.42, i64 0, i64 %.0..0..0..0..0..0..0..0.456.pr
   %968 = load i64, ptr %967, align 8, !noundef !11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.6438.sroa.0, ptr nonnull align 8 %32, i64 %968, i1 false)
   store i64 2, ptr %0, align 8

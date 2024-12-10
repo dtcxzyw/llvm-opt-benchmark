@@ -1528,7 +1528,7 @@ call.i.noexc.i:                                   ; preds = %if.end.i
 
 .noexc.i:                                         ; preds = %call.i.noexc.i
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %resolved.i) #35, !noalias !29
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %resolved.i, i64 %call.i.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %resolved.i, i64 %call.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i, ptr noundef nonnull %resolved.i, ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont.i unwind label %lpad.i.i, !noalias !29
 
@@ -10973,7 +10973,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 invoke.cont3.i:                                   ; preds = %for.body.i
   %conv5.i = sext i32 %call.i3.i to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr @.str.52, i64 %conv5.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.52, i64 %conv5.i
   %0 = load i8, ptr %add.ptr.i.i, align 1, !noalias !304
   %call8.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %suffix, i8 noundef signext %0)
           to label %for.inc.i unwind label %lpad.loopexit.i
@@ -12417,7 +12417,7 @@ entry:
   %vtable = load ptr, ptr %fp, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %fp, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %fp, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 

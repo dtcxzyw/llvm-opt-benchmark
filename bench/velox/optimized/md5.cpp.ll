@@ -1502,7 +1502,7 @@ while.end.i.i58:                                  ; preds = %while.body.i.i49, %
   %retval.i7.03337.i59 = phi i64 [ %add.i.i69, %while.cond.i.preheader.i76 ], [ %retval.i7.03336.i48, %while.body.i.i49 ]
   %pos.i.0.lcssa.i60 = phi i64 [ %add.i.i69, %while.cond.i.preheader.i76 ], [ %sub.i.i52, %while.body.i.i49 ]
   %v.addr.i14.0.lcssa.i61 = phi i64 [ %coerce10.sroa.0.0.extract.trunc, %while.cond.i.preheader.i76 ], [ %div.i.i53, %while.body.i.i49 ]
-  %arrayidx2.i.i62 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i61
+  %arrayidx2.i.i62 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i61
   %13 = load i16, ptr %arrayidx2.i.i62, align 2
   %cmp3.i.i63 = icmp eq i64 %pos.i.0.lcssa.i60, 2
   br i1 %cmp3.i.i63, label %if.then.i18.i67, label %if.else.i.i64
@@ -1600,7 +1600,7 @@ while.end.i.i119:                                 ; preds = %while.body.i.i110, 
   %retval.i7.03337.i120 = phi i64 [ %add.i.i130, %while.cond.i.preheader.i137 ], [ %retval.i7.03336.i109, %while.body.i.i110 ]
   %pos.i.0.lcssa.i121 = phi i64 [ %add.i.i130, %while.cond.i.preheader.i137 ], [ %sub.i.i113, %while.body.i.i110 ]
   %v.addr.i14.0.lcssa.i122 = phi i64 [ %x.coerce0, %while.cond.i.preheader.i137 ], [ %div.i.i114, %while.body.i.i110 ]
-  %arrayidx2.i.i123 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i122
+  %arrayidx2.i.i123 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i122
   %20 = load i16, ptr %arrayidx2.i.i123, align 2
   %cmp3.i.i124 = icmp eq i64 %pos.i.0.lcssa.i121, 2
   br i1 %cmp3.i.i124, label %if.then.i18.i128, label %if.else.i.i125
@@ -2505,7 +2505,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %v.addr.i2.i.018.i.i.i.i.i.i.i, 100
   %arrayidx.i7.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.i.i.i.i
   %6 = load i16, ptr %arrayidx.i7.i.i.i.i.i.i.i.i, align 2
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i
   store i16 %6, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 1
   %cmp.i3.i.i.i.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i.i.i.i.i, 2
   br i1 %cmp.i3.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i.i, label %while.end.i.i.i.i.i.i.i.i.i, !llvm.loop !30
@@ -2514,7 +2514,7 @@ while.end.i.i.i.i.i.i.i.i.i:                      ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i ], [ %retval.i.i.024.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
   %pos.i.i.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i ], [ %sub.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
   %v.addr.i2.i.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %4, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i.i ], [ %div.i.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i.i ]
-  %arrayidx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i2.i.0.lcssa.i.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i2.i.0.lcssa.i.i.i.i.i.i.i
   %7 = load i16, ptr %arrayidx2.i.i.i.i.i.i.i.i.i, align 2
   %cmp3.i.i.i.i.i.i.i.i.i = icmp eq i64 %pos.i.i.0.lcssa.i.i.i.i.i.i.i, 2
   br i1 %cmp3.i.i.i.i.i.i.i.i.i, label %if.then.i6.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i
@@ -2928,7 +2928,7 @@ for.body.i:                                       ; preds = %_ZNK5folly9FormatAr
   %conv.i = zext nneg i32 %and.i to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw [512 x %"struct.std::array.16"], ptr @_ZN5folly6detail11formatOctalE, i64 0, i64 %conv.i
   %20 = load i8, ptr %arrayidx.i.i.i, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %sub.i
   store i8 %20, ptr %arrayidx.i, align 1
   %arrayidx.i.i25.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 1
   %21 = load i8, ptr %arrayidx.i.i25.i, align 1
@@ -2951,7 +2951,7 @@ for.end.i:                                        ; preds = %for.body.i, %_ZNK5f
   %arrayidx.i.i29.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i28.i, i64 2
   %24 = load i8, ptr %arrayidx.i.i29.i, align 1
   %dec.i = add i64 %bufLen.addr.0.lcssa.i, -1
-  %arrayidx16.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec.i
   store i8 %24, ptr %arrayidx16.i, align 1
   %cmp.i64 = icmp samesign ugt i32 %v.addr.0.lcssa.i, 7
   br i1 %cmp.i64, label %if.end.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
@@ -2960,7 +2960,7 @@ if.end.i:                                         ; preds = %for.end.i
   %arrayidx.i.i31.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i28.i, i64 1
   %25 = load i8, ptr %arrayidx.i.i31.i, align 1
   %dec20.i = add i64 %bufLen.addr.0.lcssa.i, -2
-  %arrayidx21.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec20.i
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec20.i
   store i8 %25, ptr %arrayidx21.i, align 1
   %cmp22.i = icmp samesign ugt i32 %v.addr.0.lcssa.i, 63
   br i1 %cmp22.i, label %if.then23.i, label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
@@ -2968,13 +2968,13 @@ if.end.i:                                         ; preds = %for.end.i
 if.then23.i:                                      ; preds = %if.end.i
   %26 = load i8, ptr %arrayidx.i.i28.i, align 1
   %dec27.i = add i64 %bufLen.addr.0.lcssa.i, -3
-  %arrayidx28.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec27.i
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec27.i
   store i8 %26, ptr %arrayidx28.i, align 1
   br label %_ZN5folly6detail11uintToOctalIjEEmPcmT_.exit
 
 _ZN5folly6detail11uintToOctalIjEEmPcmT_.exit:     ; preds = %for.end.i, %if.end.i, %if.then23.i
   %bufLen.addr.2.i = phi i64 [ %dec27.i, %if.then23.i ], [ %dec20.i, %if.end.i ], [ %dec.i, %for.end.i ]
-  %arrayidx = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.2.i
+  %arrayidx = getelementptr inbounds nuw [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.2.i
   %basePrefix63 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %27 = load i8, ptr %basePrefix63, align 1
   %tobool64 = trunc i8 %27 to i1
@@ -3010,7 +3010,7 @@ for.body.i.i:                                     ; preds = %_ZNK5folly9FormatAr
   %conv.i.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i.i.i.i69 = getelementptr inbounds nuw [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexLowerE, i64 0, i64 %conv.i.i
   %30 = load i8, ptr %arrayidx.i.i.i.i69, align 1
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %sub.i.i
   store i8 %30, ptr %arrayidx.i.i, align 1
   %arrayidx.i.i21.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i69, i64 1
   %31 = load i8, ptr %arrayidx.i.i21.i.i, align 1
@@ -3028,7 +3028,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %_ZNK
   %arrayidx.i.i23.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i22.i.i, i64 1
   %32 = load i8, ptr %arrayidx.i.i23.i.i, align 1
   %dec.i.i = add i64 %bufLen.addr.0.lcssa.i.i, -1
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec.i.i
   store i8 %32, ptr %arrayidx11.i.i, align 1
   %cmp.i.i = icmp samesign ugt i32 %v.addr.0.lcssa.i.i, 15
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit
@@ -3036,13 +3036,13 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %_ZNK
 if.then.i.i:                                      ; preds = %for.end.i.i
   %33 = load i8, ptr %arrayidx.i.i22.i.i, align 1
   %dec15.i.i = add i64 %bufLen.addr.0.lcssa.i.i, -2
-  %arrayidx16.i.i = getelementptr inbounds i8, ptr %valBuf, i64 %dec15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec15.i.i
   store i8 %33, ptr %arrayidx16.i.i, align 1
   br label %_ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit
 
 _ZN5folly6detail14uintToHexLowerIjEEmPcmT_.exit:  ; preds = %for.end.i.i, %if.then.i.i
   %bufLen.addr.1.i.i = phi i64 [ %dec15.i.i, %if.then.i.i ], [ %dec.i.i, %for.end.i.i ]
-  %arrayidx77 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i
+  %arrayidx77 = getelementptr inbounds nuw [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i
   %basePrefix78 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %34 = load i8, ptr %basePrefix78, align 1
   %tobool79 = trunc i8 %34 to i1
@@ -3080,7 +3080,7 @@ for.body.i.i76:                                   ; preds = %_ZNK5folly9FormatAr
   %conv.i.i81 = zext nneg i32 %and.i.i79 to i64
   %arrayidx.i.i.i.i82 = getelementptr inbounds nuw [256 x %"struct.std::array.18"], ptr @_ZN5folly6detail14formatHexUpperE, i64 0, i64 %conv.i.i81
   %37 = load i8, ptr %arrayidx.i.i.i.i82, align 1
-  %arrayidx.i.i83 = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i.i80
+  %arrayidx.i.i83 = getelementptr inbounds nuw i8, ptr %valBuf, i64 %sub.i.i80
   store i8 %37, ptr %arrayidx.i.i83, align 1
   %arrayidx.i.i21.i.i84 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i82, i64 1
   %38 = load i8, ptr %arrayidx.i.i21.i.i84, align 1
@@ -3098,7 +3098,7 @@ for.end.i.i88:                                    ; preds = %for.body.i.i76, %_Z
   %arrayidx.i.i23.i.i93 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i22.i.i92, i64 1
   %39 = load i8, ptr %arrayidx.i.i23.i.i93, align 1
   %dec.i.i94 = add i64 %bufLen.addr.0.lcssa.i.i90, -1
-  %arrayidx11.i.i95 = getelementptr inbounds i8, ptr %valBuf, i64 %dec.i.i94
+  %arrayidx11.i.i95 = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec.i.i94
   store i8 %39, ptr %arrayidx11.i.i95, align 1
   %cmp.i.i96 = icmp samesign ugt i32 %v.addr.0.lcssa.i.i89, 15
   br i1 %cmp.i.i96, label %if.then.i.i98, label %_ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit
@@ -3106,13 +3106,13 @@ for.end.i.i88:                                    ; preds = %for.body.i.i76, %_Z
 if.then.i.i98:                                    ; preds = %for.end.i.i88
   %40 = load i8, ptr %arrayidx.i.i22.i.i92, align 1
   %dec15.i.i99 = add i64 %bufLen.addr.0.lcssa.i.i90, -2
-  %arrayidx16.i.i100 = getelementptr inbounds i8, ptr %valBuf, i64 %dec15.i.i99
+  %arrayidx16.i.i100 = getelementptr inbounds nuw i8, ptr %valBuf, i64 %dec15.i.i99
   store i8 %40, ptr %arrayidx16.i.i100, align 1
   br label %_ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit
 
 _ZN5folly6detail14uintToHexUpperIjEEmPcmT_.exit:  ; preds = %for.end.i.i88, %if.then.i.i98
   %bufLen.addr.1.i.i97 = phi i64 [ %dec15.i.i99, %if.then.i.i98 ], [ %dec.i.i94, %for.end.i.i88 ]
-  %arrayidx94 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i97
+  %arrayidx94 = getelementptr inbounds nuw [67 x i8], ptr %valBuf, i64 0, i64 %bufLen.addr.1.i.i97
   %basePrefix95 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %41 = load i8, ptr %basePrefix95, align 1
   %tobool96 = trunc i8 %41 to i1
@@ -3151,7 +3151,7 @@ for.body.i106:                                    ; preds = %_ZNK5folly9FormatAr
   %v.addr.014.i = phi i32 [ %shr.i111, %for.body.i106 ], [ %uval.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit104 ]
   %and.i107 = and i32 %v.addr.014.i, 255
   %sub.i108 = add nsw i64 %bufLen.addr.015.i, -8
-  %add.ptr.i = getelementptr inbounds i8, ptr %valBuf, i64 %sub.i108
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %sub.i108
   %conv.i109 = zext nneg i32 %and.i107 to i64
   %arrayidx.i.i.i110 = getelementptr inbounds nuw [256 x %"struct.std::array.20"], ptr @_ZN5folly6detail12formatBinaryE, i64 0, i64 %conv.i109
   %44 = load i64, ptr %arrayidx.i.i.i110, align 1
@@ -3162,7 +3162,7 @@ for.body.i106:                                    ; preds = %_ZNK5folly9FormatAr
 
 while.cond.i:                                     ; preds = %for.body.i106, %while.cond.i
   %bufLen.addr.1.i = phi i64 [ %inc.i, %while.cond.i ], [ %sub.i108, %for.body.i106 ]
-  %arrayidx3.i = getelementptr inbounds i8, ptr %valBuf, i64 %bufLen.addr.1.i
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %bufLen.addr.1.i
   %45 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.i = icmp eq i8 %45, 48
   %inc.i = add i64 %bufLen.addr.1.i, 1
@@ -3170,7 +3170,7 @@ while.cond.i:                                     ; preds = %for.body.i106, %whi
 
 _ZN5folly6detail12uintToBinaryIjEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i112
   %retval.0.i = phi i64 [ 66, %if.then.i112 ], [ %bufLen.addr.1.i, %while.cond.i ]
-  %arrayidx111 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
+  %arrayidx111 = getelementptr inbounds nuw [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
   %basePrefix112 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %46 = load i8, ptr %basePrefix112, align 1
   %tobool113 = trunc i8 %46 to i1
@@ -4250,7 +4250,7 @@ if.then.i86:                                      ; preds = %_ZNK5folly9FormatAr
 
 while.cond.i:                                     ; preds = %while.cond.i, %for.body.us.i
   %bufLen.addr.1.i = phi i64 [ %inc.i, %while.cond.i ], [ 59, %for.body.us.i ]
-  %arrayidx9.i = getelementptr inbounds i8, ptr %valBuf, i64 %bufLen.addr.1.i
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %valBuf, i64 %bufLen.addr.1.i
   %37 = load i8, ptr %arrayidx9.i, align 1
   %cmp11.i = icmp eq i8 %37, 48
   %inc.i = add i64 %bufLen.addr.1.i, 1
@@ -4258,7 +4258,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %for.
 
 _ZN5folly6detail12uintToBinaryIhEEmPcmT_.exit:    ; preds = %while.cond.i, %if.then.i86
   %retval.0.i = phi i64 [ 66, %if.then.i86 ], [ %bufLen.addr.1.i, %while.cond.i ]
-  %arrayidx112 = getelementptr inbounds [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
+  %arrayidx112 = getelementptr inbounds nuw [67 x i8], ptr %valBuf, i64 0, i64 %retval.0.i
   %basePrefix113 = getelementptr inbounds nuw i8, ptr %arg, i64 19
   %38 = load i8, ptr %basePrefix113, align 1
   %tobool114 = trunc i8 %38 to i1

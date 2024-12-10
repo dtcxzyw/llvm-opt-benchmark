@@ -847,7 +847,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %233 = load ptr, ptr %10, align 8
   %234 = getelementptr i8, ptr %233, i64 -24
   %235 = load i64, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %10, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr %10, i64 %235
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %236, i32 noundef 0)
           to label %237 unwind label %248
 

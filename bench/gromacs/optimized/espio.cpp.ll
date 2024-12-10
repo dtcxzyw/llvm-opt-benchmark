@@ -261,7 +261,7 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit226:       ; preds = %.outer.i221.split, 
 61:                                               ; preds = %56
   %62 = add nsw i32 %.1190500, 1
   %63 = sext i32 %.1190500 to i64
-  %64 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %63
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %65, ptr %64, align 4
   %66 = icmp eq i64 %indvars.iv, 3

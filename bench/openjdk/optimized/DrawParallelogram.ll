@@ -829,7 +829,7 @@ define void @Java_sun_java2d_loops_DrawParallelogram_DrawParallelogram(ptr nound
 488:                                              ; preds = %483
   %489 = add nsw i32 %.0588767, 1
   %490 = sext i32 %.0588767 to i64
-  %491 = getelementptr inbounds [4 x ptr], ptr %16, i64 0, i64 %490
+  %491 = getelementptr inbounds nuw [4 x ptr], ptr %16, i64 0, i64 %490
   store ptr %479, ptr %491, align 8
   %spec.select762 = call i32 @llvm.smin.i32(i32 %.0614766, i32 %481)
   br label %492

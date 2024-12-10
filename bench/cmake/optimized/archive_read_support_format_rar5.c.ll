@@ -1166,7 +1166,7 @@ merge_block.exit.thread144:                       ; preds = %227
 
 331:                                              ; preds = %311
   %332 = add nsw i32 %.087143.i, 1
-  %333 = getelementptr inbounds [20 x i8], ptr %7, i64 0, i64 %322
+  %333 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 0, i64 %322
   store i8 15, ptr %333, align 1
   br label %.loopexit137.i
 
@@ -1174,7 +1174,7 @@ merge_block.exit.thread144:                       ; preds = %227
   %335 = trunc nuw i32 %305 to i8
   %336 = add nsw i32 %.087143.i, 1
   %337 = sext i32 %.087143.i to i64
-  %338 = getelementptr inbounds [20 x i8], ptr %7, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 0, i64 %337
   store i8 %335, ptr %338, align 1
   br label %.loopexit137.i
 
@@ -1212,7 +1212,7 @@ merge_block.exit.thread144:                       ; preds = %227
 349:                                              ; preds = %346
   %350 = trunc nuw i16 %347 to i8
   %351 = sext i32 %.4154.i to i64
-  %352 = getelementptr inbounds [430 x i8], ptr %8, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw [430 x i8], ptr %8, i64 0, i64 %351
   store i8 %350, ptr %352, align 1
   %353 = add nsw i32 %.4154.i, 1
   br label %.loopexit.i
@@ -2438,7 +2438,7 @@ circular_memcpy.exit.i.i.i:                       ; preds = %1009, %1004
   %1038 = sub i64 %1037, %1031
   %1039 = getelementptr inbounds nuw i8, ptr %1013, i64 %1031
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull readonly align 1 %1039, i64 %1038, i1 false)
-  %1040 = getelementptr inbounds i8, ptr %19, i64 %1038
+  %1040 = getelementptr inbounds nuw i8, ptr %19, i64 %1038
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1040, ptr nonnull readonly align 1 %1013, i64 %1034, i1 false)
   br label %read_filter_data.exit.i.i.i
 
@@ -2572,7 +2572,7 @@ circular_memcpy.exit.i31.i.i:                     ; preds = %1090, %1085
   %1114 = sub i64 %1113, %1107
   %1115 = getelementptr inbounds nuw i8, ptr %1094, i64 %1107
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull readonly align 1 %1115, i64 %1114, i1 false)
-  %1116 = getelementptr inbounds i8, ptr %18, i64 %1114
+  %1116 = getelementptr inbounds nuw i8, ptr %18, i64 %1114
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1116, ptr nonnull readonly align 1 %1094, i64 %1110, i1 false)
   br label %read_filter_data.exit.i34.i.i
 

@@ -1956,7 +1956,7 @@ entry:
   %vtable = load ptr, ptr %stat, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %stat, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %stat, i64 %vbase.offset
   %call = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr)
           to label %invoke.cont unwind label %lpad
 
@@ -2076,7 +2076,7 @@ invoke.cont27:                                    ; preds = %while.end
   %vtable28 = load ptr, ptr %io, align 8
   %vbase.offset.ptr29 = getelementptr i8, ptr %vtable28, i64 -24
   %vbase.offset30 = load i64, ptr %vbase.offset.ptr29, align 8
-  %add.ptr31 = getelementptr inbounds i8, ptr %io, i64 %vbase.offset30
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %io, i64 %vbase.offset30
   %call34 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr31)
           to label %invoke.cont33 unwind label %lpad32.loopexit.split-lp
 

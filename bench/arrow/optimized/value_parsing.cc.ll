@@ -800,7 +800,7 @@ if.then78:                                        ; preds = %_ZN14arrow_vendored
   %conv.i336 = shl i32 %62, 1
   %mul.i337 = add i32 %conv.i336, 684
   %idxprom.i = sext i32 %mul.i337 to i64
-  %arrayidx.i = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
   %63 = load i64, ptr %arrayidx.i, align 16
   %conv.i476 = zext i64 %shl.i257 to i128
   %conv1.i477 = zext i64 %63 to i128
@@ -815,7 +815,7 @@ if.then.i342:                                     ; preds = %if.then78
   %conv2.i479 = trunc i128 %mul.i478 to i64
   %add.i343 = add i32 %conv.i336, 685
   %idxprom1.i = sext i32 %add.i343 to i64
-  %arrayidx2.i = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
   %64 = load i64, ptr %arrayidx2.i, align 8
   %conv1.i466 = zext i64 %64 to i128
   %mul.i467 = mul nuw i128 %conv1.i466, %conv.i476
@@ -1626,7 +1626,7 @@ if.then77:                                        ; preds = %_ZN14arrow_vendored
   %conv.i330 = shl i32 %62, 1
   %mul.i331 = add i32 %conv.i330, 684
   %idxprom.i = sext i32 %mul.i331 to i64
-  %arrayidx.i = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom.i
   %63 = load i64, ptr %arrayidx.i, align 16
   %conv.i16.i = zext i64 %shl.i312 to i128
   %conv1.i17.i = zext i64 %63 to i128
@@ -1641,7 +1641,7 @@ if.then.i336:                                     ; preds = %if.then77
   %conv2.i19.i = trunc i128 %mul.i18.i to i64
   %add.i337 = add i32 %conv.i330, 685
   %idxprom1.i = sext i32 %add.i337 to i64
-  %arrayidx2.i = getelementptr inbounds [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw [1302 x i64], ptr @_ZN14arrow_vendored10fast_float15powers_templateIvE17power_of_five_128E, i64 0, i64 %idxprom1.i
   %64 = load i64, ptr %arrayidx2.i, align 8
   %conv1.i.i = zext i64 %64 to i128
   %mul.i.i338 = mul nuw i128 %conv1.i.i, %conv.i16.i
@@ -2172,7 +2172,7 @@ if.then:                                          ; preds = %while.end17
   br i1 %cmp14.not.i.i, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
-  %arrayidx = getelementptr inbounds [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.2.lcssa
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.2.lcssa
   %6 = load i64, ptr %arrayidx, align 8
   %conv1.i.i.i = zext i64 %6 to i128
   br label %for.body.i.i
@@ -2401,7 +2401,7 @@ if.else:                                          ; preds = %while.end17
   br i1 %cmp14.not.i.i, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit242, label %for.body.lr.ph.i.i219
 
 for.body.lr.ph.i.i219:                            ; preds = %if.else
-  %arrayidx31 = getelementptr inbounds [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.2.lcssa
+  %arrayidx31 = getelementptr inbounds nuw [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.2.lcssa
   %31 = load i64, ptr %arrayidx31, align 8
   %conv1.i.i.i220 = zext i64 %31 to i128
   br label %for.body.i.i221
@@ -2625,7 +2625,7 @@ if.then72:                                        ; preds = %while.end70
   br i1 %cmp14.not.i.i269, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit293, label %for.body.lr.ph.i.i270
 
 for.body.lr.ph.i.i270:                            ; preds = %if.then72
-  %arrayidx73 = getelementptr inbounds [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.6.lcssa
+  %arrayidx73 = getelementptr inbounds nuw [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.6.lcssa
   %49 = load i64, ptr %arrayidx73, align 8
   %conv1.i.i.i271 = zext i64 %49 to i128
   br label %for.body.i.i272
@@ -2806,7 +2806,7 @@ if.else80:                                        ; preds = %while.end70
   br i1 %cmp14.not.i.i269, label %_ZN14arrow_vendored10fast_float6bigint3mulEm.exit382, label %for.body.lr.ph.i.i359
 
 for.body.lr.ph.i.i359:                            ; preds = %if.else80
-  %arrayidx81 = getelementptr inbounds [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.6.lcssa
+  %arrayidx81 = getelementptr inbounds nuw [20 x i64], ptr @_ZN14arrow_vendored10fast_floatL20powers_of_ten_uint64E, i64 0, i64 %counter.6.lcssa
   %72 = load i64, ptr %arrayidx81, align 8
   %conv1.i.i.i360 = zext i64 %72 to i128
   br label %for.body.i.i361
@@ -3339,7 +3339,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %sub.i = add nsw i64 %index.0.i, -1
   %arrayidx.i.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub.i
   %23 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx.i17.i = getelementptr inbounds [62 x i64], ptr %theor_digits, i64 0, i64 %sub.i
+  %arrayidx.i17.i = getelementptr inbounds nuw [62 x i64], ptr %theor_digits, i64 0, i64 %sub.i
   %24 = load i64, ptr %arrayidx.i17.i, align 8
   %cmp19.i = icmp ugt i64 %23, %24
   br i1 %cmp19.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %if.else21.i
@@ -4456,7 +4456,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %sub.i = add nsw i64 %index.0.i, -1
   %arrayidx.i.i = getelementptr inbounds [62 x i64], ptr %bigmant, i64 0, i64 %sub.i
   %23 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx.i17.i = getelementptr inbounds [62 x i64], ptr %theor_digits, i64 0, i64 %sub.i
+  %arrayidx.i17.i = getelementptr inbounds nuw [62 x i64], ptr %theor_digits, i64 0, i64 %sub.i
   %24 = load i64, ptr %arrayidx.i17.i, align 8
   %cmp19.i = icmp ugt i64 %23, %24
   br i1 %cmp19.i, label %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit, label %if.else21.i

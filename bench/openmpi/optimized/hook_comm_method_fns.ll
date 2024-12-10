@@ -724,7 +724,7 @@ comm_method.exit638:                              ; preds = %174, %163, %166, %1
   %gep1141 = getelementptr inbounds nuw i32, ptr %invariant.gep1140, i64 %indvars.iv981
   %278 = load i32, ptr %gep1141, align 4
   %279 = sext i32 %278 to i64
-  %280 = getelementptr inbounds i32, ptr %260, i64 %279
+  %280 = getelementptr inbounds nuw i32, ptr %260, i64 %279
   %281 = load i32, ptr %280, align 4
   %.not607 = icmp slt i32 %281, %.2552771
   %282 = add nsw i32 %281, 1
@@ -1066,7 +1066,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
   %gep1145 = getelementptr inbounds nuw i32, ptr %invariant.gep1144, i64 %indvars.iv1017
   %411 = load i32, ptr %gep1145, align 4
   %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds i32, ptr %401, i64 %412
+  %413 = getelementptr inbounds nuw i32, ptr %401, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = add nsw i32 %414, 1
   store i32 %415, ptr %413, align 4
@@ -1103,7 +1103,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
 
 423:                                              ; preds = %421
   %424 = sext i32 %.0521838 to i64
-  %425 = getelementptr inbounds i32, ptr %401, i64 %424
+  %425 = getelementptr inbounds nuw i32, ptr %401, i64 %424
   %426 = load i32, ptr %425, align 4
   %427 = icmp slt i32 %420, %426
   br i1 %427, label %428, label %430
@@ -1132,7 +1132,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
 
 431:                                              ; preds = %._crit_edge841
   %432 = sext i32 %.1522 to i64
-  %433 = getelementptr inbounds i8, ptr %398, i64 %432
+  %433 = getelementptr inbounds nuw i8, ptr %398, i64 %432
   store i8 %.0524844.ph, ptr %433, align 1
   %434 = add i8 %.0524844.ph, 1
   br i1 %.not1156, label %.preheader706.outer, label %.thread1115, !llvm.loop !29
@@ -1235,7 +1235,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
   %gep1147 = getelementptr inbounds nuw i32, ptr %invariant.gep1146, i64 %indvars.iv1037
   %468 = load i32, ptr %gep1147, align 4
   %469 = sext i32 %468 to i64
-  %470 = getelementptr inbounds i8, ptr %398, i64 %469
+  %470 = getelementptr inbounds nuw i8, ptr %398, i64 %469
   %471 = load i8, ptr %470, align 1
   store i8 %471, ptr %.2536860, align 1
   %472 = getelementptr inbounds nuw i8, ptr %.2536860, i64 1
@@ -1360,7 +1360,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %326, %320, %._crit_
   %520 = getelementptr inbounds i32, ptr %47, i64 %519
   %521 = load i32, ptr %520, align 4
   %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds i32, ptr %507, i64 %522
+  %523 = getelementptr inbounds nuw i32, ptr %507, i64 %522
   %524 = load i32, ptr %523, align 4
   %525 = add nsw i32 %524, 1
   store i32 %525, ptr %523, align 4
@@ -1451,7 +1451,7 @@ string_to_comm_method.exit655:                    ; preds = %539, %535, %._crit_
 
 ._crit_edge891.thread:                            ; preds = %._crit_edge885
   %543 = sext i32 %542 to i64
-  %544 = getelementptr inbounds i32, ptr %507, i64 %543
+  %544 = getelementptr inbounds nuw i32, ptr %507, i64 %543
   %545 = load i32, ptr %544, align 4
   br label %.preheader701
 
@@ -1493,7 +1493,7 @@ string_to_comm_method.exit665:                    ; preds = %553, %._crit_edge.l
 557:                                              ; preds = %string_to_comm_method.exit665, %546
   %.4518 = phi i32 [ %.3517887, %546 ], [ %spec.select614, %string_to_comm_method.exit665 ]
   %558 = sext i32 %.4518 to i64
-  %559 = getelementptr inbounds i32, ptr %507, i64 %558
+  %559 = getelementptr inbounds nuw i32, ptr %507, i64 %558
   %560 = load i32, ptr %559, align 4
   %561 = icmp sgt i32 %548, %560
   br i1 %561, label %.lr.ph.i.i670, label %568
@@ -1529,7 +1529,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %._crit_edge.l
 
 .lr.ph895.preheader:                              ; preds = %568
   %569 = sext i32 %542 to i64
-  %570 = getelementptr inbounds i32, ptr %507, i64 %569
+  %570 = getelementptr inbounds nuw i32, ptr %507, i64 %569
   %571 = load i32, ptr %570, align 4
   %572 = zext nneg i32 %512 to i64
   %573 = shl nuw nsw i64 %572, 2
@@ -1577,7 +1577,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %._crit_edge.l
   %gep1149 = getelementptr inbounds nuw i32, ptr %invariant.gep1148, i64 %indvars.iv1066
   %581 = load i32, ptr %gep1149, align 4
   %582 = sext i32 %581 to i64
-  %583 = getelementptr inbounds i32, ptr %507, i64 %582
+  %583 = getelementptr inbounds nuw i32, ptr %507, i64 %582
   %584 = load i32, ptr %583, align 4
   %585 = add nsw i32 %584, 1
   store i32 %585, ptr %583, align 4
@@ -1614,7 +1614,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %._crit_edge.l
   %594 = trunc nuw nsw i64 %indvars.iv1076 to i32
   %spec.select617 = select i1 %or.cond9, i32 %594, i32 %.4511907
   %595 = sext i32 %spec.select617 to i64
-  %596 = getelementptr inbounds i32, ptr %507, i64 %595
+  %596 = getelementptr inbounds nuw i32, ptr %507, i64 %595
   %597 = load i32, ptr %596, align 4
   %598 = icmp sgt i32 %591, %597
   %.6513 = select i1 %598, i32 %594, i32 %spec.select617
@@ -1671,7 +1671,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %._crit_edge.l
   %gep1151 = getelementptr inbounds nuw i32, ptr %invariant.gep1150, i64 %indvars.iv1084
   %614 = load i32, ptr %gep1151, align 4
   %615 = sext i32 %614 to i64
-  %616 = getelementptr inbounds i32, ptr %507, i64 %615
+  %616 = getelementptr inbounds nuw i32, ptr %507, i64 %615
   %617 = load i32, ptr %616, align 4
   %618 = add nsw i32 %617, 1
   store i32 %618, ptr %616, align 4

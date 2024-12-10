@@ -599,7 +599,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEE
   %213 = sub i32 %212, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
   %214 = sext i32 %213 to i64
   %215 = select i1 %.not.i60, i64 -1, i64 %214
-  %216 = getelementptr inbounds [44 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [44 x i32], ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 0, i64 %215
   %217 = load i32, ptr %216, align 4
   br label %218
 

@@ -931,10 +931,10 @@ for.end.i:                                        ; preds = %for.inc.i72
 
 if.then118.i74:                                   ; preds = %for.end.i
   %idxprom119.i = sext i32 %isstr.2.i to i64
-  %arrayidx120.i = getelementptr inbounds [2 x ptr], ptr %repr.i, i64 0, i64 %idxprom119.i
+  %arrayidx120.i = getelementptr inbounds nuw [2 x ptr], ptr %repr.i, i64 0, i64 %idxprom119.i
   %140 = load ptr, ptr %arrayidx120.i, align 8
   %idxprom121.i = sext i32 %isenum.2.i to i64
-  %arrayidx122.i75 = getelementptr inbounds [2 x ptr], ptr %repr.i, i64 0, i64 %idxprom121.i
+  %arrayidx122.i75 = getelementptr inbounds nuw [2 x ptr], ptr %repr.i, i64 0, i64 %idxprom121.i
   %141 = load ptr, ptr %arrayidx122.i75, align 8
   call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 3219, ptr noundef %140, ptr noundef %141) #7
   unreachable

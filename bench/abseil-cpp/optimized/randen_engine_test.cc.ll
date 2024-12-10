@@ -1735,7 +1735,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub = add nsw i64 %dst.045, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.045, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %6 = load i32, ptr %arrayidx, align 4
@@ -1743,7 +1743,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %7, ptr %arrayidx, align 4
   store i32 %6, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.045, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %8 = load i32, ptr %arrayidx12, align 8
@@ -1751,17 +1751,17 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %9, ptr %arrayidx12, align 8
   store i32 %8, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.045, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %10 = load i32, ptr %arrayidx16, align 4
   %11 = load i32, ptr %arrayidx18, align 4
   store i32 %11, ptr %arrayidx16, align 4
   store i32 %10, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.045, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %12 = load i32, ptr %arrayidx20, align 16
   %13 = load i32, ptr %arrayidx22, align 8
   store i32 %13, ptr %arrayidx20, align 16
@@ -2844,7 +2844,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub = add nsw i64 %dst.045, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.045, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %6 = load i32, ptr %arrayidx, align 4
@@ -2852,7 +2852,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %7, ptr %arrayidx, align 4
   store i32 %6, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.045, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %8 = load i32, ptr %arrayidx12, align 8
@@ -2860,17 +2860,17 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %9, ptr %arrayidx12, align 8
   store i32 %8, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.045, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %10 = load i32, ptr %arrayidx16, align 4
   %11 = load i32, ptr %arrayidx18, align 4
   store i32 %11, ptr %arrayidx16, align 4
   store i32 %10, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.045, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %12 = load i32, ptr %arrayidx20, align 16
   %13 = load i32, ptr %arrayidx22, align 8
   store i32 %13, ptr %arrayidx20, align 16
@@ -3039,7 +3039,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %stream, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
   %call5.i14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
@@ -6207,7 +6207,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.015, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.015, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %5 = load i32, ptr %arrayidx, align 4
@@ -6215,7 +6215,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %6, ptr %arrayidx, align 4
   store i32 %5, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.015, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %7 = load i32, ptr %arrayidx12, align 8
@@ -6223,17 +6223,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %8, ptr %arrayidx12, align 8
   store i32 %7, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.015, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %9 = load i32, ptr %arrayidx16, align 4
   %10 = load i32, ptr %arrayidx18, align 4
   store i32 %10, ptr %arrayidx16, align 4
   store i32 %9, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.015, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %11 = load i32, ptr %arrayidx20, align 16
   %12 = load i32, ptr %arrayidx22, align 8
   store i32 %12, ptr %arrayidx20, align 16
@@ -7896,7 +7896,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.015, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.015, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %5 = load i32, ptr %arrayidx, align 4
@@ -7904,7 +7904,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %6, ptr %arrayidx, align 4
   store i32 %5, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.015, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %7 = load i32, ptr %arrayidx12, align 8
@@ -7912,17 +7912,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %8, ptr %arrayidx12, align 8
   store i32 %7, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.015, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %9 = load i32, ptr %arrayidx16, align 4
   %10 = load i32, ptr %arrayidx18, align 4
   store i32 %10, ptr %arrayidx16, align 4
   store i32 %9, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.015, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %11 = load i32, ptr %arrayidx20, align 16
   %12 = load i32, ptr %arrayidx22, align 8
   store i32 %12, ptr %arrayidx20, align 16
@@ -8732,7 +8732,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.015, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.015, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %5 = load i32, ptr %arrayidx, align 4
@@ -8740,7 +8740,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %6, ptr %arrayidx, align 4
   store i32 %5, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.015, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %7 = load i32, ptr %arrayidx12, align 8
@@ -8748,17 +8748,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %8, ptr %arrayidx12, align 8
   store i32 %7, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.015, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %9 = load i32, ptr %arrayidx16, align 4
   %10 = load i32, ptr %arrayidx18, align 4
   store i32 %10, ptr %arrayidx16, align 4
   store i32 %9, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.015, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %11 = load i32, ptr %arrayidx20, align 16
   %12 = load i32, ptr %arrayidx22, align 8
   store i32 %12, ptr %arrayidx20, align 16
@@ -9566,7 +9566,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %sub = add nsw i64 %dst.015, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.015, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %5 = load i32, ptr %arrayidx, align 4
@@ -9574,7 +9574,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %6, ptr %arrayidx, align 4
   store i32 %5, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.015, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %7 = load i32, ptr %arrayidx12, align 8
@@ -9582,17 +9582,17 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i32 %8, ptr %arrayidx12, align 8
   store i32 %7, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.015, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %9 = load i32, ptr %arrayidx16, align 4
   %10 = load i32, ptr %arrayidx18, align 4
   store i32 %10, ptr %arrayidx16, align 4
   store i32 %9, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.015, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %11 = load i32, ptr %arrayidx20, align 16
   %12 = load i32, ptr %arrayidx22, align 8
   store i32 %12, ptr %arrayidx20, align 16
@@ -12135,7 +12135,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i
   %call5.i18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIwSt11char_traitsIwEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad2.loopexit.split-lp
 
@@ -12786,7 +12786,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i
   %call5.i18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIwSt11char_traitsIwEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad2.loopexit.split-lp
 
@@ -13273,7 +13273,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i
   %call5.i18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIwSt11char_traitsIwEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad2.loopexit.split-lp
 
@@ -13760,7 +13760,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %is, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %is, i64 %vbase.offset.i
   %call5.i18 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIwSt11char_traitsIwEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad2.loopexit.split-lp
 
@@ -14295,7 +14295,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %stream, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
   %call5.i21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
@@ -14726,7 +14726,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub = add nsw i64 %dst.045, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.045, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %6 = load i32, ptr %arrayidx, align 4
@@ -14734,7 +14734,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %7, ptr %arrayidx, align 4
   store i32 %6, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.045, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %8 = load i32, ptr %arrayidx12, align 8
@@ -14742,17 +14742,17 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %9, ptr %arrayidx12, align 8
   store i32 %8, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.045, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %10 = load i32, ptr %arrayidx16, align 4
   %11 = load i32, ptr %arrayidx18, align 4
   store i32 %11, ptr %arrayidx16, align 4
   store i32 %10, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.045, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %12 = load i32, ptr %arrayidx20, align 16
   %13 = load i32, ptr %arrayidx22, align 8
   store i32 %13, ptr %arrayidx20, align 16
@@ -15137,7 +15137,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %stream, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
   %call5.i21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
@@ -15567,7 +15567,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub = add nsw i64 %dst.045, -4
   %shr = lshr exact i64 %sub, 1
   %dec = add nsw i64 %dst.045, -5
-  %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
+  %arrayidx = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %6 = load i32, ptr %arrayidx, align 4
@@ -15575,7 +15575,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %7, ptr %arrayidx, align 4
   store i32 %6, ptr %arrayidx10, align 4
   %dec11 = add nsw i64 %dst.045, -6
-  %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
+  %arrayidx12 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %8 = load i32, ptr %arrayidx12, align 8
@@ -15583,17 +15583,17 @@ while.body:                                       ; preds = %while.body.preheade
   store i32 %9, ptr %arrayidx12, align 8
   store i32 %8, ptr %arrayidx14, align 8
   %dec15 = add nsw i64 %dst.045, -7
-  %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
+  %arrayidx16 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
-  %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
+  %arrayidx18 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec17
   %10 = load i32, ptr %arrayidx16, align 4
   %11 = load i32, ptr %arrayidx18, align 4
   store i32 %11, ptr %arrayidx16, align 4
   store i32 %10, ptr %arrayidx18, align 4
   %dec19 = add nsw i64 %dst.045, -8
-  %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
+  %arrayidx20 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
-  %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
+  %arrayidx22 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec21
   %12 = load i32, ptr %arrayidx20, align 16
   %13 = load i32, ptr %arrayidx22, align 8
   store i32 %13, ptr %arrayidx20, align 16
@@ -15928,7 +15928,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %stream, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
   %call5.i21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 
@@ -16584,7 +16584,7 @@ call3.i.noexc:                                    ; preds = %for.end.i
   %vtable.i = load ptr, ptr %stream, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %stream, i64 %vbase.offset.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %stream, i64 %vbase.offset.i
   %call5.i21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr4.i)
           to label %call5.i.noexc unwind label %lpad5.loopexit.split-lp.loopexit.split-lp
 

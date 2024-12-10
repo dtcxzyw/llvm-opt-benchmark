@@ -4759,7 +4759,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit169:            ; preds = %_ZSt6fill_nIPimiET_
   %.0134522 = phi i1 [ true, %.lr.ph ], [ %.1135, %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit200 ]
   %.sroa.0376.0521 = phi i32 [ %155, %.lr.ph ], [ %.sroa.0376.2, %_ZNK5draco24MeshAttributeCornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit200 ]
   %166 = sext i32 %.0131523 to i64
-  %167 = getelementptr inbounds [4 x %"class.std::vector"], ptr %9, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [4 x %"class.std::vector"], ptr %9, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %56, align 8
   %170 = lshr i32 %.sroa.0376.0521, 6
@@ -11231,7 +11231,7 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %.0134516 = phi i1 [ true, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.lr.ph ], [ %.1135, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit193 ]
   %.sroa.0369.0515 = phi i32 [ %154, %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i.lr.ph ], [ %.sroa.0369.2, %_ZNK5draco11CornerTable10SwingRightENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit193 ]
   %160 = sext i32 %.0131517 to i64
-  %161 = getelementptr inbounds [4 x %"class.std::vector"], ptr %9, i64 0, i64 %160
+  %161 = getelementptr inbounds nuw [4 x %"class.std::vector"], ptr %9, i64 0, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = zext i32 %.sroa.0369.0515 to i64
   %164 = load ptr, ptr %122, align 8

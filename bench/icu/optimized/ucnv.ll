@@ -1710,7 +1710,7 @@ if.else13:                                        ; preds = %if.end10
   %11 = load i8, ptr %preFromULength, align 1
   %idx.ext = sext i8 %11 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i16, ptr %replay, i64 %idx.neg
+  %add.ptr = getelementptr inbounds nuw i16, ptr %replay, i64 %idx.neg
   store ptr %add.ptr, ptr %sourceLimit, align 8
   store i8 0, ptr %flush, align 2
   store i8 0, ptr %preFromULength, align 1
@@ -1878,7 +1878,7 @@ if.then66:                                        ; preds = %if.then64
   %32 = load i8, ptr %preFromULength, align 1
   %idx.ext85 = sext i8 %32 to i64
   %idx.neg86 = sub nsw i64 0, %idx.ext85
-  %add.ptr87 = getelementptr inbounds i16, ptr %replay, i64 %idx.neg86
+  %add.ptr87 = getelementptr inbounds nuw i16, ptr %replay, i64 %idx.neg86
   store ptr %add.ptr87, ptr %sourceLimit35, align 8
   store i8 0, ptr %flush31, align 2
   %33 = load i8, ptr %preFromULength, align 1
@@ -2285,7 +2285,7 @@ if.else13:                                        ; preds = %if.end10
   %11 = load i8, ptr %preToULength, align 2
   %idx.ext = sext i8 %11 to i64
   %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i8, ptr %replay, i64 %idx.neg
+  %add.ptr = getelementptr inbounds nuw i8, ptr %replay, i64 %idx.neg
   store ptr %add.ptr, ptr %sourceLimit, align 8
   store i8 0, ptr %flush, align 2
   store i8 0, ptr %preToULength, align 2
@@ -2454,7 +2454,7 @@ if.then67:                                        ; preds = %if.then65
   %32 = load i8, ptr %preToULength, align 2
   %idx.ext85 = sext i8 %32 to i64
   %idx.neg86 = sub nsw i64 0, %idx.ext85
-  %add.ptr87 = getelementptr inbounds i8, ptr %replay, i64 %idx.neg86
+  %add.ptr87 = getelementptr inbounds nuw i8, ptr %replay, i64 %idx.neg86
   store ptr %add.ptr87, ptr %sourceLimit35, align 8
   store i8 0, ptr %flush31, align 2
   %33 = load i8, ptr %preToULength, align 2

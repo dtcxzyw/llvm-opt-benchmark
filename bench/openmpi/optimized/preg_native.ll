@@ -147,7 +147,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %12
 49:                                               ; preds = %47
   %50 = add nsw i32 %.0157275, 1
   %51 = sext i32 %.0157275 to i64
-  %52 = getelementptr inbounds [50 x i8], ptr %3, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [50 x i8], ptr %3, i64 0, i64 %51
   store i8 %36, ptr %52, align 1
   br label %53
 

@@ -31815,7 +31815,7 @@ define dso_local void @_ZN17cmGlobalGenerator15CheckRuleHashesERKNSt7__cxx1112ba
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %17
 

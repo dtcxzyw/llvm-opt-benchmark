@@ -2681,7 +2681,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %179 = load ptr, ptr %10, align 8
   %180 = getelementptr i8, ptr %179, i64 -24
   %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %10, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %10, i64 %181
   %183 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %182)
           to label %184 unwind label %201
 
@@ -4710,7 +4710,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   %21 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %20)
           to label %22 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4721,7 +4721,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %24 = load ptr, ptr %5, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4807,7 +4807,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %54 = load ptr, ptr %4, align 8
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 %56
   %58 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %57)
           to label %.noexc25 unwind label %.loopexit.split-lp.loopexit
 
@@ -4856,7 +4856,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %76 = load ptr, ptr %4, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 %78
   %80 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %79)
           to label %.noexc31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4865,7 +4865,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
 
 81:                                               ; preds = %.noexc31
   %82 = sext i32 %.089.i26 to i64
-  %83 = getelementptr inbounds i8, ptr %8, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i32
   %86 = icmp eq i32 %75, %85
@@ -4903,7 +4903,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %94 = load ptr, ptr %5, align 8
   %95 = getelementptr i8, ptr %94, i64 -24
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %5, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 %96
   %98 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %97)
           to label %.noexc38 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4912,7 +4912,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
 
 99:                                               ; preds = %.noexc38
   %100 = sext i32 %.089.i33 to i64
-  %101 = getelementptr inbounds i8, ptr %8, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = sext i8 %102 to i32
   %104 = icmp eq i32 %93, %103
@@ -4936,7 +4936,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %108 = load ptr, ptr %4, align 8
   %109 = getelementptr i8, ptr %108, i64 -24
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %4, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 %110
   %112 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %111)
           to label %.noexc43 unwind label %.loopexit
 
@@ -4947,7 +4947,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %114 = load ptr, ptr %5, align 8
   %115 = getelementptr i8, ptr %114, i64 -24
   %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %5, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
   %118 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %117)
           to label %.noexc44 unwind label %.loopexit
 
@@ -4958,7 +4958,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %120 = load ptr, ptr %4, align 8
   %121 = getelementptr i8, ptr %120, i64 -24
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %4, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 %122
   %124 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %123)
           to label %.noexc45 unwind label %.loopexit
 
@@ -4969,7 +4969,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   %126 = load ptr, ptr %5, align 8
   %127 = getelementptr i8, ptr %126, i64 -24
   %128 = load i64, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %5, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 %128
   %130 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %129)
           to label %.noexc46 unwind label %.loopexit
 

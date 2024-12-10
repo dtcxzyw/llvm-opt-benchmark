@@ -16702,7 +16702,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %86 = and i64 %85, 2147483646
   %87 = or disjoint i64 %86, %82
   %88 = add nsw i64 %.01822.i.i, -227
-  %89 = getelementptr inbounds [624 x i64], ptr %6, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [624 x i64], ptr %6, i64 0, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = lshr exact i64 %87, 1
   %92 = xor i64 %91, %90
@@ -16823,7 +16823,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %165 = and i64 %164, 2147483646
   %166 = or disjoint i64 %165, %161
   %167 = add nsw i64 %.01822.i.i86, -227
-  %168 = getelementptr inbounds [624 x i64], ptr %6, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [624 x i64], ptr %6, i64 0, i64 %167
   %169 = load i64, ptr %168, align 8
   %170 = lshr exact i64 %166, 1
   %171 = xor i64 %170, %169
@@ -16939,7 +16939,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %241 = and i64 %240, 2147483646
   %242 = or disjoint i64 %241, %237
   %243 = add nsw i64 %.01822.i.i72, -227
-  %244 = getelementptr inbounds [624 x i64], ptr %6, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw [624 x i64], ptr %6, i64 0, i64 %243
   %245 = load i64, ptr %244, align 8
   %246 = lshr exact i64 %242, 1
   %247 = xor i64 %246, %245

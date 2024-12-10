@@ -258,7 +258,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local noundef nonnull ptr @_ZN5clang6driver6Action12getClassNameENS1_11ActionClassE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZN5clang6driver6Action12getClassNameENS1_11ActionClassE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -481,10 +481,10 @@ switch.lookup:                                    ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.30, i64 1))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   %9 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = sext i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE.2, i64 0, i64 %10
+  %switch.gep10 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE.2, i64 0, i64 %10
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
   %11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %switch.load11, i64 noundef %switch.load) #11
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30) #11
@@ -499,10 +499,10 @@ switch.lookup:                                    ; preds = %5
 define dso_local { ptr, i64 } @_ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE(i32 noundef %0) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE.2, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN5clang6driver6Action18GetOffloadKindNameENS1_11OffloadKindE.2, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1

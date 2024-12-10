@@ -13548,10 +13548,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %2 = load i32, ptr %1, align 8
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [82 x i64], ptr @switch.table._ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [82 x i64], ptr @switch.table._ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = sext i32 %2 to i64
-  %switch.gep3 = getelementptr inbounds [82 x i64], ptr @switch.table._ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv.1, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [82 x i64], ptr @switch.table._ZNK5clang7targets13X86TargetInfo19getCPUCacheLineSizeEv.1, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %.sroa.0.0.insert.insert = or disjoint i64 %switch.load4, %switch.load
   ret i64 %.sroa.0.0.insert.insert

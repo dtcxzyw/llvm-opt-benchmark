@@ -61,7 +61,7 @@ define void @_ZN7memif_t4readEmmPv(ptr nocapture noundef nonnull readonly align 
   %20 = load ptr, ptr %17, align 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %19, i64 noundef %10, ptr noundef nonnull %16)
-  %22 = getelementptr inbounds i8, ptr %16, i64 %12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %22, i64 %.sroa.speculated48, i1 false)
   %23 = getelementptr inbounds i8, ptr %3, i64 %.sroa.speculated48
   %24 = add i64 %.sroa.speculated48, %1
@@ -160,7 +160,7 @@ define void @_ZN7memif_t5writeEmmPKv(ptr nocapture noundef nonnull readonly alig
   %20 = load ptr, ptr %17, align 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef %19, i64 noundef %10, ptr noundef nonnull %16)
-  %22 = getelementptr inbounds i8, ptr %16, i64 %12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %3, i64 %.sroa.speculated66, i1 false)
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %23, align 8

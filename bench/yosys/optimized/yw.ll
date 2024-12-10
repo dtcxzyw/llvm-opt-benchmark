@@ -589,7 +589,7 @@ define void @_ZN5Yosys11ReadWitnessC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   %61 = load ptr, ptr %3, align 8
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 %63
   %65 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %64)
           to label %66 unwind label %76
 

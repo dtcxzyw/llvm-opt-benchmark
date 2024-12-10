@@ -175,7 +175,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 0, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   br i1 %0, label %6, label %9
 
@@ -191,7 +191,7 @@ define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 n
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 0, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
@@ -201,7 +201,7 @@ define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.0"], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.0"], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 0, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
@@ -214,7 +214,7 @@ define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9Stockfish13dbg_correl_ofElli(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.1"], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.1"], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 0, i64 %4
   %6 = atomicrmw add ptr %5, i64 1 seq_cst, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = atomicrmw add ptr %7, i64 %0 seq_cst, align 8
@@ -466,13 +466,13 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cx
   %11 = load ptr, ptr @_ZSt4cout, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %13
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 656), align 8
   %16 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %14, ptr noundef %15) #21
   %17 = load ptr, ptr @_ZSt3cin, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %19
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 576), align 8
   %22 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %20, ptr noundef %21) #21
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
@@ -498,12 +498,12 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cx
   %32 = load ptr, ptr @_ZSt3cin, align 8
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %34
   %36 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %35, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 512)) #21
   %37 = load ptr, ptr @_ZSt4cout, align 8
   %38 = getelementptr i8, ptr %37, i64 -24
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %39
   %41 = tail call noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 592)) #21
   br label %42
 
@@ -714,7 +714,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev() unnamed_ad
   %1 = load ptr, ptr @_ZSt3cin, align 8
   %2 = getelementptr i8, ptr %1, i64 -24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %3
   %5 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %4) #21
   %6 = tail call noundef ptr @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 512)) #21
@@ -724,7 +724,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16LoggerC2Ev() unnamed_ad
   %7 = load ptr, ptr @_ZSt4cout, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %9
   %11 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %10) #21
   %12 = tail call noundef ptr @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(248) @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l) #21
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) getelementptr inbounds nuw (i8, ptr @_ZZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE1l, i64 592)) #21

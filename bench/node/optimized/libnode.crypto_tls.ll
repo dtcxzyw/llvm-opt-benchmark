@@ -3471,15 +3471,15 @@ do.body46:                                        ; preds = %if.end31
 
 for.body:                                         ; preds = %if.end31, %for.body
   %i.092 = phi i64 [ %inc, %for.body ], [ 0, %if.end31 ]
-  %arrayidx = getelementptr inbounds [10 x ptr], ptr %data, i64 0, i64 %i.092
+  %arrayidx = getelementptr inbounds nuw [10 x ptr], ptr %data, i64 0, i64 %i.092
   %53 = load ptr, ptr %arrayidx, align 8
-  %arrayidx52 = getelementptr inbounds [10 x i64], ptr %size, i64 0, i64 %i.092
+  %arrayidx52 = getelementptr inbounds nuw [10 x i64], ptr %size, i64 0, i64 %i.092
   %54 = load i64, ptr %arrayidx52, align 8
   %conv53 = trunc i64 %54 to i32
   %call54 = call { ptr, i64 } @uv_buf_init(ptr noundef %53, i32 noundef %conv53) #24
   %55 = extractvalue { ptr, i64 } %call54, 0
   %56 = extractvalue { ptr, i64 } %call54, 1
-  %arrayidx55 = getelementptr inbounds [10 x %struct.uv_buf_t], ptr %buf, i64 0, i64 %i.092
+  %arrayidx55 = getelementptr inbounds nuw [10 x %struct.uv_buf_t], ptr %buf, i64 0, i64 %i.092
   store ptr %55, ptr %arrayidx55, align 16
   %ref.tmp51.sroa.2.0.arrayidx55.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
   store i64 %56, ptr %ref.tmp51.sroa.2.0.arrayidx55.sroa_idx, align 8

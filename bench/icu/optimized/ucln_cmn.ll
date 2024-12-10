@@ -110,7 +110,7 @@ declare signext i8 @utrace_cleanup_75() local_unnamed_addr #1
 define void @ucln_cleanupOne_75(i32 noundef %libType) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %libType to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

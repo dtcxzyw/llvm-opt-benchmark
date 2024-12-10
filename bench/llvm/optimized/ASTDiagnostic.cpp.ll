@@ -340,7 +340,7 @@ switch.lookup:                                    ; preds = %63
   %.sroa.0655.0.extract.trunc = zext i16 %66 to i64
   %sext = shl i64 %.sroa.0655.0.extract.trunc, 56
   %68 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang20desugarForDiagnosticERNS_10ASTContextENS_8QualTypeERb.27, i64 0, i64 %68
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang20desugarForDiagnosticERNS_10ASTContextENS_8QualTypeERb.27, i64 0, i64 %68
   %switch.load = load i32, ptr %switch.gep, align 4
   %69 = call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load, i64 %65, i64 %65) #15
   br label %70
@@ -384,7 +384,7 @@ switch.lookup769:                                 ; preds = %.lr.ph
   %.sroa.0650.0.extract.trunc = zext i16 %80 to i64
   %sext772 = shl i64 %.sroa.0650.0.extract.trunc, 56
   %82 = ashr exact i64 %sext772, 56
-  %switch.gep770 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang20desugarForDiagnosticERNS_10ASTContextENS_8QualTypeERb.27, i64 0, i64 %82
+  %switch.gep770 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang20desugarForDiagnosticERNS_10ASTContextENS_8QualTypeERb.27, i64 0, i64 %82
   %switch.load771 = load i32, ptr %switch.gep770, align 4
   %83 = call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i32 noundef %switch.load771, i64 %79, i64 %79) #15
   br label %84

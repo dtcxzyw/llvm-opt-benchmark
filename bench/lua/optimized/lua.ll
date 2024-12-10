@@ -708,7 +708,7 @@ land.lhs.true.i38:                                ; preds = %if.end.i35
 
 if.then12.i46:                                    ; preds = %land.lhs.true.i38
   %dec.i47 = add i64 %call6.i36, -1
-  %arrayidx13.i48 = getelementptr inbounds i8, ptr %buffer.i24, i64 %dec.i47
+  %arrayidx13.i48 = getelementptr inbounds nuw i8, ptr %buffer.i24, i64 %dec.i47
   store i8 0, ptr %arrayidx13.i48, align 1
   br label %if.end14.i41
 
@@ -812,7 +812,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i21
 
 if.then12.i:                                      ; preds = %land.lhs.true.i
   %dec.i = add i64 %call6.i22, -1
-  %arrayidx13.i = getelementptr inbounds i8, ptr %buffer.i, i64 %dec.i
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %dec.i
   store i8 0, ptr %arrayidx13.i, align 1
   br label %if.end.i.i
 

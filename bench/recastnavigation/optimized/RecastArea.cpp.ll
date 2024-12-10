@@ -769,7 +769,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
   %.0.in.lcssa.i.us = phi i64 [ 0, %75 ], [ %indvars.iv22.i.us, %71 ]
   %sext.i.us = shl i64 %.0.in.lcssa.i.us, 32
   %78 = ashr exact i64 %sext.i.us, 32
-  %79 = getelementptr inbounds i8, ptr %3, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %78
   store i8 %70, ptr %79, align 1
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 9

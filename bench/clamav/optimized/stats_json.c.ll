@@ -189,7 +189,7 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i64 %.01317.i, 1
-  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %35) #13
   %39 = add nuw nsw i64 %.01317.i, 1
   %exitcond.not.i = icmp eq i64 %39, 16

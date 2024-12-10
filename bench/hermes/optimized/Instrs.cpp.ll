@@ -1744,7 +1744,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   br i1 %cmp.i22.not, label %if.then10, label %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit25.thread
 
 _ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit25.thread: ; preds = %if.end
-  %add.ptr1.i = getelementptr inbounds i8, ptr %data.addr, i64 %sub.ptr.sub
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %data.addr, i64 %sub.ptr.sub
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %this, ptr nonnull align 1 %add.ptr1.i, i64 %sub.i, i1 false)
   br label %if.end12
 
@@ -1966,7 +1966,7 @@ if.end:                                           ; preds = %if.else, %if.then2
   br i1 %cmp.i22.not, label %if.then10, label %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit25.thread
 
 _ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit25.thread: ; preds = %if.end
-  %add.ptr1.i = getelementptr inbounds i8, ptr %data.addr, i64 %sub.ptr.sub
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %data.addr, i64 %sub.ptr.sub
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %this, ptr nonnull align 1 %add.ptr1.i, i64 %sub.i, i1 false)
   br label %if.end12
 

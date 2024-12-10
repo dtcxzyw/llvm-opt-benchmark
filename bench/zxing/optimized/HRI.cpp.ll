@@ -83,7 +83,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 
 37:                                               ; preds = %19, %15, %10
   %38 = phi i64 [ %20, %19 ], [ %16, %15 ], [ %12, %10 ]
-  %39 = getelementptr inbounds i8, ptr @_ZN5ZXingL7aiInfosE, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %38
   br label %45
 
 40:                                               ; preds = %23

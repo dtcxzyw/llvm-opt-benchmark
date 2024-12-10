@@ -26698,7 +26698,7 @@ default.unreachable:                              ; preds = %84
 
 switch.lookup:                                    ; preds = %84
   %89 = ashr i64 %87, 32
-  %switch.gep = getelementptr inbounds [41 x i8], ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem152_$LT$impl$u20$core..convert..From$LT$$RF$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hdb744a42bf962d2cE", i64 0, i64 %89
+  %switch.gep = getelementptr inbounds nuw [41 x i8], ptr @"switch.table._ZN13wasmtime_wasi4host10filesystem152_$LT$impl$u20$core..convert..From$LT$$RF$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hdb744a42bf962d2cE", i64 0, i64 %89
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.llvm.3320867604257097217.exit.thread
 

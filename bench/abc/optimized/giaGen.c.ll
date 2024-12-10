@@ -217,7 +217,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
 
 80:                                               ; preds = %65
   %81 = sext i8 %63 to i64
-  %82 = getelementptr inbounds [10 x i32], ptr %3, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = tail call i32 @Gia_ManHashOr(ptr noundef %4, i32 noundef %83, i32 noundef %79) #21
   store i32 %84, ptr %82, align 4

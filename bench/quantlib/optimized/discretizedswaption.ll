@@ -1032,7 +1032,7 @@ invoke.cont10:                                    ; preds = %_ZN8QuantLib6Option
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 24), align 8
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %16, i64 -40
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %snappedArgs, i64 %vbase.offset.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %snappedArgs, i64 %vbase.offset.i.i.i
   store ptr %17, ptr %add.ptr.i.i.i, align 8, !tbaa !51
   %legs.i.i.i = getelementptr inbounds nuw i8, ptr %snappedArgs, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %legs.i.i.i, i8 0, i64 48, i1 false)
@@ -1041,7 +1041,7 @@ invoke.cont10:                                    ; preds = %_ZN8QuantLib6Option
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN8QuantLib8Swaption9argumentsE, i64 32), align 8
   %vbase.offset.ptr.i.i34 = getelementptr i8, ptr %18, i64 -40
   %vbase.offset.i.i35 = load i64, ptr %vbase.offset.ptr.i.i34, align 8
-  %add.ptr.i.i36 = getelementptr inbounds i8, ptr %snappedArgs, i64 %vbase.offset.i.i35
+  %add.ptr.i.i36 = getelementptr inbounds nuw i8, ptr %snappedArgs, i64 %vbase.offset.i.i35
   store ptr %19, ptr %add.ptr.i.i36, align 8, !tbaa !51
   %type.i.i = getelementptr inbounds nuw i8, ptr %snappedArgs, i64 56
   store i32 -1, ptr %type.i.i, align 8, !tbaa !75
@@ -1065,7 +1065,7 @@ invoke.cont10:                                    ; preds = %_ZN8QuantLib6Option
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %floatingCouponAdjustments) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %floatingCouponAdjustments, i8 0, i64 24, i1 false)
   %vbase.offset = load i64, ptr getelementptr inbounds nuw inrange(0, 64) (i8, ptr @_ZTVN8QuantLib8Swaption9argumentsE, i64 0), align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %snappedArgs, i64 %vbase.offset
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %snappedArgs, i64 %vbase.offset
   invoke void @_ZN8QuantLib19DiscretizedSwaption31prepareSwaptionWithSnappedDatesERKNS_8Swaption9argumentsERKNS_4DateERKNS_10DayCounterERNS_13PricingEngine9argumentsERSt6vectorINS_16DiscretizedAsset16CouponAdjustmentESaISG_EESJ_(ptr noundef nonnull align 8 dereferenceable(400) %arguments_, ptr nonnull align 8 poison, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr12, ptr noundef nonnull align 8 dereferenceable(24) %fixedCouponAdjustments, ptr noundef nonnull align 8 dereferenceable(24) %floatingCouponAdjustments)
           to label %invoke.cont14 unwind label %lpad13
 

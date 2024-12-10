@@ -990,7 +990,7 @@ land.lhs.true.i:                                  ; preds = %set_keep_alive.exit
   %sub.i = shl i64 %call6.i, 32
   %sext.i = add i64 %sub.i, -4294967296
   %idxprom.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i = getelementptr inbounds i8, ptr @packet_buffer, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @packet_buffer, i64 %idxprom.i
   %57 = load i8, ptr %arrayidx.i, align 1
   %cmp.i230 = icmp eq i8 %57, 10
   br i1 %cmp.i230, label %if.then10.i, label %if.end14.i
@@ -1006,7 +1006,7 @@ if.end14.i:                                       ; preds = %if.then10.i, %land.
 if.then17.i:                                      ; preds = %if.end14.i
   %sext16.i = shl i64 %call6.i, 32
   %idx.ext.i = ashr exact i64 %sext16.i, 32
-  %add.ptr.i = getelementptr inbounds i8, ptr @packet_buffer, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr @packet_buffer, i64 %idx.ext.i
   %add.ptr18.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %58 = xor i32 %conv.i, -1
   %sub20.i = add i32 %call4.i, %58

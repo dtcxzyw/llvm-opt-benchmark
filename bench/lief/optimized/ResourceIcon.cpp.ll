@@ -610,7 +610,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %28, %_ZNSt6vectorIh
   %31 = load ptr, ptr %3, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 %33
   %35 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %34)
           to label %37 unwind label %.thread34
 
@@ -627,7 +627,7 @@ _ZSt4copyIPKhPhET0_T_S4_S3_.exit:                 ; preds = %28, %_ZNSt6vectorIh
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 %41
   %43 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %42)
           to label %.lr.ph.i.i.i.i.i.preheader unwind label %44
 

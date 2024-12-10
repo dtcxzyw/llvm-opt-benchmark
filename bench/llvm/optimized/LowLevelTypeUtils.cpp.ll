@@ -773,7 +773,7 @@ define dso_local i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(i16 %0) local_unnamed_addr
   br i1 %spec.select.i, label %13, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %6
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -787,18 +787,18 @@ define dso_local i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(i16 %0) local_unnamed_addr
   br label %27
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %6
+  %14 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %6
   %15 = load i16, ptr %14, align 2
   %16 = add nsw i16 %0, -137
   %spec.select.i.i = icmp ult i16 %16, 53
   %.sroa.2.0.insert.shift.i.i = select i1 %spec.select.i.i, i64 4294967296, i64 0
   %.sroa.0.0.insert.ext.i.i = zext i16 %15 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
-  %17 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %6
+  %17 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %6
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %20
   %.sroa.0.0.copyload.i8 = load i64, ptr %21, align 16
   %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i10 = load i8, ptr %.sroa.2.0..sroa_idx.i9, align 8

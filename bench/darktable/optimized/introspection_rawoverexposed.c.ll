@@ -104,7 +104,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 2544
   %47 = load i32, ptr %46, align 8, !tbaa !58
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [4 x [4 x float]], ptr @dt_iop_rawoverexposed_colors, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [4 x [4 x float]], ptr @dt_iop_rawoverexposed_colors, i64 0, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i32, ptr %50, align 4, !tbaa !59
   %52 = sext i32 %51 to i64

@@ -19490,7 +19490,7 @@ if.then24:                                        ; preds = %if.end15
 
 if.then28:                                        ; preds = %if.then24
   %strlen48 = call i64 @strlen(ptr nonnull dereferenceable(1) %sign_special)
-  %endptr49 = getelementptr inbounds i8, ptr %sign_special, i64 %strlen48
+  %endptr49 = getelementptr inbounds nuw i8, ptr %sign_special, i64 %strlen48
   store i32 6712905, ptr %endptr49, align 1
   br label %if.end61
 
@@ -19501,7 +19501,7 @@ if.else:                                          ; preds = %if.then24
 
 if.then33:                                        ; preds = %if.else
   %strlen46 = call i64 @strlen(ptr nonnull dereferenceable(1) %sign_special)
-  %endptr47 = getelementptr inbounds i8, ptr %sign_special, i64 %strlen46
+  %endptr47 = getelementptr inbounds nuw i8, ptr %sign_special, i64 %strlen46
   store i32 5136718, ptr %endptr47, align 1
   br label %if.end61
 
@@ -19512,7 +19512,7 @@ if.else36:                                        ; preds = %if.else
 
 if.then40:                                        ; preds = %if.else36
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %sign_special)
-  %endptr = getelementptr inbounds i8, ptr %sign_special, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %sign_special, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr, ptr noundef nonnull align 1 dereferenceable(5) @.str.173, i64 5, i1 false)
   br label %if.end61
 

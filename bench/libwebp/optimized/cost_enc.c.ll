@@ -72,7 +72,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
 21:                                               ; preds = %13, %VariableLevelCost.exit
   %indvars.iv = phi i64 [ 1, %13 ], [ %indvars.iv.next, %VariableLevelCost.exit ]
   %22 = add nsw i64 %indvars.iv, -1
-  %23 = getelementptr inbounds [67 x [2 x i16]], ptr @VP8LevelCodes, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [67 x [2 x i16]], ptr @VP8LevelCodes, i64 0, i64 %22
   %24 = load i16, ptr %23, align 4
   %.not15.i = icmp eq i16 %24, 0
   br i1 %.not15.i, label %VariableLevelCost.exit, label %.lr.ph.preheader.i
@@ -451,7 +451,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %40 = add nuw i32 %.0.i46, 65536
   store i32 %40, ptr %34, align 4
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %41, i64 %44
@@ -499,7 +499,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %70, i32 67)
   %71 = add nsw i32 %spec.store.select, -1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [67 x [2 x i16]], ptr @VP8LevelCodes, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [67 x [2 x i16]], ptr @VP8LevelCodes, i64 0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
@@ -546,7 +546,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   %.sink78 = phi i64 [ 1, %._crit_edge ], [ 2, %69 ], [ 2, %95 ]
   %96 = load ptr, ptr %4, align 8
   %97 = sext i32 %.lcssa51 to i64
-  %98 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %96, i64 %100, i64 %.sink78

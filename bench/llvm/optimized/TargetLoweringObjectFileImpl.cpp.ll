@@ -5969,10 +5969,10 @@ _ZN4llvm17MachineModuleInfo14getObjFileInfoINS_22MachineModuleInfoMachOEEERT_v.e
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 312
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO25getIndirectSymViaGOTPCRelEPKNS_11GlobalValueEPKNS_8MCSymbolERKNS_7MCValueElPNS_17MachineModuleInfoERNS_10MCStreamerE, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO25getIndirectSymViaGOTPCRelEPKNS_11GlobalValueEPKNS_8MCSymbolERKNS_7MCValueElPNS_17MachineModuleInfoERNS_10MCStreamerE, i64 0, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   %35 = sext i32 %33 to i64
-  %switch.gep52 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO25getIndirectSymViaGOTPCRelEPKNS_11GlobalValueEPKNS_8MCSymbolERKNS_7MCValueElPNS_17MachineModuleInfoERNS_10MCStreamerE.8, i64 0, i64 %35
+  %switch.gep52 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZNK4llvm29TargetLoweringObjectFileMachO25getIndirectSymViaGOTPCRelEPKNS_11GlobalValueEPKNS_8MCSymbolERKNS_7MCValueElPNS_17MachineModuleInfoERNS_10MCStreamerE.8, i64 0, i64 %35
   %switch.load53 = load ptr, ptr %switch.gep52, align 8
   %36 = getelementptr inbounds nuw i8, ptr %switch.load53, i64 %switch.load
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull %switch.load53, ptr noundef nonnull %36)
@@ -7296,7 +7296,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_11GlobalValueEJNS_14ilis
   %.fca.0.load.i.i = load i64, ptr %.0.ptr.i.i, align 16
   %.fca.1.gep.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  %106 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i
   %107 = and i64 %.fca.0.load.i.i, 1
   %.not.i.i56 = icmp eq i64 %107, 0
   br i1 %.not.i.i56, label %113, label %108
@@ -7378,7 +7378,7 @@ _ZN4llvm11raw_ostream5flushEv.exit:               ; preds = %_ZNK4llvm15concat_i
   %.fca.0.load.i.i59 = load i64, ptr %.0.ptr.i.i58, align 16
   %.fca.1.gep.i.i60 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i58, i64 8
   %.fca.1.load.i.i61 = load i64, ptr %.fca.1.gep.i.i60, align 8
-  %138 = getelementptr inbounds i8, ptr %13, i64 %.fca.1.load.i.i61
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 %.fca.1.load.i.i61
   %139 = and i64 %.fca.0.load.i.i59, 1
   %.not.i.i62 = icmp eq i64 %139, 0
   br i1 %.not.i.i62, label %145, label %140

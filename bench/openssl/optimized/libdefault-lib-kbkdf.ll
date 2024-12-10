@@ -757,7 +757,7 @@ if.end:                                           ; preds = %if.then, %entry
   %div = sdiv i32 %r, 8
   %sub = sub nsw i32 4, %div
   %idx.ext = sext i32 %sub to i64
-  %add.ptr = getelementptr inbounds i8, ptr %i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %i, i64 %idx.ext
   %conv16 = sext i32 %div to i64
   %tobool22.not = icmp eq i32 %has_separator, 0
   br label %for.body

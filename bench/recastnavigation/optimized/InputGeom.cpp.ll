@@ -359,7 +359,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
 76:                                               ; preds = %74, %.lr.ph.i
   %77 = add nsw i32 %.01526.i, 1
   %78 = sext i32 %.01526.i to i64
-  %79 = getelementptr inbounds i8, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 %78
   store i8 %70, ptr %79, align 1
   %80 = icmp sgt i32 %.01526.i, 509
   br label %81
@@ -374,7 +374,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %81
   %83 = sext i32 %.1.i to i64
-  %84 = getelementptr inbounds i8, ptr %4, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 %83
   store i8 0, ptr %84, align 1
   %85 = load i8, ptr %4, align 16
   switch i8 %85, label %.critedge.thread [
@@ -543,7 +543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 156:                                              ; preds = %154, %.lr.ph.i82
   %157 = add nsw i32 %.01526.i84, 1
   %158 = sext i32 %.01526.i84 to i64
-  %159 = getelementptr inbounds i8, ptr %4, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 %158
   store i8 %150, ptr %159, align 1
   %160 = icmp sgt i32 %.01526.i84, 509
   br label %161
@@ -563,7 +563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edge.loopexit.i90
   %.015.lcssa.i80 = phi i64 [ 0, %.lr.ph ], [ %163, %._crit_edge.loopexit.i90 ]
   %.0.lcssa.i81 = phi ptr [ %.296, %.lr.ph ], [ %151, %._crit_edge.loopexit.i90 ]
-  %164 = getelementptr inbounds i8, ptr %4, i64 %.015.lcssa.i80
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 %.015.lcssa.i80
   store i8 0, ptr %164, align 1
   %165 = mul nuw nsw i64 %indvars.iv, 3
   %166 = getelementptr inbounds nuw [36 x float], ptr %142, i64 0, i64 %165

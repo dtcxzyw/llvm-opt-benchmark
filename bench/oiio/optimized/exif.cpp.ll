@@ -4231,9 +4231,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds float, ptr %cond.i117, i64 %i.013
   %27 = load float, ptr %arrayidx, align 4
   %mul22 = shl i64 %i.013, 1
-  %arrayidx23 = getelementptr inbounds i32, ptr %24, i64 %mul22
+  %arrayidx23 = getelementptr inbounds nuw i32, ptr %24, i64 %mul22
   %add25 = or disjoint i64 %mul22, 1
-  %arrayidx26 = getelementptr inbounds i32, ptr %24, i64 %add25
+  %arrayidx26 = getelementptr inbounds nuw i32, ptr %24, i64 %add25
   %cmp.i118 = fcmp ugt float %27, 0.000000e+00
   br i1 %cmp.i118, label %if.else.i, label %if.then.i
 
@@ -4324,9 +4324,9 @@ for.body45:                                       ; preds = %for.body45.preheade
   %arrayidx46 = getelementptr inbounds float, ptr %cond.i130, i64 %i42.010
   %34 = load float, ptr %arrayidx46, align 4
   %mul47 = shl i64 %i42.010, 1
-  %arrayidx48 = getelementptr inbounds i32, ptr %31, i64 %mul47
+  %arrayidx48 = getelementptr inbounds nuw i32, ptr %31, i64 %mul47
   %add50 = or disjoint i64 %mul47, 1
-  %arrayidx51 = getelementptr inbounds i32, ptr %31, i64 %add50
+  %arrayidx51 = getelementptr inbounds nuw i32, ptr %31, i64 %add50
   %35 = tail call float @llvm.fabs.f32(float %34)
   %cmp.i.i131 = fcmp une float %34, 0.000000e+00
   br i1 %cmp.i.i131, label %if.else.i.i, label %_ZN18OpenImageIO_v2_6_017float_to_rationalEfRiS0_.exit

@@ -266,7 +266,7 @@ define hidden range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds [7 x i8], ptr @.str.2, i64 0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [7 x i8], ptr @.str.2, i64 0, i64 %indvars.iv.next
   %8 = load i8, ptr %7, align 1
   %.not24 = icmp eq i8 %6, %8
   br i1 %.not24, label %12, label %9
@@ -1008,7 +1008,7 @@ define hidden range(i32 0, 2) i32 @png_convert_to_rfc1123_buffer(ptr noundef %0,
   %38 = load i8, ptr %9, align 2
   %39 = zext i8 %38 to i64
   %40 = add nsw i64 %39, -1
-  %41 = getelementptr inbounds [12 x [4 x i8]], ptr @png_convert_to_rfc1123_buffer.short_months, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [12 x [4 x i8]], ptr @png_convert_to_rfc1123_buffer.short_months, i64 0, i64 %40
   %42 = call i64 @png_safecat(ptr noundef nonnull %0, i64 noundef 29, i64 noundef %.0, ptr noundef nonnull %41) #29
   %43 = icmp ult i64 %42, 28
   br i1 %43, label %44, label %47
@@ -2928,7 +2928,7 @@ is_ICC_signature.exit:                            ; preds = %31
   br i1 %narrow.i20.i.not, label %is_ICC_signature.exit.thread, label %45
 
 45:                                               ; preds = %is_ICC_signature.exit
-  %46 = getelementptr inbounds i8, ptr %6, i64 %16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %16
   %47 = trunc i64 %3 to i32
   store i8 39, ptr %46, align 1
   %48 = lshr i32 %47, 24
@@ -2965,10 +2965,10 @@ is_ICC_signature.exit:                            ; preds = %31
   store i8 39, ptr %66, align 1
   %67 = add i64 %16, 6
   %68 = add i64 %16, 7
-  %69 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %67
+  %69 = getelementptr inbounds nuw [196 x i8], ptr %6, i64 0, i64 %67
   store i8 58, ptr %69, align 1
   %70 = add i64 %16, 8
-  %71 = getelementptr inbounds [196 x i8], ptr %6, i64 0, i64 %68
+  %71 = getelementptr inbounds nuw [196 x i8], ptr %6, i64 0, i64 %68
   store i8 32, ptr %71, align 1
   br label %76
 

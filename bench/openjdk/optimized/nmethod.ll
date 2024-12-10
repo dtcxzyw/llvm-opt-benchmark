@@ -2233,7 +2233,7 @@ _ZN15Bytecode_invokeC2ERK12methodHandlei.exit:    ; preds = %_ZN12methodHandleC2
 
 _ZNK8Bytecode11invoke_codeEv.exit.i:              ; preds = %_ZN15Bytecode_invokeC2ERK12methodHandlei.exit
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, -3
   %spec.select.i = icmp ne i32 %83, 184
@@ -10360,7 +10360,7 @@ _ZN7nmethod13scope_desc_inEPhS0_.exit:            ; preds = %_ZN7nmethod12pc_des
 110:                                              ; preds = %106
   %111 = call noundef i32 @_ZNK6Method12java_code_atEi(ptr noundef nonnull align 8 dereferenceable(88) %103, i32 noundef %95)
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %112
   %114 = load ptr, ptr %113, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.145, ptr noundef %114) #23
   switch i32 %111, label %129 [
@@ -11298,7 +11298,7 @@ _ZN12outputStream3bolEv.exit:                     ; preds = %52, %56
 
 _ZN9VMRegImpl4nameEv.exit:                        ; preds = %156
   %168 = sext i32 %165 to i64
-  %169 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %168
   %170 = load ptr, ptr %169, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.26, ptr noundef %170) #23
   %171 = ptrtoint ptr %162 to i64
@@ -11313,7 +11313,7 @@ _ZN9VMRegImpl4nameEv.exit:                        ; preds = %156
 
 175:                                              ; preds = %174
   %176 = sext i32 %173 to i64
-  %177 = getelementptr inbounds [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9VMRegImpl7regNameE, i64 0, i64 %176
   %178 = load ptr, ptr %177, align 8
   br label %_ZN9VMRegImpl4nameEv.exit110
 
@@ -11469,7 +11469,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6Method12java_code_atEi(ptr noundef 
 _ZN9Bytecodes12java_code_atEPK6MethodPh.exit:     ; preds = %2, %6
   %8 = phi i32 [ %7, %6 ], [ %5, %2 ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   ret i32 %11
 }

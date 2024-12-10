@@ -6223,7 +6223,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2635 = load i8, ptr %2599, align 1
   %2636 = zext i8 %2635 to i64
   %2637 = add nsw i64 %2636, -98
-  %2638 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %2637
+  %2638 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %2637
   %2639 = load i32, ptr %2638, align 4
   %2640 = getelementptr inbounds nuw i8, ptr %142, i64 38
   store ptr %2640, ptr %.3, align 8
@@ -7133,7 +7133,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3196 = load i8, ptr %3160, align 1
   %3197 = zext i8 %3196 to i64
   %3198 = add nsw i64 %3197, -98
-  %3199 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %3198
+  %3199 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %3198
   %3200 = load i32, ptr %3199, align 4
   %3201 = getelementptr inbounds nuw i8, ptr %3160, i64 5
   store ptr %3201, ptr %.3, align 8
@@ -24383,7 +24383,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14000 = load i8, ptr %13965, align 1
   %14001 = zext i8 %14000 to i64
   %14002 = add nsw i64 %14001, -98
-  %14003 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %14002
+  %14003 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %14002
   %14004 = load i32, ptr %14003, align 4
   %14005 = icmp eq i32 %13998, 0
   %spec.store.select = select i1 %14005, i32 -1, i32 %13998

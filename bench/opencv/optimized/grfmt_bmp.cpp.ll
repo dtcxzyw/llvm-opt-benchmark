@@ -1276,7 +1276,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
   %173 = getelementptr inbounds nuw [256 x %"struct.cv::PaletteEntry"], ptr %158, i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
   store i32 %174, ptr %159, align 4
-  %175 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %168
+  %175 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %168
   %176 = load i8, ptr %175, align 1
   store i8 %176, ptr %11, align 1
   %177 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %172
@@ -1519,7 +1519,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit272:  ; preds = %.noexc271, %_ZN2cv1
           to label %303 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 299:                                              ; preds = %293
-  %300 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %295
+  %300 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %295
   %301 = load i8, ptr %300, align 1
   %302 = invoke noundef ptr @_ZN2cv11FillUniGrayEPhRS0_iiRiiih(ptr noundef %.8, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %.0215, i32 noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %294, i32 noundef %288, i8 noundef zeroext %301)
           to label %303 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit

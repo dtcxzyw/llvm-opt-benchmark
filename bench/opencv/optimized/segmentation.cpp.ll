@@ -2497,7 +2497,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %322 = load ptr, ptr %67, align 8
   %323 = getelementptr i8, ptr %322, i64 -24
   %324 = load i64, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %67, i64 %324
+  %325 = getelementptr inbounds nuw i8, ptr %67, i64 %324
   %326 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %325)
           to label %327 unwind label %.loopexit197
 

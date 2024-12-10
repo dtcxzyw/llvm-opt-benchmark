@@ -8093,11 +8093,11 @@ while.body:                                       ; preds = %entry, %for.end
   %IP.07 = phi i32 [ %IP.2, %for.end ], [ 1, %entry ]
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %idxprom = sext i32 %IP.07 to i64
-  %arrayidx = getelementptr inbounds [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 0, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !107
   %arrayidx3 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 0, i64 %indvars.iv.next14
   store double %0, ptr %arrayidx3, align 8, !tbaa !107
-  %arrayidx5 = getelementptr inbounds [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 0, i64 %idxprom
   %1 = load double, ptr %arrayidx5, align 8, !tbaa !107
   %add8 = fadd double %1, %0
   %div = fmul double %add8, 5.000000e-01
@@ -8105,9 +8105,9 @@ while.body:                                       ; preds = %entry, %for.end
   store double %div, ptr %arrayidx10, align 8, !tbaa !107
   store double %div, ptr %arrayidx, align 8, !tbaa !107
   %2 = load double, ptr %arrayidx5, align 8, !tbaa !107
-  %arrayidx20 = getelementptr inbounds [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 0, i64 %idxprom
+  %arrayidx20 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 0, i64 %idxprom
   %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERd(double noundef %2, double noundef %div, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx20)
-  %arrayidx22 = getelementptr inbounds [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 0, i64 %idxprom
+  %arrayidx22 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 0, i64 %idxprom
   store double %call, ptr %arrayidx22, align 8, !tbaa !107
   %3 = load double, ptr %arrayidx10, align 8, !tbaa !107
   %4 = load double, ptr %arrayidx3, align 8, !tbaa !107
@@ -8125,7 +8125,7 @@ for.body:                                         ; preds = %while.body, %for.bo
   %arrayidx34 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 0, i64 %indvars.iv
   %6 = load double, ptr %arrayidx34, align 8, !tbaa !107
   %idxprom35 = sext i32 %IP.14 to i64
-  %arrayidx36 = getelementptr inbounds [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 0, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [101 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 0, i64 %idxprom35
   %7 = load double, ptr %arrayidx36, align 8, !tbaa !107
   %cmp37 = fcmp ogt double %6, %7
   %8 = trunc nuw nsw i64 %indvars.iv to i32

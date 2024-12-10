@@ -297,9 +297,9 @@ while.body.lr.ph:                                 ; preds = %if.end
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %div.i.i = sdiv i32 %clientfd, 64
   %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
   %add.i.i = add nsw i32 %clientfd, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx28.i.i = getelementptr inbounds nuw [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
   %tv_usec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
   %tv_usec.i68 = getelementptr inbounds nuw i8, ptr %tv.i64, i64 8
   %tv_usec.i78 = getelementptr inbounds nuw i8, ptr %tv.i74, i64 8
@@ -2755,11 +2755,11 @@ while.body.lr.ph.i:                               ; preds = %tcp_set_nonblocking
   %shl.i.i23.i = shl nuw i64 1, %sh_prom.i.i22.i
   %div.i.i24.i = sdiv i32 %call2.i, 64
   %idxprom5.i.i25.i = sext i32 %div.i.i24.i to i64
-  %arrayidx6.i.i26.i = getelementptr inbounds [16 x i64], ptr %fds.i.i17.i, i64 0, i64 %idxprom5.i.i25.i
+  %arrayidx6.i.i26.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i17.i, i64 0, i64 %idxprom5.i.i25.i
   %add.i.i28.i = add nsw i32 %call2.i, 1
-  %arrayidx28.i.i29.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i18.i, i64 0, i64 %idxprom5.i.i25.i
-  %arrayidx6.i.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
-  %arrayidx28.i.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
+  %arrayidx28.i.i29.i = getelementptr inbounds nuw [16 x i64], ptr %errfds.i.i18.i, i64 0, i64 %idxprom5.i.i25.i
+  %arrayidx6.i.i.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
+  %arrayidx28.i.i.i = getelementptr inbounds nuw [16 x i64], ptr %errfds.i.i.i, i64 0, i64 %idxprom5.i.i25.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end28.i, %while.body.lr.ph.i
@@ -2952,7 +2952,7 @@ if.end631:                                        ; preds = %do.body599, %if.the
   %err.3 = phi i32 [ %err.0, %if.end610 ], [ %call614, %do.body.i419 ], [ %call614, %do.body2.i421 ], [ %call614, %if.then4.i424 ], [ 0, %do.body599 ]
   %178 = load i32, ptr @lng_index, align 4
   %idxprom.i426 = sext i32 %178 to i64
-  %arrayidx.i427 = getelementptr inbounds [2 x [9 x ptr]], ptr @client_showpeer_msg, i64 0, i64 %idxprom.i426
+  %arrayidx.i427 = getelementptr inbounds nuw [2 x [9 x ptr]], ptr @client_showpeer_msg, i64 0, i64 %idxprom.i426
   %179 = load ptr, ptr %arrayidx.i427, align 8
   %call.i428 = call ptr @wolfSSL_get_version(ptr noundef %call490) #25
   %call2.i429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, ptr noundef %179, ptr noundef %call.i428)
@@ -3226,13 +3226,13 @@ while.cond751:                                    ; preds = %if.end744, %while.b
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %div.i.i = sdiv i32 %call752, 64
   %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
   %202 = load i64, ptr %arrayidx6.i.i, align 8
   %or.i.i = or i64 %202, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
   %add.i.i = add nsw i32 %call752, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx28.i.i = getelementptr inbounds nuw [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
   %203 = load i64, ptr %arrayidx28.i.i, align 8
   %or29.i.i = or i64 %203, %shl.i.i
   store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8
@@ -3320,7 +3320,7 @@ define internal fastcc void @Usage() unnamed_addr #7 {
 entry:
   %0 = load i32, ptr @lng_index, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [2 x [65 x ptr]], ptr @server_usage_msg, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x [65 x ptr]], ptr @server_usage_msg, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef %1)
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -3731,13 +3731,13 @@ land.lhs.true13:                                  ; preds = %if.else
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %div.i.i = sdiv i32 %call14, 64
   %idxprom5.i.i = sext i32 %div.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom5.i.i
   %6 = load i64, ptr %arrayidx6.i.i, align 8
   %or.i.i = or i64 %6, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx6.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %errfds.i.i, i8 0, i64 128, i1 false)
   %add.i.i = add nsw i32 %call14, 1
-  %arrayidx28.i.i = getelementptr inbounds [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
+  %arrayidx28.i.i = getelementptr inbounds nuw [16 x i64], ptr %errfds.i.i, i64 0, i64 %idxprom5.i.i
   %7 = load i64, ptr %arrayidx28.i.i, align 8
   %or29.i.i = or i64 %7, %shl.i.i
   store i64 %or29.i.i, ptr %arrayidx28.i.i, align 8

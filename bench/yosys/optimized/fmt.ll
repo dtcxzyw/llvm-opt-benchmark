@@ -6548,7 +6548,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
 
 193:                                              ; preds = %191
   %194 = sext i32 %192 to i64
-  %195 = getelementptr inbounds [17 x i8], ptr @.str.32, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [17 x i8], ptr @.str.32, i64 0, i64 %194
   %196 = load i8, ptr %195, align 1
   br label %.invoke449
 

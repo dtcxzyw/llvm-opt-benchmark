@@ -9297,7 +9297,7 @@ define dso_local noundef nonnull ptr @_ZN5clang7CodeGen15CodeGenFunction12getDes
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
   %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -9321,7 +9321,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8Qua
 switch.lookup:
   %switch.tableidx = add nsw i32 %1, -1
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN5clang7CodeGen15CodeGenFunction13pushEHDestroyENS_8QualType15DestructionKindENS0_7AddressES2_, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction11pushDestroyENS0_11CleanupKindENS0_7AddressENS_8QualTypeEPFvRS1_S3_S4_Eb(ptr noundef nonnull align 8 dereferenceable(6488) %0, i32 noundef 1, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, ptr noundef nonnull %switch.load, i1 noundef zeroext true)
   ret void

@@ -1102,7 +1102,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
 66:                                               ; preds = %81, %59
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %81 ], [ %65, %59 ]
   %.088 = phi ptr [ %83, %81 ], [ %64, %59 ]
-  %67 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv151
+  %67 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv151
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds [64 x i16], ptr %22, i64 0, i64 %69
@@ -1451,7 +1451,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr nocapture 
 88:                                               ; preds = %113, %86
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %113 ], [ %87, %86 ]
   %.078 = phi ptr [ %115, %113 ], [ %83, %86 ]
-  %89 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv142
+  %89 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv142
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds [64 x i16], ptr %22, i64 0, i64 %91
@@ -1752,7 +1752,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
   %117 = getelementptr inbounds i8, ptr %113, i64 %116
   tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef %117, i32 noundef 0)
   %118 = sext i32 %.0141206 to i64
-  %119 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds [64 x i16], ptr %37, i64 0, i64 %121
@@ -1767,7 +1767,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
   tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %125, i32 noundef 0)
   %126 = getelementptr inbounds nuw i8, ptr %.3146184, i64 3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %127 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv.next
+  %127 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv.next
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds [64 x i16], ptr %37, i64 0, i64 %129

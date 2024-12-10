@@ -767,7 +767,7 @@ define noundef i32 @_ZN3gmx25multiDimGridIndexToLinearERKNS_8BiasGridEPKi(ptr no
   %.07.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %12 = getelementptr inbounds %"class.gmx::GridAxis", ptr %5, i64 %.07.i, i32 4
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %.07.i
+  %14 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.07.i
   store i32 %13, ptr %14, align 4
   %15 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %15, %umax.i
@@ -1041,7 +1041,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridI
   %.07.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %46 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.24.val, i64 %.07.i.i, i32 4
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %.07.i.i
+  %48 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.07.i.i
   store i32 %47, ptr %48, align 4
   %49 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %49, %umax.i.i
@@ -1411,7 +1411,7 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr nocapture noundef no
   %14 = getelementptr inbounds double, ptr %1, i64 %.08.i
   %15 = load double, ptr %14, align 8
   %16 = tail call noundef i32 @_ZNK3gmx8GridAxis12nearestIndexEd(ptr noundef nonnull align 8 dereferenceable(41) %13, double noundef %15)
-  %17 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %.08.i
+  %17 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %.08.i
   store i32 %16, ptr %17, align 4
   %18 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %18, %umax.i
@@ -1426,7 +1426,7 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr nocapture noundef no
   %.07.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
   %19 = getelementptr inbounds %"class.gmx::GridAxis", ptr %6, i64 %.07.i.i, i32 4
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %.07.i.i
+  %21 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.07.i.i
   store i32 %20, ptr %21, align 4
   %22 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, %umax.i
@@ -1488,7 +1488,7 @@ define void @_ZN3gmx8BiasGrid10initPointsEv(ptr nocapture noundef nonnull readon
   %.02636 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = getelementptr inbounds %"class.gmx::GridAxis", ptr %7, i64 %.02636, i32 4
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %.02636
+  %14 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %.02636
   store i32 %13, ptr %14, align 4
   %15 = add nuw i64 %.02636, 1
   %exitcond.not = icmp eq i64 %15, %umax
@@ -1522,14 +1522,14 @@ define void @_ZN3gmx8BiasGrid10initPointsEv(ptr nocapture noundef nonnull readon
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %.037
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.037
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to double
   br label %40
 
 32:                                               ; preds = %22
   %33 = load double, ptr %24, align 8
-  %34 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %.037
+  %34 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %.037
   %35 = load i32, ptr %34, align 4
   %36 = sitofp i32 %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -2433,7 +2433,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i.i: ; preds = %218, %216, %206
   %.07.i.i.i95 = phi i64 [ %271, %.lr.ph.i.i.i94 ], [ 0, %.lr.ph.preheader.i.i.i92 ]
   %268 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.val.i, i64 %.07.i.i.i95, i32 4
   %269 = load i32, ptr %268, align 8
-  %270 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %.07.i.i.i95
+  %270 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %.07.i.i.i95
   store i32 %269, ptr %270, align 4
   %271 = add nuw i64 %.07.i.i.i95, 1
   %exitcond.not.i.i.i96 = icmp eq i64 %271, %umax.i.i.i93
@@ -2599,7 +2599,7 @@ _ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi.exit106: ; pre
   %.07.i.i.i = phi i64 [ %336, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   %333 = getelementptr inbounds %"class.gmx::GridAxis", ptr %.ph, i64 %.07.i.i.i, i32 4
   %334 = load i32, ptr %333, align 8
-  %335 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %.07.i.i.i
+  %335 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %.07.i.i.i
   store i32 %334, ptr %335, align 4
   %336 = add nuw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %336, %umax.i.i.i
@@ -3941,7 +3941,7 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138: ; preds = %259, %2
 
 .noexc125:                                        ; preds = %279, %274, %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138
   %.0.i = phi i32 [ %spec.select.i, %274 ], [ %281, %279 ], [ %.0.i.i139, %_ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138 ]
-  %282 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %.08.i
+  %282 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %.08.i
   store i32 %.0.i, ptr %282, align 4
   %283 = add nuw i64 %.08.i, 1
   %exitcond.not.i124 = icmp eq i64 %283, %umax.i
@@ -3956,7 +3956,7 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138: ; preds = %259, %2
   %.07.i.i = phi i64 [ %287, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
   %284 = getelementptr inbounds %"class.gmx::GridAxis", ptr %166, i64 %.07.i.i, i32 4
   %285 = load i32, ptr %284, align 8
-  %286 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %.07.i.i
+  %286 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %.07.i.i
   store i32 %285, ptr %286, align 4
   %287 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %287, %umax.i

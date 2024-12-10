@@ -3725,7 +3725,7 @@ thread-pre-split.i:                               ; preds = %478, %0
 
 102:                                              ; preds = %98
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds [41 x ptr], ptr @_ZL21mixbox_lut_compressed, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL21mixbox_lut_compressed, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
   store ptr %105, ptr %4, align 8
   store i32 0, ptr %6, align 4
@@ -3957,7 +3957,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   %240 = trunc nuw nsw i32 %.0135.i.i to i8
   %241 = add nsw i32 %.0138157.i.i, 1
   %242 = sext i32 %.0138157.i.i to i64
-  %243 = getelementptr inbounds [455 x i8], ptr %2, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [455 x i8], ptr %2, i64 0, i64 %242
   store i8 %240, ptr %243, align 1
   br label %289
 
@@ -3992,7 +3992,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i.i: ; preds = %228, %195
   %256 = add nuw nsw i32 %255, 3
   %257 = add nsw i32 %.0138157.i.i, -1
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds [455 x i8], ptr %2, i64 0, i64 %258
+  %259 = getelementptr inbounds nuw [455 x i8], ptr %2, i64 0, i64 %258
   %260 = load i8, ptr %259, align 1
   br label %281
 
@@ -4517,7 +4517,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef nonnull %
 
 32:                                               ; preds = %27
   %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds [41 x ptr], ptr @_ZL21mixbox_lut_compressed, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL21mixbox_lut_compressed, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %0, align 8
   store i32 0, ptr %5, align 4

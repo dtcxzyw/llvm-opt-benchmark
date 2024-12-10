@@ -1740,7 +1740,7 @@ zfp_field_precision.exit:                         ; preds = %49, %45, %43, %47
 switch.lookup:                                    ; preds = %zfp_field_precision.exit
   %switch.tableidx = add nsw i32 %42, -1
   %54 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %zfp_field_precision.exit41
 

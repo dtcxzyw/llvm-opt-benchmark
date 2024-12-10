@@ -11896,7 +11896,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %22 = load i64, ptr %21, align 8, !alias.scope !2835, !noalias !2840, !noundef !5
   %23 = sub nuw i64 %22, %20
-  %24 = getelementptr inbounds { [6 x i64] }, ptr %4, i64 %20
+  %24 = getelementptr inbounds nuw { [6 x i64] }, ptr %4, i64 %20
   br label %25
 
 25:                                               ; preds = %27, %19

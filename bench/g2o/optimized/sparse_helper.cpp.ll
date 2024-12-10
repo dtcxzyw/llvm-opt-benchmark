@@ -96,7 +96,7 @@ define noundef zeroext i1 @_ZN3g2o11writeVectorERKNSt7__cxx1112basic_stringIcSt1
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   %20 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %19)
           to label %21 unwind label %.loopexit.split-lp
 
@@ -618,7 +618,7 @@ define internal fastcc noundef zeroext i1 @_ZN3g2oL19writeTripletEntriesERKNSt7_
   %76 = load ptr, ptr %6, align 8
   %77 = getelementptr i8, ptr %76, i64 -24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 %78
   %80 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %79)
           to label %81 unwind label %.loopexit.split-lp
 

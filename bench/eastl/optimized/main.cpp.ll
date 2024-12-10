@@ -270,7 +270,7 @@ if.else.i.i:                                      ; preds = %if.end74
   %conv.i.i31.i.i = zext nneg i8 %34 to i64
   %sub.i.i32.i.i = sub nsw i64 23, %conv.i.i31.i.i
   %cond.i33.i.i = select i1 %tobool.i.i29.i.i, i64 %35, i64 %sub.i.i32.i.i
-  %add.ptr18.i.i = getelementptr inbounds i8, ptr @.str.11, i64 %cond.i33.i.i
+  %add.ptr18.i.i = getelementptr inbounds nuw i8, ptr @.str.11, i64 %cond.i33.i.i
   %call19.i.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %call75, ptr noundef nonnull %add.ptr18.i.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 12))
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit
 
@@ -433,7 +433,7 @@ if.else.i.i148:                                   ; preds = %_ZN5eastl12basic_st
   %conv.i.i31.i.i152 = zext nneg i8 %58 to i64
   %sub.i.i32.i.i153 = sub nsw i64 23, %conv.i.i31.i.i152
   %cond.i33.i.i154 = select i1 %tobool.i.i29.i.i151, i64 %59, i64 %sub.i.i32.i.i153
-  %add.ptr18.i.i155 = getelementptr inbounds i8, ptr @.str.12, i64 %cond.i33.i.i154
+  %add.ptr18.i.i155 = getelementptr inbounds nuw i8, ptr @.str.12, i64 %cond.i33.i.i154
   %call19.i.i156 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_(ptr noundef nonnull align 8 dereferenceable(24) %msSTLName2, ptr noundef nonnull %add.ptr18.i.i155, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 5))
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit157
 

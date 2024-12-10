@@ -2250,9 +2250,9 @@ get_ref_frame_buf.exit.us:                        ; preds = %get_ref_frame_map_i
 get_ref_frame_buf.exit.thread.us:                 ; preds = %37, %get_ref_frame_buf.exit.us, %get_ref_frame_map_idx.exit.i.us
   %40 = phi ptr [ %36, %37 ], [ null, %get_ref_frame_buf.exit.us ], [ null, %get_ref_frame_map_idx.exit.i.us ]
   %.055.us = phi i32 [ %39, %37 ], [ 0, %get_ref_frame_buf.exit.us ], [ 0, %get_ref_frame_map_idx.exit.i.us ]
-  %41 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %31
+  %41 = getelementptr inbounds nuw [7 x ptr], ptr %2, i64 0, i64 %31
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %31
+  %42 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %31
   store i32 %.055.us, ptr %42, align 4
   %43 = icmp eq i32 %.055.us, %28
   br i1 %43, label %44, label %46
@@ -2301,9 +2301,9 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_idx.exit.i, %61, %get_ref_frame_buf.exit
   %64 = phi ptr [ %60, %61 ], [ null, %get_ref_frame_buf.exit ], [ null, %get_ref_frame_map_idx.exit.i ]
   %.055 = phi i32 [ %63, %61 ], [ 0, %get_ref_frame_buf.exit ], [ 0, %get_ref_frame_map_idx.exit.i ]
-  %65 = getelementptr inbounds [7 x ptr], ptr %2, i64 0, i64 %55
+  %65 = getelementptr inbounds nuw [7 x ptr], ptr %2, i64 0, i64 %55
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds [7 x i32], ptr %3, i64 0, i64 %55
+  %66 = getelementptr inbounds nuw [7 x i32], ptr %3, i64 0, i64 %55
   store i32 %.055, ptr %66, align 4
   %67 = sub nsw i32 %.055, %47
   %68 = and i32 %52, %67
@@ -3732,7 +3732,7 @@ get_relative_dist.exit:                           ; preds = %25
   %indvars.iv187 = phi i64 [ %75, %.lr.ph ], [ %indvars.iv.next188, %88 ]
   %78 = phi i32 [ 0, %.lr.ph ], [ %89, %88 ]
   %79 = phi i32 [ 0, %.lr.ph ], [ %85, %88 ]
-  %80 = getelementptr inbounds [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %indvars.iv187
+  %80 = getelementptr inbounds nuw [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %indvars.iv187
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, %2
   br i1 %82, label %83, label %84
@@ -3764,7 +3764,7 @@ get_relative_dist.exit:                           ; preds = %25
   %92 = load i8, ptr %91, align 1
   %93 = sext i8 %92 to i64
   %94 = add nsw i64 %93, -1
-  %95 = getelementptr inbounds [7 x i32], ptr %6, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %96, 1
   br i1 %97, label %108, label %.preheader148
@@ -3779,7 +3779,7 @@ get_relative_dist.exit:                           ; preds = %25
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.critedge2
   %indvars.iv191 = phi i64 [ %98, %.lr.ph168.preheader ], [ %indvars.iv.next192, %.critedge2 ]
-  %99 = getelementptr inbounds [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %indvars.iv191
+  %99 = getelementptr inbounds nuw [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %indvars.iv191
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %2
   %102 = icmp eq i32 %100, %3
@@ -3795,7 +3795,7 @@ get_relative_dist.exit:                           ; preds = %25
   %103 = trunc nsw i64 %indvars.iv191 to i32
   %sext = shl i64 %indvars.iv191, 32
   %104 = ashr exact i64 %sext, 32
-  %105 = getelementptr inbounds [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %104
   %.val130 = load i32, ptr %105, align 8
   %106 = getelementptr inbounds i32, ptr %1, i64 %94
   store i32 %.val130, ptr %106, align 4
@@ -3814,7 +3814,7 @@ get_relative_dist.exit:                           ; preds = %25
   br i1 %109, label %.lr.ph174, label %.preheader
 
 .lr.ph174:                                        ; preds = %.critedge.thread
-  %110 = getelementptr inbounds [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %.pre-phi
+  %110 = getelementptr inbounds nuw [8 x %struct.REF_FRAME_INFO], ptr %5, i64 0, i64 %.pre-phi
   br label %111
 
 .preheader:                                       ; preds = %108, %121, %.critedge.thread
@@ -3826,7 +3826,7 @@ get_relative_dist.exit:                           ; preds = %25
   %113 = load i8, ptr %112, align 1
   %114 = sext i8 %113 to i64
   %115 = add nsw i64 %114, -1
-  %116 = getelementptr inbounds [7 x i32], ptr %6, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [7 x i32], ptr %6, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %117, 1
   br i1 %118, label %121, label %119

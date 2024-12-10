@@ -453,7 +453,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then2, %if.then
   %buffer_len.0 = phi i64 [ %call7, %if.then2 ], [ 0, %if.then ]
-  %arrayidx = getelementptr inbounds [512 x i8], ptr %buffer, i64 0, i64 %buffer_len.0
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %buffer, i64 0, i64 %buffer_len.0
   %call917 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call) #5
   %cmp1018 = icmp sgt i32 %call917, 0
   br i1 %cmp1018, label %for.body, label %return

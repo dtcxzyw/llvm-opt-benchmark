@@ -180,7 +180,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 68:                                               ; preds = %66
   %69 = sext i32 %.val28 to i64
-  %70 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %69
   %.sroa.0.0.copyload.i30 = load i8, ptr %70, align 2
   %71 = sext i8 %.sroa.0.0.copyload.i30 to i32
   br label %VP8LPrefixEncodeBits.exit33
@@ -203,7 +203,7 @@ VP8LPrefixEncodeBits.exit:                        ; preds = %44, %48
 
 84:                                               ; preds = %81
   %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %85
   %.sroa.0.0.copyload.i34 = load i8, ptr %86, align 2
   %87 = sext i8 %.sroa.0.0.copyload.i34 to i32
   br label %VP8LPrefixEncodeBits.exit33

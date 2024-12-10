@@ -656,7 +656,7 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int32_1(pt
   %.012.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %4 ]
   %.0911.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %4 ]
   %6 = load i32, ptr %.0911.i, align 4
-  %7 = getelementptr inbounds i32, ptr %5, i64 %.012.i
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %.012.i
   store i32 %6, ptr %7, align 4
   %8 = add nuw i64 %.012.i, 1
   %9 = getelementptr inbounds i32, ptr %.0911.i, i64 %3

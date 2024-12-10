@@ -1376,7 +1376,7 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
   %66 = ptrtoint ptr %.1.i.i.i to i64
   %67 = sub i64 %66, ptrtoint (ptr @_ZN4pkpyL9kLoRangeAE to i64)
   %68 = ashr exact i64 %67, 2
-  %69 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %.038.lcssa149, %70
   br i1 %71, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread, label %72
@@ -3448,7 +3448,7 @@ _ZN4pkpy12small_vectorIcLm32EE9push_backEOc.exit48: ; preds = %304, %322
 
 .noexc54:                                         ; preds = %.noexc53
   %346 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #28
-  %347 = getelementptr inbounds i8, ptr %8, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr %8, i64 %346
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %8, ptr noundef nonnull %347)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %348
 

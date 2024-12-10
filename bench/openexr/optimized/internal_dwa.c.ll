@@ -7575,7 +7575,7 @@ for.body.i109.us:                                 ; preds = %quantize.exit.us, %
   %arrayidx.i111.us = getelementptr inbounds nuw [64 x i32], ptr @toZigZag.remap, i64 0, i64 %indvars.iv.i110.us
   %81 = load i32, ptr %arrayidx.i111.us, align 4
   %idxprom1.i.us = sext i32 %81 to i64
-  %arrayidx2.i.us = getelementptr inbounds i16, ptr %halfCoef, i64 %idxprom1.i.us
+  %arrayidx2.i.us = getelementptr inbounds nuw i16, ptr %halfCoef, i64 %idxprom1.i.us
   %82 = load i16, ptr %arrayidx2.i.us, align 2
   %arrayidx4.i.us = getelementptr inbounds nuw i16, ptr %halfZigCoef, i64 %indvars.iv.i110.us
   store i16 %82, ptr %arrayidx4.i.us, align 2

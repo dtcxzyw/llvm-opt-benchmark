@@ -2425,7 +2425,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
@@ -2919,7 +2919,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
@@ -3116,7 +3116,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
@@ -3359,7 +3359,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8

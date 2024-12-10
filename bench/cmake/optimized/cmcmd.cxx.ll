@@ -2535,7 +2535,7 @@ _ZNSt6vectorI21cmCommandLineArgumentIFbRKNSt7__cxx1112basic_stringIcSt11char_tra
   %472 = load ptr, ptr %15, align 8
   %473 = getelementptr i8, ptr %472, i64 -24
   %474 = load i64, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %15, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr %15, i64 %474
   %476 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %475)
           to label %477 unwind label %486
 
@@ -7271,7 +7271,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19cmCatFileERKNSt7__cxx1112basic_st
   %3 = load ptr, ptr @_ZSt3cin, align 8
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr @_ZSt3cin, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZSt3cin, i64 %5
   %7 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %6)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.57) #23
@@ -7973,7 +7973,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   %63 = load ptr, ptr %11, align 8
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %11, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 %65
   %67 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %66)
           to label %68 unwind label %73
 
@@ -8284,7 +8284,7 @@ _Z18cmHasLiteralPrefixILm11EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   %34 = load ptr, ptr %3, align 8
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %38 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %37)
           to label %39 unwind label %50
 
@@ -9422,7 +9422,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %236 = load ptr, ptr %17, align 8
   %237 = getelementptr i8, ptr %236, i64 -24
   %238 = load i64, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %17, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %17, i64 %238
   %240 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %239)
           to label %241 unwind label %244
 
@@ -10050,7 +10050,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114cmTarFilesFromERKN
   %29 = load ptr, ptr %5, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %31
   %33 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %32)
           to label %34 unwind label %45
 
@@ -10538,7 +10538,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmcmd15RunPreprocessorERKSt6ve
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 %46
   %48 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
           to label %49 unwind label %55
 
@@ -11516,7 +11516,7 @@ define dso_local noundef i32 @_ZN8cmVSLink15LinkIncrementalEv(ptr noundef nonnul
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   %31 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %32 unwind label %33
 

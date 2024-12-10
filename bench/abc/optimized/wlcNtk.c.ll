@@ -6188,7 +6188,7 @@ define void @Wlc_NtkPrintNodeArray(ptr nocapture noundef readonly %0, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define void @Wlc_NtkPrintNodes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [61 x ptr], ptr @Wlc_Names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [61 x ptr], ptr @Wlc_Names, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %5)
   %7 = getelementptr i8, ptr %0, i64 648

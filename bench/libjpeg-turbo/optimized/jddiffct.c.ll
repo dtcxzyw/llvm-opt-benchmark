@@ -260,7 +260,7 @@ define internal range(i32 0, 5) i32 @consume_data(ptr noundef %0) #0 {
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %25, %23
   %27 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %22, i32 noundef %26, i32 noundef %25, i32 noundef 1) #5
-  %28 = getelementptr inbounds [4 x ptr], ptr %2, i64 0, i64 %20
+  %28 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %20
   store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %3, align 8

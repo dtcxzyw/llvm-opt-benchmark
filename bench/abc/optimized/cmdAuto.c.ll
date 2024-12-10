@@ -355,7 +355,7 @@ define noundef ptr @Cmd_DeriveConvertIntoString(i32 noundef %0, ptr nocapture no
   %6 = load ptr, ptr %5, align 8
   %7 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %6) #21
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %3)
-  %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %3, i64 %strlen
   store i16 32, ptr %endptr, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -994,7 +994,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %53) #21
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %6)
-  %endptr.i = getelementptr inbounds i8, ptr %6, i64 %strlen.i
+  %endptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %strlen.i
   store i16 32, ptr %endptr.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1196,7 +1196,7 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   %16 = load float, ptr %15, align 4
   %17 = add nsw i32 %.02331, 1
   %18 = sext i32 %.02331 to i64
-  %19 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [100 x [20 x i8]], ptr %2, i64 0, i64 %18
   %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %14) #21
   %21 = fpext float %16 to double
   %22 = fcmp olt float %16, 0.000000e+00
@@ -1208,7 +1208,7 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   %26 = fcmp oeq float %16, %25
   %27 = add nsw i32 %.02331, 2
   %28 = sext i32 %17 to i64
-  %29 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [100 x [20 x i8]], ptr %2, i64 0, i64 %28
   br i1 %26, label %30, label %32
 
 30:                                               ; preds = %23
@@ -1278,7 +1278,7 @@ define noalias noundef ptr @Cmd_ReadParamChoices(ptr noundef %0) local_unnamed_a
 .preheader54:                                     ; preds = %.lr.ph63, %Cmf_IsSpace.exit39.thread
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %16 = add i64 %15, -1
-  %17 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %19 [
     i8 32, label %Cmf_IsSpace.exit39.thread
@@ -1648,7 +1648,7 @@ define noalias noundef ptr @Cmd_ReadFiles(ptr noundef %0) local_unnamed_addr #2 
 .preheader:                                       ; preds = %.lr.ph, %Cmf_IsSpace.exit16.thread
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %15 = add i64 %14, -1
-  %16 = getelementptr inbounds [1000 x i8], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [1000 x i8], ptr %2, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %18 [
     i8 32, label %Cmf_IsSpace.exit16.thread

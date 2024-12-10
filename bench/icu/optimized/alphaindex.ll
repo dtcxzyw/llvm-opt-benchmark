@@ -1660,7 +1660,7 @@ if.then179:                                       ; preds = %cleanup.done175
 invoke.cont182:                                   ; preds = %if.then179
   %conv184 = zext nneg i16 %70 to i64
   %sub185 = add nsw i64 %conv184, -65
-  %arrayidx187 = getelementptr inbounds [26 x ptr], ptr %pinyinBuckets, i64 0, i64 %sub185
+  %arrayidx187 = getelementptr inbounds nuw [26 x ptr], ptr %pinyinBuckets, i64 0, i64 %sub185
   store ptr %call.i175, ptr %arrayidx187, align 8
   br label %if.end189
 

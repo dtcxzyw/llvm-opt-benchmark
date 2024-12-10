@@ -1405,7 +1405,7 @@ if.end:                                           ; preds = %entry, %sw.bb31.i.i
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %copy, ptr noundef nonnull align 8 dereferenceable(16) %array, i64 16, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [2 x i64], ptr %copy, i64 0, i64 %sub.ptr.div
+  %arrayidx.i.i = getelementptr inbounds nuw [2 x i64], ptr %copy, i64 0, i64 %sub.ptr.div
   br label %do.body.outer
 
 do.body.outer:                                    ; preds = %lor.rhs, %if.end
@@ -1439,7 +1439,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
 do.end:                                           ; preds = %do.body6
   %conv18 = trunc nuw nsw i64 %rem17 to i32
   %inc = add i64 %num_segments.0, 1
-  %arrayidx.i.i25 = getelementptr inbounds [5 x i32], ptr %segments, i64 0, i64 %num_segments.0
+  %arrayidx.i.i25 = getelementptr inbounds nuw [5 x i32], ptr %segments, i64 0, i64 %num_segments.0
   store i32 %conv18, ptr %arrayidx.i.i25, align 4
   %4 = load i64, ptr %most_significant_elem.0.ph, align 8
   %cmp24.not = icmp eq i64 %4, 0
@@ -1451,7 +1451,7 @@ lor.rhs:                                          ; preds = %do.end
   br i1 %cmp27.not, label %do.end28, label %do.body.outer, !llvm.loop !22
 
 do.end28:                                         ; preds = %lor.rhs
-  %arrayidx.i.i25.le.le = getelementptr inbounds [5 x i32], ptr %segments, i64 0, i64 %num_segments.0
+  %arrayidx.i.i25.le.le = getelementptr inbounds nuw [5 x i32], ptr %segments, i64 0, i64 %num_segments.0
   %call29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result) #20
   %mul = mul i64 %inc, 9
   %add = add i64 %call29, %mul
@@ -2935,7 +2935,7 @@ if.end:                                           ; preds = %_ZSt7find_ifISt16re
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %copy, ptr noundef nonnull align 8 dereferenceable(32) %array, i64 32, i1 false)
-  %arrayidx.i.i = getelementptr inbounds [4 x i64], ptr %copy, i64 0, i64 %sub.ptr.div
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i64], ptr %copy, i64 0, i64 %sub.ptr.div
   br label %do.body.outer
 
 do.body.outer:                                    ; preds = %lor.rhs, %if.end
@@ -2969,7 +2969,7 @@ do.body6:                                         ; preds = %do.body6, %do.body
 do.end:                                           ; preds = %do.body6
   %conv18 = trunc nuw nsw i64 %rem17 to i32
   %inc = add i64 %num_segments.0, 1
-  %arrayidx.i.i25 = getelementptr inbounds [9 x i32], ptr %segments, i64 0, i64 %num_segments.0
+  %arrayidx.i.i25 = getelementptr inbounds nuw [9 x i32], ptr %segments, i64 0, i64 %num_segments.0
   store i32 %conv18, ptr %arrayidx.i.i25, align 4
   %4 = load i64, ptr %most_significant_elem.0.ph, align 8
   %cmp24.not = icmp eq i64 %4, 0
@@ -2981,7 +2981,7 @@ lor.rhs:                                          ; preds = %do.end
   br i1 %cmp27.not, label %do.end28, label %do.body.outer, !llvm.loop !82
 
 do.end28:                                         ; preds = %lor.rhs
-  %arrayidx.i.i25.le.le = getelementptr inbounds [9 x i32], ptr %segments, i64 0, i64 %num_segments.0
+  %arrayidx.i.i25.le.le = getelementptr inbounds nuw [9 x i32], ptr %segments, i64 0, i64 %num_segments.0
   %call29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result) #20
   %mul = mul i64 %inc, 9
   %add = add i64 %call29, %mul
@@ -8339,7 +8339,7 @@ for.end:                                          ; preds = %for.body, %if.end3
   br i1 %cmp7.not, label %for.body20.us.preheader, label %for.body20.preheader
 
 for.body20.preheader:                             ; preds = %for.end
-  %arrayidx.i.i25 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %1
+  %arrayidx.i.i25 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %1
   %2 = load i64, ptr %arrayidx.i.i25, align 8
   %sub = sub nsw i32 64, %rem
   %sh_prom = zext nneg i32 %sub to i64
@@ -8372,18 +8372,18 @@ for.body20.us.preheader:                          ; preds = %for.end
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.inc43
   %indvars.iv37 = phi i64 [ %3, %for.body20.preheader ], [ %indvars.iv.next38.pre-phi, %for.inc43 ]
-  %arrayidx.i.i26 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %indvars.iv37
+  %arrayidx.i.i26 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %indvars.iv37
   %10 = load i64, ptr %arrayidx.i.i26, align 8
   %shr24 = lshr i64 %10, %sh_prom23
   %11 = sub nsw i64 %indvars.iv37, %3
-  %arrayidx.i.i27 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %11
+  %arrayidx.i.i27 = getelementptr inbounds nuw [4 x i64], ptr %shifted_le, i64 0, i64 %11
   store i64 %shr24, ptr %arrayidx.i.i27, align 8
   %12 = icmp eq i64 %indvars.iv37, 3
   br i1 %12, label %for.inc43, label %if.then30
 
 if.then30:                                        ; preds = %for.body20
   %13 = add nsw i64 %indvars.iv37, 1
-  %arrayidx.i.i28 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %13
+  %arrayidx.i.i28 = getelementptr inbounds nuw [4 x i64], ptr %array_le, i64 0, i64 %13
   %14 = load i64, ptr %arrayidx.i.i28, align 8
   %shl37 = shl i64 %14, %sh_prom36
   %or41 = or i64 %shl37, %shr24

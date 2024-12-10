@@ -427,7 +427,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %110, %108
 
 .noexc4.i.i:                                      ; preds = %.noexc.i.i
   %120 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #20
-  %121 = getelementptr inbounds i8, ptr %40, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %40, i64 %120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %120, ptr %5, align 8
@@ -1097,7 +1097,7 @@ _ZN3gmx26StringToEnumValueConverterI11ReplaceTypeXadL_ZL17enumValueToStringS1_EE
 
 .noexc4.i63.i:                                    ; preds = %.noexc.i62.i
   %322 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #20
-  %323 = getelementptr inbounds i8, ptr %40, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr %40, i64 %322
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %322, ptr %8, align 8
@@ -1427,7 +1427,7 @@ _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 
 _ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i: ; preds = %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader, %_ZN21BondedInteractionListD2Ev.exit.i.i
   %.idx.i48 = phi i64 [ %.add.i, %_ZN21BondedInteractionListD2Ev.exit.i.i ], [ 280, %_ZNSt6vectorI21MoleculePatchDatabaseSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader ]
-  %.ptr.i = getelementptr inbounds i8, ptr %45, i64 %.idx.i48
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i48
   %.add.i = add nsw i64 %.idx.i48, -32
   %430 = getelementptr inbounds i8, ptr %.ptr.i, i64 -24
   %431 = load ptr, ptr %430, align 8
@@ -1843,7 +1843,7 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.prehe
 _ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i: ; preds = %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
   %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i ], [ 240, %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i.preheader ]
   %.add.i.i = add nsw i64 %.idx.i.i, -32
-  %.ptr1.i.i = getelementptr inbounds i8, ptr %48, i64 %.add.i.i
+  %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %48, i64 %.add.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr1.i.i) #20
   %576 = icmp eq i64 %.add.i.i, 112
   br i1 %576, label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit.i.i, label %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
@@ -2030,7 +2030,7 @@ _ZNSt6vectorI6t_atomSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; preds = %_ZNS
   %634 = phi ptr [ %631, %_ZNSt6vectorI6t_atomSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %613, %611 ]
   %635 = load i32, ptr %49, align 4
   %636 = sext i32 %635 to i64
-  %637 = getelementptr inbounds i8, ptr %42, i64 %636
+  %637 = getelementptr inbounds nuw i8, ptr %42, i64 %636
   %638 = icmp eq i32 %.sroa.0.0.i, 1
   %639 = getelementptr inbounds i8, ptr %579, i64 -216
   %640 = getelementptr inbounds i8, ptr %634, i64 -36
@@ -2411,7 +2411,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; p
 
 763:                                              ; preds = %760
   %764 = sext i32 %.045.i to i64
-  %765 = getelementptr inbounds i8, ptr %42, i64 %764
+  %765 = getelementptr inbounds nuw i8, ptr %42, i64 %764
   %766 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %765, ptr noundef nonnull @.str.4, ptr noundef nonnull %41, ptr noundef nonnull %55) #20
   %767 = icmp eq i32 %766, 1
   br i1 %767, label %768, label %771
@@ -2468,7 +2468,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; p
 788:                                              ; preds = %760
   store i8 0, ptr %41, align 16
   %789 = sext i32 %.045.i to i64
-  %790 = getelementptr inbounds i8, ptr %42, i64 %789
+  %790 = getelementptr inbounds nuw i8, ptr %42, i64 %789
   %791 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %790, ptr noundef nonnull @.str.10, ptr noundef nonnull %41) #20
   %792 = getelementptr inbounds i8, ptr %756, i64 -40
   %793 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %792, ptr noundef nonnull %41)

@@ -218,7 +218,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
   %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv
@@ -232,7 +232,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr nocapture nounde
   %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv90
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %24 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv88
@@ -335,7 +335,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
   %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv99
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %50
   %52 = load i64, ptr %51, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %53 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv97
@@ -350,7 +350,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
   %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv108
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %59 = getelementptr inbounds nuw [4 x i64], ptr %9, i64 0, i64 %indvars.iv106
@@ -527,7 +527,7 @@ Vec_IntFill.exit:                                 ; preds = %32, %Vec_IntGrow.ex
   %51 = or i32 %50, %48
   %52 = or i32 %51, %.0102154.us
   %53 = sext i32 %.0112150.us to i64
-  %54 = getelementptr inbounds [15 x i32], ptr %12, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %53
   store i32 %.0107152.us, ptr %54, align 4
   br label %55
 
@@ -547,7 +547,7 @@ Vec_IntFill.exit:                                 ; preds = %32, %Vec_IntGrow.ex
   %62 = shl nuw i32 1, %61
   %63 = or i32 %62, %.0102154.us
   %64 = sext i32 %.0110151.us to i64
-  %65 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [15 x i32], ptr %10, i64 0, i64 %64
   store i32 %.0107152.us, ptr %65, align 4
   br label %66
 
@@ -567,7 +567,7 @@ Vec_IntFill.exit:                                 ; preds = %32, %Vec_IntGrow.ex
   %72 = shl nuw i32 1, %.reass.us
   %73 = or i32 %72, %.0102154.us
   %74 = sext i32 %.0114149.us to i64
-  %75 = getelementptr inbounds [15 x i32], ptr %14, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [15 x i32], ptr %14, i64 0, i64 %74
   store i32 %.0107152.us, ptr %75, align 4
   br label %76
 

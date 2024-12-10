@@ -558,7 +558,7 @@ pmix_obj_run_constructors.exit32:                 ; preds = %.lr.ph.i29, %32
   %57 = load i32, ptr %41, align 8
   tail call void @pmix_hash_register_key(i32 noundef %57, ptr noundef nonnull %41, ptr noundef null) #17
   %58 = add i64 %.034, 1
-  %59 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %58
   %60 = load i32, ptr %59, align 8
   %.not17 = icmp eq i32 %60, -1
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -2847,7 +2847,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %36, %3
 .lr.ph15:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.010.i14 = phi i64 [ %84, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %84 = add i64 %.010.i14, 1
-  %85 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %char0.i = load i8, ptr %87, align 1
@@ -2883,7 +2883,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph15, %.lr.ph20
 .lr.ph17:                                         ; preds = %.lr.ph.i80.preheader, %.lr.ph.i80
   %.08.i16 = phi i64 [ %97, %.lr.ph.i80 ], [ 0, %.lr.ph.i80.preheader ]
   %97 = add i64 %.08.i16, 1
-  %98 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   %char0.i81 = load i8, ptr %100, align 1
@@ -3533,7 +3533,7 @@ define ptr @pmix_attributes_lookup(ptr noundef readonly %0) local_unnamed_addr #
 .lr.ph15:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.01014 = phi i64 [ %5, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %5 = add i64 %.01014, 1
-  %6 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %char0 = load i8, ptr %8, align 1
@@ -3575,7 +3575,7 @@ define noundef ptr @pmix_attributes_reverse_lookup(ptr noundef readonly %0) loca
 .lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0912 = phi i64 [ %6, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %6 = add i64 %.0912, 1
-  %7 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %char0 = load i8, ptr %9, align 1
@@ -3609,7 +3609,7 @@ define ptr @pmix_attributes_lookup_term(ptr nocapture noundef readonly %0) local
 .lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0811 = phi i64 [ %5, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %5 = add i64 %.0811, 1
-  %6 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %char0 = load i8, ptr %8, align 1
@@ -3694,9 +3694,9 @@ define void @pmix_attributes_print_attrs(ptr noundef %0, ptr nocapture noundef r
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %4
   %7 = add i64 %6, 1
-  %8 = getelementptr inbounds [141 x i8], ptr %5, i64 0, i64 %6
+  %8 = getelementptr inbounds nuw [141 x i8], ptr %5, i64 0, i64 %6
   store i8 58, ptr %8, align 1
-  %9 = getelementptr inbounds [141 x i8], ptr %5, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw [141 x i8], ptr %5, i64 0, i64 %7
   store i8 0, ptr %9, align 1
   %10 = call i32 @PMIx_Argv_append_nosize(ptr noundef %0, ptr noundef nonnull %5) #17
   %.not62 = icmp eq i64 %3, 0
@@ -3950,7 +3950,7 @@ define ptr @pmix_attributes_print_attr(ptr nocapture noundef readonly %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.010.i80 = phi i64 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %62 = add i64 %.010.i80, 1
-  %63 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %char0.i = load i8, ptr %65, align 1
@@ -3986,7 +3986,7 @@ pmix_attributes_lookup.exit:                      ; preds = %.lr.ph, %.lr.ph85, 
 .lr.ph82:                                         ; preds = %.lr.ph.i67.preheader, %.lr.ph.i67
   %.08.i81 = phi i64 [ %75, %.lr.ph.i67 ], [ 0, %.lr.ph.i67.preheader ]
   %75 = add i64 %.08.i81, 1
-  %76 = getelementptr inbounds [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [571 x %struct.pmix_regattr_input_t], ptr @pmix_dictionary, i64 0, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %char0.i68 = load i8, ptr %78, align 1

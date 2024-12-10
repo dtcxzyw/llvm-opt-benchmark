@@ -1133,7 +1133,7 @@ define void @reset_info(ptr noundef initializes((32, 40), (104, 112), (120, 128)
 define void @update_status(ptr noundef initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds [12 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 %1
+  %4 = getelementptr inbounds nuw [12 x ptr], ptr @OSQP_STATUS_MESSAGE, i64 0, i64 %1
   %5 = load ptr, ptr %4, align 8
   tail call void @c_strcpy(ptr noundef %0, ptr noundef %5) #9
   ret void

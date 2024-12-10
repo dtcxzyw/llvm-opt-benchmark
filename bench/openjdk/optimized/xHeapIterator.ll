@@ -3771,7 +3771,7 @@ _ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   store ptr %1, ptr %10, align 8
   store ptr %35, ptr %11, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %.0.i.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -4104,7 +4104,7 @@ _ZN13XHeapIterator13follow_objectILb1EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   store ptr %1, ptr %10, align 8
   store ptr %.29, ptr %11, align 8
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %147
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef nonnull %.0.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -8609,7 +8609,7 @@ _ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   store ptr %1, ptr %10, align 8
   store ptr %35, ptr %11, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %.0.i.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -8942,7 +8942,7 @@ _ZN13XHeapIterator13follow_objectILb0EEEvRK20XHeapIteratorContextP7oopDesc.exit.
   store ptr %1, ptr %10, align 8
   store ptr %.29, ptr %11, align 8
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23XHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %147
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %.29, ptr noundef nonnull %.0.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)

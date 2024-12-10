@@ -333,7 +333,7 @@ land.lhs.true:                                    ; preds = %while.end
   %vtable14 = load ptr, ptr %ifs, align 8
   %vbase.offset.ptr15 = getelementptr i8, ptr %vtable14, i64 -24
   %vbase.offset16 = load i64, ptr %vbase.offset.ptr15, align 8
-  %add.ptr17 = getelementptr inbounds i8, ptr %ifs, i64 %vbase.offset16
+  %add.ptr17 = getelementptr inbounds nuw i8, ptr %ifs, i64 %vbase.offset16
   %call19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr17)
           to label %invoke.cont18 unwind label %lpad3.loopexit.split-lp
 

@@ -1450,7 +1450,7 @@ define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 nounde
 SumPixels.exit:                                   ; preds = %.lr.ph.i
   %29 = sub nsw i32 %22, %8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [2 x i32], ptr %7, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i32], ptr %7, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %28
   %34 = lshr i32 %33, 16
@@ -1611,7 +1611,7 @@ define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 nou
 SumPixels_16.exit:                                ; preds = %.lr.ph.i
   %28 = sub nsw i32 %22, %8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [2 x i32], ptr %7, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i32], ptr %7, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = mul i32 %31, %27
   %33 = lshr i32 %32, 16

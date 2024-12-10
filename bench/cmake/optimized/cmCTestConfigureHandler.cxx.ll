@@ -512,7 +512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
   %180 = load ptr, ptr %28, align 8
   %181 = getelementptr i8, ptr %180, i64 -24
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %28, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr %28, i64 %182
   %184 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %183)
           to label %185 unwind label %189
 
@@ -553,7 +553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
   %197 = load ptr, ptr %24, align 8
   %198 = getelementptr i8, ptr %197, i64 -24
   %199 = load i64, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %24, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr %24, i64 %199
   %201 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %200)
           to label %202 unwind label %189
 

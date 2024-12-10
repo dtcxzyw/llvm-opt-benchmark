@@ -227,7 +227,7 @@ if.end10.i:                                       ; preds = %if.then6.i
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %poolName.i, ptr align 1 %21, i64 %conv14.i.i, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %poolName.i, i64 %conv14.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %poolName.i, i64 %conv14.i.i
   store i32 1819242352, ptr %add.ptr.i.i, align 1
   %add.ptr19.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr19.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
@@ -522,7 +522,7 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i.i.i: ; preds = %if
   %sext.i.i.i.i = shl i64 %sub.ptr.sub.i.i30.i.i, 32
   %conv14.i.i.i.i = ashr exact i64 %sext.i.i.i.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i.i.i, ptr align 1 %21, i64 %conv14.i.i.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %target.i.i.i, i64 %conv14.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %target.i.i.i, i64 %conv14.i.i.i.i
   %conv15.i.i.i.i = sext i32 %idLength.addr.0.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr readonly align 1 %parent.029.i.i, i64 %conv15.i.i.i.i, i1 false)
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv15.i.i.i.i
@@ -1022,7 +1022,7 @@ if.then15:                                        ; preds = %if.end13
 if.end18:                                         ; preds = %if.end13
   call void @u_UCharsToChars_75(ptr noundef %alias, ptr noundef nonnull %localeID, i32 noundef %length.addr.0)
   %idxprom19 = sext i32 %length.addr.0 to i64
-  %arrayidx20 = getelementptr inbounds [48 x i8], ptr %localeID, i64 0, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw [48 x i8], ptr %localeID, i64 0, i64 %idxprom19
   store i8 0, ptr %arrayidx20, align 1
   %tobool22.not = icmp eq i8 %useResSuffix, 0
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %target.i)
@@ -1055,7 +1055,7 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit.i: ; preds = %if.end
   %sext.i.i = shl i64 %sub.ptr.sub.i.i, 32
   %conv14.i.i = ashr exact i64 %sext.i.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target.i, ptr align 1 %itemName, i64 %conv14.i.i, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %target.i, i64 %conv14.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %target.i, i64 %conv14.i.i
   %sext = shl i64 %call3.i.i, 32
   %conv15.i.i = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull readonly align 16 %localeID, i64 %conv15.i.i, i1 false)
@@ -1130,7 +1130,7 @@ _ZN6icu_75L14makeTargetNameEPKcS1_iS1_PciP10UErrorCode.exit: ; preds = %if.end5.
   %sext.i = shl i64 %sub.ptr.sub.i, 32
   %conv14.i = ashr exact i64 %sext.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %target, ptr align 1 %itemName, i64 %conv14.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %target, i64 %conv14.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %target, i64 %conv14.i
   %conv15.i = sext i32 %idLength.addr.0.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr readonly align 1 %id, i64 %conv15.i, i1 false)
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv15.i

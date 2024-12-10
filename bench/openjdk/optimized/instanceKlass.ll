@@ -10964,7 +10964,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %19, %_ZN26GrowableA
 _ZN9Bytecodes7code_atEPK6MethodPh.exit.i:         ; preds = %56, %47
   %58 = phi i32 [ %57, %56 ], [ %55, %47 ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = icmp ult i32 %61, 239
   br i1 %62, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.i, label %_ZN14BytecodeStream4nextEv.exit
@@ -16312,7 +16312,7 @@ _ZN7oopDesc11oop_iterateI18VerifyFieldClosureEEvPT_.exit: ; preds = %9, %19
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18VerifyFieldClosureE6_tableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI18VerifyFieldClosureE6_tableE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #26
   ret void

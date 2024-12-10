@@ -162,7 +162,7 @@ sub_0:
 
 31:                                               ; preds = %28
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
   store i16 98, ptr %endptr, align 1
   br label %32
 

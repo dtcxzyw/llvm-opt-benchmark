@@ -117,7 +117,7 @@ for.body:                                         ; preds = %if.end, %if.end39
 invoke.cont4:                                     ; preds = %for.body
   %inc = add i32 %nIntroUsed.026, 1
   %idxprom6 = sext i32 %nIntroUsed.026 to i64
-  %arrayidx7 = getelementptr inbounds [4 x i32], ptr %intro, i64 0, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds nuw [4 x i32], ptr %intro, i64 0, i64 %idxprom6
   store i32 %call5, ptr %arrayidx7, align 4
   switch i32 %call5, label %sw.epilog.i [
     i32 -1, label %_ZN4YAML15IntroCharTypeOfEi.exit
@@ -179,7 +179,7 @@ for.body26:                                       ; preds = %for.body26.preheade
   %indvars.iv = phi i64 [ %4, %for.body26.preheader ], [ %indvars.iv.next, %for.inc ]
   %nUngets.025 = phi i32 [ %conv, %for.body26.preheader ], [ %dec38, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx29 = getelementptr inbounds [4 x i32], ptr %intro, i64 0, i64 %indvars.iv.next
+  %arrayidx29 = getelementptr inbounds nuw [4 x i32], ptr %intro, i64 0, i64 %indvars.iv.next
   %5 = load i32, ptr %arrayidx29, align 4
   %cmp30.not = icmp eq i32 %5, -1
   br i1 %cmp30.not, label %for.inc, label %if.then31
@@ -1496,7 +1496,7 @@ for.body:                                         ; preds = %_ZNK4YAML6Stream11G
   %arrayidx10 = getelementptr inbounds nuw i32, ptr %cond-lvalue, i64 %indvars.iv
   %31 = load i32, ptr %arrayidx10, align 4
   %idxprom11 = sext i32 %31 to i64
-  %arrayidx12 = getelementptr inbounds [4 x i8], ptr %bytes, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw [4 x i8], ptr %bytes, i64 0, i64 %idxprom11
   %32 = load i8, ptr %arrayidx12, align 1
   %conv = zext i8 %32 to i64
   %or = or disjoint i64 %shl, %conv

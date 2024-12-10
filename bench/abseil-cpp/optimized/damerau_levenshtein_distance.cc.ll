@@ -69,7 +69,7 @@ for.body.lr.ph:                                   ; preds = %for.body.i
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc126
   %i.095 = phi i64 [ 1, %for.body.lr.ph ], [ %inc127, %for.inc126 ]
   %cmp37 = icmp ugt i64 %i.095, %conv36
-  %arrayidx.i.i43 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
+  %arrayidx.i.i43 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
   br i1 %cmp37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %for.body
@@ -91,7 +91,7 @@ if.end47:                                         ; preds = %if.else, %if.then38
   br i1 %cmp51, label %if.end58, label %if.else54
 
 if.else54:                                        ; preds = %if.end47
-  %arrayidx.i.i47 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
+  %arrayidx.i.i47 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
   %add56 = add i64 %add49, 1
   %arrayidx.i.i48 = getelementptr inbounds [102 x i8], ptr %arrayidx.i.i47, i64 0, i64 %add56
   store i8 %add, ptr %arrayidx.i.i48, align 1
@@ -104,13 +104,13 @@ if.end58:                                         ; preds = %if.end47, %if.else5
 
 for.body61.lr.ph:                                 ; preds = %if.end58
   %sub62 = add i64 %i.095, -1
-  %arrayidx.i.i49 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub62
-  %arrayidx.i.i51 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
+  %arrayidx.i.i49 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub62
+  %arrayidx.i.i51 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %i.095
   %add.ptr.i = getelementptr inbounds i8, ptr %s1.sroa.9.0, i64 %sub62
   %cmp93 = icmp ugt i64 %i.095, 1
   %sub104 = add i64 %i.095, -2
   %add.ptr.i62 = getelementptr inbounds i8, ptr %s1.sroa.9.0, i64 %sub104
-  %arrayidx.i.i65 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub104
+  %arrayidx.i.i65 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %sub104
   %.pre97 = load i8, ptr %add.ptr.i, align 1
   br i1 %cmp93, label %for.body61, label %for.body61.us
 
@@ -231,7 +231,7 @@ for.inc126:                                       ; preds = %_ZSt3minIhET_St16in
   br i1 %exitcond, label %for.end128, label %for.body, !llvm.loop !9
 
 for.end128:                                       ; preds = %for.inc126
-  %arrayidx.i.i69 = getelementptr inbounds [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %s1.sroa.0.0
+  %arrayidx.i.i69 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %d, i64 0, i64 %s1.sroa.0.0
   %arrayidx.i.i70 = getelementptr inbounds nuw [102 x i8], ptr %arrayidx.i.i69, i64 0, i64 %s2.sroa.0.0
   %19 = load i8, ptr %arrayidx.i.i70, align 1
   br label %return

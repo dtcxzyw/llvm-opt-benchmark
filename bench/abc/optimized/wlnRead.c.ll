@@ -561,7 +561,7 @@ define void @Rtl_NtkPrintOpers(ptr nocapture noundef readonly %0) local_unnamed_
 
 13:                                               ; preds = %8
   %14 = sext i32 %.val32 to i64
-  %15 = getelementptr inbounds [99 x i32], ptr %2, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [99 x i32], ptr %2, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -9986,7 +9986,7 @@ switch.lookup:                                    ; preds = %29
   %switch.tableidx = shl nuw nsw i64 %indvars.iv.i, 32
   %sext = add nsw i64 %switch.tableidx, -4294967296
   %31 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Rtl_Num2Name.exit.i
 
@@ -13130,18 +13130,18 @@ define noundef ptr @Rtl_ShortenName(ptr noundef readonly %0, i32 noundef %1) loc
   %6 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Rtl_ShortenName.Buffer, ptr noundef nonnull dereferenceable(1) %0) #37
   %7 = add nsw i32 %1, -3
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %8
   store i8 46, ptr %9, align 1
   %10 = add nsw i32 %1, -2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %11
   store i8 46, ptr %12, align 1
   %13 = add nsw i32 %1, -1
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %14
   store i8 46, ptr %15, align 1
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [1000 x i8], ptr @Rtl_ShortenName.Buffer, i64 0, i64 %16
   store i8 0, ptr %17, align 1
   br label %18
 

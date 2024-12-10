@@ -274,7 +274,7 @@ thread-pre-split:                                 ; preds = %48
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [5 x i8], ptr @_ZN10open_spiel6bridgeL11kPlayerCharE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [5 x i8], ptr @_ZN10open_spiel6bridgeL11kPlayerCharE, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   store i8 %68, ptr %14, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #9

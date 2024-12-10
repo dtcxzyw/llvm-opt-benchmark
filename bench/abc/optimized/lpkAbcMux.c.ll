@@ -399,7 +399,7 @@ Kit_WordFindFirstBit.exit:                        ; preds = %30, %33
 
 .preheader.i:                                     ; preds = %Kit_WordFindFirstBit.exit
   %47 = sext i32 %.06.i to i64
-  %48 = getelementptr inbounds [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [5 x i32], ptr @__const.Kit_TruthIthVar.Masks, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %wide.trip.count29.i = zext nneg i32 %43 to i64
   br label %50

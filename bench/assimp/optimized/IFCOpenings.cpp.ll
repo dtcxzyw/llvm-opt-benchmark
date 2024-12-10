@@ -2650,7 +2650,7 @@ if.end:                                           ; preds = %while.body.i.i, %if
   %vtable = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset
   %call23 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %clip, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2801,7 +2801,7 @@ if.end61:                                         ; preds = %while.body.i.i74, %
   %vtable62 = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr63 = getelementptr i8, ptr %vtable62, i64 -24
   %vbase.offset64 = load i64, ptr %vbase.offset.ptr63, align 8
-  %add.ptr65 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset64
+  %add.ptr65 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset64
   %call67 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr65, ptr noundef nonnull align 8 dereferenceable(24) %clip, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont66 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2824,7 +2824,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit83: ; preds = %invoke.cont6
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %32, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i84 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
+  %add.ptr.i.i84 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset.i.i
   store ptr %33, ptr %add.ptr.i.i84, align 8
   %m_Maxima.i.i = getelementptr inbounds nuw i8, ptr %clipper, i64 88
   %34 = load ptr, ptr %m_Maxima.i.i, align 8
@@ -3134,7 +3134,7 @@ if.end:                                           ; preds = %while.body.i.i, %if
   %vtable = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset
   %call23 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %clip, i32 noundef 1, i1 noundef zeroext true)
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -3285,7 +3285,7 @@ if.end61:                                         ; preds = %while.body.i.i74, %
   %vtable62 = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr63 = getelementptr i8, ptr %vtable62, i64 -24
   %vbase.offset64 = load i64, ptr %vbase.offset.ptr63, align 8
-  %add.ptr65 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset64
+  %add.ptr65 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset64
   %call67 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr65, ptr noundef nonnull align 8 dereferenceable(24) %clip, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont66 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -3308,7 +3308,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit83: ; preds = %invoke.cont6
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %32, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i84 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
+  %add.ptr.i.i84 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset.i.i
   store ptr %33, ptr %add.ptr.i.i84, align 8
   %m_Maxima.i.i = getelementptr inbounds nuw i8, ptr %clipper, i64 88
   %34 = load ptr, ptr %m_Maxima.i.i, align 8
@@ -3495,7 +3495,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   %vtable = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset
   %call16 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %subject, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad6.loopexit.split-lp
 
@@ -3620,7 +3620,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %inv
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %20, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i30 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
+  %add.ptr.i.i30 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset.i.i
   store ptr %21, ptr %add.ptr.i.i30, align 8
   %m_Maxima.i.i = getelementptr inbounds nuw i8, ptr %clipper, i64 88
   %22 = load ptr, ptr %m_Maxima.i.i, align 8
@@ -4433,7 +4433,7 @@ if.end75:                                         ; preds = %while.body.i.i174, 
   %vtable = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset
   %call77 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %subject, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont76 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4441,7 +4441,7 @@ invoke.cont76:                                    ; preds = %if.end75
   %vtable78 = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr79 = getelementptr i8, ptr %vtable78, i64 -24
   %vbase.offset80 = load i64, ptr %vbase.offset.ptr79, align 8
-  %add.ptr81 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset80
+  %add.ptr81 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset80
   %call83 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr81, ptr noundef nonnull align 8 dereferenceable(24) %clip, i32 noundef 1, i1 noundef zeroext true)
           to label %invoke.cont82 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4681,7 +4681,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE5clearEv.exit: ; preds = 
   %vtable121 = load ptr, ptr %clipper, align 8
   %vbase.offset.ptr122 = getelementptr i8, ptr %vtable121, i64 -24
   %vbase.offset123 = load i64, ptr %vbase.offset.ptr122, align 8
-  %add.ptr124 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset123
+  %add.ptr124 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset123
   invoke void @_ZN10ClipperLib11ClipperBase5ClearEv(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr124)
           to label %for.inc127 unwind label %lpad6.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4754,7 +4754,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EED2Ev.exit: ; preds = %inv
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %57, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i254 = getelementptr inbounds i8, ptr %clipper, i64 %vbase.offset.i.i
+  %add.ptr.i.i254 = getelementptr inbounds nuw i8, ptr %clipper, i64 %vbase.offset.i.i
   store ptr %58, ptr %add.ptr.i.i254, align 8
   %m_Maxima.i.i = getelementptr inbounds nuw i8, ptr %clipper, i64 88
   %59 = load ptr, ptr %m_Maxima.i.i, align 8
@@ -10811,7 +10811,7 @@ if.end101:                                        ; preds = %while.body.i.i, %if
   %vtable = load ptr, ptr %clipper_holes, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset
   %call103 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %hole, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont102 unwind label %lpad77.loopexit.split-lp.loopexit
 
@@ -11183,7 +11183,7 @@ if.end200:                                        ; preds = %while.body.i.i238, 
   %vtable201 = load ptr, ptr %clipper_holes, align 8
   %vbase.offset.ptr202 = getelementptr i8, ptr %vtable201, i64 -24
   %vbase.offset203 = load i64, ptr %vbase.offset.ptr202, align 8
-  %add.ptr204 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset203
+  %add.ptr204 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset203
   invoke void @_ZN10ClipperLib11ClipperBase5ClearEv(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr204)
           to label %invoke.cont205 unwind label %lpad176.loopexit.split-lp
 
@@ -11191,7 +11191,7 @@ invoke.cont205:                                   ; preds = %if.end200
   %vtable206 = load ptr, ptr %clipper_holes, align 8
   %vbase.offset.ptr207 = getelementptr i8, ptr %vtable206, i64 -24
   %vbase.offset208 = load i64, ptr %vbase.offset.ptr207, align 8
-  %add.ptr209 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset208
+  %add.ptr209 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset208
   %call211 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase7AddPathERKSt6vectorINS_8IntPointESaIS2_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr209, ptr noundef nonnull align 8 dereferenceable(24) %poly, i32 noundef 0, i1 noundef zeroext true)
           to label %invoke.cont210 unwind label %lpad176.loopexit.split-lp
 
@@ -11199,7 +11199,7 @@ invoke.cont210:                                   ; preds = %invoke.cont205
   %vtable212 = load ptr, ptr %clipper_holes, align 8
   %vbase.offset.ptr213 = getelementptr i8, ptr %vtable212, i64 -24
   %vbase.offset214 = load i64, ptr %vbase.offset.ptr213, align 8
-  %add.ptr215 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset214
+  %add.ptr215 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset214
   %call217 = invoke noundef zeroext i1 @_ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4_EENS_8PolyTypeEb(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr215, ptr noundef nonnull align 8 dereferenceable(24) %holes_union, i32 noundef 1, i1 noundef zeroext true)
           to label %invoke.cont216 unwind label %lpad176.loopexit.split-lp
 
@@ -11222,7 +11222,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit248: ; preds = %invoke.cont
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %84, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i249 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i
+  %add.ptr.i.i249 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset.i.i
   store ptr %85, ptr %add.ptr.i.i249, align 8
   %m_Maxima.i.i = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 88
   %86 = load ptr, ptr %m_Maxima.i.i, align 8
@@ -11273,7 +11273,7 @@ ehcleanup221:                                     ; preds = %lpad47.loopexit, %l
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i251 = getelementptr i8, ptr %91, i64 -24
   %vbase.offset.i.i252 = load i64, ptr %vbase.offset.ptr.i.i251, align 8
-  %add.ptr.i.i253 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i252
+  %add.ptr.i.i253 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset.i.i252
   store ptr %92, ptr %add.ptr.i.i253, align 8
   %m_Maxima.i.i254 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 88
   %93 = load ptr, ptr %m_Maxima.i.i254, align 8
@@ -12306,7 +12306,7 @@ cleanup492.critedge:                              ; preds = %invoke.cont145
   %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN10ClipperLib7ClipperE, i64 8), align 8
   %vbase.offset.ptr.i.i541 = getelementptr i8, ptr %198, i64 -24
   %vbase.offset.i.i542 = load i64, ptr %vbase.offset.ptr.i.i541, align 8
-  %add.ptr.i.i543 = getelementptr inbounds i8, ptr %clipper_holes, i64 %vbase.offset.i.i542
+  %add.ptr.i.i543 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 %vbase.offset.i.i542
   store ptr %199, ptr %add.ptr.i.i543, align 8
   %m_Maxima.i.i544 = getelementptr inbounds nuw i8, ptr %clipper_holes, i64 88
   %200 = load ptr, ptr %m_Maxima.i.i544, align 8

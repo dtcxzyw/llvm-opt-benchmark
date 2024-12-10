@@ -6439,7 +6439,7 @@ do.body:                                          ; preds = %for.body, %if.end20
   %j.022 = phi i32 [ %j.1, %if.end20 ], [ 0, %for.body ]
   %inc = add nsw i32 %j.022, 1
   %idxprom = sext i32 %j.022 to i64
-  %arrayidx = getelementptr inbounds [512 x i16], ptr %buffer, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i16], ptr %buffer, i64 0, i64 %idxprom
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i32
   %and = and i32 %conv, 64512
@@ -6450,7 +6450,7 @@ do.body:                                          ; preds = %for.body, %if.end20
 
 land.lhs.true:                                    ; preds = %do.body
   %idxprom9 = sext i32 %inc to i64
-  %arrayidx10 = getelementptr inbounds [512 x i16], ptr %buffer, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [512 x i16], ptr %buffer, i64 0, i64 %idxprom9
   %1 = load i16, ptr %arrayidx10, align 2
   %conv11 = zext i16 %1 to i32
   %and12 = and i32 %conv11, 64512

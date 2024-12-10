@@ -1240,7 +1240,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ab(i32 noundef %n) #1 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %call.i = tail call ptr @BN_new() #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -1391,7 +1391,7 @@ err:                                              ; preds = %land.lhs.true25, %i
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ba(i32 noundef %n) #1 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x %struct.anon], ptr @signed_mod_tests, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 16
   %call.i = tail call ptr @BN_new() #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -3928,7 +3928,7 @@ entry:
   %scratch = alloca [8 x i8], align 1
   %bn = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.mpitest_st], ptr @kMPITests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.mpitest_st], ptr @kMPITests, i64 0, i64 %idxprom
   %call = tail call ptr @BN_new() #7
   store ptr %call, ptr %bn, align 8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 2204, ptr noundef nonnull @.str.238, ptr noundef %call) #7
@@ -3997,7 +3997,7 @@ entry:
   %reversed = alloca [10 x i8], align 1
   %bn = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [43 x %struct.mpitest_st], ptr @kSignedTests_BE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [43 x %struct.mpitest_st], ptr @kSignedTests_BE, i64 0, i64 %idxprom
   %call = tail call ptr @BN_new() #7
   store ptr %call, ptr %bn, align 8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.17, i32 noundef 1935, ptr noundef nonnull @.str.238, ptr noundef %call) #7
@@ -4049,7 +4049,7 @@ lor.lhs.false17:                                  ; preds = %copy_reversed.exit
   %5 = shl i64 %1, 32
   %sext = sub i64 42949672960, %5
   %idx.ext = ashr exact i64 %sext, 32
-  %add.ptr = getelementptr inbounds i8, ptr %scratch, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %scratch, i64 %idx.ext
   %call21 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1948, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.356, ptr noundef %4, i64 noundef %1, ptr noundef nonnull %add.ptr, i64 noundef %1) #7
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %if.end24
@@ -4105,7 +4105,7 @@ copy_reversed.exit28:                             ; preds = %for.body.i20
   br i1 %tobool57.not, label %err, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %copy_reversed.exit28
-  %add.ptr63 = getelementptr inbounds i8, ptr %reversed, i64 %idx.ext
+  %add.ptr63 = getelementptr inbounds nuw i8, ptr %reversed, i64 %idx.ext
   %call65 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 1975, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.360, ptr noundef %4, i64 noundef %1, ptr noundef nonnull %add.ptr63, i64 noundef %1) #7
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %err, label %if.end68
@@ -6359,7 +6359,7 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [5 x i32], ptr @primes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @primes, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %0 to i64
   br label %for.body
@@ -6402,7 +6402,7 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @not_primes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @not_primes, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %0 to i64
   br label %for.body
@@ -6597,7 +6597,7 @@ entry:
   %exponent = alloca ptr, align 8
   %modulo = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %idxprom
   store ptr null, ptr %base, align 8
   store ptr null, ptr %exponent, align 8
   store ptr null, ptr %modulo, align 8
@@ -6682,7 +6682,7 @@ entry:
   %exponent = alloca ptr, align 8
   %modulo = alloca ptr, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.mod_exp_test_st], ptr @ModExpTests, i64 0, i64 %idxprom
   store ptr null, ptr %base, align 8
   store ptr null, ptr %exponent, align 8
   store ptr null, ptr %modulo, align 8

@@ -513,7 +513,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 46:                                               ; preds = %44
   %47 = sext i32 %.01564 to i64
-  %48 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [1131 x i16], ptr @yypact, i64 0, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = sext i16 %49 to i32
   %51 = icmp eq i16 %49, -901
@@ -586,7 +586,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 86:                                               ; preds = %67, %69, %46
   %.4 = phi i32 [ %.01559, %46 ], [ %.6, %67 ], [ %.6, %69 ]
-  %87 = getelementptr inbounds [1131 x i16], ptr @yydefact, i64 0, i64 %47
+  %87 = getelementptr inbounds nuw [1131 x i16], ptr @yydefact, i64 0, i64 %47
   %88 = load i16, ptr %87, align 2
   %89 = sext i16 %88 to i32
   %90 = icmp eq i16 %88, 0
@@ -596,7 +596,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %.01598 = phi i32 [ %89, %86 ], [ %82, %81 ]
   %.9 = phi i32 [ %.4, %86 ], [ %.6, %81 ]
   %92 = sext i32 %.01598 to i64
-  %93 = getelementptr inbounds [597 x i8], ptr @yyr2, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [597 x i8], ptr @yyr2, i64 0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = sext i8 %94 to i32
   %96 = sub nsw i32 1, %95
@@ -4596,11 +4596,11 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %2347 = getelementptr inbounds i16, ptr %.21580, i64 %2345
   %2348 = getelementptr inbounds nuw i8, ptr %2346, i64 8
   store ptr %.sroa.0.0, ptr %2348, align 8
-  %2349 = getelementptr inbounds [597 x i16], ptr @yyr1, i64 0, i64 %92
+  %2349 = getelementptr inbounds nuw [597 x i16], ptr @yyr1, i64 0, i64 %92
   %2350 = load i16, ptr %2349, align 2
   %2351 = sext i16 %2350 to i64
   %2352 = add nsw i64 %2351, -179
-  %2353 = getelementptr inbounds [177 x i16], ptr @yypgoto, i64 0, i64 %2352
+  %2353 = getelementptr inbounds nuw [177 x i16], ptr @yypgoto, i64 0, i64 %2352
   %2354 = load i16, ptr %2353, align 2
   %2355 = sext i16 %2354 to i32
   %2356 = load i16, ptr %2347, align 2
@@ -4621,7 +4621,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %2368
 
 2366:                                             ; preds = %2359, %2343
-  %2367 = getelementptr inbounds [177 x i16], ptr @yydefgoto, i64 0, i64 %2352
+  %2367 = getelementptr inbounds nuw [177 x i16], ptr @yydefgoto, i64 0, i64 %2352
   br label %2368
 
 2368:                                             ; preds = %2366, %2364
@@ -4728,7 +4728,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %.61584 = phi ptr [ %.51583, %.thread1703 ], [ %2424, %2419 ]
   %.31567 = phi i32 [ %.21566, %.thread1703 ], [ %2426, %2419 ]
   %2403 = sext i32 %.31567 to i64
-  %2404 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %2403
+  %2404 = getelementptr inbounds nuw [1131 x i16], ptr @yypact, i64 0, i64 %2403
   %2405 = load i16, ptr %2404, align 2
   %2406 = add i16 %2405, 1
   %or.cond9 = icmp ult i16 %2406, 9777
@@ -4753,7 +4753,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %2418, label %.loopexit1708, label %2419
 
 2419:                                             ; preds = %2417
-  %2420 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2403
+  %2420 = getelementptr inbounds nuw [1131 x i16], ptr @yystos, i64 0, i64 %2403
   %2421 = load i16, ptr %2420, align 2
   %2422 = sext i16 %2421 to i32
   call fastcc void @yydestruct(i32 noundef %2422, ptr noundef %.61595)
@@ -4830,7 +4830,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   %.815971736 = phi ptr [ %2449, %.lr.ph ], [ %2443, %.lr.ph.preheader ]
   %2444 = load i16, ptr %.815861737, align 2
   %2445 = sext i16 %2444 to i64
-  %2446 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2445
+  %2446 = getelementptr inbounds nuw [1131 x i16], ptr @yystos, i64 0, i64 %2445
   %2447 = load i16, ptr %2446, align 2
   %2448 = sext i16 %2447 to i32
   call fastcc void @yydestruct(i32 noundef %2448, ptr noundef %.815971736)
@@ -4937,7 +4937,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2
   %5 = sext i16 %.val.val.i to i64
-  %6 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [1131 x i16], ptr @yypact, i64 0, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, -901
   br i1 %8, label %.thread.i.i, label %9
@@ -4962,7 +4962,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %37 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %37 ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
-  %21 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [9777 x i16], ptr @yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -4972,7 +4972,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %or.cond.i.i, label %27, label %37
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds [9777 x i16], ptr @yytable, i64 0, i64 %20
+  %28 = getelementptr inbounds nuw [9777 x i16], ptr @yytable, i64 0, i64 %20
   %29 = load i16, ptr %28, align 2
   %30 = icmp eq i16 %29, -568
   br i1 %30, label %37, label %31
@@ -5052,7 +5052,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
   %49 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [357 x ptr], ptr @yytname, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = tail call fastcc i64 @zend_yytnamerr(ptr noundef null, ptr noundef %53)
   %55 = add i64 %54, %.04212
@@ -5094,10 +5094,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %31, %.thread.i.i, %
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds [357 x ptr], ptr @yytname, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [357 x ptr], ptr @yytname, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc i64 @zend_yytnamerr(ptr noundef nonnull %.036, ptr noundef %73)
   br label %75

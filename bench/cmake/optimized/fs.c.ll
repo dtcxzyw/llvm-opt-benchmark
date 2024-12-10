@@ -1542,7 +1542,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 .outer.split.i.i:                                 ; preds = %.preheader64.i.i, %.outer.i.i104
   %689 = phi i64 [ %688, %.outer.i.i104 ], [ %.us-phi98.i.i, %.preheader64.i.i ]
   %.049.ph147.i.i = phi i64 [ %686, %.outer.i.i104 ], [ 0, %.preheader64.i.i ]
-  %690 = getelementptr inbounds i8, ptr %6, i64 %.049.ph147.i.i
+  %690 = getelementptr inbounds nuw i8, ptr %6, i64 %.049.ph147.i.i
   br label %.preheader.i.i
 
 691:                                              ; preds = %684

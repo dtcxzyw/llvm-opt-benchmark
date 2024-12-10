@@ -150,7 +150,7 @@ define noundef i32 @DealerPar(ptr nocapture noundef nonnull readonly %0, ptr nou
   %11 = alloca i32, align 4
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [4 x [2 x i32]], ptr @VUL_LOOKUP, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x [2 x i32]], ptr @VUL_LOOKUP, i64 0, i64 %13
   call void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(ptr noundef nonnull align 4 dereferenceable(80) %0, i32 noundef %2, ptr noundef nonnull %14, ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %6)
   %15 = load i32, ptr %5, align 4
   %16 = icmp eq i32 %15, -1
@@ -164,7 +164,7 @@ define noundef i32 @DealerPar(ptr nocapture noundef nonnull readonly %0, ptr nou
 
 19:                                               ; preds = %4
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds [2 x [5 x %struct.list_type]], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [2 x [5 x %struct.list_type]], ptr %6, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load i32, ptr %22, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %10, i8 0, i64 100, i1 false)
@@ -181,7 +181,7 @@ define noundef i32 @DealerPar(ptr nocapture noundef nonnull readonly %0, ptr nou
   %27 = sext i32 %23 to i64
   %28 = sub nsw i32 1, %15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [5 x %struct.list_type], ptr %6, i64 %29
+  %30 = getelementptr inbounds nuw [5 x %struct.list_type], ptr %6, i64 %29
   %31 = add i32 %2, 3
   %smax.i = tail call i32 @llvm.smax.i32(i32 %2, i32 %31)
   %wide.trip.count = zext nneg i32 %24 to i64
@@ -354,7 +354,7 @@ _Z14best_sacrificeRK14ddTableResultsiiiiPA5_K9list_typePA5_iRi.exit: ; preds = %
 
 110:                                              ; preds = %104
   %111 = sext i32 %106 to i64
-  %112 = getelementptr inbounds [36 x i32], ptr @FLOOR_CONTRACT, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [36 x i32], ptr @FLOOR_CONTRACT, i64 0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = mul i32 %108, 5
   %115 = add i32 %106, 5
@@ -536,7 +536,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [5 x %struct.list_type], ptr %5, i64 0, i64 %61, i32 3
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %61
+  %64 = getelementptr inbounds nuw [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %61
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds [5 x [4 x i32]], ptr %0, i64 0, i64 %66
@@ -565,7 +565,7 @@ define void @_Z13survey_scoresRK14ddTableResultsiPKiR9data_typeRiPA5_9list_type(
 .loopexit142:                                     ; preds = %76, %53, %47, %74
   %.0131 = phi i32 [ %75, %74 ], [ 0, %47 ], [ 1, %53 ], [ 0, %76 ]
   %78 = sext i32 %.0131 to i64
-  %79 = getelementptr inbounds [2 x %struct.data_type], ptr %7, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [2 x %struct.data_type], ptr %7, i64 0, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 4
   store i32 %.0131, ptr %3, align 4
@@ -766,7 +766,7 @@ define void @_Z15reduce_contractRiiS_(ptr nocapture noundef nonnull align 4 dere
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [36 x i32], ptr @FLOOR_CONTRACT, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [36 x i32], ptr @FLOOR_CONTRACT, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = mul i32 %1, 5
   %12 = add i32 %11, 5
@@ -795,7 +795,7 @@ define void @_Z16contract_as_textB5cxx11RK14ddTableResultsiiii(ptr dead_on_unwin
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.0", align 1
   %17 = sext i32 %4 to i64
-  %18 = getelementptr inbounds [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [5 x [4 x i32]], ptr %1, i64 0, i64 %20
@@ -1089,7 +1089,7 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
   %22 = sub nsw i32 0, %3
   %23 = add nsw i32 %4, 34
   %24 = sdiv i32 %23, 5
-  %25 = getelementptr inbounds [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %20
+  %25 = getelementptr inbounds nuw [5 x i32], ptr @DENOM_ORDER, i64 0, i64 %20
   %26 = add i32 %2, 3
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 %26)
@@ -1149,11 +1149,11 @@ define void @_Z18sacrifices_as_textRK14ddTableResultsiiiiiPA5_K9list_typePA5_KiP
 
 57:                                               ; preds = %54
   %58 = sext i32 %.07283 to i64
-  %59 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %58
   store i32 %46, ptr %59, align 4
   %60 = mul nuw nsw i32 %.07184, 5
   %61 = add nsw i32 %60, %4
-  %62 = getelementptr inbounds [2 x i32], ptr %13, i64 0, i64 %58
+  %62 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 0, i64 %58
   store i32 %61, ptr %62, align 4
   %63 = add nsw i32 %.07283, 1
   br label %64

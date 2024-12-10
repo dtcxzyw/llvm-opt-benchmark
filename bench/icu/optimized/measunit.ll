@@ -8740,7 +8740,7 @@ while.body.i:                                     ; preds = %while.cond.outer.i,
   %add.i = add nsw i32 %start.addr.010.i, %end.addr.0.ph.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom.i = sext i32 %div.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr noundef %3)
   %call.i = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr %subType.coerce0, i32 %subType.coerce1)
@@ -9270,7 +9270,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = sext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [23 x ptr], ptr @_ZN6icu_75L6gTypesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [23 x ptr], ptr @_ZN6icu_75L6gTypesE, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -9318,7 +9318,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 
 _ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i:      ; preds = %if.end.i.i, %lor.lhs.false.i.i, %cond.false.i
   %retval.0.i.i = phi i64 [ %4, %if.end.i.i ], [ -1, %lor.lhs.false.i.i ], [ -1, %cond.false.i ]
-  %arrayidx.i = getelementptr inbounds [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i
+  %arrayidx.i = getelementptr inbounds nuw [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i
   br label %_ZNK6icu_7511MeasureUnit13getIdentifierEv.exit
 
 _ZNK6icu_7511MeasureUnit13getIdentifierEv.exit:   ; preds = %cond.true.i, %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i
@@ -9366,7 +9366,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 _ZNK6icu_7511MeasureUnit9getOffsetEv.exit:        ; preds = %cond.false, %lor.lhs.false.i, %if.end.i
   %retval.0.i = phi i64 [ %4, %if.end.i ], [ -1, %lor.lhs.false.i ], [ -1, %cond.false ]
-  %arrayidx = getelementptr inbounds [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit, %cond.true
@@ -9469,7 +9469,7 @@ if.end.i.i4:                                      ; preds = %lor.lhs.false.i.i
 
 _ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i:      ; preds = %if.end.i.i4, %lor.lhs.false.i.i, %cond.false.i
   %retval.0.i.i5 = phi i64 [ %12, %if.end.i.i4 ], [ -1, %lor.lhs.false.i.i ], [ -1, %cond.false.i ]
-  %arrayidx.i = getelementptr inbounds [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i5
+  %arrayidx.i = getelementptr inbounds nuw [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i5
   br label %_ZNK6icu_7511MeasureUnit13getIdentifierEv.exit
 
 _ZNK6icu_7511MeasureUnit13getIdentifierEv.exit:   ; preds = %cond.true.i, %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i
@@ -9507,7 +9507,7 @@ if.end.i.i18:                                     ; preds = %lor.lhs.false.i.i15
 
 _ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i23:    ; preds = %if.end.i.i18, %lor.lhs.false.i.i15, %cond.false.i12
   %retval.0.i.i24 = phi i64 [ %17, %if.end.i.i18 ], [ -1, %lor.lhs.false.i.i15 ], [ -1, %cond.false.i12 ]
-  %arrayidx.i25 = getelementptr inbounds [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i24
+  %arrayidx.i25 = getelementptr inbounds nuw [492 x ptr], ptr @_ZN6icu_75L9gSubTypesE, i64 0, i64 %retval.0.i.i24
   br label %_ZNK6icu_7511MeasureUnit13getIdentifierEv.exit26
 
 _ZNK6icu_7511MeasureUnit13getIdentifierEv.exit26: ; preds = %cond.true.i8, %_ZNK6icu_7511MeasureUnit9getOffsetEv.exit.i23
@@ -9750,7 +9750,7 @@ while.body.i:                                     ; preds = %while.cond.outer.i,
   %add.i = add nsw i32 %start.addr.010.i, %end.addr.0.ph.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom.i = sext i32 %div.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr noundef %4)
   %call.i = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr %1, i32 %3)
@@ -9779,9 +9779,9 @@ _ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %if.end.i
 if.end3:                                          ; preds = %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit
   %add = add nsw i32 %div.i, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx, align 4
-  %arrayidx5 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom.i
+  %arrayidx5 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx5, align 4
   %sub = sub nsw i32 %5, %6
   %cmp6 = icmp slt i32 %destCapacity, %sub
@@ -9949,7 +9949,7 @@ while.body.i:                                     ; preds = %while.cond.outer.i,
   %add.i = add nsw i32 %start.addr.010.i, %end.addr.0.ph.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom.i = sext i32 %div.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr noundef %3)
   %call.i = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr %0, i32 %2)
@@ -9972,13 +9972,13 @@ _ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %while.cond.o
   %fTypeId = getelementptr inbounds nuw i8, ptr %this, i64 18
   store i8 %conv, ptr %fTypeId, align 2
   %idxprom = sext i8 %conv to i64
-  %arrayidx = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %sext = shl i32 %retval.0.i, 24
   %conv4 = ashr exact i32 %sext, 24
   %add = add nsw i32 %conv4, 1
   %idxprom5 = sext i32 %add to i64
-  %arrayidx6 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom5
   %5 = load i32, ptr %arrayidx6, align 4
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp7, ptr noundef %timeId)
   %6 = load ptr, ptr %agg.tmp7, align 8
@@ -9998,7 +9998,7 @@ while.body.i8:                                    ; preds = %while.cond.outer.i3
   %add.i10 = add nsw i32 %start.addr.010.i9, %end.addr.0.ph.i4
   %div.i11 = sdiv i32 %add.i10, 2
   %idxprom.i12 = sext i32 %div.i11 to i64
-  %arrayidx.i13 = getelementptr inbounds ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i12
+  %arrayidx.i13 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i12
   %9 = load ptr, ptr %arrayidx.i13, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i2, ptr noundef %9)
   %call.i14 = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i2, ptr %6, i32 %8)
@@ -10019,7 +10019,7 @@ _ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit21: ; preds = %while.cond
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i2)
   %10 = load i8, ptr %fTypeId, align 2
   %idxprom10 = sext i8 %10 to i64
-  %arrayidx11 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom10
+  %arrayidx11 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom10
   %11 = load i32, ptr %arrayidx11, align 4
   %sub = sub nsw i32 %retval.0.i7, %11
   %conv12 = trunc i32 %sub to i16
@@ -10055,7 +10055,7 @@ while.body.i:                                     ; preds = %while.cond.outer.i,
   %add.i = add nsw i32 %start.addr.010.i, %end.addr.0.ph.i
   %div.i = sdiv i32 %add.i, 2
   %idxprom.i = sext i32 %div.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L6gTypesE, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr noundef %3)
   %call.i = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i, ptr %0, i32 %2)
@@ -10078,13 +10078,13 @@ _ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %while.cond.o
   %fTypeId = getelementptr inbounds nuw i8, ptr %this, i64 18
   store i8 %conv, ptr %fTypeId, align 2
   %idxprom = sext i8 %conv to i64
-  %arrayidx = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %sext = shl i32 %retval.0.i, 24
   %conv4 = ashr exact i32 %sext, 24
   %add = add nsw i32 %conv4, 1
   %idxprom5 = sext i32 %add to i64
-  %arrayidx6 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom5
   %5 = load i32, ptr %arrayidx6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i5)
   br label %while.cond.outer.i6
@@ -10100,7 +10100,7 @@ while.body.i11:                                   ; preds = %while.cond.outer.i6
   %add.i13 = add nsw i32 %start.addr.010.i12, %end.addr.0.ph.i7
   %div.i14 = sdiv i32 %add.i13, 2
   %idxprom.i15 = sext i32 %div.i14 to i64
-  %arrayidx.i16 = getelementptr inbounds ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i15
+  %arrayidx.i16 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i15
   %6 = load ptr, ptr %arrayidx.i16, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i5, ptr noundef %6)
   %call.i17 = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i5, ptr %isoCurrency.coerce0, i32 %isoCurrency.coerce1)
@@ -10185,10 +10185,10 @@ if.end:                                           ; preds = %if.then
   store ptr null, ptr %fImpl47, align 8
   %10 = load i8, ptr %fTypeId, align 2
   %idxprom14 = sext i8 %10 to i64
-  %arrayidx15 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom14
   %11 = load i32, ptr %arrayidx15, align 4
   %add18 = add nsw i64 %idxprom14, 1
-  %arrayidx20 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %add18
+  %arrayidx20 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %add18
   %12 = load i32, ptr %arrayidx20, align 4
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp21, ptr noundef nonnull @.str.339)
   %13 = load ptr, ptr %agg.tmp21, align 8
@@ -10208,7 +10208,7 @@ while.body.i31:                                   ; preds = %while.cond.outer.i2
   %add.i33 = add nsw i32 %start.addr.010.i32, %end.addr.0.ph.i27
   %div.i34 = sdiv i32 %add.i33, 2
   %idxprom.i35 = sext i32 %div.i34 to i64
-  %arrayidx.i36 = getelementptr inbounds ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i35
+  %arrayidx.i36 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_75L9gSubTypesE, i64 %idxprom.i35
   %16 = load ptr, ptr %arrayidx.i36, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i25, ptr noundef %16)
   %call.i37 = call noundef i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i25, ptr %13, i32 %15)
@@ -10233,7 +10233,7 @@ if.end23:                                         ; preds = %_ZN6icu_75L12binary
   %result.0 = phi i32 [ %retval.0.i30, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit44 ], [ %div.i14, %_ZN6icu_75L12binarySearchEPKPKciiNS_11StringPieceE.exit24 ]
   %17 = load i8, ptr %fTypeId, align 2
   %idxprom25 = sext i8 %17 to i64
-  %arrayidx26 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds nuw [24 x i32], ptr @_ZN6icu_75L8gOffsetsE, i64 0, i64 %idxprom25
   %18 = load i32, ptr %arrayidx26, align 4
   %sub = sub nsw i32 %result.0, %18
   %conv27 = trunc i32 %sub to i16

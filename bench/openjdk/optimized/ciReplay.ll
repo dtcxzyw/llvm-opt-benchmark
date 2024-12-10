@@ -6614,7 +6614,7 @@ _ZNK15Bytecode_invoke8is_validEv.exit:            ; preds = %_Z21Bytecode_invoke
 
 145:                                              ; preds = %139
   %146 = sext i32 %143 to i64
-  %147 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %146
   %148 = load i32, ptr %147, align 4
   br label %_ZNK8Bytecode11invoke_codeEv.exit
 
@@ -6632,7 +6632,7 @@ _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %139, %145
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %151
   %154 = sext i32 %152 to i64
-  %155 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %154
   %156 = load i32, ptr %155, align 4
   switch i32 %156, label %190 [
     i32 186, label %157

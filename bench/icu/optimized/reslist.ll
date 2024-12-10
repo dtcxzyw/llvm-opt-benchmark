@@ -3453,7 +3453,7 @@ if.end138:                                        ; preds = %if.end95, %if.end11
 if.then140:                                       ; preds = %if.end138
   %call141 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %dataName, ptr noundef nonnull dereferenceable(1) %outputPkg) #33
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %dataName)
-  %endptr = getelementptr inbounds i8, ptr %dataName, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %dataName, i64 %strlen
   store i16 95, ptr %endptr, align 1
   %fLocale145 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %37 = load ptr, ptr %fLocale145, align 8
@@ -3468,7 +3468,7 @@ if.else147:                                       ; preds = %if.end138
 
 do.body:                                          ; preds = %if.then140, %if.else147
   %idx.ext152 = sext i32 %formatVersion.0 to i64
-  %add.ptr153 = getelementptr inbounds [4 x i8], ptr @_ZL15gFormatVersions, i64 %idx.ext152
+  %add.ptr153 = getelementptr inbounds nuw [4 x i8], ptr @_ZL15gFormatVersions, i64 %idx.ext152
   %39 = load i32, ptr %add.ptr153, align 4
   store i32 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZL8dataInfo, i64 12), align 2
   %40 = load i8, ptr @_ZL17gIncludeCopyright, align 1

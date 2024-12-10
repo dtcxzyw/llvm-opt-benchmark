@@ -1580,7 +1580,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %249, ptr %251, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -1675,7 +1675,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
   store i8 %309, ptr %311, align 1
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -1878,7 +1878,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
   store i8 %401, ptr %403, align 1
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -1978,7 +1978,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
   store i8 %463, ptr %465, align 1
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0
@@ -2529,7 +2529,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %249, ptr %251, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -2624,7 +2624,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
   store i8 %309, ptr %311, align 1
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -2827,7 +2827,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
   store i8 %401, ptr %403, align 1
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -2927,7 +2927,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
   store i8 %463, ptr %465, align 1
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0
@@ -3478,7 +3478,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %249, ptr %251, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -3573,7 +3573,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
   store i8 %309, ptr %311, align 1
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -3776,7 +3776,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
   store i8 %401, ptr %403, align 1
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -3876,7 +3876,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
   store i8 %463, ptr %465, align 1
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0
@@ -4427,7 +4427,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %249, ptr %251, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -4522,7 +4522,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv345
   store i8 %309, ptr %311, align 1
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -4725,7 +4725,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv348
   store i8 %401, ptr %403, align 1
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -4825,7 +4825,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i8], ptr %9, i64 0, i64 %indvars.iv354
   store i8 %463, ptr %465, align 1
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0
@@ -5376,7 +5376,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv
   store i16 %249, ptr %251, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -5471,7 +5471,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv345
   store i16 %309, ptr %311, align 2
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -5674,7 +5674,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv348
   store i16 %401, ptr %403, align 2
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -5774,7 +5774,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv354
   store i16 %463, ptr %465, align 2
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0
@@ -6325,7 +6325,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %250 unwind label %252
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv
   store i16 %249, ptr %251, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not197 = icmp eq i64 %indvars.iv, 0
@@ -6420,7 +6420,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %198, %201
           to label %310 unwind label %312
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv345
+  %311 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv345
   store i16 %309, ptr %311, align 2
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
   %.not199 = icmp eq i64 %indvars.iv345, 0
@@ -6623,7 +6623,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %402 unwind label %406
 
 402:                                              ; preds = %393
-  %403 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv348
+  %403 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv348
   store i16 %401, ptr %403, align 2
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
   %.not208 = icmp eq i64 %indvars.iv348, 0
@@ -6723,7 +6723,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %351, %354
           to label %464 unwind label %466
 
 464:                                              ; preds = %455
-  %465 = getelementptr inbounds [43 x i16], ptr %9, i64 0, i64 %indvars.iv354
+  %465 = getelementptr inbounds nuw [43 x i16], ptr %9, i64 0, i64 %indvars.iv354
   store i16 %463, ptr %465, align 2
   %indvars.iv.next355 = add nsw i64 %indvars.iv354, -1
   %.not210 = icmp eq i64 %indvars.iv354, 0

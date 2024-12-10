@@ -12747,7 +12747,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpI
   %52 = sub nsw i32 %34, %38
   %53 = add nsw i32 %52, -1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [7 x %"struct.pxr::rapidjson::internal::DiyFp"], ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [7 x %"struct.pxr::rapidjson::internal::DiyFp"], ptr @_ZZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPdE6kPow10, i64 0, i64 %54
   %56 = lshr i64 %32, 32
   %57 = and i64 %32, 4294967295
   %58 = load i64, ptr %55, align 16
@@ -13201,9 +13201,9 @@ _ZN3pxr9rapidjson8internal10BigIntegerlSEm.exit81: ; preds = %_ZN3pxr9rapidjson8
 
 162:                                              ; preds = %.preheader.i.i
   %163 = add i64 %.0.i.i, -1
-  %164 = getelementptr inbounds [416 x i64], ptr %4, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [416 x i64], ptr %4, i64 0, i64 %163
   %165 = load i64, ptr %164, align 8
-  %166 = getelementptr inbounds [416 x i64], ptr %5, i64 0, i64 %163
+  %166 = getelementptr inbounds nuw [416 x i64], ptr %5, i64 0, i64 %163
   %167 = load i64, ptr %166, align 8
   %.not16.i.i = icmp eq i64 %165, %167
   br i1 %.not16.i.i, label %.preheader.i.i, label %_ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i, !llvm.loop !113
@@ -13252,7 +13252,7 @@ _ZNK3pxr9rapidjson8internal10BigInteger7CompareERKS2_.exit.i: ; preds = %162
   %.0.i = phi i64 [ %181, %178 ], [ %175, %.lr.ph.i83 ]
   %183 = icmp ugt i64 %.0.i, %174
   %184 = zext i1 %183 to i64
-  %185 = getelementptr inbounds [416 x i64], ptr %7, i64 0, i64 %.02533.i
+  %185 = getelementptr inbounds nuw [416 x i64], ptr %7, i64 0, i64 %.02533.i
   store i64 %.0.i, ptr %185, align 8
   %.not.i84 = icmp eq i64 %.0.i, 0
   %.pre.i = add nuw i64 %.02533.i, 1
@@ -13288,9 +13288,9 @@ _ZNK3pxr9rapidjson8internal10BigInteger10DifferenceERKS2_PS2_.exit: ; preds = %_
 
 192:                                              ; preds = %.preheader.i
   %193 = add i64 %.0.i87, -1
-  %194 = getelementptr inbounds [416 x i64], ptr %7, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [416 x i64], ptr %7, i64 0, i64 %193
   %195 = load i64, ptr %194, align 8
-  %196 = getelementptr inbounds [416 x i64], ptr %6, i64 0, i64 %193
+  %196 = getelementptr inbounds nuw [416 x i64], ptr %6, i64 0, i64 %193
   %197 = load i64, ptr %196, align 8
   %.not16.i = icmp eq i64 %195, %197
   br i1 %.not16.i, label %.preheader.i, label %198, !llvm.loop !113

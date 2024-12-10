@@ -7056,7 +7056,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
   %28 = zext nneg i16 %27 to i64
   %29 = add i64 %.02838.i, -4
   %30 = getelementptr inbounds nuw i8, ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.55, i64 %25
-  %31 = getelementptr inbounds i8, ptr %2, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %29
   %32 = load i16, ptr %30, align 1, !noalias !1477
   store i16 %32, ptr %31, align 1, !alias.scope !1477
   %33 = getelementptr inbounds nuw i8, ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.55, i64 %28
@@ -7075,7 +7075,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
   %.zext37.i = zext nneg i16 %40 to i64
   %41 = add i64 %.028.lcssa.i, -2
   %42 = getelementptr inbounds nuw i8, ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.55, i64 %39
-  %43 = getelementptr inbounds i8, ptr %2, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %41
   %44 = load i16, ptr %42, align 1, !noalias !1477
   store i16 %44, ptr %43, align 1, !alias.scope !1477
   br label %45
@@ -7090,7 +7090,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
   %48 = shl nuw nsw i64 %.027.i, 1
   %49 = add i64 %.129.i, -2
   %50 = getelementptr inbounds nuw i8, ptr @anon.33cac3b1fca7ecc48f70bbdadbd2e063.55, i64 %48
-  %51 = getelementptr inbounds i8, ptr %2, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %49
   %52 = load i16, ptr %50, align 1, !noalias !1477
   store i16 %52, ptr %51, align 1, !alias.scope !1477
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h65b9f4984c74a2bbE.llvm.613377767644086563.exit"
@@ -7098,7 +7098,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
 53:                                               ; preds = %45
   %54 = add i64 %.129.i, -1
   %55 = trunc nuw nsw i64 %.027.i to i8
-  %56 = getelementptr inbounds i8, ptr %2, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 %54
   %57 = or disjoint i8 %55, 48
   store i8 %57, ptr %56, align 1, !alias.scope !1477
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h65b9f4984c74a2bbE.llvm.613377767644086563.exit"
@@ -7118,7 +7118,7 @@ define void @"_ZN128_$LT$diesel..pg..query_builder..PgQueryBuilder$u20$as$u20$di
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h00d36753719ea29aE.exit2": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h65b9f4984c74a2bbE.llvm.613377767644086563.exit", %62
   %63 = phi i64 [ %16, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h65b9f4984c74a2bbE.llvm.613377767644086563.exit" ], [ %.pre.i.i1, %62 ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 %.2.i
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %.2.i
   %65 = load ptr, ptr %12, align 8, !alias.scope !1489, !noalias !1487, !nonnull !11, !noundef !11
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %64, i64 %58, i1 false)

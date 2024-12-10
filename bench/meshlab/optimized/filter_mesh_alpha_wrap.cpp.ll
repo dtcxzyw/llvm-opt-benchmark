@@ -63163,7 +63163,7 @@ _ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_bas
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN4CGAL30Triangulation_data_structure_3INS_37Triangulation_hierarchy_vertex_base_3INS_37Triangulation_vertex_base_with_info_3INS_13Alpha_wraps_38internal12Alpha_wrap_3INS4_20Triangle_mesh_oracleINS_5EpickEiLb1EEEE11Vertex_infoENS_37Robust_circumcenter_filtered_traits_3INS4_27Alpha_wrap_AABB_geom_traitsIS7_EEEENS_27Triangulation_vertex_base_3ISE_NS_30Triangulation_ds_vertex_base_3INS0_INS2_ISA_SE_NSF_ISE_NSG_IvEEEEEENS4_24Cell_base_with_timestampINS_35Triangulation_cell_base_with_info_3INS9_9Cell_infoESE_NS_52Delaunay_triangulation_cell_base_with_circumcenter_3ISE_NS_34Delaunay_triangulation_cell_base_3ISE_NS_25Triangulation_cell_base_3ISE_NS_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS_14Sequential_tagEEEEEEEEEEESW_SX_E13create_star_2ENS_8internal11CC_iteratorINS_17Compact_containerINS1_INS2_ISA_SE_NSF_ISE_NSG_IS13_EEEEEEEENS_7DefaultES1B_S1B_EELb0EEENS15_INS16_INSK_INSL_ISM_SE_NSN_ISE_NSO_ISE_NSP_ISE_NSQ_IS13_EEEEEEEEEEEES1B_S1B_S1B_EELb0EEEi(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr %1, ptr %2, i32 noundef %3) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE7ccw_mapE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE7ccw_mapE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = zext nneg i32 %7 to i64
@@ -70081,7 +70081,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL13Alpha_wraps_38internal39less_s
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %14, i64 0, i64 %17
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17, i64 0
+  %19 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 0, i64 %17, i64 0
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %22 = zext nneg i32 %20 to i64
@@ -99820,7 +99820,7 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i:    ; preds = %83, %80, %67, %60, 
 89:                                               ; preds = %89, %88
   %.pn.i.i.idx = phi i64 [ 16, %88 ], [ %.pn.i.i.add, %89 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %3, align 8
   %90 = load i64, ptr %storemerge.i.i.ptr, align 8
   %91 = icmp eq i64 %90, 0
@@ -99831,8 +99831,8 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i:    ; preds = %83, %80, %67, %60, 
   br i1 %93, label %_ZN4CGAL4MpzfD2Ev.exit, label %94
 
 94:                                               ; preds = %92
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %3, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -106850,7 +106850,7 @@ _ZN4CGAL4MpzfD2Ev.exit232:                        ; preds = %482, %485
 500:                                              ; preds = %500, %494
   %.pn.i.i237.idx = phi i64 [ 16, %494 ], [ %.pn.i.i237.add, %500 ]
   %.pn.i.i237.add = add nsw i64 %.pn.i.i237.idx, -8
-  %storemerge.i.i238.ptr = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i237.add
+  %storemerge.i.i238.ptr = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i237.add
   store ptr %storemerge.i.i238.ptr, ptr %55, align 8
   %501 = load i64, ptr %storemerge.i.i238.ptr, align 8
   %502 = icmp eq i64 %501, 0
@@ -106862,8 +106862,8 @@ _ZN4CGAL4MpzfD2Ev.exit232:                        ; preds = %482, %485
   br i1 %504, label %_ZN4CGAL4MpzfD2Ev.exit239, label %505
 
 505:                                              ; preds = %503
-  %storemerge.i.i238.ptr.le = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i237.add
-  %.pn.i.i237.ptr.le = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i237.idx
+  %storemerge.i.i238.ptr.le = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i237.add
+  %.pn.i.i237.ptr.le = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i237.idx
   store ptr %.pn.i.i237.ptr.le, ptr %55, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i238.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit239
@@ -117229,7 +117229,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %257, %260
 263:                                              ; preds = %262, %_ZN4CGAL4MpzfD2Ev.exit100
   %.idx = phi i64 [ %.021.idx.ph, %262 ], [ %.add, %_ZN4CGAL4MpzfD2Ev.exit100 ]
   %.add = add nsw i64 %.idx, -88
-  %.ptr37 = getelementptr inbounds i8, ptr %5, i64 %.add
+  %.ptr37 = getelementptr inbounds nuw i8, ptr %5, i64 %.add
   %264 = load ptr, ptr %.ptr37, align 8
   br label %265
 
@@ -117269,7 +117269,7 @@ _ZN4CGAL4MpzfD2Ev.exit100:                        ; preds = %268, %271
 274:                                              ; preds = %273, %_ZN4CGAL4MpzfD2Ev.exit103
   %.idx41 = phi i64 [ %.0.idx.ph, %273 ], [ %.add42, %_ZN4CGAL4MpzfD2Ev.exit103 ]
   %.add42 = add nsw i64 %.idx41, -88
-  %.ptr44 = getelementptr inbounds i8, ptr %5, i64 %.add42
+  %.ptr44 = getelementptr inbounds nuw i8, ptr %5, i64 %.add42
   %275 = load ptr, ptr %.ptr44, align 8
   br label %276
 
@@ -118151,7 +118151,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit156: ; preds = %352
 413:                                              ; preds = %413, %.thread708
   %.pn.i.i.idx = phi i64 [ 16, %.thread708 ], [ %.pn.i.i.add, %413 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %4, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %4, align 8
   %414 = load i64, ptr %storemerge.i.i.ptr, align 8
   %415 = icmp eq i64 %414, 0
@@ -118163,8 +118163,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit156: ; preds = %352
   br i1 %417, label %_ZN4CGAL4MpzfD2Ev.exit, label %418
 
 418:                                              ; preds = %416
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %4, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %4, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %4, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %4, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %4, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   %.pre1128 = load ptr, ptr %3, align 8
@@ -118793,7 +118793,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit243: ; preds = %631
 692:                                              ; preds = %692, %.thread741
   %.pn.i.i267.idx = phi i64 [ 16, %.thread741 ], [ %.pn.i.i267.add, %692 ]
   %.pn.i.i267.add = add nsw i64 %.pn.i.i267.idx, -8
-  %storemerge.i.i268.ptr = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i267.add
+  %storemerge.i.i268.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i267.add
   store ptr %storemerge.i.i268.ptr, ptr %6, align 8
   %693 = load i64, ptr %storemerge.i.i268.ptr, align 8
   %694 = icmp eq i64 %693, 0
@@ -118805,8 +118805,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit243: ; preds = %631
   br i1 %696, label %_ZN4CGAL4MpzfD2Ev.exit269, label %697
 
 697:                                              ; preds = %695
-  %storemerge.i.i268.ptr.le = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i267.add
-  %.pn.i.i267.ptr.le = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i267.idx
+  %storemerge.i.i268.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i267.add
+  %.pn.i.i267.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i267.idx
   store ptr %.pn.i.i267.ptr.le, ptr %6, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i268.ptr.le) #39
   %.pre1127 = load ptr, ptr %5, align 8
@@ -119291,7 +119291,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit327: ; preds = %844
 905:                                              ; preds = %905, %.thread761
   %.pn.i.i351.idx = phi i64 [ 16, %.thread761 ], [ %.pn.i.i351.add, %905 ]
   %.pn.i.i351.add = add nsw i64 %.pn.i.i351.idx, -8
-  %storemerge.i.i352.ptr = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i351.add
+  %storemerge.i.i352.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i351.add
   store ptr %storemerge.i.i352.ptr, ptr %8, align 8
   %906 = load i64, ptr %storemerge.i.i352.ptr, align 8
   %907 = icmp eq i64 %906, 0
@@ -119303,8 +119303,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit327: ; preds = %844
   br i1 %909, label %_ZN4CGAL4MpzfD2Ev.exit353, label %910
 
 910:                                              ; preds = %908
-  %storemerge.i.i352.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i351.add
-  %.pn.i.i351.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i351.idx
+  %storemerge.i.i352.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i351.add
+  %.pn.i.i351.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i351.idx
   store ptr %.pn.i.i351.ptr.le, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i352.ptr.le) #39
   %.pre1126 = load ptr, ptr %7, align 8
@@ -119933,7 +119933,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit438: ; preds = %112
 1184:                                             ; preds = %1184, %.thread794
   %.pn.i.i462.idx = phi i64 [ 16, %.thread794 ], [ %.pn.i.i462.add, %1184 ]
   %.pn.i.i462.add = add nsw i64 %.pn.i.i462.idx, -8
-  %storemerge.i.i463.ptr = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i462.add
+  %storemerge.i.i463.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i462.add
   store ptr %storemerge.i.i463.ptr, ptr %10, align 8
   %1185 = load i64, ptr %storemerge.i.i463.ptr, align 8
   %1186 = icmp eq i64 %1185, 0
@@ -119945,8 +119945,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit438: ; preds = %112
   br i1 %1188, label %_ZN4CGAL4MpzfD2Ev.exit464, label %1189
 
 1189:                                             ; preds = %1187
-  %storemerge.i.i463.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i462.add
-  %.pn.i.i462.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i462.idx
+  %storemerge.i.i463.ptr.le = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i462.add
+  %.pn.i.i462.ptr.le = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i462.idx
   store ptr %.pn.i.i462.ptr.le, ptr %10, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i463.ptr.le) #39
   %.pre1125 = load ptr, ptr %9, align 8
@@ -120575,7 +120575,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit549: ; preds = %140
 1463:                                             ; preds = %1463, %.thread827
   %.pn.i.i573.idx = phi i64 [ 16, %.thread827 ], [ %.pn.i.i573.add, %1463 ]
   %.pn.i.i573.add = add nsw i64 %.pn.i.i573.idx, -8
-  %storemerge.i.i574.ptr = getelementptr inbounds i8, ptr %12, i64 %.pn.i.i573.add
+  %storemerge.i.i574.ptr = getelementptr inbounds nuw i8, ptr %12, i64 %.pn.i.i573.add
   store ptr %storemerge.i.i574.ptr, ptr %12, align 8
   %1464 = load i64, ptr %storemerge.i.i574.ptr, align 8
   %1465 = icmp eq i64 %1464, 0
@@ -120587,8 +120587,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit549: ; preds = %140
   br i1 %1467, label %_ZN4CGAL4MpzfD2Ev.exit575, label %1468
 
 1468:                                             ; preds = %1466
-  %storemerge.i.i574.ptr.le = getelementptr inbounds i8, ptr %12, i64 %.pn.i.i573.add
-  %.pn.i.i573.ptr.le = getelementptr inbounds i8, ptr %12, i64 %.pn.i.i573.idx
+  %storemerge.i.i574.ptr.le = getelementptr inbounds nuw i8, ptr %12, i64 %.pn.i.i573.add
+  %.pn.i.i573.ptr.le = getelementptr inbounds nuw i8, ptr %12, i64 %.pn.i.i573.idx
   store ptr %.pn.i.i573.ptr.le, ptr %12, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i574.ptr.le) #39
   %.pre1124 = load ptr, ptr %11, align 8
@@ -121073,7 +121073,7 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit633: ; preds = %161
 1676:                                             ; preds = %1676, %.thread847
   %.pn.i.i657.idx = phi i64 [ 16, %.thread847 ], [ %.pn.i.i657.add, %1676 ]
   %.pn.i.i657.add = add nsw i64 %.pn.i.i657.idx, -8
-  %storemerge.i.i658.ptr = getelementptr inbounds i8, ptr %14, i64 %.pn.i.i657.add
+  %storemerge.i.i658.ptr = getelementptr inbounds nuw i8, ptr %14, i64 %.pn.i.i657.add
   store ptr %storemerge.i.i658.ptr, ptr %14, align 8
   %1677 = load i64, ptr %storemerge.i.i658.ptr, align 8
   %1678 = icmp eq i64 %1677, 0
@@ -121085,8 +121085,8 @@ _ZNK4CGAL7Point_3INS_16Simple_cartesianINS_4MpzfEEEEixEi.exit633: ; preds = %161
   br i1 %1680, label %_ZN4CGAL4MpzfD2Ev.exit659, label %1681
 
 1681:                                             ; preds = %1679
-  %storemerge.i.i658.ptr.le = getelementptr inbounds i8, ptr %14, i64 %.pn.i.i657.add
-  %.pn.i.i657.ptr.le = getelementptr inbounds i8, ptr %14, i64 %.pn.i.i657.idx
+  %storemerge.i.i658.ptr.le = getelementptr inbounds nuw i8, ptr %14, i64 %.pn.i.i657.add
+  %.pn.i.i657.ptr.le = getelementptr inbounds nuw i8, ptr %14, i64 %.pn.i.i657.idx
   store ptr %.pn.i.i657.ptr.le, ptr %14, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i658.ptr.le) #39
   %.pre = load ptr, ptr %13, align 8
@@ -121276,7 +121276,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %62, %65
 69:                                               ; preds = %67, %_ZN4CGAL4MpzfD2Ev.exit150
   %.idx = phi i64 [ %.099.idx, %67 ], [ %.add, %_ZN4CGAL4MpzfD2Ev.exit150 ]
   %.add = add nsw i64 %.idx, -88
-  %.ptr115 = getelementptr inbounds i8, ptr %2, i64 %.add
+  %.ptr115 = getelementptr inbounds nuw i8, ptr %2, i64 %.add
   %70 = load ptr, ptr %.ptr115, align 8
   br label %71
 
@@ -121311,7 +121311,7 @@ _ZN4CGAL4MpzfD2Ev.exit150:                        ; preds = %74, %77
 81:                                               ; preds = %79, %_ZN4CGAL4MpzfD2Ev.exit153
   %.idx119 = phi i64 [ %.0100.idx, %79 ], [ %.add120, %_ZN4CGAL4MpzfD2Ev.exit153 ]
   %.add120 = add nsw i64 %.idx119, -88
-  %.ptr122 = getelementptr inbounds i8, ptr %2, i64 %.add120
+  %.ptr122 = getelementptr inbounds nuw i8, ptr %2, i64 %.add120
   %82 = load ptr, ptr %.ptr122, align 8
   br label %83
 
@@ -122462,7 +122462,7 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal11get_min_maxINS_16Simp
 88:                                               ; preds = %88, %4
   %.pn.i.i.idx = phi i64 [ 16, %4 ], [ %.pn.i.i.add, %88 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %5, align 8
   %89 = load i64, ptr %storemerge.i.i.ptr, align 8
   %90 = icmp eq i64 %89, 0
@@ -122474,8 +122474,8 @@ define linkonce_odr i16 @_ZN4CGAL13Intersections8internal11get_min_maxINS_16Simp
   br i1 %92, label %_ZN4CGAL4MpzfD2Ev.exit, label %93
 
 93:                                               ; preds = %91
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %5, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -122497,7 +122497,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %91, %93
 100:                                              ; preds = %100, %94
   %.pn.i.i104.idx = phi i64 [ 16, %94 ], [ %.pn.i.i104.add, %100 ]
   %.pn.i.i104.add = add nsw i64 %.pn.i.i104.idx, -8
-  %storemerge.i.i105.ptr = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i104.add
+  %storemerge.i.i105.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i104.add
   store ptr %storemerge.i.i105.ptr, ptr %6, align 8
   %101 = load i64, ptr %storemerge.i.i105.ptr, align 8
   %102 = icmp eq i64 %101, 0
@@ -122509,8 +122509,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %91, %93
   br i1 %104, label %_ZN4CGAL4MpzfD2Ev.exit106, label %105
 
 105:                                              ; preds = %103
-  %storemerge.i.i105.ptr.le = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i104.add
-  %.pn.i.i104.ptr.le = getelementptr inbounds i8, ptr %6, i64 %.pn.i.i104.idx
+  %storemerge.i.i105.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i104.add
+  %.pn.i.i104.ptr.le = getelementptr inbounds nuw i8, ptr %6, i64 %.pn.i.i104.idx
   store ptr %.pn.i.i104.ptr.le, ptr %6, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i105.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit106
@@ -122532,7 +122532,7 @@ _ZN4CGAL4MpzfD2Ev.exit106:                        ; preds = %103, %105
 112:                                              ; preds = %112, %106
   %.pn.i.i130.idx = phi i64 [ 16, %106 ], [ %.pn.i.i130.add, %112 ]
   %.pn.i.i130.add = add nsw i64 %.pn.i.i130.idx, -8
-  %storemerge.i.i131.ptr = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i130.add
+  %storemerge.i.i131.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i130.add
   store ptr %storemerge.i.i131.ptr, ptr %7, align 8
   %113 = load i64, ptr %storemerge.i.i131.ptr, align 8
   %114 = icmp eq i64 %113, 0
@@ -122544,8 +122544,8 @@ _ZN4CGAL4MpzfD2Ev.exit106:                        ; preds = %103, %105
   br i1 %116, label %_ZN4CGAL4MpzfD2Ev.exit132, label %117
 
 117:                                              ; preds = %115
-  %storemerge.i.i131.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i130.add
-  %.pn.i.i130.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i130.idx
+  %storemerge.i.i131.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i130.add
+  %.pn.i.i130.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i130.idx
   store ptr %.pn.i.i130.ptr.le, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i131.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit132
@@ -122807,7 +122807,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i147:              ; preds = %220, %217
 227:                                              ; preds = %227, %222
   %.pn.i.i158.idx = phi i64 [ 16, %222 ], [ %.pn.i.i158.add, %227 ]
   %.pn.i.i158.add = add nsw i64 %.pn.i.i158.idx, -8
-  %storemerge.i.i159.ptr = getelementptr inbounds i8, ptr %16, i64 %.pn.i.i158.add
+  %storemerge.i.i159.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.pn.i.i158.add
   store ptr %storemerge.i.i159.ptr, ptr %16, align 8
   %228 = load i64, ptr %storemerge.i.i159.ptr, align 8
   %229 = icmp eq i64 %228, 0
@@ -122819,8 +122819,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i147:              ; preds = %220, %217
   br i1 %231, label %_ZN4CGAL4MpzfD2Ev.exit160, label %232
 
 232:                                              ; preds = %230
-  %storemerge.i.i159.ptr.le = getelementptr inbounds i8, ptr %16, i64 %.pn.i.i158.add
-  %.pn.i.i158.ptr.le = getelementptr inbounds i8, ptr %16, i64 %.pn.i.i158.idx
+  %storemerge.i.i159.ptr.le = getelementptr inbounds nuw i8, ptr %16, i64 %.pn.i.i158.add
+  %.pn.i.i158.ptr.le = getelementptr inbounds nuw i8, ptr %16, i64 %.pn.i.i158.idx
   store ptr %.pn.i.i158.ptr.le, ptr %16, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i159.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit160
@@ -123082,7 +123082,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i191:              ; preds = %335, %332
 342:                                              ; preds = %342, %337
   %.pn.i.i219.idx = phi i64 [ 16, %337 ], [ %.pn.i.i219.add, %342 ]
   %.pn.i.i219.add = add nsw i64 %.pn.i.i219.idx, -8
-  %storemerge.i.i220.ptr = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i219.add
+  %storemerge.i.i220.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i219.add
   store ptr %storemerge.i.i220.ptr, ptr %25, align 8
   %343 = load i64, ptr %storemerge.i.i220.ptr, align 8
   %344 = icmp eq i64 %343, 0
@@ -123094,8 +123094,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i191:              ; preds = %335, %332
   br i1 %346, label %_ZN4CGAL4MpzfD2Ev.exit221, label %347
 
 347:                                              ; preds = %345
-  %storemerge.i.i220.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i219.add
-  %.pn.i.i219.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i219.idx
+  %storemerge.i.i220.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i219.add
+  %.pn.i.i219.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i219.idx
   store ptr %.pn.i.i219.ptr.le, ptr %25, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i220.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit221
@@ -123117,7 +123117,7 @@ _ZN4CGAL4MpzfD2Ev.exit221:                        ; preds = %345, %347
 354:                                              ; preds = %354, %348
   %.pn.i.i245.idx = phi i64 [ 16, %348 ], [ %.pn.i.i245.add, %354 ]
   %.pn.i.i245.add = add nsw i64 %.pn.i.i245.idx, -8
-  %storemerge.i.i246.ptr = getelementptr inbounds i8, ptr %26, i64 %.pn.i.i245.add
+  %storemerge.i.i246.ptr = getelementptr inbounds nuw i8, ptr %26, i64 %.pn.i.i245.add
   store ptr %storemerge.i.i246.ptr, ptr %26, align 8
   %355 = load i64, ptr %storemerge.i.i246.ptr, align 8
   %356 = icmp eq i64 %355, 0
@@ -123129,8 +123129,8 @@ _ZN4CGAL4MpzfD2Ev.exit221:                        ; preds = %345, %347
   br i1 %358, label %_ZN4CGAL4MpzfD2Ev.exit247, label %359
 
 359:                                              ; preds = %357
-  %storemerge.i.i246.ptr.le = getelementptr inbounds i8, ptr %26, i64 %.pn.i.i245.add
-  %.pn.i.i245.ptr.le = getelementptr inbounds i8, ptr %26, i64 %.pn.i.i245.idx
+  %storemerge.i.i246.ptr.le = getelementptr inbounds nuw i8, ptr %26, i64 %.pn.i.i245.add
+  %.pn.i.i245.ptr.le = getelementptr inbounds nuw i8, ptr %26, i64 %.pn.i.i245.idx
   store ptr %.pn.i.i245.ptr.le, ptr %26, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i246.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit247
@@ -123392,7 +123392,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i278:              ; preds = %462, %459
 469:                                              ; preds = %469, %464
   %.pn.i.i309.idx = phi i64 [ 16, %464 ], [ %.pn.i.i309.add, %469 ]
   %.pn.i.i309.add = add nsw i64 %.pn.i.i309.idx, -8
-  %storemerge.i.i310.ptr = getelementptr inbounds i8, ptr %35, i64 %.pn.i.i309.add
+  %storemerge.i.i310.ptr = getelementptr inbounds nuw i8, ptr %35, i64 %.pn.i.i309.add
   store ptr %storemerge.i.i310.ptr, ptr %35, align 8
   %470 = load i64, ptr %storemerge.i.i310.ptr, align 8
   %471 = icmp eq i64 %470, 0
@@ -123404,8 +123404,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i278:              ; preds = %462, %459
   br i1 %473, label %_ZN4CGAL4MpzfD2Ev.exit311, label %474
 
 474:                                              ; preds = %472
-  %storemerge.i.i310.ptr.le = getelementptr inbounds i8, ptr %35, i64 %.pn.i.i309.add
-  %.pn.i.i309.ptr.le = getelementptr inbounds i8, ptr %35, i64 %.pn.i.i309.idx
+  %storemerge.i.i310.ptr.le = getelementptr inbounds nuw i8, ptr %35, i64 %.pn.i.i309.add
+  %.pn.i.i309.ptr.le = getelementptr inbounds nuw i8, ptr %35, i64 %.pn.i.i309.idx
   store ptr %.pn.i.i309.ptr.le, ptr %35, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i310.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit311
@@ -123667,7 +123667,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i342:              ; preds = %577, %574
 584:                                              ; preds = %584, %579
   %.pn.i.i370.idx = phi i64 [ 16, %579 ], [ %.pn.i.i370.add, %584 ]
   %.pn.i.i370.add = add nsw i64 %.pn.i.i370.idx, -8
-  %storemerge.i.i371.ptr = getelementptr inbounds i8, ptr %44, i64 %.pn.i.i370.add
+  %storemerge.i.i371.ptr = getelementptr inbounds nuw i8, ptr %44, i64 %.pn.i.i370.add
   store ptr %storemerge.i.i371.ptr, ptr %44, align 8
   %585 = load i64, ptr %storemerge.i.i371.ptr, align 8
   %586 = icmp eq i64 %585, 0
@@ -123679,8 +123679,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i342:              ; preds = %577, %574
   br i1 %588, label %_ZN4CGAL4MpzfD2Ev.exit372, label %589
 
 589:                                              ; preds = %587
-  %storemerge.i.i371.ptr.le = getelementptr inbounds i8, ptr %44, i64 %.pn.i.i370.add
-  %.pn.i.i370.ptr.le = getelementptr inbounds i8, ptr %44, i64 %.pn.i.i370.idx
+  %storemerge.i.i371.ptr.le = getelementptr inbounds nuw i8, ptr %44, i64 %.pn.i.i370.add
+  %.pn.i.i370.ptr.le = getelementptr inbounds nuw i8, ptr %44, i64 %.pn.i.i370.idx
   store ptr %.pn.i.i370.ptr.le, ptr %44, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i371.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit372
@@ -123702,7 +123702,7 @@ _ZN4CGAL4MpzfD2Ev.exit372:                        ; preds = %587, %589
 596:                                              ; preds = %596, %590
   %.pn.i.i396.idx = phi i64 [ 16, %590 ], [ %.pn.i.i396.add, %596 ]
   %.pn.i.i396.add = add nsw i64 %.pn.i.i396.idx, -8
-  %storemerge.i.i397.ptr = getelementptr inbounds i8, ptr %45, i64 %.pn.i.i396.add
+  %storemerge.i.i397.ptr = getelementptr inbounds nuw i8, ptr %45, i64 %.pn.i.i396.add
   store ptr %storemerge.i.i397.ptr, ptr %45, align 8
   %597 = load i64, ptr %storemerge.i.i397.ptr, align 8
   %598 = icmp eq i64 %597, 0
@@ -123714,8 +123714,8 @@ _ZN4CGAL4MpzfD2Ev.exit372:                        ; preds = %587, %589
   br i1 %600, label %_ZN4CGAL4MpzfD2Ev.exit398, label %601
 
 601:                                              ; preds = %599
-  %storemerge.i.i397.ptr.le = getelementptr inbounds i8, ptr %45, i64 %.pn.i.i396.add
-  %.pn.i.i396.ptr.le = getelementptr inbounds i8, ptr %45, i64 %.pn.i.i396.idx
+  %storemerge.i.i397.ptr.le = getelementptr inbounds nuw i8, ptr %45, i64 %.pn.i.i396.add
+  %.pn.i.i396.ptr.le = getelementptr inbounds nuw i8, ptr %45, i64 %.pn.i.i396.idx
   store ptr %.pn.i.i396.ptr.le, ptr %45, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i397.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit398
@@ -123737,7 +123737,7 @@ _ZN4CGAL4MpzfD2Ev.exit398:                        ; preds = %599, %601
 608:                                              ; preds = %608, %602
   %.pn.i.i422.idx = phi i64 [ 16, %602 ], [ %.pn.i.i422.add, %608 ]
   %.pn.i.i422.add = add nsw i64 %.pn.i.i422.idx, -8
-  %storemerge.i.i423.ptr = getelementptr inbounds i8, ptr %46, i64 %.pn.i.i422.add
+  %storemerge.i.i423.ptr = getelementptr inbounds nuw i8, ptr %46, i64 %.pn.i.i422.add
   store ptr %storemerge.i.i423.ptr, ptr %46, align 8
   %609 = load i64, ptr %storemerge.i.i423.ptr, align 8
   %610 = icmp eq i64 %609, 0
@@ -123749,8 +123749,8 @@ _ZN4CGAL4MpzfD2Ev.exit398:                        ; preds = %599, %601
   br i1 %612, label %_ZN4CGAL4MpzfD2Ev.exit424, label %613
 
 613:                                              ; preds = %611
-  %storemerge.i.i423.ptr.le = getelementptr inbounds i8, ptr %46, i64 %.pn.i.i422.add
-  %.pn.i.i422.ptr.le = getelementptr inbounds i8, ptr %46, i64 %.pn.i.i422.idx
+  %storemerge.i.i423.ptr.le = getelementptr inbounds nuw i8, ptr %46, i64 %.pn.i.i422.add
+  %.pn.i.i422.ptr.le = getelementptr inbounds nuw i8, ptr %46, i64 %.pn.i.i422.idx
   store ptr %.pn.i.i422.ptr.le, ptr %46, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i423.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit424
@@ -124012,7 +124012,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i455:              ; preds = %716, %713
 723:                                              ; preds = %723, %718
   %.pn.i.i489.idx = phi i64 [ 16, %718 ], [ %.pn.i.i489.add, %723 ]
   %.pn.i.i489.add = add nsw i64 %.pn.i.i489.idx, -8
-  %storemerge.i.i490.ptr = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i489.add
+  %storemerge.i.i490.ptr = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i489.add
   store ptr %storemerge.i.i490.ptr, ptr %55, align 8
   %724 = load i64, ptr %storemerge.i.i490.ptr, align 8
   %725 = icmp eq i64 %724, 0
@@ -124024,8 +124024,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i455:              ; preds = %716, %713
   br i1 %727, label %_ZN4CGAL4MpzfD2Ev.exit491, label %728
 
 728:                                              ; preds = %726
-  %storemerge.i.i490.ptr.le = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i489.add
-  %.pn.i.i489.ptr.le = getelementptr inbounds i8, ptr %55, i64 %.pn.i.i489.idx
+  %storemerge.i.i490.ptr.le = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i489.add
+  %.pn.i.i489.ptr.le = getelementptr inbounds nuw i8, ptr %55, i64 %.pn.i.i489.idx
   store ptr %.pn.i.i489.ptr.le, ptr %55, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i490.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit491
@@ -124287,7 +124287,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i522:              ; preds = %831, %828
 838:                                              ; preds = %838, %833
   %.pn.i.i550.idx = phi i64 [ 16, %833 ], [ %.pn.i.i550.add, %838 ]
   %.pn.i.i550.add = add nsw i64 %.pn.i.i550.idx, -8
-  %storemerge.i.i551.ptr = getelementptr inbounds i8, ptr %64, i64 %.pn.i.i550.add
+  %storemerge.i.i551.ptr = getelementptr inbounds nuw i8, ptr %64, i64 %.pn.i.i550.add
   store ptr %storemerge.i.i551.ptr, ptr %64, align 8
   %839 = load i64, ptr %storemerge.i.i551.ptr, align 8
   %840 = icmp eq i64 %839, 0
@@ -124299,8 +124299,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i522:              ; preds = %831, %828
   br i1 %842, label %_ZN4CGAL4MpzfD2Ev.exit552, label %843
 
 843:                                              ; preds = %841
-  %storemerge.i.i551.ptr.le = getelementptr inbounds i8, ptr %64, i64 %.pn.i.i550.add
-  %.pn.i.i550.ptr.le = getelementptr inbounds i8, ptr %64, i64 %.pn.i.i550.idx
+  %storemerge.i.i551.ptr.le = getelementptr inbounds nuw i8, ptr %64, i64 %.pn.i.i550.add
+  %.pn.i.i550.ptr.le = getelementptr inbounds nuw i8, ptr %64, i64 %.pn.i.i550.idx
   store ptr %.pn.i.i550.ptr.le, ptr %64, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i551.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit552
@@ -124322,7 +124322,7 @@ _ZN4CGAL4MpzfD2Ev.exit552:                        ; preds = %841, %843
 850:                                              ; preds = %850, %844
   %.pn.i.i576.idx = phi i64 [ 16, %844 ], [ %.pn.i.i576.add, %850 ]
   %.pn.i.i576.add = add nsw i64 %.pn.i.i576.idx, -8
-  %storemerge.i.i577.ptr = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i576.add
+  %storemerge.i.i577.ptr = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i576.add
   store ptr %storemerge.i.i577.ptr, ptr %65, align 8
   %851 = load i64, ptr %storemerge.i.i577.ptr, align 8
   %852 = icmp eq i64 %851, 0
@@ -124334,8 +124334,8 @@ _ZN4CGAL4MpzfD2Ev.exit552:                        ; preds = %841, %843
   br i1 %854, label %_ZN4CGAL4MpzfD2Ev.exit578, label %855
 
 855:                                              ; preds = %853
-  %storemerge.i.i577.ptr.le = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i576.add
-  %.pn.i.i576.ptr.le = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i576.idx
+  %storemerge.i.i577.ptr.le = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i576.add
+  %.pn.i.i576.ptr.le = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i576.idx
   store ptr %.pn.i.i576.ptr.le, ptr %65, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i577.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit578
@@ -124597,7 +124597,7 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i609:              ; preds = %958, %955
 965:                                              ; preds = %965, %960
   %.pn.i.i640.idx = phi i64 [ 16, %960 ], [ %.pn.i.i640.add, %965 ]
   %.pn.i.i640.add = add nsw i64 %.pn.i.i640.idx, -8
-  %storemerge.i.i641.ptr = getelementptr inbounds i8, ptr %74, i64 %.pn.i.i640.add
+  %storemerge.i.i641.ptr = getelementptr inbounds nuw i8, ptr %74, i64 %.pn.i.i640.add
   store ptr %storemerge.i.i641.ptr, ptr %74, align 8
   %966 = load i64, ptr %storemerge.i.i641.ptr, align 8
   %967 = icmp eq i64 %966, 0
@@ -124609,8 +124609,8 @@ _ZN4CGAL4MpzfD2Ev.exit.i.i.i.i.i609:              ; preds = %958, %955
   br i1 %969, label %_ZN4CGAL4MpzfD2Ev.exit642, label %970
 
 970:                                              ; preds = %968
-  %storemerge.i.i641.ptr.le = getelementptr inbounds i8, ptr %74, i64 %.pn.i.i640.add
-  %.pn.i.i640.ptr.le = getelementptr inbounds i8, ptr %74, i64 %.pn.i.i640.idx
+  %storemerge.i.i641.ptr.le = getelementptr inbounds nuw i8, ptr %74, i64 %.pn.i.i640.add
+  %.pn.i.i640.ptr.le = getelementptr inbounds nuw i8, ptr %74, i64 %.pn.i.i640.idx
   store ptr %.pn.i.i640.ptr.le, ptr %74, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i641.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit642
@@ -127469,7 +127469,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit:
 13:                                               ; preds = %13, %_ZN4CGALeqERKNS_4MpzfES2_.exit
   %.pn.i.i.idx = phi i64 [ 16, %_ZN4CGALeqERKNS_4MpzfES2_.exit ], [ %.pn.i.i.add, %13 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %1, align 8
   %14 = load i64, ptr %storemerge.i.i.ptr, align 8
   %15 = icmp eq i64 %14, 0
@@ -127482,8 +127482,8 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit:
   br i1 %17, label %_ZN4CGAL4MpzfD2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %1, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %1, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %1, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %1, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -127508,7 +127508,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit19:                 ; preds = %_ZN4CGAL4MpzfD2Ev.e
 26:                                               ; preds = %26, %_ZN4CGALeqERKNS_4MpzfES2_.exit19
   %.pn.i.i20.idx = phi i64 [ 16, %_ZN4CGALeqERKNS_4MpzfES2_.exit19 ], [ %.pn.i.i20.add, %26 ]
   %.pn.i.i20.add = add nsw i64 %.pn.i.i20.idx, -8
-  %storemerge.i.i21.ptr = getelementptr inbounds i8, ptr %2, i64 %.pn.i.i20.add
+  %storemerge.i.i21.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.pn.i.i20.add
   store ptr %storemerge.i.i21.ptr, ptr %2, align 8
   %27 = load i64, ptr %storemerge.i.i21.ptr, align 8
   %28 = icmp eq i64 %27, 0
@@ -127521,8 +127521,8 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit19:                 ; preds = %_ZN4CGAL4MpzfD2Ev.e
   br i1 %30, label %_ZN4CGAL4MpzfD2Ev.exit22, label %31
 
 31:                                               ; preds = %29
-  %storemerge.i.i21.ptr.le = getelementptr inbounds i8, ptr %2, i64 %.pn.i.i20.add
-  %.pn.i.i20.ptr.le = getelementptr inbounds i8, ptr %2, i64 %.pn.i.i20.idx
+  %storemerge.i.i21.ptr.le = getelementptr inbounds nuw i8, ptr %2, i64 %.pn.i.i20.add
+  %.pn.i.i20.ptr.le = getelementptr inbounds nuw i8, ptr %2, i64 %.pn.i.i20.idx
   store ptr %.pn.i.i20.ptr.le, ptr %2, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i21.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit22
@@ -127547,7 +127547,7 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit32:                 ; preds = %_ZN4CGAL4MpzfD2Ev.e
 39:                                               ; preds = %39, %_ZN4CGALeqERKNS_4MpzfES2_.exit32
   %.pn.i.i33.idx = phi i64 [ 16, %_ZN4CGALeqERKNS_4MpzfES2_.exit32 ], [ %.pn.i.i33.add, %39 ]
   %.pn.i.i33.add = add nsw i64 %.pn.i.i33.idx, -8
-  %storemerge.i.i34.ptr = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i33.add
+  %storemerge.i.i34.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i33.add
   store ptr %storemerge.i.i34.ptr, ptr %3, align 8
   %40 = load i64, ptr %storemerge.i.i34.ptr, align 8
   %41 = icmp eq i64 %40, 0
@@ -127560,8 +127560,8 @@ _ZN4CGALeqERKNS_4MpzfES2_.exit32:                 ; preds = %_ZN4CGAL4MpzfD2Ev.e
   br i1 %43, label %_ZN4CGAL4MpzfD2Ev.exit35, label %44
 
 44:                                               ; preds = %42
-  %storemerge.i.i34.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i33.add
-  %.pn.i.i33.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.pn.i.i33.idx
+  %storemerge.i.i34.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i33.add
+  %.pn.i.i33.ptr.le = getelementptr inbounds nuw i8, ptr %3, i64 %.pn.i.i33.idx
   store ptr %.pn.i.i33.ptr.le, ptr %3, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i34.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit35
@@ -127604,7 +127604,7 @@ _ZN4CGAL4MpzfD2Ev.exit35:                         ; preds = %42, %44
 62:                                               ; preds = %62, %54
   %.pn.i.i47.idx = phi i64 [ 16, %54 ], [ %.pn.i.i47.add, %62 ]
   %.pn.i.i47.add = add nsw i64 %.pn.i.i47.idx, -8
-  %storemerge.i.i48.ptr = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i47.add
+  %storemerge.i.i48.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i47.add
   store ptr %storemerge.i.i48.ptr, ptr %5, align 8
   %63 = load i64, ptr %storemerge.i.i48.ptr, align 8
   %64 = icmp eq i64 %63, 0
@@ -127617,8 +127617,8 @@ _ZN4CGAL4MpzfD2Ev.exit35:                         ; preds = %42, %44
   br i1 %66, label %_ZN4CGALeqERKNS_4MpzfES2_.exit46, label %67
 
 67:                                               ; preds = %65
-  %storemerge.i.i48.ptr.le = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i47.add
-  %.pn.i.i47.ptr.le = getelementptr inbounds i8, ptr %5, i64 %.pn.i.i47.idx
+  %storemerge.i.i48.ptr.le = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i47.add
+  %.pn.i.i47.ptr.le = getelementptr inbounds nuw i8, ptr %5, i64 %.pn.i.i47.idx
   store ptr %.pn.i.i47.ptr.le, ptr %5, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i48.ptr.le) #39
   %.pre = load ptr, ptr %4, align 8
@@ -133948,7 +133948,7 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
 47:                                               ; preds = %47, %6
   %.pn.i.i.idx = phi i64 [ 16, %6 ], [ %.pn.i.i.add, %47 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %7, align 8
   %48 = load i64, ptr %storemerge.i.i.ptr, align 8
   %49 = icmp eq i64 %48, 0
@@ -133960,8 +133960,8 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
   br i1 %51, label %_ZN4CGAL4MpzfD2Ev.exit, label %52
 
 52:                                               ; preds = %50
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -133983,7 +133983,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
 59:                                               ; preds = %59, %54
   %.pn.i.i61.idx = phi i64 [ 16, %54 ], [ %.pn.i.i61.add, %59 ]
   %.pn.i.i61.add = add nsw i64 %.pn.i.i61.idx, -8
-  %storemerge.i.i62.ptr = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
+  %storemerge.i.i62.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
   store ptr %storemerge.i.i62.ptr, ptr %8, align 8
   %60 = load i64, ptr %storemerge.i.i62.ptr, align 8
   %61 = icmp eq i64 %60, 0
@@ -133995,8 +133995,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
   br i1 %63, label %_ZN4CGAL4MpzfD2Ev.exit63, label %64
 
 64:                                               ; preds = %62
-  %storemerge.i.i62.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
-  %.pn.i.i61.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.idx
+  %storemerge.i.i62.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
+  %.pn.i.i61.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.idx
   store ptr %.pn.i.i61.ptr.le, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i62.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit63
@@ -135016,7 +135016,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 509:                                              ; preds = %509, %504
   %.pn.i.i188.idx = phi i64 [ 16, %504 ], [ %.pn.i.i188.add, %509 ]
   %.pn.i.i188.add = add nsw i64 %.pn.i.i188.idx, -8
-  %storemerge.i.i189.ptr = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
+  %storemerge.i.i189.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
   store ptr %storemerge.i.i189.ptr, ptr %25, align 8
   %510 = load i64, ptr %storemerge.i.i189.ptr, align 8
   %511 = icmp eq i64 %510, 0
@@ -135028,8 +135028,8 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
   br i1 %513, label %_ZN4CGAL4MpzfD2Ev.exit190, label %514
 
 514:                                              ; preds = %512
-  %storemerge.i.i189.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
-  %.pn.i.i188.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.idx
+  %storemerge.i.i189.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
+  %.pn.i.i188.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.idx
   store ptr %.pn.i.i188.ptr.le, ptr %25, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i189.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit190
@@ -137032,7 +137032,7 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
 47:                                               ; preds = %47, %6
   %.pn.i.i.idx = phi i64 [ 16, %6 ], [ %.pn.i.i.add, %47 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %7, align 8
   %48 = load i64, ptr %storemerge.i.i.ptr, align 8
   %49 = icmp eq i64 %48, 0
@@ -137044,8 +137044,8 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
   br i1 %51, label %_ZN4CGAL4MpzfD2Ev.exit, label %52
 
 52:                                               ; preds = %50
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -137067,7 +137067,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
 59:                                               ; preds = %59, %54
   %.pn.i.i61.idx = phi i64 [ 16, %54 ], [ %.pn.i.i61.add, %59 ]
   %.pn.i.i61.add = add nsw i64 %.pn.i.i61.idx, -8
-  %storemerge.i.i62.ptr = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
+  %storemerge.i.i62.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
   store ptr %storemerge.i.i62.ptr, ptr %8, align 8
   %60 = load i64, ptr %storemerge.i.i62.ptr, align 8
   %61 = icmp eq i64 %60, 0
@@ -137079,8 +137079,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
   br i1 %63, label %_ZN4CGAL4MpzfD2Ev.exit63, label %64
 
 64:                                               ; preds = %62
-  %storemerge.i.i62.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
-  %.pn.i.i61.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.idx
+  %storemerge.i.i62.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
+  %.pn.i.i61.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.idx
   store ptr %.pn.i.i61.ptr.le, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i62.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit63
@@ -138100,7 +138100,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 509:                                              ; preds = %509, %504
   %.pn.i.i188.idx = phi i64 [ 16, %504 ], [ %.pn.i.i188.add, %509 ]
   %.pn.i.i188.add = add nsw i64 %.pn.i.i188.idx, -8
-  %storemerge.i.i189.ptr = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
+  %storemerge.i.i189.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
   store ptr %storemerge.i.i189.ptr, ptr %25, align 8
   %510 = load i64, ptr %storemerge.i.i189.ptr, align 8
   %511 = icmp eq i64 %510, 0
@@ -138112,8 +138112,8 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
   br i1 %513, label %_ZN4CGAL4MpzfD2Ev.exit190, label %514
 
 514:                                              ; preds = %512
-  %storemerge.i.i189.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
-  %.pn.i.i188.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.idx
+  %storemerge.i.i189.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
+  %.pn.i.i188.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.idx
   store ptr %.pn.i.i188.ptr.le, ptr %25, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i189.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit190
@@ -139640,7 +139640,7 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
 47:                                               ; preds = %47, %6
   %.pn.i.i.idx = phi i64 [ 16, %6 ], [ %.pn.i.i.add, %47 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %7, align 8
   %48 = load i64, ptr %storemerge.i.i.ptr, align 8
   %49 = icmp eq i64 %48, 0
@@ -139652,8 +139652,8 @@ define linkonce_odr void @_ZN4CGAL13Intersections8internal11get_min_maxINS_4Mpzf
   br i1 %51, label %_ZN4CGAL4MpzfD2Ev.exit, label %52
 
 52:                                               ; preds = %50
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %7, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %7, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -139675,7 +139675,7 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
 59:                                               ; preds = %59, %54
   %.pn.i.i61.idx = phi i64 [ 16, %54 ], [ %.pn.i.i61.add, %59 ]
   %.pn.i.i61.add = add nsw i64 %.pn.i.i61.idx, -8
-  %storemerge.i.i62.ptr = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
+  %storemerge.i.i62.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
   store ptr %storemerge.i.i62.ptr, ptr %8, align 8
   %60 = load i64, ptr %storemerge.i.i62.ptr, align 8
   %61 = icmp eq i64 %60, 0
@@ -139687,8 +139687,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %50, %52
   br i1 %63, label %_ZN4CGAL4MpzfD2Ev.exit63, label %64
 
 64:                                               ; preds = %62
-  %storemerge.i.i62.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.add
-  %.pn.i.i61.ptr.le = getelementptr inbounds i8, ptr %8, i64 %.pn.i.i61.idx
+  %storemerge.i.i62.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.add
+  %.pn.i.i61.ptr.le = getelementptr inbounds nuw i8, ptr %8, i64 %.pn.i.i61.idx
   store ptr %.pn.i.i61.ptr.le, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i62.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit63
@@ -140708,7 +140708,7 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
 509:                                              ; preds = %509, %504
   %.pn.i.i188.idx = phi i64 [ 16, %504 ], [ %.pn.i.i188.add, %509 ]
   %.pn.i.i188.add = add nsw i64 %.pn.i.i188.idx, -8
-  %storemerge.i.i189.ptr = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
+  %storemerge.i.i189.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
   store ptr %storemerge.i.i189.ptr, ptr %25, align 8
   %510 = load i64, ptr %storemerge.i.i189.ptr, align 8
   %511 = icmp eq i64 %510, 0
@@ -140720,8 +140720,8 @@ _ZNSt5arrayIN4CGAL4MpzfELm3EED2Ev.exit155:        ; preds = %_ZN4CGAL4MpzfD2Ev.e
   br i1 %513, label %_ZN4CGAL4MpzfD2Ev.exit190, label %514
 
 514:                                              ; preds = %512
-  %storemerge.i.i189.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.add
-  %.pn.i.i188.ptr.le = getelementptr inbounds i8, ptr %25, i64 %.pn.i.i188.idx
+  %storemerge.i.i189.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.add
+  %.pn.i.i188.ptr.le = getelementptr inbounds nuw i8, ptr %25, i64 %.pn.i.i188.idx
   store ptr %.pn.i.i188.ptr.le, ptr %25, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i189.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit190
@@ -167258,7 +167258,7 @@ define linkonce_odr void @_ZN4CGAL8internal19squared_distance_RTINS_16Simple_car
 32:                                               ; preds = %32, %26
   %.pn.i.i.idx = phi i64 [ 16, %26 ], [ %.pn.i.i.add, %32 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %10, align 8
   %33 = load i64, ptr %storemerge.i.i.ptr, align 8
   %34 = icmp eq i64 %33, 0
@@ -167270,8 +167270,8 @@ define linkonce_odr void @_ZN4CGAL8internal19squared_distance_RTINS_16Simple_car
   br i1 %36, label %_ZN4CGAL4MpzfD2Ev.exit, label %37
 
 37:                                               ; preds = %35
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %10, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %10, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %10, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -168996,7 +168996,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL8internal24on_left_of_triangle_e
 20:                                               ; preds = %20, %14
   %.pn.i.i.idx = phi i64 [ 16, %14 ], [ %.pn.i.i.add, %20 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %11, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %11, align 8
   %21 = load i64, ptr %storemerge.i.i.ptr, align 8
   %22 = icmp eq i64 %21, 0
@@ -169007,8 +169007,8 @@ define linkonce_odr noundef zeroext i1 @_ZN4CGAL8internal24on_left_of_triangle_e
   br i1 %24, label %_ZN4CGAL4MpzfD2Ev.exit, label %25
 
 25:                                               ; preds = %23
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %11, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %11, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %11, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %11, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %11, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   br label %_ZN4CGAL4MpzfD2Ev.exit
@@ -202096,7 +202096,7 @@ _ZN4CGAL4MpzfC2Ed.exit569.thread:                 ; preds = %1234
 1328:                                             ; preds = %1328, %.thread2092
   %.pn.i.i.idx = phi i64 [ 16, %.thread2092 ], [ %.pn.i.i.add, %1328 ]
   %.pn.i.i.add = add nsw i64 %.pn.i.i.idx, -8
-  %storemerge.i.i.ptr = getelementptr inbounds i8, ptr %27, i64 %.pn.i.i.add
+  %storemerge.i.i.ptr = getelementptr inbounds nuw i8, ptr %27, i64 %.pn.i.i.add
   store ptr %storemerge.i.i.ptr, ptr %27, align 8
   %1329 = load i64, ptr %storemerge.i.i.ptr, align 8
   %1330 = icmp eq i64 %1329, 0
@@ -202108,8 +202108,8 @@ _ZN4CGAL4MpzfC2Ed.exit569.thread:                 ; preds = %1234
   br i1 %1332, label %_ZN4CGAL4MpzfD2Ev.exit, label %1333
 
 1333:                                             ; preds = %1331
-  %storemerge.i.i.ptr.le = getelementptr inbounds i8, ptr %27, i64 %.pn.i.i.add
-  %.pn.i.i.ptr.le = getelementptr inbounds i8, ptr %27, i64 %.pn.i.i.idx
+  %storemerge.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %27, i64 %.pn.i.i.add
+  %.pn.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %27, i64 %.pn.i.i.idx
   store ptr %.pn.i.i.ptr.le, ptr %27, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.ptr.le) #39
   %.pre = load ptr, ptr %26, align 8
@@ -205913,7 +205913,7 @@ _ZN4CGAL4MpzfD2Ev.exit1043:                       ; preds = %2894, %2897
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %.pn.i.i1044.idx = phi i64 [ %.pn.i.i1044.add, %.critedge ], [ 16, %.critedge.preheader ]
   %.pn.i.i1044.add = add nsw i64 %.pn.i.i1044.idx, -8
-  %storemerge.i.i1045.ptr = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i1044.add
+  %storemerge.i.i1045.ptr = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i1044.add
   store ptr %storemerge.i.i1045.ptr, ptr %65, align 8
   %2898 = load i64, ptr %storemerge.i.i1045.ptr, align 8
   %2899 = icmp eq i64 %2898, 0
@@ -205924,8 +205924,8 @@ _ZN4CGAL4MpzfD2Ev.exit1043:                       ; preds = %2894, %2897
   br i1 %2901, label %_ZN4CGAL4MpzfD2Ev.exit1046, label %2902
 
 2902:                                             ; preds = %2900
-  %storemerge.i.i1045.ptr.le = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i1044.add
-  %.pn.i.i1044.ptr.le = getelementptr inbounds i8, ptr %65, i64 %.pn.i.i1044.idx
+  %storemerge.i.i1045.ptr.le = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i1044.add
+  %.pn.i.i1044.ptr.le = getelementptr inbounds nuw i8, ptr %65, i64 %.pn.i.i1044.idx
   store ptr %.pn.i.i1044.ptr.le, ptr %65, align 8
   br label %_ZN4CGAL4MpzfD2Ev.exit1046.sink.split
 

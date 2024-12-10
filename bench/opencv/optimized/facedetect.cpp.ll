@@ -869,7 +869,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .critedge:                                        ; preds = %272, %275
   %.040.lcssa = phi i32 [ %smin, %272 ], [ %273, %275 ]
   %281 = sext i32 %.040.lcssa to i64
-  %282 = getelementptr inbounds [1001 x i8], ptr %40, i64 0, i64 %281
+  %282 = getelementptr inbounds nuw [1001 x i8], ptr %40, i64 0, i64 %281
   store i8 0, ptr %282, align 1
   %283 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19)
           to label %284 unwind label %.loopexit.split-lp.loopexit

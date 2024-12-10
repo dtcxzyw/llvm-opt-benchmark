@@ -1133,7 +1133,7 @@ yy_stack_print.exit:                              ; preds = %.lr.ph.i, %236
 
 281:                                              ; preds = %279
   %282 = sext i32 %.05446 to i64
-  %283 = getelementptr inbounds [1344 x i16], ptr @yypact, i64 0, i64 %282
+  %283 = getelementptr inbounds nuw [1344 x i16], ptr @yypact, i64 0, i64 %282
   %284 = load i16, ptr %283, align 2
   %285 = sext i16 %284 to i32
   %286 = icmp eq i16 %284, -1095
@@ -1336,7 +1336,7 @@ after_shift.exit:                                 ; preds = %368, %374
 
 379:                                              ; preds = %339, %341, %281
   %.4 = phi i32 [ %.05441, %281 ], [ %.6, %339 ], [ %.6, %341 ]
-  %380 = getelementptr inbounds [1344 x i16], ptr @yydefact, i64 0, i64 %282
+  %380 = getelementptr inbounds nuw [1344 x i16], ptr @yydefact, i64 0, i64 %282
   %381 = load i16, ptr %380, align 2
   %382 = sext i16 %381 to i32
   %383 = icmp eq i16 %381, 0
@@ -1346,7 +1346,7 @@ after_shift.exit:                                 ; preds = %368, %374
   %.05488 = phi i32 [ %382, %379 ], [ %354, %353 ]
   %.9 = phi i32 [ %.4, %379 ], [ %.6, %353 ]
   %385 = sext i32 %.05488 to i64
-  %386 = getelementptr inbounds [785 x i8], ptr @yyr2, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw [785 x i8], ptr @yyr2, i64 0, i64 %385
   %387 = load i8, ptr %386, align 1
   %388 = sext i8 %387 to i32
   %389 = sub nsw i32 1, %388
@@ -1388,7 +1388,7 @@ before_reduce.exit:                               ; preds = %384
   br i1 %.not5573, label %yy_reduce_print.exit, label %410
 
 410:                                              ; preds = %407
-  %411 = getelementptr inbounds [785 x i16], ptr @yyrline, i64 0, i64 %385
+  %411 = getelementptr inbounds nuw [785 x i16], ptr @yyrline, i64 0, i64 %385
   %412 = load i16, ptr %411, align 2
   %413 = sext i16 %412 to i32
   %414 = add nsw i32 %.05488, -1
@@ -1409,7 +1409,7 @@ before_reduce.exit:                               ; preds = %384
   %419 = getelementptr inbounds i16, ptr %.25462, i64 %418
   %420 = load i16, ptr %419, align 2
   %421 = sext i16 %420 to i64
-  %422 = getelementptr inbounds [1344 x i16], ptr @yystos, i64 0, i64 %421
+  %422 = getelementptr inbounds nuw [1344 x i16], ptr @yystos, i64 0, i64 %421
   %423 = load i16, ptr %422, align 2
   %424 = sext i16 %423 to i32
   %425 = getelementptr inbounds %union.YYSTYPE, ptr %.25472, i64 %418
@@ -1417,7 +1417,7 @@ before_reduce.exit:                               ; preds = %384
   %427 = icmp slt i16 %423, 163
   %428 = select i1 %427, ptr @.str.72, ptr @.str.73
   %429 = sext i16 %423 to i64
-  %430 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %429
   %431 = load ptr, ptr %430, align 8
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef nonnull %428, ptr noundef %431) #24
   %432 = load i32, ptr %426, align 4
@@ -14636,13 +14636,13 @@ parser_set_lex_state.exit6514:                    ; preds = %8075, %8078
 
 8242:                                             ; preds = %8239
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.61) #24
-  %8243 = getelementptr inbounds [785 x i16], ptr @yyr1, i64 0, i64 %385
+  %8243 = getelementptr inbounds nuw [785 x i16], ptr @yyr1, i64 0, i64 %385
   %8244 = load i16, ptr %8243, align 2
   %8245 = sext i16 %8244 to i32
   %8246 = icmp eq i32 %.05488, 0
   %8247 = select i1 %8246, ptr @.str.72, ptr @.str.73
   %8248 = sext i16 %8244 to i64
-  %8249 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %8248
+  %8249 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %8248
   %8250 = load ptr, ptr %8249, align 8
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef nonnull %8247, ptr noundef %8250) #24
   %8251 = load i32, ptr %8, align 8
@@ -14706,11 +14706,11 @@ after_reduce.exit:                                ; preds = %._crit_edge.i, %827
   store i64 %8279, ptr %8278, align 8
   %8280 = getelementptr inbounds nuw i8, ptr %8260, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8280, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %8281 = getelementptr inbounds [785 x i16], ptr @yyr1, i64 0, i64 %385
+  %8281 = getelementptr inbounds nuw [785 x i16], ptr @yyr1, i64 0, i64 %385
   %8282 = load i16, ptr %8281, align 2
   %8283 = sext i16 %8282 to i64
   %8284 = add nsw i64 %8283, -163
-  %8285 = getelementptr inbounds [278 x i16], ptr @yypgoto, i64 0, i64 %8284
+  %8285 = getelementptr inbounds nuw [278 x i16], ptr @yypgoto, i64 0, i64 %8284
   %8286 = load i16, ptr %8285, align 2
   %8287 = sext i16 %8286 to i32
   %8288 = load i16, ptr %8259, align 2
@@ -14731,7 +14731,7 @@ after_reduce.exit:                                ; preds = %._crit_edge.i, %827
   br label %8300
 
 8298:                                             ; preds = %8291, %after_reduce.exit
-  %8299 = getelementptr inbounds [278 x i16], ptr @yydefgoto, i64 0, i64 %8284
+  %8299 = getelementptr inbounds nuw [278 x i16], ptr @yydefgoto, i64 0, i64 %8284
   br label %8300
 
 8300:                                             ; preds = %8298, %8296
@@ -14905,7 +14905,7 @@ parser_yyerror.exit:                              ; preds = %8339, %8349
 
 8374:                                             ; preds = %8372
   %.sroa.01238.sroa.0.0.copyload6551 = load i64, ptr %.55485, align 4
-  %8375 = getelementptr inbounds [1344 x i16], ptr @yystos, i64 0, i64 %8360
+  %8375 = getelementptr inbounds nuw [1344 x i16], ptr @yystos, i64 0, i64 %8360
   %8376 = load i16, ptr %8375, align 2
   %8377 = sext i16 %8376 to i32
   call fastcc void @yydestruct(ptr noundef nonnull @.str.64, i32 noundef %8377, ptr noundef %.55475, ptr noundef %.55485, ptr noundef %0)
@@ -14953,7 +14953,7 @@ yy_stack_print.exit6529:                          ; preds = %.lr.ph.i6525, %8392
 
 8396:                                             ; preds = %after_pop_stack.exit, %yy_stack_print.exit6529
   %.phi.trans.insert = sext i16 %8388 to i64
-  %.phi.trans.insert6756 = getelementptr inbounds [1344 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert6756 = getelementptr inbounds nuw [1344 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
   %.pre6757 = load i16, ptr %.phi.trans.insert6756, align 2
   br label %8358
 
@@ -14981,7 +14981,7 @@ yy_stack_print.exit6529:                          ; preds = %.lr.ph.i6525, %8392
   %8410 = icmp slt i16 %8408, 163
   %8411 = select i1 %8410, ptr @.str.72, ptr @.str.73
   %8412 = sext i16 %8408 to i64
-  %8413 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %8412
+  %8413 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %8412
   %8414 = load ptr, ptr %8413, align 8
   call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef nonnull %8411, ptr noundef %8414) #24
   %8415 = load i32, ptr %8401, align 4
@@ -15140,7 +15140,7 @@ yy_stack_print.exit6541:                          ; preds = %.lr.ph.i6537, %8462
   %.754876698 = phi ptr [ %8474, %.lr.ph6701 ], [ %.654866606, %8466 ]
   %8467 = load i16, ptr %.754676700, align 2
   %8468 = sext i16 %8467 to i64
-  %8469 = getelementptr inbounds [1344 x i16], ptr @yystos, i64 0, i64 %8468
+  %8469 = getelementptr inbounds nuw [1344 x i16], ptr @yystos, i64 0, i64 %8468
   %8470 = load i16, ptr %8469, align 2
   %8471 = sext i16 %8470 to i32
   call fastcc void @yydestruct(ptr noundef nonnull @.str.67, i32 noundef %8471, ptr noundef %.754776699, ptr noundef %.754876698, ptr noundef %0)
@@ -27020,7 +27020,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2
   %6 = sext i16 %.val.val.i to i64
-  %7 = getelementptr inbounds [1344 x i16], ptr @yypact, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [1344 x i16], ptr @yypact, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, -1095
   br i1 %9, label %.thread.i.i, label %10
@@ -27045,7 +27045,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %indvars.iv.i.i = phi i64 [ %18, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %38 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %38 ]
   %21 = add nsw i64 %indvars.iv.i.i, %19
-  %22 = getelementptr inbounds [16026 x i16], ptr @yycheck, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16026 x i16], ptr @yycheck, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = sext i16 %23 to i32
   %25 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -27055,7 +27055,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %or.cond.i.i, label %28, label %38
 
 28:                                               ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds [16026 x i16], ptr @yytable, i64 0, i64 %21
+  %29 = getelementptr inbounds nuw [16026 x i16], ptr @yytable, i64 0, i64 %21
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, -785
   br i1 %31, label %38, label %32
@@ -27135,7 +27135,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %32, %.thread.i.i, %
   %50 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @rb_yytnamerr(ptr noundef %1, ptr noundef null, ptr noundef %54) #24
   %56 = add i64 %55, %.04412
@@ -27177,10 +27177,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %32, %.thread.i.i, %
 67:                                               ; preds = %62
   %68 = add nsw i32 %.0, 1
   %69 = sext i32 %.0 to i64
-  %70 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i64 @rb_yytnamerr(ptr noundef %1, ptr noundef nonnull %.038, ptr noundef %74) #24
   br label %76
@@ -27213,7 +27213,7 @@ define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -3
   %10 = icmp slt i32 %1, 163
   %11 = select i1 %10, ptr @.str.72, ptr @.str.73
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds [442 x ptr], ptr @yytname, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [442 x ptr], ptr @yytname, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.71, ptr noundef nonnull %11, ptr noundef %14) #24
   %15 = load i32, ptr %3, align 4

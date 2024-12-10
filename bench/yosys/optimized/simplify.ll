@@ -42253,7 +42253,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   %67 = load ptr, ptr %9, align 8
   %68 = getelementptr i8, ptr %67, i64 -24
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %9, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 %69
   %71 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %70)
           to label %72 unwind label %.loopexit.split-lp260
 
@@ -42350,7 +42350,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %96 = load ptr, ptr %9, align 8
   %97 = getelementptr i8, ptr %96, i64 -24
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %9, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 %98
   %100 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %99)
           to label %101 unwind label %.loopexit.split-lp260
 
@@ -42408,7 +42408,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %131 = load ptr, ptr %9, align 8
   %132 = getelementptr i8, ptr %131, i64 -24
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %9, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %9, i64 %133
   %135 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %134)
           to label %136 unwind label %.loopexit259
 

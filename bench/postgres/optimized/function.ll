@@ -231,7 +231,7 @@ define dso_local void @check_loadable_libraries() local_unnamed_addr #0 {
   %23 = ashr exact i64 %sext, 32
   %24 = call i64 @PQescapeStringConn(ptr noundef %3, ptr noundef %22, ptr noundef %13, i64 noundef %23, ptr noundef null) #9
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
   store i16 39, ptr %endptr, align 1
   %25 = call ptr @PQexec(ptr noundef %3, ptr noundef nonnull %2) #9
   %26 = call i32 @PQresultStatus(ptr noundef %25) #9

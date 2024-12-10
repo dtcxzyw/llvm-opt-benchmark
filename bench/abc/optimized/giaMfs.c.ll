@@ -1757,7 +1757,7 @@ Abc_TtHasVar.exit.thread42:                       ; preds = %21, %36, %Abc_TtHas
   br i1 %111, label %Abc_TtSwapVars.exit, label %.preheader.lr.ph.split.us.i
 
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i35
-  %115 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %51
+  %115 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %51
   %116 = load i64, ptr %115, align 8
   %117 = xor i64 %116, -1
   %118 = sext i32 %109 to i64
@@ -3176,7 +3176,7 @@ Abc_TtHasVar.exit.thread.i.i:                     ; preds = %._crit_edge.us.i.i.
 .lr.ph64.i.us.us.us.us.i.i.i:                     ; preds = %.lr.ph.us.us.i.i.i
   %581 = trunc nsw i64 %indvars.iv.next103.i.i.i to i32
   %582 = shl nuw nsw i32 1, %581
-  %583 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next103.i.i.i
+  %583 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next103.i.i.i
   %584 = load i64, ptr %583, align 8
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 8
   %586 = load i64, ptr %585, align 8

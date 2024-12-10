@@ -2767,7 +2767,7 @@ _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.
   store i32 %305, ptr %306, align 8
   %307 = load i32, ptr %258, align 4
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %308
   %310 = load ptr, ptr %309, align 8
   call void %310(ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(16) %.093, ptr noundef nonnull %.0.i) #13
   br label %314
@@ -3308,7 +3308,7 @@ _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.
   store i32 %305, ptr %306, align 8
   %307 = load i32, ptr %258, align 4
   %308 = sext i32 %307 to i64
-  %309 = getelementptr inbounds [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %308
   %310 = load ptr, ptr %309, align 8
   call void %310(ptr noundef nonnull %303, ptr noundef nonnull align 8 dereferenceable(16) %.080, ptr noundef nonnull %.0.i) #13
   br label %314
@@ -3715,7 +3715,7 @@ _ZN7oopDesc21oop_iterate_backwardsI25G1ScanEvacuatedObjClosureEEvPT_.exit: ; pre
   %148 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 12
   %149 = load i32, ptr %148, align 4
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN30OopOopIterateBackwardsDispatchI25G1ScanEvacuatedObjClosureE6_tableE, i64 0, i64 %150
   %152 = load ptr, ptr %151, align 8
   tail call void %152(ptr noundef nonnull %132, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i22) #13
   br label %153

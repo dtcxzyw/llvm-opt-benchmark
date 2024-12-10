@@ -2994,10 +2994,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E(i8 noundef %0) unnamed_addr #19 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [21 x ptr], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [21 x ptr], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [21 x i64], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E.19, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [21 x i64], ptr @switch.table._ZN12typst_syntax9highlight3Tag9css_class17h0e7d5e1d5bf28f13E.19, i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

@@ -841,7 +841,7 @@ AddSingleLiteralWithCostModel.exit124.i:          ; preds = %374, %370
 
 381:                                              ; preds = %378
   %382 = sext i32 %379 to i64
-  %383 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %382
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %383, align 2
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %383, i64 1
   %.sroa.2.0.copyload.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1

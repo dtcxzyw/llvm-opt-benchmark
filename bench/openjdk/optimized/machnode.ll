@@ -106,7 +106,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %9 = getelementptr inbounds nuw %class.OptoRegPair, ptr %5, i64 %8, i32 1
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   ret i32 %14
@@ -127,7 +127,7 @@ define hidden noundef range(i32 0, 256) i32 @_ZNK8MachOper3regEP13PhaseRegAllocP
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20

@@ -5443,7 +5443,7 @@ _ZN7oopDesc11oop_iterateI28ObjectIterateScanRootClosureEEvPT_.exit: ; preds = %8
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ObjectIterateScanRootClosureE6_tableE, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28ObjectIterateScanRootClosureE6_tableE, i64 0, i64 %99
   %101 = load ptr, ptr %100, align 8
   call void %101(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef %.0.i.i) #26
   %102 = load ptr, ptr %47, align 8
@@ -10393,7 +10393,7 @@ _ZN7oopDesc11oop_iterateI37ShenandoahObjectIterateParScanClosureEEvPT_.exit: ; p
   %118 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI37ShenandoahObjectIterateParScanClosureE6_tableE, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI37ShenandoahObjectIterateParScanClosureE6_tableE, i64 0, i64 %120
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef %.0.i.i) #26
   br label %36, !llvm.loop !69
@@ -18427,7 +18427,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_9MemRegion.exit:
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
   ret void
@@ -18664,7 +18664,7 @@ _ZN7oopDesc11oop_iterateI31ShenandoahConcUpdateRefsClosureEEvPT_.exit: ; preds =
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI31ShenandoahConcUpdateRefsClosureE6_tableE, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #26
   ret void
@@ -29220,7 +29220,7 @@ _ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_9MemRegion.exit: 
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #26
   ret void
@@ -29457,7 +29457,7 @@ _ZN7oopDesc11oop_iterateI30ShenandoahSTWUpdateRefsClosureEEvPT_.exit: ; preds = 
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI30ShenandoahSTWUpdateRefsClosureE6_tableE, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #26
   ret void

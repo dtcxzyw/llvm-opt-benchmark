@@ -1643,7 +1643,7 @@ Lf_ManPrepareSet.exit440:                         ; preds = %.lr.ph.i436, %259
 
 271:                                              ; preds = %267
   %272 = sext i32 %.3338598 to i64
-  %273 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %272
   %274 = load ptr, ptr %273, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %274, ptr nonnull readonly align 8 %.0321599, i64 %266, i1 false)
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
@@ -1832,7 +1832,7 @@ Lf_ManPrepareSet.exit451:                         ; preds = %Lf_ManPrepareSet.ex
   %367 = fadd double %366, 1.000000e+00
   store double %367, ptr %334, align 8
   %368 = sext i32 %.7602.us.us to i64
-  %369 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %368
   %370 = load ptr, ptr %369, align 8
   %371 = load i32, ptr %343, align 4
   %372 = lshr i32 %371, 24
@@ -2189,7 +2189,7 @@ Lf_CutMergeOrderMux.exit.thread.us.us:            ; preds = %404, %440, %472, %4
   %546 = fadd double %545, 1.000000e+00
   store double %546, ptr %530, align 8
   %547 = sext i32 %.12636 to i64
-  %548 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %547
+  %548 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %547
   %549 = load ptr, ptr %548, align 8
   %550 = load ptr, ptr %25, align 8
   %551 = load i32, ptr %550, align 8
@@ -2439,7 +2439,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %684 = fadd double %683, 1.000000e+00
   store double %684, ptr %650, align 8
   %685 = sext i32 %.17646 to i64
-  %686 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %685
+  %686 = getelementptr inbounds nuw [32 x ptr], ptr %8, i64 0, i64 %685
   %687 = load ptr, ptr %686, align 8
   %688 = load i32, ptr %661, align 4
   %689 = lshr i32 %688, 24
@@ -5471,7 +5471,7 @@ define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly %0, i32 nounde
   %10 = add nsw i32 %2, -6
   %11 = shl nuw i32 1, %10
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %12
   %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
   %.not47.i.i = icmp eq i32 %10, 31
@@ -11392,10 +11392,10 @@ Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit
   %232 = icmp sgt i32 %220, 0
   %233 = shl nuw i32 1, %221
   %234 = sext i32 %221 to i64
-  %235 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %234
   %236 = zext nneg i32 %233 to i64
   %wide.trip.count61.i.i = zext nneg i32 %220 to i64
-  %237 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %234
+  %237 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %234
   %238 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %brmerge.i = select i1 %228, i1 true, i1 %.not.i.i153
   br label %.preheader291.i
@@ -16623,7 +16623,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef 
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %67 = sext i32 %spec.select117 to i64
-  %68 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, -1
   %71 = sext i32 %62 to i64

@@ -530,7 +530,7 @@ define internal fastcc void @draw_line_skew(ptr noundef %0, ptr noundef %1) unna
   %26 = shl i32 %.sink162, 5
   %27 = sdiv i32 %26, %.sink161
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [33 x i8], ptr @draw_line_skew.wcorr, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [33 x i8], ptr @draw_line_skew.wcorr, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !31
   %31 = zext i8 %30 to i32
   %32 = mul nsw i32 %25, %31

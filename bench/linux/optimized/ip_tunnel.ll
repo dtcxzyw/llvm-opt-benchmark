@@ -4410,8 +4410,8 @@ define internal fastcc ptr @__ip_tunnel_create(ptr noundef %0, ptr noundef %1, p
 16:                                               ; preds = %11
   %17 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %13) #16
   %18 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %19 = getelementptr inbounds i8, ptr %4, i64 %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) @.str.5, i64 3, i1 false)
   br label %20
 
 20:                                               ; preds = %16, %9

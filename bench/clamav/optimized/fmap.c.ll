@@ -1677,7 +1677,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 45:                                               ; preds = %.preheader98, %52
   %.076.in = phi i64 [ %.076, %52 ], [ %34, %.preheader98 ]
   %.076 = add i64 %.076.in, -1
-  %46 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076
+  %46 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.076
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i64, ptr %35, i64 %47
   %49 = load i64, ptr %48, align 8
@@ -1686,14 +1686,14 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076.in
+  %53 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.076.in
   store i64 %47, ptr %53, align 8
   %.not86 = icmp eq i64 %.076, 0
   br i1 %.not86, label %54, label %45
 
 54:                                               ; preds = %52, %45
   %.177 = phi i64 [ 0, %52 ], [ %.076.in, %45 ]
-  %55 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.177
+  %55 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.177
   store i64 %.089, ptr %55, align 8
   %56 = zext i1 %.not85 to i64
   %spec.select87 = add i64 %.07488, %56
@@ -1722,7 +1722,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   %.07091 = phi ptr [ null, %.preheader ], [ %.171, %83 ]
   %.07290 = phi ptr [ null, %.preheader ], [ %85, %83 ]
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.192
+  %66 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.192
   %67 = load i64, ptr %66, align 8
   %68 = mul i64 %64, %67
   %69 = getelementptr inbounds i8, ptr %65, i64 %68

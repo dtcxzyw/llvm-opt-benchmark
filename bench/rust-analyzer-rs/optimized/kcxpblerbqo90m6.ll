@@ -3003,7 +3003,7 @@ switch.lookup:
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !align !466, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !574)
   %8 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !577
   %9 = load i32, ptr %7, align 4, !alias.scope !574, !noalias !581, !noundef !9
@@ -29460,7 +29460,7 @@ define hidden void @"_ZN3ide19syntax_highlighting6format23highlight_format_strin
 switch.lookup:
   %4 = alloca { { i64, [1 x i64] }, { i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32 } }, align 8
   %5 = sext i8 %3 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @"switch.table._ZN3ide19syntax_highlighting6format23highlight_format_string28_$u7b$$u7b$closure$u7d$$u7d$17h51390ad98927aad9E.llvm.1684962189325099908", i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = load ptr, ptr %0, align 8, !nonnull !9, !align !290, !noundef !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -30928,12 +30928,12 @@ default.unreachable.i.i.i.i.i:                    ; preds = %132
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1582fbffba28d98aE.exit.i.i"
 
 switch.lookup:                                    ; preds = %132
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN3ide19syntax_highlighting6inject11doc_comment17h62ac5942dcd3de7cE, i64 0, i64 %.sroa.8.sroa.4.0.i.i
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN3ide19syntax_highlighting6inject11doc_comment17h62ac5942dcd3de7cE, i64 0, i64 %.sroa.8.sroa.4.0.i.i
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1582fbffba28d98aE.exit.i.i"
 
 switch.lookup1275:                                ; preds = %132
-  %switch.gep1276 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN3ide19syntax_highlighting6inject11doc_comment17h62ac5942dcd3de7cE.165, i64 0, i64 %.sroa.8.sroa.4.0.i.i
+  %switch.gep1276 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN3ide19syntax_highlighting6inject11doc_comment17h62ac5942dcd3de7cE.165, i64 0, i64 %.sroa.8.sroa.4.0.i.i
   %switch.load1277 = load i64, ptr %switch.gep1276, align 8
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1582fbffba28d98aE.exit.i.i"
 

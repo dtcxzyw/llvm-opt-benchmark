@@ -633,7 +633,7 @@ define dso_local void @_ZN12cmCryptoHash12ByteHashFileERKNSt7__cxx1112basic_stri
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %11 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %12 unwind label %.loopexit.split-lp
 
@@ -650,7 +650,7 @@ _ZN12cmCryptoHash10InitializeEv.exit:             ; preds = %13, %_ZN12cmCryptoH
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
   %20 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %19)
           to label %21 unwind label %.loopexit
 
@@ -699,7 +699,7 @@ _ZN12cmCryptoHash10InitializeEv.exit.backedge:    ; preds = %28, %26
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
   %37 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %36)
           to label %38 unwind label %.loopexit.split-lp
 

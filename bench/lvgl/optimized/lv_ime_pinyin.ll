@@ -2132,7 +2132,7 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %48, %20, %20, %20, 
 
 60:                                               ; preds = %18
   %61 = sext i32 %.0473 to i64
-  %62 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [7 x i32], ptr %5, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !30
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %1, i64 %61
@@ -2151,7 +2151,7 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %48, %20, %20, %20, 
   %74 = load ptr, ptr %gep2, align 8, !tbaa !3
   %75 = getelementptr inbounds i8, ptr %74, i64 %64
   %76 = load i8, ptr %75, align 1, !tbaa !7
-  %77 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %61
+  %77 = getelementptr inbounds nuw [7 x i8], ptr %4, i64 0, i64 %61
   store i8 %76, ptr %77, align 1, !tbaa !7
   %78 = add nsw i32 %63, 1
   store i32 %78, ptr %62, align 4, !tbaa !30

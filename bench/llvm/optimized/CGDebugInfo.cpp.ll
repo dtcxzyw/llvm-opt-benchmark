@@ -1194,7 +1194,7 @@ switch.lookup:                                    ; preds = %213
   %216 = getelementptr inbounds nuw i8, ptr %49, i64 352
   %217 = load i32, ptr %216, align 4
   %218 = sext i32 %217 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv, i64 0, i64 %218
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv, i64 0, i64 %218
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit
 

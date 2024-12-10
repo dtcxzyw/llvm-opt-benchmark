@@ -2010,7 +2010,7 @@ entry:
   %ref.tmp8 = alloca %"class.hermes::vm::TwineChar16", align 8
   %str = alloca %"class.llvh::SmallString", align 8
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds [5 x %"struct.hermes::vm::(anonymous namespace)::ToStringOptions"], ptr @_ZZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE15toStringOptions, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [5 x %"struct.hermes::vm::(anonymous namespace)::ToStringOptions"], ptr @_ZZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE15toStringOptions, i64 0, i64 %0
   %1 = load ptr, ptr %args, align 8, !noalias !48
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
@@ -2146,7 +2146,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %str = alloca %"class.hermes::vm::SmallXString", align 8
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds [3 x %"struct.hermes::vm::(anonymous namespace)::ToLocaleStringOptions"], ptr @_ZZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE21toLocaleStringOptions, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [3 x %"struct.hermes::vm::(anonymous namespace)::ToLocaleStringOptions"], ptr @_ZZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE21toLocaleStringOptions, i64 0, i64 %0
   %1 = load ptr, ptr %args, align 8, !noalias !51
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969
@@ -2264,7 +2264,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7Run
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds [18 x %"struct.hermes::vm::(anonymous namespace)::GetterOptions"], ptr @_ZZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE13getterOptions, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [18 x %"struct.hermes::vm::(anonymous namespace)::GetterOptions"], ptr @_ZZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsEE13getterOptions, i64 0, i64 %0
   %1 = load ptr, ptr %args, align 8, !noalias !57
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %1, align 8
   %cmp.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload, -844424930131969

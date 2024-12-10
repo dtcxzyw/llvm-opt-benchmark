@@ -16847,7 +16847,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
   %38 = extractvalue { i8, i8 } %37, 0
   %39 = extractvalue { i8, i8 } %37, 1
   %40 = sext i8 %38 to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   %41 = zext i32 %34 to i64
   %42 = zext nneg i8 %39 to i64
@@ -17032,7 +17032,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
   %38 = extractvalue { i8, i8 } %37, 0
   %39 = extractvalue { i8, i8 } %37, 1
   %40 = sext i8 %38 to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hb9ff70b5b4bc9cd9E", i64 0, i64 %40
   %switch.load = load i64, ptr %switch.gep, align 8
   %41 = zext i32 %34 to i64
   %42 = zext nneg i8 %39 to i64
@@ -31875,7 +31875,7 @@ switch.lookup:
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %8 = sext i8 %2 to i64
-  %switch.gep = getelementptr inbounds [27 x i32], ptr @switch.table._ZN5image6codecs3pnm7encoder17CheckedDimensions18check_header_color17h0b4fb6ea25ca00ddE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [27 x i32], ptr @switch.table._ZN5image6codecs3pnm7encoder17CheckedDimensions18check_header_color17h0b4fb6ea25ca00ddE, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %7, align 4
   %9 = load ptr, ptr %1, align 8, !nonnull !19, !align !1941, !noundef !19

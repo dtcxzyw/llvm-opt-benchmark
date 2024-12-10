@@ -248,7 +248,7 @@ for.cond.i:                                       ; preds = %for.body.i24, %for.
 for.body.i24:                                     ; preds = %for.cond.i
   %14 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i25 = add i64 %i.0.i, -1
-  %arrayidx.i26 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i25
+  %arrayidx.i26 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i25
   %15 = load ptr, ptr %arrayidx.i26, align 8
   invoke void %14(ptr noundef %15)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -576,7 +576,7 @@ for.cond.i:                                       ; preds = %for.body.i26, %for.
 for.body.i26:                                     ; preds = %for.cond.i
   %24 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i27 = add i64 %i.0.i, -1
-  %arrayidx.i28 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i27
+  %arrayidx.i28 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i27
   %25 = load ptr, ptr %arrayidx.i28, align 8
   invoke void %24(ptr noundef %25)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -766,7 +766,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i90:                                     ; preds = %for.cond.i
   %12 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i = add i64 %i.0.i, -1
-  %arrayidx.i91 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
+  %arrayidx.i91 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i
   %13 = load ptr, ptr %arrayidx.i91, align 8
   invoke void %12(ptr noundef %13)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -1026,7 +1026,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i29:                                     ; preds = %for.cond.i
   %17 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i30 = add i64 %i.0.i, -1
-  %arrayidx.i31 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i30
+  %arrayidx.i31 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i30
   %18 = load ptr, ptr %arrayidx.i31, align 8
   invoke void %17(ptr noundef %18)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -1259,7 +1259,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i32:                                     ; preds = %for.cond.i
   %24 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i33 = add i64 %i.0.i, -1
-  %arrayidx.i34 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i33
+  %arrayidx.i34 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i33
   %25 = load ptr, ptr %arrayidx.i34, align 8
   invoke void %24(ptr noundef %25)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -1318,7 +1318,7 @@ invoke.cont5:                                     ; preds = %_ZN7meshoptL11hashB
   %2 = load i64, ptr %count.i, align 8
   %inc.i50 = add i64 %2, 1
   store i64 %inc.i50, ptr %count.i, align 8
-  %arrayidx.i51 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
+  %arrayidx.i51 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %2
   store ptr %call.i52, ptr %arrayidx.i51, align 8
   %3 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i53 = icmp ugt i64 %buckets.0.i, 4611686018427387903
@@ -1331,7 +1331,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %4 = load i64, ptr %count.i, align 8
   %inc.i57 = add i64 %4, 1
   store i64 %inc.i57, ptr %count.i, align 8
-  %arrayidx.i58 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %4
+  %arrayidx.i58 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %4
   store ptr %call.i59, ptr %arrayidx.i58, align 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i52, i8 -1, i64 %mul.i47, i1 false)
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i59, i8 -1, i64 %mul.i54, i1 false)
@@ -1558,7 +1558,7 @@ for.cond.i:                                       ; preds = %for.body.i108, %for
 for.body.i108:                                    ; preds = %for.cond.i
   %34 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i109 = add i64 %i.0.i, -1
-  %arrayidx.i110 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i109
+  %arrayidx.i110 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i109
   %35 = load ptr, ptr %arrayidx.i110, align 8
   invoke void %34(ptr noundef %35)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9
@@ -1727,7 +1727,7 @@ invoke.cont5:                                     ; preds = %_ZN7meshoptL11hashB
   %2 = load i64, ptr %count.i, align 8
   %inc.i45 = add i64 %2, 1
   store i64 %inc.i45, ptr %count.i, align 8
-  %arrayidx.i46 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
+  %arrayidx.i46 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %2
   store ptr %call.i47, ptr %arrayidx.i46, align 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %call.i47, i8 -1, i64 %mul.i42, i1 false)
   %cmp112.not = icmp eq i64 %index_count, 0
@@ -1945,7 +1945,7 @@ for.cond.i:                                       ; preds = %for.body.i95, %for.
 for.body.i95:                                     ; preds = %for.cond.i
   %31 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i96 = add i64 %i.0.i, -1
-  %arrayidx.i97 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i96
+  %arrayidx.i97 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i96
   %32 = load ptr, ptr %arrayidx.i97, align 8
   invoke void %31(ptr noundef %32)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !9

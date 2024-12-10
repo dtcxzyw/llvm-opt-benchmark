@@ -1639,7 +1639,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 
 54:                                               ; preds = %52
   %55 = sext i32 %.0 to i64
-  %56 = getelementptr inbounds [286 x i16], ptr @yypact, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [286 x i16], ptr @yypact, i64 0, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i32
   %59 = icmp eq i16 %57, -144
@@ -1714,7 +1714,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %96 = icmp slt i32 %90, 107
   %97 = select i1 %96, ptr @.str.66, ptr @.str.67
   %98 = sext i32 %90 to i64
-  %99 = getelementptr inbounds [152 x ptr], ptr @yytname, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [152 x ptr], ptr @yytname, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.65, ptr noundef nonnull %97, ptr noundef %100) #25
   %fputc.i = call i32 @fputc(i32 41, ptr %95)
@@ -1774,7 +1774,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %8
 
 129:                                              ; preds = %103, %105, %54
-  %130 = getelementptr inbounds [286 x i8], ptr @yydefact, i64 0, i64 %55
+  %130 = getelementptr inbounds nuw [286 x i8], ptr @yydefact, i64 0, i64 %55
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %133 = icmp eq i8 %131, 0
@@ -5500,7 +5500,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2164 = ptrtoint ptr %.sroa.0.1 to i64
   store i64 %2164, ptr %2163, align 8
   %2165 = add nsw i64 %.pre-phi, -107
-  %2166 = getelementptr inbounds [44 x i16], ptr @yypgoto, i64 0, i64 %2165
+  %2166 = getelementptr inbounds nuw [44 x i16], ptr @yypgoto, i64 0, i64 %2165
   %2167 = load i16, ptr %2166, align 2
   %2168 = sext i16 %2167 to i32
   %2169 = load i16, ptr %2162, align 2
@@ -5521,7 +5521,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   br label %2181
 
 2179:                                             ; preds = %2172, %2159
-  %2180 = getelementptr inbounds [44 x i16], ptr @yydefgoto, i64 0, i64 %2165
+  %2180 = getelementptr inbounds nuw [44 x i16], ptr @yydefgoto, i64 0, i64 %2165
   br label %2181
 
 2181:                                             ; preds = %2179, %2177
@@ -5580,7 +5580,7 @@ extypename.exit937:                               ; preds = %1848, %1855
   %2207 = icmp slt i32 %2193, 107
   %2208 = select i1 %2207, ptr @.str.66, ptr @.str.67
   %2209 = sext i32 %2193 to i64
-  %2210 = getelementptr inbounds [152 x ptr], ptr @yytname, i64 0, i64 %2209
+  %2210 = getelementptr inbounds nuw [152 x ptr], ptr @yytname, i64 0, i64 %2209
   %2211 = load ptr, ptr %2210, align 8
   %2212 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2206, ptr noundef nonnull @.str.65, ptr noundef nonnull %2208, ptr noundef %2211) #25
   %fputc.i.i = call i32 @fputc(i32 41, ptr %2206)
@@ -5633,7 +5633,7 @@ yydestruct.exit943.thread:                        ; preds = %2230
   br label %2249
 
 yydestruct.exit943:                               ; preds = %2230
-  %2234 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %2216
+  %2234 = getelementptr inbounds nuw [286 x i8], ptr @yystos, i64 0, i64 %2216
   %2235 = load i8, ptr %2234, align 1
   %2236 = load ptr, ptr @stderr, align 8
   %2237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2236, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.51) #25
@@ -5663,7 +5663,7 @@ yydestruct.exit943:                               ; preds = %2230
   %2251 = getelementptr inbounds i8, ptr %.4703, i64 -8
   %2252 = sext i16 %.in989 to i32
   %.phi.trans.insert1067 = sext i16 %.in989 to i64
-  %.phi.trans.insert1068 = getelementptr inbounds [286 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert1067
+  %.phi.trans.insert1068 = getelementptr inbounds nuw [286 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert1067
   %.pre1069 = load i16, ptr %.phi.trans.insert1068, align 2
   br label %2214
 
@@ -5725,7 +5725,7 @@ yydestruct.exit943:                               ; preds = %2230
   %2282 = icmp slt i32 %2276, 107
   %2283 = select i1 %2282, ptr @.str.66, ptr @.str.67
   %2284 = sext i32 %2276 to i64
-  %2285 = getelementptr inbounds [152 x ptr], ptr @yytname, i64 0, i64 %2284
+  %2285 = getelementptr inbounds nuw [152 x ptr], ptr @yytname, i64 0, i64 %2284
   %2286 = load ptr, ptr %2285, align 8
   %2287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2281, ptr noundef nonnull @.str.65, ptr noundef nonnull %2283, ptr noundef %2286) #25
   %fputc.i.i945 = call i32 @fputc(i32 41, ptr %2281)
@@ -5758,7 +5758,7 @@ yydestruct.exit947.thread:                        ; preds = %2275, %yydestruct.e
 2293:                                             ; preds = %.lr.ph1003.split
   %2294 = load i16, ptr %.61002, align 2
   %2295 = sext i16 %2294 to i64
-  %2296 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %2295
+  %2296 = getelementptr inbounds nuw [286 x i8], ptr @yystos, i64 0, i64 %2295
   %2297 = load i8, ptr %2296, align 1
   %2298 = load ptr, ptr @stderr, align 8
   %2299 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2298, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.54) #25
@@ -5977,7 +5977,7 @@ define internal fastcc void @yy_symbol_print(ptr nocapture noundef %0, i32 nound
   %3 = icmp slt i32 %1, 107
   %4 = select i1 %3, ptr @.str.66, ptr @.str.67
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [152 x ptr], ptr @yytname, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [152 x ptr], ptr @yytname, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef nonnull %4, ptr noundef %7) #22
   %fputc = tail call i32 @fputc(i32 41, ptr %0)
@@ -6014,7 +6014,7 @@ define internal fastcc void @yy_reduce_print(ptr nocapture noundef nonnull reado
   %19 = getelementptr inbounds i16, ptr %0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds [286 x i8], ptr @yystos, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [286 x i8], ptr @yystos, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = icmp ult i8 %23, 107
   %25 = select i1 %24, ptr @.str.66, ptr @.str.67

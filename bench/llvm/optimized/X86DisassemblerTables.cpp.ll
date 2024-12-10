@@ -1411,7 +1411,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit132:              ; preds = %370, %372
 
 switch.lookup:                                    ; preds = %386, %384
   %.0.i.i134 = phi ptr [ %385, %384 ], [ %2, %386 ]
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision, i64 0, i64 %.035.i168207
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision, i64 0, i64 %.035.i168207
   %switch.load = load ptr, ptr %switch.gep, align 8
   %389 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #18
   %390 = getelementptr inbounds nuw i8, ptr %.0.i.i134, i64 24
@@ -1488,7 +1488,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit142:              ; preds = %411, %413
   br label %switch.lookup234
 
 switch.lookup234:                                 ; preds = %427, %425
-  %switch.gep235 = getelementptr inbounds [5 x i64], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 0, i64 %.035.i168207
+  %switch.gep235 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecision.1, i64 0, i64 %.035.i168207
   %switch.load236 = load i64, ptr %switch.gep235, align 8
   %430 = load i64, ptr @_ZZNK4llvm15X86Disassembler18DisassemblerTables17emitModRMDecisionERNS_11raw_ostreamES3_RjS4_S4_R13ModRMDecisionE12sEntryNumber, align 8
   %431 = add i64 %430, %switch.load236
@@ -2030,7 +2030,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48:               ; preds = %120, %122
 define internal fastcc noundef nonnull ptr @_ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE(i32 noundef %0) unnamed_addr #2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [219 x ptr], ptr @switch.table._ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [219 x ptr], ptr @switch.table._ZL16stringForContextN4llvm15X86Disassembler18InstructionContextE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -2222,12 +2222,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74:               ; preds = %88, %90
   %97 = getelementptr inbounds nuw %"struct.std::pair", ptr %96, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
-  %switch.gep = getelementptr inbounds [37 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj, i64 0, i64 %99
+  %switch.gep = getelementptr inbounds nuw [37 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj, i64 0, i64 %99
   %switch.load = load ptr, ptr %switch.gep, align 8
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
-  %switch.gep174 = getelementptr inbounds [35 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj.2, i64 0, i64 %102
+  %switch.gep174 = getelementptr inbounds nuw [35 x ptr], ptr @switch.table._ZNK4llvm15X86Disassembler18DisassemblerTables19emitInstructionInfoERNS_11raw_ostreamERj.2, i64 0, i64 %102
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %103 = load ptr, ptr %15, align 8
   %104 = load ptr, ptr %17, align 8

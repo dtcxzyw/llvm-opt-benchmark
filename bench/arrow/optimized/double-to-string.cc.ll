@@ -237,7 +237,7 @@ while.body:                                       ; preds = %while.body.preheade
   %20 = trunc nuw nsw i32 %rem to i8
   %conv = or disjoint i8 %20, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx29 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %indvars.iv.next
+  %arrayidx29 = getelementptr inbounds nuw [6 x i8], ptr %buffer, i64 0, i64 %indvars.iv.next
   store i8 %conv, ptr %arrayidx29, align 1
   %div = udiv i32 %exponent.addr.155, 10
   %cmp26.not = icmp samesign ult i32 %exponent.addr.155, 10
@@ -286,7 +286,7 @@ while.end38:                                      ; preds = %while.end38.loopexi
   %first_char_pos.2.lcssa = phi i32 [ %first_char_pos.0, %if.end30 ], [ %34, %while.end38.loopexit ]
   %sub32.lcssa = phi i32 [ %sub3257, %if.end30 ], [ %33, %while.end38.loopexit ]
   %idxprom39 = sext i32 %first_char_pos.2.lcssa to i64
-  %arrayidx40 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %idxprom39
+  %arrayidx40 = getelementptr inbounds nuw [6 x i8], ptr %buffer, i64 0, i64 %idxprom39
   %35 = load i32, ptr %position_.i, align 8
   %36 = load ptr, ptr %result_builder, align 8
   %idxprom.i.i49 = sext i32 %35 to i64
@@ -783,7 +783,7 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %11, i32 noundef 2, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   %12 = load i32, ptr %decimal_rep_length, align 4
   %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
+  %arrayidx.i26.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
@@ -912,7 +912,7 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 0, i32 noundef 0, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   %12 = load i32, ptr %decimal_rep_length, align 4
   %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
+  %arrayidx.i26.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %if.end14
 
@@ -941,7 +941,7 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i18, i32 noundef 3, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   %13 = load i32, ptr %decimal_rep_length, align 4
   %idxprom.i.i23 = sext i32 %13 to i64
-  %arrayidx.i26.i24 = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i23
+  %arrayidx.i26.i24 = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 %idxprom.i.i23
   store i8 0, ptr %arrayidx.i26.i24, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit27
 
@@ -1085,7 +1085,7 @@ _ZN14arrow_vendored17double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStri
   call void @_ZN14arrow_vendored17double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef %v.addr.0.i, i32 noundef 3, i32 noundef %precision, ptr nonnull %decimal_rep, i32 121, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
   %12 = load i32, ptr %decimal_rep_length, align 4
   %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
+  %arrayidx.i26.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 %idxprom.i.i
   store i8 0, ptr %arrayidx.i26.i, align 1
   br label %_ZN14arrow_vendored17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
@@ -1159,14 +1159,14 @@ land.rhs.preheader:                               ; preds = %cond.end
   %21 = zext nneg i32 %decimal_rep_length.promoted to i64
   %22 = zext nneg i32 %cond28 to i64
   %indvars.iv.next61 = add nsw i64 %21, -1
-  %arrayidx62 = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next61
+  %arrayidx62 = getelementptr inbounds nuw [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next61
   %23 = load i8, ptr %arrayidx62, align 1
   %cmp3163 = icmp eq i8 %23, 48
   br i1 %cmp3163, label %while.body, label %while.end
 
 land.rhs:                                         ; preds = %while.body
   %indvars.iv.next = add nsw i64 %indvars.iv.next64, -1
-  %arrayidx = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next
   %24 = load i8, ptr %arrayidx, align 1
   %cmp31 = icmp eq i8 %24, 48
   br i1 %cmp31, label %while.body, label %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge, !llvm.loop !9

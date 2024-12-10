@@ -4614,7 +4614,7 @@ H5F_get_obj_ids.exit.thread:                      ; preds = %.preheader55
 
 .preheader53:                                     ; preds = %.preheader53.preheader, %54
   %.059 = phi i64 [ %55, %54 ], [ 0, %.preheader53.preheader ]
-  %56 = getelementptr inbounds [128 x i64], ptr %6, i64 0, i64 %.059
+  %56 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %.059
   %57 = load i64, ptr %56, align 8
   %58 = call i32 @H5I_dec_ref(i64 noundef %57) #22
   %59 = icmp slt i32 %58, 0
@@ -4655,7 +4655,7 @@ H5F_get_obj_ids.exit.thread:                      ; preds = %.preheader55
 
 75:                                               ; preds = %.preheader, %73
   %.160 = phi i64 [ 0, %.preheader ], [ %74, %73 ]
-  %76 = getelementptr inbounds [128 x i64], ptr %6, i64 0, i64 %.160
+  %76 = getelementptr inbounds nuw [128 x i64], ptr %6, i64 0, i64 %.160
   %77 = load i64, ptr %76, align 8
   %78 = call i32 @H5I_dec_ref(i64 noundef %77) #22
   %79 = icmp slt i32 %78, 0

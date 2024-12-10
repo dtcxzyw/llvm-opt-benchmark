@@ -1460,7 +1460,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
 if.end35:                                         ; preds = %if.then2, %if.then10, %if.end31, %if.else, %if.end
   %rgLen.0 = phi i32 [ %rgLen.1, %if.end31 ], [ %call12, %if.then10 ], [ %call4, %if.else ], [ %call1, %if.end ], [ 0, %if.then2 ]
   %idxprom = sext i32 %rgLen.0 to i64
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %rgBuf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %rgBuf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %conv = sext i32 %regionCapacity to i64
   %call37 = call ptr @strncpy(ptr noundef %region, ptr noundef nonnull %rgBuf, i64 noundef %conv) #12

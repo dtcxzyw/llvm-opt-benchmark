@@ -469,7 +469,7 @@ _ZN14DecorateShader6unbindEv.exit:                ; preds = %51, %.noexc
   %62 = getelementptr inbounds nuw [16 x float], ptr %11, i64 0, i64 %61
   %63 = shl i64 %indvars.iv.i.i, 2
   %64 = add nuw nsw i64 %63, %indvars.iv15.i.i
-  %65 = getelementptr inbounds [16 x float], ptr %11, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [16 x float], ptr %11, i64 0, i64 %64
   %66 = load float, ptr %62, align 4, !alias.scope !5
   %67 = load float, ptr %65, align 4, !alias.scope !5
   store float %67, ptr %62, align 4, !alias.scope !5
@@ -498,7 +498,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader:  ; preds = %68
   %72 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %71
   %73 = shl i64 %indvars.iv.i.i45, 2
   %74 = add nuw nsw i64 %73, %indvars.iv15.i.i44
-  %75 = getelementptr inbounds [16 x float], ptr %12, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %74
   %76 = load float, ptr %72, align 4, !alias.scope !11
   %77 = load float, ptr %75, align 4, !alias.scope !11
   store float %77, ptr %72, align 4, !alias.scope !11
@@ -568,7 +568,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %92
   %96 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %95
   %97 = shl i64 %indvars.iv.i.i56, 2
   %98 = add nuw nsw i64 %97, %indvars.iv15.i.i55
-  %99 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %98
   %100 = load float, ptr %96, align 4, !alias.scope !20
   %101 = load float, ptr %99, align 4, !alias.scope !20
   store float %101, ptr %96, align 4, !alias.scope !20

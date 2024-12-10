@@ -53362,7 +53362,7 @@ common.ret:                                       ; preds = %314, %219
   br label %384
 
 388:                                              ; preds = %384
-  %389 = getelementptr inbounds [5 x { i64, [3 x i64] }], ptr %21, i64 0, i64 %.sroa.0.1.i
+  %389 = getelementptr inbounds nuw [5 x { i64, [3 x i64] }], ptr %21, i64 0, i64 %.sroa.0.1.i
   %390 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr48drop_in_place$LT$project..EntitySubscription$GT$17hb2b4305c7a5282bcE"(ptr noalias noundef align 8 dereferenceable(32) %389) #44
           to label %384 unwind label %391

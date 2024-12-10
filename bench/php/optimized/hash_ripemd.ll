@@ -186,7 +186,7 @@ PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
@@ -428,7 +428,7 @@ PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
@@ -670,7 +670,7 @@ PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4
@@ -916,7 +916,7 @@ PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
   %59 = load i32, ptr %4, align 4

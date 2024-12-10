@@ -56,7 +56,7 @@ if.end.i.i:                                       ; preds = %if.end3
   %primeIndex1.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store i8 %conv.i11.i, ptr %primeIndex1.i.i, align 8
   %idxprom.i.i = sext i32 %primeIndex to i64
-  %arrayidx.i.i = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %length.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 52
   store i32 %2, ptr %length.i.i, align 4
@@ -518,13 +518,13 @@ entry:
   store i32 0, ptr %status, align 4
   %mul.i = shl nsw i32 %policy, 1
   %idxprom.i = sext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom.i
   %0 = load float, ptr %arrayidx.i, align 8
   %lowWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 68
   store float %0, ptr %lowWaterRatio.i, align 4
   %add.i = or disjoint i32 %mul.i, 1
   %idxprom2.i = sext i32 %add.i to i64
-  %arrayidx3.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom2.i
   %1 = load float, ptr %arrayidx3.i, align 4
   %highWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 64
   store float %1, ptr %highWaterRatio.i, align 8
@@ -583,7 +583,7 @@ if.end.i:                                         ; preds = %if.end11
   %conv.i = trunc i32 %newPrimeIndex.0 to i8
   store i8 %conv.i, ptr %primeIndex, align 8
   %idxprom.i = sext i32 %newPrimeIndex.0 to i64
-  %arrayidx.i = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   store i32 %7, ptr %length, align 4
   %conv3.i = sext i32 %7 to i64

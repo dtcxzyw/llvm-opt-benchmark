@@ -13721,7 +13721,7 @@ _ZNK3vcg8Matrix44IfE8ToMatrixIS1_EEvRT_.exit:
   %68 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %67
   %69 = shl i64 %indvars.iv.i.i, 2
   %70 = add nuw nsw i64 %69, %indvars.iv15.i.i
-  %71 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %70
   %72 = load float, ptr %68, align 4, !alias.scope !53
   %73 = load float, ptr %71, align 4, !alias.scope !53
   store float %73, ptr %68, align 4, !alias.scope !53
@@ -13935,7 +13935,7 @@ _ZNK3vcg8Matrix44IfEmlEf.exit15:                  ; preds = %77
   %89 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %88
   %90 = shl i64 %indvars.iv.i.i, 2
   %91 = add nuw nsw i64 %90, %indvars.iv15.i.i
-  %92 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %91
   %93 = load float, ptr %89, align 4, !alias.scope !68
   %94 = load float, ptr %92, align 4, !alias.scope !68
   store float %94, ptr %89, align 4, !alias.scope !68

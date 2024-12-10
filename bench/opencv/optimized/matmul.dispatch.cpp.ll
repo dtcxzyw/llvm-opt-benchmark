@@ -786,7 +786,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %16, %19
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline16getTransformFuncEi(i32 noundef %0) local_unnamed_addr #5 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline16getTransformFuncEiE12transformTab, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -3510,7 +3510,7 @@ _ZN2cv12cpu_baselineL10transform_IddEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline20getDiagTransformFuncEi(i32 noundef %0) local_unnamed_addr #5 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline20getDiagTransformFuncEiE16diagTransformTab, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

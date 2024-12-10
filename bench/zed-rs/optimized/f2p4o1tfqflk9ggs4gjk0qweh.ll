@@ -1210,7 +1210,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
   %.lcssa28 = phi i64 [ 2, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc6d70abd9ffad1E.exit.lr.ph" ], [ %54, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc6d70abd9ffad1E.exit" ]
   %.lcssa24 = phi i64 [ 1, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc6d70abd9ffad1E.exit.lr.ph" ], [ %13, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hebc6d70abd9ffad1E.exit" ]
   %16 = sub nuw i64 %.lcssa28, %.lcssa24
-  %17 = getelementptr inbounds { [3 x i64] }, ptr %5, i64 %.lcssa24
+  %17 = getelementptr inbounds nuw { [3 x i64] }, ptr %5, i64 %.lcssa24
   %18 = icmp eq i64 %.lcssa28, %.lcssa24
   br i1 %18, label %"_ZN4core3ptr84drop_in_place$LT$core..array..iter..IntoIter$LT$std..path..PathBuf$C$2_usize$GT$$GT$17ha7cf06217da2a3d2E.exit", label %.lr.ph.i.i.i
 

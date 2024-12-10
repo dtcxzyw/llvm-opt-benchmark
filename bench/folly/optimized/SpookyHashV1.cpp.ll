@@ -470,7 +470,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %add.ptr.idx.neg = mul i64 %div, -96
   %sub = add i64 %add.ptr.idx.neg, %length
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 8 %add.ptr, i64 %sub, i1 false)
-  %add.ptr4 = getelementptr inbounds i8, ptr %buf, i64 %sub
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %buf, i64 %sub
   %sub5 = sub i64 96, %sub
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr4, i8 0, i64 %sub5, i1 false)
   %conv = trunc i64 %sub to i8

@@ -56,7 +56,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   %10 = shl nuw i64 1, %9
   %11 = sdiv i32 %0, 64
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i64], ptr %6, i64 0, i64 %12
   %14 = add nsw i32 %0, 1
   br label %.lr.ph.split.preheader
 
@@ -232,7 +232,7 @@ define dso_local noalias noundef ptr @nc_recv(i32 noundef %0) local_unnamed_addr
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %0, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %14
   %16 = add nsw i32 %0, 1
   br label %.outer.outer
 
@@ -458,7 +458,7 @@ nc_socket.exit.thread:                            ; preds = %11, %19, %29
   %52 = shl nuw i64 1, %51
   %53 = sdiv i32 %9, 64
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %54
   %56 = add nuw nsw i32 %9, 1
   store i64 0, ptr %49, align 8
   store i32 4, ptr %6, align 4

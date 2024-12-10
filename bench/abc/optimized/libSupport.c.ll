@@ -98,7 +98,7 @@ define void @open_libs() local_unnamed_addr #0 {
   %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %20) #9
   %40 = tail call ptr @dlopen(ptr noundef %37, i32 noundef 2) #9
   %41 = sext i32 %.151 to i64
-  %42 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %41
   store ptr %40, ptr %42, align 8
   %.not47 = icmp eq ptr %40, null
   br i1 %.not47, label %46, label %43
@@ -144,7 +144,7 @@ define void @open_libs() local_unnamed_addr #0 {
 
 57:                                               ; preds = %55, %56
   %58 = sext i32 %.1.lcssa to i64
-  %59 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %58
   store ptr null, ptr %59, align 8
   ret void
 }
@@ -233,7 +233,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define ptr @get_fnct_ptr(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [257 x ptr], ptr @libHandles, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #9
   ret ptr %6

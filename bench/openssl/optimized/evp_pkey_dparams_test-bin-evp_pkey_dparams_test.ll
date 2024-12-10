@@ -48,7 +48,7 @@ entry:
   %out_bin = alloca ptr, align 8
   store ptr null, ptr %in_key, align 8
   %idxprom = sext i32 %id to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %param_bin = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %param_bin, align 8
@@ -115,7 +115,7 @@ entry:
   %in_key = alloca ptr, align 8
   store ptr null, ptr %in_key, align 8
   %idxprom = sext i32 %id to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %keys4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %key_bin = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32

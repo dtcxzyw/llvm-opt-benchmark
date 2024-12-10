@@ -3001,7 +3001,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   %330 = load float, ptr %329, align 4
   %331 = fsub float %322, %330
   store float %331, ptr %321, align 4
-  %332 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %320
+  %332 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %320
   %333 = load i32, ptr %332, align 4
   %334 = add nsw i32 %333, -1
   store i32 %334, ptr %332, align 4
@@ -3020,7 +3020,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   %343 = load float, ptr %342, align 4
   %344 = fadd float %322, %343
   store float %344, ptr %321, align 4
-  %345 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %320
+  %345 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %320
   %346 = load i32, ptr %345, align 4
   %347 = add nsw i32 %346, 1
   store i32 %347, ptr %345, align 4
@@ -3052,7 +3052,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   store float %362, ptr %3, align 4
   store float %365, ptr %22, align 4
   store float %368, ptr %23, align 4
-  %369 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %351
+  %369 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %351
   %370 = load i32, ptr %369, align 4
   %371 = add nsw i32 %370, -1
   store i32 %371, ptr %369, align 4
@@ -3079,7 +3079,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   store float %381, ptr %3, align 4
   store float %384, ptr %22, align 4
   store float %387, ptr %23, align 4
-  %388 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %351
+  %388 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %351
   %389 = load i32, ptr %388, align 4
   %390 = add nsw i32 %389, 1
   store i32 %390, ptr %388, align 4

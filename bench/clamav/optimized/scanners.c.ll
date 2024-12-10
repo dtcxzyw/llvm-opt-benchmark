@@ -8882,7 +8882,7 @@ get_thread_times.exit.i136:                       ; preds = %301, %298
 324:                                              ; preds = %314, %310
   %.1.idx.i = phi i64 [ %.0.add.i, %314 ], [ %.0.idx27.i, %310 ]
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
-  %.0.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.1.idx.i
+  %.0.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.1.idx.i
   %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, 14
   br i1 %exitcond.not.i139, label %perf_done.exit, label %310
 

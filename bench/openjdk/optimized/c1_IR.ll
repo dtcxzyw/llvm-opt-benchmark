@@ -852,7 +852,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %13, %9
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %19
   %21 = phi i32 [ %20, %19 ], [ %18, %_ZN8ciMethod4codeEv.exit.i ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call noundef zeroext i1 @_ZN19TemplateInterpreter25bytecode_should_reexecuteEN9Bytecodes4CodeE(i32 noundef %24) #19
   br label %26
@@ -1022,7 +1022,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %22, %18
 _ZN8ciMethod16java_code_at_bciEi.exit.i:          ; preds = %28, %_ZN8ciMethod4codeEv.exit.i.i
   %30 = phi i32 [ %29, %28 ], [ %27, %_ZN8ciMethod4codeEv.exit.i.i ]
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = tail call noundef zeroext i1 @_ZN19TemplateInterpreter25bytecode_should_reexecuteEN9Bytecodes4CodeE(i32 noundef %33) #19
   %.pre = load ptr, ptr %0, align 8

@@ -9432,7 +9432,7 @@ switch.lookup:                                    ; preds = %1513, %1506
   %1591 = load i32, ptr %1583, align 4
   %switch.tableidx = add nsw i32 %1591, -1
   %1592 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1592
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1592
   %switch.load = load i32, ptr %switch.gep, align 4
   call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %397, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1593 = getelementptr inbounds nuw i8, ptr %398, i64 32
@@ -9459,7 +9459,7 @@ switch.lookup:                                    ; preds = %1513, %1506
   %1603 = load i32, ptr %1599, align 4
   %switch.tableidx1320 = add nsw i32 %1603, -1
   %1604 = sext i32 %switch.tableidx1320 to i64
-  %switch.gep1321 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1604
+  %switch.gep1321 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1604
   %switch.load1322 = load i32, ptr %switch.gep1321, align 4
   call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %400, i32 noundef %switch.load1322, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1605 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -9791,7 +9791,7 @@ _ZN4llvm5TwineC2EPKc.exit843:                     ; preds = %_ZL10DefineTypeRKN4
   %1733 = load i32, ptr %1583, align 4
   %switch.tableidx1304 = add nsw i32 %1733, -1
   %1734 = sext i32 %switch.tableidx1304 to i64
-  %switch.gep1305 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1734
+  %switch.gep1305 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1734
   %switch.load1306 = load i32, ptr %switch.gep1305, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15)
   %1735 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1306) #13
@@ -9819,7 +9819,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1742 = load i32, ptr %1583, align 4
   %switch.tableidx1308 = add nsw i32 %1742, -1
   %1743 = sext i32 %switch.tableidx1308 to i64
-  %switch.gep1309 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1743
+  %switch.gep1309 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1743
   %switch.load1310 = load i32, ptr %switch.gep1309, align 4
   call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %406, i32 noundef %switch.load1310, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1744 = getelementptr inbounds nuw i8, ptr %407, i64 32
@@ -9830,7 +9830,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1746 = load i32, ptr %1583, align 4
   %switch.tableidx1324 = add nsw i32 %1746, -1
   %1747 = sext i32 %switch.tableidx1324 to i64
-  %switch.gep1325 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1747
+  %switch.gep1325 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1747
   %switch.load1326 = load i32, ptr %switch.gep1325, align 4
   %1748 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %switch.load1326) #13
   %1749 = getelementptr inbounds nuw i8, ptr %408, i64 32
@@ -10088,7 +10088,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1837 = load i32, ptr %1599, align 4
   %switch.tableidx1312 = add nsw i32 %1837, -1
   %1838 = sext i32 %switch.tableidx1312 to i64
-  %switch.gep1313 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1838
+  %switch.gep1313 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1838
   %switch.load1314 = load i32, ptr %switch.gep1313, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %1839 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1314) #13
@@ -10116,7 +10116,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %1846 = load i32, ptr %1599, align 4
   %switch.tableidx1316 = add nsw i32 %1846, -1
   %1847 = sext i32 %switch.tableidx1316 to i64
-  %switch.gep1317 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1847
+  %switch.gep1317 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %1847
   %switch.load1318 = load i32, ptr %switch.gep1317, align 4
   call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(34) %422, i32 noundef %switch.load1318, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %1848 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -13050,7 +13050,7 @@ define internal fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsE
 switch.lookup:                                    ; preds = %14
   %switch.tableidx = add nsw i32 %16, -1
   %17 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.split
 
@@ -13067,7 +13067,7 @@ switch.lookup:                                    ; preds = %14
 switch.lookup155:                                 ; preds = %19
   %switch.tableidx156 = add nsw i32 %21, -1
   %22 = sext i32 %switch.tableidx156 to i64
-  %switch.gep157 = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %22
+  %switch.gep157 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %22
   %switch.load158 = load i32, ptr %switch.gep157, align 4
   br label %.split27
 
@@ -13234,7 +13234,7 @@ define internal fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23Transferra
 switch.lookup:                                    ; preds = %10
   %switch.tableidx = add nsw i32 %12, -1
   %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.split13
 

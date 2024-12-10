@@ -696,7 +696,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit
 
 .noexc24.i:                                       ; preds = %.noexc23.i
   %170 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #23
-  %171 = getelementptr inbounds i8, ptr %56, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr %56, i64 %170
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull %56, ptr noundef nonnull %171)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i40 unwind label %172
 
@@ -2142,7 +2142,7 @@ _ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i134: ; pr
 
 .noexc13.i:                                       ; preds = %.noexc12.i
   %647 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #23
-  %648 = getelementptr inbounds i8, ptr %35, i64 %647
+  %648 = getelementptr inbounds nuw i8, ptr %35, i64 %647
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull %35, ptr noundef nonnull %648)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i136 unwind label %649
 
@@ -2330,7 +2330,7 @@ _ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i161: ; pr
 699:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i165, %_ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i161
   %.0619.i = phi i64 [ 4, %_ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i161 ], [ %700, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i165 ]
   %700 = add nsw i64 %.0619.i, -1
-  %701 = getelementptr inbounds [4 x i8], ptr @_ZL14firstLevelChar, i64 0, i64 %700
+  %701 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14firstLevelChar, i64 0, i64 %700
   %702 = load i8, ptr %701, align 1
   store i8 %702, ptr %697, align 1
   store i8 %702, ptr %698, align 1
@@ -2344,7 +2344,7 @@ _ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i161: ; pr
 
 .noexc15.i:                                       ; preds = %.noexc14.i
   %704 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #23
-  %705 = getelementptr inbounds i8, ptr %29, i64 %704
+  %705 = getelementptr inbounds nuw i8, ptr %29, i64 %704
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull %29, ptr noundef nonnull %705)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i163 unwind label %706
 
@@ -2544,7 +2544,7 @@ _ZL9_PopulatePN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsE.exit.i188: ; pr
 
 .noexc15.i193:                                    ; preds = %.noexc14.i192
   %759 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #23
-  %760 = getelementptr inbounds i8, ptr %23, i64 %759
+  %760 = getelementptr inbounds nuw i8, ptr %23, i64 %759
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull %23, ptr noundef nonnull %760)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i194 unwind label %761
 
@@ -8934,7 +8934,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE7reserveEm.exit
 
 .noexc18:                                         ; preds = %.noexc
   %38 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
-  %39 = getelementptr inbounds i8, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1, ptr noundef nonnull %39)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %40
 

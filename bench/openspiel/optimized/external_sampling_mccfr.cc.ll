@@ -4754,7 +4754,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit91.thread131: ; preds = %_ZN4absl7d
   store i64 %.sroa.212.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr @.str.11, ptr %21, align 8
   %108 = sext i32 %.043147 to i64
-  %109 = getelementptr inbounds [3 x %"class.std::__cxx11::basic_string"], ptr %10, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr %10, i64 0, i64 %108
   store i64 1, ptr %64, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef nonnull %109, ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %21)
           to label %._crit_edge unwind label %.loopexit.split-lp133.loopexit
@@ -4827,7 +4827,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit91.thread131: ; preds = %_ZN4absl7d
   %138 = load ptr, ptr %23, align 8
   %139 = getelementptr i8, ptr %138, i64 -24
   %140 = load i64, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %23, i64 %140
+  %141 = getelementptr inbounds nuw i8, ptr %23, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load i32, ptr %142, align 8
   store i32 4098, ptr %142, align 8
@@ -4853,7 +4853,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit91.thread131: ; preds = %_ZN4absl7d
   %152 = load ptr, ptr %23, align 8
   %153 = getelementptr i8, ptr %152, i64 -24
   %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %23, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %23, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store i32 %143, ptr %156, align 8
   %157 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull @.str.19) #23

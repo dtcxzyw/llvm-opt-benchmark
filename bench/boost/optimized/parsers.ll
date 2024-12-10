@@ -1639,7 +1639,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
   %8 = load ptr, ptr %5, align 8, !tbaa !26
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !71
   %14 = and i32 %13, 5
@@ -1687,7 +1687,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
   %27 = load ptr, ptr %5, align 8, !tbaa !26
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !71
   %33 = and i32 %32, 1
@@ -1869,7 +1869,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
   %8 = load ptr, ptr %5, align 8, !tbaa !26
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !71
   %14 = and i32 %13, 5
@@ -1917,7 +1917,7 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
   %27 = load ptr, ptr %5, align 8, !tbaa !26
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !71
   %33 = and i32 %32, 1

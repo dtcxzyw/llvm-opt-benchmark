@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr
   %99 = trunc i64 %98 to i32
   %sext = shl i64 %98, 32
   %100 = ashr exact i64 %sext, 32
-  %101 = getelementptr inbounds i8, ptr %4, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 %100
   %102 = icmp sgt i32 %99, 1
   %lhsv = load i16, ptr %4, align 16
   %.not109 = icmp eq i16 %lhsv, 30768

@@ -429,7 +429,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 
 if.end:                                           ; preds = %if.else.i, %_ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit
   %idxprom.i = sext i32 %key to i64
-  %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
   %24 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i1 = icmp eq ptr %24, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i1, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %24

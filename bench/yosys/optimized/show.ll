@@ -2618,7 +2618,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit.thread: ; preds = %.
   %372 = load ptr, ptr %21, align 8
   %373 = getelementptr i8, ptr %372, i64 -24
   %374 = load i64, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %21, i64 %374
+  %375 = getelementptr inbounds nuw i8, ptr %21, i64 %374
   %376 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %375)
           to label %377 unwind label %.loopexit329
 

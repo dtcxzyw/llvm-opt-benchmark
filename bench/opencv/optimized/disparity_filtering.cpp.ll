@@ -3199,7 +3199,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   %1379 = load ptr, ptr @_ZSt4cout, align 8
   %1380 = getelementptr i8, ptr %1379, i64 -24
   %1381 = load i64, ptr %1380, align 8
-  %1382 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %1381
+  %1382 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %1381
   %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 8
   store i64 2, ptr %1383, align 8
   %1384 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.34)
@@ -3335,7 +3335,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   %1443 = load ptr, ptr @_ZSt4cout, align 8
   %1444 = getelementptr i8, ptr %1443, i64 -24
   %1445 = load i64, ptr %1444, align 8
-  %1446 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %1445
+  %1446 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %1445
   %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 8
   store i64 5, ptr %1447, align 8
   %1448 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.38)
@@ -3369,7 +3369,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   %1462 = load ptr, ptr @_ZSt4cout, align 8
   %1463 = getelementptr i8, ptr %1462, i64 -24
   %1464 = load i64, ptr %1463, align 8
-  %1465 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %1464
+  %1465 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %1464
   %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 8
   store i64 3, ptr %1466, align 8
   %1467 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.40)

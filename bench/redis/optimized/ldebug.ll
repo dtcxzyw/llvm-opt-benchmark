@@ -1378,7 +1378,7 @@ entry:
   %tt = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !26
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !32
   %ci = getelementptr inbounds nuw i8, ptr %L, i64 40
   %2 = load ptr, ptr %ci, align 8, !tbaa !16
@@ -1665,7 +1665,7 @@ entry:
   %tt.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %1 = load i32, ptr %tt.i, align 8, !tbaa !26
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8, !tbaa !32
   %ci.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %3 = load ptr, ptr %ci.i, align 8, !tbaa !16
@@ -1725,7 +1725,7 @@ entry:
   %tt.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %0 = load i32, ptr %tt.i, align 8, !tbaa !26
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8, !tbaa !32
   %ci.i = getelementptr inbounds nuw i8, ptr %L, i64 40
   %2 = load ptr, ptr %ci.i, align 8, !tbaa !16
@@ -1780,12 +1780,12 @@ entry:
   %tt = getelementptr inbounds nuw i8, ptr %p1, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !26
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !32
   %tt1 = getelementptr inbounds nuw i8, ptr %p2, i64 8
   %2 = load i32, ptr %tt1, align 8, !tbaa !26
   %idxprom2 = sext i32 %2 to i64
-  %arrayidx3 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [0 x ptr], ptr @luaT_typenames, i64 0, i64 %idxprom2
   %3 = load ptr, ptr %arrayidx3, align 8, !tbaa !32
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i8, ptr %arrayidx4, align 1, !tbaa !20

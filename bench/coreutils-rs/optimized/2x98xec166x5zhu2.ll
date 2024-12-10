@@ -48,7 +48,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = icmp ne ptr %.sroa.0.0.copyload, null
   tail call void @llvm.assume(i1 %15)
   store i64 %14, ptr %.sroa.0.0.copyload, align 8, !noalias !19
-  %16 = getelementptr inbounds { [9 x i64] }, ptr %3, i64 %6
+  %16 = getelementptr inbounds nuw { [9 x i64] }, ptr %3, i64 %6
   call void @"_ZN4core3ptr83drop_in_place$LT$$u5b$clap_builder..builder..possible_value..PossibleValue$u5d$$GT$17hde7f968efcc6de33E.llvm.7235721625540830308"(ptr noalias noundef nonnull align 8 %16, i64 noundef 0), !noalias !30
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %3)
   ret void

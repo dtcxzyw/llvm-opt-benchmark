@@ -1679,7 +1679,7 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27: ; preds 
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.split106.us.i
   %.063.idx104.us.i = phi i64 [ 0, %.split106.us.i ], [ %.063.add.us.i, %._crit_edge.us.i ]
-  %.063.ptr105.us.i = getelementptr inbounds i8, ptr %6, i64 %.063.idx104.us.i
+  %.063.ptr105.us.i = getelementptr inbounds nuw i8, ptr %6, i64 %.063.idx104.us.i
   br label %117
 
 117:                                              ; preds = %117, %.preheader.us.i
@@ -1731,7 +1731,7 @@ _ZNKSt8functionIFjRKN5kitty18static_truth_tableILj10EEEEEclES4_.exit27: ; preds 
 
 .preheader92.us.us.i:                             ; preds = %._crit_edge96.split.us.us.us.i, %.preheader92.us.us.preheader.i
   %.062.idx97.us.us.i = phi i64 [ %.062.add.us.us.i, %._crit_edge96.split.us.us.us.i ], [ 0, %.preheader92.us.us.preheader.i ]
-  %.062.ptr98.us.us.i = getelementptr inbounds i8, ptr %6, i64 %.062.idx97.us.us.i
+  %.062.ptr98.us.us.i = getelementptr inbounds nuw i8, ptr %6, i64 %.062.idx97.us.us.i
   br label %.preheader91.us.us.us.i
 
 .preheader91.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader92.us.us.i
@@ -7988,7 +7988,7 @@ _ZN5kitty12swap_inplaceINS_18static_truth_tableILj10EEEEEvRT_hh.exit.thread.thre
 
 .preheader.us.i51:                                ; preds = %._crit_edge.us.i52, %.split106.us.i
   %.063.idx104.us.i = phi i64 [ 0, %.split106.us.i ], [ %.063.add.us.i, %._crit_edge.us.i52 ]
-  %.063.ptr105.us.i = getelementptr inbounds i8, ptr %3, i64 %.063.idx104.us.i
+  %.063.ptr105.us.i = getelementptr inbounds nuw i8, ptr %3, i64 %.063.idx104.us.i
   br label %214
 
 214:                                              ; preds = %214, %.preheader.us.i51
@@ -8044,7 +8044,7 @@ _ZN5kitty12swap_inplaceINS_18static_truth_tableILj10EEEEEvRT_hh.exit.thread.thre
 
 .preheader92.us.us.i:                             ; preds = %._crit_edge96.split.us.us.us.i, %.preheader92.us.us.preheader.i
   %.062.idx97.us.us.i = phi i64 [ %.062.add.us.us.i, %._crit_edge96.split.us.us.us.i ], [ 0, %.preheader92.us.us.preheader.i ]
-  %.062.ptr98.us.us.i = getelementptr inbounds i8, ptr %3, i64 %.062.idx97.us.us.i
+  %.062.ptr98.us.us.i = getelementptr inbounds nuw i8, ptr %3, i64 %.062.idx97.us.us.i
   br label %.preheader91.us.us.us.i
 
 .preheader91.us.us.us.i:                          ; preds = %._crit_edge.us.us.us.i, %.preheader92.us.us.i
@@ -8141,7 +8141,7 @@ _ZN5kitty12swap_inplaceINS_18static_truth_tableILj10EEEEEvRT_hh.exit.thread.thre
 
 .preheader.us.i81:                                ; preds = %._crit_edge.us.i87, %.split106.us.i78
   %.063.idx104.us.i82 = phi i64 [ 0, %.split106.us.i78 ], [ %.063.add.us.i88, %._crit_edge.us.i87 ]
-  %.063.ptr105.us.i83 = getelementptr inbounds i8, ptr %4, i64 %.063.idx104.us.i82
+  %.063.ptr105.us.i83 = getelementptr inbounds nuw i8, ptr %4, i64 %.063.idx104.us.i82
   br label %285
 
 285:                                              ; preds = %285, %.preheader.us.i81
@@ -8194,7 +8194,7 @@ _ZN5kitty12swap_inplaceINS_18static_truth_tableILj10EEEEEvRT_hh.exit.thread.thre
 
 .preheader92.us.us.i63:                           ; preds = %._crit_edge96.split.us.us.us.i73, %.preheader92.us.us.preheader.i60
   %.062.idx97.us.us.i64 = phi i64 [ %.062.add.us.us.i74, %._crit_edge96.split.us.us.us.i73 ], [ 0, %.preheader92.us.us.preheader.i60 ]
-  %.062.ptr98.us.us.i65 = getelementptr inbounds i8, ptr %4, i64 %.062.idx97.us.us.i64
+  %.062.ptr98.us.us.i65 = getelementptr inbounds nuw i8, ptr %4, i64 %.062.idx97.us.us.i64
   br label %.preheader91.us.us.us.i66
 
 .preheader91.us.us.us.i66:                        ; preds = %._crit_edge.us.us.us.i71, %.preheader92.us.us.i63

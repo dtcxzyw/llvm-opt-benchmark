@@ -1360,7 +1360,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %.0153.in.lcssa.i = phi i64 [ 0, %438 ], [ %indvars.iv187.i, %434 ]
   %sext.i = shl i64 %.0153.in.lcssa.i, 32
   %441 = ashr exact i64 %sext.i, 32
-  %442 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %441
+  %442 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %441
   store double %433, ptr %442, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

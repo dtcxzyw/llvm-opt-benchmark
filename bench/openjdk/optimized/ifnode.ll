@@ -7589,7 +7589,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 68:                                               ; preds = %58
   %69 = srem i32 %.091127, 3
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %70
   store ptr %.089129, ptr %71, align 16
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 %59, ptr %72, align 8
@@ -7643,12 +7643,12 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 
 95:                                               ; preds = %93
   %96 = sext i32 %92 to i64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %96, i32 1
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %96, i32 1
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %97 = add nsw i32 %.293, -2
   %98 = srem i32 %97, 3
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %99
   %.sroa.05.0.copyload = load ptr, ptr %100, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
@@ -7675,7 +7675,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
   %109 = add nsw i32 %.293, -3
   %110 = srem i32 %109, 3
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %111
   %.sroa.02.0.copyload = load ptr, ptr %112, align 16
   %.not112 = icmp sgt i32 %.sroa.7.0.copyload, %.sroa.1.0.copyload
   br i1 %.not112, label %114, label %113
@@ -7692,7 +7692,7 @@ define hidden noundef ptr @_ZN14RangeCheckNode5IdealEP8PhaseGVNb(ptr noundef non
 
 115:                                              ; preds = %90
   %116 = sext i32 %92 to i64
-  %117 = getelementptr inbounds [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [3 x %struct.RangeCheck], ptr %7, i64 0, i64 %116
   %.sroa.0.0.copyload = load ptr, ptr %117, align 16
   tail call fastcc void @_ZL12adjust_checkP10IfProjNodeP4NodeS2_iiP12PhaseIterGVN(ptr noundef %.sroa.0.0.copyload, ptr noundef %22, ptr noundef null, i32 noundef %16, i32 noundef %.299, ptr noundef %..i)
   br label %118

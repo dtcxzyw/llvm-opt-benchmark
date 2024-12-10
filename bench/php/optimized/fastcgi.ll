@@ -381,7 +381,7 @@ is_port_number.exit.thread:                       ; preds = %.loopexit106
 
 is_port_number.exit:                              ; preds = %12
   %28 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %15) #32
-  %29 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %15
+  %29 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %15
   store i8 0, ptr %29, align 1
   %.pre = load i8, ptr %5, align 16
   %.069 = trunc i32 %11 to i16
@@ -946,7 +946,7 @@ define hidden i32 @fcgi_read(ptr nocapture noundef %0, ptr nocapture noundef %1,
   %.0.i = phi i64 [ 0, %17 ], [ %.1.i, %35 ]
   store i32 0, ptr %18, align 4
   %20 = load i32, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 %.0.i
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.i
   %22 = sub i64 8, %.0.i
   %23 = call i64 @read(i32 noundef %20, ptr noundef nonnull %21, i64 noundef %22) #32
   %24 = trunc i64 %23 to i32
@@ -1133,7 +1133,7 @@ safe_read.exit62:                                 ; preds = %72, %66, %91, %85, 
   %.0.i71 = phi i64 [ 0, %104 ], [ %.1.i74, %123 ]
   store i32 0, ptr %106, align 4
   %108 = load i32, ptr %8, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 %.0.i71
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.i71
   %110 = sub i64 %105, %.0.i71
   %111 = call i64 @read(i32 noundef %108, ptr noundef nonnull %109, i64 noundef %110) #32
   %112 = trunc i64 %111 to i32
@@ -1674,7 +1674,7 @@ fcgi_hash_clean.exit.i:                           ; preds = %.lr.ph21.i.i, %._cr
   %.0.i.i = phi i64 [ 0, %148 ], [ %.1.i.i, %166 ]
   store i32 0, ptr %149, align 4
   %151 = load i32, ptr %8, align 8
-  %152 = getelementptr inbounds i8, ptr %2, i64 %.0.i.i
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i
   %153 = sub i64 8, %.0.i.i
   %154 = call i64 @read(i32 noundef %151, ptr noundef nonnull %152, i64 noundef %153) #32
   %155 = trunc i64 %154 to i32
@@ -1734,7 +1734,7 @@ safe_read.exit.i:                                 ; preds = %166, %164
   %.0.i150.i = phi i64 [ %.0.i150.i.be, %.preheader230.i.backedge ], [ 0, %169 ]
   store i32 0, ptr %149, align 4
   %181 = load i32, ptr %8, align 8
-  %182 = getelementptr inbounds i8, ptr %2, i64 %.0.i150.i
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i150.i
   %183 = sub i64 8, %.0.i150.i
   %184 = call i64 @read(i32 noundef %181, ptr noundef nonnull %182, i64 noundef %183) #32
   %185 = trunc i64 %184 to i32
@@ -1828,7 +1828,7 @@ safe_read.exit157.i:                              ; preds = %196, %194
   %.0.i158.i = phi i64 [ 0, %223 ], [ %.1.i161.i, %241 ]
   store i32 0, ptr %149, align 4
   %226 = load i32, ptr %8, align 8
-  %227 = getelementptr inbounds i8, ptr %3, i64 %.0.i158.i
+  %227 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i158.i
   %228 = sub i64 %224, %.0.i158.i
   %229 = call i64 @read(i32 noundef %226, ptr noundef nonnull %227, i64 noundef %228) #32
   %230 = trunc i64 %229 to i32
@@ -1925,7 +1925,7 @@ safe_read.exit165.thread.i:                       ; preds = %241, %safe_read.exi
   %.0.i166.i = phi i64 [ %.1.i169.i, %280 ], [ 0, %.preheader298 ]
   store i32 0, ptr %149, align 4
   %265 = load i32, ptr %8, align 8
-  %266 = getelementptr inbounds i8, ptr %2, i64 %.0.i166.i
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i166.i
   %267 = sub i64 8, %.0.i166.i
   %268 = call i64 @read(i32 noundef %265, ptr noundef nonnull %266, i64 noundef %267) #32
   %269 = trunc i64 %268 to i32
@@ -2000,7 +2000,7 @@ safe_read.exit173.i:                              ; preds = %280, %278
   %.0.i174.i = phi i64 [ 0, %297 ], [ %.1.i177.i, %315 ]
   store i32 0, ptr %149, align 4
   %300 = load i32, ptr %8, align 8
-  %301 = getelementptr inbounds i8, ptr %3, i64 %.0.i174.i
+  %301 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i174.i
   %302 = sub i64 %298, %.0.i174.i
   %303 = call i64 @read(i32 noundef %300, ptr noundef nonnull %301, i64 noundef %302) #32
   %304 = trunc i64 %303 to i32
@@ -2051,7 +2051,7 @@ safe_read.exit181.thread.i:                       ; preds = %315, %safe_read.exi
   %.0.i182.i = phi i64 [ %.1.i185.i, %334 ], [ 0, %safe_read.exit181.thread.i ]
   store i32 0, ptr %149, align 4
   %319 = load i32, ptr %8, align 8
-  %320 = getelementptr inbounds i8, ptr %2, i64 %.0.i182.i
+  %320 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i182.i
   %321 = sub i64 8, %.0.i182.i
   %322 = call i64 @read(i32 noundef %319, ptr noundef nonnull %320, i64 noundef %321) #32
   %323 = trunc i64 %322 to i32
@@ -2119,7 +2119,7 @@ safe_read.exit189.i:                              ; preds = %334, %332
   %.0.i190.i = phi i64 [ 0, %351 ], [ %.1.i193.i, %369 ]
   store i32 0, ptr %149, align 4
   %354 = load i32, ptr %8, align 8
-  %355 = getelementptr inbounds i8, ptr %3, i64 %.0.i190.i
+  %355 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i190.i
   %356 = sub i64 %352, %.0.i190.i
   %357 = call i64 @read(i32 noundef %354, ptr noundef nonnull %355, i64 noundef %356) #32
   %358 = trunc i64 %357 to i32
@@ -2328,7 +2328,7 @@ fcgi_make_header.exit.i:                          ; preds = %443, %.loopexit.i
   %.0.i52 = phi i64 [ 0, %fcgi_make_header.exit.i ], [ %.1.i, %461 ]
   store i32 0, ptr %149, align 4
   %450 = load i32, ptr %8, align 8
-  %451 = getelementptr inbounds i8, ptr %3, i64 %.0.i52
+  %451 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i52
   %452 = sub i64 %448, %.0.i52
   %453 = call i64 @write(i32 noundef %450, ptr noundef nonnull readonly %451, i64 noundef %452) #32
   %454 = trunc i64 %453 to i32

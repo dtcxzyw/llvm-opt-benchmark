@@ -4220,7 +4220,7 @@ invoke.cont115:                                   ; preds = %invoke.cont115.lr.p
   store <2 x float> %retval.sroa.3.12.vec.insert.i173, ptr %arrayidx5.i151, align 8
   %15 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %15 to i64
-  %arrayidx121 = getelementptr inbounds float, ptr %p96, i64 %idxprom
+  %arrayidx121 = getelementptr inbounds nuw float, ptr %p96, i64 %idxprom
   %16 = load float, ptr %arrayidx121, align 4
   %conv122 = fptosi float %16 to i32
   %17 = load ptr, ptr %m_data.i.i, align 8
@@ -4228,7 +4228,7 @@ invoke.cont115:                                   ; preds = %invoke.cont115.lr.p
   store i32 %conv122, ptr %arrayidx.i, align 4
   %18 = load i32, ptr %maxAxis, align 4
   %idxprom128 = sext i32 %18 to i64
-  %arrayidx129 = getelementptr inbounds float, ptr %p96, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds nuw float, ptr %p96, i64 %idxprom128
   %19 = load float, ptr %arrayidx129, align 4
   %conv130 = fptosi float %19 to i32
   %20 = load ptr, ptr %m_data.i.i, align 8
@@ -4236,7 +4236,7 @@ invoke.cont115:                                   ; preds = %invoke.cont115.lr.p
   store i32 %conv130, ptr %y, align 4
   %21 = load i32, ptr %minAxis, align 4
   %idxprom136 = sext i32 %21 to i64
-  %arrayidx137 = getelementptr inbounds float, ptr %p96, i64 %idxprom136
+  %arrayidx137 = getelementptr inbounds nuw float, ptr %p96, i64 %idxprom136
   %22 = load float, ptr %arrayidx137, align 4
   %conv138 = fptosi float %22 to i32
   %23 = load ptr, ptr %m_data.i.i, align 8
@@ -4290,7 +4290,7 @@ invoke.cont165:                                   ; preds = %invoke.cont165.lr.p
   store <2 x float> %retval.sroa.3.12.vec.insert.i209, ptr %arrayidx5.i186, align 8
   %32 = load i32, ptr %medAxis, align 8
   %idxprom171 = sext i32 %32 to i64
-  %arrayidx172 = getelementptr inbounds float, ptr %p152, i64 %idxprom171
+  %arrayidx172 = getelementptr inbounds nuw float, ptr %p152, i64 %idxprom171
   %33 = load float, ptr %arrayidx172, align 4
   %conv173 = fptosi float %33 to i32
   %34 = load ptr, ptr %m_data.i.i, align 8
@@ -4298,7 +4298,7 @@ invoke.cont165:                                   ; preds = %invoke.cont165.lr.p
   store i32 %conv173, ptr %arrayidx.i214, align 4
   %35 = load i32, ptr %maxAxis, align 4
   %idxprom180 = sext i32 %35 to i64
-  %arrayidx181 = getelementptr inbounds float, ptr %p152, i64 %idxprom180
+  %arrayidx181 = getelementptr inbounds nuw float, ptr %p152, i64 %idxprom180
   %36 = load float, ptr %arrayidx181, align 4
   %conv182 = fptosi float %36 to i32
   %37 = load ptr, ptr %m_data.i.i, align 8
@@ -4306,7 +4306,7 @@ invoke.cont165:                                   ; preds = %invoke.cont165.lr.p
   store i32 %conv182, ptr %y185, align 4
   %38 = load i32, ptr %minAxis, align 4
   %idxprom189 = sext i32 %38 to i64
-  %arrayidx190 = getelementptr inbounds float, ptr %p152, i64 %idxprom189
+  %arrayidx190 = getelementptr inbounds nuw float, ptr %p152, i64 %idxprom189
   %39 = load float, ptr %arrayidx190, align 4
   %conv191 = fptosi float %39 to i32
   %40 = load ptr, ptr %m_data.i.i, align 8
@@ -4719,7 +4719,7 @@ entry:
   %medAxis = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds float, ptr %p, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %p, i64 %idxprom
   store float %conv, ptr %arrayidx, align 4
   %y = getelementptr inbounds nuw i8, ptr %v, i64 4
   %2 = load i32, ptr %y, align 4
@@ -4727,7 +4727,7 @@ entry:
   %maxAxis = getelementptr inbounds nuw i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis, align 4
   %idxprom4 = sext i32 %3 to i64
-  %arrayidx5 = getelementptr inbounds float, ptr %p, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom4
   store float %conv2, ptr %arrayidx5, align 4
   %z = getelementptr inbounds nuw i8, ptr %v, i64 8
   %4 = load i32, ptr %z, align 4
@@ -4735,7 +4735,7 @@ entry:
   %minAxis = getelementptr inbounds nuw i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis, align 4
   %idxprom8 = sext i32 %5 to i64
-  %arrayidx9 = getelementptr inbounds float, ptr %p, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom8
   store float %conv6, ptr %arrayidx9, align 4
   %6 = load float, ptr %p, align 4
   %7 = load float, ptr %this, align 8
@@ -4770,7 +4770,7 @@ entry:
   %medAxis.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis.i, align 8
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom.i
   store float %conv.i, ptr %arrayidx.i, align 4
   %y.i = getelementptr inbounds nuw i8, ptr %face, i64 44
   %2 = load i32, ptr %y.i, align 4
@@ -4778,7 +4778,7 @@ entry:
   %maxAxis.i = getelementptr inbounds nuw i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis.i, align 4
   %idxprom4.i = sext i32 %3 to i64
-  %arrayidx5.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom4.i
   store float %conv2.i, ptr %arrayidx5.i, align 4
   %z.i = getelementptr inbounds nuw i8, ptr %face, i64 48
   %4 = load i32, ptr %z.i, align 4
@@ -4786,7 +4786,7 @@ entry:
   %minAxis.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis.i, align 4
   %idxprom8.i = sext i32 %5 to i64
-  %arrayidx9.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom8.i
   store float %conv6.i, ptr %arrayidx9.i, align 4
   %6 = load float, ptr %p.i, align 4
   %7 = load float, ptr %this, align 8
@@ -4806,17 +4806,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i2)
   %12 = load i32, ptr %dir1, align 4
   %conv.i3 = sitofp i32 %12 to float
-  %arrayidx.i6 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom.i
+  %arrayidx.i6 = getelementptr inbounds nuw float, ptr %p.i2, i64 %idxprom.i
   store float %conv.i3, ptr %arrayidx.i6, align 4
   %y.i7 = getelementptr inbounds nuw i8, ptr %face, i64 60
   %13 = load i32, ptr %y.i7, align 4
   %conv2.i8 = sitofp i32 %13 to float
-  %arrayidx5.i11 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom4.i
+  %arrayidx5.i11 = getelementptr inbounds nuw float, ptr %p.i2, i64 %idxprom4.i
   store float %conv2.i8, ptr %arrayidx5.i11, align 4
   %z.i12 = getelementptr inbounds nuw i8, ptr %face, i64 64
   %14 = load i32, ptr %z.i12, align 4
   %conv6.i13 = sitofp i32 %14 to float
-  %arrayidx9.i16 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom8.i
+  %arrayidx9.i16 = getelementptr inbounds nuw float, ptr %p.i2, i64 %idxprom8.i
   store float %conv6.i13, ptr %arrayidx9.i16, align 4
   %15 = load float, ptr %p.i2, align 4
   %mul.i.i17 = fmul float %7, %15
@@ -4868,7 +4868,7 @@ _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit.thread: ; preds = %entry
   %medAxis35 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %2 = load i32, ptr %medAxis35, align 8
   %idxprom36 = sext i32 %2 to i64
-  %arrayidx37 = getelementptr inbounds float, ptr %p, i64 %idxprom36
+  %arrayidx37 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom36
   store float %conv.i, ptr %arrayidx37, align 4
   br label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread
 
@@ -4883,7 +4883,7 @@ _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit:  ; preds = %entry
   %medAxis = getelementptr inbounds nuw i8, ptr %this, i64 168
   %4 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds float, ptr %p, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %p, i64 %idxprom
   store float %div.i.i, ptr %arrayidx, align 4
   br i1 %3, label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread, label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit
 
@@ -4894,7 +4894,7 @@ _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread: ; preds = %_ZNK20btConve
   %maxAxis40 = getelementptr inbounds nuw i8, ptr %this, i64 172
   %6 = load i32, ptr %maxAxis40, align 4
   %idxprom541 = sext i32 %6 to i64
-  %arrayidx642 = getelementptr inbounds float, ptr %p, i64 %idxprom541
+  %arrayidx642 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom541
   store float %conv.i12, ptr %arrayidx642, align 4
   br label %cond.true.i21
 
@@ -4909,7 +4909,7 @@ _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit:  ; preds = %_ZNK20btConvexHullI
   %maxAxis = getelementptr inbounds nuw i8, ptr %this, i64 172
   %8 = load i32, ptr %maxAxis, align 4
   %idxprom5 = sext i32 %8 to i64
-  %arrayidx6 = getelementptr inbounds float, ptr %p, i64 %idxprom5
+  %arrayidx6 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom5
   store float %div.i.i9, ptr %arrayidx6, align 4
   br i1 %7, label %cond.true.i21, label %cond.false.i15
 
@@ -4932,7 +4932,7 @@ _ZNK20btConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %cond.true.i21, %con
   %minAxis = getelementptr inbounds nuw i8, ptr %this, i64 164
   %10 = load i32, ptr %minAxis, align 4
   %idxprom9 = sext i32 %10 to i64
-  %arrayidx10 = getelementptr inbounds float, ptr %p, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw float, ptr %p, i64 %idxprom9
   store float %cond.i20, ptr %arrayidx10, align 4
   %11 = load float, ptr %p, align 4
   %12 = load float, ptr %this, align 8
@@ -5503,7 +5503,7 @@ invoke.cont105:                                   ; preds = %if.end103
   %medAxis = getelementptr inbounds nuw i8, ptr %this, i64 168
   %58 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %58 to i64
-  %arrayidx = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %hullCenter, i64 %idxprom
   store float %call106, ptr %arrayidx, align 4
   %call110 = invoke noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %hullCenterY)
           to label %invoke.cont109 unwind label %ehcleanup.loopexit.split-lp
@@ -5512,7 +5512,7 @@ invoke.cont109:                                   ; preds = %invoke.cont105
   %maxAxis = getelementptr inbounds nuw i8, ptr %this, i64 172
   %59 = load i32, ptr %maxAxis, align 4
   %idxprom113 = sext i32 %59 to i64
-  %arrayidx114 = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds nuw float, ptr %hullCenter, i64 %idxprom113
   store float %call110, ptr %arrayidx114, align 4
   %call116 = invoke noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %hullCenterZ)
           to label %invoke.cont115 unwind label %ehcleanup.loopexit.split-lp
@@ -5521,7 +5521,7 @@ invoke.cont115:                                   ; preds = %invoke.cont109
   %minAxis = getelementptr inbounds nuw i8, ptr %this, i64 164
   %60 = load i32, ptr %minAxis, align 4
   %idxprom119 = sext i32 %60 to i64
-  %arrayidx120 = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom119
+  %arrayidx120 = getelementptr inbounds nuw float, ptr %hullCenter, i64 %idxprom119
   store float %call116, ptr %arrayidx120, align 4
   %call123 = invoke noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %volume)
           to label %invoke.cont125 unwind label %ehcleanup.loopexit.split-lp
@@ -5558,23 +5558,23 @@ for.cond.preheader:                               ; preds = %invoke.cont125
 invoke.cont145.lr.ph:                             ; preds = %for.cond.preheader
   %67 = load i32, ptr %medAxis, align 8
   %idxprom.i.i = sext i32 %67 to i64
-  %arrayidx.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom.i.i
   %68 = load i32, ptr %maxAxis, align 4
   %idxprom4.i.i = sext i32 %68 to i64
-  %arrayidx5.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom4.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom4.i.i
   %69 = load i32, ptr %minAxis, align 4
   %idxprom8.i.i = sext i32 %69 to i64
-  %arrayidx9.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom8.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom8.i.i
   %arrayidx5.i.i.i = getelementptr inbounds nuw i8, ptr %p.i.i, i64 4
   %arrayidx11.i.i.i = getelementptr inbounds nuw i8, ptr %p.i.i, i64 8
-  %arrayidx.i6.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom.i.i
-  %arrayidx5.i11.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom4.i.i
-  %arrayidx9.i16.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom8.i.i
+  %arrayidx.i6.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom.i.i
+  %arrayidx5.i11.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom4.i.i
+  %arrayidx9.i16.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom8.i.i
   %arrayidx5.i.i18.i = getelementptr inbounds nuw i8, ptr %p.i2.i, i64 4
   %arrayidx11.i.i21.i = getelementptr inbounds nuw i8, ptr %p.i2.i, i64 8
-  %arrayidx.i304 = getelementptr inbounds float, ptr %p.i, i64 %idxprom.i.i
-  %arrayidx5.i307 = getelementptr inbounds float, ptr %p.i, i64 %idxprom4.i.i
-  %arrayidx9.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom8.i.i
+  %arrayidx.i304 = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom.i.i
+  %arrayidx5.i307 = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom4.i.i
+  %arrayidx9.i = getelementptr inbounds nuw float, ptr %p.i, i64 %idxprom8.i.i
   %arrayidx5.i.i311 = getelementptr inbounds nuw i8, ptr %p.i, i64 4
   %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %p.i, i64 8
   %wide.trip.count = zext nneg i32 %faces.sroa.0.1 to i64
@@ -6009,7 +6009,7 @@ entry:
   %medAxis.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis.i.i, align 8
   %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom.i.i
   store float %conv.i.i, ptr %arrayidx.i.i, align 4
   %y.i.i = getelementptr inbounds nuw i8, ptr %face, i64 44
   %2 = load i32, ptr %y.i.i, align 4
@@ -6017,7 +6017,7 @@ entry:
   %maxAxis.i.i = getelementptr inbounds nuw i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis.i.i, align 4
   %idxprom4.i.i = sext i32 %3 to i64
-  %arrayidx5.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom4.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom4.i.i
   store float %conv2.i.i, ptr %arrayidx5.i.i, align 4
   %z.i.i = getelementptr inbounds nuw i8, ptr %face, i64 48
   %4 = load i32, ptr %z.i.i, align 4
@@ -6025,7 +6025,7 @@ entry:
   %minAxis.i.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis.i.i, align 4
   %idxprom8.i.i = sext i32 %5 to i64
-  %arrayidx9.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom8.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw float, ptr %p.i.i, i64 %idxprom8.i.i
   store float %conv6.i.i, ptr %arrayidx9.i.i, align 4
   %6 = load float, ptr %p.i.i, align 4
   %7 = load float, ptr %this, align 8
@@ -6045,17 +6045,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i2.i)
   %12 = load i32, ptr %dir1.i, align 4
   %conv.i3.i = sitofp i32 %12 to float
-  %arrayidx.i6.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom.i.i
+  %arrayidx.i6.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom.i.i
   store float %conv.i3.i, ptr %arrayidx.i6.i, align 4
   %y.i7.i = getelementptr inbounds nuw i8, ptr %face, i64 60
   %13 = load i32, ptr %y.i7.i, align 4
   %conv2.i8.i = sitofp i32 %13 to float
-  %arrayidx5.i11.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom4.i.i
+  %arrayidx5.i11.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom4.i.i
   store float %conv2.i8.i, ptr %arrayidx5.i11.i, align 4
   %z.i12.i = getelementptr inbounds nuw i8, ptr %face, i64 64
   %14 = load i32, ptr %z.i12.i, align 4
   %conv6.i13.i = sitofp i32 %14 to float
-  %arrayidx9.i16.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom8.i.i
+  %arrayidx9.i16.i = getelementptr inbounds nuw float, ptr %p.i2.i, i64 %idxprom8.i.i
   store float %conv6.i13.i, ptr %arrayidx9.i16.i, align 4
   %15 = load float, ptr %p.i2.i, align 4
   %mul.i.i17.i = fmul float %7, %15
@@ -6121,13 +6121,13 @@ if.then27:                                        ; preds = %if.end22
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then27, %if.end22
-  %arrayidx36 = getelementptr inbounds float, ptr %origShift, i64 %idxprom.i.i
+  %arrayidx36 = getelementptr inbounds nuw float, ptr %origShift, i64 %idxprom.i.i
   %27 = load float, ptr %arrayidx36, align 4
   %conv = fptosi float %27 to i32
-  %arrayidx39 = getelementptr inbounds float, ptr %origShift, i64 %idxprom4.i.i
+  %arrayidx39 = getelementptr inbounds nuw float, ptr %origShift, i64 %idxprom4.i.i
   %28 = load float, ptr %arrayidx39, align 4
   %conv40 = fptosi float %28 to i32
-  %arrayidx43 = getelementptr inbounds float, ptr %origShift, i64 %idxprom8.i.i
+  %arrayidx43 = getelementptr inbounds nuw float, ptr %origShift, i64 %idxprom8.i.i
   %29 = load float, ptr %arrayidx43, align 4
   %conv44 = fptosi float %29 to i32
   %cmp.i = icmp eq i32 %conv, 0

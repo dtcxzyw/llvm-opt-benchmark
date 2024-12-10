@@ -8857,7 +8857,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   %20 = zext nneg i16 %19 to i64
   %21 = add i64 %.02836.i, -4
   %22 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   %24 = load i16, ptr %22, align 1, !noalias !960
   store i16 %24, ptr %23, align 1, !alias.scope !960
   %25 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %20
@@ -8876,7 +8876,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   %.zext35.i = zext nneg i16 %32 to i64
   %33 = add i64 %.028.lcssa.i, -2
   %34 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %31
-  %35 = getelementptr inbounds i8, ptr %4, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %36 = load i16, ptr %34, align 1, !noalias !960
   store i16 %36, ptr %35, align 1, !alias.scope !960
   br label %37
@@ -8891,7 +8891,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
   %40 = shl nuw nsw i64 %.027.i, 1
   %41 = add i64 %.129.i, -2
   %42 = getelementptr inbounds nuw i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.38, i64 %40
-  %43 = getelementptr inbounds i8, ptr %4, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   %44 = load i16, ptr %42, align 1, !noalias !960
   store i16 %44, ptr %43, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
@@ -8899,7 +8899,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
 45:                                               ; preds = %37
   %46 = add i64 %.129.i, -1
   %47 = trunc nuw nsw i64 %.027.i to i8
-  %48 = getelementptr inbounds i8, ptr %4, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %46
   %49 = or disjoint i8 %47, 48
   store i8 %49, ptr %48, align 1, !alias.scope !960
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit"
@@ -8907,7 +8907,7 @@ define hidden void @_ZN10actix_http7helpers20write_content_length17ha28d31f607e1
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h60f4497317754d99E.llvm.15740990321789950213.exit": ; preds = %39, %45
   %.2.i = phi i64 [ %46, %45 ], [ %41, %39 ]
   %50 = sub i64 20, %.2.i
-  %51 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %51, i64 noundef %50)
   call void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h9da39b0a0d4e092dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.77.llvm.15740990321789950213, i64 noundef 2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)

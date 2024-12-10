@@ -3163,7 +3163,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %notmask.i.i = shl nsw i64 -1, %cond.i27.i
   %sub9.i.i = xor i64 %notmask.i.i, -1
   %cond12.i.i = select i1 %cmp6.i28.i, i64 -1, i64 %sub9.i.i
-  %arrayidx.i.i = getelementptr inbounds [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.018.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i64], ptr %commit_mask.i, i64 0, i64 %i.018.i.i
   store i64 %cond12.i.i, ptr %arrayidx.i.i, align 8
   %sub14.i.i = sub i64 %bitcount.addr.019.i.i, %cond.i27.i
   %inc.i.i = add i64 %i.018.i.i, 1

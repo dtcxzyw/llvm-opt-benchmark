@@ -161,7 +161,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 35:                                               ; preds = %33
   %36 = sext i32 %.0467 to i64
-  %37 = getelementptr inbounds [46 x i8], ptr @yypact, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [46 x i8], ptr @yypact, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = shl nuw i64 1, %36
@@ -232,7 +232,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 74:                                               ; preds = %57, %59, %35
   %.4 = phi i32 [ %.0462, %35 ], [ %.6, %57 ], [ %.6, %59 ]
-  %75 = getelementptr inbounds [46 x i8], ptr @yydefact, i64 0, i64 %36
+  %75 = getelementptr inbounds nuw [46 x i8], ptr @yydefact, i64 0, i64 %36
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = and i64 %40, 9947541151888
@@ -243,7 +243,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.0484 = phi i32 [ %77, %74 ], [ %71, %70 ]
   %.8 = phi i32 [ %.4, %74 ], [ %.6, %70 ]
   %80 = sext i32 %.0484 to i64
-  %81 = getelementptr inbounds [31 x i8], ptr @yyr2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [31 x i8], ptr @yyr2, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
@@ -780,11 +780,11 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   store ptr %.sroa.57.0, ptr %.sroa.57.0..sroa_idx278, align 8
   %.sroa.57280.0..sroa_idx301 = getelementptr inbounds nuw i8, ptr %221, i64 168
   store ptr %.sroa.57280.0, ptr %.sroa.57280.0..sroa_idx301, align 8
-  %224 = getelementptr inbounds [31 x i8], ptr @yyr1, i64 0, i64 %80
+  %224 = getelementptr inbounds nuw [31 x i8], ptr @yyr1, i64 0, i64 %80
   %225 = load i8, ptr %224, align 1
   %226 = sext i8 %225 to i64
   %227 = add nsw i64 %226, -23
-  %228 = getelementptr inbounds [7 x i8], ptr @yypgoto, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [7 x i8], ptr @yypgoto, i64 0, i64 %227
   %229 = load i8, ptr %228, align 1
   %230 = sext i8 %229 to i32
   %231 = load i8, ptr %222, align 1
@@ -805,7 +805,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   br label %243
 
 241:                                              ; preds = %234, %219
-  %242 = getelementptr inbounds [7 x i8], ptr @yydefgoto, i64 0, i64 %227
+  %242 = getelementptr inbounds nuw [7 x i8], ptr @yydefgoto, i64 0, i64 %227
   br label %243
 
 243:                                              ; preds = %241, %239
@@ -950,7 +950,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i8, ptr %.0.val1, align 1
   %5 = sext i8 %.val.val.i to i64
-  %6 = getelementptr inbounds [46 x i8], ptr @yypact, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [46 x i8], ptr @yypact, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = shl nuw i64 1, %5
   %9 = and i64 %8, 60283762986848
@@ -978,7 +978,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %indvars.iv.i.i = phi i64 [ %18, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %33 ]
   %20 = add nsw i64 %indvars.iv.i.i, %19
-  %21 = getelementptr inbounds [52 x i8], ptr @yycheck, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [52 x i8], ptr @yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   %24 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -1057,7 +1057,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %27, %.thread.i.i, %
   %44 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [31 x ptr], ptr @yytname, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [31 x ptr], ptr @yytname, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 34
@@ -1133,10 +1133,10 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 70:                                               ; preds = %65
   %71 = add nsw i32 %.0, 1
   %72 = sext i32 %.0 to i64
-  %73 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [31 x ptr], ptr @yytname, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [31 x ptr], ptr @yytname, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 34

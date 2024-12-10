@@ -40,7 +40,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
 11:                                               ; preds = %.lr.ph, %33
   %indvars.iv58 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next59, %33 ]
   %12 = load ptr, ptr @VP8FTransform, align 8
-  %13 = getelementptr inbounds [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv58
+  %13 = getelementptr inbounds nuw [24 x i32], ptr @VP8DspScan, i64 0, i64 %indvars.iv58
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -63,7 +63,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
   %27 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4

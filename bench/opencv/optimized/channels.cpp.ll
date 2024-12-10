@@ -802,7 +802,7 @@ define void @_ZN2cv11mixChannelsERKNS_11_InputArrayERKNS_17_InputOutputArrayEPKi
 86:                                               ; preds = %86, %84
   %.idx5.i = phi i64 [ 1744, %84 ], [ %.add6.i, %86 ]
   %.add6.i = add nsw i64 %.idx5.i, -96
-  %.ptr8.i = getelementptr inbounds i8, ptr %8, i64 %.add6.i
+  %.ptr8.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add6.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr8.i) #11
   %87 = icmp eq i64 %.add6.i, 16
   br i1 %87, label %.body, label %86
@@ -960,7 +960,7 @@ _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader: ; preds = %131
 _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i: ; preds = %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i
   %.idx.i72 = phi i64 [ %.add.i73, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i ], [ 1744, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader ]
   %.add.i73 = add nsw i64 %.idx.i72, -96
-  %.ptr1.i = getelementptr inbounds i8, ptr %8, i64 %.add.i73
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i73
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr1.i) #11
   %132 = icmp eq i64 %.add.i73, 16
   br i1 %132, label %_ZN2cv10AutoBufferINS_3MatELm18EED2Ev.exit, label %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i
@@ -1262,7 +1262,7 @@ define void @_ZN2cv11mixChannelsERKNS_11_InputArrayERKNS_17_InputOutputArrayERKS
 94:                                               ; preds = %94, %92
   %.idx5.i = phi i64 [ 1744, %92 ], [ %.add6.i, %94 ]
   %.add6.i = add nsw i64 %.idx5.i, -96
-  %.ptr8.i = getelementptr inbounds i8, ptr %7, i64 %.add6.i
+  %.ptr8.i = getelementptr inbounds nuw i8, ptr %7, i64 %.add6.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr8.i) #11
   %95 = icmp eq i64 %.add6.i, 16
   br i1 %95, label %.body, label %94
@@ -1427,7 +1427,7 @@ _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader: ; preds = %146
 _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i: ; preds = %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i
   %.idx.i70 = phi i64 [ %.add.i71, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i ], [ 1744, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader ]
   %.add.i71 = add nsw i64 %.idx.i70, -96
-  %.ptr1.i = getelementptr inbounds i8, ptr %7, i64 %.add.i71
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %7, i64 %.add.i71
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr1.i) #11
   %147 = icmp eq i64 %.add.i71, 16
   br i1 %147, label %_ZN2cv10AutoBufferINS_3MatELm18EED2Ev.exit, label %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i

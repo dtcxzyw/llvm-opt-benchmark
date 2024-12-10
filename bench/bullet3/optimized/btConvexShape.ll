@@ -354,7 +354,7 @@ sw.epilog:                                        ; preds = %sw.bb35, %sw.bb44, 
   %XX.0.sroa.phi255 = phi ptr [ %halfExtents36, %sw.bb44 ], [ %halfExtents36, %sw.bb43 ], [ %XX.0.sroa.gep257, %sw.bb35 ]
   %31 = load float, ptr %XX.0.sroa.phi255, align 4
   %idxprom49 = sext i32 %29 to i64
-  %arrayidx50 = getelementptr inbounds float, ptr %halfExtents36, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds nuw float, ptr %halfExtents36, i64 %idxprom49
   %32 = load float, ptr %arrayidx50, align 4
   %33 = load float, ptr %XX.0.sroa.phi226, align 4
   %mul63 = fmul float %30, %30
@@ -430,7 +430,7 @@ if.end:                                           ; preds = %sw.bb111, %if.else1
   %vec.sroa.13.0 = phi float [ %mul7.i, %if.else127 ], [ 0.000000e+00, %sw.bb111 ]
   %arrayidx3.i116 = getelementptr inbounds nuw i8, ptr %pos, i64 4
   %arrayidx5.i117 = getelementptr inbounds nuw i8, ptr %pos, i64 8
-  %arrayidx136 = getelementptr inbounds float, ptr %pos, i64 %idxprom.i
+  %arrayidx136 = getelementptr inbounds nuw float, ptr %pos, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pos, i8 0, i64 16, i1 false)
   store float %41, ptr %arrayidx136, align 4
   %vtx.sroa.0.0.copyload = load float, ptr %pos, align 4
@@ -453,7 +453,7 @@ if.end140:                                        ; preds = %if.then139, %if.end
   %arrayidx3.i121 = getelementptr inbounds nuw i8, ptr %pos141, i64 4
   %arrayidx5.i122 = getelementptr inbounds nuw i8, ptr %pos141, i64 8
   %fneg145 = fneg float %41
-  %arrayidx148 = getelementptr inbounds float, ptr %pos141, i64 %idxprom.i
+  %arrayidx148 = getelementptr inbounds nuw float, ptr %pos141, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pos141, i8 0, i64 16, i1 false)
   store float %fneg145, ptr %arrayidx148, align 4
   %vtx.sroa.0.0.copyload178 = load float, ptr %pos141, align 4
@@ -1115,7 +1115,7 @@ sw.bb71:                                          ; preds = %entry
   %arrayidx.i217 = getelementptr inbounds float, ptr %m_implicitShapeDimensions.i190, i64 %idxprom.i216
   %117 = load float, ptr %arrayidx.i217, align 4
   %add82 = fadd float %116, %117
-  %arrayidx85 = getelementptr inbounds float, ptr %halfExtents72, i64 %idxprom.i216
+  %arrayidx85 = getelementptr inbounds nuw float, ptr %halfExtents72, i64 %idxprom.i216
   store float %add82, ptr %arrayidx85, align 4
   %118 = load float, ptr %t, align 4, !noalias !11
   %119 = tail call noundef float @llvm.fabs.f32(float %118)

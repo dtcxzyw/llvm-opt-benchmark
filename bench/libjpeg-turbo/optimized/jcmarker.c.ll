@@ -1362,7 +1362,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %33
   store i8 1, ptr %34, align 1
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count78.i
@@ -1375,12 +1375,12 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [16 x i8], ptr %2, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %39
   store i8 1, ptr %40, align 1
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %43
   store i8 1, ptr %44, align 1
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count78.i
@@ -1400,7 +1400,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %49
   store i8 1, ptr %50, align 1
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
@@ -1420,7 +1420,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %55
   store i8 1, ptr %56, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

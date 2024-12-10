@@ -5924,7 +5924,7 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %291, %289
   %292 = phi i16 [ %.pre.i.i, %291 ], [ %288, %289 ]
   %293 = zext i16 %292 to i64
   %294 = add nsw i64 %293, -1
-  %295 = getelementptr inbounds [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %294
+  %295 = getelementptr inbounds nuw [240 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %294
   %296 = load i16, ptr %295, align 2
   %297 = zext i16 %296 to i32
   br label %_ZNK4llvm3EVT20getVectorNumElementsEv.exit

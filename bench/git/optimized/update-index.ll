@@ -2841,7 +2841,7 @@ land.lhs.true13.us.us.i:                          ; preds = %land.lhs.true.us.us
 
 if.else.i.us.us.i:                                ; preds = %land.lhs.true13.us.us.i
   %idxprom.i.us.us.i = sext i32 %19 to i64
-  %arrayidx.i.us.us.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.us.us.i
+  %arrayidx.i.us.us.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.us.us.i
   br label %oideq.exit.us.us.i
 
 if.then.i.us.us.i:                                ; preds = %land.lhs.true13.us.us.i

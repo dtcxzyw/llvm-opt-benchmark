@@ -732,7 +732,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i160:                                    ; preds = %for.cond.i
   %80 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8
   %sub.i161 = add i64 %i.0.i, -1
-  %arrayidx.i162 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %sub.i161
+  %arrayidx.i162 = getelementptr inbounds nuw [24 x ptr], ptr %allocator, i64 0, i64 %sub.i161
   %81 = load ptr, ptr %arrayidx.i162, align 8
   invoke void %80(ptr noundef %81)
           to label %for.cond.i unwind label %terminate.lpad.i, !llvm.loop !19

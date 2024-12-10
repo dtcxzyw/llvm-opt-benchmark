@@ -108,10 +108,10 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %94 = fcmp oeq double %.fr22, 0.000000e+00
   %95 = sext i32 %21 to i64
   %96 = sext i32 %46 to i64
-  %97 = getelementptr inbounds [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %96
   %98 = sext i32 %24 to i64
   %99 = sext i32 %89 to i64
-  %100 = getelementptr inbounds [2 x ptr], ptr %15, i64 0, i64 %96
+  %100 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %96
   %101 = zext nneg i32 %20 to i64
   %102 = sext i32 %26 to i64
   %103 = select i1 %59, i32 1, i32 %24
@@ -142,10 +142,10 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %118 = fcmp oeq double %.fr22, 0.000000e+00
   %119 = sext i32 %21 to i64
   %120 = sext i32 %46 to i64
-  %121 = getelementptr inbounds [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [2 x ptr], ptr @dgemmt_.gemv_thread, i64 0, i64 %120
   %122 = sext i32 %24 to i64
   %123 = sext i32 %89 to i64
-  %124 = getelementptr inbounds [2 x ptr], ptr %15, i64 0, i64 %120
+  %124 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %120
   %125 = sext i32 %26 to i64
   %126 = zext nneg i32 %20 to i64
   %127 = select i1 %62, i32 %25, i32 1

@@ -934,7 +934,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn18MaxUnpoolLayerImpl7forwardERKNS_11_
   %162 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv.i
   %163 = load i32, ptr %162, align 4, !noalias !4
   %164 = add nsw i64 %indvars.iv.i, -2
-  %165 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %164
   store i32 %163, ptr %165, align 4, !noalias !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

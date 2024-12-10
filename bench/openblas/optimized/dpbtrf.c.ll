@@ -267,7 +267,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %162 = add nuw i64 %156, %158
   %163 = shl i64 %162, 32
   %164 = ashr exact i64 %163, 32
-  %165 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [1056 x double], ptr %10, i64 0, i64 %164
   store double %161, ptr %165, align 8, !tbaa !7
   %166 = add nuw nsw i64 %158, 1
   %167 = icmp eq i64 %166, %143
@@ -366,7 +366,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %233 = add nuw i64 %229, %232
   %234 = shl i64 %233, 32
   %235 = ashr exact i64 %234, 32
-  %236 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw [1056 x double], ptr %10, i64 0, i64 %235
   %237 = load double, ptr %236, align 8, !tbaa !7
   %238 = sub nuw nsw i64 %232, %219
   %239 = getelementptr double, ptr %230, i64 %238
@@ -532,7 +532,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %346 = load double, ptr %345, align 8, !tbaa !7
   %347 = add i32 %336, %342
   %348 = sext i32 %347 to i64
-  %349 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw [1056 x double], ptr %10, i64 0, i64 %348
   store double %346, ptr %349, align 8, !tbaa !7
   %350 = add nuw nsw i64 %341, 1
   %351 = icmp eq i64 %350, %337
@@ -623,7 +623,7 @@ define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %403 = trunc i64 %402 to i32
   %404 = add i32 %397, %403
   %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds [1056 x double], ptr %10, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw [1056 x double], ptr %10, i64 0, i64 %405
   %407 = load double, ptr %406, align 8, !tbaa !7
   %408 = add i32 %.reass, %403
   %409 = sext i32 %408 to i64

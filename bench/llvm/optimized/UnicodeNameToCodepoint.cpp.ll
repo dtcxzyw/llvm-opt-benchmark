@@ -345,7 +345,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i39.i:              ; preds = %59, %._crit_edge.i.
 82:                                               ; preds = %81
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 16))
   %83 = sext i32 %.1.i to i64
-  %84 = getelementptr inbounds [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8
   %.not.i66.i = icmp eq ptr %85, null
   br i1 %.not.i66.i, label %88, label %86
@@ -359,7 +359,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i39.i:              ; preds = %59, %._crit_edge.i.
   %90 = getelementptr inbounds i8, ptr %85, i64 %89
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %85, ptr noundef %90)
   %91 = sext i32 %.1100.i to i64
-  %92 = getelementptr inbounds [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %91, i64 1
+  %92 = getelementptr inbounds nuw [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %91, i64 1
   %93 = load ptr, ptr %92, align 8
   %94 = add nsw i64 %91, -21
   %.not.i67.i = icmp ult i64 %94, 7
@@ -374,7 +374,7 @@ _ZN4llvm9StringRefC2EPKc.exit70.i:                ; preds = %95, %88
   %98 = getelementptr inbounds i8, ptr %93, i64 %97
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %93, ptr noundef %98)
   %99 = sext i32 %.1102.i to i64
-  %100 = getelementptr inbounds [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %99, i64 2
+  %100 = getelementptr inbounds nuw [28 x [3 x ptr]], ptr @_ZN4llvm3sys7unicodeL15HangulSyllablesE, i64 0, i64 %99, i64 2
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #16
   %103 = getelementptr inbounds i8, ptr %101, i64 %102

@@ -175,14 +175,14 @@ for.body:                                         ; preds = %entry, %for.body
   store i64 %inc, ptr %pos, align 8
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %inc) #16
   %1 = load i8, ptr %call, align 1
-  %arrayidx = getelementptr inbounds [9 x i8], ptr %tmp, i64 0, i64 %i.053
+  %arrayidx = getelementptr inbounds nuw [9 x i8], ptr %tmp, i64 0, i64 %i.053
   store i8 %1, ptr %arrayidx, align 1
   %inc1 = add nuw i64 %i.053, 1
   %exitcond.not = icmp eq i64 %inc1, %chars
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
-  %arrayidx2 = getelementptr inbounds [9 x i8], ptr %tmp, i64 0, i64 %chars
+  %arrayidx2 = getelementptr inbounds nuw [9 x i8], ptr %tmp, i64 0, i64 %chars
   store i8 0, ptr %arrayidx2, align 1
   %call3 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %c) #16
   %2 = load i32, ptr %c, align 4
@@ -934,7 +934,7 @@ while.end:                                        ; preds = %invoke.cont35
   %vtable45 = load ptr, ptr %inf, align 8
   %vbase.offset.ptr46 = getelementptr i8, ptr %vtable45, i64 -24
   %vbase.offset47 = load i64, ptr %vbase.offset.ptr46, align 8
-  %add.ptr48 = getelementptr inbounds i8, ptr %inf, i64 %vbase.offset47
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %inf, i64 %vbase.offset47
   %call50 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr48)
           to label %invoke.cont49 unwind label %lpad32.loopexit.split-lp
 

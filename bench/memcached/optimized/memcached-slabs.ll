@@ -128,7 +128,7 @@ return:                                           ; preds = %while.body, %return
 define dso_local i32 @slabs_size(i32 noundef %clsid) local_unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %clsid to i64
-  %arrayidx = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   ret i32 %0
 }
@@ -1244,7 +1244,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.end4.i.i:                                      ; preds = %for.body.i.i
   %idxprom.i.i = sext i32 %spec.store.select.i.i to i64
-  %slabs.i.i = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i.i, i32 4
+  %slabs.i.i = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i.i, i32 4
   %2 = load i32, ptr %slabs.i.i, align 4
   %cmp5.i.i = icmp ugt i32 %2, 1
   br i1 %cmp5.i.i, label %return.sink.split.i.i, label %for.inc.i.i
@@ -1395,7 +1395,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i, %
   %5 = phi i32 [ %.pre.pre.i, %entry.if.then_crit_edge.i ], [ %.pre.pre11.i, %lor.lhs.false.i ], [ %.pre.pre11.i, %lor.lhs.false2.i ]
   %no_go.0.i = phi i1 [ false, %entry.if.then_crit_edge.i ], [ false, %lor.lhs.false.i ], [ %or.cond8.i.not, %lor.lhs.false2.i ]
   %idxprom.i = sext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i
   %idxprom.i.i = zext i32 %5 to i64
   %arrayidx.i.i = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i.i
   %slabs.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 20
@@ -1482,7 +1482,7 @@ if.else:                                          ; preds = %while.body
 if.then7:                                         ; preds = %if.else
   %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slab_rebal, i64 24), align 8
   %idxprom.i4 = sext i32 %20 to i64
-  %arrayidx.i5 = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i4
+  %arrayidx.i5 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i4
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slab_rebal, i64 16), align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
@@ -1695,7 +1695,7 @@ land.lhs.true139.i:                               ; preds = %if.else127.i
   %idxprom.i.i37 = zext i32 %55 to i64
   %arrayidx.i.i38 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i.i37
   %sl_curr.i.i39 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i38, i64 16
-  %perslab.i40 = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i36, i32 1
+  %perslab.i40 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i36, i32 1
   %56 = load i32, ptr %perslab.i40, align 4
   %cmp9.not.i41 = icmp eq i32 %56, 0
   br i1 %cmp9.not.i41, label %do.body214.sink.split.i, label %for.body.lr.ph.i42
@@ -1968,10 +1968,10 @@ if.then12:                                        ; preds = %if.end10
   %call.i19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slab_rebal, i64 24), align 8
   %idxprom.i20 = sext i32 %101 to i64
-  %arrayidx.i21 = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i20
+  %arrayidx.i21 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i20
   %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slab_rebal, i64 28), align 4
   %idxprom1.i = sext i32 %102 to i64
-  %arrayidx2.i = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom1.i
   %slabs.i22 = getelementptr inbounds nuw i8, ptr %arrayidx.i21, i64 20
   %103 = load i32, ptr %slabs.i22, align 4
   %dec.i23 = add i32 %103, -1
@@ -2543,7 +2543,7 @@ entry:
   %idxprom.i = zext i32 %id to i64
   %arrayidx.i = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i
   %sl_curr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
-  %perslab = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom, i32 1
+  %perslab = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom, i32 1
   %1 = load i32, ptr %perslab, align 4
   %cmp9.not = icmp eq i32 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph

@@ -97,7 +97,7 @@ define void @Extra_TruthSwapAdjacentVars(ptr nocapture noundef writeonly %0, ptr
 
 .lr.ph135:                                        ; preds = %10
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4
@@ -531,7 +531,7 @@ define void @Extra_TruthStretch(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %12, label %.lr.ph135.i, label %Extra_TruthSwapAdjacentVars.exit
 
 .lr.ph135.i:                                      ; preds = %21
-  %24 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
@@ -777,7 +777,7 @@ define void @Extra_TruthShrink(ptr nocapture noundef %0, ptr nocapture noundef %
   br i1 %11, label %.lr.ph135.i, label %Extra_TruthSwapAdjacentVars.exit
 
 .lr.ph135.i:                                      ; preds = %19
-  %22 = getelementptr inbounds [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv.next64
+  %22 = getelementptr inbounds nuw [4 x [3 x i32]], ptr @Extra_TruthSwapAdjacentVars.PMasks, i64 0, i64 %indvars.iv.next64
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4

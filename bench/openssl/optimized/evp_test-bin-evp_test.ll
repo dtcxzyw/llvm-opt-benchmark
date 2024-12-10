@@ -7222,7 +7222,7 @@ if.end80.i:                                       ; preds = %for.body.i
 lor.lhs.false.i:                                  ; preds = %if.end80.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call81.i, i64 1
   store i8 0, ptr %call81.i, align 1
-  %arrayidx88.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.6191.i
+  %arrayidx88.i = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.6191.i
   %call89.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i) #12
   %call90.i = call i32 @OSSL_PARAM_allocate_from_text(ptr noundef nonnull %arrayidx88.i, ptr noundef %call.i, ptr noundef %call75.i, ptr noundef nonnull %incdec.ptr.i, i64 noundef %call89.i, ptr noundef null) #11
   %tobool91.not.i = icmp eq i32 %call90.i, 0
@@ -7256,7 +7256,7 @@ if.end101.i:                                      ; preds = %if.then99.i, %if.en
 for.end.i:                                        ; preds = %if.end101.i, %for.cond.preheader.i
   %params_n.6.lcssa.i = phi i64 [ %params_n.5.i, %for.cond.preheader.i ], [ %inc95.i, %if.end101.i ]
   %size_val.0.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %size_val.1.i, %if.end101.i ]
-  %arrayidx103.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.6.lcssa.i
+  %arrayidx103.i = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.6.lcssa.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp104.i) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx103.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp104.i, i64 40, i1 false)
   %20 = load ptr, ptr %mac, align 8
@@ -7644,7 +7644,7 @@ err311.i:                                         ; preds = %if.then307.i, %lor.
 while.body.i:                                     ; preds = %err311.i, %while.body.i
   %params_n.7201.i = phi i64 [ %dec312.i, %while.body.i ], [ %params_n.2.i, %err311.i ]
   %dec312.i = add i64 %params_n.7201.i, -1
-  %data316.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %dec312.i, i32 2
+  %data316.i = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %dec312.i, i32 2
   %62 = load ptr, ptr %data316.i, align 8
   call void @CRYPTO_free(ptr noundef %62, ptr noundef nonnull @.str.27, i32 noundef 1758) #11
   %cmp313.i = icmp ugt i64 %dec312.i, %params_n_allocstart.0.i

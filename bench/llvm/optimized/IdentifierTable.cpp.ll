@@ -21242,7 +21242,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 define dso_local noundef ptr @_ZN5clang19getOperatorSpellingENS_22OverloadedOperatorKindE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [47 x ptr], ptr @switch.table._ZN5clang19getOperatorSpellingENS_22OverloadedOperatorKindE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [47 x ptr], ptr @switch.table._ZN5clang19getOperatorSpellingENS_22OverloadedOperatorKindE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

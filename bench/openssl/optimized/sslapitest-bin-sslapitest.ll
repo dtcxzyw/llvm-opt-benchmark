@@ -3439,7 +3439,7 @@ if.end:                                           ; preds = %entry
   %cmp = icmp ult i32 %idx, 14
   %sub = add nsw i64 %conv, -14
   %conv.pn = select i1 %cmp, i64 %conv, i64 %sub
-  %cond = getelementptr inbounds [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv.pn
+  %cond = getelementptr inbounds nuw [14 x %struct.sigalgs_list], ptr @testsigalgs, i64 0, i64 %conv.pn
   %0 = load ptr, ptr @libctx, align 8
   %call6 = tail call ptr @TLS_server_method() #23
   %call7 = tail call ptr @TLS_client_method() #23
@@ -5999,7 +5999,7 @@ entry:
   store ptr null, ptr %serverssl, align 8
   store ptr null, ptr %sess, align 8
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [5 x ptr], ptr @__const.test_early_data_psk_with_all_ciphers.cipher_str, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @__const.test_early_data_psk_with_all_ciphers.cipher_str, i64 0, i64 %idxprom
   %cmp1 = icmp eq i32 %idx, 2
   %.b = load i1, ptr @is_fips, align 4
   %or.cond = select i1 %cmp1, i1 %.b, i1 false
@@ -6043,7 +6043,7 @@ lor.lhs.false:                                    ; preds = %if.end12
 
 if.end28:                                         ; preds = %lor.lhs.false
   %5 = load ptr, ptr %clientssl, align 8
-  %arrayidx30 = getelementptr inbounds [5 x ptr], ptr @__const.test_early_data_psk_with_all_ciphers.cipher_bytes, i64 0, i64 %idxprom
+  %arrayidx30 = getelementptr inbounds nuw [5 x ptr], ptr @__const.test_early_data_psk_with_all_ciphers.cipher_bytes, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx30, align 8
   %call31 = call ptr @SSL_CIPHER_find(ptr noundef %5, ptr noundef %6) #23
   %call32 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 4406, ptr noundef nonnull @.str.533, ptr noundef %call31) #23
@@ -7871,7 +7871,7 @@ if.end37:                                         ; preds = %lor.lhs.false
   %15 = load i32, ptr @new_called, align 4
   %sub = add nsw i32 %15, -1
   %idxprom = sext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr @sesscache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x ptr], ptr @sesscache, i64 0, i64 %idxprom
   %16 = load ptr, ptr %arrayidx, align 8
   %17 = load ptr, ptr %clientssl, align 8
   %call38 = call i32 @SSL_shutdown(ptr noundef %17) #23
@@ -8252,8 +8252,8 @@ entry:
   %sub = add nsw i32 %rem4.sext, -5
   %spec.select = select i1 %cmp5, i32 %rem4.sext, i32 %sub
   %idxprom = sext i32 %spec.select to i64
-  %arrayidx = getelementptr inbounds [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom
-  %arrayidx10 = getelementptr inbounds [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom
   %kexch_alg.0.in = select i1 %cmp5, ptr %arrayidx, ptr %arrayidx10
   %kexch_alg.0 = load i32, ptr %kexch_alg.0.in, align 4
   %or.cond = or i1 %cmp2, %cmp5
@@ -8439,8 +8439,8 @@ if.end128:                                        ; preds = %lor.lhs.false122
 
 if.then137:                                       ; preds = %if.end128
   %idxprom140 = sext i32 %idx.addr.1 to i64
-  %arrayidx141 = getelementptr inbounds [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom140
-  %arrayidx144 = getelementptr inbounds [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom140
+  %arrayidx141 = getelementptr inbounds nuw [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom140
+  %arrayidx144 = getelementptr inbounds nuw [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom140
   %expectednid.1.in = select i1 %cmp5, ptr %arrayidx141, ptr %arrayidx144
   %expectednid.1 = load i32, ptr %expectednid.1.in, align 4
   %call146 = call i32 @test_int_ne(ptr noundef nonnull @.str.14, i32 noundef 5173, ptr noundef nonnull @.str.622, ptr noundef nonnull @.str.625, i32 noundef %expectednid.1, i32 noundef %kexch_alg.0) #23
@@ -10526,7 +10526,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
   %idxprom = sext i32 %idx_tst to i64
-  %arrayidx = getelementptr inbounds [4 x i8], ptr @max_fragment_len_test, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @max_fragment_len_test, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %call3 = call i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr noundef %1, i8 noundef zeroext %2) #23
   %cmp4 = icmp ne i32 %call3, 0
@@ -12530,7 +12530,7 @@ entry:
   %readbytes = alloca i64, align 8
   %written = alloca i64, align 8
   %idxprom = sext i32 %test_index to i64
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @multiblock_cipherlist_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @multiblock_cipherlist_data, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @TLS_server_method() #23
   %call1 = tail call ptr @TLS_client_method() #23
@@ -12539,7 +12539,7 @@ entry:
   store ptr null, ptr %clientssl, align 8
   store ptr null, ptr %serverssl, align 8
   %1 = load ptr, ptr @libctx, align 8
-  %arrayidx3 = getelementptr inbounds [4 x ptr], ptr @test_multiblock_write.fetchable_ciphers, i64 0, i64 %idxprom
+  %arrayidx3 = getelementptr inbounds nuw [4 x ptr], ptr @test_multiblock_write.fetchable_ciphers, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.754) #23
   %cmp = icmp eq ptr %call4, null
@@ -15330,7 +15330,7 @@ for.body:                                         ; preds = %lor.lhs.false43, %i
 
 if.end57:                                         ; preds = %for.body
   %14 = load i64, ptr %readbytes, align 8
-  %arrayidx = getelementptr inbounds [80 x i8], ptr %buf, i64 0, i64 %14
+  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %buf, i64 0, i64 %14
   store i8 0, ptr %arrayidx, align 1
   %call59 = call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 10586, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.151, ptr noundef nonnull %buf, ptr noundef nonnull @.str.845) #23
   %tobool60.not = icmp eq i32 %call59, 0
@@ -15516,7 +15516,7 @@ lor.lhs.false92:                                  ; preds = %if.end86
 
 if.end96:                                         ; preds = %lor.lhs.false92
   %22 = load i64, ptr %readbytes, align 8
-  %arrayidx = getelementptr inbounds [80 x i8], ptr %buf, i64 0, i64 %22
+  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %buf, i64 0, i64 %22
   store i8 0, ptr %arrayidx, align 1
   %call98 = call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 10705, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.151, ptr noundef nonnull %buf, ptr noundef nonnull @.str.845) #23
   %tobool99.not = icmp eq i32 %call98, 0
@@ -16701,7 +16701,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %16 = load i64, ptr %readbytes, align 8
   %add = add i64 %16, %totread.027
   %17 = load ptr, ptr %serverssl, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %outbuf, i64 %add
+  %add.ptr = getelementptr inbounds nuw i8, ptr %outbuf, i64 %add
   %sub = sub i64 1200, %add
   %call103 = call i32 @SSL_read_ex(ptr noundef %17, ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull %readbytes) #23
   %tobool104.not = icmp eq i32 %call103, 0
@@ -18397,7 +18397,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr @new_called, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [6 x ptr], ptr @sesscache, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x ptr], ptr @sesscache, i64 0, i64 %idxprom
   store ptr %sess, ptr %arrayidx, align 8
   br label %if.end
 
@@ -20073,8 +20073,8 @@ entry:
   %kexch_alg = alloca i32, align 4
   %tobool.not = icmp eq i32 %isecdhe, 0
   %idxprom1 = sext i32 %idx to i64
-  %arrayidx2 = getelementptr inbounds [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom1
-  %arrayidx = getelementptr inbounds [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds nuw [5 x i32], ptr @ffdhe_kexch_groups, i64 0, i64 %idxprom1
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr @ecdhe_kexch_groups, i64 0, i64 %idxprom1
   %storemerge.in = select i1 %tobool.not, ptr %arrayidx2, ptr %arrayidx
   %storemerge = load i32, ptr %storemerge.in, align 4
   store i32 %storemerge, ptr %kexch_alg, align 4
@@ -20467,7 +20467,7 @@ define internal void @sslapi_info_callback(ptr noundef %s, i32 noundef %where, i
 entry:
   %0 = load i32, ptr @info_cb_offset, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [9 x [60 x %struct.info_cb_states_st]], ptr @info_cb_states, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [9 x [60 x %struct.info_cb_states_st]], ptr @info_cb_states, i64 0, i64 %idxprom
   %cmp = icmp eq i32 %ret, 0
   %conv = zext i1 %cmp to i32
   %call = tail call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 7573, ptr noundef nonnull @.str.769, i32 noundef %conv) #23
@@ -20607,7 +20607,7 @@ if.end16:                                         ; preds = %if.else, %if.then3
   %call17 = tail call ptr @TLS_server_method() #23
   %call18 = tail call ptr @TLS_client_method() #23
   %idxprom = sext i32 %tst to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.anon.5], ptr @shared_ciphers_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.anon.5], ptr @shared_ciphers_data, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 8
   %2 = load ptr, ptr @cert, align 8
   %3 = load ptr, ptr @privkey, align 8

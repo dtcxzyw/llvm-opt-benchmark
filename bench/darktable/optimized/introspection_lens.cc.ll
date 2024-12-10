@@ -5505,7 +5505,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 .preheader70:                                     ; preds = %276, %311
   %291 = phi i64 [ %312, %311 ], [ 1, %276 ]
   %292 = add nsw i64 %291, -1
-  %293 = getelementptr inbounds float, ptr %9, i64 %292
+  %293 = getelementptr inbounds nuw float, ptr %9, i64 %292
   %294 = load float, ptr %293, align 4, !tbaa !22
   %295 = fcmp reassoc nsz arcp contract afn ugt float %294, %281
   br i1 %295, label %311, label %296
@@ -5519,7 +5519,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 300:                                              ; preds = %296
   %301 = getelementptr inbounds nuw float, ptr %11, i64 %291
   %302 = load float, ptr %301, align 4, !tbaa !22
-  %303 = getelementptr inbounds float, ptr %11, i64 %292
+  %303 = getelementptr inbounds nuw float, ptr %11, i64 %292
   %304 = load float, ptr %303, align 4, !tbaa !22
   %305 = fsub reassoc nsz arcp contract afn float %302, %304
   %306 = fsub reassoc nsz arcp contract afn float %298, %294
@@ -5542,7 +5542,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 317:                                              ; preds = %338, %314
   %318 = phi i64 [ 1, %314 ], [ %339, %338 ]
   %319 = add nsw i64 %318, -1
-  %320 = getelementptr inbounds float, ptr %9, i64 %319
+  %320 = getelementptr inbounds nuw float, ptr %9, i64 %319
   %321 = load float, ptr %320, align 4, !tbaa !22
   %322 = fcmp reassoc nsz arcp contract afn ugt float %321, %281
   br i1 %322, label %338, label %323
@@ -5583,7 +5583,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 346:                                              ; preds = %367, %343
   %347 = phi i64 [ 1, %343 ], [ %368, %367 ]
   %348 = add nsw i64 %347, -1
-  %349 = getelementptr inbounds float, ptr %9, i64 %348
+  %349 = getelementptr inbounds nuw float, ptr %9, i64 %348
   %350 = load float, ptr %349, align 4, !tbaa !22
   %351 = fcmp reassoc nsz arcp contract afn ugt float %350, %281
   br i1 %351, label %367, label %352
@@ -5957,7 +5957,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 .preheader80:                                     ; preds = %604, %614
   %605 = phi i64 [ %615, %614 ], [ 1, %604 ]
   %606 = add nsw i64 %605, -1
-  %607 = getelementptr inbounds float, ptr %5, i64 %606
+  %607 = getelementptr inbounds nuw float, ptr %5, i64 %606
   %608 = load float, ptr %607, align 4, !tbaa !22
   %609 = fcmp reassoc nsz arcp contract afn ugt float %608, %602
   br i1 %609, label %614, label %610
@@ -5976,7 +5976,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 617:                                              ; preds = %610
   %618 = getelementptr inbounds nuw float, ptr %6, i64 %605
   %619 = load float, ptr %618, align 4, !tbaa !22
-  %620 = getelementptr inbounds float, ptr %6, i64 %606
+  %620 = getelementptr inbounds nuw float, ptr %6, i64 %606
   %621 = load float, ptr %620, align 4, !tbaa !22
   %622 = fsub reassoc nsz arcp contract afn float %619, %621
   %623 = fsub reassoc nsz arcp contract afn float %612, %608
@@ -6028,7 +6028,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 .preheader78:                                     ; preds = %643, %653
   %644 = phi i64 [ %654, %653 ], [ 1, %643 ]
   %645 = add nsw i64 %644, -1
-  %646 = getelementptr inbounds float, ptr %5, i64 %645
+  %646 = getelementptr inbounds nuw float, ptr %5, i64 %645
   %647 = load float, ptr %646, align 4, !tbaa !22
   %648 = fcmp reassoc nsz arcp contract afn ugt float %647, %602
   br i1 %648, label %653, label %649
@@ -6047,7 +6047,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 656:                                              ; preds = %649
   %657 = getelementptr inbounds nuw float, ptr %7, i64 %644
   %658 = load float, ptr %657, align 4, !tbaa !22
-  %659 = getelementptr inbounds float, ptr %7, i64 %645
+  %659 = getelementptr inbounds nuw float, ptr %7, i64 %645
   %660 = load float, ptr %659, align 4, !tbaa !22
   %661 = fsub reassoc nsz arcp contract afn float %658, %660
   %662 = fsub reassoc nsz arcp contract afn float %651, %647
@@ -6068,7 +6068,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 .preheader76:                                     ; preds = %668, %679
   %670 = phi i64 [ %680, %679 ], [ 1, %668 ]
   %671 = add nsw i64 %670, -1
-  %672 = getelementptr inbounds float, ptr %5, i64 %671
+  %672 = getelementptr inbounds nuw float, ptr %5, i64 %671
   %673 = load float, ptr %672, align 4, !tbaa !22
   %674 = fcmp reassoc nsz arcp contract afn ugt float %673, %602
   br i1 %674, label %679, label %675
@@ -6087,7 +6087,7 @@ define void @commit_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
 682:                                              ; preds = %675
   %683 = getelementptr inbounds nuw float, ptr %8, i64 %670
   %684 = load float, ptr %683, align 4, !tbaa !22
-  %685 = getelementptr inbounds float, ptr %8, i64 %671
+  %685 = getelementptr inbounds nuw float, ptr %8, i64 %671
   %686 = load float, ptr %685, align 4, !tbaa !22
   %687 = fsub reassoc nsz arcp contract afn float %684, %686
   %688 = fsub reassoc nsz arcp contract afn float %677, %673
@@ -9126,7 +9126,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
 
 158:                                              ; preds = %112
   %159 = sext i32 %152 to i64
-  %160 = getelementptr inbounds [46 x double], ptr %3, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [46 x double], ptr %3, i64 0, i64 %159
   %161 = load double, ptr %160, align 8, !tbaa !419
   %162 = fcmp reassoc nsz arcp contract afn ogt double %161, %109
   br i1 %162, label %163, label %167
@@ -9134,7 +9134,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
 163:                                              ; preds = %158
   %164 = add nsw i32 %152, -1
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [46 x double], ptr %3, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [46 x double], ptr %3, i64 0, i64 %165
   store double %109, ptr %166, align 8, !tbaa !419
   br label %167
 
@@ -9146,7 +9146,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
   %172 = select i1 %171, i32 44, i32 %156
   %173 = add nsw i32 %172, 1
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds [46 x double], ptr %3, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [46 x double], ptr %3, i64 0, i64 %174
   %176 = load double, ptr %175, align 8, !tbaa !419
   %177 = fcmp reassoc nsz arcp contract afn olt double %176, %111
   br i1 %177, label %178, label %180
@@ -9300,7 +9300,7 @@ define internal fastcc void @_ZL9_lens_setP15dt_iop_module_tPK6lfLens(ptr nounde
 296:                                              ; preds = %315, %210
   %297 = phi i64 [ 0, %210 ], [ %318, %315 ]
   %298 = add nsw i64 %297, %211
-  %299 = getelementptr inbounds [46 x double], ptr %3, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw [46 x double], ptr %3, i64 0, i64 %298
   %300 = load double, ptr %299, align 8, !tbaa !419
   %301 = fmul reassoc nsz arcp contract afn double %300, 1.000000e+01
   %302 = fcmp reassoc nsz arcp contract afn oeq double %301, 0.000000e+00

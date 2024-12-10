@@ -278,7 +278,7 @@ _ZN7oopDesc11oop_iterateI17OopIterateClosureEEvPT_.exit: ; preds = %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %.0.i.i) #7
   ret void

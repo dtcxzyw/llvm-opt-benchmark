@@ -1125,7 +1125,7 @@ _ZNSt3mapIiSt6vectorIN5ZXing4OneD7DataBar4PairESaIS4_EESt4lessIiESaISt4pairIKiS6
 347:                                              ; preds = %335
   %348 = add nsw i32 %339, -2
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds [10 x %"class.std::vector"], ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 0, i64 %349
+  %350 = getelementptr inbounds nuw [10 x %"class.std::vector"], ptr @_ZN5ZXing4OneDL24FINDER_PATTERN_SEQUENCESE, i64 0, i64 %349
   %351 = load ptr, ptr %334, align 8, !alias.scope !22
   %.not.i.i59 = icmp eq ptr %336, %351
   br i1 %.not.i.i59, label %354, label %352
@@ -3463,7 +3463,7 @@ define internal fastcc i64 @_ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternVie
   %14 = zext i1 %2 to i32
   %15 = or disjoint i32 %13, %14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [24 x %"struct.std::array.47"], ptr @"_ZZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEbE7WEIGHTS", i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [24 x %"struct.std::array.47"], ptr @"_ZZZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEibENK3$_0clERKSt5arrayIiLm4EEbE7WEIGHTS", i64 0, i64 %16
   br label %18
 
 18:                                               ; preds = %18, %7
@@ -3517,14 +3517,14 @@ _ZN5ZXing6ReduceISt5arrayIiLm4EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %34 = sub nsw i32 13, %32
   %35 = sdiv i32 %34, 2
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.SYMBOL_WIDEST, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.SYMBOL_WIDEST, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = sub nsw i32 9, %38
   %40 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueERKSt5arrayIiLm4EEib(ptr noundef nonnull align 4 dereferenceable(16) %4, i32 noundef %38, i1 noundef zeroext true)
   %41 = call noundef i32 @_ZN5ZXing4OneD7DataBar8GetValueERKSt5arrayIiLm4EEib(ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef %39, i1 noundef zeroext false)
-  %42 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.EVEN_TOTAL_SUBSET, i64 0, i64 %36
+  %42 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.EVEN_TOTAL_SUBSET, i64 0, i64 %36
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.GSUM, i64 0, i64 %36
+  %44 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN5ZXing4OneDL17ReadDataCharacterERKNS_11PatternViewEib.GSUM, i64 0, i64 %36
   %45 = load i32, ptr %44, align 4
   %46 = mul nsw i32 %43, %40
   %47 = add nsw i32 %46, %41

@@ -4447,7 +4447,7 @@ for.body.i407:                                    ; preds = %for.body.i407, %for
   %91 = xor i64 %i.06.i408, -1
   %arrayidx.i409 = getelementptr i8, ptr %90, i64 %91
   %92 = load i8, ptr %arrayidx.i409, align 1
-  %arrayidx2.i410 = getelementptr inbounds i8, ptr %g_secret, i64 %i.06.i408
+  %arrayidx2.i410 = getelementptr inbounds nuw i8, ptr %g_secret, i64 %i.06.i408
   store i8 %92, ptr %arrayidx2.i410, align 1
   %inc.i411 = add nuw i64 %i.06.i408, 1
   %exitcond.not.i412 = icmp eq i64 %inc.i411, %call206
@@ -5288,7 +5288,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %1 = xor i64 %i.06.i, -1
   %arrayidx.i = getelementptr i8, ptr %0, i64 %1
   %2 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %b_out, i64 %i.06.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %b_out, i64 %i.06.i
   store i8 %2, ptr %arrayidx2.i, align 1
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call6

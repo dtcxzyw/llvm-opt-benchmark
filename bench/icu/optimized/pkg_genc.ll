@@ -656,7 +656,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.5) #21
   %cmp4 = icmp eq i32 %call3, 0
@@ -707,7 +707,7 @@ if.end33:                                         ; preds = %if.end30, %if.end22
 if.then35:                                        ; preds = %if.end33
   %call37 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %entry1, ptr noundef nonnull dereferenceable(1) %optEntryPoint) #18
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %entry1)
-  %endptr = getelementptr inbounds i8, ptr %entry1, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %entry1, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   br label %if.end40
 
@@ -718,7 +718,7 @@ if.end40:                                         ; preds = %if.then35, %if.end3
 
 for.body:                                         ; preds = %if.end40, %for.inc
   %i.029 = phi i64 [ %inc, %for.inc ], [ 0, %if.end40 ]
-  %arrayidx44 = getelementptr inbounds [96 x i8], ptr %entry1, i64 0, i64 %i.029
+  %arrayidx44 = getelementptr inbounds nuw [96 x i8], ptr %entry1, i64 0, i64 %i.029
   %6 = load i8, ptr %arrayidx44, align 1
   %.off = add i8 %6, -45
   %switch = icmp ult i8 %.off, 2
@@ -736,7 +736,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
 for.end:                                          ; preds = %for.inc, %if.end40
   %7 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4
   %idxprom53 = sext i32 %7 to i64
-  %header = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom53, i32 1
+  %header = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom53, i32 1
   %8 = load ptr, ptr %header, align 8
   %call63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 4096, ptr noundef %8, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1) #18
   %cmp65 = icmp ugt i32 %call63, 4095
@@ -752,7 +752,7 @@ if.end68:                                         ; preds = %for.end
   %call70 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %call17, ptr noundef nonnull %buffer)
   %11 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4
   %idxprom71 = sext i32 %11 to i64
-  %beginLine = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom71, i32 2
+  %beginLine = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom71, i32 2
   %12 = load ptr, ptr %beginLine, align 8
   %call73 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %call17, ptr noundef %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %buffer, i8 0, i64 4096, i1 false)
@@ -807,7 +807,7 @@ if.else3.i:                                       ; preds = %if.else.i
   store i8 10, ptr %bitFieldStr.i, align 16
   %14 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4
   %idxprom.i = sext i32 %14 to i64
-  %beginLine.i = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom.i, i32 2
+  %beginLine.i = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom.i, i32 2
   %15 = load ptr, ptr %beginLine.i, align 8
   %call.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(1) %15) #18
   %call5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i) #21
@@ -909,7 +909,7 @@ for.end90:                                        ; preds = %for.cond74.loopexit
   %call91 = call i32 @T_FileStream_writeLine(ptr noundef nonnull %call17, ptr noundef nonnull @.str.15)
   %22 = load i32, ptr @_ZL19assemblyHeaderIndex, align 4
   %idxprom93 = sext i32 %22 to i64
-  %footer = getelementptr inbounds [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom93, i32 3
+  %footer = getelementptr inbounds nuw [13 x %struct.AssemblyType], ptr @_ZL14assemblyHeader, i64 0, i64 %idxprom93, i32 3
   %23 = load ptr, ptr %footer, align 8
   %call103 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer, i64 noundef 4096, ptr noundef %23, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1, ptr noundef nonnull %entry1) #18
   %cmp105 = icmp ugt i32 %call103, 4095
@@ -1283,7 +1283,7 @@ if.then7:                                         ; preds = %if.then4
 if.end9:                                          ; preds = %if.then4
   %call10 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %entry1, ptr noundef nonnull dereferenceable(1) %optName) #18
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %entry1)
-  %endptr = getelementptr inbounds i8, ptr %entry1, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %entry1, i64 %strlen
   store i16 95, ptr %endptr, align 1
   br label %if.end13
 
@@ -1293,7 +1293,7 @@ if.else:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %if.else, %if.end9
   %call17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %entry1) #21
-  %add.ptr = getelementptr inbounds i8, ptr %entry1, i64 %call17
+  %add.ptr = getelementptr inbounds nuw i8, ptr %entry1, i64 %call17
   %4 = trunc i64 %call17 to i32
   %conv = sub i32 96, %4
   call fastcc void @_ZL14getOutFilenamePKcS0_PciS1_iS0_S0_(ptr noundef %filename, ptr noundef %destdir, ptr noundef %buffer, ptr noundef %add.ptr, i32 noundef %conv, ptr noundef nonnull @.str.19, ptr noundef %optFilename)
@@ -1333,7 +1333,7 @@ if.end37:                                         ; preds = %if.end30
 if.then39:                                        ; preds = %if.end37
   %call41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %entry1, ptr noundef nonnull dereferenceable(1) %optEntryPoint) #18
   %strlen27 = call i64 @strlen(ptr nonnull dereferenceable(1) %entry1)
-  %endptr28 = getelementptr inbounds i8, ptr %entry1, i64 %strlen27
+  %endptr28 = getelementptr inbounds nuw i8, ptr %entry1, i64 %strlen27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr28, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
   br label %if.end44
 
@@ -1344,7 +1344,7 @@ if.end44:                                         ; preds = %if.then39, %if.end3
 
 for.body:                                         ; preds = %if.end44, %for.inc
   %i.030 = phi i64 [ %inc, %for.inc ], [ 0, %if.end44 ]
-  %arrayidx48 = getelementptr inbounds [96 x i8], ptr %entry1, i64 0, i64 %i.030
+  %arrayidx48 = getelementptr inbounds nuw [96 x i8], ptr %entry1, i64 0, i64 %i.030
   %8 = load i8, ptr %arrayidx48, align 1
   %.off = add i8 %8, -45
   %switch = icmp ult i8 %.off, 2
@@ -1392,7 +1392,7 @@ for.cond76.preheader:                             ; preds = %if.end66, %for.cond
 for.body78:                                       ; preds = %for.cond76.preheader, %_ZL6write8P11_FileStreamhj.exit
   %column.132 = phi i32 [ %column.036, %for.cond76.preheader ], [ %column.addr.0.i, %_ZL6write8P11_FileStreamhj.exit ]
   %i.131 = phi i64 [ 0, %for.cond76.preheader ], [ %inc82, %_ZL6write8P11_FileStreamhj.exit ]
-  %arrayidx79 = getelementptr inbounds [4096 x i8], ptr %buffer, i64 0, i64 %i.131
+  %arrayidx79 = getelementptr inbounds nuw [4096 x i8], ptr %buffer, i64 0, i64 %i.131
   %11 = load i8, ptr %arrayidx79, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %s.i)
   %cmp.i = icmp ugt i8 %11, 99

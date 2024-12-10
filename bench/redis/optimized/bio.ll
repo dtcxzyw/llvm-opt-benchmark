@@ -397,7 +397,7 @@ define dso_local void @bioSubmitJob(i32 noundef %type, ptr noundef initializes((
 entry:
   store i32 %type, ptr %job, align 8
   %idxprom = sext i32 %type to i64
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
   %arrayidx2 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv
@@ -405,7 +405,7 @@ entry:
   %arrayidx3 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %job) #9
-  %arrayidx6 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds nuw [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx6, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %arrayidx6, align 8
@@ -631,12 +631,12 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local i64 @bioPendingJobsOfType(i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %type to i64
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %idxprom1 = zext i32 %0 to i64
   %arrayidx2 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %idxprom1
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx2) #9
-  %arrayidx4 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds nuw [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
   %1 = load i64, ptr %arrayidx4, align 8
   %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx2) #9
   ret i64 %1
@@ -646,7 +646,7 @@ entry:
 define dso_local void @bioDrainWorker(i32 noundef %job_type) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %job_type to i64
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
   %arrayidx1 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv

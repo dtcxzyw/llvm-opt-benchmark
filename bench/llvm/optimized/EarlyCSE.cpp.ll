@@ -9057,7 +9057,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit: ; pre
   br i1 %137, label %138, label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit11
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %6, i64 %11
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %139, i64 %135, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIPNS_5ValueEEEbRPcS5_RKT_m.exit11
 
@@ -9766,7 +9766,7 @@ _ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit11
 
@@ -9985,7 +9985,7 @@ _ZN4llvm7hashing6detail17store_and_advanceINS_7CmpInst9PredicateEEEbRPcS5_RKT_m.
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceINS_7CmpInst9PredicateEEEbRPcS5_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceINS_7CmpInst9PredicateEEEbRPcS5_RKT_m.exit11
 
@@ -10396,7 +10396,7 @@ _ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit: ; preds = %5
   br i1 %136, label %137, label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %6, i64 %10
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 1 %138, i64 %134, i1 false)
   br label %_ZN4llvm7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit11
 

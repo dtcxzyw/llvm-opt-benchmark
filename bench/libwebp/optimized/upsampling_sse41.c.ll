@@ -307,16 +307,16 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %248, i64 %249, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %250, i64 %249, i1 false)
-  %251 = getelementptr inbounds i8, ptr %11, i64 %249
+  %251 = getelementptr inbounds nuw i8, ptr %11, i64 %249
   %252 = add nsw i32 %245, -1
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [17 x i8], ptr %11, i64 0, i64 %253
   %255 = load i8, ptr %254, align 1
   %256 = sub nsw i32 17, %245
   %257 = sext i32 %256 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %251, i8 %255, i64 %257, i1 false)
-  %258 = getelementptr inbounds i8, ptr %12, i64 %249
-  %259 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %253
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 %249
+  %259 = getelementptr inbounds nuw [17 x i8], ptr %12, i64 0, i64 %253
   %260 = load i8, ptr %259, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %258, i8 %260, i64 %257, i1 false)
   %261 = load <2 x i64>, ptr %11, align 16
@@ -376,12 +376,12 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %310, i64 %249, i1 false)
   %311 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %311, i64 %249, i1 false)
-  %312 = getelementptr inbounds i8, ptr %13, i64 %249
-  %313 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %253
+  %312 = getelementptr inbounds nuw i8, ptr %13, i64 %249
+  %313 = getelementptr inbounds nuw [17 x i8], ptr %13, i64 0, i64 %253
   %314 = load i8, ptr %313, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %312, i8 %314, i64 %257, i1 false)
-  %315 = getelementptr inbounds i8, ptr %14, i64 %249
-  %316 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %253
+  %315 = getelementptr inbounds nuw i8, ptr %14, i64 %249
+  %316 = getelementptr inbounds nuw [17 x i8], ptr %14, i64 0, i64 %253
   %317 = load i8, ptr %316, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %315, i8 %317, i64 %257, i1 false)
   %318 = load <2 x i64>, ptr %13, align 16
@@ -769,16 +769,16 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %248, i64 %249, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %250, i64 %249, i1 false)
-  %251 = getelementptr inbounds i8, ptr %11, i64 %249
+  %251 = getelementptr inbounds nuw i8, ptr %11, i64 %249
   %252 = add nsw i32 %245, -1
   %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [17 x i8], ptr %11, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [17 x i8], ptr %11, i64 0, i64 %253
   %255 = load i8, ptr %254, align 1
   %256 = sub nsw i32 17, %245
   %257 = sext i32 %256 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %251, i8 %255, i64 %257, i1 false)
-  %258 = getelementptr inbounds i8, ptr %12, i64 %249
-  %259 = getelementptr inbounds [17 x i8], ptr %12, i64 0, i64 %253
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 %249
+  %259 = getelementptr inbounds nuw [17 x i8], ptr %12, i64 0, i64 %253
   %260 = load i8, ptr %259, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %258, i8 %260, i64 %257, i1 false)
   %261 = load <2 x i64>, ptr %11, align 16
@@ -838,12 +838,12 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %310, i64 %249, i1 false)
   %311 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %311, i64 %249, i1 false)
-  %312 = getelementptr inbounds i8, ptr %13, i64 %249
-  %313 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %253
+  %312 = getelementptr inbounds nuw i8, ptr %13, i64 %249
+  %313 = getelementptr inbounds nuw [17 x i8], ptr %13, i64 0, i64 %253
   %314 = load i8, ptr %313, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %312, i8 %314, i64 %257, i1 false)
-  %315 = getelementptr inbounds i8, ptr %14, i64 %249
-  %316 = getelementptr inbounds [17 x i8], ptr %14, i64 0, i64 %253
+  %315 = getelementptr inbounds nuw i8, ptr %14, i64 %249
+  %316 = getelementptr inbounds nuw [17 x i8], ptr %14, i64 0, i64 %253
   %317 = load i8, ptr %316, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %315, i8 %317, i64 %257, i1 false)
   %318 = load <2 x i64>, ptr %13, align 16

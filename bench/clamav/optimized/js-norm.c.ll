@@ -521,7 +521,7 @@ run_folders.exit:                                 ; preds = %102
 
 163:                                              ; preds = %160
   %164 = add nuw i64 %.03047.i.i, 1
-  %165 = getelementptr inbounds ptr, ptr @de_packer_3, i64 %.02948.i.i
+  %165 = getelementptr inbounds nuw ptr, ptr @de_packer_3, i64 %.02948.i.i
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) %166) #20
   %.not38.i.i = icmp eq i32 %167, 0
@@ -570,7 +570,7 @@ run_folders.exit:                                 ; preds = %102
 
 187:                                              ; preds = %184
   %188 = add nuw i64 %.03047.i92.i, 1
-  %189 = getelementptr inbounds ptr, ptr @de_packer_2, i64 %.02948.i91.i
+  %189 = getelementptr inbounds nuw ptr, ptr @de_packer_2, i64 %.02948.i91.i
   %190 = load ptr, ptr %189, align 8
   %191 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %182, ptr noundef nonnull dereferenceable(1) %190) #20
   %.not38.i99.i = icmp eq i32 %191, 0

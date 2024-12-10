@@ -1604,7 +1604,7 @@ nsvg__isCoordinate.exit.i:                        ; preds = %108, %107
   %117 = fptrunc double %116 to float
   %118 = add nsw i32 %.088239.i, 1
   %119 = sext i32 %.088239.i to i64
-  %120 = getelementptr inbounds [10 x float], ptr %4, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [10 x float], ptr %4, i64 0, i64 %119
   store float %117, ptr %120, align 4
   br label %121
 
@@ -7892,7 +7892,7 @@ define internal fastcc void @nsvg__parseAttribs(ptr noundef %0, ptr nocapture no
 
 58:                                               ; preds = %56, %.critedge2._crit_edge.i.i
   %.pre-phi67.i.i = phi i64 [ %.pre66.i.i, %.critedge2._crit_edge.i.i ], [ %57, %56 ]
-  %59 = getelementptr inbounds [512 x i8], ptr %3, i64 0, i64 %.pre-phi67.i.i
+  %59 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %.pre-phi67.i.i
   store i8 0, ptr %59, align 1
   %60 = icmp ult ptr %.040.lcssa73.i.i, %34
   br i1 %60, label %.lr.ph57.preheader.i.i, label %.critedge6.i.i
@@ -7947,7 +7947,7 @@ define internal fastcc void @nsvg__parseAttribs(ptr noundef %0, ptr nocapture no
 
 nsvg__parseNameValue.exit.i:                      ; preds = %71, %.critedge6._crit_edge.i.i
   %.pre-phi69.i.i = phi i64 [ %.pre68.i.i, %.critedge6._crit_edge.i.i ], [ %72, %71 ]
-  %73 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %.pre-phi69.i.i
+  %73 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %.pre-phi69.i.i
   store i8 0, ptr %73, align 1
   %74 = call fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
@@ -9282,7 +9282,7 @@ define internal fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr 
 
 56:                                               ; preds = %.critedge2.i116._crit_edge, %54
   %.pre-phi152 = phi i64 [ %.pre151, %.critedge2.i116._crit_edge ], [ %55, %54 ]
-  %57 = getelementptr inbounds [512 x i8], ptr %4, i64 0, i64 %.pre-phi152
+  %57 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %.pre-phi152
   store i8 0, ptr %57, align 1
   %58 = icmp ult ptr %.040.i.lcssa158, %34
   br i1 %58, label %.lr.ph140, label %.critedge6.i118
@@ -9333,7 +9333,7 @@ define internal fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr 
 
 nsvg__parseNameValue.exit:                        ; preds = %.critedge6.i118.nsvg__parseNameValue.exit_crit_edge, %70
   %.pre-phi154 = phi i64 [ %.pre153, %.critedge6.i118.nsvg__parseNameValue.exit_crit_edge ], [ %71, %70 ]
-  %72 = getelementptr inbounds [512 x i8], ptr %5, i64 0, i64 %.pre-phi154
+  %72 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %.pre-phi154
   store i8 0, ptr %72, align 1
   %73 = call fastcc range(i32 0, 2) i32 @nsvg__parseAttr(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -9915,7 +9915,7 @@ define internal fastcc void @nsvg__parseTransform(ptr nocapture noundef nonnull 
   %45 = fptrunc double %44 to float
   %46 = add nsw i32 %.1.i, 1
   %47 = sext i32 %.1.i to i64
-  %48 = getelementptr inbounds float, ptr %12, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %12, i64 %47
   store float %45, ptr %48, align 4
   br label %51
 
@@ -10041,7 +10041,7 @@ nsvg__parseTransformArgs.exit.thread7.i:          ; preds = %.preheader.i.i25
   %82 = fptrunc double %81 to float
   %83 = add nsw i32 %.1.i27, 1
   %84 = sext i32 %.1.i27 to i64
-  %85 = getelementptr inbounds float, ptr %10, i64 %84
+  %85 = getelementptr inbounds nuw float, ptr %10, i64 %84
   store float %82, ptr %85, align 4
   br label %88
 
@@ -10153,7 +10153,7 @@ nsvg__parseTransformArgs.exit.thread7.i40:        ; preds = %.preheader.i.i39
   %122 = fptrunc double %121 to float
   %123 = add nsw i32 %.1.i48, 1
   %124 = sext i32 %.1.i48 to i64
-  %125 = getelementptr inbounds float, ptr %8, i64 %124
+  %125 = getelementptr inbounds nuw float, ptr %8, i64 %124
   store float %122, ptr %125, align 4
   br label %128
 
@@ -10271,7 +10271,7 @@ nsvg__parseTransformArgs.exit.thread48.i:         ; preds = %.preheader.i.i61
   %162 = fptrunc double %161 to float
   %163 = add nsw i32 %.1.i63, 1
   %164 = sext i32 %.1.i63 to i64
-  %165 = getelementptr inbounds float, ptr %6, i64 %164
+  %165 = getelementptr inbounds nuw float, ptr %6, i64 %164
   store float %162, ptr %165, align 4
   br label %168
 
@@ -10952,7 +10952,7 @@ define internal fastcc i32 @nsvg__parseStrokeDashArray(ptr nocapture noundef rea
 25:                                               ; preds = %23
   %26 = add nsw i32 %.035.i, 1
   %27 = sext i32 %.035.i to i64
-  %28 = getelementptr inbounds i8, ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
   store i8 %19, ptr %28, align 1
   br label %29
 
@@ -10972,7 +10972,7 @@ define internal fastcc i32 @nsvg__parseStrokeDashArray(ptr nocapture noundef rea
 nsvg__getNextDashItem.exit:                       ; preds = %.critedge2.i, %10, %.critedge4.loopexit.i
   %.120.lcssa.i = phi ptr [ %.120.lcssa.ph.i, %.critedge4.loopexit.i ], [ %.01926, %10 ], [ %17, %.critedge2.i ]
   %.0.lcssa.i = phi i64 [ %32, %.critedge4.loopexit.i ], [ 0, %10 ], [ 0, %.critedge2.i ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 %.0.lcssa.i
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa.i
   store i8 0, ptr %33, align 1
   %34 = load i8, ptr %4, align 16
   %.not20 = icmp eq i8 %34, 0

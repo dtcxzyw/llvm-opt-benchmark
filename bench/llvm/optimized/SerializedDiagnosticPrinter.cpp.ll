@@ -9442,7 +9442,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %100 = getelementptr inbounds i8, ptr %.pre, i64 %.03474
   %101 = load i8, ptr %100, align 1
   %102 = add i64 %.03474, %.sroa.speculated
-  %103 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %102
   store i8 %101, ptr %103, align 1
   %104 = add nuw i64 %.03474, 1
   %exitcond.not = icmp eq i64 %104, %71
@@ -9469,7 +9469,7 @@ _ZN4llvm15BitstreamWriter8fdStreamEv.exit60:      ; preds = %_ZN4llvm7support6en
 112:                                              ; preds = %.lr.ph76, %112
   %.075 = phi i64 [ 0, %.lr.ph76 ], [ %119, %112 ]
   %113 = add i64 %.075, %.sroa.speculated
-  %114 = getelementptr inbounds [3 x i8], ptr %4, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [3 x i8], ptr %4, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = load ptr, ptr %111, align 8
   %117 = load ptr, ptr %116, align 8
@@ -12225,7 +12225,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %8, %17
   %23 = add i64 %22, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %23) #18
   %24 = sext i32 %4 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_112SDiagsWriter21EmitDiagnosticMessageEN5clang13FullSourceLocENS1_11PresumedLocENS1_17DiagnosticsEngine5LevelEN4llvm9StringRefENS6_12PointerUnionIJPKNS1_10DiagnosticEPKNS1_16StoredDiagnosticEEEE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12_GLOBAL__N_112SDiagsWriter21EmitDiagnosticMessageEN5clang13FullSourceLocENS1_11PresumedLocENS1_17DiagnosticsEngine5LevelEN4llvm9StringRefENS6_12PointerUnionIJPKNS1_10DiagnosticEPKNS1_16StoredDiagnosticEEEE, i64 0, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #18
   %26 = add i64 %25, 1

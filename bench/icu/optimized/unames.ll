@@ -3330,7 +3330,7 @@ if.then6.i:                                       ; preds = %for.body.i
   %conv.i = trunc nuw i32 %i.01.i to i8
   %inc.i = add nsw i32 %length.02.i, 1
   %idxprom8.i = sext i32 %length.02.i to i64
-  %arrayidx9.i = getelementptr inbounds [256 x i8], ptr %cs.i, i64 0, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds nuw [256 x i8], ptr %cs.i, i64 0, i64 %idxprom8.i
   store i8 %conv.i, ptr %arrayidx9.i, align 1
   br label %for.inc.i
 

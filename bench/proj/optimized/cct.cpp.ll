@@ -1706,7 +1706,7 @@ _Z9opt_givenP7OPTARGSPKc.exit315.thread:          ; preds = %_Z9opt_givenP7OPTAR
   %347 = load ptr, ptr %10, align 8
   %348 = getelementptr i8, ptr %347, i64 -24
   %349 = load i64, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %10, i64 %349
+  %350 = getelementptr inbounds nuw i8, ptr %10, i64 %349
   %351 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %350)
           to label %352 unwind label %.loopexit356
 

@@ -1839,7 +1839,7 @@ define void @Abc_NtkPrintLatch(ptr nocapture noundef %0, ptr nocapture noundef r
   %20 = ptrtoint ptr %.val60 to i64
   %sext = shl i64 %20, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4

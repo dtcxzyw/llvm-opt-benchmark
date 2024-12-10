@@ -426,7 +426,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_112readLineImplEP
 
 19:                                               ; preds = %17
   %20 = add i64 %15, -1
-  %21 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 10
   br i1 %23, label %24, label %12, !llvm.loop !5

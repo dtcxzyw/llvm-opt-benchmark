@@ -1186,7 +1186,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %si.069 = phi i64 [ %offset, %for.body.lr.ph ], [ %si.2, %for.inc ]
   %i.068 = phi i64 [ %offset, %for.body.lr.ph ], [ %inc85, %for.inc ]
   %7 = load i64, ptr %eob, align 8
-  %arrayidx = getelementptr inbounds [6 x i8], ptr @.str.3, i64 0, i64 %7
+  %arrayidx = getelementptr inbounds nuw [6 x i8], ptr @.str.3, i64 0, i64 %7
   %8 = load i8, ptr %arrayidx, align 1
   %9 = load ptr, ptr %upload_fromhere15, align 8
   %arrayidx16 = getelementptr inbounds i8, ptr %9, i64 %i.068
@@ -1218,7 +1218,7 @@ if.else37:                                        ; preds = %for.body
 
 if.then40:                                        ; preds = %if.else37
   %arrayidx41 = getelementptr inbounds i8, ptr %scratch.0, i64 %si.069
-  %arrayidx42 = getelementptr inbounds [6 x i8], ptr @.str.3, i64 0, i64 %eob_sent.070
+  %arrayidx42 = getelementptr inbounds nuw [6 x i8], ptr @.str.3, i64 0, i64 %eob_sent.070
   %sub = sub i64 %7, %eob_sent.070
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx41, ptr nonnull align 1 %arrayidx42, i64 %sub, i1 false)
   %11 = load i64, ptr %eob, align 8
@@ -1247,7 +1247,7 @@ if.end63:                                         ; preds = %if.then29, %if.else
 
 if.then67:                                        ; preds = %if.end63
   %arrayidx68 = getelementptr inbounds i8, ptr %scratch.0, i64 %si.1
-  %arrayidx69 = getelementptr inbounds [5 x i8], ptr @.str.4, i64 0, i64 %eob_sent.1
+  %arrayidx69 = getelementptr inbounds nuw [5 x i8], ptr @.str.4, i64 0, i64 %eob_sent.1
   %sub70 = sub i64 4, %eob_sent.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx68, ptr nonnull align 1 %arrayidx69, i64 %sub70, i1 false)
   %add72 = add i64 %sub70, %si.1
@@ -1284,7 +1284,7 @@ for.end:                                          ; preds = %for.inc, %if.end10
 if.then89:                                        ; preds = %for.end
   %sub87 = sub i64 %17, %eob_sent.0.lcssa
   %arrayidx90 = getelementptr inbounds i8, ptr %scratch.0, i64 %si.0.lcssa
-  %arrayidx91 = getelementptr inbounds [6 x i8], ptr @.str.3, i64 0, i64 %eob_sent.0.lcssa
+  %arrayidx91 = getelementptr inbounds nuw [6 x i8], ptr @.str.3, i64 0, i64 %eob_sent.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx90, ptr nonnull align 1 %arrayidx91, i64 %sub87, i1 false)
   %18 = load i64, ptr %eob, align 8
   %sub95 = add i64 %eob_sent.0.neg.lcssa, %si.0.lcssa

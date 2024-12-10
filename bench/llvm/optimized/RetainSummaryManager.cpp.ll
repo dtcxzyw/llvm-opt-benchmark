@@ -3807,7 +3807,7 @@ switch.lookup:
   %.sroa.0.0.copyload.i = load i64, ptr %9, align 8
   %sext = shl i64 %.sroa.0.0.copyload.i, 32
   %10 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.29, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.29, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.2.0.insert.shift.i5.i = and i64 %.sroa.0.0.copyload.i, -4294967296
   %.sroa.0.0.insert.insert.i6.i = or disjoint i64 %switch.load, %.sroa.2.0.insert.shift.i5.i
@@ -3815,7 +3815,7 @@ switch.lookup:
   %.sroa.0.0.copyload.i18 = load i64, ptr %11, align 8
   %sext81 = shl i64 %.sroa.0.0.copyload.i18, 32
   %12 = ashr exact i64 %sext81, 32
-  %switch.gep79 = getelementptr inbounds [14 x i32], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.30, i64 0, i64 %12
+  %switch.gep79 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.30, i64 0, i64 %12
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   %.sroa.3.0.extract.shift = and i64 %.sroa.0.0.copyload.i18, -4294967296
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -3914,7 +3914,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIjN5c
   %.sroa.07.0.copyload = load i64, ptr %56, align 4
   %sext82 = shl i64 %.sroa.07.0.copyload, 32
   %57 = ashr exact i64 %sext82, 32
-  %switch.gep76 = getelementptr inbounds [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.29, i64 0, i64 %57
+  %switch.gep76 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE.29, i64 0, i64 %57
   %switch.load77 = load i64, ptr %switch.gep76, align 8
   %.sroa.2.0.insert.shift.i5.i27 = and i64 %.sroa.07.0.copyload, -4294967296
   %.sroa.0.0.insert.insert.i6.i28 = or disjoint i64 %switch.load77, %.sroa.2.0.insert.shift.i5.i27

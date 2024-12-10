@@ -651,15 +651,15 @@ define internal fastcc noundef zeroext i1 @_ZL13setPropertiesP12AtomPropertyRKSt
 
 29:                                               ; preds = %4
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds [5 x ptr], ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL13setPropertiesP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEEib.fns, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %32)
-  %35 = getelementptr inbounds [5 x double], ptr %18, i64 0, i64 %30
+  %35 = getelementptr inbounds nuw [5 x double], ptr %18, i64 0, i64 %30
   %36 = load double, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %36, ptr %37, align 8
-  %38 = getelementptr inbounds [5 x double], ptr %17, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw [5 x double], ptr %17, i64 0, i64 %30
   %39 = load double, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -726,7 +726,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %43, %40
 
 .noexc19.i:                                       ; preds = %.noexc.i
   %61 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #21
-  %62 = getelementptr inbounds i8, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 %61
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %8, ptr noundef nonnull %62)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i unwind label %63
 
@@ -747,7 +747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 .noexc21.i:                                       ; preds = %.noexc20.i
   %66 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
-  %67 = getelementptr inbounds i8, ptr %9, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 %66
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %9, ptr noundef nonnull %67)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24.i unwind label %68
 

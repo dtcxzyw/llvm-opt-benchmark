@@ -4038,7 +4038,7 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1085:    ; preds = %_ZL10_low_checkbPKc
 
 1212:                                             ; preds = %1206
   %1213 = sext i32 %1203 to i64
-  %1214 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1213
+  %1214 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1213
   %1215 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1214) #25
   %1216 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.107, ptr noundef %1215) #25
   %1217 = getelementptr inbounds nuw i8, ptr %2, i64 204
@@ -4054,7 +4054,7 @@ _ZL10_low_checkbPKcP14WarningHandler.exit1085:    ; preds = %_ZL10_low_checkbPKc
 _ZL10_low_checkbPKcP14WarningHandler.exit1086:    ; preds = %1219, %1212, %1208, %1211
   %1221 = load i32, ptr %1202, align 8
   %1222 = sext i32 %1221 to i64
-  %1223 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1222
+  %1223 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1222
   %1224 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1223) #25
   %1225 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.108, ptr noundef %1224) #25
   %.val1025 = load i32, ptr %63, align 4
@@ -4079,7 +4079,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit1087.thread: ; preds 
 _ZL10_low_checkbPKcP14WarningHandler.exit1088:    ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit1087, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit1087.thread
   %1229 = load i32, ptr %1202, align 8
   %1230 = sext i32 %1229 to i64
-  %1231 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1230
+  %1231 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1230
   %1232 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1231) #25
   %1233 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.109, ptr noundef %1232) #25
   %1234 = getelementptr inbounds nuw i8, ptr %2, i64 384
@@ -4982,7 +4982,7 @@ _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit1109.thread: ; preds 
 1656:                                             ; preds = %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit1109.thread
   %1657 = load i32, ptr %1202, align 8
   %1658 = sext i32 %1657 to i64
-  %1659 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1658
+  %1659 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %1658
   %1660 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1659) #25
   %1661 = call noundef ptr @_Z17enumValueToString13EwaldGeometry(i32 noundef 1)
   %1662 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.150, ptr noundef %1660, ptr noundef %1661) #25

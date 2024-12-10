@@ -3414,7 +3414,7 @@ _ZNSt11_Deque_baseIPN2cv4text6ERStatESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.
 
 763:                                              ; preds = %425
   %764 = sext i32 %.2238.ph to i64
-  %765 = getelementptr inbounds [256 x %"class.std::vector.22"], ptr %11, i64 0, i64 %764
+  %765 = getelementptr inbounds nuw [256 x %"class.std::vector.22"], ptr %11, i64 0, i64 %764
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 8
   %767 = load ptr, ptr %766, align 8
   %768 = getelementptr inbounds i8, ptr %767, i64 -4
@@ -3440,7 +3440,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   %780 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i ], [ %767, %763 ]
   %781 = getelementptr inbounds i8, ptr %780, i64 -4
   store ptr %781, ptr %766, align 8
-  %782 = getelementptr inbounds [256 x %"class.std::vector.22"], ptr %12, i64 0, i64 %764
+  %782 = getelementptr inbounds nuw [256 x %"class.std::vector.22"], ptr %12, i64 0, i64 %764
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
   %784 = load ptr, ptr %783, align 8
   %785 = getelementptr inbounds i8, ptr %784, i64 -4
@@ -3478,7 +3478,7 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EE.exit384: ; pr
 
 .lr.ph717:                                        ; preds = %.lr.ph717.preheader, %807
   %indvars.iv799 = phi i64 [ %764, %.lr.ph717.preheader ], [ %indvars.iv.next800, %807 ]
-  %802 = getelementptr inbounds [256 x %"class.std::vector.22"], ptr %11, i64 0, i64 %indvars.iv799
+  %802 = getelementptr inbounds nuw [256 x %"class.std::vector.22"], ptr %11, i64 0, i64 %indvars.iv799
   %803 = load ptr, ptr %802, align 8
   %804 = getelementptr inbounds nuw i8, ptr %802, i64 8
   %805 = load ptr, ptr %804, align 8
@@ -7364,7 +7364,7 @@ define void @_ZN2cv4text15ERClassifierNM1C2ERKNSt7__cxx1112basic_stringIcSt11cha
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %123
 
@@ -8257,7 +8257,7 @@ define void @_ZN2cv4text15ERClassifierNM2C2ERKNSt7__cxx1112basic_stringIcSt11cha
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %123
 
@@ -11500,7 +11500,7 @@ define hidden void @_ZN2cv4text23MaxMeaningfulClusteringC2EhhRSt6vectorINS0_10ER
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr i8, ptr %24, i64 -24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %27)
           to label %29 unwind label %132
 
@@ -12090,7 +12090,7 @@ _ZNK2cv4text13dissimilarityclEll.exit.i.i:        ; preds = %99
   %.0130.i.i = phi i64 [ %120, %_ZNK2cv4text13dissimilarityclEll.exit81.i.i ], [ 2, %_ZNK2cv4text13dissimilarityclEll.exit.i.i ]
   %.unpack.i77.i.i = load i64, ptr %100, align 8
   %.unpack3.i79.i.i = load i64, ptr %.elt2.i.i.i, align 8
-  %107 = getelementptr inbounds i8, ptr %16, i64 %.unpack3.i79.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %16, i64 %.unpack3.i79.i.i
   %108 = and i64 %.unpack.i77.i.i, 1
   %.not.i80.i.i = icmp eq i64 %108, 0
   br i1 %.not.i80.i.i, label %114, label %109
@@ -12173,7 +12173,7 @@ _ZN2cv4text14auto_array_ptrIdED2Ev.exit.i.i:      ; preds = %_ZN2cv4text14auto_a
   %.167133.i.i = phi i64 [ %.268.i.i, %_ZNK2cv4text13dissimilarityclEll.exit86.i.i ], [ %.066.lcssa.i.i, %.preheader114.i.i ]
   %.unpack.i82.i.i = load i64, ptr %100, align 8
   %.unpack3.i84.i.i = load i64, ptr %.elt2.i.i.i, align 8
-  %126 = getelementptr inbounds i8, ptr %16, i64 %.unpack3.i84.i.i
+  %126 = getelementptr inbounds nuw i8, ptr %16, i64 %.unpack3.i84.i.i
   %127 = and i64 %.unpack.i82.i.i, 1
   %.not.i85.i.i = icmp eq i64 %127, 0
   br i1 %.not.i85.i.i, label %133, label %128
@@ -12273,7 +12273,7 @@ _ZN2cv4text18doubly_linked_list6removeEl.exit.i.i: ; preds = %158, %157
   %.2139.i.i = phi i64 [ %186, %_ZNK2cv4text13dissimilarityclEll.exit91.i.i ], [ %165, %_ZN2cv4text18doubly_linked_list6removeEl.exit.i.i ]
   %.unpack.i87.i.i = load i64, ptr %100, align 8
   %.unpack3.i89.i.i = load i64, ptr %.elt2.i.i.i, align 8
-  %172 = getelementptr inbounds i8, ptr %16, i64 %.unpack3.i89.i.i
+  %172 = getelementptr inbounds nuw i8, ptr %16, i64 %.unpack3.i89.i.i
   %173 = and i64 %.unpack.i87.i.i, 1
   %.not.i90.i.i = icmp eq i64 %173, 0
   br i1 %.not.i90.i.i, label %179, label %174
@@ -12310,7 +12310,7 @@ _ZNK2cv4text13dissimilarityclEll.exit91.i.i:      ; preds = %181
   %.571144.i.i = phi i64 [ %.6.i.i, %206 ], [ %.470.lcssa.i.i, %.preheader.i.i ]
   %.unpack.i92.i.i = load i64, ptr %100, align 8
   %.unpack3.i94.i.i = load i64, ptr %.elt2.i.i.i, align 8
-  %190 = getelementptr inbounds i8, ptr %16, i64 %.unpack3.i94.i.i
+  %190 = getelementptr inbounds nuw i8, ptr %16, i64 %.unpack3.i94.i.i
   %191 = and i64 %.unpack.i92.i.i, 1
   %.not.i95.i.i = icmp eq i64 %191, 0
   br i1 %.not.i95.i.i, label %197, label %192
@@ -12390,7 +12390,7 @@ _ZN2cv4text14auto_array_ptrIdED2Ev.exit97.thread.i.i: ; preds = %._crit_edge148.
 225:                                              ; preds = %_ZN2cv4text14auto_array_ptrIdED2Ev.exit97.thread.i.i
   %.elt2.i.i = getelementptr inbounds nuw i8, ptr %16, i64 48
   %.unpack3.i.i = load i64, ptr %.elt2.i.i, align 8
-  %226 = getelementptr inbounds i8, ptr %15, i64 %.unpack3.i.i
+  %226 = getelementptr inbounds nuw i8, ptr %15, i64 %.unpack3.i.i
   %227 = and i64 %.unpack.i.i, 1
   %.not4.i.i = icmp eq i64 %227, 0
   br i1 %.not4.i.i, label %233, label %228

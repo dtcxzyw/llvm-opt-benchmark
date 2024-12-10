@@ -3817,10 +3817,10 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit645: ; preds = %625, %6
 
 657:                                              ; preds = %652
   %658 = sext i32 %654 to i64
-  %659 = getelementptr inbounds [9 x %"struct.llvm::RegisterBankInfo::PartialMapping"], ptr @_ZN4llvm26AArch64GenRegisterBankInfo12PartMappingsE, i64 0, i64 %658, i32 2
+  %659 = getelementptr inbounds nuw [9 x %"struct.llvm::RegisterBankInfo::PartialMapping"], ptr @_ZN4llvm26AArch64GenRegisterBankInfo12PartMappingsE, i64 0, i64 %658, i32 2
   %660 = load ptr, ptr %659, align 8
   %661 = sext i32 %656 to i64
-  %662 = getelementptr inbounds [9 x %"struct.llvm::RegisterBankInfo::PartialMapping"], ptr @_ZN4llvm26AArch64GenRegisterBankInfo12PartMappingsE, i64 0, i64 %661, i32 2
+  %662 = getelementptr inbounds nuw [9 x %"struct.llvm::RegisterBankInfo::PartialMapping"], ptr @_ZN4llvm26AArch64GenRegisterBankInfo12PartMappingsE, i64 0, i64 %661, i32 2
   %663 = load ptr, ptr %662, align 8
   %664 = add nsw i64 %658, -6
   %665 = icmp ult i64 %664, 3

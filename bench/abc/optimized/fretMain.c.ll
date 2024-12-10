@@ -2471,7 +2471,7 @@ define void @print_node(ptr nocapture noundef readonly %0) local_unnamed_addr #8
 
 6:                                                ; preds = %1
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
   store i16 65, ptr %endptr, align 1
   br label %7
 
@@ -2482,7 +2482,7 @@ define void @print_node(ptr nocapture noundef readonly %0) local_unnamed_addr #8
 
 9:                                                ; preds = %7
   %strlen26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr27 = getelementptr inbounds i8, ptr %2, i64 %strlen26
+  %endptr27 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen26
   store i16 66, ptr %endptr27, align 1
   br label %10
 
@@ -2493,7 +2493,7 @@ define void @print_node(ptr nocapture noundef readonly %0) local_unnamed_addr #8
 
 12:                                               ; preds = %10
   %strlen29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr30 = getelementptr inbounds i8, ptr %2, i64 %strlen29
+  %endptr30 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen29
   store i16 67, ptr %endptr30, align 1
   br label %13
 
@@ -2615,7 +2615,7 @@ define void @print_node2(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 6:                                                ; preds = %1
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
   store i16 65, ptr %endptr, align 1
   br label %7
 
@@ -2626,7 +2626,7 @@ define void @print_node2(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 9:                                                ; preds = %7
   %strlen19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr20 = getelementptr inbounds i8, ptr %2, i64 %strlen19
+  %endptr20 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen19
   store i16 66, ptr %endptr20, align 1
   br label %10
 
@@ -2637,7 +2637,7 @@ define void @print_node2(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 12:                                               ; preds = %10
   %strlen22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr23 = getelementptr inbounds i8, ptr %2, i64 %strlen22
+  %endptr23 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen22
   store i16 67, ptr %endptr23, align 1
   br label %13
 
@@ -2727,7 +2727,7 @@ define void @print_node3(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 6:                                                ; preds = %1
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr = getelementptr inbounds i8, ptr %2, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %2, i64 %strlen
   store i16 65, ptr %endptr, align 1
   br label %7
 
@@ -2738,7 +2738,7 @@ define void @print_node3(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 9:                                                ; preds = %7
   %strlen20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr21 = getelementptr inbounds i8, ptr %2, i64 %strlen20
+  %endptr21 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen20
   store i16 66, ptr %endptr21, align 1
   br label %10
 
@@ -2749,7 +2749,7 @@ define void @print_node3(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 12:                                               ; preds = %10
   %strlen23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2)
-  %endptr24 = getelementptr inbounds i8, ptr %2, i64 %strlen23
+  %endptr24 = getelementptr inbounds nuw i8, ptr %2, i64 %strlen23
   store i16 67, ptr %endptr24, align 1
   br label %13
 

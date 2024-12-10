@@ -209,7 +209,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i64 } @_ZN4llvm8toStringENS_10TensorTypeE(i32 noundef %0) local_unnamed_addr #2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [11 x %"class.std::__cxx11::basic_string"], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [11 x %"class.std::__cxx11::basic_string"], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 0, i64 %2
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -239,7 +239,7 @@ define dso_local void @_ZNK4llvm10TensorSpec6toJSONERNS_4json7OStreamE(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [11 x %"class.std::__cxx11::basic_string"], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [11 x %"class.std::__cxx11::basic_string"], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 0, i64 %10
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr %12, i64 %13)
@@ -2227,7 +2227,7 @@ define linkonce_odr void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringI
   %8 = call noundef i32 %1(ptr noundef nonnull %7, i64 noundef %2, ptr noundef %3, ptr noundef nonnull %5) #19
   call void @llvm.va_end.p0(ptr nonnull %5)
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6) #19

@@ -104,7 +104,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %.sroa.59.0..sroa_idx.i = getelementptr inbounds [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %15, i32 2
+  %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %15, i32 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2
   br label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
 
@@ -213,7 +213,7 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %.sroa.59.0..sroa_idx = getelementptr inbounds [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
   %.sroa.59.0.copyload = load i8, ptr %.sroa.59.0..sroa_idx, align 2
   br label %26
 
@@ -1643,7 +1643,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %.sroa.59.0..sroa_idx.i = getelementptr inbounds [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
+  %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw [4 x %"struct.Luau::CodeGen::X64::OperandX64"], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 0, i64 %7, i32 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2
   br label %24
 

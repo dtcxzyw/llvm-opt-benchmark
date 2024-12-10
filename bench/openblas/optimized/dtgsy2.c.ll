@@ -492,13 +492,13 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %360 = getelementptr double, ptr %352, i64 %359
   %361 = add nsw i32 %357, -1
   %362 = sext i32 %361 to i64
-  %363 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %362
+  %363 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %362
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef %360, ptr noundef nonnull @c__1, ptr noundef nonnull %363, ptr noundef nonnull @c__1) #3
   %364 = mul nsw i64 %358, %211
   %365 = getelementptr double, ptr %353, i64 %364
   %366 = add nsw i32 %356, -1
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %367
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef %365, ptr noundef nonnull @c__1, ptr noundef nonnull %368, ptr noundef nonnull @c__1) #3
   %369 = load i32, ptr %32, align 4, !tbaa !3
   %370 = add nsw i32 %369, %357
@@ -587,14 +587,14 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %415 = phi i32 [ 1, %406 ], [ %428, %412 ]
   %416 = add nsw i32 %415, -1
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %417
+  %418 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %417
   %419 = add nsw i64 %413, %274
   %420 = mul nsw i64 %419, %210
   %421 = getelementptr double, ptr %410, i64 %420
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %418, ptr noundef nonnull @c__1, ptr noundef %421, ptr noundef nonnull @c__1) #3
   %422 = add nsw i32 %414, -1
   %423 = sext i32 %422 to i64
-  %424 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %423
   %425 = mul nsw i64 %419, %211
   %426 = getelementptr double, ptr %411, i64 %425
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %424, ptr noundef nonnull @c__1, ptr noundef %426, ptr noundef nonnull @c__1) #3
@@ -634,7 +634,7 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %447 = sub nsw i32 %446, %219
   store i32 %447, ptr %24, align 4, !tbaa !3
   %448 = sext i32 %445 to i64
-  %449 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %448
+  %449 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %448
   %450 = add nsw i32 %278, %257
   %451 = sext i32 %450 to i64
   %452 = getelementptr inbounds double, ptr %47, i64 %451
@@ -1820,13 +1820,13 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1176 = getelementptr double, ptr %833, i64 %1175
   %1177 = add nsw i32 %1173, -1
   %1178 = sext i32 %1177 to i64
-  %1179 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %1178
+  %1179 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %1178
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef %1176, ptr noundef nonnull @c__1, ptr noundef nonnull %1179, ptr noundef nonnull @c__1) #3
   %1180 = mul nsw i64 %1174, %778
   %1181 = getelementptr double, ptr %834, i64 %1180
   %1182 = add nsw i32 %1172, -1
   %1183 = sext i32 %1182 to i64
-  %1184 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %1183
+  %1184 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %1183
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef %1181, ptr noundef nonnull @c__1, ptr noundef nonnull %1184, ptr noundef nonnull @c__1) #3
   %1185 = load i32, ptr %32, align 4, !tbaa !3
   %1186 = add nsw i32 %1185, %1173
@@ -1904,14 +1904,14 @@ define void @dtgsy2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1225 = phi i32 [ 1, %1218 ], [ %1238, %1222 ]
   %1226 = add nsw i32 %1225, -1
   %1227 = sext i32 %1226 to i64
-  %1228 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %1227
+  %1228 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %1227
   %1229 = add nsw i64 %1223, %1221
   %1230 = mul nsw i64 %1229, %777
   %1231 = getelementptr double, ptr %833, i64 %1230
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %1228, ptr noundef nonnull @c__1, ptr noundef %1231, ptr noundef nonnull @c__1) #3
   %1232 = add nsw i32 %1224, -1
   %1233 = sext i32 %1232 to i64
-  %1234 = getelementptr inbounds [8 x double], ptr %35, i64 0, i64 %1233
+  %1234 = getelementptr inbounds nuw [8 x double], ptr %35, i64 0, i64 %1233
   %1235 = mul nsw i64 %1229, %778
   %1236 = getelementptr double, ptr %834, i64 %1235
   call void @dcopy_(ptr noundef nonnull %32, ptr noundef nonnull %1234, ptr noundef nonnull @c__1, ptr noundef %1236, ptr noundef nonnull @c__1) #3

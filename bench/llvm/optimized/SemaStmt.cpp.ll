@@ -19836,10 +19836,10 @@ switch.lookup:                                    ; preds = %_ZN5clang4Sema23get
   %241 = getelementptr inbounds nuw i8, ptr %25, i64 1528
   %242 = load i16, ptr %241, align 8
   %243 = sext i16 %242 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb, i64 0, i64 %243
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb, i64 0, i64 %243
   %switch.load = load i64, ptr %switch.gep, align 8
   %244 = sext i16 %242 to i64
-  %switch.gep225 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb.2220, i64 0, i64 %244
+  %switch.gep225 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb.2220, i64 0, i64 %244
   %switch.load226 = load ptr, ptr %switch.gep225, align 8
   store ptr %switch.load226, ptr %10, align 8
   %245 = getelementptr inbounds nuw i8, ptr %10, i64 8

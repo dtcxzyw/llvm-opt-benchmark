@@ -105,7 +105,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_13BarcodeFormatE(ptr dead_on_unwind no
 
 35:                                               ; preds = %20, %10, %4
   %36 = phi i64 [ %21, %20 ], [ %11, %10 ], [ %6, %4 ]
-  %37 = getelementptr inbounds i8, ptr @_ZN5ZXingL5NAMESE, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL5NAMESE, i64 %36
   br label %44
 
 38:                                               ; preds = %15

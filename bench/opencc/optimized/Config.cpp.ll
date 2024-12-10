@@ -644,7 +644,7 @@ _ZN6opencc8UTF8Util17GetPlatformStringERKNSt7__cxx1112basic_stringIcSt11char_tra
   %60 = load ptr, ptr %10, align 8
   %61 = getelementptr i8, ptr %60, i64 -24
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %10, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 %62
   %64 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %63)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %65
 

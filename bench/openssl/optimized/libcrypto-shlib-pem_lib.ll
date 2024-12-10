@@ -716,12 +716,12 @@ if.then64:                                        ; preds = %if.end60
 if.end66:                                         ; preds = %if.then64, %if.end60
   store i8 0, ptr %buf, align 16
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #9
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %call.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i
   %sub.i = sub i64 1024, %call.i
   %call9.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2) #10
   %call69 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %enc) #10
   %call.i30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #9
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %buf, i64 %call.i30
+  %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %buf, i64 %call.i30
   %1 = trunc i64 %call.i30 to i32
   %conv.i = sub i32 1024, %1
   %conv1.i = sext i32 %conv.i to i64

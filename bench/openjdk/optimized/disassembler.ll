@@ -478,7 +478,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
 
 72:                                               ; preds = %.lr.ph55
   %73 = add i64 %71, -1
-  %74 = getelementptr inbounds [500 x i8], ptr %4, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [500 x i8], ptr %4, i64 0, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 10
   br i1 %76, label %77, label %78
@@ -1946,7 +1946,7 @@ _ZN12Disassembler8dll_loadEPciiS0_iP12outputStream.exit44: ; preds = %35, %42
   %61 = shl i64 %58, 32
   %sext = add i64 %61, 4294967296
   %62 = ashr exact i64 %sext, 32
-  %63 = getelementptr inbounds i8, ptr %3, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %62
   %64 = sext i32 %60 to i64
   %65 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %63, i64 noundef %64, ptr noundef nonnull @.str.56, ptr noundef nonnull @_ZL18hsdis_library_name, ptr noundef nonnull @.str.57) #12
   %66 = icmp slt i32 %65, %60

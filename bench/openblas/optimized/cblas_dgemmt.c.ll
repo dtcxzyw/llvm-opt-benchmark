@@ -175,10 +175,10 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %144 = and i32 %130, 1
   %145 = icmp eq i32 %144, 0
   %146 = sext i32 %130 to i64
-  %147 = getelementptr inbounds [2 x ptr], ptr @cblas_dgemmt.gemv_thread, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [2 x ptr], ptr @cblas_dgemmt.gemv_thread, i64 0, i64 %146
   %148 = zext nneg i32 %125 to i64
   %149 = zext nneg i32 %137 to i64
-  %150 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %146
+  %150 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %146
   %151 = zext nneg i32 %13 to i64
   %152 = zext nneg i32 %4 to i64
   %153 = select i1 %136, i32 %126, i32 1
@@ -207,10 +207,10 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %166 = fcmp oeq double %6, 0.000000e+00
   %167 = sext i32 %5 to i64
   %168 = sext i32 %130 to i64
-  %169 = getelementptr inbounds [2 x ptr], ptr @cblas_dgemmt.gemv_thread, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [2 x ptr], ptr @cblas_dgemmt.gemv_thread, i64 0, i64 %168
   %170 = zext nneg i32 %125 to i64
   %171 = zext nneg i32 %137 to i64
-  %172 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %168
+  %172 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %168
   %173 = zext nneg i32 %4 to i64
   %174 = zext nneg i32 %13 to i64
   %175 = select i1 %164, i32 1, i32 %125

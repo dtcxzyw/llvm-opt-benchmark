@@ -3137,7 +3137,7 @@ if.then16:                                        ; preds = %land.rhs9
 
 if.end19:                                         ; preds = %do.body5
   %call14.c = tail call i32 @uv__close(i32 noundef %call) #18
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %call6
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %buf, i64 0, i64 %call6
   store i8 0, ptr %arrayidx, align 1
   %call21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 32) #19
   %cmp22 = icmp eq ptr %call21, null
@@ -5914,9 +5914,9 @@ do.body:                                          ; preds = %do.body.backedge, %
   br i1 %cmp, label %land.rhs, label %for.cond5.preheader
 
 for.cond5.preheader:                              ; preds = %do.body
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call
-  %cmp730 = icmp sgt i64 %call, 0
-  br i1 %cmp730, label %for.body.lr.ph, label %do.body.backedge
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %call
+  %cmp730.not = icmp eq i64 %call, 0
+  br i1 %cmp730.not, label %do.body.backedge, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond5.preheader
   %2 = load ptr, ptr %0, align 8

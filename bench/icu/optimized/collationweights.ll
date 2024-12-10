@@ -359,7 +359,7 @@ if.then14:                                        ; preds = %for.body
   %shl.i103 = shl nuw i64 1, %sh_prom.i
   %7 = trunc i64 %shl.i103 to i32
   %conv1.i = add i32 %weight.0161, %7
-  %arrayidx17 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv
   store i32 %conv1.i, ptr %arrayidx17, align 16
   %shl.i105 = shl i32 -256, %mul.i100
   %and.i106 = and i32 %shl.i105, %weight.0161
@@ -421,7 +421,7 @@ if.then52:                                        ; preds = %for.body46
   %and.i119 = and i32 %shl.i118, %weight.1165
   %shl1.i120 = shl i32 %16, %mul.i114
   %or.i121 = or i32 %shl1.i120, %and.i119
-  %arrayidx58 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv201
+  %arrayidx58 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv201
   store i32 %or.i121, ptr %arrayidx58, align 16
   %sh_prom.i123 = zext nneg i32 %mul.i114 to i64
   %shl.neg.i = shl nsw i64 -1, %sh_prom.i123
@@ -466,14 +466,14 @@ for.body100.lr.ph:                                ; preds = %for.cond97.preheade
 
 for.body100:                                      ; preds = %for.body100.lr.ph, %for.inc175
   %indvars.iv204 = phi i64 [ 4, %for.body100.lr.ph ], [ %indvars.iv.next205, %for.inc175 ]
-  %arrayidx102 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv204
+  %arrayidx102 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv204
   %count103 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 12
   %22 = load i32, ptr %count103, align 4
   %cmp104 = icmp sgt i32 %22, 0
   br i1 %cmp104, label %land.lhs.true, label %for.inc175
 
 land.lhs.true:                                    ; preds = %for.body100
-  %arrayidx106 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv204
+  %arrayidx106 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv204
   %count107 = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 12
   %23 = load i32, ptr %count107, align 4
   %cmp108 = icmp sgt i32 %23, 0
@@ -588,9 +588,9 @@ while.body.preheader:                             ; preds = %if.then160.critedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %indvars.iv207 = phi i64 [ %40, %while.body.preheader ], [ %indvars.iv.next208, %while.body ]
-  %count169 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv207, i32 3
+  %count169 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv207, i32 3
   store i32 0, ptr %count169, align 4
-  %count172 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv207, i32 3
+  %count172 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv207, i32 3
   store i32 0, ptr %count172, align 4
   %indvars.iv.next208 = add nsw i64 %indvars.iv207, -1
   %cmp166 = icmp sgt i64 %indvars.iv.next208, %21
@@ -642,7 +642,7 @@ for.body190:                                      ; preds = %for.body190.lr.ph, 
   %43 = phi i32 [ %41, %for.body190.lr.ph ], [ %49, %for.inc224 ]
   %indvars.iv210 = phi i64 [ %42, %for.body190.lr.ph ], [ %indvars.iv.next211, %for.inc224 ]
   %indvars.iv.next211 = add nsw i64 %indvars.iv210, 1
-  %count193 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv.next211, i32 3
+  %count193 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv.next211, i32 3
   %44 = load i32, ptr %count193, align 4
   %cmp194 = icmp sgt i32 %44, 0
   br i1 %cmp194, label %do.body196, label %if.end205
@@ -650,7 +650,7 @@ for.body190:                                      ; preds = %for.body190.lr.ph, 
 do.body196:                                       ; preds = %for.body190
   %idx.ext = sext i32 %43 to i64
   %add.ptr = getelementptr inbounds %"struct.icu_75::CollationWeights::WeightRange", ptr %ranges197, i64 %idx.ext
-  %add.ptr202 = getelementptr inbounds %"struct.icu_75::CollationWeights::WeightRange", ptr %upper, i64 %indvars.iv.next211
+  %add.ptr202 = getelementptr inbounds nuw %"struct.icu_75::CollationWeights::WeightRange", ptr %upper, i64 %indvars.iv.next211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr, ptr noundef nonnull align 16 dereferenceable(16) %add.ptr202, i64 16, i1 false)
   %45 = load i32, ptr %rangeCount142, align 4
   %inc = add nsw i32 %45, 1
@@ -659,7 +659,7 @@ do.body196:                                       ; preds = %for.body190
 
 if.end205:                                        ; preds = %do.body196, %for.body190
   %46 = phi i32 [ %inc, %do.body196 ], [ %43, %for.body190 ]
-  %count208 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv.next211, i32 3
+  %count208 = getelementptr inbounds nuw [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv.next211, i32 3
   %47 = load i32, ptr %count208, align 4
   %cmp209 = icmp sgt i32 %47, 0
   br i1 %cmp209, label %do.body211, label %for.inc224
@@ -667,7 +667,7 @@ if.end205:                                        ; preds = %do.body196, %for.bo
 do.body211:                                       ; preds = %if.end205
   %idx.ext215 = sext i32 %46 to i64
   %add.ptr216 = getelementptr inbounds %"struct.icu_75::CollationWeights::WeightRange", ptr %ranges197, i64 %idx.ext215
-  %add.ptr219 = getelementptr inbounds %"struct.icu_75::CollationWeights::WeightRange", ptr %lower, i64 %indvars.iv.next211
+  %add.ptr219 = getelementptr inbounds nuw %"struct.icu_75::CollationWeights::WeightRange", ptr %lower, i64 %indvars.iv.next211
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr216, ptr noundef nonnull align 16 dereferenceable(16) %add.ptr219, i64 16, i1 false)
   %48 = load i32, ptr %rangeCount142, align 4
   %inc222 = add nsw i32 %48, 1

@@ -305,11 +305,11 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %14 = tail call i32 @rand() #7
   %15 = srem i32 %14, %10
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %15, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %17, align 4
   store i32 %18, ptr %21, align 4
@@ -322,7 +322,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %24 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %indvars.iv48
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [1000 x i32], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [1000 x i32], ptr %7, i64 0, i64 %26
   %28 = trunc nuw nsw i64 %indvars.iv48 to i32
   store i32 %28, ptr %27, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1

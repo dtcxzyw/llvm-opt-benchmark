@@ -11388,9 +11388,9 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775802
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN16markdown_preview17markdown_elements21ParsedMarkdownElement12source_range17h9507d668c14f2101E, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN16markdown_preview17markdown_elements21ParsedMarkdownElement12source_range17h9507d668c14f2101E, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep7 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN16markdown_preview17markdown_elements21ParsedMarkdownElement12source_range17h9507d668c14f2101E.33, i64 0, i64 %4
+  %switch.gep7 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN16markdown_preview17markdown_elements21ParsedMarkdownElement12source_range17h9507d668c14f2101E.33, i64 0, i64 %4
   %switch.load8 = load i64, ptr %switch.gep7, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load8

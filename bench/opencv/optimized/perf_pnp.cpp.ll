@@ -10492,7 +10492,7 @@ define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_tes
 
 .critedge.i.i.i.i.i.i.i.i.i:                      ; preds = %.critedge.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i ], [ %12, %.preheader3.i.i.i.i.i.i.i.i.i ]
-  %13 = getelementptr inbounds i8, ptr @.str.61, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = call i32 @isspace(i32 noundef %15) #34
@@ -10506,7 +10506,7 @@ define internal fastcc void @_ZN7testing13PrintToStringISt5tupleIJiN11opencv_tes
   %18 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 32
   %19 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i, 32
-  %20 = getelementptr inbounds i8, ptr @.str.61, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = call i32 @isspace(i32 noundef %22) #34
@@ -10526,7 +10526,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i:              ; preds = %.preheader.i.i.i.i.
 25:                                               ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i, 1
   %26 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i, 1
-  %27 = getelementptr inbounds i8, ptr @.str.61, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i32
   %30 = call i32 @isspace(i32 noundef %29) #34
@@ -10547,8 +10547,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i:              ; preds = %.preheader.i.i.i.i.
   br i1 %34, label %35, label %11
 
 35:                                               ; preds = %.critedge32.i.i.i.i.i.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr @.str.61, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr @.str.61, i64 %.lcssa.i.i.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr @.str.61, i64 %.lcssa.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #28
   %38 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %44

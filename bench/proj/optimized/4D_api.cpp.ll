@@ -7345,11 +7345,11 @@ define void @proj_init_info(ptr dead_on_unwind noalias writable sret(%struct.PJ_
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %44, align 16
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #37
-  %46 = getelementptr inbounds i8, ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %46, ptr noundef nonnull align 1 dereferenceable(10) @.str.53, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.15, i64 7, i1 false) #34
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #37
-  %48 = getelementptr inbounds i8, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 %47
   %49 = sub i64 79, %47
   %50 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull %4, i64 noundef %49) #34
   %51 = call noundef ptr @_Z10pj_mkparamPKc(ptr noundef nonnull %3)

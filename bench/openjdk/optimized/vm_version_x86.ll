@@ -1046,7 +1046,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
   %269 = tail call noundef i32 @_ZN2os22cpu_microcode_revisionEv() #14
   %270 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.74, i32 noundef %.1.i, i32 noundef %265, i32 noundef %266, i32 noundef %267, i32 noundef %268, i32 noundef %269) #14
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i8, ptr %1, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 %271
   %273 = sub nsw i64 1024, %271
   call void @_ZN19Abstract_VM_Version21insert_features_namesEPcmPPKc(ptr noundef nonnull %272, i64 noundef %273, ptr noundef nonnull @_ZN10VM_Version15_features_namesE) #14
   %274 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %1, i8 noundef zeroext 9) #14

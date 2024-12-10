@@ -315,11 +315,11 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   br i1 %151, label %152, label %.critedge4.i
 
 152:                                              ; preds = %.preheader.i
-  %153 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next170.i
+  %153 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next170.i
   %154 = load i32, ptr %153, align 4
   %155 = sub nsw i32 %150, %154
   %156 = call i32 @llvm.abs.i32(i32 %155, i1 true)
-  %157 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %indvars.iv169.i
+  %157 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv169.i
   %158 = load i32, ptr %157, align 4
   %159 = sub nsw i32 %150, %158
   %160 = call i32 @llvm.abs.i32(i32 %159, i1 true)
@@ -336,11 +336,11 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   store i32 %.5.lcssa.i, ptr %163, align 4
   %164 = mul nsw i32 %146, %150
   %165 = sext i32 %.5.lcssa.i to i64
-  %166 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %165
   %167 = load i32, ptr %166, align 4
   %168 = add nsw i32 %167, %164
   store i32 %168, ptr %166, align 4
-  %169 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %165
+  %169 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %165
   %170 = load i32, ptr %169, align 4
   %171 = add nsw i32 %170, %146
   store i32 %171, ptr %169, align 4
@@ -429,7 +429,7 @@ MergeJobs.exit:                                   ; preds = %.critedge54
   %214 = or disjoint i8 %212, %213
   store i8 %214, ptr %203, align 4
   %215 = sext i32 %208 to i64
-  %216 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %215
   %217 = load i32, ptr %216, align 4
   %218 = trunc i32 %217 to i8
   store i8 %218, ptr %204, align 1

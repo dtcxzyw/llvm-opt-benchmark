@@ -252,7 +252,7 @@ if.then1.i:                                       ; preds = %if.then.i
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr @ossltest_digest_nids.pos, align 4
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom.i
   store i32 %call2.i, ptr %arrayidx.i, align 4
   br label %if.end.i
 
@@ -267,7 +267,7 @@ if.then5.i:                                       ; preds = %if.end.i
   %inc7.i = add nsw i32 %1, 1
   store i32 %inc7.i, ptr @ossltest_digest_nids.pos, align 4
   %idxprom8.i = sext i32 %1 to i64
-  %arrayidx9.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom8.i
   store i32 %call6.i, ptr %arrayidx9.i, align 4
   br label %if.end10.i
 
@@ -282,7 +282,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   %inc15.i = add nsw i32 %2, 1
   store i32 %inc15.i, ptr @ossltest_digest_nids.pos, align 4
   %idxprom16.i = sext i32 %2 to i64
-  %arrayidx17.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom16.i
   store i32 %call14.i, ptr %arrayidx17.i, align 4
   br label %if.end18.i
 
@@ -297,7 +297,7 @@ if.then21.i:                                      ; preds = %if.end18.i
   %inc23.i = add nsw i32 %3, 1
   store i32 %inc23.i, ptr @ossltest_digest_nids.pos, align 4
   %idxprom24.i = sext i32 %3 to i64
-  %arrayidx25.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom24.i
+  %arrayidx25.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom24.i
   store i32 %call22.i, ptr %arrayidx25.i, align 4
   br label %if.end26.i
 
@@ -316,14 +316,14 @@ if.then29.i:                                      ; preds = %if.end26.i
   %inc31.i = add nsw i32 %4, 1
   store i32 %inc31.i, ptr @ossltest_digest_nids.pos, align 4
   %idxprom32.i = sext i32 %4 to i64
-  %arrayidx33.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom32.i
+  %arrayidx33.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom32.i
   store i32 %call30.i, ptr %arrayidx33.i, align 4
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then29.i, %if.end26.if.end34_crit_edge.i
   %5 = phi i32 [ %.pre.i, %if.end26.if.end34_crit_edge.i ], [ %inc31.i, %if.then29.i ]
   %idxprom35.i = sext i32 %5 to i64
-  %arrayidx36.i = getelementptr inbounds [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds nuw [6 x i32], ptr @ossltest_digest_nids.digest_nids, i64 0, i64 %idxprom35.i
   store i32 0, ptr %arrayidx36.i, align 4
   store i1 true, ptr @ossltest_digest_nids.init, align 4
   br label %ossltest_digest_nids.exit

@@ -1004,7 +1004,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr nocapture noundef %0)
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %21, align 8
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds [8193 x i8], ptr %2, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [8193 x i8], ptr %2, i64 0, i64 %37
   store i8 %34, ptr %38, align 1
   %39 = icmp eq i32 %36, 8192
   br i1 %39, label %.critedge5, label %24
@@ -1089,7 +1089,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr nocapture noundef %0)
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %61, align 8
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds [8193 x i8], ptr %2, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [8193 x i8], ptr %2, i64 0, i64 %80
   store i8 %77, ptr %81, align 1
   %82 = icmp eq i32 %79, 8192
   br i1 %82, label %.critedge9.loopexit, label %65

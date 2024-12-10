@@ -518,7 +518,7 @@ entry:
   %algo = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -673,7 +673,7 @@ entry:
   %algo = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   %1 = load i32, ptr @hash_to_hex_algop.bufno, align 4
   %add.i = add nuw nsw i32 %1, 1
   %2 = and i32 %add.i, 3

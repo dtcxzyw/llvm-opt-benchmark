@@ -133,14 +133,14 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   br i1 %85, label %90, label %95
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [8 x i64], ptr @gemm_small_kernel_b0, i64 0, i64 %88
   %92 = load i64, ptr %91, align 8, !tbaa !23
   %93 = inttoptr i64 %92 to ptr
   %94 = call i32 %93(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink68, i64 noundef %30, double noundef %89, ptr noundef %.sink66, i64 noundef %32, ptr noundef %12, i64 noundef %34) #3
   br label %125
 
 95:                                               ; preds = %83
-  %96 = getelementptr inbounds [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %88
+  %96 = getelementptr inbounds nuw [8 x i64], ptr @gemm_small_kernel, i64 0, i64 %88
   %97 = load i64, ptr %96, align 8, !tbaa !23
   %98 = inttoptr i64 %97 to ptr
   %99 = call i32 %98(i64 noundef %22, i64 noundef %24, i64 noundef %26, ptr noundef %.sink68, i64 noundef %30, double noundef %89, ptr noundef %.sink66, i64 noundef %32, double noundef %84, ptr noundef %12, i64 noundef %34) #3
@@ -170,7 +170,7 @@ thread-pre-split.thread:                          ; preds = %14, %thread-pre-spl
   %119 = or i32 %118, 16
   %120 = select i1 %116, i32 %118, i32 %119
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [32 x ptr], ptr @gemm, i64 0, i64 %121
+  %122 = getelementptr inbounds nuw [32 x ptr], ptr @gemm, i64 0, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !26
   %124 = call i32 %123(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef %101, ptr noundef %104, i64 noundef 0) #3
   call void @blas_memory_free(ptr noundef %101) #3

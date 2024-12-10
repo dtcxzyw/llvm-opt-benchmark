@@ -1567,9 +1567,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
 
 106:                                              ; preds = %99, %97
   %.1168 = phi i64 [ %.0167364, %97 ], [ 0, %99 ]
-  %107 = getelementptr inbounds [128 x i64], ptr %15, i64 0, i64 %.1171
+  %107 = getelementptr inbounds nuw [128 x i64], ptr %15, i64 0, i64 %.1171
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds [128 x i64], ptr %17, i64 0, i64 %.1168
+  %109 = getelementptr inbounds nuw [128 x i64], ptr %17, i64 0, i64 %.1168
   %110 = load i64, ptr %109, align 8
   %. = call i64 @llvm.umin.i64(i64 %108, i64 %110)
   br i1 %31, label %111, label %173
@@ -1668,14 +1668,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   %.3176 = phi ptr [ %.4, %159 ], [ %.2175362, %111 ]
   %.2151 = phi i64 [ %160, %159 ], [ %.1150366, %111 ]
   %162 = load i64, ptr %84, align 8
-  %163 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %163 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %164 = load i64, ptr %163, align 8
   %165 = add i64 %164, %162
   %166 = getelementptr inbounds i64, ptr %.3186, i64 %.1367
   store i64 %165, ptr %166, align 8
   %167 = getelementptr inbounds i64, ptr %.3180, i64 %.1367
   store i64 %., ptr %167, align 8
-  %168 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %168 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %169 = load i64, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %.1190, i64 %169
   %171 = getelementptr inbounds ptr, ptr %.3176, i64 %.1367
@@ -1688,10 +1688,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 208
   %176 = load ptr, ptr %175, align 8
   %177 = load i64, ptr %84, align 8
-  %178 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %178 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %177
-  %181 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %181 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %182 = load i64, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %.1190, i64 %182
   %184 = call i32 %176(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %180, i64 noundef %., ptr noundef %183) #12
@@ -1719,7 +1719,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   br label %200
 
 195:                                              ; preds = %190
-  %196 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %196 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, %.
   store i64 %198, ptr %196, align 8
@@ -1738,7 +1738,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   br label %210
 
 205:                                              ; preds = %200
-  %206 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %206 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %207 = load i64, ptr %206, align 8
   %208 = add i64 %207, %.
   store i64 %208, ptr %206, align 8
@@ -2704,9 +2704,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
 
 106:                                              ; preds = %99, %97
   %.1168 = phi i64 [ %.0167364, %97 ], [ 0, %99 ]
-  %107 = getelementptr inbounds [128 x i64], ptr %15, i64 0, i64 %.1171
+  %107 = getelementptr inbounds nuw [128 x i64], ptr %15, i64 0, i64 %.1171
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds [128 x i64], ptr %17, i64 0, i64 %.1168
+  %109 = getelementptr inbounds nuw [128 x i64], ptr %17, i64 0, i64 %.1168
   %110 = load i64, ptr %109, align 8
   %. = call i64 @llvm.umin.i64(i64 %108, i64 %110)
   br i1 %31, label %111, label %173
@@ -2805,14 +2805,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   %.3176 = phi ptr [ %.4, %159 ], [ %.2175362, %111 ]
   %.2151 = phi i64 [ %160, %159 ], [ %.1150366, %111 ]
   %162 = load i64, ptr %84, align 8
-  %163 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %163 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %164 = load i64, ptr %163, align 8
   %165 = add i64 %164, %162
   %166 = getelementptr inbounds i64, ptr %.3186, i64 %.1367
   store i64 %165, ptr %166, align 8
   %167 = getelementptr inbounds i64, ptr %.3180, i64 %.1367
   store i64 %., ptr %167, align 8
-  %168 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %168 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %169 = load i64, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %.1190, i64 %169
   %171 = getelementptr inbounds ptr, ptr %.3176, i64 %.1367
@@ -2825,10 +2825,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 216
   %176 = load ptr, ptr %175, align 8
   %177 = load i64, ptr %84, align 8
-  %178 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %178 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %177
-  %181 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %181 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %182 = load i64, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %.1190, i64 %182
   %184 = call i32 %176(ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %180, i64 noundef %., ptr noundef %183) #12
@@ -2856,7 +2856,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   br label %200
 
 195:                                              ; preds = %190
-  %196 = getelementptr inbounds [128 x i64], ptr %14, i64 0, i64 %.1171
+  %196 = getelementptr inbounds nuw [128 x i64], ptr %14, i64 0, i64 %.1171
   %197 = load i64, ptr %196, align 8
   %198 = add i64 %197, %.
   store i64 %198, ptr %196, align 8
@@ -2875,7 +2875,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   br label %210
 
 205:                                              ; preds = %200
-  %206 = getelementptr inbounds [128 x i64], ptr %16, i64 0, i64 %.1168
+  %206 = getelementptr inbounds nuw [128 x i64], ptr %16, i64 0, i64 %.1168
   %207 = load i64, ptr %206, align 8
   %208 = add i64 %207, %.
   store i64 %208, ptr %206, align 8

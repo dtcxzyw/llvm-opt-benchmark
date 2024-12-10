@@ -145,7 +145,7 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
   %.not = icmp eq i32 %30, -1
   %31 = load ptr, ptr @stderr, align 8
   %32 = sext i32 %3 to i64
-  %33 = getelementptr inbounds [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 %32
@@ -223,7 +223,7 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
 62:                                               ; preds = %25
   %63 = load ptr, ptr @stderr, align 8
   %64 = sext i32 %3 to i64
-  %65 = getelementptr inbounds [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = getelementptr inbounds [3 x i32], ptr %67, i64 0, i64 %64

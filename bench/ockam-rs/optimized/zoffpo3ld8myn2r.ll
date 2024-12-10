@@ -4901,10 +4901,10 @@ switch.lookup:
   %26 = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26)
   %27 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E, i64 0, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   %28 = sext i8 %1 to i64
-  %switch.gep76 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E.20, i64 0, i64 %28
+  %switch.gep76 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5ockam6remote9addresses9Addresses8generate17h20123510a13ef396E.20, i64 0, i64 %28
   %switch.load77 = load ptr, ptr %switch.gep76, align 8
   store ptr %switch.load77, ptr %26, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %26, i64 8

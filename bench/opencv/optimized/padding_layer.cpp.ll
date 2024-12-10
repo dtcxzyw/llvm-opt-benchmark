@@ -2034,7 +2034,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn16PaddingLayerImpl7forwardERKNS_11_In
   %207 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i
   %208 = load i32, ptr %207, align 4, !noalias !27
   %209 = add nsw i64 %indvars.iv.i, -2
-  %210 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %209
   store i32 %208, ptr %210, align 4, !noalias !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2116,7 +2116,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn16PaddingLayerImpl7forwardERKNS_11_In
   %243 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv.i85
   %244 = load i32, ptr %243, align 4, !noalias !31
   %245 = add nsw i64 %indvars.iv.i85, -2
-  %246 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %245
   store i32 %244, ptr %246, align 4, !noalias !31
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i84

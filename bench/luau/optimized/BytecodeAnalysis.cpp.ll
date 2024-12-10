@@ -1203,7 +1203,7 @@ _ZN4Luau7CodeGenL25prepareRegTypeInfoLookupsERNS0_16BytecodeTypeInfoE.exit: ; pr
   %152 = getelementptr inbounds i8, ptr %148, i64 %.0867
   %153 = load i8, ptr %152, align 1
   %154 = and i8 %153, 127
-  %155 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.0867
+  %155 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %.0867
   store i8 %154, ptr %155, align 1
   %156 = add nuw i64 %.0867, 1
   %exitcond.not = icmp eq i64 %156, %umax
@@ -3000,7 +3000,7 @@ _ZN4Luau7CodeGenL11findRegTypeERNS0_16BytecodeTypeInfoEhi.exit.i756: ; preds = %
   %1060 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %1061 = load i32, ptr %1060, align 4
   %1062 = sext i32 %1061 to i64
-  %1063 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %1062
+  %1063 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %1062
   store i8 %1059, ptr %1063, align 1
   %1064 = load i8, ptr %190, align 1
   %1065 = zext nneg i32 %1050 to i64

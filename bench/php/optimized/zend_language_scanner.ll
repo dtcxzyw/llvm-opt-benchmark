@@ -19695,7 +19695,7 @@ switch.early.test6687:                            ; preds = %7099
 
 7646:                                             ; preds = %7638
   %7647 = sext i32 %7644 to i64
-  %7648 = getelementptr inbounds i8, ptr %3, i64 %7647
+  %7648 = getelementptr inbounds nuw i8, ptr %3, i64 %7647
   %7649 = sub nsw i64 256, %7647
   %7650 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %7648, i64 noundef %7649, ptr noundef nonnull @.str.24, i32 noundef %7642) #17
   br label %report_bad_nesting.exit.i
@@ -20632,7 +20632,7 @@ define internal fastcc range(i32 -1, 1) i32 @check_nesting_at_end() unnamed_addr
 
 11:                                               ; preds = %3
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %14 = sub nsw i64 256, %12
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %13, i64 noundef %14, ptr noundef nonnull @.str.24, i32 noundef %7) #17
   br label %report_bad_nesting.exit
@@ -21238,7 +21238,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   br i1 %.not.i, label %32, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %2, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   %28 = sub nsw i64 256, %24
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %27, i64 noundef %28, ptr noundef nonnull @.str.24, i32 noundef %21) #17
   %30 = sext i32 %29 to i64
@@ -21251,7 +21251,7 @@ define internal fastcc range(i32 -1, 1) i32 @exit_nesting(i8 noundef signext %0)
   br i1 %.not13.i, label %report_bad_nesting.exit, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %2, i64 %.0.i
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i
   %35 = sub nsw i64 256, %.0.i
   %36 = sext i8 %0 to i32
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %34, i64 noundef %35, ptr noundef nonnull @.str.25, i32 noundef %36) #17

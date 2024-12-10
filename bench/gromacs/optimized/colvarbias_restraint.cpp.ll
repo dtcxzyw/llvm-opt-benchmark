@@ -2237,7 +2237,7 @@ define void @_ZNK27colvarbias_restraint_moving16get_state_paramsB5cxx11Ev(ptr de
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261
@@ -2928,7 +2928,7 @@ define void @_ZNK35colvarbias_restraint_centers_moving16get_state_paramsB5cxx11E
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261
@@ -5413,7 +5413,7 @@ define void @_ZNK29colvarbias_restraint_k_moving16get_state_paramsB5cxx11Ev(ptr 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261

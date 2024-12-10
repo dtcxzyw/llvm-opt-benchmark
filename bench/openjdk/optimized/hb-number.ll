@@ -177,13 +177,13 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %.2.i = phi ptr [ %70, %69 ], [ %.058.lcssa.i, %.preheader134.preheader.i ]
   %15 = shl nsw i32 %.065.i, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr @_ZL25_double_parser_trans_keys, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZL25_double_parser_trans_keys, i64 %16
   %18 = sext i32 %.065.i to i64
-  %19 = getelementptr inbounds [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr @_ZL23_double_parser_indicies, i64 %21
-  %23 = getelementptr inbounds [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %18
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
   %26 = load i8, ptr %17, align 2
@@ -208,7 +208,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %38 = getelementptr inbounds i8, ptr %22, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [10 x i8], ptr @_ZL26_double_parser_trans_targs, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
   %44 = shl nuw i64 1, %40
@@ -217,7 +217,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   br i1 %.not89.i, label %46, label %67
 
 46:                                               ; preds = %35
-  %47 = getelementptr inbounds [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %40
+  %47 = getelementptr inbounds nuw [10 x i8], ptr @_ZL28_double_parser_trans_actions, i64 0, i64 %40
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %67 [
     i8 1, label %49

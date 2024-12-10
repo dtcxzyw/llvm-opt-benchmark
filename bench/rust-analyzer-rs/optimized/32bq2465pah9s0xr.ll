@@ -29561,7 +29561,7 @@ define internal fastcc noundef zeroext i1 @_ZN3ide11inlay_hints8bind_pat20is_nam
   br label %136
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %29, i64 0, i64 %.1.i.i.i
+  %141 = getelementptr inbounds nuw [0 x { i64, [1 x i64] }], ptr %29, i64 0, i64 %.1.i.i.i
   %142 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(16) %141) #38
           to label %136 unwind label %143
@@ -33882,7 +33882,7 @@ define void @_ZN3ide11inlay_hints5hints17h7f0f2ce1cc10b1b8E(ptr noalias noundef 
   br label %146
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %82, i64 0, i64 %.1.i.i.i.i
+  %151 = getelementptr inbounds nuw [0 x { i64, [1 x i64] }], ptr %82, i64 0, i64 %.1.i.i.i.i
   %152 = add i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(16) %151) #38
           to label %146 unwind label %153, !noalias !7838
@@ -34586,7 +34586,7 @@ _ZN3ide11inlay_hints8chaining5hints17h960a59f4bf8e522dE.exit: ; preds = %.sink.s
   br label %390
 
 394:                                              ; preds = %390
-  %395 = getelementptr inbounds [0 x { i64, [1 x i64] }], ptr %68, i64 0, i64 %.1.i.i.i.i127
+  %395 = getelementptr inbounds nuw [0 x { i64, [1 x i64] }], ptr %68, i64 0, i64 %.1.i.i.i.i127
   %396 = add i64 %.1.i.i.i.i127, 1
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(16) %395) #38
           to label %390 unwind label %397, !noalias !8023

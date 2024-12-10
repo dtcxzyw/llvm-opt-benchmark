@@ -100,7 +100,7 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
   br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
 
 10:                                               ; preds = %mca_coll_han_algorithm_id_is_valid.exit
-  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %7
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13
@@ -132,7 +132,7 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
   br i1 %9, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %5
+  %11 = getelementptr inbounds nuw [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %5
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13

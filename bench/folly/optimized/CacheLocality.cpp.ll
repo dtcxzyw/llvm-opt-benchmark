@@ -283,7 +283,7 @@ invoke.cont2:                                     ; preds = %entry
   %vtable = load ptr, ptr %xi, align 8, !tbaa !15
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %xi, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %xi, i64 %vbase.offset
   %_M_streambuf_state.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i, align 8, !tbaa !17
   %and.i.i = and i32 %0, 5
@@ -3087,7 +3087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds =
   %vtable.i.i.i.i = load ptr, ptr %xi.i.i.i, align 8, !tbaa !15, !noalias !119
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %vtable.i.i.i.i, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %xi.i.i.i, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %xi.i.i.i, i64 %vbase.offset.i.i.i.i
   %_M_ctype.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 240
   %7 = load ptr, ptr %_M_ctype.i.i.i.i.i, align 8, !tbaa !28, !noalias !119
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -5315,7 +5315,7 @@ init.end:                                         ; preds = %arrayctor.cont, %in
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 256)
   %mul.i = mul i64 %.sroa.speculated.i, %stripe
   %div.i = udiv i64 %mul.i, %numStripes
-  %arrayidx = getelementptr inbounds [256 x %"class.folly::Indestructible"], ptr @_ZZN5folly10coreMallocEmmmE10allocators, i64 0, i64 %div.i
+  %arrayidx = getelementptr inbounds nuw [256 x %"class.folly::Indestructible"], ptr @_ZZN5folly10coreMallocEmmmE10allocators, i64 0, i64 %div.i
   %cmp.i.i = icmp ult i64 %size, 9
   br i1 %cmp.i.i, label %_ZNR5folly8OptionalIhEdeEv.exit.i, label %if.else.i.i
 

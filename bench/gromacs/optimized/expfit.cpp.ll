@@ -1223,7 +1223,7 @@ _ZL18extract_fit_paramsiPd.exit:                  ; preds = %.lr.ph.i, %_Z11effn
 .lr.ph222:                                        ; preds = %.preheader215
   %204 = add nsw i32 %.0140.lcssa, -1
   %205 = sext i32 %9 to i64
-  %206 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %205
   %wide.trip.count241 = zext nneg i32 %204 to i64
   %.pre258 = load double, ptr %38, align 8
   br label %280
@@ -1485,7 +1485,7 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
 .lr.ph229:                                        ; preds = %.preheader
   %.not157 = icmp eq ptr %4, null
   %320 = sext i32 %9 to i64
-  %321 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %320
+  %321 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %320
   %wide.trip.count256 = zext nneg i32 %.0140.lcssa to i64
   br i1 %.not157, label %.lr.ph229.split.us, label %.lr.ph229.split
 
@@ -1570,7 +1570,7 @@ define internal fastcc void @_ZL17print_chi2_paramsP8_IO_FILEiPKdPKciS2_S2_(ptr 
 
 .lr.ph:                                           ; preds = %7
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %9
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %11
 
@@ -1957,7 +1957,7 @@ _Z11effnNparamsi.exit121.thread:                  ; preds = %_Z15effnDescription
   %64 = fmul double %63, %56
   %.not112 = icmp ne ptr %8, null
   %65 = sext i32 %1 to i64
-  %66 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %65
   %67 = zext nneg i32 %1 to i64
   %68 = getelementptr inbounds nuw [11 x i32], ptr @_ZL7nfp_ffn, i64 0, i64 %67
   %69 = fpext float %4 to double

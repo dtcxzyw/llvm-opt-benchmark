@@ -6513,7 +6513,7 @@ define void @Gia_ManPatSatImprove(ptr nocapture noundef %0, i32 noundef %1, i32 
   %15 = load i8, ptr %14, align 1
   %16 = sext i8 %15 to i64
   %17 = add nsw i64 %16, 1
-  %18 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4

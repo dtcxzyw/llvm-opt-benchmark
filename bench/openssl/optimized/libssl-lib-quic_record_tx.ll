@@ -1383,7 +1383,7 @@ for.body34:                                       ; preds = %if.end29, %qtx_pend
   br i1 %cmp35.not, label %if.end41, label %if.then37
 
 if.then37:                                        ; preds = %for.body34
-  %arrayidx39 = getelementptr inbounds [32 x %struct.bio_msg_st], ptr %msg, i64 0, i64 %i.132
+  %arrayidx39 = getelementptr inbounds nuw [32 x %struct.bio_msg_st], ptr %msg, i64 0, i64 %i.132
   %7 = load ptr, ptr %arrayidx39, align 8
   %data_len = getelementptr inbounds nuw i8, ptr %arrayidx39, i64 8
   %8 = load i64, ptr %data_len, align 8

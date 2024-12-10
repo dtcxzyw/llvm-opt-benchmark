@@ -4634,7 +4634,7 @@ _ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %.0.i.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -4995,7 +4995,7 @@ _ZN13ZHeapIterator13follow_objectILb1EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 12
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb1EEE6_tableE, i64 0, i64 %158
   %160 = load ptr, ptr %159, align 8
   call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.28, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -9515,7 +9515,7 @@ _ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef %.0.i.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -9876,7 +9876,7 @@ _ZN13ZHeapIterator13follow_objectILb0EEEvRK20ZHeapIteratorContextP7oopDesc.exit.
   %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 12
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI23ZHeapIteratorOopClosureILb0EEE6_tableE, i64 0, i64 %158
   %160 = load ptr, ptr %159, align 8
   call void %160(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %.28, ptr noundef %.0.i.i.i.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)

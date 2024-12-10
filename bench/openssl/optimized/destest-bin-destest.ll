@@ -191,16 +191,16 @@ entry:
   %b1 = alloca [20 x i8], align 16
   %b2 = alloca [20 x i8], align 16
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom
   call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx, ptr noundef nonnull %ks) #5
-  %arrayidx2 = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx2, align 8
   store i64 %0, ptr %in, align 8
   store i64 0, ptr %out, align 8
   store i64 0, ptr %outin, align 8
   call void @DES_ecb_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %ks, i32 noundef 1) #5
   call void @DES_ecb_encrypt(ptr noundef nonnull %out, ptr noundef nonnull %outin, ptr noundef nonnull %ks, i32 noundef 0) #5
-  %arrayidx8 = getelementptr inbounds [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %idxprom
+  %arrayidx8 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @cipher_data, i64 0, i64 %idxprom
   %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 321, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, ptr noundef nonnull %out, i64 noundef 8, ptr noundef nonnull %arrayidx8, i64 noundef 8) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.body.i, label %if.end
@@ -432,24 +432,24 @@ entry:
   %b1 = alloca [20 x i8], align 16
   %b2 = alloca [20 x i8], align 16
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom
   call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx, ptr noundef nonnull %ks) #5
   %add = add nsw i32 %i, 1
   %idxprom1 = sext i32 %add to i64
-  %arrayidx2 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom1
   call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %ks2) #5
   %add3 = add nsw i32 %i, 2
   %idxprom4 = sext i32 %add3 to i64
-  %arrayidx5 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @key_data, i64 0, i64 %idxprom4
   call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %ks3) #5
-  %arrayidx7 = getelementptr inbounds [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [34 x [8 x i8]], ptr @plain_data, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx7, align 8
   store i64 %0, ptr %in, align 8
   store i64 0, ptr %out, align 8
   store i64 0, ptr %outin, align 8
   call void @DES_ecb3_encrypt(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks, i32 noundef 1) #5
   call void @DES_ecb3_encrypt(ptr noundef nonnull %out, ptr noundef nonnull %outin, ptr noundef nonnull %ks, ptr noundef nonnull %ks2, ptr noundef nonnull %ks, i32 noundef 0) #5
-  %arrayidx13 = getelementptr inbounds [33 x [8 x i8]], ptr @cipher_ecb2, i64 0, i64 %idxprom
+  %arrayidx13 = getelementptr inbounds nuw [33 x [8 x i8]], ptr @cipher_ecb2, i64 0, i64 %idxprom
   %call = call i32 @test_mem_eq(ptr noundef nonnull @.str.24, i32 noundef 349, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.42, ptr noundef nonnull %out, i64 noundef 8, ptr noundef nonnull %arrayidx13, i64 noundef 8) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.body.i, label %if.end
@@ -973,7 +973,7 @@ entry:
   %iv = alloca [8 x i8], align 8
   %ks = alloca %struct.DES_ks, align 4
   %idx.ext = sext i32 %i to i64
-  %add.ptr = getelementptr inbounds i8, ptr @cbc_data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr @cbc_data, i64 %idx.ext
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %cbc_out, i8 0, i64 40, i1 false)
   %0 = load i64, ptr @cbc_iv, align 8
@@ -1011,7 +1011,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add = add i64 %call, 1
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [40 x i8], ptr %cbc_out, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [40 x i8], ptr %cbc_out, i64 0, i64 %idxprom
   call void @DES_ncbc_encrypt(ptr noundef nonnull @cbc_data, ptr noundef nonnull %arrayidx, i64 noundef %add, ptr noundef nonnull %ks, ptr noundef nonnull %iv, i32 noundef 1) #5
   br label %return
 
@@ -1032,7 +1032,7 @@ entry:
   %plen_upd = alloca i32, align 4
   %plen_fin = alloca i32, align 4
   %idxprom = sext i32 %idx to i64
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @test_des_key_wrap_sizes, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @test_des_key_wrap_sizes, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %.fr = freeze i32 %0
   %conv = sext i32 %.fr to i64
@@ -1129,7 +1129,7 @@ if.end54:                                         ; preds = %if.end47
   %sub56 = sub i32 200, %5
   store i32 %sub56, ptr %clen_fin, align 4
   %idx.ext = sext i32 %5 to i64
-  %add.ptr59 = getelementptr inbounds i8, ptr %c_txt, i64 %idx.ext
+  %add.ptr59 = getelementptr inbounds nuw i8, ptr %c_txt, i64 %idx.ext
   %call60 = call i32 @EVP_EncryptFinal(ptr noundef %call19, ptr noundef nonnull %add.ptr59, ptr noundef nonnull %clen_fin) #5
   %cmp61 = icmp ne i32 %call60, 0
   %conv62 = zext i1 %cmp61 to i32
@@ -1168,7 +1168,7 @@ if.end86:                                         ; preds = %lor.lhs.false77
   %sub88 = sub i32 200, %9
   store i32 %sub88, ptr %plen_fin, align 4
   %idx.ext91 = sext i32 %9 to i64
-  %add.ptr92 = getelementptr inbounds i8, ptr %p_txt, i64 %idx.ext91
+  %add.ptr92 = getelementptr inbounds nuw i8, ptr %p_txt, i64 %idx.ext91
   %call93 = call i32 @EVP_DecryptFinal(ptr noundef %call19, ptr noundef nonnull %add.ptr92, ptr noundef nonnull %plen_fin) #5
   %cmp94 = icmp ne i32 %call93, 0
   %conv95 = zext i1 %cmp94 to i32
@@ -1199,7 +1199,7 @@ err:                                              ; preds = %if.end99, %if.end86
 define internal i32 @test_des_weak_keys(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [17 x %struct.anon], ptr @weak_keys, i64 0, i64 %idxprom
   %call = tail call i32 @DES_is_weak_key(ptr noundef nonnull %arrayidx) #5
   %expect = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %expect, align 4
@@ -1211,7 +1211,7 @@ entry:
 define internal i32 @test_des_check_bad_parity(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [11 x %struct.anon.0], ptr @bad_parity_keys, i64 0, i64 %idxprom
   %call = tail call i32 @DES_check_key_parity(ptr noundef nonnull %arrayidx) #5
   %expect = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %expect, align 4

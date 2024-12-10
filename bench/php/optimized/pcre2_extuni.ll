@@ -19,14 +19,14 @@ define hidden ptr @_pcre2_extuni_8(i32 noundef %0, ptr noundef readonly %1, ptr 
   %8 = ptrtoint ptr %2 to i64
   %9 = sdiv i32 %0, 128
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 7
   %15 = srem i32 %0, 128
   %16 = add nsw i32 %14, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %20, i32 2

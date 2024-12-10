@@ -611,7 +611,7 @@ define noundef nonnull ptr @_Z21pull_coordinate_unitsRK12t_pull_coord(ptr nocapt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, ptr @.str.5, ptr @.str.6
@@ -623,7 +623,7 @@ define noundef double @_Z41pull_conversion_factor_userinput2internalRK12t_pull_c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %. = select i1 %7, double 0x3F91DF46A2529D39, double 1.000000e+00
@@ -635,7 +635,7 @@ define noundef double @_Z41pull_conversion_factor_internal2userinputRK12t_pull_c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %. = select i1 %7, double 0x404CA5DC1A63C1F8, double 1.000000e+00
@@ -2044,7 +2044,7 @@ _ZL37check_external_potential_registrationPK6pull_t.exit: ; preds = %43, %9, %22
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.024.044, i64 40
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = trunc i8 %85 to i1
   %..i.i.i.i = select i1 %86, double 0x3F91DF46A2529D39, double 1.000000e+00
@@ -2353,7 +2353,7 @@ define internal fastcc noundef double @_ZL31sanitizePullCoordReferenceValueRK12t
   %22 = add nsw i32 %21, 1
   %23 = load i32, ptr %5, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   %..i = select i1 %27, double 0x404CA5DC1A63C1F8, double 1.000000e+00
@@ -3925,7 +3925,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   %222 = getelementptr inbounds nuw i8, ptr %209, i64 40
   %223 = load i32, ptr %222, align 8
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = trunc i8 %226 to i1
   %..i.i.i = select i1 %227, double 0x3F91DF46A2529D39, double 1.000000e+00
@@ -3973,7 +3973,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
   %245 = add nsw i32 %244, 1
   %246 = load i32, ptr %242, align 8
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %247
   %249 = load i8, ptr %248, align 1
   %250 = trunc i8 %249 to i1
   %..i.i383.i = select i1 %250, double 0x404CA5DC1A63C1F8, double 1.000000e+00
@@ -6125,7 +6125,7 @@ _ZNSt6vectorI17pull_coord_work_tSaIS0_EE12emplace_backIJRK12t_pull_coordRbEEERS0
   %206 = fpext float %205 to double
   %207 = load i32, ptr %125, align 8
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [9 x i8], ptr @_ZL14sc_isAngleType, i64 0, i64 %208
   %210 = load i8, ptr %209, align 1
   %211 = trunc i8 %210 to i1
   %..i263 = select i1 %211, double 0x3F91DF46A2529D39, double 1.000000e+00

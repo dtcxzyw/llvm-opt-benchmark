@@ -1239,7 +1239,7 @@ define internal i64 @H5FD__log_alloc(ptr nocapture noundef %0, i32 noundef %1, i
   %22 = load ptr, ptr %21, align 8
   %23 = add i64 %7, -1
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.49, i64 noundef %6, i64 noundef %23, i64 noundef %3, ptr noundef %26) #19
   br label %28
@@ -1280,7 +1280,7 @@ define internal noundef i32 @H5FD__log_free(ptr nocapture noundef readonly %0, i
   %20 = add i64 %3, -1
   %21 = add i64 %20, %4
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.50, i64 noundef %3, i64 noundef %21, i64 noundef %4, ptr noundef %24) #19
   br label %26
@@ -1338,7 +1338,7 @@ define internal noundef i32 @H5FD__log_set_eoa(ptr nocapture noundef %0, i32 nou
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.49, i64 noundef %.pr.pre57, i64 noundef %2, i64 noundef %11, ptr noundef %26) #19
   %.pr.pre = load i64, ptr %7, align 8
@@ -1381,7 +1381,7 @@ thread-pre-split:                                 ; preds = %21, %18, %6
   %45 = load ptr, ptr %44, align 8
   %46 = load i64, ptr %7, align 8
   %47 = sext i32 %1 to i64
-  %48 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.50, i64 noundef %46, i64 noundef %2, i64 noundef %33, ptr noundef %49) #19
   br label %.critedge
@@ -1610,7 +1610,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_read(ptr noundef %0, i32 noundef
   %98 = load ptr, ptr %97, align 8
   %99 = add i64 %18, -1
   %100 = sext i32 %1 to i64
-  %101 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.56, i64 noundef %3, i64 noundef %99, i64 noundef %4, ptr noundef %102) #19
   %104 = load i64, ptr %25, align 8
@@ -1824,7 +1824,7 @@ define internal range(i32 -1, 1) i32 @H5FD__log_write(ptr noundef %0, i32 nounde
   %99 = load ptr, ptr %98, align 8
   %100 = add i64 %19, -1
   %101 = sext i32 %1 to i64
-  %102 = getelementptr inbounds [7 x ptr], ptr @flavors, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [7 x ptr], ptr @flavors, i64 0, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.62, i64 noundef %3, i64 noundef %100, i64 noundef %4, ptr noundef %103) #19
   %105 = load i64, ptr %26, align 8

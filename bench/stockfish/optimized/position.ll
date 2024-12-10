@@ -1445,7 +1445,7 @@ define dso_local void @_ZNK9Stockfish8Position9set_stateEv(ptr nocapture noundef
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load i32, ptr %149, align 8
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %155 = load i64, ptr %154, align 8
@@ -1925,7 +1925,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %8, %6
-  %12 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %4
+  %12 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %4
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = load i64, ptr %14, align 8
@@ -1938,7 +1938,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, %20
   %24 = or i64 %18, %23
-  %25 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %4
+  %25 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 16
   %28 = load i64, ptr %25, align 16
@@ -1960,7 +1960,7 @@ define dso_local noundef i64 @_ZNK9Stockfish8Position12attackers_toENS_6SquareEm
   %44 = or i64 %43, %41
   %45 = and i64 %44, %39
   %46 = or i64 %24, %45
-  %47 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %4
+  %47 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 16
   %50 = load i64, ptr %47, align 16
@@ -2128,7 +2128,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %114 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 1, i64 %indvars.iv
   %115 = load i64, ptr %114, align 8
   %116 = and i64 %89, %115
-  %117 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %indvars.iv
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %93, %118
   %120 = or i64 %119, %116
@@ -2137,7 +2137,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %123 = load i64, ptr %122, align 8
   %124 = and i64 %95, %123
   %125 = or i64 %121, %124
-  %126 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish10RookMagicsE, i64 0, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 16
   %129 = load i64, ptr %126, align 16
@@ -2154,7 +2154,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position5legalENS_4MoveE(ptr
   %140 = load i64, ptr %139, align 8
   %141 = and i64 %100, %140
   %142 = or i64 %125, %141
-  %143 = getelementptr inbounds [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [64 x %"struct.Stockfish::Magic"], ptr @_ZN9Stockfish12BishopMagicsE, i64 0, i64 %indvars.iv
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 16
   %146 = load i64, ptr %143, align 16
@@ -3286,7 +3286,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
 
 175:                                              ; preds = %168
   %176 = sext i32 %167 to i64
-  %177 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %176
   %178 = load i64, ptr %177, align 8
   %179 = xor i32 %174, -1
   %180 = and i32 %167, %179
@@ -3295,7 +3295,7 @@ define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %183 = load i32, ptr %182, align 8
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i64], ptr @_ZN9Stockfish7Zobrist8castlingE, i64 0, i64 %184
   %186 = load i64, ptr %185, align 8
   %187 = xor i64 %178, %186
   %188 = xor i64 %187, %.2

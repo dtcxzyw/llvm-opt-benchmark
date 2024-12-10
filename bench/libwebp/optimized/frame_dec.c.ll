@@ -675,7 +675,7 @@ define internal i32 @FinishRow(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2880
@@ -1248,7 +1248,7 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
 13:                                               ; preds = %10
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %14 = sext i32 %.pre to i64
-  %15 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = icmp eq i32 %.pre, 2
@@ -1751,7 +1751,7 @@ InitThreadContext.exit.thread:                    ; preds = %InitThreadContext.e
   %50 = mul nsw i64 %49, 800
   %51 = shl nsw i32 %26, 4
   %52 = sext i32 %37 to i64
-  %53 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = add nsw i32 %51, %55
@@ -1880,7 +1880,7 @@ AllocateMemory.exit.thread:                       ; preds = %.thread.i, %115
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2884
   store i32 %130, ptr %131, align 4
   %132 = sext i32 %89 to i64
-  %133 = getelementptr inbounds [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [3 x i8], ptr @kFilterExtraRows, i64 0, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = mul nsw i32 %128, %135

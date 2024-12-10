@@ -65,7 +65,7 @@ define void @Iso_ReadPrimes(ptr nocapture noundef readonly %0) local_unnamed_add
   %14 = getelementptr inbounds nuw [10000 x i32], ptr %2, i64 0, i64 %indvars.iv25
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %13 to i64
-  %17 = getelementptr inbounds [10000 x i32], ptr %2, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [10000 x i32], ptr %2, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %14, align 4
   store i32 %15, ptr %17, align 4

@@ -244,7 +244,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %104 = load ptr, ptr %7, align 8
   %105 = getelementptr i8, ptr %104, i64 -24
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %7, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 %106
   %108 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %107)
           to label %109 unwind label %113
 

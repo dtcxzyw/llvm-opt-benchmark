@@ -206,7 +206,7 @@ define noundef ptr @_Z10rd_nm2typeRKNSt10filesystem7__cxx114pathEPi(ptr noundef 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc14 ], [ 0, %.noexc12 ]
   %51 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %4) #17
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %endptr.i = getelementptr inbounds i8, ptr %5, i64 %strlen.i
+  %endptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %strlen.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %endptr.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false)
   %52 = load ptr, ptr %40, align 8
   %53 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv.i
@@ -238,7 +238,7 @@ define noundef ptr @_Z10rd_nm2typeRKNSt10filesystem7__cxx114pathEPi(ptr noundef 
   %61 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
   store ptr %60, ptr %61, align 8
   %strlen39.i = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr40.i = getelementptr inbounds i8, ptr %4, i64 %strlen39.i
+  %endptr40.i = getelementptr inbounds nuw i8, ptr %4, i64 %strlen39.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr40.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.10, i64 7, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %62 = load i32, ptr %10, align 4

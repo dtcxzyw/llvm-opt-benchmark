@@ -1048,7 +1048,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit.i: ; preds = %165, %158
   %173 = load i32, ptr %172, align 4
   %174 = sext i32 %173 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 32, i64 %174, i1 false)
-  %175 = getelementptr inbounds [80 x i8], ptr %4, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 0, i64 %174
   store i8 0, ptr %175, align 1
   %176 = load ptr, ptr %159, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
@@ -1415,7 +1415,7 @@ define hidden noundef i64 @_ZN2cv6base6424RawDataToBinaryConvertor20make_to_bina
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %.loopexit.split-lp.loopexit
 
@@ -1441,7 +1441,7 @@ define hidden noundef i64 @_ZN2cv6base6424RawDataToBinaryConvertor20make_to_bina
   %31 = load ptr, ptr %5, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %33
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %34, i32 noundef 0)
           to label %.thread unwind label %.loopexit.split-lp.loopexit
 
@@ -1669,7 +1669,7 @@ _ZNSt6vectorIN2cv6base6424RawDataToBinaryConvertor16elem_to_binary_tESaIS3_EE9pu
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr i8, ptr %104, i64 -24
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %5, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 %106
   %108 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %107)
           to label %109 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1899,7 +1899,7 @@ _ZNSt5dequeIN2cv11FStructDataESaIS1_EE4backEv.exit: ; preds = %26, %33
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 32, i64 %42, i1 false)
-  %43 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 0, i64 %42
   store i8 0, ptr %43, align 1
   %44 = load ptr, ptr %27, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24

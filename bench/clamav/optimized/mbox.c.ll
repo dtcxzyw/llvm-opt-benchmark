@@ -1117,7 +1117,7 @@ freeList.exit.i.i:                                ; preds = %.lr.ph.i202.i.i, %2
 341:                                              ; preds = %334
   %342 = getelementptr inbounds nuw i8, ptr %.2139273.i.i, i64 1040
   store ptr %339, ptr %342, align 8
-  %343 = getelementptr inbounds i8, ptr %3, i64 %335
+  %343 = getelementptr inbounds nuw i8, ptr %3, i64 %335
   %344 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %339, ptr noundef nonnull readonly dereferenceable(1) %343) #19
   %345 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %343) #21
   %346 = getelementptr inbounds nuw i8, ptr %339, i64 1032

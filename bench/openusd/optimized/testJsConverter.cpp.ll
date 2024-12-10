@@ -572,7 +572,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
   %161 = load ptr, ptr %117, align 8
   %162 = getelementptr i8, ptr %161, i64 -24
   %163 = load i64, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %117, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr %117, i64 %163
   %.sink1719.sroa.gep = getelementptr inbounds nuw i8, ptr %116, i64 8
   %.sink1719.sroa.gep1826 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sink1719.sroa.gep1828 = getelementptr inbounds nuw i8, ptr %116, i64 16

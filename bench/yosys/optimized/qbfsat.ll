@@ -4462,7 +4462,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit88.i: ; preds = %501, %.loopex
   %507 = load ptr, ptr %12, align 8
   %508 = getelementptr i8, ptr %507, i64 -24
   %509 = load i64, ptr %508, align 8
-  %510 = getelementptr inbounds i8, ptr %12, i64 %509
+  %510 = getelementptr inbounds nuw i8, ptr %12, i64 %509
   %511 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %510)
           to label %512 unwind label %515
 
@@ -11162,7 +11162,7 @@ define linkonce_odr void @_ZNK5Yosys15QbfSolutionType14write_solutionEPNS_5RTLIL
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %21
 
@@ -32652,7 +32652,7 @@ define linkonce_odr noundef i32 @_ZNKSt7__cxx1112regex_traitsIcE5valueEci(ptr no
   %23 = load ptr, ptr %4, align 8
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %25
   %27 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %26)
           to label %28 unwind label %16
 

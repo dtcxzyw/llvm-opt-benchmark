@@ -2920,7 +2920,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %kExtractMasksCombined.i)
   store i64 281470698455040, ptr %kExtractMasksCombined.i, align 8
   %mul.i60 = shl i64 %asmresult.i, 1
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %kExtractMasksCombined.i, i64 %mul.i60
+  %add.ptr.i61 = getelementptr inbounds nuw i8, ptr %kExtractMasksCombined.i, i64 %mul.i60
   %result.0.copyload.i = load i16, ptr %add.ptr.i61, align 2
   %conv.i62 = zext i16 %result.0.copyload.i to i32
   %and.i = and i32 %value.0.copyload.i, %conv.i62
@@ -3601,7 +3601,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %kExtractMasksCombined.i.i)
   store i64 281470698455040, ptr %kExtractMasksCombined.i.i, align 8
   %mul.i.i = shl i64 %asmresult.i.i, 1
-  %add.ptr.i41.i = getelementptr inbounds i8, ptr %kExtractMasksCombined.i.i, i64 %mul.i.i
+  %add.ptr.i41.i = getelementptr inbounds nuw i8, ptr %kExtractMasksCombined.i.i, i64 %mul.i.i
   %result.0.copyload.i.i = load i16, ptr %add.ptr.i41.i, align 2
   %conv.i42.i = zext i16 %result.0.copyload.i.i to i32
   %and.i.i = and i32 %value.0.copyload.i.i, %conv.i42.i

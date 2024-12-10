@@ -628,7 +628,7 @@ define hidden noundef nonnull ptr @_ZN19TemplateInterpreter29invoke_return_entry
   %5 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %5, align 1
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.13, i32 noundef 254, ptr noundef nonnull @.str.14, ptr noundef %8) #16
   unreachable
@@ -664,17 +664,17 @@ define hidden noundef ptr @_ZN19TemplateInterpreter12return_entryE8TosStateiN9By
 
 7:                                                ; preds = %6, %6, %6, %6
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds [10 x ptr], ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19TemplateInterpreter20_invoke_return_entryE, i64 0, i64 %8
   br label %21
 
 10:                                               ; preds = %6
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds [10 x ptr], ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19TemplateInterpreter29_invokeinterface_return_entryE, i64 0, i64 %11
   br label %21
 
 13:                                               ; preds = %6
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds [10 x ptr], ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN19TemplateInterpreter27_invokedynamic_return_entryE, i64 0, i64 %14
   br label %21
 
 16:                                               ; preds = %6

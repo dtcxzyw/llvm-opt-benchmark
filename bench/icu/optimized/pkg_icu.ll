@@ -98,8 +98,8 @@ if.then23.us:                                     ; preds = %while.body.us
 
 if.else.us:                                       ; preds = %while.body.us
   %strlen41.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line)
-  %cmp2846.us = icmp sgt i64 %strlen41.us, 0
-  br i1 %cmp2846.us, label %land.rhs.us.preheader, label %if.end35.us
+  %cmp2846.us.not = icmp eq i64 %strlen41.us, 0
+  br i1 %cmp2846.us.not, label %if.end35.us, label %land.rhs.us.preheader
 
 land.rhs.us.preheader:                            ; preds = %if.else.us
   %strchr42.us = getelementptr inbounds nuw i8, ptr %line, i64 %strlen41.us
@@ -187,8 +187,8 @@ if.then23:                                        ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %strlen41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line)
-  %cmp2846 = icmp sgt i64 %strlen41, 0
-  br i1 %cmp2846, label %land.rhs.preheader, label %if.end35
+  %cmp2846.not = icmp eq i64 %strlen41, 0
+  br i1 %cmp2846.not, label %if.end35, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.else
   %strchr42 = getelementptr inbounds nuw i8, ptr %line, i64 %strlen41

@@ -1025,7 +1025,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc12:                                         ; preds = %.noexc
   %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
-  %28 = getelementptr inbounds i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %28)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %29
 
@@ -1057,7 +1057,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc14:                                         ; preds = %.noexc13
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
-  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, ptr noundef nonnull %36)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %37
 
@@ -1089,7 +1089,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc19:                                         ; preds = %.noexc18
   %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
-  %44 = getelementptr inbounds i8, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull %44)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %45
 
@@ -1121,7 +1121,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc24:                                         ; preds = %.noexc23
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
-  %52 = getelementptr inbounds i8, ptr %9, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 %51
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9, ptr noundef nonnull %52)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %53
 
@@ -1153,7 +1153,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc29:                                         ; preds = %.noexc28
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
-  %60 = getelementptr inbounds i8, ptr %11, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 %59
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %11, ptr noundef nonnull %60)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %61
 
@@ -1185,7 +1185,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc34:                                         ; preds = %.noexc33
   %67 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #25
-  %68 = getelementptr inbounds i8, ptr %13, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 %67
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, ptr noundef nonnull %68)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %69
 
@@ -1217,7 +1217,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc39:                                         ; preds = %.noexc38
   %75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
-  %76 = getelementptr inbounds i8, ptr %15, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 %75
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %15, ptr noundef nonnull %76)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %77
 
@@ -1249,7 +1249,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc44:                                         ; preds = %.noexc43
   %83 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #25
-  %84 = getelementptr inbounds i8, ptr %17, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 %83
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %17, ptr noundef nonnull %84)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %85
 
@@ -1281,7 +1281,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc49:                                         ; preds = %.noexc48
   %91 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #25
-  %92 = getelementptr inbounds i8, ptr %19, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 %91
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %19, ptr noundef nonnull %92)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %93
 
@@ -1313,7 +1313,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc55:                                         ; preds = %.noexc54
   %99 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #25
-  %100 = getelementptr inbounds i8, ptr %21, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 %99
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %21, ptr noundef nonnull %100)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %101
 
@@ -1347,7 +1347,7 @@ define hidden void @_Z16const_name_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc60:                                         ; preds = %.noexc59
   %107 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #25
-  %108 = getelementptr inbounds i8, ptr %23, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %23, i64 %107
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %23, ptr noundef nonnull %108)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %109
 
@@ -1493,7 +1493,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc12:                                         ; preds = %.noexc
   %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
-  %28 = getelementptr inbounds i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull %28)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %29
 
@@ -1525,7 +1525,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc14:                                         ; preds = %.noexc13
   %35 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
-  %36 = getelementptr inbounds i8, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 %35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, ptr noundef nonnull %36)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %37
 
@@ -1557,7 +1557,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc19:                                         ; preds = %.noexc18
   %43 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #25
-  %44 = getelementptr inbounds i8, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull %44)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %45
 
@@ -1589,7 +1589,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc24:                                         ; preds = %.noexc23
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
-  %52 = getelementptr inbounds i8, ptr %9, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 %51
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9, ptr noundef nonnull %52)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %53
 
@@ -1621,7 +1621,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc29:                                         ; preds = %.noexc28
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
-  %60 = getelementptr inbounds i8, ptr %11, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 %59
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %11, ptr noundef nonnull %60)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %61
 
@@ -1653,7 +1653,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc34:                                         ; preds = %.noexc33
   %67 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #25
-  %68 = getelementptr inbounds i8, ptr %13, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 %67
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %13, ptr noundef nonnull %68)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %69
 
@@ -1685,7 +1685,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc39:                                         ; preds = %.noexc38
   %75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
-  %76 = getelementptr inbounds i8, ptr %15, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 %75
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %15, ptr noundef nonnull %76)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %77
 
@@ -1717,7 +1717,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc44:                                         ; preds = %.noexc43
   %83 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #25
-  %84 = getelementptr inbounds i8, ptr %17, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %17, i64 %83
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %17, ptr noundef nonnull %84)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %85
 
@@ -1749,7 +1749,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc49:                                         ; preds = %.noexc48
   %91 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #25
-  %92 = getelementptr inbounds i8, ptr %19, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 %91
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %19, ptr noundef nonnull %92)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %93
 
@@ -1781,7 +1781,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc55:                                         ; preds = %.noexc54
   %99 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #25
-  %100 = getelementptr inbounds i8, ptr %21, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %21, i64 %99
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %21, ptr noundef nonnull %100)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %101
 
@@ -1815,7 +1815,7 @@ define hidden void @_Z16underscore_testsB5cxx11i(ptr dead_on_unwind noalias writ
 
 .noexc60:                                         ; preds = %.noexc59
   %107 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #25
-  %108 = getelementptr inbounds i8, ptr %23, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %23, i64 %107
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %23, ptr noundef nonnull %108)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %109
 

@@ -142,56 +142,54 @@ define void @_ZNK12colvarmodule7rvector16to_simple_stringB5cxx11Ev(ptr dead_on_u
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
   store i32 %11, ptr %8, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr i8, ptr %12, i64 -24
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 %14
-  %16 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = load double, ptr %1, align 8
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %18)
-          to label %20 unwind label %34
+  %12 = load i64, ptr %5, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %14 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %14, ptr %15, align 8
+  %16 = load double, ptr %1, align 8
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %16)
+          to label %18 unwind label %32
 
-20:                                               ; preds = %2
-  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str)
-          to label %22 unwind label %34
+18:                                               ; preds = %2
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str)
+          to label %20 unwind label %32
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load double, ptr %23, align 8
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %24)
-          to label %26 unwind label %34
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load double, ptr %21, align 8
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %22)
+          to label %24 unwind label %32
 
-26:                                               ; preds = %22
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str)
-          to label %28 unwind label %34
+24:                                               ; preds = %20
+  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str)
+          to label %26 unwind label %32
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load double, ptr %29, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef %30)
-          to label %32 unwind label %34
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = load double, ptr %27, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %25, double noundef %28)
+          to label %30 unwind label %32
 
-32:                                               ; preds = %28
+30:                                               ; preds = %26
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
-          to label %33 unwind label %34
+          to label %31 unwind label %32
 
-33:                                               ; preds = %32
+31:                                               ; preds = %30
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   ret void
 
-34:                                               ; preds = %32, %28, %26, %22, %20, %2
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %30, %26, %24, %20, %18, %2
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %33
 }
 
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
@@ -457,66 +455,64 @@ define void @_ZNK12colvarmodule10quaternion16to_simple_stringB5cxx11Ev(ptr dead_
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261
   %11 = or disjoint i32 %10, 256
   store i32 %11, ptr %8, align 4
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr i8, ptr %12, i64 -24
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 %14
-  %16 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = load double, ptr %1, align 8
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %18)
-          to label %20 unwind label %40
+  %12 = load i64, ptr %5, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
+  %14 = load i64, ptr @_ZN12colvarmodule7cv_precE, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %14, ptr %15, align 8
+  %16 = load double, ptr %1, align 8
+  %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %16)
+          to label %18 unwind label %38
 
-20:                                               ; preds = %2
-  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str)
-          to label %22 unwind label %40
+18:                                               ; preds = %2
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str)
+          to label %20 unwind label %38
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load double, ptr %23, align 8
-  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %24)
-          to label %26 unwind label %40
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load double, ptr %21, align 8
+  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %22)
+          to label %24 unwind label %38
 
-26:                                               ; preds = %22
-  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str)
-          to label %28 unwind label %40
+24:                                               ; preds = %20
+  %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str)
+          to label %26 unwind label %38
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load double, ptr %29, align 8
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef %30)
-          to label %32 unwind label %40
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = load double, ptr %27, align 8
+  %29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %25, double noundef %28)
+          to label %30 unwind label %38
 
-32:                                               ; preds = %28
-  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str)
-          to label %34 unwind label %40
+30:                                               ; preds = %26
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str)
+          to label %32 unwind label %38
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load double, ptr %35, align 8
-  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %33, double noundef %36)
-          to label %38 unwind label %40
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = load double, ptr %33, align 8
+  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %31, double noundef %34)
+          to label %36 unwind label %38
 
-38:                                               ; preds = %34
+36:                                               ; preds = %32
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
-          to label %39 unwind label %40
+          to label %37 unwind label %38
 
-39:                                               ; preds = %38
+37:                                               ; preds = %36
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   ret void
 
-40:                                               ; preds = %38, %34, %32, %28, %26, %22, %20, %2
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %36, %32, %30, %26, %24, %20, %18, %2
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
-  resume { ptr, i32 } %41
+  resume { ptr, i32 } %39
 }
 
 ; Function Attrs: mustprogress uwtable

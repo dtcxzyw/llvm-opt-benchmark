@@ -199,7 +199,7 @@ switch.lookup:
   %3 = icmp eq i64 %2, 40
   %4 = add i64 %1, -39
   %5 = select i1 %3, i64 %4, i64 0
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method5FnArg2ty17h9d80a9b856a822e6E, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.sroa.0.0 = load ptr, ptr %6, align 8
@@ -4197,7 +4197,7 @@ switch.lookup:                                    ; preds = %431
   %437 = extractvalue { ptr, ptr } %433, 0
   %438 = extractvalue { ptr, ptr } %433, 1
   %439 = sext i32 %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0..sroa.0164.0.copyload to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 0, i64 %439
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6767E, i64 0, i64 %439
   %switch.load = load i64, ptr %switch.gep, align 8
   store ptr %437, ptr %88, align 8
   %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8

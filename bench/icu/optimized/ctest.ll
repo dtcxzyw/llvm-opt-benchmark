@@ -447,7 +447,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %name = getelementptr inbounds nuw i8, ptr %0, i64 24
   %call8 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %pathToFunction, ptr noundef nonnull dereferenceable(1) %name) #23
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %pathToFunction)
-  %endptr = getelementptr inbounds i8, ptr %pathToFunction, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %pathToFunction, i64 %strlen
   store i16 47, ptr %endptr, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -559,7 +559,7 @@ if.then55:                                        ; preds = %ctest_xml_testcase.
   %inc58 = add nsw i32 %16, 1
   store i32 %inc58, ptr @ERRONEOUS_FUNCTION_COUNT, align 4
   %idxprom59 = sext i32 %16 to i64
-  %arrayidx60 = getelementptr inbounds [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds nuw [4096 x [128 x i8]], ptr @ERROR_LOG, i64 0, i64 %idxprom59
   %call63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %arrayidx60, ptr noundef nonnull dereferenceable(1) %pathToFunction) #23
   br label %if.end85
 
@@ -2204,7 +2204,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   %rootName.addr.0.lcssa = phi ptr [ %rootName, %while.cond.preheader ], [ %incdec.ptr, %while.body ], [ %rootName.addr.010, %land.rhs ]
   %call10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @XML_PREFIX, ptr noundef nonnull dereferenceable(1) %rootName.addr.0.lcssa) #23
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @XML_PREFIX) #25
-  %add.ptr = getelementptr inbounds i8, ptr @XML_PREFIX, i64 %call11
+  %add.ptr = getelementptr inbounds nuw i8, ptr @XML_PREFIX, i64 %call11
   %p.012 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
   %9 = load i8, ptr %p.012, align 1
   %tobool1413 = icmp ne i8 %9, 0

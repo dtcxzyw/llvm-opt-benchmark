@@ -2599,10 +2599,10 @@ switch.lookup:
   %12 = alloca %"class.std::allocator", align 1
   %switch.tableidx = add nsw i32 %3, -1
   %13 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = sext i32 %switch.tableidx to i64
-  %switch.gep24 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE.18, i64 0, i64 %14
+  %switch.gep24 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN5clang4Sema23ActOnPragmaClangSectionENS_14SourceLocationENS0_24PragmaClangSectionActionENS0_22PragmaClangSectionKindEN4llvm9StringRefE.18, i64 0, i64 %14
   %switch.load25 = load i32, ptr %switch.gep24, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %16 = icmp eq i32 %2, 1

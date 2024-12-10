@@ -218,7 +218,7 @@ if.end65:                                         ; preds = %if.end60.thread, %i
 if.then68:                                        ; preds = %do.body.i.i, %if.end65
   %last.3337 = phi i32 [ %last.3, %if.end65 ], [ %16, %do.body.i.i ]
   %data.1335 = phi ptr [ %data.0313, %if.end65 ], [ %incdec.ptr.i.i, %do.body.i.i ]
-  %arrayidx.i151 = getelementptr inbounds i32, ptr %vertexfifo, i64 %vertexfifooffset.0312
+  %arrayidx.i151 = getelementptr inbounds nuw i32, ptr %vertexfifo, i64 %vertexfifooffset.0312
   store i32 %16, ptr %arrayidx.i151, align 4
   %add.i = add i64 %vertexfifooffset.0312, 1
   %and.i152 = and i64 %add.i, 15
@@ -459,7 +459,7 @@ do.body.i.i224:                                   ; preds = %do.body.i.i224, %if
 if.then183:                                       ; preds = %do.body.i.i224, %if.end176
   %data.5 = phi ptr [ %data.4, %if.end176 ], [ %incdec.ptr.i.i231, %do.body.i.i224 ]
   %last.6 = phi i32 [ %last.5, %if.end176 ], [ %27, %do.body.i.i224 ]
-  %arrayidx.i234 = getelementptr inbounds i32, ptr %vertexfifo, i64 %vertexfifooffset.0312
+  %arrayidx.i234 = getelementptr inbounds nuw i32, ptr %vertexfifo, i64 %vertexfifooffset.0312
   store i32 %23, ptr %arrayidx.i234, align 4
   %add.i235 = add i64 %vertexfifooffset.0312, 1
   %and.i236 = and i64 %add.i235, 15

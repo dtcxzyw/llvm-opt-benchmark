@@ -1787,7 +1787,7 @@ _ZN2cv3dnn14dnn4_v2024052112ONNXImporter22getParamUseLegacyNamesEv.exit: ; preds
   %116 = load ptr, ptr %9, align 8
   %117 = getelementptr i8, ptr %116, i64 -24
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %9, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 %118
   %120 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %119)
           to label %121 unwind label %125
 
@@ -64909,7 +64909,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052118readTensorFromONNXERKNSt7__cxx1112basic
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %12 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %11)
           to label %13 unwind label %18
 

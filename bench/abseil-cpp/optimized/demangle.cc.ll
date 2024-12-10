@@ -4868,7 +4868,7 @@ land.rhs.i.i:                                     ; preds = %if.end5.i
 land.lhs.true.i.i.i:                              ; preds = %land.rhs.i.i, %while.body.i.i.i
   %13 = phi i8 [ %15, %while.body.i.i.i ], [ %12, %land.rhs.i.i ]
   %i.02.i.i.i = phi i64 [ %inc.i.i.i22, %while.body.i.i.i ], [ 0, %land.rhs.i.i ]
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %i.02.i.i.i
+  %arrayidx1.i.i.i = getelementptr inbounds nuw i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %i.02.i.i.i
   %14 = load i8, ptr %arrayidx1.i.i.i, align 1
   %cmp8.i.i.i = icmp eq i8 %13, %14
   br i1 %cmp8.i.i.i, label %while.body.i.i.i, label %invoke.cont6.i
@@ -4882,7 +4882,7 @@ while.body.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
 
 invoke.cont6.i:                                   ; preds = %while.body.i.i.i, %land.lhs.true.i.i.i, %land.rhs.i.i
   %i.0.lcssa.i.i.i = phi i64 [ 0, %land.rhs.i.i ], [ %inc.i.i.i22, %while.body.i.i.i ], [ %i.02.i.i.i, %land.lhs.true.i.i.i ]
-  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %i.0.lcssa.i.i.i
+  %arrayidx9.i.i.i = getelementptr inbounds nuw i8, ptr @_ZZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEmE11anon_prefix, i64 %i.0.lcssa.i.i.i
   %16 = load i8, ptr %arrayidx9.i.i.i, align 1
   %cmp11.i.i.i = icmp eq i8 %16, 0
   br i1 %cmp11.i.i.i, label %if.then8.i21, label %if.else.i

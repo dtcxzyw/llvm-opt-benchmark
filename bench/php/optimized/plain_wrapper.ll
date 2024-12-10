@@ -2182,7 +2182,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
 22:                                               ; preds = %20
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #17
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
-  %25 = getelementptr inbounds i8, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
   %26 = call ptr @memchr(ptr noundef nonnull %6, i32 noundef 47, i64 noundef %23) #17
   %27 = icmp ne ptr %26, null
   %28 = icmp eq i64 %23, 1
@@ -2195,7 +2195,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   %30 = add i64 %reass.sub, 1
   %.046 = select i1 %27, i64 %30, i64 0
   %.046.fr = freeze i64 %.046
-  %31 = getelementptr inbounds i8, ptr %6, i64 %.046.fr
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %.046.fr
   %.not62 = icmp eq i64 %.046.fr, 1
   %32 = trunc i64 %7 to i32
   br i1 %.not62, label %.preheader73.split.us, label %.preheader73.split

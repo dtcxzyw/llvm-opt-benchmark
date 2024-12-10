@@ -621,7 +621,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %110
   %240 = load ptr, ptr %24, align 8
   %241 = getelementptr i8, ptr %240, i64 -24
   %242 = load i64, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %24, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %24, i64 %242
   %244 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %243)
           to label %245 unwind label %.loopexit
 
@@ -1638,7 +1638,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN2cv
   %604 = load ptr, ptr @_ZSt4cout, align 8
   %605 = getelementptr i8, ptr %604, i64 -24
   %606 = load i64, ptr %605, align 8
-  %607 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %606
+  %607 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %606
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 8
   store i64 4, ptr %608, align 8
   %609 = load ptr, ptr %224, align 8

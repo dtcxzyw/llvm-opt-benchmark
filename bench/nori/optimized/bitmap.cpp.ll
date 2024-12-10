@@ -2566,7 +2566,7 @@ select.unfold._crit_edge.thread:                  ; preds = %select.unfold._crit
   %192 = getelementptr inbounds nuw i8, ptr %159, i64 25
   store i8 8, ptr %191, align 1
   %193 = sext i32 %4 to i64
-  %194 = getelementptr inbounds [5 x i32], ptr @__const._Z21stbi_write_png_to_memPhiiiiPi.ctype, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [5 x i32], ptr @__const._Z21stbi_write_png_to_memPhiiiiPi.ctype, i64 0, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = trunc i32 %195 to i8
   %197 = getelementptr inbounds nuw i8, ptr %159, i64 26
@@ -4430,7 +4430,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8

@@ -325,7 +325,7 @@ define hidden void @_ZN2os13signal_notifyEi(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds [66 x i32], ptr @_ZL15pending_signals, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [66 x i32], ptr @_ZL15pending_signals, i64 0, i64 %4
   %6 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %5) #20, !srcloc !8
   %7 = load ptr, ptr @_ZL13sig_semaphore, align 8
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1) #20
@@ -699,7 +699,7 @@ define internal void @_ZL11UserHandleriP9siginfo_tPv(i32 noundef %0, ptr nocaptu
 
 14:                                               ; preds = %.split
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds [66 x i32], ptr @_ZL15pending_signals, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [66 x i32], ptr @_ZL15pending_signals, i64 0, i64 %15
   %17 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %16) #20, !srcloc !8
   br label %_ZN2os13signal_notifyEi.exit.sink.split
 
@@ -831,7 +831,7 @@ define internal fastcc noundef zeroext i1 @_ZL20check_signal_handleri(i32 nounde
   %4 = alloca [2000 x i8], align 16
   %5 = alloca %struct.sigaction, align 8
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %65
@@ -2063,7 +2063,7 @@ _ZL13parse_integerIiEbPKcPT_.exit.i:              ; preds = %58, %45
 88:                                               ; preds = %79, %83
   %89 = phi i32 [ %80, %79 ], [ %.pre.i, %83 ]
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [65 x i8], ptr @_ZL28do_check_signal_periodically, i64 0, i64 %90
   store i8 1, ptr %91, align 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
   %92 = call i32 @sigemptyset(ptr noundef nonnull @_ZL17preinstalled_sigs) #20

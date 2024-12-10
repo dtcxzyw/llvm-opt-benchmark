@@ -675,7 +675,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %.1168.i = phi i32 [ %.3.i, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i" ], [ 1, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i" ], [ %.3.i, %"_ZNR9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEppEv.exit.i" ]
   %.1.i = phi i32 [ %135, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i" ], [ 1, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i" ], [ %135, %"_ZNR9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEppEv.exit.i" ]
   %97 = sext i32 %.1.i to i64
-  %98 = getelementptr inbounds [125 x i8], ptr @_ZL40_use_syllable_machine_from_state_actions, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [125 x i8], ptr @_ZL40_use_syllable_machine_from_state_actions, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %cond.i = icmp eq i8 %99, 3
   br i1 %cond.i, label %100, label %101
@@ -689,12 +689,12 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %102 = phi i32 [ %96, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i" ], [ %.pre.i, %100 ]
   %103 = shl nsw i32 %.1.i, 1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr @_ZL32_use_syllable_machine_trans_keys, i64 %104
-  %106 = getelementptr inbounds [125 x i16], ptr @_ZL35_use_syllable_machine_index_offsets, i64 0, i64 %97
+  %105 = getelementptr inbounds nuw i8, ptr @_ZL32_use_syllable_machine_trans_keys, i64 %104
+  %106 = getelementptr inbounds nuw [125 x i16], ptr @_ZL35_use_syllable_machine_index_offsets, i64 0, i64 %97
   %107 = load i16, ptr %106, align 2
   %108 = sext i16 %107 to i64
-  %109 = getelementptr inbounds i8, ptr @_ZL30_use_syllable_machine_indicies, i64 %108
-  %110 = getelementptr inbounds [125 x i8], ptr @_ZL31_use_syllable_machine_key_spans, i64 0, i64 %97
+  %109 = getelementptr inbounds nuw i8, ptr @_ZL30_use_syllable_machine_indicies, i64 %108
+  %110 = getelementptr inbounds nuw [125 x i8], ptr @_ZL31_use_syllable_machine_key_spans, i64 0, i64 %97
   %111 = load i8, ptr %110, align 1
   %112 = sext i8 %111 to i64
   %113 = load i8, ptr %105, align 2
@@ -3863,7 +3863,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 1409:                                             ; preds = %1406, %1329, %1264, %1203, %1142, %1081, %1020, %959, %898, %837, %777, %707, %641, %575, %509, %443, %377, %311, %245, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i", %131
   %.3.i = phi i32 [ %spec.store.select19.i, %1406 ], [ %spec.store.select18.i, %1329 ], [ %spec.store.select17.i, %1264 ], [ %spec.store.select16.i, %1203 ], [ %spec.store.select15.i, %1142 ], [ %spec.store.select14.i, %1081 ], [ %spec.store.select13.i, %1020 ], [ %spec.store.select12.i, %959 ], [ %spec.store.select11.i, %898 ], [ %spec.store.select10.i, %837 ], [ %spec.store.select9.i, %777 ], [ %spec.store.select8.i, %707 ], [ %spec.store.select7.i, %641 ], [ %spec.store.select6.i, %575 ], [ %spec.store.select5.i, %509 ], [ %spec.store.select4.i, %443 ], [ %spec.store.select3.i, %377 ], [ %spec.store.select2.i, %311 ], [ %spec.store.select.i, %245 ], [ %.2.i, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i" ], [ %.2.i, %131 ]
   %1410 = sext i8 %134 to i64
-  %1411 = getelementptr inbounds [125 x i8], ptr @_ZL38_use_syllable_machine_to_state_actions, i64 0, i64 %1410
+  %1411 = getelementptr inbounds nuw [125 x i8], ptr @_ZL38_use_syllable_machine_to_state_actions, i64 0, i64 %1410
   %1412 = load i8, ptr %1411, align 1
   %cond1.i = icmp eq i8 %1412, 2
   br i1 %cond1.i, label %1413, label %1414
@@ -4002,7 +4002,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1456:                                             ; preds = %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
   %1457 = sext i32 %.0166.i to i64
-  %1458 = getelementptr inbounds [125 x i16], ptr @_ZL31_use_syllable_machine_eof_trans, i64 0, i64 %1457
+  %1458 = getelementptr inbounds nuw [125 x i16], ptr @_ZL31_use_syllable_machine_eof_trans, i64 0, i64 %1457
   %1459 = load i16, ptr %1458, align 2
   %1460 = sext i16 %1459 to i64
   %1461 = add nsw i64 %1460, 4294967295

@@ -3592,7 +3592,7 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
 105:                                              ; preds = %.preheader51
   %106 = sub i32 %102, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %107
   %109 = load i32, ptr %108, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -3625,7 +3625,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %103, %105
 
 126:                                              ; preds = %124
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %127
   %129 = load i32, ptr %128, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12
 
@@ -3908,7 +3908,7 @@ _ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
 323:                                              ; preds = %.preheader
   %324 = sub i32 %320, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %325
+  %326 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %325
   %327 = load i32, ptr %326, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
 
@@ -4663,7 +4663,7 @@ _ZL8rc_classi.exit:
 
 _ZN7OptoReg8as_VMRegEi.exit.i448:                 ; preds = %67
   %69 = sext i16 %56 to i64
-  %70 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = load i8, ptr @UseAPX, align 1
   %73 = trunc i8 %72 to i1
@@ -4694,7 +4694,7 @@ _ZL8rc_classi.exit454:                            ; preds = %_ZL8rc_classi.exit,
 
 _ZN7OptoReg8as_VMRegEi.exit.i464:                 ; preds = %82
   %84 = sext i16 %65 to i64
-  %85 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = load i8, ptr @UseAPX, align 1
   %88 = trunc i8 %87 to i1
@@ -5210,13 +5210,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 297:                                              ; preds = %294, %291
   %298 = sext i16 %65 to i64
-  %299 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %298
+  %299 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %298
   %300 = load i8, ptr %299, align 1
   %301 = zext i8 %300 to i32
   %or.cond.i.i = icmp ult i8 %300, 32
   %spec.select.i.i474 = select i1 %or.cond.i.i, i32 %301, i32 -1
   %302 = sext i16 %56 to i64
-  %303 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %302
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
   %or.cond.i25.i = icmp ult i8 %304, 32
@@ -5226,13 +5226,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 306:                                              ; preds = %294
   %307 = sext i16 %65 to i64
-  %308 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %307
   %309 = load i8, ptr %308, align 1
   %310 = zext i8 %309 to i32
   %or.cond.i27.i = icmp ult i8 %309, 32
   %spec.select.i28.i = select i1 %or.cond.i27.i, i32 %310, i32 -1
   %311 = sext i16 %56 to i64
-  %312 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %311
   %313 = load i8, ptr %312, align 1
   %314 = zext i8 %313 to i32
   %or.cond.i29.i = icmp ult i8 %313, 32
@@ -5253,13 +5253,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 321:                                              ; preds = %318, %315
   %322 = sext i16 %65 to i64
-  %323 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %322
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
   %or.cond.i31.i = icmp ult i8 %324, 32
   %spec.select.i32.i = select i1 %or.cond.i31.i, i32 %325, i32 -1
   %326 = sext i16 %56 to i64
-  %327 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %326
+  %327 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %326
   %328 = load i8, ptr %327, align 1
   %329 = zext i8 %328 to i32
   %or.cond.i33.i = icmp ult i8 %328, 32
@@ -5269,13 +5269,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 330:                                              ; preds = %318
   %331 = sext i16 %65 to i64
-  %332 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %331
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i32
   %or.cond.i35.i = icmp ult i8 %333, 32
   %spec.select.i36.i = select i1 %or.cond.i35.i, i32 %334, i32 -1
   %335 = sext i16 %56 to i64
-  %336 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %335
   %337 = load i8, ptr %336, align 1
   %338 = zext i8 %337 to i32
   %or.cond.i37.i = icmp ult i8 %337, 32
@@ -5285,13 +5285,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 339:                                              ; preds = %290
   %340 = sext i16 %65 to i64
-  %341 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %340
   %342 = load i8, ptr %341, align 1
   %343 = zext i8 %342 to i32
   %or.cond.i39.i = icmp ult i8 %342, 32
   %spec.select.i40.i = select i1 %or.cond.i39.i, i32 %343, i32 -1
   %344 = sext i16 %56 to i64
-  %345 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %344
   %346 = load i8, ptr %345, align 1
   %347 = zext i8 %346 to i32
   %or.cond.i41.i = icmp ult i8 %346, 32
@@ -5511,7 +5511,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 441:                                              ; preds = %440
   %442 = sext i16 %65 to i64
-  %443 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %442
   %444 = load i8, ptr %443, align 1
   %445 = zext i8 %444 to i32
   %or.cond.i475 = icmp ult i8 %444, 32
@@ -5541,7 +5541,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 455:                                              ; preds = %454
   %456 = sext i16 %65 to i64
-  %457 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %456
   %458 = load i8, ptr %457, align 1
   %459 = zext i8 %458 to i32
   %or.cond.i476 = icmp ult i8 %458, 32
@@ -5585,7 +5585,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 478:                                              ; preds = %477
   %479 = sext i16 %65 to i64
-  %480 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %479
   %481 = load i8, ptr %480, align 1
   %482 = zext i8 %481 to i32
   %or.cond.i478 = icmp ult i8 %481, 32
@@ -5615,7 +5615,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 492:                                              ; preds = %491
   %493 = sext i16 %65 to i64
-  %494 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %493
+  %494 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %493
   %495 = load i8, ptr %494, align 1
   %496 = zext i8 %495 to i32
   %or.cond.i480 = icmp ult i8 %495, 32
@@ -5659,7 +5659,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 515:                                              ; preds = %513
   %516 = sext i16 %65 to i64
-  %517 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %516
+  %517 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %516
   %518 = load i8, ptr %517, align 1
   %519 = zext i8 %518 to i32
   %or.cond.i482 = icmp ult i8 %518, 8
@@ -5728,7 +5728,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %547 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 0, ptr %547, align 8
   %548 = sext i16 %56 to i64
-  %549 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %548
   %550 = load i8, ptr %549, align 1
   %551 = zext i8 %550 to i32
   %or.cond.i484 = icmp ult i8 %550, 32
@@ -5758,7 +5758,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %561 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 0, ptr %561, align 8
   %562 = sext i16 %56 to i64
-  %563 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %562
+  %563 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %562
   %564 = load i8, ptr %563, align 1
   %565 = zext i8 %564 to i32
   %or.cond.i486 = icmp ult i8 %564, 32
@@ -5784,13 +5784,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 575:                                              ; preds = %574
   %576 = sext i16 %65 to i64
-  %577 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %576
   %578 = load i8, ptr %577, align 1
   %579 = zext i8 %578 to i32
   %or.cond.i488 = icmp ult i8 %578, 32
   %spec.select.i489 = select i1 %or.cond.i488, i32 %579, i32 -1
   %580 = sext i16 %56 to i64
-  %581 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %580
+  %581 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %580
   %582 = load i8, ptr %581, align 1
   %583 = zext i8 %582 to i32
   %or.cond.i490 = icmp ult i8 %582, 32
@@ -5803,13 +5803,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 585:                                              ; preds = %584
   %586 = sext i16 %65 to i64
-  %587 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %586
+  %587 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %586
   %588 = load i8, ptr %587, align 1
   %589 = zext i8 %588 to i32
   %or.cond.i492 = icmp ult i8 %588, 32
   %spec.select.i493 = select i1 %or.cond.i492, i32 %589, i32 -1
   %590 = sext i16 %56 to i64
-  %591 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %590
+  %591 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %590
   %592 = load i8, ptr %591, align 1
   %593 = zext i8 %592 to i32
   %or.cond.i494 = icmp ult i8 %592, 32
@@ -5835,13 +5835,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 603:                                              ; preds = %602
   %604 = sext i16 %65 to i64
-  %605 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %604
+  %605 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %604
   %606 = load i8, ptr %605, align 1
   %607 = zext i8 %606 to i32
   %or.cond.i496 = icmp ult i8 %606, 32
   %spec.select.i497 = select i1 %or.cond.i496, i32 %607, i32 -1
   %608 = sext i16 %56 to i64
-  %609 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %608
+  %609 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %608
   %610 = load i8, ptr %609, align 1
   %611 = zext i8 %610 to i32
   %or.cond.i498 = icmp ult i8 %610, 32
@@ -5854,13 +5854,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 613:                                              ; preds = %612
   %614 = sext i16 %65 to i64
-  %615 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %614
+  %615 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %614
   %616 = load i8, ptr %615, align 1
   %617 = zext i8 %616 to i32
   %or.cond.i500 = icmp ult i8 %616, 32
   %spec.select.i501 = select i1 %or.cond.i500, i32 %617, i32 -1
   %618 = sext i16 %56 to i64
-  %619 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %618
+  %619 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %618
   %620 = load i8, ptr %619, align 1
   %621 = zext i8 %620 to i32
   %or.cond.i502 = icmp ult i8 %620, 32
@@ -5886,13 +5886,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 632:                                              ; preds = %628
   %633 = sext i16 %65 to i64
-  %634 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %633
+  %634 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %633
   %635 = load i8, ptr %634, align 1
   %636 = zext i8 %635 to i32
   %or.cond.i504 = icmp ult i8 %635, 8
   %spec.select.i505 = select i1 %or.cond.i504, i32 %636, i32 -1
   %637 = sext i16 %56 to i64
-  %638 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %637
+  %638 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %637
   %639 = load i8, ptr %638, align 1
   %640 = zext i8 %639 to i32
   %or.cond.i506 = icmp ult i8 %639, 32
@@ -5950,7 +5950,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %662 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 0, ptr %662, align 8
   %663 = sext i16 %56 to i64
-  %664 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %663
   %665 = load i8, ptr %664, align 1
   %666 = zext i8 %665 to i32
   %or.cond.i508 = icmp ult i8 %665, 32
@@ -5980,7 +5980,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %676 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i32 0, ptr %676, align 8
   %677 = sext i16 %56 to i64
-  %678 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %677
+  %678 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %677
   %679 = load i8, ptr %678, align 1
   %680 = zext i8 %679 to i32
   %or.cond.i510 = icmp ult i8 %679, 32
@@ -6006,13 +6006,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 690:                                              ; preds = %689
   %691 = sext i16 %65 to i64
-  %692 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %691
+  %692 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %691
   %693 = load i8, ptr %692, align 1
   %694 = zext i8 %693 to i32
   %or.cond.i512 = icmp ult i8 %693, 32
   %spec.select.i513 = select i1 %or.cond.i512, i32 %694, i32 -1
   %695 = sext i16 %56 to i64
-  %696 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %695
+  %696 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %695
   %697 = load i8, ptr %696, align 1
   %698 = zext i8 %697 to i32
   %or.cond.i514 = icmp ult i8 %697, 32
@@ -6025,13 +6025,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 700:                                              ; preds = %699
   %701 = sext i16 %65 to i64
-  %702 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %701
+  %702 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %701
   %703 = load i8, ptr %702, align 1
   %704 = zext i8 %703 to i32
   %or.cond.i516 = icmp ult i8 %703, 32
   %spec.select.i517 = select i1 %or.cond.i516, i32 %704, i32 -1
   %705 = sext i16 %56 to i64
-  %706 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %705
+  %706 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %705
   %707 = load i8, ptr %706, align 1
   %708 = zext i8 %707 to i32
   %or.cond.i518 = icmp ult i8 %707, 32
@@ -6057,13 +6057,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 718:                                              ; preds = %717
   %719 = sext i16 %65 to i64
-  %720 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %719
+  %720 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %719
   %721 = load i8, ptr %720, align 1
   %722 = zext i8 %721 to i32
   %or.cond.i520 = icmp ult i8 %721, 32
   %spec.select.i521 = select i1 %or.cond.i520, i32 %722, i32 -1
   %723 = sext i16 %56 to i64
-  %724 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %723
+  %724 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %723
   %725 = load i8, ptr %724, align 1
   %726 = zext i8 %725 to i32
   %or.cond.i522 = icmp ult i8 %725, 32
@@ -6076,13 +6076,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 728:                                              ; preds = %727
   %729 = sext i16 %65 to i64
-  %730 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %729
+  %730 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %729
   %731 = load i8, ptr %730, align 1
   %732 = zext i8 %731 to i32
   %or.cond.i524 = icmp ult i8 %731, 32
   %spec.select.i525 = select i1 %or.cond.i524, i32 %732, i32 -1
   %733 = sext i16 %56 to i64
-  %734 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %733
+  %734 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %733
   %735 = load i8, ptr %734, align 1
   %736 = zext i8 %735 to i32
   %or.cond.i526 = icmp ult i8 %735, 32
@@ -6134,7 +6134,7 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
   %756 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 0, ptr %756, align 8
   %757 = sext i16 %56 to i64
-  %758 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %757
+  %758 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %757
   %759 = load i8, ptr %758, align 1
   %760 = zext i8 %759 to i32
   %or.cond.i528 = icmp ult i8 %759, 8
@@ -6160,13 +6160,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 771:                                              ; preds = %767
   %772 = sext i16 %65 to i64
-  %773 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %772
+  %773 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %772
   %774 = load i8, ptr %773, align 1
   %775 = zext i8 %774 to i32
   %or.cond.i530 = icmp ult i8 %774, 32
   %spec.select.i531 = select i1 %or.cond.i530, i32 %775, i32 -1
   %776 = sext i16 %56 to i64
-  %777 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %776
+  %777 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %776
   %778 = load i8, ptr %777, align 1
   %779 = zext i8 %778 to i32
   %or.cond.i532 = icmp ult i8 %778, 8
@@ -6198,13 +6198,13 @@ _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; pre
 
 792:                                              ; preds = %788
   %793 = sext i16 %65 to i64
-  %794 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %793
+  %794 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %793
   %795 = load i8, ptr %794, align 1
   %796 = zext i8 %795 to i32
   %or.cond.i534 = icmp ult i8 %795, 8
   %spec.select.i535 = select i1 %or.cond.i534, i32 %796, i32 -1
   %797 = sext i16 %56 to i64
-  %798 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %797
+  %798 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %797
   %799 = load i8, ptr %798, align 1
   %800 = zext i8 %799 to i32
   %or.cond.i536 = icmp ult i8 %799, 8
@@ -6259,7 +6259,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 25:                                               ; preds = %24
   %26 = sext i32 %3 to i64
-  %27 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %or.cond.i = icmp ult i8 %28, 32
@@ -6286,7 +6286,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 38:                                               ; preds = %24
   %39 = sext i32 %3 to i64
-  %40 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %or.cond.i90 = icmp ult i8 %41, 32
@@ -6324,7 +6324,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 57:                                               ; preds = %54, %51
   %58 = sext i32 %3 to i64
-  %59 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %or.cond.i92 = icmp ult i8 %60, 32
@@ -6351,7 +6351,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 70:                                               ; preds = %54
   %71 = sext i32 %3 to i64
-  %72 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %or.cond.i94 = icmp ult i8 %73, 32
@@ -6390,7 +6390,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 89:                                               ; preds = %86, %83
   %90 = sext i32 %3 to i64
-  %91 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %or.cond.i104 = icmp ult i8 %92, 32
@@ -6417,7 +6417,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 102:                                              ; preds = %86
   %103 = sext i32 %3 to i64
-  %104 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %or.cond.i106 = icmp ult i8 %105, 32
@@ -6445,7 +6445,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
 
 115:                                              ; preds = %24
   %116 = sext i32 %3 to i64
-  %117 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %or.cond.i116 = icmp ult i8 %118, 32
@@ -6510,7 +6510,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %141 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 0, ptr %141, align 8
   %142 = sext i32 %3 to i64
-  %143 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %or.cond.i118 = icmp ult i8 %144, 32
@@ -6537,7 +6537,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 0, ptr %154, align 8
   %155 = sext i32 %3 to i64
-  %156 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %155
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %or.cond.i120 = icmp ult i8 %157, 32
@@ -6575,7 +6575,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %173 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 0, ptr %173, align 8
   %174 = sext i32 %3 to i64
-  %175 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %174
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
   %or.cond.i122 = icmp ult i8 %176, 32
@@ -6602,7 +6602,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %186 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 0, ptr %186, align 8
   %187 = sext i32 %3 to i64
-  %188 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %or.cond.i124 = icmp ult i8 %189, 32
@@ -6640,7 +6640,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %205 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 0, ptr %205, align 8
   %206 = sext i32 %3 to i64
-  %207 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %206
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
   %or.cond.i126 = icmp ult i8 %208, 32
@@ -6667,7 +6667,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %218 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 0, ptr %218, align 8
   %219 = sext i32 %3 to i64
-  %220 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %219
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i32
   %or.cond.i128 = icmp ult i8 %221, 32
@@ -6694,7 +6694,7 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %231 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 0, ptr %231, align 8
   %232 = sext i32 %3 to i64
-  %233 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %or.cond.i130 = icmp ult i8 %234, 32
@@ -6993,7 +6993,7 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %22, %3, %17
   %30 = getelementptr inbounds nuw %class.OptoRegPair, ptr %26, i64 %29, i32 1
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i64
-  %33 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %or.cond.i = icmp ult i8 %34, 32
@@ -7467,7 +7467,7 @@ declare void @_ZN14MacroAssembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 noundef %0) local_unnamed_addr #9 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [500 x i8], ptr @_ZN7Matcher13_hasMatchRuleE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [500 x i8], ptr @_ZN7Matcher13_hasMatchRuleE, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %132
@@ -7795,7 +7795,7 @@ define hidden noundef zeroext i1 @_ZN7Matcher20match_rule_supportedEi(i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher14has_match_ruleEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [500 x i8], ptr @_ZN7Matcher13_hasMatchRuleE, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [500 x i8], ptr @_ZN7Matcher13_hasMatchRuleE, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -120064,7 +120064,7 @@ define linkonce_odr hidden noundef i32 @_ZNK12indirectOper4baseEP13PhaseRegAlloc
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120123,7 +120123,7 @@ define linkonce_odr hidden noundef i32 @_ZNK14indOffset8Oper4baseEP13PhaseRegAll
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120190,7 +120190,7 @@ define linkonce_odr hidden noundef i32 @_ZNK15indOffset32Oper4baseEP13PhaseRegAl
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120262,7 +120262,7 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper4baseEP13PhaseRe
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120284,7 +120284,7 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexOffsetOper5indexEP13PhaseR
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120356,7 +120356,7 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper4baseEP13PhaseRegAlloc
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120378,7 +120378,7 @@ define linkonce_odr hidden noundef i32 @_ZNK12indIndexOper5indexEP13PhaseRegAllo
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120436,7 +120436,7 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper4baseEP13PhaseReg
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120458,7 +120458,7 @@ define linkonce_odr hidden noundef i32 @_ZNK17indIndexScaleOper5indexEP13PhaseRe
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120525,7 +120525,7 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper4baseEP13Phase
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120547,7 +120547,7 @@ define linkonce_odr hidden noundef i32 @_ZNK20indPosIndexScaleOper5indexEP13Phas
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120614,7 +120614,7 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper4baseEP13Ph
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120636,7 +120636,7 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleOffsetOper5indexEP13P
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120709,7 +120709,7 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper4baseEP13Phas
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120731,7 +120731,7 @@ define linkonce_odr hidden noundef i32 @_ZNK21indPosIndexOffsetOper5indexEP13Pha
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120803,7 +120803,7 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper4baseEP1
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120825,7 +120825,7 @@ define linkonce_odr hidden noundef i32 @_ZNK26indPosIndexScaleOffsetOper5indexEP
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -120898,7 +120898,7 @@ define linkonce_odr hidden noundef i32 @_ZNK26indCompressedOopOffsetOper5indexEP
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -120960,7 +120960,7 @@ define linkonce_odr hidden noundef i32 @_ZNK18indirectNarrowOper4baseEP13PhaseRe
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121013,7 +121013,7 @@ define linkonce_odr hidden noundef i32 @_ZNK20indOffset8NarrowOper4baseEP13Phase
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121080,7 +121080,7 @@ define linkonce_odr hidden noundef i32 @_ZNK21indOffset32NarrowOper4baseEP13Phas
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121152,7 +121152,7 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper4baseEP13P
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121174,7 +121174,7 @@ define linkonce_odr hidden noundef i32 @_ZNK24indIndexOffsetNarrowOper5indexEP13
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -121246,7 +121246,7 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper4baseEP13PhaseRe
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121268,7 +121268,7 @@ define linkonce_odr hidden noundef i32 @_ZNK18indIndexNarrowOper5indexEP13PhaseR
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -121326,7 +121326,7 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper4baseEP13Ph
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121348,7 +121348,7 @@ define linkonce_odr hidden noundef i32 @_ZNK23indIndexScaleNarrowOper5indexEP13P
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -121415,7 +121415,7 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper4base
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121437,7 +121437,7 @@ define linkonce_odr hidden noundef i32 @_ZNK29indIndexScaleOffsetNarrowOper5inde
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -121510,7 +121510,7 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper4baseEP
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121532,7 +121532,7 @@ define linkonce_odr hidden noundef i32 @_ZNK27indPosIndexOffsetNarrowOper5indexE
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21
@@ -121604,7 +121604,7 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper4b
   %15 = getelementptr inbounds nuw %class.OptoRegPair, ptr %11, i64 %14, i32 1
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   ret i32 %20
@@ -121626,7 +121626,7 @@ define linkonce_odr hidden noundef i32 @_ZNK32indPosIndexScaleOffsetNarrowOper5i
   %16 = getelementptr inbounds nuw %class.OptoRegPair, ptr %12, i64 %15, i32 1
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   ret i32 %21

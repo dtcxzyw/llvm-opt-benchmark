@@ -559,7 +559,7 @@ while.body15:                                     ; preds = %while.cond13.prehea
   %n.addr.135 = phi i32 [ %sub19.recomposed, %while.body15 ], [ %n.addr.0, %while.cond13.preheader ]
   %div16 = sdiv i32 %n.addr.135, %r.136
   %idxprom = sext i32 %div16 to i64
-  %arrayidx = getelementptr inbounds [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [36 x i16], ptr @_ZL6DIGITS, i64 0, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i25)
   store i16 %1, ptr %srcChar.addr.i25, align 2

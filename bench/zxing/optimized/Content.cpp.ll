@@ -65,7 +65,7 @@ $_ZSt9__find_ifISt19_Bit_const_iteratorN9__gnu_cxx5__ops16_Iter_equals_valIKbEEE
 define void @_ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [6 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZN5ZXing8ToStringB5cxx11ENS_11ContentTypeE.t2s, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)

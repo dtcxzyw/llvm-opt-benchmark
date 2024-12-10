@@ -257,7 +257,7 @@ get_ext_tx_set.exit:                              ; preds = %.thread89, %.thread
   %90 = select i1 %89, i32 4, i32 3
   %91 = icmp ugt i16 %88, 31
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %86
+  %93 = getelementptr inbounds nuw [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %86
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, %92
   %96 = add i32 %95, %90
@@ -379,7 +379,7 @@ define internal fastcc i32 @aom_read_symbol_(ptr noundef %0, ptr noundef %1, i32
   %13 = select i1 %12, i32 4, i32 3
   %14 = icmp ugt i16 %11, 31
   %15 = zext i1 %14 to i32
-  %16 = getelementptr inbounds [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %9
+  %16 = getelementptr inbounds nuw [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %9
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, %15
   %19 = add i32 %18, %13
@@ -3021,13 +3021,13 @@ get_uni_comp_ref_idx.exit.thread.i.i.i:           ; preds = %854, %844
 
 av1_ref_frame_type.exit.thread.i.i:               ; preds = %segfeature_active.exit286.thread.i
   %860 = sext i8 %.val276.i to i64
-  %861 = getelementptr inbounds i16, ptr %7, i64 %860
+  %861 = getelementptr inbounds nuw i16, ptr %7, i64 %860
   br label %av1_mode_context_analyzer.exit.i
 
 av1_ref_frame_type.exit.i.i:                      ; preds = %get_uni_comp_ref_idx.exit.thread.i.i.i, %get_uni_comp_ref_idx.exit.i.i.i
   %.0.i.i288.i = phi i8 [ %856, %get_uni_comp_ref_idx.exit.i.i.i ], [ %859, %get_uni_comp_ref_idx.exit.thread.i.i.i ]
   %862 = sext i8 %.0.i.i288.i to i64
-  %863 = getelementptr inbounds i16, ptr %7, i64 %862
+  %863 = getelementptr inbounds nuw i16, ptr %7, i64 %862
   %864 = load i16, ptr %863, align 2
   %865 = and i16 %864, 7
   %866 = lshr i16 %864, 5
@@ -3901,7 +3901,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
 1328:                                             ; preds = %1183
   %1329 = load i8, ptr %325, align 8
   %1330 = sext i8 %1329 to i64
-  %1331 = getelementptr inbounds [29 x [2 x %union.int_mv]], ptr %6, i64 0, i64 %1330
+  %1331 = getelementptr inbounds nuw [29 x [2 x %union.int_mv]], ptr %6, i64 0, i64 %1330
   %1332 = getelementptr inbounds nuw i8, ptr %0, i64 49006
   %1333 = load i8, ptr %1332, align 2
   %1334 = and i8 %1333, 1
@@ -6965,7 +6965,7 @@ aom_read_symbol_.exit49:                          ; preds = %76, %._crit_edge.lo
   %130 = load i16, ptr %129, align 2
   %131 = add nsw i32 %.089.i, 1
   %132 = sext i32 %.089.i to i64
-  %133 = getelementptr inbounds [8 x i16], ptr %7, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i16], ptr %7, i64 0, i64 %132
   store i16 %130, ptr %133, align 2
   br label %134
 
@@ -7135,7 +7135,7 @@ av1_ceil_log2.exit74.i:                           ; preds = %.lr.ph.i70.i, %av1_
 191:                                              ; preds = %.lr.ph.i75.i
   %.not.i76.i = icmp slt i32 %.02027.i.i, %121
   %192 = sext i32 %.02126.i.i to i64
-  %193 = getelementptr inbounds i16, ptr %7, i64 %192
+  %193 = getelementptr inbounds nuw i16, ptr %7, i64 %192
   %194 = load i16, ptr %193, align 2
   br i1 %.not.i76.i, label %195, label %._crit_edge.i.i
 
@@ -7349,7 +7349,7 @@ aom_read_symbol_.exit76:                          ; preds = %259, %._crit_edge.l
   %313 = load i16, ptr %312, align 2
   %314 = add nsw i32 %.089179.i, 1
   %315 = sext i32 %.089179.i to i64
-  %316 = getelementptr inbounds [8 x i16], ptr %5, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i16], ptr %5, i64 0, i64 %315
   store i16 %313, ptr %316, align 2
   br label %317
 
@@ -7517,7 +7517,7 @@ av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1
 375:                                              ; preds = %.lr.ph.i128.i
   %.not.i129.i = icmp slt i32 %.02027.i.i88, %303
   %376 = sext i32 %.02126.i.i89 to i64
-  %377 = getelementptr inbounds i16, ptr %5, i64 %376
+  %377 = getelementptr inbounds nuw i16, ptr %5, i64 %376
   %378 = load i16, ptr %377, align 2
   br i1 %.not.i129.i, label %379, label %._crit_edge.i.i99
 

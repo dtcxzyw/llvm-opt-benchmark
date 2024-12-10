@@ -680,7 +680,7 @@ define dso_local noundef i64 @_ZNK4llvm7memprof21IndexedAllocationInfo14serializ
   %.03538.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %6, %4 ]
   %9 = load i64, ptr %.03538.i.i, align 8
   %switch.tableidx = add nsw i64 %9, -1
-  %switch.gep = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = add i64 %switch.load, %.039.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.03538.i.i, i64 8
@@ -706,7 +706,7 @@ _ZN4llvm7memprofL16serializedSizeV0ERKNS0_21IndexedAllocationInfoERKNS_11SmallVe
   %.03538.i.i8 = phi ptr [ %21, %.lr.ph.i.i6 ], [ %16, %15 ]
   %19 = load i64, ptr %.03538.i.i8, align 8
   %switch.tableidx28 = add nsw i64 %19, -1
-  %switch.gep29 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx28
+  %switch.gep29 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx28
   %switch.load30 = load i64, ptr %switch.gep29, align 8
   %20 = add i64 %switch.load30, %.039.i.i7
   %21 = getelementptr inbounds nuw i8, ptr %.03538.i.i8, i64 8
@@ -729,7 +729,7 @@ _ZN4llvm7memprof20PortableMemInfoBlock14serializedSizeERKNS_11SmallVectorINS0_4M
   %.03538.i.i15 = phi ptr [ %29, %.lr.ph.i.i13 ], [ %24, %23 ]
   %27 = load i64, ptr %.03538.i.i15, align 8
   %switch.tableidx31 = add nsw i64 %27, -1
-  %switch.gep32 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx31
+  %switch.gep32 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx31
   %switch.load33 = load i64, ptr %switch.gep32, align 8
   %28 = add i64 %switch.load33, %.039.i.i14
   %29 = getelementptr inbounds nuw i8, ptr %.03538.i.i15, i64 8
@@ -779,7 +779,7 @@ define dso_local noundef i64 @_ZNK4llvm7memprof20IndexedMemProfRecord14serialize
   %.03538.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i ], [ %9, %.lr.ph.i ]
   %12 = load i64, ptr %.03538.i.i.i.i, align 8
   %switch.tableidx = add nsw i64 %12, -1
-  %switch.gep = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = add i64 %switch.load, %.039.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.03538.i.i.i.i, i64 8
@@ -841,7 +841,7 @@ _ZNK4llvm7memprof21IndexedAllocationInfo14serializedSizeERKNS_11SmallVectorINS0_
   %.03538.i.i8.i.i = phi ptr [ %39, %.lr.ph.i.i6.i.i ], [ %34, %.lr.ph.i5 ]
   %37 = load i64, ptr %.03538.i.i8.i.i, align 8
   %switch.tableidx47 = add nsw i64 %37, -1
-  %switch.gep48 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx47
+  %switch.gep48 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx47
   %switch.load49 = load i64, ptr %switch.gep48, align 8
   %38 = add i64 %switch.load49, %.039.i.i7.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.03538.i.i8.i.i, i64 8
@@ -884,7 +884,7 @@ _ZNK4llvm7memprof21IndexedAllocationInfo14serializedSizeERKNS_11SmallVectorINS0_
   %.03538.i.i15.i.i = phi ptr [ %53, %.lr.ph.i.i13.i.i ], [ %48, %.lr.ph.i12 ]
   %51 = load i64, ptr %.03538.i.i15.i.i, align 8
   %switch.tableidx50 = add nsw i64 %51, -1
-  %switch.gep51 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx50
+  %switch.gep51 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx50
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   %52 = add i64 %switch.load52, %.039.i.i14.i.i
   %53 = getelementptr inbounds nuw i8, ptr %.03538.i.i15.i.i, i64 8
@@ -1403,7 +1403,7 @@ _ZN4llvm7memprof13hashCallStackENS_8ArrayRefImEE.exit.i: ; preds = %._crit_edge.
   %.03538.i.i = phi ptr [ %55, %.lr.ph.i22.i ], [ %50, %_ZN4llvm7memprof13hashCallStackENS_8ArrayRefImEE.exit.i ]
   %53 = load i64, ptr %.03538.i.i, align 8
   %switch.tableidx = add nsw i64 %53, -1
-  %switch.gep = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = add i64 %switch.load, %.039.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.03538.i.i, i64 8
@@ -1639,7 +1639,7 @@ _ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i:
   %.03538.i.i12 = phi ptr [ %128, %.lr.ph.i.i10 ], [ %123, %121 ]
   %126 = load i64, ptr %.03538.i.i12, align 8
   %switch.tableidx71 = add nsw i64 %126, -1
-  %switch.gep72 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx71
+  %switch.gep72 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx71
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   %127 = add i64 %switch.load73, %.039.i.i11
   %128 = getelementptr inbounds nuw i8, ptr %.03538.i.i12, i64 8
@@ -1787,7 +1787,7 @@ _ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i2
   %.03538.i.i34 = phi ptr [ %175, %.lr.ph.i.i32 ], [ %170, %167 ]
   %173 = load i64, ptr %.03538.i.i34, align 8
   %switch.tableidx74 = add nsw i64 %173, -1
-  %switch.gep75 = getelementptr inbounds [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx74
+  %switch.gep75 = getelementptr inbounds nuw [27 x i64], ptr @switch.table._ZN4llvm7memprof20IndexedMemProfRecord11deserializeERKNS_11SmallVectorINS0_4MetaELj28EEEPKhNS0_14IndexedVersionE.14, i64 0, i64 %switch.tableidx74
   %switch.load76 = load i64, ptr %switch.gep75, align 8
   %174 = add i64 %switch.load76, %.039.i.i33
   %175 = getelementptr inbounds nuw i8, ptr %.03538.i.i34, i64 8

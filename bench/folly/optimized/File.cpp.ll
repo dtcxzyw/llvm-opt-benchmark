@@ -2130,7 +2130,7 @@ if.end7.i.i.i:                                    ; preds = %if.end4.i.i.i
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
   %sext = shl i64 %6, 32
   %8 = ashr exact i64 %sext, 28
-  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %8
+  %arrayidx14.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i367, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i, i64 16, i1 false), !tbaa.struct !64
   br label %sw.epilog.sink.split.i
 
@@ -2181,7 +2181,7 @@ if.end7.i.i.i388:                                 ; preds = %if.end4.i.i.i386
 if.end12.i.i.i394:                                ; preds = %if.end7.i.i.i388
   %sext1038 = shl i64 %9, 32
   %11 = ashr exact i64 %sext1038, 28
-  %arrayidx14.i.i.i396 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %11
+  %arrayidx14.i.i.i396 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i370, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i396, i64 16, i1 false), !tbaa.struct !64
   br label %sw.epilog.sink.split.i381
 
@@ -4400,7 +4400,7 @@ entry:
   store i32 %sub.i.i, ptr %num_digits, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %digits) #33
   %idx.ext.i = sext i32 %sub.i.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %digits, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %digits, i64 %idx.ext.i
   %cmp128.i = icmp ugt i64 %value, 99
   br i1 %cmp128.i, label %while.body.i, label %while.end.i
 
@@ -5999,7 +5999,7 @@ if.end7.i.i.i:                                    ; preds = %if.end4.i.i.i
 if.end12.i.i.i:                                   ; preds = %if.end7.i.i.i
   %sext = shl i64 %6, 32
   %8 = ashr exact i64 %sext, 28
-  %arrayidx14.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %8
+  %arrayidx14.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i240, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i, i64 16, i1 false), !tbaa.struct !64
   br label %sw.epilog.sink.split.i
 
@@ -6050,7 +6050,7 @@ if.end7.i.i.i260:                                 ; preds = %if.end4.i.i.i258
 if.end12.i.i.i266:                                ; preds = %if.end7.i.i.i260
   %sext902 = shl i64 %9, 32
   %11 = ashr exact i64 %sext902, 28
-  %arrayidx14.i.i.i268 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %11
+  %arrayidx14.i.i.i268 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp.i242, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14.i.i.i268, i64 16, i1 false), !tbaa.struct !64
   br label %sw.epilog.sink.split.i253
 

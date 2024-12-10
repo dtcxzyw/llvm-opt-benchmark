@@ -429,9 +429,9 @@ Vec_PtrFree.exit137:                              ; preds = %._crit_edge, %133
   %148 = and i64 %147, -2
   %149 = inttoptr i64 %148 to ptr
   %150 = add nsw i64 %indvars.iv190, %144
-  %151 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %150
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %indvars.iv190
+  %153 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv190
   %154 = load ptr, ptr %153, align 16
   %155 = tail call ptr @Aig_Mux(ptr noundef %1, ptr noundef %149, ptr noundef %152, ptr noundef %154) #12
   store ptr %155, ptr %153, align 16

@@ -4566,7 +4566,7 @@ _ZN2cv5sqpnp3setIdLi9ELi1ELi9ELi3EEEviiRNS_4MatxIT_XT2_EXT3_EEERKNS2_IS3_XT0_EXT
   %indvars.iv.i508 = phi i64 [ 0, %561 ], [ %indvars.iv.next.i509, %563 ]
   %564 = mul nuw nsw i64 %indvars.iv.i508, 9
   %565 = add nsw i64 %564, %562
-  %566 = getelementptr inbounds [81 x double], ptr %9, i64 0, i64 %565
+  %566 = getelementptr inbounds nuw [81 x double], ptr %9, i64 0, i64 %565
   %567 = load double, ptr %566, align 8, !noalias !201
   %568 = getelementptr inbounds nuw [9 x double], ptr %17, i64 0, i64 %indvars.iv.i508
   store double %567, ptr %568, align 8, !alias.scope !201
@@ -4774,7 +4774,7 @@ _ZN2cv5sqpnp3setIdLi9ELi1ELi9ELi3EEEviiRNS_4MatxIT_XT2_EXT3_EEERKNS2_IS3_XT0_EXT
   %indvars.iv.i558 = phi i64 [ 0, %643 ], [ %indvars.iv.next.i559, %645 ]
   %646 = mul nuw nsw i64 %indvars.iv.i558, 9
   %647 = add nsw i64 %646, %644
-  %648 = getelementptr inbounds [81 x double], ptr %9, i64 0, i64 %647
+  %648 = getelementptr inbounds nuw [81 x double], ptr %9, i64 0, i64 %647
   %649 = load double, ptr %648, align 8, !noalias !219
   %650 = getelementptr inbounds nuw [9 x double], ptr %22, i64 0, i64 %indvars.iv.i558
   store double %649, ptr %650, align 8, !alias.scope !219

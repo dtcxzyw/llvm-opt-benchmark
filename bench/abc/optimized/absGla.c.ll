@@ -2646,7 +2646,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
 35:                                               ; preds = %.lr.ph125
   %36 = add nsw i32 %.0124, 1
   %37 = sext i32 %.0124 to i64
-  %38 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %37
   store i32 %28, ptr %38, align 4
   br label %39
 
@@ -2683,7 +2683,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   %48 = getelementptr inbounds i32, ptr %.val25.i, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %.02327.i to i64
-  %51 = getelementptr inbounds i32, ptr %5, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %5, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i32, ptr %.val25.i, i64 %53
@@ -2700,7 +2700,7 @@ define i32 @Ga2_ObjComputeTruthSpecial(ptr noundef %0, ptr noundef %1, ptr nocap
   %58 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv35.i
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %spec.select.i to i64
-  %61 = getelementptr inbounds i32, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %60
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %58, align 4
   store i32 %59, ptr %61, align 4
@@ -2988,7 +2988,7 @@ define void @Ga2_ManCnfAddStatic(ptr noundef %0, ptr nocapture noundef readonly 
   %.sink = phi i32 [ %22, %20 ], [ %26, %23 ]
   %27 = add nsw i32 %.035, 1
   %28 = sext i32 %.035 to i64
-  %29 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %28
   store i32 %.sink, ptr %29, align 4
   br label %30
 
@@ -3000,7 +3000,7 @@ define void @Ga2_ManCnfAddStatic(ptr noundef %0, ptr nocapture noundef readonly 
 
 31:                                               ; preds = %30
   %32 = sext i32 %.1 to i64
-  %33 = getelementptr inbounds i32, ptr %7, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %7, i64 %32
   %34 = call i32 @sat_solver2_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %33, i32 noundef %5) #28
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %.val = load i32, ptr %10, align 4
@@ -3978,7 +3978,7 @@ Ga2_ObjFindOrAddLit.exit116:                      ; preds = %.critedge7.i, %460
   %.sink.i97 = phi i32 [ %505, %503 ], [ %509, %506 ]
   %510 = add nsw i32 %.035.i, 1
   %511 = sext i32 %.035.i to i64
-  %512 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %511
+  %512 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %511
   store i32 %.sink.i97, ptr %512, align 4
   br label %513
 
@@ -3990,7 +3990,7 @@ Ga2_ObjFindOrAddLit.exit116:                      ; preds = %.critedge7.i, %460
 
 514:                                              ; preds = %513
   %515 = sext i32 %.1.i98 to i64
-  %516 = getelementptr inbounds i32, ptr %3, i64 %515
+  %516 = getelementptr inbounds nuw i32, ptr %3, i64 %515
   %517 = call i32 @sat_solver2_addclause(ptr noundef %476, ptr noundef nonnull %3, ptr noundef nonnull %516, i32 noundef -1) #28
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %.val.i101 = load i32, ptr %493, align 4
@@ -4346,7 +4346,7 @@ Ga2_ObjFindOrAddLit.exit86:                       ; preds = %617, %635
   %.sink.i66 = phi i32 [ %680, %677 ], [ %676, %674 ]
   %681 = add nsw i32 %.037.i63, 1
   %682 = sext i32 %.037.i63 to i64
-  %683 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %682
+  %683 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %682
   store i32 %.sink.i66, ptr %683, align 4
   br label %684
 
@@ -4359,7 +4359,7 @@ Ga2_ObjFindOrAddLit.exit86:                       ; preds = %617, %635
 685:                                              ; preds = %684
   %686 = load ptr, ptr %23, align 8
   %687 = sext i32 %.1.i67 to i64
-  %688 = getelementptr inbounds i32, ptr %4, i64 %687
+  %688 = getelementptr inbounds nuw i32, ptr %4, i64 %687
   %689 = call i32 @sat_solver2_addclause(ptr noundef %686, ptr noundef nonnull %4, ptr noundef nonnull %688, i32 noundef -1) #28
   %indvars.iv.next43.i70 = add nuw nsw i64 %indvars.iv42.i61, 1
   %690 = load ptr, ptr %21, align 8
@@ -4522,7 +4522,7 @@ Ga2_ObjFindOrAddLit.exit:                         ; preds = %712, %729
   %.sink.i = phi i32 [ %771, %768 ], [ %767, %765 ]
   %772 = add nsw i32 %.037.i, 1
   %773 = sext i32 %.037.i to i64
-  %774 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %773
+  %774 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %773
   store i32 %.sink.i, ptr %774, align 4
   br label %775
 
@@ -4535,7 +4535,7 @@ Ga2_ObjFindOrAddLit.exit:                         ; preds = %712, %729
 776:                                              ; preds = %775
   %777 = load ptr, ptr %23, align 8
   %778 = sext i32 %.1.i to i64
-  %779 = getelementptr inbounds i32, ptr %5, i64 %778
+  %779 = getelementptr inbounds nuw i32, ptr %5, i64 %778
   %780 = call i32 @sat_solver2_addclause(ptr noundef %777, ptr noundef nonnull %5, ptr noundef nonnull %779, i32 noundef -1) #28
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %781 = load ptr, ptr %21, align 8
@@ -5043,7 +5043,7 @@ Gia_ObjIsRo.exit90:                               ; preds = %181
   %.sink.i = phi i32 [ %230, %228 ], [ %234, %231 ]
   %235 = add nsw i32 %.035.i, 1
   %236 = sext i32 %.035.i to i64
-  %237 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %236
   store i32 %.sink.i, ptr %237, align 4
   br label %238
 
@@ -5055,7 +5055,7 @@ Gia_ObjIsRo.exit90:                               ; preds = %181
 
 239:                                              ; preds = %238
   %240 = sext i32 %.1.i to i64
-  %241 = getelementptr inbounds i32, ptr %5, i64 %240
+  %241 = getelementptr inbounds nuw i32, ptr %5, i64 %240
   %242 = call i32 @sat_solver2_addclause(ptr noundef %192, ptr noundef nonnull %5, ptr noundef nonnull %241, i32 noundef %215) #28
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %.val.i102 = load i32, ptr %218, align 4
@@ -5145,7 +5145,7 @@ Gia_ObjIsRo.exit90.thread:                        ; preds = %181, %Gia_ObjIsRo.e
   %.sink.i109 = phi i32 [ %283, %280 ], [ %279, %277 ]
   %284 = add nsw i32 %.037.i, 1
   %285 = sext i32 %.037.i to i64
-  %286 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %285
   store i32 %.sink.i109, ptr %286, align 4
   br label %287
 
@@ -5158,7 +5158,7 @@ Gia_ObjIsRo.exit90.thread:                        ; preds = %181, %Gia_ObjIsRo.e
 288:                                              ; preds = %287
   %289 = load ptr, ptr %259, align 8
   %290 = sext i32 %.1.i110 to i64
-  %291 = getelementptr inbounds i32, ptr %4, i64 %290
+  %291 = getelementptr inbounds nuw i32, ptr %4, i64 %290
   %292 = call i32 @sat_solver2_addclause(ptr noundef %289, ptr noundef nonnull %4, ptr noundef nonnull %291, i32 noundef %256) #28
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %293 = load ptr, ptr %257, align 8

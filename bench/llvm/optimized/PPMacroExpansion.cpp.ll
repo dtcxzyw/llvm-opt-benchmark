@@ -6017,7 +6017,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit215:         ; preds = %.lr.ph.i.i.i.i.i206
   %253 = load ptr, ptr %14, align 8
   %254 = getelementptr i8, ptr %253, i64 -24
   %255 = load i64, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %14, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr %14, i64 %255
   call void @_ZNSt6localeC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.47) #19
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5imbueERKSt6locale(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 %15, ptr noundef nonnull align 8 dereferenceable(264) %256, ptr noundef nonnull align 8 dereferenceable(8) %16) #19
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
@@ -10229,7 +10229,7 @@ define internal fastcc void @_ZL16ComputeDATE_TIMERN5clang14SourceLocationES1_RN
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [12 x ptr], ptr @_ZZL16ComputeDATE_TIMERN5clang14SourceLocationES1_RNS_12PreprocessorEE6Months, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [12 x ptr], ptr @_ZZL16ComputeDATE_TIMERN5clang14SourceLocationES1_RNS_12PreprocessorEE6Months, i64 0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %39 = load i32, ptr %38, align 4

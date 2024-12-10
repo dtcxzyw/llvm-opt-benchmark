@@ -30032,7 +30032,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0557, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
   store i32 %60, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0556, -1
   br label %for.inc.i
@@ -30082,7 +30082,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0564 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0563 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -30533,7 +30533,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0556, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
   store i32 %61, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0555, -1
   br label %for.inc.i
@@ -30582,7 +30582,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0563 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0562 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -31068,7 +31068,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0557, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0556, -1
   br label %for.inc.i
@@ -31117,7 +31117,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0564 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0563 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -31560,7 +31560,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0556, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
   store i32 %56, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0555, -1
   br label %for.inc.i
@@ -31610,7 +31610,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0563 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0562 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
   %62 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %62 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -32062,7 +32062,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0555, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0555
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0555
   store i32 %57, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0554, -1
   br label %for.inc.i
@@ -32111,7 +32111,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0562 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0561 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0562
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0562
   %62 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %62 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -32598,7 +32598,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0556, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
   store i32 %59, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0555, -1
   br label %for.inc.i
@@ -32647,7 +32647,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0563 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0562 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
   %64 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %64 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -33090,7 +33090,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0556, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
   store i32 %56, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0555, -1
   br label %for.inc.i
@@ -33140,7 +33140,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0563 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0562 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
   %62 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %62 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -33592,7 +33592,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0555, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0555
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0555
   store i32 %57, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0554, -1
   br label %for.inc.i
@@ -33641,7 +33641,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0562 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0561 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0562
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0562
   %62 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %62 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -34128,7 +34128,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0556, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0556
   store i32 %59, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0555, -1
   br label %for.inc.i
@@ -34177,7 +34177,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0563 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0562 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0563
   %64 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %64 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -35461,7 +35461,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.583, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0559, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0559
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0559
   store i32 %62, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0558, -1
   br label %for.inc.i
@@ -35512,7 +35512,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0566 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0565 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0566
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0566
   %68 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %68, %5
   %idx.ext149.i = zext i32 %68 to i64
@@ -35989,7 +35989,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.586, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0558, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0557, -1
   br label %for.inc.i
@@ -36039,7 +36039,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0565 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0564 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
   %68 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %68, %5
   %idx.ext149.i = zext i32 %68 to i64
@@ -36551,7 +36551,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.588, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0559, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0559
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0559
   store i32 %65, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0558, -1
   br label %for.inc.i
@@ -36601,7 +36601,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0566 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0565 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0566
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0566
   %70 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %70, %5
   %idx.ext149.i = zext i32 %70 to i64
@@ -37070,7 +37070,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.582, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0558, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
   store i32 %58, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0557, -1
   br label %for.inc.i
@@ -37121,7 +37121,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0565 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0564 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
   %64 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %64, %5
   %idx.ext149.i = zext i32 %64 to i64
@@ -37599,7 +37599,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.585, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0557, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
   store i32 %59, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0556, -1
   br label %for.inc.i
@@ -37649,7 +37649,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0564 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0563 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
   %64 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %64, %5
   %idx.ext149.i = zext i32 %64 to i64
@@ -38162,7 +38162,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.587, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0558, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
   store i32 %61, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0557, -1
   br label %for.inc.i
@@ -38212,7 +38212,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0565 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0564 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
   %66 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %66, %5
   %idx.ext149.i = zext i32 %66 to i64
@@ -38681,7 +38681,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.582, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0558, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
   store i32 %58, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0557, -1
   br label %for.inc.i
@@ -38732,7 +38732,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0565 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0564 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
   %64 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %64, %5
   %idx.ext149.i = zext i32 %64 to i64
@@ -39210,7 +39210,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.585, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0557, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0557
   store i32 %59, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0556, -1
   br label %for.inc.i
@@ -39260,7 +39260,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0564 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0563 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0564
   %64 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %64, %5
   %idx.ext149.i = zext i32 %64 to i64
@@ -39773,7 +39773,7 @@ lor.lhs.false.i:                                  ; preds = %if.end95.i
   %add.ptr109.i = getelementptr inbounds nuw i8, ptr %.587, i64 %idx.ext108.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr109.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0558, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0558
   store i32 %61, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0557, -1
   br label %for.inc.i
@@ -39823,7 +39823,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0565 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0564 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0565
   %66 = load i32, ptr %arrayidx127.i, align 4
   %cmp131.i.not = icmp ult i32 %66, %5
   %idx.ext149.i = zext i32 %66 to i64
@@ -41591,7 +41591,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0576, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
   store i32 %67, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0575, -1
   br label %for.inc.i
@@ -41642,7 +41642,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0585 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0584 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
   %73 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %73 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -41823,7 +41823,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %79, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0591, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
   store i32 %89, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2590, -1
   br label %for.inc235.i
@@ -41852,7 +41852,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0597 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4596 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
   %92 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %92 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %79, i64 %idx.ext247.i
@@ -42236,7 +42236,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0569, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0569
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0569
   store i32 %68, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0568, -1
   br label %for.inc.i
@@ -42286,7 +42286,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0578 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0577 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0578
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0578
   %73 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %73 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -42468,7 +42468,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %79, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0585, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0585
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0585
   store i32 %90, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2584, -1
   br label %for.inc235.i
@@ -42497,7 +42497,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0591 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4590 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0591
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0591
   %93 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %93 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %79, i64 %idx.ext247.i
@@ -42919,7 +42919,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0576, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
   store i32 %70, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0575, -1
   br label %for.inc.i
@@ -42969,7 +42969,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0585 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0584 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
   %75 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %75 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -43178,7 +43178,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %81, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0592, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0592
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0592
   store i32 %95, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2591, -1
   br label %for.inc235.i
@@ -43207,7 +43207,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0598 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4597 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0598
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0598
   %98 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %98 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %81, i64 %idx.ext247.i
@@ -43581,7 +43581,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %62, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -43632,7 +43632,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -43813,7 +43813,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0590, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0590
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0590
   store i32 %84, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2589, -1
   br label %for.inc235.i
@@ -43842,7 +43842,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0596 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4595 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0596
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0596
   %87 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %87 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext247.i
@@ -44227,7 +44227,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0568, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0568
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0568
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0567, -1
   br label %for.inc.i
@@ -44277,7 +44277,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0577 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0576 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0577
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0577
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -44459,7 +44459,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0584, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0584
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0584
   store i32 %85, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2583, -1
   br label %for.inc235.i
@@ -44488,7 +44488,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4589 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
   %88 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %88 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext247.i
@@ -44911,7 +44911,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %65, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -44961,7 +44961,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %70 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %70 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -45170,7 +45170,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %76, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0591, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
   store i32 %90, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2590, -1
   br label %for.inc235.i
@@ -45199,7 +45199,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0597 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4596 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
   %93 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %93 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %76, i64 %idx.ext247.i
@@ -45573,7 +45573,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %62, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -45624,7 +45624,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -45805,7 +45805,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0590, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0590
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0590
   store i32 %84, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2589, -1
   br label %for.inc235.i
@@ -45834,7 +45834,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0596 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4595 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0596
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0596
   %87 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %87 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext247.i
@@ -46219,7 +46219,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0568, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0568
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0568
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0567, -1
   br label %for.inc.i
@@ -46269,7 +46269,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0577 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0576 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0577
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0577
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -46451,7 +46451,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0584, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0584
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0584
   store i32 %85, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2583, -1
   br label %for.inc235.i
@@ -46480,7 +46480,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0590 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4589 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0590
   %88 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %88 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %74, i64 %idx.ext247.i
@@ -46903,7 +46903,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %65, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -46953,7 +46953,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %70 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %70 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -47162,7 +47162,7 @@ if.end229.i:                                      ; preds = %if.end225.i
   %add.ptr231.i = getelementptr inbounds nuw i8, ptr %76, i64 %idx.ext230.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr231.i, i32 0, i32 3, i32 1)
   %inc232.i = add i64 %numMatches201.i.0591, 1
-  %arrayidx233.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
+  %arrayidx233.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %numMatches201.i.0591
   store i32 %90, ptr %arrayidx233.i, align 4
   %dec234.i = add nsw i32 %nbAttempts.i.2590, -1
   br label %for.inc235.i
@@ -47191,7 +47191,7 @@ for.body242.i.lr.ph:                              ; preds = %for.end238.i
 for.body242.i:                                    ; preds = %for.body242.i.lr.ph, %if.end271.i
   %currMatch202.i.0597 = phi i64 [ 0, %for.body242.i.lr.ph ], [ %inc273.i, %if.end271.i ]
   %ml.i.4596 = phi i64 [ %ml.i.1, %for.body242.i.lr.ph ], [ %ml.i.5, %if.end271.i ]
-  %arrayidx244.i = getelementptr inbounds [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
+  %arrayidx244.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer200.i, i64 0, i64 %currMatch202.i.0597
   %93 = load i32, ptr %arrayidx244.i, align 4
   %idx.ext247.i = zext i32 %93 to i64
   %add.ptr248.i = getelementptr inbounds nuw i8, ptr %76, i64 %idx.ext247.i
@@ -48871,7 +48871,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0576, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
   store i32 %64, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0575, -1
   br label %for.inc.i
@@ -48922,7 +48922,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0585 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0584 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
   %70 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %70 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -49559,7 +49559,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %65, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -49609,7 +49609,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %70 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %70 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -50281,7 +50281,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0576, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0576
   store i32 %67, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0575, -1
   br label %for.inc.i
@@ -50331,7 +50331,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0585 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0584 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0585
   %72 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %72 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -50960,7 +50960,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %60, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -51011,7 +51011,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -51649,7 +51649,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0574, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0574
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0574
   store i32 %61, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0573, -1
   br label %for.inc.i
@@ -51699,7 +51699,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0583 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0582 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0583
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0583
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -52372,7 +52372,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -52422,7 +52422,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -53051,7 +53051,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %60, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -53102,7 +53102,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -53740,7 +53740,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0574, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0574
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0574
   store i32 %61, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0573, -1
   br label %for.inc.i
@@ -53790,7 +53790,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0583 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0582 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0583
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0583
   %66 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %66 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i
@@ -54463,7 +54463,7 @@ if.then104.i:                                     ; preds = %if.end95.i
   %add.ptr106.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext105.i
   tail call void @llvm.prefetch.p0(ptr %add.ptr106.i, i32 0, i32 3, i32 1)
   %inc.i = add i64 %numMatches.i.0575, 1
-  %arrayidx111.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
+  %arrayidx111.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %numMatches.i.0575
   store i32 %63, ptr %arrayidx111.i, align 4
   %dec.i = add nsw i32 %nbAttempts.i.0574, -1
   br label %for.inc.i
@@ -54513,7 +54513,7 @@ for.body125.i.lr.ph:                              ; preds = %for.end.i
 for.body125.i:                                    ; preds = %for.body125.i.lr.ph, %if.end173.i
   %currMatch.i.0584 = phi i64 [ 0, %for.body125.i.lr.ph ], [ %inc175.i, %if.end173.i ]
   %ml.i.0583 = phi i64 [ 3, %for.body125.i.lr.ph ], [ %ml.i.2, %if.end173.i ]
-  %arrayidx127.i = getelementptr inbounds [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
+  %arrayidx127.i = getelementptr inbounds nuw [64 x i32], ptr %matchBuffer.i, i64 0, i64 %currMatch.i.0584
   %68 = load i32, ptr %arrayidx127.i, align 4
   %idx.ext134.i = zext i32 %68 to i64
   %add.ptr135.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext134.i

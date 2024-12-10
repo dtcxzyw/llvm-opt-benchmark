@@ -390,22 +390,22 @@ if.then:                                          ; preds = %entry
   %level.i = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %6 = load i32, ptr %level.i, align 4
   %idxprom6.i = sext i32 %6 to i64
-  %max_lazy.i = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 1
+  %max_lazy.i = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 1
   %7 = load i16, ptr %max_lazy.i, align 2
   %conv8.i = zext i16 %7 to i32
   %max_lazy_match.i = getelementptr inbounds nuw i8, ptr %0, i64 1304
   store i32 %conv8.i, ptr %max_lazy_match.i, align 8
-  %arrayidx11.i = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i
+  %arrayidx11.i = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i
   %8 = load i16, ptr %arrayidx11.i, align 16
   %conv12.i = zext i16 %8 to i32
   %good_match.i = getelementptr inbounds nuw i8, ptr %0, i64 1316
   store i32 %conv12.i, ptr %good_match.i, align 4
-  %nice_length.i = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 2
+  %nice_length.i = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 2
   %9 = load i16, ptr %nice_length.i, align 4
   %conv16.i = zext i16 %9 to i32
   %nice_match.i = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 %conv16.i, ptr %nice_match.i, align 8
-  %max_chain.i = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 3
+  %max_chain.i = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom6.i, i32 3
   %10 = load i16, ptr %max_chain.i, align 2
   %conv20.i = zext i16 %10 to i32
   %max_chain_length.i = getelementptr inbounds nuw i8, ptr %0, i64 1300
@@ -1364,7 +1364,7 @@ if.end14:                                         ; preds = %if.end
 lor.lhs.false19:                                  ; preds = %if.end14
   %3 = load i32, ptr %level15, align 4
   %idxprom = sext i32 %3 to i64
-  %func16 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom, i32 4
+  %func16 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom, i32 4
   %4 = load ptr, ptr %func16, align 8
   %idxprom20 = zext nneg i32 %spec.store.select to i64
   %func22 = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom20, i32 4
@@ -2629,7 +2629,7 @@ if.else654:                                       ; preds = %if.end642
   %level655 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %251 = load i32, ptr %level655, align 4
   %idxprom656 = sext i32 %251 to i64
-  %func = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom656, i32 4
+  %func = getelementptr inbounds nuw [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %idxprom656, i32 4
   %252 = load ptr, ptr %func, align 8
   %call659 = tail call i32 %252(ptr noundef nonnull %0, i32 noundef %flush, i32 noundef %249) #10
   br label %if.end661

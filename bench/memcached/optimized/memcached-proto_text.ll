@@ -614,7 +614,7 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp5.not.i, label %if.end12.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.045.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.045.i
   store ptr %s.046.i, ptr %arrayidx.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %e.043.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s.046.i to i64
@@ -649,7 +649,7 @@ for.end.i:                                        ; preds = %if.end13.i
   br i1 %cmp16.not.i, label %tokenize_command.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %for.end.i
-  %arrayidx19.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.2.i
+  %arrayidx19.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.2.i
   store ptr %s.2.i, ptr %arrayidx19.i, align 16
   %inc26.i = add i64 %ntokens.2.i, 1
   br label %tokenize_command.exit
@@ -660,7 +660,7 @@ tokenize_command.exit:                            ; preds = %if.end10, %for.end.
   %5 = load i8, ptr %e.138.i, align 1
   %cmp29.i = icmp eq i8 %5, 0
   %cond.i = select i1 %cmp29.i, ptr null, ptr %e.138.i
-  %arrayidx31.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.4.i
+  %arrayidx31.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.4.i
   store ptr %cond.i, ptr %arrayidx31.i, align 16
   %inc35.i = add i64 %ntokens.4.i, 1
   %6 = load ptr, ptr %rcurr, align 8
@@ -790,7 +790,7 @@ if.then.i80:                                      ; preds = %for.body.i51
   br i1 %cmp5.not.i81, label %if.end12.i90, label %if.then7.i82
 
 if.then7.i82:                                     ; preds = %if.then.i80
-  %arrayidx.i83 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.045.i54
+  %arrayidx.i83 = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.045.i54
   store ptr %s.046.i53, ptr %arrayidx.i83, align 16
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %e.043.i55 to i64
   %sub.ptr.rhs.cast.i85 = ptrtoint ptr %s.046.i53 to i64
@@ -825,7 +825,7 @@ for.end.i64:                                      ; preds = %if.end13.i57
   br i1 %cmp16.not.i65, label %tokenize_command.exit95, label %if.then18.i66
 
 if.then18.i66:                                    ; preds = %for.end.i64
-  %arrayidx19.i67 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.2.i58
+  %arrayidx19.i67 = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.2.i58
   store ptr %s.2.i59, ptr %arrayidx19.i67, align 16
   %inc26.i72 = add i64 %ntokens.2.i58, 1
   br label %tokenize_command.exit95
@@ -836,7 +836,7 @@ tokenize_command.exit95:                          ; preds = %if.end72, %for.end.
   %26 = load i8, ptr %e.138.i73, align 1
   %cmp29.i75 = icmp eq i8 %26, 0
   %cond.i76 = select i1 %cmp29.i75, ptr null, ptr %e.138.i73
-  %arrayidx31.i77 = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.4.i74
+  %arrayidx31.i77 = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.4.i74
   store ptr %cond.i76, ptr %arrayidx31.i77, align 16
   %inc35.i79 = add i64 %ntokens.4.i74, 1
   %cmp78 = icmp ult i64 %inc35.i79, 3
@@ -1065,7 +1065,7 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp5.not.i, label %if.end12.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.045.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.045.i
   store ptr %s.046.i, ptr %arrayidx.i, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %e.043.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s.046.i to i64
@@ -1100,7 +1100,7 @@ for.end.i:                                        ; preds = %if.end13.i
   br i1 %cmp16.not.i, label %tokenize_command.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %for.end.i
-  %arrayidx19.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.2.i
+  %arrayidx19.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.2.i
   store ptr %s.2.i, ptr %arrayidx19.i, align 16
   %sub.ptr.lhs.cast21.i = ptrtoint ptr %incdec.ptr14.i to i64
   %sub.ptr.rhs.cast22.i = ptrtoint ptr %s.2.i to i64
@@ -1116,7 +1116,7 @@ tokenize_command.exit:                            ; preds = %if.end3, %for.end.t
   %6 = load i8, ptr %e.138.i, align 1
   %cmp29.i = icmp eq i8 %6, 0
   %cond.i = select i1 %cmp29.i, ptr null, ptr %e.138.i
-  %arrayidx31.i = getelementptr inbounds %struct.token_s, ptr %tokens, i64 %ntokens.4.i
+  %arrayidx31.i = getelementptr inbounds nuw %struct.token_s, ptr %tokens, i64 %ntokens.4.i
   store ptr %cond.i, ptr %arrayidx31.i, align 16
   %length34.i = getelementptr inbounds nuw i8, ptr %arrayidx31.i, i64 8
   store i64 0, ptr %length34.i, align 8
@@ -1595,7 +1595,7 @@ do.end417:                                        ; preds = %do.body412
 
 if.else419:                                       ; preds = %if.else405
   %sub = add i64 %ntokens.4.i, -1
-  %arrayidx420 = getelementptr inbounds [24 x %struct.token_s], ptr %tokens, i64 0, i64 %sub
+  %arrayidx420 = getelementptr inbounds nuw [24 x %struct.token_s], ptr %tokens, i64 0, i64 %sub
   %22 = load ptr, ptr %arrayidx420, align 16
   %call422 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(6) @.str.43, i64 noundef 5) #12
   %cmp423 = icmp eq i32 %call422, 0

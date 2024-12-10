@@ -23580,7 +23580,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE4colsEv.e
   %223 = load ptr, ptr %6, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
   %225 = load i64, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %6, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr %6, i64 %225
   %227 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %226)
           to label %228 unwind label %.loopexit.split-lp
 
@@ -37221,7 +37221,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE4colsEv.exit:
   %200 = load ptr, ptr %6, align 8
   %201 = getelementptr i8, ptr %200, i64 -24
   %202 = load i64, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %6, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 %202
   %204 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %203)
           to label %205 unwind label %.loopexit.split-lp
 
@@ -49188,7 +49188,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi6ELi6ELi0ELi6ELi6EEEE4colsEv.exit:
   %200 = load ptr, ptr %6, align 8
   %201 = getelementptr i8, ptr %200, i64 -24
   %202 = load i64, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %6, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 %202
   %204 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %203)
           to label %205 unwind label %.loopexit.split-lp
 
@@ -61265,7 +61265,7 @@ _ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi7ELi7ELi0ELi7ELi7EEEE4colsEv.exit:
   %200 = load ptr, ptr %6, align 8
   %201 = getelementptr i8, ptr %200, i64 -24
   %202 = load i64, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %6, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %6, i64 %202
   %204 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %203)
           to label %205 unwind label %.loopexit.split-lp
 

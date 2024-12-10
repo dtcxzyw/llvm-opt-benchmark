@@ -1956,7 +1956,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i" ], [ 0, %23 ], [ 39, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.85, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.85, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !267
   store i64 %31, ptr %9, align 8, !noalias !267
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72abab1f32e6ec82E.exit"
@@ -2205,7 +2205,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i" ], [ 0, %23 ], [ 18, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.77, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.77, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !330
   store i64 %31, ptr %9, align 8, !noalias !330
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c5f0f3100d87994E.exit"
@@ -2857,7 +2857,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i" ], [ 0, %23 ], [ 29, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.90, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.90, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !422
   store i64 %31, ptr %9, align 8, !noalias !422
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha19adc73eb11dacfE.exit"
@@ -3123,7 +3123,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 
 30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i", %23, %19
   %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i.i" ], [ 0, %23 ], [ 36, %19 ]
-  %32 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.75, i64 %20
+  %32 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.75, i64 %20
   store ptr %32, ptr %7, align 8, !noalias !478
   store i64 %31, ptr %9, align 8, !noalias !478
   br label %"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a1476361bb07b03E.exit"
@@ -21887,7 +21887,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 38, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.68, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.68, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -21979,7 +21979,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 24, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.76.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.76.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22071,7 +22071,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 26, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.78.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.78.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22163,7 +22163,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 28, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.79.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.79.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22255,7 +22255,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 24, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.80.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.80.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22347,7 +22347,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 23, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.81.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.81.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22439,7 +22439,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 25, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.82.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.82.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22531,7 +22531,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 30, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.83.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.83.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22623,7 +22623,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 31, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.84.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.84.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22715,7 +22715,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 30, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.86.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.86.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22807,7 +22807,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 31, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.87, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.87, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22899,7 +22899,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 26, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.88.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.88.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -22991,7 +22991,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 26, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.89.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.89.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23083,7 +23083,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 25, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.91.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.91.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23175,7 +23175,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 27, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.92.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.92.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23267,7 +23267,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 31, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.93.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.93.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23359,7 +23359,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 25, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.94.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.94.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23451,7 +23451,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 25, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.95, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.95, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23543,7 +23543,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 29, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.96.llvm.14358968814291841630, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.96.llvm.14358968814291841630, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28
@@ -23635,7 +23635,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$la_arena..Idx$LT$T$GT$$u20$as$u20$c
 
 38:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i", %22, %18
   %39 = phi i64 [ %27, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.14358968814291841630.exit.i" ], [ 0, %22 ], [ 28, %18 ]
-  %40 = getelementptr inbounds i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.97, i64 %19
+  %40 = getelementptr inbounds nuw i8, ptr @anon.d446cd9b288d4da726c279c34c8701bb.97, i64 %19
   store ptr %40, ptr %7, align 8
   store i64 %39, ptr %8, align 8
   br label %28

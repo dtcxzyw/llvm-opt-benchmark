@@ -14474,7 +14474,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hc5d5a7ee5c3bedbeE.exit.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !3869
   %52 = load i64, ptr %9, align 8, !alias.scope !3901, !noalias !3869, !noundef !23
   %53 = load i64, ptr %10, align 8, !alias.scope !3901, !noalias !3869, !noundef !23
-  %54 = getelementptr inbounds { [2 x i64] }, ptr %5, i64 %52
+  %54 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %52
   %55 = sub nuw i64 %53, %52
   br label %56
 
@@ -14524,7 +14524,7 @@ common.resume.i:                                  ; preds = %61, %81, %13
 .thread.i:                                        ; preds = %50, %8
   %72 = phi i64 [ %11, %8 ], [ %.pre16.i, %50 ]
   %73 = phi i64 [ %11, %8 ], [ %.pre.i, %50 ]
-  %74 = getelementptr inbounds { [2 x i64] }, ptr %5, i64 %73
+  %74 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %73
   %75 = sub nuw i64 %72, %73
   br label %76
 

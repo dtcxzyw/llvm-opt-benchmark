@@ -375,7 +375,7 @@ define dso_local void @_ZN23cmCursesLongMessageForm15UpdateStatusBarEv(ptr nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.thread
-  %28 = getelementptr inbounds i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   %29 = sub i64 512, %27
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @__const._ZN23cmCursesLongMessageForm9PrintKeysEv.fmt_s, ptr noundef nonnull %4) #14
   %31 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 0, i64 %.022

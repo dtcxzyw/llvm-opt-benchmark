@@ -1123,10 +1123,10 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %100 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %101 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %102 = sext i32 %80 to i64
-  %switch.gep79 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %102
+  %switch.gep79 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %102
   %switch.load80 = load i64, ptr %switch.gep79, align 8
   %103 = sext i32 %80 to i64
-  %switch.gep81 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %103
+  %switch.gep81 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %103
   %switch.load82 = load ptr, ptr %switch.gep81, align 8
   store ptr %switch.load82, ptr %7, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1180,10 +1180,10 @@ switch.lookup83:                                  ; preds = %.lr.ph.i29
   %125 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %126 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %127 = sext i32 %109 to i64
-  %switch.gep87 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %127
+  %switch.gep87 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %127
   %switch.load88 = load i64, ptr %switch.gep87, align 8
   %128 = sext i32 %109 to i64
-  %switch.gep89 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %128
+  %switch.gep89 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %128
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   %129 = load ptr, ptr %123, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
@@ -1476,7 +1476,7 @@ _ZNK5clang4Decl7getAttrINS_18ParamTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.i
   %123 = getelementptr i8, ptr %120, i64 36
   %.val54 = load i32, ptr %123, align 4
   %124 = sext i32 %.val54 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %124
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not45 = icmp eq i32 %122, %switch.load
   br i1 %.not45, label %_ZNK5clang4Decl7getAttrINS_18ParamTypestateAttrEEEPT_v.exit.thread, label %switch.lookup
@@ -1498,16 +1498,16 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7get
   %137 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %136) #18
   %switch.tableidx = add nsw i32 %switch.load, -1
   %138 = sext i32 %switch.tableidx to i64
-  %switch.gep404 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %138
+  %switch.gep404 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %138
   %switch.load405 = load i64, ptr %switch.gep404, align 8
   %139 = sext i32 %switch.tableidx to i64
-  %switch.gep406 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %139
+  %switch.gep406 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %139
   %switch.load407 = load ptr, ptr %switch.gep406, align 8
   %140 = sext i32 %122 to i64
-  %switch.gep418 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %140
+  %switch.gep418 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %140
   %switch.load419 = load i64, ptr %switch.gep418, align 8
   %141 = sext i32 %122 to i64
-  %switch.gep420 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %141
+  %switch.gep420 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %141
   %switch.load421 = load ptr, ptr %switch.gep420, align 8
   %142 = load ptr, ptr %127, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
@@ -1593,7 +1593,7 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   %182 = getelementptr i8, ptr %180, i64 36
   %.val55 = load i32, ptr %182, align 4
   %183 = sext i32 %.val55 to i64
-  %switch.gep409 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %183
+  %switch.gep409 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %183
   %switch.load410 = load i32, ptr %switch.gep409, align 4
   %.val52 = load i32, ptr %7, align 8
   %.val53 = load ptr, ptr %25, align 8
@@ -1941,7 +1941,7 @@ switch.lookup411:                                 ; preds = %_ZNK5clang4Decl7get
   %346 = getelementptr i8, ptr %340, i64 36
   %.val58 = load i32, ptr %346, align 4
   %347 = sext i32 %.val58 to i64
-  %switch.gep412 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %347
+  %switch.gep412 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %347
   %switch.load413 = load i32, ptr %switch.gep412, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %345, ptr %6, align 8
@@ -2018,7 +2018,7 @@ switch.lookup414:                                 ; preds = %_ZNK5clang4Decl7get
   %386 = getelementptr i8, ptr %340, i64 36
   %.val59 = load i32, ptr %386, align 4
   %387 = sext i32 %.val59 to i64
-  %switch.gep415 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %387
+  %switch.gep415 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %387
   %switch.load416 = load i32, ptr %switch.gep415, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %385, ptr %5, align 8
@@ -3529,7 +3529,7 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   %109 = getelementptr i8, ptr %108, i64 36
   %.val = load i32, ptr %109, align 4
   %110 = sext i32 %.val to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %110
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %110
   %switch.load = load i32, ptr %switch.gep, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -3838,7 +3838,7 @@ _ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 36
   %269 = load i32, ptr %268, align 4
   %270 = sext i32 %269 to i64
-  %switch.gep213 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %270
+  %switch.gep213 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %270
   %switch.load214 = load i32, ptr %switch.gep213, align 4
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %7, align 8
@@ -5365,16 +5365,16 @@ switch.lookup:                                    ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %54, align 4
   %55 = sext i32 %5 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %55
   %switch.load = load i64, ptr %switch.gep, align 8
   %56 = sext i32 %5 to i64
-  %switch.gep23 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %56
+  %switch.gep23 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %56
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %57 = sext i32 %51 to i64
-  %switch.gep26 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %57
+  %switch.gep26 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %57
   %switch.load27 = load i64, ptr %switch.gep26, align 8
   %58 = sext i32 %51 to i64
-  %switch.gep28 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %58
+  %switch.gep28 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %58
   %switch.load29 = load ptr, ptr %switch.gep28, align 8
   %59 = load ptr, ptr %53, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
@@ -5511,7 +5511,7 @@ _ZNK5clang4Decl7getAttrINS_19ReturnTypestateAttrEEEPT_v.exit: ; preds = %.lr.ph.
   %55 = getelementptr i8, ptr %54, i64 36
   %.val = load i32, ptr %55, align 4
   %56 = sext i32 %.val to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.024.033, i64 8
   %58 = load i32, ptr %57, align 8
@@ -5525,17 +5525,17 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7get
   %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %switch.tableidx = add nsw i32 %switch.load, -1
   %62 = sext i32 %switch.tableidx to i64
-  %switch.gep52 = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %62
+  %switch.gep52 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.29, i64 0, i64 %62
   %switch.load53 = load i64, ptr %switch.gep52, align 8
   %63 = sext i32 %switch.tableidx to i64
-  %switch.gep54 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %63
+  %switch.gep54 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.30, i64 0, i64 %63
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   %64 = load i32, ptr %57, align 8
   %65 = sext i32 %64 to i64
-  %switch.gep57 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %65
+  %switch.gep57 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.31, i64 0, i64 %65
   %switch.load58 = load i64, ptr %switch.gep57, align 8
   %66 = sext i32 %64 to i64
-  %switch.gep59 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %66
+  %switch.gep59 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK5clang8consumed16ConsumedStateMap29checkParamsForReturnTypestateENS_14SourceLocationERNS0_27ConsumedWarningsHandlerBaseE.32, i64 0, i64 %66
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   store ptr %switch.load60, ptr %5, align 8
   store i64 %switch.load58, ptr %18, align 8
@@ -5734,7 +5734,7 @@ switch.lookup64:                                  ; preds = %84
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 40
   %94 = load i32, ptr %93, align 8, !noalias !92
   %95 = sext i32 %94 to i64
-  %switch.gep65 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %95
+  %switch.gep65 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %95
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   %96 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i, i64 48
   %97 = load ptr, ptr %96, align 8, !noalias !92
@@ -5758,7 +5758,7 @@ switch.lookup64:                                  ; preds = %84
 
 switch.lookup:                                    ; preds = %84
   %103 = sext i32 %88 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %103
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang8consumed15PropagationInfo10invertTestEv.exit
 
@@ -7498,7 +7498,7 @@ switch.lookup:                                    ; preds = %_ZNK5clang4Decl7has
   %125 = getelementptr i8, ptr %89, i64 36
   %.val = load i32, ptr %125, align 4
   %126 = sext i32 %.val to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %126
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %126
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit
 
@@ -7720,7 +7720,7 @@ _ZNK5clang4Decl7getAttrINS_14ConsumableAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 36
   %235 = load i32, ptr %234, align 4
   %236 = sext i32 %235 to i64
-  %switch.gep162 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %236
+  %switch.gep162 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer28determineExpectedReturnStateERNS_19AnalysisDeclContextEPKNS_12FunctionDeclE.34, i64 0, i64 %236
   %switch.load163 = load i32, ptr %switch.gep162, align 4
   br label %_ZL27mapReturnTypestateAttrStatePKN5clang19ReturnTypestateAttrE.exit
 
@@ -8102,7 +8102,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
   store i32 %.sroa.17.0, ptr %192, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %193 = sext i32 %.sroa.17.0 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %193
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %193
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %.sroa.10167.0, ptr %9, align 8
@@ -8172,7 +8172,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 switch.lookup:                                    ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i
   %.0.i2.i = phi i32 [ %161, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.i ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclENS2_8consumed13ConsumedStateENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit.i.i ]
   %226 = sext i32 %.sroa.17.0 to i64
-  %switch.gep514 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %226
+  %switch.gep514 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %226
   %switch.load515 = load i32, ptr %switch.gep514, align 4
   %227 = icmp eq i32 %.0.i2.i, %switch.load515
   br i1 %227, label %228, label %229
@@ -8397,7 +8397,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 
 switch.lookup516:                                 ; preds = %307
   %343 = sext i32 %.sroa.27.0 to i64
-  %switch.gep517 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %343
+  %switch.gep517 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %343
   %switch.load518 = load i32, ptr %switch.gep517, align 4
   %344 = icmp eq i32 %269, %switch.load518
   br i1 %344, label %345, label %346
@@ -8430,7 +8430,7 @@ switch.lookup516:                                 ; preds = %307
 
 switch.lookup519:                                 ; preds = %353
   %354 = sext i32 %.sroa.27.0 to i64
-  %switch.gep520 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %354
+  %switch.gep520 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %354
   %switch.load521 = load i32, ptr %switch.gep520, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.sroa.26200.0, ptr %7, align 8
@@ -8507,7 +8507,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 
 switch.lookup522:                                 ; preds = %387
   %390 = sext i32 %.sroa.27.0 to i64
-  %switch.gep523 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %390
+  %switch.gep523 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %390
   %switch.load524 = load i32, ptr %switch.gep523, align 4
   %391 = icmp eq i32 %269, %switch.load524
   %392 = and i32 %303, -2
@@ -8608,7 +8608,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 
 switch.lookup525:                                 ; preds = %401
   %437 = sext i32 %.sroa.30.0 to i64
-  %switch.gep526 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %437
+  %switch.gep526 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %437
   %switch.load527 = load i32, ptr %switch.gep526, align 4
   %438 = icmp eq i32 %303, %switch.load527
   br i1 %438, label %439, label %_ZL18splitVarStateForIfPKN5clang6IfStmtERKN12_GLOBAL__N_113VarTestResultEPNS_8consumed16ConsumedStateMapES9_.exit
@@ -8622,7 +8622,7 @@ switch.lookup525:                                 ; preds = %401
 
 switch.lookup528:                                 ; preds = %440
   %441 = sext i32 %.sroa.30.0 to i64
-  %switch.gep529 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %441
+  %switch.gep529 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %441
   %switch.load530 = load i32, ptr %switch.gep529, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.sroa.28219.0, ptr %5, align 8
@@ -9003,7 +9003,7 @@ _ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE
 switch.lookup531:                                 ; preds = %597, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread
   %.0.i343346 = phi i32 [ %590, %597 ], [ 0, %_ZNK5clang8consumed16ConsumedStateMap8getStateEPKNS_7VarDeclE.exit.thread ]
   %629 = sext i32 %.sroa.17.1 to i64
-  %switch.gep532 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %629
+  %switch.gep532 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %629
   %switch.load533 = load i32, ptr %switch.gep532, align 4
   %630 = icmp eq i32 %.0.i343346, %switch.load533
   br i1 %630, label %631, label %_ZL18splitVarStateForIfPKN5clang6IfStmtERKN12_GLOBAL__N_113VarTestResultEPNS_8consumed16ConsumedStateMapES9_.exit
@@ -9018,7 +9018,7 @@ switch.lookup531:                                 ; preds = %597, %_ZNK5clang8co
 
 switch.lookup534:                                 ; preds = %632
   %634 = sext i32 %.sroa.17.1 to i64
-  %switch.gep535 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %634
+  %switch.gep535 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang8consumed16ConsumedAnalyzer10splitStateEPKNS_8CFGBlockERKNS0_19ConsumedStmtVisitorE.42, i64 0, i64 %634
   %switch.load536 = load i32, ptr %switch.gep535, align 4
   tail call void @_ZN5clang8consumed16ConsumedStateMap8setStateEPKNS_7VarDeclENS0_13ConsumedStateE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %.sroa.10167.1, i32 noundef %switch.load536)
   br label %_ZL18splitVarStateForIfPKN5clang6IfStmtERKN12_GLOBAL__N_113VarTestResultEPNS_8consumed16ConsumedStateMapES9_.exit

@@ -135,7 +135,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 13:                                               ; preds = %.lr.ph
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
@@ -396,7 +396,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %indvars.iv.next323 = add nsw i64 %indvars.iv322, 1
   %112 = shl i32 %.1134257, 1
   %113 = add nsw i32 %112, %.1136256
-  %114 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next323
+  %114 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next323
   %115 = load i32, ptr %114, align 4
   %116 = sub nsw i32 %112, %115
   %117 = icmp slt i32 %116, 0
@@ -522,7 +522,7 @@ GetNextKey.exit170.us:                            ; preds = %151
 .lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next323, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %167 ]
   %.013.i = phi i32 [ %122, %.lr.ph.preheader.i ], [ %168, %167 ]
-  %163 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   %164 = load i32, ptr %163, align 4
   %165 = sub nsw i32 %.013.i, %164
   %166 = icmp slt i32 %165, 1

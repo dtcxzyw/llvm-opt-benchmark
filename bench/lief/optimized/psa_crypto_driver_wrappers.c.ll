@@ -626,7 +626,7 @@ define hidden i32 @psa_driver_wrapper_aead_verify(ptr noundef %0, ptr noundef %1
   %.089.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %16 ]
   %17 = getelementptr inbounds i8, ptr %4, i64 %.089.i
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %7, i64 %.089.i
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 %.089.i
   %20 = load i8, ptr %19, align 1
   %21 = xor i8 %20, %18
   %22 = or i8 %21, %.010.i

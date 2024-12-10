@@ -994,8 +994,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = sext i32 %3 to i64
-  %36 = getelementptr inbounds [3 x %"struct.pxrInternal_v0_24__pxrReserved__::TfDebug::_Node"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_28HIO_DEBUG_GLSLFX__DebugCodesEE5nodesE, i64 0, i64 %35
-  %37 = getelementptr inbounds [3 x ptr], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__19Tf_DebugGetEnumNameENS_28HIO_DEBUG_GLSLFX__DebugCodesE.CStrings, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [3 x %"struct.pxrInternal_v0_24__pxrReserved__::TfDebug::_Node"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_28HIO_DEBUG_GLSLFX__DebugCodesEE5nodesE, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__19Tf_DebugGetEnumNameENS_28HIO_DEBUG_GLSLFX__DebugCodesE.CStrings, i64 0, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 8

@@ -1178,11 +1178,11 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %48, float noundef %2, float noundef %50, i32 noundef %37)
   %54 = shl nuw nsw i64 %indvars.iv144, 1
   %55 = add nsw i64 %54, -2
-  %56 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %55
   %57 = load float, ptr %56, align 8
   %58 = tail call float @llvm.fmuladd.f32(float %57, float %43, float %39)
   %59 = add nsw i64 %54, -1
-  %60 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %59
   %61 = load float, ptr %60, align 4
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %45, float %41)
   %63 = load ptr, ptr %0, align 8
@@ -1227,11 +1227,11 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %93 = load ptr, ptr %92, align 8
   tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %86, float noundef %5, float noundef %90, i32 noundef %7)
   %94 = add nsw i64 %83, -2
-  %95 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %94
   %96 = load float, ptr %95, align 8
   %97 = tail call float @llvm.fmuladd.f32(float %96, float %43, float %39)
   %98 = add nsw i64 %83, -1
-  %99 = getelementptr inbounds [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [32 x float], ptr @_ZZ16duAppendCylinderP11duDebugDrawffffffjE3dir, i64 0, i64 %98
   %100 = load float, ptr %99, align 4
   %101 = tail call float @llvm.fmuladd.f32(float %100, float %45, float %41)
   %102 = load ptr, ptr %0, align 8

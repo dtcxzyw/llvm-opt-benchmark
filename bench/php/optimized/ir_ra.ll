@@ -2692,7 +2692,7 @@ ir_add_tmp.exit.i:                                ; preds = %1210, %1209, %1199,
 1321:                                             ; preds = %1317
   %1322 = add nsw i32 %.1202.i, 1
   %1323 = sext i32 %.1202.i to i64
-  %1324 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %1323
+  %1324 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %1323
   store i32 %1226, ptr %1324, align 4
   br label %ir_add_use_pos.exit.i
 
@@ -2726,7 +2726,7 @@ ir_add_use_pos.exit.i:                            ; preds = %1327, %1325, %1321,
 1336:                                             ; preds = %._crit_edge.i788
   %1337 = add nsw i32 %.1.lcssa.i, -1
   %1338 = sext i32 %1337 to i64
-  %1339 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %1338
+  %1339 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %1338
   %1340 = load i32, ptr %1339, align 4
   %.pre912 = load ptr, ptr %15, align 8
   br label %1053
@@ -7053,7 +7053,7 @@ ir_ivals_overlap.exit.i.i:                        ; preds = %342
 370:                                              ; preds = %366
   %371 = or i32 %368, %.0178326.i.i
   %372 = sext i8 %355 to i64
-  %373 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %372
   %374 = load i32, ptr %373, align 4
   %spec.store.select294.i.i = call i32 @llvm.smin.i32(i32 %..i.i.i, i32 %374)
   store i32 %spec.store.select294.i.i, ptr %373, align 4
@@ -7906,9 +7906,9 @@ ir_try_allocate_free_reg.exit.i:                  ; preds = %682, %677, %673, %6
 
 744:                                              ; preds = %740
   %745 = sext i8 %726 to i64
-  %746 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %745
+  %746 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %745
   store i32 0, ptr %746, align 4
-  %747 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %745
+  %747 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %745
   store i32 0, ptr %747, align 4
   br label %.loopexit.i.i
 
@@ -7954,7 +7954,7 @@ ir_try_allocate_free_reg.exit.i:                  ; preds = %682, %677, %673, %6
 ir_first_use_pos_after.exit.i.i:                  ; preds = %753, %758, %.critedge2.i.i.i, %748
   %763 = phi i32 [ %762, %.critedge2.i.i.i ], [ 2147483647, %748 ], [ 2147483647, %758 ], [ 2147483647, %753 ]
   %764 = sext i8 %726 to i64
-  %765 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %764
+  %765 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %764
   %766 = load i32, ptr %765, align 4
   %spec.store.select.i331.i = call i32 @llvm.smin.i32(i32 %763, i32 %766)
   store i32 %spec.store.select.i331.i, ptr %765, align 4
@@ -8096,11 +8096,11 @@ ir_ivals_overlap.exit367.i.i:                     ; preds = %813
 
 828:                                              ; preds = %824
   %829 = sext i8 %770 to i64
-  %830 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %829
+  %830 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %829
   %831 = load i32, ptr %830, align 4
   %spec.store.select350.i.i = call i32 @llvm.smin.i32(i32 %..i366.i.i, i32 %831)
   store i32 %spec.store.select350.i.i, ptr %830, align 4
-  %832 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %829
+  %832 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %829
   %833 = load i32, ptr %832, align 4
   %spec.store.select356.i.i = call i32 @llvm.smin.i32(i32 %..i366.i.i, i32 %833)
   store i32 %spec.store.select356.i.i, ptr %832, align 4
@@ -8148,7 +8148,7 @@ ir_ivals_overlap.exit367.i.i:                     ; preds = %813
 ir_first_use_pos_after.exit380.i.i:               ; preds = %839, %844, %.critedge2.i378.i.i, %834
   %849 = phi i32 [ %848, %.critedge2.i378.i.i ], [ 2147483647, %834 ], [ 2147483647, %844 ], [ 2147483647, %839 ]
   %850 = sext i8 %770 to i64
-  %851 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %850
+  %851 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %850
   %852 = load i32, ptr %851, align 4
   %spec.store.select351.i.i = call i32 @llvm.smin.i32(i32 %849, i32 %852)
   store i32 %spec.store.select351.i.i, ptr %851, align 4
@@ -8519,7 +8519,7 @@ ir_find_optimal_split_position.exit.thread.i.i:   ; preds = %ir_find_optimal_spl
   %.3265.i.i = phi i32 [ %.4.i.i, %ir_find_optimal_split_position.exit.i303.i ], [ %.1263.i.i, %._crit_edge664.i.i ], [ %.4.i.i, %913 ]
   %1028 = load i32, ptr %331, align 4
   %1029 = sext i32 %.2.lcssa.i.i to i64
-  %1030 = getelementptr inbounds [32 x i32], ptr %5, i64 0, i64 %1029
+  %1030 = getelementptr inbounds nuw [32 x i32], ptr %5, i64 0, i64 %1029
   %1031 = load i32, ptr %1030, align 4
   %1032 = icmp sgt i32 %1028, %1031
   br i1 %1032, label %1033, label %1231

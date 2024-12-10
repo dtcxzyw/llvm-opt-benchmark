@@ -423,7 +423,7 @@ _ZN2cv3dnn14dnn4_v202405213NetaSERKS2_.exit:      ; preds = %_ZNSt16_Sp_counted_
   %66 = load ptr, ptr %6, align 8
   %67 = getelementptr i8, ptr %66, i64 -24
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 %68
   %70 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %69)
           to label %71 unwind label %77
 

@@ -6691,7 +6691,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds nuw [4 x i32], ptr %contactIdx, i64 0, i64 %indvars.iv
   %38 = load i32, ptr %arrayidx, align 4
   %idxprom71 = sext i32 %38 to i64
-  %arrayidx72 = getelementptr inbounds [1024 x %class.b3Vector3], ptr %contactsOut, i64 0, i64 %idxprom71
+  %arrayidx72 = getelementptr inbounds nuw [1024 x %class.b3Vector3], ptr %contactsOut, i64 0, i64 %idxprom71
   %arrayidx74 = getelementptr inbounds nuw [4 x %class.b3Vector3], ptr %arrayidx.i133, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx74, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx72, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_worldNormalOnB, ptr noundef nonnull align 16 dereferenceable(16) %hostNormal, i64 16, i1 false)
@@ -7246,7 +7246,7 @@ if.then59:                                        ; preds = %if.then49
   %retval.sroa.0.4.vec.insert.i.i3.i.i222 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i221, float %add4.i.i.i218, i64 1
   %vtxWorld.sroa.4.12.vec.insert = insertelement <2 x float> %retval.sroa.3.12.vec.insert.i.i4.i.i223, float %sub, i64 1
   %idxprom61 = sext i32 %numPoints.1 to i64
-  %arrayidx62 = getelementptr inbounds [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom61
+  %arrayidx62 = getelementptr inbounds nuw [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom61
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i222, ptr %arrayidx62, align 16
   %vtxWorld.sroa.4.0.arrayidx62.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx62, i64 8
   store <2 x float> %vtxWorld.sroa.4.12.vec.insert, ptr %vtxWorld.sroa.4.0.arrayidx62.sroa_idx, align 8
@@ -7320,7 +7320,7 @@ for.body97:                                       ; preds = %for.body97.preheade
   %arrayidx100 = getelementptr inbounds nuw [4 x i32], ptr %contactIdx, i64 0, i64 %indvars.iv371
   %82 = load i32, ptr %arrayidx100, align 4
   %idxprom101 = sext i32 %82 to i64
-  %arrayidx102 = getelementptr inbounds [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom101
+  %arrayidx102 = getelementptr inbounds nuw [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom101
   %arrayidx104 = getelementptr inbounds nuw [4 x %class.b3Vector3], ptr %arrayidx76, i64 0, i64 %indvars.iv371
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx104, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx102, i64 16, i1 false)
   %indvars.iv.next372 = add nuw nsw i64 %indvars.iv371, 1
@@ -11010,7 +11010,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx118 = getelementptr inbounds nuw [4 x i32], ptr %contactIdx, i64 0, i64 %indvars.iv
   %103 = load i32, ptr %arrayidx118, align 4
   %idxprom119 = sext i32 %103 to i64
-  %arrayidx120 = getelementptr inbounds %class.b3Vector3, ptr %localContactsOut, i64 %idxprom119
+  %arrayidx120 = getelementptr inbounds nuw %class.b3Vector3, ptr %localContactsOut, i64 %idxprom119
   %arrayidx122 = getelementptr inbounds nuw [4 x %class.b3Vector3], ptr %add.ptr, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx122, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx120, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11773,7 +11773,7 @@ if.then86:                                        ; preds = %if.then76
   %retval.sroa.0.4.vec.insert.i.i3.i.i266 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i2.i.i265, float %add4.i.i.i262, i64 1
   %vtxWorld.sroa.4.12.vec.insert = insertelement <2 x float> %retval.sroa.3.12.vec.insert.i.i4.i.i267, float %sub, i64 1
   %idxprom88 = sext i32 %numPoints.1 to i64
-  %arrayidx89 = getelementptr inbounds [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom88
+  %arrayidx89 = getelementptr inbounds nuw [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom88
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i3.i.i266, ptr %arrayidx89, align 16
   %vtxWorld.sroa.4.0.arrayidx89.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx89, i64 8
   store <2 x float> %vtxWorld.sroa.4.12.vec.insert, ptr %vtxWorld.sroa.4.0.arrayidx89.sroa_idx, align 8
@@ -11843,7 +11843,7 @@ for.body125:                                      ; preds = %for.body125.prehead
   %arrayidx128 = getelementptr inbounds nuw [4 x i32], ptr %contactIdx, i64 0, i64 %indvars.iv421
   %118 = load i32, ptr %arrayidx128, align 4
   %idxprom129 = sext i32 %118 to i64
-  %arrayidx130 = getelementptr inbounds [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom129
+  %arrayidx130 = getelementptr inbounds nuw [64 x %class.b3Vector3], ptr %contactPoints, i64 0, i64 %idxprom129
   %arrayidx132 = getelementptr inbounds nuw [4 x %class.b3Vector3], ptr %arrayidx104, i64 0, i64 %indvars.iv421
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx132, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx130, i64 16, i1 false)
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1

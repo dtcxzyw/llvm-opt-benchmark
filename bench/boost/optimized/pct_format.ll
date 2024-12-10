@@ -389,7 +389,7 @@ define noundef ptr @_ZN5boost4urls6detail11pct_vformatERKNS0_7grammar9lut_charsE
   %35 = sext i8 %24 to i32
   %36 = ashr i32 %35, 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr @.str, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr @.str, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 %39, ptr %33, align 1, !tbaa !10

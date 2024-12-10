@@ -16086,7 +16086,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %27 = tail call i32 @atoi(ptr nocapture noundef %.069.ph) #31
   %28 = add nsw i32 %.282.ph, 1
   %29 = sext i32 %.282.ph to i64
-  %30 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %29
   store i32 %27, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   store i8 44, ptr %.069, align 1
@@ -16096,7 +16096,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
   %33 = tail call i32 @atoi(ptr nocapture noundef %.069.ph) #31
   %34 = add nsw i32 %.282.ph, 1
   %35 = sext i32 %.282.ph to i64
-  %36 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %35
   store i32 %33, ptr %36, align 4
   br label %.outer301, !llvm.loop !85
 
@@ -16180,7 +16180,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
 
 72:                                               ; preds = %.lr.ph
   %73 = shl i64 %indvars.iv, 2
-  %74 = getelementptr inbounds [64 x i64], ptr %4, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %73
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
   %75 = trunc nsw i64 %indvars.iv.next218 to i32
   store i32 %75, ptr @globalUtilOptind, align 4
@@ -24196,7 +24196,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, 
 .lr.ph:                                           ; preds = %.preheader, %34
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
   %22 = add i64 %21, -1
-  %23 = getelementptr inbounds [1000 x i8], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 10
   br i1 %25, label %26, label %27
@@ -24208,7 +24208,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, 
 27:                                               ; preds = %26, %.lr.ph
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
   %29 = add i64 %28, -1
-  %30 = getelementptr inbounds [1000 x i8], ptr %4, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [1000 x i8], ptr %4, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 13
   br i1 %32, label %33, label %34

@@ -5387,7 +5387,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %3
 3116:                                             ; preds = %3113, %3109
   %3117 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu14fReadyOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 0)
   %3118 = load i64, ptr %3112, align 8
-  %3119 = getelementptr inbounds [2 x ptr], ptr %88, i64 0, i64 %3118
+  %3119 = getelementptr inbounds nuw [2 x ptr], ptr %88, i64 0, i64 %3118
   store ptr %3117, ptr %3119, align 8
   %3120 = load i64, ptr %3112, align 8
   %3121 = add i64 %3120, 1
@@ -5397,7 +5397,7 @@ _ZNK22DDBalanceRegionHandler29closeAfterForceComputationCpuEv.exit: ; preds = %3
 3122:                                             ; preds = %3116, %3113
   %3123 = call noundef ptr @_ZN3gmx22StatePropagatorDataGpu16fReducedOnDeviceENS_12AtomLocalityE(ptr noundef nonnull align 8 dereferenceable(8) %98, i32 noundef 1)
   %3124 = load i64, ptr %3112, align 8
-  %3125 = getelementptr inbounds [2 x ptr], ptr %88, i64 0, i64 %3124
+  %3125 = getelementptr inbounds nuw [2 x ptr], ptr %88, i64 0, i64 %3124
   store ptr %3123, ptr %3125, align 8
   %3126 = load i64, ptr %3112, align 8
   %3127 = add i64 %3126, 1

@@ -260,7 +260,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
 90:                                               ; preds = %85
   %91 = add nsw i32 %.0.i.i, 1
   %92 = sext i32 %.0.i.i to i64
-  %93 = getelementptr inbounds i32, ptr %5, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %92
   store i32 %80, ptr %93, align 4
   %94 = getelementptr inbounds nuw i8, ptr %.041.i.i, i64 32
   %95 = load ptr, ptr %94, align 8
@@ -293,7 +293,7 @@ Fxu_MatrixFindComplementSingle.exit:              ; preds = %47, %54
   %104 = load i32, ptr %.041.i.i, align 8
   %105 = add nsw i32 %.0.i.i, 1
   %106 = sext i32 %.0.i.i to i64
-  %107 = getelementptr inbounds i32, ptr %5, i64 %106
+  %107 = getelementptr inbounds nuw i32, ptr %5, i64 %106
   store i32 %104, ptr %107, align 4
   br label %.outer.backedge
 
@@ -662,7 +662,7 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 48:                                               ; preds = %43
   %49 = add nsw i32 %.0.i, 1
   %50 = sext i32 %.0.i to i64
-  %51 = getelementptr inbounds i32, ptr %7, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %7, i64 %50
   store i32 %38, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %.041.i, i64 32
   %53 = load ptr, ptr %52, align 8
@@ -697,7 +697,7 @@ Fxu_MatrixGetDoubleVars.exit.preheader:           ; preds = %60
   %62 = load i32, ptr %.041.i, align 8
   %63 = add nsw i32 %.0.i, 1
   %64 = sext i32 %.0.i to i64
-  %65 = getelementptr inbounds i32, ptr %7, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %7, i64 %64
   store i32 %62, ptr %65, align 4
   br label %.outer.backedge
 

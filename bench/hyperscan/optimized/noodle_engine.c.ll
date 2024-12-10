@@ -3054,7 +3054,7 @@ sw.bb37.i85:                                      ; preds = %if.then11
 partial_load_u64a.exit129:                        ; preds = %if.then11, %sw.bb37.i85, %sw.bb34.i87, %sw.bb27.i90, %sw.bb24.i97, %sw.bb17.i100, %sw.bb9.i107, %sw.bb1.i115, %sw.bb.i127
   %retval.i79.0 = phi i64 [ %conv38.i86, %sw.bb37.i85 ], [ %conv36.i89, %sw.bb34.i87 ], [ %or33.i96, %sw.bb27.i90 ], [ %conv26.i99, %sw.bb24.i97 ], [ %or23.i106, %sw.bb17.i100 ], [ %or16.i114, %sw.bb9.i107 ], [ %or8.i126, %sw.bb1.i115 ], [ %2, %sw.bb.i127 ], [ 0, %if.then11 ]
   store i64 %retval.i79.0, ptr %temp_buf, align 16
-  %add.ptr37 = getelementptr inbounds i8, ptr %temp_buf, i64 %sub.hlen
+  %add.ptr37 = getelementptr inbounds nuw i8, ptr %temp_buf, i64 %sub.hlen
   %conv38 = trunc i64 %cond30 to i32
   switch i32 %conv38, label %partial_load_u64a.exit [
     i32 8, label %sw.bb.i
@@ -3144,7 +3144,7 @@ for.body:                                         ; preds = %partial_load_u64a.e
   %28 = phi i8 [ %0, %partial_load_u64a.exit ], [ %33, %for.inc ]
   %conv421620 = phi i64 [ %conv, %partial_load_u64a.exit ], [ %conv42, %for.inc ]
   %i.01619 = phi i64 [ 0, %partial_load_u64a.exit ], [ %inc, %for.inc ]
-  %add.ptr47 = getelementptr inbounds i8, ptr %temp_buf, i64 %i.01619
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %temp_buf, i64 %i.01619
   %29 = load i64, ptr %add.ptr47, align 1
   %30 = load i64, ptr %msk, align 8
   %and = and i64 %30, %29

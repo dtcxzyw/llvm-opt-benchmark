@@ -8986,7 +8986,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %2042, %2036, %2013,
 
 2320:                                             ; preds = %2315
   %2321 = sext i32 %.2302.i.i.i to i64
-  %2322 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %2321
+  %2322 = getelementptr inbounds nuw [4 x double], ptr %11, i64 0, i64 %2321
   %2323 = load double, ptr %2322, align 8
   %2324 = fcmp olt double %.3321.i.i.i, 1.000000e-03
   br i1 %2324, label %2330, label %.preheader.i.i284.i

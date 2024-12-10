@@ -24129,7 +24129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228: ; preds = %if
   %335 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i229 = getelementptr i8, ptr %334, i64 -24
   %vbase.offset.i.i230 = load i64, ptr %vbase.offset.ptr.i.i229, align 8
-  %add.ptr.i.i231 = getelementptr inbounds i8, ptr %load_ss, i64 %vbase.offset.i.i230
+  %add.ptr.i.i231 = getelementptr inbounds nuw i8, ptr %load_ss, i64 %vbase.offset.i.i230
   store ptr %335, ptr %add.ptr.i.i231, align 8, !tbaa !30
   %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %add.ptr3.i.i = getelementptr inbounds nuw i8, ptr %load_ss, i64 16
@@ -24162,7 +24162,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %340, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i234 = getelementptr inbounds i8, ptr %load_ss, i64 %vbase.offset.i.i.i.i
+  %add.ptr.i.i.i.i234 = getelementptr inbounds nuw i8, ptr %load_ss, i64 %vbase.offset.i.i.i.i
   store ptr %341, ptr %add.ptr.i.i.i.i234, align 8, !tbaa !30
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %load_ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !805
@@ -24171,7 +24171,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %load_ss) #29
   store ptr %334, ptr %ss, align 8, !tbaa !30
   %vbase.offset.i.i237 = load i64, ptr %vbase.offset.ptr.i.i229, align 8
-  %add.ptr.i.i238 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i237
+  %add.ptr.i.i238 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i237
   store ptr %335, ptr %add.ptr.i.i238, align 8, !tbaa !30
   %add.ptr3.i.i239 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   store ptr %336, ptr %add.ptr3.i.i239, align 8, !tbaa !30
@@ -24200,7 +24200,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit252: ; preds
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i244) #29
   store ptr %340, ptr %ss, align 8, !tbaa !30
   %vbase.offset.i.i.i.i246 = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i247 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i246
+  %add.ptr.i.i.i.i247 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i.i.i246
   store ptr %341, ptr %add.ptr.i.i.i.i247, align 8, !tbaa !30
   %_M_gcount.i.i.i.i248 = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i248, align 8, !tbaa !805

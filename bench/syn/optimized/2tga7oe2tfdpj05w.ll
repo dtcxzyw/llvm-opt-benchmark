@@ -2846,7 +2846,7 @@ common.resume:                                    ; preds = %133, %138, %.body, 
   br i1 %92, label %110, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds [39 x i64], ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 0, i64 %.0..0..0..0..0..0..pr
+  %94 = getelementptr inbounds nuw [39 x i64], ptr @anon.0d61064958a3722eac33af85cae8cb19.49, i64 0, i64 %.0..0..0..0..0..0..pr
   %95 = load i64, ptr %94, align 8, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0, ptr nonnull align 8 %13, i64 %95, i1 false)
   %96 = icmp ne ptr %.sroa.565.076, null

@@ -6469,7 +6469,7 @@ define void @_ZN3vcg10trackutils14DrawUglyLetterEPNS_9TrackballESt6vectorINS_6Po
   %79 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %78
   %80 = shl i64 %indvars.iv.i.i.i, 2
   %81 = add nuw nsw i64 %80, %indvars.iv15.i.i.i
-  %82 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %81
   %83 = load float, ptr %79, align 4, !alias.scope !68
   %84 = load float, ptr %82, align 4, !alias.scope !68
   store float %84, ptr %79, align 4, !alias.scope !68
@@ -7320,7 +7320,7 @@ define void @_ZN3vcg10trackutils16DrawUglyAxisModeEPNS_9TrackballENS_5Line3IfLb0
   %19 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %18
   %20 = shl i64 %indvars.iv.i.i.i, 2
   %21 = add nuw nsw i64 %20, %indvars.iv15.i.i.i
-  %22 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %21
   %23 = load float, ptr %19, align 4, !alias.scope !117
   %24 = load float, ptr %22, align 4, !alias.scope !117
   store float %24, ptr %19, align 4, !alias.scope !117
@@ -7444,7 +7444,7 @@ define void @_ZN3vcg10trackutils17DrawUglyPlaneModeEPNS_9TrackballENS_6Plane3IfL
   %22 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %21
   %23 = shl i64 %indvars.iv.i.i.i, 2
   %24 = add nuw nsw i64 %23, %indvars.iv15.i.i.i
-  %25 = getelementptr inbounds [16 x float], ptr %6, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %24
   %26 = load float, ptr %22, align 4, !alias.scope !123
   %27 = load float, ptr %25, align 4, !alias.scope !123
   store float %27, ptr %22, align 4, !alias.scope !123
@@ -7723,7 +7723,7 @@ define void @_ZN3vcg10trackutils20DrawUglyCylinderModeEPNS_9TrackballENS_5Line3I
   %20 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %19
   %21 = shl i64 %indvars.iv.i.i.i, 2
   %22 = add nuw nsw i64 %21, %indvars.iv15.i.i.i
-  %23 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %22
   %24 = load float, ptr %20, align 4, !alias.scope !131
   %25 = load float, ptr %23, align 4, !alias.scope !131
   store float %25, ptr %20, align 4, !alias.scope !131
@@ -8054,7 +8054,7 @@ define void @_ZN3vcg10trackutils16DrawUglyPathModeEPNS_9TrackballERKSt6vectorINS
   %30 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %29
   %31 = shl i64 %indvars.iv.i.i.i, 2
   %32 = add nuw nsw i64 %31, %indvars.iv15.i.i.i
-  %33 = getelementptr inbounds [16 x float], ptr %14, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %32
   %34 = load float, ptr %30, align 4, !alias.scope !139
   %35 = load float, ptr %33, align 4, !alias.scope !139
   store float %35, ptr %30, align 4, !alias.scope !139
@@ -8182,7 +8182,7 @@ define void @_ZN3vcg10trackutils16DrawUglyAreaModeEPNS_9TrackballERKSt6vectorINS
   %32 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %31
   %33 = shl i64 %indvars.iv.i.i.i, 2
   %34 = add nuw nsw i64 %33, %indvars.iv15.i.i.i
-  %35 = getelementptr inbounds [16 x float], ptr %14, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [16 x float], ptr %14, i64 0, i64 %34
   %36 = load float, ptr %32, align 4, !alias.scope !146
   %37 = load float, ptr %35, align 4, !alias.scope !146
   store float %37, ptr %32, align 4, !alias.scope !146
@@ -10196,12 +10196,12 @@ define { <2 x float>, float } @_ZN3vcg8AreaMode4MoveENS_6Point3IfEES2_(ptr nocap
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %18
   %20 = load float, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %23
   %25 = load float, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10591,11 +10591,11 @@ _ZN3vcg27SegmentPointSquaredDistanceIfEEvRKNS_8Segment3IT_EERKNS_6Point3IS2_EERS
   store float %219, ptr %.sroa.2.0..sroa_idx.i77, align 8
   %220 = load i32, ptr %16, align 4
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %221
   %223 = load float, ptr %222, align 4
   %224 = load i32, ptr %21, align 8
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %225
+  %226 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %225
   %227 = load float, ptr %226, align 4
   %228 = load ptr, ptr %27, align 8
   %229 = load ptr, ptr %26, align 8
@@ -10789,12 +10789,12 @@ define noundef zeroext i1 @_ZN3vcg8AreaMode6InsideENS_6Point3IfEE(ptr nocapture 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %7
   %9 = load float, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %12
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11230,12 +11230,12 @@ define { <2 x float>, float } @_ZN3vcg8AreaMode12SetStartNearENS_6Point3IfEE(ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %30
   %32 = load float, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -14153,7 +14153,7 @@ _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %82 = getelementptr i8, ptr %80, i64 -24
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %7, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 %83
   store ptr %81, ptr %84, align 8, !tbaa !104
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %85, ptr %8, align 8, !tbaa !104
@@ -14187,7 +14187,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %99 = getelementptr i8, ptr %97, i64 -24
   %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %7, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 %100
   store ptr %98, ptr %101, align 8, !tbaa !104
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %102, align 8, !tbaa !321

@@ -135,7 +135,7 @@ define void @_Z16dd_move_f_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPN3g
   tail call void @_Z17dd_sendrecv2_rvecPK12gmx_domdec_tiPA3_fiS3_iS3_iS3_i(ptr noundef nonnull %0, i32 noundef %61, ptr noundef %43, i32 noundef %32, ptr noundef %39, i32 noundef %51, ptr noundef %41, i32 noundef %36, ptr noundef %52, i32 noundef %60)
   %62 = getelementptr inbounds [3 x i32], ptr %18, i64 0, i64 %26
   %63 = icmp eq i32 %25, 0
-  %64 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %26
+  %64 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %26
   %.idx = shl nuw nsw i64 %indvars.iv.next224, 6
   %invariant.op = or i64 %.idx, 8
   br label %65

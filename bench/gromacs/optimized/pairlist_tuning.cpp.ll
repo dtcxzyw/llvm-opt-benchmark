@@ -1507,14 +1507,14 @@ define void @_Z27setupDynamicPairlistPruningRKN3gmx8MDLoggerERK10t_inputrecRK10g
   store i8 0, ptr %42, align 1
   %43 = load i32, ptr %5, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %10, align 4
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %48 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %44
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %47, align 4
-  %50 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %44
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %44
   %51 = load i8, ptr %50, align 1
   %52 = trunc i8 %51 to i1
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -2720,11 +2720,11 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = load i32, ptr %4, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %6, align 4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %14 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %10
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %13, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2740,7 +2740,7 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
 24:                                               ; preds = %5
   %25 = load i32, ptr %4, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24

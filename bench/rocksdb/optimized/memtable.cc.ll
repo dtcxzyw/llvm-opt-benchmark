@@ -9134,7 +9134,7 @@ if.then22:                                        ; preds = %for.body
   %27 = load ptr, ptr %arrayidx.i.i.i, align 8
   %ukey_without_ts = getelementptr inbounds nuw i8, ptr %27, i64 32
   %conv = sext i32 %num_keys.0451 to i64
-  %arrayidx.i.i = getelementptr inbounds [32 x %"class.rocksdb::Slice"], ptr %bloom_keys, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x %"class.rocksdb::Slice"], ptr %bloom_keys, i64 0, i64 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ukey_without_ts, i64 16, i1 false)
   br label %for.inc.sink.split
 
@@ -9181,7 +9181,7 @@ invoke.cont44:                                    ; preds = %if.then36
   %34 = extractvalue { ptr, i64 } %call45, 0
   %35 = extractvalue { ptr, i64 } %call45, 1
   %conv46 = sext i32 %num_keys.0451 to i64
-  %arrayidx.i.i71 = getelementptr inbounds [32 x %"class.rocksdb::Slice"], ptr %bloom_keys, i64 0, i64 %conv46
+  %arrayidx.i.i71 = getelementptr inbounds nuw [32 x %"class.rocksdb::Slice"], ptr %bloom_keys, i64 0, i64 %conv46
   store ptr %34, ptr %arrayidx.i.i71, align 8
   %ref.tmp37.sroa.2.0.call47.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i71, i64 8
   store i64 %35, ptr %ref.tmp37.sroa.2.0.call47.sroa_idx, align 8
@@ -9190,7 +9190,7 @@ invoke.cont44:                                    ; preds = %if.then36
 for.inc.sink.split:                               ; preds = %invoke.cont44, %if.then22
   %conv.sink = phi i64 [ %conv, %if.then22 ], [ %conv46, %invoke.cont44 ]
   %inc = add nsw i32 %num_keys.0451, 1
-  %arrayidx.i.i62 = getelementptr inbounds [32 x i64], ptr %range_indexes, i64 0, i64 %conv.sink
+  %arrayidx.i.i62 = getelementptr inbounds nuw [32 x i64], ptr %range_indexes, i64 0, i64 %conv.sink
   store i64 %iter.sroa.6.0450, ptr %arrayidx.i.i62, align 8
   br label %for.inc
 

@@ -42,11 +42,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %16 = shl nuw i32 %.0, 1
   %17 = add nsw i32 %16, -2
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %16, -1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %.0, -1
   %26 = sub nsw i32 %24, %20
@@ -219,10 +219,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %92 = shl nuw i32 %91, 1
   %93 = add nsw i32 %92, -2
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %94
   %96 = add nsw i32 %92, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %97
   br i1 %90, label %99, label %100
 
 99:                                               ; preds = %86
@@ -285,10 +285,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %124 = shl nuw i32 %123, 1
   %125 = add nsw i32 %124, -2
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %126
   %128 = add nsw i32 %124, -1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [64 x i32], ptr %5, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [64 x i32], ptr %5, i64 0, i64 %129
   br i1 %122, label %131, label %132
 
 131:                                              ; preds = %118

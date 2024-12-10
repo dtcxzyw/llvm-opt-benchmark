@@ -1751,7 +1751,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hc8d11c107ac66d51E.exit.i.i.i.i": ; preds = %60
   %62 = add nsw i64 %61, -1
-  %63 = getelementptr inbounds [0 x i8], ptr %13, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [0 x i8], ptr %13, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1, !alias.scope !269, !noalias !270, !noundef !14
   %.not.i.not.i.i.i.i = icmp eq i8 %64, %40
   br i1 %.not.i.not.i.i.i.i, label %60, label %65

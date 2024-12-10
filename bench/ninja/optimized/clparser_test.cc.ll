@@ -4695,7 +4695,7 @@ define dso_local void @_ZN47CLParserTest_DuplicatedHeaderPathConverted_Test8Test
 
 .noexc34:                                         ; preds = %.noexc
   %28 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #13
-  %29 = getelementptr inbounds i8, ptr %5, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %5, ptr noundef nonnull %29)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %30
 

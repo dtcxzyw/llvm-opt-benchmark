@@ -200,7 +200,7 @@ define noundef nonnull ptr @Ndr_ObjWriteConstant(ptr nocapture noundef readonly 
   %14 = and i8 %13, 1
   %15 = or disjoint i8 %14, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
   %17 = icmp samesign ugt i32 %.07.in8, 1
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -209,7 +209,7 @@ define noundef nonnull ptr @Ndr_ObjWriteConstant(ptr nocapture noundef readonly 
   %.0.lcssa.in = phi i64 [ %4, %2 ], [ %indvars.iv.next, %.lr.ph ]
   %sext11 = shl i64 %.0.lcssa.in, 32
   %18 = ashr exact i64 %sext11, 32
-  %19 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %18
   store i8 0, ptr %19, align 1
   ret ptr @Ndr_ObjWriteConstant.Buffer
 }
@@ -462,7 +462,7 @@ Wlc_ObjFanins.exit:                               ; preds = %.critedge4
   %111 = and i8 %110, 1
   %112 = or disjoint i8 %111, 48
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %113 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %indvars.iv.i
   store i8 %112, ptr %113, align 1
   %114 = icmp samesign ugt i32 %.07.in8.i, 1
   br i1 %114, label %.lr.ph.i, label %Ndr_ObjWriteConstant.exit, !llvm.loop !4
@@ -470,7 +470,7 @@ Wlc_ObjFanins.exit:                               ; preds = %.critedge4
 Ndr_ObjWriteConstant.exit:                        ; preds = %.lr.ph.i
   %sext11.i = shl i64 %indvars.iv.next.i, 32
   %115 = ashr exact i64 %sext11.i, 32
-  %116 = getelementptr inbounds [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [10000 x i8], ptr @Ndr_ObjWriteConstant.Buffer, i64 0, i64 %115
   store i8 0, ptr %116, align 1
   %.pre129 = load i16, ptr %47, align 8
   br label %117

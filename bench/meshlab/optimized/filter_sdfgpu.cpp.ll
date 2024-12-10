@@ -19768,7 +19768,7 @@ _ZN10GPUProgram19setUniformMatrix4fvERKNSt7__cxx1112basic_stringIcSt11char_trait
   %160 = getelementptr inbounds nuw [16 x float], ptr %24, i64 0, i64 %159
   %161 = shl i64 %indvars.iv.i.i, 2
   %162 = add nuw nsw i64 %161, %indvars.iv15.i.i
-  %163 = getelementptr inbounds [16 x float], ptr %24, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [16 x float], ptr %24, i64 0, i64 %162
   %164 = load float, ptr %160, align 4
   %165 = load float, ptr %163, align 4
   store float %165, ptr %160, align 4

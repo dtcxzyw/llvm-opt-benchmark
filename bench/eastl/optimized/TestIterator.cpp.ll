@@ -2385,7 +2385,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i.i: ; preds = %for.inc486
   %164 = load ptr, ptr %s8, align 8
   %add.ptr.i.i.i.i922 = getelementptr inbounds i8, ptr %164, i64 %161
   %sub.i.i.i16.i.i = sub nsw i64 23, %163
-  %add.ptr.i1.i.i.i923 = getelementptr inbounds i8, ptr %s8, i64 %sub.i.i.i16.i.i
+  %add.ptr.i1.i.i.i923 = getelementptr inbounds nuw i8, ptr %s8, i64 %sub.i.i.i16.i.i
   %cond.i17.i.i = select i1 %tobool.i.i13.i.i, ptr %add.ptr.i.i.i.i922, ptr %add.ptr.i1.i.i.i923
   store i8 97, ptr %cond.i17.i.i, align 1
   %cond.i17.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.i.i13.i.i, ptr %add.ptr.i.i.i.i922, ptr %add.ptr.i1.i.i.i923
@@ -2440,7 +2440,7 @@ _ZN5eastl28CharStringUninitializedFillNEPcmc.exit.i.i940: ; preds = %.noexc958, 
   %add.ptr.i.i.i.i942 = getelementptr inbounds i8, ptr %173, i64 %171
   %conv.i.i.i15.i.i943 = zext nneg i8 %172 to i64
   %sub.i.i.i16.i.i944 = sub nsw i64 23, %conv.i.i.i15.i.i943
-  %add.ptr.i1.i.i.i945 = getelementptr inbounds i8, ptr %s8, i64 %sub.i.i.i16.i.i944
+  %add.ptr.i1.i.i.i945 = getelementptr inbounds nuw i8, ptr %s8, i64 %sub.i.i.i16.i.i944
   %cond.i17.i.i946 = select i1 %tobool.i.i13.i.i941, ptr %add.ptr.i.i.i.i942, ptr %add.ptr.i1.i.i.i945
   store i8 98, ptr %cond.i17.i.i946, align 1
   %cond.i17.i.i946.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.i.i13.i.i941, ptr %add.ptr.i.i.i.i942, ptr %add.ptr.i1.i.i.i945
@@ -2470,7 +2470,7 @@ invoke.cont491:                                   ; preds = %cond.false.i.i.i949
   %add.ptr.i.i.i964 = getelementptr inbounds i8, ptr %178, i64 %176
   %conv.i.i.i.i965 = zext nneg i8 %177 to i64
   %sub.i.i.i.i966 = sub nsw i64 23, %conv.i.i.i.i965
-  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %s8, i64 %sub.i.i.i.i966
+  %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %s8, i64 %sub.i.i.i.i966
   %cond.i.i = select i1 %tobool.i.i.i961, ptr %add.ptr.i.i.i964, ptr %add.ptr.i1.i.i
   %cmp498.not1362 = icmp eq ptr %spec.select.i.i, %cond.i.i
   br i1 %cmp498.not1362, label %for.end508, label %for.body499

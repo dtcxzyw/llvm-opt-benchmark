@@ -2264,7 +2264,7 @@ define void @Gia_ManPrintPackingStats(ptr nocapture noundef readonly %0) local_u
   %11 = getelementptr inbounds i32, ptr %.val41, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -2460,7 +2460,7 @@ Gia_ManLutSizeMax.exit:                           ; preds = %15
   %25 = getelementptr inbounds i32, ptr %.val11.val, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [33 x i32], ptr %2, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [33 x i32], ptr %2, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -6766,7 +6766,7 @@ default.unreachable:                              ; preds = %.lr.ph232
   %.1108.ph = phi i32 [ %.0107230, %233 ], [ %.0107230, %237 ], [ %236, %235 ]
   %.1.ph = phi i32 [ %234, %233 ], [ %.0106231, %237 ], [ %.0106231, %235 ]
   %239 = sext i32 %.0106231.sink to i64
-  %240 = getelementptr inbounds [15 x i32], ptr %.sink289, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [15 x i32], ptr %.sink289, i64 0, i64 %239
   store i32 %.1112228, ptr %240, align 4
   br label %241
 
@@ -8989,10 +8989,10 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %80 = icmp sgt i32 %58, 0
   %81 = shl nuw i32 1, %69
   %82 = sext i8 %68 to i64
-  %83 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %82
   %84 = zext nneg i32 %81 to i64
   %wide.trip.count61.i = zext nneg i32 %58 to i64
-  %85 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %82
   %86 = getelementptr i8, ptr %4, i64 4
   %87 = getelementptr i8, ptr %3, i64 8
   %.phi.trans.insert.i133 = getelementptr i8, ptr %4, i64 8
@@ -9163,7 +9163,7 @@ Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i, %
   %149 = add nsw i32 %147, -6
   %150 = shl nuw i32 1, %149
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i64, ptr %9, i64 %151
+  %152 = getelementptr inbounds nuw i64, ptr %9, i64 %151
   %smax55.i.i = call i32 @llvm.smax.i32(i32 %150, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
   br i1 %148, label %Abc_TtHasVar.exit.us.preheader.i, label %.lr.ph.split.i
@@ -9195,7 +9195,7 @@ Abc_TtHasVar.exit.thread29.us.i:                  ; preds = %Abc_TtHasVar.exit.u
 164:                                              ; preds = %Abc_TtHasVar.exit.thread29.us.i
   %165 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv71.i
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i32, ptr %10, i64 %162
+  %167 = getelementptr inbounds nuw i32, ptr %10, i64 %162
   store i32 %166, ptr %167, align 4
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %147, i32 noundef %.037.us.i, i32 noundef %154)
   br label %168
@@ -9294,7 +9294,7 @@ Abc_TtHasVar.exit.thread29.i:                     ; preds = %177, %191
 199:                                              ; preds = %Abc_TtHasVar.exit.thread29.i
   %200 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i125
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i32, ptr %10, i64 %197
+  %202 = getelementptr inbounds nuw i32, ptr %10, i64 %197
   store i32 %201, ptr %202, align 4
   %203 = trunc nuw nsw i64 %indvars.iv.i125 to i32
   call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %9, i32 noundef %147, i32 noundef %.037.i, i32 noundef %203)
@@ -10316,7 +10316,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %.lr.ph18
 96:                                               ; preds = %.lr.ph74.i.i
   %97 = add nsw i32 %.04173.i.i, 1
   %98 = sext i32 %.04173.i.i to i64
-  %99 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %98
   store i32 %.14372.i.i, ptr %99, align 4
   br label %100
 
@@ -10337,7 +10337,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %.lr.ph18
 104:                                              ; preds = %.lr.ph77.i.i
   %105 = add nsw i32 %.276.i.i, 1
   %106 = sext i32 %.276.i.i to i64
-  %107 = getelementptr inbounds [12 x i32], ptr %10, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %106
   store i32 %.24475.i.i, ptr %107, align 4
   br label %108
 
@@ -16134,7 +16134,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef 
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %67 = sext i32 %spec.select117 to i64
-  %68 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, -1
   %71 = sext i32 %62 to i64
@@ -16246,7 +16246,7 @@ define internal fastcc i64 @Abc_TtDeriveBiDecOne(ptr nocapture noundef nonnull r
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %2, 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr @Abc_TtBitCount8, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp samesign ult i32 %1, 7
   %16 = add nsw i32 %1, -6
@@ -16269,7 +16269,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.preheader.
 .lr.ph:                                           ; preds = %Abc_TtCopy.exit
   %21 = icmp eq i32 %.fr83.i, 1
   %22 = sext i32 %.fr83.i to i64
-  %23 = getelementptr inbounds i64, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %6, i64 %22
   %wide.trip.count59.i.i = zext nneg i32 %.fr83.i to i64
   %24 = getelementptr inbounds nuw i64, ptr %6, i64 %wide.trip.count59.i.i
   %wide.trip.count32 = zext nneg i32 %1 to i64
@@ -16490,7 +16490,7 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %48, 
 
 .lr.ph61.i:                                       ; preds = %107, %41
   %108 = sext i32 %.fr83.i to i64
-  %109 = getelementptr inbounds i64, ptr %6, i64 %108
+  %109 = getelementptr inbounds nuw i64, ptr %6, i64 %108
   %wide.trip.count72.i.i = zext nneg i32 %.fr83.i to i64
   br i1 %19, label %.lr.ph61.split.us.split.us.preheader.i, label %Abc_TtShrink.exit
 
@@ -16590,7 +16590,7 @@ Abc_TtExist.exit:                                 ; preds = %.lr.ph.i19.i, %48, 
 .lr.ph64.i.us.us.us.us.i:                         ; preds = %.lr.ph.us.us.i
   %140 = trunc nsw i64 %indvars.iv.next104.i to i32
   %141 = shl nuw nsw i32 1, %140
-  %142 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next104.i
+  %142 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next104.i
   %143 = load i64, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %145 = load i64, ptr %144, align 8

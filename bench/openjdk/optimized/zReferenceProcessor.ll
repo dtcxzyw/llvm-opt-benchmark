@@ -1562,7 +1562,7 @@ _ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit: ; pr
 switch.lookup:                                    ; preds = %54
   %switch.tableidx = add nsw i8 %24, -1
   %56 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN19ZReferenceProcessor30process_worker_discovered_listE8zaddress.1, i64 0, i64 %56
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN19ZReferenceProcessor30process_worker_discovered_listE8zaddress.1, i64 0, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %.041, ptr noundef nonnull %switch.load)
   br label %57

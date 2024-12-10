@@ -1224,7 +1224,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit81.cont: ; preds = %_ZN5Yosys
   %183 = load ptr, ptr %10, align 8
   %184 = getelementptr i8, ptr %183, i64 -24
   %185 = load i64, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %10, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 %185
   %187 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %186)
           to label %188 unwind label %197
 

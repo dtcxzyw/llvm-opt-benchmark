@@ -384,7 +384,7 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   %16 = add nsw i32 %1, 6
   %17 = mul nsw i32 %16, 3
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader61, label %33
@@ -478,7 +478,7 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %33, %.preheader61
   %49 = sext i32 %7 to i64
-  %50 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %49
   %51 = load i32, ptr %50, align 16
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %151
@@ -493,8 +493,8 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   %57 = mul nsw i32 %56, 3
   %58 = or disjoint i32 %57, 3
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %13, i64 %59
-  %61 = getelementptr inbounds i32, ptr %14, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %13, i64 %59
+  %61 = getelementptr inbounds nuw i32, ptr %14, i64 %59
   %62 = icmp sgt i32 %2, 0
   br i1 %62, label %.lr.ph117.i, label %selfguided_restoration_fast_internal.exit
 
@@ -650,8 +650,8 @@ selfguided_restoration_fast_internal.exit:        ; preds = %.loopexit109.us.i, 
   %159 = mul nsw i32 %158, 3
   %160 = or disjoint i32 %159, 3
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i32, ptr %11, i64 %161
-  %163 = getelementptr inbounds i32, ptr %12, i64 %161
+  %162 = getelementptr inbounds nuw i32, ptr %11, i64 %161
+  %163 = getelementptr inbounds nuw i32, ptr %12, i64 %161
   %164 = icmp sgt i32 %2, 0
   %165 = icmp sgt i32 %1, 0
   %or.cond.i = and i1 %165, %164
@@ -772,7 +772,7 @@ define hidden void @av1_apply_selfguided_restoration_c(ptr noundef %0, i32 nound
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 646352
   %13 = tail call i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef nonnull %12, i32 noundef %1, i32 noundef %4, i32 noundef %9, i32 noundef %10)
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
@@ -1235,7 +1235,7 @@ define hidden void @av1_loop_restoration_filter_unit(ptr nocapture noundef reado
   %68 = zext i1 %67 to i32
   %69 = or disjoint i32 %66, %68
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [4 x ptr], ptr @stripe_filters, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [4 x ptr], ptr @stripe_filters, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = lshr i32 64, %6
   %74 = icmp sgt i32 %22, 0
@@ -2808,7 +2808,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -2147483642, -2147483648) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) unnamed_addr #9 {
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %11
   %13 = zext nneg i32 %6 to i64
   %14 = getelementptr inbounds nuw [2 x i32], ptr %12, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4

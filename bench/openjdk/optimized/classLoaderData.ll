@@ -7051,7 +7051,7 @@ _ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit: ; preds = %23, %32
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI16VerifyOopClosureE6_tableE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI16VerifyOopClosureE6_tableE, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i9) #17
   br label %40

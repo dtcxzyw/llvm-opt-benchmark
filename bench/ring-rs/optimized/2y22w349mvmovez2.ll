@@ -1640,7 +1640,7 @@ define void @_ZN4ring6digest20sha256_format_output17hab5dd42d6f6973e2E(ptr noali
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.01.018.i.i.i.i
   %8 = load i32, ptr %7, align 4, !alias.scope !243, !noalias !262, !noundef !16
   %9 = shl i64 %.sroa.01.018.i.i.i.i, 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
   %11 = call noundef i32 @llvm.bswap.i32(i32 %8)
   %12 = add nuw nsw i64 %.sroa.01.018.i.i.i.i, 1
   store i32 %11, ptr %10, align 1, !alias.scope !274, !noalias !278
@@ -1681,7 +1681,7 @@ define void @_ZN4ring6digest20sha512_format_output17h84fc89429f17e182E(ptr noali
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.01.017.i.i.i.i
   %8 = load i64, ptr %7, align 8, !alias.scope !284, !noalias !303, !noundef !16
   %9 = shl i64 %.sroa.01.017.i.i.i.i, 3
-  %10 = getelementptr inbounds i8, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
   %11 = call noundef i64 @llvm.bswap.i64(i64 %8)
   %12 = add nuw nsw i64 %.sroa.01.017.i.i.i.i, 1
   store i64 %11, ptr %10, align 1, !alias.scope !315, !noalias !319
@@ -2026,7 +2026,7 @@ _ZN4ring6digest6digest17h65e41761f4534fd5E.exit:  ; preds = %18
 .lr.ph:                                           ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit", %.lr.ph
   %.sroa.8.042 = phi i64 [ %50, %.lr.ph ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit" ]
   %50 = add nuw i64 %.sroa.8.042, 1
-  %51 = getelementptr inbounds i8, ptr %11, i64 %.sroa.8.042
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.8.042
   %52 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.8.042
   %53 = load i8, ptr %52, align 1, !noundef !16
   %54 = load i8, ptr %51, align 1, !noundef !16

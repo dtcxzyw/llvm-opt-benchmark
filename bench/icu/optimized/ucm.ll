@@ -3651,9 +3651,9 @@ for.end.thread:                                   ; preds = %ucm_addMappingFromL
 
 if.end5:                                          ; preds = %if.end5.lr.ph, %for.cond.backedge
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line)
-  %strchr = getelementptr inbounds i8, ptr %line, i64 %strlen
-  %cmp12 = icmp sgt i64 %strlen, 0
-  br i1 %cmp12, label %land.rhs, label %while.end
+  %strchr = getelementptr inbounds nuw i8, ptr %line, i64 %strlen
+  %cmp12.not = icmp eq i64 %strlen, 0
+  br i1 %cmp12.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end5, %while.body
   %end.013 = phi ptr [ %add.ptr, %while.body ], [ %strchr, %if.end5 ]

@@ -1316,7 +1316,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit489.us: ; preds = %e
   %mul13.i.i458.us = fmul float %102, %107
   store float %mul13.i.i458.us, ptr %spec.select76.sroa.sel763.sroa.sel826.us.pre-phi, align 4
   %idxprom211.us = sext i32 %86 to i64
-  %arrayidx212.us = getelementptr inbounds float, ptr %vertices, i64 %idxprom211.us
+  %arrayidx212.us = getelementptr inbounds nuw float, ptr %vertices, i64 %idxprom211.us
   %108 = load float, ptr %arrayidx212.us, align 4
   %arrayidx217.us = getelementptr inbounds float, ptr %arrayidx202, i64 %idxprom211.us
   %109 = load float, ptr %arrayidx217.us, align 4
@@ -1736,7 +1736,7 @@ _ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3.exit258.us: ; preds = %e
   %mul13.i.i227.us = fmul float %201, %206
   store float %mul13.i.i227.us, ptr %spec.select76.sroa.sel.sroa.sel709.us.pre-phi, align 4
   %idxprom143.us = sext i32 %185 to i64
-  %arrayidx144.us = getelementptr inbounds float, ptr %vertices, i64 %idxprom143.us
+  %arrayidx144.us = getelementptr inbounds nuw float, ptr %vertices, i64 %idxprom143.us
   %207 = load float, ptr %arrayidx144.us, align 4
   %arrayidx149.us = getelementptr inbounds float, ptr %arrayidx202, i64 %idxprom143.us
   %208 = load float, ptr %arrayidx149.us, align 4
@@ -4090,7 +4090,7 @@ land.lhs.true:                                    ; preds = %if.then9
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %18 = load i32, ptr %arrayidx30, align 4
   %idxprom = sext i32 %18 to i64
-  %arrayidx31 = getelementptr inbounds float, ptr %exitPos, i64 %idxprom
+  %arrayidx31 = getelementptr inbounds nuw float, ptr %exitPos, i64 %idxprom
   %19 = load float, ptr %arrayidx31, align 4
   %cmp33 = fcmp ogt float %19, %chunk.sroa.3.0.copyload
   br i1 %cmp33, label %return, label %if.end35
@@ -4105,7 +4105,7 @@ land.lhs.true39:                                  ; preds = %if.end35
   %arrayidx42 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %21 = load i32, ptr %arrayidx42, align 4
   %idxprom43 = sext i32 %21 to i64
-  %arrayidx44 = getelementptr inbounds float, ptr %exitPos, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds nuw float, ptr %exitPos, i64 %idxprom43
   %22 = load float, ptr %arrayidx44, align 4
   %cmp46 = fcmp olt float %22, %chunk.sroa.0.0.copyload
   br i1 %cmp46, label %return, label %if.end50

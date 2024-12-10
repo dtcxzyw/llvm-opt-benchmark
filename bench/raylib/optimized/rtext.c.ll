@@ -1892,12 +1892,12 @@ define void @LoadFontFromImage(ptr dead_on_unwind noalias nocapture writable wri
   br i1 %.not193.us, label %.critedge.us, label %.critedge190.us
 
 .critedge190.us:                                  ; preds = %119, %115, %111, %105
-  %123 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %indvars.iv296
+  %123 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv296
   %124 = trunc i64 %indvars.iv296 to i32
   %125 = add i32 %3, %124
   store i32 %125, ptr %123, align 4
   %126 = sitofp i32 %.1180259.us to float
-  %127 = getelementptr inbounds [256 x %struct.Rectangle], ptr %6, i64 0, i64 %indvars.iv296
+  %127 = getelementptr inbounds nuw [256 x %struct.Rectangle], ptr %6, i64 0, i64 %indvars.iv296
   store float %126, ptr %127, align 16
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store float %103, ptr %128, align 4
@@ -9160,7 +9160,7 @@ define noundef nonnull ptr @TextFormat(ptr nocapture noundef readonly %0, ...) l
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i32, ptr @TextFormat.index, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [4 x [1024 x i8]], ptr @TextFormat.buffers, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x [1024 x i8]], ptr @TextFormat.buffers, i64 0, i64 %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %6 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %2) #41
@@ -10589,7 +10589,7 @@ TextLength.exit:                                  ; preds = %.lr.ph.i, %3, %.pre
 
 ._crit_edge:                                      ; preds = %11, %TextLength.exit
   %16 = sext i32 %.1 to i64
-  %17 = getelementptr inbounds i8, ptr @TextSubtext.buffer, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @TextSubtext.buffer, i64 %16
   store i8 0, ptr %17, align 1
   ret ptr @TextSubtext.buffer
 }
@@ -10982,7 +10982,7 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly %0, i8 noundef signex
   store i8 0, ptr %6, align 1
   %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @TextSplit.buffer, i64 1), i64 %indvars.iv
   %11 = sext i32 %.120 to i64
-  %12 = getelementptr inbounds [128 x ptr], ptr @TextSplit.result, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [128 x ptr], ptr @TextSplit.result, i64 0, i64 %11
   store ptr %gep, ptr %12, align 8
   %13 = add nsw i32 %.120, 1
   %14 = icmp eq i32 %13, 128
@@ -13932,7 +13932,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 90:                                               ; preds = %89
   %91 = sext i32 %.2244 to i64
-  %92 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %91
   %93 = load float, ptr %92, align 4
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef %93, float noundef 0.000000e+00)
   %94 = add nsw i32 %.2244, 1
@@ -13945,7 +13945,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 96:                                               ; preds = %95
   %97 = sext i32 %.1243 to i64
-  %98 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %97
   %99 = load float, ptr %98, align 4
   tail call fastcc void @stbtt__csctx_rline_to(ptr noundef %2, float noundef 0.000000e+00, float noundef %99)
   %100 = add nsw i32 %.1243, 1
@@ -13967,18 +13967,18 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 107:                                              ; preds = %105
   %108 = sext i32 %.4 to i64
-  %109 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = add nsw i32 %.4, 1
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %112
   %114 = load float, ptr %113, align 4
   %115 = add nsw i32 %.4, 2
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %116
   %118 = load float, ptr %117, align 4
   %119 = sext i32 %106 to i64
-  %120 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %119
   %121 = load float, ptr %120, align 4
   %122 = sub nsw i32 %.0239438, %.4
   %123 = icmp eq i32 %122, 5
@@ -13987,7 +13987,7 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 125:                                              ; preds = %107
   %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %126
   %128 = load float, ptr %127, align 4
   br label %._crit_edge500
 
@@ -14004,15 +14004,15 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 132:                                              ; preds = %130
   %133 = sext i32 %.3 to i64
-  %134 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %133
   %135 = load float, ptr %134, align 4
   %136 = add nsw i32 %.3, 1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %137
   %139 = load float, ptr %138, align 4
   %140 = add nsw i32 %.3, 2
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %141
   %143 = load float, ptr %142, align 4
   %144 = sub nsw i32 %.0239438, %.3
   %145 = icmp eq i32 %144, 5
@@ -14021,14 +14021,14 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_get8.exi
 
 147:                                              ; preds = %132
   %148 = sext i32 %146 to i64
-  %149 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %148
   %150 = load float, ptr %149, align 4
   br label %._crit_edge501
 
 ._crit_edge501:                                   ; preds = %132, %147
   %151 = phi float [ %150, %147 ], [ 0.000000e+00, %132 ]
   %152 = sext i32 %131 to i64
-  %153 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %152
   %154 = load float, ptr %153, align 4
   tail call fastcc void @stbtt__csctx_rccurve_to(ptr noundef %2, float noundef %135, float noundef 0.000000e+00, float noundef %139, float noundef %143, float noundef %151, float noundef %154)
   br label %105
@@ -14403,7 +14403,7 @@ stbtt__cid_get_glyph_subrs.exit:                  ; preds = %stbtt__buf_get.exit
 348:                                              ; preds = %341
   %349 = add nsw i32 %.0237441, 1
   %350 = sext i32 %.0237441 to i64
-  %351 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %350
+  %351 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %5, i64 0, i64 %350
   store ptr %.sroa.0.0380434, ptr %351, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i64 %.sroa.8.8.insert.insert312, ptr %.sroa.8.0..sroa_idx, align 8
@@ -14823,7 +14823,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 540:                                              ; preds = %538
   %541 = add nsw i32 %.0239438, 1
   %542 = sext i32 %.0239438 to i64
-  %543 = getelementptr inbounds [48 x float], ptr %4, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw [48 x float], ptr %4, i64 0, i64 %542
   store float %.2251, ptr %543, align 4
   br label %.thread
 

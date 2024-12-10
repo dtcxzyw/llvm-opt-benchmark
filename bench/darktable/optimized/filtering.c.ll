@@ -9020,7 +9020,7 @@ define internal noundef range(i32 0, 2) i32 @_local_copy_update(ptr noundef %0) 
   %51 = load ptr, ptr %4, align 8, !tbaa !6
   %52 = call i32 @sqlite3_column_int(ptr noundef %51, i32 noundef 1) #21
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %53
   store i32 %52, ptr %54, align 4, !tbaa !65
   %55 = load ptr, ptr %4, align 8, !tbaa !6
   %56 = call i32 @sqlite3_step(ptr noundef %55) #21
@@ -9223,7 +9223,7 @@ define internal noundef range(i32 0, 2) i32 @_history_update(ptr noundef %0) #1 
   %54 = load ptr, ptr %4, align 8, !tbaa !6
   %55 = call i32 @sqlite3_column_int(ptr noundef %54, i32 noundef 1) #21
   %56 = sext i32 %53 to i64
-  %57 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %56
   store i32 %55, ptr %57, align 4, !tbaa !65
   %58 = load ptr, ptr %4, align 8, !tbaa !6
   %59 = call i32 @sqlite3_step(ptr noundef %58) #21
@@ -9488,7 +9488,7 @@ define internal noundef range(i32 0, 2) i32 @_module_order_update(ptr noundef %0
 
 64:                                               ; preds = %60, %.preheader
   %65 = phi i64 [ %63, %60 ], [ 4, %.preheader ]
-  %66 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %65
   store i32 %56, ptr %66, align 4, !tbaa !65
   %67 = load ptr, ptr %4, align 8, !tbaa !6
   %68 = call i32 @sqlite3_step(ptr noundef %67) #21

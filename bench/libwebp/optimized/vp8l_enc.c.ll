@@ -542,7 +542,7 @@ GetHistoBits.exit.i:                              ; preds = %52
 
 319:                                              ; preds = %.preheader121.i
   %320 = sext i32 %318 to i64
-  %321 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %320
+  %321 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %320
   store i32 %.0107125.i, ptr %321, align 4
   %322 = sext i32 %.4 to i64
   %323 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %322, i32 1
@@ -559,7 +559,7 @@ GetHistoBits.exit.i:                              ; preds = %52
 
 328:                                              ; preds = %316
   %329 = sext i32 %315 to i64
-  %330 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %329
+  %330 = getelementptr inbounds nuw %struct.CrunchConfig, ptr %6, i64 %329
   store i32 %.0107125.i, ptr %330, align 4
   %331 = sext i32 %.2192 to i64
   %332 = getelementptr inbounds %struct.CrunchConfig, ptr %6, i64 %331, i32 1
@@ -699,7 +699,7 @@ EncoderInit.exit:                                 ; preds = %365
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %377 ]
   %378 = getelementptr inbounds nuw [14 x %struct.CrunchConfig], ptr %374, i64 0, i64 %indvars.iv
   %379 = add nsw i64 %indvars.iv, %376
-  %380 = getelementptr inbounds [14 x %struct.CrunchConfig], ptr %6, i64 0, i64 %379
+  %380 = getelementptr inbounds nuw [14 x %struct.CrunchConfig], ptr %6, i64 0, i64 %379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %378, ptr noundef nonnull align 4 dereferenceable(28) %380, i64 28, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1735,7 +1735,7 @@ SearchColorGreedy.exit.i.i:                       ; preds = %244, %241, %238, %.
 338:                                              ; preds = %335
   %339 = call i32 @SearchColorNoIdx(ptr noundef nonnull %9, i32 noundef %337, i32 noundef %195) #8
   %340 = sext i32 %339 to i64
-  %341 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %340
+  %341 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %340
   %342 = load i32, ptr %341, align 4
   br label %343
 
@@ -3595,7 +3595,7 @@ define internal fastcc void @StoreHuffmanCode(ptr noundef %0, ptr noundef nonnul
 
 21:                                               ; preds = %19
   %22 = sext i32 %.03051 to i64
-  %23 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %22
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   br label %25
@@ -4488,13 +4488,13 @@ WriteHuffmanCodeWithExtraBits.exit:               ; preds = %VP8LPrefixEncode.ex
 
 135:                                              ; preds = %WriteHuffmanCodeWithExtraBits.exit
   %136 = sext i32 %.val92 to i64
-  %137 = getelementptr inbounds [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [512 x %struct.VP8LPrefixCode], ptr @kPrefixEncodeCode, i64 0, i64 %136
   %.sroa.0.0.copyload.i101 = load i8, ptr %137, align 2
   %.sroa.2.0..sroa_idx.i102 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %.sroa.2.0.copyload.i103 = load i8, ptr %.sroa.2.0..sroa_idx.i102, align 1
   %138 = sext i8 %.sroa.0.0.copyload.i101 to i32
   %139 = sext i8 %.sroa.2.0.copyload.i103 to i32
-  %140 = getelementptr inbounds [512 x i8], ptr @kPrefixEncodeExtraBitsValue, i64 0, i64 %136
+  %140 = getelementptr inbounds nuw [512 x i8], ptr @kPrefixEncodeExtraBitsValue, i64 0, i64 %136
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i32
   br label %VP8LPrefixEncode.exit104

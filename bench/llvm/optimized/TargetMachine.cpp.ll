@@ -803,7 +803,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %2 = load i32, ptr %1, align 4
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZNK4llvm13TargetMachine14getMaxCodeSizeEv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZNK4llvm13TargetMachine14getMaxCodeSizeEv, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

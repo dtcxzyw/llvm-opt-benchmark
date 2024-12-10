@@ -332,7 +332,7 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp55.i = icmp eq ptr %15, %13
   br i1 %cmp55.i, label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end
@@ -957,7 +957,7 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %init.end.i
-  %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
   %20 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp55.i = icmp ne ptr %20, %18
   %cmp10 = icmp slt i8 %19, 0

@@ -379,7 +379,7 @@ define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11cha
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   %9 = invoke noundef signext i32 @_ZNSt9basic_iosIwSt11char_traitsIwEE4fillEw(ptr noundef nonnull align 8 dereferenceable(264) %8, i32 noundef signext 48)
           to label %.preheader unwind label %.loopexit.split-lp
 
@@ -403,7 +403,7 @@ define void @_ZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11cha
 15:                                               ; preds = %13
   %16 = select i1 %12, i32 32, i32 %10
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [33 x ptr], ptr @_ZZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11char_traitsIwEEE15ascii_nongraphs, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [33 x ptr], ptr @_ZZN5ZXing18EscapeNonGraphicalB5cxx11ESt17basic_string_viewIwSt11char_traitsIwEEE15ascii_nongraphs, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIwSt11char_traitsIwEERSt13basic_ostreamIT_T0_ES6_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %19)
           to label %.invoke unwind label %.loopexit

@@ -2158,7 +2158,7 @@ call.i.i.i1921.noexc:                             ; preds = %if.then5.i
   %add.ptr.i.i.i1923 = getelementptr inbounds i8, ptr %170, i64 %171
   %conv.i.i.i.i = zext nneg i8 %169 to i64
   %sub.i.i.i.i1924 = sub nsw i64 23, %conv.i.i.i.i
-  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %sOutput, i64 %sub.i.i.i.i1924
+  %add.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %sOutput, i64 %sub.i.i.i.i1924
   %cond.i22.i = select i1 %tobool.i.i18.i, ptr %add.ptr.i.i.i1923, ptr %add.ptr.i1.i.i
   %sub.ptr.lhs.cast.i.i1925 = ptrtoint ptr %cond.i22.i to i64
   %sub.ptr.rhs.cast.i.i1926 = ptrtoint ptr %spec.select.i.i1922 to i64
@@ -2191,7 +2191,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE14DeallocateSelfEv.exit.i: ; preds = %_Z
 if.else.i1918:                                    ; preds = %if.then.i1910
   %174 = load ptr, ptr %sOutput, align 8
   %add.ptr.i.i32.i = getelementptr inbounds i8, ptr %174, i64 %167
-  %add.ptr.i1.i35.i = getelementptr inbounds i8, ptr %sOutput, i64 %sub.i.i.i1913
+  %add.ptr.i1.i35.i = getelementptr inbounds nuw i8, ptr %sOutput, i64 %sub.i.i.i1913
   %cond.i36.i = select i1 %tobool.i.i.i1912, ptr %add.ptr.i.i32.i, ptr %add.ptr.i1.i35.i
   store i8 10, ptr %cond.i36.i, align 1
   %cond.i36.i.sroa.sel.v = select i1 %tobool.i.i.i1912, ptr %add.ptr.i.i32.i, ptr %add.ptr.i1.i35.i

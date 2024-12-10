@@ -7372,8 +7372,8 @@ _ZN7testing15AssertionResultD2Ev.exit127:         ; preds = %if.end92, %_ZNKSt14
   store ptr null, ptr %message_.i124, align 8
   store i64 28548142445393229, ptr %mutable_buf, align 8
   %call97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mutable_buf) #23
-  %add.ptr = getelementptr inbounds i8, ptr %mutable_buf, i64 %call97
-  %cmp.not5.i = icmp eq i64 %call97, 0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %mutable_buf, i64 %call97
+  %cmp.not5.i = icmp samesign eq i64 %call97, 0
   br i1 %cmp.not5.i, label %invoke.cont99, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit127, %for.body.i
@@ -8299,8 +8299,8 @@ _ZN7testing15AssertionResultD2Ev.exit87:          ; preds = %if.end69, %_ZNKSt14
   store ptr null, ptr %message_.i84, align 8
   store i64 28548142445393229, ptr %mutable_buf, align 8
   %call74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mutable_buf) #23
-  %add.ptr = getelementptr inbounds i8, ptr %mutable_buf, i64 %call74
-  %cmp.not5.i = icmp eq i64 %call74, 0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %mutable_buf, i64 %call74
+  %cmp.not5.i = icmp samesign eq i64 %call74, 0
   br i1 %cmp.not5.i, label %invoke.cont76, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit87, %for.body.i

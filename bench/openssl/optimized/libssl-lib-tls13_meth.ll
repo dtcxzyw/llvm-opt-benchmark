@@ -171,7 +171,7 @@ for.body:                                         ; preds = %if.end26, %for.body
   %arrayidx34 = getelementptr inbounds nuw i8, ptr %sequence, i64 %loop.061
   %9 = load i8, ptr %arrayidx34, align 1
   %xor60 = xor i8 %9, %8
-  %arrayidx38 = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 %add31
+  %arrayidx38 = getelementptr inbounds nuw [16 x i8], ptr %iv, i64 0, i64 %add31
   store i8 %xor60, ptr %arrayidx38, align 1
   %inc = add nuw nsw i64 %loop.061, 1
   %exitcond.not = icmp eq i64 %inc, 8

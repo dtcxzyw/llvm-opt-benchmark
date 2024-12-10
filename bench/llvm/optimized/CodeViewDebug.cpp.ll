@@ -6843,7 +6843,7 @@ _ZNK4llvm13DICompileUnit11getProducerEv.exit:     ; preds = %_ZNK4llvm6DINode12g
 
 92:                                               ; preds = %.lr.ph.i
   %93 = sext i32 %.021.i to i64
-  %94 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = mul nsw i32 %95, 10
   %97 = add nsw i32 %96, %isdigittmp.i

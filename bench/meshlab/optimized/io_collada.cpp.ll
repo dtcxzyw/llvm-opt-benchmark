@@ -22838,7 +22838,7 @@ _ZN11QStringListC2ERKS_.exit434:                  ; preds = %_ZN7QStringC2ERKS_.
   %602 = fmul double %601, 2.550000e+02
   %603 = fptoui double %602 to i8
   %604 = sext i32 %.013.i to i64
-  %605 = getelementptr inbounds [4 x i8], ptr %6, i64 0, i64 %604
+  %605 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 0, i64 %604
   store i8 %603, ptr %605, align 1
   %606 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %606, %577
@@ -60084,7 +60084,7 @@ _ZN7QStringD2Ev.exit86.us189.us.us:               ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN3vcg6Point3IfE9NormalizeEv.exit.us:            ; preds = %232, %224
   %236 = sext i32 %.032184.us197 to i64
-  %237 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %236
   %238 = load float, ptr %237, align 4
   %239 = fpext float %238 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %16, double noundef %239, i8 noundef signext 103, i32 noundef 6)
@@ -60260,7 +60260,7 @@ _ZN7QStringD2Ev.exit86.us198:                     ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN3vcg6Point3IfE9NormalizeEv.exit114.us.us:      ; preds = %298, %290
   %302 = sext i32 %.031178.us.us to i64
-  %303 = getelementptr inbounds [3 x float], ptr %17, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [3 x float], ptr %17, i64 0, i64 %302
   %304 = load float, ptr %303, align 4
   %305 = fpext float %304 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, double noundef %305, i8 noundef signext 103, i32 noundef 6)

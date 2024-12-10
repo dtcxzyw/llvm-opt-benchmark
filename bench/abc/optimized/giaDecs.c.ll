@@ -56,7 +56,7 @@ define i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 common.ret:                                       ; preds = %3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   br label %common.ret31
 

@@ -632,7 +632,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %147 = load ptr, ptr %19, align 8
   %148 = getelementptr i8, ptr %147, i64 -24
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %19, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %19, i64 %149
   %151 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %150)
           to label %152 unwind label %.loopexit.split-lp
 
@@ -867,7 +867,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage10HT
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %.loopexit.split-lp
 

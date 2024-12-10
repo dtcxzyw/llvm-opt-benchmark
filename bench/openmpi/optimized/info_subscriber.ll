@@ -361,11 +361,11 @@ define range(i32 -1, 1) i32 @opal_infosubscribe_testcallback(ptr noundef %0, ptr
 
 6:                                                ; preds = %3
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds [5 x ptr], ptr @testing_callbacks, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [5 x ptr], ptr @testing_callbacks, i64 0, i64 %7
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds [5 x ptr], ptr @testing_keys, i64 0, i64 %7
+  %9 = getelementptr inbounds nuw [5 x ptr], ptr @testing_keys, i64 0, i64 %7
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds [5 x ptr], ptr @testing_initialvals, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw [5 x ptr], ptr @testing_initialvals, i64 0, i64 %7
   store ptr %2, ptr %10, align 8
   %11 = add nsw i32 %4, 1
   store i32 %11, ptr @ntesting_callbacks, align 4

@@ -5370,7 +5370,7 @@ _ZN3syn5parse11ParseBuffer5parse17h3a475120bcb667c6E.exit: ; preds = %96
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds [39 x i64], ptr @anon.5c8111f0d0ef922dbd797696a7481808.13, i64 0, i64 %.0..0..0..0..0..0..pr
+  %108 = getelementptr inbounds nuw [39 x i64], ptr @anon.5c8111f0d0ef922dbd797696a7481808.13, i64 0, i64 %.0..0..0..0..0..0..pr
   %109 = load i64, ptr %108, align 8, !noundef !12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %16, i64 %109, i1 false)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %16)

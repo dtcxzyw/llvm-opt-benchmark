@@ -1033,7 +1033,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   %63 = load ptr, ptr %10, align 8
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %10, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 %65
   %67 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %66) #15
   br i1 %67, label %68, label %86
 

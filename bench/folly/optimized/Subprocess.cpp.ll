@@ -923,7 +923,7 @@ while.end.i:                                      ; preds = %while.body.i, %_ZN5
   %spec.select.i.i10 = phi i64 [ %add.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %spec.select.i.i11, %while.body.i ]
   %pos.0.i.lcssa = phi i64 [ %add.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %sub.i, %while.body.i ]
   %v.addr.0.i.lcssa = phi i64 [ %v, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit ], [ %div.i, %while.body.i ]
-  %arrayidx2.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.0.i.lcssa
+  %arrayidx2.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.0.i.lcssa
   %21 = load i16, ptr %arrayidx2.i, align 2, !tbaa !25
   %cmp3.i = icmp eq i64 %pos.0.i.lcssa, 2
   br i1 %cmp3.i, label %if.then.i, label %if.else.i, !prof !23
@@ -3820,7 +3820,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %prefixIdx.tr.i.i = phi i64 [ 0, %invoke.cont48 ], [ %prefixIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %filenameIdx.tr.i.i = phi i64 [ 0, %invoke.cont48 ], [ %filenameIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %match.tr.i.i = phi i1 [ true, %invoke.cont48 ], [ %match.tr.be.i.i, %tailrecurse.backedge.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
   %4 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %4, label %cond.false24.i.i [
     i8 58, label %land.lhs.true.i.i
@@ -3828,7 +3828,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   ]
 
 land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %5 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
   %cmp3.not.i.i = icmp eq i8 %5, 58
   br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
@@ -3845,7 +3845,7 @@ land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   br i1 %cmp.i.i.i, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %7 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
   %cmp.i82.i.i = icmp eq i8 %7, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
@@ -3855,7 +3855,7 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   %8 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
   switch i8 %8, label %invoke.cont53.loopexit [
     i8 0, label %cond.true.i4.i
@@ -3885,7 +3885,7 @@ cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, 
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
-  %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx29.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %9 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
   %cmp31.i.i = icmp eq i8 %4, %9
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
@@ -3901,7 +3901,7 @@ cond.true38.i.i:                                  ; preds = %lor.lhs.false32.i.i
   br label %tailrecurse.backedge.i.i
 
 invoke.cont53.loopexit:                           ; preds = %tailrecurse.i1.i
-  %arrayidx.i3.i.le = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i.le = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   br label %invoke.cont53
 
 invoke.cont53:                                    ; preds = %cond.false.i.i, %invoke.cont53.loopexit, %cond.true.i4.i
@@ -4196,7 +4196,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %prefixIdx.tr.i.i = phi i64 [ 0, %cond.false ], [ %prefixIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %filenameIdx.tr.i.i = phi i64 [ 0, %cond.false ], [ %filenameIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %match.tr.i.i = phi i1 [ true, %cond.false ], [ %match.tr.be.i.i, %tailrecurse.backedge.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %3, label %cond.false24.i.i [
     i8 58, label %land.lhs.true.i.i
@@ -4204,7 +4204,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   ]
 
 land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %4 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
   %cmp3.not.i.i = icmp eq i8 %4, 58
   br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
@@ -4221,7 +4221,7 @@ land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   br i1 %cmp.i.i.i43, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %6 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
   %cmp.i82.i.i = icmp eq i8 %6, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
@@ -4231,7 +4231,7 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   %7 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
   switch i8 %7, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
     i8 0, label %cond.true.i4.i
@@ -4261,7 +4261,7 @@ cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, 
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
-  %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx29.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %8 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
   %cmp31.i.i = icmp eq i8 %3, %8
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
@@ -4277,7 +4277,7 @@ cond.true38.i.i:                                  ; preds = %lor.lhs.false32.i.i
   br label %tailrecurse.backedge.i.i
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i1.i
-  %arrayidx.i3.i.le = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i.le = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %cond.false.i.i, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %cond.true.i4.i
@@ -5681,7 +5681,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   %prefixIdx.tr.i.i = phi i64 [ 0, %cond.false ], [ %prefixIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %filenameIdx.tr.i.i = phi i64 [ 0, %cond.false ], [ %filenameIdx.tr.be.i.i, %tailrecurse.backedge.i.i ]
   %match.tr.i.i = phi i1 [ true, %cond.false ], [ %match.tr.be.i.i, %tailrecurse.backedge.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @.str.25, i64 %prefixIdx.tr.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   switch i8 %1, label %cond.false24.i.i [
     i8 58, label %land.lhs.true.i.i
@@ -5689,7 +5689,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.backedg
   ]
 
 land.lhs.true.i.i:                                ; preds = %tailrecurse.i.i
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %2 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !20
   %cmp3.not.i.i = icmp eq i8 %2, 58
   br i1 %cmp3.not.i.i, label %cond.false24.i.i, label %cond.true.i.i
@@ -5706,7 +5706,7 @@ land.lhs.true9.i.i:                               ; preds = %cond.true.i.i
   br i1 %cmp.i.i.i, label %tailrecurse.i1.i.preheader, label %lor.lhs.false11.i.i
 
 lor.lhs.false11.i.i:                              ; preds = %land.lhs.true9.i.i
-  %arrayidx12.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %4 = load i8, ptr %arrayidx12.i.i, align 1, !tbaa !20
   %cmp.i82.i.i = icmp eq i8 %4, 47
   br i1 %cmp.i82.i.i, label %tailrecurse.i1.i.preheader, label %cond.false.i.i
@@ -5716,7 +5716,7 @@ tailrecurse.i1.i.preheader:                       ; preds = %lor.lhs.false11.i.i
 
 tailrecurse.i1.i:                                 ; preds = %tailrecurse.i1.i.preheader, %cond.true3.i.i
   %filenameIdx.tr.i2.i = phi i64 [ %add4.i.i, %cond.true3.i.i ], [ %filenameIdx.tr.i.i, %tailrecurse.i1.i.preheader ]
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   %5 = load i8, ptr %arrayidx.i3.i, align 1, !tbaa !20
   switch i8 %5, label %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit [
     i8 0, label %cond.true.i4.i
@@ -5746,7 +5746,7 @@ cond.false24.i.i:                                 ; preds = %land.lhs.true.i.i, 
   br i1 %match.tr.i.i, label %land.lhs.true26.i.i, label %tailrecurse.backedge.i.i
 
 land.lhs.true26.i.i:                              ; preds = %cond.false24.i.i
-  %arrayidx29.i.i = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
+  %arrayidx29.i.i = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i.i
   %6 = load i8, ptr %arrayidx29.i.i, align 1, !tbaa !20
   %cmp31.i.i = icmp eq i8 %1, %6
   br i1 %cmp31.i.i, label %cond.true38.i.i, label %lor.lhs.false32.i.i
@@ -5762,7 +5762,7 @@ cond.true38.i.i:                                  ; preds = %lor.lhs.false32.i.i
   br label %tailrecurse.backedge.i.i
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit: ; preds = %tailrecurse.i1.i
-  %arrayidx.i3.i.le = getelementptr inbounds i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
+  %arrayidx.i3.i.le = getelementptr inbounds nuw i8, ptr @.str.24, i64 %filenameIdx.tr.i2.i
   br label %_ZN5folly17xlogStripFilenameEPKcS1_.exit
 
 _ZN5folly17xlogStripFilenameEPKcS1_.exit:         ; preds = %cond.false.i.i, %_ZN5folly17xlogStripFilenameEPKcS1_.exit.loopexit, %cond.true.i4.i

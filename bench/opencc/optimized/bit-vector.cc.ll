@@ -351,7 +351,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %133 = and i64 %132, 255
   %134 = sub i64 %.066, %133
   %135 = and i64 %130, 255
-  %136 = getelementptr inbounds [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %134, i64 %135
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i64
   %139 = add i64 %108, %138
@@ -539,7 +539,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %120 = and i64 %119, 255
   %121 = sub i64 %.063, %120
   %122 = and i64 %117, 255
-  %123 = getelementptr inbounds [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x [256 x i8]], ptr @_ZN6marisa8grimoire6vector12_GLOBAL__N_112SELECT_TABLEE, i64 0, i64 %121, i64 %122
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
   %126 = add i64 %96, %125

@@ -33617,10 +33617,10 @@ switch.lookup:
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN8wasmtime6config6Config19cranelift_opt_level17hfc0fcfab5dc03d3aE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN8wasmtime6config6Config19cranelift_opt_level17hfc0fcfab5dc03d3aE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = sext i8 %1 to i64
-  %switch.gep16 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8wasmtime6config6Config19cranelift_opt_level17hfc0fcfab5dc03d3aE.265, i64 0, i64 %7
+  %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8wasmtime6config6Config19cranelift_opt_level17hfc0fcfab5dc03d3aE.265, i64 0, i64 %7
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)

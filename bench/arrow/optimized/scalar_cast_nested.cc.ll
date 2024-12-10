@@ -33859,7 +33859,7 @@ for.inc.i290:                                     ; preds = %for.cond13.preheade
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %203, i64 %div.i.i.i.i.i
   %205 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !447
   %rem.i.i.i.i.i = srem i64 %204, 8
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
   %206 = load i8, ptr %arrayidx5.i.i.i.i.i, align 1, !noalias !447
   %xor105.i.i.i.i.i = or i8 %206, %205
   store i8 %xor105.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !447
@@ -33898,7 +33898,7 @@ for.inc26.i:                                      ; preds = %for.inc26.i, %for.i
   %arrayidx.i.i.i.i98.i = getelementptr inbounds i8, ptr %213, i64 %div.i.i.i.i97.i
   %215 = load i8, ptr %arrayidx.i.i.i.i98.i, align 1, !noalias !447
   %rem.i.i.i.i99.i = srem i64 %214, 8
-  %arrayidx5.i.i.i.i100.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i99.i
+  %arrayidx5.i.i.i.i100.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i99.i
   %216 = load i8, ptr %arrayidx5.i.i.i.i100.i, align 1, !noalias !447
   %xor105.i.i.i.i101.i = or i8 %216, %215
   store i8 %xor105.i.i.i.i101.i, ptr %arrayidx.i.i.i.i98.i, align 1, !noalias !447
@@ -36198,7 +36198,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 %div.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i.i = srem i64 %7, 8
-  %arrayidx5.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
   %9 = load i8, ptr %arrayidx5.i.i.i, align 1
   %10 = xor i8 %9, -1
   %xor105.i.i.i = and i8 %8, %10
@@ -36335,7 +36335,7 @@ do.end6:                                          ; preds = %nrvo.skipdtor.threa
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %6, i64 %div.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
   %rem.i.i.i = srem i64 %7, 8
-  %arrayidx5.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i
   %9 = load i8, ptr %arrayidx5.i.i.i, align 1
   %xor105.i.i.i = or i8 %9, %8
   store i8 %xor105.i.i.i, ptr %arrayidx.i.i.i, align 1
@@ -40955,7 +40955,7 @@ for.inc.i291:                                     ; preds = %for.cond13.preheade
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %203, i64 %div.i.i.i.i.i
   %205 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !658
   %rem.i.i.i.i.i = srem i64 %204, 8
-  %arrayidx5.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
+  %arrayidx5.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i.i
   %206 = load i8, ptr %arrayidx5.i.i.i.i.i, align 1, !noalias !658
   %xor105.i.i.i.i.i = or i8 %206, %205
   store i8 %xor105.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !658
@@ -40993,7 +40993,7 @@ for.inc25.i:                                      ; preds = %for.inc25.i, %for.i
   %arrayidx.i.i.i.i98.i = getelementptr inbounds i8, ptr %213, i64 %div.i.i.i.i97.i
   %215 = load i8, ptr %arrayidx.i.i.i.i98.i, align 1, !noalias !658
   %rem.i.i.i.i99.i = srem i64 %214, 8
-  %arrayidx5.i.i.i.i100.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i99.i
+  %arrayidx5.i.i.i.i100.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i.i.i99.i
   %216 = load i8, ptr %arrayidx5.i.i.i.i100.i, align 1, !noalias !658
   %xor105.i.i.i.i101.i = or i8 %216, %215
   store i8 %xor105.i.i.i.i101.i, ptr %arrayidx.i.i.i.i98.i, align 1, !noalias !658

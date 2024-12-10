@@ -245,7 +245,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %74 = load ptr, ptr %11, align 8
   %75 = getelementptr i8, ptr %74, i64 -24
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %11, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 %76
   %78 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %77)
           to label %79 unwind label %92
 

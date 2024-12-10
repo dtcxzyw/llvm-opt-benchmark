@@ -734,7 +734,7 @@ for.cond3.i:                                      ; preds = %for.body5.i, %if.en
 
 for.body5.i:                                      ; preds = %for.cond3.i
   %dec.i = add nsw i64 %i.1.i, -1
-  %arrayidx6.i = getelementptr inbounds i32, ptr @A, i64 %dec.i
+  %arrayidx6.i = getelementptr inbounds nuw i32, ptr @A, i64 %dec.i
   %1 = load i32, ptr %arrayidx6.i, align 4
   %sub.i = sub i32 %upper.0.i, %1
   %cmp7.i = icmp slt i32 %sub.i, 1
@@ -831,7 +831,7 @@ for.cond3.i:                                      ; preds = %for.body5.i, %if.en
 
 for.body5.i:                                      ; preds = %for.cond3.i
   %dec.i = add nsw i64 %i.1.i, -1
-  %arrayidx6.i = getelementptr inbounds i32, ptr @B, i64 %dec.i
+  %arrayidx6.i = getelementptr inbounds nuw i32, ptr @B, i64 %dec.i
   %1 = load i32, ptr %arrayidx6.i, align 4
   %sub.i = sub i32 %upper.0.i, %1
   %cmp7.i = icmp slt i32 %sub.i, 1

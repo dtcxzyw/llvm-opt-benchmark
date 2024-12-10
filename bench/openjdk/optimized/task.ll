@@ -39,7 +39,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %.012 = phi i32 [ 0, %.lr.ph ], [ %28, %_ZN12PeriodicTask18execute_if_pendingEi.exit ]
   %.0611 = phi i32 [ %4, %.lr.ph ], [ %spec.select, %_ZN12PeriodicTask18execute_if_pendingEi.exit ]
   %9 = sext i32 %.012 to i64
-  %10 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
@@ -316,7 +316,7 @@ _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = 
   %10 = add nsw i32 %5, 1
   store i32 %10, ptr @_ZN12PeriodicTask10_num_tasksE, align 4
   %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [10 x ptr], ptr @_ZN12PeriodicTask6_tasksE, i64 0, i64 %11
   store ptr %0, ptr %12, align 8
   %13 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
   %.not = icmp eq ptr %13, null

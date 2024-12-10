@@ -38662,7 +38662,7 @@ switch.lookup:                                    ; preds = %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = load ptr, ptr %34, align 8
   %36 = sext i8 %.sroa.0.0.extract.trunc to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZL29mergeTypeNullabilityForRedeclRN5clang4SemaENS_14SourceLocationENS_8QualTypeEbS2_S3_b, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL29mergeTypeNullabilityForRedeclRN5clang4SemaENS_14SourceLocationENS_8QualTypeEbS2_S3_b, i64 0, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = tail call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %35, i32 noundef %switch.load, i64 %2, i64 %2) #21
   br label %38

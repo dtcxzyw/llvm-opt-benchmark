@@ -10343,10 +10343,10 @@ switch.lookup:
   %4 = alloca { { { i64, ptr }, i64 }, i8, [7 x i8] }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = sext i8 %.0.val to i64
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = sext i8 %.0.val to i64
-  %switch.gep1 = getelementptr inbounds [14 x i64], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE.54, i64 0, i64 %7
+  %switch.gep1 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZN12regex_syntax3hir9translate21hir_ascii_class_bytes17h86d269f4d1c44dbfE.54, i64 0, i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %8 = getelementptr inbounds nuw { i8, i8 }, ptr %switch.load, i64 %switch.load2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h34807cc27a28297dE.llvm.9790117770016849591"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %5, ptr noundef nonnull %switch.load, ptr noundef nonnull %8)

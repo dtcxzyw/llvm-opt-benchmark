@@ -447,7 +447,7 @@ if.end21:                                         ; preds = %while.end
 if.then24:                                        ; preds = %if.end21
   %25 = load ptr, ptr %24, align 8
   %idxprom = sext i32 %22 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   %26 = load ptr, ptr %arrayidx, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %25, ptr noundef %26) #8
   unreachable

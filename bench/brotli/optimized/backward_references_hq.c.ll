@@ -867,7 +867,7 @@ for.body58.i.lr.ph:                               ; preds = %if.then53.i
 for.body58.i:                                     ; preds = %for.body58.i.lr.ph, %if.end73.i
   %l.i.0671 = phi i64 [ %cond.i184, %for.body58.i.lr.ph ], [ %inc75.i, %if.end73.i ]
   %matches.addr.i.4670 = phi ptr [ %matches.addr.i.2, %for.body58.i.lr.ph ], [ %matches.addr.i.5, %if.end73.i ]
-  %arrayidx59.i = getelementptr inbounds [38 x i32], ptr %dict_matches.i, i64 0, i64 %l.i.0671
+  %arrayidx59.i = getelementptr inbounds nuw [38 x i32], ptr %dict_matches.i, i64 0, i64 %l.i.0671
   %42 = load i32, ptr %arrayidx59.i, align 4, !noalias !10
   %cmp60.i = icmp ult i32 %42, 268435455
   br i1 %cmp60.i, label %if.then62.i, label %if.end73.i
@@ -3472,7 +3472,7 @@ for.body58.i.lr.ph:                               ; preds = %if.then53.i
 for.body58.i:                                     ; preds = %for.body58.i.lr.ph, %if.end73.i
   %l.i.0769 = phi i64 [ %cond.i230, %for.body58.i.lr.ph ], [ %inc75.i, %if.end73.i ]
   %matches.addr.i.4768 = phi ptr [ %matches.addr.i.2, %for.body58.i.lr.ph ], [ %matches.addr.i.5, %if.end73.i ]
-  %arrayidx59.i = getelementptr inbounds [38 x i32], ptr %dict_matches.i, i64 0, i64 %l.i.0769
+  %arrayidx59.i = getelementptr inbounds nuw [38 x i32], ptr %dict_matches.i, i64 0, i64 %l.i.0769
   %40 = load i32, ptr %arrayidx59.i, align 4, !noalias !40
   %cmp60.i = icmp ult i32 %40, 268435455
   br i1 %cmp60.i, label %if.then62.i, label %if.end73.i

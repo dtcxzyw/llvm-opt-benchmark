@@ -191,7 +191,7 @@ PHP_MD4Update.exit:                               ; preds = %.lr.ph.i, %38, %49
   %.1.i = phi i64 [ 0, %49 ], [ %39, %38 ], [ %46, %.lr.ph.i ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %52 = getelementptr inbounds nuw [64 x i8], ptr %51, i64 0, i64 %.028.i
-  %53 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %53 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %54 = sub i64 %27, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull readonly align 1 %53, i64 %54, i1 false)
   %55 = load i32, ptr %4, align 4

@@ -1272,7 +1272,7 @@ spec_ith_char.exit489:                            ; preds = %spec_ith_char.exit,
 
 423:                                              ; preds = %421
   %424 = sext i32 %.138.i to i64
-  %425 = getelementptr inbounds %struct.choice, ptr %6, i64 %424
+  %425 = getelementptr inbounds nuw %struct.choice, ptr %6, i64 %424
   %426 = load i32, ptr %425, align 4
   %427 = icmp ult i32 %419, %426
   br i1 %427, label %428, label %430
@@ -1302,7 +1302,7 @@ spec_ith_char.exit489:                            ; preds = %spec_ith_char.exit,
 435:                                              ; preds = %.thread.i, %432
   %.2524 = phi i32 [ %434, %.thread.i ], [ %.0522924, %432 ]
   %.pn.i = phi i64 [ %wide.trip.count.i, %.thread.i ], [ %433, %432 ]
-  %.030.i = getelementptr inbounds %struct.choice, ptr %6, i64 %.pn.i
+  %.030.i = getelementptr inbounds nuw %struct.choice, ptr %6, i64 %.pn.i
   %436 = getelementptr inbounds nuw i8, ptr %.030.i, i64 4
   store i32 %.5925, ptr %436, align 4
   %reass.sub = sub i32 %.1393, %.5925

@@ -105,9 +105,9 @@ if.end76:                                         ; preds = %if.else61, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_ZN3net19HpackHuffmanDecoder17DecodeToCanonicalEmj(i64 noundef %code_length, i32 noundef %bits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end33:
-  %arrayidx = getelementptr inbounds [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %code_length
+  %arrayidx = getelementptr inbounds nuw [31 x i32], ptr @_ZN3net12_GLOBAL__N_120kLengthToFirstLJCodeE, i64 0, i64 %code_length
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx23 = getelementptr inbounds [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %code_length
+  %arrayidx23 = getelementptr inbounds nuw [31 x i8], ptr @_ZN3net12_GLOBAL__N_123kLengthToFirstCanonicalE, i64 0, i64 %code_length
   %1 = load i8, ptr %arrayidx23, align 1
   %conv = zext i8 %1 to i32
   %sub = sub i32 %bits, %0

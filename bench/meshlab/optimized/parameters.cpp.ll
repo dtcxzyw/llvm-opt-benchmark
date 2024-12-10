@@ -2362,7 +2362,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %63 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %62
   %64 = shl i64 %indvars.iv.i.i.i, 2
   %65 = add nuw nsw i64 %64, %indvars.iv15.i.i.i
-  %66 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %65
   %67 = load float, ptr %63, align 4, !alias.scope !33
   %68 = load float, ptr %66, align 4, !alias.scope !33
   store float %68, ptr %63, align 4, !alias.scope !33

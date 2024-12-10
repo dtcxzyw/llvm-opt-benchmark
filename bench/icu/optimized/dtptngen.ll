@@ -4137,7 +4137,7 @@ while.body.i.i:                                   ; preds = %while.body.preheade
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
   %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
   %15 = load i16, ptr %arrayidx.i.i, align 16
   %cmp9.not.i.i = icmp eq i16 %15, 0
   br i1 %cmp9.not.i.i, label %for.inc31, label %while.body.i.i, !llvm.loop !24
@@ -4146,7 +4146,7 @@ if.end18.i.i:                                     ; preds = %while.body.i.i
   %16 = trunc nsw i64 %indvars.iv50.i.i to i32
   %add.i.i = add nsw i32 %16, 1
   %idxprom23.i.i = sext i32 %add.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23.i.i
   %17 = load i16, ptr %arrayidx24.i.i, align 16
   %cmp27.not.i.i = icmp eq i16 %11, %17
   br i1 %cmp27.not.i.i, label %if.end29.i.i, label %_ZN6icu_7512FormatParser17getCanonicalIndexERKNS_13UnicodeStringE.exit
@@ -7037,7 +7037,7 @@ while.body.i.i:                                   ; preds = %while.body.preheade
 
 if.then16.i.i:                                    ; preds = %while.body.i.i
   %indvars.iv.next51.i.i = add nsw i64 %indvars.iv50.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51.i.i
   %30 = load i16, ptr %arrayidx.i.i, align 16
   %cmp9.not.i.i = icmp eq i16 %30, 0
   br i1 %cmp9.not.i.i, label %if.end191.invoke, label %while.body.i.i, !llvm.loop !24
@@ -7046,7 +7046,7 @@ if.end18.i.i:                                     ; preds = %while.body.i.i
   %31 = trunc nsw i64 %indvars.iv50.i.i to i32
   %add.i.i = add nsw i32 %31, 1
   %idxprom23.i.i = sext i32 %add.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23.i.i
   %32 = load i16, ptr %arrayidx24.i.i, align 16
   %cmp27.not.i.i = icmp eq i16 %14, %32
   br i1 %cmp27.not.i.i, label %if.end29.i.i, label %invoke.cont22
@@ -11216,7 +11216,7 @@ while.body:                                       ; preds = %while.body.preheade
 
 if.then16:                                        ; preds = %while.body
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
-  %arrayidx = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51
+  %arrayidx = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %indvars.iv.next51
   %8 = load i16, ptr %arrayidx, align 16
   %cmp9.not = icmp eq i16 %8, 0
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !24
@@ -11225,7 +11225,7 @@ if.end18:                                         ; preds = %while.body
   %9 = trunc nsw i64 %indvars.iv50 to i32
   %add = add nsw i32 %9, 1
   %idxprom23 = sext i32 %add to i64
-  %arrayidx24 = getelementptr inbounds [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw [87 x %"struct.icu_75::dtTypeElem"], ptr @_ZN6icu_75L7dtTypesE, i64 0, i64 %idxprom23
   %10 = load i16, ptr %arrayidx24, align 16
   %cmp27.not = icmp eq i16 %5, %10
   br i1 %cmp27.not, label %if.end29, label %return

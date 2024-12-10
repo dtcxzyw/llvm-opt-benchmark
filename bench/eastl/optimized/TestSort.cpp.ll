@@ -7934,7 +7934,7 @@ _ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTest
 
 if.end12.i4786:                                   ; preds = %_ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEEvT_S5_S5_T0_.exit.i4810, %_ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i
   %len.i.0 = phi i64 [ %spec.store.select.i4784, %_ZN5eastl8Internal30insertion_sort_already_startedIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEEvT_S5_S5_T0_.exit.i4810 ], [ %retval.0.i.i4782, %_ZN5eastl8Internal18tim_sort_count_runIPZ8TestSortvE17StableSortTestObjZ8TestSortvE17StableSortCompareEElT_llT0_.exit.i ]
-  %arrayidx.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack.i, i64 %stack_curr.i.0
+  %arrayidx.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack.i, i64 %stack_curr.i.0
   store i64 %curr.i.0.ph, ptr %arrayidx.i, align 16
   %length.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack.i, i64 %stack_curr.i.0, i32 1
   store i64 %len.i.0, ptr %length.i, align 8

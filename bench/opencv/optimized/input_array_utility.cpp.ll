@@ -1533,7 +1533,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArr
   %33 = getelementptr inbounds nuw [7 x double], ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 0, i64 %32
   %34 = load double, ptr %33, align 8
   %35 = sext i32 %12 to i64
-  %36 = getelementptr inbounds [7 x double], ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [7 x double], ptr @_ZZN12_GLOBAL__N_114convertToDepthERKN2cv11_InputArrayERKNS0_12_OutputArrayEiE7maxVals, i64 0, i64 %35
   %37 = load double, ptr %36, align 8
   %38 = fdiv double %34, %37
   %39 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %0)

@@ -355,7 +355,7 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
 .lr.ph66.i:                                       ; preds = %rhash_byte_to_base64.exit, %77
   %.04665.i = phi i64 [ %78, %77 ], [ 0, %rhash_byte_to_base64.exit ]
   %.04864.i = phi i64 [ %.149.i, %77 ], [ %62, %rhash_byte_to_base64.exit ]
-  %63 = getelementptr inbounds i8, ptr %6, i64 %.04665.i
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 %.04665.i
   %64 = load i8, ptr %63, align 1
   %65 = icmp sgt i8 %64, -1
   br i1 %65, label %66, label %75
@@ -385,7 +385,7 @@ rhash_byte_to_base64.exit:                        ; preds = %._crit_edge.i, %55,
 .lr.ph.i27:                                       ; preds = %rhash_byte_to_base64.exit, %103
   %.04563.i = phi ptr [ %.1.i28, %103 ], [ %.02151, %rhash_byte_to_base64.exit ]
   %.14762.i = phi i64 [ %104, %103 ], [ 0, %rhash_byte_to_base64.exit ]
-  %79 = getelementptr inbounds i8, ptr %6, i64 %.14762.i
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 %.14762.i
   %80 = load i8, ptr %79, align 1
   %81 = icmp sgt i8 %80, -1
   br i1 %81, label %82, label %93

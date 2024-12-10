@@ -209,7 +209,7 @@ define hidden void @_ZN4perf7PrintToERKNS_12CvtColorInfoEPSo(ptr nocapture nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [128 x ptr], ptr @_ZZN4perf7PrintToERKNS_12CvtColorInfoEPSoE3str, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [128 x ptr], ptr @_ZZN4perf7PrintToERKNS_12CvtColorInfoEPSoE3str, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %7)
   ret void

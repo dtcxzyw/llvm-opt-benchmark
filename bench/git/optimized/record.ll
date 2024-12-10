@@ -106,7 +106,7 @@ if.end:                                           ; preds = %entry, %if.end
   %dec1 = add nsw i64 %shr, -1
   %1 = trunc i64 %dec1 to i8
   %or = or i8 %1, -128
-  %arrayidx7 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw [10 x i8], ptr %buf, i64 0, i64 %indvars.iv
   store i8 %or, ptr %arrayidx7, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %tobool.not = icmp samesign ult i64 %dec1, 128
@@ -129,7 +129,7 @@ if.end15:                                         ; preds = %while.end
   %4 = load ptr, ptr %dest, align 8
   %add = add nsw i32 %i.0.lcssa, 1
   %idxprom17 = sext i32 %add to i64
-  %arrayidx18 = getelementptr inbounds [10 x i8], ptr %buf, i64 0, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [10 x i8], ptr %buf, i64 0, i64 %idxprom17
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %arrayidx18, i64 %conv12, i1 false)
   br label %return
 
@@ -222,7 +222,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %dec1.i = add nsw i64 %shr.i, -1
   %2 = trunc i64 %dec1.i to i8
   %or.i = or i8 %2, -128
-  %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
@@ -246,7 +246,7 @@ put_var_int.exit.thread:                          ; preds = %while.end.i
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
-  %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest.coerce0, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   %cmp = icmp slt i32 %sub10.i, 0
@@ -278,7 +278,7 @@ if.end.i15:                                       ; preds = %if.end, %if.end.i15
   %dec1.i19 = add nsw i64 %shr.i18, -1
   %5 = trunc i64 %dec1.i19 to i8
   %or.i20 = or i8 %5, -128
-  %arrayidx7.i21 = getelementptr inbounds [10 x i8], ptr %buf.i11, i64 0, i64 %indvars.iv.i16
+  %arrayidx7.i21 = getelementptr inbounds nuw [10 x i8], ptr %buf.i11, i64 0, i64 %indvars.iv.i16
   store i8 %or.i20, ptr %arrayidx7.i21, align 1
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i16, -1
   %tobool.not.i23 = icmp samesign ult i64 %dec1.i19, 128
@@ -302,7 +302,7 @@ put_var_int.exit36.thread:                        ; preds = %while.end.i25
 put_var_int.exit36:                               ; preds = %while.end.i25
   %add.i32 = add nsw i32 %i.0.lcssa.i26, 1
   %idxprom17.i33 = sext i32 %add.i32 to i64
-  %arrayidx18.i34 = getelementptr inbounds [10 x i8], ptr %buf.i11, i64 0, i64 %idxprom17.i33
+  %arrayidx18.i34 = getelementptr inbounds nuw [10 x i8], ptr %buf.i11, i64 0, i64 %idxprom17.i33
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i34, i64 %conv12.i29, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i11)
   %cmp8 = icmp slt i32 %sub10.i27, 0
@@ -533,7 +533,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 hex_format.exit:                                  ; preds = %for.body.i, %sw.bb2
   %mul10.i = shl nsw i32 %hash_size, 1
   %idxprom11.i = sext i32 %mul10.i to i64
-  %arrayidx12.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %hex, i64 %idxprom11.i
   store i8 0, ptr %arrayidx12.i, align 2
   %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %hex)
   %target_value = getelementptr inbounds nuw i8, ptr %ref, i64 56
@@ -608,7 +608,7 @@ for.body.i37:                                     ; preds = %for.body.i37, %for.
 hex_format.exit52:                                ; preds = %for.body.i37, %sw.bb13
   %mul10.i32 = shl nsw i32 %hash_size, 1
   %idxprom11.i33 = sext i32 %mul10.i32 to i64
-  %arrayidx12.i34 = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i33
+  %arrayidx12.i34 = getelementptr inbounds nuw i8, ptr %hex, i64 %idxprom11.i33
   store i8 0, ptr %arrayidx12.i34, align 2
   %call18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %hex)
   br label %sw.epilog
@@ -744,7 +744,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %mul10.i = shl nsw i32 %hash_size, 1
   %idxprom11.i = sext i32 %mul10.i to i64
-  %arrayidx12.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %hex, i64 %idxprom11.i
   store i8 0, ptr %arrayidx12.i, align 2
   br label %hex_format.exit
 
@@ -790,7 +790,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %for.
 for.end.i21:                                      ; preds = %for.body.i27, %for.cond.preheader.i19
   %mul10.i22 = shl nsw i32 %hash_size, 1
   %idxprom11.i23 = sext i32 %mul10.i22 to i64
-  %arrayidx12.i24 = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i23
+  %arrayidx12.i24 = getelementptr inbounds nuw i8, ptr %hex, i64 %idxprom11.i23
   store i8 0, ptr %arrayidx12.i24, align 2
   br label %hex_format.exit42
 
@@ -1604,7 +1604,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %dec1.i = add nsw i64 %shr.i, -1
   %2 = trunc i64 %dec1.i to i8
   %or.i = or i8 %2, -128
-  %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
@@ -1628,7 +1628,7 @@ put_var_int.exit.thread:                          ; preds = %while.end.i
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
-  %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s.coerce0, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   %cmp = icmp slt i32 %sub10.i, 0
@@ -1669,7 +1669,7 @@ if.end.i.i:                                       ; preds = %sw.bb, %if.end.i.i
   %dec1.i.i = add nsw i64 %shr.i.i, -1
   %7 = trunc i64 %dec1.i.i to i8
   %or.i.i = or i8 %7, -128
-  %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %tobool.not.i.i = icmp samesign ult i64 %dec1.i.i, 128
@@ -1693,7 +1693,7 @@ put_var_int.exit.thread.i:                        ; preds = %while.end.i.i
 put_var_int.exit.i:                               ; preds = %while.end.i.i
   %add.i.i = add nsw i32 %i.0.lcssa.i.i, 1
   %idxprom17.i.i = sext i32 %add.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
+  %arrayidx18.i.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i)
   %cmp.i17 = icmp slt i32 %sub10.i.i, 0
@@ -2320,7 +2320,7 @@ if.end.i.i:                                       ; preds = %if.end10, %if.end.i
   %dec1.i.i = add nsw i64 %shr.i.i, -1
   %5 = trunc i64 %dec1.i.i to i8
   %or.i.i = or i8 %5, -128
-  %arrayidx7.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i, i64 0, i64 %indvars.iv.i.i
   store i8 %or.i.i, ptr %arrayidx7.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %tobool.not.i.i = icmp samesign ult i64 %dec1.i.i, 128
@@ -2344,7 +2344,7 @@ put_var_int.exit.thread.i:                        ; preds = %while.end.i.i
 put_var_int.exit.i:                               ; preds = %while.end.i.i
   %add.i.i = add nsw i32 %i.0.lcssa.i.i, 1
   %idxprom17.i.i = sext i32 %add.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
+  %arrayidx18.i.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i, i64 0, i64 %idxprom17.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %arrayidx18.i.i, i64 %conv12.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i)
   %cmp.i29 = icmp slt i32 %sub10.i.i, 0
@@ -2392,7 +2392,7 @@ if.end.i.i42:                                     ; preds = %if.end23, %if.end.i
   %dec1.i.i46 = add nsw i64 %shr.i.i45, -1
   %10 = trunc i64 %dec1.i.i46 to i8
   %or.i.i47 = or i8 %10, -128
-  %arrayidx7.i.i48 = getelementptr inbounds [10 x i8], ptr %buf.i.i35, i64 0, i64 %indvars.iv.i.i43
+  %arrayidx7.i.i48 = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i35, i64 0, i64 %indvars.iv.i.i43
   store i8 %or.i.i47, ptr %arrayidx7.i.i48, align 1
   %indvars.iv.next.i.i49 = add nsw i64 %indvars.iv.i.i43, -1
   %tobool.not.i.i50 = icmp samesign ult i64 %dec1.i.i46, 128
@@ -2416,7 +2416,7 @@ put_var_int.exit.thread.i72:                      ; preds = %while.end.i.i52
 put_var_int.exit.i57:                             ; preds = %while.end.i.i52
   %add.i.i58 = add nsw i32 %i.0.lcssa.i.i53, 1
   %idxprom17.i.i59 = sext i32 %add.i.i58 to i64
-  %arrayidx18.i.i60 = getelementptr inbounds [10 x i8], ptr %buf.i.i35, i64 0, i64 %idxprom17.i.i59
+  %arrayidx18.i.i60 = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i35, i64 0, i64 %idxprom17.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i32, ptr nonnull align 1 %arrayidx18.i.i60, i64 %conv12.i.i55, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i35)
   %cmp.i61 = icmp slt i32 %sub10.i.i54, 0
@@ -2459,7 +2459,7 @@ if.end.i79:                                       ; preds = %if.end36, %if.end.i
   %dec1.i = add nsw i64 %shr.i, -1
   %15 = trunc i64 %dec1.i to i8
   %or.i = or i8 %15, -128
-  %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
@@ -2483,7 +2483,7 @@ put_var_int.exit.thread:                          ; preds = %while.end.i
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
-  %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i75, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i81, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   %cmp39 = icmp slt i32 %sub10.i, 0
@@ -2525,7 +2525,7 @@ if.end.i.i98:                                     ; preds = %if.end47, %if.end.i
   %dec1.i.i102 = add nsw i64 %shr.i.i101, -1
   %20 = trunc i64 %dec1.i.i102 to i8
   %or.i.i103 = or i8 %20, -128
-  %arrayidx7.i.i104 = getelementptr inbounds [10 x i8], ptr %buf.i.i91, i64 0, i64 %indvars.iv.i.i99
+  %arrayidx7.i.i104 = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i91, i64 0, i64 %indvars.iv.i.i99
   store i8 %or.i.i103, ptr %arrayidx7.i.i104, align 1
   %indvars.iv.next.i.i105 = add nsw i64 %indvars.iv.i.i99, -1
   %tobool.not.i.i106 = icmp samesign ult i64 %dec1.i.i102, 128
@@ -2549,7 +2549,7 @@ put_var_int.exit.thread.i128:                     ; preds = %while.end.i.i108
 put_var_int.exit.i113:                            ; preds = %while.end.i.i108
   %add.i.i114 = add nsw i32 %i.0.lcssa.i.i109, 1
   %idxprom17.i.i115 = sext i32 %add.i.i114 to i64
-  %arrayidx18.i.i116 = getelementptr inbounds [10 x i8], ptr %buf.i.i91, i64 0, i64 %idxprom17.i.i115
+  %arrayidx18.i.i116 = getelementptr inbounds nuw [10 x i8], ptr %buf.i.i91, i64 0, i64 %idxprom17.i.i115
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i88, ptr nonnull align 1 %arrayidx18.i.i116, i64 %conv12.i.i111, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i.i91)
   %cmp.i117 = icmp slt i32 %sub10.i.i110, 0
@@ -3097,7 +3097,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %dec1.i = add nsw i64 %shr.i, -1
   %2 = trunc i64 %dec1.i to i8
   %or.i = or i8 %2, -128
-  %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
@@ -3117,7 +3117,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
-  %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.coerce0, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i, i1 false)
   br label %return
 
@@ -3366,7 +3366,7 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   %dec1.i = add nsw i64 %shr.i, -1
   %2 = trunc i64 %dec1.i to i8
   %or.i = or i8 %2, -128
-  %arrayidx7.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
+  %arrayidx7.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx7.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %tobool.not.i = icmp samesign ult i64 %dec1.i, 128
@@ -3390,7 +3390,7 @@ put_var_int.exit.thread:                          ; preds = %while.end.i
 put_var_int.exit:                                 ; preds = %while.end.i
   %add.i = add nsw i32 %i.0.lcssa.i, 1
   %idxprom17.i = sext i32 %add.i to i64
-  %arrayidx18.i = getelementptr inbounds [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i8], ptr %buf.i, i64 0, i64 %idxprom17.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s.coerce0, ptr nonnull align 1 %arrayidx18.i, i64 %conv12.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   %cmp4 = icmp slt i32 %sub10.i, 0
@@ -3426,7 +3426,7 @@ if.end.i22:                                       ; preds = %if.end14, %if.end.i
   %dec1.i26 = add nsw i64 %shr.i25, -1
   %8 = trunc i64 %dec1.i26 to i8
   %or.i27 = or i8 %8, -128
-  %arrayidx7.i28 = getelementptr inbounds [10 x i8], ptr %buf.i18, i64 0, i64 %indvars.iv.i23
+  %arrayidx7.i28 = getelementptr inbounds nuw [10 x i8], ptr %buf.i18, i64 0, i64 %indvars.iv.i23
   store i8 %or.i27, ptr %arrayidx7.i28, align 1
   %indvars.iv.next.i29 = add nsw i64 %indvars.iv.i23, -1
   %tobool.not.i30 = icmp samesign ult i64 %dec1.i26, 128
@@ -3450,7 +3450,7 @@ put_var_int.exit43.thread:                        ; preds = %while.end.i32
 put_var_int.exit43:                               ; preds = %while.end.i32
   %add.i39 = add nsw i32 %i.0.lcssa.i33, 1
   %idxprom17.i40 = sext i32 %add.i39 to i64
-  %arrayidx18.i41 = getelementptr inbounds [10 x i8], ptr %buf.i18, i64 0, i64 %idxprom17.i40
+  %arrayidx18.i41 = getelementptr inbounds nuw [10 x i8], ptr %buf.i18, i64 0, i64 %idxprom17.i40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s.sroa.0.0108, ptr nonnull align 1 %arrayidx18.i41, i64 %conv12.i36, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i18)
   %cmp16 = icmp slt i32 %sub10.i34, 0
@@ -3494,7 +3494,7 @@ if.end.i52:                                       ; preds = %for.body, %if.end.i
   %dec1.i56 = add nsw i64 %shr.i55, -1
   %15 = trunc i64 %dec1.i56 to i8
   %or.i57 = or i8 %15, -128
-  %arrayidx7.i58 = getelementptr inbounds [10 x i8], ptr %buf.i48, i64 0, i64 %indvars.iv.i53
+  %arrayidx7.i58 = getelementptr inbounds nuw [10 x i8], ptr %buf.i48, i64 0, i64 %indvars.iv.i53
   store i8 %or.i57, ptr %arrayidx7.i58, align 1
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i53, -1
   %tobool.not.i60 = icmp samesign ult i64 %dec1.i56, 128
@@ -3518,7 +3518,7 @@ put_var_int.exit73.thread:                        ; preds = %while.end.i62
 put_var_int.exit73:                               ; preds = %while.end.i62
   %add.i69 = add nsw i32 %i.0.lcssa.i63, 1
   %idxprom17.i70 = sext i32 %add.i69 to i64
-  %arrayidx18.i71 = getelementptr inbounds [10 x i8], ptr %buf.i48, i64 0, i64 %idxprom17.i70
+  %arrayidx18.i71 = getelementptr inbounds nuw [10 x i8], ptr %buf.i48, i64 0, i64 %idxprom17.i70
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %s.sroa.0.1100, ptr nonnull align 1 %arrayidx18.i71, i64 %conv12.i66, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i48)
   %cmp30 = icmp slt i32 %sub10.i64, 0
@@ -3873,7 +3873,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %mul10.i = shl nsw i32 %6, 1
   %idxprom11.i = sext i32 %mul10.i to i64
-  %arrayidx12.i = getelementptr inbounds i8, ptr %hex, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %hex, i64 %idxprom11.i
   store i8 0, ptr %arrayidx12.i, align 2
   br label %hex_format.exit
 

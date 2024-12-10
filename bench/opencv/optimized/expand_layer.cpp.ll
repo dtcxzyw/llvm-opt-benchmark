@@ -1131,7 +1131,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i57: ; preds = %26
 
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i51: ; preds = %29
   %gepdiff = sub nsw i64 4, %24
-  %.sink.i.i25.i49.ptr = getelementptr inbounds i8, ptr %5, i64 %24
+  %.sink.i.i25.i49.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.13.1, ptr nonnull align 4 %.sink.i.i25.i49.ptr, i64 %gepdiff, i1 false)
   %32 = getelementptr inbounds i8, ptr %.sroa.13.1, i64 %gepdiff
   br label %_ZNSt6vectorIiSaIiEEaSESt16initializer_listIiE.exit

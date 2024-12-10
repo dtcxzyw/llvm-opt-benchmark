@@ -112,7 +112,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 56:                                               ; preds = %._crit_edge
   %57 = sext i32 %.1.lcssa to i64
-  %58 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %57
   store i8 0, ptr %58, align 1
   %59 = load i8, ptr %5, align 16
   %.not115134 = icmp eq i8 %59, 0
@@ -143,10 +143,10 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv164 = phi i64 [ %64, %.lr.ph130.preheader ], [ %indvars.iv.next165, %.lr.ph130 ]
   %.1105128 = phi i32 [ %.0104136, %.lr.ph130.preheader ], [ %67, %.lr.ph130 ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
-  %66 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv164
+  %66 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv164
   store i32 %.1105128, ptr %66, align 4
   %67 = add i32 %.1105128, 1
-  %68 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next165
+  %68 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next165
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i32
   %71 = icmp eq i32 %.0111135, %70
@@ -176,7 +176,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %80 = shl i32 %.1105.lcssa, 1
   %81 = add nsw i32 %.0111135, 1
   %82 = sext i32 %.3.lcssa to i64
-  %83 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %.not115 = icmp eq i8 %84, 0
   br i1 %.not115, label %.preheader121, label %.preheader122, !llvm.loop !9
@@ -191,7 +191,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 88:                                               ; preds = %85
   %89 = sext i32 %.4139 to i64
-  %90 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = sub nsw i32 %.4139, %91
   %93 = getelementptr inbounds nuw [17 x i32], ptr %65, i64 0, i64 %indvars.iv167
@@ -201,7 +201,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %96 = add nsw i32 %.4139, %95
   %97 = add nsw i32 %96, -1
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   br label %101
 
@@ -242,7 +242,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .lr.ph143.us:                                     ; preds = %.lr.ph143.us.preheader, %._crit_edge144.us
   %indvars.iv174 = phi i64 [ %113, %.lr.ph143.us.preheader ], [ %indvars.iv.next175, %._crit_edge144.us ]
   %.1109146.us = phi i32 [ 1, %.lr.ph143.us.preheader ], [ %126, %._crit_edge144.us ]
-  %115 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
+  %115 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
   %116 = load i32, ptr %115, align 4
   %117 = shl i32 %116, %111
   %118 = getelementptr inbounds [256 x i8], ptr %106, i64 0, i64 %indvars.iv174
@@ -992,7 +992,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %126 = getelementptr inbounds nuw [10 x i32], ptr %64, i64 0, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = add nsw i32 %130, %.1174
   store i32 %131, ptr %129, align 4
@@ -1111,7 +1111,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %189 = phi i32 [ %187, %184 ], [ %179, %175 ]
   %190 = trunc i32 %189 to i16
   %191 = sext i32 %168 to i64
-  %192 = getelementptr inbounds [0 x i32], ptr @jZAGTable, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [0 x i32], ptr @jZAGTable, i64 0, i64 %191
   %193 = load i32, ptr %192, align 4
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds [64 x i16], ptr %68, i64 0, i64 %194

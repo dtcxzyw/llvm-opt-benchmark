@@ -8566,7 +8566,7 @@ define dso_local void @_ZNK16cmCoreTryCompile11WriteSourceERKNSt7__cxx1112basic_
   %57 = load ptr, ptr %16, align 8
   %58 = getelementptr i8, ptr %57, i64 -24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %16, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 %59
   %61 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %60)
           to label %62 unwind label %81
 
@@ -8641,7 +8641,7 @@ define dso_local void @_ZNK16cmCoreTryCompile11WriteSourceERKNSt7__cxx1112basic_
   %88 = load ptr, ptr %16, align 8
   %89 = getelementptr i8, ptr %88, i64 -24
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %16, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %16, i64 %90
   %92 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %91)
           to label %93 unwind label %81
 

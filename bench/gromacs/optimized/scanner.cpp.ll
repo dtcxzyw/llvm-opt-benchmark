@@ -255,7 +255,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %34, %.critedge, %45
   %113 = getelementptr inbounds nuw [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = sext i32 %.1 to i64
-  %116 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %115
   %117 = load i16, ptr %116, align 2
   %.not241 = icmp eq i16 %117, 0
   br i1 %.not241, label %119, label %118
@@ -266,7 +266,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %34, %.critedge, %45
   br label %119
 
 119:                                              ; preds = %118, %110
-  %120 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %115
+  %120 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %115
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i64
   %123 = zext i8 %114 to i64
@@ -280,7 +280,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %34, %.critedge, %45
 .lr.ph:                                           ; preds = %119, %136
   %128 = phi i64 [ %137, %136 ], [ %115, %119 ]
   %.0223395 = phi i8 [ %.1224, %136 ], [ %114, %119 ]
-  %129 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = icmp sgt i16 %130, 75
   br i1 %131, label %132, label %136
@@ -294,7 +294,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %34, %.critedge, %45
 136:                                              ; preds = %132, %.lr.ph
   %.1224 = phi i8 [ %135, %132 ], [ %.0223395, %.lr.ph ]
   %137 = sext i16 %130 to i64
-  %138 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i64
   %141 = zext i8 %.1224 to i64
@@ -329,7 +329,7 @@ _ZL30_gmx_sel_yyensure_buffer_stackPv.exit:       ; preds = %34, %.critedge, %45
   %.3 = phi i32 [ %163, %161 ], [ %.3.ph, %.outer ]
   %.2227 = load ptr, ptr %.2227.in, align 8
   %153 = sext i32 %.3 to i64
-  %154 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %153
   %155 = load i16, ptr %154, align 2
   %156 = sext i16 %155 to i32
   store ptr %.1229.ph, ptr %99, align 8
@@ -1222,7 +1222,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 17:                                               ; preds = %11, %13
   %18 = phi i8 [ %16, %13 ], [ 1, %11 ]
   %19 = sext i32 %.02130 to i64
-  %20 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not25 = icmp eq i16 %21, 0
   br i1 %.not25, label %23, label %22
@@ -1233,7 +1233,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %19
+  %24 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %19
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i64
   %27 = zext i8 %18 to i64
@@ -1247,7 +1247,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 .lr.ph:                                           ; preds = %23, %40
   %32 = phi i64 [ %41, %40 ], [ %19, %23 ]
   %.028 = phi i8 [ %.1, %40 ], [ %18, %23 ]
-  %33 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = icmp sgt i16 %34, 75
   br i1 %35, label %36, label %40
@@ -1261,7 +1261,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 40:                                               ; preds = %36, %.lr.ph
   %.1 = phi i8 [ %39, %36 ], [ %.028, %.lr.ph ]
   %41 = sext i16 %34 to i64
-  %42 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i64
   %45 = zext i8 %.1 to i64
@@ -1288,7 +1288,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr nocapture n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef range(i32 0, 65536) i32 @_ZL16yy_try_NUL_transiPv(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #8 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [76 x i16], ptr @_ZL9yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
   %.not = icmp eq i16 %5, 0
   br i1 %.not, label %11, label %6
@@ -1303,7 +1303,7 @@ define internal fastcc noundef range(i32 0, 65536) i32 @_ZL16yy_try_NUL_transiPv
   br label %11
 
 11:                                               ; preds = %6, %2
-  %12 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %3
+  %12 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %3
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %14, 1
@@ -1315,10 +1315,10 @@ define internal fastcc noundef range(i32 0, 65536) i32 @_ZL16yy_try_NUL_transiPv
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %19 = phi i64 [ %22, %.lr.ph ], [ %3, %11 ]
-  %20 = getelementptr inbounds [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [80 x i16], ptr @_ZL6yy_def, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [80 x i16], ptr @_ZL7yy_base, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %26 = add nuw nsw i64 %25, 1

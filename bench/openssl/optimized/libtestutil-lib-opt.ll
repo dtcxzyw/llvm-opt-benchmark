@@ -188,7 +188,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @prog) #20
-  %add.ptr = getelementptr inbounds i8, ptr @prog, i64 %call
+  %add.ptr = getelementptr inbounds nuw i8, ptr @prog, i64 %call
   %sub1 = sub i64 39, %call
   %call2 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub1, ptr noundef nonnull @.str, ptr noundef nonnull %argv0) #21
   br label %if.end
@@ -2546,7 +2546,7 @@ if.end68.i:                                       ; preds = %if.then65.i, %if.en
   %linelen.1.i = phi i32 [ 0, %if.then65.i ], [ %linelen.0.i, %if.end60.i ]
   %sub.i = sub nsw i32 %spec.store.select.i, %linelen.1.i
   %idxprom69.i = sext i32 %sub.i to i64
-  %arrayidx70.i = getelementptr inbounds [81 x i8], ptr %start.i, i64 0, i64 %idxprom69.i
+  %arrayidx70.i = getelementptr inbounds nuw [81 x i8], ptr %start.i, i64 0, i64 %idxprom69.i
   store i8 0, ptr %arrayidx70.i, align 1
   %call72.i = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.94, ptr noundef nonnull %start.i, ptr noundef nonnull %spec.select.i) #21
   br label %opt_print.exit

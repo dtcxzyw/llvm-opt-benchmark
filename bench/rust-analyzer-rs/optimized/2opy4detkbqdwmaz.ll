@@ -20079,7 +20079,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.8855768217806144362.exit.i.i.i.i: 
   %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %483, %482 ], [ %460, %459 ]
   %484 = load i64, ptr %219, align 8, !alias.scope !5095, !noalias !5034, !noundef !49
   %485 = load i64, ptr %220, align 8, !alias.scope !5095, !noalias !5034, !noundef !49
-  %486 = getelementptr inbounds { [4 x i64] }, ptr %25, i64 %484
+  %486 = getelementptr inbounds nuw { [4 x i64] }, ptr %25, i64 %484
   %487 = sub nuw i64 %485, %484
   invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$vfs..vfs_path..VfsPath$u5d$$GT$17hdfc339d854b7fc78E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 %486, i64 noundef %487)
           to label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$vfs..vfs_path..VfsPath$C$2_usize$GT$$GT$17he85fda02ac1164ecE.exit.i.i.i.i.i.i" unwind label %500, !noalias !5083
@@ -20088,7 +20088,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0a44167e9bb50e60E.exit.i.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ null, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90a772781b27fa14E.exit.i.i.i.i.i.i.i" ], [ null, %481 ], [ %458, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17hb11f34e9971f15adE.exit.i.i.i.i.i.i.i" ]
   %488 = load i64, ptr %219, align 8, !alias.scope !5102, !noalias !5034, !noundef !49
   %489 = load i64, ptr %220, align 8, !alias.scope !5102, !noalias !5034, !noundef !49
-  %490 = getelementptr inbounds { [4 x i64] }, ptr %25, i64 %488
+  %490 = getelementptr inbounds nuw { [4 x i64] }, ptr %25, i64 %488
   %491 = sub nuw i64 %489, %488
   invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$vfs..vfs_path..VfsPath$u5d$$GT$17hdfc339d854b7fc78E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 %490, i64 noundef %491)
           to label %"_ZN4core3ptr88drop_in_place$LT$core..array..iter..IntoIter$LT$vfs..vfs_path..VfsPath$C$2_usize$GT$$GT$17he85fda02ac1164ecE.exit9.i.i.i.i.i.i" unwind label %492, !noalias !5083

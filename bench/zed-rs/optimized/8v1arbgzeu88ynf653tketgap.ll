@@ -45872,8 +45872,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h280aa2bf7c60018aE.exit.i.i.i
 .lr.ph.i11.i.i.i:                                 ; preds = %.lr.ph.i11.i.i.i, %.preheader.i.i.i.i
   %.sroa.8.017.i12.i.i.i = phi i64 [ %248, %.lr.ph.i11.i.i.i ], [ 0, %.preheader.i.i.i.i ]
   %248 = add nuw i64 %.sroa.8.017.i12.i.i.i, 1
-  %249 = getelementptr inbounds i32, ptr %84, i64 %.sroa.8.017.i12.i.i.i
-  %250 = getelementptr inbounds float, ptr %83, i64 %.sroa.8.017.i12.i.i.i
+  %249 = getelementptr inbounds nuw i32, ptr %84, i64 %.sroa.8.017.i12.i.i.i
+  %250 = getelementptr inbounds nuw float, ptr %83, i64 %.sroa.8.017.i12.i.i.i
   %251 = load i32, ptr %249, align 4, !alias.scope !13466, !noalias !13471, !noundef !14
   %252 = uitofp i32 %251 to float
   store float %252, ptr %250, align 4, !alias.scope !13469, !noalias !13472
@@ -46512,8 +46512,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h280aa2bf7c60018aE.exit.i.i.i
 .lr.ph.i11.i.i.i.i:                               ; preds = %.lr.ph.i11.i.i.i.i, %.preheader.i.i.i.i.i
   %.sroa.8.017.i12.i.i.i.i = phi i64 [ %441, %.lr.ph.i11.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i ]
   %441 = add nuw i64 %.sroa.8.017.i12.i.i.i.i, 1
-  %442 = getelementptr inbounds i32, ptr %65, i64 %.sroa.8.017.i12.i.i.i.i
-  %443 = getelementptr inbounds float, ptr %64, i64 %.sroa.8.017.i12.i.i.i.i
+  %442 = getelementptr inbounds nuw i32, ptr %65, i64 %.sroa.8.017.i12.i.i.i.i
+  %443 = getelementptr inbounds nuw float, ptr %64, i64 %.sroa.8.017.i12.i.i.i.i
   %444 = load i32, ptr %442, align 4, !alias.scope !13624, !noalias !13629, !noundef !14
   %445 = uitofp i32 %444 to float
   store float %445, ptr %443, align 4, !alias.scope !13627, !noalias !13630
@@ -47149,8 +47149,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h280aa2bf7c60018aE.exit.i.i.i
 .lr.ph.i11.i.i.i.i.i:                             ; preds = %.lr.ph.i11.i.i.i.i.i, %.preheader.i.i.i.i.i.i
   %.sroa.8.017.i12.i.i.i.i.i = phi i64 [ %634, %.lr.ph.i11.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i ]
   %634 = add nuw i64 %.sroa.8.017.i12.i.i.i.i.i, 1
-  %635 = getelementptr inbounds i32, ptr %46, i64 %.sroa.8.017.i12.i.i.i.i.i
-  %636 = getelementptr inbounds float, ptr %45, i64 %.sroa.8.017.i12.i.i.i.i.i
+  %635 = getelementptr inbounds nuw i32, ptr %46, i64 %.sroa.8.017.i12.i.i.i.i.i
+  %636 = getelementptr inbounds nuw float, ptr %45, i64 %.sroa.8.017.i12.i.i.i.i.i
   %637 = load i32, ptr %635, align 4, !alias.scope !13782, !noalias !13787, !noundef !14
   %638 = uitofp i32 %637 to float
   store float %638, ptr %636, align 4, !alias.scope !13785, !noalias !13788
@@ -47784,8 +47784,8 @@ _ZN3exr5block7samples16FromNativeSample9from_u32s17h280aa2bf7c60018aE.exit.i.i.i
 .lr.ph.i11.i.i.i.i.i.i:                           ; preds = %.lr.ph.i11.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i
   %.sroa.8.017.i12.i.i.i.i.i.i = phi i64 [ %826, %.lr.ph.i11.i.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i.i.i ]
   %826 = add nuw i64 %.sroa.8.017.i12.i.i.i.i.i.i, 1
-  %827 = getelementptr inbounds i32, ptr %27, i64 %.sroa.8.017.i12.i.i.i.i.i.i
-  %828 = getelementptr inbounds float, ptr %26, i64 %.sroa.8.017.i12.i.i.i.i.i.i
+  %827 = getelementptr inbounds nuw i32, ptr %27, i64 %.sroa.8.017.i12.i.i.i.i.i.i
+  %828 = getelementptr inbounds nuw float, ptr %26, i64 %.sroa.8.017.i12.i.i.i.i.i.i
   %829 = load i32, ptr %827, align 4, !alias.scope !13936, !noalias !13941, !noundef !14
   %830 = uitofp i32 %829 to float
   store float %830, ptr %828, align 4, !alias.scope !13939, !noalias !13942

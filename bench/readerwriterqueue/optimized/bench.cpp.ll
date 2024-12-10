@@ -307,7 +307,7 @@ for.end112:                                       ; preds = %for.body82
   %vtable = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr128 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset
+  %add.ptr128 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset
   %call129 = call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr128, i8 noundef signext 45)
   %call134 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 17)
   %call135 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call134, ptr noundef nonnull @.str.4)
@@ -315,7 +315,7 @@ for.end112:                                       ; preds = %for.body82
   %vtable137 = load ptr, ptr @_ZSt4cout, align 8
   %vbase.offset.ptr138 = getelementptr i8, ptr %vtable137, i64 -24
   %vbase.offset139 = load i64, ptr %vbase.offset.ptr138, align 8
-  %add.ptr140 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset139
+  %add.ptr140 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %vbase.offset139
   %call141 = call noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr140, i8 noundef signext 32)
   br label %for.body145
 

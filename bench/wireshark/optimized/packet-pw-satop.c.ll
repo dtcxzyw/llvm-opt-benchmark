@@ -501,7 +501,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br i1 %78, label %switch.lookup, label %162
 
 switch.lookup:                                    ; preds = %156
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0179
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0179
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %162
 

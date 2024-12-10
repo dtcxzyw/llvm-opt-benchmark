@@ -3925,7 +3925,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 1374:                                             ; preds = %1369, %1365, %1361, %1357
   %1375 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %115) #21
   %strlen.us.i = call i64 @strlen(ptr nonnull dereferenceable(1) %116)
-  %endptr.us.i = getelementptr inbounds i8, ptr %116, i64 %strlen.us.i
+  %endptr.us.i = getelementptr inbounds nuw i8, ptr %116, i64 %strlen.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr.us.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.210, i64 5, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %96)
   %1376 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %116) #21
@@ -4843,7 +4843,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %1613
 
 1625:                                             ; preds = %1622
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %151)
-  %endptr = getelementptr inbounds i8, ptr %151, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %151, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr, ptr noundef nonnull align 1 dereferenceable(5) @.str.142, i64 5, i1 false)
   br label %1626
 
@@ -4919,7 +4919,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %1613
 
 1629:                                             ; preds = %1626
   %strlen66 = call i64 @strlen(ptr nonnull dereferenceable(1) %151)
-  %endptr67 = getelementptr inbounds i8, ptr %151, i64 %strlen66
+  %endptr67 = getelementptr inbounds nuw i8, ptr %151, i64 %strlen66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr67, ptr noundef nonnull align 1 dereferenceable(5) @.str.143, i64 5, i1 false)
   br label %1630
 
@@ -4930,7 +4930,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %1613
 
 1633:                                             ; preds = %1630
   %strlen68 = call i64 @strlen(ptr nonnull dereferenceable(1) %151)
-  %endptr69 = getelementptr inbounds i8, ptr %151, i64 %strlen68
+  %endptr69 = getelementptr inbounds nuw i8, ptr %151, i64 %strlen68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr69, ptr noundef nonnull align 1 dereferenceable(7) @.str.144, i64 7, i1 false)
   br label %1634
 
@@ -4939,10 +4939,10 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %1613
 
 1635:                                             ; preds = %1634
   %strlen70 = call i64 @strlen(ptr nonnull dereferenceable(1) %151)
-  %endptr71 = getelementptr inbounds i8, ptr %151, i64 %strlen70
+  %endptr71 = getelementptr inbounds nuw i8, ptr %151, i64 %strlen70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr71, ptr noundef nonnull align 1 dereferenceable(7) @.str.145, i64 7, i1 false)
   %1636 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %151) #28
-  %1637 = getelementptr inbounds i8, ptr %151, i64 %1636
+  %1637 = getelementptr inbounds nuw i8, ptr %151, i64 %1636
   %1638 = load i32, ptr @_ZZ7gmx_chiiPPcE6maxchi, align 4
   %1639 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1637, ptr noundef nonnull dereferenceable(1) @.str.146, i32 noundef %1638) #21
   br label %1640
@@ -6404,7 +6404,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i179:     ; preds = %2074, %2072
   %.lhs.trunc3.i.i = trunc nsw i32 %2122 to i16
   %2123 = sdiv i16 %.lhs.trunc3.i.i, 6
   %2124 = sext i16 %2118 to i64
-  %2125 = getelementptr inbounds [61 x ptr], ptr @_ZZL8bAllowedffE3map, i64 0, i64 %2124
+  %2125 = getelementptr inbounds nuw [61 x ptr], ptr @_ZZL8bAllowedffE3map, i64 0, i64 %2124
   %2126 = load ptr, ptr %2125, align 8
   %2127 = sext i16 %2123 to i64
   %2128 = getelementptr inbounds i8, ptr %2126, i64 %2127
@@ -7463,7 +7463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit118.i:
   %2441 = getelementptr inbounds nuw i8, ptr %37, i64 288
   %2442 = add i32 %2323, 3
   %2443 = sext i32 %2442 to i64
-  %2444 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %37, i64 %2443
+  %2444 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %37, i64 %2443
   invoke void @_Z10xvgrLegendP8_IO_FILEN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPK16gmx_output_env_t(ptr noundef %2435, ptr nonnull %37, ptr nonnull %2444, ptr noundef %2326)
           to label %2445 unwind label %2478
 

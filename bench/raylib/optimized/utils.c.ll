@@ -143,12 +143,12 @@ define void @TraceLog(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #1
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %19 = trunc i64 %18 to i32
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
-  %21 = getelementptr inbounds i8, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %22 = call i32 @llvm.umin.i32(i32 %19, i32 244)
   %23 = zext nneg i32 %22 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %1, i64 %23, i1 false)
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
-  %endptr = getelementptr inbounds i8, ptr %4, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %4, i64 %strlen
   store i16 10, ptr %endptr, align 1
   %24 = call i32 @vprintf(ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %25 = load ptr, ptr @stdout, align 8

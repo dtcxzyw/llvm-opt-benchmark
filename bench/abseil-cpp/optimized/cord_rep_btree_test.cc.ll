@@ -46337,7 +46337,7 @@ for.body:                                         ; preds = %invoke.cont, %invok
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds i8, ptr @.str.223, i64 %call.i7
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr @.str.223, i64 %call.i7
   %1 = load i8, ptr %add.ptr.i, align 1
   %call6 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %i.010)
           to label %invoke.cont5 unwind label %lpad1

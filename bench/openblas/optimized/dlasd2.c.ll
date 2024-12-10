@@ -552,7 +552,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %379 = load i32, ptr %378, align 4, !tbaa !3
   %380 = add nsw i32 %379, -1
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds [4 x i32], ptr %25, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw [4 x i32], ptr %25, i64 0, i64 %381
   %383 = load i32, ptr %382, align 4, !tbaa !3
   %384 = add nsw i32 %383, 1
   store i32 %384, ptr %382, align 4, !tbaa !3
@@ -600,7 +600,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %404 = load i32, ptr %403, align 4, !tbaa !3
   %405 = add nsw i32 %404, -1
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds [4 x i32], ptr %31, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i32], ptr %31, i64 0, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !3
   %409 = sext i32 %408 to i64
   %410 = getelementptr inbounds i32, ptr %53, i64 %409

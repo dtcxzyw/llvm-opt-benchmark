@@ -528,7 +528,7 @@ _ZN4llvm3ARM9parseArchENS_9StringRefE.exit:       ; preds = %_ZNK4llvm9StringRef
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %switch.gep = getelementptr inbounds [41 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [41 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchVersionENS_9StringRefE, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3ARM9parseArchENS_9StringRefE.exit.thread
 
@@ -580,7 +580,7 @@ _ZN4llvm3ARM9parseArchENS_9StringRefE.exit:       ; preds = %_ZNK4llvm9StringRef
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %switch.gep = getelementptr inbounds [41 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [41 x i32], ptr @switch.table._ZN4llvm3ARM16parseArchProfileENS_9StringRefE, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL14getProfileKindN4llvm3ARM8ArchKindE.exit
 

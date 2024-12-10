@@ -2936,7 +2936,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i, 100
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
   store i16 %4, ptr %add.ptr.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 2
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !14
@@ -2997,7 +2997,7 @@ while.body.i.i.i.i.i23:                           ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i28 = urem i64 %v.addr.i4.018.i.i.i.i24, 100
   %arrayidx.i.i.i.i.i29 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i28
   %9 = load i16, ptr %arrayidx.i.i.i.i.i29, align 2
-  %add.ptr.i.i.i.i.i30 = getelementptr inbounds i8, ptr %buffer.i13, i64 %sub.i.i.i.i.i26
+  %add.ptr.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %buffer.i13, i64 %sub.i.i.i.i.i26
   store i16 %9, ptr %add.ptr.i.i.i.i.i30, align 1
   %cmp.i.i.i.i.i31 = icmp ugt i64 %sub.i.i.i.i.i26, 2
   br i1 %cmp.i.i.i.i.i31, label %while.body.i.i.i.i.i23, label %while.end.i.i.i.i.i32, !llvm.loop !14
@@ -3006,7 +3006,7 @@ while.end.i.i.i.i.i32:                            ; preds = %while.body.i.i.i.i.
   %retval.i.i.023.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %retval.i.i.024.i.i.i.i22, %while.body.i.i.i.i.i23 ]
   %pos.i.0.lcssa.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %sub.i.i.i.i.i26, %while.body.i.i.i.i.i23 ]
   %v.addr.i4.0.lcssa.i.i.i.i35 = phi i64 [ %7, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %div.i.i.i.i.i27, %while.body.i.i.i.i.i23 ]
-  %arrayidx2.i.i.i.i.i36 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i35
+  %arrayidx2.i.i.i.i.i36 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i35
   %10 = load i16, ptr %arrayidx2.i.i.i.i.i36, align 2
   %cmp3.i.i.i.i.i37 = icmp eq i64 %pos.i.0.lcssa.i.i.i.i34, 2
   br i1 %cmp3.i.i.i.i.i37, label %if.then.i.i.i.i.i40, label %if.else.i.i.i.i.i38
@@ -3074,7 +3074,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i = urem i64 %v.addr.i4.018.i.i.i.i, 100
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i
   %3 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 %sub.i.i.i.i.i
   store i16 %3, ptr %add.ptr.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 2
   br i1 %cmp.i.i.i.i.i, label %while.body.i.i.i.i.i, label %while.end.i.i.i.i.i, !llvm.loop !14
@@ -3136,7 +3136,7 @@ while.body.i.i.i.i.i22:                           ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i27 = urem i64 %v.addr.i4.018.i.i.i.i23, 100
   %arrayidx.i.i.i.i.i28 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i27
   %8 = load i16, ptr %arrayidx.i.i.i.i.i28, align 2
-  %add.ptr.i.i.i.i.i29 = getelementptr inbounds i8, ptr %buffer.i11, i64 %sub.i.i.i.i.i25
+  %add.ptr.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %buffer.i11, i64 %sub.i.i.i.i.i25
   store i16 %8, ptr %add.ptr.i.i.i.i.i29, align 1
   %cmp.i.i.i.i.i30 = icmp ugt i64 %sub.i.i.i.i.i25, 2
   br i1 %cmp.i.i.i.i.i30, label %while.body.i.i.i.i.i22, label %while.end.i.i.i.i.i31, !llvm.loop !14

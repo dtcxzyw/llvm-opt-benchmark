@@ -1055,7 +1055,7 @@ define internal fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr nocapture
   %21 = load float, ptr %20, align 4
   %22 = fcmp oge float %21, 0.000000e+00
   %23 = sext i32 %.08494 to i64
-  %24 = getelementptr inbounds [12 x float], ptr %9, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [12 x float], ptr %9, i64 0, i64 %23
   %25 = load float, ptr %24, align 4
   %26 = fcmp ult float %25, 0.000000e+00
   %27 = xor i1 %22, %26

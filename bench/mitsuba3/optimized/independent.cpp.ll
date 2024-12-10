@@ -311,12 +311,12 @@ define weak_odr void @_ZNK7mitsuba18IndependentSamplerIfN5drjit6MatrixINS_8Spect
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %14 = getelementptr i8, ptr %12, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   store ptr %13, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %19
   invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %20, ptr noundef nonnull %11)
           to label %21 unwind label %24
 
@@ -593,7 +593,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %120 = getelementptr i8, ptr %118, i64 -24
   %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %8, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 %121
   store ptr %119, ptr %122, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %11, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #15

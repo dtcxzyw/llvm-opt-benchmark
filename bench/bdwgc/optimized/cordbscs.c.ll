@@ -1799,7 +1799,7 @@ define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1,
 
 40:                                               ; preds = %36
   %41 = sext i8 %38 to i64
-  %42 = getelementptr inbounds [48 x i64], ptr @min_len, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [48 x i64], ptr @min_len, i64 0, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %.tr4350, %43
   br i1 %44, label %45, label %77

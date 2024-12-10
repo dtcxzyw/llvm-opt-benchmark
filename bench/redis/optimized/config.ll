@@ -7002,11 +7002,11 @@ if.then94:                                        ; preds = %if.end87
   %sub = sub nsw i64 0, %value.0
   %call95 = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 128, i64 noundef %sub) #25
   %idxprom = sext i32 %call95 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 37, ptr %arrayidx, align 1
   %add = add nsw i32 %call95, 1
   %idxprom96 = sext i32 %add to i64
-  %arrayidx97 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom96
+  %arrayidx97 = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom96
   store i8 0, ptr %arrayidx97, align 1
   br label %if.end119
 
@@ -7766,14 +7766,14 @@ if.then32.i:                                      ; preds = %lor.lhs.false28.i, 
 
 if.end36.i:                                       ; preds = %lor.lhs.false28.i
   %idxprom37.i = sext i32 %call.i to i64
-  %arrayidx38.i = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %values.i, i64 0, i64 %idxprom37.i
+  %arrayidx38.i = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr %values.i, i64 0, i64 %idxprom37.i
   store i64 %call13.i, ptr %arrayidx38.i, align 8
   %soft_limit_bytes.i = getelementptr inbounds nuw i8, ptr %arrayidx38.i, i64 8
   store i64 %call17.i, ptr %soft_limit_bytes.i, align 8
   %conv41.i = and i64 %call21.i, 2147483647
   %soft_limit_seconds.i = getelementptr inbounds nuw i8, ptr %arrayidx38.i, i64 16
   store i64 %conv41.i, ptr %soft_limit_seconds.i, align 8
-  %arrayidx45.i = getelementptr inbounds [3 x i32], ptr %classes.i, i64 0, i64 %idxprom37.i
+  %arrayidx45.i = getelementptr inbounds nuw [3 x i32], ptr %classes.i, i64 0, i64 %idxprom37.i
   store i32 1, ptr %arrayidx45.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %13 = trunc nuw i64 %indvars.iv.next.i to i32

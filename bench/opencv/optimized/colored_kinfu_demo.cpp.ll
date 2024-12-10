@@ -4899,7 +4899,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSourceC2ENSt7__cxx1112bas
   %43 = load ptr, ptr %4, align 8, !noalias !40
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %47 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %46)
           to label %48 unwind label %.loopexit.i
 
@@ -5825,7 +5825,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils9RGBSourceC2ENSt7__cxx1112basic_
   %43 = load ptr, ptr %4, align 8, !noalias !45
   %44 = getelementptr i8, ptr %43, i64 -24
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %45
   %47 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %46)
           to label %48 unwind label %.loopexit.i
 

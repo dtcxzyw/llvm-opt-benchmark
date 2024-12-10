@@ -37278,8 +37278,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limite
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit unwind label %5
 
-common.resume:                                    ; preds = %44, %57, %5
-  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %.merged10, %57 ], [ %45, %44 ]
+common.resume:                                    ; preds = %42, %55, %5
+  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %.merged10, %55 ], [ %43, %42 ]
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #28
   resume { ptr, i32 } %common.resume.op
 
@@ -37298,90 +37298,88 @@ _ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds i8, ptr %7, i64 %12
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %7, ptr noundef %7, ptr noundef %13)
-          to label %_ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit unwind label %44
+          to label %_ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit unwind label %42
 
 _ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit: ; preds = %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit
   invoke void @_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %3)
-          to label %14 unwind label %44
+          to label %14 unwind label %42
 
 14:                                               ; preds = %_ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %18, i32 noundef 1)
-          to label %19 unwind label %46
+          to label %19 unwind label %44
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, -4097
   store i32 %26, ptr %24, align 4
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr i8, ptr %27, i64 -24
-  %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 17, ptr %31, align 8
-  %32 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %33 unwind label %48
+  %27 = load i64, ptr %21, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 17, ptr %29, align 8
+  %30 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %31 unwind label %46
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr i8, ptr %34, i64 -24
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 %36
-  %38 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %37)
-          to label %39 unwind label %48
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %30, align 8
+  %33 = getelementptr i8, ptr %32, i64 -24
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %30, i64 %34
+  %36 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %35)
+          to label %37 unwind label %46
 
-39:                                               ; preds = %33
-  br i1 %38, label %40, label %56
+37:                                               ; preds = %31
+  br i1 %36, label %38, label %54
 
-40:                                               ; preds = %39
-  %41 = invoke noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %42 unwind label %48
+38:                                               ; preds = %37
+  %39 = invoke noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %40 unwind label %46
 
-42:                                               ; preds = %40
-  %43 = icmp eq i32 %41, -1
-  br label %56
+40:                                               ; preds = %38
+  %41 = icmp eq i32 %39, -1
+  br label %54
 
-44:                                               ; preds = %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit, %_ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit
-  %45 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit, %_ZN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEE6setbufEPcl.exit
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-46:                                               ; preds = %53, %14
+44:                                               ; preds = %51, %14
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  br label %55
+
+46:                                               ; preds = %38, %31, %19
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %57
-
-48:                                               ; preds = %40, %33, %19
-  %49 = landingpad { ptr, i32 }
-          cleanup
           catch ptr @_ZTINSt8ios_base7failureB5cxx11E
-  %50 = extractvalue { ptr, i32 } %49, 1
-  %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #28
-  %52 = icmp eq i32 %50, %51
-  br i1 %52, label %53, label %57
+  %48 = extractvalue { ptr, i32 } %47, 1
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E) #28
+  %50 = icmp eq i32 %48, %49
+  br i1 %50, label %51, label %55
 
-53:                                               ; preds = %48
-  %54 = extractvalue { ptr, i32 } %49, 0
-  %55 = call ptr @__cxa_begin_catch(ptr %54) #28
+51:                                               ; preds = %46
+  %52 = extractvalue { ptr, i32 } %47, 0
+  %53 = call ptr @__cxa_begin_catch(ptr %52) #28
   invoke void @__cxa_end_catch()
-          to label %56 unwind label %46
+          to label %54 unwind label %44
 
-56:                                               ; preds = %39, %42, %53
-  %.0 = phi i1 [ false, %53 ], [ false, %39 ], [ %43, %42 ]
+54:                                               ; preds = %37, %40, %51
+  %.0 = phi i1 [ false, %51 ], [ false, %37 ], [ %41, %40 ]
   call void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #28
   ret i1 %.0
 
-57:                                               ; preds = %48, %46
-  %.merged10 = phi { ptr, i32 } [ %47, %46 ], [ %49, %48 ]
+55:                                               ; preds = %46, %44
+  %.merged10 = phi { ptr, i32 } [ %45, %44 ], [ %47, %46 ]
   call void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
   br label %common.resume
 }

@@ -3304,7 +3304,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %972 = load double, ptr %971, align 8
   %973 = fmul double %970, %972
   %974 = add nsw i64 %indvars.iv375.i.i.i, -1
-  %975 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %974
+  %975 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %974
   store double %973, ptr %975, align 8
   %976 = fadd double %.4856133.i.i.i, %973
   %indvars.iv.next376.i.i.i = add nuw nsw i64 %indvars.iv375.i.i.i, 1
@@ -3395,7 +3395,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1051 = fmul double %1050, %1050
   %1052 = fmul double %1051, 5.000000e-01
   %1053 = add nsw i64 %indvars.iv384.i.i.i, -1
-  %1054 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1053
+  %1054 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1053
   store double %1052, ptr %1054, align 8
   %1055 = fadd double %.5158.i.i.i, %1052
   %indvars.iv.next385.i.i.i = add nuw nsw i64 %indvars.iv384.i.i.i, 1
@@ -3484,7 +3484,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1112 = fmul double %1110, %1111
   %1113 = call double @llvm.fmuladd.f64(double %1109, double %1108, double %1112)
   %1114 = add nsw i64 %indvars.iv388.i.i.i, -1
-  %1115 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1114
+  %1115 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1114
   store double %1113, ptr %1115, align 8
   %1116 = load double, ptr %169, align 8
   %1117 = load double, ptr %170, align 16
@@ -3500,9 +3500,9 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %indvars.iv391.i.i.i = phi i64 [ %indvars.iv.next392.i.i.i, %.preheader9.i1342.i.i ], [ 1, %1106 ]
   %.7161.i.i.i = phi double [ %1127, %.preheader9.i1342.i.i ], [ 0.000000e+00, %1106 ]
   %1122 = add nsw i64 %indvars.iv391.i.i.i, -1
-  %1123 = getelementptr inbounds [9 x double], ptr %9, i64 0, i64 %1122
+  %1123 = getelementptr inbounds nuw [9 x double], ptr %9, i64 0, i64 %1122
   %1124 = load double, ptr %1123, align 8
-  %1125 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1122
+  %1125 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1122
   %1126 = load double, ptr %1125, align 8
   %1127 = call double @llvm.fmuladd.f64(double %1124, double %1126, double %.7161.i.i.i)
   %indvars.iv.next392.i.i.i = add nuw nsw i64 %indvars.iv391.i.i.i, 1
@@ -3570,7 +3570,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %1161 = fmul double %1159, %1160
   %1162 = call double @llvm.fmuladd.f64(double %1158, double %1157, double %1161)
   %1163 = add nsw i64 %indvars.iv396.i.i.i, -1
-  %1164 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1163
+  %1164 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1163
   store double %1162, ptr %1164, align 8
   %1165 = load double, ptr %169, align 8
   %1166 = load double, ptr %170, align 16
@@ -3587,12 +3587,12 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %.2172.i.i.i = phi double [ %1180, %.preheader265.i.i ], [ 0.000000e+00, %1155 ]
   %1171 = phi double [ %1177, %.preheader265.i.i ], [ 0.000000e+00, %1155 ]
   %1172 = add nsw i64 %indvars.iv399.i.i.i, -1
-  %1173 = getelementptr inbounds [9 x double], ptr %7, i64 0, i64 %1172
+  %1173 = getelementptr inbounds nuw [9 x double], ptr %7, i64 0, i64 %1172
   %1174 = load double, ptr %1173, align 8
-  %1175 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1172
+  %1175 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1172
   %1176 = load double, ptr %1175, align 8
   %1177 = call double @llvm.fmuladd.f64(double %1174, double %1176, double %1171)
-  %1178 = getelementptr inbounds [9 x double], ptr %9, i64 0, i64 %1172
+  %1178 = getelementptr inbounds nuw [9 x double], ptr %9, i64 0, i64 %1172
   %1179 = load double, ptr %1178, align 8
   %1180 = call double @llvm.fmuladd.f64(double %1179, double %1176, double %.2172.i.i.i)
   %indvars.iv.next400.i.i.i = add nuw nsw i64 %indvars.iv399.i.i.i, 1
@@ -3616,7 +3616,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %gep548.i.i.i = getelementptr double, ptr %invariant.gep547.i.i.i, i64 %1185
   %1186 = load double, ptr %gep548.i.i.i, align 8
   %1187 = add nsw i64 %indvars.iv403.i.i.i, -1
-  %1188 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1187
+  %1188 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1187
   %1189 = load double, ptr %1188, align 8
   %1190 = call double @llvm.fmuladd.f64(double %1186, double %1189, double %1184)
   store double %1190, ptr %1182, align 8
@@ -3815,7 +3815,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %gep558.i.i.i = getelementptr double, ptr %invariant.gep557.i.i.i, i64 %1262
   %1263 = load double, ptr %gep558.i.i.i, align 8
   %1264 = add nsw i64 %indvars.iv443.i.i.i, -1
-  %1265 = getelementptr inbounds [9 x double], ptr %8, i64 0, i64 %1264
+  %1265 = getelementptr inbounds nuw [9 x double], ptr %8, i64 0, i64 %1264
   %1266 = load double, ptr %1265, align 8
   %1267 = call double @llvm.fmuladd.f64(double %1263, double %1266, double %1261)
   store double %1267, ptr %1259, align 8

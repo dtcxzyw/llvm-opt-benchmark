@@ -56,7 +56,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec36 = add nsw i32 %7, -1
   store i32 %dec36, ptr %arrayidx35, align 4
   %idxprom37 = sext i32 %7 to i64
-  %arrayidx38 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom37
   %8 = trunc nuw nsw i64 %5 to i32
   store i32 %8, ptr %arrayidx38, align 4
   %9 = add nsw i64 %indvars.iv, -2
@@ -68,7 +68,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec44 = add nsw i32 %11, -1
   store i32 %dec44, ptr %arrayidx43, align 4
   %idxprom45 = sext i32 %11 to i64
-  %arrayidx46 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom45
+  %arrayidx46 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom45
   %12 = trunc nuw nsw i64 %9 to i32
   store i32 %12, ptr %arrayidx46, align 4
   %13 = add nsw i64 %indvars.iv, -3
@@ -80,7 +80,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec52 = add nsw i32 %15, -1
   store i32 %dec52, ptr %arrayidx51, align 4
   %idxprom53 = sext i32 %15 to i64
-  %arrayidx54 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom53
+  %arrayidx54 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom53
   %16 = trunc nuw nsw i64 %13 to i32
   store i32 %16, ptr %arrayidx54, align 4
   %17 = add nsw i64 %indvars.iv, -4
@@ -92,7 +92,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec60 = add nsw i32 %19, -1
   store i32 %dec60, ptr %arrayidx59, align 4
   %idxprom61 = sext i32 %19 to i64
-  %arrayidx62 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom61
+  %arrayidx62 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom61
   %20 = trunc nuw nsw i64 %17 to i32
   store i32 %20, ptr %arrayidx62, align 4
   %21 = add nsw i64 %indvars.iv, -5
@@ -104,7 +104,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec68 = add nsw i32 %23, -1
   store i32 %dec68, ptr %arrayidx67, align 4
   %idxprom69 = sext i32 %23 to i64
-  %arrayidx70 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom69
+  %arrayidx70 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom69
   %24 = trunc nuw nsw i64 %21 to i32
   store i32 %24, ptr %arrayidx70, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -6
@@ -116,7 +116,7 @@ do.body:                                          ; preds = %do.body, %entry
   %dec76 = add nsw i32 %26, -1
   store i32 %dec76, ptr %arrayidx75, align 4
   %idxprom77 = sext i32 %26 to i64
-  %arrayidx78 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %idxprom77
+  %arrayidx78 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %idxprom77
   %27 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %27, ptr %arrayidx78, align 4
   %cmp.not = icmp eq i64 %indvars.iv.next, 0
@@ -164,11 +164,11 @@ for.body97:                                       ; preds = %for.body97.lr.ph, %
   %indvars.iv88 = phi i64 [ %34, %for.body97.lr.ph ], [ %indvars.iv.next89, %ReplicateValue.exit ]
   %bits_count.074 = phi i32 [ %conv93, %for.body97.lr.ph ], [ %dec109, %ReplicateValue.exit ]
   %key.272 = phi i64 [ %key.1, %for.body97.lr.ph ], [ %add107, %ReplicateValue.exit ]
-  %arrayidx102 = getelementptr inbounds [18 x i32], ptr %sorted, i64 0, i64 %indvars.iv88
+  %arrayidx102 = getelementptr inbounds nuw [18 x i32], ptr %sorted, i64 0, i64 %indvars.iv88
   %36 = load i32, ptr %arrayidx102, align 4
   %retval.i.sroa.266.0.insert.ext = shl i32 %36, 16
   %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.266.0.insert.ext, %35
-  %arrayidx.i120 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.272
+  %arrayidx.i120 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %key.272
   %37 = load i8, ptr %arrayidx.i120, align 1
   %conv.i = zext i8 %37 to i64
   %arrayidx106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %conv.i
@@ -263,7 +263,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Re
   %conv12 = zext i16 %7 to i32
   %retval.i88.sroa.267.0.insert.shift = shl nuw i32 %conv12, 16
   %retval.i88.sroa.0.0.insert.insert = or disjoint i32 %retval.i88.sroa.267.0.insert.shift, %6
-  %arrayidx.i107 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.182
+  %arrayidx.i107 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %key.182
   %8 = load i8, ptr %arrayidx.i107, align 1
   %conv.i108 = zext i8 %8 to i64
   %arrayidx16 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i108
@@ -390,7 +390,7 @@ NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextT
   %sub5.i.us = sub nsw i32 %len.addr.i.0.lcssa.us, %root_bits
   %shl51.us = shl nuw i32 1, %sub5.i.us
   %add52.us = add nsw i32 %shl51.us, %total_size.198.us
-  %arrayidx.i104.us = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395.us
+  %arrayidx.i104.us = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395.us
   %18 = load i8, ptr %arrayidx.i104.us, align 1
   %conv.i105.us = zext i8 %18 to i64
   %add54.us = add i64 %key.395.us, %shr33
@@ -418,7 +418,7 @@ if.end62.us:                                      ; preds = %NextTableBitSize.ex
   %conv65.us = zext i16 %19 to i32
   %retval.i.sroa.265.0.insert.shift.us = shl nuw i32 %conv65.us, 16
   %retval.i.sroa.0.0.insert.insert.us = or disjoint i32 %retval.i.sroa.265.0.insert.shift.us, %retval.i.sroa.0.0.insert.ext
-  %arrayidx.i102.us = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2.us
+  %arrayidx.i102.us = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2.us
   %20 = load i8, ptr %arrayidx.i102.us, align 1
   %conv.i.us = zext i8 %20 to i64
   %arrayidx72.us = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2.us, i64 %conv.i.us
@@ -461,7 +461,7 @@ if.then49:                                        ; preds = %for.body46
   %idx.ext = sext i32 %table_size.397 to i64
   %add.ptr = getelementptr inbounds %struct.HuffmanCode, ptr %table.193, i64 %idx.ext
   %add52 = add nsw i32 %shl.i, %total_size.198
-  %arrayidx.i104 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395
+  %arrayidx.i104 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %key.395
   %24 = load i8, ptr %arrayidx.i104, align 1
   %conv.i105 = zext i8 %24 to i64
   %add54 = add i64 %key.395, %shr33
@@ -488,7 +488,7 @@ if.end62:                                         ; preds = %if.then49, %for.bod
   %conv65 = zext i16 %25 to i32
   %retval.i.sroa.265.0.insert.shift = shl nuw i32 %conv65, 16
   %retval.i.sroa.0.0.insert.insert = or disjoint i32 %retval.i.sroa.265.0.insert.shift, %retval.i.sroa.0.0.insert.ext
-  %arrayidx.i102 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2
+  %arrayidx.i102 = getelementptr inbounds nuw [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2
   %26 = load i8, ptr %arrayidx.i102, align 1
   %conv.i = zext i8 %26 to i64
   %arrayidx72 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2, i64 %conv.i

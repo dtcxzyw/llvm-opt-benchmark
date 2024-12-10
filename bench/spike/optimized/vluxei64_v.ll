@@ -555,7 +555,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 230:                                              ; preds = %.lr.ph
   %231 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %122, i64 noundef %.0210368, i1 noundef zeroext false)
   %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds i64, ptr %224, i64 %.0210368
+  %233 = getelementptr inbounds nuw i64, ptr %224, i64 %.0210368
   store i64 %232, ptr %233, align 8
   %234 = add nuw i64 %.0210368, 1
   %235 = load i64, ptr %222, align 8
@@ -610,7 +610,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 264:                                              ; preds = %255, %254
   %265 = load ptr, ptr %237, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %265, i64 noundef %.0209375) #18
-  %266 = getelementptr inbounds i64, ptr %224, i64 %.0209375
+  %266 = getelementptr inbounds nuw i64, ptr %224, i64 %.0209375
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, %26
   %269 = and i64 %268, 3
@@ -1459,7 +1459,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 230:                                              ; preds = %.lr.ph
   %231 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %122, i64 noundef %.0210368, i1 noundef zeroext false)
   %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds i64, ptr %224, i64 %.0210368
+  %233 = getelementptr inbounds nuw i64, ptr %224, i64 %.0210368
   store i64 %232, ptr %233, align 8
   %234 = add nuw i64 %.0210368, 1
   %235 = load i64, ptr %222, align 8
@@ -1514,7 +1514,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 264:                                              ; preds = %255, %254
   %265 = load ptr, ptr %237, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %265, i64 noundef %.0209375) #18
-  %266 = getelementptr inbounds i64, ptr %224, i64 %.0209375
+  %266 = getelementptr inbounds nuw i64, ptr %224, i64 %.0209375
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, %26
   %269 = and i64 %268, 3
@@ -2331,7 +2331,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 230:                                              ; preds = %.lr.ph
   %231 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %122, i64 noundef %.0210368, i1 noundef zeroext false)
   %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds i64, ptr %224, i64 %.0210368
+  %233 = getelementptr inbounds nuw i64, ptr %224, i64 %.0210368
   store i64 %232, ptr %233, align 8
   %234 = add nuw i64 %.0210368, 1
   %235 = load i64, ptr %222, align 8
@@ -2386,7 +2386,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 264:                                              ; preds = %255, %254
   %265 = load ptr, ptr %237, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %265, i64 noundef %.0209375) #18
-  %266 = getelementptr inbounds i64, ptr %224, i64 %.0209375
+  %266 = getelementptr inbounds nuw i64, ptr %224, i64 %.0209375
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, %26
   %269 = and i64 %268, 3
@@ -3205,7 +3205,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 230:                                              ; preds = %.lr.ph
   %231 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %122, i64 noundef %.0210368, i1 noundef zeroext false)
   %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds i64, ptr %224, i64 %.0210368
+  %233 = getelementptr inbounds nuw i64, ptr %224, i64 %.0210368
   store i64 %232, ptr %233, align 8
   %234 = add nuw i64 %.0210368, 1
   %235 = load i64, ptr %222, align 8
@@ -3260,7 +3260,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %193, %_ZL19is_overl
 264:                                              ; preds = %255, %254
   %265 = load ptr, ptr %237, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %265, i64 noundef %.0209375) #18
-  %266 = getelementptr inbounds i64, ptr %224, i64 %.0209375
+  %266 = getelementptr inbounds nuw i64, ptr %224, i64 %.0209375
   %267 = load i64, ptr %266, align 8
   %268 = add i64 %267, %26
   %269 = and i64 %268, 3
@@ -4093,7 +4093,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 237:                                              ; preds = %.lr.ph
   %238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %129, i64 noundef %.0212372, i1 noundef zeroext false)
   %239 = load i64, ptr %238, align 8
-  %240 = getelementptr inbounds i64, ptr %231, i64 %.0212372
+  %240 = getelementptr inbounds nuw i64, ptr %231, i64 %.0212372
   store i64 %239, ptr %240, align 8
   %241 = add nuw i64 %.0212372, 1
   %242 = load i64, ptr %229, align 8
@@ -4148,7 +4148,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 271:                                              ; preds = %262, %261
   %272 = load ptr, ptr %244, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef %.0211379) #18
-  %273 = getelementptr inbounds i64, ptr %231, i64 %.0211379
+  %273 = getelementptr inbounds nuw i64, ptr %231, i64 %.0211379
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, %33
   %276 = and i64 %275, 3
@@ -4983,7 +4983,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 237:                                              ; preds = %.lr.ph
   %238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %129, i64 noundef %.0212372, i1 noundef zeroext false)
   %239 = load i64, ptr %238, align 8
-  %240 = getelementptr inbounds i64, ptr %231, i64 %.0212372
+  %240 = getelementptr inbounds nuw i64, ptr %231, i64 %.0212372
   store i64 %239, ptr %240, align 8
   %241 = add nuw i64 %.0212372, 1
   %242 = load i64, ptr %229, align 8
@@ -5038,7 +5038,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 271:                                              ; preds = %262, %261
   %272 = load ptr, ptr %244, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef %.0211379) #18
-  %273 = getelementptr inbounds i64, ptr %231, i64 %.0211379
+  %273 = getelementptr inbounds nuw i64, ptr %231, i64 %.0211379
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, %33
   %276 = and i64 %275, 3
@@ -5871,7 +5871,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 237:                                              ; preds = %.lr.ph
   %238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %129, i64 noundef %.0212372, i1 noundef zeroext false)
   %239 = load i64, ptr %238, align 8
-  %240 = getelementptr inbounds i64, ptr %231, i64 %.0212372
+  %240 = getelementptr inbounds nuw i64, ptr %231, i64 %.0212372
   store i64 %239, ptr %240, align 8
   %241 = add nuw i64 %.0212372, 1
   %242 = load i64, ptr %229, align 8
@@ -5926,7 +5926,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 271:                                              ; preds = %262, %261
   %272 = load ptr, ptr %244, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef %.0211379) #18
-  %273 = getelementptr inbounds i64, ptr %231, i64 %.0211379
+  %273 = getelementptr inbounds nuw i64, ptr %231, i64 %.0211379
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, %33
   %276 = and i64 %275, 3
@@ -6761,7 +6761,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 237:                                              ; preds = %.lr.ph
   %238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %15, i64 noundef %129, i64 noundef %.0212372, i1 noundef zeroext false)
   %239 = load i64, ptr %238, align 8
-  %240 = getelementptr inbounds i64, ptr %231, i64 %.0212372
+  %240 = getelementptr inbounds nuw i64, ptr %231, i64 %.0212372
   store i64 %239, ptr %240, align 8
   %241 = add nuw i64 %.0212372, 1
   %242 = load i64, ptr %229, align 8
@@ -6816,7 +6816,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %200, %_ZL19is_overl
 271:                                              ; preds = %262, %261
   %272 = load ptr, ptr %244, align 8
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %272, i64 noundef %.0211379) #18
-  %273 = getelementptr inbounds i64, ptr %231, i64 %.0211379
+  %273 = getelementptr inbounds nuw i64, ptr %231, i64 %.0211379
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, %33
   %276 = and i64 %275, 3

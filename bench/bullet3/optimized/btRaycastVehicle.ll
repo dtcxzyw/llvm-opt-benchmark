@@ -966,7 +966,7 @@ entry:
   %m_indexRightAxis = getelementptr inbounds nuw i8, ptr %this, i64 176
   %31 = load i32, ptr %m_indexRightAxis, align 8
   %idxprom = sext i32 %31 to i64
-  %arrayidx11 = getelementptr inbounds float, ptr %basis2, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw float, ptr %basis2, i64 %idxprom
   store float %fneg8, ptr %arrayidx11, align 4
   %32 = load float, ptr %arrayidx7.i16, align 4
   %fneg14 = fneg float %32
@@ -981,7 +981,7 @@ entry:
   %m_indexUpAxis = getelementptr inbounds nuw i8, ptr %this, i64 180
   %34 = load i32, ptr %m_indexUpAxis, align 4
   %idxprom32 = sext i32 %34 to i64
-  %arrayidx33 = getelementptr inbounds float, ptr %basis2, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw float, ptr %basis2, i64 %idxprom32
   store float %fneg.i, ptr %arrayidx33, align 4
   %arrayidx40 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom32
   store float %fneg4.i, ptr %arrayidx40, align 4
@@ -990,7 +990,7 @@ entry:
   %m_indexForwardAxis = getelementptr inbounds nuw i8, ptr %this, i64 184
   %35 = load i32, ptr %m_indexForwardAxis, align 8
   %idxprom52 = sext i32 %35 to i64
-  %arrayidx53 = getelementptr inbounds float, ptr %basis2, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw float, ptr %basis2, i64 %idxprom52
   store float %mul.i.i.i, ptr %arrayidx53, align 4
   %arrayidx60 = getelementptr inbounds float, ptr %arrayidx.i88, i64 %idxprom52
   store float %mul4.i.i.i, ptr %arrayidx60, align 4
@@ -2512,7 +2512,7 @@ if.then27:                                        ; preds = %for.body19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx12.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i, i64 16, i1 false)
   %38 = load i32, ptr %m_indexRightAxis, align 8
   %idxprom = sext i32 %38 to i64
-  %arrayidx = getelementptr inbounds float, ptr %wheelBasis0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %wheelBasis0, i64 %idxprom
   %arrayidx38 = getelementptr inbounds float, ptr %arrayidx8.i, i64 %idxprom
   %arrayidx43 = getelementptr inbounds float, ptr %arrayidx12.i, i64 %idxprom
   %39 = load float, ptr %arrayidx, align 4

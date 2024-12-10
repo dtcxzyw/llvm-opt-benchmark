@@ -2179,7 +2179,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
 
 27:                                               ; preds = %18
   %28 = ashr exact i64 %sext, 32
-  %29 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [4097 x i8], ptr %4, i64 0, i64 %28
   store i8 0, ptr %29, align 1
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %31 = trunc i64 %30 to i32

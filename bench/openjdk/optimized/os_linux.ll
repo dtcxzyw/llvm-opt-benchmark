@@ -2891,7 +2891,7 @@ define hidden void @_ZN2os5Linux21capture_initial_stackEm(i64 noundef %0) local_
 
 44:                                               ; preds = %42
   %45 = call i64 @fread(ptr noundef nonnull %31, i64 noundef 1, i64 noundef 2047, ptr noundef nonnull %43)
-  %46 = getelementptr inbounds [2048 x i8], ptr %31, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [2048 x i8], ptr %31, i64 0, i64 %45
   store i8 0, ptr %46, align 1
   %47 = call i32 @fclose(ptr noundef nonnull %43)
   %48 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 41) #27
@@ -5293,7 +5293,7 @@ define hidden void @_ZN2os20get_summary_cpu_infoEPcm(ptr noundef %0, i64 noundef
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #27
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #27
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %.not2733 = icmp eq ptr %12, %14
   br i1 %.not2733, label %.critedge, label %.lr.ph
 
@@ -9726,7 +9726,7 @@ define internal fastcc noundef i64 @_ZL20slow_thread_cpu_timeP6Threadb(i32 %.792
 
 12:                                               ; preds = %1
   %13 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 2047, ptr noundef nonnull %10)
-  %14 = getelementptr inbounds [2048 x i8], ptr %2, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [2048 x i8], ptr %2, i64 0, i64 %13
   store i8 0, ptr %14, align 1
   %15 = call i32 @fclose(ptr noundef nonnull %10)
   %16 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 41) #27

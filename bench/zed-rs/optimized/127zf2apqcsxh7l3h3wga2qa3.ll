@@ -128667,9 +128667,9 @@ _ZN9assistant15assistant_panel13ContextEditor20active_workflow_step17hfef3d890a2
 
 switch.lookup:                                    ; preds = %1695
   %1697 = extractvalue { i64, ptr } %1696, 0
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$u20$gpui..element..Render$GT$6render17hc1444ad3b82224cdE", i64 0, i64 %1697
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$u20$gpui..element..Render$GT$6render17hc1444ad3b82224cdE", i64 0, i64 %1697
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep390 = getelementptr inbounds [6 x ptr], ptr @"switch.table._ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$u20$gpui..element..Render$GT$6render17hc1444ad3b82224cdE.266", i64 0, i64 %1697
+  %switch.gep390 = getelementptr inbounds nuw [6 x ptr], ptr @"switch.table._ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$u20$gpui..element..Render$GT$6render17hc1444ad3b82224cdE.266", i64 0, i64 %1697
   %switch.load391 = load ptr, ptr %switch.gep390, align 8
   br label %_ZN9assistant15assistant_panel13ContextEditor20active_workflow_step17hfef3d890a2ebe002E.llvm.13532673337308757346.exit.thread.i
 

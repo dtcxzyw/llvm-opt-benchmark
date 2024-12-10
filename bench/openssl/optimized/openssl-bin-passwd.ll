@@ -822,7 +822,7 @@ for.end259.i:                                     ; preds = %for.cond195.i
   call void @CRYPTO_free(ptr noundef nonnull %call140.i, ptr noundef nonnull @.str.50, i32 noundef 701) #8
   call void @CRYPTO_free(ptr noundef nonnull %call180.i, ptr noundef nonnull @.str.50, i32 noundef 702) #8
   %call260.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @shacrypt.out_buf) #9
-  %add.ptr261.i = getelementptr inbounds i8, ptr @shacrypt.out_buf, i64 %call260.i
+  %add.ptr261.i = getelementptr inbounds nuw i8, ptr @shacrypt.out_buf, i64 %call260.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr261.i, i64 1
   store i8 36, ptr %add.ptr261.i, align 1
   switch i8 %16, label %err.i [
@@ -2120,7 +2120,7 @@ for.body173:                                      ; preds = %for.end169, %for.bo
   %indvars.iv = phi i64 [ 0, %for.end169 ], [ %indvars.iv.next, %for.body173 ]
   %source.097 = phi i32 [ 0, %for.end169 ], [ %rem179, %for.body173 ]
   %idxprom = sext i32 %source.097 to i64
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %buf, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %arrayidx175 = getelementptr inbounds nuw [16 x i8], ptr %buf_perm, i64 0, i64 %indvars.iv
   store i8 %1, ptr %arrayidx175, align 1

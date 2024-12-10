@@ -1479,7 +1479,7 @@ define hidden void @_ZN2cv4text26OCRBeamSearchClassifierCNNC2ERKNSt7__cxx1112bas
   %28 = load ptr, ptr %9, align 8
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 %30
   %32 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %31)
           to label %33 unwind label %62
 

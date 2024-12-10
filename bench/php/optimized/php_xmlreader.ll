@@ -4392,18 +4392,18 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %52 = shl i64 %51, 32
   %sext = add i64 %52, -4294967296
   %53 = ashr exact i64 %sext, 32
-  %54 = getelementptr inbounds [4097 x i8], ptr %8, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [4097 x i8], ptr %8, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %.not57 = icmp eq i8 %55, 47
   br i1 %.not57, label %61, label %56
 
 56:                                               ; preds = %50
   %57 = ashr exact i64 %52, 32
-  %58 = getelementptr inbounds [4097 x i8], ptr %8, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [4097 x i8], ptr %8, i64 0, i64 %57
   store i8 47, ptr %58, align 1
   %sext59 = add i64 %52, 4294967296
   %59 = ashr exact i64 %sext59, 32
-  %60 = getelementptr inbounds [4097 x i8], ptr %8, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [4097 x i8], ptr %8, i64 0, i64 %59
   store i8 0, ptr %60, align 1
   br label %61
 

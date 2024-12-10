@@ -3239,7 +3239,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1421:                                             ; preds = %1419
   %1422 = add i64 %1420, -1
-  %1423 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 %1422
+  %1423 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 0, i64 %1422
   %1424 = load i8, ptr %1423, align 1
   %1425 = icmp eq i8 %1424, 10
   br i1 %1425, label %1426, label %1433
@@ -3251,7 +3251,7 @@ define internal fastcc ptr @php_stream_url_wrap_http_ex(ptr noundef %0, ptr noun
 
 1427:                                             ; preds = %1426
   %1428 = add i64 %1420, -2
-  %1429 = getelementptr inbounds [128 x i8], ptr %15, i64 0, i64 %1428
+  %1429 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 0, i64 %1428
   %1430 = load i8, ptr %1429, align 1
   %1431 = icmp eq i8 %1430, 13
   br i1 %1431, label %1432, label %1435

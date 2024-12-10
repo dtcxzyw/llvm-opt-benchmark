@@ -82,7 +82,7 @@ define i32 @PMPI_Reduce_local(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %36, label %30

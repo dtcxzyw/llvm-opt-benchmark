@@ -2425,7 +2425,7 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   %1091 = add nsw i32 %.0227613, 1
   %1092 = add nsw i32 %1083, %.0227613
   %1093 = sext i32 %1092 to i64
-  %1094 = getelementptr inbounds double, ptr %72, i64 %1093
+  %1094 = getelementptr inbounds nuw double, ptr %72, i64 %1093
   %1095 = load double, ptr %1094, align 8
   br label %1096
 
@@ -2441,7 +2441,7 @@ _ZN2cvplIdLi1ELi20EEENS_4MatxIT_XT0_EXT1_EEERKS3_S5_.exit528: ; preds = %1031
   %1100 = add nsw i32 %.0225614, 1
   %1101 = add nsw i32 %1085, %.0225614
   %1102 = sext i32 %1101 to i64
-  %1103 = getelementptr inbounds double, ptr %72, i64 %1102
+  %1103 = getelementptr inbounds nuw double, ptr %72, i64 %1102
   %1104 = load double, ptr %1103, align 8
   br label %1105
 

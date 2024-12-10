@@ -337,7 +337,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %32 = select i1 %31, i8 2, i8 0
   %33 = select i1 %30, i8 1, i8 %32
   %34 = add nsw i64 %indvars.iv, 255
-  %35 = getelementptr inbounds [512 x i8], ptr %7, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %34
   store i8 %33, ptr %35, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1004,7 +1004,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %32 = select i1 %31, i8 2, i8 0
   %33 = select i1 %30, i8 1, i8 %32
   %34 = add nsw i64 %indvars.iv, 255
-  %35 = getelementptr inbounds [512 x i8], ptr %7, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %34
   store i8 %33, ptr %35, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1671,7 +1671,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   %32 = select i1 %31, i8 2, i8 0
   %33 = select i1 %30, i8 1, i8 %32
   %34 = add nsw i64 %indvars.iv, 255
-  %35 = getelementptr inbounds [512 x i8], ptr %7, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %34
   store i8 %33, ptr %35, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

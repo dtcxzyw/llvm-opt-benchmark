@@ -1730,7 +1730,7 @@ _Z18cmHasLiteralPrefixILm14EEbSt17basic_string_viewIcSt11char_traitsIcEERAT__Kc.
   %267 = load ptr, ptr %48, align 8
   %268 = getelementptr i8, ptr %267, i64 -24
   %269 = load i64, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %48, i64 %269
+  %270 = getelementptr inbounds nuw i8, ptr %48, i64 %269
   %271 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %270)
           to label %272 unwind label %281
 

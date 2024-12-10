@@ -433,7 +433,7 @@ define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1,
   %21 = load ptr, ptr @j2d_glEnable, align 8
   tail call void %21(i32 noundef 3042) #8
   %22 = load ptr, ptr @j2d_glBlendFunc, align 8
-  %23 = getelementptr inbounds [13 x %struct.OGLBlendRule], ptr @StdBlendRules, i64 0, i64 %20
+  %23 = getelementptr inbounds nuw [13 x %struct.OGLBlendRule], ptr @StdBlendRules, i64 0, i64 %20
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4

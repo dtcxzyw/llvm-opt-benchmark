@@ -907,7 +907,7 @@ define dso_local void @_ZN26cmExtraCodeBlocksGenerator20CreateNewProjectFileERKS
   %70 = load ptr, ptr %15, align 8
   %71 = getelementptr i8, ptr %70, i64 -24
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %15, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 %72
   %74 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %73)
           to label %75 unwind label %76
 
@@ -7212,7 +7212,7 @@ define dso_local void @_ZNK26cmExtraCodeBlocksGenerator21CreateDummyTargetFileB5
   %44 = load ptr, ptr %9, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %9, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 %46
   %48 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %47)
           to label %49 unwind label %64
 

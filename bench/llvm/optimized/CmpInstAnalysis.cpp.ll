@@ -15,7 +15,7 @@ define dso_local noundef range(i32 1, 7) i32 @_ZN4llvm11getICmpCodeENS_7CmpInst9
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -32
   %1 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm11getICmpCodeENS_7CmpInst9PredicateE, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

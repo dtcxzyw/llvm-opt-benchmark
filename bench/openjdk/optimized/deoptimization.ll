@@ -1775,7 +1775,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit:  ; preds = %_ZN12methodHandleC2
 
 _ZNK15Bytecode_invoke16is_invokedynamicEv.exit:   ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit
   %311 = sext i32 %309 to i64
-  %312 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %311
   %313 = load i32, ptr %312, align 4
   %switch.selectcmp.case1 = icmp eq i32 %313, 186
   %switch.selectcmp.case2 = icmp eq i32 %313, 233
@@ -1903,7 +1903,7 @@ _Z21Bytecode_invoke_checkRK12methodHandlei.exit159: ; preds = %_ZN12methodHandle
 
 _ZNK15Bytecode_invoke18is_invokeinterfaceEv.exit.i: ; preds = %_Z21Bytecode_invoke_checkRK12methodHandlei.exit159
   %378 = sext i32 %374 to i64
-  %379 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %378
+  %379 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %378
   %380 = load i32, ptr %379, align 4
   switch i32 %380, label %_ZNK15Bytecode_invoke8is_validEv.exit [
     i32 185, label %381
@@ -2769,7 +2769,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %5, %_ZNK11RegisterM
 _ZNK6Method7code_atEi.exit:                       ; preds = %57, %65
   %67 = phi i32 [ %66, %65 ], [ %64, %57 ]
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8
   br label %71
 
@@ -5089,7 +5089,7 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
   %5 = add i32 %4, 1
   store i32 %5, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
@@ -5194,7 +5194,7 @@ define hidden void @_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_1
   %5 = add i32 %4, 1
   store i32 %5, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [31 x [6 x [1 x i32]]], ptr @_ZN14Deoptimization20_deoptimization_histE, i64 0, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
@@ -6201,7 +6201,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %87, %_ZN26GrowableA
 _ZNK6Method12java_code_atEi.exit:                 ; preds = %127, %132
   %134 = phi i32 [ %133, %132 ], [ %131, %127 ]
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = load i32, ptr @_ZN14Deoptimization20_deoptimization_histE, align 16
   %139 = add i32 %138, 1

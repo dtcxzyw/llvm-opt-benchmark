@@ -116524,7 +116524,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit32: ; preds = %if.then.i.i.
   %add.ptr.i.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 %15
   %conv.i.i.i.i.i22 = zext nneg i8 %13 to i64
   %sub.i.i.i.i.i23 = sub nsw i64 23, %conv.i.i.i.i.i22
-  %add.ptr.i1.i.i.i24 = getelementptr inbounds i8, ptr %valueSaved, i64 %sub.i.i.i.i.i23
+  %add.ptr.i1.i.i.i24 = getelementptr inbounds nuw i8, ptr %valueSaved, i64 %sub.i.i.i.i.i23
   %cond.i.i.i25 = select i1 %tobool.i.i5.i.i19, ptr %add.ptr.i.i.i.i21, ptr %add.ptr.i1.i.i.i24
   store i8 0, ptr %cond.i.i.i25, align 1
   %mpCurrentArrayPtr = getelementptr inbounds nuw i8, ptr %this, i64 72

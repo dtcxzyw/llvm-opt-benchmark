@@ -1617,7 +1617,7 @@ define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_string
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %.loopexit.split-lp.loopexit
 
@@ -2556,7 +2556,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
   %50 = load ptr, ptr %8, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 %52
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr i8, ptr %54, i64 -24
   %56 = load i64, ptr %55, align 8

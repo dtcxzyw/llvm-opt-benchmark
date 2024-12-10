@@ -1382,7 +1382,7 @@ define internal range(i32 0, 2) i32 @H5S__point_shape_same(ptr nocapture noundef
   %32 = getelementptr inbounds [0 x i64], ptr %20, i64 0, i64 %indvars.iv84
   %33 = load i64, ptr %32, align 8
   %34 = sub nsw i64 %31, %33
-  %35 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv84
+  %35 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv84
   store i64 %34, ptr %35, align 8
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1434,7 +1434,7 @@ define internal range(i32 0, 2) i32 @H5S__point_shape_same(ptr nocapture noundef
   %.158.us = phi i32 [ %9, %.preheader47.us ], [ %63, %62 ]
   %54 = getelementptr inbounds [0 x i64], ptr %43, i64 0, i64 %indvars.iv92
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv92
+  %56 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv92
   %57 = load i64, ptr %56, align 8
   %58 = add nsw i64 %57, %55
   %59 = zext nneg i32 %.158.us to i64
@@ -3175,12 +3175,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %.038 = select i1 %brmerge, i32 2, i32 1
   %51 = load i32, ptr %4, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds [6 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %.038. = call i32 @llvm.umax.i32(i32 %.038, i32 %54)
   %55 = load i32, ptr %5, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds [6 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [6 x i32], ptr @H5O_sds_point_ver_bounds, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = icmp ugt i32 %.038., %58
   br i1 %59, label %60, label %72

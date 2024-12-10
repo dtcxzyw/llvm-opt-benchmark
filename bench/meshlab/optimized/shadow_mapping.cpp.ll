@@ -398,7 +398,7 @@ _ZN13ShadowMapping25renderingFromLightUnsetupEv.exit: ; preds = %.noexc41
   %58 = getelementptr inbounds nuw [16 x float], ptr %11, i64 0, i64 %57
   %59 = shl i64 %indvars.iv.i.i, 2
   %60 = add nuw nsw i64 %59, %indvars.iv15.i.i
-  %61 = getelementptr inbounds [16 x float], ptr %11, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [16 x float], ptr %11, i64 0, i64 %60
   %62 = load float, ptr %58, align 4, !alias.scope !5
   %63 = load float, ptr %61, align 4, !alias.scope !5
   store float %63, ptr %58, align 4, !alias.scope !5
@@ -427,7 +427,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.preheader:  ; preds = %64
   %68 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %67
   %69 = shl i64 %indvars.iv.i.i49, 2
   %70 = add nuw nsw i64 %69, %indvars.iv15.i.i48
-  %71 = getelementptr inbounds [16 x float], ptr %12, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %70
   %72 = load float, ptr %68, align 4, !alias.scope !11
   %73 = load float, ptr %71, align 4, !alias.scope !11
   store float %73, ptr %68, align 4, !alias.scope !11
@@ -497,7 +497,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %88
   %92 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %91
   %93 = shl i64 %indvars.iv.i.i60, 2
   %94 = add nuw nsw i64 %93, %indvars.iv15.i.i59
-  %95 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %94
   %96 = load float, ptr %92, align 4, !alias.scope !20
   %97 = load float, ptr %95, align 4, !alias.scope !20
   store float %97, ptr %92, align 4, !alias.scope !20
@@ -2140,7 +2140,7 @@ define void @_ZN13ShadowMapping23renderingFromLightSetupER12MeshDocumentP6GLArea
   %82 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %81
   %83 = shl i64 %indvars.iv.i.i, 2
   %84 = add nuw nsw i64 %83, %indvars.iv15.i.i
-  %85 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %84
   %86 = load float, ptr %82, align 4, !alias.scope !39
   %87 = load float, ptr %85, align 4, !alias.scope !39
   store float %87, ptr %82, align 4, !alias.scope !39

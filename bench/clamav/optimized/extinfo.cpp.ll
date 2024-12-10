@@ -191,7 +191,7 @@ define void @_Z18ExtractUnixOwner30R7ArchivePKw(ptr noundef nonnull align 8 dere
   %sext20 = shl i64 %19, 32
   %21 = ashr exact i64 %sext20, 32
   %22 = call ptr @strncpy(ptr noundef nonnull %7, ptr noundef nonnull %20, i64 noundef %21) #13
-  %23 = getelementptr inbounds [2048 x i8], ptr %7, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw [2048 x i8], ptr %7, i64 0, i64 %21
   store i8 0, ptr %23, align 1
   %24 = call ptr @getpwnam(ptr noundef nonnull %10)
   %25 = icmp eq ptr %24, null
@@ -619,7 +619,7 @@ define noundef zeroext i1 @_Z21IsRelativeSymlinkSafeP11CommandDataPKwS2_S2_(ptr 
 38:                                               ; preds = %35
   call void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %5, ptr noundef %2, i64 noundef 2048)
   %39 = call i64 @wcslen(ptr noundef nonnull %5) #14
-  %40 = getelementptr inbounds i32, ptr %5, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
   %.09.i = getelementptr inbounds i8, ptr %40, i64 -4
   %41 = icmp ugt ptr %.09.i, %5
   br i1 %41, label %.lr.ph.i, label %_ZL10LinkInPathPKw.exit

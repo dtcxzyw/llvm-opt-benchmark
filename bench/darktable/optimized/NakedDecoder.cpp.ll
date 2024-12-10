@@ -856,7 +856,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIiEET_RKNSt7__cxx
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %69 = getelementptr i8, ptr %67, i64 -24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 %70
   store ptr %68, ptr %71, align 8, !tbaa !6
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %72, align 8, !tbaa !6
@@ -886,7 +886,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIiEET_RKNSt7__cxx
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %86 = getelementptr i8, ptr %84, i64 -24
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   store ptr %85, ptr %88, align 8, !tbaa !6
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %89, align 8, !tbaa !55
@@ -1007,7 +1007,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %69 = getelementptr i8, ptr %67, i64 -24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 %70
   store ptr %68, ptr %71, align 8, !tbaa !6
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %72, align 8, !tbaa !6
@@ -1037,7 +1037,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8rawspeed5Hints3getIjEET_RKNSt7__cxx
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %86 = getelementptr i8, ptr %84, i64 -24
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   store ptr %85, ptr %88, align 8, !tbaa !6
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %89, align 8, !tbaa !55
@@ -1156,7 +1156,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %69 = getelementptr i8, ptr %67, i64 -24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 %70
   store ptr %68, ptr %71, align 8, !tbaa !6
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %72, align 8, !tbaa !6
@@ -1186,7 +1186,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed5Hints3getINSt7__cxx1112basic_stri
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   %86 = getelementptr i8, ptr %84, i64 -24
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 %87
   store ptr %85, ptr %88, align 8, !tbaa !6
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %89, align 8, !tbaa !55

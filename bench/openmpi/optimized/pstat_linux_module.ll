@@ -2057,7 +2057,7 @@ local_stripper.exit.preheader:                    ; preds = %1102
 1109:                                             ; preds = %.lr.ph, %local_stripper.exit.backedge
   %1110 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1111 = add i64 %1110, -1
-  %1112 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1111
+  %1112 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1111
   store i8 0, ptr %1112, align 1
   %1113 = load ptr, ptr %58, align 8
   br label %1114
@@ -2231,7 +2231,7 @@ local_stripper.exit770.preheader:                 ; preds = %1178
 1183:                                             ; preds = %.lr.ph1048, %local_stripper.exit770.backedge
   %1184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1185 = add i64 %1184, -1
-  %1186 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1185
+  %1186 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1185
   store i8 0, ptr %1186, align 1
   %1187 = load ptr, ptr %58, align 8
   br label %1188
@@ -2397,7 +2397,7 @@ local_stripper.exit792.preheader:                 ; preds = %1241
 1264:                                             ; preds = %.lr.ph1050, %local_stripper.exit792.backedge
   %1265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1266 = add i64 %1265, -1
-  %1267 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1266
+  %1267 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1266
   store i8 0, ptr %1267, align 1
   %1268 = load ptr, ptr %1255, align 8
   br label %1269
@@ -2724,7 +2724,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i821, %1387
 1401:                                             ; preds = %.lr.ph1052, %.backedge902
   %1402 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1403 = add i64 %1402, -1
-  %1404 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1403
+  %1404 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1403
   store i8 0, ptr %1404, align 1
   %1405 = load ptr, ptr %1397, align 8
   br label %1406
@@ -3034,7 +3034,7 @@ pmix_obj_run_destructors.exit838:                 ; preds = %.lr.ph.i835, %._cri
 local_getline.exit843.loopexit:                   ; preds = %1572
   %1574 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1575 = add i64 %1574, -1
-  %1576 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1575
+  %1576 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1575
   store i8 0, ptr %1576, align 1
   br label %local_getline.exit843
 
@@ -3046,7 +3046,7 @@ local_getline.exit843:                            ; preds = %local_getline.exit8
 local_getline.exit848.loopexit:                   ; preds = %local_getline.exit843
   %1578 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1579 = add i64 %1578, -1
-  %1580 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1579
+  %1580 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1579
   store i8 0, ptr %1580, align 1
   br label %local_getline.exit848
 
@@ -3096,7 +3096,7 @@ pmix_obj_run_constructors.exit853:                ; preds = %.lr.ph.i850, %1584
 1598:                                             ; preds = %.lr.ph1063, %.backedge
   %1599 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @input) #18
   %1600 = add i64 %1599, -1
-  %1601 = getelementptr inbounds [1024 x i8], ptr @input, i64 0, i64 %1600
+  %1601 = getelementptr inbounds nuw [1024 x i8], ptr @input, i64 0, i64 %1600
   store i8 0, ptr %1601, align 1
   %1602 = load ptr, ptr %1594, align 8
   br label %1603

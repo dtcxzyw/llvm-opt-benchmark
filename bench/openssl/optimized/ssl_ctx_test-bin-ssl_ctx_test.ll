@@ -35,7 +35,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_set_min_max_version(i32 noundef %idx_tst) #0 {
 entry:
   %idxprom = sext i32 %idx_tst to i64
-  %arrayidx = getelementptr inbounds [25 x %struct.version_test], ptr @version_testdata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [25 x %struct.version_test], ptr @version_testdata, i64 0, i64 %idxprom
   %t.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
   %t.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %t.sroa.2.0.copyload = load i32, ptr %t.sroa.2.0.arrayidx.sroa_idx, align 4

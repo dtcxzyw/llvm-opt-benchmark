@@ -121,7 +121,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
 
 34:                                               ; preds = %32
   %35 = sext i32 %.0 to i64
-  %36 = getelementptr inbounds [76 x i8], ptr @yypact, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [76 x i8], ptr @yypact, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = icmp eq i8 %37, -18
@@ -201,7 +201,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   br label %5
 
 77:                                               ; preds = %59, %61, %34
-  %78 = getelementptr inbounds [76 x i8], ptr @yydefact, i64 0, i64 %35
+  %78 = getelementptr inbounds nuw [76 x i8], ptr @yydefact, i64 0, i64 %35
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
   %81 = icmp eq i8 %79, 0
@@ -210,7 +210,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
 82:                                               ; preds = %77, %72
   %.0185 = phi i32 [ %80, %77 ], [ %73, %72 ]
   %83 = sext i32 %.0185 to i64
-  %84 = getelementptr inbounds [60 x i8], ptr @yyr2, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [60 x i8], ptr @yyr2, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = sext i8 %85 to i64
   %87 = sub nsw i64 1, %86
@@ -1173,11 +1173,11 @@ getedgeitems.exit:                                ; preds = %478, %475, %346, %3
   %537 = getelementptr inbounds i8, ptr %.2177, i64 %535
   %538 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store ptr %.sroa.0.0, ptr %538, align 8
-  %539 = getelementptr inbounds [60 x i8], ptr @yyr1, i64 0, i64 %83
+  %539 = getelementptr inbounds nuw [60 x i8], ptr @yyr1, i64 0, i64 %83
   %540 = load i8, ptr %539, align 1
   %541 = sext i8 %540 to i64
   %542 = add nsw i64 %541, -23
-  %543 = getelementptr inbounds [33 x i8], ptr @yypgoto, i64 0, i64 %542
+  %543 = getelementptr inbounds nuw [33 x i8], ptr @yypgoto, i64 0, i64 %542
   %544 = load i8, ptr %543, align 1
   %545 = sext i8 %544 to i32
   %546 = load i8, ptr %537, align 1
@@ -1198,7 +1198,7 @@ getedgeitems.exit:                                ; preds = %478, %475, %346, %3
   br label %558
 
 556:                                              ; preds = %549, %getedgeitems.exit
-  %557 = getelementptr inbounds [33 x i8], ptr @yydefgoto, i64 0, i64 %542
+  %557 = getelementptr inbounds nuw [33 x i8], ptr @yydefgoto, i64 0, i64 %542
   br label %558
 
 558:                                              ; preds = %556, %554
@@ -1264,7 +1264,7 @@ getedgeitems.exit:                                ; preds = %478, %475, %346, %3
   %584 = load i8, ptr %583, align 1
   %585 = sext i8 %584 to i32
   %.phi.trans.insert = sext i8 %584 to i64
-  %.phi.trans.insert288 = getelementptr inbounds [76 x i8], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.phi.trans.insert288 = getelementptr inbounds nuw [76 x i8], ptr @yypact, i64 0, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert288, align 1
   br label %570
 

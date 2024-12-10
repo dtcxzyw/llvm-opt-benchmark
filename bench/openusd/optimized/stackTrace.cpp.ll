@@ -3737,7 +3737,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit85: ; preds
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i88: ; preds = %.lr.ph.i.i94, %113
   %.1.lcssa.i.i89 = phi i64 [ 1, %113 ], [ %117, %.lr.ph.i.i94 ]
-  %120 = getelementptr inbounds i8, ptr %12, i64 %.1.lcssa.i.i89
+  %120 = getelementptr inbounds nuw i8, ptr %12, i64 %.1.lcssa.i.i89
   store i8 0, ptr %120, align 1
   %121 = icmp eq i32 %114, 0
   br i1 %121, label %122, label %.preheader.i90

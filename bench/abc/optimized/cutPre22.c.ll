@@ -136,7 +136,7 @@ Cut_CManStart.exit:                               ; preds = %25
   %32 = add nsw i32 %31, -1
   %sext = shl i64 %30, 32
   %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds [1000 x i8], ptr %1, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %33
   store i8 0, ptr %34, align 1
   %35 = icmp eq i32 %32, 0
   br i1 %35, label %.backedge, label %36
@@ -2053,7 +2053,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 0, i64 %indvars.iv130
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds [22 x [5 x i32]], ptr %4, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [22 x [5 x i32]], ptr %4, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
@@ -2073,7 +2073,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 0, i64 %indvars.iv126
   %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds [22 x [5 x i32]], ptr %4, i64 0, i64 %47, i64 1
+  %48 = getelementptr inbounds nuw [22 x [5 x i32]], ptr %4, i64 0, i64 %47, i64 1
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -2093,7 +2093,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 0, i64 %indvars.iv122
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i64
-  %57 = getelementptr inbounds [22 x [5 x i32]], ptr %4, i64 0, i64 %56, i64 2
+  %57 = getelementptr inbounds nuw [22 x [5 x i32]], ptr %4, i64 0, i64 %56, i64 2
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -2118,7 +2118,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %64 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %indvars.iv118
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i64
-  %67 = getelementptr inbounds [22 x [5 x i32]], ptr %4, i64 0, i64 %66, i64 3
+  %67 = getelementptr inbounds nuw [22 x [5 x i32]], ptr %4, i64 0, i64 %66, i64 3
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -2131,7 +2131,7 @@ Abc_Clock.exit:                                   ; preds = %0, %8
   %70 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 0, i64 %indvars.iv
   %71 = load i8, ptr %70, align 1
   %72 = sext i8 %71 to i64
-  %73 = getelementptr inbounds [22 x [5 x i32]], ptr %4, i64 0, i64 %72, i64 4
+  %73 = getelementptr inbounds nuw [22 x [5 x i32]], ptr %4, i64 0, i64 %72, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %73, align 4

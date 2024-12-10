@@ -7759,7 +7759,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %144 = ptrtoint ptr %142 to i64
   %145 = xor i64 %143, -1
   %146 = add i64 %144, %145
-  %147 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %146
   br i1 %138, label %.loopexit, label %148
 
 148:                                              ; preds = %137

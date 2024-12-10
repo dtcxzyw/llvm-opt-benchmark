@@ -432,7 +432,7 @@ define dso_local void @_ZNK5vcpkg5CTime8strftimeB5cxx11EPKc(ptr dead_on_unwind n
 
 .noexc3:                                          ; preds = %.noexc
   %8 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
-  %9 = getelementptr inbounds i8, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, ptr noundef nonnull %9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %10
 

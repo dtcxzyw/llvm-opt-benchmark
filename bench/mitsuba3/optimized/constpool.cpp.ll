@@ -598,7 +598,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr nocapture nou
 
 21:                                               ; preds = %15
   %22 = add i64 %16, 1
-  %23 = getelementptr inbounds [62 x ptr], ptr %3, i64 0, i64 %16
+  %23 = getelementptr inbounds nuw [62 x ptr], ptr %3, i64 0, i64 %16
   store ptr %17, ptr %23, align 8, !tbaa !12
   br label %.loopexit, !llvm.loop !40
 
@@ -632,7 +632,7 @@ define dso_local void @_ZNK6asmjit9_abi_1_109ConstPool4fillEPv(ptr nocapture nou
 
 42:                                               ; preds = %40
   %43 = add i64 %24, -1
-  %44 = getelementptr inbounds [62 x ptr], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [62 x ptr], ptr %3, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !12
   br label %.preheader, !llvm.loop !41
 

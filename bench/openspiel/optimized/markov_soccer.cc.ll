@@ -2087,10 +2087,10 @@ define void @_ZN10open_spiel13markov_soccer17MarkovSoccerState11ResolveMoveEii(p
   %12 = getelementptr inbounds [2 x i32], ptr %11, i64 0, i64 %8
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111row_offsetsE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111row_offsetsE, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %10
-  %18 = getelementptr inbounds [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111col_offsetsE, i64 0, i64 %14
+  %18 = getelementptr inbounds nuw [5 x i32], ptr @_ZN10open_spiel13markov_soccer12_GLOBAL__N_111col_offsetsE, i64 0, i64 %14
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120

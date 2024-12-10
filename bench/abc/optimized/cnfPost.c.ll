@@ -319,13 +319,13 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
   %indvars.iv114 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next115, %60 ]
   %.0104.us = phi i32 [ 0, %.lr.ph.us ], [ %.1.us, %60 ]
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %53 = getelementptr inbounds nuw [16 x i32], ptr %2, i64 0, i64 %indvars.iv.next115
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %.not79.us = icmp sgt i32 %52, %57
   br i1 %.not79.us, label %58, label %60

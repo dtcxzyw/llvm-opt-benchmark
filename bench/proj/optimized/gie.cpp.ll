@@ -2646,7 +2646,7 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %732, %739
   br i1 %.not.i105.i.i, label %774, label %770
 
 770:                                              ; preds = %.lr.ph.i104.i.i
-  %771 = getelementptr inbounds [4 x double], ptr %13, i64 0, i64 %.01.i.i25.i
+  %771 = getelementptr inbounds nuw [4 x double], ptr %13, i64 0, i64 %.01.i.i25.i
   %772 = load double, ptr %771, align 8
   %773 = call double @proj_torad(double noundef %772), !noalias !26
   store double %773, ptr %771, align 8
@@ -2930,7 +2930,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %803, %810
   br i1 %.not.i124.i.i, label %934, label %930
 
 930:                                              ; preds = %.lr.ph.i121.i.i
-  %931 = getelementptr inbounds [4 x double], ptr %8, i64 0, i64 %.01.i122.i.i
+  %931 = getelementptr inbounds nuw [4 x double], ptr %8, i64 0, i64 %.01.i122.i.i
   %932 = load double, ptr %931, align 8, !noalias !33
   %933 = call double @proj_torad(double noundef %932), !noalias !33
   store double %933, ptr %931, align 8, !noalias !33
@@ -3004,7 +3004,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %934, %
   br i1 %.not.i133.i.i, label %963, label %959
 
 959:                                              ; preds = %.lr.ph.i130.i.i
-  %960 = getelementptr inbounds [4 x double], ptr %7, i64 0, i64 %.01.i131.i.i
+  %960 = getelementptr inbounds nuw [4 x double], ptr %7, i64 0, i64 %.01.i131.i.i
   %961 = load double, ptr %960, align 8, !noalias !36
   %962 = call double @proj_torad(double noundef %961), !noalias !36
   store double %962, ptr %960, align 8, !noalias !36
@@ -3106,7 +3106,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %982, %981, %980
   br i1 %.not.i143.i.i, label %1005, label %1001
 
 1001:                                             ; preds = %.lr.ph.i140.i.i
-  %1002 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %.01.i141.i.i
+  %1002 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %.01.i141.i.i
   %1003 = load double, ptr %1002, align 8, !noalias !42
   %1004 = call double @proj_todeg(double noundef %1003), !noalias !42
   store double %1004, ptr %1002, align 8, !noalias !42
@@ -3426,7 +3426,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1091, %1083, %1028,
   br i1 %.not.i.i19.i, label %1165, label %1161
 
 1161:                                             ; preds = %.lr.ph.i.i18.i
-  %1162 = getelementptr inbounds [4 x double], ptr %28, i64 0, i64 %.01.i.i.i
+  %1162 = getelementptr inbounds nuw [4 x double], ptr %28, i64 0, i64 %.01.i.i.i
   %1163 = load double, ptr %1162, align 8
   %1164 = call double @proj_torad(double noundef %1163), !noalias !46
   store double %1164, ptr %1162, align 8

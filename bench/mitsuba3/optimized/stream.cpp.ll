@@ -122,12 +122,12 @@ define void @_ZNK7mitsuba6Stream9to_stringEv(ptr dead_on_unwind noalias writable
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), align 8
   %17 = getelementptr i8, ptr %15, i64 -24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 %18
   store ptr %16, ptr %19, align 8
   %20 = load ptr, ptr %11, align 8
   %21 = getelementptr i8, ptr %20, i64 -24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 %22
   invoke void @_ZNSt3__18ios_base4initEPv(ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef nonnull %14)
           to label %24 unwind label %27
 
@@ -643,7 +643,7 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 24), align 8
   %221 = getelementptr i8, ptr %219, i64 -24
   %222 = load i64, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %11, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 %222
   store ptr %220, ptr %223, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEEEE, i64 16), ptr %14, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17

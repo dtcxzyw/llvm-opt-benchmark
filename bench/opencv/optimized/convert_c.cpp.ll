@@ -878,7 +878,7 @@ define void @cvMixChannels(ptr nocapture noundef readonly %0, i32 noundef %1, pt
 32:                                               ; preds = %32, %30
   %.idx5.i = phi i64 [ 1744, %30 ], [ %.add6.i, %32 ]
   %.add6.i = add nsw i64 %.idx5.i, -96
-  %.ptr8.i = getelementptr inbounds i8, ptr %7, i64 %.add6.i
+  %.ptr8.i = getelementptr inbounds nuw i8, ptr %7, i64 %.add6.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr8.i) #9
   %33 = icmp eq i64 %.add6.i, 16
   br i1 %33, label %common.resume, label %32
@@ -1019,7 +1019,7 @@ _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader: ; preds = %72,
 _ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i: ; preds = %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i
   %.idx.i27 = phi i64 [ %.add.i28, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i ], [ 1744, %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i.preheader ]
   %.add.i28 = add nsw i64 %.idx.i27, -96
-  %.ptr1.i = getelementptr inbounds i8, ptr %7, i64 %.add.i28
+  %.ptr1.i = getelementptr inbounds nuw i8, ptr %7, i64 %.add.i28
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr1.i) #9
   %73 = icmp eq i64 %.add.i28, 16
   br i1 %73, label %_ZN2cv10AutoBufferINS_3MatELm18EED2Ev.exit, label %_ZN2cv10AutoBufferINS_3MatELm18EE10deallocateEv.exit.i

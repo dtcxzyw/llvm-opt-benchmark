@@ -28271,7 +28271,7 @@ for.cond49:                                       ; preds = %sw.bb45, %if.end57
 
 if.end52:                                         ; preds = %for.cond49
   %idxprom53 = sext i32 %i.2 to i64
-  %arrayidx54 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom53
+  %arrayidx54 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom53
   %14 = load float, ptr %arrayidx54, align 4
   tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef %14, float noundef 0.000000e+00)
   %inc = add nsw i32 %i.2, 1
@@ -28284,7 +28284,7 @@ vlineto:                                          ; preds = %sw.bb41, %if.end52
 
 if.end57:                                         ; preds = %vlineto
   %idxprom58 = sext i32 %i.1 to i64
-  %arrayidx59 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom58
   %15 = load float, ptr %arrayidx59, align 4
   tail call fastcc void @_ZL21stbtt__csctx_rline_toP12stbtt__csctxff(ptr noundef %c, float noundef 0.000000e+00, float noundef %15)
   %inc60 = add nsw i32 %i.1, 1
@@ -28306,18 +28306,18 @@ for.cond70:                                       ; preds = %sw.bb66, %cond.end1
 
 if.end74:                                         ; preds = %for.cond70
   %idxprom75 = sext i32 %i.4 to i64
-  %arrayidx76 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom75
   %16 = load float, ptr %arrayidx76, align 4
   %add77 = add nsw i32 %i.4, 1
   %idxprom78 = sext i32 %add77 to i64
-  %arrayidx79 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom78
+  %arrayidx79 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom78
   %17 = load float, ptr %arrayidx79, align 4
   %add80 = add nsw i32 %i.4, 2
   %idxprom81 = sext i32 %add80 to i64
-  %arrayidx82 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom81
   %18 = load float, ptr %arrayidx82, align 4
   %idxprom84 = sext i32 %add71 to i64
-  %arrayidx85 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom84
+  %arrayidx85 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom84
   %19 = load float, ptr %arrayidx85, align 4
   %sub86 = sub nsw i32 %sp.0373, %i.4
   %cmp87 = icmp eq i32 %sub86, 5
@@ -28326,7 +28326,7 @@ if.end74:                                         ; preds = %for.cond70
 
 cond.true:                                        ; preds = %if.end74
   %idxprom89 = sext i32 %add88 to i64
-  %arrayidx90 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom89
+  %arrayidx90 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom89
   %20 = load float, ptr %arrayidx90, align 4
   br label %cond.end
 
@@ -28343,15 +28343,15 @@ hvcurveto:                                        ; preds = %sw.bb62, %cond.end
 
 if.end95:                                         ; preds = %hvcurveto
   %idxprom96 = sext i32 %i.3 to i64
-  %arrayidx97 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom96
+  %arrayidx97 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom96
   %21 = load float, ptr %arrayidx97, align 4
   %add98 = add nsw i32 %i.3, 1
   %idxprom99 = sext i32 %add98 to i64
-  %arrayidx100 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom99
+  %arrayidx100 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom99
   %22 = load float, ptr %arrayidx100, align 4
   %add101 = add nsw i32 %i.3, 2
   %idxprom102 = sext i32 %add101 to i64
-  %arrayidx103 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom102
   %23 = load float, ptr %arrayidx103, align 4
   %sub104 = sub nsw i32 %sp.0373, %i.3
   %cmp105 = icmp eq i32 %sub104, 5
@@ -28360,14 +28360,14 @@ if.end95:                                         ; preds = %hvcurveto
 
 cond.true106:                                     ; preds = %if.end95
   %idxprom108 = sext i32 %add107 to i64
-  %arrayidx109 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom108
+  %arrayidx109 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom108
   %24 = load float, ptr %arrayidx109, align 4
   br label %cond.end111
 
 cond.end111:                                      ; preds = %if.end95, %cond.true106
   %cond112 = phi float [ %24, %cond.true106 ], [ 0.000000e+00, %if.end95 ]
   %idxprom114 = sext i32 %add92 to i64
-  %arrayidx115 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom114
+  %arrayidx115 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom114
   %25 = load float, ptr %arrayidx115, align 4
   tail call fastcc void @_ZL23stbtt__csctx_rccurve_toP12stbtt__csctxffffff(ptr noundef %c, float noundef %21, float noundef 0.000000e+00, float noundef %22, float noundef %23, float noundef %cond112, float noundef %25)
   br label %for.cond70, !llvm.loop !149
@@ -28746,7 +28746,7 @@ if.end277:                                        ; preds = %sw.bb274
 if.end283:                                        ; preds = %if.end277
   %inc284 = add nsw i32 %subr_stack_height.0376, 1
   %idxprom285 = sext i32 %subr_stack_height.0376 to i64
-  %arrayidx286 = getelementptr inbounds [10 x %struct.stbtt__buf], ptr %subr_stack, i64 0, i64 %idxprom285
+  %arrayidx286 = getelementptr inbounds nuw [10 x %struct.stbtt__buf], ptr %subr_stack, i64 0, i64 %idxprom285
   store ptr %b.sroa.0.0370, ptr %arrayidx286, align 16
   %b.sroa.8.0.arrayidx286.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx286, i64 8
   store i64 %b.sroa.8.8.insert.insert256, ptr %b.sroa.8.0.arrayidx286.sroa_idx, align 8
@@ -29166,7 +29166,7 @@ if.end398:                                        ; preds = %_ZL14stbtt__cff_int
 if.end401:                                        ; preds = %if.end398
   %inc402 = add nsw i32 %sp.0373, 1
   %idxprom403 = sext i32 %sp.0373 to i64
-  %arrayidx404 = getelementptr inbounds [48 x float], ptr %s, i64 0, i64 %idxprom403
+  %arrayidx404 = getelementptr inbounds nuw [48 x float], ptr %s, i64 0, i64 %idxprom403
   store float %f.2, ptr %arrayidx404, align 4
   br label %sw.epilog405
 

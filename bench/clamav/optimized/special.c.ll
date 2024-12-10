@@ -370,7 +370,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 ._crit_edge:                                      ; preds = %39
   %44 = icmp sgt i32 %.166, 7
   %45 = add nuw nsw i64 %.163, 1
-  %46 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.163
+  %46 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.163
   store i8 0, ptr %46, align 1
   %47 = icmp eq i32 %3, 0
   %or.cond3 = select i1 %47, i1 %44, i1 false
@@ -387,7 +387,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %78
   %.199 = phi i64 [ %.pre113, %78 ], [ 0, %.lr.ph102.preheader ]
   %.06798 = phi i16 [ %.168, %78 ], [ 0, %.lr.ph102.preheader ]
-  %50 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.199
+  %50 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.199
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %.not84 = icmp eq i8 %51, 32
@@ -395,7 +395,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %.not84, label %.lr.ph102._crit_edge, label %53
 
 53:                                               ; preds = %.lr.ph102
-  %54 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %.pre113
+  %54 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %.pre113
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %.not85 = icmp eq i8 %55, 32
@@ -403,7 +403,7 @@ define void @cli_detect_swizz_str(ptr nocapture noundef readonly %0, i32 noundef
 
 57:                                               ; preds = %53
   %58 = add nuw i64 %.199, 2
-  %59 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %.not86 = icmp eq i8 %60, 32
   br i1 %.not86, label %.lr.ph102._crit_edge, label %61

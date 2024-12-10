@@ -23034,10 +23034,10 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %32
 switch.lookup:                                    ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit
   %switch.tableidx = add nsw i32 %45, -431
   %46 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw [9 x i64], ptr @switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE, i64 0, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
   %47 = sext i32 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds [9 x ptr], ptr @switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE.51, i64 0, i64 %47
+  %switch.gep49 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZN12_GLOBAL__N_114CXXNameMangler10mangleTypeEPKN5clang10VectorTypeE.51, i64 0, i64 %47
   %switch.load50 = load ptr, ptr %switch.gep49, align 8
   br label %_ZN12_GLOBAL__N_114CXXNameMangler27mangleAArch64NeonVectorTypeEPKN5clang10VectorTypeE.exit
 

@@ -928,7 +928,7 @@ invoke.cont132:                                   ; preds = %invoke.cont130
   %vtable.i.i = load ptr, ptr %os, align 8, !tbaa !69
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i.i
   %_M_width.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %26 = load i64, ptr %_M_width.i.i.i, align 8, !tbaa !71
   %cmp.not.i.i = icmp eq i64 %26, 0
@@ -1335,7 +1335,7 @@ invoke.cont263:                                   ; preds = %if.else.i.i, %if.th
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i672 = getelementptr i8, ptr %64, i64 -24
   %vbase.offset.i.i673 = load i64, ptr %vbase.offset.ptr.i.i672, align 8
-  %add.ptr.i.i674 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset.i.i673
+  %add.ptr.i.i674 = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset.i.i673
   store ptr %65, ptr %add.ptr.i.i674, align 8, !tbaa !69
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %os, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !69

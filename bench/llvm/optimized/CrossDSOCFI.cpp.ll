@@ -251,7 +251,7 @@ _ZNK4llvm20iterator_facade_baseINS_15concat_iteratorINS_12GlobalObjectEJNS_14ili
   %.fca.0.load.i.i.i.i = load i64, ptr %.0.ptr.i.i.i.i, align 16
   %.fca.1.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i.i.i, i64 8
   %.fca.1.load.i.i.i.i = load i64, ptr %.fca.1.gep.i.i.i.i, align 8
-  %66 = getelementptr inbounds i8, ptr %11, i64 %.fca.1.load.i.i.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 %.fca.1.load.i.i.i.i
   %67 = and i64 %.fca.0.load.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %67, 0
   br i1 %.not.i.i.i.i, label %73, label %68
@@ -794,7 +794,7 @@ _ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEE
   %.fca.0.load.i.i102.i.i = load i64, ptr %.0.ptr.i.i101.i.i, align 16
   %.fca.1.gep.i.i103.i.i = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i101.i.i, i64 8
   %.fca.1.load.i.i104.i.i = load i64, ptr %.fca.1.gep.i.i103.i.i, align 8
-  %339 = getelementptr inbounds i8, ptr %11, i64 %.fca.1.load.i.i104.i.i
+  %339 = getelementptr inbounds nuw i8, ptr %11, i64 %.fca.1.load.i.i104.i.i
   %340 = and i64 %.fca.0.load.i.i102.i.i, 1
   %.not.i.i105.i.i = icmp eq i64 %340, 0
   br i1 %.not.i.i105.i.i, label %346, label %341

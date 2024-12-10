@@ -3374,7 +3374,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
 142:                                              ; preds = %66
   %143 = load i64, ptr %54, align 8
   %144 = add nsw i64 %143, -1
-  %145 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [12 x ptr], ptr @mon_full_names, i64 0, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %146) #25
   br label %407
@@ -3388,7 +3388,7 @@ english_suffix.exit:                              ; preds = %100, %switch.lookup
 152:                                              ; preds = %66
   %153 = load i64, ptr %54, align 8
   %154 = add nsw i64 %153, -1
-  %155 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [12 x ptr], ptr @mon_short_names, i64 0, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = call i32 (ptr, i64, ptr, ...) @ap_php_slprintf(ptr noundef nonnull %6, i64 noundef 97, ptr noundef nonnull @.str.57, ptr noundef %156) #25
   br label %407
@@ -3732,7 +3732,7 @@ php_date_short_day_name.exit206:                  ; preds = %363, %369
   %373 = trunc i64 %372 to i32
   %374 = load i64, ptr %54, align 8
   %375 = add nsw i64 %374, -1
-  %376 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw [12 x ptr], ptr @mon_short_names, i64 0, i64 %375
   %377 = load ptr, ptr %376, align 8
   %378 = load i64, ptr %2, align 8
   %379 = load i64, ptr %56, align 8
@@ -5935,7 +5935,7 @@ php_date_full_day_name.exit:                      ; preds = %28, %59
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.35, i64 noundef 7, ptr noundef %.0.i142) #25
   %62 = load i64, ptr %44, align 8
   %63 = add nsw i64 %62, -1
-  %64 = getelementptr inbounds [12 x ptr], ptr @mon_full_names, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [12 x ptr], ptr @mon_full_names, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8
   call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.36, i64 noundef 5, ptr noundef %65) #25
   %66 = load i64, ptr %4, align 8

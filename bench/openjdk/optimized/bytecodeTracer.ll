@@ -281,7 +281,7 @@ define linkonce_odr hidden noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef n
 _ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %7, %17
   %19 = phi i32 [ %18, %17 ], [ %16, %7 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 239
   br i1 %23, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes9length_atEP6MethodPh.exit.thread
@@ -452,7 +452,7 @@ _ZN9Bytecodes7code_atEPK6MethodPh.exit25:         ; preds = %42, %38, %_ZN9Bytec
   %59 = load i8, ptr %36, align 8
   %60 = trunc i8 %59 to i1
   %61 = sext i32 %.0 to i64
-  %62 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.str.50..str.51 = select i1 %60, ptr @.str.50, ptr @.str.51
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.str.50..str.51, i32 noundef %53, ptr noundef %63) #7
@@ -1001,7 +1001,7 @@ define hidden void @_ZN15BytecodePrinter16print_attributesEiP12outputStream(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 239
   br i1 %9, label %_ZN9Bytecodes10length_forENS_4CodeE.exit, label %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread
@@ -1099,7 +1099,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread:  ; preds = %3, %_ZN9Bytecodes10
   br label %378
 
 28:                                               ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread
-  %29 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %6
+  %29 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %6
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 8
   %.not159 = icmp eq i16 %31, 0
@@ -1137,7 +1137,7 @@ _ZN9Bytecodes10length_forENS_4CodeE.exit.thread:  ; preds = %3, %_ZN9Bytecodes10
   br label %378
 
 54:                                               ; preds = %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread, %_ZN9Bytecodes10length_forENS_4CodeE.exit.thread
-  %55 = getelementptr inbounds [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %6
+  %55 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %6
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 8
   %.not158 = icmp eq i16 %57, 0

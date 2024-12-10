@@ -379,7 +379,7 @@ if.end32.i31:                                     ; preds = %if.then15.i20
   %sub.i28 = sub nsw i64 64, %conv12.i18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i24, ptr nonnull align 16 %padtmp, i64 %sub.i28, i1 false)
   tail call void @sha1_block_data_order(ptr noundef nonnull %sha1, ptr noundef nonnull %data16.i21, i64 noundef 1) #5
-  %add.ptr24.i29 = getelementptr inbounds i8, ptr %padtmp, i64 %sub.i28
+  %add.ptr24.i29 = getelementptr inbounds nuw i8, ptr %padtmp, i64 %sub.i28
   %sub25.i30 = add nsw i64 %conv12.i18, -24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(68) %data16.i21, i8 0, i64 68, i1 false)
   %cmp33.not.i34 = icmp ult i64 %sub25.i30, 64

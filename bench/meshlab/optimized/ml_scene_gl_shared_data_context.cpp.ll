@@ -13518,7 +13518,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %9 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %8
   %10 = shl i64 %indvars.iv.i.i.i, 2
   %11 = add nuw nsw i64 %10, %indvars.iv15.i.i.i
-  %12 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %11
   %13 = load float, ptr %9, align 4, !alias.scope !188
   %14 = load float, ptr %12, align 4, !alias.scope !188
   store float %14, ptr %9, align 4, !alias.scope !188
@@ -14354,7 +14354,7 @@ define linkonce_odr void @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOMa
   %84 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %83
   %85 = shl i64 %indvars.iv.i.i.i, 2
   %86 = add nuw nsw i64 %85, %indvars.iv15.i.i.i
-  %87 = getelementptr inbounds [16 x float], ptr %10, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [16 x float], ptr %10, i64 0, i64 %86
   %88 = load float, ptr %84, align 4, !alias.scope !193
   %89 = load float, ptr %87, align 4, !alias.scope !193
   store float %89, ptr %84, align 4, !alias.scope !193

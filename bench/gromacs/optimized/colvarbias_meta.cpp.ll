@@ -7499,7 +7499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit190: ;
   %401 = load ptr, ptr %43, align 8
   %402 = getelementptr i8, ptr %401, i64 -24
   %403 = load i64, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %43, i64 %403
+  %404 = getelementptr inbounds nuw i8, ptr %43, i64 %403
   %405 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %404)
           to label %406 unwind label %409
 
@@ -9673,7 +9673,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %86 = load ptr, ptr %8, align 8
   %87 = getelementptr i8, ptr %86, i64 -24
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 %88
   %90 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %89)
           to label %91 unwind label %.loopexit.split-lp
 
@@ -11491,7 +11491,7 @@ define noundef i32 @_ZN15colvarbias_meta18read_replica_filesEv(ptr noundef nonnu
   %297 = load ptr, ptr %25, align 8
   %298 = getelementptr i8, ptr %297, i64 -24
   %299 = load i64, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %25, i64 %299
+  %300 = getelementptr inbounds nuw i8, ptr %25, i64 %299
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %300, i32 noundef 0)
           to label %301 unwind label %.loopexit.split-lp
 
@@ -11827,7 +11827,7 @@ _ZN15colvarbias_meta9read_hillERSi.exit:          ; preds = %.preheader
   %436 = load ptr, ptr %25, align 8
   %437 = getelementptr i8, ptr %436, i64 -24
   %438 = load i64, ptr %437, align 8
-  %439 = getelementptr inbounds i8, ptr %25, i64 %438
+  %439 = getelementptr inbounds nuw i8, ptr %25, i64 %438
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %439, i32 noundef 0)
           to label %440 unwind label %.loopexit.split-lp
 
@@ -17656,7 +17656,7 @@ define void @_ZN15colvarbias_meta4hill11output_trajB5cxx11Ev(ptr dead_on_unwind 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, -261
@@ -17680,7 +17680,7 @@ define void @_ZN15colvarbias_meta4hill11output_trajB5cxx11Ev(ptr dead_on_unwind 
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, -261

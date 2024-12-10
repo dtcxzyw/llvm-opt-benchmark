@@ -2822,7 +2822,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %trunc.i = zext i32 %.val to i64
   %sext = shl i64 %trunc.i, 56
   %165 = ashr exact i64 %sext, 56
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE, i64 0, i64 %165
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN12_GLOBAL__N_118ComplexExprEmitter10EmitBinMulERKNS0_9BinOpInfoE, i64 0, i64 %165
   %switch.load = load ptr, ptr %switch.gep, align 8
   %166 = call fastcc { ptr, ptr } @_ZN12_GLOBAL__N_118ComplexExprEmitter23EmitComplexBinOpLibCallEN4llvm9StringRefERKNS0_9BinOpInfoE(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr nonnull %switch.load, i64 8, ptr noundef nonnull align 8 dereferenceable(44) %1)
   %167 = extractvalue { ptr, ptr } %166, 0

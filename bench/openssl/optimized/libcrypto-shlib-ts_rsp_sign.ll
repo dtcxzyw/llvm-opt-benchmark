@@ -1147,7 +1147,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i54
   %52 = load i32, ptr %call.i.i55, align 8
   %call6.i.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %genTime_str.i.i, i64 noundef 23, ptr noundef nonnull @.str.12, i32 noundef %add.i.i, i32 noundef %add5.i.i, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %52) #9
   %idx.ext.i.i = sext i32 %call6.i.i to i64
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %genTime_str.i.i, i64 %idx.ext.i.i
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %genTime_str.i.i, i64 %idx.ext.i.i
   %cmp8.not.i.i = icmp eq i32 %46, 0
   br i1 %cmp8.not.i.i, label %if.end23.i.i, label %if.then9.i.i
 

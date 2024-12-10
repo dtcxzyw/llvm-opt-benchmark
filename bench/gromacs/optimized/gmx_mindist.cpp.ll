@@ -1420,7 +1420,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit106.i:     ; preds = %453, %450
 
 .noexc107.i:                                      ; preds = %525
   %526 = sext i32 %376 to i64
-  %527 = getelementptr inbounds [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %526
+  %527 = getelementptr inbounds nuw [5 x %"class.std::__cxx11::basic_string"], ptr @_Z14c_pbcTypeNamesB5cxx11, i64 0, i64 %526
   %528 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %527) #20
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %64, i32 noundef 86, ptr noundef nonnull @.str.85, ptr noundef %528) #19
           to label %529 unwind label %530

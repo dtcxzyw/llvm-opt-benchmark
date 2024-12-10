@@ -3618,7 +3618,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
   %printer = getelementptr inbounds nuw i8, ptr %call10, i64 304
   %16 = load ptr, ptr %printer, align 8
   %outputLanguage = getelementptr inbounds nuw i8, ptr %16, i64 44

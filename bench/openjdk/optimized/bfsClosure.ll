@@ -498,7 +498,7 @@ _ZN10BFSClosure7iterateEPK4Edge.exit.i:           ; preds = %38, %28
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %.0.i.i.i.i) #12
   %45 = tail call noundef zeroext i1 @_ZNK10BFSClosure11is_completeEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
@@ -581,7 +581,7 @@ _ZN10BFSClosure7iterateEPK4Edge.exit:             ; preds = %15, %25
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %.0.i.i.i) #12
   %32 = tail call noundef zeroext i1 @_ZNK10BFSClosure11is_completeEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
@@ -900,7 +900,7 @@ _ZN7oopDesc11oop_iterateI10BFSClosureEEvPT_.exit: ; preds = %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI10BFSClosureE6_tableE, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.0.i.i) #12
   ret void

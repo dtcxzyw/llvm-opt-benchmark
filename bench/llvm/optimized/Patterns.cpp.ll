@@ -1203,7 +1203,7 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %1, align 8
   %3 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1233,7 +1233,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK4llvm2gi7Pattern9printImplERNS_11raw_ostreamEbNS_12function_refIFvvEEE, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #25
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
@@ -4234,10 +4234,10 @@ _ZN4llvm20filter_iterator_baseIPNS_2gi18InstructionOperandEZNS1_18InstructionPat
 define dso_local { ptr, i64 } @_ZN4llvm2gi7PatFrag15getParamKindStrENS1_9ParamKindE(i32 noundef %0) local_unnamed_addr #8 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = sext i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -6246,10 +6246,10 @@ switch.lookup:                                    ; preds = %switch.lookup, %23
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.01.08.i.i.i, i64 16
   %41 = load i32, ptr %40, align 8, !noalias !516
   %42 = sext i32 %41 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %43 = sext i32 %41 to i64
-  %switch.gep9 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %43
+  %switch.gep9 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %43
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   store ptr %9, ptr %8, align 8, !alias.scope !517, !noalias !512
   store ptr %switch.load10, ptr %34, align 8, !alias.scope !517, !noalias !512
@@ -6288,10 +6288,10 @@ switch.lookup11:                                  ; preds = %switch.lookup
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i32, ptr %56, align 8, !noalias !535
   %58 = sext i32 %57 to i64
-  %switch.gep12 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %58
+  %switch.gep12 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %58
   %switch.load13 = load i64, ptr %switch.gep12, align 8
   %59 = sext i32 %57 to i64
-  %switch.gep14 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %59
+  %switch.gep14 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %59
   %switch.load15 = load ptr, ptr %switch.gep14, align 8
   store ptr %7, ptr %6, align 8, !alias.scope !536, !noalias !531
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6340,10 +6340,10 @@ switch.lookup16:                                  ; preds = %switch.lookup16, %.
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i.i.i, i64 40
   %78 = load i32, ptr %77, align 8, !noalias !553
   %79 = sext i32 %78 to i64
-  %switch.gep17 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %79
+  %switch.gep17 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.70, i64 0, i64 %79
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %80 = sext i32 %78 to i64
-  %switch.gep19 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %80
+  %switch.gep19 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvm2gi7PatFrag15printParamsListERNS_11raw_ostreamENS_14iterator_rangeIPKNS1_5ParamEEE.71, i64 0, i64 %80
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   store ptr %5, ptr %4, align 8, !alias.scope !554, !noalias !549
   store ptr %switch.load20, ptr %69, align 8, !alias.scope !554, !noalias !549

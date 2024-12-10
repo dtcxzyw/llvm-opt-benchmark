@@ -7618,7 +7618,7 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %d.addr.6 = phi i64 [ %sub77, %if.end75 ], [ %d.addr.1, %if.end66 ]
   %m.addr.1 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
   %idxprom.i = sext i8 %m.addr.1 to i64
-  %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   %cmp.i79 = icmp eq i8 %m.addr.1, 2
   %8 = and i64 %ey.7, 3
@@ -66284,7 +66284,7 @@ entry:
   %div4.zext.i.i.i = zext nneg i16 %div414.i.i.i to i64
   %sext.i.i = shl i64 %retval.sroa.3.0.in.i, 56
   %idxprom.i.i.i = ashr exact i64 %sext.i.i, 56
-  %arrayidx.i.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_offsets, i64 0, i64 %idxprom.i.i.i
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
   %3 = shl i32 %1, 16
   %conv.i12.i.i.i = ashr i32 %3, 24

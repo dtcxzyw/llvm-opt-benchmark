@@ -149866,7 +149866,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.8226331118977765550.ex
   %693 = load i64, ptr %692, align 8, !noalias !27553, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %66, ptr nonnull align 16 %68, i64 %693, i1 false), !noalias !27553
   %.0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i = load i64, ptr %66, align 16, !noalias !27553
-  %694 = getelementptr inbounds [27 x i64], ptr @anon.ee42cc83d0486e413260d7ca4d417329.37, i64 0, i64 %.0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i
+  %694 = getelementptr inbounds nuw [27 x i64], ptr @anon.ee42cc83d0486e413260d7ca4d417329.37, i64 0, i64 %.0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i
   %695 = load i64, ptr %694, align 8, !noalias !27553, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %682, ptr nonnull align 16 %66, i64 %695, i1 false), !noalias !27553
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %66)
@@ -159058,7 +159058,7 @@ default.unreachable436:                           ; preds = %3
 253:                                              ; preds = %251
   %254 = add i64 %252, 1
   %255 = getelementptr inbounds i8, ptr %250, i64 %252
-  %256 = getelementptr inbounds i8, ptr @anon.ee42cc83d0486e413260d7ca4d417329.1165, i64 %252
+  %256 = getelementptr inbounds nuw i8, ptr @anon.ee42cc83d0486e413260d7ca4d417329.1165, i64 %252
   %.val.i.i.i = load i8, ptr %255, align 1, !noalias !29176, !noundef !4
   %.val6.i.i.i = load i8, ptr %256, align 1, !noalias !29179, !noundef !4
   %257 = add i8 %.val.i.i.i, -65

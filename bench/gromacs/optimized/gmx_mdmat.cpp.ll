@@ -920,7 +920,7 @@ _ZL8calc_matiiPKiPA3_fS0_fPPfPPi7PbcTypeS2_.exit: ; preds = %.loopexit.i
 
 .noexc226:                                        ; preds = %.noexc225
   %354 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #17
-  %355 = getelementptr inbounds i8, ptr %16, i64 %354
+  %355 = getelementptr inbounds nuw i8, ptr %16, i64 %354
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull %16, ptr noundef nonnull %355)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %356
 

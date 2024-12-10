@@ -431,7 +431,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i32: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %do.cond.i.i.i46
   %__size.1.i.i.in.i33 = phi i64 [ %__size.1.i.i.i34, %do.cond.i.i.i46 ], [ 4, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__size.1.i.i.i34 = add nsw i64 %__size.1.i.i.in.i33, -1
-  %arrayidx.i.i.i35 = getelementptr inbounds i8, ptr @.str.11, i64 %__size.1.i.i.i34
+  %arrayidx.i.i.i35 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %__size.1.i.i.i34
   %10 = load i8, ptr %arrayidx.i.i.i35, align 1
   switch i8 %10, label %do.cond.i.i.i46 [
     i8 92, label %cond.false.i36
@@ -562,7 +562,7 @@ _ZN7testing15AssertionResultD2Ev.exit81:          ; preds = %if.end33, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i85: ; preds = %_ZN7testing15AssertionResultD2Ev.exit81, %do.cond.i.i.i99
   %__size.1.i.i.in.i86 = phi i64 [ %__size.1.i.i.i87, %do.cond.i.i.i99 ], [ 8, %_ZN7testing15AssertionResultD2Ev.exit81 ]
   %__size.1.i.i.i87 = add nsw i64 %__size.1.i.i.in.i86, -1
-  %arrayidx.i.i.i88 = getelementptr inbounds i8, ptr @.str.13, i64 %__size.1.i.i.i87
+  %arrayidx.i.i.i88 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %__size.1.i.i.i87
   %23 = load i8, ptr %arrayidx.i.i.i88, align 1
   switch i8 %23, label %do.cond.i.i.i99 [
     i8 92, label %cond.false.i89
@@ -705,7 +705,7 @@ _ZN7testing15AssertionResultD2Ev.exit135:         ; preds = %if.end55, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i139: ; preds = %_ZN7testing15AssertionResultD2Ev.exit135, %do.cond.i.i.i153
   %__size.1.i.i.in.i140 = phi i64 [ %__size.1.i.i.i141, %do.cond.i.i.i153 ], [ 14, %_ZN7testing15AssertionResultD2Ev.exit135 ]
   %__size.1.i.i.i141 = add nsw i64 %__size.1.i.i.in.i140, -1
-  %arrayidx.i.i.i142 = getelementptr inbounds i8, ptr @.str.15, i64 %__size.1.i.i.i141
+  %arrayidx.i.i.i142 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %__size.1.i.i.i141
   %36 = load i8, ptr %arrayidx.i.i.i142, align 1
   switch i8 %36, label %do.cond.i.i.i153 [
     i8 92, label %cond.false.i143
@@ -848,7 +848,7 @@ _ZN7testing15AssertionResultD2Ev.exit189:         ; preds = %if.end77, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i193: ; preds = %_ZN7testing15AssertionResultD2Ev.exit189, %do.cond.i.i.i207
   %__size.1.i.i.in.i194 = phi i64 [ %__size.1.i.i.i195, %do.cond.i.i.i207 ], [ 17, %_ZN7testing15AssertionResultD2Ev.exit189 ]
   %__size.1.i.i.i195 = add nsw i64 %__size.1.i.i.in.i194, -1
-  %arrayidx.i.i.i196 = getelementptr inbounds i8, ptr @.str.17, i64 %__size.1.i.i.i195
+  %arrayidx.i.i.i196 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %__size.1.i.i.i195
   %49 = load i8, ptr %arrayidx.i.i.i196, align 1
   switch i8 %49, label %do.cond.i.i.i207 [
     i8 92, label %cond.false.i197
@@ -991,7 +991,7 @@ _ZN7testing15AssertionResultD2Ev.exit243:         ; preds = %if.end99, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i247: ; preds = %_ZN7testing15AssertionResultD2Ev.exit243, %do.cond.i.i.i261
   %__size.1.i.i.in.i248 = phi i64 [ %__size.1.i.i.i249, %do.cond.i.i.i261 ], [ 15, %_ZN7testing15AssertionResultD2Ev.exit243 ]
   %__size.1.i.i.i249 = add nsw i64 %__size.1.i.i.in.i248, -1
-  %arrayidx.i.i.i250 = getelementptr inbounds i8, ptr @.str.19, i64 %__size.1.i.i.i249
+  %arrayidx.i.i.i250 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %__size.1.i.i.i249
   %62 = load i8, ptr %arrayidx.i.i.i250, align 1
   switch i8 %62, label %do.cond.i.i.i261 [
     i8 92, label %cond.false.i251
@@ -1134,7 +1134,7 @@ _ZN7testing15AssertionResultD2Ev.exit297:         ; preds = %if.end121, %_ZNKSt1
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i301: ; preds = %_ZN7testing15AssertionResultD2Ev.exit297, %do.cond.i.i.i315
   %__size.1.i.i.in.i302 = phi i64 [ %__size.1.i.i.i303, %do.cond.i.i.i315 ], [ 23, %_ZN7testing15AssertionResultD2Ev.exit297 ]
   %__size.1.i.i.i303 = add nsw i64 %__size.1.i.i.in.i302, -1
-  %arrayidx.i.i.i304 = getelementptr inbounds i8, ptr @.str.21, i64 %__size.1.i.i.i303
+  %arrayidx.i.i.i304 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %__size.1.i.i.i303
   %75 = load i8, ptr %arrayidx.i.i.i304, align 1
   switch i8 %75, label %do.cond.i.i.i315 [
     i8 92, label %cond.false.i305
@@ -1736,7 +1736,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i31: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %do.cond.i.i.i41
   %__size.1.i.i.in.i32 = phi i64 [ %__size.1.i.i.i33, %do.cond.i.i.i41 ], [ 4, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__size.1.i.i.i33 = add nsw i64 %__size.1.i.i.in.i32, -1
-  %arrayidx.i.i.i34 = getelementptr inbounds i8, ptr @.str.11, i64 %__size.1.i.i.i33
+  %arrayidx.i.i.i34 = getelementptr inbounds nuw i8, ptr @.str.11, i64 %__size.1.i.i.i33
   %10 = load i8, ptr %arrayidx.i.i.i34, align 1
   switch i8 %10, label %do.cond.i.i.i41 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit43
@@ -1856,7 +1856,7 @@ _ZN7testing15AssertionResultD2Ev.exit77:          ; preds = %if.end31, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i81: ; preds = %_ZN7testing15AssertionResultD2Ev.exit77, %do.cond.i.i.i91
   %__size.1.i.i.in.i82 = phi i64 [ %__size.1.i.i.i83, %do.cond.i.i.i91 ], [ 8, %_ZN7testing15AssertionResultD2Ev.exit77 ]
   %__size.1.i.i.i83 = add nsw i64 %__size.1.i.i.in.i82, -1
-  %arrayidx.i.i.i84 = getelementptr inbounds i8, ptr @.str.13, i64 %__size.1.i.i.i83
+  %arrayidx.i.i.i84 = getelementptr inbounds nuw i8, ptr @.str.13, i64 %__size.1.i.i.i83
   %22 = load i8, ptr %arrayidx.i.i.i84, align 1
   switch i8 %22, label %do.cond.i.i.i91 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit93
@@ -1983,7 +1983,7 @@ _ZN7testing15AssertionResultD2Ev.exit126:         ; preds = %if.end52, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i130: ; preds = %_ZN7testing15AssertionResultD2Ev.exit126, %do.cond.i.i.i140
   %__size.1.i.i.in.i131 = phi i64 [ %__size.1.i.i.i132, %do.cond.i.i.i140 ], [ 14, %_ZN7testing15AssertionResultD2Ev.exit126 ]
   %__size.1.i.i.i132 = add nsw i64 %__size.1.i.i.in.i131, -1
-  %arrayidx.i.i.i133 = getelementptr inbounds i8, ptr @.str.15, i64 %__size.1.i.i.i132
+  %arrayidx.i.i.i133 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %__size.1.i.i.i132
   %34 = load i8, ptr %arrayidx.i.i.i133, align 1
   switch i8 %34, label %do.cond.i.i.i140 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit142
@@ -2110,7 +2110,7 @@ _ZN7testing15AssertionResultD2Ev.exit175:         ; preds = %if.end73, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i179: ; preds = %_ZN7testing15AssertionResultD2Ev.exit175, %do.cond.i.i.i189
   %__size.1.i.i.in.i180 = phi i64 [ %__size.1.i.i.i181, %do.cond.i.i.i189 ], [ 17, %_ZN7testing15AssertionResultD2Ev.exit175 ]
   %__size.1.i.i.i181 = add nsw i64 %__size.1.i.i.in.i180, -1
-  %arrayidx.i.i.i182 = getelementptr inbounds i8, ptr @.str.17, i64 %__size.1.i.i.i181
+  %arrayidx.i.i.i182 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %__size.1.i.i.i181
   %46 = load i8, ptr %arrayidx.i.i.i182, align 1
   switch i8 %46, label %do.cond.i.i.i189 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit191
@@ -2237,7 +2237,7 @@ _ZN7testing15AssertionResultD2Ev.exit224:         ; preds = %if.end94, %_ZNKSt14
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i228: ; preds = %_ZN7testing15AssertionResultD2Ev.exit224, %do.cond.i.i.i238
   %__size.1.i.i.in.i229 = phi i64 [ %__size.1.i.i.i230, %do.cond.i.i.i238 ], [ 15, %_ZN7testing15AssertionResultD2Ev.exit224 ]
   %__size.1.i.i.i230 = add nsw i64 %__size.1.i.i.in.i229, -1
-  %arrayidx.i.i.i231 = getelementptr inbounds i8, ptr @.str.19, i64 %__size.1.i.i.i230
+  %arrayidx.i.i.i231 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %__size.1.i.i.i230
   %58 = load i8, ptr %arrayidx.i.i.i231, align 1
   switch i8 %58, label %do.cond.i.i.i238 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit240
@@ -2364,7 +2364,7 @@ _ZN7testing15AssertionResultD2Ev.exit273:         ; preds = %if.end115, %_ZNKSt1
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i277: ; preds = %_ZN7testing15AssertionResultD2Ev.exit273, %do.cond.i.i.i287
   %__size.1.i.i.in.i278 = phi i64 [ %__size.1.i.i.i279, %do.cond.i.i.i287 ], [ 23, %_ZN7testing15AssertionResultD2Ev.exit273 ]
   %__size.1.i.i.i279 = add nsw i64 %__size.1.i.i.in.i278, -1
-  %arrayidx.i.i.i280 = getelementptr inbounds i8, ptr @.str.21, i64 %__size.1.i.i.i279
+  %arrayidx.i.i.i280 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %__size.1.i.i.i279
   %70 = load i8, ptr %arrayidx.i.i.i280, align 1
   switch i8 %70, label %do.cond.i.i.i287 [
     i8 92, label %_ZN4absl14flags_internal7PackageESt17basic_string_viewIcSt11char_traitsIcEE.exit289

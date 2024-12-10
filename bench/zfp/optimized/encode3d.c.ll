@@ -1427,7 +1427,7 @@ pad_block_double.exit.us.us.us.i:                 ; preds = %._crit_edge.us.us.u
 .preheader70.us.i:                                ; preds = %.preheader70.lr.ph.split.us.i, %46
   %.078.us.i = phi i64 [ %47, %46 ], [ 0, %.preheader70.lr.ph.split.us.i ]
   %.idx51.us.i = shl i64 %.078.us.i, 7
-  %45 = getelementptr inbounds i8, ptr %9, i64 %.idx51.us.i
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx51.us.i
   br label %pad_block_double.exit.us84.i
 
 46:                                               ; preds = %pad_block_double.exit60.us.i

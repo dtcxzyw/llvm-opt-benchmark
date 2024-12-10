@@ -407,7 +407,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %142 = phi i32 [ %158, %154 ], [ %140, %139 ]
   %.33656.i = phi i32 [ %157, %154 ], [ %.235.i, %139 ]
   %143 = sext i32 %.33656.i to i64
-  %144 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %143
   %145 = load i8, ptr %144, align 1
   switch i8 %145, label %146 [
     i8 83, label %154
@@ -417,7 +417,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 146:                                              ; preds = %.lr.ph58.i
   %147 = and i8 %145, 15
   %148 = sext i32 %142 to i64
-  %149 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = shl i8 %150, 4
   %152 = or disjoint i8 %151, %147

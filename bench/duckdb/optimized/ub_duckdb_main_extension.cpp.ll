@@ -1386,7 +1386,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { ptr, ptr } @_ZN6duckdb15ExtensionHelper17GetExtensionAliasEm(i64 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [9 x %"struct.duckdb::ExtensionAlias"], ptr @_ZN6duckdbL16internal_aliasesE, i64 0, i64 %index
+  %arrayidx = getelementptr inbounds nuw [9 x %"struct.duckdb::ExtensionAlias"], ptr @_ZN6duckdbL16internal_aliasesE, i64 0, i64 %index
   %retval.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 16, !tbaa !3
   %retval.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %retval.sroa.2.0.copyload = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx, align 8, !tbaa !3
@@ -1602,7 +1602,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6duckdb15ExtensionHelper19GetDefaultExtensionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.duckdb::DefaultExtension") align 8 initializes((0, 24)) %agg.result, i64 noundef %index) local_unnamed_addr #6 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [23 x %"struct.duckdb::DefaultExtension"], ptr @_ZN6duckdbL19internal_extensionsE, i64 0, i64 %index
+  %arrayidx = getelementptr inbounds nuw [23 x %"struct.duckdb::DefaultExtension"], ptr @_ZN6duckdbL19internal_extensionsE, i64 0, i64 %index
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false), !tbaa.struct !17
   ret void
 }
@@ -26727,7 +26727,7 @@ if.end.i:                                         ; preds = %entry
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div.i = sdiv i32 %0, 64
   %idxprom3.i = sext i32 %div.i to i64
-  %arrayidx4.i = getelementptr inbounds [16 x i64], ptr %fds.i, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i, i64 0, i64 %idxprom3.i
   %1 = load i64, ptr %arrayidx4.i, align 8, !tbaa !14
   %or.i = or i64 %1, %shl.i
   store i64 %or.i, ptr %arrayidx4.i, align 8, !tbaa !14
@@ -26778,7 +26778,7 @@ if.end.i:                                         ; preds = %entry
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div.i = sdiv i32 %0, 64
   %idxprom3.i = sext i32 %div.i to i64
-  %arrayidx4.i = getelementptr inbounds [16 x i64], ptr %fds.i, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i, i64 0, i64 %idxprom3.i
   %1 = load i64, ptr %arrayidx4.i, align 8, !tbaa !14
   %or.i = or i64 %1, %shl.i
   store i64 %or.i, ptr %arrayidx4.i, align 8, !tbaa !14
@@ -31502,7 +31502,7 @@ if.end.i.i:                                       ; preds = %if.then
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %div.i.i = sdiv i32 %0, 64
   %idxprom3.i.i = sext i32 %div.i.i to i64
-  %arrayidx4.i.i = getelementptr inbounds [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i.i, i64 0, i64 %idxprom3.i.i
   %1 = load i64, ptr %arrayidx4.i.i, align 8, !tbaa !14
   %or.i.i = or i64 %1, %shl.i.i
   store i64 %or.i.i, ptr %arrayidx4.i.i, align 8, !tbaa !14
@@ -54973,7 +54973,7 @@ if.end.i:                                         ; preds = %if.then13
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div.i = sdiv i32 %sock2, 64
   %idxprom3.i = sext i32 %div.i to i64
-  %arrayidx4.i = getelementptr inbounds [16 x i64], ptr %fdsr.i, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [16 x i64], ptr %fdsr.i, i64 0, i64 %idxprom3.i
   %25 = load i64, ptr %arrayidx4.i, align 8, !tbaa !14
   %or.i = or i64 %25, %shl.i
   store i64 %or.i, ptr %arrayidx4.i, align 8, !tbaa !14
@@ -55009,7 +55009,7 @@ land.lhs.true.i:                                  ; preds = %_ZN14duckdb_httplib
   br i1 %cmp16.not.i, label %lor.lhs.false.i, label %if.then26.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %arrayidx20.i = getelementptr inbounds [16 x i64], ptr %fdsw.i, i64 0, i64 %idxprom3.i
+  %arrayidx20.i = getelementptr inbounds nuw [16 x i64], ptr %fdsw.i, i64 0, i64 %idxprom3.i
   %28 = load i64, ptr %arrayidx20.i, align 8, !tbaa !14
   %and24.i = and i64 %28, %shl.i
   %cmp25.not.i = icmp eq i64 %and24.i, 0

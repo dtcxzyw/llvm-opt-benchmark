@@ -5411,7 +5411,7 @@ define noundef i32 @_ZN2cv17getOptimalDFTSizeEi(i32 noundef %0) local_unnamed_ad
   %3 = add nsw i32 %.01216, %.01315
   %4 = ashr i32 %3, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %0, %7
   %8 = add nsw i32 %4, 1
@@ -5422,7 +5422,7 @@ define noundef i32 @_ZN2cv17getOptimalDFTSizeEi(i32 noundef %0) local_unnamed_ad
 
 10:                                               ; preds = %.preheader
   %11 = sext i32 %.1 to i64
-  %12 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -5832,7 +5832,7 @@ define i32 @cvGetOptimalDFTSize(i32 noundef %0) local_unnamed_addr #8 {
   %3 = add nsw i32 %.01315.i, %.01216.i
   %4 = ashr i32 %3, 1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp sgt i32 %0, %7
   %8 = add nsw i32 %4, 1
@@ -5843,7 +5843,7 @@ define i32 @cvGetOptimalDFTSize(i32 noundef %0) local_unnamed_addr #8 {
 
 10:                                               ; preds = %.preheader.i
   %11 = sext i32 %.1.i to i64
-  %12 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %_ZN2cv17getOptimalDFTSizeEi.exit
 
@@ -6059,9 +6059,9 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
 
 39:                                               ; preds = %30
   %40 = sext i32 %1 to i64
-  %41 = getelementptr inbounds [34 x i32], ptr %9, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [34 x i32], ptr %9, i64 0, i64 %40
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds [34 x i32], ptr %8, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw [34 x i32], ptr %8, i64 0, i64 %40
   store i32 0, ptr %42, align 4
   %43 = icmp sgt i32 %1, 0
   br i1 %43, label %.lr.ph.preheader, label %._crit_edge
@@ -6083,7 +6083,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   %49 = getelementptr inbounds i32, ptr %2, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = mul nsw i32 %50, %store_forwarded
-  %52 = getelementptr inbounds [34 x i32], ptr %9, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw [34 x i32], ptr %9, i64 0, i64 %48
   store i32 %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %44
@@ -6396,7 +6396,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
 
 206:                                              ; preds = %.loopexit
   %207 = sext i32 %.0210 to i64
-  %208 = getelementptr inbounds [32 x [2 x double]], ptr @_ZN2cvL6DFTTabE, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [32 x [2 x double]], ptr @_ZN2cvL6DFTTabE, i64 0, i64 %207
   %209 = load double, ptr %208, align 16
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %211 = load double, ptr %210, align 8

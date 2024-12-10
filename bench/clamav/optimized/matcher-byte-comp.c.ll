@@ -930,7 +930,7 @@ define i32 @cli_bcomp_scanbuf(ptr noundef %0, i64 noundef %1, ptr noundef %2, pt
   %34 = zext i16 %31 to i32
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 3, ptr noundef nonnull @.str.21, i32 noundef %34) #14
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
-  %37 = getelementptr inbounds i8, ptr %9, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 %36
   %38 = load ptr, ptr %22, align 8
   %39 = load i32, ptr %29, align 4
   %40 = zext i32 %39 to i64

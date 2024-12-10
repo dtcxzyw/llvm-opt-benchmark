@@ -933,7 +933,7 @@ define range(i32 0, 4) i32 @Dtc_ObjComputeTruth(ptr nocapture noundef readonly %
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -1158,7 +1158,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntFill.exit, %
   %71 = add nsw i32 %66, 1
   store i32 %71, ptr %9, align 16
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %9, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %9, i64 %72
   store i32 %70, ptr %73, align 4
   br label %.loopexit.i
 
@@ -1338,7 +1338,7 @@ Vec_IntPush.exit73:                               ; preds = %.Vec_IntGrow.exit10
 .lr.ph.i74:                                       ; preds = %._crit_edge, %.lr.ph.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i76, %.lr.ph.i74 ], [ 1, %._crit_edge ]
   %139 = add nsw i64 %indvars.iv.i75, -1
-  %140 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i75
   %143 = load i32, ptr %142, align 4
@@ -1554,7 +1554,7 @@ Vec_IntPush.exit100:                              ; preds = %.Vec_IntGrow.exit10
 .lr.ph.i102:                                      ; preds = %._crit_edge, %.lr.ph.i102
   %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i105, %.lr.ph.i102 ], [ 1, %._crit_edge ]
   %233 = add nsw i64 %indvars.iv.i103, -1
-  %234 = getelementptr inbounds [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [3 x i32], ptr @__const.Dtc_ObjComputeTruth.Truths, i64 0, i64 %233
   %235 = load i32, ptr %234, align 4
   %236 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i103
   %237 = load i32, ptr %236, align 4

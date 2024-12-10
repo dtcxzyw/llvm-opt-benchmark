@@ -4942,7 +4942,7 @@ define void @Cba_NtkPrintNodes(ptr nocapture noundef %0, i32 noundef %1) local_u
   %3 = alloca [90 x ptr], align 16
   call void @Cba_ManCreatePrimMap(ptr noundef nonnull %3) #26
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [90 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [90 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %6)
   %8 = getelementptr i8, ptr %0, i64 92

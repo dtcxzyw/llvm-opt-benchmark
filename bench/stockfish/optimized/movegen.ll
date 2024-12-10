@@ -667,7 +667,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 346:                                              ; preds = %._crit_edge.i.i39
   %347 = sext i32 %345 to i64
-  %348 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %347
   %349 = load i64, ptr %348, align 8
   %350 = and i64 %271, %349
   %.not3681.i.i42 = icmp eq i64 %350, 0
@@ -2619,7 +2619,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 428:                                              ; preds = %423
   %429 = sext i32 %422 to i64
-  %430 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %429
   %431 = load i64, ptr %430, align 8
   %432 = and i64 %431, %321
   %.not56124.i.i120 = icmp eq i64 %432, 0
@@ -4582,7 +4582,7 @@ _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7Ext
 
 437:                                              ; preds = %._crit_edge112.i.i53
   %438 = sext i32 %436 to i64
-  %439 = getelementptr inbounds [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %438
+  %439 = getelementptr inbounds nuw [2 x [64 x i64]], ptr @_ZN9Stockfish11PawnAttacksE, i64 0, i64 0, i64 %438
   %440 = load i64, ptr %439, align 8
   %441 = and i64 %440, %337
   %.not47114.i.i56 = icmp eq i64 %441, 0

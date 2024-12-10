@@ -738,7 +738,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i53:             ; preds = %282, %_ZN4llvm6MCIn
 switch.lookup:                                    ; preds = %250, %243
   %switch.tableidx = add nsw i32 %33, -378
   %289 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE, i64 0, i64 %289
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionERKN4llvm6MCInstERNS1_15SmallVectorImplIcEERNS5_INS1_7MCFixupEEERKNS1_15MCSubtargetInfoE, i64 0, i64 %289
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL19getInvertedBranchOpj.exit.i
 

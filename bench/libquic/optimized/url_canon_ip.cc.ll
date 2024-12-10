@@ -1060,7 +1060,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.end3.i:                                        ; preds = %for.body.i
   %idxprom6.i = sext i32 %existing_components.015.i to i64
-  %arrayidx7.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %buf.i.i)
   %idxprom.i.i = sext i32 %arrayidx.val.i to i64
@@ -1145,7 +1145,7 @@ if.end34.i.i:                                     ; preds = %for.body.i.i
 if.then36.i.i:                                    ; preds = %if.end34.i.i
   %inc37.i.i = add nsw i32 %dest_i.06.i.i, 1
   %idxprom38.i.i = sext i32 %dest_i.06.i.i to i64
-  %arrayidx39.i.i = getelementptr inbounds [17 x i8], ptr %buf.i.i, i64 0, i64 %idxprom38.i.i
+  %arrayidx39.i.i = getelementptr inbounds nuw [17 x i8], ptr %buf.i.i, i64 0, i64 %idxprom38.i.i
   store i8 %20, ptr %arrayidx39.i.i, align 1
   br label %for.inc.i.i
 
@@ -1161,7 +1161,7 @@ for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
 
 for.end.i.i:                                      ; preds = %while.body.i.i, %for.end.loopexit.i.i, %while.end.i.i
   %dest_i.0.lcssa.i.i = phi i64 [ 0, %while.end.i.i ], [ %22, %for.end.loopexit.i.i ], [ 0, %while.body.i.i ]
-  %arrayidx43.i.i = getelementptr inbounds [17 x i8], ptr %buf.i.i, i64 0, i64 %dest_i.0.lcssa.i.i
+  %arrayidx43.i.i = getelementptr inbounds nuw [17 x i8], ptr %buf.i.i, i64 0, i64 %dest_i.0.lcssa.i.i
   store i8 0, ptr %arrayidx43.i.i, align 1
   switch i32 %base.0.i.i, label %sw.default.i.i.i [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
@@ -1212,7 +1212,7 @@ for.cond19.preheader.i:                           ; preds = %for.end.i
 
 for.end35.thread.i:                               ; preds = %for.cond19.preheader.i
   %idxprom3738.i = sext i32 %sub.i to i64
-  %arrayidx3839.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
+  %arrayidx3839.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
   %23 = load i32, ptr %arrayidx3839.i, align 4
   br label %for.body43.preheader.i
 
@@ -1237,7 +1237,7 @@ if.end27.i:                                       ; preds = %for.body21.i
 
 for.end35.i:                                      ; preds = %if.end27.i
   %idxprom37.i = sext i32 %sub.i to i64
-  %arrayidx38.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
+  %arrayidx38.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
   %25 = load i32, ptr %arrayidx38.i, align 4
   %cmp42.not20.i = icmp sgt i32 %existing_components.1.i, 4
   br i1 %cmp42.not20.i, label %for.end48.i, label %for.body43.preheader.i
@@ -1408,7 +1408,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 if.end3.i:                                        ; preds = %for.body.i
   %idxprom6.i = sext i32 %existing_components.015.i to i64
-  %arrayidx7.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %buf.i.i)
   %idxprom.i.i = sext i32 %arrayidx.val.i to i64
@@ -1495,7 +1495,7 @@ if.end35.i.i:                                     ; preds = %for.body.i.i
 if.then37.i.i:                                    ; preds = %if.end35.i.i
   %inc38.i.i = add nsw i32 %dest_i.06.i.i, 1
   %idxprom39.i.i = sext i32 %dest_i.06.i.i to i64
-  %arrayidx40.i.i = getelementptr inbounds [17 x i8], ptr %buf.i.i, i64 0, i64 %idxprom39.i.i
+  %arrayidx40.i.i = getelementptr inbounds nuw [17 x i8], ptr %buf.i.i, i64 0, i64 %idxprom39.i.i
   store i8 %conv32.i.i, ptr %arrayidx40.i.i, align 1
   br label %for.inc.i.i
 
@@ -1511,7 +1511,7 @@ for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
 
 for.end.i.i:                                      ; preds = %while.body.i.i, %for.end.loopexit.i.i, %while.end.i.i
   %dest_i.0.lcssa.i.i = phi i64 [ 0, %while.end.i.i ], [ %23, %for.end.loopexit.i.i ], [ 0, %while.body.i.i ]
-  %arrayidx44.i.i = getelementptr inbounds [17 x i8], ptr %buf.i.i, i64 0, i64 %dest_i.0.lcssa.i.i
+  %arrayidx44.i.i = getelementptr inbounds nuw [17 x i8], ptr %buf.i.i, i64 0, i64 %dest_i.0.lcssa.i.i
   store i8 0, ptr %arrayidx44.i.i, align 1
   switch i32 %base.0.i.i, label %sw.default.i.i.i [
     i32 8, label %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
@@ -1562,7 +1562,7 @@ for.cond19.preheader.i:                           ; preds = %for.end.i
 
 for.end35.thread.i:                               ; preds = %for.cond19.preheader.i
   %idxprom3738.i = sext i32 %sub.i to i64
-  %arrayidx3839.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
+  %arrayidx3839.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom3738.i
   %24 = load i32, ptr %arrayidx3839.i, align 4
   br label %for.body43.preheader.i
 
@@ -1587,7 +1587,7 @@ if.end27.i:                                       ; preds = %for.body21.i
 
 for.end35.i:                                      ; preds = %if.end27.i
   %idxprom37.i = sext i32 %sub.i to i64
-  %arrayidx38.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
+  %arrayidx38.i = getelementptr inbounds nuw [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom37.i
   %26 = load i32, ptr %arrayidx38.i, align 4
   %cmp42.not20.i = icmp sgt i32 %existing_components.1.i, 4
   br i1 %cmp42.not20.i, label %for.end48.i, label %for.body43.preheader.i
@@ -1740,7 +1740,7 @@ if.end33.i.i:                                     ; preds = %if.then29.i.i
   %inc.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i, ptr %num_hex_components.i.i.i, align 4
   %idxprom35.i.i = sext i32 %8 to i64
-  %arrayidx36.i.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %idxprom35.i.i
+  %arrayidx36.i.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %idxprom35.i.i
   %ref.tmp.sroa.2.0.insert.ext.i.i = zext nneg i32 %sub12.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %ref.tmp.sroa.2.0.insert.ext.i.i, 32
   %ref.tmp.sroa.0.0.insert.insert.i.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i.i, %ref.tmp.sroa.0.0.insert.ext.i.i
@@ -1895,7 +1895,7 @@ for.body.preheader.i.us.i:                        ; preds = %if.then27.us.i
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %for.body.preheader.i.us.i, %if.then27.us.i
   %idxprom4.i.us.i = sext i32 %arrayidx29.val21.us.i to i64
-  %arrayidx5.i29.us.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
+  %arrayidx5.i29.us.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
   store i8 0, ptr %arrayidx5.i29.us.i, align 1
   %call.i.i.us.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
@@ -1940,7 +1940,7 @@ for.body.preheader.i.i:                           ; preds = %if.then27.i
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %for.body.preheader.i.i, %if.then27.i
   %idxprom4.i.i = sext i32 %arrayidx29.val21.i to i64
-  %arrayidx5.i29.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
+  %arrayidx5.i29.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
   store i8 0, ptr %arrayidx5.i29.i, align 1
   %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
@@ -2098,7 +2098,7 @@ if.end33.i.i:                                     ; preds = %if.then29.i.i
   %inc.i.i = add nsw i32 %8, 1
   store i32 %inc.i.i, ptr %num_hex_components.i.i.i, align 4
   %idxprom35.i.i = sext i32 %8 to i64
-  %arrayidx36.i.i = getelementptr inbounds [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %idxprom35.i.i
+  %arrayidx36.i.i = getelementptr inbounds nuw [8 x %"struct.url::Component"], ptr %ipv6_parsed.i, i64 0, i64 %idxprom35.i.i
   %ref.tmp.sroa.2.0.insert.ext.i.i = zext nneg i32 %sub12.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %ref.tmp.sroa.2.0.insert.ext.i.i, 32
   %ref.tmp.sroa.0.0.insert.insert.i.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i.i, %ref.tmp.sroa.0.0.insert.ext.i.i
@@ -2263,7 +2263,7 @@ for.body.i.us.i:                                  ; preds = %for.body.i.us.i, %f
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i: ; preds = %for.body.i.us.i, %if.then27.us.i
   %idxprom4.i.us.i = sext i32 %arrayidx29.val21.us.i to i64
-  %arrayidx5.i29.us.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
+  %arrayidx5.i29.us.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.us.i
   store i8 0, ptr %arrayidx5.i29.us.i, align 1
   %call.i.i.us.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)
@@ -2318,7 +2318,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i: ; preds = %for.body.i.i, %if.then27.i
   %idxprom4.i.i = sext i32 %arrayidx29.val21.i to i64
-  %arrayidx5.i29.i = getelementptr inbounds [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
+  %arrayidx5.i29.i = getelementptr inbounds nuw [5 x i8], ptr %buf.i.i, i64 0, i64 %idxprom4.i.i
   store i8 0, ptr %arrayidx5.i29.i, align 1
   %call.i.i.i = call noundef i64 @strtoull(ptr nocapture noundef nonnull %buf.i.i, ptr noundef null, i32 noundef 16) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %buf.i.i)

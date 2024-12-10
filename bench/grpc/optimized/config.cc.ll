@@ -492,7 +492,7 @@ invoke.cont17:                                    ; preds = %invoke.cont17.lr.ph
   %__begin1.sroa.0.068 = phi ptr [ %3, %invoke.cont17.lr.ph ], [ %call.i58, %invoke.cont82 ]
   %name_index.sroa.1.0.call13.sroa_idx = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.068, i64 48
   %name_index.sroa.1.0.copyload = load i64, ptr %name_index.sroa.1.0.call13.sroa_idx, align 8
-  %arrayidx19 = getelementptr inbounds [41 x %"struct.grpc_core::ExperimentMetadata"], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 0, i64 %name_index.sroa.1.0.copyload
+  %arrayidx19 = getelementptr inbounds nuw [41 x %"struct.grpc_core::ExperimentMetadata"], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 0, i64 %name_index.sroa.1.0.copyload
   %19 = load ptr, ptr %arrayidx19, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %invoke.cont21, label %cond.true.i.i
@@ -554,7 +554,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 invoke.cont37:                                    ; preds = %invoke.cont1.i.i, %init.check.i.i, %invoke.cont29
   call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %ref.tmp.i.i)
-  %arrayidx.i = getelementptr inbounds [41 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, i64 0, i64 %name_index.sroa.1.0.copyload
+  %arrayidx.i = getelementptr inbounds nuw [41 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, i64 0, i64 %name_index.sroa.1.0.copyload
   %26 = load i8, ptr %arrayidx.i, align 1
   %tobool.i = trunc i8 %26 to i1
   %.str.3..str.4 = select i1 %tobool.i, ptr @.str.3, ptr @.str.4
@@ -604,7 +604,7 @@ cond.false61:                                     ; preds = %invoke.cont37
   br label %cond.end62
 
 cond.end62:                                       ; preds = %invoke.cont59, %cond.false61
-  %arrayidx64 = getelementptr inbounds [41 x %"struct.grpc_core::(anonymous namespace)::ForcedExperiment"], ptr @_ZN9grpc_core12_GLOBAL__N_120g_forced_experimentsE, i64 0, i64 %name_index.sroa.1.0.copyload
+  %arrayidx64 = getelementptr inbounds nuw [41 x %"struct.grpc_core::(anonymous namespace)::ForcedExperiment"], ptr @_ZN9grpc_core12_GLOBAL__N_120g_forced_experimentsE, i64 0, i64 %name_index.sroa.1.0.copyload
   %31 = load i8, ptr %arrayidx64, align 2
   %tobool65 = trunc i8 %31 to i1
   br i1 %tobool65, label %invoke.cont74, label %cond.false76
@@ -1030,7 +1030,7 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit: ; preds = %entry, %init.check.i, %invoke.cont1.i
   call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %ref.tmp.i)
-  %arrayidx = getelementptr inbounds [41 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, i64 0, i64 %experiment_id
+  %arrayidx = getelementptr inbounds nuw [41 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments, i64 0, i64 %experiment_id
   %3 = load i8, ptr %arrayidx, align 1
   %tobool = trunc i8 %3 to i1
   ret i1 %tobool

@@ -317,7 +317,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %fo
   %mul.i.i.i.i = shl nsw i64 %conv.i.i.i.i, 1
   %call9.i.i.i.i = call noalias ptr @malloc(i64 noundef %mul.i.i.i.i) #11
   %idxprom.i.i.i.i = sext i32 %rem.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %days.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %idxprom.i.i.i.i
   store ptr %call9.i.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   store i32 0, ptr %status, align 4
   %call13.i.i.i.i = call i32 @udat_getSymbols_75(ptr noundef %call.i.i, i32 noundef range(i32 1, 5) %cond.i.i.i, i32 noundef %add6.i.i.i.i, ptr noundef %call9.i.i.i.i, i32 noundef %add8.i.i.i.i, ptr noundef nonnull %status) #10
@@ -676,7 +676,7 @@ indent.exit219.i.i:                               ; preds = %for.body.i211.i.i, 
 if.end78.i.i:                                     ; preds = %indent.exit219.i.i, %while.body66.i.i
   %call80.i.i = call i32 @unum_format_75(ptr noundef %call19.i.i, i32 noundef %left_day.1.i.i, ptr noundef nonnull %s.i.i, i32 noundef 64, ptr noundef null, ptr noundef nonnull %status) #10
   %idxprom81.i.i = sext i32 %left_current.2.i.i to i64
-  %arrayidx82.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %idxprom81.i.i
+  %arrayidx82.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %idxprom81.i.i
   %65 = load i32, ptr %arrayidx82.i.i, align 4
   %call84.i.i = call i32 @u_strlen_75(ptr noundef nonnull %s.i.i) #10
   %sub85.i.i = sub nsw i32 %65, %call84.i.i
@@ -726,7 +726,7 @@ for.body99.preheader.i.i:                         ; preds = %while.end.i.i
 
 for.body99.i.i:                                   ; preds = %indent.exit245.i.i, %for.body99.preheader.i.i
   %indvars.iv327.i.i = phi i64 [ %69, %for.body99.preheader.i.i ], [ %indvars.iv.next328.i.i, %indent.exit245.i.i ]
-  %arrayidx101.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv327.i.i
+  %arrayidx101.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %indvars.iv327.i.i
   %70 = load i32, ptr %arrayidx101.i.i, align 4
   %add102.i.i = add nsw i32 %70, 1
   %71 = load ptr, ptr @stdout, align 8
@@ -823,7 +823,7 @@ indent.exit262.i.i:                               ; preds = %for.body.i254.i.i, 
 if.end122.i.i:                                    ; preds = %indent.exit262.i.i, %while.body110.i.i
   %call124.i.i = call i32 @unum_format_75(ptr noundef %call19.i.i, i32 noundef %right_day.1.i.i, ptr noundef nonnull %s.i.i, i32 noundef 64, ptr noundef null, ptr noundef nonnull %status) #10
   %idxprom125.i.i = sext i32 %right_current.1.i.i to i64
-  %arrayidx126.i.i = getelementptr inbounds [7 x i32], ptr %lens.i.i, i64 0, i64 %idxprom125.i.i
+  %arrayidx126.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i.i, i64 0, i64 %idxprom125.i.i
   %77 = load i32, ptr %arrayidx126.i.i, align 4
   %call128.i.i = call i32 @u_strlen_75(ptr noundef nonnull %s.i.i) #10
   %sub129.i.i = sub nsw i32 %77, %call128.i.i
@@ -968,7 +968,7 @@ for.body.i.i.i69.i:                               ; preds = %if.end.i.i.i26.i, %
   %mul.i.i.i77.i = shl nsw i64 %conv.i.i.i76.i, 1
   %call9.i.i.i78.i = call noalias ptr @malloc(i64 noundef %mul.i.i.i77.i) #11
   %idxprom.i.i.i79.i = sext i32 %rem.i.i.i72.i to i64
-  %arrayidx.i.i.i80.i = getelementptr inbounds ptr, ptr %days.i, i64 %idxprom.i.i.i79.i
+  %arrayidx.i.i.i80.i = getelementptr inbounds nuw ptr, ptr %days.i, i64 %idxprom.i.i.i79.i
   store ptr %call9.i.i.i78.i, ptr %arrayidx.i.i.i80.i, align 8
   store i32 0, ptr %status, align 4
   %call13.i.i.i81.i = call i32 @udat_getSymbols_75(ptr noundef %call.i23.i, i32 noundef range(i32 1, 5) %cond.i.i27.i, i32 noundef %add6.i.i.i73.i, ptr noundef %call9.i.i.i78.i, i32 noundef %add8.i.i.i75.i, ptr noundef nonnull %status) #10
@@ -1102,7 +1102,7 @@ do.body.i.i:                                      ; preds = %if.end52.i.i, %for.
   %day.0.i.i = phi i32 [ %call37.i.i, %for.end36.i.i ], [ %call53.i60.i, %if.end52.i.i ]
   %call39.i.i = call i32 @unum_format_75(ptr noundef %call21.i.i, i32 noundef %day.0.i.i, ptr noundef nonnull %s.i20.i, i32 noundef 64, ptr noundef null, ptr noundef nonnull %status) #10
   %idxprom40.i.i = sext i32 %current.1.i.i to i64
-  %arrayidx41.i.i = getelementptr inbounds [7 x i32], ptr %lens.i19.i, i64 0, i64 %idxprom40.i.i
+  %arrayidx41.i.i = getelementptr inbounds nuw [7 x i32], ptr %lens.i19.i, i64 0, i64 %idxprom40.i.i
   %99 = load i32, ptr %arrayidx41.i.i, align 4
   %call43.i.i = call i32 @u_strlen_75(ptr noundef nonnull %s.i20.i) #10
   %sub44.i.i = sub nsw i32 %99, %call43.i.i

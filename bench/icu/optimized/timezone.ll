@@ -1057,7 +1057,7 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
   %7 = phi i32 [ 0, %_ZN6icu_755Grego10isLeapYearEi.exit.thread.i ], [ 12, %land.rhs.i.i ]
   %add.i = add nsw i32 %7, %3
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr @_ZN6icu_755Grego12MONTH_LENGTHE, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %conv11 = sext i8 %8 to i32
   %vtable12 = load ptr, ptr %this, align 8
@@ -3769,7 +3769,7 @@ if.then11:                                        ; preds = %if.end7
 
 if.end12:                                         ; preds = %if.end7
   %idxprom = sext i32 %call9 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %winidKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %winidKey, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call14 = call ptr @ures_getByKey_75(ptr noundef %call2, ptr noundef nonnull %winidKey, ptr noundef %call2, ptr noundef nonnull %tmperr)
   %7 = load i32, ptr %tmperr, align 4

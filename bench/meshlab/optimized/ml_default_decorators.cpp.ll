@@ -7470,7 +7470,7 @@ define void @_ZN23MLDefaultMeshDecorators14drawLineVectorERKN3vcg8Matrix44IfEERS
   %7 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %6
   %8 = shl i64 %indvars.iv.i.i.i, 2
   %9 = add nuw nsw i64 %8, %indvars.iv15.i.i.i
-  %10 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %9
   %11 = load float, ptr %7, align 4, !alias.scope !114
   %12 = load float, ptr %10, align 4, !alias.scope !114
   store float %12, ptr %7, align 4, !alias.scope !114
@@ -7547,7 +7547,7 @@ define void @_ZN23MLDefaultMeshDecorators13drawTriVectorERKN3vcg8Matrix44IfEERSt
   %7 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %6
   %8 = shl i64 %indvars.iv.i.i.i, 2
   %9 = add nuw nsw i64 %8, %indvars.iv15.i.i.i
-  %10 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %9
   %11 = load float, ptr %7, align 4, !alias.scope !119
   %12 = load float, ptr %10, align 4, !alias.scope !119
   store float %12, ptr %7, align 4, !alias.scope !119
@@ -7625,7 +7625,7 @@ define void @_ZN23MLDefaultMeshDecorators13drawDotVectorERKN3vcg8Matrix44IfEERSt
   %9 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %8
   %10 = shl i64 %indvars.iv.i.i.i, 2
   %11 = add nuw nsw i64 %10, %indvars.iv15.i.i.i
-  %12 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %11
   %13 = load float, ptr %9, align 4, !alias.scope !122
   %14 = load float, ptr %12, align 4, !alias.scope !122
   store float %14, ptr %9, align 4, !alias.scope !122
@@ -7965,7 +7965,7 @@ define void @_ZN23MLDefaultMeshDecorators13drawQuotedBoxER9MeshModelP8QPainterR5
   %15 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %14
   %16 = shl i64 %indvars.iv.i.i.i, 2
   %17 = add nuw nsw i64 %16, %indvars.iv15.i.i.i
-  %18 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %17
   %19 = load float, ptr %15, align 4, !alias.scope !130
   %20 = load float, ptr %18, align 4, !alias.scope !130
   store float %20, ptr %15, align 4, !alias.scope !130

@@ -2604,7 +2604,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 
 59:                                               ; preds = %.lr.ph.i
   %60 = add i64 %.02324.i, 1
-  %61 = getelementptr inbounds i8, ptr %8, i64 %.02324.i
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %.02324.i
   store i8 33, ptr %61, align 1
   br label %62
 
@@ -2616,7 +2616,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
   br i1 %65, label %print_chain.exit, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %8, i64 %.2.i
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 %.2.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %57, i64 %58, i1 false)
   %68 = add nuw i64 %.025.i, 1
   %69 = icmp ult i64 %68, %55
@@ -2625,7 +2625,7 @@ define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3
 print_chain.exit:                                 ; preds = %62, %66, %49
   %.0.lcssa.i = phi i64 [ 0, %49 ], [ %68, %66 ], [ %.025.i, %62 ]
   %.1.i = phi i64 [ 0, %49 ], [ %63, %66 ], [ %.2.i, %62 ]
-  %70 = getelementptr inbounds i8, ptr %8, i64 %.1.i
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
   store i8 0, ptr %70, align 1
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 127
   store i8 0, ptr %71, align 1

@@ -3894,7 +3894,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinear
 37:                                               ; preds = %19, %7
   %.sroa.0.0 = phi ptr [ %18, %7 ], [ %36, %19 ]
   %38 = sext i32 %3 to i64
-  %39 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %41
@@ -3927,7 +3927,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinear
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = shl nsw i32 %1, 1

@@ -125,7 +125,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = add nsw i64 %43, -1
-  %45 = getelementptr inbounds [64 x i8], ptr %1, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 0, i64 %44
   store i8 %40, ptr %45, align 1
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next192, 56
@@ -138,7 +138,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
   %50 = add nsw i64 %49, -1
-  %51 = getelementptr inbounds [56 x i8], ptr %2, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 0, i64 %50
   store i8 %46, ptr %51, align 1
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next196, 48
@@ -363,7 +363,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i64
   %171 = add nsw i64 %170, -1
-  %172 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %171
   store i8 %167, ptr %172, align 1
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next224, 32

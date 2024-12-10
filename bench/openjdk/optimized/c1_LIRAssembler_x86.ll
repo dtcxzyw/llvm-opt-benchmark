@@ -159,7 +159,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @_ZN13LIR_Assembler16osrBuf
   %6 = trunc i64 %5 to i32
   %7 = sub i32 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 14
   %12 = shl i32 %10, 23
@@ -784,7 +784,7 @@ _ZNK10ValueStack10locks_sizeEv.exit:              ; preds = %_ZNK8BlockEnd13numb
   %53 = trunc i64 %52 to i32
   %54 = sub i32 %53, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i32], ptr @_ZN8FrameMap12_cpu_reg2rnrE, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = shl i32 %57, 14
   %59 = shl i32 %57, 23
@@ -10798,7 +10798,7 @@ _ZN8ciMethod4codeEv.exit.i.i:                     ; preds = %57, %50
 _ZN8ciMethod16java_code_at_bciEi.exit.i:          ; preds = %63, %_ZN8ciMethod4codeEv.exit.i.i
   %65 = phi i32 [ %64, %63 ], [ %62, %_ZN8ciMethod4codeEv.exit.i.i ]
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 182
   br i1 %69, label %70, label %75

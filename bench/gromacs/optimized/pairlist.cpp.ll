@@ -1102,14 +1102,14 @@ define void @_ZN11PairlistSetC2ERK14PairlistParams(ptr noundef nonnull align 8 d
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %1, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   store i8 %16, ptr %11, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %18 = load i32, ptr %1, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
   %23 = xor i8 %22, 1
@@ -1187,7 +1187,7 @@ define void @_ZN11PairlistSetC2ERK14PairlistParams(ptr noundef nonnull align 8 d
   %.01546 = phi i32 [ 0, %.lr.ph47 ], [ %54, %_ZNSt6vectorI16NbnxnPairlistCpuSaIS0_EE12emplace_backIJRKiEEERS0_DpOT_.exit ]
   %44 = load i32, ptr %1, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %45
   %47 = load ptr, ptr %41, align 8
   %48 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %47, %48
@@ -1231,7 +1231,7 @@ _ZNSt6vectorI16NbnxnPairlistCpuSaIS0_EE12emplace_backIJRKiEEERS0_DpOT_.exit: ; p
   %.01448 = phi i32 [ 0, %.lr.ph49 ], [ %71, %_ZNSt6vectorI16NbnxnPairlistCpuSaIS0_EE12emplace_backIJRKiEEERS0_DpOT_.exit26 ]
   %61 = load i32, ptr %1, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %62
   %64 = load ptr, ptr %58, align 8
   %65 = load ptr, ptr %59, align 8
   %.not.i22 = icmp eq ptr %64, %65
@@ -5252,7 +5252,7 @@ _ZL14clear_pairlistP16NbnxnPairlistGpu.exit:      ; preds = %204, %207, %209, %2
 
 265:                                              ; preds = %250
   %266 = sext i32 %239 to i64
-  %267 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %266
+  %267 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %266
   %268 = load i32, ptr %267, align 4
   %269 = getelementptr inbounds nuw i8, ptr %247, i64 68
   store i32 %268, ptr %269, align 4
@@ -8871,7 +8871,7 @@ _ZL24nbnxn_make_pairlist_partI16NbnxnPairlistCpuEvRKN5Nbnxm7GridSetERKNS1_4GridE
   %2107 = getelementptr inbounds nuw i8, ptr %2106, i64 160
   store i32 %2104, ptr %2107, align 8
   %2108 = sext i32 %239 to i64
-  %2109 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %2108
+  %2109 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %2108
   %2110 = load i32, ptr %2109, align 4
   %2111 = getelementptr inbounds nuw i8, ptr %2078, i64 68
   store i32 %2110, ptr %2111, align 4

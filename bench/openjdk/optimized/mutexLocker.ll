@@ -350,7 +350,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %2 = add nsw i32 %1, 1
   store i32 %2, ptr @_ZL10_num_mutex, align 4
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %3
   store ptr @_ZZ10mutex_initvE16tty_lock_storage, ptr %4, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE16STS_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE16STS_lock_storage, ptr @STS_lock, align 8
@@ -358,7 +358,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @_ZL10_num_mutex, align 4
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %7
   store ptr @_ZZ10mutex_initvE16STS_lock_storage, ptr %8, align 8
   %9 = load i8, ptr @UseG1GC, align 1
   %10 = trunc i8 %9 to i1
@@ -371,7 +371,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr @_ZL10_num_mutex, align 4
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %14
   store ptr @_ZZ10mutex_initvE16CGC_lock_storage, ptr %15, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE38G1DetachedRefinementStats_lock_storage, i32 noundef 19, ptr noundef nonnull @.str.6, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE38G1DetachedRefinementStats_lock_storage, ptr @G1DetachedRefinementStats_lock, align 8
@@ -379,7 +379,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr @_ZL10_num_mutex, align 4
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %18
   store ptr @_ZZ10mutex_initvE38G1DetachedRefinementStats_lock_storage, ptr %19, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE21FreeList_lock_storage, i32 noundef 5, ptr noundef nonnull @.str.7, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE21FreeList_lock_storage, ptr @FreeList_lock, align 8
@@ -387,7 +387,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr @_ZL10_num_mutex, align 4
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %22
   store ptr @_ZZ10mutex_initvE21FreeList_lock_storage, ptr %23, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE20OldSets_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.8, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE20OldSets_lock_storage, ptr @OldSets_lock, align 8
@@ -395,7 +395,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr @_ZL10_num_mutex, align 4
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %26
   store ptr @_ZZ10mutex_initvE20OldSets_lock_storage, ptr %27, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE21Uncommit_lock_storage, i32 noundef 4, ptr noundef nonnull @.str.9, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE21Uncommit_lock_storage, ptr @Uncommit_lock, align 8
@@ -403,7 +403,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr @_ZL10_num_mutex, align 4
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %30
   store ptr @_ZZ10mutex_initvE21Uncommit_lock_storage, ptr %31, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE27RootRegionScan_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.10, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE27RootRegionScan_lock_storage, ptr @RootRegionScan_lock, align 8
@@ -411,7 +411,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr @_ZL10_num_mutex, align 4
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %34
   store ptr @_ZZ10mutex_initvE27RootRegionScan_lock_storage, ptr %35, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30MarkStackFreeList_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.11, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE30MarkStackFreeList_lock_storage, ptr @MarkStackFreeList_lock, align 8
@@ -419,7 +419,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr @_ZL10_num_mutex, align 4
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %38
   store ptr @_ZZ10mutex_initvE30MarkStackFreeList_lock_storage, ptr %39, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE31MarkStackChunkList_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE31MarkStackChunkList_lock_storage, ptr @MarkStackChunkList_lock, align 8
@@ -427,7 +427,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr @_ZL10_num_mutex, align 4
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %42
   store ptr @_ZZ10mutex_initvE31MarkStackChunkList_lock_storage, ptr %43, align 8
   br label %44
 
@@ -438,7 +438,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr @_ZL10_num_mutex, align 4
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %47
   store ptr @_ZZ10mutex_initvE30MonitoringSupport_lock_storage, ptr %48, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24StringDedup_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.14, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE24StringDedup_lock_storage, ptr @StringDedup_lock, align 8
@@ -446,7 +446,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr @_ZL10_num_mutex, align 4
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %51
   store ptr @_ZZ10mutex_initvE24StringDedup_lock_storage, ptr %52, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30StringDedupIntern_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.15, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE30StringDedupIntern_lock_storage, ptr @StringDedupIntern_lock, align 8
@@ -454,7 +454,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr @_ZL10_num_mutex, align 4
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %55
   store ptr @_ZZ10mutex_initvE30StringDedupIntern_lock_storage, ptr %56, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23RawMonitor_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.16, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE23RawMonitor_lock_storage, ptr @RawMonitor_lock, align 8
@@ -462,7 +462,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr @_ZL10_num_mutex, align 4
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %59
   store ptr @_ZZ10mutex_initvE23RawMonitor_lock_storage, ptr %60, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE22Metaspace_lock_storage, i32 noundef 18, ptr noundef nonnull @.str.17, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE22Metaspace_lock_storage, ptr @Metaspace_lock, align 8
@@ -470,7 +470,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr @_ZL10_num_mutex, align 4
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %63
   store ptr @_ZZ10mutex_initvE22Metaspace_lock_storage, ptr %64, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30MetaspaceCritical_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.18, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE30MetaspaceCritical_lock_storage, ptr @MetaspaceCritical_lock, align 8
@@ -478,7 +478,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr @_ZL10_num_mutex, align 4
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %67
   store ptr @_ZZ10mutex_initvE30MetaspaceCritical_lock_storage, ptr %68, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE21Patching_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.19, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE21Patching_lock_storage, ptr @Patching_lock, align 8
@@ -486,7 +486,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr @_ZL10_num_mutex, align 4
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %71
   store ptr @_ZZ10mutex_initvE21Patching_lock_storage, ptr %72, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29MonitorDeflation_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.20, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE29MonitorDeflation_lock_storage, ptr @MonitorDeflation_lock, align 8
@@ -494,7 +494,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %74 = add nsw i32 %73, 1
   store i32 %74, ptr @_ZL10_num_mutex, align 4
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %75
   store ptr @_ZZ10mutex_initvE29MonitorDeflation_lock_storage, ptr %76, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE20Service_lock_storage, i32 noundef 6, ptr noundef nonnull @.str.21, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE20Service_lock_storage, ptr @Service_lock, align 8
@@ -502,7 +502,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr @_ZL10_num_mutex, align 4
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %79
   store ptr @_ZZ10mutex_initvE20Service_lock_storage, ptr %80, align 8
   %81 = load i8, ptr @UseNotificationThread, align 1
   %82 = trunc i8 %81 to i1
@@ -514,7 +514,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr @_ZL10_num_mutex, align 4
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %86
   store ptr @_ZZ10mutex_initvE25Notification_lock_storage, ptr %87, align 8
   br label %88
 
@@ -527,7 +527,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %90 = add nsw i32 %89, 1
   store i32 %90, ptr @_ZL10_num_mutex, align 4
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %91
   store ptr @_ZZ10mutex_initvE30JmethodIdCreation_lock_storage, ptr %92, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE34InvokeMethodTypeTable_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.24, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE34InvokeMethodTypeTable_lock_storage, ptr @InvokeMethodTypeTable_lock, align 8
@@ -535,7 +535,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr @_ZL10_num_mutex, align 4
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %95
   store ptr @_ZZ10mutex_initvE34InvokeMethodTypeTable_lock_storage, ptr %96, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE39InvokeMethodIntrinsicTable_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.25, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE39InvokeMethodIntrinsicTable_lock_storage, ptr @InvokeMethodIntrinsicTable_lock, align 8
@@ -543,7 +543,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr @_ZL10_num_mutex, align 4
   %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %99
   store ptr @_ZZ10mutex_initvE39InvokeMethodIntrinsicTable_lock_storage, ptr %100, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE34AdapterHandlerLibrary_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE34AdapterHandlerLibrary_lock_storage, ptr @AdapterHandlerLibrary_lock, align 8
@@ -551,7 +551,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr @_ZL10_num_mutex, align 4
   %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %103
   store ptr @_ZZ10mutex_initvE34AdapterHandlerLibrary_lock_storage, ptr %104, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29SharedDictionary_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.27, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29SharedDictionary_lock_storage, ptr @SharedDictionary_lock, align 8
@@ -559,7 +559,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr @_ZL10_num_mutex, align 4
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %107
   store ptr @_ZZ10mutex_initvE29SharedDictionary_lock_storage, ptr %108, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24VMStatistic_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.28, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE24VMStatistic_lock_storage, ptr @VMStatistic_lock, align 8
@@ -567,7 +567,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr @_ZL10_num_mutex, align 4
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %111
   store ptr @_ZZ10mutex_initvE24VMStatistic_lock_storage, ptr %112, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE36SignatureHandlerLibrary_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.29, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE36SignatureHandlerLibrary_lock_storage, ptr @SignatureHandlerLibrary_lock, align 8
@@ -575,7 +575,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr @_ZL10_num_mutex, align 4
   %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %115
   store ptr @_ZZ10mutex_initvE36SignatureHandlerLibrary_lock_storage, ptr %116, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24SymbolArena_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.30, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE24SymbolArena_lock_storage, ptr @SymbolArena_lock, align 8
@@ -583,7 +583,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr @_ZL10_num_mutex, align 4
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %119
   store ptr @_ZZ10mutex_initvE24SymbolArena_lock_storage, ptr %120, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE27ExceptionCache_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.31, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE27ExceptionCache_lock_storage, ptr @ExceptionCache_lock, align 8
@@ -591,7 +591,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr @_ZL10_num_mutex, align 4
   %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %123
+  %124 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %123
   store ptr @_ZZ10mutex_initvE27ExceptionCache_lock_storage, ptr %124, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23BeforeExit_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.32, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE23BeforeExit_lock_storage, ptr @BeforeExit_lock, align 8
@@ -599,7 +599,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr @_ZL10_num_mutex, align 4
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %127
   store ptr @_ZZ10mutex_initvE23BeforeExit_lock_storage, ptr %128, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE31NonJavaThreadsList_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.33, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE31NonJavaThreadsList_lock_storage, ptr @NonJavaThreadsList_lock, align 8
@@ -607,7 +607,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr @_ZL10_num_mutex, align 4
   %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %131
   store ptr @_ZZ10mutex_initvE31NonJavaThreadsList_lock_storage, ptr %132, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE35NonJavaThreadsListSync_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.34, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE35NonJavaThreadsListSync_lock_storage, ptr @NonJavaThreadsListSync_lock, align 8
@@ -615,7 +615,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr @_ZL10_num_mutex, align 4
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %135
   store ptr @_ZZ10mutex_initvE35NonJavaThreadsListSync_lock_storage, ptr %136, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE20RetData_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.35, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE20RetData_lock_storage, ptr @RetData_lock, align 8
@@ -623,7 +623,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr @_ZL10_num_mutex, align 4
   %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %139
   store ptr @_ZZ10mutex_initvE20RetData_lock_storage, ptr %140, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23Terminator_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.36, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE23Terminator_lock_storage, ptr @Terminator_lock, align 8
@@ -631,7 +631,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %142 = add nsw i32 %141, 1
   store i32 %142, ptr @_ZL10_num_mutex, align 4
   %143 = sext i32 %141 to i64
-  %144 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %143
   store ptr @_ZZ10mutex_initvE23Terminator_lock_storage, ptr %144, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26InitCompleted_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.37, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26InitCompleted_lock_storage, ptr @InitCompleted_lock, align 8
@@ -639,7 +639,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr @_ZL10_num_mutex, align 4
   %147 = sext i32 %145 to i64
-  %148 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %147
   store ptr @_ZZ10mutex_initvE26InitCompleted_lock_storage, ptr %148, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE19Notify_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.38, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE19Notify_lock_storage, ptr @Notify_lock, align 8
@@ -647,7 +647,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %150 = add nsw i32 %149, 1
   store i32 %150, ptr @_ZL10_num_mutex, align 4
   %151 = sext i32 %149 to i64
-  %152 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %151
   store ptr @_ZZ10mutex_initvE19Notify_lock_storage, ptr %152, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29JfieldIdCreation_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.39, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29JfieldIdCreation_lock_storage, ptr @JfieldIdCreation_lock, align 8
@@ -655,7 +655,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %154 = add nsw i32 %153, 1
   store i32 %154, ptr @_ZL10_num_mutex, align 4
   %155 = sext i32 %153 to i64
-  %156 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %155
   store ptr @_ZZ10mutex_initvE29JfieldIdCreation_lock_storage, ptr %156, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23CompiledIC_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.40, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE23CompiledIC_lock_storage, ptr @CompiledIC_lock, align 8
@@ -663,7 +663,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %158 = add nsw i32 %157, 1
   store i32 %158, ptr @_ZL10_num_mutex, align 4
   %159 = sext i32 %157 to i64
-  %160 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %159
   store ptr @_ZZ10mutex_initvE23CompiledIC_lock_storage, ptr %160, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE31MethodCompileQueue_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.41, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE31MethodCompileQueue_lock_storage, ptr @MethodCompileQueue_lock, align 8
@@ -671,7 +671,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %162 = add nsw i32 %161, 1
   store i32 %162, ptr @_ZL10_num_mutex, align 4
   %163 = sext i32 %161 to i64
-  %164 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %163
   store ptr @_ZZ10mutex_initvE31MethodCompileQueue_lock_storage, ptr %164, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30CompileStatistics_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.42, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE30CompileStatistics_lock_storage, ptr @CompileStatistics_lock, align 8
@@ -679,7 +679,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %166 = add nsw i32 %165, 1
   store i32 %166, ptr @_ZL10_num_mutex, align 4
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %167
   store ptr @_ZZ10mutex_initvE30CompileStatistics_lock_storage, ptr %168, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE28DirectivesStack_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.43, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE28DirectivesStack_lock_storage, ptr @DirectivesStack_lock, align 8
@@ -687,7 +687,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %170 = add nsw i32 %169, 1
   store i32 %170, ptr @_ZL10_num_mutex, align 4
   %171 = sext i32 %169 to i64
-  %172 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %171
   store ptr @_ZZ10mutex_initvE28DirectivesStack_lock_storage, ptr %172, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29JvmtiThreadState_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.44, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29JvmtiThreadState_lock_storage, ptr @JvmtiThreadState_lock, align 8
@@ -695,7 +695,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %174 = add nsw i32 %173, 1
   store i32 %174, ptr @_ZL10_num_mutex, align 4
   %175 = sext i32 %173 to i64
-  %176 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %175
   store ptr @_ZZ10mutex_initvE29JvmtiThreadState_lock_storage, ptr %176, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26EscapeBarrier_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.45, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26EscapeBarrier_lock_storage, ptr @EscapeBarrier_lock, align 8
@@ -703,7 +703,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %178 = add nsw i32 %177, 1
   store i32 %178, ptr @_ZL10_num_mutex, align 4
   %179 = sext i32 %177 to i64
-  %180 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %179
   store ptr @_ZZ10mutex_initvE26EscapeBarrier_lock_storage, ptr %180, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE32JvmtiVTMSTransition_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.46, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE32JvmtiVTMSTransition_lock_storage, ptr @JvmtiVTMSTransition_lock, align 8
@@ -711,7 +711,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %182 = add nsw i32 %181, 1
   store i32 %182, ptr @_ZL10_num_mutex, align 4
   %183 = sext i32 %181 to i64
-  %184 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %183
   store ptr @_ZZ10mutex_initvE32JvmtiVTMSTransition_lock_storage, ptr %184, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23Management_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.47, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE23Management_lock_storage, ptr @Management_lock, align 8
@@ -719,7 +719,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr @_ZL10_num_mutex, align 4
   %187 = sext i32 %185 to i64
-  %188 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %187
   store ptr @_ZZ10mutex_initvE23Management_lock_storage, ptr %188, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE36ConcurrentGCBreakpoints_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.48, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE36ConcurrentGCBreakpoints_lock_storage, ptr @ConcurrentGCBreakpoints_lock, align 8
@@ -727,7 +727,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr @_ZL10_num_mutex, align 4
   %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %191
   store ptr @_ZZ10mutex_initvE36ConcurrentGCBreakpoints_lock_storage, ptr %192, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29TouchedMethodLog_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.49, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29TouchedMethodLog_lock_storage, ptr @TouchedMethodLog_lock, align 8
@@ -735,7 +735,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr @_ZL10_num_mutex, align 4
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %195
   store ptr @_ZZ10mutex_initvE29TouchedMethodLog_lock_storage, ptr %196, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26CompileThread_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.50, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE26CompileThread_lock_storage, ptr @CompileThread_lock, align 8
@@ -743,7 +743,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %198 = add nsw i32 %197, 1
   store i32 %198, ptr @_ZL10_num_mutex, align 4
   %199 = sext i32 %197 to i64
-  %200 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %199
   store ptr @_ZZ10mutex_initvE26CompileThread_lock_storage, ptr %200, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE25PeriodicTask_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.51, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE25PeriodicTask_lock_storage, ptr @PeriodicTask_lock, align 8
@@ -751,7 +751,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr @_ZL10_num_mutex, align 4
   %203 = sext i32 %201 to i64
-  %204 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %203
   store ptr @_ZZ10mutex_initvE25PeriodicTask_lock_storage, ptr %204, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE28RedefineClasses_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.52, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE28RedefineClasses_lock_storage, ptr @RedefineClasses_lock, align 8
@@ -759,7 +759,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %206 = add nsw i32 %205, 1
   store i32 %206, ptr @_ZL10_num_mutex, align 4
   %207 = sext i32 %205 to i64
-  %208 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %207
   store ptr @_ZZ10mutex_initvE28RedefineClasses_lock_storage, ptr %208, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE19Verify_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.53, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE19Verify_lock_storage, ptr @Verify_lock, align 8
@@ -767,7 +767,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr @_ZL10_num_mutex, align 4
   %211 = sext i32 %209 to i64
-  %212 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %211
+  %212 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %211
   store ptr @_ZZ10mutex_initvE19Verify_lock_storage, ptr %212, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE33ClassLoaderDataGraph_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.54, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE33ClassLoaderDataGraph_lock_storage, ptr @ClassLoaderDataGraph_lock, align 8
@@ -775,7 +775,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %214 = add nsw i32 %213, 1
   store i32 %214, ptr @_ZL10_num_mutex, align 4
   %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %215
   store ptr @_ZZ10mutex_initvE33ClassLoaderDataGraph_lock_storage, ptr %216, align 8
   %217 = load i8, ptr @WhiteBoxAPI, align 1
   %218 = trunc i8 %217 to i1
@@ -788,7 +788,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %221 = add nsw i32 %220, 1
   store i32 %221, ptr @_ZL10_num_mutex, align 4
   %222 = sext i32 %220 to i64
-  %223 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %222
   store ptr @_ZZ10mutex_initvE24Compilation_lock_storage, ptr %223, align 8
   br label %224
 
@@ -799,7 +799,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %226 = add nsw i32 %225, 1
   store i32 %226, ptr @_ZL10_num_mutex, align 4
   %227 = sext i32 %225 to i64
-  %228 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %227
   store ptr @_ZZ10mutex_initvE22JfrBuffer_lock_storage, ptr %228, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE19JfrMsg_lock_storage, i32 noundef 0, ptr noundef nonnull @.str.57, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE19JfrMsg_lock_storage, ptr @JfrMsg_lock, align 8
@@ -807,7 +807,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %230 = add nsw i32 %229, 1
   store i32 %230, ptr @_ZL10_num_mutex, align 4
   %231 = sext i32 %229 to i64
-  %232 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %231
+  %232 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %231
   store ptr @_ZZ10mutex_initvE19JfrMsg_lock_storage, ptr %232, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26JfrStacktrace_lock_storage, i32 noundef 0, ptr noundef nonnull @.str.58, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26JfrStacktrace_lock_storage, ptr @JfrStacktrace_lock, align 8
@@ -815,7 +815,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %234 = add nsw i32 %233, 1
   store i32 %234, ptr @_ZL10_num_mutex, align 4
   %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %235
+  %236 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %235
   store ptr @_ZZ10mutex_initvE26JfrStacktrace_lock_storage, ptr %236, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29JfrThreadSampler_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.59, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE29JfrThreadSampler_lock_storage, ptr @JfrThreadSampler_lock, align 8
@@ -823,7 +823,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr @_ZL10_num_mutex, align 4
   %239 = sext i32 %237 to i64
-  %240 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %239
   store ptr @_ZZ10mutex_initvE29JfrThreadSampler_lock_storage, ptr %240, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE35ContinuationRelativize_lock_storage, i32 noundef 18, ptr noundef nonnull @.str.60, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE35ContinuationRelativize_lock_storage, ptr @ContinuationRelativize_lock, align 8
@@ -831,7 +831,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %242 = add nsw i32 %241, 1
   store i32 %242, ptr @_ZL10_num_mutex, align 4
   %243 = sext i32 %241 to i64
-  %244 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %243
+  %244 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %243
   store ptr @_ZZ10mutex_initvE35ContinuationRelativize_lock_storage, ptr %244, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE35CodeHeapStateAnalytics_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.61, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE35CodeHeapStateAnalytics_lock_storage, ptr @CodeHeapStateAnalytics_lock, align 8
@@ -839,7 +839,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %246 = add nsw i32 %245, 1
   store i32 %246, ptr @_ZL10_num_mutex, align 4
   %247 = sext i32 %245 to i64
-  %248 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %247
   store ptr @_ZZ10mutex_initvE35CodeHeapStateAnalytics_lock_storage, ptr %248, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29ThreadsSMRDelete_lock_storage, i32 noundef 4, ptr noundef nonnull @.str.62, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE29ThreadsSMRDelete_lock_storage, ptr @ThreadsSMRDelete_lock, align 8
@@ -847,7 +847,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %250 = add nsw i32 %249, 1
   store i32 %250, ptr @_ZL10_num_mutex, align 4
   %251 = sext i32 %249 to i64
-  %252 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %251
   store ptr @_ZZ10mutex_initvE29ThreadsSMRDelete_lock_storage, ptr %252, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE32ThreadIdTableCreate_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.63, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE32ThreadIdTableCreate_lock_storage, ptr @ThreadIdTableCreate_lock, align 8
@@ -855,7 +855,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %254 = add nsw i32 %253, 1
   store i32 %254, ptr @_ZL10_num_mutex, align 4
   %255 = sext i32 %253 to i64
-  %256 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %255
   store ptr @_ZZ10mutex_initvE32ThreadIdTableCreate_lock_storage, ptr %256, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26SharedDecoder_lock_storage, i32 noundef 11, ptr noundef nonnull @.str.64, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26SharedDecoder_lock_storage, ptr @SharedDecoder_lock, align 8
@@ -863,7 +863,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %258 = add nsw i32 %257, 1
   store i32 %258, ptr @_ZL10_num_mutex, align 4
   %259 = sext i32 %257 to i64
-  %260 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %259
+  %260 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %259
   store ptr @_ZZ10mutex_initvE26SharedDecoder_lock_storage, ptr %260, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24DCmdFactory_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.65, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE24DCmdFactory_lock_storage, ptr @DCmdFactory_lock, align 8
@@ -871,7 +871,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %262 = add nsw i32 %261, 1
   store i32 %262, ptr @_ZL10_num_mutex, align 4
   %263 = sext i32 %261 to i64
-  %264 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %263
   store ptr @_ZZ10mutex_initvE24DCmdFactory_lock_storage, ptr %264, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE21NMTQuery_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.66, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE21NMTQuery_lock_storage, ptr @NMTQuery_lock, align 8
@@ -879,7 +879,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %266 = add nsw i32 %265, 1
   store i32 %266, ptr @_ZL10_num_mutex, align 4
   %267 = sext i32 %265 to i64
-  %268 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %267
   store ptr @_ZZ10mutex_initvE21NMTQuery_lock_storage, ptr %268, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE38NMTCompilationCostHistory_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.67, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE38NMTCompilationCostHistory_lock_storage, ptr @NMTCompilationCostHistory_lock, align 8
@@ -887,7 +887,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %270 = add nsw i32 %269, 1
   store i32 %270, ptr @_ZL10_num_mutex, align 4
   %271 = sext i32 %269 to i64
-  %272 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %271
+  %272 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %271
   store ptr @_ZZ10mutex_initvE38NMTCompilationCostHistory_lock_storage, ptr %272, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE31CDSClassFileStream_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.68, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE31CDSClassFileStream_lock_storage, ptr @CDSClassFileStream_lock, align 8
@@ -895,7 +895,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %274 = add nsw i32 %273, 1
   store i32 %274, ptr @_ZL10_num_mutex, align 4
   %275 = sext i32 %273 to i64
-  %276 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %275
   store ptr @_ZZ10mutex_initvE31CDSClassFileStream_lock_storage, ptr %276, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26DumpTimeTable_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.69, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26DumpTimeTable_lock_storage, ptr @DumpTimeTable_lock, align 8
@@ -903,7 +903,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %278 = add nsw i32 %277, 1
   store i32 %278, ptr @_ZL10_num_mutex, align 4
   %279 = sext i32 %277 to i64
-  %280 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %279
   store ptr @_ZZ10mutex_initvE26DumpTimeTable_lock_storage, ptr %280, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE22CDSLambda_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.70, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE22CDSLambda_lock_storage, ptr @CDSLambda_lock, align 8
@@ -911,7 +911,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %282 = add nsw i32 %281, 1
   store i32 %282, ptr @_ZL10_num_mutex, align 4
   %283 = sext i32 %281 to i64
-  %284 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %283
   store ptr @_ZZ10mutex_initvE22CDSLambda_lock_storage, ptr %284, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE23DumpRegion_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.71, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE23DumpRegion_lock_storage, ptr @DumpRegion_lock, align 8
@@ -919,7 +919,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %286 = add nsw i32 %285, 1
   store i32 %286, ptr @_ZL10_num_mutex, align 4
   %287 = sext i32 %285 to i64
-  %288 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %287
+  %288 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %287
   store ptr @_ZZ10mutex_initvE23DumpRegion_lock_storage, ptr %288, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26ClassListFile_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.72, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26ClassListFile_lock_storage, ptr @ClassListFile_lock, align 8
@@ -927,7 +927,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %290 = add nsw i32 %289, 1
   store i32 %290, ptr @_ZL10_num_mutex, align 4
   %291 = sext i32 %289 to i64
-  %292 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %291
+  %292 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %291
   store ptr @_ZZ10mutex_initvE26ClassListFile_lock_storage, ptr %292, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE37UnregisteredClassesTable_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.73, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE37UnregisteredClassesTable_lock_storage, ptr @UnregisteredClassesTable_lock, align 8
@@ -935,7 +935,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %294 = add nsw i32 %293, 1
   store i32 %294, ptr @_ZL10_num_mutex, align 4
   %295 = sext i32 %293 to i64
-  %296 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %295
   store ptr @_ZZ10mutex_initvE37UnregisteredClassesTable_lock_storage, ptr %296, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE31LambdaFormInvokers_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.74, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE31LambdaFormInvokers_lock_storage, ptr @LambdaFormInvokers_lock, align 8
@@ -943,7 +943,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %298 = add nsw i32 %297, 1
   store i32 %298, ptr @_ZL10_num_mutex, align 4
   %299 = sext i32 %297 to i64
-  %300 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %299
   store ptr @_ZZ10mutex_initvE31LambdaFormInvokers_lock_storage, ptr %300, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE27ScratchObjects_lock_storage, i32 noundef 20, ptr noundef nonnull @.str.75, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE27ScratchObjects_lock_storage, ptr @ScratchObjects_lock, align 8
@@ -951,7 +951,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %302 = add nsw i32 %301, 1
   store i32 %302, ptr @_ZL10_num_mutex, align 4
   %303 = sext i32 %301 to i64
-  %304 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %303
   store ptr @_ZZ10mutex_initvE27ScratchObjects_lock_storage, ptr %304, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE26Bootclasspath_lock_storage, i32 noundef 21, ptr noundef nonnull @.str.76, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE26Bootclasspath_lock_storage, ptr @Bootclasspath_lock, align 8
@@ -959,7 +959,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %306 = add nsw i32 %305, 1
   store i32 %306, ptr @_ZL10_num_mutex, align 4
   %307 = sext i32 %305 to i64
-  %308 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %307
   store ptr @_ZZ10mutex_initvE26Bootclasspath_lock_storage, ptr %308, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE25JVMCIRuntime_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.77, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE25JVMCIRuntime_lock_storage, ptr @JVMCIRuntime_lock, align 8
@@ -967,7 +967,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %310 = add nsw i32 %309, 1
   store i32 %310, ptr @_ZL10_num_mutex, align 4
   %311 = sext i32 %309 to i64
-  %312 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %311
   store ptr @_ZZ10mutex_initvE25JVMCIRuntime_lock_storage, ptr %312, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30InlineCacheBuffer_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.78, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE30InlineCacheBuffer_lock_storage, ptr @InlineCacheBuffer_lock, align 8
@@ -975,7 +975,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %314 = add nsw i32 %313, 1
   store i32 %314, ptr @_ZL10_num_mutex, align 4
   %315 = sext i32 %313 to i64
-  %316 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %315
   store ptr @_ZZ10mutex_initvE30InlineCacheBuffer_lock_storage, ptr %316, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24VtableStubs_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.79, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE24VtableStubs_lock_storage, ptr @VtableStubs_lock, align 8
@@ -983,7 +983,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %318 = add nsw i32 %317, 1
   store i32 %318, ptr @_ZL10_num_mutex, align 4
   %319 = sext i32 %317 to i64
-  %320 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %319
+  %320 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %319
   store ptr @_ZZ10mutex_initvE24VtableStubs_lock_storage, ptr %320, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE22CodeCache_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.80, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE22CodeCache_lock_storage, ptr @CodeCache_lock, align 8
@@ -991,7 +991,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %322 = add nsw i32 %321, 1
   store i32 %322, ptr @_ZL10_num_mutex, align 4
   %323 = sext i32 %321 to i64
-  %324 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %323
+  %324 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %323
   store ptr @_ZZ10mutex_initvE22CodeCache_lock_storage, ptr %324, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE25NMethodState_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.81, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE25NMethodState_lock_storage, ptr @NMethodState_lock, align 8
@@ -999,7 +999,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %326 = add nsw i32 %325, 1
   store i32 %326, ptr @_ZL10_num_mutex, align 4
   %327 = sext i32 %325 to i64
-  %328 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %327
   store ptr @_ZZ10mutex_initvE25NMethodState_lock_storage, ptr %328, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE30ExternalsRecorder_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.82, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE30ExternalsRecorder_lock_storage, ptr @ExternalsRecorder_lock, align 8
@@ -1007,7 +1007,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %330 = add nsw i32 %329, 1
   store i32 %330, ptr @_ZL10_num_mutex, align 4
   %331 = sext i32 %329 to i64
-  %332 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %331
   store ptr @_ZZ10mutex_initvE30ExternalsRecorder_lock_storage, ptr %332, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE20Threads_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.83, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE20Threads_lock_storage, ptr @Threads_lock, align 8
@@ -1015,7 +1015,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %334 = add nsw i32 %333, 1
   store i32 %334, ptr @_ZL10_num_mutex, align 4
   %335 = sext i32 %333 to i64
-  %336 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %335
   store ptr @_ZZ10mutex_initvE20Threads_lock_storage, ptr %336, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE20Compile_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.84, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE20Compile_lock_storage, ptr @Compile_lock, align 8
@@ -1023,7 +1023,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %338 = add nsw i32 %337, 1
   store i32 %338, ptr @_ZL10_num_mutex, align 4
   %339 = sext i32 %337 to i64
-  %340 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %339
   store ptr @_ZZ10mutex_initvE20Compile_lock_storage, ptr %340, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE17Heap_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.85, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE17Heap_lock_storage, ptr @Heap_lock, align 8
@@ -1031,7 +1031,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %342 = add nsw i32 %341, 1
   store i32 %342, ptr @_ZL10_num_mutex, align 4
   %343 = sext i32 %341 to i64
-  %344 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %343
+  %344 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %343
   store ptr @_ZZ10mutex_initvE17Heap_lock_storage, ptr %344, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29PerfDataMemAlloc_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.86, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29PerfDataMemAlloc_lock_storage, ptr @PerfDataMemAlloc_lock, align 8
@@ -1039,7 +1039,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %346 = add nsw i32 %345, 1
   store i32 %346, ptr @_ZL10_num_mutex, align 4
   %347 = sext i32 %345 to i64
-  %348 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %347
+  %348 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %347
   store ptr @_ZZ10mutex_initvE29PerfDataMemAlloc_lock_storage, ptr %348, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE28PerfDataManager_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.87, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE28PerfDataManager_lock_storage, ptr @PerfDataManager_lock, align 8
@@ -1047,7 +1047,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %350 = add nsw i32 %349, 1
   store i32 %350, ptr @_ZL10_num_mutex, align 4
   %351 = sext i32 %349 to i64
-  %352 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %351
   store ptr @_ZZ10mutex_initvE28PerfDataManager_lock_storage, ptr %352, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24VMOperation_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.88, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE24VMOperation_lock_storage, ptr @VMOperation_lock, align 8
@@ -1055,7 +1055,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %354 = add nsw i32 %353, 1
   store i32 %354, ptr @_ZL10_num_mutex, align 4
   %355 = sext i32 %353 to i64
-  %356 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %355
+  %356 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %355
   store ptr @_ZZ10mutex_initvE24VMOperation_lock_storage, ptr %356, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE27ClassInitError_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.89, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE27ClassInitError_lock_storage, ptr @ClassInitError_lock, align 8
@@ -1063,7 +1063,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %358 = add nsw i32 %357, 1
   store i32 %358, ptr @_ZL10_num_mutex, align 4
   %359 = sext i32 %357 to i64
-  %360 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %359
   store ptr @_ZZ10mutex_initvE27ClassInitError_lock_storage, ptr %360, align 8
   %361 = load i8, ptr @UseG1GC, align 1
   %362 = trunc i8 %361 to i1
@@ -1076,7 +1076,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %365 = add nsw i32 %364, 1
   store i32 %365, ptr @_ZL10_num_mutex, align 4
   %366 = sext i32 %364 to i64
-  %367 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %366
   store ptr @_ZZ10mutex_initvE25G1OldGCCount_lock_storage, ptr %367, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24G1RareEvent_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.91, i1 noundef zeroext true) #6
   store ptr @_ZZ10mutex_initvE24G1RareEvent_lock_storage, ptr @G1RareEvent_lock, align 8
@@ -1084,7 +1084,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %369 = add nsw i32 %368, 1
   store i32 %369, ptr @_ZL10_num_mutex, align 4
   %370 = sext i32 %368 to i64
-  %371 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %370
   store ptr @_ZZ10mutex_initvE24G1RareEvent_lock_storage, ptr %371, align 8
   br label %372
 
@@ -1095,7 +1095,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %374 = add nsw i32 %373, 1
   store i32 %374, ptr @_ZL10_num_mutex, align 4
   %375 = sext i32 %373 to i64
-  %376 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %375
   store ptr @_ZZ10mutex_initvE29CompileTaskAlloc_lock_storage, ptr %376, align 8
   %377 = load i8, ptr @UseParallelGC, align 1
   %378 = trunc i8 %377 to i1
@@ -1108,7 +1108,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %381 = add nsw i32 %380, 1
   store i32 %381, ptr @_ZL10_num_mutex, align 4
   %382 = sext i32 %380 to i64
-  %383 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %382
   store ptr @_ZZ10mutex_initvE27PSOldGenExpand_lock_storage, ptr %383, align 8
   br label %384
 
@@ -1119,7 +1119,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %386 = add nsw i32 %385, 1
   store i32 %386, ptr @_ZL10_num_mutex, align 4
   %387 = sext i32 %385 to i64
-  %388 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %387
   store ptr @_ZZ10mutex_initvE19Module_lock_storage, ptr %388, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE29SystemDictionary_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.95, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE29SystemDictionary_lock_storage, ptr @SystemDictionary_lock, align 8
@@ -1127,7 +1127,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %390 = add nsw i32 %389, 1
   store i32 %390, ptr @_ZL10_num_mutex, align 4
   %391 = sext i32 %389 to i64
-  %392 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %391
   store ptr @_ZZ10mutex_initvE29SystemDictionary_lock_storage, ptr %392, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE24JNICritical_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.96, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE24JNICritical_lock_storage, ptr @JNICritical_lock, align 8
@@ -1135,7 +1135,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %394 = add nsw i32 %393, 1
   store i32 %394, ptr @_ZL10_num_mutex, align 4
   %395 = sext i32 %393 to i64
-  %396 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %395
   store ptr @_ZZ10mutex_initvE24JNICritical_lock_storage, ptr %396, align 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) @_ZZ10mutex_initvE18JVMCI_lock_storage, i32 noundef 41, ptr noundef nonnull @.str.97, i1 noundef zeroext false) #6
   store ptr @_ZZ10mutex_initvE18JVMCI_lock_storage, ptr @JVMCI_lock, align 8
@@ -1143,7 +1143,7 @@ define hidden void @_Z10mutex_initv() local_unnamed_addr #0 {
   %398 = add nsw i32 %397, 1
   store i32 %398, ptr @_ZL10_num_mutex, align 4
   %399 = sext i32 %397 to i64
-  %400 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %399
+  %400 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %399
   store ptr @_ZZ10mutex_initvE18JVMCI_lock_storage, ptr %400, align 8
   %401 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 2, i32 noundef 0) #6
   tail call void @_ZN14RecursiveMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(44) %401) #6

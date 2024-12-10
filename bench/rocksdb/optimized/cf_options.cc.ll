@@ -28081,7 +28081,7 @@ invoke.cont50:                                    ; preds = %if.end49
   %vtable52 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr53 = getelementptr i8, ptr %vtable52, i64 -24
   %vbase.offset54 = load i64, ptr %vbase.offset.ptr53, align 8
-  %add.ptr55 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset54
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset54
   %call57 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr55)
           to label %invoke.cont56 unwind label %lpad
 
@@ -28142,7 +28142,7 @@ if.end79:                                         ; preds = %invoke.cont77, %inv
   %vtable80 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr81 = getelementptr i8, ptr %vtable80, i64 -24
   %vbase.offset82 = load i64, ptr %vbase.offset.ptr81, align 8
-  %add.ptr83 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset82
+  %add.ptr83 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset82
   %call85 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr83)
           to label %invoke.cont84 unwind label %lpad
 
@@ -28203,7 +28203,7 @@ if.end107:                                        ; preds = %invoke.cont105, %in
   %vtable108 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr109 = getelementptr i8, ptr %vtable108, i64 -24
   %vbase.offset110 = load i64, ptr %vbase.offset.ptr109, align 8
-  %add.ptr111 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset110
+  %add.ptr111 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset110
   %call113 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr111)
           to label %invoke.cont112 unwind label %lpad
 
@@ -28255,7 +28255,7 @@ if.end132:                                        ; preds = %invoke.cont121
   %vtable133 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr134 = getelementptr i8, ptr %vtable133, i64 -24
   %vbase.offset135 = load i64, ptr %vbase.offset.ptr134, align 8
-  %add.ptr136 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset135
+  %add.ptr136 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset135
   %call138 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr136)
           to label %invoke.cont137 unwind label %lpad
 
@@ -28308,7 +28308,7 @@ if.end150:                                        ; preds = %invoke.cont140, %in
   %vtable151 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr152 = getelementptr i8, ptr %vtable151, i64 -24
   %vbase.offset153 = load i64, ptr %vbase.offset.ptr152, align 8
-  %add.ptr154 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset153
+  %add.ptr154 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset153
   %call156 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr154)
           to label %invoke.cont155 unwind label %lpad
 
@@ -28393,7 +28393,7 @@ if.end188:                                        ; preds = %invoke.cont182, %in
   %vtable189 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr190 = getelementptr i8, ptr %vtable189, i64 -24
   %vbase.offset191 = load i64, ptr %vbase.offset.ptr190, align 8
-  %add.ptr192 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset191
+  %add.ptr192 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset191
   %call194 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr192)
           to label %invoke.cont193 unwind label %lpad
 
@@ -28454,7 +28454,7 @@ if.end217:                                        ; preds = %invoke.cont215, %in
   %vtable218 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr219 = getelementptr i8, ptr %vtable218, i64 -24
   %vbase.offset220 = load i64, ptr %vbase.offset.ptr219, align 8
-  %add.ptr221 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset220
+  %add.ptr221 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset220
   %call223 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr221)
           to label %invoke.cont222 unwind label %lpad
 
@@ -28539,7 +28539,7 @@ if.end254:                                        ; preds = %invoke.cont249, %in
   %vtable255 = load ptr, ptr %field_stream, align 8
   %vbase.offset.ptr256 = getelementptr i8, ptr %vtable255, i64 -24
   %vbase.offset257 = load i64, ptr %vbase.offset.ptr256, align 8
-  %add.ptr258 = getelementptr inbounds i8, ptr %field_stream, i64 %vbase.offset257
+  %add.ptr258 = getelementptr inbounds nuw i8, ptr %field_stream, i64 %vbase.offset257
   %call260 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr258)
           to label %invoke.cont259 unwind label %lpad
 

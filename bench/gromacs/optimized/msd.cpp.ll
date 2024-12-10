@@ -952,7 +952,7 @@ define void @_ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysi
 
 10:                                               ; preds = %3
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds [4 x ptr], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.oneDimensionalMsdFunctions, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.oneDimensionalMsdFunctions, i64 0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -1008,7 +1008,7 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIfEEEES5_EEaSIRKPS6_EENSt9enab
 
 32:                                               ; preds = %29
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds [4 x ptr], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.twoDimensionalMsdFunctions, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [4 x ptr], ptr @__const._ZN3gmx15analysismodules3Msd12initAnalysisERKNS_26TrajectoryAnalysisSettingsERKNS_19TopologyInformationE.twoDimensionalMsdFunctions, i64 0, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)

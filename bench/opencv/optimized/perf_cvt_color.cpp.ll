@@ -29834,7 +29834,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.82, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.82, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !437
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !437
@@ -29848,7 +29848,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.82, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.82, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !437
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !437
@@ -29868,7 +29868,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.82, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.82, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !437
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !437
@@ -29889,8 +29889,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.82, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.82, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.82, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.82, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !437
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !437
@@ -31502,7 +31502,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.87, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.87, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !464
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !464
@@ -31516,7 +31516,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.87, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.87, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !464
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !464
@@ -31536,7 +31536,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.87, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.87, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !464
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !464
@@ -31557,8 +31557,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.87, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.87, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.87, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.87, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !464
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !464
@@ -33040,7 +33040,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.88, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.88, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !490
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !490
@@ -33054,7 +33054,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.88, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.88, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !490
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !490
@@ -33074,7 +33074,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.88, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.88, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !490
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !490
@@ -33095,8 +33095,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.88, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.88, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.88, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.88, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !490
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !490
@@ -34578,7 +34578,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.89, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.89, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !516
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !516
@@ -34592,7 +34592,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.89, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.89, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !516
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !516
@@ -34612,7 +34612,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.89, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.89, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !516
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !516
@@ -34633,8 +34633,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.89, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.89, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.89, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.89, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !516
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !516
@@ -36116,7 +36116,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.90, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.90, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !542
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !542
@@ -36130,7 +36130,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.90, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.90, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !542
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !542
@@ -36150,7 +36150,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.90, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.90, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !542
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !542
@@ -36171,8 +36171,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.90, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.90, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.90, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.90, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !542
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !542
@@ -37654,7 +37654,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.91, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.91, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !568
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !568
@@ -37668,7 +37668,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.91, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.91, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !568
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !568
@@ -37688,7 +37688,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.91, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.91, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !568
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !568
@@ -37709,8 +37709,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.91, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.91, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.91, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.91, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !568
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !568
@@ -39192,7 +39192,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
 
 .critedge.i.i.i.i.i.i.i.i.i.i:                    ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i ], [ %315, %.preheader3.i.i.i.i.i.i.i.i.i.i ]
-  %316 = getelementptr inbounds i8, ptr @.str.92, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %316 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %317 = load i8, ptr %316, align 1, !noalias !594
   %318 = sext i8 %317 to i32
   %319 = call i32 @isspace(i32 noundef %318) #34, !noalias !594
@@ -39206,7 +39206,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEN11opencv_test12_GL
   %321 = trunc nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i to i32
   %sext.i.i.i.i.i.i.i.i.i.i = shl i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i, 32
   %322 = ashr exact i64 %sext.i.i.i.i.i.i.i.i.i.i, 32
-  %323 = getelementptr inbounds i8, ptr @.str.92, i64 %322
+  %323 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %322
   %324 = load i8, ptr %323, align 1, !noalias !594
   %325 = sext i8 %324 to i32
   %326 = call i32 @isspace(i32 noundef %325) #34, !noalias !594
@@ -39226,7 +39226,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
 328:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i, 1
   %329 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds i8, ptr @.str.92, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i
   %331 = load i8, ptr %330, align 1, !noalias !594
   %332 = sext i8 %331 to i32
   %333 = call i32 @isspace(i32 noundef %332) #34, !noalias !594
@@ -39247,8 +39247,8 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i:            ; preds = %.preheader.i.i.i.i.
   br i1 %337, label %338, label %314
 
 338:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i
-  %339 = getelementptr inbounds i8, ptr @.str.92, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
-  %340 = getelementptr inbounds i8, ptr @.str.92, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
+  %339 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds nuw i8, ptr @.str.92, i64 %.lcssa.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !594
   %341 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %360, !noalias !594

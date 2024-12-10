@@ -438,12 +438,12 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   %45 = shl nuw i64 1, %44
   %46 = sdiv i32 %42, 64
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %47
   %49 = load i64, ptr %48, align 8
   %50 = or i64 %45, %49
   store i64 %50, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  %51 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %47
+  %51 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %47
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %45, %52
   store i64 %53, ptr %51, align 8
@@ -470,7 +470,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   %65 = load i32, ptr %24, align 8
   %66 = sdiv i32 %65, 64
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds [16 x i64], ptr %7, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = srem i32 %65, 64
   %71 = zext nneg i32 %70 to i64
@@ -485,7 +485,7 @@ define internal range(i32 0, 23) i32 @parallel_callback(ptr nocapture readnone %
   br i1 %.not65, label %.backedge.backedge, label %.loopexit
 
 76:                                               ; preds = %64
-  %77 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %67
+  %77 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %67
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %72
   %.not62 = icmp eq i64 %79, 0

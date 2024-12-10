@@ -3855,7 +3855,7 @@ Abc_TtAnd.exit:                                   ; preds = %.lr.ph.i63, %.lr.ph
 
 .lr.ph.i68:                                       ; preds = %Abc_TtAnd.exit
   %127 = sext i32 %15 to i64
-  %128 = getelementptr inbounds i64, ptr %7, i64 %127
+  %128 = getelementptr inbounds nuw i64, ptr %7, i64 %127
   %smax55.i.i = call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
   br i1 %13, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -4806,7 +4806,7 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
 
 124:                                              ; preds = %118
   %125 = sext i32 %.1526 to i64
-  %126 = getelementptr inbounds [18 x ptr], ptr %7, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [18 x ptr], ptr %7, i64 0, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %.val104.i = load i32, ptr %.1184533, align 4
@@ -5003,7 +5003,7 @@ Jf_CutGetSign.exit248:                            ; preds = %.lr.ph.i242, %.lr.p
   %194 = load i32, ptr %193, align 4
   %.not204 = icmp eq i32 %194, 0
   %195 = sext i32 %.1526 to i64
-  %196 = getelementptr inbounds [18 x ptr], ptr %7, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [18 x ptr], ptr %7, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %.val104.i276 = load i32, ptr %.1184533, align 4
@@ -5794,7 +5794,7 @@ Jf_CutIsContainedOrder.exit.thread.i:             ; preds = %508, %.lr.ph.i156.i
   br i1 %514, label %.lr.ph240.i, label %._crit_edge.i373, !llvm.loop !65
 
 ._crit_edge.i373:                                 ; preds = %.lr.ph240.i
-  %515 = getelementptr inbounds ptr, ptr %7, i64 %510
+  %515 = getelementptr inbounds nuw ptr, ptr %7, i64 %510
   store ptr %.pre302.i.pre.pre, ptr %515, align 8
   %516 = add nsw i32 %.0132.in.lcssa.i, 1
   %517 = add nsw i64 %510, 1
@@ -5802,7 +5802,7 @@ Jf_CutIsContainedOrder.exit.thread.i:             ; preds = %508, %.lr.ph.i156.i
   br i1 %.not.i371, label %.lr.ph251.i, label %.lr.ph245.i
 
 ._crit_edge.thread.i:                             ; preds = %.loopexit225.i
-  %519 = getelementptr inbounds ptr, ptr %7, i64 %510
+  %519 = getelementptr inbounds nuw ptr, ptr %7, i64 %510
   store ptr %.pre302.i.pre.pre, ptr %519, align 8
   %520 = add nsw i32 %.0132.in.lcssa.i, 1
   br label %.loopexit.i
@@ -5813,7 +5813,7 @@ Jf_CutIsContainedOrder.exit.thread.i:             ; preds = %508, %.lr.ph.i156.i
   %521 = load ptr, ptr %515, align 8
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %523 = load i32, ptr %522, align 8
-  %524 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv293.i
+  %524 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv293.i
   %525 = load ptr, ptr %524, align 8
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 24
   %527 = load i32, ptr %526, align 8
@@ -5889,7 +5889,7 @@ Jf_CutIsContained1.exit183.thread215.i:           ; preds = %Jf_CutFindLeaf1.exi
 
 551:                                              ; preds = %Jf_CutIsContained1.exit183.thread215.i
   %552 = sext i32 %.0133243.i to i64
-  %553 = getelementptr inbounds ptr, ptr %7, i64 %552
+  %553 = getelementptr inbounds nuw ptr, ptr %7, i64 %552
   %554 = load ptr, ptr %553, align 8
   store ptr %525, ptr %553, align 8
   store ptr %554, ptr %524, align 8
@@ -5908,7 +5908,7 @@ Jf_CutIsContained1.exit183.thread.i:              ; preds = %538, %551, %Jf_CutI
   %555 = load ptr, ptr %515, align 8
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 24
   %557 = load i32, ptr %556, align 8
-  %558 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv297.i
+  %558 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv297.i
   %559 = load ptr, ptr %558, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 24
   %561 = load i32, ptr %560, align 8
@@ -5993,7 +5993,7 @@ Jf_CutIsContainedOrder.exit205.thread.i:          ; preds = %589, %.lr.ph.i190.i
 
 593:                                              ; preds = %Jf_CutIsContainedOrder.exit205.thread.i
   %594 = sext i32 %.3248.i to i64
-  %595 = getelementptr inbounds ptr, ptr %7, i64 %594
+  %595 = getelementptr inbounds nuw ptr, ptr %7, i64 %594
   %596 = load ptr, ptr %595, align 8
   store ptr %559, ptr %595, align 8
   store ptr %596, ptr %558, align 8
@@ -6079,7 +6079,7 @@ Jf_ObjAddCutToStore.exit:                         ; preds = %216, %319, %.lr.ph1
   %624 = load i32, ptr %623, align 8
   %.not193 = icmp eq i32 %624, 0
   %.phi.trans.insert652 = sext i32 %.0.lcssa to i64
-  %.phi.trans.insert653 = getelementptr inbounds [18 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert652
+  %.phi.trans.insert653 = getelementptr inbounds nuw [18 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert652
   %.pre654 = load ptr, ptr %.phi.trans.insert653, align 8
   br i1 %.not193, label %.loopexit._crit_edge, label %625
 
@@ -6133,7 +6133,7 @@ Jf_ObjHasCutWithSize.exit:                        ; preds = %.lr.ph.i390, %.loop
 
 ..thread_crit_edge:                               ; preds = %648
   %.phi.trans.insert656 = sext i32 %.3 to i64
-  %.phi.trans.insert657 = getelementptr inbounds [18 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert656
+  %.phi.trans.insert657 = getelementptr inbounds nuw [18 x ptr], ptr %7, i64 0, i64 %.phi.trans.insert656
   %.pre658 = load ptr, ptr %.phi.trans.insert657, align 8
   br label %.thread
 
@@ -6161,7 +6161,7 @@ Jf_ObjHasCutWithSize.exit:                        ; preds = %.lr.ph.i390, %.loop
 
 .thread435:                                       ; preds = %654, %652
   %659 = sext i32 %.3 to i64
-  %660 = getelementptr inbounds [18 x ptr], ptr %7, i64 0, i64 %659
+  %660 = getelementptr inbounds nuw [18 x ptr], ptr %7, i64 0, i64 %659
   %661 = load ptr, ptr %660, align 8
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 16
   store i32 2, ptr %662, align 8
@@ -11353,7 +11353,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef 
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %67 = sext i32 %spec.select117 to i64
-  %68 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %69, -1
   %71 = sext i32 %62 to i64

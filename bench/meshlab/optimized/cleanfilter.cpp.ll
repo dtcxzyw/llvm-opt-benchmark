@@ -11783,7 +11783,7 @@ _ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit: ; preds = %119, %160, %16
   %174 = call float @llvm.fmuladd.f32(float %171, float %171, float %173)
   %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %174)
   %175 = fmul float %1, %sqrt.i.i.i
-  %176 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %121
+  %176 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %121
   %177 = load float, ptr %176, align 4
   %178 = fcmp ugt float %175, %177
   br i1 %178, label %228, label %179
@@ -12150,7 +12150,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   store i32 %116, ptr %114, align 4
   %sext54 = shl i64 %.sroa.6.0.us, 32
   %117 = ashr exact i64 %sext54, 32
-  %118 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %116, %119
   store i32 %120, ptr %114, align 4
@@ -12176,7 +12176,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   %.sroa.0.0 = phi ptr [ %151, %.split ], [ %.sroa.032.049, %98 ]
   %sext = shl i64 %.sroa.6.0, 32
   %135 = ashr exact i64 %sext, 32
-  %136 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 32
   %139 = load i32, ptr %138, align 4
@@ -12975,7 +12975,7 @@ _ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_RS3_.exit: ; preds = %115, %156, %15
   %170 = call float @llvm.fmuladd.f32(float %167, float %167, float %169)
   %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %170)
   %171 = fmul float %1, %sqrt.i.i.i
-  %172 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %117
+  %172 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %117
   %173 = load float, ptr %172, align 4
   %174 = fcmp ugt float %171, %173
   br i1 %174, label %_ZN3vcg4face13CheckFlipEdgeI6CFaceOEEbRT_i.exit.thread, label %175
@@ -18189,7 +18189,7 @@ _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.us:    ; preds = %227, %.preheader192
   %sext = add i64 %216, -4294967296
   %217 = ashr exact i64 %sext, 32
   %218 = select i1 %.cmp186.us, i64 2, i64 %217
-  %219 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %218
   %220 = load float, ptr %219, align 4
   %221 = fcmp olt float %220, 0x3EE4F8B580000000
   br i1 %221, label %222, label %227

@@ -4471,11 +4471,11 @@ for.body.i108:                                    ; preds = %for.body.i108, %for
   %n.01.i = phi i32 [ %inc9.i, %for.body.i108 ], [ 0, %for.body.preheader.i ]
   %rem.i = srem i32 %231, 3
   %idxprom.i = sext i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.categories, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.categories, i64 0, i64 %idxprom.i
   %232 = load ptr, ptr %arrayidx.i, align 8
   %rem4.i = srem i32 %231, 7
   %idxprom5.i = sext i32 %rem4.i to i64
-  %arrayidx6.i = getelementptr inbounds [7 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.words, i64 0, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw [7 x ptr], ptr @__const._ZL17ShowExampleAppLogPb.words, i64 0, i64 %idxprom5.i
   %233 = load ptr, ptr %arrayidx6.i, align 8
   %call7.i109 = call noundef i32 @_ZN5ImGui13GetFrameCountEv()
   %call8.i110 = call noundef double @_ZN5ImGui7GetTimeEv()
@@ -6487,7 +6487,7 @@ if.end12.i:                                       ; preds = %if.then11.i490, %if
 
 cond.false.i:                                     ; preds = %if.end12.i
   %idxprom.i458 = sext i32 %360 to i64
-  %arrayidx.i459 = getelementptr inbounds [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %idxprom.i458
+  %arrayidx.i459 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZL20ShowDemoWindowPopupsv.names, i64 0, i64 %idxprom.i458
   %361 = load ptr, ptr %arrayidx.i459, align 8
   br label %cond.end.i
 
@@ -7382,7 +7382,7 @@ _ZL10HelpMarkerPKc.exit76.i:                      ; preds = %if.then.i73.i, %if.
   %426 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, align 4
   %add91.i530 = add nsw i32 %426, 1
   %idxprom92.i = sext i32 %add91.i530 to i64
-  %arrayidx93.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom92.i
+  %arrayidx93.i = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom92.i
   %427 = load ptr, ptr %arrayidx93.i, align 8
   %call94.i531 = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1668, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE22capture_override_mouse, i32 noundef -1, i32 noundef 1, ptr noundef %427, i32 noundef 16)
   %call95.i = call noundef float @_ZN5ImGui11GetFontSizeEv()
@@ -7391,7 +7391,7 @@ _ZL10HelpMarkerPKc.exit76.i:                      ; preds = %if.then.i73.i, %if.
   %428 = load i32, ptr @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, align 4
   %add97.i532 = add nsw i32 %428, 1
   %idxprom98.i = sext i32 %add97.i532 to i64
-  %arrayidx99.i = getelementptr inbounds [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom98.i
+  %arrayidx99.i = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.capture_override_desc, i64 0, i64 %idxprom98.i
   %429 = load ptr, ptr %arrayidx99.i, align 8
   %call100.i = call noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef nonnull @.str.1669, ptr noundef nonnull @_ZZL20ShowDemoWindowInputsvE25capture_override_keyboard, i32 noundef -1, i32 noundef 1, ptr noundef %429, i32 noundef 16)
   store float 0x3FE6666660000000, ptr %ref.tmp.i491, align 4
@@ -7453,7 +7453,7 @@ do.end121.i:                                      ; preds = %if.then119.i, %do.b
 if.then123.i:                                     ; preds = %do.end121.i
   %call124.i = call noundef i32 @_ZN5ImGui14GetMouseCursorEv()
   %idxprom125.i = sext i32 %call124.i to i64
-  %arrayidx126.i = getelementptr inbounds [9 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.mouse_cursors_names, i64 0, i64 %idxprom125.i
+  %arrayidx126.i = getelementptr inbounds nuw [9 x ptr], ptr @__const._ZL20ShowDemoWindowInputsv.mouse_cursors_names, i64 0, i64 %idxprom125.i
   %434 = load ptr, ptr %arrayidx126.i, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1682, i32 noundef %call124.i, ptr noundef %434)
   call void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext true)
@@ -10844,7 +10844,7 @@ if.end568:                                        ; preds = %if.then566, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %items569, ptr noundef nonnull align 16 dereferenceable(112) @__const._ZL21ShowDemoWindowWidgetsv.items.496, i64 112, i1 false)
   %116 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE16item_current_idx, align 4
   %idxprom570 = sext i32 %116 to i64
-  %arrayidx571 = getelementptr inbounds [14 x ptr], ptr %items569, i64 0, i64 %idxprom570
+  %arrayidx571 = getelementptr inbounds nuw [14 x ptr], ptr %items569, i64 0, i64 %idxprom570
   %117 = load ptr, ptr %arrayidx571, align 8
   %call572 = call noundef zeroext i1 @_ZN5ImGui10BeginComboEPKcS1_i(ptr noundef nonnull @.str.487, ptr noundef %117, i32 noundef %115)
   br i1 %call572, label %for.cond575.preheader, label %if.end594
@@ -12330,7 +12330,7 @@ while.body:                                       ; preds = %if.end1255, %while.
   %call1258 = call float @cosf(float noundef %263) #30
   %264 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE13values_offset, align 4
   %idxprom1259 = sext i32 %264 to i64
-  %arrayidx1260 = getelementptr inbounds [90 x float], ptr @_ZZL21ShowDemoWindowWidgetsvE6values, i64 0, i64 %idxprom1259
+  %arrayidx1260 = getelementptr inbounds nuw [90 x float], ptr @_ZZL21ShowDemoWindowWidgetsvE6values, i64 0, i64 %idxprom1259
   store float %call1258, ptr %arrayidx1260, align 4
   %add1261 = add nsw i32 %264, 1
   %rem = srem i32 %add1261, 90
@@ -13712,7 +13712,7 @@ if.then2013:                                      ; preds = %for.body2010
 if.end2014:                                       ; preds = %if.then2013, %for.body2010
   %405 = phi i32 [ %.pre906, %if.then2013 ], [ %404, %for.body2010 ]
   %idxprom2015 = sext i32 %405 to i64
-  %arrayidx2016 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2015
+  %arrayidx2016 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2015
   %406 = load ptr, ptr %arrayidx2016, align 8
   store float 6.000000e+01, ptr %ref.tmp2017, align 4
   store float 6.000000e+01, ptr %y.i706, align 4
@@ -13729,7 +13729,7 @@ if.then2020:                                      ; preds = %if.end2014
 if.then2023:                                      ; preds = %if.then2020
   %408 = load i32, ptr %n2007, align 4
   %idxprom2024 = sext i32 %408 to i64
-  %arrayidx2025 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2024
+  %arrayidx2025 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2024
   %409 = load ptr, ptr %arrayidx2025, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.844, ptr noundef %409)
   %.pr = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE4mode, align 4
@@ -13743,7 +13743,7 @@ if.end2026:                                       ; preds = %if.then2023, %if.th
 if.then2028:                                      ; preds = %if.end2026
   %411 = load i32, ptr %n2007, align 4
   %idxprom2029 = sext i32 %411 to i64
-  %arrayidx2030 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2029
+  %arrayidx2030 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2029
   %412 = load ptr, ptr %arrayidx2030, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.845, ptr noundef %412)
   %.pre907 = load i32, ptr @_ZZL21ShowDemoWindowWidgetsvE4mode, align 4
@@ -13757,7 +13757,7 @@ if.end2031:                                       ; preds = %if.then2028, %if.en
 if.then2033:                                      ; preds = %if.end2031
   %414 = load i32, ptr %n2007, align 4
   %idxprom2034 = sext i32 %414 to i64
-  %arrayidx2035 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2034
+  %arrayidx2035 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2034
   %415 = load ptr, ptr %arrayidx2035, align 8
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.846, ptr noundef %415)
   br label %if.end2036
@@ -13787,21 +13787,21 @@ if.then2043:                                      ; preds = %if.then2039
 
 if.end2051.thread:                                ; preds = %if.then2043
   %idxprom2047 = sext i32 %417 to i64
-  %arrayidx2048 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2047
+  %arrayidx2048 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2047
   %419 = load ptr, ptr %arrayidx2048, align 8
   %420 = load i32, ptr %n2007, align 4
   %idxprom2049 = sext i32 %420 to i64
-  %arrayidx2050 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2049
+  %arrayidx2050 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2049
   store ptr %419, ptr %arrayidx2050, align 8
   br label %if.end2072
 
 if.then2053:                                      ; preds = %if.then2043
   %idxprom2054 = sext i32 %417 to i64
-  %arrayidx2055 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2054
+  %arrayidx2055 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2054
   %421 = load ptr, ptr %arrayidx2055, align 8
   %422 = load i32, ptr %n2007, align 4
   %idxprom2056 = sext i32 %422 to i64
-  %arrayidx2057 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2056
+  %arrayidx2057 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2056
   store ptr %421, ptr %arrayidx2057, align 8
   store ptr @.str.224, ptr %arrayidx2055, align 8
   br label %if.end2072
@@ -13809,10 +13809,10 @@ if.then2053:                                      ; preds = %if.then2043
 if.then2062:                                      ; preds = %if.then2043
   %423 = load i32, ptr %n2007, align 4
   %idxprom2063 = sext i32 %423 to i64
-  %arrayidx2064 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2063
+  %arrayidx2064 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2063
   %424 = load ptr, ptr %arrayidx2064, align 8
   %idxprom2065 = sext i32 %417 to i64
-  %arrayidx2066 = getelementptr inbounds [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2065
+  %arrayidx2066 = getelementptr inbounds nuw [9 x ptr], ptr @_ZZL21ShowDemoWindowWidgetsvE5names, i64 0, i64 %idxprom2065
   %425 = load ptr, ptr %arrayidx2066, align 8
   store ptr %425, ptr %arrayidx2064, align 8
   store ptr %424, ptr %arrayidx2066, align 8
@@ -23586,7 +23586,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i32, ptr %ChildIdx, align 4
   %add = add nsw i32 %5, %child_n.02
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds %struct.MyTreeNode, ptr @_ZZL20ShowDemoWindowTablesvE5nodes, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.MyTreeNode, ptr @_ZZL20ShowDemoWindowTablesvE5nodes, i64 %idxprom
   tail call fastcc void @_ZZL20ShowDemoWindowTablesvEN10MyTreeNode11DisplayNodeEPKS_S1_(ptr noundef nonnull %arrayidx)
   %inc = add nuw nsw i32 %child_n.02, 1
   %6 = load i32, ptr %ChildCount, align 8

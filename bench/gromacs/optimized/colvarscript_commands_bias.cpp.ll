@@ -674,7 +674,7 @@ _ZStrsINSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEERiEOT_S8_OT0_.
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 %38
   %40 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %39)
           to label %41 unwind label %50
 

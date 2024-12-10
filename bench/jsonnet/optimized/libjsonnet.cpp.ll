@@ -2670,7 +2670,7 @@ define noundef ptr @jsonnet_fmt_file(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %45
 
@@ -2757,7 +2757,7 @@ define noundef ptr @jsonnet_fmt_file(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %50 = load ptr, ptr %5, align 8
   %51 = getelementptr i8, ptr %50, i64 -24
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 %52
   %54 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %53)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %55
 
@@ -3393,7 +3393,7 @@ define internal fastcc noalias noundef ptr @_ZL25jsonnet_evaluate_file_auxP9Json
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %13
   %15 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %14)
           to label %16 unwind label %43
 
@@ -3470,7 +3470,7 @@ define internal fastcc noalias noundef ptr @_ZL25jsonnet_evaluate_file_auxP9Json
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr i8, ptr %48, i64 -24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %50
   %52 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %51)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %53
 
@@ -6349,7 +6349,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr i8, ptr %38, i64 -24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %40
   %42 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %41)
           to label %43 unwind label %44
 
@@ -6365,7 +6365,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr i8, ptr %47, i64 -24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %9, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 %49
   %51 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %50)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit unwind label %52
 
@@ -6420,7 +6420,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %46
   %75 = load ptr, ptr %9, align 8
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %9, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 %77
   %79 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %78)
           to label %80 unwind label %44
 

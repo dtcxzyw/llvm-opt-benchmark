@@ -595,7 +595,7 @@ call.i.noexc:                                     ; preds = %_ZN10TestObjectD2Ev
 
 .noexc:                                           ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str_n1) #12
-  %add.ptr.i158 = getelementptr inbounds i8, ptr %str_n1, i64 %call.i.i
+  %add.ptr.i158 = getelementptr inbounds nuw i8, ptr %str_n1, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull %str_n1, ptr noundef nonnull %add.ptr.i158)
           to label %invoke.cont50 unwind label %lpad.i
 
@@ -660,7 +660,7 @@ invoke.cont71:                                    ; preds = %call.i.i.i.i.i.i.no
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %36
   %conv.i.i.i.i.i.i = zext nneg i8 %34 to i64
   %sub.i.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i.i
-  %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp61, i64 %sub.i.i.i.i.i.i
+  %add.ptr.i1.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp61, i64 %sub.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %tobool.i.i5.i.i.i, ptr %add.ptr.i.i.i.i.i, ptr %add.ptr.i1.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i, align 1
   %37 = ptrtoint ptr %ref.tmp60.sroa.0.02483 to i64

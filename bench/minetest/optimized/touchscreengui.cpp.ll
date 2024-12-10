@@ -3383,7 +3383,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %i
 
 invoke.cont16:                                    ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
   %idxprom = sext i32 %texture_id to i64
-  %arrayidx = getelementptr inbounds [3 x %"class.std::__cxx11::basic_string"], ptr @_Z20joystick_image_namesB5cxx11, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %"class.std::__cxx11::basic_string"], ptr @_Z20joystick_image_namesB5cxx11, i64 0, i64 %idxprom
   invoke fastcc void @_ZL19load_button_texturePK11button_infoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3irr4core4rectIiEEP20ISimpleTextureSourcePNSA_5video12IVideoDriverE(ptr noundef nonnull %call2, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef %13, ptr noundef %call17)
           to label %nrvo.skipdtor unwind label %lpad
 

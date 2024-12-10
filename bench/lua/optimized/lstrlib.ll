@@ -764,7 +764,7 @@ checkformat.exit217:                              ; preds = %if.end9.i198, %if.t
 if.then78:                                        ; preds = %checkformat.exit217
   %call80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %form) #14
   %sub = add i64 %call80, -1
-  %arrayidx81 = getelementptr inbounds [32 x i8], ptr %form, i64 0, i64 %sub
+  %arrayidx81 = getelementptr inbounds nuw [32 x i8], ptr %form, i64 0, i64 %sub
   store i8 115, ptr %arrayidx81, align 1
   br label %if.end82
 

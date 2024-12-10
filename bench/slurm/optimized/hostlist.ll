@@ -7289,7 +7289,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef 
 .lr.ph75:                                         ; preds = %9
   %16 = add nsw i32 %8, -2
   %17 = icmp eq i32 %0, %16
-  %18 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %10
+  %18 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %10
   %19 = add nsw i32 %0, 1
   %20 = shl nuw nsw i32 %8, 1
   %21 = add nuw nsw i32 %20, 2
@@ -7637,7 +7637,7 @@ define internal fastcc void @_set_box_in_grid(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %12 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %12 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %7
   %13 = add nsw i32 %5, -1
   %14 = icmp eq i32 %0, %13
   %15 = add nsw i32 %0, 1
@@ -7694,15 +7694,15 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @grid_start, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i32, ptr @grid_end, i64 %4
+  %7 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %4
   %8 = load i32, ptr %7, align 4
   %.not1 = icmp sgt i32 %6, %8
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %4
+  %9 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %4
   %10 = add nsw i32 %2, -1
   %11 = icmp eq i32 %0, %10
   %12 = add nsw i32 %0, 1
@@ -7823,19 +7823,19 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i32, ptr @_get_next_box.last, i64 %7
-  %11 = getelementptr inbounds [5 x i32], ptr @grid_end, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw i32, ptr @_get_next_box.last, i64 %7
+  %11 = getelementptr inbounds nuw [5 x i32], ptr @grid_end, i64 0, i64 %7
   store i32 %9, ptr %10, align 4
   %12 = load i32, ptr %11, align 4
   %.not4 = icmp sgt i32 %9, %12
   br i1 %.not4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
-  %17 = getelementptr inbounds [5 x i32], ptr @grid_start, i64 0, i64 %7
+  %17 = getelementptr inbounds nuw [5 x i32], ptr @grid_start, i64 0, i64 %7
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
@@ -7951,17 +7951,17 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr @grid_start, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds i32, ptr %4, i64 %7
-  %11 = getelementptr inbounds i32, ptr @_get_next_box.orig_grid_end, i64 %7
+  %11 = getelementptr inbounds nuw i32, ptr @_get_next_box.orig_grid_end, i64 %7
   store i32 %9, ptr %10, align 4
   %12 = load i32, ptr %11, align 4
   %.not2 = icmp sgt i32 %9, %12
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds [5 x i32], ptr @offset, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw [5 x i32], ptr @offset, i64 0, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1

@@ -1137,7 +1137,7 @@ if.end.i:                                         ; preds = %entry
 
 if.then1.i:                                       ; preds = %if.end.i
   %sub.i = sub i64 2, %2
-  %arrayidx.i = getelementptr inbounds i8, ptr @.str.14, i64 %2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @.str.14, i64 %2
   %call2.i = call ptr @Curl_memdup(ptr noundef nonnull %arrayidx.i, i64 noundef %sub.i) #8
   %tobool3.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool3.not.i, label %mqtt_send.exit, label %if.end5.i

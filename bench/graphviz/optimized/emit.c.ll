@@ -7718,8 +7718,8 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
   %773 = getelementptr inbounds nuw i8, ptr %.14152.i.i, i64 16
   %774 = load ptr, ptr %773, align 8
   %775 = sext i32 %.03953.i.i to i64
-  %776 = getelementptr inbounds %struct.pointf_s, ptr %8, i64 %775
-  %777 = getelementptr inbounds %struct.pointf_s, ptr %9, i64 %775
+  %776 = getelementptr inbounds nuw %struct.pointf_s, ptr %8, i64 %775
+  %777 = getelementptr inbounds nuw %struct.pointf_s, ptr %9, i64 %775
   %.141.val.i.i = load double, ptr %.14152.i.i, align 8
   %778 = getelementptr i8, ptr %.14152.i.i, i64 8
   %.141.val45.i.i = load double, ptr %778, align 8
@@ -9559,7 +9559,7 @@ agxbputc.exit:                                    ; preds = %29, %34
   %41 = zext i8 %.val.i to i64
   %.0.i25 = select i1 %.not.i24, i64 %40, i64 %41
   %42 = add i64 %.021.ph, 1
-  %43 = getelementptr inbounds [64 x i64], ptr %2, i64 0, i64 %.021.ph
+  %43 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %.021.ph
   store i64 %.0.i25, ptr %43, align 8
   br label %44
 
@@ -9725,17 +9725,17 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 .lr.ph:                                           ; preds = %agxbuse.exit, %.lr.ph
   %.060 = phi i64 [ %107, %.lr.ph ], [ 0, %agxbuse.exit ]
-  %103 = getelementptr inbounds [64 x i64], ptr %2, i64 0, i64 %.060
+  %103 = getelementptr inbounds nuw [64 x i64], ptr %2, i64 0, i64 %.060
   %104 = load i64, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = getelementptr inbounds [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.060
+  %106 = getelementptr inbounds nuw [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.060
   store ptr %105, ptr %106, align 8
   %107 = add nuw i64 %.060, 1
   %exitcond.not = icmp eq i64 %107, %.021.ph
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %agxbuse.exit
-  %108 = getelementptr inbounds [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.021.ph
+  %108 = getelementptr inbounds nuw [64 x ptr], ptr @parse_style.parse, i64 0, i64 %.021.ph
   store ptr null, ptr %108, align 8
   br label %109
 

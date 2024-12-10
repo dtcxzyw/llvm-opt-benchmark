@@ -847,7 +847,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit: ; preds = %.preheader
 
 10:                                               ; preds = %8
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -3678,7 +3678,7 @@ define hidden noundef range(i32 0, 421) i32 @_ZN12vmIntrinsics12find_id_implE10v
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN12vmIntrinsics20class_has_intrinsicsE10vmSymbolID(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [1170 x i8], ptr @_ZL18_intrinsics_lookup, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [1170 x i8], ptr @_ZL18_intrinsics_lookup, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -3712,7 +3712,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 
 12:                                               ; preds = %10
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [421 x ptr], ptr @_ZL23vm_intrinsic_name_table, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZN12vmIntrinsics7name_atE13vmIntrinsicID.exit
 

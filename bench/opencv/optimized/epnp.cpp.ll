@@ -1909,7 +1909,7 @@ define hidden void @_ZN2cv4epnp31compute_barycentric_coordinatesEv(ptr nocapture
   %25 = load double, ptr %24, align 8
   %26 = fsub double %25, %20
   %27 = add nsw i64 %22, %indvars.iv
-  %28 = getelementptr inbounds [9 x double], ptr %2, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [9 x double], ptr %2, i64 0, i64 %27
   store double %26, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

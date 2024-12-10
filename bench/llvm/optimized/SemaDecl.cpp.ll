@@ -27644,7 +27644,7 @@ switch.lookup:                                    ; preds = %65
   %.sroa.0.0.copyload.i37.i = load i64, ptr %66, align 8
   %90 = load ptr, ptr %48, align 8
   %91 = sext i8 %.sroa.060.0.extract.trunc.i to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang4Sema28MergeCompatibleFunctionDeclsEPNS_12FunctionDeclES2_PNS_5ScopeEb, i64 0, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28MergeCompatibleFunctionDeclsEPNS_12FunctionDeclES2_PNS_5ScopeEb, i64 0, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = call i64 @_ZNK5clang10ASTContext17getAttributedTypeENS_4attr4KindENS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %90, i32 noundef %switch.load, i64 %.sroa.0.0.copyload.i37.i, i64 %.sroa.0.0.copyload.i37.i) #27
   store i64 %92, ptr %66, align 8
@@ -89273,7 +89273,7 @@ switch.lookup:                                    ; preds = %73
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %74, i32 %4, i32 noundef 6929, i1 noundef zeroext false) #27
   %75 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %13, align 4
   %76 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIjvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
@@ -89302,9 +89302,9 @@ switch.lookup:                                    ; preds = %73
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %89 = sext i32 %2 to i64
-  %switch.gep141 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %89
+  %switch.gep141 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %89
   %90 = sext i32 %2 to i64
-  %switch.gep144 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %90
+  %switch.gep144 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %90
   br label %91
 
 91:                                               ; preds = %126, %.preheader
@@ -89439,7 +89439,7 @@ switch.lookup146:                                 ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %141, i32 %4, i32 noundef 6929, i1 noundef zeroext false) #27
   %142 = sext i32 %2 to i64
-  %switch.gep147 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %142
+  %switch.gep147 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN5clang4Sema28isAcceptableTagRedeclarationEPKNS_7TagDeclENS_11TagTypeKindEbNS_14SourceLocationEPKNS_14IdentifierInfoE.165, i64 0, i64 %142
   %switch.load148 = load i32, ptr %switch.gep147, align 4
   store i32 %switch.load148, ptr %22, align 4
   %143 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIjvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)

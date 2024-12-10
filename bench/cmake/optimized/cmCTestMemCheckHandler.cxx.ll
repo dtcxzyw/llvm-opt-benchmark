@@ -11839,7 +11839,7 @@ define dso_local void @_ZN22cmCTestMemCheckHandler28PostProcessBoundsCheckerTest
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr i8, ptr %49, i64 -24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 %51
   %53 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
           to label %54 unwind label %67
 
@@ -12187,7 +12187,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %35 = load ptr, ptr %8, align 8
   %36 = getelementptr i8, ptr %35, i64 -24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %37
   %39 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %38)
           to label %40 unwind label %.loopexit30
 
@@ -12600,7 +12600,7 @@ define dso_local void @_ZN22cmCTestMemCheckHandler21AppendMemTesterOutputERN18cm
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %32
 

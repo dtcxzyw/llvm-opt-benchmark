@@ -512,7 +512,7 @@ _ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i:      ; preds = %190, %187, %184, %_
 199:                                              ; preds = %_ZN5ZXing7IndexOfIA48_iiEEiRKT_RKT0_.exit.i
   %sext.i = shl i64 %.028.i.i.i.i.idx15.i.i, 30
   %200 = ashr i64 %sext.i, 32
-  %201 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %200
   %202 = load i8, ptr %201, align 1
   br label %_ZN5ZXing4OneD9RowReader16LookupBitPatternIA48_iA49_cEEciRKT_RKT0_.exit
 
@@ -977,7 +977,7 @@ _ZSt11max_elementIPdET_S1_S1_.exit.i:             ; preds = %.lr.ph.i.i21.i, %.l
   %38 = ptrtoint ptr %3 to i64
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
-  %41 = getelementptr inbounds [6 x i32], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [6 x i32], ptr %2, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4, !noalias !20
   %43 = add nsw i32 %42, %21
   store i32 %43, ptr %41, align 4, !noalias !20
@@ -1064,7 +1064,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %20 = sext i32 %4 to i64
   %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20) #15
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
+  %23 = getelementptr inbounds nuw [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %22, %24
   br i1 %25, label %26, label %49
@@ -1110,7 +1110,7 @@ _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %43 = sext i32 %27 to i64
   %44 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %43) #15
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i4
+  %46 = getelementptr inbounds nuw [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i4
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %45, %47
   br label %49

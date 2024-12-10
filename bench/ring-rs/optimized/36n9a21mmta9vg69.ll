@@ -2075,7 +2075,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br i1 %89, label %90, label %94, !prof !257
 
 90:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h94713dd42b5a67beE.exit"
-  %91 = getelementptr inbounds [0 x i8], ptr %8, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [0 x i8], ptr %8, i64 0, i64 %88
   %92 = load i8, ptr %91, align 1, !noundef !4
   %93 = icmp eq i8 %92, 1
   br i1 %93, label %95, label %.sink.split
@@ -2091,7 +2091,7 @@ define noundef zeroext i1 @"_ZN81_$LT$ring..rsa..padding..pss..PSS$u20$as$u20$ri
   br i1 %98, label %107, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %8, i64 %97
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 %97
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
   call fastcc void @_ZN4ring3rsa7padding3pss10pss_digest17h470883e22287f7adE(ptr noalias nocapture noundef align 8 dereferenceable(72) %7, ptr noalias noundef readonly align 8 dereferenceable(120) %10, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, ptr noalias noundef nonnull readonly align 1 %100, i64 noundef %96)
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 8

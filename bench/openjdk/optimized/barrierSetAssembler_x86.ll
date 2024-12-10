@@ -1223,7 +1223,7 @@ define hidden noundef i32 @_ZN19BarrierSetAssembler15refine_registerEPK4Nodei(pt
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @UseAVX, align 4
   %11 = icmp slt i32 %10, 3
@@ -1361,7 +1361,7 @@ define hidden void @_ZN17SaveLiveRegisters17xmm_register_saveERKNS_15XMMRegister
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -1440,7 +1440,7 @@ define hidden void @_ZN17SaveLiveRegisters20xmm_register_restoreERKNS_15XMMRegis
 
 20:                                               ; preds = %18
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -2419,7 +2419,7 @@ _ZN15RegMaskIterator4nextEv.exit:                 ; preds = %.preheader.i, %434,
 
 454:                                              ; preds = %_ZN15RegMaskIterator4nextEv.exit
   %455 = sext i32 %.sroa.11.0113 to i64
-  %456 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %455
+  %456 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %455
   %457 = load ptr, ptr %456, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit
 
@@ -2557,7 +2557,7 @@ _ZN26GrowableArrayWithAllocatorI9KRegister13GrowableArrayIS0_EE6appendERKS0_.exi
 
 531:                                              ; preds = %528
   %532 = sext i32 %529 to i64
-  %533 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %532
+  %533 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %532
   %534 = load ptr, ptr %533, align 16
   br label %_ZN7OptoReg8as_VMRegEi.exit71
 

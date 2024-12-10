@@ -6329,7 +6329,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11G
 _ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
   %22 = phi i32 [ 512, %21 ], [ %19, %18 ]
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds [513 x i8], ptr %7, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [513 x i8], ptr %7, i64 0, i64 %23
   store i8 0, ptr %24, align 1
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.20, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %7)
@@ -6359,7 +6359,7 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit:          ; preds = %18, %21
 _ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
   %32 = phi i32 [ 512, %31 ], [ %29, %28 ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds [513 x i8], ptr %5, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [513 x i8], ptr %5, i64 0, i64 %33
   store i8 0, ptr %34, align 1
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.21, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %5)
@@ -6393,7 +6393,7 @@ _ZL22glnvg__dumpShaderErrorjPKcS0_.exit35:        ; preds = %28, %31
 _ZL23glnvg__dumpProgramErrorjPKc.exit:            ; preds = %38, %41
   %42 = phi i32 [ 512, %41 ], [ %39, %38 ]
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [513 x i8], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [513 x i8], ptr %3, i64 0, i64 %43
   store i8 0, ptr %44, align 1
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull @.str.14, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 513, ptr nonnull %3)

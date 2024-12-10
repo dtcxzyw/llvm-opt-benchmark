@@ -18232,7 +18232,7 @@ _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS
   %7884 = getelementptr inbounds nuw i8, ptr %7843, i64 40
   %7885 = load i64, ptr %7884, align 8
   %7886 = tail call i64 @llvm.fshl.i64(i64 %7885, i64 %7885, i64 61)
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.57, i64 0, i64 %7886
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.57, i64 0, i64 %7886
   %switch.load = load i64, ptr %switch.gep, align 8
   %7887 = or disjoint i64 %7861, %7881
   %7888 = or disjoint i64 %7887, %7883
@@ -21173,7 +21173,7 @@ _ZNK12_GLOBAL__N_120AArch64MCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS
   %9959 = getelementptr inbounds nuw i8, ptr %9917, i64 56
   %9960 = load i64, ptr %9959, align 8
   %9961 = tail call i64 @llvm.fshl.i64(i64 %9960, i64 %9960, i64 61)
-  %switch.gep207 = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.57, i64 0, i64 %9961
+  %switch.gep207 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZNK12_GLOBAL__N_120AArch64MCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.57, i64 0, i64 %9961
   %switch.load208 = load i64, ptr %switch.gep207, align 8
   %9962 = or disjoint i64 %9936, %9956
   %9963 = or disjoint i64 %9962, %9958

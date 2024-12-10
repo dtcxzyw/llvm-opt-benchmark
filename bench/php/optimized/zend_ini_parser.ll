@@ -228,7 +228,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
 
 43:                                               ; preds = %41
   %44 = sext i32 %.0327 to i64
-  %45 = getelementptr inbounds [76 x i8], ptr @yypact, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [76 x i8], ptr @yypact, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i32
   %48 = icmp eq i8 %46, -46
@@ -295,7 +295,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
 
 80:                                               ; preds = %64, %66, %43
   %.4 = phi i32 [ %.0322, %43 ], [ %.6, %64 ], [ %.6, %66 ]
-  %81 = getelementptr inbounds [76 x i8], ptr @yydefact, i64 0, i64 %44
+  %81 = getelementptr inbounds nuw [76 x i8], ptr @yydefact, i64 0, i64 %44
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i32
   %84 = icmp eq i8 %82, 0
@@ -305,7 +305,7 @@ define hidden range(i32 0, 3) i32 @ini_parse() local_unnamed_addr #0 {
   %.0344 = phi i32 [ %83, %80 ], [ %77, %76 ]
   %.8 = phi i32 [ %.4, %80 ], [ %.6, %76 ]
   %86 = sext i32 %.0344 to i64
-  %87 = getelementptr inbounds [54 x i8], ptr @yyr2, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [54 x i8], ptr @yyr2, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = sext i8 %88 to i64
   %90 = sub nsw i64 1, %89
@@ -1356,11 +1356,11 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %518 = getelementptr inbounds i8, ptr %.2357, i64 %516
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %519, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %520 = getelementptr inbounds [54 x i8], ptr @yyr1, i64 0, i64 %86
+  %520 = getelementptr inbounds nuw [54 x i8], ptr @yyr1, i64 0, i64 %86
   %521 = load i8, ptr %520, align 1
   %522 = sext i8 %521 to i64
   %523 = add nsw i64 %522, -45
-  %524 = getelementptr inbounds [14 x i8], ptr @yypgoto, i64 0, i64 %523
+  %524 = getelementptr inbounds nuw [14 x i8], ptr @yypgoto, i64 0, i64 %523
   %525 = load i8, ptr %524, align 1
   %526 = sext i8 %525 to i32
   %527 = load i8, ptr %518, align 1
@@ -1381,7 +1381,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   br label %539
 
 537:                                              ; preds = %530, %zval_ini_dtor.exit
-  %538 = getelementptr inbounds [14 x i8], ptr @yydefgoto, i64 0, i64 %523
+  %538 = getelementptr inbounds nuw [14 x i8], ptr @yydefgoto, i64 0, i64 %523
   br label %539
 
 539:                                              ; preds = %537, %535
@@ -1448,7 +1448,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %.5350529 = phi ptr [ %564, %.lr.ph ], [ %.2347, %.loopexit502 ]
   %.5360528 = phi ptr [ %565, %.lr.ph ], [ %.2357, %.loopexit502 ]
   %560 = sext i32 %.2329530 to i64
-  %561 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %560
+  %561 = getelementptr inbounds nuw [76 x i8], ptr @yystos, i64 0, i64 %560
   %562 = load i8, ptr %561, align 1
   %563 = sext i8 %562 to i32
   call fastcc void @yydestruct(i32 noundef %563, ptr noundef %.5350529)
@@ -1503,7 +1503,7 @@ zval_ini_dtor.exit:                               ; preds = %251, %convert_to_nu
   %.7362533 = phi ptr [ %583, %.lr.ph535 ], [ %.6361, %576 ]
   %577 = load i8, ptr %.7362533, align 1
   %578 = sext i8 %577 to i64
-  %579 = getelementptr inbounds [76 x i8], ptr @yystos, i64 0, i64 %578
+  %579 = getelementptr inbounds nuw [76 x i8], ptr @yystos, i64 0, i64 %578
   %580 = load i8, ptr %579, align 1
   %581 = sext i8 %580 to i32
   call fastcc void @yydestruct(i32 noundef %581, ptr noundef %.7352534)
@@ -2128,7 +2128,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i8, ptr %.0.val1, align 1
   %5 = sext i8 %.val.val.i to i64
-  %6 = getelementptr inbounds [76 x i8], ptr @yypact, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [76 x i8], ptr @yypact, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, -46
   br i1 %8, label %.thread.i.i, label %9
@@ -2153,7 +2153,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %33 ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
-  %21 = getelementptr inbounds [144 x i8], ptr @yycheck, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [144 x i8], ptr @yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   %24 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -2232,7 +2232,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %27, %.thread.i.i, %
   %44 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [60 x ptr], ptr @yytname, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [60 x ptr], ptr @yytname, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 34
@@ -2308,10 +2308,10 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 70:                                               ; preds = %65
   %71 = add nsw i32 %.0, 1
   %72 = sext i32 %.0 to i64
-  %73 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [60 x ptr], ptr @yytname, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [60 x ptr], ptr @yytname, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 34

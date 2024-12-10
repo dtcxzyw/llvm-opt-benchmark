@@ -43268,7 +43268,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13Write
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i64 -24
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %20
   %22 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %21)
           to label %23 unwind label %24
 

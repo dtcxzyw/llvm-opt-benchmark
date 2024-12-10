@@ -155,7 +155,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr @_ZN16JNI_FastGetField5countE, align 4
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds [0 x ptr], ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 0, i64 %68
   store ptr %66, ptr %69, align 8
   switch i8 %0, label %112 [
     i8 4, label %70
@@ -291,7 +291,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr @_ZN16JNI_FastGetField5countE, align 4
   %124 = sext i32 %122 to i64
-  %125 = getelementptr inbounds [0 x ptr], ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 0, i64 %124
   store ptr %121, ptr %125, align 8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(33) %3) #9
   switch i8 %0, label %138 [
@@ -575,7 +575,7 @@ define hidden noundef ptr @_ZN16JNI_FastGetField30generate_fast_get_float_field0
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr @_ZN16JNI_FastGetField5countE, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [0 x ptr], ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 0, i64 %70
   store ptr %68, ptr %71, align 8
   %switch = icmp eq i8 %0, 6
   br i1 %switch, label %72, label %85
@@ -685,7 +685,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %94, %101
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr @_ZN16JNI_FastGetField5countE, align 4
   %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds [0 x ptr], ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 0, i64 %118
   store ptr %115, ptr %119, align 8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(33) %9) #9
   br i1 %switch, label %120, label %122

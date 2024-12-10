@@ -1218,7 +1218,7 @@ define dso_local { i64, i8 } @_Z9readCountRKNSt7__cxx1112basic_stringIcSt11char_
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   %16 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %15)
           to label %17 unwind label %7
 
@@ -1309,7 +1309,7 @@ define dso_local void @_Z14ParseMountInfoRSt3mapINSt7__cxx1112basic_stringIcSt11
   %31 = load ptr, ptr %4, align 8
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %34)
           to label %36 unwind label %.loopexit
 
@@ -2120,7 +2120,7 @@ define dso_local void @_Z15ParseSelfCGroupB5cxx11v(ptr dead_on_unwind noalias wr
   %28 = load ptr, ptr %2, align 8
   %29 = getelementptr i8, ptr %28, i64 -24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %30
   %32 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %31)
           to label %33 unwind label %39
 

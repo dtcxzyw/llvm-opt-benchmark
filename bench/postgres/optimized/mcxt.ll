@@ -1523,7 +1523,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %._crit_edge
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %5)
-  %endptr = getelementptr inbounds i8, ptr %5, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %5, i64 %strlen
   store i32 3026478, ptr %endptr, align 1
   br label %34
 

@@ -1121,7 +1121,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %call1 = call ptr @wc_GetErrorString(i32 noundef %i.018) #19
   call void @wc_ErrorString(i32 noundef %i.018, ptr noundef nonnull %out) #19
   %idxprom = sext i32 %j.019 to i64
-  %arrayidx = getelementptr inbounds [14 x i32], ptr @__const.error_test.missing, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x i32], ptr @__const.error_test.missing, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %i.018, %0
   %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(1) %call) #20

@@ -57930,7 +57930,7 @@ _ZSt22__uninitialized_copy_aIPKPN8pybind116detail9type_infoEPS3_S3_ET0_T_S8_S7_R
   %198 = ptrtoint ptr %193 to i64
   %199 = sub i64 %198, %182
   %gepdiff = sub nsw i64 8, %199
-  %.sink.i.i25.i.ptr = getelementptr inbounds i8, ptr %16, i64 %199
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %199
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %193, ptr nonnull align 8 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
   %200 = getelementptr inbounds i8, ptr %193, i64 %gepdiff
   store ptr %200, ptr %192, align 8
@@ -85555,7 +85555,7 @@ switch.lookup:                                    ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.val17.i = load i8, ptr %24, align 8
   %25 = sext i8 %.val17.i to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_39PKcJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESX_", i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_39PKcJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESX_", i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %26, align 8
@@ -86588,7 +86588,7 @@ switch.lookup:                                    ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.val19.i = load i8, ptr %24, align 8
   %25 = sext i8 %.val19.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", i64 0, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %26, align 8

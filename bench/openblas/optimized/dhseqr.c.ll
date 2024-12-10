@@ -307,12 +307,12 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %177 = add i32 %175, -49
   %178 = add i32 %177, %176
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [2401 x double], ptr %22, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw [2401 x double], ptr %22, i64 0, i64 %179
   store double 0.000000e+00, ptr %180, align 8, !tbaa !7
   %181 = sub nsw i32 49, %175
   store i32 %181, ptr %15, align 4, !tbaa !3
   %182 = sext i32 %176 to i64
-  %183 = getelementptr inbounds [2401 x double], ptr %22, i64 0, i64 %182
+  %183 = getelementptr inbounds nuw [2401 x double], ptr %22, i64 0, i64 %182
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull @c__49, ptr noundef nonnull %15, ptr noundef nonnull @c_b11, ptr noundef nonnull @c_b11, ptr noundef nonnull %183, ptr noundef nonnull @c__49) #6
   call void @dlaqr0_(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c__49, ptr noundef nonnull %3, ptr noundef nonnull %18, ptr noundef nonnull %22, ptr noundef nonnull @c__49, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %19, ptr noundef nonnull @c__49, ptr noundef nonnull %13) #6
   %184 = load i32, ptr %20, align 4, !tbaa !3

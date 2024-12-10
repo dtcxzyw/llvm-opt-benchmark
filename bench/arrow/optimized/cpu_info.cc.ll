@@ -236,7 +236,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   %vtable.i.i = load ptr, ptr %cacheinfo.i.i, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cacheinfo.i.i, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cacheinfo.i.i, i64 %vbase.offset.i.i
   %call6.i.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -360,7 +360,7 @@ while.cond.i:                                     ; preds = %if.end41.i, %.noexc
   %vtable.i = load ptr, ptr %cpuinfo.i, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %cpuinfo.i, i64 %vbase.offset.i
+  %add.ptr.i9 = getelementptr inbounds nuw i8, ptr %cpuinfo.i, i64 %vbase.offset.i
   %call.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i9)
           to label %invoke.cont.i unwind label %lpad.i10
 
@@ -1539,7 +1539,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %arrayidx11 = getelementptr inbounds [3 x i64], ptr @__const._ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE.kDefaultCacheSizes, i64 0, i64 %conv
+  %arrayidx11 = getelementptr inbounds nuw [3 x i64], ptr @__const._ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE.kDefaultCacheSizes, i64 0, i64 %conv
   %sub = add nsw i32 %level, -1
   %conv15 = sext i32 %sub to i64
   %arrayidx.i.i6 = getelementptr inbounds [3 x i64], ptr %cache_sizes, i64 0, i64 %conv15

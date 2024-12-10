@@ -64,10 +64,10 @@ _resume:                                          ; preds = %while.end207, %entr
   %ts.1 = phi ptr [ %ts.5.lcssa, %while.end207 ], [ null, %entry ]
   %p.1 = phi ptr [ %incdec.ptr208, %while.end207 ], [ %ptr, %entry ]
   %idxprom = sext i32 %cs.1 to i64
-  %arrayidx = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE32_ControlVerbs_from_state_actions, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE32_ControlVerbs_from_state_actions, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %idx.ext = sext i8 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext
   %1 = load i8, ptr %add.ptr, align 1
   %cmp2.not125 = icmp eq i8 %1, 0
   br i1 %cmp2.not125, label %while.end, label %while.body.preheader
@@ -90,14 +90,14 @@ while.body:                                       ; preds = %while.body.preheade
 
 while.end:                                        ; preds = %while.body, %_resume
   %ts.2.lcssa = phi ptr [ %ts.1, %_resume ], [ %spec.select, %while.body ]
-  %arrayidx6 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 0, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE25_ControlVerbs_key_offsets, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx6, align 1
   %idx.ext8 = zext i8 %3 to i64
   %add.ptr9 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE24_ControlVerbs_trans_keys, i64 %idx.ext8
-  %arrayidx11 = getelementptr inbounds [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 0, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 0, i64 %idxprom
   %4 = load i16, ptr %arrayidx11, align 2
   %conv12 = sext i16 %4 to i32
-  %arrayidx14 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE28_ControlVerbs_single_lengths, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE28_ControlVerbs_single_lengths, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx14, align 1
   %conv15 = sext i8 %5 to i32
   %idx.ext18 = zext nneg i32 %conv15 to i64
@@ -150,7 +150,7 @@ if.end43:                                         ; preds = %if.then35, %if.then
 
 while.end44:                                      ; preds = %if.end43, %while.end
   %add47 = add nsw i32 %conv15, %conv12
-  %arrayidx50 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_range_lengths, i64 0, i64 %idxprom
+  %arrayidx50 = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_range_lengths, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx50, align 1
   %conv51 = sext i8 %8 to i32
   %cmp52 = icmp sgt i8 %8, 0
@@ -238,7 +238,7 @@ _eof_trans:                                       ; preds = %if.then218, %_match
 
 if.end106:                                        ; preds = %_eof_trans
   %idx.ext110 = sext i8 %14 to i64
-  %add.ptr111 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext110
+  %add.ptr111 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext110
   %15 = load i8, ptr %add.ptr111, align 1
   %cmp116.not116 = icmp eq i8 %15, 0
   br i1 %cmp116.not116, label %_again, label %while.body117.lr.ph
@@ -499,10 +499,10 @@ sw.epilog190:                                     ; preds = %sw.bb124, %sw.bb122
 _again:                                           ; preds = %sw.epilog190, %if.end106, %_eof_trans
   %te.3 = phi ptr [ %te.2, %_eof_trans ], [ %te.2, %if.end106 ], [ %te.5, %sw.epilog190 ]
   %idxprom192 = sext i8 %13 to i64
-  %arrayidx193 = getelementptr inbounds [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE30_ControlVerbs_to_state_actions, i64 0, i64 %idxprom192
+  %arrayidx193 = getelementptr inbounds nuw [77 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE30_ControlVerbs_to_state_actions, i64 0, i64 %idxprom192
   %33 = load i8, ptr %arrayidx193, align 1
   %idx.ext195 = sext i8 %33 to i64
-  %add.ptr196 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext195
+  %add.ptr196 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE21_ControlVerbs_actions, i64 %idx.ext195
   %34 = load i8, ptr %add.ptr196, align 1
   %cmp201.not120 = icmp eq i8 %34, 0
   br i1 %cmp201.not120, label %while.end207, label %while.body202.preheader
@@ -541,7 +541,7 @@ _test_eof:                                        ; preds = %while.end207, %entr
 
 if.then218:                                       ; preds = %_test_eof
   %idxprom214 = sext i32 %cs.0 to i64
-  %arrayidx215 = getelementptr inbounds [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 0, i64 %idxprom214
+  %arrayidx215 = getelementptr inbounds nuw [77 x i16], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 0, i64 %idxprom214
   %36 = load i16, ptr %arrayidx215, align 2
   %conv216 = sext i16 %36 to i64
   %sub = add nsw i64 %conv216, 4294967295

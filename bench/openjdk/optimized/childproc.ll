@@ -612,14 +612,14 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %46, i64 %52, i1 false)
   %sext37.us = add i64 %sext.us, -4294967296
   %53 = ashr exact i64 %sext37.us, 32
-  %54 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %.not38.us = icmp eq i8 %55, 47
   br i1 %.not38.us, label %59, label %56
 
 56:                                               ; preds = %51
   %57 = add i64 %47, 1
-  %58 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %52
+  %58 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %52
   store i8 47, ptr %58, align 1
   %.pre57.reass = add i32 %invariant.op67, %48
   br label %59
@@ -629,10 +629,10 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %.0.us = phi i64 [ %57, %56 ], [ %47, %51 ]
   %sext69 = shl i64 %.0.us, 32
   %60 = ashr exact i64 %sext69, 32
-  %61 = getelementptr inbounds i8, ptr %5, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %1, i64 %41, i1 false)
   %62 = sext i32 %.pre-phi to i64
-  %63 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %62
   store i8 0, ptr %63, align 1
   %64 = call i32 @execve(ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %3) #14
   %65 = tail call ptr @__errno_location() #15
@@ -716,14 +716,14 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %80, i64 %88, i1 false)
   %sext37 = add i64 %sext, -4294967296
   %89 = ashr exact i64 %sext37, 32
-  %90 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1
   %.not38 = icmp eq i8 %91, 47
   br i1 %.not38, label %execve_with_shell_fallback.exit48, label %92
 
 92:                                               ; preds = %87
   %93 = add i64 %81, 1
-  %94 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %88
+  %94 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %88
   store i8 47, ptr %94, align 1
   %.pre60.reass = add i32 %invariant.op67, %82
   br label %execve_with_shell_fallback.exit48
@@ -733,10 +733,10 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
   %.0 = phi i64 [ %93, %92 ], [ %81, %87 ]
   %sext68 = shl i64 %.0, 32
   %95 = ashr exact i64 %sext68, 32
-  %96 = getelementptr inbounds i8, ptr %5, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull align 1 %1, i64 %41, i1 false)
   %97 = sext i32 %.pre-phi61 to i64
-  %98 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [4096 x i8], ptr %5, i64 0, i64 %97
   store i8 0, ptr %98, align 1
   store ptr %3, ptr @environ, align 8
   %99 = call i32 @execvp(ptr noundef nonnull %5, ptr noundef %2) #14

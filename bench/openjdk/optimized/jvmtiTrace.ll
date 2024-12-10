@@ -375,7 +375,7 @@ sub_0178:                                         ; preds = %74
 
 109:                                              ; preds = %107
   %110 = sext i32 %.0107185 to i64
-  %111 = getelementptr inbounds [0 x i16], ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [0 x i16], ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 0, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = sext i16 %112 to i64
   %114 = and i64 %113, 4294967295

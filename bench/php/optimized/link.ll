@@ -91,7 +91,7 @@ thread-pre-split:                                 ; preds = %14
   br label %48
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %30
   store i8 0, ptr %38, align 1
   %39 = and i64 %30, -8
   %40 = add i64 %39, 32

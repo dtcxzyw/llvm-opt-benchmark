@@ -16137,7 +16137,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i: ; preds = %184
   %478 = load i64, ptr %477, align 8, !noalias !1734, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 16 %14, i64 %478, i1 false), !noalias !1734
   %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i.i = load i64, ptr %12, align 16, !noalias !1734
-  %479 = getelementptr inbounds [27 x i64], ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.17, i64 0, i64 %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i.i
+  %479 = getelementptr inbounds nuw [27 x i64], ptr @anon.64c9b5a7f68c9f4850f85ecf90d05a99.17, i64 0, i64 %.0..0..0..0..0..0..0..0..0..0..0..0..0..0..i.i.i.i.i
   %480 = load i64, ptr %479, align 8, !noalias !1734, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %467, ptr nonnull align 16 %12, i64 %480, i1 false), !noalias !1734
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %12)

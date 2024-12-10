@@ -10725,7 +10725,7 @@ sw.bb2:                                           ; preds = %entry
 
 if.then:                                          ; preds = %sw.bb2
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %addr_text)
-  %endptr = getelementptr inbounds i8, ptr %addr_text, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %addr_text, i64 %strlen
   store i16 93, ptr %endptr, align 1
   br label %if.end
 

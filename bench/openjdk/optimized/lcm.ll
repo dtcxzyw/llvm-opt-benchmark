@@ -319,7 +319,7 @@ _ZNK5Block8get_nodeEj.exit310:                    ; preds = %77, %79
 
 161:                                              ; preds = %159
   %162 = sext i32 %153 to i64
-  %163 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [0 x i8], ptr @must_clone, i64 0, i64 %162
   %164 = load i8, ptr %163, align 1
   %.not294 = icmp eq i8 %164, 0
   br i1 %.not294, label %165, label %_ZN5Block9dominatesEPS_.exit.thread
@@ -1919,7 +1919,7 @@ _ZNK5Block3endEv.exit:                            ; preds = %83, %102
 
 165:                                              ; preds = %152, %157, %163, %132, %129
   %166 = sext i32 %62 to i64
-  %167 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [0 x i8], ptr @must_clone, i64 0, i64 %166
   %168 = load i8, ptr %167, align 1
   %.not148 = icmp eq i8 %168, 0
   br i1 %.not148, label %.critedge, label %169
@@ -2001,7 +2001,7 @@ _ZNK5Block3endEv.exit:                            ; preds = %83, %102
   %213 = load ptr, ptr %212, align 8
   %214 = tail call noundef i32 %213(ptr noundef nonnull align 8 dereferenceable(64) %204) #8
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds [0 x i8], ptr @must_clone, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [0 x i8], ptr @must_clone, i64 0, i64 %215
   %217 = load i8, ptr %216, align 1
   %.not150 = icmp eq i8 %217, 0
   br i1 %.not150, label %._crit_edge207, label %._crit_edge

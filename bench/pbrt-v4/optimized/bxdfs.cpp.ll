@@ -12884,7 +12884,7 @@ invoke.cont172:                                   ; preds = %if.end.i.i.i.i.i.i.
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
   %switch.tableidx = add nsw i8 %12, -1
   %17 = sext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @switch.table._ZN4pbrt6TensorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br i1 %cmp.not.i.i.i.i, label %for.end, label %do.body181
 

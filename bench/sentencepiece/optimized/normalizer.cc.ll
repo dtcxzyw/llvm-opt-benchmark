@@ -1354,14 +1354,14 @@ _ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_vie
   %.11454 = phi i32 [ %.215, %33 ], [ 0, %27 ]
   %.01653 = phi i64 [ %34, %33 ], [ 0, %27 ]
   %29 = icmp eq i64 %.155, 0
-  %.phi.trans.insert58 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653, i32 1
+  %.phi.trans.insert58 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653, i32 1
   %.pre = load i64, ptr %.phi.trans.insert58, align 8
   %30 = icmp ugt i64 %.pre, %.155
   %or.cond63 = select i1 %29, i1 true, i1 %30
   br i1 %or.cond63, label %.lr.ph._crit_edge, label %33
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %31 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653
+  %31 = getelementptr inbounds nuw [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653
   %32 = load i32, ptr %31, align 16
   br label %33
 

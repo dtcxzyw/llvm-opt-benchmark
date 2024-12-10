@@ -119,10 +119,10 @@ define hidden ptr @findJavaTZ_md(ptr nocapture noundef readnone %0) local_unname
 40:                                               ; preds = %33
   %sext.i = shl i64 %34, 32
   %41 = ashr exact i64 %sext.i, 32
-  %42 = getelementptr inbounds [4097 x i8], ptr %4, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [4097 x i8], ptr %4, i64 0, i64 %41
   store i8 0, ptr %42, align 1
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
-  %44 = getelementptr inbounds i8, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %43
   %45 = icmp sgt i64 %43, 0
   br i1 %45, label %thread-pre-split.preheader.i.i, label %removeDuplicateSlashes.exit.i
 

@@ -12148,23 +12148,19 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %vtable = load ptr, ptr %ss, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset
   %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %1 = load i32, ptr %_M_flags.i, align 8
   %or.i.i.i = or i32 %1, 19464
   store i32 %or.i.i.i, ptr %_M_flags.i, align 4
-  %vtable15 = load ptr, ptr %ss, align 8
-  %vbase.offset.ptr16 = getelementptr i8, ptr %vtable15, i64 -24
-  %vbase.offset17 = load i64, ptr %vbase.offset.ptr16, align 8
-  %add.ptr18 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset17
+  %vbase.offset17 = load i64, ptr %vbase.offset.ptr, align 8
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset17
   %_M_flags.i5 = getelementptr inbounds nuw i8, ptr %add.ptr18, i64 24
   %2 = load i32, ptr %_M_flags.i5, align 8
   %or.i.i.i6 = or i32 %2, %1
   store i32 %or.i.i.i6, ptr %_M_flags.i5, align 4
-  %vtable21 = load ptr, ptr %ss, align 8
-  %vbase.offset.ptr22 = getelementptr i8, ptr %vtable21, i64 -24
-  %vbase.offset23 = load i64, ptr %vbase.offset.ptr22, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset23
+  %vbase.offset23 = load i64, ptr %vbase.offset.ptr, align 8
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset23
   %_M_precision.i = getelementptr inbounds nuw i8, ptr %add.ptr24, i64 8
   store i64 13, ptr %_M_precision.i, align 8
   %add.ptr27 = getelementptr inbounds nuw i8, ptr %ss, i64 16

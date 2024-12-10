@@ -1122,7 +1122,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %191 = load ptr, ptr %12, align 8, !tbaa !4
   %192 = getelementptr i8, ptr %191, i64 -24
   %193 = load i64, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %12, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %12, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load i32, ptr %195, align 8, !tbaa !25
   %197 = and i32 %196, 5
@@ -1256,7 +1256,7 @@ _ZN5boost6nowide4test8test_monEv.exit85:          ; preds = %228, %226, %223
   %251 = load ptr, ptr %14, align 8, !tbaa !4
   %252 = getelementptr i8, ptr %251, i64 -24
   %253 = load i64, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %14, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr %14, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %256 = load i32, ptr %255, align 8, !tbaa !25
   %257 = and i32 %256, 5
@@ -1566,7 +1566,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %374 = load ptr, ptr %17, align 8, !tbaa !4
   %375 = getelementptr i8, ptr %374, i64 -24
   %376 = load i64, ptr %375, align 8
-  %377 = getelementptr inbounds i8, ptr %17, i64 %376
+  %377 = getelementptr inbounds nuw i8, ptr %17, i64 %376
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %379 = load i32, ptr %378, align 8, !tbaa !25
   %380 = and i32 %379, 5
@@ -1709,7 +1709,7 @@ _ZN5boost6nowide4test8test_monEv.exit120:         ; preds = %411, %409, %406
   %437 = load ptr, ptr %15, align 8, !tbaa !4
   %438 = getelementptr i8, ptr %437, i64 -24
   %439 = load i64, ptr %438, align 8
-  %440 = getelementptr inbounds i8, ptr %15, i64 %439
+  %440 = getelementptr inbounds nuw i8, ptr %15, i64 %439
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 32
   %442 = load i32, ptr %441, align 8, !tbaa !25
   %443 = and i32 %442, 5
@@ -2133,7 +2133,7 @@ _ZN5boost6nowide4test8test_monEv.exit151:         ; preds = %586, %584, %581
   %613 = load ptr, ptr %20, align 8, !tbaa !4
   %614 = getelementptr i8, ptr %613, i64 -24
   %615 = load i64, ptr %614, align 8
-  %616 = getelementptr inbounds i8, ptr %20, i64 %615
+  %616 = getelementptr inbounds nuw i8, ptr %20, i64 %615
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 32
   %618 = load i32, ptr %617, align 8, !tbaa !25
   %619 = or i32 %618, 4
@@ -2530,7 +2530,7 @@ define linkonce_odr hidden void @_ZN5boost6nowide4test11test_failedEPKcS3_iS3_(p
   %9 = load ptr, ptr %6, align 8, !tbaa !4
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !25
   %15 = or i32 %14, 1
@@ -2554,7 +2554,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit18: ; preds = %_ZStl
   %21 = load ptr, ptr %6, align 8, !tbaa !4
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !25
   %27 = or i32 %26, 1
@@ -2572,7 +2572,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %20, %
   %31 = load ptr, ptr %6, align 8, !tbaa !4
   %32 = getelementptr i8, ptr %31, i64 -24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !50
   %.not.i23 = icmp eq i64 %36, 0
@@ -2687,7 +2687,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %65
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %79 = getelementptr i8, ptr %77, i64 -24
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 %80
   store ptr %78, ptr %81, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %82, align 8, !tbaa !4
@@ -2839,7 +2839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !4
@@ -3026,7 +3026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !4
@@ -3270,7 +3270,7 @@ define linkonce_odr hidden void @_Z9test_ctorIPKcEvRKT_(ptr noundef nonnull alig
   %32 = load ptr, ptr %7, align 8, !tbaa !4
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !25
   %38 = and i32 %37, 5
@@ -3556,7 +3556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %131 = load ptr, ptr %11, align 8, !tbaa !4
   %132 = getelementptr i8, ptr %131, i64 -24
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %11, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load i32, ptr %135, align 8, !tbaa !25
   %137 = and i32 %136, 5
@@ -3940,7 +3940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
   %270 = load ptr, ptr %15, align 8, !tbaa !4
   %271 = getelementptr i8, ptr %270, i64 -24
   %272 = load i64, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %15, i64 %272
+  %273 = getelementptr inbounds nuw i8, ptr %15, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load i32, ptr %274, align 8, !tbaa !25
   %276 = and i32 %275, 5
@@ -4044,7 +4044,7 @@ _ZN5boost6nowide4test8test_monEv.exit115:         ; preds = %312, %310, %307
   %314 = load ptr, ptr %15, align 8, !tbaa !4
   %315 = getelementptr i8, ptr %314, i64 -24
   %316 = load i64, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %15, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr %15, i64 %316
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
   %319 = load i32, ptr %318, align 8, !tbaa !25
   %320 = and i32 %319, 2
@@ -4063,7 +4063,7 @@ _ZN5boost6nowide4test8test_monEv.exit115:         ; preds = %312, %310, %307
 
 322:                                              ; preds = %._crit_edge, %_ZN5boost6nowide4test8test_monEv.exit115
   %323 = phi i64 [ %.pre188, %._crit_edge ], [ %316, %_ZN5boost6nowide4test8test_monEv.exit115 ]
-  %324 = getelementptr inbounds i8, ptr %15, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr %15, i64 %323
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %324, i32 noundef 0)
           to label %325 unwind label %298
 
@@ -4466,7 +4466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %463 = load ptr, ptr %21, align 8, !tbaa !4
   %464 = getelementptr i8, ptr %463, i64 -24
   %465 = load i64, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %21, i64 %465
+  %466 = getelementptr inbounds nuw i8, ptr %21, i64 %465
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 32
   %468 = load i32, ptr %467, align 8, !tbaa !25
   %469 = and i32 %468, 5
@@ -4706,7 +4706,7 @@ define linkonce_odr hidden void @_Z9test_ctorINSt7__cxx1112basic_stringIcSt11cha
   %21 = load ptr, ptr %2, align 8, !tbaa !4
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !25
   %27 = and i32 %26, 5
@@ -4813,7 +4813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = load ptr, ptr %4, align 8, !tbaa !4
   %61 = getelementptr i8, ptr %60, i64 -24
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i32, ptr %64, align 8, !tbaa !25
   %66 = and i32 %65, 5
@@ -5066,7 +5066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %155 = load ptr, ptr %7, align 8, !tbaa !4
   %156 = getelementptr i8, ptr %155, i64 -24
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %7, i64 %157
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %160 = load i32, ptr %159, align 8, !tbaa !25
   %161 = and i32 %160, 5
@@ -5170,7 +5170,7 @@ _ZN5boost6nowide4test8test_monEv.exit65:          ; preds = %197, %195, %192
   %199 = load ptr, ptr %7, align 8, !tbaa !4
   %200 = getelementptr i8, ptr %199, i64 -24
   %201 = load i64, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %7, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = load i32, ptr %203, align 8, !tbaa !25
   %205 = and i32 %204, 2
@@ -5189,7 +5189,7 @@ _ZN5boost6nowide4test8test_monEv.exit65:          ; preds = %197, %195, %192
 
 207:                                              ; preds = %._crit_edge, %_ZN5boost6nowide4test8test_monEv.exit65
   %208 = phi i64 [ %.pre111, %._crit_edge ], [ %201, %_ZN5boost6nowide4test8test_monEv.exit65 ]
-  %209 = getelementptr inbounds i8, ptr %7, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 %208
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %209, i32 noundef 0)
           to label %210 unwind label %183
 
@@ -5412,7 +5412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZN
   %289 = load ptr, ptr %11, align 8, !tbaa !4
   %290 = getelementptr i8, ptr %289, i64 -24
   %291 = load i64, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %11, i64 %291
+  %292 = getelementptr inbounds nuw i8, ptr %11, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 32
   %294 = load i32, ptr %293, align 8, !tbaa !25
   %295 = and i32 %294, 5
@@ -5643,7 +5643,7 @@ define linkonce_odr hidden void @_Z9test_openIPKcEvRKT_(ptr noundef nonnull alig
   %33 = load ptr, ptr %7, align 8, !tbaa !4
   %34 = getelementptr i8, ptr %33, i64 -24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !25
   %39 = and i32 %38, 5
@@ -5933,7 +5933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
   %133 = load ptr, ptr %11, align 8, !tbaa !4
   %134 = getelementptr i8, ptr %133, i64 -24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %11, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %11, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = load i32, ptr %137, align 8, !tbaa !25
   %139 = and i32 %138, 5
@@ -6321,7 +6321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
   %273 = load ptr, ptr %15, align 8, !tbaa !4
   %274 = getelementptr i8, ptr %273, i64 -24
   %275 = load i64, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %15, i64 %275
+  %276 = getelementptr inbounds nuw i8, ptr %15, i64 %275
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 32
   %278 = load i32, ptr %277, align 8, !tbaa !25
   %279 = and i32 %278, 5
@@ -6425,7 +6425,7 @@ _ZN5boost6nowide4test8test_monEv.exit115:         ; preds = %315, %313, %310
   %317 = load ptr, ptr %15, align 8, !tbaa !4
   %318 = getelementptr i8, ptr %317, i64 -24
   %319 = load i64, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %15, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %15, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %322 = load i32, ptr %321, align 8, !tbaa !25
   %323 = and i32 %322, 2
@@ -6444,7 +6444,7 @@ _ZN5boost6nowide4test8test_monEv.exit115:         ; preds = %315, %313, %310
 
 325:                                              ; preds = %._crit_edge, %_ZN5boost6nowide4test8test_monEv.exit115
   %326 = phi i64 [ %.pre188, %._crit_edge ], [ %319, %_ZN5boost6nowide4test8test_monEv.exit115 ]
-  %327 = getelementptr inbounds i8, ptr %15, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %15, i64 %326
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %327, i32 noundef 0)
           to label %328 unwind label %301
 
@@ -6851,7 +6851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %467 = load ptr, ptr %21, align 8, !tbaa !4
   %468 = getelementptr i8, ptr %467, i64 -24
   %469 = load i64, ptr %468, align 8
-  %470 = getelementptr inbounds i8, ptr %21, i64 %469
+  %470 = getelementptr inbounds nuw i8, ptr %21, i64 %469
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 32
   %472 = load i32, ptr %471, align 8, !tbaa !25
   %473 = and i32 %472, 5
@@ -7096,7 +7096,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %22 = load ptr, ptr %2, align 8, !tbaa !4
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i32, ptr %26, align 8, !tbaa !25
   %28 = and i32 %27, 5
@@ -7208,7 +7208,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %62 = load ptr, ptr %4, align 8, !tbaa !4
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !25
   %68 = and i32 %67, 5
@@ -7466,7 +7466,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %158 = load ptr, ptr %7, align 8, !tbaa !4
   %159 = getelementptr i8, ptr %158, i64 -24
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %7, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
   %163 = load i32, ptr %162, align 8, !tbaa !25
   %164 = and i32 %163, 5
@@ -7570,7 +7570,7 @@ _ZN5boost6nowide4test8test_monEv.exit69:          ; preds = %200, %198, %195
   %202 = load ptr, ptr %7, align 8, !tbaa !4
   %203 = getelementptr i8, ptr %202, i64 -24
   %204 = load i64, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %7, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %207 = load i32, ptr %206, align 8, !tbaa !25
   %208 = and i32 %207, 2
@@ -7589,7 +7589,7 @@ _ZN5boost6nowide4test8test_monEv.exit69:          ; preds = %200, %198, %195
 
 210:                                              ; preds = %._crit_edge, %_ZN5boost6nowide4test8test_monEv.exit69
   %211 = phi i64 [ %.pre117, %._crit_edge ], [ %204, %_ZN5boost6nowide4test8test_monEv.exit69 ]
-  %212 = getelementptr inbounds i8, ptr %7, i64 %211
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 %211
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %212, i32 noundef 0)
           to label %213 unwind label %186
 
@@ -7817,7 +7817,7 @@ _ZN5boost6nowide6detail12fstream_implIcSt11char_traitsIcENS1_12StreamTypeInELi1E
   %293 = load ptr, ptr %11, align 8, !tbaa !4
   %294 = getelementptr i8, ptr %293, i64 -24
   %295 = load i64, ptr %294, align 8
-  %296 = getelementptr inbounds i8, ptr %11, i64 %295
+  %296 = getelementptr inbounds nuw i8, ptr %11, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %298 = load i32, ptr %297, align 8, !tbaa !25
   %299 = and i32 %298, 5
@@ -10178,7 +10178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !4
@@ -10371,7 +10371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %54 = getelementptr i8, ptr %52, i64 -24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 %55
   store ptr %53, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %57, align 8, !tbaa !4

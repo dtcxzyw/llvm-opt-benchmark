@@ -792,7 +792,7 @@ if.then6.i:                                       ; preds = %if.then6.i.loopexit
 
 if.then11.i:                                      ; preds = %if.then6.i
   %idxprom.i = sext i32 %call8.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i
   store ptr %arrayidx.i, ptr %hash_algo12.i, align 8
   br label %if.end13.i
 
@@ -839,7 +839,7 @@ if.then.i.i:                                      ; preds = %if.end4.i
 
 if.else.i.i:                                      ; preds = %if.end4.i
   %idxprom.i.i = sext i32 %16 to i64
-  %arrayidx.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i
   br label %oideq.exit.i
 
 oideq.exit.i:                                     ; preds = %if.else.i.i, %if.then.i.i
@@ -1479,7 +1479,7 @@ if.then6:                                         ; preds = %if.then4
 
 if.end8:                                          ; preds = %if.then4
   %idxprom = sext i32 %call5 to i64
-  %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
   %hash_algo9 = getelementptr inbounds nuw i8, ptr %reader, i64 72
   store ptr %arrayidx, ptr %hash_algo9, align 8
   %11 = load ptr, ptr %arrayidx, align 8
@@ -2575,7 +2575,7 @@ if.then7:                                         ; preds = %parse_connect_url.e
   %call9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %cond)
   %switch.tableidx = add nsw i32 %protocol.0.i, -1
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.git_connect, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.git_connect, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %switch.load)
   %tobool12.not = icmp eq ptr %call64.i, null

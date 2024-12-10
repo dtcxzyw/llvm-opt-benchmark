@@ -881,7 +881,7 @@ define dso_local void @_ZN21cmCTestLaunchReporter10LoadLabelsEv(ptr noundef nonn
   %32 = load ptr, ptr %5, align 8
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 %34
   %36 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %35)
           to label %37 unwind label %42
 

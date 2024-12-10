@@ -6168,7 +6168,7 @@ _ZNSt22_Optional_payload_baseIN4llvm21TargetLibraryInfoImplEE10_M_destroyEv.exit
   call void @_ZN4llvm11PassBuilder20crossRegisterProxiesERNS_15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEEERNS1_INS_8FunctionEJEEERNS1_INS_13LazyCallGraph3SCCEJRSA_EEERNS1_INS_6ModuleEJEEEPNS1_INS_15MachineFunctionEJEEE(ptr noundef nonnull align 8 dereferenceable(2208) %17, ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef null) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %147 = sext i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_114optimizeModuleERN4llvm6ModuleERNS0_13TargetMachineEjbbPNS0_18ModuleSummaryIndexE, i64 0, i64 %147
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_114optimizeModuleERN4llvm6ModuleERNS0_13TargetMachineEjbbPNS0_18ModuleSummaryIndexE, i64 0, i64 %147
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.6.0.in.in = load i64, ptr %switch.load, align 4
   call void @_ZN4llvm11PassBuilder27buildThinLTODefaultPipelineENS_17OptimizationLevelEPKNS_18ModuleSummaryIndexE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::PassManager") align 8 %22, ptr noundef nonnull align 8 dereferenceable(2208) %17, i64 %.sroa.6.0.in.in, ptr noundef %5) #25

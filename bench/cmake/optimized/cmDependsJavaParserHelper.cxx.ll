@@ -1705,7 +1705,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN25cmDependsJavaParserHelper9Par
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr i8, ptr %9, i64 -24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   %13 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %12)
           to label %14 unwind label %15
 

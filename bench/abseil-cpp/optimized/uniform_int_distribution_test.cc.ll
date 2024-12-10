@@ -7336,7 +7336,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i228 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i228 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i228)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -7366,7 +7366,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup358
@@ -13245,7 +13245,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i228 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i228 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i228)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -13275,7 +13275,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup356
@@ -17067,7 +17067,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i228 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i228 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i228)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -17095,7 +17095,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup356
@@ -20887,7 +20887,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i228 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i228 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i228)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -20915,7 +20915,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup356
@@ -24707,7 +24707,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i229 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i229 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i229)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -24735,7 +24735,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup341
@@ -28519,7 +28519,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i229 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i229 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i229)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -28547,7 +28547,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %96, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup345
@@ -32344,7 +32344,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i233 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i233 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i233)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -32369,7 +32369,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %98, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup345
@@ -36169,7 +36169,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   %vtable.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
-  %add.ptr.i233 = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i
+  %add.ptr.i233 = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i
   %call6.i = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i233)
           to label %invoke.cont5.i unwind label %lpad.i
 
@@ -36194,7 +36194,7 @@ lpad.i:                                           ; preds = %invoke.cont3.i, %in
   %vtable.i.i = load ptr, ptr %ss, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %vtable.i.i, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 %vbase.offset.i.i
   %_M_flags.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   store i32 %98, ptr %_M_flags.i.i.i, align 8
   br label %ehcleanup345

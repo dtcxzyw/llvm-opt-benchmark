@@ -292,9 +292,9 @@ define hidden void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull al
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %6
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %33 [
     i32 0, label %11
@@ -450,7 +450,7 @@ define hidden void @_ZN24TypedMethodOptionMatcherD2Ev(ptr noundef nonnull align 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, 2
@@ -494,7 +494,7 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternER
   %12 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %1, i64 noundef %11, ptr noundef nonnull %9) #19
   %13 = load i32, ptr %7, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -3
   %or.cond.i = icmp ult i32 %17, 2
@@ -556,7 +556,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle19has_any_command_setEv() l
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIlEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZL11option_list, align 8
@@ -595,7 +595,7 @@ _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.th
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueImEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZL11option_list, align 8
@@ -634,7 +634,7 @@ _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.th
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZL11option_list, align 8
@@ -674,7 +674,7 @@ _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.th
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIPKcEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZL11option_list, align 8
@@ -713,7 +713,7 @@ _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.th
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 comdat align 2 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = load ptr, ptr @_ZL11option_list, align 8
@@ -782,7 +782,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_typeIPKcEEb18CompileCommandEnumRT_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i64 %3, -2
   %7 = icmp ult i64 %6, 37
@@ -801,7 +801,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle10has_optionERK12methodHandle18CompileCommandEnum(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   %7 = load ptr, ptr @_ZL11option_list, align 8
@@ -1895,18 +1895,18 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
 219:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit.i
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %220 = ashr exact i64 %sext.i, 32
-  %221 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %220
   %222 = load i32, ptr %221, align 4
   %.not.i39 = icmp eq i32 %222, %190
   br i1 %.not.i39, label %231, label %223
 
 223:                                              ; preds = %219
   %224 = sext i32 %222 to i64
-  %225 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %224
   %226 = load ptr, ptr %225, align 8
   %sext66 = shl i64 %indvars.iv.i36, 32
   %227 = ashr exact i64 %sext66, 32
-  %228 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.117, ptr noundef nonnull %8, ptr noundef %226, ptr noundef %229) #19
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
@@ -1918,7 +1918,7 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
 232:                                              ; preds = %191
   %sext = shl i64 %indvars.iv.i36, 32
   %233 = ashr exact i64 %sext, 32
-  %234 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %233
+  %234 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %233
   %235 = load ptr, ptr %234, align 8
   %236 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.118, ptr noundef %235) #19
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
@@ -1997,12 +1997,12 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
   br label %270
 
 261:                                              ; preds = %256
-  %262 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %257
+  %262 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %257
   %263 = load i32, ptr %262, align 4
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %264
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %257
+  %267 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %257
   %268 = load ptr, ptr %267, align 8
   %269 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.22, ptr noundef %266, ptr noundef %268) #19
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
@@ -2031,7 +2031,7 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
 279:                                              ; preds = %_ZL17match_option_namePKcPiPci.exit
   %sext69 = shl i64 %indvars.iv.i, 32
   %280 = ashr exact i64 %sext69, 32
-  %281 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %280
+  %281 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %280
   %282 = load i32, ptr %281, align 4
   store i32 0, ptr %17, align 4
   %283 = load i8, ptr %51, align 1
@@ -2086,7 +2086,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   br label %313
 
 306:                                              ; preds = %303
-  %307 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %280
+  %307 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %280
   %308 = load ptr, ptr %307, align 8
   %309 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %308) #19
   call void @_ZN14CompilerOracle17print_parse_errorEPcS0_(ptr noundef nonnull %14, ptr noundef %20)
@@ -2198,7 +2198,7 @@ define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatche
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
   store i8 1, ptr %23, align 1
   br label %44
 
@@ -2230,7 +2230,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, -3
   %or.cond.i = icmp ult i32 %40, 2
@@ -2256,7 +2256,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
   %48 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
   %49 = load ptr, ptr @tty, align 8
   %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.137, ptr noundef %52) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -2316,7 +2316,7 @@ define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatche
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %19
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %20
   store i8 1, ptr %21, align 1
   br label %41
 
@@ -2347,7 +2347,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, -3
   %or.cond.i = icmp ult i32 %37, 2
@@ -2373,7 +2373,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
   %45 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
   %46 = load ptr, ptr @tty, align 8
   %47 = sext i32 %1 to i64
-  %48 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull @.str.137, ptr noundef %49) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
@@ -2397,10 +2397,10 @@ define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOption
   %15 = alloca [512 x i8], align 16
   store i32 0, ptr %9, align 4
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %0 to i64
-  %20 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
@@ -2619,7 +2619,7 @@ _ZL13parseMemLimitPKcRlRiPci.exit:                ; preds = %28
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i, %.split.thread.i
-  %103 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  %103 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
   store i8 1, ptr %103, align 1
   br label %123
 
@@ -2650,7 +2650,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, -3
   %or.cond.i.i95 = icmp ult i32 %119, 2
@@ -3012,7 +3012,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.split.i106, %.split.thread.i104
-  %291 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
+  %291 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %16
   store i8 1, ptr %291, align 1
   br label %311
 
@@ -3043,7 +3043,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
   %302 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %303 = load i32, ptr %302, align 8
   %304 = sext i32 %303 to i64
-  %305 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %304
+  %305 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = add i32 %306, -3
   %or.cond.i.i101 = icmp ult i32 %307, 2
@@ -3555,7 +3555,7 @@ define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatc
 
 _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.thread, %21
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %22
   store i8 1, ptr %23, align 1
   br label %44
 
@@ -3587,7 +3587,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, -3
   %or.cond.i = icmp ult i32 %40, 2
@@ -3613,7 +3613,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
   %48 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
   %49 = load ptr, ptr @tty, align 8
   %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %49, ptr noundef nonnull @.str.137, ptr noundef %52) #19
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)

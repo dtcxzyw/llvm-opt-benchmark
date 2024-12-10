@@ -179,7 +179,7 @@ for.body.i:                                       ; preds = %memptr.end.i, %_ZN1
   %.fca.0.load.i = load i64, ptr %__begin0.0.ptr.i, align 16
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %__begin0.0.ptr.i, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
-  %9 = getelementptr inbounds i8, ptr %conv, i64 %.fca.1.load.i
+  %9 = getelementptr inbounds nuw i8, ptr %conv, i64 %.fca.1.load.i
   %10 = and i64 %.fca.0.load.i, 1
   %memptr.isvirtual.not.i = icmp eq i64 %10, 0
   br i1 %memptr.isvirtual.not.i, label %memptr.nonvirtual.i, label %memptr.virtual.i
@@ -309,7 +309,7 @@ for.body.i33:                                     ; preds = %while.body.i.i.i, %
   %.fca.0.load.i36 = load i64, ptr %__begin0.0.ptr.i35, align 16
   %.fca.1.gep.i37 = getelementptr inbounds nuw i8, ptr %__begin0.0.ptr.i35, i64 8
   %.fca.1.load.i38 = load i64, ptr %.fca.1.gep.i37, align 8
-  %24 = getelementptr inbounds i8, ptr %conv4, i64 %.fca.1.load.i38
+  %24 = getelementptr inbounds nuw i8, ptr %conv4, i64 %.fca.1.load.i38
   %25 = and i64 %.fca.0.load.i36, 1
   %memptr.isvirtual.not.i39 = icmp eq i64 %25, 0
   br i1 %memptr.isvirtual.not.i39, label %memptr.nonvirtual.i49, label %memptr.virtual.i40

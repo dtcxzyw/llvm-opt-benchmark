@@ -103,7 +103,7 @@ define i32 @adjustInfoAfterSwap(ptr nocapture noundef %0, i32 noundef %1, i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, %0
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -124,7 +124,7 @@ define i64 @Extra_Truth6SwapAdjacent(i64 noundef %0, i32 noundef %1) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = xor i64 %5, -1
   %7 = and i64 %0, %6
@@ -140,7 +140,7 @@ define i64 @Extra_Truth6ChangePhase(i64 noundef %0, i32 noundef %1) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, -1
   %9 = and i64 %0, %8
@@ -155,7 +155,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noca
   %spec.select61 = zext i1 %16 to i32
   %17 = add nsw i32 %1, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = xor i64 %20, -1
   %22 = and i64 %0, %21
@@ -176,7 +176,7 @@ define i64 @Extra_Truth6MinimumRoundOne(i64 noundef %0, i32 noundef %1, ptr noca
   %35 = icmp ult i64 %34, %.147
   %.248 = tail call i64 @llvm.umin.i64(i64 %34, i64 %.147)
   %.2 = select i1 %35, i32 3, i32 %.1
-  %36 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
+  %36 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, %0
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -273,7 +273,7 @@ adjustInfoAfterSwap.exit:                         ; preds = %85, %82, %69
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @Extra_Truth6MinimumRoundOne_noEBFC(i64 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, %0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8

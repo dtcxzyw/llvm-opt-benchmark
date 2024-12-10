@@ -12488,7 +12488,7 @@ for.body23.us.us:                                 ; preds = %for.body23.lr.ph.sp
   %12 = load i64, ptr %arrayidx.us.us, align 8, !tbaa !60
   %arrayidx29.us.us = getelementptr inbounds i64, ptr %2, i64 %i.0317.us.us
   store i64 %12, ptr %arrayidx29.us.us, align 8, !tbaa !60
-  %arrayidx30.us.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us.us
+  %arrayidx30.us.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us.us
   store i8 1, ptr %arrayidx30.us.us, align 1, !tbaa !119
   %inc34.us.us = add nuw i64 %i.0317.us.us, 1
   %13 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -12504,7 +12504,7 @@ for.body23.us:                                    ; preds = %for.body23.lr.ph.sp
   %15 = load i64, ptr %arrayidx.us, align 8, !tbaa !60
   %arrayidx29.us = getelementptr inbounds i64, ptr %2, i64 %i.0317.us
   store i64 %15, ptr %arrayidx29.us, align 8, !tbaa !60
-  %arrayidx30.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us
+  %arrayidx30.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us
   store i8 1, ptr %arrayidx30.us, align 1, !tbaa !119
   %inc34.us = add nuw i64 %i.0317.us, 1
   %16 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -12537,7 +12537,7 @@ if.then28.us322:                                  ; preds = %for.body23.us318
 if.end32.us326:                                   ; preds = %if.then28.us322, %for.body23.us318
   %20 = phi i64 [ %.pre348, %if.then28.us322 ], [ %17, %for.body23.us318 ]
   %.sink = phi i8 [ 1, %if.then28.us322 ], [ 0, %for.body23.us318 ]
-  %21 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
+  %21 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
   store i8 %.sink, ptr %21, align 1
   %inc34.us327 = add nuw i64 %i.0317.us319, 1
   %cmp21.us328 = icmp ult i64 %inc34.us327, %20
@@ -12696,7 +12696,7 @@ if.then28:                                        ; preds = %for.body23
 if.end32:                                         ; preds = %if.then28, %for.body23
   %43 = phi i64 [ %.pre, %if.then28 ], [ %39, %for.body23 ]
   %.sink347 = phi i8 [ 1, %if.then28 ], [ 0, %for.body23 ]
-  %44 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
+  %44 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
   store i8 %.sink347, ptr %44, align 1
   %inc34 = add nuw i64 %i.0317, 1
   %cmp21 = icmp ult i64 %inc34, %43
@@ -12776,7 +12776,7 @@ for.body72.us:                                    ; preds = %for.body72.lr.ph, %
 if.then80.us:                                     ; preds = %for.body72.us
   %arrayidx81.us = getelementptr inbounds i64, ptr %50, i64 %i67.0330.us
   %57 = load i64, ptr %arrayidx81.us, align 8, !tbaa !60
-  %arrayidx82.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
+  %arrayidx82.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
   %58 = load i8, ptr %arrayidx82.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %58, 0
   br i1 %tobool.not.us, label %if.then87.us, label %invoke.cont85.us
@@ -12834,7 +12834,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
 if.then80:                                        ; preds = %for.body72
   %arrayidx81 = getelementptr inbounds nuw i64, ptr %50, i64 %conv.i235
   %67 = load i64, ptr %arrayidx81, align 8, !tbaa !60
-  %arrayidx82 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
+  %arrayidx82 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
   %68 = load i8, ptr %arrayidx82, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %68, 0
   br i1 %tobool.not, label %if.then87, label %invoke.cont85
@@ -12873,7 +12873,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit254: ; preds = %cond.true.i250, %fo
   %cond.i253 = phi i64 [ %conv.i252, %cond.true.i250 ], [ %i99.0332, %for.body104 ]
   %arrayidx109 = getelementptr inbounds i64, ptr %50, i64 %cond.i253
   %73 = load i64, ptr %arrayidx109, align 8, !tbaa !60
-  %arrayidx110 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
+  %arrayidx110 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
   %74 = load i8, ptr %arrayidx110, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not = icmp eq i8 %74, 0
   br i1 %tobool111.not, label %if.then117, label %invoke.cont115
@@ -13018,7 +13018,7 @@ for.cond.cleanup139:                              ; preds = %for.inc145, %for.co
 for.body140:                                      ; preds = %for.inc145, %for.body140.lr.ph
   %93 = phi i64 [ %45, %for.body140.lr.ph ], [ %99, %for.inc145 ]
   %i135.0341 = phi i64 [ 0, %for.body140.lr.ph ], [ %inc146, %for.inc145 ]
-  %arrayidx141 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
+  %arrayidx141 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
   %94 = load i8, ptr %arrayidx141, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool142.not = icmp eq i8 %94, 0
   br i1 %tobool142.not, label %if.then143, label %for.inc145
@@ -13293,13 +13293,13 @@ if.then28:                                        ; preds = %invoke.cont26, %_ZN
   %arrayidx = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %7, i64 %cond.i
   %arrayidx29 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %2, i64 %i.0329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !328
-  %arrayidx30 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0329
+  %arrayidx30 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0329
   store i8 1, ptr %arrayidx30, align 1, !tbaa !119
   %.pre = load i64, ptr %count.i, align 8, !tbaa !89
   br label %if.end32
 
 if.else:                                          ; preds = %invoke.cont26
-  %arrayidx31 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0329
+  %arrayidx31 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0329
   store i8 0, ptr %arrayidx31, align 1, !tbaa !119
   br label %if.end32
 
@@ -13411,7 +13411,7 @@ if.then80:                                        ; preds = %invoke.cont78
   %ivalue.sroa.0.0.copyload = load i64, ptr %arrayidx81, align 8, !tbaa !60
   %ivalue.sroa.6.0.arrayidx81.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx81, i64 8
   %ivalue.sroa.6.0.copyload = load i64, ptr %ivalue.sroa.6.0.arrayidx81.sroa_idx, align 8, !tbaa !60
-  %arrayidx82 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0331
+  %arrayidx82 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0331
   %49 = load i8, ptr %arrayidx82, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %49, 0
   br i1 %tobool.not, label %if.then87, label %invoke.cont85
@@ -13460,7 +13460,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit254: ; preds = %cond.true.i250, %fo
   %ivalue108.sroa.0.0.copyload = load i64, ptr %arrayidx109, align 8, !tbaa !60
   %ivalue108.sroa.6.0.arrayidx109.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx109, i64 8
   %ivalue108.sroa.6.0.copyload = load i64, ptr %ivalue108.sroa.6.0.arrayidx109.sroa_idx, align 8, !tbaa !60
-  %arrayidx110 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0333
+  %arrayidx110 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0333
   %53 = load i8, ptr %arrayidx110, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not = icmp eq i8 %53, 0
   br i1 %tobool111.not, label %if.then117, label %invoke.cont115
@@ -13613,7 +13613,7 @@ for.cond.cleanup139:                              ; preds = %for.inc145, %for.co
 for.body140:                                      ; preds = %for.inc145, %for.body140.lr.ph
   %71 = phi i64 [ %33, %for.body140.lr.ph ], [ %77, %for.inc145 ]
   %i135.0342 = phi i64 [ 0, %for.body140.lr.ph ], [ %inc146, %for.inc145 ]
-  %arrayidx141 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0342
+  %arrayidx141 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0342
   %72 = load i8, ptr %arrayidx141, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool142.not = icmp eq i8 %72, 0
   br i1 %tobool142.not, label %if.then143, label %for.inc145
@@ -13890,7 +13890,7 @@ if.then28.us323:                                  ; preds = %for.body23.us319
 
 if.end32.us327:                                   ; preds = %if.then28.us323, %for.body23.us319
   %.sink = phi i8 [ 1, %if.then28.us323 ], [ 0, %for.body23.us319 ]
-  %38 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0318.us320
+  %38 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0318.us320
   store i8 %.sink, ptr %38, align 1
   %inc34.us328 = add nuw i64 %i.0318.us320, 1
   %exitcond348.not = icmp eq i64 %inc34.us328, %10
@@ -14066,7 +14066,7 @@ if.then28:                                        ; preds = %for.body23
 
 if.end32:                                         ; preds = %if.then28, %for.body23
   %.sink351 = phi i8 [ 1, %if.then28 ], [ 0, %for.body23 ]
-  %61 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0318
+  %61 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0318
   store i8 %.sink351, ptr %61, align 1
   %inc34 = add nuw i64 %i.0318, 1
   %exitcond.not = icmp eq i64 %inc34, %10
@@ -14168,7 +14168,7 @@ if.then80:                                        ; preds = %invoke.cont78, %_ZN
   %arrayidx81 = getelementptr inbounds double, ptr %67, i64 %cond.i236
   %77 = load double, ptr %arrayidx81, align 8, !tbaa !335
   store double %77, ptr %ivalue, align 8, !tbaa !335
-  %arrayidx82 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0331
+  %arrayidx82 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0331
   %78 = load i8, ptr %arrayidx82, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %78, 0
   br i1 %tobool.not, label %if.then87, label %lor.lhs.false
@@ -14228,7 +14228,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit255: ; preds = %cond.true.i251, %fo
   %arrayidx109 = getelementptr inbounds double, ptr %67, i64 %cond.i254
   %85 = load double, ptr %arrayidx109, align 8, !tbaa !335
   store double %85, ptr %ivalue108, align 8, !tbaa !335
-  %arrayidx110 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0334
+  %arrayidx110 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0334
   %86 = load i8, ptr %arrayidx110, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not = icmp eq i8 %86, 0
   br i1 %tobool111.not, label %if.then117, label %lor.lhs.false112
@@ -14392,7 +14392,7 @@ for.cond.cleanup139:                              ; preds = %for.inc145, %for.co
 for.body140:                                      ; preds = %for.inc145, %for.body140.lr.ph
   %106 = phi i64 [ %62, %for.body140.lr.ph ], [ %112, %for.inc145 ]
   %i135.0343 = phi i64 [ 0, %for.body140.lr.ph ], [ %inc146, %for.inc145 ]
-  %arrayidx141 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0343
+  %arrayidx141 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0343
   %107 = load i8, ptr %arrayidx141, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool142.not = icmp eq i8 %107, 0
   br i1 %tobool142.not, label %if.then143, label %for.inc145
@@ -14675,13 +14675,13 @@ if.then28:                                        ; preds = %invoke.cont26, %_ZN
   %arrayidx = getelementptr inbounds %"struct.duckdb::string_t", ptr %7, i64 %cond.i
   %arrayidx29 = getelementptr inbounds %"struct.duckdb::string_t", ptr %2, i64 %i.0346
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx30 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0346
+  %arrayidx30 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0346
   store i8 1, ptr %arrayidx30, align 1, !tbaa !119
   %.pre = load i64, ptr %count.i, align 8, !tbaa !89
   br label %if.end32
 
 if.else:                                          ; preds = %invoke.cont26
-  %arrayidx31 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0346
+  %arrayidx31 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0346
   store i8 0, ptr %arrayidx31, align 1, !tbaa !119
   br label %if.end32
 
@@ -14789,7 +14789,7 @@ if.then77:                                        ; preds = %invoke.cont75, %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ivalue) #22
   %arrayidx78 = getelementptr inbounds %"struct.duckdb::string_t", ptr %38, i64 %cond.i236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ivalue, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx78, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx79 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i64.0348
+  %arrayidx79 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i64.0348
   %48 = load i8, ptr %arrayidx79, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %48, 0
   br i1 %tobool.not, label %if.then84, label %lor.lhs.false
@@ -14866,7 +14866,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit257: ; preds = %cond.true.i253, %fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ivalue105) #22
   %arrayidx106 = getelementptr inbounds %"struct.duckdb::string_t", ptr %38, i64 %cond.i256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ivalue105, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx106, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx107 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i96.0351
+  %arrayidx107 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i96.0351
   %59 = load i8, ptr %arrayidx107, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool108.not = icmp eq i8 %59, 0
   br i1 %tobool108.not, label %if.then114, label %lor.lhs.false109
@@ -15040,7 +15040,7 @@ for.cond.cleanup136:                              ; preds = %for.inc142, %for.co
 for.body137:                                      ; preds = %for.inc142, %for.body137.lr.ph
   %82 = phi i64 [ %33, %for.body137.lr.ph ], [ %88, %for.inc142 ]
   %i132.0360 = phi i64 [ 0, %for.body137.lr.ph ], [ %inc143, %for.inc142 ]
-  %arrayidx138 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i132.0360
+  %arrayidx138 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i132.0360
   %83 = load i8, ptr %arrayidx138, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool139.not = icmp eq i8 %83, 0
   br i1 %tobool139.not, label %if.then140, label %for.inc142
@@ -16334,7 +16334,7 @@ for.body23.us.us:                                 ; preds = %for.body23.lr.ph.sp
   %arrayidx29.us.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %2, i64 %i.0317.us.us
   %12 = load i64, ptr %arrayidx.us.us, align 8, !tbaa !60
   store i64 %12, ptr %arrayidx29.us.us, align 8, !tbaa !60
-  %arrayidx30.us.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us.us
+  %arrayidx30.us.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us.us
   store i8 1, ptr %arrayidx30.us.us, align 1, !tbaa !119
   %inc34.us.us = add nuw i64 %i.0317.us.us, 1
   %13 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -16350,7 +16350,7 @@ for.body23.us:                                    ; preds = %for.body23.lr.ph.sp
   %arrayidx29.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %2, i64 %i.0317.us
   %15 = load i64, ptr %arrayidx.us, align 8, !tbaa !60
   store i64 %15, ptr %arrayidx29.us, align 8, !tbaa !60
-  %arrayidx30.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us
+  %arrayidx30.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us
   store i8 1, ptr %arrayidx30.us, align 1, !tbaa !119
   %inc34.us = add nuw i64 %i.0317.us, 1
   %16 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -16383,7 +16383,7 @@ if.then28.us322:                                  ; preds = %for.body23.us318
 if.end32.us326:                                   ; preds = %if.then28.us322, %for.body23.us318
   %20 = phi i64 [ %.pre348, %if.then28.us322 ], [ %17, %for.body23.us318 ]
   %.sink = phi i8 [ 1, %if.then28.us322 ], [ 0, %for.body23.us318 ]
-  %21 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
+  %21 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
   store i8 %.sink, ptr %21, align 1
   %inc34.us327 = add nuw i64 %i.0317.us319, 1
   %cmp21.us328 = icmp ult i64 %inc34.us327, %20
@@ -16542,7 +16542,7 @@ if.then28:                                        ; preds = %for.body23
 if.end32:                                         ; preds = %if.then28, %for.body23
   %43 = phi i64 [ %.pre, %if.then28 ], [ %39, %for.body23 ]
   %.sink347 = phi i8 [ 1, %if.then28 ], [ 0, %for.body23 ]
-  %44 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
+  %44 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
   store i8 %.sink347, ptr %44, align 1
   %inc34 = add nuw i64 %i.0317, 1
   %cmp21 = icmp ult i64 %inc34, %43
@@ -16622,7 +16622,7 @@ for.body72.us:                                    ; preds = %for.body72.lr.ph, %
 if.then80.us:                                     ; preds = %for.body72.us
   %arrayidx81.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %50, i64 %i67.0330.us
   %57 = load i64, ptr %arrayidx81.us, align 8, !tbaa !60
-  %arrayidx82.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
+  %arrayidx82.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
   %58 = load i8, ptr %arrayidx82.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %58, 0
   br i1 %tobool.not.us, label %if.then87.us, label %invoke.cont85.us
@@ -16680,7 +16680,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
 if.then80:                                        ; preds = %for.body72
   %arrayidx81 = getelementptr inbounds nuw %"struct.duckdb::timestamp_t", ptr %50, i64 %conv.i235
   %67 = load i64, ptr %arrayidx81, align 8, !tbaa !60
-  %arrayidx82 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
+  %arrayidx82 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
   %68 = load i8, ptr %arrayidx82, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %68, 0
   br i1 %tobool.not, label %if.then87, label %invoke.cont85
@@ -16719,7 +16719,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit254: ; preds = %cond.true.i250, %fo
   %cond.i253 = phi i64 [ %conv.i252, %cond.true.i250 ], [ %i99.0332, %for.body104 ]
   %arrayidx109 = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %50, i64 %cond.i253
   %73 = load i64, ptr %arrayidx109, align 8, !tbaa !60
-  %arrayidx110 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
+  %arrayidx110 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
   %74 = load i8, ptr %arrayidx110, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not = icmp eq i8 %74, 0
   br i1 %tobool111.not, label %if.then117, label %invoke.cont115
@@ -16864,7 +16864,7 @@ for.cond.cleanup139:                              ; preds = %for.inc145, %for.co
 for.body140:                                      ; preds = %for.inc145, %for.body140.lr.ph
   %93 = phi i64 [ %45, %for.body140.lr.ph ], [ %99, %for.inc145 ]
   %i135.0341 = phi i64 [ 0, %for.body140.lr.ph ], [ %inc146, %for.inc145 ]
-  %arrayidx141 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
+  %arrayidx141 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
   %94 = load i8, ptr %arrayidx141, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool142.not = icmp eq i8 %94, 0
   br i1 %tobool142.not, label %if.then143, label %for.inc145
@@ -17139,7 +17139,7 @@ if.then28.us322:                                  ; preds = %for.body23.us318
 
 if.end32.us326:                                   ; preds = %if.then28.us322, %for.body23.us318
   %.sink = phi i8 [ 1, %if.then28.us322 ], [ 0, %for.body23.us318 ]
-  %38 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
+  %38 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317.us319
   store i8 %.sink, ptr %38, align 1
   %inc34.us327 = add nuw i64 %i.0317.us319, 1
   %exitcond348.not = icmp eq i64 %inc34.us327, %10
@@ -17315,7 +17315,7 @@ if.then28:                                        ; preds = %for.body23
 
 if.end32:                                         ; preds = %if.then28, %for.body23
   %.sink355 = phi i8 [ 1, %if.then28 ], [ 0, %for.body23 ]
-  %61 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
+  %61 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0317
   store i8 %.sink355, ptr %61, align 1
   %inc34 = add nuw i64 %i.0317, 1
   %exitcond.not = icmp eq i64 %inc34, %10
@@ -17394,7 +17394,7 @@ for.body72.us:                                    ; preds = %for.body72.lr.ph, %
 if.then80.us:                                     ; preds = %for.body72.us
   %arrayidx81.us = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i67.0330.us
   %73 = load i32, ptr %arrayidx81.us, align 4, !tbaa !73
-  %arrayidx82.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
+  %arrayidx82.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330.us
   %74 = load i8, ptr %arrayidx82.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %74, 0
   br i1 %tobool.not.us, label %if.then87.us, label %invoke.cont85.us
@@ -17438,7 +17438,7 @@ for.body104.us:                                   ; preds = %if.end120.us.1, %fo
   %i99.0332.us = phi i64 [ 0, %for.body104.us.preheader.new ], [ %inc124.us.1, %if.end120.us.1 ]
   %arrayidx109.us = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i99.0332.us
   %79 = load i32, ptr %arrayidx109.us, align 4, !tbaa !73
-  %arrayidx110.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332.us
+  %arrayidx110.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332.us
   %80 = load i8, ptr %arrayidx110.us, align 2, !tbaa !119, !range !68, !noundef !69
   %tobool111.not.us = icmp eq i8 %80, 0
   br i1 %tobool111.not.us, label %if.then117.us, label %invoke.cont115.us
@@ -17459,7 +17459,7 @@ if.end120.us:                                     ; preds = %if.then117.us, %inv
   %inc124.us = or disjoint i64 %i99.0332.us, 1
   %arrayidx109.us.1 = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %inc124.us
   %82 = load i32, ptr %arrayidx109.us.1, align 4, !tbaa !73
-  %arrayidx110.us.1 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %inc124.us
+  %arrayidx110.us.1 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %inc124.us
   %83 = load i8, ptr %arrayidx110.us.1, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not.us.1 = icmp eq i8 %83, 0
   br i1 %tobool111.not.us.1, label %if.then117.us.1, label %invoke.cont115.us.1
@@ -17505,7 +17505,7 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
 if.then80:                                        ; preds = %for.body72
   %arrayidx81 = getelementptr inbounds nuw %"struct.duckdb::date_t", ptr %67, i64 %conv.i235
   %88 = load i32, ptr %arrayidx81, align 4, !tbaa !73
-  %arrayidx82 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
+  %arrayidx82 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i67.0330
   %89 = load i8, ptr %arrayidx82, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %89, 0
   br i1 %tobool.not, label %if.then87, label %invoke.cont85
@@ -17534,7 +17534,7 @@ for.body104:                                      ; preds = %for.body104.lr.ph, 
   %conv.i252 = zext i32 %91 to i64
   %arrayidx109 = getelementptr inbounds nuw %"struct.duckdb::date_t", ptr %67, i64 %conv.i252
   %92 = load i32, ptr %arrayidx109, align 4, !tbaa !73
-  %arrayidx110 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
+  %arrayidx110 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332
   %93 = load i8, ptr %arrayidx110, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool111.not = icmp eq i8 %93, 0
   br i1 %tobool111.not, label %if.then117, label %invoke.cont115
@@ -17564,7 +17564,7 @@ for.body104.us.epil:                              ; preds = %for.body104.us.preh
   %i99.0332.us.unr15 = phi i64 [ %unroll_iter381, %if.end127.loopexit.unr-lcssa ], [ 0, %for.body104.us.preheader ]
   %arrayidx109.us.epil = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i99.0332.us.unr15
   %95 = load i32, ptr %arrayidx109.us.epil, align 4, !tbaa !73
-  %arrayidx110.us.epil = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332.us.unr15
+  %arrayidx110.us.epil = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i99.0332.us.unr15
   %96 = load i8, ptr %arrayidx110.us.epil, align 2, !tbaa !119, !range !68, !noundef !69
   %tobool111.not.us.epil = icmp eq i8 %96, 0
   br i1 %tobool111.not.us.epil, label %if.then117.us.epil, label %invoke.cont115.us.epil
@@ -17702,7 +17702,7 @@ for.cond.cleanup139:                              ; preds = %for.inc145, %for.co
 for.body140:                                      ; preds = %for.inc145, %for.body140.lr.ph
   %114 = phi i64 [ %62, %for.body140.lr.ph ], [ %120, %for.inc145 ]
   %i135.0341 = phi i64 [ 0, %for.body140.lr.ph ], [ %inc146, %for.inc145 ]
-  %arrayidx141 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
+  %arrayidx141 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i135.0341
   %115 = load i8, ptr %arrayidx141, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool142.not = icmp eq i8 %115, 0
   br i1 %tobool142.not, label %if.then143, label %for.inc145
@@ -17833,7 +17833,7 @@ for.body21.us.us:                                 ; preds = %for.body21.lr.ph.sp
   %12 = load i64, ptr %arrayidx.us.us, align 8, !tbaa !60
   %arrayidx27.us.us = getelementptr inbounds i64, ptr %2, i64 %i.0301.us.us
   store i64 %12, ptr %arrayidx27.us.us, align 8, !tbaa !60
-  %arrayidx28.us.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us.us
+  %arrayidx28.us.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us.us
   store i8 1, ptr %arrayidx28.us.us, align 1, !tbaa !119
   %inc32.us.us = add nuw i64 %i.0301.us.us, 1
   %13 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -17849,7 +17849,7 @@ for.body21.us:                                    ; preds = %for.body21.lr.ph.sp
   %15 = load i64, ptr %arrayidx.us, align 8, !tbaa !60
   %arrayidx27.us = getelementptr inbounds i64, ptr %2, i64 %i.0301.us
   store i64 %15, ptr %arrayidx27.us, align 8, !tbaa !60
-  %arrayidx28.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us
+  %arrayidx28.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us
   store i8 1, ptr %arrayidx28.us, align 1, !tbaa !119
   %inc32.us = add nuw i64 %i.0301.us, 1
   %16 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -17882,7 +17882,7 @@ if.then26.us306:                                  ; preds = %for.body21.us302
 if.end30.us310:                                   ; preds = %if.then26.us306, %for.body21.us302
   %20 = phi i64 [ %.pre332, %if.then26.us306 ], [ %17, %for.body21.us302 ]
   %.sink = phi i8 [ 1, %if.then26.us306 ], [ 0, %for.body21.us302 ]
-  %21 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us303
+  %21 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301.us303
   store i8 %.sink, ptr %21, align 1
   %inc32.us311 = add nuw i64 %i.0301.us303, 1
   %cmp19.us312 = icmp ult i64 %inc32.us311, %20
@@ -18041,7 +18041,7 @@ if.then26:                                        ; preds = %for.body21
 if.end30:                                         ; preds = %if.then26, %for.body21
   %43 = phi i64 [ %.pre, %if.then26 ], [ %39, %for.body21 ]
   %.sink331 = phi i8 [ 1, %if.then26 ], [ 0, %for.body21 ]
-  %44 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301
+  %44 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0301
   store i8 %.sink331, ptr %44, align 1
   %inc32 = add nuw i64 %i.0301, 1
   %cmp19 = icmp ult i64 %inc32, %43
@@ -18121,7 +18121,7 @@ for.body67.us:                                    ; preds = %for.body67.lr.ph, %
 if.then75.us:                                     ; preds = %for.body67.us
   %arrayidx76.us = getelementptr inbounds i64, ptr %50, i64 %i62.0314.us
   %57 = load i64, ptr %arrayidx76.us, align 8, !tbaa !60
-  %arrayidx77.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0314.us
+  %arrayidx77.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0314.us
   %58 = load i8, ptr %arrayidx77.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %58, 0
   br i1 %tobool.not.us, label %if.then80.us, label %lor.lhs.false.us
@@ -18179,7 +18179,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
 if.then75:                                        ; preds = %for.body67
   %arrayidx76 = getelementptr inbounds nuw i64, ptr %50, i64 %conv.i219
   %67 = load i64, ptr %arrayidx76, align 8, !tbaa !60
-  %arrayidx77 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0314
+  %arrayidx77 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0314
   %68 = load i8, ptr %arrayidx77, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %68, 0
   br i1 %tobool.not, label %if.then80, label %lor.lhs.false
@@ -18218,7 +18218,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit238: ; preds = %cond.true.i234, %fo
   %cond.i237 = phi i64 [ %conv.i236, %cond.true.i234 ], [ %i91.0316, %for.body96 ]
   %arrayidx101 = getelementptr inbounds i64, ptr %50, i64 %cond.i237
   %73 = load i64, ptr %arrayidx101, align 8, !tbaa !60
-  %arrayidx102 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i91.0316
+  %arrayidx102 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i91.0316
   %74 = load i8, ptr %arrayidx102, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool103.not = icmp eq i8 %74, 0
   br i1 %tobool103.not, label %if.then107, label %lor.lhs.false104
@@ -18363,7 +18363,7 @@ for.cond.cleanup126:                              ; preds = %for.inc132, %for.co
 for.body127:                                      ; preds = %for.inc132, %for.body127.lr.ph
   %93 = phi i64 [ %45, %for.body127.lr.ph ], [ %99, %for.inc132 ]
   %i122.0325 = phi i64 [ 0, %for.body127.lr.ph ], [ %inc133, %for.inc132 ]
-  %arrayidx128 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i122.0325
+  %arrayidx128 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i122.0325
   %94 = load i8, ptr %arrayidx128, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool129.not = icmp eq i8 %94, 0
   br i1 %tobool129.not, label %if.then130, label %for.inc132
@@ -18638,13 +18638,13 @@ if.then26:                                        ; preds = %invoke.cont24, %_ZN
   %arrayidx = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %7, i64 %cond.i
   %arrayidx27 = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %2, i64 %i.0324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx27, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !328
-  %arrayidx28 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0324
+  %arrayidx28 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0324
   store i8 1, ptr %arrayidx28, align 1, !tbaa !119
   %.pre = load i64, ptr %count.i, align 8, !tbaa !89
   br label %if.end30
 
 if.else:                                          ; preds = %invoke.cont24
-  %arrayidx29 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0324
+  %arrayidx29 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0324
   store i8 0, ptr %arrayidx29, align 1, !tbaa !119
   br label %if.end30
 
@@ -18756,7 +18756,7 @@ if.then75:                                        ; preds = %invoke.cont73
   %ivalue.sroa.0.0.copyload = load i64, ptr %arrayidx76, align 8, !tbaa !60
   %ivalue.sroa.6.0.arrayidx76.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx76, i64 8
   %ivalue.sroa.6.0.copyload = load i64, ptr %ivalue.sroa.6.0.arrayidx76.sroa_idx, align 8, !tbaa !60
-  %arrayidx77 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0326
+  %arrayidx77 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0326
   %49 = load i8, ptr %arrayidx77, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %49, 0
   br i1 %tobool.not, label %if.then82, label %invoke.cont80
@@ -18805,7 +18805,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit249: ; preds = %cond.true.i245, %fo
   %ivalue103.sroa.0.0.copyload = load i64, ptr %arrayidx104, align 8, !tbaa !60
   %ivalue103.sroa.6.0.arrayidx104.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx104, i64 8
   %ivalue103.sroa.6.0.copyload = load i64, ptr %ivalue103.sroa.6.0.arrayidx104.sroa_idx, align 8, !tbaa !60
-  %arrayidx105 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0328
+  %arrayidx105 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0328
   %53 = load i8, ptr %arrayidx105, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool106.not = icmp eq i8 %53, 0
   br i1 %tobool106.not, label %if.then112, label %invoke.cont110
@@ -18958,7 +18958,7 @@ for.cond.cleanup134:                              ; preds = %for.inc140, %for.co
 for.body135:                                      ; preds = %for.inc140, %for.body135.lr.ph
   %71 = phi i64 [ %33, %for.body135.lr.ph ], [ %77, %for.inc140 ]
   %i130.0337 = phi i64 [ 0, %for.body135.lr.ph ], [ %inc141, %for.inc140 ]
-  %arrayidx136 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0337
+  %arrayidx136 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0337
   %72 = load i8, ptr %arrayidx136, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool137.not = icmp eq i8 %72, 0
   br i1 %tobool137.not, label %if.then138, label %for.inc140
@@ -19235,7 +19235,7 @@ if.then26.us315:                                  ; preds = %for.body21.us311
 
 if.end30.us319:                                   ; preds = %if.then26.us315, %for.body21.us311
   %.sink = phi i8 [ 1, %if.then26.us315 ], [ 0, %for.body21.us311 ]
-  %38 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0310.us312
+  %38 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0310.us312
   store i8 %.sink, ptr %38, align 1
   %inc32.us320 = add nuw i64 %i.0310.us312, 1
   %exitcond340.not = icmp eq i64 %inc32.us320, %10
@@ -19411,7 +19411,7 @@ if.then26:                                        ; preds = %for.body21
 
 if.end30:                                         ; preds = %if.then26, %for.body21
   %.sink343 = phi i8 [ 1, %if.then26 ], [ 0, %for.body21 ]
-  %61 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0310
+  %61 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0310
   store i8 %.sink343, ptr %61, align 1
   %inc32 = add nuw i64 %i.0310, 1
   %exitcond.not = icmp eq i64 %inc32, %10
@@ -19513,7 +19513,7 @@ if.then75:                                        ; preds = %invoke.cont73, %_ZN
   %arrayidx76 = getelementptr inbounds double, ptr %67, i64 %cond.i231
   %77 = load double, ptr %arrayidx76, align 8, !tbaa !335
   store double %77, ptr %ivalue, align 8, !tbaa !335
-  %arrayidx77 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0323
+  %arrayidx77 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0323
   %78 = load i8, ptr %arrayidx77, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %78, 0
   br i1 %tobool.not, label %if.then82, label %lor.lhs.false
@@ -19573,7 +19573,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit249: ; preds = %cond.true.i245, %fo
   %arrayidx104 = getelementptr inbounds double, ptr %67, i64 %cond.i248
   %85 = load double, ptr %arrayidx104, align 8, !tbaa !335
   store double %85, ptr %ivalue103, align 8, !tbaa !335
-  %arrayidx105 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0326
+  %arrayidx105 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0326
   %86 = load i8, ptr %arrayidx105, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool106.not = icmp eq i8 %86, 0
   br i1 %tobool106.not, label %if.then112, label %lor.lhs.false107
@@ -19737,7 +19737,7 @@ for.cond.cleanup134:                              ; preds = %for.inc140, %for.co
 for.body135:                                      ; preds = %for.inc140, %for.body135.lr.ph
   %106 = phi i64 [ %62, %for.body135.lr.ph ], [ %112, %for.inc140 ]
   %i130.0335 = phi i64 [ 0, %for.body135.lr.ph ], [ %inc141, %for.inc140 ]
-  %arrayidx136 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0335
+  %arrayidx136 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0335
   %107 = load i8, ptr %arrayidx136, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool137.not = icmp eq i8 %107, 0
   br i1 %tobool137.not, label %if.then138, label %for.inc140
@@ -20020,13 +20020,13 @@ if.then28:                                        ; preds = %invoke.cont26, %_ZN
   %arrayidx = getelementptr inbounds %"struct.duckdb::string_t", ptr %7, i64 %cond.i
   %arrayidx29 = getelementptr inbounds %"struct.duckdb::string_t", ptr %2, i64 %i.0344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx29, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx30 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0344
+  %arrayidx30 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0344
   store i8 1, ptr %arrayidx30, align 1, !tbaa !119
   %.pre = load i64, ptr %count.i, align 8, !tbaa !89
   br label %if.end32
 
 if.else:                                          ; preds = %invoke.cont26
-  %arrayidx31 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0344
+  %arrayidx31 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0344
   store i8 0, ptr %arrayidx31, align 1, !tbaa !119
   br label %if.end32
 
@@ -20134,7 +20134,7 @@ if.then77:                                        ; preds = %invoke.cont75, %_ZN
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ivalue) #22
   %arrayidx78 = getelementptr inbounds %"struct.duckdb::string_t", ptr %38, i64 %cond.i236
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ivalue, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx78, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx79 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i64.0346
+  %arrayidx79 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i64.0346
   %48 = load i8, ptr %arrayidx79, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %48, 0
   br i1 %tobool.not, label %if.then84, label %lor.lhs.false
@@ -20211,7 +20211,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit255: ; preds = %cond.true.i251, %fo
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ivalue105) #22
   %arrayidx106 = getelementptr inbounds %"struct.duckdb::string_t", ptr %38, i64 %cond.i254
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ivalue105, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx106, i64 16, i1 false), !tbaa.struct !95
-  %arrayidx107 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i96.0349
+  %arrayidx107 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i96.0349
   %59 = load i8, ptr %arrayidx107, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool108.not = icmp eq i8 %59, 0
   br i1 %tobool108.not, label %if.then114, label %lor.lhs.false109
@@ -20385,7 +20385,7 @@ for.cond.cleanup136:                              ; preds = %for.inc142, %for.co
 for.body137:                                      ; preds = %for.inc142, %for.body137.lr.ph
   %82 = phi i64 [ %33, %for.body137.lr.ph ], [ %88, %for.inc142 ]
   %i132.0358 = phi i64 [ 0, %for.body137.lr.ph ], [ %inc143, %for.inc142 ]
-  %arrayidx138 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i132.0358
+  %arrayidx138 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i132.0358
   %83 = load i8, ptr %arrayidx138, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool139.not = icmp eq i8 %83, 0
   br i1 %tobool139.not, label %if.then140, label %for.inc142
@@ -21050,7 +21050,7 @@ for.body21.us.us:                                 ; preds = %for.body21.lr.ph.sp
   %arrayidx27.us.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %2, i64 %i.0312.us.us
   %12 = load i64, ptr %arrayidx.us.us, align 8, !tbaa !60
   store i64 %12, ptr %arrayidx27.us.us, align 8, !tbaa !60
-  %arrayidx28.us.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us.us
+  %arrayidx28.us.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us.us
   store i8 1, ptr %arrayidx28.us.us, align 1, !tbaa !119
   %inc32.us.us = add nuw i64 %i.0312.us.us, 1
   %13 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -21066,7 +21066,7 @@ for.body21.us:                                    ; preds = %for.body21.lr.ph.sp
   %arrayidx27.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %2, i64 %i.0312.us
   %15 = load i64, ptr %arrayidx.us, align 8, !tbaa !60
   store i64 %15, ptr %arrayidx27.us, align 8, !tbaa !60
-  %arrayidx28.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us
+  %arrayidx28.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us
   store i8 1, ptr %arrayidx28.us, align 1, !tbaa !119
   %inc32.us = add nuw i64 %i.0312.us, 1
   %16 = load i64, ptr %count.i, align 8, !tbaa !89
@@ -21099,7 +21099,7 @@ if.then26.us317:                                  ; preds = %for.body21.us313
 if.end30.us321:                                   ; preds = %if.then26.us317, %for.body21.us313
   %20 = phi i64 [ %.pre343, %if.then26.us317 ], [ %17, %for.body21.us313 ]
   %.sink = phi i8 [ 1, %if.then26.us317 ], [ 0, %for.body21.us313 ]
-  %21 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us314
+  %21 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us314
   store i8 %.sink, ptr %21, align 1
   %inc32.us322 = add nuw i64 %i.0312.us314, 1
   %cmp19.us323 = icmp ult i64 %inc32.us322, %20
@@ -21258,7 +21258,7 @@ if.then26:                                        ; preds = %for.body21
 if.end30:                                         ; preds = %if.then26, %for.body21
   %43 = phi i64 [ %.pre, %if.then26 ], [ %39, %for.body21 ]
   %.sink342 = phi i8 [ 1, %if.then26 ], [ 0, %for.body21 ]
-  %44 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312
+  %44 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312
   store i8 %.sink342, ptr %44, align 1
   %inc32 = add nuw i64 %i.0312, 1
   %cmp19 = icmp ult i64 %inc32, %43
@@ -21338,7 +21338,7 @@ for.body67.us:                                    ; preds = %for.body67.lr.ph, %
 if.then75.us:                                     ; preds = %for.body67.us
   %arrayidx76.us = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %50, i64 %i62.0325.us
   %57 = load i64, ptr %arrayidx76.us, align 8, !tbaa !60
-  %arrayidx77.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325.us
+  %arrayidx77.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325.us
   %58 = load i8, ptr %arrayidx77.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %58, 0
   br i1 %tobool.not.us, label %if.then82.us, label %invoke.cont80.us
@@ -21396,7 +21396,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
 if.then75:                                        ; preds = %for.body67
   %arrayidx76 = getelementptr inbounds nuw %"struct.duckdb::timestamp_t", ptr %50, i64 %conv.i230
   %67 = load i64, ptr %arrayidx76, align 8, !tbaa !60
-  %arrayidx77 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325
+  %arrayidx77 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325
   %68 = load i8, ptr %arrayidx77, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %68, 0
   br i1 %tobool.not, label %if.then82, label %invoke.cont80
@@ -21435,7 +21435,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit249: ; preds = %cond.true.i245, %fo
   %cond.i248 = phi i64 [ %conv.i247, %cond.true.i245 ], [ %i94.0327, %for.body99 ]
   %arrayidx104 = getelementptr inbounds %"struct.duckdb::timestamp_t", ptr %50, i64 %cond.i248
   %73 = load i64, ptr %arrayidx104, align 8, !tbaa !60
-  %arrayidx105 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327
+  %arrayidx105 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327
   %74 = load i8, ptr %arrayidx105, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool106.not = icmp eq i8 %74, 0
   br i1 %tobool106.not, label %if.then112, label %invoke.cont110
@@ -21580,7 +21580,7 @@ for.cond.cleanup134:                              ; preds = %for.inc140, %for.co
 for.body135:                                      ; preds = %for.inc140, %for.body135.lr.ph
   %93 = phi i64 [ %45, %for.body135.lr.ph ], [ %99, %for.inc140 ]
   %i130.0336 = phi i64 [ 0, %for.body135.lr.ph ], [ %inc141, %for.inc140 ]
-  %arrayidx136 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0336
+  %arrayidx136 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0336
   %94 = load i8, ptr %arrayidx136, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool137.not = icmp eq i8 %94, 0
   br i1 %tobool137.not, label %if.then138, label %for.inc140
@@ -21855,7 +21855,7 @@ if.then26.us317:                                  ; preds = %for.body21.us313
 
 if.end30.us321:                                   ; preds = %if.then26.us317, %for.body21.us313
   %.sink = phi i8 [ 1, %if.then26.us317 ], [ 0, %for.body21.us313 ]
-  %38 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us314
+  %38 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312.us314
   store i8 %.sink, ptr %38, align 1
   %inc32.us322 = add nuw i64 %i.0312.us314, 1
   %exitcond343.not = icmp eq i64 %inc32.us322, %10
@@ -22031,7 +22031,7 @@ if.then26:                                        ; preds = %for.body21
 
 if.end30:                                         ; preds = %if.then26, %for.body21
   %.sink350 = phi i8 [ 1, %if.then26 ], [ 0, %for.body21 ]
-  %61 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312
+  %61 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i.0312
   store i8 %.sink350, ptr %61, align 1
   %inc32 = add nuw i64 %i.0312, 1
   %exitcond.not = icmp eq i64 %inc32, %10
@@ -22110,7 +22110,7 @@ for.body67.us:                                    ; preds = %for.body67.lr.ph, %
 if.then75.us:                                     ; preds = %for.body67.us
   %arrayidx76.us = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i62.0325.us
   %73 = load i32, ptr %arrayidx76.us, align 4, !tbaa !73
-  %arrayidx77.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325.us
+  %arrayidx77.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325.us
   %74 = load i8, ptr %arrayidx77.us, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not.us = icmp eq i8 %74, 0
   br i1 %tobool.not.us, label %if.then82.us, label %invoke.cont80.us
@@ -22154,7 +22154,7 @@ for.body99.us:                                    ; preds = %if.end115.us.1, %fo
   %i94.0327.us = phi i64 [ 0, %for.body99.us.preheader.new ], [ %inc119.us.1, %if.end115.us.1 ]
   %arrayidx104.us = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i94.0327.us
   %79 = load i32, ptr %arrayidx104.us, align 4, !tbaa !73
-  %arrayidx105.us = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327.us
+  %arrayidx105.us = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327.us
   %80 = load i8, ptr %arrayidx105.us, align 2, !tbaa !119, !range !68, !noundef !69
   %tobool106.not.us = icmp eq i8 %80, 0
   br i1 %tobool106.not.us, label %if.then112.us, label %invoke.cont110.us
@@ -22175,7 +22175,7 @@ if.end115.us:                                     ; preds = %if.then112.us, %inv
   %inc119.us = or disjoint i64 %i94.0327.us, 1
   %arrayidx104.us.1 = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %inc119.us
   %82 = load i32, ptr %arrayidx104.us.1, align 4, !tbaa !73
-  %arrayidx105.us.1 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %inc119.us
+  %arrayidx105.us.1 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %inc119.us
   %83 = load i8, ptr %arrayidx105.us.1, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool106.not.us.1 = icmp eq i8 %83, 0
   br i1 %tobool106.not.us.1, label %if.then112.us.1, label %invoke.cont110.us.1
@@ -22221,7 +22221,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
 if.then75:                                        ; preds = %for.body67
   %arrayidx76 = getelementptr inbounds nuw %"struct.duckdb::date_t", ptr %67, i64 %conv.i230
   %88 = load i32, ptr %arrayidx76, align 4, !tbaa !73
-  %arrayidx77 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325
+  %arrayidx77 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i62.0325
   %89 = load i8, ptr %arrayidx77, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool.not = icmp eq i8 %89, 0
   br i1 %tobool.not, label %if.then82, label %invoke.cont80
@@ -22250,7 +22250,7 @@ for.body99:                                       ; preds = %for.body99.lr.ph, %
   %conv.i247 = zext i32 %91 to i64
   %arrayidx104 = getelementptr inbounds nuw %"struct.duckdb::date_t", ptr %67, i64 %conv.i247
   %92 = load i32, ptr %arrayidx104, align 4, !tbaa !73
-  %arrayidx105 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327
+  %arrayidx105 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327
   %93 = load i8, ptr %arrayidx105, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool106.not = icmp eq i8 %93, 0
   br i1 %tobool106.not, label %if.then112, label %invoke.cont110
@@ -22280,7 +22280,7 @@ for.body99.us.epil:                               ; preds = %for.body99.us.prehe
   %i94.0327.us.unr15 = phi i64 [ %unroll_iter376, %if.end122.loopexit.unr-lcssa ], [ 0, %for.body99.us.preheader ]
   %arrayidx104.us.epil = getelementptr inbounds %"struct.duckdb::date_t", ptr %67, i64 %i94.0327.us.unr15
   %95 = load i32, ptr %arrayidx104.us.epil, align 4, !tbaa !73
-  %arrayidx105.us.epil = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327.us.unr15
+  %arrayidx105.us.epil = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i94.0327.us.unr15
   %96 = load i8, ptr %arrayidx105.us.epil, align 2, !tbaa !119, !range !68, !noundef !69
   %tobool106.not.us.epil = icmp eq i8 %96, 0
   br i1 %tobool106.not.us.epil, label %if.then112.us.epil, label %invoke.cont110.us.epil
@@ -22418,7 +22418,7 @@ for.cond.cleanup134:                              ; preds = %for.inc140, %for.co
 for.body135:                                      ; preds = %for.inc140, %for.body135.lr.ph
   %114 = phi i64 [ %62, %for.body135.lr.ph ], [ %120, %for.inc140 ]
   %i130.0336 = phi i64 [ 0, %for.body135.lr.ph ], [ %inc141, %for.inc140 ]
-  %arrayidx136 = getelementptr inbounds [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0336
+  %arrayidx136 = getelementptr inbounds nuw [2048 x i8], ptr %result_has_value, i64 0, i64 %i130.0336
   %115 = load i8, ptr %arrayidx136, align 1, !tbaa !119, !range !68, !noundef !69
   %tobool137.not = icmp eq i8 %115, 0
   br i1 %tobool137.not, label %if.then138, label %for.inc140

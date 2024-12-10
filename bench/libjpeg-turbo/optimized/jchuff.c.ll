@@ -110,7 +110,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 55:                                               ; preds = %._crit_edge
   %56 = sext i32 %.175.lcssa to i64
-  %57 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %56
   store i8 0, ptr %57, align 1
   %58 = load i8, ptr %5, align 16
   %.not8096 = icmp eq i8 %58, 0
@@ -137,10 +137,10 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv109 = phi i64 [ %63, %.lr.ph92.preheader ], [ %indvars.iv.next110, %.lr.ph92 ]
   %.191 = phi i32 [ %.099, %.lr.ph92.preheader ], [ %65, %.lr.ph92 ]
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, 1
-  %64 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv109
+  %64 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv109
   store i32 %.191, ptr %64, align 4
   %65 = add i32 %.191, 1
-  %66 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next110
+  %66 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %indvars.iv.next110
   %67 = load i8, ptr %66, align 1
   %68 = sext i8 %67 to i32
   %69 = icmp eq i32 %.07697, %68
@@ -172,7 +172,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   %80 = shl i32 %.1.lcssa, 1
   %81 = add nsw i32 %.07697, 1
   %82 = sext i32 %.3.lcssa to i64
-  %83 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %.not80 = icmp eq i8 %84, 0
   br i1 %.not80, label %._crit_edge100, label %.preheader, !llvm.loop !7
@@ -274,7 +274,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 14:                                               ; preds = %11
   %15 = sext i32 %.086114 to i64
-  %16 = getelementptr inbounds [257 x i32], ptr %7, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [257 x i32], ptr %7, i64 0, i64 %15
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4
   %18 = getelementptr inbounds i64, ptr %2, i64 %15
@@ -343,11 +343,11 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %34 = add nsw i64 %33, %31
   store i64 %34, ptr %32, align 8
   store i64 1000000001, ptr %30, align 8
-  %35 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %28
+  %35 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %28
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %28
+  %38 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %28
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.lr.ph123, label %._crit_edge124
@@ -366,7 +366,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %27
   %.lcssa121 = phi i64 [ %28, %27 ], [ %42, %.lr.ph123 ]
-  %49 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %.lcssa121
+  %49 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %.lcssa121
   store i32 %.193, ptr %49, align 4
   %50 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %29
   %51 = load i32, ptr %50, align 4
@@ -407,7 +407,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 72:                                               ; preds = %67, %.lr.ph129
   %73 = sext i32 %65 to i64
-  %74 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = add i8 %75, 1
   store i8 %76, ptr %74, align 1
@@ -441,7 +441,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not133, label %._crit_edge135, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %.preheader104
-  %84 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %.pre
+  %84 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %.pre
   br label %85
 
 85:                                               ; preds = %.lr.ph134, %91
@@ -450,14 +450,14 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 87:                                               ; preds = %87, %85
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %87 ], [ %indvars.iv163, %85 ]
-  %88 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
+  %88 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
   %indvars.iv.next166 = add nsw i64 %indvars.iv165, -1
   br i1 %90, label %87, label %91, !llvm.loop !15
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
+  %92 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv165
   %93 = add i8 %86, -2
   store i8 %93, ptr %82, align 1
   %94 = load i8, ptr %84, align 1
@@ -466,7 +466,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %96 = shl i64 %indvars.iv165, 32
   %sext = add i64 %96, 4294967296
   %97 = ashr exact i64 %sext, 32
-  %98 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = add i8 %99, 2
   store i8 %100, ptr %98, align 1
@@ -484,14 +484,14 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 .preheader:                                       ; preds = %._crit_edge135, %.preheader
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.preheader ], [ 16, %._crit_edge135 ]
-  %105 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
+  %105 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, -1
   br i1 %107, label %.preheader, label %108, !llvm.loop !18
 
 108:                                              ; preds = %.preheader
-  %109 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
+  %109 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv171
   %110 = add i8 %106, -1
   store i8 %110, ptr %109, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %1, ptr noundef nonnull align 16 dereferenceable(17) %4, i64 17, i1 false)
@@ -512,7 +512,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %118 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds [256 x i8], ptr %113, i64 0, i64 %123
@@ -973,7 +973,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %34
@@ -999,7 +999,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 
 34:                                               ; preds = %30, %14
   %35 = sext i32 %20 to i64
-  %36 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %.not29 = icmp eq i32 %37, 0
   br i1 %.not29, label %38, label %48
@@ -1682,7 +1682,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %26 = add nsw i32 %25, %24
   %27 = xor i32 %26, %25
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %10, 3
@@ -1867,7 +1867,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %134 = add nsw i32 %133, %132
   %135 = xor i32 %134, %133
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %136
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = icmp slt i32 %11, %139
@@ -2057,7 +2057,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %244 = add nsw i32 %243, %242
   %245 = xor i32 %244, %243
   %246 = sext i32 %245 to i64
-  %247 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %246
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = icmp slt i32 %11, %249
@@ -2249,7 +2249,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %356 = add nsw i32 %355, %354
   %357 = xor i32 %356, %355
   %358 = sext i32 %357 to i64
-  %359 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %358
   %360 = load i8, ptr %359, align 1
   %361 = zext i8 %360 to i32
   %362 = icmp slt i32 %11, %361
@@ -2441,7 +2441,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %468 = add nsw i32 %467, %466
   %469 = xor i32 %468, %467
   %470 = sext i32 %469 to i64
-  %471 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %470
+  %471 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %470
   %472 = load i8, ptr %471, align 1
   %473 = zext i8 %472 to i32
   %474 = icmp slt i32 %11, %473
@@ -2633,7 +2633,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %580 = add nsw i32 %579, %578
   %581 = xor i32 %580, %579
   %582 = sext i32 %581 to i64
-  %583 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %582
+  %583 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %582
   %584 = load i8, ptr %583, align 1
   %585 = zext i8 %584 to i32
   %586 = icmp slt i32 %11, %585
@@ -2825,7 +2825,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %692 = add nsw i32 %691, %690
   %693 = xor i32 %692, %691
   %694 = sext i32 %693 to i64
-  %695 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %694
+  %695 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %694
   %696 = load i8, ptr %695, align 1
   %697 = zext i8 %696 to i32
   %698 = icmp slt i32 %11, %697
@@ -3017,7 +3017,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %804 = add nsw i32 %803, %802
   %805 = xor i32 %804, %803
   %806 = sext i32 %805 to i64
-  %807 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %806
+  %807 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %806
   %808 = load i8, ptr %807, align 1
   %809 = zext i8 %808 to i32
   %810 = icmp slt i32 %11, %809
@@ -3209,7 +3209,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %916 = add nsw i32 %915, %914
   %917 = xor i32 %916, %915
   %918 = sext i32 %917 to i64
-  %919 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %918
+  %919 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %918
   %920 = load i8, ptr %919, align 1
   %921 = zext i8 %920 to i32
   %922 = icmp slt i32 %11, %921
@@ -3401,7 +3401,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1028 = add nsw i32 %1027, %1026
   %1029 = xor i32 %1028, %1027
   %1030 = sext i32 %1029 to i64
-  %1031 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1030
+  %1031 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1030
   %1032 = load i8, ptr %1031, align 1
   %1033 = zext i8 %1032 to i32
   %1034 = icmp slt i32 %11, %1033
@@ -3593,7 +3593,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1140 = add nsw i32 %1139, %1138
   %1141 = xor i32 %1140, %1139
   %1142 = sext i32 %1141 to i64
-  %1143 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1142
+  %1143 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1142
   %1144 = load i8, ptr %1143, align 1
   %1145 = zext i8 %1144 to i32
   %1146 = icmp slt i32 %11, %1145
@@ -3785,7 +3785,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1252 = add nsw i32 %1251, %1250
   %1253 = xor i32 %1252, %1251
   %1254 = sext i32 %1253 to i64
-  %1255 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1254
+  %1255 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1254
   %1256 = load i8, ptr %1255, align 1
   %1257 = zext i8 %1256 to i32
   %1258 = icmp slt i32 %11, %1257
@@ -3977,7 +3977,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1364 = add nsw i32 %1363, %1362
   %1365 = xor i32 %1364, %1363
   %1366 = sext i32 %1365 to i64
-  %1367 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1366
+  %1367 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1366
   %1368 = load i8, ptr %1367, align 1
   %1369 = zext i8 %1368 to i32
   %1370 = icmp slt i32 %11, %1369
@@ -4169,7 +4169,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1476 = add nsw i32 %1475, %1474
   %1477 = xor i32 %1476, %1475
   %1478 = sext i32 %1477 to i64
-  %1479 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1478
+  %1479 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1478
   %1480 = load i8, ptr %1479, align 1
   %1481 = zext i8 %1480 to i32
   %1482 = icmp slt i32 %11, %1481
@@ -4361,7 +4361,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1588 = add nsw i32 %1587, %1586
   %1589 = xor i32 %1588, %1587
   %1590 = sext i32 %1589 to i64
-  %1591 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1590
+  %1591 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1590
   %1592 = load i8, ptr %1591, align 1
   %1593 = zext i8 %1592 to i32
   %1594 = icmp slt i32 %11, %1593
@@ -4553,7 +4553,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1700 = add nsw i32 %1699, %1698
   %1701 = xor i32 %1700, %1699
   %1702 = sext i32 %1701 to i64
-  %1703 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1702
+  %1703 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1702
   %1704 = load i8, ptr %1703, align 1
   %1705 = zext i8 %1704 to i32
   %1706 = icmp slt i32 %11, %1705
@@ -4745,7 +4745,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1812 = add nsw i32 %1811, %1810
   %1813 = xor i32 %1812, %1811
   %1814 = sext i32 %1813 to i64
-  %1815 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1814
+  %1815 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1814
   %1816 = load i8, ptr %1815, align 1
   %1817 = zext i8 %1816 to i32
   %1818 = icmp slt i32 %11, %1817
@@ -4937,7 +4937,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1924 = add nsw i32 %1923, %1922
   %1925 = xor i32 %1924, %1923
   %1926 = sext i32 %1925 to i64
-  %1927 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1926
+  %1927 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %1926
   %1928 = load i8, ptr %1927, align 1
   %1929 = zext i8 %1928 to i32
   %1930 = icmp slt i32 %11, %1929
@@ -5282,7 +5282,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2116 = add nsw i32 %2115, %2114
   %2117 = xor i32 %2116, %2115
   %2118 = sext i32 %2117 to i64
-  %2119 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2118
+  %2119 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2118
   %2120 = load i8, ptr %2119, align 1
   %2121 = zext i8 %2120 to i32
   %2122 = icmp slt i32 %11, %2121
@@ -5634,7 +5634,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2309 = add nsw i32 %2308, %2307
   %2310 = xor i32 %2309, %2308
   %2311 = sext i32 %2310 to i64
-  %2312 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2311
+  %2312 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2311
   %2313 = load i8, ptr %2312, align 1
   %2314 = zext i8 %2313 to i32
   %2315 = icmp slt i32 %11, %2314
@@ -5986,7 +5986,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2502 = add nsw i32 %2501, %2500
   %2503 = xor i32 %2502, %2501
   %2504 = sext i32 %2503 to i64
-  %2505 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2504
+  %2505 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2504
   %2506 = load i8, ptr %2505, align 1
   %2507 = zext i8 %2506 to i32
   %2508 = icmp slt i32 %11, %2507
@@ -6338,7 +6338,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2695 = add nsw i32 %2694, %2693
   %2696 = xor i32 %2695, %2694
   %2697 = sext i32 %2696 to i64
-  %2698 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2697
+  %2698 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2697
   %2699 = load i8, ptr %2698, align 1
   %2700 = zext i8 %2699 to i32
   %2701 = icmp slt i32 %11, %2700
@@ -6690,7 +6690,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2888 = add nsw i32 %2887, %2886
   %2889 = xor i32 %2888, %2887
   %2890 = sext i32 %2889 to i64
-  %2891 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2890
+  %2891 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %2890
   %2892 = load i8, ptr %2891, align 1
   %2893 = zext i8 %2892 to i32
   %2894 = icmp slt i32 %11, %2893
@@ -7042,7 +7042,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3081 = add nsw i32 %3080, %3079
   %3082 = xor i32 %3081, %3080
   %3083 = sext i32 %3082 to i64
-  %3084 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3083
+  %3084 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3083
   %3085 = load i8, ptr %3084, align 1
   %3086 = zext i8 %3085 to i32
   %3087 = icmp slt i32 %11, %3086
@@ -7394,7 +7394,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3274 = add nsw i32 %3273, %3272
   %3275 = xor i32 %3274, %3273
   %3276 = sext i32 %3275 to i64
-  %3277 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3276
+  %3277 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3276
   %3278 = load i8, ptr %3277, align 1
   %3279 = zext i8 %3278 to i32
   %3280 = icmp slt i32 %11, %3279
@@ -7746,7 +7746,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3467 = add nsw i32 %3466, %3465
   %3468 = xor i32 %3467, %3466
   %3469 = sext i32 %3468 to i64
-  %3470 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3469
+  %3470 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3469
   %3471 = load i8, ptr %3470, align 1
   %3472 = zext i8 %3471 to i32
   %3473 = icmp slt i32 %11, %3472
@@ -8098,7 +8098,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3660 = add nsw i32 %3659, %3658
   %3661 = xor i32 %3660, %3659
   %3662 = sext i32 %3661 to i64
-  %3663 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3662
+  %3663 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3662
   %3664 = load i8, ptr %3663, align 1
   %3665 = zext i8 %3664 to i32
   %3666 = icmp slt i32 %11, %3665
@@ -8450,7 +8450,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3853 = add nsw i32 %3852, %3851
   %3854 = xor i32 %3853, %3852
   %3855 = sext i32 %3854 to i64
-  %3856 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3855
+  %3856 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %3855
   %3857 = load i8, ptr %3856, align 1
   %3858 = zext i8 %3857 to i32
   %3859 = icmp slt i32 %11, %3858
@@ -8802,7 +8802,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4046 = add nsw i32 %4045, %4044
   %4047 = xor i32 %4046, %4045
   %4048 = sext i32 %4047 to i64
-  %4049 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4048
+  %4049 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4048
   %4050 = load i8, ptr %4049, align 1
   %4051 = zext i8 %4050 to i32
   %4052 = icmp slt i32 %11, %4051
@@ -9154,7 +9154,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4239 = add nsw i32 %4238, %4237
   %4240 = xor i32 %4239, %4238
   %4241 = sext i32 %4240 to i64
-  %4242 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4241
+  %4242 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4241
   %4243 = load i8, ptr %4242, align 1
   %4244 = zext i8 %4243 to i32
   %4245 = icmp slt i32 %11, %4244
@@ -9506,7 +9506,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4432 = add nsw i32 %4431, %4430
   %4433 = xor i32 %4432, %4431
   %4434 = sext i32 %4433 to i64
-  %4435 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4434
+  %4435 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4434
   %4436 = load i8, ptr %4435, align 1
   %4437 = zext i8 %4436 to i32
   %4438 = icmp slt i32 %11, %4437
@@ -9858,7 +9858,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4625 = add nsw i32 %4624, %4623
   %4626 = xor i32 %4625, %4624
   %4627 = sext i32 %4626 to i64
-  %4628 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4627
+  %4628 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4627
   %4629 = load i8, ptr %4628, align 1
   %4630 = zext i8 %4629 to i32
   %4631 = icmp slt i32 %11, %4630
@@ -10210,7 +10210,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4818 = add nsw i32 %4817, %4816
   %4819 = xor i32 %4818, %4817
   %4820 = sext i32 %4819 to i64
-  %4821 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4820
+  %4821 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %4820
   %4822 = load i8, ptr %4821, align 1
   %4823 = zext i8 %4822 to i32
   %4824 = icmp slt i32 %11, %4823
@@ -10562,7 +10562,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5011 = add nsw i32 %5010, %5009
   %5012 = xor i32 %5011, %5010
   %5013 = sext i32 %5012 to i64
-  %5014 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5013
+  %5014 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5013
   %5015 = load i8, ptr %5014, align 1
   %5016 = zext i8 %5015 to i32
   %5017 = icmp slt i32 %11, %5016
@@ -10922,7 +10922,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5207 = add nsw i32 %5206, %5205
   %5208 = xor i32 %5207, %5206
   %5209 = sext i32 %5208 to i64
-  %5210 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5209
+  %5210 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5209
   %5211 = load i8, ptr %5210, align 1
   %5212 = zext i8 %5211 to i32
   %5213 = icmp slt i32 %11, %5212
@@ -11282,7 +11282,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5403 = add nsw i32 %5402, %5401
   %5404 = xor i32 %5403, %5402
   %5405 = sext i32 %5404 to i64
-  %5406 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5405
+  %5406 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5405
   %5407 = load i8, ptr %5406, align 1
   %5408 = zext i8 %5407 to i32
   %5409 = icmp slt i32 %11, %5408
@@ -11642,7 +11642,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5599 = add nsw i32 %5598, %5597
   %5600 = xor i32 %5599, %5598
   %5601 = sext i32 %5600 to i64
-  %5602 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5601
+  %5602 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5601
   %5603 = load i8, ptr %5602, align 1
   %5604 = zext i8 %5603 to i32
   %5605 = icmp slt i32 %11, %5604
@@ -12002,7 +12002,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5795 = add nsw i32 %5794, %5793
   %5796 = xor i32 %5795, %5794
   %5797 = sext i32 %5796 to i64
-  %5798 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5797
+  %5798 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5797
   %5799 = load i8, ptr %5798, align 1
   %5800 = zext i8 %5799 to i32
   %5801 = icmp slt i32 %11, %5800
@@ -12362,7 +12362,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5991 = add nsw i32 %5990, %5989
   %5992 = xor i32 %5991, %5990
   %5993 = sext i32 %5992 to i64
-  %5994 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5993
+  %5994 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %5993
   %5995 = load i8, ptr %5994, align 1
   %5996 = zext i8 %5995 to i32
   %5997 = icmp slt i32 %11, %5996
@@ -12722,7 +12722,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6187 = add nsw i32 %6186, %6185
   %6188 = xor i32 %6187, %6186
   %6189 = sext i32 %6188 to i64
-  %6190 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6189
+  %6190 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6189
   %6191 = load i8, ptr %6190, align 1
   %6192 = zext i8 %6191 to i32
   %6193 = icmp slt i32 %11, %6192
@@ -13082,7 +13082,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6383 = add nsw i32 %6382, %6381
   %6384 = xor i32 %6383, %6382
   %6385 = sext i32 %6384 to i64
-  %6386 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6385
+  %6386 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6385
   %6387 = load i8, ptr %6386, align 1
   %6388 = zext i8 %6387 to i32
   %6389 = icmp slt i32 %11, %6388
@@ -13442,7 +13442,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6579 = add nsw i32 %6578, %6577
   %6580 = xor i32 %6579, %6578
   %6581 = sext i32 %6580 to i64
-  %6582 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6581
+  %6582 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6581
   %6583 = load i8, ptr %6582, align 1
   %6584 = zext i8 %6583 to i32
   %6585 = icmp slt i32 %11, %6584
@@ -13802,7 +13802,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6775 = add nsw i32 %6774, %6773
   %6776 = xor i32 %6775, %6774
   %6777 = sext i32 %6776 to i64
-  %6778 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6777
+  %6778 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6777
   %6779 = load i8, ptr %6778, align 1
   %6780 = zext i8 %6779 to i32
   %6781 = icmp slt i32 %11, %6780
@@ -14162,7 +14162,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6971 = add nsw i32 %6970, %6969
   %6972 = xor i32 %6971, %6970
   %6973 = sext i32 %6972 to i64
-  %6974 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6973
+  %6974 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %6973
   %6975 = load i8, ptr %6974, align 1
   %6976 = zext i8 %6975 to i32
   %6977 = icmp slt i32 %11, %6976
@@ -14522,7 +14522,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7167 = add nsw i32 %7166, %7165
   %7168 = xor i32 %7167, %7166
   %7169 = sext i32 %7168 to i64
-  %7170 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7169
+  %7170 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7169
   %7171 = load i8, ptr %7170, align 1
   %7172 = zext i8 %7171 to i32
   %7173 = icmp slt i32 %11, %7172
@@ -14882,7 +14882,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7363 = add nsw i32 %7362, %7361
   %7364 = xor i32 %7363, %7362
   %7365 = sext i32 %7364 to i64
-  %7366 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7365
+  %7366 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7365
   %7367 = load i8, ptr %7366, align 1
   %7368 = zext i8 %7367 to i32
   %7369 = icmp slt i32 %11, %7368
@@ -15242,7 +15242,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7559 = add nsw i32 %7558, %7557
   %7560 = xor i32 %7559, %7558
   %7561 = sext i32 %7560 to i64
-  %7562 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7561
+  %7562 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7561
   %7563 = load i8, ptr %7562, align 1
   %7564 = zext i8 %7563 to i32
   %7565 = icmp slt i32 %11, %7564
@@ -15602,7 +15602,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7755 = add nsw i32 %7754, %7753
   %7756 = xor i32 %7755, %7754
   %7757 = sext i32 %7756 to i64
-  %7758 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7757
+  %7758 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7757
   %7759 = load i8, ptr %7758, align 1
   %7760 = zext i8 %7759 to i32
   %7761 = icmp slt i32 %11, %7760
@@ -15962,7 +15962,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7951 = add nsw i32 %7950, %7949
   %7952 = xor i32 %7951, %7950
   %7953 = sext i32 %7952 to i64
-  %7954 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7953
+  %7954 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %7953
   %7955 = load i8, ptr %7954, align 1
   %7956 = zext i8 %7955 to i32
   %7957 = icmp slt i32 %11, %7956
@@ -16322,7 +16322,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8147 = add nsw i32 %8146, %8145
   %8148 = xor i32 %8147, %8146
   %8149 = sext i32 %8148 to i64
-  %8150 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8149
+  %8150 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8149
   %8151 = load i8, ptr %8150, align 1
   %8152 = zext i8 %8151 to i32
   %8153 = icmp slt i32 %11, %8152
@@ -16682,7 +16682,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8343 = add nsw i32 %8342, %8341
   %8344 = xor i32 %8343, %8342
   %8345 = sext i32 %8344 to i64
-  %8346 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8345
+  %8346 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8345
   %8347 = load i8, ptr %8346, align 1
   %8348 = zext i8 %8347 to i32
   %8349 = icmp slt i32 %11, %8348
@@ -17042,7 +17042,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8539 = add nsw i32 %8538, %8537
   %8540 = xor i32 %8539, %8538
   %8541 = sext i32 %8540 to i64
-  %8542 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8541
+  %8542 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8541
   %8543 = load i8, ptr %8542, align 1
   %8544 = zext i8 %8543 to i32
   %8545 = icmp slt i32 %11, %8544
@@ -17402,7 +17402,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8735 = add nsw i32 %8734, %8733
   %8736 = xor i32 %8735, %8734
   %8737 = sext i32 %8736 to i64
-  %8738 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8737
+  %8738 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8737
   %8739 = load i8, ptr %8738, align 1
   %8740 = zext i8 %8739 to i32
   %8741 = icmp slt i32 %11, %8740
@@ -17762,7 +17762,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8931 = add nsw i32 %8930, %8929
   %8932 = xor i32 %8931, %8930
   %8933 = sext i32 %8932 to i64
-  %8934 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8933
+  %8934 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %8933
   %8935 = load i8, ptr %8934, align 1
   %8936 = zext i8 %8935 to i32
   %8937 = icmp slt i32 %11, %8936
@@ -18122,7 +18122,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9127 = add nsw i32 %9126, %9125
   %9128 = xor i32 %9127, %9126
   %9129 = sext i32 %9128 to i64
-  %9130 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9129
+  %9130 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9129
   %9131 = load i8, ptr %9130, align 1
   %9132 = zext i8 %9131 to i32
   %9133 = icmp slt i32 %11, %9132
@@ -18482,7 +18482,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9323 = add nsw i32 %9322, %9321
   %9324 = xor i32 %9323, %9322
   %9325 = sext i32 %9324 to i64
-  %9326 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9325
+  %9326 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9325
   %9327 = load i8, ptr %9326, align 1
   %9328 = zext i8 %9327 to i32
   %9329 = icmp slt i32 %11, %9328
@@ -18842,7 +18842,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9519 = add nsw i32 %9518, %9517
   %9520 = xor i32 %9519, %9518
   %9521 = sext i32 %9520 to i64
-  %9522 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9521
+  %9522 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9521
   %9523 = load i8, ptr %9522, align 1
   %9524 = zext i8 %9523 to i32
   %9525 = icmp slt i32 %11, %9524
@@ -19202,7 +19202,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9715 = add nsw i32 %9714, %9713
   %9716 = xor i32 %9715, %9714
   %9717 = sext i32 %9716 to i64
-  %9718 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9717
+  %9718 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9717
   %9719 = load i8, ptr %9718, align 1
   %9720 = zext i8 %9719 to i32
   %9721 = icmp slt i32 %11, %9720
@@ -19562,7 +19562,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9911 = add nsw i32 %9910, %9909
   %9912 = xor i32 %9911, %9910
   %9913 = sext i32 %9912 to i64
-  %9914 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9913
+  %9914 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %9913
   %9915 = load i8, ptr %9914, align 1
   %9916 = zext i8 %9915 to i32
   %9917 = icmp slt i32 %11, %9916
@@ -19922,7 +19922,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10107 = add nsw i32 %10106, %10105
   %10108 = xor i32 %10107, %10106
   %10109 = sext i32 %10108 to i64
-  %10110 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10109
+  %10110 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10109
   %10111 = load i8, ptr %10110, align 1
   %10112 = zext i8 %10111 to i32
   %10113 = icmp slt i32 %11, %10112
@@ -20282,7 +20282,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10303 = add nsw i32 %10302, %10301
   %10304 = xor i32 %10303, %10302
   %10305 = sext i32 %10304 to i64
-  %10306 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10305
+  %10306 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10305
   %10307 = load i8, ptr %10306, align 1
   %10308 = zext i8 %10307 to i32
   %10309 = icmp slt i32 %11, %10308
@@ -20642,7 +20642,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10499 = add nsw i32 %10498, %10497
   %10500 = xor i32 %10499, %10498
   %10501 = sext i32 %10500 to i64
-  %10502 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10501
+  %10502 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10501
   %10503 = load i8, ptr %10502, align 1
   %10504 = zext i8 %10503 to i32
   %10505 = icmp slt i32 %11, %10504
@@ -21002,7 +21002,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10695 = add nsw i32 %10694, %10693
   %10696 = xor i32 %10695, %10694
   %10697 = sext i32 %10696 to i64
-  %10698 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10697
+  %10698 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10697
   %10699 = load i8, ptr %10698, align 1
   %10700 = zext i8 %10699 to i32
   %10701 = icmp slt i32 %11, %10700
@@ -21358,7 +21358,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10889 = add nsw i32 %10888, %10887
   %10890 = xor i32 %10889, %10888
   %10891 = sext i32 %10890 to i64
-  %10892 = getelementptr inbounds [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10891
+  %10892 = getelementptr inbounds nuw [65536 x i8], ptr @jpeg_nbits_table, i64 0, i64 %10891
   %10893 = load i8, ptr %10892, align 1
   %10894 = zext i8 %10893 to i32
   %10895 = icmp slt i32 %11, %10894

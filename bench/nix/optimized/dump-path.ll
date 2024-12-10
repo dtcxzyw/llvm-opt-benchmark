@@ -2673,7 +2673,7 @@ define linkonce_odr void @_ZN11CmdDumpPath3runEN3nix3refINS0_5StoreEEERKNS0_9Sto
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %7 = getelementptr i8, ptr %5, i64 -48
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
   store ptr %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 32768, ptr %10, align 8
@@ -2688,7 +2688,7 @@ define linkonce_odr void @_ZN11CmdDumpPath3runEN3nix3refINS0_5StoreEEERKNS0_9Sto
   store i8 1, ptr %14, align 8
   %15 = load ptr, ptr %1, align 8
   %16 = load i64, ptr @_ZTVN3nix6FdSinkE, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %16
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 208
   %20 = load ptr, ptr %19, align 8
@@ -6296,7 +6296,7 @@ define linkonce_odr void @_ZN12CmdDumpPath23runEv(ptr noundef nonnull align 8 de
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %5 = getelementptr i8, ptr %3, i64 -48
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 32768, ptr %8, align 8
@@ -6311,7 +6311,7 @@ define linkonce_odr void @_ZN12CmdDumpPath23runEv(ptr noundef nonnull align 8 de
   store i8 1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr @_ZTVN3nix6FdSinkE, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   invoke void @_ZN3nix8dumpPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_4SinkERSt8functionIFbS7_EE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 1 @_ZN3nix17defaultPathFilterB5cxx11E)
           to label %16 unwind label %18
 
@@ -7650,7 +7650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTN3nix6FdSinkE, i64 16), align 8
   %15 = getelementptr i8, ptr %13, i64 -48
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %14, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 32768, ptr %18, align 8
@@ -7665,7 +7665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr @_ZTVN3nix6FdSinkE, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
   invoke void @_ZN3nix8dumpPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_4SinkERSt8functionIFbS7_EE(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 1 @_ZN3nix17defaultPathFilterB5cxx11E)
           to label %26 unwind label %27
 

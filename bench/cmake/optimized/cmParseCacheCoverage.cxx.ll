@@ -380,7 +380,7 @@ define dso_local noundef zeroext i1 @_ZN20cmParseCacheCoverage13ReadCMCovFileEPK
   %25 = load ptr, ptr %3, align 8
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %27
   %29 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %28)
           to label %30 unwind label %44
 

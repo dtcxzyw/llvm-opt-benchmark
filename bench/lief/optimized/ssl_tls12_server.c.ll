@@ -4606,11 +4606,11 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, 
 
 99:                                               ; preds = %.lr.ph, %99
   %.02932 = phi i64 [ 0, %.lr.ph ], [ %111, %99 ]
-  %100 = getelementptr inbounds [48 x i8], ptr %6, i64 0, i64 %.02932
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 0, i64 %.02932
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = and i32 %85, %102
-  %104 = getelementptr inbounds [48 x i8], ptr %7, i64 0, i64 %.02932
+  %104 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 0, i64 %.02932
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = and i32 %106, %98

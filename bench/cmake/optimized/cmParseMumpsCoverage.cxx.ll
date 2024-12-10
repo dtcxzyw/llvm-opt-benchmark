@@ -158,7 +158,7 @@ define dso_local noundef zeroext i1 @_ZN20cmParseMumpsCoverage16ReadCoverageFile
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr i8, ptr %10, i64 -24
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   %14 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %13)
           to label %15 unwind label %16
 
@@ -513,7 +513,7 @@ define dso_local void @_ZN20cmParseMumpsCoverage19InitializeMumpsFileERNSt7__cxx
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %9)
           to label %11 unwind label %12
 

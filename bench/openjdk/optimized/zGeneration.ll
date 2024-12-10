@@ -1999,7 +1999,7 @@ define hidden void @_ZN16ZGenerationYoung7collectE10ZYoungTypeP17ConcurrentGCTim
   store i32 %1, ptr %20, align 64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [4 x %class.ZStatPhaseGeneration], ptr @_ZL21ZPhaseGenerationYoung, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x %class.ZStatPhaseGeneration], ptr @_ZL21ZPhaseGenerationYoung, i64 0, i64 %22
   store ptr %2, ptr %21, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %23, ptr %24, align 8

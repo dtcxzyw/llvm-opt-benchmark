@@ -1806,7 +1806,7 @@ do.body24:                                        ; preds = %do.end9.i, %if.then
   %arrayidx.i.i = getelementptr inbounds i8, ptr %20, i64 %div.i.i
   %22 = load i8, ptr %arrayidx.i.i, align 1
   %rem.i.i = srem i64 %21, 8
-  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i.i
   %23 = load i8, ptr %arrayidx5.i.i, align 1
   %24 = xor i8 %23, -1
   %xor105.i.i = and i8 %22, %24
@@ -5710,7 +5710,7 @@ _ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.el
   %sub.ptr.lhs.cast.i14.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i.i
   %gepdiff = sub nsw i64 8, %sub.ptr.sub.i16.i
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr %ref.tmp16, i64 %sub.ptr.sub.i16.i
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 %sub.ptr.sub.i16.i
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr nonnull align 8 %incdec.ptr4.sink.i.i45.i.ptr, i64 %gepdiff, i1 false)
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %gepdiff
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
@@ -26951,7 +26951,7 @@ entry:
   %vtable.i = load ptr, ptr %os.i, align 8, !noalias !822
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !822
-  %add.ptr.i = getelementptr inbounds i8, ptr %os.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os.i, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef 5)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !822
 
@@ -31756,7 +31756,7 @@ entry:
   %vtable.i = load ptr, ptr %os.i, align 8, !noalias !826
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !826
-  %add.ptr.i = getelementptr inbounds i8, ptr %os.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os.i, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef 5)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !826
 
@@ -36568,7 +36568,7 @@ sw.bb:                                            ; preds = %entry
   %vtable.i = load ptr, ptr %os.i, align 8, !noalias !830
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8, !noalias !830
-  %add.ptr.i = getelementptr inbounds i8, ptr %os.i, i64 %vbase.offset.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %os.i, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef 5)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !830
 
@@ -36613,7 +36613,7 @@ sw.bb13:                                          ; preds = %entry
   %vtable.i14 = load ptr, ptr %os.i13, align 8, !noalias !833
   %vbase.offset.ptr.i15 = getelementptr i8, ptr %vtable.i14, i64 -24
   %vbase.offset.i16 = load i64, ptr %vbase.offset.ptr.i15, align 8, !noalias !833
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %os.i13, i64 %vbase.offset.i16
+  %add.ptr.i17 = getelementptr inbounds nuw i8, ptr %os.i13, i64 %vbase.offset.i16
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i17, i32 noundef 5)
           to label %invoke.cont.i19 unwind label %lpad.i18, !noalias !833
 
@@ -36654,7 +36654,7 @@ sw.bb23:                                          ; preds = %entry
   %vtable.i27 = load ptr, ptr %os.i26, align 8, !noalias !836
   %vbase.offset.ptr.i28 = getelementptr i8, ptr %vtable.i27, i64 -24
   %vbase.offset.i29 = load i64, ptr %vbase.offset.ptr.i28, align 8, !noalias !836
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %os.i26, i64 %vbase.offset.i29
+  %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %os.i26, i64 %vbase.offset.i29
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i30, i32 noundef 5)
           to label %invoke.cont.i32 unwind label %lpad.i31, !noalias !836
 
@@ -36695,7 +36695,7 @@ sw.bb33:                                          ; preds = %entry
   %vtable.i40 = load ptr, ptr %os.i39, align 8, !noalias !839
   %vbase.offset.ptr.i41 = getelementptr i8, ptr %vtable.i40, i64 -24
   %vbase.offset.i42 = load i64, ptr %vbase.offset.ptr.i41, align 8, !noalias !839
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %os.i39, i64 %vbase.offset.i42
+  %add.ptr.i43 = getelementptr inbounds nuw i8, ptr %os.i39, i64 %vbase.offset.i42
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i43, i32 noundef 5)
           to label %invoke.cont.i45 unwind label %lpad.i44, !noalias !839
 
@@ -46406,7 +46406,7 @@ entry:
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 5)
           to label %invoke.cont unwind label %lpad
 
@@ -46470,7 +46470,7 @@ entry:
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 5)
           to label %invoke.cont unwind label %lpad
 
@@ -46534,7 +46534,7 @@ entry:
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 5)
           to label %invoke.cont unwind label %lpad
 
@@ -46598,7 +46598,7 @@ entry:
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %os, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds nuw i8, ptr %os, i64 %vbase.offset
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr, i32 noundef 5)
           to label %invoke.cont unwind label %lpad
 

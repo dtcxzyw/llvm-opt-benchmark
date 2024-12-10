@@ -654,7 +654,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   %indvars.iv137.i = phi i64 [ %indvars.iv.next138.i, %.preheader.i ], [ 0, %261 ]
   %265 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv137.i
   %266 = load i32, ptr %265, align 4
-  %267 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv139.i
+  %267 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv139.i
   %268 = load i32, ptr %267, align 4
   store i32 %268, ptr %265, align 4
   store i32 %266, ptr %267, align 4
@@ -690,7 +690,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
   %indvars.iv.next146.i = add nsw i64 %indvars.iv145.i, 1
   %278 = trunc nuw nsw i64 %indvars.iv.next146.i to i32
   %279 = sitofp i32 %278 to double
-  %280 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv.next146.i
+  %280 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv.next146.i
   %281 = load i32, ptr %280, align 4
   %282 = sitofp i32 %281 to double
   %283 = fmul double %276, %282

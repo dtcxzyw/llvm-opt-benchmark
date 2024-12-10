@@ -2556,7 +2556,7 @@ sw.bb207:                                         ; preds = %for.body
 
 sw.epilog:                                        ; preds = %for.body, %sw.bb207, %sw.bb
   %inc = add i64 %j.0150, 1
-  %arrayidx213 = getelementptr inbounds [5 x %struct.ossl_dispatch_st], ptr %rlayer_dispatch_tmp, i64 0, i64 %j.0150
+  %arrayidx213 = getelementptr inbounds nuw [5 x %struct.ossl_dispatch_st], ptr %rlayer_dispatch_tmp, i64 0, i64 %j.0150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx213, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
   br label %for.inc
 

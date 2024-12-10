@@ -713,7 +713,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %96 = trunc i32 %spec.select.i to i8
   %97 = select i1 %95, i8 -1, i8 %96
   %98 = sext i32 %.180109.i to i64
-  %99 = getelementptr inbounds [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i8 %97, ptr %100, align 2
   %101 = trunc i32 %.077110.i to i16
@@ -762,7 +762,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %128 = trunc i32 %spec.select103.i to i8
   %129 = select i1 %127, i8 -1, i8 %128
   %130 = sext i32 %.281.i to i64
-  %131 = getelementptr inbounds [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i8 %129, ptr %132, align 2
   %133 = load i32, ptr %.078112.i, align 8
@@ -805,7 +805,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %152 = trunc i32 %spec.select105.i to i8
   %153 = select i1 %151, i8 -1, i8 %152
   %154 = sext i32 %.382.i to i64
-  %155 = getelementptr inbounds [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [16 x %struct.FT_Span_], ptr %2, i64 0, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i8 %153, ptr %156, align 2
   %157 = trunc i32 %143 to i16

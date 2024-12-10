@@ -132,7 +132,7 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %.sroa.3.0.i = phi i64 [ %.sroa.8.1, %24 ], [ %56, %i128_ucomp.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %61 = getelementptr inbounds [16 x i8], ptr @i128_to_string.digits, i64 0, i64 %.sroa.3.0.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr @i128_to_string.digits, i64 0, i64 %.sroa.3.0.i
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   store i8 %62, ptr %.026, align 1

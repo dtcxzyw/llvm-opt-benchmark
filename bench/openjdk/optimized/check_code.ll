@@ -3839,7 +3839,7 @@ check_flags.exit.us:                              ; preds = %73, %83, %93, %104,
   %114 = load i32, ptr %113, align 8
   %115 = sext i32 %114 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 73, i64 %115, i1 false)
-  %116 = getelementptr inbounds [257 x i8], ptr %7, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [257 x i8], ptr %7, i64 0, i64 %115
   store i8 0, ptr %116, align 1
   br label %pop_and_free.exit.i.us
 
@@ -4029,7 +4029,7 @@ free_block.exit.i.i.us:                           ; preds = %189, %188, %179
 
 195:                                              ; preds = %check_flags.exit.us
   %196 = sext i32 %58 to i64
-  %197 = getelementptr inbounds [230 x [2 x ptr]], ptr @opcode_in_out, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [230 x [2 x ptr]], ptr @opcode_in_out, i64 0, i64 %196
   %198 = load ptr, ptr %197, align 16
   br label %pop_and_free.exit.i.us
 
@@ -5604,7 +5604,7 @@ free_block.exit.i.i57.us:                         ; preds = %856, %855, %check_a
 
 885:                                              ; preds = %update_flags.exit.us
   %886 = sext i32 %811 to i64
-  %887 = getelementptr inbounds [230 x [2 x ptr]], ptr @opcode_in_out, i64 0, i64 %886, i64 1
+  %887 = getelementptr inbounds nuw [230 x [2 x ptr]], ptr @opcode_in_out, i64 0, i64 %886, i64 1
   %888 = load ptr, ptr %887, align 8
   br label %pop_and_free.exit.i45.us
 

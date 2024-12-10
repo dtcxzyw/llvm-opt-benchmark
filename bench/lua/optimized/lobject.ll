@@ -382,7 +382,7 @@ define hidden range(i32 -2147483648, 2147483600) i32 @luaO_hexavalue(i32 noundef
 entry:
   %add = add nsw i32 %c, 1
   %idxprom = sext i32 %add to i64
-  %arrayidx = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [257 x i8], ptr @luai_ctype_, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -461,7 +461,7 @@ for.body.i:                                       ; preds = %if.then.i, %for.bod
   %conv20.i = sext i8 %8 to i32
   %add.i.i = add nsw i32 %conv20.i, 1
   %idxprom.i.i = sext i32 %add.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [257 x i8], ptr @luai_ctype_, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [257 x i8], ptr @luai_ctype_, i64 0, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %10 = and i8 %9, 2
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -612,7 +612,7 @@ if.end13.i:                                       ; preds = %lor.lhs.false.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call6.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %arrayidx16.i12 = getelementptr inbounds [201 x i8], ptr %buff.i, i64 0, i64 %sub.ptr.sub.i
+  %arrayidx16.i12 = getelementptr inbounds nuw [201 x i8], ptr %buff.i, i64 0, i64 %sub.ptr.sub.i
   store i8 %31, ptr %arrayidx16.i12, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i15.i)
   %call.i16.i = call double @strtod(ptr noundef nonnull %buff.i, ptr noundef nonnull %endptr.i15.i) #18
@@ -734,7 +734,7 @@ if.else.i:                                        ; preds = %entry
   %2 = load double, ptr %obj, align 8
   %call3.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buff, i64 noundef 44, ptr noundef nonnull @.str.9, double noundef %2) #18
   %call4.i = call i64 @strspn(ptr noundef nonnull %buff, ptr noundef nonnull @.str.10) #19
-  %arrayidx.i = getelementptr inbounds i8, ptr %buff, i64 %call4.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buff, i64 %call4.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp6.i = icmp eq i8 %3, 0
   br i1 %cmp6.i, label %if.then8.i, label %tostringbuff.exit
@@ -744,7 +744,7 @@ if.then8.i:                                       ; preds = %if.else.i
   %4 = load ptr, ptr %call9.i, align 8
   %5 = load i8, ptr %4, align 1
   %idxprom.i = sext i32 %call3.i to i64
-  %arrayidx11.i = getelementptr inbounds i8, ptr %buff, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %buff, i64 %idxprom.i
   store i8 %5, ptr %arrayidx11.i, align 1
   %inc12.i = add nsw i32 %call3.i, 2
   %arrayidx14.i = getelementptr i8, ptr %arrayidx11.i, i64 1
@@ -1092,7 +1092,7 @@ do.body.i:                                        ; preds = %vaarg.end87, %do.bo
   %conv1.i = or disjoint i8 %49, -128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = sub nsw i64 8, %indvars.iv.i
-  %arrayidx2.i = getelementptr inbounds i8, ptr %bf76, i64 %50
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %bf76, i64 %50
   store i8 %conv1.i, ptr %arrayidx2.i, align 1
   %shr.i = lshr i64 %x.addr.0.i, 6
   %shr3.i = lshr i32 %mfb.0.i, 1
@@ -1117,7 +1117,7 @@ luaO_utf8esc.exit:                                ; preds = %vaarg.end87, %do.en
   %conv9.sink.in.i = phi i64 [ %or8.i, %do.end.i ], [ %47, %vaarg.end87 ]
   %n.0.i = phi i64 [ %52, %do.end.i ], [ 1, %vaarg.end87 ]
   %conv9.sink.i = trunc i64 %conv9.sink.in.i to i8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %bf76, i64 %idxprom11.sink.i
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %bf76, i64 %idxprom11.sink.i
   store i8 %conv9.sink.i, ptr %arrayidx12.i, align 1
   %idx.neg = sub nsw i64 0, %n.0.i
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr91, i64 %idx.neg

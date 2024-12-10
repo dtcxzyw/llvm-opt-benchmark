@@ -156,7 +156,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %15
   %18 = add i64 %.0612, 1
-  %19 = getelementptr inbounds [32 x i32], ptr %3, i64 0, i64 %.0612
+  %19 = getelementptr inbounds nuw [32 x i32], ptr %3, i64 0, i64 %.0612
   store i32 %.013, ptr %19, align 4
   br label %20
 
@@ -434,7 +434,7 @@ rhash_init.exit.thread:                           ; preds = %4
 
 21:                                               ; preds = %19
   %22 = add i64 %.0612.i, 1
-  %23 = getelementptr inbounds [32 x i32], ptr %7, i64 0, i64 %.0612.i
+  %23 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %.0612.i
   store i32 %.013.i, ptr %23, align 4
   br label %24
 
@@ -730,7 +730,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr nocapture 
 
 23:                                               ; preds = %21
   %24 = add i64 %.0612.i, 1
-  %25 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %.0612.i
+  %25 = getelementptr inbounds nuw [32 x i32], ptr %6, i64 0, i64 %.0612.i
   store i32 %.013.i, ptr %25, align 4
   br label %26
 

@@ -1687,9 +1687,9 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 60:                                               ; preds = %.preheader217
   %61 = add nsw i64 %indvars.iv243, -1
-  %62 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv.next
+  %62 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv.next
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv.next
+  %64 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv.next
   %65 = load i64, ptr %64, align 8
   %66 = sub i64 %63, %65
   %67 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %61
@@ -1874,9 +1874,9 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 .lr.ph230:                                        ; preds = %.preheader207, %181
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %181 ], [ %141, %.preheader207 ]
   %.1125229 = phi i32 [ %184, %181 ], [ %139, %.preheader207 ]
-  %170 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv252
+  %170 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv252
   %171 = load i64, ptr %170, align 8
-  %172 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %indvars.iv252
+  %172 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv252
   %173 = load i64, ptr %172, align 8
   %174 = sub i64 %171, %173
   %175 = zext nneg i32 %.1125229 to i64
@@ -1890,7 +1890,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 
 181:                                              ; preds = %.lr.ph230
   %182 = sub nsw i64 %179, %173
-  %183 = getelementptr inbounds [32 x i64], ptr %11, i64 0, i64 %indvars.iv252
+  %183 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv252
   store i64 %182, ptr %183, align 8
   %indvars.iv.next253 = add nsw i64 %indvars.iv252, -1
   %184 = add nsw i32 %.1125229, -1
@@ -1920,9 +1920,9 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 .lr.ph225:                                        ; preds = %.preheader212, %210
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %210 ], [ %141, %.preheader212 ]
   %.2224 = phi i32 [ %211, %210 ], [ %139, %.preheader212 ]
-  %195 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %indvars.iv249
+  %195 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv249
   %196 = load i64, ptr %195, align 8
-  %197 = getelementptr inbounds [32 x i64], ptr %11, i64 0, i64 %indvars.iv249
+  %197 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv249
   %198 = load i64, ptr %197, align 8
   %199 = add nsw i64 %198, %196
   %200 = zext nneg i32 %.2224 to i64
@@ -1932,7 +1932,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
   br i1 %.not149, label %203, label %.loopexit206
 
 203:                                              ; preds = %.lr.ph225
-  %204 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv249
+  %204 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv249
   %205 = load i64, ptr %204, align 8
   %206 = sub i64 %205, %196
   %207 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %200

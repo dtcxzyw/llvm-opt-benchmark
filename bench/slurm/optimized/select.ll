@@ -459,7 +459,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 6:                                                ; preds = %1
   %strlen30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr31 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen30
+  %endptr31 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr31, ptr noundef nonnull align 1 dereferenceable(14) @.str.44, i64 14, i1 false)
   br label %23
 
@@ -472,7 +472,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 10:                                               ; preds = %7
   %strlen28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr29 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen28
+  %endptr29 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %endptr29, ptr noundef nonnull align 1 dereferenceable(15) @.str.45, i64 15, i1 false)
   br label %23
 
@@ -485,7 +485,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 14:                                               ; preds = %11
   %strlen26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr27 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen26
+  %endptr27 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %endptr27, ptr noundef nonnull align 1 dereferenceable(17) @.str.46, i64 17, i1 false)
   br label %23
 
@@ -494,7 +494,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 16:                                               ; preds = %15
   %strlen24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr25 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen24
+  %endptr25 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr25, ptr noundef nonnull align 1 dereferenceable(7) @.str.47, i64 7, i1 false)
   br label %23
 
@@ -503,7 +503,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 18:                                               ; preds = %17
   %strlen22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr23 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen22
+  %endptr23 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen22
   store i64 19512273779249731, ptr %endptr23, align 1
   br label %23
 
@@ -512,7 +512,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 20:                                               ; preds = %19
   %strlen20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr21 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen20
+  %endptr21 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr21, ptr noundef nonnull align 1 dereferenceable(10) @.str.49, i64 10, i1 false)
   br label %23
 
@@ -521,7 +521,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 22:                                               ; preds = %21
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr, ptr noundef nonnull align 1 dereferenceable(10) @.str.50, i64 10, i1 false)
   br label %23
 
@@ -537,13 +537,13 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 26:                                               ; preds = %25
   %strlen34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr35 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen34
+  %endptr35 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen34
   store i16 44, ptr %endptr35, align 1
   br label %27
 
 27:                                               ; preds = %26, %25
   %strlen36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr37 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen36
+  %endptr37 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %endptr37, ptr noundef nonnull align 1 dereferenceable(21) @.str.52, i64 21, i1 false)
   %.pre60.pre61.pre63.pre = load i8, ptr @select_type_param_string.select_str, align 16
   br label %28
@@ -560,13 +560,13 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 31:                                               ; preds = %30
   %strlen40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr41 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen40
+  %endptr41 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen40
   store i16 44, ptr %endptr41, align 1
   br label %32
 
 32:                                               ; preds = %31, %30
   %strlen42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr43 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen42
+  %endptr43 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %endptr43, ptr noundef nonnull align 1 dereferenceable(27) @.str.53, i64 27, i1 false)
   %.pre60.pre61.pre = load i8, ptr @select_type_param_string.select_str, align 16
   br label %33
@@ -583,13 +583,13 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 36:                                               ; preds = %35
   %strlen46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr47 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen46
+  %endptr47 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen46
   store i16 44, ptr %endptr47, align 1
   br label %37
 
 37:                                               ; preds = %36, %35
   %strlen48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr49 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen48
+  %endptr49 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr49, ptr noundef nonnull align 1 dereferenceable(7) @.str.54, i64 7, i1 false)
   %.pre60.pre = load i8, ptr @select_type_param_string.select_str, align 16
   br label %38
@@ -606,13 +606,13 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 41:                                               ; preds = %40
   %strlen52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr53 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen52
+  %endptr53 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen52
   store i16 44, ptr %endptr53, align 1
   br label %42
 
 42:                                               ; preds = %41, %40
   %strlen54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr55 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen54
+  %endptr55 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %endptr55, ptr noundef nonnull align 1 dereferenceable(14) @.str.55, i64 14, i1 false)
   %.pre = load i8, ptr @select_type_param_string.select_str, align 16
   br label %43
@@ -624,7 +624,7 @@ define noundef nonnull ptr @select_type_param_string(i16 noundef zeroext %0) loc
 
 46:                                               ; preds = %43
   %strlen56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @select_type_param_string.select_str)
-  %endptr57 = getelementptr inbounds i8, ptr @select_type_param_string.select_str, i64 %strlen56
+  %endptr57 = getelementptr inbounds nuw i8, ptr @select_type_param_string.select_str, i64 %strlen56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr57, ptr noundef nonnull align 1 dereferenceable(5) @.str.56, i64 5, i1 false)
   br label %47
 

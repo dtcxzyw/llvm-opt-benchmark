@@ -384,7 +384,7 @@ if.then21.i:                                      ; preds = %land.lhs.true16.i
 if.end25.i:                                       ; preds = %if.then21.i, %land.lhs.true16.i, %if.end.i, %while.body.i
   %len.1.i = phi i32 [ %len.0.i, %land.lhs.true16.i ], [ %sub22.i, %if.then21.i ], [ %len.0.i, %if.end.i ], [ %conv7.i, %while.body.i ]
   %idx.ext27.i = sext i32 %len.1.i to i64
-  %add.ptr28.i = getelementptr inbounds i8, ptr %buf.i, i64 %idx.ext27.i
+  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %idx.ext27.i
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end25.i

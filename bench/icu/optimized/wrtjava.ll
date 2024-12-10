@@ -1143,7 +1143,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %className)
-  %endptr = getelementptr inbounds i8, ptr %className, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %className, i64 %strlen
   store i16 95, ptr %endptr, align 1
   %call12 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %className, ptr noundef nonnull dereferenceable(1) %0) #9
   br label %if.end
@@ -1163,14 +1163,14 @@ if.then13:                                        ; preds = %if.end
 
 if.then18:                                        ; preds = %if.then13
   %strlen16 = call i64 @strlen(ptr nonnull dereferenceable(1) %fileName)
-  %endptr17 = getelementptr inbounds i8, ptr %fileName, i64 %strlen16
+  %endptr17 = getelementptr inbounds nuw i8, ptr %fileName, i64 %strlen16
   store i16 47, ptr %endptr17, align 1
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end, %if.then13, %if.then18
   %call29 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %fileName, ptr noundef nonnull dereferenceable(1) %className) #9
   %strlen14 = call i64 @strlen(ptr nonnull dereferenceable(1) %fileName)
-  %endptr15 = getelementptr inbounds i8, ptr %fileName, i64 %strlen14
+  %endptr15 = getelementptr inbounds nuw i8, ptr %fileName, i64 %strlen14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %endptr15, ptr noundef nonnull align 1 dereferenceable(6) @.str.6, i64 6, i1 false)
   %tobool33.not = icmp eq ptr %writtenFilename, null
   br i1 %tobool33.not, label %if.end38, label %if.then34

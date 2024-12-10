@@ -48,11 +48,11 @@ define void @add_test(ptr noundef %test_case_name, ptr noundef %test_fn) local_u
 entry:
   %0 = load i32, ptr @num_tests, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom
   store ptr %test_case_name, ptr %arrayidx, align 16
-  %test_fn4 = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 1
+  %test_fn4 = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 1
   store ptr %test_fn, ptr %test_fn4, align 8
-  %num = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 3
+  %num = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 3
   store i32 -1, ptr %num, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr @num_tests, align 4
@@ -67,13 +67,13 @@ define void @add_all_tests(ptr noundef %test_case_name, ptr noundef %test_fn, i3
 entry:
   %0 = load i32, ptr @num_tests, align 4
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom
   store ptr %test_case_name, ptr %arrayidx, align 16
-  %param_test_fn = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 2
+  %param_test_fn = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 2
   store ptr %test_fn, ptr %param_test_fn, align 16
-  %num6 = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 3
+  %num6 = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 3
   store i32 %num, ptr %num6, align 8
-  %subtest9 = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 4
+  %subtest9 = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom, i32 4
   %1 = trunc i32 %subtest to i8
   %bf.load = load i8, ptr %subtest9, align 4
   %bf.value = and i8 %1, 1
@@ -360,7 +360,7 @@ if.end20.i.i:                                     ; preds = %if.then14.i.i, %if.
 if.then22.i.i:                                    ; preds = %if.end20.i.i
   %sub.i.i = add nsw i32 %10, -1
   %idxprom23.i.i = sext i32 %sub.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom23.i.i
   %num.i.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i.i, i64 24
   %11 = load i32, ptr %num.i.i, align 8
   %cmp25.i.i = icmp eq i32 %11, -1
@@ -494,7 +494,7 @@ for.body39:                                       ; preds = %if.end36, %for.inc2
 if.else47:                                        ; preds = %for.body39
   %.b71 = load i1, ptr @show_list, align 4
   %idxprom49 = sext i32 %24 to i64
-  %arrayidx50 = getelementptr inbounds [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49
+  %arrayidx50 = getelementptr inbounds nuw [1024 x %struct.test_info], ptr @all_tests, i64 0, i64 %idxprom49
   %num = getelementptr inbounds nuw i8, ptr %arrayidx50, i64 24
   %26 = load i32, ptr %num, align 8
   %cmp51.not = icmp eq i32 %26, -1

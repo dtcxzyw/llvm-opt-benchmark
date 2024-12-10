@@ -868,11 +868,11 @@ entry:
   %add = add nsw i32 %call, 1
   %inc = add nsw i32 %call, 2
   %idxprom = sext i32 %add to i64
-  %arrayidx1 = getelementptr inbounds [128 x i8], ptr %cbuf, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw [128 x i8], ptr %cbuf, i64 0, i64 %idxprom
   store i8 13, ptr %arrayidx1, align 1
   %inc2 = add nsw i32 %call, 3
   %idxprom3 = sext i32 %inc to i64
-  %arrayidx4 = getelementptr inbounds [128 x i8], ptr %cbuf, i64 0, i64 %idxprom3
+  %arrayidx4 = getelementptr inbounds nuw [128 x i8], ptr %cbuf, i64 0, i64 %idxprom3
   store i8 10, ptr %arrayidx4, align 1
   %conv = sext i32 %inc2 to i64
   %flags.i = getelementptr inbounds nuw i8, ptr %r, i64 48
@@ -944,11 +944,11 @@ entry:
   %add.i = add nsw i32 %call.i, 1
   %inc.i = add nsw i32 %call.i, 2
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx1.i = getelementptr inbounds [128 x i8], ptr %cbuf.i, i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw [128 x i8], ptr %cbuf.i, i64 0, i64 %idxprom.i
   store i8 13, ptr %arrayidx1.i, align 1
   %inc2.i = add nsw i32 %call.i, 3
   %idxprom3.i = sext i32 %inc.i to i64
-  %arrayidx4.i = getelementptr inbounds [128 x i8], ptr %cbuf.i, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [128 x i8], ptr %cbuf.i, i64 0, i64 %idxprom3.i
   store i8 10, ptr %arrayidx4.i, align 1
   %conv.i = sext i32 %inc2.i to i64
   %flags.i.i = getelementptr inbounds nuw i8, ptr %r, i64 48

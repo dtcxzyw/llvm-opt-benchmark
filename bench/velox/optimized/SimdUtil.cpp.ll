@@ -151,7 +151,7 @@ _ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIi
   %agg.tmp.sroa.0.0.copyload5.i.i20 = load <8 x i32>, ptr @_ZZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits, align 32
   %19 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %agg.tmp.sroa.0.0.copyload5.i.i20, <8 x i32> %15)
   %conv.i.i.i = sext i32 %conv36 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [9 x %"class.xsimd::batch_bool"], ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i64 %conv.i.i.i
   %retval.sroa.0.0.copyload.i.i6.i.i21 = load <8 x i32>, ptr %arrayidx.i.i.i.i, align 32
   %20 = ashr <8 x i32> %15, splat (i32 3)
   %21 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %bits, <8 x i32> %20, <8 x i32> %retval.sroa.0.0.copyload.i.i6.i.i21, i8 1)

@@ -596,7 +596,7 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph50:                                         ; preds = %.thread, %.loopexit
   %.03549 = phi ptr [ %.2, %.loopexit ], [ %19, %.thread ]
   %.03747 = phi i64 [ %45, %.loopexit ], [ 0, %.thread ]
-  %20 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %.03747
+  %20 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %.03747
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %.not40 = icmp sgt i32 %spec.select, %22
@@ -606,10 +606,10 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
 
 23:                                               ; preds = %.lr.ph50
   %24 = or disjoint i64 %.03747, 2
-  %25 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = or disjoint i64 %.03747, 3
-  %28 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %.not4244 = icmp sgt i8 %26, %29
   br i1 %.not4244, label %.loopexit, label %.lr.ph
@@ -619,7 +619,7 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
   %31 = sext i8 %26 to i32
   %32 = sitofp i8 %21 to double
   %33 = or disjoint i64 %.03747, 1
-  %34 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [0 x i8], ptr @lab_gamut_data, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = sitofp i8 %35 to double
   br label %37

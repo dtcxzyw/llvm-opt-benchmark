@@ -97,7 +97,7 @@ define i32 @__dtoa_engine(double noundef %0, ptr nocapture noundef writeonly %1,
 38:                                               ; preds = %34, %.loopexit91
   %.181 = phi i32 [ %., %34 ], [ %2, %.loopexit91 ]
   %39 = sext i32 %.181 to i64
-  %40 = getelementptr inbounds [0 x double], ptr @g_dtoa_round, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [0 x double], ptr @g_dtoa_round, i64 0, i64 %39
   %41 = load double, ptr %40, align 8
   %42 = fadd double %.376, %41
   %43 = fcmp oge double %42, 1.000000e+16

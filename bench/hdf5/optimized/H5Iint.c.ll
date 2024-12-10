@@ -140,7 +140,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 define range(i32 -1, 1) i32 @H5I_register_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -3074,7 +3074,7 @@ define i32 @H5I_get_ref(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define i32 @H5I__inc_type_ref(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -3149,7 +3149,7 @@ define noundef i32 @H5I_dec_type_ref(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @H5I__get_type_ref(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
@@ -3383,7 +3383,7 @@ H5I__iterate_cb.exit.thread36:                    ; preds = %H5I__iterate_cb.exi
 define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   store i64 -1, ptr %2, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7

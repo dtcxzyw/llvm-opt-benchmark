@@ -5575,7 +5575,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112BugpointPass13chec
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr i8, ptr %23, i64 -24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   %27 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %26)
           to label %28 unwind label %33
 

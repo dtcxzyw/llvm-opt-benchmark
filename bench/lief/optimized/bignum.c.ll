@@ -1564,7 +1564,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 n
 
 11:                                               ; preds = %9
   %12 = add i64 %10, -1
-  %13 = getelementptr inbounds [2484 x i8], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 10
   br i1 %15, label %16, label %.thread28
@@ -1576,7 +1576,7 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 n
 
 ..thread28_crit_edge:                             ; preds = %16
   %.pre = add i64 %10, -2
-  %.phi.trans.insert = getelementptr inbounds [2484 x i8], ptr %4, i64 0, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %.pre
   %.pre32 = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread28
 
@@ -1588,13 +1588,13 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_read_file(ptr noundef %0, i32 n
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %.thread28
-  %20 = getelementptr inbounds [2484 x i8], ptr %4, i64 0, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw [2484 x i8], ptr %4, i64 0, i64 %.pre-phi
   store i8 0, ptr %20, align 1
   br label %.thread
 
 .thread:                                          ; preds = %9, %19, %.thread28, %16
   %.1 = phi i64 [ %.pre-phi, %19 ], [ %.02031, %.thread28 ], [ 0, %16 ], [ %10, %9 ]
-  %21 = getelementptr inbounds i8, ptr %4, i64 %.1
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.1
   %22 = zext nneg i32 %1 to i64
   br label %23
 
@@ -1657,10 +1657,10 @@ define hidden range(i32 -16, 1) i32 @mbedtls_mpi_write_file(ptr noundef %0, ptr 
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #19
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %14 = add i64 %13, 1
-  %15 = getelementptr inbounds [2484 x i8], ptr %6, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw [2484 x i8], ptr %6, i64 0, i64 %13
   store i8 13, ptr %15, align 1
   %16 = add i64 %13, 2
-  %17 = getelementptr inbounds [2484 x i8], ptr %6, i64 0, i64 %14
+  %17 = getelementptr inbounds nuw [2484 x i8], ptr %6, i64 0, i64 %14
   store i8 10, ptr %17, align 1
   %.not21 = icmp eq ptr %3, null
   br i1 %.not21, label %22, label %18

@@ -10922,10 +10922,10 @@ sw.bb3:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i27)
   %switch.tableidx943 = add nsw i32 %0, -2
   %49 = sext i32 %switch.tableidx943 to i64
-  %switch.gep = getelementptr inbounds [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE, i64 0, i64 %49
   %switch.load = load i16, ptr %switch.gep, align 2
   %50 = sext i32 %switch.tableidx943 to i64
-  %switch.gep944 = getelementptr inbounds [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.180, i64 0, i64 %50
+  %switch.gep944 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.180, i64 0, i64 %50
   %switch.load945 = load i16, ptr %switch.gep944, align 2
   %call.i.i.i.i30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev(), !noalias !543
   %51 = load ptr, ptr %call.i.i.i.i30, align 8, !noalias !543
@@ -11243,10 +11243,10 @@ sw.bb4:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i155)
   %switch.tableidx946 = add nsw i32 %0, -2
   %96 = sext i32 %switch.tableidx946 to i64
-  %switch.gep947 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.181, i64 0, i64 %96
+  %switch.gep947 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.181, i64 0, i64 %96
   %switch.load948 = load i32, ptr %switch.gep947, align 4
   %97 = sext i32 %switch.tableidx946 to i64
-  %switch.gep949 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.182, i64 0, i64 %97
+  %switch.gep949 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.182, i64 0, i64 %97
   %switch.load950 = load i32, ptr %switch.gep949, align 4
   %call.i.i.i.i158 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev(), !noalias !554
   %98 = load ptr, ptr %call.i.i.i.i158, align 8, !noalias !554
@@ -11564,10 +11564,10 @@ sw.bb5:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp1.i285)
   %switch.tableidx951 = add nsw i32 %0, -2
   %143 = sext i32 %switch.tableidx951 to i64
-  %switch.gep952 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.183, i64 0, i64 %143
+  %switch.gep952 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.183, i64 0, i64 %143
   %switch.load953 = load i64, ptr %switch.gep952, align 8
   %144 = sext i32 %switch.tableidx951 to i64
-  %switch.gep954 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.184, i64 0, i64 %144
+  %switch.gep954 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.184, i64 0, i64 %144
   %switch.load955 = load i64, ptr %switch.gep954, align 8
   %call.i.i.i.i288 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev(), !noalias !565
   %145 = load ptr, ptr %call.i.i.i.i288, align 8, !noalias !565
@@ -12201,7 +12201,7 @@ sw.bb7:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i544)
   %switch.tableidx956 = add nsw i32 %0, -2
   %235 = sext i32 %switch.tableidx956 to i64
-  %switch.gep957 = getelementptr inbounds [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.185, i64 0, i64 %235
+  %switch.gep957 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.185, i64 0, i64 %235
   %switch.load958 = load i16, ptr %switch.gep957, align 2
   %call.i.i.i.i547 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint16Ev(), !noalias !587
   %236 = load ptr, ptr %call.i.i.i.i547, align 8, !noalias !587
@@ -12519,7 +12519,7 @@ sw.bb8:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i673)
   %switch.tableidx959 = add nsw i32 %0, -2
   %281 = sext i32 %switch.tableidx959 to i64
-  %switch.gep960 = getelementptr inbounds [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.186, i64 0, i64 %281
+  %switch.gep960 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.186, i64 0, i64 %281
   %switch.load961 = load i32, ptr %switch.gep960, align 4
   %call.i.i.i.i676 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint32Ev(), !noalias !598
   %282 = load ptr, ptr %call.i.i.i.i676, align 8, !noalias !598
@@ -12837,7 +12837,7 @@ sw.bb9:                                           ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp1.i804)
   %switch.tableidx962 = add nsw i32 %0, -2
   %327 = sext i32 %switch.tableidx962 to i64
-  %switch.gep963 = getelementptr inbounds [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.187, i64 0, i64 %327
+  %switch.gep963 = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN5arrow8internal14IntegersCanFitERKNS_9ArraySpanERKNS_8DataTypeE.187, i64 0, i64 %327
   %switch.load964 = load i64, ptr %switch.gep963, align 8
   %call.i.i.i.i807 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint64Ev(), !noalias !609
   %328 = load ptr, ptr %call.i.i.i.i807, align 8, !noalias !609

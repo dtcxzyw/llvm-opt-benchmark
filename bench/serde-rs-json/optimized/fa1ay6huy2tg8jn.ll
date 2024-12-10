@@ -773,7 +773,7 @@ default.unreachable22:                            ; preds = %2
   %19 = zext nneg i16 %18 to i64
   %20 = add i64 %.02836.i, -4
   %21 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %16
-  %22 = getelementptr inbounds i8, ptr %5, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %20
   %23 = load i16, ptr %21, align 1, !noalias !31
   store i16 %23, ptr %22, align 1, !alias.scope !31
   %24 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %19
@@ -792,7 +792,7 @@ default.unreachable22:                            ; preds = %2
   %.zext35.i = zext nneg i16 %31 to i64
   %32 = add i64 %.028.lcssa.i, -2
   %33 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %30
-  %34 = getelementptr inbounds i8, ptr %5, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %32
   %35 = load i16, ptr %33, align 1, !noalias !31
   store i16 %35, ptr %34, align 1, !alias.scope !31
   br label %36
@@ -807,7 +807,7 @@ default.unreachable22:                            ; preds = %2
   %39 = shl nuw nsw i64 %.027.i, 1
   %40 = add i64 %.129.i, -2
   %41 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %39
-  %42 = getelementptr inbounds i8, ptr %5, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   %43 = load i16, ptr %41, align 1, !noalias !31
   store i16 %43, ptr %42, align 1, !alias.scope !31
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
@@ -815,7 +815,7 @@ default.unreachable22:                            ; preds = %2
 44:                                               ; preds = %36
   %45 = add i64 %.129.i, -1
   %46 = trunc nuw nsw i64 %.027.i to i8
-  %47 = getelementptr inbounds i8, ptr %5, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %45
   %48 = or disjoint i8 %46, 48
   store i8 %48, ptr %47, align 1, !alias.scope !31
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit"
@@ -823,7 +823,7 @@ default.unreachable22:                            ; preds = %2
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17h65d2f486ca77588cE.llvm.17788874430417167.exit": ; preds = %38, %44
   %.2.i = phi i64 [ %45, %44 ], [ %40, %38 ]
   %49 = sub i64 20, %.2.i
-  %50 = getelementptr inbounds i8, ptr %5, i64 %.2.i
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 %.2.i
   %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %49)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %105
@@ -858,7 +858,7 @@ default.unreachable22:                            ; preds = %2
   %64 = zext nneg i16 %63 to i64
   %65 = add i64 %.02636.i, -4
   %66 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %61
-  %67 = getelementptr inbounds i8, ptr %4, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %65
   %68 = load i16, ptr %66, align 1, !noalias !34
   store i16 %68, ptr %67, align 1, !alias.scope !34
   %69 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %64
@@ -877,7 +877,7 @@ default.unreachable22:                            ; preds = %2
   %.zext35.i11 = zext nneg i16 %76 to i64
   %77 = add i64 %.026.lcssa.i, -2
   %78 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %75
-  %79 = getelementptr inbounds i8, ptr %4, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 %77
   %80 = load i16, ptr %78, align 1, !noalias !34
   store i16 %80, ptr %79, align 1, !alias.scope !34
   br label %81
@@ -892,7 +892,7 @@ default.unreachable22:                            ; preds = %2
   %84 = shl nuw nsw i64 %.025.i, 1
   %85 = add i64 %.127.i, -2
   %86 = getelementptr inbounds nuw i8, ptr @anon.f288aba1288e7a615443dffa1f18fa93.10, i64 %84
-  %87 = getelementptr inbounds i8, ptr %4, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 %85
   %88 = load i16, ptr %86, align 1, !noalias !34
   store i16 %88, ptr %87, align 1, !alias.scope !34
   br label %94
@@ -900,7 +900,7 @@ default.unreachable22:                            ; preds = %2
 89:                                               ; preds = %81
   %90 = add i64 %.127.i, -1
   %91 = trunc nuw nsw i64 %.025.i to i8
-  %92 = getelementptr inbounds i8, ptr %4, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 %90
   %93 = or disjoint i8 %91, 48
   store i8 %93, ptr %92, align 1, !alias.scope !34
   br label %94
@@ -911,14 +911,14 @@ default.unreachable22:                            ; preds = %2
 
 95:                                               ; preds = %94
   %96 = add i64 %.2.i9, -1
-  %97 = getelementptr inbounds i8, ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 %96
   store i8 45, ptr %97, align 1, !alias.scope !34
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit"
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i64$GT$5write17h325c411b5667e53cE.llvm.17788874430417167.exit": ; preds = %94, %95
   %.3.i = phi i64 [ %.2.i9, %94 ], [ %96, %95 ]
   %98 = sub i64 20, %.3.i
-  %99 = getelementptr inbounds i8, ptr %4, i64 %.3.i
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 %.3.i
   %100 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %99, i64 noundef %98)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   br label %105

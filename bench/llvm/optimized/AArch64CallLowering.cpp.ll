@@ -5365,7 +5365,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19AArch64CallLowering26isTypeIsVal
 7:                                                ; preds = %3
   %8 = zext i16 %1 to i64
   %9 = add nsw i64 %8, -1
-  %10 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %9
   %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8

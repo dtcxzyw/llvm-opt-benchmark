@@ -413,13 +413,13 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %131 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv63.i
   %132 = load i32, ptr %131, align 4
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds float, ptr %4, i64 %133
+  %134 = getelementptr inbounds nuw float, ptr %4, i64 %133
   %135 = load float, ptr %134, align 4
   %136 = sext i32 %.03952.i to i64
-  %137 = getelementptr inbounds i32, ptr %3, i64 %136
+  %137 = getelementptr inbounds nuw i32, ptr %3, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds float, ptr %4, i64 %139
+  %140 = getelementptr inbounds nuw float, ptr %4, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = fcmp ogt float %135, %141
   %143 = trunc nuw nsw i64 %indvars.iv63.i to i32
@@ -438,7 +438,7 @@ define float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1) local_unnamed
   %147 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv66.i
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %.039.lcssa.i to i64
-  %150 = getelementptr inbounds i32, ptr %3, i64 %149
+  %150 = getelementptr inbounds nuw i32, ptr %3, i64 %149
   %151 = load i32, ptr %150, align 4
   store i32 %151, ptr %147, align 4
   store i32 %148, ptr %150, align 4
@@ -827,13 +827,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %331 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv63.i336
   %332 = load i32, ptr %331, align 4
   %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds float, ptr %4, i64 %333
+  %334 = getelementptr inbounds nuw float, ptr %4, i64 %333
   %335 = load float, ptr %334, align 4
   %336 = sext i32 %.03952.i337 to i64
-  %337 = getelementptr inbounds i32, ptr %3, i64 %336
+  %337 = getelementptr inbounds nuw i32, ptr %3, i64 %336
   %338 = load i32, ptr %337, align 4
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds float, ptr %4, i64 %339
+  %340 = getelementptr inbounds nuw float, ptr %4, i64 %339
   %341 = load float, ptr %340, align 4
   %342 = fcmp ogt float %335, %341
   %343 = trunc nuw nsw i64 %indvars.iv63.i336 to i32
@@ -852,7 +852,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %186
   %347 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv66.i324
   %348 = load i32, ptr %347, align 4
   %349 = sext i32 %.039.lcssa.i328 to i64
-  %350 = getelementptr inbounds i32, ptr %3, i64 %349
+  %350 = getelementptr inbounds nuw i32, ptr %3, i64 %349
   %351 = load i32, ptr %350, align 4
   store i32 %351, ptr %347, align 4
   store i32 %348, ptr %350, align 4
@@ -1807,9 +1807,9 @@ Vec_PtrFree.exit138:                              ; preds = %._crit_edge, %172
   %189 = and i64 %188, -2
   %190 = inttoptr i64 %189 to ptr
   %191 = add nsw i64 %indvars.iv190, %184
-  %192 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %191
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %indvars.iv190
+  %194 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv190
   %195 = load ptr, ptr %194, align 16
   %196 = tail call ptr @Abc_AigMux(ptr noundef %187, ptr noundef %190, ptr noundef %193, ptr noundef %195) #13
   store ptr %196, ptr %194, align 16
@@ -2067,13 +2067,13 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %105 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv63.i
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds float, ptr %6, i64 %107
+  %108 = getelementptr inbounds nuw float, ptr %6, i64 %107
   %109 = load float, ptr %108, align 4
   %110 = sext i32 %.03952.i to i64
-  %111 = getelementptr inbounds i32, ptr %5, i64 %110
+  %111 = getelementptr inbounds nuw i32, ptr %5, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds float, ptr %6, i64 %113
+  %114 = getelementptr inbounds nuw float, ptr %6, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = fcmp ogt float %109, %115
   %117 = trunc nuw nsw i64 %indvars.iv63.i to i32
@@ -2092,7 +2092,7 @@ define i32 @Abc_NtkDelayTraceTCEdges(ptr nocapture readnone %0, ptr nocapture no
   %121 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv66.i
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %.039.lcssa.i to i64
-  %124 = getelementptr inbounds i32, ptr %5, i64 %123
+  %124 = getelementptr inbounds nuw i32, ptr %5, i64 %123
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %121, align 4
   store i32 %122, ptr %124, align 4

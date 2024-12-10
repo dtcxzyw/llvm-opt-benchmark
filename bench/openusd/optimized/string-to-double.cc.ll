@@ -678,7 +678,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
 277:                                              ; preds = %273
   %278 = add nsw i32 %.0157405, 1
   %279 = sext i32 %.0157405 to i64
-  %280 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %279
+  %280 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %279
   store i8 %274, ptr %280, align 1
   %281 = add nsw i32 %.0137409, 1
   br label %287
@@ -864,7 +864,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
 364:                                              ; preds = %360
   %365 = add nsw i32 %.4161424, 1
   %366 = sext i32 %.4161424 to i64
-  %367 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %366
   store i8 %361, ptr %367, align 1
   %368 = add nsw i32 %.3140426, 1
   %369 = add nsw i32 %.4427, -1
@@ -1182,7 +1182,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 488:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312
   store ptr %8, ptr %10, align 8
   %489 = sext i32 %.2159 to i64
-  %490 = getelementptr inbounds i8, ptr %8, i64 %489
+  %490 = getelementptr inbounds nuw i8, ptr %8, i64 %489
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %492 = load i16, ptr %491, align 8
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1206,7 +1206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
 503:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread
   %504 = add nsw i32 %.2159504, 1
   %505 = sext i32 %.2159504 to i64
-  %506 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %505
+  %506 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %505
   store i8 49, ptr %506, align 1
   %507 = add nsw i32 %501, -1
   br label %508
@@ -1215,7 +1215,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspace
   %.6163 = phi i32 [ %504, %503 ], [ %.2159504, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ]
   %.7 = phi i32 [ %507, %503 ], [ %501, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit312.thread ]
   %509 = sext i32 %.6163 to i64
-  %510 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %509
+  %510 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %509
   store i8 0, ptr %510, align 1
   %511 = zext i32 %.6163 to i64
   br label %512
@@ -1898,7 +1898,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %274 = trunc nuw i16 %270 to i8
   %275 = add nsw i32 %.0157351, 1
   %276 = sext i32 %.0157351 to i64
-  %277 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %276
   store i8 %274, ptr %277, align 1
   %278 = add nsw i32 %.0137355, 1
   br label %284
@@ -2078,7 +2078,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit30.
   %357 = trunc nuw i16 %353 to i8
   %358 = add nsw i32 %.4161370, 1
   %359 = sext i32 %.4161370 to i64
-  %360 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %359
   store i8 %357, ptr %360, align 1
   %361 = add nsw i32 %.3140372, 1
   %362 = add nsw i32 %.4373, -1
@@ -2360,7 +2360,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 473:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread
   store ptr %8, ptr %10, align 8
   %474 = sext i32 %.2159 to i64
-  %475 = getelementptr inbounds i8, ptr %8, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr %8, i64 %474
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %477 = load i16, ptr %476, align 8
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2385,7 +2385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
 489:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread
   %490 = add nsw i32 %.2159429, 1
   %491 = sext i32 %.2159429 to i64
-  %492 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %491
   store i8 49, ptr %492, align 1
   %493 = add nsw i32 %487, -1
   br label %494
@@ -2394,7 +2394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %.6163 = phi i32 [ %490, %489 ], [ %.2159429, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread ]
   %.7 = phi i32 [ %493, %489 ], [ %487, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit257.thread.thread ]
   %495 = sext i32 %.6163 to i64
-  %496 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %495
+  %496 = getelementptr inbounds nuw [782 x i8], ptr %8, i64 0, i64 %495
   store i8 0, ptr %496, align 1
   %497 = zext i32 %.6163 to i64
   br label %498

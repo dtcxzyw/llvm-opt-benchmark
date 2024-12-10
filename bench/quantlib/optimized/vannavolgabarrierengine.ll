@@ -8626,7 +8626,7 @@ lpad.i1395:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1396 = getelementptr i8, ptr %vtable6.i, i64 -24
   %vbase.offset.i1397 = load i64, ptr %vbase.offset.ptr.i1396, align 8
-  %add.ptr.i1398 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1397
+  %add.ptr.i1398 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1397
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1398)
           to label %invoke.cont8.i unwind label %lpad7.i
 
@@ -8645,7 +8645,7 @@ try.cont.i:                                       ; preds = %_ZN5boost10shared_p
   %vtable13.i = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i = getelementptr i8, ptr %vtable13.i, i64 -24
   %vbase.offset15.i = load i64, ptr %vbase.offset.ptr14.i, align 8
-  %add.ptr16.i = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i)
           to label %invoke.cont1202 unwind label %lpad1160
 
@@ -8900,7 +8900,7 @@ lpad.i1489:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1490 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1491 = getelementptr i8, ptr %vtable6.i1490, i64 -24
   %vbase.offset.i1492 = load i64, ptr %vbase.offset.ptr.i1491, align 8
-  %add.ptr.i1493 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1492
+  %add.ptr.i1493 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1492
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1493)
           to label %invoke.cont8.i1497 unwind label %lpad7.i1494
 
@@ -8919,7 +8919,7 @@ try.cont.i1499:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1500 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1501 = getelementptr i8, ptr %vtable13.i1500, i64 -24
   %vbase.offset15.i1502 = load i64, ptr %vbase.offset.ptr14.i1501, align 8
-  %add.ptr16.i1503 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1502
+  %add.ptr16.i1503 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1502
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1503)
           to label %invoke.cont1248 unwind label %lpad1203
 
@@ -9064,7 +9064,7 @@ lpad.i1553:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1554 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1555 = getelementptr i8, ptr %vtable6.i1554, i64 -24
   %vbase.offset.i1556 = load i64, ptr %vbase.offset.ptr.i1555, align 8
-  %add.ptr.i1557 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1556
+  %add.ptr.i1557 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1556
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1557)
           to label %invoke.cont8.i1561 unwind label %lpad7.i1558
 
@@ -9083,7 +9083,7 @@ try.cont.i1563:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1564 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1565 = getelementptr i8, ptr %vtable13.i1564, i64 -24
   %vbase.offset15.i1566 = load i64, ptr %vbase.offset.ptr14.i1565, align 8
-  %add.ptr16.i1567 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1566
+  %add.ptr16.i1567 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1566
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1567)
           to label %invoke.cont1272 unwind label %lpad1249
 
@@ -9341,7 +9341,7 @@ lpad.i1659:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1660 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1661 = getelementptr i8, ptr %vtable6.i1660, i64 -24
   %vbase.offset.i1662 = load i64, ptr %vbase.offset.ptr.i1661, align 8
-  %add.ptr.i1663 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1662
+  %add.ptr.i1663 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1662
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1663)
           to label %invoke.cont8.i1667 unwind label %lpad7.i1664
 
@@ -9360,7 +9360,7 @@ try.cont.i1669:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1670 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1671 = getelementptr i8, ptr %vtable13.i1670, i64 -24
   %vbase.offset15.i1672 = load i64, ptr %vbase.offset.ptr14.i1671, align 8
-  %add.ptr16.i1673 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1672
+  %add.ptr16.i1673 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1672
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1673)
           to label %invoke.cont1322 unwind label %lpad1321
 
@@ -9505,7 +9505,7 @@ lpad.i1723:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1724 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1725 = getelementptr i8, ptr %vtable6.i1724, i64 -24
   %vbase.offset.i1726 = load i64, ptr %vbase.offset.ptr.i1725, align 8
-  %add.ptr.i1727 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1726
+  %add.ptr.i1727 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1726
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1727)
           to label %invoke.cont8.i1731 unwind label %lpad7.i1728
 
@@ -9524,7 +9524,7 @@ try.cont.i1733:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1734 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1735 = getelementptr i8, ptr %vtable13.i1734, i64 -24
   %vbase.offset15.i1736 = load i64, ptr %vbase.offset.ptr14.i1735, align 8
-  %add.ptr16.i1737 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1736
+  %add.ptr16.i1737 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1736
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1737)
           to label %invoke.cont1346 unwind label %lpad1323
 
@@ -9888,7 +9888,7 @@ lpad.i1871:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1872 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1873 = getelementptr i8, ptr %vtable6.i1872, i64 -24
   %vbase.offset.i1874 = load i64, ptr %vbase.offset.ptr.i1873, align 8
-  %add.ptr.i1875 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1874
+  %add.ptr.i1875 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1874
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1875)
           to label %invoke.cont8.i1879 unwind label %lpad7.i1876
 
@@ -9907,7 +9907,7 @@ try.cont.i1881:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1882 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1883 = getelementptr i8, ptr %vtable13.i1882, i64 -24
   %vbase.offset15.i1884 = load i64, ptr %vbase.offset.ptr14.i1883, align 8
-  %add.ptr16.i1885 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1884
+  %add.ptr16.i1885 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1884
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1885)
           to label %invoke.cont1414 unwind label %lpad1413
 
@@ -10052,7 +10052,7 @@ lpad.i1935:                                       ; preds = %_ZN5boost10shared_p
   %vtable6.i1936 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr.i1937 = getelementptr i8, ptr %vtable6.i1936, i64 -24
   %vbase.offset.i1938 = load i64, ptr %vbase.offset.ptr.i1937, align 8
-  %add.ptr.i1939 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset.i1938
+  %add.ptr.i1939 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset.i1938
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr.i1939)
           to label %invoke.cont8.i1943 unwind label %lpad7.i1940
 
@@ -10071,7 +10071,7 @@ try.cont.i1945:                                   ; preds = %_ZN5boost10shared_p
   %vtable13.i1946 = load ptr, ptr %barrierOption, align 8, !tbaa !42
   %vbase.offset.ptr14.i1947 = getelementptr i8, ptr %vtable13.i1946, i64 -24
   %vbase.offset15.i1948 = load i64, ptr %vbase.offset.ptr14.i1947, align 8
-  %add.ptr16.i1949 = getelementptr inbounds i8, ptr %barrierOption, i64 %vbase.offset15.i1948
+  %add.ptr16.i1949 = getelementptr inbounds nuw i8, ptr %barrierOption, i64 %vbase.offset15.i1948
   invoke void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56) %add.ptr16.i1949)
           to label %invoke.cont1437 unwind label %lpad1413
 
@@ -22427,7 +22427,7 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %29, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
   store ptr %30, ptr %add.ptr.i.i, align 8, !tbaa !42
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !42
@@ -22682,7 +22682,7 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %29, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
   store ptr %30, ptr %add.ptr.i.i, align 8, !tbaa !42
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !42
@@ -22937,7 +22937,7 @@ ehcleanup23:                                      ; preds = %_ZNKSt7__cxx1112bas
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %29, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 %vbase.offset.i.i
   store ptr %30, ptr %add.ptr.i.i, align 8, !tbaa !42
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %_ql_msg_stream, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !42

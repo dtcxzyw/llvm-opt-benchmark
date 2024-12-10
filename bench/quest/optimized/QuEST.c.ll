@@ -3001,7 +3001,7 @@ define void @createPauliHamilFromFile(ptr dead_on_unwind noalias writable sret(%
 createPauliHamil.exit:                            ; preds = %._crit_edge, %.lr.ph.preheader.i
   store i32 6712357, ptr %3, align 16
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3)
-  %endptr = getelementptr inbounds i8, ptr %3, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %3, i64 %strlen
   store i16 32, ptr %endptr, align 1
   tail call void @rewind(ptr noundef %5)
   %.not85 = icmp eq i32 %spec.select71, 0

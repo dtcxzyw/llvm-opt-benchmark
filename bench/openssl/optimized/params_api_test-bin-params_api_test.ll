@@ -206,7 +206,7 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -262,7 +262,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -318,7 +318,7 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -374,7 +374,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -430,7 +430,7 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int32.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -486,7 +486,7 @@ entry:
   %cmp = alloca [4 x i8], align 4
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint32.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -542,7 +542,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -598,7 +598,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -654,7 +654,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_int64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -710,7 +710,7 @@ entry:
   %cmp = alloca [8 x i8], align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_uint64.param, i64 40, i1 false)
   %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
@@ -766,7 +766,7 @@ entry:
   %c = alloca ptr, align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   store ptr null, ptr %c, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_bignum.param, i64 40, i1 false)
@@ -829,7 +829,7 @@ entry:
   %c = alloca ptr, align 8
   %param = alloca %struct.ossl_param_st, align 8
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [14 x %struct.anon], ptr @raw_values, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
   store ptr null, ptr %c, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %param, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_param_signed_bignum.param, i64 40, i1 false)

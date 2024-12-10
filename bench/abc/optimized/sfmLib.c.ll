@@ -505,7 +505,7 @@ define range(i32 -2147483648, 2147483647) i32 @Sfm_LibFindComplInputGate(ptr noc
   %11 = zext i32 %10 to i64
   %12 = shl i64 %9, %11
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %12
   %17 = and i64 %15, %9
@@ -608,7 +608,7 @@ define range(i32 -2147483648, 2147483647) i32 @Sfm_LibFindComplInputGate(ptr noc
 
 60:                                               ; preds = %59, %58
   %.val = phi i32 [ %.val.pre, %59 ], [ %.val91, %58 ]
-  %61 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %13
+  %61 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %13
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, %19
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1191,7 +1191,7 @@ define i64 @Sfm_LibTruth6Two(ptr nocapture noundef readonly %0, ptr nocapture no
 18:                                               ; preds = %.lr.ph
   %19 = add nsw i32 %.017, 1
   %20 = sext i32 %.017 to i64
-  %21 = getelementptr inbounds [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   br label %23
 
@@ -2325,7 +2325,7 @@ Sfm_LibFun.exit222:                               ; preds = %275
   %282 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv282
   %283 = load i32, ptr %282, align 4
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %284
   %286 = trunc nuw nsw i64 %indvars.iv282 to i32
   store i32 %286, ptr %285, align 4
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -2608,7 +2608,7 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
 414:                                              ; preds = %.lr.ph271
   %415 = add nsw i32 %.5268, 1
   %416 = sext i32 %.5268 to i64
-  %417 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %416
+  %417 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %416
   %418 = load i32, ptr %417, align 4
   %419 = trunc i32 %418 to i8
   br label %420
@@ -3410,7 +3410,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
 .lr.ph64.i:                                       ; preds = %101
   %103 = shl nuw nsw i32 1, %99
   %104 = sext i32 %99 to i64
-  %105 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load i64, ptr %107, align 8
@@ -3439,7 +3439,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
 122:                                              ; preds = %95
   %123 = icmp eq i32 %99, 5
   %124 = sext i32 %96 to i64
-  %125 = getelementptr inbounds i64, ptr %14, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %14, i64 %124
   br i1 %123, label %126, label %134
 
 126:                                              ; preds = %122
@@ -3504,7 +3504,7 @@ Abc_Tt6IsOrType.exit.thread:                      ; preds = %Abc_Tt6IsAndType.ex
 Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %.lr.ph.i, %112, %101, %126, %134, %.preheader.lr.ph.i
   %151 = load i32, ptr %98, align 4
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %12, i64 %152
+  %153 = getelementptr inbounds nuw i32, ptr %12, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %153, align 4
   %156 = load i32, ptr %154, align 4
@@ -3694,7 +3694,7 @@ Sfm_LibTruth8Two.exit:                            ; preds = %.lr.ph.i157, %196
 230:                                              ; preds = %229
   %231 = sdiv i32 %224, 2
   %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %232
+  %233 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %232
   %234 = load i64, ptr %233, align 8
   %235 = xor i64 %234, -1
   br label %Exp_Truth6Lit.exit.i219
@@ -3702,7 +3702,7 @@ Sfm_LibTruth8Two.exit:                            ; preds = %.lr.ph.i157, %196
 236:                                              ; preds = %229
   %237 = ashr exact i32 %224, 1
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %238
+  %239 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %238
   %240 = load i64, ptr %239, align 8
   br label %Exp_Truth6Lit.exit.i219
 
@@ -3741,7 +3741,7 @@ Exp_Truth6Lit.exit.i219:                          ; preds = %241, %236, %230, %2
 256:                                              ; preds = %255
   %257 = sdiv i32 %250, 2
   %258 = sext i32 %257 to i64
-  %259 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %258
+  %259 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %258
   %260 = load i64, ptr %259, align 8
   %261 = xor i64 %260, -1
   br label %Exp_Truth6Lit.exit32.i221
@@ -3749,7 +3749,7 @@ Exp_Truth6Lit.exit.i219:                          ; preds = %241, %236, %230, %2
 262:                                              ; preds = %255
   %263 = ashr exact i32 %250, 1
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %264
+  %265 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %264
   %266 = load i64, ptr %265, align 8
   br label %Exp_Truth6Lit.exit32.i221
 
@@ -3798,7 +3798,7 @@ Exp_Truth6Lit.exit32.i221:                        ; preds = %267, %262, %256, %2
 286:                                              ; preds = %285
   %287 = sdiv i32 %279, 2
   %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %288
+  %289 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = xor i64 %290, -1
   br label %Exp_Truth6Lit.exit36.i208
@@ -3806,7 +3806,7 @@ Exp_Truth6Lit.exit32.i221:                        ; preds = %267, %262, %256, %2
 292:                                              ; preds = %285
   %293 = ashr exact i32 %279, 1
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds i64, ptr @Exp_Truth6.Truth6, i64 %294
+  %295 = getelementptr inbounds nuw i64, ptr @Exp_Truth6.Truth6, i64 %294
   %296 = load i64, ptr %295, align 8
   br label %Exp_Truth6Lit.exit36.i208
 
@@ -3853,7 +3853,7 @@ Exp_Truth6.exit229:                               ; preds = %Exp_Truth6Lit.exit3
 309:                                              ; preds = %.lr.ph.i170
   %310 = add nsw i32 %.017.i, 1
   %311 = sext i32 %.017.i to i64
-  %312 = getelementptr inbounds [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %311
+  %312 = getelementptr inbounds nuw [6 x i64], ptr @Exp_Truth6.Truth6, i64 0, i64 %311
   %313 = load i64, ptr %312, align 8
   br label %314
 
@@ -3908,7 +3908,7 @@ Sfm_LibTruth6Two.exit:                            ; preds = %314, %Exp_Truth6.ex
 333:                                              ; preds = %332
   %334 = sdiv i32 %327, 2
   %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds i64, ptr %7, i64 %335
+  %336 = getelementptr inbounds nuw i64, ptr %7, i64 %335
   %337 = load i64, ptr %336, align 8
   %338 = xor i64 %337, -1
   br label %Exp_Truth6Lit.exit.i
@@ -3916,7 +3916,7 @@ Sfm_LibTruth6Two.exit:                            ; preds = %314, %Exp_Truth6.ex
 339:                                              ; preds = %332
   %340 = ashr exact i32 %327, 1
   %341 = sext i32 %340 to i64
-  %342 = getelementptr inbounds i64, ptr %7, i64 %341
+  %342 = getelementptr inbounds nuw i64, ptr %7, i64 %341
   %343 = load i64, ptr %342, align 8
   br label %Exp_Truth6Lit.exit.i
 
@@ -3955,7 +3955,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %344, %339, %333, %3
 359:                                              ; preds = %358
   %360 = sdiv i32 %353, 2
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds i64, ptr %7, i64 %361
+  %362 = getelementptr inbounds nuw i64, ptr %7, i64 %361
   %363 = load i64, ptr %362, align 8
   %364 = xor i64 %363, -1
   br label %Exp_Truth6Lit.exit32.i
@@ -3963,7 +3963,7 @@ Exp_Truth6Lit.exit.i:                             ; preds = %344, %339, %333, %3
 365:                                              ; preds = %358
   %366 = ashr exact i32 %353, 1
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds i64, ptr %7, i64 %367
+  %368 = getelementptr inbounds nuw i64, ptr %7, i64 %367
   %369 = load i64, ptr %368, align 8
   br label %Exp_Truth6Lit.exit32.i
 
@@ -4012,7 +4012,7 @@ Exp_Truth6Lit.exit32.i:                           ; preds = %370, %365, %359, %3
 389:                                              ; preds = %388
   %390 = sdiv i32 %382, 2
   %391 = sext i32 %390 to i64
-  %392 = getelementptr inbounds i64, ptr %7, i64 %391
+  %392 = getelementptr inbounds nuw i64, ptr %7, i64 %391
   %393 = load i64, ptr %392, align 8
   %394 = xor i64 %393, -1
   br label %Exp_Truth6Lit.exit36.i
@@ -4020,7 +4020,7 @@ Exp_Truth6Lit.exit32.i:                           ; preds = %370, %365, %359, %3
 395:                                              ; preds = %388
   %396 = ashr exact i32 %382, 1
   %397 = sext i32 %396 to i64
-  %398 = getelementptr inbounds i64, ptr %7, i64 %397
+  %398 = getelementptr inbounds nuw i64, ptr %7, i64 %397
   %399 = load i64, ptr %398, align 8
   br label %Exp_Truth6Lit.exit36.i
 
@@ -4052,14 +4052,14 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 Abc_TtCopy.exit:                                  ; preds = %Sfm_LibTruth8Two.exit, %Exp_Truth6.exit
   %407 = sext i32 %190 to i64
-  %408 = getelementptr inbounds [9 x i32], ptr %13, i64 0, i64 %407
+  %408 = getelementptr inbounds nuw [9 x i32], ptr %13, i64 0, i64 %407
   %409 = load i32, ptr %408, align 4
   %410 = icmp sgt i32 %409, 0
   br i1 %410, label %.lr.ph271, label %._crit_edge272
 
 .lr.ph271:                                        ; preds = %Abc_TtCopy.exit
   %411 = icmp ugt i32 %.fr290, 6
-  %412 = getelementptr inbounds [9 x ptr], ptr %11, i64 0, i64 %407
+  %412 = getelementptr inbounds nuw [9 x ptr], ptr %11, i64 0, i64 %407
   br i1 %411, label %.lr.ph271.split.us, label %.lr.ph271.split.preheader
 
 .lr.ph271.split.preheader:                        ; preds = %.lr.ph271
@@ -4089,7 +4089,7 @@ Abc_TtCopy.exit:                                  ; preds = %Sfm_LibTruth8Two.ex
 .lr.ph64.i190:                                    ; preds = %420
   %422 = shl nuw nsw i32 1, %418
   %423 = sext i32 %418 to i64
-  %424 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %423
   %425 = load i64, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %427 = load i64, ptr %426, align 8
@@ -4118,7 +4118,7 @@ Abc_TtCopy.exit:                                  ; preds = %Sfm_LibTruth8Two.ex
 441:                                              ; preds = %.lr.ph271.split
   %442 = icmp eq i32 %418, 5
   %443 = sext i32 %415 to i64
-  %444 = getelementptr inbounds i64, ptr %14, i64 %443
+  %444 = getelementptr inbounds nuw i64, ptr %14, i64 %443
   br i1 %442, label %445, label %453
 
 445:                                              ; preds = %441
@@ -4183,7 +4183,7 @@ Abc_TtCopy.exit:                                  ; preds = %Sfm_LibTruth8Two.ex
 Abc_TtSwapAdjacent.exit195:                       ; preds = %._crit_edge.us.i187, %.lr.ph.i188, %431, %420, %445, %453, %.preheader.lr.ph.i176
   %470 = load i32, ptr %417, align 4
   %471 = sext i32 %470 to i64
-  %472 = getelementptr inbounds i32, ptr %12, i64 %471
+  %472 = getelementptr inbounds nuw i32, ptr %12, i64 %471
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 4
   %474 = load i32, ptr %472, align 4
   %475 = load i32, ptr %473, align 4

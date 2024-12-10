@@ -259,7 +259,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %6, %10
 
 _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %28
   %41 = sext i16 %37 to i64
-  %42 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr @UseAPX, align 1
   %45 = trunc i8 %44 to i1
@@ -321,7 +321,7 @@ _ZN7OptoReg8as_VMRegEi.exit104:                   ; preds = %62, %66
 
 80:                                               ; preds = %_ZN7OptoReg8as_VMRegEi.exit104
   %81 = sext i16 %76 to i64
-  %82 = getelementptr inbounds [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [591 x ptr], ptr @_ZN7OptoReg7opto2vmE, i64 0, i64 %81
   %83 = load ptr, ptr %82, align 8
   br label %_ZN7OptoReg8as_VMRegEi.exit106
 

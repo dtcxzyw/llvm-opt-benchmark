@@ -39757,7 +39757,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZSt4copyIPKN16stru
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i390 = phi i64 [ %gepdiff424, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i.thread ], [ %gepdiff, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i ]
   %incdec.ptr4.sink.i.i45.i.idx389 = phi i64 [ 0, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i.thread ], [ %sub.ptr.sub.i16.i, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i ]
   %44 = phi ptr [ %43, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i.thread ], [ %.pre49.i, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i ]
-  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds i8, ptr @constinit.53, i64 %incdec.ptr4.sink.i.i45.i.idx389
+  %incdec.ptr4.sink.i.i45.i.ptr = getelementptr inbounds nuw i8, ptr @constinit.53, i64 %incdec.ptr4.sink.i.i45.i.idx389
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %44, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i390, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKN16struct_pb_sample4Vec3EPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.i
 
@@ -40105,7 +40105,7 @@ if.then.i.i.i.i.i.i.i.i.i275:                     ; preds = %_ZSt4copyIPKN16stru
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i273403 = phi i64 [ %gepdiff426, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270.thread ], [ %gepdiff425, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270 ]
   %incdec.ptr4.sink.i.i45.i272.idx402 = phi i64 [ 0, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270.thread ], [ %sub.ptr.sub.i16.i251, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270 ]
   %87 = phi ptr [ %86, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270.thread ], [ %.pre49.i269, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i270 ]
-  %incdec.ptr4.sink.i.i45.i272.ptr = getelementptr inbounds i8, ptr @constinit.52, i64 %incdec.ptr4.sink.i.i45.i272.idx402
+  %incdec.ptr4.sink.i.i45.i272.ptr = getelementptr inbounds nuw i8, ptr @constinit.52, i64 %incdec.ptr4.sink.i.i45.i272.idx402
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %87, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i272.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i273403, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKN16struct_pb_sample4Vec3EPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.i276
 
@@ -40582,7 +40582,7 @@ if.then.i.i.i.i.i.i.i.i.i325:                     ; preds = %_ZSt4copyIPKN16stru
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i323416 = phi i64 [ %gepdiff428, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320.thread ], [ %gepdiff427, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320 ]
   %incdec.ptr4.sink.i.i45.i322.idx415 = phi i64 [ 0, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320.thread ], [ %sub.ptr.sub.i16.i301, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320 ]
   %148 = phi ptr [ %147, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320.thread ], [ %.pre49.i319, %_ZSt4copyIPKN16struct_pb_sample4Vec3EPS1_ET0_T_S6_S5_.exit31.i320 ]
-  %incdec.ptr4.sink.i.i45.i322.ptr = getelementptr inbounds i8, ptr @constinit.53, i64 %incdec.ptr4.sink.i.i45.i322.idx415
+  %incdec.ptr4.sink.i.i45.i322.ptr = getelementptr inbounds nuw i8, ptr @constinit.53, i64 %incdec.ptr4.sink.i.i45.i322.idx415
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %148, ptr nonnull align 4 %incdec.ptr4.sink.i.i45.i322.ptr, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i323416, i1 false)
   br label %_ZSt22__uninitialized_copy_aIPKN16struct_pb_sample4Vec3EPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit.i326
 

@@ -61,11 +61,11 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %29 = shl nuw i32 %28, 1
   %30 = add nsw i32 %29, -2
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %31
   %33 = load i32, ptr %32, align 8, !tbaa !3
   %34 = add nsw i32 %29, -1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = add nsw i32 %28, -1
   %39 = sub nsw i32 %37, %33
@@ -238,10 +238,10 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %137 = shl nuw i32 %136, 1
   %138 = add nsw i32 %137, -2
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %139
   %141 = add nsw i32 %137, -1
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %142
+  %143 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %142
   br i1 %135, label %144, label %145
 
 144:                                              ; preds = %131
@@ -304,10 +304,10 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %176 = shl nuw i32 %175, 1
   %177 = add nsw i32 %176, -2
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %178
   %180 = add nsw i32 %176, -1
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds [64 x i32], ptr %6, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [64 x i32], ptr %6, i64 0, i64 %181
   br i1 %174, label %183, label %184
 
 183:                                              ; preds = %170

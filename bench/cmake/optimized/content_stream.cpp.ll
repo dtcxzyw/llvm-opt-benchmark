@@ -1078,7 +1078,7 @@ define dso_local noundef zeroext i1 @_ZN3dap13ContentReader6bufferEm(ptr noundef
 .preheader:                                       ; preds = %.preheader.preheader, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
   %43 = phi ptr [ %storemerge16, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ %.pre, %.preheader.preheader ]
   %.020 = phi i64 [ %92, %_ZNSt5dequeIhSaIhEE9push_backERKh.exit ], [ 0, %.preheader.preheader ]
-  %44 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %.020
+  %44 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %.020
   %45 = load ptr, ptr %35, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 -1
   %.not.i = icmp eq ptr %43, %46

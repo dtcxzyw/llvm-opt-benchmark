@@ -1133,7 +1133,7 @@ define void @_ZN8LightGBM17ReadKLineFromFileB5cxx11EPKcbi(ptr dead_on_unwind noa
   %56 = load ptr, ptr %14, align 8
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %14, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 %58
   %60 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %59)
           to label %61 unwind label %.loopexit.split-lp
 
@@ -1180,7 +1180,7 @@ define void @_ZN8LightGBM17ReadKLineFromFileB5cxx11EPKcbi(ptr dead_on_unwind noa
   %73 = load ptr, ptr %14, align 8
   %74 = getelementptr i8, ptr %73, i64 -24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %14, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 %75
   %77 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %76)
           to label %78 unwind label %.loopexit
 
@@ -1759,7 +1759,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN8LightGBM23GetNumColFromLIBSVMF
   %56 = load ptr, ptr %13, align 8
   %57 = getelementptr i8, ptr %56, i64 -24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %13, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 %58
   %60 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %59)
           to label %61 unwind label %.loopexit.split-lp
 
@@ -1799,7 +1799,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN8LightGBM23GetNumColFromLIBSVMF
   %69 = load ptr, ptr %13, align 8
   %70 = getelementptr i8, ptr %69, i64 -24
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 %71
   %73 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %72)
           to label %74 unwind label %.loopexit
 

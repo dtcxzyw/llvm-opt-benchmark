@@ -210,7 +210,7 @@ define hidden void @_ZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiii(ptr no
   %21 = add nuw nsw i32 %19, %.neg
   %22 = trunc i32 %21 to i8
   %23 = add nsw i64 %indvars.iv, 4096
-  %24 = getelementptr inbounds [8193 x i8], ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE9cat_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [8193 x i8], ptr @_ZZN2cv5mjpeg16MotionJpegWriter14writeFrameDataEPKhiiiE9cat_table, i64 0, i64 %23
   store i8 %22, ptr %24, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4097
@@ -414,7 +414,7 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %.153.lcssa.i = phi i32 [ %.05270.i, %.lr.ph72.i ], [ %spec.select.i, %.loopexit.loopexit.i ]
   %.149.lcssa.i = phi i32 [ %121, %.lr.ph72.i ], [ %115, %.loopexit.loopexit.i ]
   %116 = sext i32 %.149.lcssa.i to i64
-  %117 = getelementptr inbounds i32, ptr %13, i64 %116
+  %117 = getelementptr inbounds nuw i32, ptr %13, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = icmp sgt i32 %118, -1
   br i1 %119, label %.lr.ph72.i, label %._crit_edge.i122, !llvm.loop !10
@@ -440,7 +440,7 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %indvars.iv.i128 = phi i64 [ %123, %.lr.ph.preheader.i126 ], [ %indvars.iv.next.i129, %.lr.ph.i127 ]
   %.15365.i = phi i32 [ %.05270.i, %.lr.ph.preheader.i126 ], [ %spec.select.i, %.lr.ph.i127 ]
   %.15664.i = phi i32 [ %.05569.i, %.lr.ph.preheader.i126 ], [ %.257.i, %.lr.ph.i127 ]
-  %126 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i128
+  %126 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i128
   %127 = load i32, ptr %126, align 4
   %128 = ashr i32 %127, 20
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %128, i32 %.15365.i)
@@ -521,7 +521,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
 
 .lr.ph77.i:                                       ; preds = %.lr.ph77.i, %.lr.ph77.preheader.i
   %indvars.iv87.i = phi i64 [ %148, %.lr.ph77.preheader.i ], [ %indvars.iv.next88.i, %.lr.ph77.i ]
-  %150 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv87.i
+  %150 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv87.i
   %151 = load i32, ptr %150, align 4
   %152 = ashr i32 %151, 20
   %153 = shl i32 %151, 8
@@ -543,7 +543,7 @@ common.resume:                                    ; preds = %44, %.loopexit.spli
   %.3.lcssa.i = phi i32 [ %146, %144 ], [ %159, %._crit_edge78.loopexit.i ]
   %160 = add nuw nsw i32 %.181.i, 1
   %161 = sext i32 %.3.lcssa.i to i64
-  %162 = getelementptr inbounds i32, ptr %13, i64 %161
+  %162 = getelementptr inbounds nuw i32, ptr %13, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = icmp sgt i32 %163, -1
   br i1 %164, label %144, label %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit, !llvm.loop !13

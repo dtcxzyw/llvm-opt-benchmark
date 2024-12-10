@@ -327,7 +327,7 @@ _ZL22testHelloWorldEncodingv.exit:                ; preds = %113
   %117 = load ptr, ptr @_ZSt4cout, align 8
   %118 = getelementptr i8, ptr %117, i64 -24
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   store i16 255, ptr %44, align 2
@@ -509,7 +509,7 @@ _ZL18testRobustEncodingv.exit:                    ; preds = %178, %187
   %189 = load ptr, ptr @_ZSt4cout, align 8
   %190 = getelementptr i8, ptr %189, i64 -24
   %191 = load i64, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr @_ZSt4cout, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store i32 %122, ptr %193, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #19

@@ -225,7 +225,7 @@ if.end208:                                        ; preds = %if.then204
   call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef %header) #6, !callees !6
   %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 %md_block_size.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %first_block, ptr nonnull align 1 %add.ptr, i64 %sub209, i1 false)
-  %add.ptr213 = getelementptr inbounds i8, ptr %first_block, i64 %sub209
+  %add.ptr213 = getelementptr inbounds nuw i8, ptr %first_block, i64 %sub209
   %sub214 = sub i64 %md_block_size.0, %sub209
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr213, ptr align 1 %data, i64 %sub214, i1 false)
   call void %md_transform.0(ptr noundef nonnull %md_state, ptr noundef nonnull %first_block) #6, !callees !6

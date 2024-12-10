@@ -1078,7 +1078,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.thread.i: ; pr
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.038285.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %41 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_StackRegistry::_StackEntry", ptr %.val44.i, i64 %.038285.i
-  %42 = getelementptr inbounds [1024 x ptr], ptr %2, i64 0, i64 %.038285.i
+  %42 = getelementptr inbounds nuw [1024 x ptr], ptr %2, i64 0, i64 %.038285.i
   store ptr %41, ptr %42, align 8
   %43 = add i64 %.038285.i, 1
   %.not.i = icmp eq i64 %43, %.sroa.speculated.i
@@ -1287,7 +1287,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.thread.i: ; pr
 .lr.ph297.i:                                      ; preds = %.lr.ph297.i.preheader, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit179.i
   %.037296.i = phi i64 [ %224, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit179.i ], [ 0, %.lr.ph297.i.preheader ]
   %.sroa.0190.0295.i = phi ptr [ %.sroa.0190.2.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit179.i ], [ @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17messageE, %.lr.ph297.i.preheader ]
-  %88 = getelementptr inbounds [1024 x ptr], ptr %2, i64 0, i64 %.037296.i
+  %88 = getelementptr inbounds nuw [1024 x ptr], ptr %2, i64 0, i64 %.037296.i
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8

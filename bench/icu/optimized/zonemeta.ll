@@ -208,7 +208,7 @@ if.else:                                          ; preds = %if.then49
   %call53 = call i32 @u_strlen_75(ptr noundef nonnull %call50)
   call void @u_UCharsToChars_75(ptr noundef nonnull %call50, ptr noundef nonnull %id, i32 noundef %call53)
   %idxprom = sext i32 %call53 to i64
-  %arrayidx = getelementptr inbounds [129 x i8], ptr %id, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i8], ptr %id, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %16 = load i8, ptr %id, align 16
   %tobool58.not68 = icmp eq i8 %16, 0
@@ -1269,7 +1269,7 @@ invoke.cont9:                                     ; preds = %invoke.cont5
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %idxprom = sext i32 %call12 to i64
-  %arrayidx = getelementptr inbounds [129 x i8], ptr %tzKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i8], ptr %tzKey, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   br label %while.cond
 
@@ -1768,7 +1768,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %call3 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %mzid, i32 noundef 0, i32 noundef %cond.i, ptr noundef nonnull %keyBuf, i32 noundef 129, i32 noundef 0)
   %idxprom = sext i32 %call3 to i64
-  %arrayidx = getelementptr inbounds [129 x i8], ptr %keyBuf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i8], ptr %keyBuf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call4 = call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @_ZN6icu_75L10gMetaZonesE, ptr noundef nonnull %status)
   %call5 = call ptr @ures_getByKey_75(ptr noundef %call4, ptr noundef nonnull @_ZN6icu_75L16gMapTimezonesTagE, ptr noundef %call4, ptr noundef nonnull %status)
@@ -1797,7 +1797,7 @@ if.then10:                                        ; preds = %if.end
 if.then16:                                        ; preds = %if.then10
   %call19 = call noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %region, i32 noundef 0, i32 noundef %cond.i29, ptr noundef nonnull %keyBuf, i32 noundef 129, i32 noundef 0)
   %idxprom20 = sext i32 %call19 to i64
-  %arrayidx21 = getelementptr inbounds [129 x i8], ptr %keyBuf, i64 0, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds nuw [129 x i8], ptr %keyBuf, i64 0, i64 %idxprom20
   store i8 0, ptr %arrayidx21, align 1
   %call23 = call ptr @ures_getStringByKey_75(ptr noundef %call4, ptr noundef nonnull %keyBuf, ptr noundef nonnull %tzidLen, ptr noundef nonnull %status)
   %8 = load i32, ptr %status, align 4
@@ -2376,7 +2376,7 @@ entry:
   %call = tail call i32 @u_strlen_75(ptr noundef %canonicalID)
   call void @u_UCharsToChars_75(ptr noundef %canonicalID, ptr noundef nonnull %tzidKey, i32 noundef %call)
   %idxprom = sext i32 %call to i64
-  %arrayidx = getelementptr inbounds [129 x i8], ptr %tzidKey, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [129 x i8], ptr %tzidKey, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %0 = load i8, ptr %tzidKey, align 16
   %tobool.not11 = icmp eq i8 %0, 0

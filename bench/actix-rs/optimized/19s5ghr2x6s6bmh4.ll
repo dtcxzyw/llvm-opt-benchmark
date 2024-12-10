@@ -2775,7 +2775,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
 219:                                              ; preds = %217
   %220 = add i64 %218, 1
   %221 = getelementptr inbounds i8, ptr %216, i64 %218
-  %222 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.83, i64 %218
+  %222 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.83, i64 %218
   %.val.i.i = load i8, ptr %221, align 1, !noalias !394, !noundef !4
   %.val6.i.i = load i8, ptr %222, align 1, !alias.scope !376, !noalias !397, !noundef !4
   %223 = add i8 %.val.i.i, -65
@@ -2830,7 +2830,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
 237:                                              ; preds = %235
   %238 = add i64 %236, 1
   %239 = getelementptr inbounds i8, ptr %234, i64 %236
-  %240 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.84, i64 %236
+  %240 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.84, i64 %236
   %.val.i.i555 = load i8, ptr %239, align 1, !noalias !416, !noundef !4
   %.val6.i.i556 = load i8, ptr %240, align 1, !alias.scope !398, !noalias !419, !noundef !4
   %241 = add i8 %.val.i.i555, -65
@@ -2885,7 +2885,7 @@ define hidden void @_ZN10actix_http2h17decoder11MessageType11set_headers17hd7fb3
 255:                                              ; preds = %253
   %256 = add i64 %254, 1
   %257 = getelementptr inbounds i8, ptr %252, i64 %254
-  %258 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.85, i64 %254
+  %258 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.85, i64 %254
   %.val.i.i566 = load i8, ptr %257, align 1, !noalias !438, !noundef !4
   %.val6.i.i567 = load i8, ptr %258, align 1, !alias.scope !420, !noalias !441, !noundef !4
   %259 = add i8 %.val.i.i566, -65
@@ -3851,7 +3851,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit628
 593:                                              ; preds = %591
   %594 = add i64 %592, 1
   %595 = getelementptr inbounds i8, ptr %590, i64 %592
-  %596 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.103, i64 %592
+  %596 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.103, i64 %592
   %.val.i.i654 = load i8, ptr %595, align 1, !noalias !513, !noundef !4
   %.val6.i.i655 = load i8, ptr %596, align 1, !alias.scope !495, !noalias !516, !noundef !4
   %597 = add i8 %.val.i.i654, -65
@@ -3919,7 +3919,7 @@ thread-pre-split:                                 ; preds = %593
 614:                                              ; preds = %612
   %615 = add i64 %613, 1
   %616 = getelementptr inbounds i8, ptr %611, i64 %613
-  %617 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 %613
+  %617 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 %613
   %.val.i.i665 = load i8, ptr %616, align 1, !noalias !535, !noundef !4
   %.val6.i.i666 = load i8, ptr %617, align 1, !alias.scope !517, !noalias !538, !noundef !4
   %618 = add i8 %.val.i.i665, -65
@@ -4418,7 +4418,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit692
 786:                                              ; preds = %784
   %787 = add i64 %785, 1
   %788 = getelementptr inbounds i8, ptr %783, i64 %785
-  %789 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.111, i64 %785
+  %789 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.111, i64 %785
   %.val.i.i714 = load i8, ptr %788, align 1, !noalias !589, !noundef !4
   %.val6.i.i715 = load i8, ptr %789, align 1, !alias.scope !571, !noalias !592, !noundef !4
   %790 = add i8 %.val.i.i714, -65
@@ -5650,7 +5650,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
 36:                                               ; preds = %34
   %37 = add i64 %35, 1
   %38 = getelementptr inbounds i8, ptr %33, i64 %35
-  %39 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.118, i64 %35
+  %39 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.118, i64 %35
   %.val.i.i = load i8, ptr %38, align 1, !noalias !751, !noundef !4
   %.val6.i.i = load i8, ptr %39, align 1, !alias.scope !732, !noalias !754, !noundef !4
   %40 = add i8 %.val.i.i, -65
@@ -5701,7 +5701,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
 56:                                               ; preds = %54
   %57 = add i64 %55, 1
   %58 = getelementptr inbounds i8, ptr %53, i64 %55
-  %59 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.119, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.119, i64 %55
   %.val.i.i4 = load i8, ptr %58, align 1, !noalias !774, !noundef !4
   %.val6.i.i5 = load i8, ptr %59, align 1, !alias.scope !755, !noalias !777, !noundef !4
   %60 = add i8 %.val.i.i4, -65
@@ -5752,7 +5752,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
 76:                                               ; preds = %74
   %77 = add i64 %75, 1
   %78 = getelementptr inbounds i8, ptr %73, i64 %75
-  %79 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.120, i64 %75
+  %79 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.120, i64 %75
   %.val.i.i13 = load i8, ptr %78, align 1, !noalias !797, !noundef !4
   %.val6.i.i14 = load i8, ptr %79, align 1, !alias.scope !778, !noalias !800, !noundef !4
   %80 = add i8 %.val.i.i13, -65
@@ -5803,7 +5803,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
 96:                                               ; preds = %94
   %97 = add i64 %95, 1
   %98 = getelementptr inbounds i8, ptr %93, i64 %95
-  %99 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 %95
+  %99 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.104, i64 %95
   %.val.i.i22 = load i8, ptr %98, align 1, !noalias !820, !noundef !4
   %.val6.i.i23 = load i8, ptr %99, align 1, !alias.scope !801, !noalias !823, !noundef !4
   %100 = add i8 %.val.i.i22, -65
@@ -5853,7 +5853,7 @@ define noundef range(i8 0, 6) i8 @"_ZN108_$LT$actix_http..header..shared..conten
 115:                                              ; preds = %113
   %116 = add i64 %114, 1
   %117 = getelementptr inbounds i8, ptr %112, i64 %114
-  %118 = getelementptr inbounds i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.121, i64 %114
+  %118 = getelementptr inbounds nuw i8, ptr @anon.33a6e0fe333e9d10c4e3e66c2ff43edf.121, i64 %114
   %.val.i.i31 = load i8, ptr %117, align 1, !noalias !843, !noundef !4
   %.val6.i.i32 = load i8, ptr %118, align 1, !alias.scope !824, !noalias !846, !noundef !4
   %119 = add i8 %.val.i.i31, -65
@@ -5882,10 +5882,10 @@ define noundef range(i8 0, 6) i8 @"_ZN119_$LT$actix_http..header..shared..conten
 define void @"_ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E"(ptr noalias nocapture noundef writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
 switch.lookup:
   %2 = sext i8 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E", i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = sext i8 %1 to i64
-  %switch.gep1 = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E.31", i64 0, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN132_$LT$actix_http..header..shared..content_encoding..ContentEncoding$u20$as$u20$actix_http..header..into_value..TryIntoHeaderValue$GT$14try_into_value17h6e89acef04faf1a2E.31", i64 0, i64 %3
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
   br label %6

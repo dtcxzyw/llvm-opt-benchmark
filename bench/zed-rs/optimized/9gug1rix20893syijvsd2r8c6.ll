@@ -7266,7 +7266,7 @@ switch.lookup:                                    ; preds = %124
   %129 = icmp slt i64 %128, -9223372036854775802
   %130 = add i64 %128, -9223372036854775807
   %131 = select i1 %129, i64 %130, i64 0
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hbc9d4a2e164cafd1E.llvm.3795885818253505526", i64 0, i64 %131
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hbc9d4a2e164cafd1E.llvm.3795885818253505526", i64 0, i64 %131
   %switch.load = load i64, ptr %switch.gep, align 8
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i.i, i64 %switch.load
   %.pn5.i.i.i.i.i = load i64, ptr %132, align 8, !alias.scope !1796, !noalias !1799, !noundef !4
@@ -7280,7 +7280,7 @@ switch.lookup:                                    ; preds = %124
   br label %_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView28get_block_index_under_cursor17he035baaa1a28f7e2E.exit.i.i.i
 
 137:                                              ; preds = %switch.lookup
-  %switch.gep71 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
+  %switch.gep71 = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
   %switch.load72 = load i64, ptr %switch.gep71, align 8
   %138 = add nuw nsw i64 %.sroa.8.0.i.i.i.i, 1
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i.i.i.i, i64 136
@@ -15123,7 +15123,7 @@ switch.lookup:                                    ; preds = %"_ZN84_$LT$gpui..ap
   %74 = icmp slt i64 %73, -9223372036854775802
   %75 = add i64 %73, -9223372036854775807
   %76 = select i1 %74, i64 %75, i64 0
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hbc9d4a2e164cafd1E.llvm.3795885818253505526", i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hbc9d4a2e164cafd1E.llvm.3795885818253505526", i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 %switch.load
   %.pn5.i.i.i = load i64, ptr %77, align 8, !alias.scope !3437, !noalias !3436, !noundef !4

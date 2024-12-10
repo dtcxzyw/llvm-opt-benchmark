@@ -18250,7 +18250,7 @@ define void @_ZNK6casadi16FunctionInternal11generate_inERKNSt7__cxx1112basic_str
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %.loopexit.split-lp
 
@@ -18582,7 +18582,7 @@ define void @_ZNK6casadi16FunctionInternal12generate_outERKNSt7__cxx1112basic_st
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %18)
           to label %20 unwind label %.loopexit.split-lp
 
@@ -74777,7 +74777,7 @@ _ZN6casadi17SerializingStream4packINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %255 = load ptr, ptr %26, align 8
   %256 = getelementptr i8, ptr %255, i64 -24
   %257 = load i64, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %26, i64 %257
+  %258 = getelementptr inbounds nuw i8, ptr %26, i64 %257
   %259 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %258)
           to label %260 unwind label %322
 
@@ -78604,7 +78604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit341: ;
   %329 = load ptr, ptr %26, align 8
   %330 = getelementptr i8, ptr %329, i64 -24
   %331 = load i64, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %26, i64 %331
+  %332 = getelementptr inbounds nuw i8, ptr %26, i64 %331
   %333 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %332)
           to label %334 unwind label %347
 

@@ -5031,11 +5031,11 @@ if.end388:                                        ; preds = %if.end388thread-pre
 
 if.then395:                                       ; preds = %if.end388
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %found)
-  %endptr = getelementptr inbounds i8, ptr %found, i64 %strlen
+  %endptr = getelementptr inbounds nuw i8, ptr %found, i64 %strlen
   store i16 64, ptr %endptr, align 1
   %call399 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %keyword) #21
   %strlen67 = call i64 @strlen(ptr nonnull dereferenceable(1) %found)
-  %endptr68 = getelementptr inbounds i8, ptr %found, i64 %strlen67
+  %endptr68 = getelementptr inbounds nuw i8, ptr %found, i64 %strlen67
   store i16 61, ptr %endptr68, align 1
   %63 = load ptr, ptr %kwVal, align 8
   br label %if.end420.sink.split
@@ -5046,11 +5046,11 @@ if.else406:                                       ; preds = %if.end388
 
 if.then408:                                       ; preds = %if.else406
   %strlen69 = call i64 @strlen(ptr nonnull dereferenceable(1) %found)
-  %endptr70 = getelementptr inbounds i8, ptr %found, i64 %strlen69
+  %endptr70 = getelementptr inbounds nuw i8, ptr %found, i64 %strlen69
   store i16 64, ptr %endptr70, align 1
   %call412 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %keyword) #21
   %strlen71 = call i64 @strlen(ptr nonnull dereferenceable(1) %found)
-  %endptr72 = getelementptr inbounds i8, ptr %found, i64 %strlen71
+  %endptr72 = getelementptr inbounds nuw i8, ptr %found, i64 %strlen71
   store i16 61, ptr %endptr72, align 1
   br label %if.end420.sink.split
 
@@ -5369,14 +5369,14 @@ if.then44:                                        ; preds = %lor.lhs.false40, %i
 if.else:                                          ; preds = %lor.lhs.false40
   %add41 = add nsw i32 %add, 1
   %idx.ext = sext i32 %valuesIndex.1.ph55 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %valuesBuf, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %valuesBuf, i64 %idx.ext
   %call45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %3) #21
   %inc49 = add nsw i32 %valuesCount.1.ph54, 1
   %idxprom50 = sext i32 %valuesCount.1.ph54 to i64
-  %arrayidx51 = getelementptr inbounds [512 x ptr], ptr %valuesList, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [512 x ptr], ptr %valuesList, i64 0, i64 %idxprom50
   store ptr %add.ptr, ptr %arrayidx51, align 8
   %idxprom54 = sext i32 %add to i64
-  %arrayidx55 = getelementptr inbounds [2048 x i8], ptr %valuesBuf, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw [2048 x i8], ptr %valuesBuf, i64 0, i64 %idxprom54
   store i8 0, ptr %arrayidx55, align 1
   br label %if.end57
 
@@ -5408,7 +5408,7 @@ while.end58:                                      ; preds = %while.end, %if.then
   %valuesIndex.0.ph.lcssa = phi i32 [ 0, %if.end ], [ %valuesIndex.0.ph62, %if.then9 ], [ %valuesIndex.1.ph.lcssa, %while.end ]
   %inc59 = add nsw i32 %valuesIndex.0.ph.lcssa, 1
   %idxprom60 = sext i32 %valuesIndex.0.ph.lcssa to i64
-  %arrayidx61 = getelementptr inbounds [2048 x i8], ptr %valuesBuf, i64 0, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds nuw [2048 x i8], ptr %valuesBuf, i64 0, i64 %idxprom60
   store i8 0, ptr %arrayidx61, align 1
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %item, i8 noundef signext 1)
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %subItem, i8 noundef signext 1)
@@ -7134,7 +7134,7 @@ while.body.i:                                     ; preds = %if.end26.i, %if.els
   %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.011.i, i64 %add.ptr1.idx.i
   %21 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %21 to i64
-  %arrayidx.i25 = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom.i
+  %arrayidx.i25 = getelementptr inbounds nuw i8, ptr @_ZL17parentLocaleChars, i64 %idxprom.i
   %call.i26 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i25) #25
   %cmp2.i = icmp eq i32 %call.i26, 0
   br i1 %cmp2.i, label %if.then32.i, label %if.else.i27
@@ -7151,7 +7151,7 @@ if.then32.i:                                      ; preds = %while.body.i
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr1.i, i64 4
   %22 = load i32, ptr %arrayidx3.i, align 4
   %idxprom4.i = sext i32 %22 to i64
-  %arrayidx5.i = getelementptr inbounds i8, ptr @_ZL17parentLocaleChars, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr @_ZL17parentLocaleChars, i64 %idxprom4.i
   %call33.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %arrayidx5.i) #21
   br label %if.end23
 
@@ -8294,7 +8294,7 @@ while.body.i:                                     ; preds = %if.else.i, %if.end
   %add.ptr1.i = getelementptr inbounds i8, ptr %bottom.011.i, i64 %add.ptr1.idx.i
   %18 = load i32, ptr %add.ptr1.i, align 4
   %idxprom.i = sext i32 %18 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i
   %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i) #25
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %cleanup, label %if.else.i
@@ -8333,7 +8333,7 @@ while.body.i16:                                   ; preds = %if.else.i30, %if.th
   %add.ptr1.i25 = getelementptr inbounds i8, ptr %bottom.011.i17, i64 %add.ptr1.idx.i24
   %21 = load i32, ptr %add.ptr1.i25, align 4
   %idxprom.i26 = sext i32 %21 to i64
-  %arrayidx.i27 = getelementptr inbounds i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i26
+  %arrayidx.i27 = getelementptr inbounds nuw i8, ptr @_ZL15dsLocaleIDChars, i64 %idxprom.i26
   %call.i28 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull readonly dereferenceable(1) %arrayidx.i27) #25
   %cmp2.i29 = icmp eq i32 %call.i28, 0
   br i1 %cmp2.i29, label %if.then.i37, label %if.else.i30
@@ -8354,7 +8354,7 @@ if.else.i30:                                      ; preds = %while.body.i16
 if.then23:                                        ; preds = %cleanup, %if.then.i37
   %idxprom4.i39.pn.in = phi i32 [ %22, %if.then.i37 ], [ %19, %cleanup ]
   %idxprom4.i39.pn = sext i32 %idxprom4.i39.pn.in to i64
-  %defaultScript.2.ph = getelementptr inbounds i8, ptr @_ZL15scriptCodeChars, i64 %idxprom4.i39.pn
+  %defaultScript.2.ph = getelementptr inbounds nuw i8, ptr @_ZL15scriptCodeChars, i64 %idxprom4.i39.pn
   store i32 0, ptr %len.i, align 8
   %23 = load ptr, ptr %agg.result, align 8
   store i8 0, ptr %23, align 1

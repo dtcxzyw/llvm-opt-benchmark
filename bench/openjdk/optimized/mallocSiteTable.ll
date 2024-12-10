@@ -523,7 +523,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %spec.select43 = add nsw i32 %.14245, %15
   %16 = tail call noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull align 8 dereferenceable(32) %.03647) #14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4

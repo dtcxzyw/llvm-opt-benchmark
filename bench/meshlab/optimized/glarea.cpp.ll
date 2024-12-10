@@ -40976,7 +40976,7 @@ _ZN3vcg8Matrix44IfEmLEf.exit:                     ; preds = %75
   %83 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %82
   %84 = shl i64 %indvars.iv.i38, 2
   %85 = add nuw nsw i64 %84, %indvars.iv15.i
-  %86 = getelementptr inbounds [16 x float], ptr %12, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [16 x float], ptr %12, i64 0, i64 %85
   %87 = load float, ptr %83, align 4
   %88 = load float, ptr %86, align 4
   store float %88, ptr %83, align 4

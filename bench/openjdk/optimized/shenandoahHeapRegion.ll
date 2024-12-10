@@ -2181,7 +2181,7 @@ _ZN20ShenandoahHeapRegion21oop_iterate_humongousEP17OopIterateClosure.exit: ; pr
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.0.i.i4.i, ptr %22, i64 %43) #18
   br label %_ZN20ShenandoahHeapRegion19oop_iterate_objectsEP17OopIterateClosure.exit
@@ -2279,7 +2279,7 @@ _ZN7oopDesc16oop_iterate_sizeI17OopIterateClosureEEmPT_.exit.i: ; preds = %105, 
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i3, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %112
   %114 = load ptr, ptr %113, align 8
   tail call void %114(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %.07.i, ptr noundef nonnull %.0.i.i.i3) #18
   %115 = getelementptr inbounds ptr, ptr %.07.i, i64 %.0.i4.i.i
@@ -2361,7 +2361,7 @@ _ZN7oopDesc11oop_iterateI17OopIterateClosureEEvPT_9MemRegion.exit: ; preds = %26
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %44
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %.0.i.i4, ptr %20, i64 %41) #18
   ret void
@@ -2461,7 +2461,7 @@ _ZN7oopDesc16oop_iterate_sizeI17OopIterateClosureEEmPT_.exit: ; preds = %28, %31
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [7 x ptr], ptr @_ZN21OopOopIterateDispatchI17OopIterateClosureE6_tableE, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
   tail call void %67(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %.07, ptr noundef nonnull %.0.i.i) #18
   %68 = getelementptr inbounds ptr, ptr %.07, i64 %.0.i4.i

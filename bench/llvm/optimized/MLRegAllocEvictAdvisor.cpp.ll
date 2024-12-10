@@ -4055,7 +4055,7 @@ _ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveInter
 _ZNK12_GLOBAL__N_114MLEvictAdvisor24loadInterferenceFeaturesERKN4llvm12LiveIntervalENS1_10MCRegisterEbRKNS1_8SmallSetINS1_8RegisterELj16ESt4lessIS7_EEERNS1_15SmallVectorImplIfEEmRNSD_INS1_14LRStartEndInfoEEE.exit.thread132: ; preds = %.thread19.i.thread, %.thread
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %6)
   %383 = add i64 %.099, 1
-  %384 = getelementptr inbounds [33 x %"struct.std::pair.452"], ptr %8, i64 0, i64 %.05298
+  %384 = getelementptr inbounds nuw [33 x %"struct.std::pair.452"], ptr %8, i64 0, i64 %.05298
   store i32 %.sroa.0.0.i, ptr %384, align 4
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store i8 1, ptr %385, align 4
@@ -4171,7 +4171,7 @@ _ZNKSt6bitsetILm21EE4testEm.exit:                 ; preds = %.preheader74, %.loo
   br i1 %445, label %._crit_edge.thread, label %446
 
 446:                                              ; preds = %422
-  %447 = getelementptr inbounds [33 x %"struct.std::pair.452"], ptr %8, i64 0, i64 %444
+  %447 = getelementptr inbounds nuw [33 x %"struct.std::pair.452"], ptr %8, i64 0, i64 %444
   %448 = load i32, ptr %447, align 4
   br label %._crit_edge.thread
 

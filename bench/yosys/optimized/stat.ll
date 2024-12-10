@@ -996,7 +996,7 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   %99 = load ptr, ptr %5, align 8
   %100 = getelementptr i8, ptr %99, i64 -24
   %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 %101
   %103 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %102)
           to label %104 unwind label %.loopexit230
 

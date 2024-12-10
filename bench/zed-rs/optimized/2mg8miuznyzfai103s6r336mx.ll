@@ -208,7 +208,7 @@ default.unreachable:                              ; preds = %14
   unreachable
 
 "_ZN15release_channel20RELEASE_CHANNEL_NAME28_$u7b$$u7b$closure$u7d$$u7d$17h2d2a608979a01e60E.exit": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h17386a8d9d6b2198E.exit.i"
-  %28 = getelementptr inbounds i8, ptr @anon.67d16d7cc839d40921d08a47799de314.1, i64 %.sroa.0.014.i.i
+  %28 = getelementptr inbounds nuw i8, ptr @anon.67d16d7cc839d40921d08a47799de314.1, i64 %.sroa.0.014.i.i
   %29 = load ptr, ptr %25, align 8, !noalias !50, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !50
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull readonly align 1 %28, i64 %21, i1 false), !noalias !55

@@ -25297,7 +25297,7 @@ switch.lookup:                                    ; preds = %"_ZN3png7decoder15R
   %90 = extractvalue { i8, i8 } %89, 0
   %91 = extractvalue { i8, i8 } %89, 1
   %92 = sext i8 %90 to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17hbaacc2063c8bbd62E", i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN5image6codecs3png19PngDecoder$LT$R$GT$11with_limits17hbaacc2063c8bbd62E", i64 0, i64 %92
   %switch.load = load i64, ptr %switch.gep, align 8
   %93 = zext i32 %86 to i64
   %94 = zext nneg i8 %91 to i64
@@ -156186,10 +156186,10 @@ define internal noundef zeroext i1 @"_ZN67_$LT$typst..model..quote..QuoteElem$u2
 define { ptr, i64 } @_ZN5typst5model9reference1_6Fields6to_str17hf57d425cf69f8f83E(i8 noundef %0) unnamed_addr #6 {
 switch.lookup:
   %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E", i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = sext i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E.665", i64 0, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN73_$LT$typst..model..reference.._..Fields$u20$as$u20$core..fmt..Display$GT$3fmt17h90b9832748ee94b5E.665", i64 0, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

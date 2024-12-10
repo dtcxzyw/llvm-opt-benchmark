@@ -135,7 +135,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 define dso_local noundef nonnull ptr @filter_object_type_name(i32 noundef %0) local_unnamed_addr #4 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.filter_object_type_name, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.filter_object_type_name, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

@@ -2409,10 +2409,10 @@ switch.lookup:
   %.val = load i32, ptr %2, align 4, !range !402, !noundef !9
   %switch.tableidx = add nsw i32 %.val, -1
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [31 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [31 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [31 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE.60", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [31 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b1c6ed2ff2eca4fE.60", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -12816,9 +12816,9 @@ define hidden void @"_ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$1
 
 _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit.thread.i.i", %61, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.3204583114324502961.exit7.i.i"
   %67 = getelementptr inbounds i8, ptr %43, i64 %47
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep153 = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.62", i64 0, i64 %3
+  %switch.gep153 = getelementptr inbounds nuw [6 x i64], ptr @"switch.table._ZN4just5thunk5Thunk7resolve28_$u7b$$u7b$closure$u7d$$u7d$17haac4a6d0875ae53bE.llvm.17757648456425634998.62", i64 0, i64 %3
   %switch.load154 = load i64, ptr %switch.gep153, align 8
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %67, ptr %68, align 8

@@ -1511,7 +1511,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   store <4 x double> %509, ptr %19, align 16, !tbaa !63
   %510 = load i32, ptr %18, align 16, !tbaa !15
   %511 = sext i32 %510 to i64
-  %512 = getelementptr inbounds double, ptr %19, i64 %511
+  %512 = getelementptr inbounds nuw double, ptr %19, i64 %511
   %513 = load double, ptr %512, align 8, !tbaa !63
   %514 = extractelement <4 x double> %509, i64 0
   store double %514, ptr %512, align 8, !tbaa !63
@@ -1533,7 +1533,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %527 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %528 = load i32, ptr %527, align 4, !tbaa !15
   %529 = sext i32 %528 to i64
-  %530 = getelementptr inbounds double, ptr %19, i64 %529
+  %530 = getelementptr inbounds nuw double, ptr %19, i64 %529
   %531 = load double, ptr %530, align 8, !tbaa !63
   %532 = extractelement <2 x double> %522, i64 0
   store double %532, ptr %530, align 8, !tbaa !63
@@ -1550,7 +1550,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %541 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %542 = load i32, ptr %541, align 8, !tbaa !15
   %543 = sext i32 %542 to i64
-  %544 = getelementptr inbounds double, ptr %19, i64 %543
+  %544 = getelementptr inbounds nuw double, ptr %19, i64 %543
   %545 = load double, ptr %544, align 8, !tbaa !63
   %546 = extractelement <2 x double> %540, i64 0
   store double %546, ptr %544, align 8, !tbaa !63
@@ -1607,7 +1607,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %584 = load <4 x float>, ptr %580, align 4, !tbaa !11
   %585 = fpext <4 x float> %584 to <4 x double>
   store <4 x double> %585, ptr %20, align 16, !tbaa !63
-  %586 = getelementptr inbounds double, ptr %20, i64 %511
+  %586 = getelementptr inbounds nuw double, ptr %20, i64 %511
   %587 = load double, ptr %586, align 8, !tbaa !63
   %588 = extractelement <4 x double> %585, i64 0
   store double %588, ptr %586, align 8, !tbaa !63
@@ -1622,7 +1622,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %595 = load double, ptr %583, align 8, !tbaa !63
   %596 = fadd reassoc nsz arcp contract afn double %595, %594
   store double %596, ptr %583, align 8, !tbaa !63
-  %597 = getelementptr inbounds double, ptr %20, i64 %529
+  %597 = getelementptr inbounds nuw double, ptr %20, i64 %529
   %598 = load double, ptr %597, align 8, !tbaa !63
   %599 = extractelement <2 x double> %593, i64 0
   store double %599, ptr %597, align 8, !tbaa !63
@@ -1633,7 +1633,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %603 = load <2 x double>, ptr %582, align 16, !tbaa !63
   %604 = fadd reassoc nsz arcp contract afn <2 x double> %603, %602
   store <2 x double> %604, ptr %582, align 16, !tbaa !63
-  %605 = getelementptr inbounds double, ptr %20, i64 %543
+  %605 = getelementptr inbounds nuw double, ptr %20, i64 %543
   %606 = load double, ptr %605, align 8, !tbaa !63
   %607 = extractelement <2 x double> %604, i64 0
   store double %607, ptr %605, align 8, !tbaa !63
@@ -1678,7 +1678,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %633 = load <4 x float>, ptr %629, align 4, !tbaa !11
   %634 = fpext <4 x float> %633 to <4 x double>
   store <4 x double> %634, ptr %21, align 16, !tbaa !63
-  %635 = getelementptr inbounds double, ptr %21, i64 %511
+  %635 = getelementptr inbounds nuw double, ptr %21, i64 %511
   %636 = load double, ptr %635, align 8, !tbaa !63
   %637 = extractelement <4 x double> %634, i64 0
   store double %637, ptr %635, align 8, !tbaa !63
@@ -1693,7 +1693,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %644 = load double, ptr %632, align 8, !tbaa !63
   %645 = fadd reassoc nsz arcp contract afn double %644, %643
   store double %645, ptr %632, align 8, !tbaa !63
-  %646 = getelementptr inbounds double, ptr %21, i64 %529
+  %646 = getelementptr inbounds nuw double, ptr %21, i64 %529
   %647 = load double, ptr %646, align 8, !tbaa !63
   %648 = extractelement <2 x double> %642, i64 0
   store double %648, ptr %646, align 8, !tbaa !63
@@ -1704,7 +1704,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr noundef readon
   %652 = load <2 x double>, ptr %631, align 16, !tbaa !63
   %653 = fadd reassoc nsz arcp contract afn <2 x double> %652, %651
   store <2 x double> %653, ptr %631, align 16, !tbaa !63
-  %654 = getelementptr inbounds double, ptr %21, i64 %543
+  %654 = getelementptr inbounds nuw double, ptr %21, i64 %543
   %655 = load double, ptr %654, align 8, !tbaa !63
   %656 = extractelement <2 x double> %653, i64 0
   store double %656, ptr %654, align 8, !tbaa !63

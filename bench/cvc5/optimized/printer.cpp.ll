@@ -989,7 +989,7 @@ entry:
   %cmp.i = icmp eq i32 %call, -1
   %spec.store.select.i = select i1 %cmp.i, i32 0, i32 %call
   %conv.i = sext i32 %spec.store.select.i to i64
-  %arrayidx.i = getelementptr inbounds [3 x %"class.std::unique_ptr"], ptr @_ZN4cvc58internal7Printer10d_printersE, i64 0, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %"class.std::unique_ptr"], ptr @_ZN4cvc58internal7Printer10d_printersE, i64 0, i64 %conv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i, label %if.then1.i, label %_ZN4cvc58internal7Printer10getPrinterENS0_8LanguageE.exit
@@ -1025,7 +1025,7 @@ entry:
   %cmp = icmp eq i32 %lang, -1
   %spec.store.select = select i1 %cmp, i32 0, i32 %lang
   %conv = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds [3 x %"class.std::unique_ptr"], ptr @_ZN4cvc58internal7Printer10d_printersE, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [3 x %"class.std::unique_ptr"], ptr @_ZN4cvc58internal7Printer10d_printersE, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then1, label %if.end5

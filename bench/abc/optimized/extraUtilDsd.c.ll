@@ -1440,7 +1440,7 @@ Vec_WrdAlloc.exit:                                ; preds = %Vec_IntFree.exit, %
   %126 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv229
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, %.0201.us
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -1892,7 +1892,7 @@ Sdm_ManCheckDsd6.exit:                            ; preds = %.loopexit78
   %95 = getelementptr inbounds nuw [720 x [6 x i8]], ptr %85, i64 0, i64 %87, i64 %indvars.iv85
   %96 = load i8, ptr %95, align 1
   %97 = sext i8 %96 to i64
-  %98 = getelementptr inbounds [6 x i32], ptr %8, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [6 x i32], ptr %8, i64 0, i64 %97
   store i32 %94, ptr %98, align 4
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
   br i1 %exitcond88.not, label %._crit_edge, label %88, !llvm.loop !24

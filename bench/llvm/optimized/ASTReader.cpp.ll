@@ -35599,7 +35599,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang13serialization10ModuleFileELb1EE9push
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = sext i32 %269 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %270
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %270
   %switch.load = load i64, ptr %switch.gep, align 8
   %271 = load ptr, ptr %30, align 8
   %.not.i.i.i84 = icmp eq ptr %271, null
@@ -46492,7 +46492,7 @@ _ZNK5clang9ASTReader4DiagEj.exit:                 ; preds = %.lr.ph.i.i.i.i.i.i,
   store i32 0, ptr %325, align 8, !noalias !696
   %326 = load i32, ptr %74, align 4
   %327 = sext i32 %326 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %327
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %327
   %switch.load = load i64, ptr %switch.gep, align 8
   %328 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %328, null
@@ -46647,7 +46647,7 @@ _ZNK5clang9ASTReader4DiagEj.exit249:              ; preds = %.lr.ph.i.i.i.i.i.i2
   store i32 0, ptr %391, align 8, !noalias !707
   %392 = load i32, ptr %74, align 4
   %393 = sext i32 %392 to i64
-  %switch.gep546 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %393
+  %switch.gep546 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %393
   %switch.load547 = load i64, ptr %switch.gep546, align 8
   %394 = load ptr, ptr %25, align 8
   %.not.i.i.i252 = icmp eq ptr %394, null
@@ -46817,7 +46817,7 @@ switch.lookup:                                    ; preds = %468
   call void @_ZNK5clang9ASTReader4DiagEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(15968) %0, i32 noundef 902)
   %469 = load i32, ptr %74, align 4
   %470 = sext i32 %469 to i64
-  %switch.gep548 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %470
+  %switch.gep548 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %470
   %switch.load549 = load i64, ptr %switch.gep548, align 8
   %471 = load ptr, ptr %29, align 8
   %.not.i.i.i264 = icmp eq ptr %471, null
@@ -48142,7 +48142,7 @@ _ZNK5clang9ASTReader4DiagEj.exit74:               ; preds = %.lr.ph.i.i.i.i.i.i7
   %126 = getelementptr inbounds nuw i8, ptr %108, i64 912
   store i32 0, ptr %126, align 8, !noalias !790
   %127 = sext i32 %3 to i64
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %127
+  %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %127
   %switch.load = load i64, ptr %switch.gep, align 8
   %128 = load ptr, ptr %15, align 8
   %.not.i.i.i75 = icmp eq ptr %128, null
@@ -48304,7 +48304,7 @@ _ZNK5clang9ASTReader4DiagEj.exit95:               ; preds = %.lr.ph.i.i.i.i.i.i9
   %202 = getelementptr inbounds nuw i8, ptr %184, i64 912
   store i32 0, ptr %202, align 8, !noalias !801
   %203 = sext i32 %3 to i64
-  %switch.gep193 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %203
+  %switch.gep193 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %203
   %switch.load194 = load i64, ptr %switch.gep193, align 8
   %204 = load ptr, ptr %16, align 8
   %.not.i.i.i98 = icmp eq ptr %204, null
@@ -48486,7 +48486,7 @@ _ZN4llvm5ErrorD2Ev.exit134.preheader:             ; preds = %255
   %308 = icmp eq i32 %307, 0
   %or.cond = or i1 %304, %308
   %309 = sext i32 %3 to i64
-  %switch.gep197 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %309
+  %switch.gep197 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %309
   br label %_ZN4llvm5ErrorD2Ev.exit134
 
 310:                                              ; preds = %255
@@ -48540,7 +48540,7 @@ _ZNK5clang9ASTReader4DiagEj.exit119:              ; preds = %.lr.ph.i.i.i.i.i.i1
   %331 = getelementptr inbounds nuw i8, ptr %313, i64 912
   store i32 0, ptr %331, align 8, !noalias !812
   %332 = sext i32 %3 to i64
-  %switch.gep195 = getelementptr inbounds [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %332
+  %switch.gep195 = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN5clang9ASTReader11ReadASTCoreEN4llvm9StringRefENS_13serialization10ModuleKindENS_14SourceLocationEPNS3_10ModuleFileERNS1_15SmallVectorImplINS0_14ImportedModuleEEEllNS_16ASTFileSignatureEj.41, i64 0, i64 %332
   %switch.load196 = load i64, ptr %switch.gep195, align 8
   %333 = load ptr, ptr %20, align 8
   %.not.i.i.i122 = icmp eq ptr %333, null
@@ -151641,7 +151641,7 @@ switch.lookup:
   %10 = load i64, ptr %9, align 8
   %sext = shl i64 %10, 32
   %11 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [502 x i64], ptr @switch.table._ZN5clang13serialization18AbstractTypeReaderINS_15ASTRecordReaderEE15readBuiltinTypeEv, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [502 x i64], ptr @switch.table._ZN5clang13serialization18AbstractTypeReaderINS_15ASTRecordReaderEE15readBuiltinTypeEv, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %.sroa.0.0 = load i64, ptr %12, align 8

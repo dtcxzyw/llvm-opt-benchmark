@@ -6795,7 +6795,7 @@ if.then107.i.i:                                   ; preds = %if.end188.i.i, %if.
 if.end110.i.i:                                    ; preds = %if.then107.i.i
   %conv111.i.i = sext i32 %158 to i64
   %call112.i.i = call ptr @strncpy(ptr noundef nonnull %bcpKeyBuf.i.i, ptr noundef %pBcpKey.0288.i345.i, i64 noundef %conv111.i.i) #14
-  %arrayidx114.i.i = getelementptr inbounds [3 x i8], ptr %bcpKeyBuf.i.i, i64 0, i64 %conv111.i.i
+  %arrayidx114.i.i = getelementptr inbounds nuw [3 x i8], ptr %bcpKeyBuf.i.i, i64 0, i64 %conv111.i.i
   store i8 0, ptr %arrayidx114.i.i, align 1
   %call116.i83.i = invoke ptr @uloc_toLegacyKey_75(ptr noundef nonnull %bcpKeyBuf.i.i)
           to label %call116.i.noexc.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -6842,7 +6842,7 @@ if.then137.i.i:                                   ; preds = %if.end135.i.i
 if.end140.i.i:                                    ; preds = %if.then137.i.i
   %conv142.i.i = sext i32 %161 to i64
   %call143.i.i = call ptr @strncpy(ptr noundef nonnull %bcpTypeBuf.i.i, ptr noundef nonnull %pBcpType.0289.i348.i, i64 noundef %conv142.i.i) #14
-  %arrayidx145.i.i = getelementptr inbounds [128 x i8], ptr %bcpTypeBuf.i.i, i64 0, i64 %conv142.i.i
+  %arrayidx145.i.i = getelementptr inbounds nuw [128 x i8], ptr %bcpTypeBuf.i.i, i64 0, i64 %conv142.i.i
   store i8 0, ptr %arrayidx145.i.i, align 1
   %call147.i86.i = invoke ptr @uloc_toLegacyType_75(ptr noundef %pKey.0.i.i, ptr noundef nonnull %bcpTypeBuf.i.i)
           to label %call147.i.noexc.i unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.i

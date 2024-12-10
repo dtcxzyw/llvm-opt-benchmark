@@ -1767,7 +1767,7 @@ define void @_ZNK3gmx17HelpWriterContext10writeTitleERKNSt7__cxx1112basic_string
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [11 x i8], ptr @_ZN3gmx12_GLOBAL__N_112g_titleCharsE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [11 x i8], ptr @_ZN3gmx12_GLOBAL__N_112g_titleCharsE, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   %30 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)

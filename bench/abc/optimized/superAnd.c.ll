@@ -941,9 +941,9 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc ptr @Super2_LibWriteGate_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs1, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs1, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs2, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw [6 x ptr], ptr @Super2_LibWriteGate_rec.pBuffs2, i64 0, i64 %4
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8

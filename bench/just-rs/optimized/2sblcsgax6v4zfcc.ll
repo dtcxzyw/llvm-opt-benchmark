@@ -17395,9 +17395,9 @@ switch.lookup:
   %2 = icmp slt i64 %1, -9223372036854775805
   %3 = add i64 %1, -9223372036854775807
   %4 = select i1 %2, i64 %3, i64 0
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN70_$LT$just..search_error..SearchError$u20$as$u20$core..error..Error$GT$11description17h9413900bc3fb0cb6E", i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN70_$LT$just..search_error..SearchError$u20$as$u20$core..error..Error$GT$11description17h9413900bc3fb0cb6E", i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN70_$LT$just..search_error..SearchError$u20$as$u20$core..error..Error$GT$11description17h9413900bc3fb0cb6E.64", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN70_$LT$just..search_error..SearchError$u20$as$u20$core..error..Error$GT$11description17h9413900bc3fb0cb6E.64", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1

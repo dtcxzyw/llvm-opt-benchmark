@@ -88,7 +88,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   store i32 %41, ptr %31, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull readonly align 4 dereferenceable(16) %40, i64 16, i1 false)
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = xor i16 %47, -1
   %49 = sext i32 %41 to i64
@@ -102,7 +102,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   %56 = load i16, ptr %55, align 2
   %57 = xor i16 %56, %54
   store i16 %57, ptr %55, align 2
-  %58 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %50
+  %58 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %50
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 %49
   %61 = load i32, ptr %60, align 4
@@ -117,7 +117,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   %68 = load i32, ptr %40, align 4
   %69 = load i32, ptr %43, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %70
   %72 = load i16, ptr %71, align 2
   %73 = sext i32 %67 to i64
   %74 = sext i32 %68 to i64
@@ -130,7 +130,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   %80 = load i16, ptr %79, align 2
   %81 = or i16 %80, %78
   store i16 %81, ptr %79, align 2
-  %82 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %74
+  %82 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %74
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr inbounds [4 x i32], ptr %35, i64 0, i64 %73
   %85 = load i32, ptr %84, align 4
@@ -197,7 +197,7 @@ define void @_Z5Make0P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %15 = getelementptr inbounds [50 x %struct.moveType], ptr %14, i64 0, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %16 = sext i32 %10 to i64
-  %17 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = xor i16 %18, -1
   %20 = sext i32 %7 to i64
@@ -212,7 +212,7 @@ define void @_Z5Make0P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %28 = load i16, ptr %27, align 2
   %29 = xor i16 %28, %25
   store i16 %29, ptr %27, align 2
-  %30 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = getelementptr inbounds [4 x i32], ptr %32, i64 0, i64 %20
@@ -298,7 +298,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = xor i16 %53, -1
   %55 = zext nneg i32 %47 to i64
@@ -312,7 +312,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   %62 = load i16, ptr %61, align 2
   %63 = xor i16 %62, %60
   store i16 %63, ptr %61, align 2
-  %64 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %56
+  %64 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %56
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %55
   %67 = load i32, ptr %66, align 4
@@ -329,7 +329,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   %76 = load i32, ptr %44, align 4
   %77 = load i32, ptr %49, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext nneg i32 %75 to i64
   %82 = sext i32 %76 to i64
@@ -342,7 +342,7 @@ define noundef zeroext i1 @_Z9ABsearch1P3posiiP10ThreadData(ptr noundef nonnull 
   %88 = load i16, ptr %87, align 2
   %89 = or i16 %88, %86
   store i16 %89, ptr %87, align 2
-  %90 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %82
+  %90 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %82
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %81
   %93 = load i32, ptr %92, align 4
@@ -398,7 +398,7 @@ define void @_Z5Undo1P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = sext i32 %7 to i64
   %15 = sext i32 %8 to i64
@@ -412,7 +412,7 @@ define void @_Z5Undo1P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %22 = load i16, ptr %21, align 2
   %23 = or i16 %22, %19
   store i16 %23, ptr %21, align 2
-  %24 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %15
+  %24 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %15
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = getelementptr inbounds [4 x i32], ptr %26, i64 0, i64 %14
@@ -722,7 +722,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   store i32 %174, ptr %164, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %166, ptr noundef nonnull readonly align 4 dereferenceable(16) %173, i64 16, i1 false)
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %178
   %180 = load i16, ptr %179, align 2
   %181 = xor i16 %180, -1
   %182 = sext i32 %174 to i64
@@ -736,7 +736,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %189 = load i16, ptr %188, align 2
   %190 = xor i16 %189, %187
   store i16 %190, ptr %188, align 2
-  %191 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %183
+  %191 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %183
   %192 = load i32, ptr %191, align 4
   %193 = getelementptr inbounds [4 x i32], ptr %168, i64 0, i64 %182
   %194 = load i32, ptr %193, align 4
@@ -751,7 +751,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %201 = load i32, ptr %173, align 4
   %202 = load i32, ptr %176, align 4
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %203
   %205 = load i16, ptr %204, align 2
   %206 = sext i32 %200 to i64
   %207 = sext i32 %201 to i64
@@ -764,7 +764,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %213 = load i16, ptr %212, align 2
   %214 = or i16 %213, %211
   store i16 %214, ptr %212, align 2
-  %215 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %207
+  %215 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %207
   %216 = load i32, ptr %215, align 4
   %217 = getelementptr inbounds [4 x i32], ptr %168, i64 0, i64 %206
   %218 = load i32, ptr %217, align 4
@@ -1050,7 +1050,7 @@ define void @_Z5Make1P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = xor i16 %18, -1
   %20 = zext nneg i32 %12 to i64
@@ -1065,7 +1065,7 @@ define void @_Z5Make1P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %28 = load i16, ptr %27, align 2
   %29 = xor i16 %28, %25
   store i16 %29, ptr %27, align 2
-  %30 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = getelementptr inbounds nuw [4 x i32], ptr %32, i64 0, i64 %20
@@ -1145,7 +1145,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = xor i16 %50, -1
   %52 = zext nneg i32 %44 to i64
@@ -1159,7 +1159,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %59 = load i16, ptr %58, align 2
   %60 = xor i16 %59, %57
   store i16 %60, ptr %58, align 2
-  %61 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %53
+  %61 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %53
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %52
   %64 = load i32, ptr %63, align 4
@@ -1176,7 +1176,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %73 = load i32, ptr %41, align 4
   %74 = load i32, ptr %46, align 4
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext nneg i32 %72 to i64
   %79 = sext i32 %73 to i64
@@ -1189,7 +1189,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %85 = load i16, ptr %84, align 2
   %86 = or i16 %85, %83
   store i16 %86, ptr %84, align 2
-  %87 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %79
+  %87 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %79
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %78
   %90 = load i32, ptr %89, align 4
@@ -1247,7 +1247,7 @@ define void @_Z5Undo2P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = zext nneg i32 %9 to i64
   %17 = sext i32 %10 to i64
@@ -1261,7 +1261,7 @@ define void @_Z5Undo2P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %24 = load i16, ptr %23, align 2
   %25 = or i16 %24, %21
   store i16 %25, ptr %23, align 2
-  %26 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
+  %26 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %16
@@ -1292,7 +1292,7 @@ define void @_Z5Make2P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = xor i16 %18, -1
   %20 = zext nneg i32 %12 to i64
@@ -1307,7 +1307,7 @@ define void @_Z5Make2P3posiPK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %28 = load i16, ptr %27, align 2
   %29 = xor i16 %28, %25
   store i16 %29, ptr %27, align 2
-  %30 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %21
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = getelementptr inbounds nuw [4 x i32], ptr %32, i64 0, i64 %20
@@ -1414,7 +1414,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = zext nneg i32 %65 to i64
   %73 = sext i32 %66 to i64
@@ -1427,7 +1427,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   %79 = load i16, ptr %78, align 2
   %80 = or i16 %79, %77
   store i16 %80, ptr %78, align 2
-  %81 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %73
+  %81 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %73
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds nuw [4 x i32], ptr %39, i64 0, i64 %72
   %84 = load i32, ptr %83, align 4
@@ -1537,7 +1537,7 @@ define void @_Z5Undo3P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = zext nneg i32 %9 to i64
   %17 = sext i32 %10 to i64
@@ -1551,7 +1551,7 @@ define void @_Z5Undo3P3posiRK8moveType(ptr nocapture noundef %0, i32 noundef %1,
   %24 = load i16, ptr %23, align 2
   %25 = or i16 %24, %21
   store i16 %25, ptr %23, align 2
-  %26 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
+  %26 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %16
@@ -1599,7 +1599,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %36 = load i32, ptr %35, align 4
@@ -1614,7 +1614,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %3, align 4
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = xor i16 %46, -1
   %48 = zext nneg i32 %22 to i64
@@ -1629,7 +1629,7 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr nocapture noundef %0, 
   %56 = load i16, ptr %55, align 2
   %57 = xor i16 %56, %53
   store i16 %57, ptr %55, align 2
-  %58 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %49
+  %58 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %49
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = getelementptr inbounds nuw [4 x i32], ptr %60, i64 0, i64 %48
@@ -1728,7 +1728,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr nocapture noundef %0, i
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext nneg i32 %10 to i64
   %18 = sext i32 %11 to i64
@@ -1742,7 +1742,7 @@ define void @_Z5Undo0P3posiRK8moveTypePK10ThreadData(ptr nocapture noundef %0, i
   %25 = load i16, ptr %24, align 2
   %26 = or i16 %25, %22
   store i16 %26, ptr %24, align 2
-  %27 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %18
+  %27 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %18
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw [4 x i32], ptr %29, i64 0, i64 %17
@@ -1833,7 +1833,7 @@ define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture nound
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i32, ptr %33, align 4
@@ -1850,7 +1850,7 @@ define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture nound
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %3, align 4
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = sext i32 %43 to i64
@@ -1858,7 +1858,7 @@ define void @_Z11Make3SimpleP3posPtiPK8moveTypeP10ThreadData(ptr nocapture nound
   %50 = load i16, ptr %49, align 2
   %51 = xor i16 %50, %46
   store i16 %51, ptr %49, align 2
-  %52 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %48
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = zext nneg i32 %40 to i64
@@ -1881,7 +1881,7 @@ define void @_Z11Undo0SimpleP3posiRK8moveType(ptr nocapture noundef %0, i32 noun
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = sext i32 %10 to i64
@@ -1889,7 +1889,7 @@ define void @_Z11Undo0SimpleP3posiRK8moveType(ptr nocapture noundef %0, i32 noun
   %19 = load i16, ptr %18, align 2
   %20 = or i16 %19, %15
   store i16 %20, ptr %18, align 2
-  %21 = getelementptr inbounds [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i32], ptr @_ZL9handDelta, i64 0, i64 %17
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = zext nneg i32 %9 to i64

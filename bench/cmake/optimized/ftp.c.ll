@@ -2396,7 +2396,7 @@ switch.lookup:                                    ; preds = %47
   %93 = add nsw i32 %92, %90
   store i32 %93, ptr %91, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [2 x ptr], ptr @ftp_statemachine.ftpauth, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef %96) #10
   br label %ftp_state_pwd.exit
@@ -3691,14 +3691,14 @@ ftp_213_date.exit.thread:                         ; preds = %16, %10, %72, %ftp_
   %95 = add nsw i32 %94, -1
   %narrow = select i1 %.not76, i32 6, i32 %95
   %96 = sext i32 %narrow to i64
-  %97 = getelementptr inbounds [7 x ptr], ptr @Curl_wkday, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [7 x ptr], ptr @Curl_wkday, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds [12 x ptr], ptr @Curl_month, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [12 x ptr], ptr @Curl_month, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %107 = load i32, ptr %106, align 4

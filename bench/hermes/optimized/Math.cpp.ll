@@ -40,7 +40,7 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 define hidden { i32, i64 } @_ZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds [25 x ptr], ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [25 x ptr], ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 0, i64 %0
   %1 = load ptr, ptr %arrayidx, align 8
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %2 = load i32, ptr %argCount_.i, align 8

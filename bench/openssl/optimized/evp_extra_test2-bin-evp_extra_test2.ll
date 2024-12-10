@@ -336,7 +336,7 @@ entry:
   %buffer = alloca [32 x i8], align 16
   %len = alloca i64, align 8
   %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.APK_DATA_st], ptr @keydata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.APK_DATA_st], ptr @keydata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %size = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %size, align 8
@@ -1617,7 +1617,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 define internal range(i32 0, 2) i32 @test_PEM_read_bio_negative(i32 noundef %testid) #0 {
 entry:
   %idxprom = sext i32 %testid to i64
-  %arrayidx = getelementptr inbounds [6 x %struct.APK_DATA_st], ptr @keydata, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [6 x %struct.APK_DATA_st], ptr @keydata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %size = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %size, align 8

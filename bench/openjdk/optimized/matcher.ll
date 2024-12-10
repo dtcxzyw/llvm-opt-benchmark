@@ -362,7 +362,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl(ptr no
 
 27:                                               ; preds = %23
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -708,7 +708,7 @@ _ZN7RegMask6InsertEi.exit64:                      ; preds = %101, %105
 
 198:                                              ; preds = %182
   %199 = sext i32 %176 to i64
-  %200 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %199
   %201 = load i32, ptr %200, align 4
   br label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit
 
@@ -796,7 +796,7 @@ _ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit.thread: ; preds = %.thread, 
 
 245:                                              ; preds = %241
   %246 = sext i32 %244 to i64
-  %247 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %246
   %248 = load i32, ptr %247, align 4
   br label %_ZN7Matcher21warp_incoming_stk_argEP9VMRegImpl.exit71
 
@@ -3415,7 +3415,7 @@ _ZN7Matcher13find_receiverEv.exit.thread:         ; preds = %47
 
 49:                                               ; preds = %47
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %_ZN7Matcher13find_receiverEv.exit
 
@@ -6582,7 +6582,7 @@ define hidden noundef i32 @_ZN7Matcher13find_receiverEv() local_unnamed_addr #0 
 
 12:                                               ; preds = %10
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -7421,7 +7421,7 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
 
 204:                                              ; preds = %203
   %205 = sext i32 %183 to i64
-  %206 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %205
   %207 = load i32, ptr %206, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
@@ -7440,7 +7440,7 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %201, %203, %204
 
 211:                                              ; preds = %210
   %212 = sext i32 %187 to i64
-  %213 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit161
 
@@ -7514,7 +7514,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %222, %225
 
 244:                                              ; preds = %243
   %245 = sext i32 %183 to i64
-  %246 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %245
   %247 = load i32, ptr %246, align 4
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
 
@@ -7584,7 +7584,7 @@ _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %243, %
 
 276:                                              ; preds = %275
   %277 = sext i32 %187 to i64
-  %278 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %277
   %279 = load i32, ptr %278, align 4
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169
 
@@ -8155,7 +8155,7 @@ define hidden noundef i32 @_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi(ptr
 
 22:                                               ; preds = %20
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [609 x i32], ptr @_ZN7OptoReg7vm2optoE, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 

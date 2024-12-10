@@ -967,7 +967,7 @@ mixDigest.exit79:                                 ; preds = %for.body.i.i72
 if.end:                                           ; preds = %mixDigest.exit79, %mixDigest.exit68
   %call68 = call i32 @fpconv_dtoa(double noundef %call54, ptr noundef nonnull %buf) #22
   %idxprom = sext i32 %call68 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %call72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #24
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %ctx.i82)
@@ -1041,7 +1041,7 @@ while.body88:                                     ; preds = %if.then81, %xorDige
   %25 = load double, ptr %call92, align 8
   %call95 = call i32 @fpconv_dtoa(double noundef %25, ptr noundef nonnull %buf) #22
   %idxprom96 = sext i32 %call95 to i64
-  %arrayidx97 = getelementptr inbounds [128 x i8], ptr %buf, i64 0, i64 %idxprom96
+  %arrayidx97 = getelementptr inbounds nuw [128 x i8], ptr %buf, i64 0, i64 %idxprom96
   store i8 0, ptr %arrayidx97, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %eledigest, i8 0, i64 20, i1 false)
   %arrayidx.i102 = getelementptr inbounds i8, ptr %call90, i64 -1
@@ -2700,7 +2700,7 @@ if.then213:                                       ; preds = %if.end205
   %41 = load i64, ptr %len, align 8
   %call217 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %extra, i64 noundef 138, ptr noundef nonnull @.str.135, i64 noundef %41) #22
   %idx.ext = sext i32 %call217 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %extra, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %extra, i64 %idx.ext
   %sub = sub nsw i32 138, %call217
   %count = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %count, align 8
@@ -4206,7 +4206,7 @@ if.then9.i.i:                                     ; preds = %while.cond.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.outer.i.i, %for.cond.backedge.i.i
   %pos.033.i.i = phi i64 [ %add.i.i, %for.cond.backedge.i.i ], [ %pos.0.ph.i.i, %for.cond.outer.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buff.i.i, i64 %pos.033.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buff.i.i, i64 %pos.033.i.i
   %d_reclen.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %2 = load i16, ptr %d_reclen.i.i, align 8
   %conv16.i.i = zext i16 %2 to i64
@@ -4322,7 +4322,7 @@ if.end40.i.i:                                     ; preds = %while.end.i.i.i
   %spec.select.i.i = select i1 %cmp42.i.i, i32 %conv45.i.i, i32 %current_thread_index.2.ph.i.i
   %conv47.i.i = trunc i64 %12 to i32
   %inc.i.i = add i64 %tids_count.2.ph.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %tids_count.2.ph.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %tids.i, i64 %tids_count.2.ph.i.i
   store i32 %conv47.i.i, ptr %arrayidx.i.i, align 4
   %cmp48.i.i = icmp eq i64 %inc.i.i, 50
   br i1 %cmp48.i.i, label %for.end.thread.i.i, label %for.cond.outer.i.i, !llvm.loop !27
@@ -4354,7 +4354,7 @@ if.then58.i.i:                                    ; preds = %while.end.i.i
   %14 = load i32, ptr %arrayidx59.i.i, align 4
   store i32 %conv.i.i, ptr %arrayidx59.i.i, align 4
   %idxprom.i.i = sext i32 %current_thread_index.1.i.i to i64
-  %arrayidx62.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %idxprom.i.i
+  %arrayidx62.i.i = getelementptr inbounds nuw i32, ptr %tids.i, i64 %idxprom.i.i
   store i32 %14, ptr %arrayidx62.i.i, align 4
   br label %get_ready_to_signal_threads_tids.exit.i
 

@@ -7550,7 +7550,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
 
 .thread.us:                                       ; preds = %22
   %25 = sext i8 %21 to i64
-  %26 = getelementptr inbounds [2 x i32], ptr %2, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -7564,14 +7564,14 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
   br i1 %32, label %38, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %33
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
   br label %42
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %33
+  %39 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %33
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4

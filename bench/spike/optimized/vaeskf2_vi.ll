@@ -375,7 +375,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -819,7 +819,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -1237,7 +1237,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -1657,7 +1657,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -2075,7 +2075,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -2495,7 +2495,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -2913,7 +2913,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us
@@ -3333,7 +3333,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %161 = icmp eq i64 %160, 0
   %162 = lshr exact i64 %.fr, 1
   %163 = add nsw i64 %162, -1
-  %164 = getelementptr inbounds [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [7 x i8], ptr @_ZZ23logged_rv64e_vaeskf2_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %163
   br i1 %161, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %153, %.split.us

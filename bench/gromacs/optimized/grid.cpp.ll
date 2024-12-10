@@ -122,11 +122,11 @@ define void @_ZN5Nbnxm4Grid8GeometryC2E12PairlistType(ptr nocapture noundef nonn
   store i8 %5, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %6, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %7
+  %11 = getelementptr inbounds nuw [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %7
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %10, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1859,7 +1859,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
 45:                                               ; preds = %.lr.ph.i
   %46 = add nsw i32 %.0508.i, 1
   %47 = sext i32 %.0508.i to i64
-  %48 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %47
   store i32 %.pre.i, ptr %48, align 4
   %49 = trunc nsw i64 %indvars.iv24.i to i32
   br label %54
@@ -1867,7 +1867,7 @@ define void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gm
 50:                                               ; preds = %.lr.ph.i
   %51 = add nsw i32 %.0489.i, 1
   %52 = sext i32 %.0489.i to i64
-  %53 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %52
   store i32 %.pre.i, ptr %53, align 4
   br label %54
 

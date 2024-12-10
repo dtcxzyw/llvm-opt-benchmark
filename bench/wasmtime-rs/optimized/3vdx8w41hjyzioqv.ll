@@ -21971,11 +21971,11 @@ define void @_ZN8wasmtime7runtime11code_memory10CodeMemory3new17hf21561e61274d49
 
 96:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %50)
-  %97 = getelementptr inbounds [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0..pr
+  %97 = getelementptr inbounds nuw [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0..pr
   %98 = load i64, ptr %97, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %53, i64 %98, i1 false)
   %.0..0..0..0.154 = load i64, ptr %50, align 8
-  %99 = getelementptr inbounds [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.154
+  %99 = getelementptr inbounds nuw [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.154
   %100 = load i64, ptr %99, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %50, i64 %100, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %50)
@@ -28997,7 +28997,7 @@ switch.lookup125:                                 ; preds = %161
   %switch.tableidx = add nsw i64 %162, -1
   %switch.idx.mult = shl nsw i64 %switch.tableidx, 1
   %switch.offset = add nsw i64 %switch.idx.mult, 4
-  %switch.gep126 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.246, i64 0, i64 %switch.tableidx
+  %switch.gep126 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8wasmtime7runtime9component8matching11TypeChecker10definition17ha00f3520ad7263a4E.246, i64 0, i64 %switch.tableidx
   %switch.load127 = load ptr, ptr %switch.gep126, align 8
   store ptr %switch.load127, ptr %63, align 8
   %212 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -35707,7 +35707,7 @@ define hidden void @_ZN8wasmtime15profiling_agent14ProfilingAgent15register_modu
   %25 = load i64, ptr %24, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %19, i64 %25, i1 false)
   %.0..0..0..0. = load i64, ptr %18, align 8
-  %26 = getelementptr inbounds [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
+  %26 = getelementptr inbounds nuw [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
   %27 = load i64, ptr %26, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %18, i64 %27, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %18)
@@ -36097,7 +36097,7 @@ define hidden void @_ZN8wasmtime15profiling_agent14ProfilingAgent15register_modu
   %25 = load i64, ptr %24, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %19, i64 %25, i1 false)
   %.0..0..0..0. = load i64, ptr %18, align 8
-  %26 = getelementptr inbounds [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
+  %26 = getelementptr inbounds nuw [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
   %27 = load i64, ptr %26, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %18, i64 %27, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %18)
@@ -36487,7 +36487,7 @@ define hidden void @_ZN8wasmtime15profiling_agent14ProfilingAgent15register_modu
   %25 = load i64, ptr %24, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 8 %19, i64 %25, i1 false)
   %.0..0..0..0. = load i64, ptr %18, align 8
-  %26 = getelementptr inbounds [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
+  %26 = getelementptr inbounds nuw [10 x i64], ptr @anon.6c5507757c8b1c864a673afc90c467c5.264, i64 0, i64 %.0..0..0..0.
   %27 = load i64, ptr %26, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %18, i64 %27, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %18)

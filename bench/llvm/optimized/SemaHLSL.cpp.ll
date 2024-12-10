@@ -7671,7 +7671,7 @@ _ZL38updateResourceClassFlagsFromRecordTypeR20RegisterBindingFlagsPKN5clang10Rec
   store ptr %1, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %12, i8 0, i64 5, i1 false)
   %462 = sext i32 %.0 to i64
-  %463 = getelementptr inbounds [5 x i8], ptr %12, i64 0, i64 %462
+  %463 = getelementptr inbounds nuw [5 x i8], ptr %12, i64 0, i64 %462
   store i8 1, ptr %463, align 1
   %464 = load atomic i8, ptr @_ZGVZL35ValidateMultipleRegisterAnnotationsRN5clang4SemaEPNS_4DeclE12RegisterTypeE17PreviousConflicts acquire, align 8
   %465 = icmp eq i8 %464, 0
@@ -8025,7 +8025,7 @@ switch.lookup:                                    ; preds = %567
   store i8 %591, ptr %590, align 1
   %592 = load i32, ptr %15, align 4
   %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw [5 x i8], ptr %22, i64 0, i64 %593
   %595 = load i8, ptr %594, align 1
   %596 = trunc i8 %595 to i1
   br i1 %596, label %_ZL29DiagnoseHLSLRegisterAttributeRN5clang4SemaERNS_14SourceLocationEPNS_4DeclE12RegisterType.exit, label %597

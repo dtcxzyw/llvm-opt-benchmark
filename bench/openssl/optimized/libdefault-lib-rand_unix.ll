@@ -330,7 +330,7 @@ for.body.preheader.i:                             ; preds = %if.then22.i
   %shl.i = shl nuw i64 1, %sh_prom.i
   %div.i = sdiv i32 %call20.i, 64
   %idxprom29.i = sext i32 %div.i to i64
-  %arrayidx30.i = getelementptr inbounds [16 x i64], ptr %fds.i, i64 0, i64 %idxprom29.i
+  %arrayidx30.i = getelementptr inbounds nuw [16 x i64], ptr %fds.i, i64 0, i64 %idxprom29.i
   %3 = load i64, ptr %arrayidx30.i, align 8
   %or.i = or i64 %3, %shl.i
   store i64 %or.i, ptr %arrayidx30.i, align 8

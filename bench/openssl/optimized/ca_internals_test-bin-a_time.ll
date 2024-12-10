@@ -258,7 +258,7 @@ lor.lhs.false.i:                                  ; preds = %if.then106
 
 if.else111:                                       ; preds = %sw.bb102
   %idxprom113 = sext i32 %9 to i64
-  %arrayidx114 = getelementptr inbounds [12 x i32], ptr @ossl_asn1_time_to_tm.mdays, i64 0, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds nuw [12 x i32], ptr @ossl_asn1_time_to_tm.mdays, i64 0, i64 %idxprom113
   %21 = load i32, ptr %arrayidx114, align 4
   br label %if.end115
 
@@ -270,7 +270,7 @@ if.end115:                                        ; preds = %lor.lhs.false.i, %i
 if.end119:                                        ; preds = %if.end115
   store i32 %sub60, ptr %tm_mday, align 4
   %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds [12 x i32], ptr @determine_days.ydays, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [12 x i32], ptr @determine_days.ydays, i64 0, i64 %idxprom.i
   %22 = load i32, ptr %arrayidx.i, align 4
   %add1.i = add nsw i32 %add, -49
   %sub.i = add i32 %add1.i, %22
@@ -1192,7 +1192,7 @@ if.else:                                          ; preds = %if.end25
   %tm_mon36 = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %16 = load i32, ptr %tm_mon36, align 8
   %idxprom37 = sext i32 %16 to i64
-  %arrayidx38 = getelementptr inbounds [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom37
+  %arrayidx38 = getelementptr inbounds nuw [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom37
   %tm_mday39 = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %17 = load i32, ptr %tm_mday39, align 4
   %tm_hour40 = getelementptr inbounds nuw i8, ptr %stm, i64 8
@@ -1238,7 +1238,7 @@ if.else68:                                        ; preds = %if.else50
   %tm_mon69 = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %28 = load i32, ptr %tm_mon69, align 8
   %idxprom70 = sext i32 %28 to i64
-  %arrayidx71 = getelementptr inbounds [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom70
   %tm_mday73 = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %29 = load i32, ptr %tm_mday73, align 4
   %tm_hour74 = getelementptr inbounds nuw i8, ptr %stm, i64 8

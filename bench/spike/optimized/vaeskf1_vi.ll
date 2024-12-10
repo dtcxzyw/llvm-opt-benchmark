@@ -370,7 +370,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -757,7 +757,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -1118,7 +1118,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -1481,7 +1481,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -1842,7 +1842,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -2205,7 +2205,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -2566,7 +2566,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163
@@ -2929,7 +2929,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   %157 = xor i64 %155, 8
   %158 = select i1 %or.cond, i64 %155, i64 %157
   %159 = add nsw i64 %158, -1
-  %160 = getelementptr inbounds [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [10 x i8], ptr @_ZZ23logged_rv64e_vaeskf1_viP11processor_t6insn_tmE15kRoundConstants, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   br label %163

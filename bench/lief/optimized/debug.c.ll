@@ -181,7 +181,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
   br i1 %.not, label %37, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %8, i64 %.069
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 %.069
   %33 = sub i64 512, %.069
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %32, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #9
   %.val63 = load ptr, ptr %0, align 8
@@ -195,7 +195,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
 
 37:                                               ; preds = %31, %30
   %.2 = phi i64 [ 0, %31 ], [ %.069, %30 ]
-  %38 = getelementptr inbounds i8, ptr %8, i64 %.2
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %.2
   %39 = sub i64 512, %.2
   %40 = trunc nuw nsw i64 %.05268 to i32
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %38, i64 noundef %39, ptr noundef nonnull @.str.3, i32 noundef %40) #9
@@ -205,7 +205,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
 
 44:                                               ; preds = %37, %.lr.ph
   %.1 = phi i64 [ %43, %37 ], [ %.069, %.lr.ph ]
-  %45 = getelementptr inbounds i8, ptr %8, i64 %.1
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 %.1
   %46 = sub i64 512, %.1
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 %.05268
   %48 = load i8, ptr %47, align 1
@@ -231,7 +231,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
 .lr.ph74:                                         ; preds = %.preheader, %.lr.ph74
   %.373 = phi i64 [ %63, %.lr.ph74 ], [ %52, %.preheader ]
   %.15372 = phi i64 [ %64, %.lr.ph74 ], [ %27, %.preheader ]
-  %59 = getelementptr inbounds i8, ptr %8, i64 %.373
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 %.373
   %60 = sub i64 512, %.373
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str.5) #9
   %62 = sext i32 %61 to i64
@@ -243,7 +243,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly %0, i32 noundef
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %.preheader
   %.3.lcssa = phi i64 [ %52, %.preheader ], [ %63, %.lr.ph74 ]
-  %66 = getelementptr inbounds i8, ptr %8, i64 %.3.lcssa
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 %.3.lcssa
   %67 = sub i64 512, %.3.lcssa
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %66, i64 noundef %67, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #9
   %.val = load ptr, ptr %0, align 8
@@ -359,7 +359,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   %41 = and i64 %40, 56
   %42 = lshr i64 %39, %41
   %43 = trunc i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %7, i64 %.158
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 %.158
   %45 = sub i64 512, %.158
   %46 = and i32 %43, 255
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull @.str.4, i32 noundef %46) #9
@@ -368,7 +368,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %35
-  %51 = getelementptr inbounds i8, ptr %7, i64 %48
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 %48
   %52 = sub i64 509, %.158
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %52, ptr noundef nonnull @.str.9) #9
   %.val49 = load ptr, ptr %0, align 8
@@ -391,7 +391,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly %0, i32 noundef
 
 58:                                               ; preds = %.thread, %._crit_edge
   %.056 = phi i64 [ 3, %.thread ], [ %.2, %._crit_edge ]
-  %59 = getelementptr inbounds i8, ptr %7, i64 %.056
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 %.056
   %60 = sub nuw nsw i64 512, %.056
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %59, i64 noundef %60, ptr noundef nonnull @.str.9) #9
   %.val = load ptr, ptr %0, align 8

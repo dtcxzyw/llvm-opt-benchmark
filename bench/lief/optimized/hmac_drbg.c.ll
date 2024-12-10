@@ -208,7 +208,7 @@ define hidden i32 @mbedtls_hmac_drbg_reseed(ptr noundef %0, ptr noundef readonly
   br i1 %or.cond.i, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 %17
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %22 = add i64 %17, %2
   br label %23
@@ -289,7 +289,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   %35 = load i64, ptr %17, align 8
   %36 = load ptr, ptr %15, align 8
   %37 = load ptr, ptr %16, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 %35
   %39 = lshr i64 %35, 1
   %40 = call i32 %36(ptr noundef %37, ptr noundef nonnull %38, i64 noundef %39) #12
   %.not36.i = icmp eq i32 %40, 0
@@ -305,7 +305,7 @@ define hidden i32 @mbedtls_hmac_drbg_seed(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond.i, label %47, label %50
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %7, i64 %44
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 1 %4, i64 %5, i1 false)
   %49 = add i64 %44, %5
   br label %50
@@ -413,7 +413,7 @@ define hidden i32 @mbedtls_hmac_drbg_random_with_add(ptr noundef %0, ptr nocaptu
   br i1 %or.cond.i.i, label %39, label %42
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %6, i64 %36
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %3, i64 %4, i1 false)
   %41 = add i64 %36, %4
   br label %42
@@ -683,12 +683,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_hmac_drbg_self_test(i32 noundef %0) l
 31:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %2, i8 0, i64 384, i1 false)
   %32 = load i64, ptr @test_offset, align 8
-  %33 = getelementptr inbounds i8, ptr @entropy_pr, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr @entropy_pr, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull readonly align 1 %33, i64 %28, i1 false)
   %34 = add i64 %32, %28
-  %35 = getelementptr inbounds i8, ptr %2, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   %36 = lshr i64 %28, 1
-  %37 = getelementptr inbounds i8, ptr @entropy_pr, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr @entropy_pr, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %37, i64 %36, i1 false)
   %38 = add i64 %34, %36
   store i64 %38, ptr @test_offset, align 8

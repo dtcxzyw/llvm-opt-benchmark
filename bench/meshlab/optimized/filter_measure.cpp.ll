@@ -13905,7 +13905,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   store i32 %116, ptr %114, align 4
   %sext54 = shl i64 %.sroa.6.0.us, 32
   %117 = ashr exact i64 %sext54, 32
-  %118 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %116, %119
   store i32 %120, ptr %114, align 4
@@ -13931,7 +13931,7 @@ _ZN3vcg4face10IsManifoldI6CFaceOEEbRKT_i.exit:    ; preds = %_ZNK3vcg4face8FFAdj
   %.sroa.0.0 = phi ptr [ %151, %.split ], [ %.sroa.032.049, %98 ]
   %sext = shl i64 %.sroa.6.0, 32
   %135 = ashr exact i64 %sext, 32
-  %136 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [3 x i32], ptr %3, i64 0, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 32
   %139 = load i32, ptr %138, align 4
@@ -26827,7 +26827,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   %107 = call double @llvm.fmuladd.f64(double %100, double %105, double %106)
   store double %107, ptr %13, align 8
   %108 = sext i32 %101 to i64
-  %109 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %108
   %110 = load float, ptr %109, align 4
   %111 = fpext float %110 to double
   %112 = load double, ptr %20, align 8
@@ -26837,7 +26837,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %115, ptr %113, align 8
   %116 = load i32, ptr %19, align 4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %117
   %119 = load float, ptr %118, align 4
   %120 = fpext float %119 to double
   %121 = load double, ptr %21, align 8
@@ -26847,7 +26847,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %124, ptr %122, align 8
   %125 = load i32, ptr %18, align 8
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %126
   %128 = load float, ptr %127, align 4
   %129 = fpext float %128 to double
   %130 = load double, ptr %22, align 8
@@ -26857,7 +26857,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %133, ptr %131, align 8
   %134 = load i32, ptr %0, align 8
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %135
+  %136 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = fpext float %137 to double
   %139 = load double, ptr %23, align 8
@@ -26867,7 +26867,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %142, ptr %140, align 8
   %143 = load i32, ptr %19, align 4
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %144
   %146 = load float, ptr %145, align 4
   %147 = fpext float %146 to double
   %148 = load double, ptr %24, align 8
@@ -26877,7 +26877,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %151, ptr %149, align 8
   %152 = load i32, ptr %18, align 8
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %153
   %155 = load float, ptr %154, align 4
   %156 = fpext float %155 to double
   %157 = load double, ptr %25, align 8
@@ -26887,7 +26887,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %160, ptr %158, align 8
   %161 = load i32, ptr %0, align 8
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %162
   %164 = load float, ptr %163, align 4
   %165 = fpext float %164 to double
   %166 = load double, ptr %26, align 8
@@ -26897,7 +26897,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %169, ptr %167, align 8
   %170 = load i32, ptr %19, align 4
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %171
   %173 = load float, ptr %172, align 4
   %174 = fpext float %173 to double
   %175 = load double, ptr %27, align 8
@@ -26907,7 +26907,7 @@ _ZN3vcg24NormalizedTriangleNormalI6CFaceOEENT_9CoordTypeERKS2_.exit: ; preds = %
   store double %178, ptr %176, align 8
   %179 = load i32, ptr %18, align 8
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %180
   %182 = load float, ptr %181, align 4
   %183 = fpext float %182 to double
   %184 = load double, ptr %28, align 8

@@ -1945,7 +1945,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 for.body:                                         ; preds = %for.body.preheader, %if.then28
   %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %if.then28 ]
-  %arrayidx = getelementptr inbounds [8 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv
   %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %7 = load i64, ptr %iov_len, align 8
   %cmp26 = icmp eq i64 %7, 0
@@ -2307,7 +2307,7 @@ for.end:                                          ; preds = %for.cond.us, %if.el
 if.then103:                                       ; preds = %for.end
   %sext = shl i64 %indvars.iv, 32
   %idxprom104 = ashr exact i64 %sext, 32
-  %iov_len106 = getelementptr inbounds [2 x %struct.iovec], ptr %space, i64 0, i64 %idxprom104, i32 1
+  %iov_len106 = getelementptr inbounds nuw [2 x %struct.iovec], ptr %space, i64 0, i64 %idxprom104, i32 1
   store i64 %len.0.us, ptr %iov_len106, align 8
   %inc107 = add nsw i32 %i.0.ph78, 1
   br label %if.end108

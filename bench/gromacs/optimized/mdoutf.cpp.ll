@@ -1628,10 +1628,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit111.i:     ; preds = %251, %248
   %260 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %258) #22
   %261 = xor i64 %260, -1
   %262 = add i64 %255, %261
-  %263 = getelementptr inbounds [1024 x i8], ptr %13, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [1024 x i8], ptr %13, i64 0, i64 %262
   store i8 0, ptr %263, align 1
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %13)
-  %endptr.i = getelementptr inbounds i8, ptr %13, i64 %strlen.i
+  %endptr.i = getelementptr inbounds nuw i8, ptr %13, i64 %strlen.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %endptr.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.24, i64 6, i1 false)
   %264 = load ptr, ptr %11, align 8
   %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #22

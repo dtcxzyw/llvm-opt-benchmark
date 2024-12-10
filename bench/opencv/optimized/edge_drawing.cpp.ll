@@ -15753,7 +15753,7 @@ _ZN8AngleSet3setEdd.exit304:                      ; preds = %359, %366
   %368 = add nsw i32 %367, 1
   store i32 %368, ptr %7, align 4
   %369 = sext i32 %367 to i64
-  %370 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %5, i64 0, i64 %369
+  %370 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %5, i64 0, i64 %369
   store double %.sink.i303, ptr %370, align 8
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store double %364, ptr %371, align 8
@@ -16007,7 +16007,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i313, %
 474:                                              ; preds = %.loopexit
   %475 = load i32, ptr %6, align 8
   %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %5, i64 0, i64 %476
+  %477 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %5, i64 0, i64 %476
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 16
   %479 = load i32, ptr %478, align 8
   %480 = icmp slt i32 %479, 0
@@ -16830,7 +16830,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %138, %.outer.i.i, %
   %300 = add nsw i32 %299, 1
   store i32 %300, ptr %15, align 4
   %301 = sext i32 %299 to i64
-  %302 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %301
   store double %294, ptr %302, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store double 0x401921FB54442D18, ptr %303, align 8
@@ -17020,7 +17020,7 @@ _ZN8AngleSet3setEdd.exit274:                      ; preds = %287, %_ZN8AngleSet4
   %383 = add nsw i32 %382, 1
   store i32 %383, ptr %15, align 4
   %384 = sext i32 %382 to i64
-  %385 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %384
+  %385 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %384
   store double %.sink.i273, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store double %296, ptr %386, align 8
@@ -17268,7 +17268,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i281, %
 489:                                              ; preds = %.loopexit
   %490 = load i32, ptr %14, align 8
   %491 = sext i32 %490 to i64
-  %492 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %491
+  %492 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %491
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 16
   %494 = load i32, ptr %493, align 8
   %495 = icmp slt i32 %494, 0
@@ -18133,7 +18133,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %129, %.outer.i.i, %
   %311 = add nsw i32 %310, 1
   store i32 %311, ptr %15, align 4
   %312 = sext i32 %310 to i64
-  %313 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %312
+  %313 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %312
   store double %305, ptr %313, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store double 0x401921FB54442D18, ptr %314, align 8
@@ -18323,7 +18323,7 @@ _ZN8AngleSet3setEdd.exit292:                      ; preds = %298, %_ZN8AngleSet4
   %394 = add nsw i32 %393, 1
   store i32 %394, ptr %15, align 4
   %395 = sext i32 %393 to i64
-  %396 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %395
+  %396 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %395
   store double %.sink.i291, ptr %396, align 8
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store double %307, ptr %397, align 8
@@ -18571,7 +18571,7 @@ _ZN8AngleSet4_setEdd.exit:                        ; preds = %._crit_edge.i299, %
 500:                                              ; preds = %.loopexit
   %501 = load i32, ptr %14, align 8
   %502 = sext i32 %501 to i64
-  %503 = getelementptr inbounds [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw [360 x %struct.AngleSetArc], ptr %7, i64 0, i64 %502
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %505 = load i32, ptr %504, align 8
   %506 = icmp slt i32 %505, 0

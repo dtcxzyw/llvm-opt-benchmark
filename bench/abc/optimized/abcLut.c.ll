@@ -677,7 +677,7 @@ Abc_NodeLeavesRemove.exit.i:                      ; preds = %273, %Extra_TruthCo
   %299 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv41.i.i.i
   store i32 %.121.us.i.i.i, ptr %299, align 4
   %300 = sext i32 %.121.us.i.i.i to i64
-  %301 = getelementptr inbounds [15 x ptr], ptr %5, i64 0, i64 %300
+  %301 = getelementptr inbounds nuw [15 x ptr], ptr %5, i64 0, i64 %300
   store ptr null, ptr %301, align 8
   %indvars.iv.next42.i.i.i = add nuw nsw i64 %indvars.iv41.i.i.i, 1
   %exitcond45.not.i.i.i = icmp eq i64 %indvars.iv.next42.i.i.i, %wide.trip.count44.i.i.i
@@ -924,9 +924,9 @@ Extra_TruthIsEqual.exit.i.i:                      ; preds = %select.unfold.i223.
 .loopexit286.thread.i.i:                          ; preds = %392, %.loopexit286.i.i
   %393 = trunc i64 %indvars.iv378.i.i to i8
   %394 = sext i32 %.0176309.i.i to i64
-  %395 = getelementptr inbounds [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %394
+  %395 = getelementptr inbounds nuw [64 x [64 x i8]], ptr @Abc_NodeDecomposeStep.pCofClasses, i64 0, i64 %394
   store i8 %393, ptr %395, align 16
-  %396 = getelementptr inbounds [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %394
+  %396 = getelementptr inbounds nuw [64 x i8], ptr @Abc_NodeDecomposeStep.nCofClasses, i64 0, i64 %394
   store i8 1, ptr %396, align 1
   %397 = add nsw i32 %.0176309.i.i, 1
   %.not202.i.i = icmp slt i32 %.0176309.i.i, %365
@@ -2638,7 +2638,7 @@ define void @Abc_NodeDecomposeSort(ptr nocapture noundef readonly %0, i32 nounde
   %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
   store i32 %.121.us, ptr %21, align 4
   %22 = sext i32 %.121.us to i64
-  %23 = getelementptr inbounds [15 x ptr], ptr %5, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [15 x ptr], ptr %5, i64 0, i64 %22
   store ptr null, ptr %23, align 8
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44

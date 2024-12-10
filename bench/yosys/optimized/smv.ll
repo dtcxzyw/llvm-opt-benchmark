@@ -1901,7 +1901,7 @@ define internal void @_ZN12_GLOBAL__N_110SmvBackend7executeERPSoNSt7__cxx1112bas
   %58 = load ptr, ptr %6, align 8
   %59 = getelementptr i8, ptr %58, i64 -24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %60
   %62 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %61)
           to label %63 unwind label %.loopexit148
 

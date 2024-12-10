@@ -668,7 +668,7 @@ _ZNSt12_Vector_baseI7t_shellSaIS0_EEC2EmRKS1_.exit.i: ; preds = %_ZNSt6vectorI7t
   %148 = getelementptr inbounds i32, ptr %147, i64 %146
   %149 = load i32, ptr %148, align 4
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %150, i32 2
+  %151 = getelementptr inbounds nuw [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %150, i32 2
   %152 = load i32, ptr %151, align 16
   switch i32 %130, label %169 [
     i32 0, label %155

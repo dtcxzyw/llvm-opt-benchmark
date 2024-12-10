@@ -1864,7 +1864,7 @@ if.end29.i:                                       ; preds = %for.body21.i
 
 for.end34.i:                                      ; preds = %if.end29.i, %for.cond18.preheader.i
   %idxprom36.i = sext i32 %sub.i.i to i64
-  %arrayidx37.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
+  %arrayidx37.i = getelementptr inbounds nuw [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
   store i8 0, ptr %arrayidx37.i, align 1
   %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535
@@ -1943,7 +1943,7 @@ if.end28.i:                                       ; preds = %for.body21.i
 
 for.end34.i:                                      ; preds = %if.end28.i, %for.cond18.preheader.i
   %idxprom36.i = sext i32 %sub.i.i to i64
-  %arrayidx37.i = getelementptr inbounds [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
+  %arrayidx37.i = getelementptr inbounds nuw [6 x i8], ptr %digits.i, i64 0, i64 %idxprom36.i
   store i8 0, ptr %arrayidx37.i, align 1
   %call38.i = call i32 @atoi(ptr nocapture noundef nonnull %digits.i) #16
   %cmp39.i = icmp sgt i32 %call38.i, 65535

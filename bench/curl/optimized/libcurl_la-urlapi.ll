@@ -412,7 +412,7 @@ while.body.i:                                     ; preds = %while.cond.i
 if.end9.i:                                        ; preds = %while.body.i
   %call10.i = call i64 @strtoul(ptr noundef nonnull %c.0.i, ptr noundef nonnull %endp.i, i32 noundef 0) #10
   %idxprom.i = sext i32 %n.0.i to i64
-  %arrayidx.i = getelementptr inbounds [4 x i64], ptr %parts.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %parts.i, i64 0, i64 %idxprom.i
   store i64 %call10.i, ptr %arrayidx.i, align 8
   %30 = load ptr, ptr %endp.i, align 8
   %31 = load i8, ptr %30, align 1
@@ -2313,7 +2313,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   %arrayidx84.i.i = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.next51.i.i
   %10 = load i8, ptr %arrayidx84.i.i, align 1
   %call.i150.i = call signext i8 @Curl_raw_tolower(i8 noundef signext %10) #10
-  %arrayidx86.i.i = getelementptr inbounds i8, ptr %schemebuf.i, i64 %indvars.iv.next51.i.i
+  %arrayidx86.i.i = getelementptr inbounds nuw i8, ptr %schemebuf.i, i64 %indvars.iv.next51.i.i
   store i8 %call.i150.i, ptr %arrayidx86.i.i, align 1
   %11 = icmp eq i64 %indvars.iv.next51.i.i, 0
   br i1 %11, label %Curl_is_absolute_url.exit.i, label %while.body.i.i, !llvm.loop !6

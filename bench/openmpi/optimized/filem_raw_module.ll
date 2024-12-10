@@ -4185,11 +4185,11 @@ define internal fastcc range(i32 -21, 1) i32 @link_archive(ptr noundef %0) unnam
 
 38:                                               ; preds = %35
   %39 = add i64 %36, -1
-  %40 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %39
   store i8 0, ptr %40, align 1
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %42 = add i64 %41, -1
-  %43 = getelementptr inbounds [4096 x i8], ptr %3, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 47
   br i1 %45, label %46, label %56

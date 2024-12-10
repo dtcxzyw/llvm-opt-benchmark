@@ -819,7 +819,7 @@ ehcleanup54:                                      ; preds = %_ZNKSt7__cxx1112bas
 switch.lookup:                                    ; preds = %sw.bb14
   %switch.tableidx = add nsw i32 %1, -1
   %27 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK8QuantLib6Period9frequencyEv, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK8QuantLib6Period9frequencyEv, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cleanup
 

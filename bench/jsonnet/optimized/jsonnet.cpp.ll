@@ -2661,7 +2661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %760 = load ptr, ptr %7, align 8
   %761 = getelementptr i8, ptr %760, i64 -24
   %762 = load i64, ptr %761, align 8
-  %763 = getelementptr inbounds i8, ptr %7, i64 %762
+  %763 = getelementptr inbounds nuw i8, ptr %7, i64 %762
   %764 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %763)
           to label %765 unwind label %.loopexit.split-lp.i69
 
@@ -2737,7 +2737,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %783 = load ptr, ptr %10, align 8
   %784 = getelementptr i8, ptr %783, i64 -24
   %785 = load i64, ptr %784, align 8
-  %786 = getelementptr inbounds i8, ptr %10, i64 %785
+  %786 = getelementptr inbounds nuw i8, ptr %10, i64 %785
   %787 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %786)
           to label %788 unwind label %813
 
@@ -2749,7 +2749,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
   %790 = load ptr, ptr %10, align 8
   %791 = getelementptr i8, ptr %790, i64 -24
   %792 = load i64, ptr %791, align 8
-  %793 = getelementptr inbounds i8, ptr %10, i64 %792
+  %793 = getelementptr inbounds nuw i8, ptr %10, i64 %792
   %794 = invoke noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %793)
           to label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit.i unwind label %795
 
@@ -2838,7 +2838,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %821 = load ptr, ptr %12, align 8
   %822 = getelementptr i8, ptr %821, i64 -24
   %823 = load i64, ptr %822, align 8
-  %824 = getelementptr inbounds i8, ptr %12, i64 %823
+  %824 = getelementptr inbounds nuw i8, ptr %12, i64 %823
   %825 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %824)
           to label %826 unwind label %.loopexit90.i
 
@@ -2885,7 +2885,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %834 = load ptr, ptr %12, align 8
   %835 = getelementptr i8, ptr %834, i64 -24
   %836 = load i64, ptr %835, align 8
-  %837 = getelementptr inbounds i8, ptr %12, i64 %836
+  %837 = getelementptr inbounds nuw i8, ptr %12, i64 %836
   %838 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %837)
           to label %839 unwind label %.loopexit90.i
 
@@ -2935,7 +2935,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %851 = load ptr, ptr %7, align 8
   %852 = getelementptr i8, ptr %851, i64 -24
   %853 = load i64, ptr %852, align 8
-  %854 = getelementptr inbounds i8, ptr %7, i64 %853
+  %854 = getelementptr inbounds nuw i8, ptr %7, i64 %853
   %855 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %854)
           to label %856 unwind label %.loopexit.split-lp.i69
 
@@ -3250,7 +3250,7 @@ define internal fastcc noundef zeroext i1 @_ZL19write_output_streamP9JsonnetVmPc
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   %17 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %16)
           to label %18 unwind label %22
 
@@ -3396,7 +3396,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %59 = load ptr, ptr %4, align 8
   %60 = getelementptr i8, ptr %59, i64 -24
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 %61
   %63 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %62)
           to label %64 unwind label %.loopexit.split-lp.loopexit.split-lp
 
