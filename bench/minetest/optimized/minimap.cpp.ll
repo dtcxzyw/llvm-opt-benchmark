@@ -6421,11 +6421,9 @@ lor.lhs.false49:                                  ; preds = %lor.lhs.false
   %scan_height54 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i16, ptr %scan_height54, align 8, !tbaa !86
   %cmp56 = icmp ugt i16 %sub8.i157, %17
-  %cmp59 = icmp slt i16 %sub13.i160, 0
-  %or.cond124 = or i1 %cmp59, %cmp56
   %conv58 = sext i16 %sub13.i160 to i32
-  %cmp67 = icmp sgt i32 %conv58, %conv44
-  %or.cond135 = or i1 %cmp67, %or.cond124
+  %18 = icmp ugt i32 %conv58, %conv44
+  %or.cond135 = or i1 %18, %cmp56
   br i1 %or.cond135, label %cleanup116, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false49
@@ -6442,8 +6440,8 @@ if.end:                                           ; preds = %lor.lhs.false49
   %conv93 = sext i16 %conv87 to i32
   %vtable94 = load ptr, ptr %call, align 8, !tbaa !12
   %vfn95 = getelementptr inbounds nuw i8, ptr %vtable94, i64 16
-  %18 = load ptr, ptr %vfn95, align 8
-  %call96 = tail call i32 %18(ptr noundef nonnull align 8 dereferenceable(50) %call, i32 noundef %conv91, i32 noundef %conv93)
+  %19 = load ptr, ptr %vfn95, align 8
+  %call96 = tail call i32 %19(ptr noundef nonnull align 8 dereferenceable(50) %call, i32 noundef %conv91, i32 noundef %conv93)
   %tobool.not = icmp ult i32 %call96, 16777216
   br i1 %tobool.not, label %cleanup116, label %if.end100
 
@@ -6463,8 +6461,8 @@ if.end100:                                        ; preds = %if.end
   %Y.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 20
   store float %conv4.i.i.i.i.i, ptr %Y.i.i.i.i.i.i, align 4, !tbaa !367
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %m_active_markers) #34
-  %19 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !368
-  %add.i.i.i = add i64 %19, 1
+  %20 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !368
+  %add.i.i.i = add i64 %20, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !368
   br label %cleanup116
 
