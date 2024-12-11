@@ -13308,11 +13308,14 @@ while.end.i67:                                    ; preds = %for.end.i64
 
 _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100: ; preds = %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32, %while.end.i67
   %retval.sroa.0.0.i71 = phi <4 x i1> [ %37, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i98 ], [ %57, %while.end.i67 ], [ zeroinitializer, %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit ], [ %cmp.i.i.i.i12.i39, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32 ]
+  %58 = bitcast <4 x i1> %retval.sroa.0.0.i to i4
+  %59 = zext i4 %58 to i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %indicesArray.i9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %valuesArray.i10)
-  %58 = shufflevector <4 x i1> %retval.sroa.0.0.i, <4 x i1> %retval.sroa.0.0.i71, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %59 = bitcast <8 x i1> %58 to i8
-  %or = zext i8 %59 to i64
+  %60 = bitcast <4 x i1> %retval.sroa.0.0.i71 to i4
+  %61 = zext i4 %60 to i64
+  %shl = shl nuw nsw i64 %61, 4
+  %or = or disjoint i64 %shl, %59
   %arrayidx.i.i.i101 = getelementptr inbounds nuw [256 x %"class.xsimd::batch_bool.269"], ptr @_ZN8facebook5velox4simd6detail13fromBitMask32E, i64 0, i64 %or
   %retval.sroa.0.0.copyload.i.i.i = load <4 x i64>, ptr %arrayidx.i.i.i101, align 32
   ret <4 x i64> %retval.sroa.0.0.copyload.i.i.i
