@@ -18339,7 +18339,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit544: ; preds = %_ZNSt3set
   unreachable
 
 .loopexit1445:                                    ; preds = %442, %.loopexit1446, %.loopexit.split-lp1447, %470
-  %.merged441 = phi { ptr, i32 } [ %.pn427.pn.pn, %470 ], [ %lpad.loopexit1448, %.loopexit1446 ], [ %lpad.loopexit.split-lp1449, %.loopexit.split-lp1447 ], [ %.pn425, %442 ]
+  %.merged445 = phi { ptr, i32 } [ %.pn427.pn.pn, %470 ], [ %lpad.loopexit1448, %.loopexit1446 ], [ %lpad.loopexit.split-lp1449, %.loopexit.split-lp1447 ], [ %.pn425, %442 ]
   call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %80) #31
   br label %.body
 
@@ -26245,7 +26245,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   ret void
 
 3030:                                             ; preds = %.loopexit1440, %.loopexit.split-lp1441, %2955, %2944, %2930
-  %.merged445 = phi { ptr, i32 } [ %.pn421.pn.pn, %2955 ], [ %.pn419, %2944 ], [ %.pn411.pn.pn.pn.pn, %2930 ], [ %lpad.loopexit1442, %.loopexit1440 ], [ %lpad.loopexit.split-lp1443, %.loopexit.split-lp1441 ]
+  %.merged444 = phi { ptr, i32 } [ %.pn421.pn.pn, %2955 ], [ %.pn419, %2944 ], [ %.pn411.pn.pn.pn.pn, %2930 ], [ %lpad.loopexit1442, %.loopexit1440 ], [ %lpad.loopexit.split-lp1443, %.loopexit.split-lp1441 ]
   invoke void @_ZN3nix9XMLWriter12closeElementEv(ptr noundef nonnull align 8 dereferenceable(40) %91)
           to label %_ZN3nix14XMLOpenElementD2Ev.exit1161 unwind label %3031
 
@@ -26257,23 +26257,23 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   unreachable
 
 _ZN3nix14XMLOpenElementD2Ev.exit1161:             ; preds = %3030, %1349
-  %.merged444 = phi { ptr, i32 } [ %1350, %1349 ], [ %.merged445, %3030 ]
+  %.merged443 = phi { ptr, i32 } [ %1350, %1349 ], [ %.merged444, %3030 ]
   call void @_ZN3nix9XMLWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %91) #31
   br label %3034
 
 3034:                                             ; preds = %_ZN3nix14XMLOpenElementD2Ev.exit1161, %1347
-  %.merged443 = phi { ptr, i32 } [ %.merged444, %_ZN3nix14XMLOpenElementD2Ev.exit1161 ], [ %1348, %1347 ]
+  %.merged442 = phi { ptr, i32 } [ %.merged443, %_ZN3nix14XMLOpenElementD2Ev.exit1161 ], [ %1348, %1347 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %90) #31
   br label %3035
 
 3035:                                             ; preds = %3034, %1345
-  %.merged442 = phi { ptr, i32 } [ %.merged443, %3034 ], [ %1346, %1345 ]
+  %.merged441 = phi { ptr, i32 } [ %.merged442, %3034 ], [ %1346, %1345 ]
   call void @_ZNSt7__cxx114listINS0_INS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %89) #31
   call void @_ZN3nix8RunPagerD1Ev(ptr noundef nonnull align 4 dereferenceable(16) %88) #31
   br label %.body
 
 .body:                                            ; preds = %1129, %1122, %3035, %.loopexit1445
-  %.merged440 = phi { ptr, i32 } [ %.merged441, %.loopexit1445 ], [ %.merged442, %3035 ], [ %1130, %1129 ], [ %.merged.i, %1122 ]
+  %.merged440 = phi { ptr, i32 } [ %.merged445, %.loopexit1445 ], [ %.merged441, %3035 ], [ %1130, %1129 ], [ %.merged.i, %1122 ]
   call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %79) #31
   call void @_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %78) #31
   br label %3036
