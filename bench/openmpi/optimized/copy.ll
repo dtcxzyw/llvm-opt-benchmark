@@ -1997,14 +1997,16 @@ define i32 @pmix20_bfrop_copy_value(ptr nocapture noundef writeonly initializes(
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %8, label %6
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %4, ptr noundef nonnull %1)
-  br label %8
+  %7 = load i16, ptr %1, align 8
+  store i16 %7, ptr %4, align 8
+  %8 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %4, ptr noundef nonnull %1)
+  br label %9
 
-8:                                                ; preds = %3, %6
-  %.0 = phi i32 [ %7, %6 ], [ -29, %3 ]
+9:                                                ; preds = %3, %6
+  %.0 = phi i32 [ %8, %6 ], [ -29, %3 ]
   ret i32 %.0
 }
 

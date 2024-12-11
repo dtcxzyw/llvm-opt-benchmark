@@ -295,6 +295,7 @@ define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readn
 define internal i32 @socketTransport_attach(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  store ptr null, ptr %6, align 8
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -568,6 +569,7 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapt
   %11 = alloca %struct.sockaddr_in6, align 4
   %12 = alloca ptr, align 8
   %13 = alloca %struct.in6_addr, align 8
+  store ptr null, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = icmp eq ptr %1, null
   br i1 %14, label %18, label %15

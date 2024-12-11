@@ -4831,6 +4831,7 @@ _ZN5clang6Parser25MaybeParseCXX11AttributesERNS_16ParsedAttributesEb.exit: ; pre
   br i1 %or.cond, label %_ZN5clang6Parser15UsingDeclaratorD2Ev.exit, label %242
 
 242:                                              ; preds = %_ZN5clang6Parser25MaybeParseCXX11AttributesERNS_16ParsedAttributesEb.exit
+  store i32 0, ptr %27, align 8
   %243 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %244 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr null, ptr %244, align 8

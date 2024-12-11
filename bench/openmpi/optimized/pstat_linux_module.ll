@@ -2746,6 +2746,7 @@ local_getline.exit827:                            ; preds = %1406
   br i1 %1414, label %.backedge902, label %1415
 
 1415:                                             ; preds = %local_getline.exit827
+  store ptr null, ptr %18, align 8
   call fastcc void @local_getfields(ptr noundef nonnull %.0.i824, ptr noundef %18)
   %1416 = load ptr, ptr %18, align 8
   %1417 = icmp eq ptr %1416, null

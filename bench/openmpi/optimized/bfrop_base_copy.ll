@@ -370,11 +370,13 @@ define i32 @pmix_bfrops_base_copy_value(ptr nocapture noundef writeonly initiali
   br i1 %5, label %pmix_bfrops_base_tma_copy_value.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %4, ptr noundef nonnull %1)
+  %7 = load i16, ptr %1, align 8
+  store i16 %7, ptr %4, align 8
+  %8 = tail call fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef %4, ptr noundef nonnull %1)
   br label %pmix_bfrops_base_tma_copy_value.exit
 
 pmix_bfrops_base_tma_copy_value.exit:             ; preds = %3, %6
-  %.0.i = phi i32 [ %7, %6 ], [ -29, %3 ]
+  %.0.i = phi i32 [ %8, %6 ], [ -29, %3 ]
   ret i32 %.0.i
 }
 

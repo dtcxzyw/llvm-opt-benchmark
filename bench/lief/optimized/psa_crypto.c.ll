@@ -1036,6 +1036,7 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store ptr null, ptr %5, align 8
+  store ptr null, ptr %6, align 8
   store i64 %2, ptr %8, align 8
   store i32 0, ptr %3, align 4
   %9 = icmp eq i64 %2, 0
@@ -5315,6 +5316,7 @@ define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly 
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   store ptr null, ptr %11, align 8
+  store ptr null, ptr %12, align 8
   store i32 0, ptr %2, align 4
   %13 = getelementptr i8, ptr %0, i64 2
   %.val = load i16, ptr %13, align 2
@@ -6901,6 +6903,7 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr null, ptr %3, align 8
+  store ptr null, ptr %4, align 8
   store i32 0, ptr %1, align 4
   %6 = getelementptr i8, ptr %0, i64 2
   %.val = load i16, ptr %6, align 2

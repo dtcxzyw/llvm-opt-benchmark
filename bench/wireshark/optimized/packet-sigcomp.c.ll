@@ -8267,6 +8267,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   %579 = load i16, ptr %6, align 2
   %.tr = trunc i32 %12 to i16
   %.narrow = add i16 %579, %.tr
+  store i16 %.narrow, ptr %6, align 2
   %580 = load i32, ptr @hf_udvm_at_address, align 4
   %581 = zext i16 %.narrow to i32
   %582 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %580, ptr noundef %0, i32 noundef %577, i32 noundef %578, i32 noundef %581) #8

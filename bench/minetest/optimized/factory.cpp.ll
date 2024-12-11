@@ -70,6 +70,7 @@ define dso_local noundef nonnull ptr @_Z19createRenderingCoreRKNSt7__cxx1112basi
 entry:
   %created_pipeline = alloca %struct.CreatePipelineResult, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %created_pipeline) #17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %created_pipeline, i8 0, i64 24, i1 false)
   call void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr14IrrlichtDeviceEP6ClientP3HudR20CreatePipelineResult(ptr noundef nonnull align 8 dereferenceable(32) %stereo_mode, ptr noundef %device, ptr noundef %client, ptr poison, ptr noundef nonnull align 8 dereferenceable(24) %created_pipeline)
   %call = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %shadow_renderer = getelementptr inbounds nuw i8, ptr %created_pipeline, i64 8

@@ -3003,6 +3003,7 @@ define void @zend_error_at(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca i32, align 4
+  store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %9
 
@@ -3248,6 +3249,7 @@ define void @zend_error_at_noreturn(i32 noundef %0, ptr noundef %1, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca i32, align 4
+  store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %9
 

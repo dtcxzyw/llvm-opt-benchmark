@@ -634,6 +634,7 @@ define dso_local i64 @ZSTD_getFrameHeader(ptr nocapture noundef writeonly initia
 define dso_local i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !8
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -738,10 +739,11 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
   %21 = add nuw nsw i64 %20, 8
   %22 = icmp ugt i64 %21, %9
   %or.cond = select i1 %19, i1 true, i1 %22
-  br i1 %or.cond, label %.thread12, label %38, !llvm.loop !8
+  br i1 %or.cond, label %.thread12, label %38, !llvm.loop !9
 
 23:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !8
   %24 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %10, i64 noundef %9, i32 noundef 0)
   %25 = icmp eq i64 %24, 0
   %26 = load i32, ptr %6, align 4
@@ -770,7 +772,7 @@ define dso_local i64 @ZSTD_findDecompressedSize(ptr noundef %0, i64 noundef %1) 
   %40 = sub i64 %9, %.pn
   %41 = getelementptr i8, ptr %10, i64 %.pn
   %42 = icmp ult i64 %40, 5
-  br i1 %42, label %.loopexit, label %7, !llvm.loop !8
+  br i1 %42, label %.loopexit, label %7, !llvm.loop !9
 
 .loopexit:                                        ; preds = %38, %2
   %43 = phi i64 [ %1, %2 ], [ %40, %38 ]
@@ -795,6 +797,7 @@ define dso_local i64 @ZSTD_findFrameCompressedSize(ptr noundef %0, i64 noundef %
 define dso_local i64 @ZSTD_getDecompressedSize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !8
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -837,6 +840,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
 
 19:                                               ; preds = %6, %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !8
   %20 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %21 = icmp ult i64 %20, -119
   %22 = icmp eq i64 %20, 0
@@ -851,7 +855,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
   %29 = sub i64 %1, %27
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !8
   %31 = call i64 @ZSTD_getcBlockSize(ptr noundef %28, i64 noundef %29, ptr noundef nonnull %4) #10
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %.lr.ph, label %.thread
@@ -881,7 +885,7 @@ define internal fastcc { i64, i64 } @ZSTD_findFrameSizeInfo(ptr noundef %0, i64 
 
 45:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !8
   %46 = call i64 @ZSTD_getcBlockSize(ptr noundef %40, i64 noundef %41, ptr noundef nonnull %4) #10
   %47 = icmp ult i64 %46, -119
   br i1 %47, label %.lr.ph, label %.thread
@@ -1208,7 +1212,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
   %149 = sub i64 %62, %139
   %150 = ptrtoint ptr %110 to i64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !8
   %151 = call i64 @ZSTD_getcBlockSize(ptr noundef %148, i64 noundef %149, ptr noundef nonnull %9) #10
   %152 = icmp ult i64 %151, -119
   br i1 %152, label %.lr.ph64, label %.thread41
@@ -1310,7 +1314,7 @@ ZSTD_decompressBegin_usingDict.exit.thread:       ; preds = %109, %92, %82
 
 206:                                              ; preds = %200
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !8
   %207 = call i64 @ZSTD_getcBlockSize(ptr noundef %202, i64 noundef %203, ptr noundef nonnull %9) #10
   %208 = icmp ult i64 %207, -119
   br i1 %208, label %.lr.ph64, label %.thread41
@@ -1683,7 +1687,7 @@ define dso_local range(i64 -119, 4294967296) i64 @ZSTD_decompressContinue(ptr no
 
 88:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false), !annotation !8
   %89 = call i64 @ZSTD_getcBlockSize(ptr noundef %3, i64 noundef 3, ptr noundef nonnull %6) #10
   %90 = icmp ult i64 %89, -119
   br i1 %90, label %91, label %120
@@ -2094,11 +2098,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 31, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !annotation !11
+  store i32 0, ptr %6, align 4, !annotation !8
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %18, %25
   %27 = call i64 @FSE_readNCount(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %23, i64 noundef %26) #10
@@ -2130,11 +2134,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %7) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %7, i8 0, i64 106, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %7, i8 0, i64 106, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
   store i32 52, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
-  store i32 0, ptr %9, align 4, !annotation !11
+  store i32 0, ptr %9, align 4, !annotation !8
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %18, %39
   %41 = call i64 @FSE_readNCount(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %38, i64 noundef %40) #10
@@ -2165,11 +2169,11 @@ define dso_local noundef i64 @ZSTD_loadDEntropy(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %10, i8 0, i64 72, i1 false), !annotation !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %10, i8 0, i64 72, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
   store i32 35, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
-  store i32 0, ptr %12, align 4, !annotation !11
+  store i32 0, ptr %12, align 4, !annotation !8
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %18, %52
   %54 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %51, i64 noundef %53) #10
@@ -2495,6 +2499,7 @@ define dso_local i32 @ZSTD_getDictID_fromDict(ptr nocapture noundef readonly %0,
 define dso_local i32 @ZSTD_getDictID_fromFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -3560,6 +3565,7 @@ define dso_local i64 @ZSTD_estimateDStreamSize(i64 noundef %0) local_unnamed_add
 define dso_local range(i64 -119, 2147972873) i64 @ZSTD_estimateDStreamSize_fromFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = alloca %struct.ZSTD_frameHeader, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !8
   %4 = call i64 @ZSTD_getFrameHeader_advanced(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %1, i32 noundef 0)
   %5 = icmp ult i64 %4, -119
   br i1 %5, label %6, label %17
@@ -4499,15 +4505,15 @@ attributes #11 = { nounwind memory(none) }
 !5 = !{i64 499945}
 !6 = !{i64 500043}
 !7 = !{i64 500157}
-!8 = distinct !{!8, !9, !10}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"auto-init"}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !10, !11}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
 !14 = !{i64 -64, i64 1}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
 !18 = !{i32 0, i32 33}
-!19 = distinct !{!19, !9, !10}
+!19 = distinct !{!19, !10, !11}

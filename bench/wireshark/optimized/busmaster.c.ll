@@ -31,49 +31,48 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @busmaster_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.busmaster_state_t, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %5, i8 0, i64 224, i1 false)
-  %6 = load ptr, ptr %0, align 8
-  %7 = tail call i64 @file_seek(ptr noundef %6, i64 noundef 0, i32 noundef 0, ptr noundef %1) #8
-  %8 = icmp eq i64 %7, -1
-  br i1 %8, label %26, label %9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %4, i8 0, i64 232, i1 false)
+  %5 = load ptr, ptr %0, align 8
+  %6 = tail call i64 @file_seek(ptr noundef %5, i64 noundef 0, i32 noundef 0, ptr noundef %1) #8
+  %7 = icmp eq i64 %6, -1
+  br i1 %7, label %25, label %8
 
-9:                                                ; preds = %3
-  %10 = load ptr, ptr %0, align 8
-  %11 = call fastcc i32 @busmaster_parse(ptr noundef %10, ptr noundef %4, ptr noundef %1, ptr noundef %2)
-  %12 = load ptr, ptr %2, align 8
-  call void @g_free(ptr noundef %12) #8
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %0, align 8
+  %10 = call fastcc i32 @busmaster_parse(ptr noundef %9, ptr noundef %4, ptr noundef %1, ptr noundef %2)
+  %11 = load ptr, ptr %2, align 8
+  call void @g_free(ptr noundef %11) #8
   store ptr null, ptr %2, align 8
   store i32 0, ptr %1, align 4
-  %.not = icmp eq i32 %11, 2
-  br i1 %.not, label %13, label %26
+  %.not = icmp eq i32 %10, 2
+  br i1 %.not, label %12, label %25
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %0, align 8
-  %15 = call i64 @file_seek(ptr noundef %14, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #8
-  %16 = icmp eq i64 %15, -1
-  br i1 %16, label %26, label %17
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %0, align 8
+  %14 = call i64 @file_seek(ptr noundef %13, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #8
+  %15 = icmp eq i64 %14, -1
+  br i1 %15, label %25, label %16
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr @busmaster_close, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @busmaster_read, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @busmaster_seek_read, ptr %21, align 8
-  %22 = load i32, ptr @busmaster_file_type_subtype, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 125, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 6, ptr %25, align 4
-  br label %26
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr null, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr @busmaster_close, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @busmaster_read, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @busmaster_seek_read, ptr %20, align 8
+  %21 = load i32, ptr @busmaster_file_type_subtype, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 125, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 6, ptr %24, align 4
+  br label %25
 
-26:                                               ; preds = %13, %9, %3, %17
-  %.0 = phi i32 [ 1, %17 ], [ -1, %3 ], [ 0, %9 ], [ -1, %13 ]
+25:                                               ; preds = %12, %8, %3, %16
+  %.0 = phi i32 [ 1, %16 ], [ -1, %3 ], [ 0, %8 ], [ -1, %12 ]
   ret i32 %.0
 }
 
@@ -332,79 +331,78 @@ busmaster_find_priv_entry.exit68:                 ; preds = %74, %78, %80, %67
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @busmaster_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.busmaster_state_t, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %8, i8 0, i64 224, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8
-  %.not17.i = icmp eq ptr %10, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %7, i8 0, i64 232, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8
+  %.not17.i = icmp eq ptr %9, null
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %21
-  %.01318.i = phi ptr [ %23, %21 ], [ %10, %6 ]
-  %11 = load ptr, ptr %.01318.i, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = icmp eq i64 %13, -1
-  br i1 %14, label %15, label %19
+.lr.ph.i:                                         ; preds = %6, %20
+  %.01318.i = phi ptr [ %22, %20 ], [ %9, %6 ]
+  %10 = load ptr, ptr %.01318.i, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, -1
+  br i1 %13, label %14, label %18
 
-15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %busmaster_find_priv_entry.exit, label %19
+14:                                               ; preds = %.lr.ph.i
+  %15 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %busmaster_find_priv_entry.exit, label %18
 
-19:                                               ; preds = %15, %.lr.ph.i
-  %20 = load i64, ptr %11, align 8
-  %.not15.i = icmp slt i64 %1, %20
-  %.not16.i = icmp sgt i64 %1, %13
+18:                                               ; preds = %14, %.lr.ph.i
+  %19 = load i64, ptr %10, align 8
+  %.not15.i = icmp slt i64 %1, %19
+  %.not16.i = icmp sgt i64 %1, %12
   %or.cond.i = or i1 %.not16.i, %.not15.i
-  br i1 %or.cond.i, label %21, label %busmaster_find_priv_entry.exit
+  br i1 %or.cond.i, label %20, label %busmaster_find_priv_entry.exit
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-.loopexit:                                        ; preds = %21, %6
+.loopexit:                                        ; preds = %20, %6
   store i32 -13, ptr %4, align 4
-  %24 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #8
-  store ptr %24, ptr %5, align 8
-  br label %40
+  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #8
+  store ptr %23, ptr %5, align 8
+  br label %39
 
-busmaster_find_priv_entry.exit:                   ; preds = %19, %15
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i64 @file_seek(ptr noundef %26, i64 noundef %1, i32 noundef 0, ptr noundef %4) #8
-  %28 = icmp eq i64 %27, -1
-  br i1 %28, label %40, label %29
+busmaster_find_priv_entry.exit:                   ; preds = %18, %14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i64 @file_seek(ptr noundef %25, i64 noundef %1, i32 noundef 0, ptr noundef %4) #8
+  %27 = icmp eq i64 %26, -1
+  br i1 %27, label %39, label %28
 
-29:                                               ; preds = %busmaster_find_priv_entry.exit
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false)
-  %31 = load ptr, ptr %25, align 8
-  %32 = call fastcc i32 @busmaster_parse(ptr noundef %31, ptr noundef %7, ptr noundef %4, ptr noundef %5)
-  %33 = add i32 %32, 1
-  %or.cond = icmp ult i32 %33, 2
-  br i1 %or.cond, label %40, label %34
+28:                                               ; preds = %busmaster_find_priv_entry.exit
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
+  %30 = load ptr, ptr %24, align 8
+  %31 = call fastcc i32 @busmaster_parse(ptr noundef %30, ptr noundef %7, ptr noundef %4, ptr noundef %5)
+  %32 = add i32 %31, 1
+  %or.cond = icmp ult i32 %32, 2
+  br i1 %or.cond, label %39, label %33
 
-34:                                               ; preds = %29
-  %.not25 = icmp eq i32 %32, 5
-  br i1 %.not25, label %37, label %35
+33:                                               ; preds = %28
+  %.not25 = icmp eq i32 %31, 5
+  br i1 %.not25, label %36, label %34
 
-35:                                               ; preds = %34
+34:                                               ; preds = %33
   store i32 -13, ptr %4, align 4
-  %36 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #8
-  store ptr %36, ptr %5, align 8
-  br label %40
+  %35 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #8
+  store ptr %35, ptr %5, align 8
+  br label %39
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %39 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %11, ptr noundef %38, ptr noundef %4, ptr noundef %5)
-  br label %40
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %38 = call fastcc i32 @busmaster_gen_packet(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10, ptr noundef %37, ptr noundef %4, ptr noundef %5)
+  br label %39
 
-40:                                               ; preds = %29, %busmaster_find_priv_entry.exit, %37, %35, %.loopexit
-  %.0 = phi i32 [ 0, %35 ], [ %39, %37 ], [ 0, %.loopexit ], [ 0, %busmaster_find_priv_entry.exit ], [ 0, %29 ]
+39:                                               ; preds = %28, %busmaster_find_priv_entry.exit, %36, %34, %.loopexit
+  %.0 = phi i32 [ 0, %34 ], [ %38, %36 ], [ 0, %.loopexit ], [ 0, %busmaster_find_priv_entry.exit ], [ 0, %28 ]
   ret i32 %.0
 }
 

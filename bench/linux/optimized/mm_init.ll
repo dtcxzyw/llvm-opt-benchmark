@@ -1620,7 +1620,9 @@ thread-pre-split:                                 ; preds = %74
 .loopexit23:                                      ; preds = %.loopexit23.preheader, %180
   %170 = phi i64 [ %181, %180 ], [ 0, %.loopexit23.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  store i64 0, ptr %4, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  store i64 0, ptr %5, align 8, !annotation !16
   %171 = getelementptr [64 x i64], ptr @zone_movable_pfn, i64 0, i64 %170
   %172 = load i64, ptr %171, align 8
   %173 = add i64 %172, 1023
@@ -1669,7 +1671,9 @@ define internal fastcc void @free_area_init_node(i32 noundef %0) unnamed_addr #0
   %5 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  store i64 0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  store i64 0, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 13088
   %8 = load i32, ptr %7, align 32
   %9 = icmp eq i32 %8, 0
@@ -2588,7 +2592,9 @@ define internal fastcc void @calculate_node_totalpages(ptr nocapture noundef %0,
   %10 = phi i64 [ 0, %3 ], [ %23, %7 ]
   %11 = getelementptr %struct.zone, ptr %0, i64 %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  store i64 0, ptr %4, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  store i64 0, ptr %5, align 8, !annotation !16
   %12 = load i32, ptr %6, align 64
   %13 = call fastcc i64 @zone_spanned_pages_in_node(i32 noundef %12, i64 noundef %8, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
   %14 = load i64, ptr %4, align 8

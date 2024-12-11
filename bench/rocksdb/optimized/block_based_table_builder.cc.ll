@@ -12040,6 +12040,7 @@ land.lhs.true:                                    ; preds = %_ZNK7rocksdb22Block
   br i1 %call.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range_del_block_handle, i8 -1, i64 16, i1 false)
   %4 = load ptr, ptr %rep_, align 8
   %range_del_block4 = getelementptr inbounds nuw i8, ptr %4, i64 1376
   %call5 = call { ptr, i64 } @_ZN7rocksdb12BlockBuilder6FinishEv(ptr noundef nonnull align 8 dereferenceable(176) %range_del_block4)

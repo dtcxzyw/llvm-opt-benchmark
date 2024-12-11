@@ -2334,6 +2334,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -2349,6 +2350,7 @@ entry:
   %f.coerce1.lobit.i49 = lshr i64 %b.coerce1, 63
   %frombool.i50 = trunc nuw nsw i64 %f.coerce1.lobit.i49 to i8
   %and.i.i51 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i50, ptr %.compoundliteral.sroa.2.0..sroa_idx.i52, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -2676,6 +2678,7 @@ if.end.i19:                                       ; preds = %sw.bb.i14
   %f.coerce1.lobit.i = lshr i16 %a.coerce1, 15
   %frombool.i87 = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i87, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -2724,6 +2727,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   %f.coerce1.lobit.i91 = lshr i16 %b.coerce1, 15
   %frombool.i92 = trunc nuw nsw i16 %f.coerce1.lobit.i91 to i8
   %and.i.i93 = zext nneg i16 %6 to i32
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i92, ptr %.compoundliteral.sroa.2.0..sroa_idx.i94, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i95 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -5073,6 +5077,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -5088,6 +5093,7 @@ entry:
   %f.coerce1.lobit.i47 = lshr i64 %b.coerce1, 63
   %frombool.i48 = trunc nuw nsw i64 %f.coerce1.lobit.i47 to i8
   %and.i.i49 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i48, ptr %.compoundliteral.sroa.2.0..sroa_idx.i50, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -5507,6 +5513,7 @@ if.end.i34:                                       ; preds = %sw.bb.i29
   %f.coerce1.lobit.i = lshr i16 %a.coerce1, 15
   %frombool.i = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -5555,6 +5562,7 @@ if.end.i15:                                       ; preds = %sw.bb.i
   %f.coerce1.lobit.i87 = lshr i16 %b.coerce1, 15
   %frombool.i88 = trunc nuw nsw i16 %f.coerce1.lobit.i87 to i8
   %and.i.i89 = zext nneg i16 %6 to i32
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i90 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i88, ptr %.compoundliteral.sroa.2.0..sroa_idx.i90, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -8620,6 +8628,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i71 = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i71, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -8635,6 +8644,7 @@ entry:
   %f.coerce1.lobit.i74 = lshr i64 %b.coerce1, 63
   %frombool.i75 = trunc nuw nsw i64 %f.coerce1.lobit.i74 to i8
   %and.i.i76 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i75, ptr %.compoundliteral.sroa.2.0..sroa_idx.i77, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i78 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -8650,6 +8660,7 @@ entry:
   %f.coerce1.lobit.i83 = lshr i64 %c.coerce1, 63
   %frombool.i84 = trunc nuw nsw i64 %f.coerce1.lobit.i83 to i8
   %and.i.i85 = and i64 %c.coerce1, 281474976710655
+  store i8 0, ptr %pc, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %pc, i64 1
   store i8 %frombool.i84, ptr %.compoundliteral.sroa.2.0..sroa_idx.i86, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %pc, i64 4
@@ -10750,6 +10761,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -10765,6 +10777,7 @@ entry:
   %f.coerce1.lobit.i45 = lshr i64 %b.coerce1, 63
   %frombool.i46 = trunc nuw nsw i64 %f.coerce1.lobit.i45 to i8
   %and.i.i47 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i46, ptr %.compoundliteral.sroa.2.0..sroa_idx.i48, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i49 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -11034,6 +11047,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -11082,6 +11096,7 @@ if.end.i14:                                       ; preds = %sw.epilog.i8
   %f.coerce1.lobit.i.i15 = lshr i16 %b.coerce1, 15
   %frombool.i.i16 = trunc nuw nsw i16 %f.coerce1.lobit.i.i15 to i8
   %and.i.i.i17 = zext nneg i16 %5 to i32
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i16, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i18, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -12151,6 +12166,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -12166,6 +12182,7 @@ entry:
   %f.coerce1.lobit.i.i6 = lshr i64 %b.coerce1, 63
   %frombool.i.i7 = trunc nuw nsw i64 %f.coerce1.lobit.i.i6 to i8
   %and.i.i.i8 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i7, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i9, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -12890,6 +12907,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -12939,6 +12957,7 @@ if.end.i15:                                       ; preds = %sw.epilog.i9
   %f.coerce1.lobit.i.i16 = lshr i16 %b.coerce1, 15
   %frombool.i.i17 = trunc nuw nsw i16 %f.coerce1.lobit.i.i16 to i8
   %and.i.i.i18 = zext nneg i16 %5 to i32
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i17, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i19, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -14460,6 +14479,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p128, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
@@ -14572,6 +14592,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p128, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
@@ -14935,6 +14956,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p128, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
@@ -15098,6 +15120,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p128, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p128, i64 4
@@ -15254,19 +15277,20 @@ sw.epilog.i:                                      ; preds = %entry
   %1 = and i16 %a.coerce1, 32767
   %cmp2.i.i = icmp eq i16 %1, 0
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.i.i
+  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
+  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
+  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
+  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   br i1 %.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
-  %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
+  store i8 0, ptr %p, align 8
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
-  %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
   store i32 %and.i.i.i, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %a.coerce0, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   %cmp.not.i = icmp eq i16 %1, 32767
   br i1 %cmp.not.i, label %if.else.i, label %if.then10.i
@@ -15345,14 +15369,10 @@ if.else:                                          ; preds = %sw.epilog.i
   %or1.i.i = or i16 %9, 1
   store i16 %or1.i.i, ptr %s, align 2
   store i8 4, ptr %p, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 1
-  store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
-  %.compoundliteral.sroa.31.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 4
-  store i32 2147483647, ptr %.compoundliteral.sroa.31.0..sroa_idx.i, align 4
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 8
-  store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 16
-  store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
+  store i8 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
+  store i32 2147483647, ptr %.compoundliteral.sroa.32.0..sroa_idx.i.i, align 4
+  store i64 4611686018427387904, ptr %.compoundliteral.sroa.4.0..sroa_idx.i.i, align 8
+  store i64 0, ptr %.compoundliteral.sroa.5.0..sroa_idx.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %sw.bb1.i.i, %if.else.i.i, %if.then.i.i, %if.then, %if.else
@@ -15607,6 +15627,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -16255,6 +16276,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -16356,6 +16378,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -18093,6 +18116,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -18184,6 +18208,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -18274,6 +18299,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -18413,6 +18439,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -18547,6 +18574,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -20889,6 +20917,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -20983,6 +21012,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -21075,6 +21105,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -25948,6 +25979,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -25963,6 +25995,7 @@ entry:
   %f.coerce1.lobit.i.i6 = lshr i64 %b.coerce1, 63
   %frombool.i.i7 = trunc nuw nsw i64 %f.coerce1.lobit.i.i6 to i8
   %and.i.i.i8 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i.i7, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i9, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -27300,6 +27333,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -27315,6 +27349,7 @@ entry:
   %f.coerce1.lobit.i32 = lshr i64 %b.coerce1, 63
   %frombool.i33 = trunc nuw nsw i64 %f.coerce1.lobit.i32 to i8
   %and.i.i34 = and i64 %b.coerce1, 281474976710655
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i33, ptr %.compoundliteral.sroa.2.0..sroa_idx.i35, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -27497,6 +27532,7 @@ if.end.i14:                                       ; preds = %sw.bb.i9
   %f.coerce1.lobit.i = lshr i16 %a.coerce1, 15
   %frombool.i = trunc nuw nsw i16 %f.coerce1.lobit.i to i8
   %and.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %pa, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %pa, i64 4
@@ -27546,6 +27582,7 @@ if.end.i:                                         ; preds = %sw.bb.i
   %f.coerce1.lobit.i53 = lshr i16 %b.coerce1, 15
   %frombool.i54 = trunc nuw nsw i16 %f.coerce1.lobit.i53 to i8
   %and.i.i55 = zext nneg i16 %6 to i32
+  store i8 0, ptr %pb, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %pb, i64 1
   store i8 %frombool.i54, ptr %.compoundliteral.sroa.2.0..sroa_idx.i56, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %pb, i64 4
@@ -28278,6 +28315,7 @@ entry:
   %f.coerce1.lobit.i.i = lshr i64 %a.coerce1, 63
   %frombool.i.i = trunc nuw nsw i64 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -28375,6 +28413,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -29690,6 +29729,7 @@ entry:
   %f.coerce1.lobit.i = lshr i64 %a.coerce1, 63
   %frombool.i = trunc nuw nsw i64 %f.coerce1.lobit.i to i8
   %and.i.i = and i64 %a.coerce1, 281474976710655
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 1
   %.compoundliteral.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -30129,6 +30169,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4
@@ -32156,6 +32197,7 @@ if.end.i:                                         ; preds = %sw.epilog.i
   %f.coerce1.lobit.i.i = lshr i16 %a.coerce1, 15
   %frombool.i.i = trunc nuw nsw i16 %f.coerce1.lobit.i.i to i8
   %and.i.i.i = zext nneg i16 %1 to i32
+  store i8 0, ptr %p, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %frombool.i.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i.i, align 1
   %.compoundliteral.sroa.32.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %p, i64 4

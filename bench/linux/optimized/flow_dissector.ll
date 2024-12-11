@@ -3361,6 +3361,7 @@ thread-pre-split:                                 ; preds = %14, %20, %.loopexit
 define dso_local range(i32 1, 0) i32 @skb_get_hash_perturb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.flow_keys, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
   %4 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
   ret i32 %4
