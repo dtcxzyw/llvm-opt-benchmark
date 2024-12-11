@@ -220,7 +220,7 @@
   "licm.NumPromotionCandidates": 375955,
   "licm.NumSunk": 248474,
   "local.NumPHICSEs": 156750,
-  "local.NumRemoved": 3767525,
+  "local.NumRemoved": 3767524,
   "loop-delete.NumBackedgesBroken": 38724,
   "loop-delete.NumDeleted": 142812,
   "loop-idiom.NumMemCpy": 7688,
