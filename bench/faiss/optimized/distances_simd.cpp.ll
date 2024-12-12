@@ -119,7 +119,7 @@ middle.block:                                     ; preds = %vector.body
   %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
 
-.lr.ph.i.preheader17:                             ; preds = %middle.block, %.lr.ph.i.preheader
+.lr.ph.i.preheader17:                             ; preds = %.lr.ph.i.preheader, %middle.block
   %.012.i.ph = phi i64 [ 0, %.lr.ph.i.preheader ], [ %n.vec, %middle.block ]
   %.01011.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader ], [ %18, %middle.block ]
   br label %.lr.ph.i
@@ -192,7 +192,7 @@ middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader17
 
-.lr.ph.preheader17:                               ; preds = %middle.block, %.lr.ph.preheader
+.lr.ph.preheader17:                               ; preds = %.lr.ph.preheader, %middle.block
   %.012.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %n.vec, %middle.block ]
   %.01011.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %15, %middle.block ]
   br label %.lr.ph
@@ -338,7 +338,7 @@ middle.block:                                     ; preds = %vector.body
   %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i.preheader:                           ; preds = %middle.block, %.lr.ph.i.preheader.i.i
+.lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.preheader.i.i, %middle.block
   %.012.i.i.i.ph = phi i64 [ 0, %.lr.ph.i.preheader.i.i ], [ %n.vec, %middle.block ]
   %.01011.i.i.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader.i.i ], [ %18, %middle.block ]
   br label %.lr.ph.i.i.i
@@ -439,7 +439,7 @@ middle.block:                                     ; preds = %vector.body
   %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %middle.block, %.lr.ph.i.preheader.i
+.lr.ph.i.i.preheader:                             ; preds = %.lr.ph.i.preheader.i, %middle.block
   %.012.i.i.ph = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %n.vec, %middle.block ]
   %.01011.i.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %18, %middle.block ]
   br label %.lr.ph.i.i
@@ -605,7 +605,7 @@ middle.block:                                     ; preds = %vector.body
   %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit, label %.lr.ph.i.preheader17
 
-.lr.ph.i.preheader17:                             ; preds = %middle.block, %.lr.ph.i.preheader
+.lr.ph.i.preheader17:                             ; preds = %.lr.ph.i.preheader, %middle.block
   %.011.i.ph = phi i64 [ 0, %.lr.ph.i.preheader ], [ %n.vec, %middle.block ]
   %.0810.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader ], [ %16, %middle.block ]
   br label %.lr.ph.i
@@ -675,7 +675,7 @@ middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %2, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader16
 
-.lr.ph.preheader16:                               ; preds = %middle.block, %.lr.ph.preheader
+.lr.ph.preheader16:                               ; preds = %.lr.ph.preheader, %middle.block
   %.011.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %n.vec, %middle.block ]
   %.0810.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %13, %middle.block ]
   br label %.lr.ph
@@ -733,7 +733,7 @@ middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %1, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader14
 
-.lr.ph.preheader14:                               ; preds = %middle.block, %.lr.ph.preheader
+.lr.ph.preheader14:                               ; preds = %.lr.ph.preheader, %middle.block
   %.011.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %n.vec, %middle.block ]
   %.0810.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %10, %middle.block ]
   br label %.lr.ph
@@ -829,7 +829,7 @@ middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader73
 
-.lr.ph.preheader73:                               ; preds = %middle.block, %.lr.ph.preheader
+.lr.ph.preheader73:                               ; preds = %.lr.ph.preheader, %middle.block
   %.038.ph = phi i64 [ 0, %.lr.ph.preheader ], [ %n.vec, %middle.block ]
   %.03037.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %38, %middle.block ]
   %.03136.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %39, %middle.block ]
@@ -930,7 +930,7 @@ middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %5, %n.vec
   br i1 %cmp.n, label %._crit_edge, label %.lr.ph.preheader69
 
-.lr.ph.preheader69:                               ; preds = %middle.block, %.lr.ph.preheader
+.lr.ph.preheader69:                               ; preds = %.lr.ph.preheader, %middle.block
   %.046.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %29, %middle.block ]
   %.03845.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %30, %middle.block ]
   %.03944.ph = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %31, %middle.block ]
@@ -1149,7 +1149,7 @@ middle.block:                                     ; preds = %vector.body
   %18 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss10fvec_L2sqrEPKfS1_m.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %middle.block, %.lr.ph.i.preheader.i.i.i
+.lr.ph.i.i.i.i.preheader:                         ; preds = %.lr.ph.i.preheader.i.i.i, %middle.block
   %.012.i.i.i.i.ph = phi i64 [ 0, %.lr.ph.i.preheader.i.i.i ], [ %n.vec, %middle.block ]
   %.01011.i.i.i.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader.i.i.i ], [ %18, %middle.block ]
   br label %.lr.ph.i.i.i.i
@@ -1332,7 +1332,7 @@ middle.block:                                     ; preds = %vector.body
   %16 = tail call fast float @llvm.vector.reduce.fadd.v4f32(float 0.000000e+00, <4 x float> %bin.rdx)
   br i1 %cmp.n, label %_ZN5faiss18fvec_inner_productEPKfS1_m.exit.loopexit.i, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i.preheader:                             ; preds = %middle.block, %.lr.ph.i.preheader.i
+.lr.ph.i.i.preheader:                             ; preds = %.lr.ph.i.preheader.i, %middle.block
   %.011.i.i.ph = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %n.vec, %middle.block ]
   %.0810.i.i.ph = phi float [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %16, %middle.block ]
   br label %.lr.ph.i.i
