@@ -7555,14 +7555,14 @@ define dso_local void @_ZNK4llvm6object7Archive7findSymENS_9StringRefE(ptr dead_
   %13 = load i8, ptr %12, align 2
   %14 = and i8 %13, 7
   switch i8 %14, label %67 [
-    i8 0, label %.thread36
+    i8 0, label %.thread35
     i8 1, label %26
-    i8 2, label %.thread38
-    i8 4, label %.thread40
+    i8 2, label %.thread37
+    i8 4, label %.thread39
     i8 6, label %58
   ]
 
-.thread36:                                        ; preds = %10
+.thread35:                                        ; preds = %10
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.0.0.copyload.i.i, align 1
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i.i)
@@ -7591,7 +7591,7 @@ define dso_local void @_ZNK4llvm6object7Archive7findSymENS_9StringRefE(ptr dead_
   %30 = getelementptr i8, ptr %29, i64 8
   br label %.thread
 
-.thread38:                                        ; preds = %10
+.thread37:                                        ; preds = %10
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i31.i = load i32, ptr %.sroa.0.0.copyload.i.i, align 1
   %31 = and i32 %.0.copyload.i.i.i.i.i.i31.i, -8
@@ -7616,7 +7616,7 @@ define dso_local void @_ZNK4llvm6object7Archive7findSymENS_9StringRefE(ptr dead_
   %44 = lshr i32 %.0.copyload.i.i.i.i.i.i10.i.i, 3
   br label %_ZNK4llvm6object7Archive10symbol_endEv.exit
 
-.thread40:                                        ; preds = %10
+.thread39:                                        ; preds = %10
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.0.0.copyload.i.i, i64 1) ]
   %.0.copyload.i.i.i.i.i.i33.i = load i64, ptr %.sroa.0.0.copyload.i.i, align 1
   %45 = and i64 %.0.copyload.i.i.i.i.i.i33.i, -16
@@ -7690,9 +7690,9 @@ define dso_local void @_ZNK4llvm6object7Archive7findSymENS_9StringRefE(ptr dead_
   %.0.copyload.i.i.i.i.i.i13.i.i = load i32, ptr %84, align 1
   br label %_ZNK4llvm6object7Archive10symbol_endEv.exit
 
-_ZNK4llvm6object7Archive10symbol_endEv.exit:      ; preds = %.thread36, %.thread, %.thread38, %.thread40, %67
-  %85 = phi ptr [ %24, %.thread36 ], [ %64, %.thread ], [ %43, %.thread38 ], [ %55, %.thread40 ], [ %80, %67 ]
-  %.0.i.i = phi i32 [ %25, %.thread36 ], [ %66, %.thread ], [ %44, %.thread38 ], [ %57, %.thread40 ], [ %.0.copyload.i.i.i.i.i.i13.i.i, %67 ]
+_ZNK4llvm6object7Archive10symbol_endEv.exit:      ; preds = %.thread35, %.thread, %.thread37, %.thread39, %67
+  %85 = phi ptr [ %24, %.thread35 ], [ %64, %.thread ], [ %43, %.thread37 ], [ %55, %.thread39 ], [ %80, %67 ]
+  %.0.i.i = phi i32 [ %25, %.thread35 ], [ %66, %.thread ], [ %44, %.thread37 ], [ %57, %.thread39 ], [ %.0.copyload.i.i.i.i.i.i13.i.i, %67 ]
   %.not = icmp eq i32 %.0.i.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

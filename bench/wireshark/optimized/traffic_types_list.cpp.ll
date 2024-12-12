@@ -2763,7 +2763,7 @@ define void @_ZN16TrafficTypesList15selectProtocolsE5QListIiE(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %27, label %6
+  br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
@@ -2785,48 +2785,42 @@ define void @_ZN16TrafficTypesList15selectProtocolsE5QListIiE(ptr noundef nonnul
 
 _ZN5QListIiEC2ERKS0_.exit:                        ; preds = %6, %14
   invoke void @_ZN17TrafficTypesModel15selectProtocolsE5QListIiE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %3)
-          to label %16 unwind label %21
+          to label %16 unwind label %19
 
 16:                                               ; preds = %_ZN5QListIiEC2ERKS0_.exit
-  %17 = load ptr, ptr %3, align 8
-  %.not.i.i.i2 = icmp eq ptr %17, null
-  br i1 %.not.i.i.i2, label %_ZN5QListIiED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i
+  br i1 %.not.i.i.i, label %_ZN5QListIiED2Ev.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i:       ; preds = %16
-  %18 = atomicrmw sub ptr %17, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %18, 1
-  br i1 %.not.i.i, label %19, label %_ZN5QListIiED2Ev.exit
+  %17 = atomicrmw sub ptr %7, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %17, 1
+  br i1 %.not.i.i, label %18, label %_ZN5QListIiED2Ev.exit
 
-19:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i
-  %20 = load ptr, ptr %3, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %20, i64 noundef 4, i64 noundef 8) #19
+18:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 8) #19
   br label %_ZN5QListIiED2Ev.exit
 
-_ZN5QListIiED2Ev.exit:                            ; preds = %16, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %19
+_ZN5QListIiED2Ev.exit:                            ; preds = %16, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i, %18
   tail call void @_ZN16TrafficTypesList15clearFilterListEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
-  br label %27
+  br label %23
 
-21:                                               ; preds = %_ZN5QListIiEC2ERKS0_.exit
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %_ZN5QListIiEC2ERKS0_.exit
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %3, align 8
-  %.not.i.i.i3 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i3, label %_ZN5QListIiED2Ev.exit6, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4
+  br i1 %.not.i.i.i, label %_ZN5QListIiED2Ev.exit6, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4
 
-_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4:      ; preds = %21
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i5 = icmp eq i32 %24, 1
-  br i1 %.not.i.i5, label %25, label %_ZN5QListIiED2Ev.exit6
+_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4:      ; preds = %19
+  %21 = atomicrmw sub ptr %7, i32 1 seq_cst, align 4
+  %.not.i.i5 = icmp eq i32 %21, 1
+  br i1 %.not.i.i5, label %22, label %_ZN5QListIiED2Ev.exit6
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4
-  %26 = load ptr, ptr %3, align 8
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 4, i64 noundef 8) #19
+22:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 8) #19
   br label %_ZN5QListIiED2Ev.exit6
 
-_ZN5QListIiED2Ev.exit6:                           ; preds = %21, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4, %25
-  resume { ptr, i32 } %22
+_ZN5QListIiED2Ev.exit6:                           ; preds = %19, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i4, %22
+  resume { ptr, i32 } %20
 
-27:                                               ; preds = %_ZN5QListIiED2Ev.exit, %2
+23:                                               ; preds = %_ZN5QListIiED2Ev.exit, %2
   ret void
 }
 

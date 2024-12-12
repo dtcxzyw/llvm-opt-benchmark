@@ -13646,7 +13646,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
 
 _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i: ; preds = %65, %60, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.i.i.i.i, %"_ZN5boost4asio6detail7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS6_12context_as_tIRNS0_17execution_contextEEENS6_6detail8blocking7never_tILi0EEENS6_11prefer_onlyINSD_10possibly_tILi0EEEEENSG_INSC_16outstanding_work9tracked_tILi0EEEEENSG_INSK_11untracked_tILi0EEEEENSG_INSC_12relationship6fork_tILi0EEEEENSG_INSR_14continuation_tILi0EEEEEEEENS4_23basic_resolver_iteratorIS5_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEC2EOS16_.exit.i"
   %66 = invoke noalias noundef nonnull dereferenceable(105) ptr @_Znwm(i64 noundef 105) #38
-          to label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i" unwind label %111
+          to label %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i" unwind label %102
 
 "_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i": ; preds = %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i, %63
   %.sink25.i.i.i.i.i = phi ptr [ %62, %63 ], [ %66, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i ]
@@ -13654,126 +13654,115 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
   %67 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 104
   store i8 %.sink.i.i.i.i.i, ptr %67, align 1
   %68 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 8
-  %69 = load ptr, ptr %4, align 8
-  store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 16
-  %71 = load ptr, ptr %14, align 8
-  store ptr %71, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 24
-  %73 = load ptr, ptr %17, align 8
-  store ptr %73, ptr %72, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i, label %74
+  store ptr %13, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 16
+  store ptr %16, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 24
+  store ptr %19, ptr %70, align 8
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i, label %71
 
-74:                                               ; preds = %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i"
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %76 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %76, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %80, label %77
+71:                                               ; preds = %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i"
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %73 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %73, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %77, label %74
 
-77:                                               ; preds = %74
-  %78 = load i32, ptr %75, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %75, align 4
+74:                                               ; preds = %71
+  %75 = load i32, ptr %72, align 4
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr %72, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
 
-80:                                               ; preds = %74
-  %81 = atomicrmw volatile add ptr %75, i32 1 acq_rel, align 4
+77:                                               ; preds = %71
+  %78 = atomicrmw volatile add ptr %72, i32 1 acq_rel, align 4
   br label %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
 
-_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; preds = %80, %77, %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i"
-  %82 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 32
-  %83 = load i64, ptr %28, align 8
-  store i64 %83, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 40
-  %85 = load ptr, ptr %31, align 8
-  store ptr %85, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 48
-  %87 = load ptr, ptr %34, align 8
-  store ptr %87, ptr %86, align 8
-  %.not.i.i.i.i6.i.i.i.i.i = icmp eq ptr %87, null
-  br i1 %.not.i.i.i.i6.i.i.i.i.i, label %96, label %88
+_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i: ; preds = %77, %74, %"_ZN5boost4asio6detail17executor_function4implINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEE3ptr8allocateERKS19_.exit.i.i"
+  %79 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 32
+  store i64 %30, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 40
+  store ptr %33, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 48
+  store ptr %36, ptr %81, align 8
+  br i1 %.not.i.i.i.i6.i.i.i, label %90, label %82
 
-88:                                               ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %90 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i.i.i = icmp eq i8 %90, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i.i.i, label %94, label %91
+82:                                               ; preds = %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %84 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i.i.i = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i.i.i, label %88, label %85
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %89, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %89, align 4
-  br label %96
+85:                                               ; preds = %82
+  %86 = load i32, ptr %83, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %83, align 4
+  br label %90
 
-94:                                               ; preds = %88
-  %95 = atomicrmw volatile add ptr %89, i32 1 acq_rel, align 4
-  br label %96
+88:                                               ; preds = %82
+  %89 = atomicrmw volatile add ptr %83, i32 1 acq_rel, align 4
+  br label %90
 
-96:                                               ; preds = %94, %91, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 56
-  %98 = load i64, ptr %45, align 8
-  store i64 %98, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 64
-  %100 = load i32, ptr %48, align 8
-  store i32 %100, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 72
-  %102 = load i64, ptr %51, align 8
-  store i64 %102, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull readonly align 8 dereferenceable(16) %54, i64 16, i1 false)
+90:                                               ; preds = %88, %85, %_ZN5boost4asio2ip23basic_resolver_iteratorINS1_3tcpEEC2ERKS4_.exit.i.i.i.i.i
+  %91 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 56
+  store i64 %47, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 64
+  store i32 %50, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 72
+  store i64 %53, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %.sink25.i.i.i.i.i, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull readonly align 8 dereferenceable(16) %54, i64 16, i1 false)
   store ptr @"_ZN5boost4asio6detail17executor_function8completeINS1_7binder1INS1_19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS8_12context_as_tIRNS0_17execution_contextEEENS8_6detail8blocking7never_tILi0EEENS8_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INSE_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INSE_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS6_23basic_resolver_iteratorIS7_EENS1_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEESaIvEEEvPNS2_9impl_baseEb", ptr %.sink25.i.i.i.i.i, align 8
   store ptr %.sink25.i.i.i.i.i, ptr %3, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %104 unwind label %113
+          to label %95 unwind label %104
 
-104:                                              ; preds = %96
-  %105 = load ptr, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %105, null
-  br i1 %.not.i.i, label %_ZN5boost4asio6detail17executor_functionD2Ev.exit.i, label %106
+95:                                               ; preds = %90
+  %96 = load ptr, ptr %3, align 8
+  %.not.i.i = icmp eq ptr %96, null
+  br i1 %.not.i.i, label %_ZN5boost4asio6detail17executor_functionD2Ev.exit.i, label %97
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %105, align 8
-  invoke void %107(ptr noundef nonnull %105, i1 noundef zeroext false)
-          to label %_ZN5boost4asio6detail17executor_functionD2Ev.exit.i unwind label %108
+97:                                               ; preds = %95
+  %98 = load ptr, ptr %96, align 8
+  invoke void %98(ptr noundef nonnull %96, i1 noundef zeroext false)
+          to label %_ZN5boost4asio6detail17executor_functionD2Ev.exit.i unwind label %99
 
-108:                                              ; preds = %106
-  %109 = landingpad { ptr, i32 }
+99:                                               ; preds = %97
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #32
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #32
   unreachable
 
-_ZN5boost4asio6detail17executor_functionD2Ev.exit.i: ; preds = %106, %104
+_ZN5boost4asio6detail17executor_functionD2Ev.exit.i: ; preds = %97, %95
   call fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1ED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(88) %4) #31
   br label %"_ZNK5boost4asio9execution6detail17any_executor_base7executeINS0_6detail7binder1INS5_19iterator_connect_opINS0_2ip3tcpENS1_12any_executorIJNS1_12context_as_tIRNS0_17execution_contextEEENS2_8blocking7never_tILi0EEENS1_11prefer_onlyINSF_10possibly_tILi0EEEEENSI_INS2_16outstanding_work9tracked_tILi0EEEEENSI_INSM_11untracked_tILi0EEEEENSI_INS2_12relationship6fork_tILi0EEEEENSI_INST_14continuation_tILi0EEEEEEEENS8_23basic_resolver_iteratorIS9_EENS5_25default_connect_conditionEZ4mainE3$_1EENS_6system10error_codeEEEEEvOT_.exit"
 
-111:                                              ; preds = %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
-  %112 = landingpad { ptr, i32 }
+102:                                              ; preds = %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i.i.i
+  %103 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i
 
-113:                                              ; preds = %96
-  %114 = landingpad { ptr, i32 }
+104:                                              ; preds = %90
+  %105 = landingpad { ptr, i32 }
           cleanup
-  %115 = load ptr, ptr %3, align 8
-  %.not.i6.i = icmp eq ptr %115, null
-  br i1 %.not.i6.i, label %_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i, label %116
+  %106 = load ptr, ptr %3, align 8
+  %.not.i6.i = icmp eq ptr %106, null
+  br i1 %.not.i6.i, label %_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i, label %107
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %115, align 8
-  invoke void %117(ptr noundef nonnull %115, i1 noundef zeroext false)
-          to label %_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i unwind label %118
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %106, align 8
+  invoke void %108(ptr noundef nonnull %106, i1 noundef zeroext false)
+          to label %_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i unwind label %109
 
-118:                                              ; preds = %116
-  %119 = landingpad { ptr, i32 }
+109:                                              ; preds = %107
+  %110 = landingpad { ptr, i32 }
           catch ptr null
-  %120 = extractvalue { ptr, i32 } %119, 0
-  call void @__clang_call_terminate(ptr %120) #32
+  %111 = extractvalue { ptr, i32 } %110, 0
+  call void @__clang_call_terminate(ptr %111) #32
   unreachable
 
-_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i: ; preds = %116, %113, %111
-  %.pn.i = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %114, %116 ]
+_ZN5boost4asio6detail17executor_functionD2Ev.exit7.i: ; preds = %107, %104, %102
+  %.pn.i = phi { ptr, i32 } [ %103, %102 ], [ %105, %104 ], [ %105, %107 ]
   call fastcc void @"_ZN5boost4asio6detail19iterator_connect_opINS0_2ip3tcpENS0_9execution12any_executorIJNS5_12context_as_tIRNS0_17execution_contextEEENS5_6detail8blocking7never_tILi0EEENS5_11prefer_onlyINSC_10possibly_tILi0EEEEENSF_INSB_16outstanding_work9tracked_tILi0EEEEENSF_INSJ_11untracked_tILi0EEEEENSF_INSB_12relationship6fork_tILi0EEEEENSF_INSQ_14continuation_tILi0EEEEEEEENS3_23basic_resolver_iteratorIS4_EENS1_25default_connect_conditionEZ4mainE3$_1ED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(88) %4) #31
   resume { ptr, i32 } %.pn.i
 

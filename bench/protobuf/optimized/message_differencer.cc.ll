@@ -14388,8 +14388,8 @@ _ZNSt8functionIFbiiEED2Ev.exit:                   ; preds = %invoke.cont15, %if.
   %cmp16 = icmp ne ptr %.fr, null
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %visited.i)
   %16 = load i32, ptr %matcher, align 8
-  %cmp35.i = icmp sgt i32 %16, 0
-  br i1 %cmp35.i, label %for.body.lr.ph.i, label %for.cond9.preheader.i
+  %cmp38.i = icmp sgt i32 %16, 0
+  br i1 %cmp38.i, label %for.body.lr.ph.i, label %for.cond9.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt8functionIFbiiEED2Ev.exit
   %_M_offset.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %visited.i, i64 8
@@ -14400,8 +14400,8 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt8functionIFbii
 
 for.body.i.us:                                    ; preds = %for.body.lr.ph.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us
   %17 = phi i32 [ %20, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ %16, %for.body.lr.ph.i ]
-  %i.037.i.us = phi i32 [ %inc7.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ 0, %for.body.lr.ph.i ]
-  %result.036.i.us = phi i32 [ %result.2.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ 0, %for.body.lr.ph.i ]
+  %i.040.i.us = phi i32 [ %inc7.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ 0, %for.body.lr.ph.i ]
+  %result.039.i.us = phi i32 [ %result.2.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ 0, %for.body.lr.ph.i ]
   %conv.i90.us = sext i32 %17 to i64
   %sub.i.i.i.i.i.i.us = add nsw i64 %conv.i90.us, 63
   %18 = lshr i64 %sub.i.i.i.i.i.i.us, 3
@@ -14427,7 +14427,7 @@ call5.i.i.i.i1.i.i.i.noexc.us:                    ; preds = %for.body.i.us
   store i32 %conv4.i.i.i.i.i.i.i.us, ptr %_M_offset.i.i1.i.i.i.i.i.i, align 8
   %add.ptr.i.idx.i.i.i.us = shl nuw nsw i64 %div1.i.i.i.i.i.us, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i.i92.us, i8 0, i64 %add.ptr.i.idx.i.i.i.us, i1 false)
-  %call.i91.us = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i.us, ptr noundef %visited.i)
+  %call.i91.us = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.040.i.us, ptr noundef %visited.i)
           to label %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us unwind label %eh.resume.i.split.us
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i.us:               ; preds = %call5.i.i.i.i1.i.i.i.noexc.us
@@ -14438,8 +14438,8 @@ _ZNSt6vectorIbSaIbEED2Ev.exit.i.us:               ; preds = %call5.i.i.i.i1.i.i.
   store i32 0, ptr %_M_offset.i.i1.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   %inc.i.us = zext i1 %call.i91.us to i32
-  %result.2.i.us = add nuw nsw i32 %result.036.i.us, %inc.i.us
-  %inc7.i.us = add nuw nsw i32 %i.037.i.us, 1
+  %result.2.i.us = add nuw nsw i32 %result.039.i.us, %inc.i.us
+  %inc7.i.us = add nuw nsw i32 %i.040.i.us, 1
   %20 = load i32, ptr %matcher, align 8
   %cmp.i.us = icmp slt i32 %inc7.i.us, %20
   br i1 %cmp.i.us, label %for.body.i.us, label %for.cond9.preheader.i, !llvm.loop !277
@@ -14455,7 +14455,7 @@ eh.resume.i.split.us:                             ; preds = %call5.i.i.i.i1.i.i.
   br label %eh.resume.i
 
 for.cond.i:                                       ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit.i
-  %inc7.i = add nuw nsw i32 %i.037.i, 1
+  %inc7.i = add nuw nsw i32 %i.040.i, 1
   %23 = load i32, ptr %matcher, align 8
   %cmp.i = icmp slt i32 %inc7.i, %23
   br i1 %cmp.i, label %for.body.i, label %for.cond9.preheader.i, !llvm.loop !277
@@ -14463,12 +14463,12 @@ for.cond.i:                                       ; preds = %_ZNSt6vectorIbSaIbE
 for.cond9.preheader.i:                            ; preds = %for.cond.i, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us, %_ZNSt8functionIFbiiEED2Ev.exit
   %result.0.lcssa.i = phi i32 [ 0, %_ZNSt8functionIFbiiEED2Ev.exit ], [ %result.2.i.us, %_ZNSt6vectorIbSaIbEED2Ev.exit.i.us ], [ %inc7.i, %for.cond.i ]
   %24 = load i32, ptr %count2_.i, align 4
-  %cmp1038.i = icmp sgt i32 %24, 0
-  br i1 %cmp1038.i, label %for.body11.i, label %invoke.cont20
+  %cmp1041.i = icmp sgt i32 %24, 0
+  br i1 %cmp1041.i, label %for.body11.i, label %invoke.cont20
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
   %25 = phi i32 [ %23, %for.cond.i ], [ %16, %for.body.lr.ph.i ]
-  %i.037.i = phi i32 [ %inc7.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
+  %i.040.i = phi i32 [ %inc7.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
   %conv.i90 = sext i32 %25 to i64
   %sub.i.i.i.i.i.i = add nsw i64 %conv.i90, 63
   %26 = lshr i64 %sub.i.i.i.i.i.i, 3
@@ -14494,7 +14494,7 @@ call5.i.i.i.i1.i.i.i.noexc:                       ; preds = %for.body.i
   store i32 %conv4.i.i.i.i.i.i.i, ptr %_M_offset.i.i1.i.i.i.i.i.i, align 8
   %add.ptr.i.idx.i.i.i = shl nuw nsw i64 %div1.i.i.i.i.i, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i.i.i92, i8 0, i64 %add.ptr.i.idx.i.i.i, i1 false)
-  %call.i91 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.037.i, ptr noundef %visited.i)
+  %call.i91 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_114MaximumMatcher19FindArgumentPathDFSEiPSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(88) %matcher, i32 noundef %i.040.i, ptr noundef %visited.i)
           to label %_ZNSt6vectorIbSaIbEED2Ev.exit.i unwind label %eh.resume.i.split
 
 _ZNSt6vectorIbSaIbEED2Ev.exit.i:                  ; preds = %call5.i.i.i.i1.i.i.i.noexc

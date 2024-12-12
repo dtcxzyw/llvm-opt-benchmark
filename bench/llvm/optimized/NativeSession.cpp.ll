@@ -1552,14 +1552,14 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   %.pre = load ptr, ptr %15, align 8
   %.not.i1.i = icmp eq ptr %.pre, null
-  br i1 %.not.i1.i, label %_ZNKSt14default_deleteIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEEclEPS3_.exit.i, label %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i
+  br i1 %.not.i1.i, label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i
 
 _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i: ; preds = %64
   %70 = load ptr, ptr %.pre, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %.pre) #16
-  br label %_ZNKSt14default_deleteIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEEclEPS3_.exit.i
+  br label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
 
 73:                                               ; preds = %60, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1570,9 +1570,9 @@ _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.spli
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %75 = load i8, ptr %74, align 8
   %76 = trunc i8 %75 to i1
-  br i1 %76, label %.thread45, label %82
+  br i1 %76, label %.thread44, label %82
 
-.thread45:                                        ; preds = %73
+.thread44:                                        ; preds = %73
   %77 = load i64, ptr %17, align 8, !noalias !108
   %78 = inttoptr i64 %77 to ptr
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1580,7 +1580,7 @@ _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.spli
   %81 = or i8 %80, 1
   store i8 %81, ptr %79, align 8
   store ptr %78, ptr %0, align 8, !alias.scope !111
-  br label %95
+  br label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
 
 82:                                               ; preds = %73
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
@@ -1603,58 +1603,49 @@ _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.spli
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #16
   %.pre42 = load ptr, ptr %17, align 8
   %.not.i1.i21 = icmp eq ptr %.pre42, null
-  br i1 %.not.i1.i21, label %95, label %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i22
+  br i1 %.not.i1.i21, label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i22
 
 _ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i22: ; preds = %82
   %92 = load ptr, ptr %.pre42, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(8) %.pre42) #16
-  br label %95
-
-95:                                               ; preds = %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i22, %82, %.thread45
-  %.pre43 = load ptr, ptr %14, align 8
-  %.not.i24 = icmp eq ptr %.pre43, null
-  br i1 %.not.i24, label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEEclEPS3_.exit.i
-
-_ZNKSt14default_deleteIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEEclEPS3_.exit.i: ; preds = %64, %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i, %95
-  %96 = phi ptr [ %.pre43, %95 ], [ %44, %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i ], [ %44, %64 ]
-  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %96) #16
-  call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 96) #17
   br label %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %95, %_ZNKSt14default_deleteIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEEclEPS3_.exit.i
-  %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %9) #16
-  %98 = load ptr, ptr %9, align 8
-  %99 = icmp eq ptr %98, %37
-  br i1 %99, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %100
+_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i22, %82, %.thread44, %_ZNSt10unique_ptrIN4llvm3pdb7PDBFileESt14default_deleteIS2_EED2Ev.exit.sink.split.i, %64
+  call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #16
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef 96) #17
+  %95 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %9) #16
+  %96 = load ptr, ptr %9, align 8
+  %97 = icmp eq ptr %96, %37
+  br i1 %97, label %_ZN4llvm11SmallStringILj128EED2Ev.exit, label %98
 
-100:                                              ; preds = %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
-  call void @free(ptr noundef %98) #16
+98:                                               ; preds = %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit
+  call void @free(ptr noundef %96) #16
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
-_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %100, %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %101 = load i8, ptr %20, align 8
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %104, label %103
+_ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %98, %_ZNSt10unique_ptrIN4llvm20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %99 = load i8, ptr %20, align 8
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %102, label %101
 
-103:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
+101:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(33) %8) #16
   br label %_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-104:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
-  %105 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %105, null
+102:                                              ; preds = %_ZN4llvm11SmallStringILj128EED2Ev.exit
+  %103 = load ptr, ptr %8, align 8
+  %.not.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %104
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %102
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %108 = load ptr, ptr %107, align 8
-  call void %108(ptr noundef nonnull align 8 dereferenceable(8) %105) #16
+  call void %106(ptr noundef nonnull align 8 dereferenceable(8) %103) #16
   br label %_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
-_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %104, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %103
+_ZN4llvm8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %102, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %101
   ret void
 }
 

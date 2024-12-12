@@ -40524,13 +40524,12 @@ _ZN12_GLOBAL__N_124NotTriviallyDestructibleaSERKS0_.exit.i: ; preds = %_ZNKSt14d
   br i1 %cmp72.i, label %for.end.i, label %if.end.i
 
 for.end.i:                                        ; preds = %_ZN12_GLOBAL__N_124NotTriviallyDestructibleaSERKS0_.exit.i, %invoke.cont64.i
-  %values.val.i = load ptr, ptr %values.i, align 8
   %cmp1.not.i.i = icmp eq i64 %sub50.i, 0
   br i1 %cmp1.not.i.i, label %invoke.cont79.i, label %for.body.i83.i
 
 for.body.i83.i:                                   ; preds = %for.end.i, %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE10AssignNextEPS3_.exit.i.i
   %i.02.i84.i = phi i64 [ %inc.i.i, %_ZN4absl23inlined_vector_internal16CopyValueAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEE10AssignNextEPS3_.exit.i.i ], [ 0, %for.end.i ]
-  %values.val.val.i.i = load ptr, ptr %values.val.i, align 8
+  %values.val.val.i.i = load ptr, ptr %dealias, align 8
   %call.i.i.i.i86.i = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #37
           to label %call.i.i.i.i.noexc.i unwind label %lpad45.loopexit.i
 
@@ -86732,7 +86731,6 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i
 
 _ZN7testing7MatcherIRKN4absl13InlinedVectorINS1_13test_internal23CopyableMovableInstanceELm1ESaIS4_EEEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm1ESaIS5_EEEE8IsSharedEv.exit.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !2136
-  %call.val.i.i.i.i.i.i.i.i = load i32, ptr %agg.tmp6.sroa.4.0.ref.tmp.sroa_idx, align 8, !noalias !2136
   call void @llvm.experimental.noalias.scope.decl(metadata !2161)
   call void @llvm.experimental.noalias.scope.decl(metadata !2164)
   call void @llvm.experimental.noalias.scope.decl(metadata !2167)
@@ -86745,7 +86743,7 @@ _ZN7testing7MatcherIRKN4absl13InlinedVectorINS1_13test_internal23CopyableMovable
 call.i.i.i.i.i.i.i.i.noexc.i.i.i.i.i.i:           ; preds = %_ZN7testing7MatcherIRKN4absl13InlinedVectorINS1_13test_internal23CopyableMovableInstanceELm1ESaIS4_EEEED2Ev.exit.i.i.i.i.i.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_118CapacityIsMatcherPIN7testing8internal9GtMatcherIjEEE10gmock_ImplIRKN4absl13InlinedVectorINS7_13test_internal23CopyableMovableInstanceELm1ESaISA_EEEEE, i64 16), ptr %call.i.i.i.i.i.i.i.i4.i.i.i.i.i.i, align 8, !noalias !2179
   %n.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i4.i.i.i.i.i.i, i64 8
-  store i32 %call.val.i.i.i.i.i.i.i.i, ptr %n.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2179
+  store i32 1, ptr %n.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !2179
   %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
   %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 16
   store ptr @_ZZN7testing8internal11MatcherBaseIRKN4absl13InlinedVectorINS2_13test_internal23CopyableMovableInstanceELm1ESaIS5_EEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !2180, !noalias !2136

@@ -41136,9 +41136,9 @@ define internal fastcc { i64, ptr } @"_ZN5tokio2io4util10buf_writer18BufWriter$L
   unreachable
 
 .loopexit:                                        ; preds = %2, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit21"
-  %17 = phi ptr [ %storemerge, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit21" ], [ null, %2 ]
-  %18 = phi i64 [ %.pr, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit21" ], [ %10, %2 ]
-  %.not = icmp eq i64 %18, 0
+  %17 = phi i64 [ %.pr, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit21" ], [ %10, %2 ]
+  %18 = phi ptr [ %storemerge, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit21" ], [ null, %2 ]
+  %.not = icmp eq i64 %17, 0
   br i1 %.not, label %42, label %.loopexit.thread
 
 .loopexit29:                                      ; preds = %20
@@ -41196,17 +41196,17 @@ define internal fastcc { i64, ptr } @"_ZN5tokio2io4util10buf_writer18BufWriter$L
   br label %.loopexit
 
 .loopexit.thread:                                 ; preds = %34, %.loopexit
-  %38 = phi i64 [ %18, %.loopexit ], [ %36, %34 ]
-  %39 = phi ptr [ %17, %.loopexit ], [ null, %34 ]
+  %38 = phi ptr [ %18, %.loopexit ], [ null, %34 ]
+  %39 = phi i64 [ %17, %.loopexit ], [ %36, %34 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8811)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8814)
   %40 = load i64, ptr %8, align 8, !alias.scope !8814, !noalias !8811, !noundef !12
-  %41 = invoke { i64, i64 } @_ZN4core5slice5index5range17h6260d35bc3a70df7E(i64 noundef %38, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.420f2021cd97bdfb841b0d6c3d1da9cd.155.llvm.3021571406010367114)
+  %41 = invoke { i64, i64 } @_ZN4core5slice5index5range17h6260d35bc3a70df7E(i64 noundef %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.420f2021cd97bdfb841b0d6c3d1da9cd.155.llvm.3021571406010367114)
           to label %44 unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %.loopexit, %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17ha6e421c6fe17c51cE.exit"
-  %43 = phi ptr [ %17, %.loopexit ], [ %39, %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17ha6e421c6fe17c51cE.exit" ]
+  %43 = phi ptr [ %18, %.loopexit ], [ %38, %"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$u8$GT$$GT$17ha6e421c6fe17c51cE.exit" ]
   store i64 0, ptr %7, align 8
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hd688c50907fd1b34E.llvm.3021571406010367114.exit"
 

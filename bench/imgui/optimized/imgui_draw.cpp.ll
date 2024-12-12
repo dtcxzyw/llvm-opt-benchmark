@@ -26153,7 +26153,7 @@ if.else104:                                       ; preds = %_ZL8ImAcos01f.exit2
   %cmp105 = fcmp oeq float %retval.0.i256, 0.000000e+00
   %cmp107 = fcmp oeq float %retval.0.i263, 0x3FF921FB60000000
   %or.cond1 = and i1 %cmp105, %cmp107
-  %add111 = fadd float %cond5.i, %3
+  %add111 = fadd float %3, %cond5.i
   br i1 %or.cond1, label %if.then108, label %if.else115
 
 if.then108:                                       ; preds = %if.else104

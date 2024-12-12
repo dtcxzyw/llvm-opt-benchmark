@@ -47172,9 +47172,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cursor.4.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %append.val.i.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2038
   %conv.i.i30.i.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i32 noundef %conv.i.i30.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i.i.i.i, i32 noundef %conv.i.i30.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -47447,9 +47446,8 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.lhs.cast.i.i140.i.i.i = ptrtoint ptr %add.ptr.ptr.i25.i.i.i to i64
   %sub.ptr.rhs.cast.i.i141.i.i.i = ptrtoint ptr %cursor.4.i139.i.i.i to i64
   %sub.ptr.sub.i.i142.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i140.i.i.i, %sub.ptr.rhs.cast.i.i141.i.i.i
-  %append.val.i143.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2041
   %conv.i.i30.i144.i.i.i = trunc i64 %sub.ptr.sub.i.i142.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i32 noundef %conv.i.i30.i144.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i139.i.i.i, i32 noundef %conv.i.i30.i144.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i, %if.then.i13.i.i.i
@@ -47710,9 +47708,8 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
   %sub.ptr.lhs.cast.i.i303.i.i.i = ptrtoint ptr %add.ptr.ptr.i302.i.i.i to i64
   %sub.ptr.rhs.cast.i.i304.i.i.i = ptrtoint ptr %cursor.4.i301.i.i.i to i64
   %sub.ptr.sub.i.i305.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i303.i.i.i, %sub.ptr.rhs.cast.i.i304.i.i.i
-  %append.val.i306.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2044
   %conv.i.i30.i307.i.i.i = trunc i64 %sub.ptr.sub.i.i305.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i306.i.i.i, ptr noundef nonnull %cursor.4.i301.i.i.i, i32 noundef %conv.i.i30.i307.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i301.i.i.i, i32 noundef %conv.i.i30.i307.i.i.i)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %buffer.i180.i.i.i), !noalias !2033
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 
@@ -89166,8 +89163,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cursor.4.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %append.val.i.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4039
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -89440,8 +89436,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.lhs.cast.i.i140.i.i.i = ptrtoint ptr %add.ptr.ptr.i25.i.i.i to i64
   %sub.ptr.rhs.cast.i.i141.i.i.i = ptrtoint ptr %cursor.4.i139.i.i.i to i64
   %sub.ptr.sub.i.i142.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i140.i.i.i, %sub.ptr.rhs.cast.i.i141.i.i.i
-  %append.val.i143.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4042
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i64 noundef %sub.ptr.sub.i.i142.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i139.i.i.i, i64 noundef %sub.ptr.sub.i.i142.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i, %if.then.i13.i.i.i
@@ -89702,8 +89697,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
   %sub.ptr.lhs.cast.i.i302.i.i.i = ptrtoint ptr %add.ptr.ptr.i301.i.i.i to i64
   %sub.ptr.rhs.cast.i.i303.i.i.i = ptrtoint ptr %cursor.4.i300.i.i.i to i64
   %sub.ptr.sub.i.i304.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i302.i.i.i, %sub.ptr.rhs.cast.i.i303.i.i.i
-  %append.val.i305.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4045
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i305.i.i.i, ptr noundef nonnull %cursor.4.i300.i.i.i, i64 noundef %sub.ptr.sub.i.i304.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.4.i300.i.i.i, i64 noundef %sub.ptr.sub.i.i304.i.i.i)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %buffer.i179.i.i.i), !noalias !4034
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 

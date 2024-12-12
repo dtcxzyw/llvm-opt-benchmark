@@ -17402,11 +17402,11 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   %76 = zext nneg i32 %52 to i64
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %70, ptr null, i64 %76)
   %77 = icmp eq i32 %bcmp.i, 0
-  br i1 %77, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
+  br i1 %77, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %68
   %78 = icmp eq i32 %72, %1
-  br i1 %78, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
+  br i1 %78, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %73, %46, %75, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.08.lcssa.i.i.i28 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit ], [ %.19.i.i.i, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %.19.i.i.i, %75 ], [ %51, %46 ], [ %.19.i.i.i, %73 ]
@@ -17436,7 +17436,7 @@ _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %68
 _ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.critedge
   %89 = load ptr, ptr %0, align 8
   %90 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr %.08.lcssa.i.i.i28, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %.body
+          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %103
 
 _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit: ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
   %91 = load ptr, ptr %0, align 8
@@ -17448,59 +17448,32 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_
   call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %79) #42
   %96 = load ptr, ptr %8, align 8
   %.not.i.i15 = icmp eq ptr %96, null
-  br i1 %.not.i.i15, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %97
+  br i1 %.not.i.i15, label %_ZN4Json5Value8CZStringD2Ev.exit, label %97
 
 97:                                               ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 3
   %101 = icmp eq i32 %100, 1
-  br i1 %101, label %102, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
+  br i1 %101, label %102, label %_ZN4Json5Value8CZStringD2Ev.exit
 
 102:                                              ; preds = %97
   call void @free(ptr noundef nonnull %96) #42
-  br label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-
-_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %102, %97, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %75
-  %.pn13 = phi ptr [ %69, %75 ], [ %69, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %94, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %94, %97 ], [ %94, %102 ]
-  %103 = load ptr, ptr %7, align 8
-  %.not.i17 = icmp eq ptr %103, null
-  br i1 %.not.i17, label %_ZN4Json5Value8CZStringD2Ev.exit, label %104
-
-104:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-  %105 = load i32, ptr %47, align 8
-  %106 = and i32 %105, 3
-  %107 = icmp eq i32 %106, 1
-  br i1 %107, label %108, label %_ZN4Json5Value8CZStringD2Ev.exit
-
-108:                                              ; preds = %104
-  call void @free(ptr noundef nonnull %103) #42
   br label %_ZN4Json5Value8CZStringD2Ev.exit
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %104, %108
+103:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
+  %104 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #42
+  br label %_ZN4Json5Value8CZStringD2Ev.exit19
+
+_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %75, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %97, %102
+  %.pn13 = phi ptr [ %69, %75 ], [ %69, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %94, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %94, %97 ], [ %94, %102 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn13, i64 16
   ret ptr %.0
 
-.body:                                            ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #42
-  %.pre = load ptr, ptr %7, align 8
-  %.not.i18 = icmp eq ptr %.pre, null
-  br i1 %.not.i18, label %_ZN4Json5Value8CZStringD2Ev.exit19, label %110
-
-110:                                              ; preds = %.body
-  %111 = load i32, ptr %47, align 8
-  %112 = and i32 %111, 3
-  %113 = icmp eq i32 %112, 1
-  br i1 %113, label %114, label %_ZN4Json5Value8CZStringD2Ev.exit19
-
-114:                                              ; preds = %110
-  call void @free(ptr noundef nonnull %.pre) #42
-  br label %_ZN4Json5Value8CZStringD2Ev.exit19
-
-_ZN4Json5Value8CZStringD2Ev.exit19:               ; preds = %80, %83, %88, %114, %110, %.body, %44, %20
-  %.pn10.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %20 ], [ %109, %.body ], [ %109, %110 ], [ %109, %114 ], [ %81, %80 ], [ %81, %83 ], [ %81, %88 ]
+_ZN4Json5Value8CZStringD2Ev.exit19:               ; preds = %80, %83, %88, %103, %44, %20
+  %.pn10.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %20 ], [ %104, %103 ], [ %81, %88 ], [ %81, %83 ], [ %81, %80 ]
   resume { ptr, i32 } %.pn10.pn
 }
 
@@ -17861,118 +17834,78 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   %79 = and i64 %47, 1073741823
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %73, ptr %1, i64 %79)
   %80 = icmp eq i32 %bcmp.i, 0
-  br i1 %80, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
+  br i1 %80, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %71
   %81 = icmp eq i32 %75, %50
-  br i1 %81, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
-
-82:                                               ; preds = %.critedge
-  %83 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
+  br i1 %81, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %76, %46, %78, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.08.lcssa.i.i.i30 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit ], [ %.19.i.i.i, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %.19.i.i.i, %78 ], [ %54, %46 ], [ %.19.i.i.i, %76 ]
-  invoke void @_ZN4Json5Value8CZStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(12) %7)
-          to label %.noexc unwind label %82
+  call void @_ZN4Json5Value8CZStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(12) %7)
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  invoke void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4JsonL5kNullE)
+          to label %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit unwind label %83
 
-.noexc:                                           ; preds = %.critedge
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  invoke void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4JsonL5kNullE)
-          to label %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit unwind label %85
-
-85:                                               ; preds = %.noexc
-  %86 = landingpad { ptr, i32 }
+83:                                               ; preds = %.critedge
+  %84 = landingpad { ptr, i32 }
           cleanup
-  %87 = load ptr, ptr %8, align 8
-  %.not.i.i = icmp eq ptr %87, null
-  br i1 %.not.i.i, label %.body, label %88
+  %85 = load ptr, ptr %8, align 8
+  %.not.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit22, label %86
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %90 = load i32, ptr %89, align 8
-  %91 = and i32 %90, 3
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %.body
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %88 = load i32, ptr %87, align 8
+  %89 = and i32 %88, 3
+  %90 = icmp eq i32 %89, 1
+  br i1 %90, label %91, label %_ZN4Json5Value8CZStringD2Ev.exit22
 
-93:                                               ; preds = %88
-  tail call void @free(ptr noundef nonnull %87) #42
-  br label %.body
+91:                                               ; preds = %86
+  tail call void @free(ptr noundef nonnull %85) #42
+  br label %_ZN4Json5Value8CZStringD2Ev.exit22
 
-_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.noexc
-  %94 = load ptr, ptr %0, align 8
-  %95 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr %.08.lcssa.i.i.i30, ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %108
+_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.critedge
+  %92 = load ptr, ptr %0, align 8
+  %93 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %92, ptr %.08.lcssa.i.i.i30, ptr noundef nonnull align 8 dereferenceable(48) %8)
+          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %106
 
 _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit: ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 72
-  store i64 %99, ptr %100, align 8
-  call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #42
-  %101 = load ptr, ptr %8, align 8
-  %.not.i.i18 = icmp eq ptr %101, null
-  br i1 %.not.i.i18, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %102
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %97 = load i64, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 72
+  store i64 %97, ptr %98, align 8
+  call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #42
+  %99 = load ptr, ptr %8, align 8
+  %.not.i.i18 = icmp eq ptr %99, null
+  br i1 %.not.i.i18, label %_ZN4Json5Value8CZStringD2Ev.exit, label %100
 
-102:                                              ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %104 = load i32, ptr %103, align 8
-  %105 = and i32 %104, 3
-  %106 = icmp eq i32 %105, 1
-  br i1 %106, label %107, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
+100:                                              ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %102 = load i32, ptr %101, align 8
+  %103 = and i32 %102, 3
+  %104 = icmp eq i32 %103, 1
+  br i1 %104, label %105, label %_ZN4Json5Value8CZStringD2Ev.exit
 
-107:                                              ; preds = %102
-  call void @free(ptr noundef nonnull %101) #42
-  br label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-
-108:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %109 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #42
-  %.pre = load ptr, ptr %7, align 8
-  br label %.body
-
-_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %107, %102, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %78
-  %.pn16 = phi ptr [ %72, %78 ], [ %72, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %96, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %96, %102 ], [ %96, %107 ]
-  %110 = load ptr, ptr %7, align 8
-  %.not.i20 = icmp eq ptr %110, null
-  br i1 %.not.i20, label %_ZN4Json5Value8CZStringD2Ev.exit, label %111
-
-111:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-  %112 = load i32, ptr %49, align 8
-  %113 = and i32 %112, 3
-  %114 = icmp eq i32 %113, 1
-  br i1 %114, label %115, label %_ZN4Json5Value8CZStringD2Ev.exit
-
-115:                                              ; preds = %111
-  call void @free(ptr noundef nonnull %110) #42
+105:                                              ; preds = %100
+  call void @free(ptr noundef nonnull %99) #42
   br label %_ZN4Json5Value8CZStringD2Ev.exit
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %111, %115
+106:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #42
+  br label %_ZN4Json5Value8CZStringD2Ev.exit22
+
+_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %78, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %100, %105
+  %.pn16 = phi ptr [ %72, %78 ], [ %72, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %94, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %94, %100 ], [ %94, %105 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn16, i64 16
   ret ptr %.0
 
-.body:                                            ; preds = %85, %88, %93, %82, %108
-  %116 = phi ptr [ %.pre, %108 ], [ %1, %82 ], [ %1, %93 ], [ %1, %88 ], [ %1, %85 ]
-  %.pn13 = phi { ptr, i32 } [ %109, %108 ], [ %83, %82 ], [ %86, %93 ], [ %86, %88 ], [ %86, %85 ]
-  %.not.i21 = icmp eq ptr %116, null
-  br i1 %.not.i21, label %_ZN4Json5Value8CZStringD2Ev.exit22, label %117
-
-117:                                              ; preds = %.body
-  %118 = load i32, ptr %49, align 8
-  %119 = and i32 %118, 3
-  %120 = icmp eq i32 %119, 1
-  br i1 %120, label %121, label %_ZN4Json5Value8CZStringD2Ev.exit22
-
-121:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %116) #42
-  br label %_ZN4Json5Value8CZStringD2Ev.exit22
-
-_ZN4Json5Value8CZStringD2Ev.exit22:               ; preds = %121, %117, %.body, %44, %20
-  %.pn13.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %20 ], [ %.pn13, %.body ], [ %.pn13, %117 ], [ %.pn13, %121 ]
+_ZN4Json5Value8CZStringD2Ev.exit22:               ; preds = %106, %91, %86, %83, %44, %20
+  %.pn13.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %20 ], [ %107, %106 ], [ %84, %91 ], [ %84, %86 ], [ %84, %83 ]
   resume { ptr, i32 } %.pn13.pn
 }
 
@@ -18157,118 +18090,78 @@ _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boun
   %83 = and i64 %50, 1073741823
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %77, ptr %1, i64 %83)
   %84 = icmp eq i32 %bcmp.i, 0
-  br i1 %84, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
+  br i1 %84, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 _ZNK4Json5Value8CZStringeqERKS1_.exit:            ; preds = %75
   %85 = icmp eq i32 %79, %54
-  br i1 %85, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %.critedge
-
-86:                                               ; preds = %.critedge
-  %87 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
+  br i1 %85, label %_ZN4Json5Value8CZStringD2Ev.exit, label %.critedge
 
 .critedge:                                        ; preds = %80, %47, %82, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit
   %.08.lcssa.i.i.i31 = phi ptr [ %.19.i.i.i, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE11lower_boundERS6_.exit ], [ %.19.i.i.i, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %.19.i.i.i, %82 ], [ %58, %47 ], [ %.19.i.i.i, %80 ]
-  invoke void @_ZN4Json5Value8CZStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(12) %8)
-          to label %.noexc unwind label %86
+  call void @_ZN4Json5Value8CZStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(12) %8)
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  invoke void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4JsonL5kNullE)
+          to label %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit unwind label %87
 
-.noexc:                                           ; preds = %.critedge
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  invoke void @_ZN4Json5ValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4JsonL5kNullE)
-          to label %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit unwind label %89
-
-89:                                               ; preds = %.noexc
-  %90 = landingpad { ptr, i32 }
+87:                                               ; preds = %.critedge
+  %88 = landingpad { ptr, i32 }
           cleanup
-  %91 = load ptr, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i, label %.body, label %92
+  %89 = load ptr, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %89, null
+  br i1 %.not.i.i, label %_ZN4Json5Value8CZStringD2Ev.exit23, label %90
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 3
-  %96 = icmp eq i32 %95, 1
-  br i1 %96, label %97, label %.body
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %92 = load i32, ptr %91, align 8
+  %93 = and i32 %92, 3
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %95, label %_ZN4Json5Value8CZStringD2Ev.exit23
 
-97:                                               ; preds = %92
-  tail call void @free(ptr noundef nonnull %91) #42
-  br label %.body
+95:                                               ; preds = %90
+  tail call void @free(ptr noundef nonnull %89) #42
+  br label %_ZN4Json5Value8CZStringD2Ev.exit23
 
-_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.noexc
-  %98 = load ptr, ptr %0, align 8
-  %99 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr %.08.lcssa.i.i.i31, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %112
+_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit: ; preds = %.critedge
+  %96 = load ptr, ptr %0, align 8
+  %97 = invoke ptr @_ZNSt8_Rb_treeIN4Json5Value8CZStringESt4pairIKS2_S1_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_emplace_hint_uniqueIJRS5_EEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr %.08.lcssa.i.i.i31, ptr noundef nonnull align 8 dereferenceable(48) %9)
+          to label %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit unwind label %110
 
 _ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit: ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  store i64 %103, ptr %104, align 8
-  call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #42
-  %105 = load ptr, ptr %9, align 8
-  %.not.i.i19 = icmp eq ptr %105, null
-  br i1 %.not.i.i19, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, label %106
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 72
+  store i64 %101, ptr %102, align 8
+  call void @_ZN4Json5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #42
+  %103 = load ptr, ptr %9, align 8
+  %.not.i.i19 = icmp eq ptr %103, null
+  br i1 %.not.i.i19, label %_ZN4Json5Value8CZStringD2Ev.exit, label %104
 
-106:                                              ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit
-  %107 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %108 = load i32, ptr %107, align 8
-  %109 = and i32 %108, 3
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %111, label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
+104:                                              ; preds = %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %106 = load i32, ptr %105, align 8
+  %107 = and i32 %106, 3
+  %108 = icmp eq i32 %107, 1
+  br i1 %108, label %109, label %_ZN4Json5Value8CZStringD2Ev.exit
 
-111:                                              ; preds = %106
-  call void @free(ptr noundef nonnull %105) #42
-  br label %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-
-112:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
-  %113 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #42
-  %.pre = load ptr, ptr %8, align 8
-  br label %.body
-
-_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit:  ; preds = %111, %106, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %82
-  %.pn17 = phi ptr [ %76, %82 ], [ %76, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %100, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %100, %106 ], [ %100, %111 ]
-  %114 = load ptr, ptr %8, align 8
-  %.not.i21 = icmp eq ptr %114, null
-  br i1 %.not.i21, label %_ZN4Json5Value8CZStringD2Ev.exit, label %115
-
-115:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit
-  %116 = load i32, ptr %52, align 8
-  %117 = and i32 %116, 3
-  %118 = icmp eq i32 %117, 1
-  br i1 %118, label %119, label %_ZN4Json5Value8CZStringD2Ev.exit
-
-119:                                              ; preds = %115
-  call void @free(ptr noundef nonnull %114) #42
+109:                                              ; preds = %104
+  call void @free(ptr noundef nonnull %103) #42
   br label %_ZN4Json5Value8CZStringD2Ev.exit
 
-_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev.exit, %115, %119
+110:                                              ; preds = %_ZNSt4pairIKN4Json5Value8CZStringES1_EC2IRS2_RKS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit
+  %111 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt4pairIKN4Json5Value8CZStringES1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #42
+  br label %_ZN4Json5Value8CZStringD2Ev.exit23
+
+_ZN4Json5Value8CZStringD2Ev.exit:                 ; preds = %82, %_ZNK4Json5Value8CZStringeqERKS1_.exit, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit, %104, %109
+  %.pn17 = phi ptr [ %76, %82 ], [ %76, %_ZNK4Json5Value8CZStringeqERKS1_.exit ], [ %98, %_ZNSt3mapIN4Json5Value8CZStringES1_St4lessIS2_ESaISt4pairIKS2_S1_EEE6insertIRS7_EENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeESt23_Rb_tree_const_iteratorIS7_EOSD_.exit ], [ %98, %104 ], [ %98, %109 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn17, i64 16
   ret ptr %.0
 
-.body:                                            ; preds = %89, %92, %97, %86, %112
-  %120 = phi ptr [ %.pre, %112 ], [ %1, %86 ], [ %1, %97 ], [ %1, %92 ], [ %1, %89 ]
-  %.pn14 = phi { ptr, i32 } [ %113, %112 ], [ %87, %86 ], [ %90, %97 ], [ %90, %92 ], [ %90, %89 ]
-  %.not.i22 = icmp eq ptr %120, null
-  br i1 %.not.i22, label %_ZN4Json5Value8CZStringD2Ev.exit23, label %121
-
-121:                                              ; preds = %.body
-  %122 = load i32, ptr %52, align 8
-  %123 = and i32 %122, 3
-  %124 = icmp eq i32 %123, 1
-  br i1 %124, label %125, label %_ZN4Json5Value8CZStringD2Ev.exit23
-
-125:                                              ; preds = %121
-  call void @free(ptr noundef nonnull %120) #42
-  br label %_ZN4Json5Value8CZStringD2Ev.exit23
-
-_ZN4Json5Value8CZStringD2Ev.exit23:               ; preds = %125, %121, %.body, %45, %21
-  %.pn14.pn = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %21 ], [ %.pn14, %.body ], [ %.pn14, %121 ], [ %.pn14, %125 ]
+_ZN4Json5Value8CZStringD2Ev.exit23:               ; preds = %110, %95, %90, %87, %45, %21
+  %.pn14.pn = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %21 ], [ %111, %110 ], [ %88, %95 ], [ %88, %90 ], [ %88, %87 ]
   resume { ptr, i32 } %.pn14.pn
 }
 

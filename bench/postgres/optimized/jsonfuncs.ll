@@ -7628,7 +7628,7 @@ define internal fastcc i64 @populate_composite(ptr noundef %0, i32 noundef %1, p
 update_cached_tupdesc.exit:                       ; preds = %17, %29, %35
   %36 = load i8, ptr %5, align 1
   %37 = trunc i8 %36 to i1
-  br i1 %37, label %118, label %38
+  br i1 %37, label %117, label %38
 
 38:                                               ; preds = %update_cached_tupdesc.exit
   %39 = load i8, ptr %4, align 8
@@ -7755,71 +7755,70 @@ get_json_object_as_hash.exit.i:                   ; preds = %70, %51
   br label %95
 
 95:                                               ; preds = %92, %90, %82, %get_json_object_as_hash.exit.i
+  %96 = phi ptr [ undef, %92 ], [ undef, %90 ], [ %79, %82 ], [ %.0.i.i, %get_json_object_as_hash.exit.i ]
   %.not27.i = icmp eq ptr %6, null
-  br i1 %.not27.i, label %.thread1, label %98
+  br i1 %.not27.i, label %.thread1, label %99
 
 .thread1:                                         ; preds = %95
-  %96 = load ptr, ptr %10, align 8
-  %97 = call fastcc ptr @populate_record(ptr noundef %96, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
-  br label %112
+  %97 = load ptr, ptr %10, align 8
+  %98 = call fastcc ptr @populate_record(ptr noundef %97, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef null)
+  br label %113
 
-98:                                               ; preds = %95
-  %99 = load i32, ptr %6, align 4
-  %100 = icmp eq i32 %99, 431
-  br i1 %100, label %JsValueToJsObject.exit, label %.thread
+99:                                               ; preds = %95
+  %100 = load i32, ptr %6, align 4
+  %101 = icmp eq i32 %100, 431
+  br i1 %101, label %JsValueToJsObject.exit, label %.thread
 
-JsValueToJsObject.exit:                           ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %102 = load i8, ptr %101, align 4
-  %103 = trunc i8 %102 to i1
-  br i1 %103, label %.sink.split, label %.thread
+JsValueToJsObject.exit:                           ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %103 = load i8, ptr %102, align 4
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %.sink.split, label %.thread
 
-.thread:                                          ; preds = %98, %JsValueToJsObject.exit
-  %104 = load ptr, ptr %10, align 8
-  %105 = call fastcc ptr @populate_record(ptr noundef %104, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
-  %106 = load i32, ptr %6, align 4
-  %107 = icmp eq i32 %106, 431
-  br i1 %107, label %108, label %112
+.thread:                                          ; preds = %99, %JsValueToJsObject.exit
+  %105 = load ptr, ptr %10, align 8
+  %106 = call fastcc ptr @populate_record(ptr noundef %105, ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef nonnull %6)
+  %107 = load i32, ptr %6, align 4
+  %108 = icmp eq i32 %107, 431
+  br i1 %108, label %109, label %113
 
-108:                                              ; preds = %.thread
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %110 = load i8, ptr %109, align 4
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %.sink.split, label %112
+109:                                              ; preds = %.thread
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %111 = load i8, ptr %110, align 4
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %.sink.split, label %113
 
-112:                                              ; preds = %.thread1, %108, %.thread
-  %113 = phi ptr [ %105, %108 ], [ %105, %.thread ], [ %97, %.thread1 ]
-  %114 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %113) #15
-  br i1 %41, label %115, label %118
+113:                                              ; preds = %.thread1, %109, %.thread
+  %114 = phi ptr [ %106, %109 ], [ %106, %.thread ], [ %98, %.thread1 ]
+  %115 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %114) #15
+  br i1 %41, label %116, label %117
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %117 = load ptr, ptr %116, align 8
-  call void @hash_destroy(ptr noundef %117) #15
-  br label %118
+116:                                              ; preds = %113
+  call void @hash_destroy(ptr noundef %96) #15
+  br label %117
 
-118:                                              ; preds = %update_cached_tupdesc.exit, %115, %112
-  %.028 = phi i64 [ %114, %115 ], [ %114, %112 ], [ 0, %update_cached_tupdesc.exit ]
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %120 = load i32, ptr %119, align 8
-  %121 = icmp ne i32 %1, %120
-  %122 = icmp ne i32 %1, 2249
-  %or.cond = and i1 %122, %121
-  br i1 %or.cond, label %123, label %128
+117:                                              ; preds = %update_cached_tupdesc.exit, %116, %113
+  %.028 = phi i64 [ %115, %116 ], [ %115, %113 ], [ 0, %update_cached_tupdesc.exit ]
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp ne i32 %1, %119
+  %121 = icmp ne i32 %1, 2249
+  %or.cond = and i1 %121, %120
+  br i1 %or.cond, label %122, label %127
 
-123:                                              ; preds = %118
-  %124 = load i8, ptr %5, align 1
-  %125 = trunc i8 %124 to i1
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %127 = call zeroext i1 @domain_check_safe(i64 noundef %.028, i1 noundef zeroext %125, i32 noundef %1, ptr noundef nonnull %126, ptr noundef %2, ptr noundef %6) #15
-  br i1 %127, label %128, label %.sink.split
+122:                                              ; preds = %117
+  %123 = load i8, ptr %5, align 1
+  %124 = trunc i8 %123 to i1
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %126 = call zeroext i1 @domain_check_safe(i64 noundef %.028, i1 noundef zeroext %124, i32 noundef %1, ptr noundef nonnull %125, ptr noundef %2, ptr noundef %6) #15
+  br i1 %126, label %127, label %.sink.split
 
-.sink.split:                                      ; preds = %123, %108, %JsValueToJsObject.exit
+.sink.split:                                      ; preds = %122, %109, %JsValueToJsObject.exit
   store i8 1, ptr %5, align 1
-  br label %128
+  br label %127
 
-128:                                              ; preds = %.sink.split, %118, %123
-  %.0 = phi i64 [ %.028, %123 ], [ %.028, %118 ], [ 0, %.sink.split ]
+127:                                              ; preds = %.sink.split, %117, %122
+  %.0 = phi i64 [ %.028, %122 ], [ %.028, %117 ], [ 0, %.sink.split ]
   ret i64 %.0
 }
 

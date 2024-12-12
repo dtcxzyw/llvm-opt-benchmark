@@ -4321,7 +4321,7 @@ if.end16:                                         ; preds = %dbIteratorInit.exit
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end39, %if.end16
-  %bf.clear3091 = phi i32 [ undef, %if.end16 ], [ %bf.clear3090, %if.end39 ]
+  %bf.load72 = phi i32 [ undef, %if.end16 ], [ %bf.load73, %if.end39 ]
   %numkeys.0 = phi i64 [ 0, %if.end16 ], [ %numkeys.2, %if.end39 ]
   br i1 %tobool17.not, label %cond.false, label %cond.end
 
@@ -4360,8 +4360,8 @@ cond.end:                                         ; preds = %while.cond, %if.end
   br i1 %cmp20.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %cond.end.i, %cond.end
-  %cond79 = phi ptr [ %call15.i, %cond.end ], [ %call.i26, %cond.end.i ]
-  %call22 = tail call ptr @dictGetKey(ptr noundef nonnull %cond79) #17
+  %cond81 = phi ptr [ %call15.i, %cond.end ], [ %call.i26, %cond.end.i ]
+  %call22 = tail call ptr @dictGetKey(ptr noundef nonnull %cond81) #17
   br i1 %9, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
@@ -4414,7 +4414,7 @@ sdslen.exit46:                                    ; preds = %lor.lhs.false, %sw.
 
 do.body:                                          ; preds = %while.body, %sdslen.exit46
   store i32 2147483646, ptr %refcount, align 4
-  %bf.clear30 = and i32 %bf.clear3091, -256
+  %bf.clear30 = and i32 %bf.load72, -256
   store i32 %bf.clear30, ptr %keyobj, align 8
   store ptr %call22, ptr %ptr32, align 8
   %28 = load ptr, ptr %db33, align 8
@@ -4480,7 +4480,7 @@ sdslen.exit70:                                    ; preds = %if.then36, %sw.bb.i
   br label %if.end39
 
 if.end39:                                         ; preds = %keyIsExpired.exit, %sdslen.exit70, %sdslen.exit46
-  %bf.clear3090 = phi i32 [ %bf.clear30, %keyIsExpired.exit ], [ %bf.clear30, %sdslen.exit70 ], [ %bf.clear3091, %sdslen.exit46 ]
+  %bf.load73 = phi i32 [ %bf.clear30, %keyIsExpired.exit ], [ %bf.clear30, %sdslen.exit70 ], [ %bf.load72, %sdslen.exit46 ]
   %numkeys.2 = phi i64 [ %numkeys.0, %keyIsExpired.exit ], [ %inc, %sdslen.exit70 ], [ %numkeys.0, %sdslen.exit46 ]
   %35 = load i64, ptr %flags, align 8
   %and = and i64 %35, 1024
@@ -4500,14 +4500,14 @@ if.end45:                                         ; preds = %if.then44, %while.e
   br i1 %tobool46.not, label %if.end48, label %if.then47
 
 if.then47:                                        ; preds = %if.then.i, %if.end45
-  %numkeys.18386 = phi i64 [ %numkeys.1, %if.end45 ], [ %numkeys.0, %if.then.i ]
+  %numkeys.18588 = phi i64 [ %numkeys.1, %if.end45 ], [ %numkeys.0, %if.then.i ]
   tail call void @dictResetIterator(ptr noundef nonnull %di.i25) #17
   tail call void @zfree(ptr noundef nonnull %dbit.0) #17
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then47, %if.end45
-  %numkeys.18387 = phi i64 [ %numkeys.18386, %if.then47 ], [ %numkeys.1, %if.end45 ]
-  tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call1, i64 noundef %numkeys.18387) #17
+  %numkeys.18589 = phi i64 [ %numkeys.18588, %if.then47 ], [ %numkeys.1, %if.end45 ]
+  tail call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call1, i64 noundef %numkeys.18589) #17
   ret void
 }
 

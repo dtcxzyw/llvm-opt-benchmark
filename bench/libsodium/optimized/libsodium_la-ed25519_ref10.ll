@@ -551,13 +551,13 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.01238 = phi i32 [ 1, %entry ], [ %inc, %for.body ]
-  %and67.i38812331237 = phi i64 [ %and67.i312, %entry ], [ %and67.i388, %for.body ]
+  %i.01248 = phi i32 [ 1, %entry ], [ %inc, %for.body ]
+  %and67.i38812431247 = phi i64 [ %and67.i312, %entry ], [ %and67.i388, %for.body ]
   %15 = phi i64 [ %and70.i315, %entry ], [ %and70.i391, %for.body ]
   %16 = phi i64 [ %add71.i316, %entry ], [ %add71.i392, %for.body ]
   %17 = phi i64 [ %and55.i299, %entry ], [ %and55.i375, %for.body ]
   %18 = phi i64 [ %and61.i306, %entry ], [ %and61.i382, %for.body ]
-  %conv.i321 = zext nneg i64 %and67.i38812331237 to i128
+  %conv.i321 = zext nneg i64 %and67.i38812431247 to i128
   %conv2.i323 = zext nneg i64 %15 to i128
   %conv4.i325 = zext nneg i64 %16 to i128
   %conv6.i327 = zext nneg i64 %17 to i128
@@ -625,7 +625,7 @@ for.body:                                         ; preds = %entry, %for.body
   %shr69.i390 = lshr i64 %add68.i389, 51
   %and70.i391 = and i64 %add68.i389, 2251799813685247
   %add71.i392 = add nuw nsw i64 %shr69.i390, %and49.i370
-  %inc = add nuw nsw i32 %i.01238, 1
+  %inc = add nuw nsw i32 %i.01248, 1
   %exitcond.not = icmp eq i32 %inc, 5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
@@ -712,13 +712,13 @@ for.end:                                          ; preds = %for.body
   br label %for.body26
 
 for.body26:                                       ; preds = %for.end, %for.body26
-  %i.11250 = phi i32 [ 1, %for.end ], [ %inc30, %for.body26 ]
-  %and67.i54012401249 = phi i64 [ %and67.i464, %for.end ], [ %and67.i540, %for.body26 ]
+  %i.11260 = phi i32 [ 1, %for.end ], [ %inc30, %for.body26 ]
+  %and67.i54012501259 = phi i64 [ %and67.i464, %for.end ], [ %and67.i540, %for.body26 ]
   %24 = phi i64 [ %and70.i467, %for.end ], [ %and70.i543, %for.body26 ]
   %25 = phi i64 [ %add71.i468, %for.end ], [ %add71.i544, %for.body26 ]
   %26 = phi i64 [ %and55.i451, %for.end ], [ %and55.i527, %for.body26 ]
   %27 = phi i64 [ %and61.i458, %for.end ], [ %and61.i534, %for.body26 ]
-  %conv.i473 = zext nneg i64 %and67.i54012401249 to i128
+  %conv.i473 = zext nneg i64 %and67.i54012501259 to i128
   %conv2.i475 = zext nneg i64 %24 to i128
   %conv4.i477 = zext nneg i64 %25 to i128
   %conv6.i479 = zext nneg i64 %26 to i128
@@ -786,9 +786,9 @@ for.body26:                                       ; preds = %for.end, %for.body2
   %shr69.i542 = lshr i64 %add68.i541, 51
   %and70.i543 = and i64 %add68.i541, 2251799813685247
   %add71.i544 = add nuw nsw i64 %shr69.i542, %and49.i522
-  %inc30 = add nuw nsw i32 %i.11250, 1
-  %exitcond1313.not = icmp eq i32 %inc30, 10
-  br i1 %exitcond1313.not, label %for.end31, label %for.body26, !llvm.loop !6
+  %inc30 = add nuw nsw i32 %i.11260, 1
+  %exitcond1326.not = icmp eq i32 %inc30, 10
+  br i1 %exitcond1326.not, label %for.end31, label %for.body26, !llvm.loop !6
 
 for.end31:                                        ; preds = %for.body26
   store i64 %and67.i540, ptr %t2, align 16
@@ -877,17 +877,17 @@ for.end31:                                        ; preds = %for.body26
   br label %for.body39
 
 for.body39:                                       ; preds = %for.end31, %for.body39
-  %i.21257 = phi i32 [ 1, %for.end31 ], [ %inc43, %for.body39 ]
-  %and67.i69212511256 = phi i64 [ %and67.i616, %for.end31 ], [ %and67.i692, %for.body39 ]
-  %33 = phi i64 [ %and70.i619, %for.end31 ], [ %and70.i695, %for.body39 ]
-  %34 = phi i64 [ %add71.i620, %for.end31 ], [ %add71.i696, %for.body39 ]
-  %35 = phi i64 [ %and55.i603, %for.end31 ], [ %and55.i679, %for.body39 ]
-  %36 = phi i64 [ %and61.i610, %for.end31 ], [ %and61.i686, %for.body39 ]
-  %conv.i625 = zext nneg i64 %and67.i69212511256 to i128
-  %conv2.i627 = zext nneg i64 %33 to i128
-  %conv4.i629 = zext nneg i64 %34 to i128
-  %conv6.i631 = zext nneg i64 %35 to i128
-  %conv8.i633 = zext nneg i64 %36 to i128
+  %i.21271 = phi i32 [ 1, %for.end31 ], [ %inc43, %for.body39 ]
+  %and67.i61612331270 = phi i64 [ %and67.i616, %for.end31 ], [ %and67.i692, %for.body39 ]
+  %and70.i61912351269 = phi i64 [ %and70.i619, %for.end31 ], [ %and70.i695, %for.body39 ]
+  %add71.i62012371268 = phi i64 [ %add71.i620, %for.end31 ], [ %add71.i696, %for.body39 ]
+  %and55.i60312391267 = phi i64 [ %and55.i603, %for.end31 ], [ %and55.i679, %for.body39 ]
+  %and61.i61012411266 = phi i64 [ %and61.i610, %for.end31 ], [ %and61.i686, %for.body39 ]
+  %conv.i625 = zext nneg i64 %and67.i61612331270 to i128
+  %conv2.i627 = zext nneg i64 %and70.i61912351269 to i128
+  %conv4.i629 = zext nneg i64 %add71.i62012371268 to i128
+  %conv6.i631 = zext nneg i64 %and55.i60312391267 to i128
+  %conv8.i633 = zext nneg i64 %and61.i61012411266 to i128
   %shl.i634 = shl nuw nsw i128 %conv.i625, 1
   %shl9.i635 = shl nuw nsw i128 %conv2.i627, 1
   %mul10.i636 = mul nuw nsw i128 %conv4.i629, 38
@@ -897,23 +897,17 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %mul.i640 = mul nuw nsw i128 %conv8.i633, 38
   %mul15.i641 = mul nuw nsw i128 %mul.i640, %conv2.i627
   %mul16.i643 = mul nuw nsw i128 %mul10.i636, %conv6.i631
-  %add.i642 = add nuw nsw i128 %mul16.i643, %mul14.i639
-  %add17.i644 = add nuw nsw i128 %add.i642, %mul15.i641
+  %add.i642 = add nuw nsw i128 %mul16.i643, %mul15.i641
+  %add17.i644 = add nuw nsw i128 %add.i642, %mul14.i639
   %mul18.i645 = mul nuw nsw i128 %shl.i634, %conv2.i627
   %mul19.i646 = mul nuw nsw i128 %mul10.i636, %conv8.i633
-  %add20.i647 = add nuw nsw i128 %mul19.i646, %mul18.i645
   %mul21.i648 = mul nuw nsw i128 %mul12.i637, %conv6.i631
-  %add22.i649 = add nuw nsw i128 %add20.i647, %mul21.i648
   %mul23.i650 = mul nuw nsw i128 %shl.i634, %conv4.i629
   %mul24.i651 = mul nuw nsw i128 %conv2.i627, %conv2.i627
-  %add25.i652 = add nuw nsw i128 %mul23.i650, %mul24.i651
   %mul26.i653 = mul nuw nsw i128 %mul.i640, %conv6.i631
-  %add27.i654 = add nuw nsw i128 %add25.i652, %mul26.i653
   %mul28.i655 = mul nuw nsw i128 %shl.i634, %conv6.i631
   %mul29.i656 = mul nuw nsw i128 %shl9.i635, %conv4.i629
-  %add30.i657 = add nuw nsw i128 %mul28.i655, %mul29.i656
   %mul31.i658 = mul nuw nsw i128 %mul13.i638, %conv8.i633
-  %add32.i659 = add nuw nsw i128 %add30.i657, %mul31.i658
   %mul33.i660 = mul nuw nsw i128 %shl.i634, %conv8.i633
   %mul34.i661 = mul nuw nsw i128 %shl9.i635, %conv6.i631
   %mul36.i662 = mul nuw nsw i128 %conv4.i629, %conv4.i629
@@ -921,16 +915,22 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %and.i664 = and i64 %conv38.i663, 2251799813685247
   %shr.i665 = lshr i128 %add17.i644, 51
   %conv40.i666 = and i128 %shr.i665, 18446744073709551615
+  %add20.i647 = add nuw nsw i128 %mul19.i646, %mul21.i648
+  %add22.i649 = add nuw nsw i128 %add20.i647, %mul18.i645
   %add41.i667 = add nuw nsw i128 %add22.i649, %conv40.i666
   %conv42.i668 = trunc i128 %add41.i667 to i64
   %and43.i669 = and i64 %conv42.i668, 2251799813685247
   %shr44.i670 = lshr i128 %add41.i667, 51
   %conv46.i671 = and i128 %shr44.i670, 18446744073709551615
+  %add25.i652 = add nuw nsw i128 %mul24.i651, %mul26.i653
+  %add27.i654 = add nuw nsw i128 %add25.i652, %mul23.i650
   %add47.i672 = add nuw nsw i128 %add27.i654, %conv46.i671
   %conv48.i673 = trunc i128 %add47.i672 to i64
   %and49.i674 = and i64 %conv48.i673, 2251799813685247
   %shr50.i675 = lshr i128 %add47.i672, 51
   %conv52.i676 = and i128 %shr50.i675, 18446744073709551615
+  %add30.i657 = add nuw nsw i128 %mul29.i656, %mul31.i658
+  %add32.i659 = add nuw nsw i128 %add30.i657, %mul28.i655
   %add53.i677 = add nuw nsw i128 %add32.i659, %conv52.i676
   %conv54.i678 = trunc i128 %add53.i677 to i64
   %and55.i679 = and i64 %conv54.i678, 2251799813685247
@@ -951,9 +951,9 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %shr69.i694 = lshr i64 %add68.i693, 51
   %and70.i695 = and i64 %add68.i693, 2251799813685247
   %add71.i696 = add nuw nsw i64 %shr69.i694, %and49.i674
-  %inc43 = add nuw nsw i32 %i.21257, 1
-  %exitcond1314.not = icmp eq i32 %inc43, 20
-  br i1 %exitcond1314.not, label %for.end44, label %for.body39, !llvm.loop !7
+  %inc43 = add nuw nsw i32 %i.21271, 1
+  %exitcond1327.not = icmp eq i32 %inc43, 20
+  br i1 %exitcond1327.not, label %for.end44, label %for.body39, !llvm.loop !7
 
 for.end44:                                        ; preds = %for.body39
   store i64 %and67.i692, ptr %t3, align 16
@@ -962,25 +962,25 @@ for.end44:                                        ; preds = %for.body39
   store i64 %and55.i679, ptr %arrayidx75.i623, align 8
   store i64 %and61.i686, ptr %arrayidx76.i624, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t2, ptr noundef nonnull %t3, ptr noundef nonnull %t2)
-  %t2.promoted1258 = load i64, ptr %t2, align 16
-  %arrayidx73.i241.promoted1260 = load i64, ptr %arrayidx73.i241, align 8
-  %arrayidx74.i242.promoted1262 = load i64, ptr %arrayidx74.i242, align 16
-  %arrayidx75.i243.promoted1264 = load i64, ptr %arrayidx75.i243, align 8
-  %arrayidx76.i244.promoted1266 = load i64, ptr %arrayidx76.i244, align 16
+  %t2.promoted1272 = load i64, ptr %t2, align 16
+  %arrayidx73.i241.promoted1274 = load i64, ptr %arrayidx73.i241, align 8
+  %arrayidx74.i242.promoted1276 = load i64, ptr %arrayidx74.i242, align 16
+  %arrayidx75.i243.promoted1278 = load i64, ptr %arrayidx75.i243, align 8
+  %arrayidx76.i244.promoted1280 = load i64, ptr %arrayidx76.i244, align 16
   br label %for.body50
 
 for.body50:                                       ; preds = %for.end44, %for.body50
-  %i.31269 = phi i32 [ 1, %for.end44 ], [ %inc54, %for.body50 ]
-  %and67.i76812591268 = phi i64 [ %t2.promoted1258, %for.end44 ], [ %and67.i768, %for.body50 ]
-  %37 = phi i64 [ %arrayidx73.i241.promoted1260, %for.end44 ], [ %and70.i771, %for.body50 ]
-  %38 = phi i64 [ %arrayidx74.i242.promoted1262, %for.end44 ], [ %add71.i772, %for.body50 ]
-  %39 = phi i64 [ %arrayidx75.i243.promoted1264, %for.end44 ], [ %and55.i755, %for.body50 ]
-  %40 = phi i64 [ %arrayidx76.i244.promoted1266, %for.end44 ], [ %and61.i762, %for.body50 ]
-  %conv.i701 = zext i64 %and67.i76812591268 to i128
-  %conv2.i703 = zext i64 %37 to i128
-  %conv4.i705 = zext i64 %38 to i128
-  %conv6.i707 = zext i64 %39 to i128
-  %conv8.i709 = zext i64 %40 to i128
+  %i.31283 = phi i32 [ 1, %for.end44 ], [ %inc54, %for.body50 ]
+  %and67.i76812731282 = phi i64 [ %t2.promoted1272, %for.end44 ], [ %and67.i768, %for.body50 ]
+  %33 = phi i64 [ %arrayidx73.i241.promoted1274, %for.end44 ], [ %and70.i771, %for.body50 ]
+  %34 = phi i64 [ %arrayidx74.i242.promoted1276, %for.end44 ], [ %add71.i772, %for.body50 ]
+  %35 = phi i64 [ %arrayidx75.i243.promoted1278, %for.end44 ], [ %and55.i755, %for.body50 ]
+  %36 = phi i64 [ %arrayidx76.i244.promoted1280, %for.end44 ], [ %and61.i762, %for.body50 ]
+  %conv.i701 = zext i64 %and67.i76812731282 to i128
+  %conv2.i703 = zext i64 %33 to i128
+  %conv4.i705 = zext i64 %34 to i128
+  %conv6.i707 = zext i64 %35 to i128
+  %conv8.i709 = zext i64 %36 to i128
   %shl.i710 = shl nuw nsw i128 %conv.i701, 1
   %shl9.i711 = shl nuw nsw i128 %conv2.i703, 1
   %mul10.i712 = mul nuw nsw i128 %conv4.i705, 38
@@ -1044,9 +1044,9 @@ for.body50:                                       ; preds = %for.end44, %for.bod
   %shr69.i770 = lshr i64 %add68.i769, 51
   %and70.i771 = and i64 %add68.i769, 2251799813685247
   %add71.i772 = add nuw nsw i64 %shr69.i770, %and49.i750
-  %inc54 = add nuw nsw i32 %i.31269, 1
-  %exitcond1315.not = icmp eq i32 %inc54, 11
-  br i1 %exitcond1315.not, label %for.end55, label %for.body50, !llvm.loop !8
+  %inc54 = add nuw nsw i32 %i.31283, 1
+  %exitcond1328.not = icmp eq i32 %inc54, 11
+  br i1 %exitcond1328.not, label %for.end55, label %for.body50, !llvm.loop !8
 
 for.end55:                                        ; preds = %for.body50
   store i64 %and67.i768, ptr %t2, align 16
@@ -1055,16 +1055,16 @@ for.end55:                                        ; preds = %for.body50
   store i64 %and55.i755, ptr %arrayidx75.i243, align 8
   store i64 %and61.i762, ptr %arrayidx76.i244, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t1, ptr noundef nonnull %t2, ptr noundef nonnull %t1)
-  %41 = load i64, ptr %t1, align 16
-  %conv.i777 = zext i64 %41 to i128
-  %42 = load i64, ptr %arrayidx73.i89, align 8
-  %conv2.i779 = zext i64 %42 to i128
-  %43 = load i64, ptr %arrayidx74.i90, align 16
-  %conv4.i781 = zext i64 %43 to i128
-  %44 = load i64, ptr %arrayidx75.i91, align 8
-  %conv6.i783 = zext i64 %44 to i128
-  %45 = load i64, ptr %arrayidx76.i92, align 16
-  %conv8.i785 = zext i64 %45 to i128
+  %37 = load i64, ptr %t1, align 16
+  %conv.i777 = zext i64 %37 to i128
+  %38 = load i64, ptr %arrayidx73.i89, align 8
+  %conv2.i779 = zext i64 %38 to i128
+  %39 = load i64, ptr %arrayidx74.i90, align 16
+  %conv4.i781 = zext i64 %39 to i128
+  %40 = load i64, ptr %arrayidx75.i91, align 8
+  %conv6.i783 = zext i64 %40 to i128
+  %41 = load i64, ptr %arrayidx76.i92, align 16
+  %conv8.i785 = zext i64 %41 to i128
   %shl.i786 = shl nuw nsw i128 %conv.i777, 1
   %shl9.i787 = shl nuw nsw i128 %conv2.i779, 1
   %mul10.i788 = mul nuw nsw i128 %conv4.i781, 38
@@ -1131,17 +1131,17 @@ for.end55:                                        ; preds = %for.body50
   br label %for.body63
 
 for.body63:                                       ; preds = %for.end55, %for.body63
-  %i.41281 = phi i32 [ 1, %for.end55 ], [ %inc67, %for.body63 ]
-  %and67.i92012711280 = phi i64 [ %and67.i844, %for.end55 ], [ %and67.i920, %for.body63 ]
-  %46 = phi i64 [ %and70.i847, %for.end55 ], [ %and70.i923, %for.body63 ]
-  %47 = phi i64 [ %add71.i848, %for.end55 ], [ %add71.i924, %for.body63 ]
-  %48 = phi i64 [ %and55.i831, %for.end55 ], [ %and55.i907, %for.body63 ]
-  %49 = phi i64 [ %and61.i838, %for.end55 ], [ %and61.i914, %for.body63 ]
-  %conv.i853 = zext nneg i64 %and67.i92012711280 to i128
-  %conv2.i855 = zext nneg i64 %46 to i128
-  %conv4.i857 = zext nneg i64 %47 to i128
-  %conv6.i859 = zext nneg i64 %48 to i128
-  %conv8.i861 = zext nneg i64 %49 to i128
+  %i.41295 = phi i32 [ 1, %for.end55 ], [ %inc67, %for.body63 ]
+  %and67.i92012851294 = phi i64 [ %and67.i844, %for.end55 ], [ %and67.i920, %for.body63 ]
+  %42 = phi i64 [ %and70.i847, %for.end55 ], [ %and70.i923, %for.body63 ]
+  %43 = phi i64 [ %add71.i848, %for.end55 ], [ %add71.i924, %for.body63 ]
+  %44 = phi i64 [ %and55.i831, %for.end55 ], [ %and55.i907, %for.body63 ]
+  %45 = phi i64 [ %and61.i838, %for.end55 ], [ %and61.i914, %for.body63 ]
+  %conv.i853 = zext nneg i64 %and67.i92012851294 to i128
+  %conv2.i855 = zext nneg i64 %42 to i128
+  %conv4.i857 = zext nneg i64 %43 to i128
+  %conv6.i859 = zext nneg i64 %44 to i128
+  %conv8.i861 = zext nneg i64 %45 to i128
   %shl.i862 = shl nuw nsw i128 %conv.i853, 1
   %shl9.i863 = shl nuw nsw i128 %conv2.i855, 1
   %mul10.i864 = mul nuw nsw i128 %conv4.i857, 38
@@ -1205,9 +1205,9 @@ for.body63:                                       ; preds = %for.end55, %for.bod
   %shr69.i922 = lshr i64 %add68.i921, 51
   %and70.i923 = and i64 %add68.i921, 2251799813685247
   %add71.i924 = add nuw nsw i64 %shr69.i922, %and49.i902
-  %inc67 = add nuw nsw i32 %i.41281, 1
-  %exitcond1316.not = icmp eq i32 %inc67, 50
-  br i1 %exitcond1316.not, label %for.end68, label %for.body63, !llvm.loop !9
+  %inc67 = add nuw nsw i32 %i.41295, 1
+  %exitcond1329.not = icmp eq i32 %inc67, 50
+  br i1 %exitcond1329.not, label %for.end68, label %for.body63, !llvm.loop !9
 
 for.end68:                                        ; preds = %for.body63
   store i64 %and67.i920, ptr %t2, align 16
@@ -1216,16 +1216,16 @@ for.end68:                                        ; preds = %for.body63
   store i64 %and55.i907, ptr %arrayidx75.i243, align 8
   store i64 %and61.i914, ptr %arrayidx76.i244, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t2, ptr noundef nonnull %t2, ptr noundef nonnull %t1)
-  %50 = load i64, ptr %t2, align 16
-  %conv.i929 = zext i64 %50 to i128
-  %51 = load i64, ptr %arrayidx73.i241, align 8
-  %conv2.i931 = zext i64 %51 to i128
-  %52 = load i64, ptr %arrayidx74.i242, align 16
-  %conv4.i933 = zext i64 %52 to i128
-  %53 = load i64, ptr %arrayidx75.i243, align 8
-  %conv6.i935 = zext i64 %53 to i128
-  %54 = load i64, ptr %arrayidx76.i244, align 16
-  %conv8.i937 = zext i64 %54 to i128
+  %46 = load i64, ptr %t2, align 16
+  %conv.i929 = zext i64 %46 to i128
+  %47 = load i64, ptr %arrayidx73.i241, align 8
+  %conv2.i931 = zext i64 %47 to i128
+  %48 = load i64, ptr %arrayidx74.i242, align 16
+  %conv4.i933 = zext i64 %48 to i128
+  %49 = load i64, ptr %arrayidx75.i243, align 8
+  %conv6.i935 = zext i64 %49 to i128
+  %50 = load i64, ptr %arrayidx76.i244, align 16
+  %conv8.i937 = zext i64 %50 to i128
   %shl.i938 = shl nuw nsw i128 %conv.i929, 1
   %shl9.i939 = shl nuw nsw i128 %conv2.i931, 1
   %mul10.i940 = mul nuw nsw i128 %conv4.i933, 38
@@ -1292,17 +1292,17 @@ for.end68:                                        ; preds = %for.body63
   br label %for.body76
 
 for.body76:                                       ; preds = %for.end68, %for.body76
-  %i.51293 = phi i32 [ 1, %for.end68 ], [ %inc80, %for.body76 ]
-  %and67.i107212831292 = phi i64 [ %and67.i996, %for.end68 ], [ %and67.i1072, %for.body76 ]
-  %55 = phi i64 [ %and70.i999, %for.end68 ], [ %and70.i1075, %for.body76 ]
-  %56 = phi i64 [ %add71.i1000, %for.end68 ], [ %add71.i1076, %for.body76 ]
-  %57 = phi i64 [ %and55.i983, %for.end68 ], [ %and55.i1059, %for.body76 ]
-  %58 = phi i64 [ %and61.i990, %for.end68 ], [ %and61.i1066, %for.body76 ]
-  %conv.i1005 = zext nneg i64 %and67.i107212831292 to i128
-  %conv2.i1007 = zext nneg i64 %55 to i128
-  %conv4.i1009 = zext nneg i64 %56 to i128
-  %conv6.i1011 = zext nneg i64 %57 to i128
-  %conv8.i1013 = zext nneg i64 %58 to i128
+  %i.51306 = phi i32 [ 1, %for.end68 ], [ %inc80, %for.body76 ]
+  %and67.i61612341305 = phi i64 [ %and67.i996, %for.end68 ], [ %and67.i1072, %for.body76 ]
+  %and70.i61912361304 = phi i64 [ %and70.i999, %for.end68 ], [ %and70.i1075, %for.body76 ]
+  %add71.i62012381303 = phi i64 [ %add71.i1000, %for.end68 ], [ %add71.i1076, %for.body76 ]
+  %and55.i60312401302 = phi i64 [ %and55.i983, %for.end68 ], [ %and55.i1059, %for.body76 ]
+  %and61.i61012421301 = phi i64 [ %and61.i990, %for.end68 ], [ %and61.i1066, %for.body76 ]
+  %conv.i1005 = zext nneg i64 %and67.i61612341305 to i128
+  %conv2.i1007 = zext nneg i64 %and70.i61912361304 to i128
+  %conv4.i1009 = zext nneg i64 %add71.i62012381303 to i128
+  %conv6.i1011 = zext nneg i64 %and55.i60312401302 to i128
+  %conv8.i1013 = zext nneg i64 %and61.i61012421301 to i128
   %shl.i1014 = shl nuw nsw i128 %conv.i1005, 1
   %shl9.i1015 = shl nuw nsw i128 %conv2.i1007, 1
   %mul10.i1016 = mul nuw nsw i128 %conv4.i1009, 38
@@ -1312,23 +1312,17 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %mul.i1020 = mul nuw nsw i128 %conv8.i1013, 38
   %mul15.i1021 = mul nuw nsw i128 %mul.i1020, %conv2.i1007
   %mul16.i1023 = mul nuw nsw i128 %mul10.i1016, %conv6.i1011
-  %add.i1022 = add nuw nsw i128 %mul16.i1023, %mul14.i1019
-  %add17.i1024 = add nuw nsw i128 %add.i1022, %mul15.i1021
+  %add.i1022 = add nuw nsw i128 %mul16.i1023, %mul15.i1021
+  %add17.i1024 = add nuw nsw i128 %add.i1022, %mul14.i1019
   %mul18.i1025 = mul nuw nsw i128 %shl.i1014, %conv2.i1007
   %mul19.i1026 = mul nuw nsw i128 %mul10.i1016, %conv8.i1013
-  %add20.i1027 = add nuw nsw i128 %mul19.i1026, %mul18.i1025
   %mul21.i1028 = mul nuw nsw i128 %mul12.i1017, %conv6.i1011
-  %add22.i1029 = add nuw nsw i128 %add20.i1027, %mul21.i1028
   %mul23.i1030 = mul nuw nsw i128 %shl.i1014, %conv4.i1009
   %mul24.i1031 = mul nuw nsw i128 %conv2.i1007, %conv2.i1007
-  %add25.i1032 = add nuw nsw i128 %mul23.i1030, %mul24.i1031
   %mul26.i1033 = mul nuw nsw i128 %mul.i1020, %conv6.i1011
-  %add27.i1034 = add nuw nsw i128 %add25.i1032, %mul26.i1033
   %mul28.i1035 = mul nuw nsw i128 %shl.i1014, %conv6.i1011
   %mul29.i1036 = mul nuw nsw i128 %shl9.i1015, %conv4.i1009
-  %add30.i1037 = add nuw nsw i128 %mul28.i1035, %mul29.i1036
   %mul31.i1038 = mul nuw nsw i128 %mul13.i1018, %conv8.i1013
-  %add32.i1039 = add nuw nsw i128 %add30.i1037, %mul31.i1038
   %mul33.i1040 = mul nuw nsw i128 %shl.i1014, %conv8.i1013
   %mul34.i1041 = mul nuw nsw i128 %shl9.i1015, %conv6.i1011
   %mul36.i1042 = mul nuw nsw i128 %conv4.i1009, %conv4.i1009
@@ -1336,16 +1330,22 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %and.i1044 = and i64 %conv38.i1043, 2251799813685247
   %shr.i1045 = lshr i128 %add17.i1024, 51
   %conv40.i1046 = and i128 %shr.i1045, 18446744073709551615
+  %add20.i1027 = add nuw nsw i128 %mul19.i1026, %mul21.i1028
+  %add22.i1029 = add nuw nsw i128 %add20.i1027, %mul18.i1025
   %add41.i1047 = add nuw nsw i128 %add22.i1029, %conv40.i1046
   %conv42.i1048 = trunc i128 %add41.i1047 to i64
   %and43.i1049 = and i64 %conv42.i1048, 2251799813685247
   %shr44.i1050 = lshr i128 %add41.i1047, 51
   %conv46.i1051 = and i128 %shr44.i1050, 18446744073709551615
+  %add25.i1032 = add nuw nsw i128 %mul24.i1031, %mul26.i1033
+  %add27.i1034 = add nuw nsw i128 %add25.i1032, %mul23.i1030
   %add47.i1052 = add nuw nsw i128 %add27.i1034, %conv46.i1051
   %conv48.i1053 = trunc i128 %add47.i1052 to i64
   %and49.i1054 = and i64 %conv48.i1053, 2251799813685247
   %shr50.i1055 = lshr i128 %add47.i1052, 51
   %conv52.i1056 = and i128 %shr50.i1055, 18446744073709551615
+  %add30.i1037 = add nuw nsw i128 %mul29.i1036, %mul31.i1038
+  %add32.i1039 = add nuw nsw i128 %add30.i1037, %mul28.i1035
   %add53.i1057 = add nuw nsw i128 %add32.i1039, %conv52.i1056
   %conv54.i1058 = trunc i128 %add53.i1057 to i64
   %and55.i1059 = and i64 %conv54.i1058, 2251799813685247
@@ -1366,9 +1366,9 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %shr69.i1074 = lshr i64 %add68.i1073, 51
   %and70.i1075 = and i64 %add68.i1073, 2251799813685247
   %add71.i1076 = add nuw nsw i64 %shr69.i1074, %and49.i1054
-  %inc80 = add nuw nsw i32 %i.51293, 1
-  %exitcond1317.not = icmp eq i32 %inc80, 100
-  br i1 %exitcond1317.not, label %for.end81, label %for.body76, !llvm.loop !10
+  %inc80 = add nuw nsw i32 %i.51306, 1
+  %exitcond1330.not = icmp eq i32 %inc80, 100
+  br i1 %exitcond1330.not, label %for.end81, label %for.body76, !llvm.loop !10
 
 for.end81:                                        ; preds = %for.body76
   store i64 %and67.i1072, ptr %t3, align 16
@@ -1377,25 +1377,25 @@ for.end81:                                        ; preds = %for.body76
   store i64 %and55.i1059, ptr %arrayidx75.i623, align 8
   store i64 %and61.i1066, ptr %arrayidx76.i624, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t2, ptr noundef nonnull %t3, ptr noundef nonnull %t2)
-  %t2.promoted1294 = load i64, ptr %t2, align 16
-  %arrayidx73.i241.promoted1296 = load i64, ptr %arrayidx73.i241, align 8
-  %arrayidx74.i242.promoted1298 = load i64, ptr %arrayidx74.i242, align 16
-  %arrayidx75.i243.promoted1300 = load i64, ptr %arrayidx75.i243, align 8
-  %arrayidx76.i244.promoted1302 = load i64, ptr %arrayidx76.i244, align 16
+  %t2.promoted1307 = load i64, ptr %t2, align 16
+  %arrayidx73.i241.promoted1309 = load i64, ptr %arrayidx73.i241, align 8
+  %arrayidx74.i242.promoted1311 = load i64, ptr %arrayidx74.i242, align 16
+  %arrayidx75.i243.promoted1313 = load i64, ptr %arrayidx75.i243, align 8
+  %arrayidx76.i244.promoted1315 = load i64, ptr %arrayidx76.i244, align 16
   br label %for.body87
 
 for.body87:                                       ; preds = %for.end81, %for.body87
-  %i.61305 = phi i32 [ 1, %for.end81 ], [ %inc91, %for.body87 ]
-  %and67.i114812951304 = phi i64 [ %t2.promoted1294, %for.end81 ], [ %and67.i1148, %for.body87 ]
-  %59 = phi i64 [ %arrayidx73.i241.promoted1296, %for.end81 ], [ %and70.i1151, %for.body87 ]
-  %60 = phi i64 [ %arrayidx74.i242.promoted1298, %for.end81 ], [ %add71.i1152, %for.body87 ]
-  %61 = phi i64 [ %arrayidx75.i243.promoted1300, %for.end81 ], [ %and55.i1135, %for.body87 ]
-  %62 = phi i64 [ %arrayidx76.i244.promoted1302, %for.end81 ], [ %and61.i1142, %for.body87 ]
-  %conv.i1081 = zext i64 %and67.i114812951304 to i128
-  %conv2.i1083 = zext i64 %59 to i128
-  %conv4.i1085 = zext i64 %60 to i128
-  %conv6.i1087 = zext i64 %61 to i128
-  %conv8.i1089 = zext i64 %62 to i128
+  %i.61318 = phi i32 [ 1, %for.end81 ], [ %inc91, %for.body87 ]
+  %and67.i114813081317 = phi i64 [ %t2.promoted1307, %for.end81 ], [ %and67.i1148, %for.body87 ]
+  %51 = phi i64 [ %arrayidx73.i241.promoted1309, %for.end81 ], [ %and70.i1151, %for.body87 ]
+  %52 = phi i64 [ %arrayidx74.i242.promoted1311, %for.end81 ], [ %add71.i1152, %for.body87 ]
+  %53 = phi i64 [ %arrayidx75.i243.promoted1313, %for.end81 ], [ %and55.i1135, %for.body87 ]
+  %54 = phi i64 [ %arrayidx76.i244.promoted1315, %for.end81 ], [ %and61.i1142, %for.body87 ]
+  %conv.i1081 = zext i64 %and67.i114813081317 to i128
+  %conv2.i1083 = zext i64 %51 to i128
+  %conv4.i1085 = zext i64 %52 to i128
+  %conv6.i1087 = zext i64 %53 to i128
+  %conv8.i1089 = zext i64 %54 to i128
   %shl.i1090 = shl nuw nsw i128 %conv.i1081, 1
   %shl9.i1091 = shl nuw nsw i128 %conv2.i1083, 1
   %mul10.i1092 = mul nuw nsw i128 %conv4.i1085, 38
@@ -1459,9 +1459,9 @@ for.body87:                                       ; preds = %for.end81, %for.bod
   %shr69.i1150 = lshr i64 %add68.i1149, 51
   %and70.i1151 = and i64 %add68.i1149, 2251799813685247
   %add71.i1152 = add nuw nsw i64 %shr69.i1150, %and49.i1130
-  %inc91 = add nuw nsw i32 %i.61305, 1
-  %exitcond1318.not = icmp eq i32 %inc91, 51
-  br i1 %exitcond1318.not, label %for.end92, label %for.body87, !llvm.loop !11
+  %inc91 = add nuw nsw i32 %i.61318, 1
+  %exitcond1331.not = icmp eq i32 %inc91, 51
+  br i1 %exitcond1331.not, label %for.end92, label %for.body87, !llvm.loop !11
 
 for.end92:                                        ; preds = %for.body87
   store i64 %and67.i1148, ptr %t2, align 16
@@ -1478,17 +1478,17 @@ for.end92:                                        ; preds = %for.body87
   br label %for.body98
 
 for.body98:                                       ; preds = %for.end92, %for.body98
-  %i.71312 = phi i32 [ 1, %for.end92 ], [ %inc102, %for.body98 ]
-  %and67.i122413061311 = phi i64 [ %t1.promoted, %for.end92 ], [ %and67.i1224, %for.body98 ]
-  %63 = phi i64 [ %arrayidx73.i89.promoted, %for.end92 ], [ %and70.i1227, %for.body98 ]
-  %64 = phi i64 [ %arrayidx74.i90.promoted, %for.end92 ], [ %add71.i1228, %for.body98 ]
-  %65 = phi i64 [ %arrayidx75.i91.promoted, %for.end92 ], [ %and55.i1211, %for.body98 ]
-  %66 = phi i64 [ %arrayidx76.i92.promoted, %for.end92 ], [ %and61.i1218, %for.body98 ]
-  %conv.i1157 = zext i64 %and67.i122413061311 to i128
-  %conv2.i1159 = zext i64 %63 to i128
-  %conv4.i1161 = zext i64 %64 to i128
-  %conv6.i1163 = zext i64 %65 to i128
-  %conv8.i1165 = zext i64 %66 to i128
+  %i.71325 = phi i32 [ 1, %for.end92 ], [ %inc102, %for.body98 ]
+  %and67.i122413191324 = phi i64 [ %t1.promoted, %for.end92 ], [ %and67.i1224, %for.body98 ]
+  %55 = phi i64 [ %arrayidx73.i89.promoted, %for.end92 ], [ %and70.i1227, %for.body98 ]
+  %56 = phi i64 [ %arrayidx74.i90.promoted, %for.end92 ], [ %add71.i1228, %for.body98 ]
+  %57 = phi i64 [ %arrayidx75.i91.promoted, %for.end92 ], [ %and55.i1211, %for.body98 ]
+  %58 = phi i64 [ %arrayidx76.i92.promoted, %for.end92 ], [ %and61.i1218, %for.body98 ]
+  %conv.i1157 = zext i64 %and67.i122413191324 to i128
+  %conv2.i1159 = zext i64 %55 to i128
+  %conv4.i1161 = zext i64 %56 to i128
+  %conv6.i1163 = zext i64 %57 to i128
+  %conv8.i1165 = zext i64 %58 to i128
   %shl.i1166 = shl nuw nsw i128 %conv.i1157, 1
   %shl9.i1167 = shl nuw nsw i128 %conv2.i1159, 1
   %mul10.i1168 = mul nuw nsw i128 %conv4.i1161, 38
@@ -1552,9 +1552,9 @@ for.body98:                                       ; preds = %for.end92, %for.bod
   %shr69.i1226 = lshr i64 %add68.i1225, 51
   %and70.i1227 = and i64 %add68.i1225, 2251799813685247
   %add71.i1228 = add nuw nsw i64 %shr69.i1226, %and49.i1206
-  %inc102 = add nuw nsw i32 %i.71312, 1
-  %exitcond1319.not = icmp eq i32 %inc102, 6
-  br i1 %exitcond1319.not, label %for.end103, label %for.body98, !llvm.loop !12
+  %inc102 = add nuw nsw i32 %i.71325, 1
+  %exitcond1332.not = icmp eq i32 %inc102, 6
+  br i1 %exitcond1332.not, label %for.end103, label %for.body98, !llvm.loop !12
 
 for.end103:                                       ; preds = %for.body98
   store i64 %and67.i1224, ptr %t1, align 16
@@ -2590,13 +2590,13 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.01313 = phi i32 [ 1, %entry ], [ %inc, %for.body ]
-  %and67.i38713081312 = phi i64 [ %and67.i311, %entry ], [ %and67.i387, %for.body ]
+  %i.01323 = phi i32 [ 1, %entry ], [ %inc, %for.body ]
+  %and67.i38713181322 = phi i64 [ %and67.i311, %entry ], [ %and67.i387, %for.body ]
   %15 = phi i64 [ %and70.i314, %entry ], [ %and70.i390, %for.body ]
   %16 = phi i64 [ %add71.i315, %entry ], [ %add71.i391, %for.body ]
   %17 = phi i64 [ %and55.i298, %entry ], [ %and55.i374, %for.body ]
   %18 = phi i64 [ %and61.i305, %entry ], [ %and61.i381, %for.body ]
-  %conv.i320 = zext nneg i64 %and67.i38713081312 to i128
+  %conv.i320 = zext nneg i64 %and67.i38713181322 to i128
   %conv2.i322 = zext nneg i64 %15 to i128
   %conv4.i324 = zext nneg i64 %16 to i128
   %conv6.i326 = zext nneg i64 %17 to i128
@@ -2664,7 +2664,7 @@ for.body:                                         ; preds = %entry, %for.body
   %shr69.i389 = lshr i64 %add68.i388, 51
   %and70.i390 = and i64 %add68.i388, 2251799813685247
   %add71.i391 = add nuw nsw i64 %shr69.i389, %and49.i369
-  %inc = add nuw nsw i32 %i.01313, 1
+  %inc = add nuw nsw i32 %i.01323, 1
   %exitcond.not = icmp eq i32 %inc, 5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
@@ -2751,13 +2751,13 @@ for.end:                                          ; preds = %for.body
   br label %for.body26
 
 for.body26:                                       ; preds = %for.end, %for.body26
-  %i.11325 = phi i32 [ 1, %for.end ], [ %inc30, %for.body26 ]
-  %and67.i53913151324 = phi i64 [ %and67.i463, %for.end ], [ %and67.i539, %for.body26 ]
+  %i.11335 = phi i32 [ 1, %for.end ], [ %inc30, %for.body26 ]
+  %and67.i53913251334 = phi i64 [ %and67.i463, %for.end ], [ %and67.i539, %for.body26 ]
   %24 = phi i64 [ %and70.i466, %for.end ], [ %and70.i542, %for.body26 ]
   %25 = phi i64 [ %add71.i467, %for.end ], [ %add71.i543, %for.body26 ]
   %26 = phi i64 [ %and55.i450, %for.end ], [ %and55.i526, %for.body26 ]
   %27 = phi i64 [ %and61.i457, %for.end ], [ %and61.i533, %for.body26 ]
-  %conv.i472 = zext nneg i64 %and67.i53913151324 to i128
+  %conv.i472 = zext nneg i64 %and67.i53913251334 to i128
   %conv2.i474 = zext nneg i64 %24 to i128
   %conv4.i476 = zext nneg i64 %25 to i128
   %conv6.i478 = zext nneg i64 %26 to i128
@@ -2825,9 +2825,9 @@ for.body26:                                       ; preds = %for.end, %for.body2
   %shr69.i541 = lshr i64 %add68.i540, 51
   %and70.i542 = and i64 %add68.i540, 2251799813685247
   %add71.i543 = add nuw nsw i64 %shr69.i541, %and49.i521
-  %inc30 = add nuw nsw i32 %i.11325, 1
-  %exitcond1381.not = icmp eq i32 %inc30, 10
-  br i1 %exitcond1381.not, label %for.end31, label %for.body26, !llvm.loop !15
+  %inc30 = add nuw nsw i32 %i.11335, 1
+  %exitcond1394.not = icmp eq i32 %inc30, 10
+  br i1 %exitcond1394.not, label %for.end31, label %for.body26, !llvm.loop !15
 
 for.end31:                                        ; preds = %for.body26
   store i64 %and67.i539, ptr %t1, align 16
@@ -2916,17 +2916,17 @@ for.end31:                                        ; preds = %for.body26
   br label %for.body39
 
 for.body39:                                       ; preds = %for.end31, %for.body39
-  %i.21332 = phi i32 [ 1, %for.end31 ], [ %inc43, %for.body39 ]
-  %and67.i69113261331 = phi i64 [ %and67.i615, %for.end31 ], [ %and67.i691, %for.body39 ]
-  %33 = phi i64 [ %and70.i618, %for.end31 ], [ %and70.i694, %for.body39 ]
-  %34 = phi i64 [ %add71.i619, %for.end31 ], [ %add71.i695, %for.body39 ]
-  %35 = phi i64 [ %and55.i602, %for.end31 ], [ %and55.i678, %for.body39 ]
-  %36 = phi i64 [ %and61.i609, %for.end31 ], [ %and61.i685, %for.body39 ]
-  %conv.i624 = zext nneg i64 %and67.i69113261331 to i128
-  %conv2.i626 = zext nneg i64 %33 to i128
-  %conv4.i628 = zext nneg i64 %34 to i128
-  %conv6.i630 = zext nneg i64 %35 to i128
-  %conv8.i632 = zext nneg i64 %36 to i128
+  %i.21346 = phi i32 [ 1, %for.end31 ], [ %inc43, %for.body39 ]
+  %and67.i61513081345 = phi i64 [ %and67.i615, %for.end31 ], [ %and67.i691, %for.body39 ]
+  %and70.i61813101344 = phi i64 [ %and70.i618, %for.end31 ], [ %and70.i694, %for.body39 ]
+  %add71.i61913121343 = phi i64 [ %add71.i619, %for.end31 ], [ %add71.i695, %for.body39 ]
+  %and55.i60213141342 = phi i64 [ %and55.i602, %for.end31 ], [ %and55.i678, %for.body39 ]
+  %and61.i60913161341 = phi i64 [ %and61.i609, %for.end31 ], [ %and61.i685, %for.body39 ]
+  %conv.i624 = zext nneg i64 %and67.i61513081345 to i128
+  %conv2.i626 = zext nneg i64 %and70.i61813101344 to i128
+  %conv4.i628 = zext nneg i64 %add71.i61913121343 to i128
+  %conv6.i630 = zext nneg i64 %and55.i60213141342 to i128
+  %conv8.i632 = zext nneg i64 %and61.i60913161341 to i128
   %shl.i633 = shl nuw nsw i128 %conv.i624, 1
   %shl9.i634 = shl nuw nsw i128 %conv2.i626, 1
   %mul10.i635 = mul nuw nsw i128 %conv4.i628, 38
@@ -2936,23 +2936,17 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %mul.i639 = mul nuw nsw i128 %conv8.i632, 38
   %mul15.i640 = mul nuw nsw i128 %mul.i639, %conv2.i626
   %mul16.i642 = mul nuw nsw i128 %mul10.i635, %conv6.i630
-  %add.i641 = add nuw nsw i128 %mul16.i642, %mul14.i638
-  %add17.i643 = add nuw nsw i128 %add.i641, %mul15.i640
+  %add.i641 = add nuw nsw i128 %mul16.i642, %mul15.i640
+  %add17.i643 = add nuw nsw i128 %add.i641, %mul14.i638
   %mul18.i644 = mul nuw nsw i128 %shl.i633, %conv2.i626
   %mul19.i645 = mul nuw nsw i128 %mul10.i635, %conv8.i632
-  %add20.i646 = add nuw nsw i128 %mul19.i645, %mul18.i644
   %mul21.i647 = mul nuw nsw i128 %mul12.i636, %conv6.i630
-  %add22.i648 = add nuw nsw i128 %add20.i646, %mul21.i647
   %mul23.i649 = mul nuw nsw i128 %shl.i633, %conv4.i628
   %mul24.i650 = mul nuw nsw i128 %conv2.i626, %conv2.i626
-  %add25.i651 = add nuw nsw i128 %mul23.i649, %mul24.i650
   %mul26.i652 = mul nuw nsw i128 %mul.i639, %conv6.i630
-  %add27.i653 = add nuw nsw i128 %add25.i651, %mul26.i652
   %mul28.i654 = mul nuw nsw i128 %shl.i633, %conv6.i630
   %mul29.i655 = mul nuw nsw i128 %shl9.i634, %conv4.i628
-  %add30.i656 = add nuw nsw i128 %mul28.i654, %mul29.i655
   %mul31.i657 = mul nuw nsw i128 %mul13.i637, %conv8.i632
-  %add32.i658 = add nuw nsw i128 %add30.i656, %mul31.i657
   %mul33.i659 = mul nuw nsw i128 %shl.i633, %conv8.i632
   %mul34.i660 = mul nuw nsw i128 %shl9.i634, %conv6.i630
   %mul36.i661 = mul nuw nsw i128 %conv4.i628, %conv4.i628
@@ -2960,16 +2954,22 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %and.i663 = and i64 %conv38.i662, 2251799813685247
   %shr.i664 = lshr i128 %add17.i643, 51
   %conv40.i665 = and i128 %shr.i664, 18446744073709551615
+  %add20.i646 = add nuw nsw i128 %mul19.i645, %mul21.i647
+  %add22.i648 = add nuw nsw i128 %add20.i646, %mul18.i644
   %add41.i666 = add nuw nsw i128 %add22.i648, %conv40.i665
   %conv42.i667 = trunc i128 %add41.i666 to i64
   %and43.i668 = and i64 %conv42.i667, 2251799813685247
   %shr44.i669 = lshr i128 %add41.i666, 51
   %conv46.i670 = and i128 %shr44.i669, 18446744073709551615
+  %add25.i651 = add nuw nsw i128 %mul24.i650, %mul26.i652
+  %add27.i653 = add nuw nsw i128 %add25.i651, %mul23.i649
   %add47.i671 = add nuw nsw i128 %add27.i653, %conv46.i670
   %conv48.i672 = trunc i128 %add47.i671 to i64
   %and49.i673 = and i64 %conv48.i672, 2251799813685247
   %shr50.i674 = lshr i128 %add47.i671, 51
   %conv52.i675 = and i128 %shr50.i674, 18446744073709551615
+  %add30.i656 = add nuw nsw i128 %mul29.i655, %mul31.i657
+  %add32.i658 = add nuw nsw i128 %add30.i656, %mul28.i654
   %add53.i676 = add nuw nsw i128 %add32.i658, %conv52.i675
   %conv54.i677 = trunc i128 %add53.i676 to i64
   %and55.i678 = and i64 %conv54.i677, 2251799813685247
@@ -2990,9 +2990,9 @@ for.body39:                                       ; preds = %for.end31, %for.bod
   %shr69.i693 = lshr i64 %add68.i692, 51
   %and70.i694 = and i64 %add68.i692, 2251799813685247
   %add71.i695 = add nuw nsw i64 %shr69.i693, %and49.i673
-  %inc43 = add nuw nsw i32 %i.21332, 1
-  %exitcond1382.not = icmp eq i32 %inc43, 20
-  br i1 %exitcond1382.not, label %for.end44, label %for.body39, !llvm.loop !16
+  %inc43 = add nuw nsw i32 %i.21346, 1
+  %exitcond1395.not = icmp eq i32 %inc43, 20
+  br i1 %exitcond1395.not, label %for.end44, label %for.body39, !llvm.loop !16
 
 for.end44:                                        ; preds = %for.body39
   store i64 %and67.i691, ptr %t2, align 16
@@ -3001,25 +3001,25 @@ for.end44:                                        ; preds = %for.body39
   store i64 %and55.i678, ptr %arrayidx75.i622, align 8
   store i64 %and61.i685, ptr %arrayidx76.i623, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t1, ptr noundef nonnull %t2, ptr noundef nonnull %t1)
-  %t1.promoted1333 = load i64, ptr %t1, align 16
-  %arrayidx73.i88.promoted1335 = load i64, ptr %arrayidx73.i88, align 8
-  %arrayidx74.i89.promoted1337 = load i64, ptr %arrayidx74.i89, align 16
-  %arrayidx75.i90.promoted1339 = load i64, ptr %arrayidx75.i90, align 8
-  %arrayidx76.i91.promoted1341 = load i64, ptr %arrayidx76.i91, align 16
+  %t1.promoted1347 = load i64, ptr %t1, align 16
+  %arrayidx73.i88.promoted1349 = load i64, ptr %arrayidx73.i88, align 8
+  %arrayidx74.i89.promoted1351 = load i64, ptr %arrayidx74.i89, align 16
+  %arrayidx75.i90.promoted1353 = load i64, ptr %arrayidx75.i90, align 8
+  %arrayidx76.i91.promoted1355 = load i64, ptr %arrayidx76.i91, align 16
   br label %for.body50
 
 for.body50:                                       ; preds = %for.end44, %for.body50
-  %i.31344 = phi i32 [ 1, %for.end44 ], [ %inc54, %for.body50 ]
-  %and67.i76713341343 = phi i64 [ %t1.promoted1333, %for.end44 ], [ %and67.i767, %for.body50 ]
-  %37 = phi i64 [ %arrayidx73.i88.promoted1335, %for.end44 ], [ %and70.i770, %for.body50 ]
-  %38 = phi i64 [ %arrayidx74.i89.promoted1337, %for.end44 ], [ %add71.i771, %for.body50 ]
-  %39 = phi i64 [ %arrayidx75.i90.promoted1339, %for.end44 ], [ %and55.i754, %for.body50 ]
-  %40 = phi i64 [ %arrayidx76.i91.promoted1341, %for.end44 ], [ %and61.i761, %for.body50 ]
-  %conv.i700 = zext i64 %and67.i76713341343 to i128
-  %conv2.i702 = zext i64 %37 to i128
-  %conv4.i704 = zext i64 %38 to i128
-  %conv6.i706 = zext i64 %39 to i128
-  %conv8.i708 = zext i64 %40 to i128
+  %i.31358 = phi i32 [ 1, %for.end44 ], [ %inc54, %for.body50 ]
+  %and67.i76713481357 = phi i64 [ %t1.promoted1347, %for.end44 ], [ %and67.i767, %for.body50 ]
+  %33 = phi i64 [ %arrayidx73.i88.promoted1349, %for.end44 ], [ %and70.i770, %for.body50 ]
+  %34 = phi i64 [ %arrayidx74.i89.promoted1351, %for.end44 ], [ %add71.i771, %for.body50 ]
+  %35 = phi i64 [ %arrayidx75.i90.promoted1353, %for.end44 ], [ %and55.i754, %for.body50 ]
+  %36 = phi i64 [ %arrayidx76.i91.promoted1355, %for.end44 ], [ %and61.i761, %for.body50 ]
+  %conv.i700 = zext i64 %and67.i76713481357 to i128
+  %conv2.i702 = zext i64 %33 to i128
+  %conv4.i704 = zext i64 %34 to i128
+  %conv6.i706 = zext i64 %35 to i128
+  %conv8.i708 = zext i64 %36 to i128
   %shl.i709 = shl nuw nsw i128 %conv.i700, 1
   %shl9.i710 = shl nuw nsw i128 %conv2.i702, 1
   %mul10.i711 = mul nuw nsw i128 %conv4.i704, 38
@@ -3083,9 +3083,9 @@ for.body50:                                       ; preds = %for.end44, %for.bod
   %shr69.i769 = lshr i64 %add68.i768, 51
   %and70.i770 = and i64 %add68.i768, 2251799813685247
   %add71.i771 = add nuw nsw i64 %shr69.i769, %and49.i749
-  %inc54 = add nuw nsw i32 %i.31344, 1
-  %exitcond1383.not = icmp eq i32 %inc54, 11
-  br i1 %exitcond1383.not, label %for.end55, label %for.body50, !llvm.loop !17
+  %inc54 = add nuw nsw i32 %i.31358, 1
+  %exitcond1396.not = icmp eq i32 %inc54, 11
+  br i1 %exitcond1396.not, label %for.end55, label %for.body50, !llvm.loop !17
 
 for.end55:                                        ; preds = %for.body50
   store i64 %and67.i767, ptr %t1, align 16
@@ -3094,16 +3094,16 @@ for.end55:                                        ; preds = %for.body50
   store i64 %and55.i754, ptr %arrayidx75.i90, align 8
   store i64 %and61.i761, ptr %arrayidx76.i91, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t0, ptr noundef nonnull %t1, ptr noundef nonnull %t0)
-  %41 = load i64, ptr %t0, align 16
-  %conv.i776 = zext i64 %41 to i128
-  %42 = load i64, ptr %arrayidx73.i, align 8
-  %conv2.i778 = zext i64 %42 to i128
-  %43 = load i64, ptr %arrayidx74.i, align 16
-  %conv4.i780 = zext i64 %43 to i128
-  %44 = load i64, ptr %arrayidx75.i, align 8
-  %conv6.i782 = zext i64 %44 to i128
-  %45 = load i64, ptr %arrayidx76.i, align 16
-  %conv8.i784 = zext i64 %45 to i128
+  %37 = load i64, ptr %t0, align 16
+  %conv.i776 = zext i64 %37 to i128
+  %38 = load i64, ptr %arrayidx73.i, align 8
+  %conv2.i778 = zext i64 %38 to i128
+  %39 = load i64, ptr %arrayidx74.i, align 16
+  %conv4.i780 = zext i64 %39 to i128
+  %40 = load i64, ptr %arrayidx75.i, align 8
+  %conv6.i782 = zext i64 %40 to i128
+  %41 = load i64, ptr %arrayidx76.i, align 16
+  %conv8.i784 = zext i64 %41 to i128
   %shl.i785 = shl nuw nsw i128 %conv.i776, 1
   %shl9.i786 = shl nuw nsw i128 %conv2.i778, 1
   %mul10.i787 = mul nuw nsw i128 %conv4.i780, 38
@@ -3170,17 +3170,17 @@ for.end55:                                        ; preds = %for.body50
   br label %for.body63
 
 for.body63:                                       ; preds = %for.end55, %for.body63
-  %i.41356 = phi i32 [ 1, %for.end55 ], [ %inc67, %for.body63 ]
-  %and67.i91913461355 = phi i64 [ %and67.i843, %for.end55 ], [ %and67.i919, %for.body63 ]
-  %46 = phi i64 [ %and70.i846, %for.end55 ], [ %and70.i922, %for.body63 ]
-  %47 = phi i64 [ %add71.i847, %for.end55 ], [ %add71.i923, %for.body63 ]
-  %48 = phi i64 [ %and55.i830, %for.end55 ], [ %and55.i906, %for.body63 ]
-  %49 = phi i64 [ %and61.i837, %for.end55 ], [ %and61.i913, %for.body63 ]
-  %conv.i852 = zext nneg i64 %and67.i91913461355 to i128
-  %conv2.i854 = zext nneg i64 %46 to i128
-  %conv4.i856 = zext nneg i64 %47 to i128
-  %conv6.i858 = zext nneg i64 %48 to i128
-  %conv8.i860 = zext nneg i64 %49 to i128
+  %i.41370 = phi i32 [ 1, %for.end55 ], [ %inc67, %for.body63 ]
+  %and67.i91913601369 = phi i64 [ %and67.i843, %for.end55 ], [ %and67.i919, %for.body63 ]
+  %42 = phi i64 [ %and70.i846, %for.end55 ], [ %and70.i922, %for.body63 ]
+  %43 = phi i64 [ %add71.i847, %for.end55 ], [ %add71.i923, %for.body63 ]
+  %44 = phi i64 [ %and55.i830, %for.end55 ], [ %and55.i906, %for.body63 ]
+  %45 = phi i64 [ %and61.i837, %for.end55 ], [ %and61.i913, %for.body63 ]
+  %conv.i852 = zext nneg i64 %and67.i91913601369 to i128
+  %conv2.i854 = zext nneg i64 %42 to i128
+  %conv4.i856 = zext nneg i64 %43 to i128
+  %conv6.i858 = zext nneg i64 %44 to i128
+  %conv8.i860 = zext nneg i64 %45 to i128
   %shl.i861 = shl nuw nsw i128 %conv.i852, 1
   %shl9.i862 = shl nuw nsw i128 %conv2.i854, 1
   %mul10.i863 = mul nuw nsw i128 %conv4.i856, 38
@@ -3244,9 +3244,9 @@ for.body63:                                       ; preds = %for.end55, %for.bod
   %shr69.i921 = lshr i64 %add68.i920, 51
   %and70.i922 = and i64 %add68.i920, 2251799813685247
   %add71.i923 = add nuw nsw i64 %shr69.i921, %and49.i901
-  %inc67 = add nuw nsw i32 %i.41356, 1
-  %exitcond1384.not = icmp eq i32 %inc67, 50
-  br i1 %exitcond1384.not, label %for.end68, label %for.body63, !llvm.loop !18
+  %inc67 = add nuw nsw i32 %i.41370, 1
+  %exitcond1397.not = icmp eq i32 %inc67, 50
+  br i1 %exitcond1397.not, label %for.end68, label %for.body63, !llvm.loop !18
 
 for.end68:                                        ; preds = %for.body63
   store i64 %and67.i919, ptr %t1, align 16
@@ -3255,16 +3255,16 @@ for.end68:                                        ; preds = %for.body63
   store i64 %and55.i906, ptr %arrayidx75.i90, align 8
   store i64 %and61.i913, ptr %arrayidx76.i91, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t1, ptr noundef nonnull %t1, ptr noundef nonnull %t0)
-  %50 = load i64, ptr %t1, align 16
-  %conv.i928 = zext i64 %50 to i128
-  %51 = load i64, ptr %arrayidx73.i88, align 8
-  %conv2.i930 = zext i64 %51 to i128
-  %52 = load i64, ptr %arrayidx74.i89, align 16
-  %conv4.i932 = zext i64 %52 to i128
-  %53 = load i64, ptr %arrayidx75.i90, align 8
-  %conv6.i934 = zext i64 %53 to i128
-  %54 = load i64, ptr %arrayidx76.i91, align 16
-  %conv8.i936 = zext i64 %54 to i128
+  %46 = load i64, ptr %t1, align 16
+  %conv.i928 = zext i64 %46 to i128
+  %47 = load i64, ptr %arrayidx73.i88, align 8
+  %conv2.i930 = zext i64 %47 to i128
+  %48 = load i64, ptr %arrayidx74.i89, align 16
+  %conv4.i932 = zext i64 %48 to i128
+  %49 = load i64, ptr %arrayidx75.i90, align 8
+  %conv6.i934 = zext i64 %49 to i128
+  %50 = load i64, ptr %arrayidx76.i91, align 16
+  %conv8.i936 = zext i64 %50 to i128
   %shl.i937 = shl nuw nsw i128 %conv.i928, 1
   %shl9.i938 = shl nuw nsw i128 %conv2.i930, 1
   %mul10.i939 = mul nuw nsw i128 %conv4.i932, 38
@@ -3331,17 +3331,17 @@ for.end68:                                        ; preds = %for.body63
   br label %for.body76
 
 for.body76:                                       ; preds = %for.end68, %for.body76
-  %i.51368 = phi i32 [ 1, %for.end68 ], [ %inc80, %for.body76 ]
-  %and67.i107113581367 = phi i64 [ %and67.i995, %for.end68 ], [ %and67.i1071, %for.body76 ]
-  %55 = phi i64 [ %and70.i998, %for.end68 ], [ %and70.i1074, %for.body76 ]
-  %56 = phi i64 [ %add71.i999, %for.end68 ], [ %add71.i1075, %for.body76 ]
-  %57 = phi i64 [ %and55.i982, %for.end68 ], [ %and55.i1058, %for.body76 ]
-  %58 = phi i64 [ %and61.i989, %for.end68 ], [ %and61.i1065, %for.body76 ]
-  %conv.i1004 = zext nneg i64 %and67.i107113581367 to i128
-  %conv2.i1006 = zext nneg i64 %55 to i128
-  %conv4.i1008 = zext nneg i64 %56 to i128
-  %conv6.i1010 = zext nneg i64 %57 to i128
-  %conv8.i1012 = zext nneg i64 %58 to i128
+  %i.51381 = phi i32 [ 1, %for.end68 ], [ %inc80, %for.body76 ]
+  %and67.i61513091380 = phi i64 [ %and67.i995, %for.end68 ], [ %and67.i1071, %for.body76 ]
+  %and70.i61813111379 = phi i64 [ %and70.i998, %for.end68 ], [ %and70.i1074, %for.body76 ]
+  %add71.i61913131378 = phi i64 [ %add71.i999, %for.end68 ], [ %add71.i1075, %for.body76 ]
+  %and55.i60213151377 = phi i64 [ %and55.i982, %for.end68 ], [ %and55.i1058, %for.body76 ]
+  %and61.i60913171376 = phi i64 [ %and61.i989, %for.end68 ], [ %and61.i1065, %for.body76 ]
+  %conv.i1004 = zext nneg i64 %and67.i61513091380 to i128
+  %conv2.i1006 = zext nneg i64 %and70.i61813111379 to i128
+  %conv4.i1008 = zext nneg i64 %add71.i61913131378 to i128
+  %conv6.i1010 = zext nneg i64 %and55.i60213151377 to i128
+  %conv8.i1012 = zext nneg i64 %and61.i60913171376 to i128
   %shl.i1013 = shl nuw nsw i128 %conv.i1004, 1
   %shl9.i1014 = shl nuw nsw i128 %conv2.i1006, 1
   %mul10.i1015 = mul nuw nsw i128 %conv4.i1008, 38
@@ -3351,23 +3351,17 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %mul.i1019 = mul nuw nsw i128 %conv8.i1012, 38
   %mul15.i1020 = mul nuw nsw i128 %mul.i1019, %conv2.i1006
   %mul16.i1022 = mul nuw nsw i128 %mul10.i1015, %conv6.i1010
-  %add.i1021 = add nuw nsw i128 %mul16.i1022, %mul14.i1018
-  %add17.i1023 = add nuw nsw i128 %add.i1021, %mul15.i1020
+  %add.i1021 = add nuw nsw i128 %mul16.i1022, %mul15.i1020
+  %add17.i1023 = add nuw nsw i128 %add.i1021, %mul14.i1018
   %mul18.i1024 = mul nuw nsw i128 %shl.i1013, %conv2.i1006
   %mul19.i1025 = mul nuw nsw i128 %mul10.i1015, %conv8.i1012
-  %add20.i1026 = add nuw nsw i128 %mul19.i1025, %mul18.i1024
   %mul21.i1027 = mul nuw nsw i128 %mul12.i1016, %conv6.i1010
-  %add22.i1028 = add nuw nsw i128 %add20.i1026, %mul21.i1027
   %mul23.i1029 = mul nuw nsw i128 %shl.i1013, %conv4.i1008
   %mul24.i1030 = mul nuw nsw i128 %conv2.i1006, %conv2.i1006
-  %add25.i1031 = add nuw nsw i128 %mul23.i1029, %mul24.i1030
   %mul26.i1032 = mul nuw nsw i128 %mul.i1019, %conv6.i1010
-  %add27.i1033 = add nuw nsw i128 %add25.i1031, %mul26.i1032
   %mul28.i1034 = mul nuw nsw i128 %shl.i1013, %conv6.i1010
   %mul29.i1035 = mul nuw nsw i128 %shl9.i1014, %conv4.i1008
-  %add30.i1036 = add nuw nsw i128 %mul28.i1034, %mul29.i1035
   %mul31.i1037 = mul nuw nsw i128 %mul13.i1017, %conv8.i1012
-  %add32.i1038 = add nuw nsw i128 %add30.i1036, %mul31.i1037
   %mul33.i1039 = mul nuw nsw i128 %shl.i1013, %conv8.i1012
   %mul34.i1040 = mul nuw nsw i128 %shl9.i1014, %conv6.i1010
   %mul36.i1041 = mul nuw nsw i128 %conv4.i1008, %conv4.i1008
@@ -3375,16 +3369,22 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %and.i1043 = and i64 %conv38.i1042, 2251799813685247
   %shr.i1044 = lshr i128 %add17.i1023, 51
   %conv40.i1045 = and i128 %shr.i1044, 18446744073709551615
+  %add20.i1026 = add nuw nsw i128 %mul19.i1025, %mul21.i1027
+  %add22.i1028 = add nuw nsw i128 %add20.i1026, %mul18.i1024
   %add41.i1046 = add nuw nsw i128 %add22.i1028, %conv40.i1045
   %conv42.i1047 = trunc i128 %add41.i1046 to i64
   %and43.i1048 = and i64 %conv42.i1047, 2251799813685247
   %shr44.i1049 = lshr i128 %add41.i1046, 51
   %conv46.i1050 = and i128 %shr44.i1049, 18446744073709551615
+  %add25.i1031 = add nuw nsw i128 %mul24.i1030, %mul26.i1032
+  %add27.i1033 = add nuw nsw i128 %add25.i1031, %mul23.i1029
   %add47.i1051 = add nuw nsw i128 %add27.i1033, %conv46.i1050
   %conv48.i1052 = trunc i128 %add47.i1051 to i64
   %and49.i1053 = and i64 %conv48.i1052, 2251799813685247
   %shr50.i1054 = lshr i128 %add47.i1051, 51
   %conv52.i1055 = and i128 %shr50.i1054, 18446744073709551615
+  %add30.i1036 = add nuw nsw i128 %mul29.i1035, %mul31.i1037
+  %add32.i1038 = add nuw nsw i128 %add30.i1036, %mul28.i1034
   %add53.i1056 = add nuw nsw i128 %add32.i1038, %conv52.i1055
   %conv54.i1057 = trunc i128 %add53.i1056 to i64
   %and55.i1058 = and i64 %conv54.i1057, 2251799813685247
@@ -3405,9 +3405,9 @@ for.body76:                                       ; preds = %for.end68, %for.bod
   %shr69.i1073 = lshr i64 %add68.i1072, 51
   %and70.i1074 = and i64 %add68.i1072, 2251799813685247
   %add71.i1075 = add nuw nsw i64 %shr69.i1073, %and49.i1053
-  %inc80 = add nuw nsw i32 %i.51368, 1
-  %exitcond1385.not = icmp eq i32 %inc80, 100
-  br i1 %exitcond1385.not, label %for.end81, label %for.body76, !llvm.loop !19
+  %inc80 = add nuw nsw i32 %i.51381, 1
+  %exitcond1398.not = icmp eq i32 %inc80, 100
+  br i1 %exitcond1398.not, label %for.end81, label %for.body76, !llvm.loop !19
 
 for.end81:                                        ; preds = %for.body76
   store i64 %and67.i1071, ptr %t2, align 16
@@ -3416,25 +3416,25 @@ for.end81:                                        ; preds = %for.body76
   store i64 %and55.i1058, ptr %arrayidx75.i622, align 8
   store i64 %and61.i1065, ptr %arrayidx76.i623, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t1, ptr noundef nonnull %t2, ptr noundef nonnull %t1)
-  %t1.promoted1369 = load i64, ptr %t1, align 16
-  %arrayidx73.i88.promoted1371 = load i64, ptr %arrayidx73.i88, align 8
-  %arrayidx74.i89.promoted1373 = load i64, ptr %arrayidx74.i89, align 16
-  %arrayidx75.i90.promoted1375 = load i64, ptr %arrayidx75.i90, align 8
-  %arrayidx76.i91.promoted1377 = load i64, ptr %arrayidx76.i91, align 16
+  %t1.promoted1382 = load i64, ptr %t1, align 16
+  %arrayidx73.i88.promoted1384 = load i64, ptr %arrayidx73.i88, align 8
+  %arrayidx74.i89.promoted1386 = load i64, ptr %arrayidx74.i89, align 16
+  %arrayidx75.i90.promoted1388 = load i64, ptr %arrayidx75.i90, align 8
+  %arrayidx76.i91.promoted1390 = load i64, ptr %arrayidx76.i91, align 16
   br label %for.body87
 
 for.body87:                                       ; preds = %for.end81, %for.body87
-  %i.61380 = phi i32 [ 1, %for.end81 ], [ %inc91, %for.body87 ]
-  %and67.i114713701379 = phi i64 [ %t1.promoted1369, %for.end81 ], [ %and67.i1147, %for.body87 ]
-  %59 = phi i64 [ %arrayidx73.i88.promoted1371, %for.end81 ], [ %and70.i1150, %for.body87 ]
-  %60 = phi i64 [ %arrayidx74.i89.promoted1373, %for.end81 ], [ %add71.i1151, %for.body87 ]
-  %61 = phi i64 [ %arrayidx75.i90.promoted1375, %for.end81 ], [ %and55.i1134, %for.body87 ]
-  %62 = phi i64 [ %arrayidx76.i91.promoted1377, %for.end81 ], [ %and61.i1141, %for.body87 ]
-  %conv.i1080 = zext i64 %and67.i114713701379 to i128
-  %conv2.i1082 = zext i64 %59 to i128
-  %conv4.i1084 = zext i64 %60 to i128
-  %conv6.i1086 = zext i64 %61 to i128
-  %conv8.i1088 = zext i64 %62 to i128
+  %i.61393 = phi i32 [ 1, %for.end81 ], [ %inc91, %for.body87 ]
+  %and67.i114713831392 = phi i64 [ %t1.promoted1382, %for.end81 ], [ %and67.i1147, %for.body87 ]
+  %51 = phi i64 [ %arrayidx73.i88.promoted1384, %for.end81 ], [ %and70.i1150, %for.body87 ]
+  %52 = phi i64 [ %arrayidx74.i89.promoted1386, %for.end81 ], [ %add71.i1151, %for.body87 ]
+  %53 = phi i64 [ %arrayidx75.i90.promoted1388, %for.end81 ], [ %and55.i1134, %for.body87 ]
+  %54 = phi i64 [ %arrayidx76.i91.promoted1390, %for.end81 ], [ %and61.i1141, %for.body87 ]
+  %conv.i1080 = zext i64 %and67.i114713831392 to i128
+  %conv2.i1082 = zext i64 %51 to i128
+  %conv4.i1084 = zext i64 %52 to i128
+  %conv6.i1086 = zext i64 %53 to i128
+  %conv8.i1088 = zext i64 %54 to i128
   %shl.i1089 = shl nuw nsw i128 %conv.i1080, 1
   %shl9.i1090 = shl nuw nsw i128 %conv2.i1082, 1
   %mul10.i1091 = mul nuw nsw i128 %conv4.i1084, 38
@@ -3498,9 +3498,9 @@ for.body87:                                       ; preds = %for.end81, %for.bod
   %shr69.i1149 = lshr i64 %add68.i1148, 51
   %and70.i1150 = and i64 %add68.i1148, 2251799813685247
   %add71.i1151 = add nuw nsw i64 %shr69.i1149, %and49.i1129
-  %inc91 = add nuw nsw i32 %i.61380, 1
-  %exitcond1386.not = icmp eq i32 %inc91, 51
-  br i1 %exitcond1386.not, label %for.end92, label %for.body87, !llvm.loop !20
+  %inc91 = add nuw nsw i32 %i.61393, 1
+  %exitcond1399.not = icmp eq i32 %inc91, 51
+  br i1 %exitcond1399.not, label %for.end92, label %for.body87, !llvm.loop !20
 
 for.end92:                                        ; preds = %for.body87
   store i64 %and67.i1147, ptr %t1, align 16
@@ -3509,16 +3509,16 @@ for.end92:                                        ; preds = %for.body87
   store i64 %and55.i1134, ptr %arrayidx75.i90, align 8
   store i64 %and61.i1141, ptr %arrayidx76.i91, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t0, ptr noundef nonnull %t1, ptr noundef nonnull %t0)
-  %63 = load i64, ptr %t0, align 16
-  %conv.i1156 = zext i64 %63 to i128
-  %64 = load i64, ptr %arrayidx73.i, align 8
-  %conv2.i1158 = zext i64 %64 to i128
-  %65 = load i64, ptr %arrayidx74.i, align 16
-  %conv4.i1160 = zext i64 %65 to i128
-  %66 = load i64, ptr %arrayidx75.i, align 8
-  %conv6.i1162 = zext i64 %66 to i128
-  %67 = load i64, ptr %arrayidx76.i, align 16
-  %conv8.i1164 = zext i64 %67 to i128
+  %55 = load i64, ptr %t0, align 16
+  %conv.i1156 = zext i64 %55 to i128
+  %56 = load i64, ptr %arrayidx73.i, align 8
+  %conv2.i1158 = zext i64 %56 to i128
+  %57 = load i64, ptr %arrayidx74.i, align 16
+  %conv4.i1160 = zext i64 %57 to i128
+  %58 = load i64, ptr %arrayidx75.i, align 8
+  %conv6.i1162 = zext i64 %58 to i128
+  %59 = load i64, ptr %arrayidx76.i, align 16
+  %conv8.i1164 = zext i64 %59 to i128
   %shl.i1165 = shl nuw nsw i128 %conv.i1156, 1
   %shl9.i1166 = shl nuw nsw i128 %conv2.i1158, 1
   %mul10.i1167 = mul nuw nsw i128 %conv4.i1160, 38

@@ -36319,259 +36319,255 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = ptrtoint ptr %0 to i64
-  br label %8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %9 = ptrtoint ptr %0 to i64
+  br label %10
 
-8:                                                ; preds = %.lr.ph, %122
-  %.sroa.0.040 = phi ptr [ %.sroa.0.037, %.lr.ph ], [ %.sroa.0.0, %122 ]
-  %.pn39 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.040, %122 ]
-  %9 = load ptr, ptr %.sroa.0.040, align 8
-  %10 = load ptr, ptr %0, align 8
-  %11 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableEN4llvm15MutableArrayRefINS1_2gi11RuleMatcherEEEbbENK3$_0clEPKNS3_7MatcherES9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef %9, ptr noundef %10)
-  br i1 %11, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %19
+10:                                               ; preds = %.lr.ph, %119
+  %.sroa.0.040 = phi ptr [ %.sroa.0.037, %.lr.ph ], [ %.sroa.0.0, %119 ]
+  %.pn39 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.040, %119 ]
+  %11 = load ptr, ptr %.sroa.0.040, align 8
+  %12 = load ptr, ptr %0, align 8
+  %13 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableEN4llvm15MutableArrayRefINS1_2gi11RuleMatcherEEEbbENK3$_0clEPKNS3_7MatcherES9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef %12)
+  br i1 %13, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %21
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %8
-  %12 = load ptr, ptr %.sroa.0.040, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %.pn39, i64 16
-  %14 = ptrtoint ptr %.sroa.0.040 to i64
-  %15 = sub i64 %14, %7
-  %16 = ashr exact i64 %15, 3
-  %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds ptr, ptr %13, i64 %17
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %15, i1 false)
-  store ptr %12, ptr %0, align 8
-  br label %122
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit: ; preds = %10
+  %14 = load ptr, ptr %.sroa.0.040, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.pn39, i64 16
+  %16 = ptrtoint ptr %.sroa.0.040 to i64
+  %17 = sub i64 %16, %9
+  %18 = ashr exact i64 %17, 3
+  %19 = sub nsw i64 0, %18
+  %20 = getelementptr inbounds ptr, ptr %15, i64 %19
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %17, i1 false)
+  store ptr %14, ptr %0, align 8
+  br label %119
 
-19:                                               ; preds = %8
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
+21:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.sroa.0.0.copyload, ptr %4, align 8
-  %20 = load ptr, ptr %.sroa.0.040, align 8
-  %21 = load ptr, ptr %.pn39, align 8
-  %22 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableEN4llvm15MutableArrayRefINS1_2gi11RuleMatcherEEEbbENK3$_0clEPKNS3_7MatcherES9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef nonnull %20, ptr noundef %21)
-  br i1 %22, label %.lr.ph.i.preheader, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit"
+  store ptr %2, ptr %4, align 8
+  %22 = load ptr, ptr %.sroa.0.040, align 8
+  %23 = load ptr, ptr %.pn39, align 8
+  %24 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableEN4llvm15MutableArrayRefINS1_2gi11RuleMatcherEEEbbENK3$_0clEPKNS3_7MatcherES9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef nonnull %22, ptr noundef %23)
+  br i1 %24, label %.lr.ph.i.preheader, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i.preheader:                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+.lr.ph.i.preheader:                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
   %.sroa.0.08.i = phi ptr [ %.pn39, %.lr.ph.i.preheader ], [ %.sroa.0.0.i, %.lr.ph.i.backedge ]
   %.sroa.03.07.i = phi ptr [ %.sroa.0.040, %.lr.ph.i.preheader ], [ %.sroa.0.08.i, %.lr.ph.i.backedge ]
-  %24 = load ptr, ptr %.sroa.0.08.i, align 8
-  store ptr %24, ptr %.sroa.03.07.i, align 8
+  %26 = load ptr, ptr %.sroa.0.08.i, align 8
+  store ptr %26, ptr %.sroa.03.07.i, align 8
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 -8
-  %25 = load ptr, ptr %.sroa.0.0.i, align 8
-  %26 = load ptr, ptr %4, align 8
-  %27 = tail call { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull align 8 dereferenceable(448) %20) #26
-  %28 = extractvalue { ptr, i64 } %27, 0
-  %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %28, i64 %29) #26
-  %31 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %28, i64 %29, i32 noundef %30) #26
-  %32 = load ptr, ptr %26, align 8
-  %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %magicptr.i10 = ptrtoint ptr %35 to i64
+  %27 = load ptr, ptr %.sroa.0.0.i, align 8
+  %28 = tail call { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull align 8 dereferenceable(448) %22) #26
+  %29 = extractvalue { ptr, i64 } %28, 0
+  %30 = extractvalue { ptr, i64 } %28, 1
+  %31 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %29, i64 %30) #26
+  %32 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %29, i64 %30, i32 noundef %31) #26
+  %33 = load ptr, ptr %2, align 8
+  %34 = zext i32 %32 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  %magicptr.i10 = ptrtoint ptr %36 to i64
   switch i64 %magicptr.i10, label %.preheader.i.i.i21 [
     i64 0, label %42
-    i64 -8, label %38
+    i64 -8, label %39
   ]
 
 .preheader.i.i.i21:                               ; preds = %.lr.ph.i, %.critedge.i.i.i.i24
-  %36 = phi ptr [ %.pre.i25, %.critedge.i.i.i.i24 ], [ %35, %.lr.ph.i ]
-  %.sroa.030.0.i22 = phi ptr [ %37, %.critedge.i.i.i.i24 ], [ %34, %.lr.ph.i ]
-  %magicptr.i.i.i.i23 = ptrtoint ptr %36 to i64
+  %37 = phi ptr [ %.pre.i25, %.critedge.i.i.i.i24 ], [ %36, %.lr.ph.i ]
+  %.sroa.030.0.i22 = phi ptr [ %38, %.critedge.i.i.i.i24 ], [ %35, %.lr.ph.i ]
+  %magicptr.i.i.i.i23 = ptrtoint ptr %37 to i64
   switch i64 %magicptr.i.i.i.i23, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 [
     i64 0, label %.critedge.i.i.i.i24
     i64 -8, label %.critedge.i.i.i.i24
   ]
 
 .critedge.i.i.i.i24:                              ; preds = %.preheader.i.i.i21, %.preheader.i.i.i21
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i22, i64 8
-  %.pre.i25 = load ptr, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i22, i64 8
+  %.pre.i25 = load ptr, ptr %38, align 8
   br label %.preheader.i.i.i21, !llvm.loop !918
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %40 = load i32, ptr %39, align 8
+39:                                               ; preds = %.lr.ph.i
+  %40 = load i32, ptr %7, align 8
   %41 = add i32 %40, -1
-  store i32 %41, ptr %39, align 8
+  store i32 %41, ptr %7, align 8
   br label %42
 
-42:                                               ; preds = %38, %.lr.ph.i
-  %43 = add i64 %29, 17
+42:                                               ; preds = %39, %.lr.ph.i
+  %43 = add i64 %30, 17
   %44 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %43, i64 noundef 8) #26
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %.not.i.i.i11 = icmp eq i64 %29, 0
+  %.not.i.i.i11 = icmp eq i64 %30, 0
   br i1 %.not.i.i.i11, label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12, label %46
 
 46:                                               ; preds = %42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %28, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %29, i64 %30, i1 false)
   br label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12
 
 _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12: ; preds = %46, %42
-  %47 = getelementptr inbounds i8, ptr %45, i64 %29
+  %47 = getelementptr inbounds i8, ptr %45, i64 %30
   store i8 0, ptr %47, align 1
-  store i64 %29, ptr %44, align 8
+  store i64 %30, ptr %44, align 8
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 0, ptr %48, align 8
-  store ptr %44, ptr %34, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %50 = load i32, ptr %49, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4
-  %52 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %31) #26
-  %53 = load ptr, ptr %26, align 8
-  %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  store ptr %44, ptr %35, align 8
+  %49 = load i32, ptr %8, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %8, align 4
+  %51 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %32) #26
+  %52 = load ptr, ptr %2, align 8
+  %53 = zext i32 %51 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   br label %.preheader.i.i23.i13
 
 .preheader.i.i23.i13:                             ; preds = %.critedge.i.i.i25.i16, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12
-  %.sroa.0.0.i14 = phi ptr [ %55, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12 ], [ %57, %.critedge.i.i.i25.i16 ]
-  %56 = load ptr, ptr %.sroa.0.0.i14, align 8
-  %magicptr.i.i.i24.i15 = ptrtoint ptr %56 to i64
+  %.sroa.0.0.i14 = phi ptr [ %54, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i12 ], [ %56, %.critedge.i.i.i25.i16 ]
+  %55 = load ptr, ptr %.sroa.0.0.i14, align 8
+  %magicptr.i.i.i24.i15 = ptrtoint ptr %55 to i64
   switch i64 %magicptr.i.i.i24.i15, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 [
     i64 0, label %.critedge.i.i.i25.i16
     i64 -8, label %.critedge.i.i.i25.i16
   ]
 
 .critedge.i.i.i25.i16:                            ; preds = %.preheader.i.i23.i13, %.preheader.i.i23.i13
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i14, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i14, i64 8
   br label %.preheader.i.i23.i13, !llvm.loop !918
 
 _ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26: ; preds = %.preheader.i.i23.i13, %.preheader.i.i.i21
-  %58 = phi ptr [ %36, %.preheader.i.i.i21 ], [ %56, %.preheader.i.i23.i13 ]
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %23, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 104
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %62, align 8
-  %66 = load i32, ptr %59, align 4
-  %67 = tail call { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull align 8 dereferenceable(448) %25) #26
-  %68 = extractvalue { ptr, i64 } %67, 0
-  %69 = extractvalue { ptr, i64 } %67, 1
-  %70 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %68, i64 %69) #26
-  %71 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr %68, i64 %69, i32 noundef %70) #26
-  %72 = load ptr, ptr %26, align 8
-  %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %magicptr.i = ptrtoint ptr %75 to i64
+  %57 = phi ptr [ %37, %.preheader.i.i.i21 ], [ %55, %.preheader.i.i23.i13 ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %25, align 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 104
+  %63 = load ptr, ptr %62, align 8
+  %64 = load ptr, ptr %61, align 8
+  %65 = load i32, ptr %58, align 4
+  %66 = tail call { ptr, i64 } @_ZNK4llvm2gi11RuleMatcher9getOpcodeEv(ptr noundef nonnull align 8 dereferenceable(448) %27) #26
+  %67 = extractvalue { ptr, i64 } %66, 0
+  %68 = extractvalue { ptr, i64 } %66, 1
+  %69 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %67, i64 %68) #26
+  %70 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %67, i64 %68, i32 noundef %69) #26
+  %71 = load ptr, ptr %2, align 8
+  %72 = zext i32 %70 to i64
+  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %magicptr.i = ptrtoint ptr %74 to i64
   switch i64 %magicptr.i, label %.preheader.i.i.i [
-    i64 0, label %82
-    i64 -8, label %78
+    i64 0, label %80
+    i64 -8, label %77
   ]
 
 .preheader.i.i.i:                                 ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26, %.critedge.i.i.i.i
-  %76 = phi ptr [ %.pre.i, %.critedge.i.i.i.i ], [ %75, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 ]
-  %.sroa.030.0.i = phi ptr [ %77, %.critedge.i.i.i.i ], [ %74, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 ]
-  %magicptr.i.i.i.i = ptrtoint ptr %76 to i64
+  %75 = phi ptr [ %.pre.i, %.critedge.i.i.i.i ], [ %74, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 ]
+  %.sroa.030.0.i = phi ptr [ %76, %.critedge.i.i.i.i ], [ %73, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26 ]
+  %magicptr.i.i.i.i = ptrtoint ptr %75 to i64
   switch i64 %magicptr.i.i.i.i, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit [
     i64 0, label %.critedge.i.i.i.i
     i64 -8, label %.critedge.i.i.i.i
   ]
 
 .critedge.i.i.i.i:                                ; preds = %.preheader.i.i.i, %.preheader.i.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i, i64 8
-  %.pre.i = load ptr, ptr %77, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i, i64 8
+  %.pre.i = load ptr, ptr %76, align 8
   br label %.preheader.i.i.i, !llvm.loop !918
 
-78:                                               ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26
-  %79 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %80 = load i32, ptr %79, align 8
-  %81 = add i32 %80, -1
-  store i32 %81, ptr %79, align 8
-  br label %82
+77:                                               ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26
+  %78 = load i32, ptr %7, align 8
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %7, align 8
+  br label %80
 
-82:                                               ; preds = %78, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26
-  %83 = add i64 %69, 17
-  %84 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %83, i64 noundef 8) #26
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %.not.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i, label %86
+80:                                               ; preds = %77, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit26
+  %81 = add i64 %68, 17
+  %82 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %81, i64 noundef 8) #26
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %.not.i.i.i = icmp eq i64 %68, 0
+  br i1 %.not.i.i.i, label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i, label %84
 
-86:                                               ; preds = %82
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %85, ptr align 1 %68, i64 %69, i1 false)
+84:                                               ; preds = %80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %67, i64 %68, i1 false)
   br label %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i
 
-_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i: ; preds = %86, %82
-  %87 = getelementptr inbounds i8, ptr %85, i64 %69
-  store i8 0, ptr %87, align 1
-  store i64 %69, ptr %84, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i32 0, ptr %88, align 8
-  store ptr %84, ptr %74, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %90 = load i32, ptr %89, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %89, align 4
-  %92 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %26, i32 noundef %71) #26
-  %93 = load ptr, ptr %26, align 8
-  %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
+_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i: ; preds = %84, %80
+  %85 = getelementptr inbounds i8, ptr %83, i64 %68
+  store i8 0, ptr %85, align 1
+  store i64 %68, ptr %82, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store i32 0, ptr %86, align 8
+  store ptr %82, ptr %73, align 8
+  %87 = load i32, ptr %8, align 4
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %8, align 4
+  %89 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %70) #26
+  %90 = load ptr, ptr %2, align 8
+  %91 = zext i32 %89 to i64
+  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   br label %.preheader.i.i23.i
 
 .preheader.i.i23.i:                               ; preds = %.critedge.i.i.i25.i, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i
-  %.sroa.0.0.i9 = phi ptr [ %95, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i ], [ %97, %.critedge.i.i.i25.i ]
-  %96 = load ptr, ptr %.sroa.0.0.i9, align 8
-  %magicptr.i.i.i24.i = ptrtoint ptr %96 to i64
+  %.sroa.0.0.i9 = phi ptr [ %92, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit.i ], [ %94, %.critedge.i.i.i25.i ]
+  %93 = load ptr, ptr %.sroa.0.0.i9, align 8
+  %magicptr.i.i.i24.i = ptrtoint ptr %93 to i64
   switch i64 %magicptr.i.i.i24.i, label %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit [
     i64 0, label %.critedge.i.i.i25.i
     i64 -8, label %.critedge.i.i.i25.i
   ]
 
 .critedge.i.i.i25.i:                              ; preds = %.preheader.i.i23.i, %.preheader.i.i23.i
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i9, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i9, i64 8
   br label %.preheader.i.i23.i, !llvm.loop !918
 
 _ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit: ; preds = %.preheader.i.i23.i, %.preheader.i.i.i
-  %98 = phi ptr [ %76, %.preheader.i.i.i ], [ %96, %.preheader.i.i23.i ]
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load i32, ptr %99, align 4
-  %101 = icmp ult i32 %66, %100
-  br i1 %101, label %.lr.ph.i.backedge, label %102
+  %95 = phi ptr [ %75, %.preheader.i.i.i ], [ %93, %.preheader.i.i23.i ]
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load i32, ptr %96, align 4
+  %98 = icmp ult i32 %65, %97
+  br i1 %98, label %.lr.ph.i.backedge, label %99
 
-102:                                              ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit
-  %103 = getelementptr inbounds nuw i8, ptr %25, i64 8
+99:                                               ; preds = %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit
+  %100 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 104
+  %105 = ptrtoint ptr %104 to i64
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 96
   %107 = load ptr, ptr %106, align 8
   %108 = ptrtoint ptr %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 96
-  %110 = load ptr, ptr %109, align 8
-  %111 = ptrtoint ptr %110 to i64
-  %112 = sub i64 %108, %111
-  %113 = lshr exact i64 %112, 3
-  %114 = trunc i64 %113 to i32
-  %115 = ptrtoint ptr %64 to i64
-  %116 = ptrtoint ptr %65 to i64
-  %117 = sub i64 %115, %116
-  %118 = lshr exact i64 %117, 3
-  %119 = trunc i64 %118 to i32
-  %120 = icmp uge i32 %100, %66
-  %121 = icmp ult i32 %119, %114
-  %spec.select.i = select i1 %120, i1 %121, i1 false
+  %109 = sub i64 %105, %108
+  %110 = lshr exact i64 %109, 3
+  %111 = trunc i64 %110 to i32
+  %112 = ptrtoint ptr %63 to i64
+  %113 = ptrtoint ptr %64 to i64
+  %114 = sub i64 %112, %113
+  %115 = lshr exact i64 %114, 3
+  %116 = trunc i64 %115 to i32
+  %117 = icmp uge i32 %97, %65
+  %118 = icmp ult i32 %116, %111
+  %spec.select.i = select i1 %117, i1 %118, i1 false
   br i1 %spec.select.i, label %.lr.ph.i.backedge, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit"
 
-.lr.ph.i.backedge:                                ; preds = %102, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit
+.lr.ph.i.backedge:                                ; preds = %99, %_ZN4llvm9StringMapIjNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIjEEbENS_9StringRefEjDpOT_.exit
   br label %.lr.ph.i, !llvm.loop !1835
 
-"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit": ; preds = %102, %19
-  %.sroa.03.0.lcssa.i = phi ptr [ %.sroa.0.040, %19 ], [ %.sroa.0.08.i, %102 ]
-  store ptr %20, ptr %.sroa.03.0.lcssa.i, align 8
+"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit": ; preds = %99, %21
+  %.sroa.03.0.lcssa.i = phi ptr [ %.sroa.0.040, %21 ], [ %.sroa.0.08.i, %99 ]
+  store ptr %22, ptr %.sroa.03.0.lcssa.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %122
+  br label %119
 
-122:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit"
+119:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEEvT_T0_.exit"
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !1836
+  br i1 %.not, label %.loopexit, label %10, !llvm.loop !1836
 
-.loopexit:                                        ; preds = %122, %.preheader, %3
+.loopexit:                                        ; preds = %119, %.preheader, %3
   ret void
 }
 
@@ -36683,14 +36679,14 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaI
   br i1 %54, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i57, label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", !llvm.loop !1838
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit.i57
-  %.pre89 = ptrtoint ptr %.sroa.011.1.i63 to i64
+  %.pre88 = ptrtoint ptr %.sroa.011.1.i63 to i64
   br label %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit", %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55
-  %.pre-phi90 = phi i64 [ %.pre89, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %43, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55 ]
+  %.pre-phi89 = phi i64 [ %.pre88, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %43, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55 ]
   %.sroa.011.0.lcssa.i56 = phi ptr [ %.sroa.011.1.i63, %"_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_117GlobalISelEmitter15buildMatchTableENS2_15MutableArrayRefINS3_11RuleMatcherEEEbbE3$_0EEET_SK_SK_RKT0_T1_.exit.loopexit" ], [ %.tr80, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm2gi7MatcherESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %55 = sub i64 %.pre-phi90, %43
+  %55 = sub i64 %.pre-phi89, %43
   %56 = ashr exact i64 %55, 3
   br label %tailrecurse
 

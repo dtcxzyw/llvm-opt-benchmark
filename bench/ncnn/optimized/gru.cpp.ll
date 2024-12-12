@@ -2500,10 +2500,10 @@ thread-pre-split:                                 ; preds = %286, %192
   unreachable
 
 875:                                              ; preds = %805, %703, %547, %453
-  %.sink1148 = phi ptr [ %23, %805 ], [ %20, %703 ], [ %17, %547 ], [ %14, %453 ]
+  %.sink1076 = phi ptr [ %23, %805 ], [ %20, %703 ], [ %17, %547 ], [ %14, %453 ]
   %.sink = phi ptr [ %710, %805 ], [ %590, %703 ], [ %460, %547 ], [ %362, %453 ]
   %.pn = phi { ptr, i32 } [ %806, %805 ], [ %704, %703 ], [ %548, %547 ], [ %454, %453 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1148, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1076, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sink, i8 0, i64 20, i1 false)
   %876 = load ptr, ptr %316, align 8
   %.not1033 = icmp eq ptr %876, null
@@ -5719,10 +5719,10 @@ thread-pre-split:                                 ; preds = %394, %300
   unreachable
 
 1044:                                             ; preds = %939, %837
-  %.sink1301 = phi ptr [ %26, %939 ], [ %23, %837 ]
+  %.sink1230 = phi ptr [ %26, %939 ], [ %23, %837 ]
   %.sink = phi ptr [ %844, %939 ], [ %724, %837 ]
   %.pn = phi { ptr, i32 } [ %940, %939 ], [ %838, %837 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1301, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1230, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sink, i8 0, i64 20, i1 false)
   %1045 = load ptr, ptr %682, align 8
   %.not1172 = icmp eq ptr %1045, null
@@ -5766,11 +5766,11 @@ thread-pre-split:                                 ; preds = %394, %300
   unreachable
 
 1062:                                             ; preds = %1058, %671, %577
-  %.sink1303 = phi ptr [ %22, %1058 ], [ %19, %671 ], [ %16, %577 ]
-  %.sink1302 = phi ptr [ %686, %1058 ], [ %584, %671 ], [ %486, %577 ]
+  %.sink1232 = phi ptr [ %22, %1058 ], [ %19, %671 ], [ %16, %577 ]
+  %.sink1231 = phi ptr [ %686, %1058 ], [ %584, %671 ], [ %486, %577 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %1058 ], [ %672, %671 ], [ %578, %577 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1303, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sink1302, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sink1232, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sink1231, i8 0, i64 20, i1 false)
   %1063 = load ptr, ptr %446, align 8
   %.not1176 = icmp eq ptr %1063, null
   br i1 %.not1176, label %1076, label %1064

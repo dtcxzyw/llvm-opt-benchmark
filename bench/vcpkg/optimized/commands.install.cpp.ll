@@ -10595,13 +10595,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
           to label %303 unwind label %297
 
 303:                                              ; preds = %301, %300
-  %.sroa.062.0.copyload = load ptr, ptr %7, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(32) %262)
           to label %304 unwind label %297
 
 304:                                              ; preds = %303
   %305 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %.sroa.062.0.copyload, ptr %305, align 8
+  store ptr %2, ptr %305, align 8
   %306 = load ptr, ptr %24, align 8
   %307 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %308 = load ptr, ptr %307, align 8
@@ -11669,8 +11668,7 @@ _ZNK5vcpkg10ActionPlan5emptyEv.exit.thread:       ; preds = %591, %596, %_ZNK5vc
           to label %712 unwind label %704
 
 712:                                              ; preds = %._crit_edge638
-  %.sroa.06.0.copyload = load ptr, ptr %7, align 8
-  invoke void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull align 8 dereferenceable(48) %53, ptr %.sroa.06.0.copyload)
+  invoke void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull align 8 dereferenceable(48) %53, ptr %2)
           to label %713 unwind label %718
 
 713:                                              ; preds = %712

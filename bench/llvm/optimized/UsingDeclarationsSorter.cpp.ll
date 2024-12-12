@@ -1795,10 +1795,9 @@ _ZSt13move_backwardIPN5clang6format12_GLOBAL__N_116UsingDeclarationES4_ET0_T_S6_
   br label %45
 
 33:                                               ; preds = %13
-  %.sroa.0.0.copyload = load i8, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  store i8 %.sroa.0.0.copyload, ptr %4, align 1
+  store i8 %2, ptr %4, align 1
   %34 = load ptr, ptr %.020, align 8
   store ptr %34, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.pn19, i64 48
@@ -1855,7 +1854,6 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN5clang6format12_GLO
   br label %14
 
 14:                                               ; preds = %.lr.ph, %tailrecurse
-  %.tr7179 = phi i8 [ %5, %.lr.ph ], [ %.sroa.02.0.copyload, %tailrecurse ]
   %.tr7078 = phi i64 [ %4, %.lr.ph ], [ %62, %tailrecurse ]
   %.tr6977 = phi i64 [ %3, %.lr.ph ], [ %61, %tailrecurse ]
   %.tr6776 = phi ptr [ %1, %.lr.ph ], [ %.063, %tailrecurse ]
@@ -1895,7 +1893,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit: ; p
   %31 = sdiv i64 %.tr6977, 2
   %32 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr75, i64 %31
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  store i8 %.tr7179, ptr %8, align 1
+  store i8 %5, ptr %8, align 1
   %33 = sub i64 %13, %30
   %34 = icmp sgt i64 %33, 0
   br i1 %34, label %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit"
@@ -1934,7 +1932,7 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit44: ;
   %45 = sdiv i64 %.tr7078, 2
   %46 = getelementptr inbounds %"struct.clang::format::(anonymous namespace)::UsingDeclaration", ptr %.tr6776, i64 %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  store i8 %.tr7179, ptr %7, align 1
+  store i8 %5, ptr %7, align 1
   %47 = ptrtoint ptr %.tr75 to i64
   %48 = sub i64 %30, %47
   %49 = icmp sgt i64 %48, 0
@@ -1959,14 +1957,14 @@ _ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i47:
   br i1 %57, label %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i47, label %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", !llvm.loop !31
 
 "_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit.i47
-  %.pre82 = ptrtoint ptr %.1.i53 to i64
+  %.pre81 = ptrtoint ptr %.1.i53 to i64
   br label %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit44
-  %.pre-phi83 = phi i64 [ %.pre82, %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %47, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit44 ]
+  %.pre-phi82 = phi i64 [ %.pre81, %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %47, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit44 ]
   %.0.lcssa.i45 = phi ptr [ %.1.i53, %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit.loopexit" ], [ %.tr75, %_ZSt7advanceIPN5clang6format12_GLOBAL__N_116UsingDeclarationElEvRT_T0_.exit44 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %58 = sub i64 %.pre-phi83, %47
+  %58 = sub i64 %.pre-phi82, %47
   %59 = sdiv exact i64 %58, 40
   br label %tailrecurse
 
@@ -1976,11 +1974,10 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %.038 = phi i64 [ %44, %"_ZSt13__lower_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %45, %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %31, %"_ZSt13__lower_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit" ], [ %59, %"_ZSt13__upper_boundIPN5clang6format12_GLOBAL__N_116UsingDeclarationES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEET_SM_SM_RKT0_T1_.exit" ]
   %60 = tail call fastcc noundef ptr @_ZNSt3_V26rotateIPN5clang6format12_GLOBAL__N_116UsingDeclarationEEET_S6_S6_S6_(ptr noundef %.064, ptr noundef %.tr6776, ptr noundef %.063)
-  %.sroa.02.0.copyload = load i8, ptr %10, align 1
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPN5clang6format12_GLOBAL__N_116UsingDeclarationElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_SM_T0_SN_T1_"(ptr noundef %.tr75, ptr noundef %.064, ptr noundef %60, i64 noundef %.0, i64 noundef %.038, i8 %.sroa.02.0.copyload)
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPN5clang6format12_GLOBAL__N_116UsingDeclarationElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_24endUsingDeclarationBlockEPN4llvm15SmallVectorImplIS3_EERKNS0_13SourceManagerEPNS0_7tooling12ReplacementsENS1_11FormatStyle28SortUsingDeclarationsOptionsEE3$_0EEEvT_SM_SM_T0_SN_T1_"(ptr noundef %.tr75, ptr noundef %.064, ptr noundef %60, i64 noundef %.0, i64 noundef %.038, i8 %5)
   %61 = sub nsw i64 %.tr6977, %.0
   %62 = sub nsw i64 %.tr7078, %.038
-  store i8 %.sroa.02.0.copyload, ptr %10, align 1
+  store i8 %5, ptr %10, align 1
   %63 = icmp eq i64 %61, 0
   %64 = icmp eq i64 %62, 0
   %or.cond = or i1 %63, %64

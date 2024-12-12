@@ -1568,8 +1568,8 @@ define dso_local void @_ZN4llvm12IRSimilarity19IRInstructionMapper20convertToUns
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.not20 = icmp eq ptr %9, %10
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq ptr %9, %10
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1577,130 +1577,130 @@ define dso_local void @_ZN4llvm12IRSimilarity19IRInstructionMapper20convertToUns
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %14
 
-14:                                               ; preds = %.lr.ph, %25
-  %15 = phi ptr [ %9, %.lr.ph ], [ %27, %25 ]
-  %16 = icmp eq ptr %15, null
-  %17 = getelementptr inbounds i8, ptr %15, i64 -24
-  %18 = select i1 %16, ptr null, ptr %17
-  %19 = tail call noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity19IRInstructionMapper25InstructionClassificationENS1_9InstrTypeEE5visitERNS_11InstructionE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(72) %18)
-  switch i32 %19, label %25 [
-    i32 0, label %20
-    i32 1, label %22
-    i32 2, label %24
+14:                                               ; preds = %.lr.ph, %24
+  %.fca.0.extract31922 = phi ptr [ %9, %.lr.ph ], [ %26, %24 ]
+  %15 = icmp eq ptr %.fca.0.extract31922, null
+  %16 = getelementptr inbounds i8, ptr %.fca.0.extract31922, i64 -24
+  %17 = select i1 %15, ptr null, ptr %16
+  %18 = tail call noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity19IRInstructionMapper25InstructionClassificationENS1_9InstrTypeEE5visitERNS_11InstructionE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(72) %17)
+  switch i32 %18, label %24 [
+    i32 0, label %19
+    i32 1, label %21
+    i32 2, label %23
   ]
 
-20:                                               ; preds = %14
-  %21 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  br label %25
+19:                                               ; preds = %14
+  %20 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  br label %24
 
-22:                                               ; preds = %14
-  %23 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext false)
-  br label %25
+21:                                               ; preds = %14
+  %22 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext false)
+  br label %24
 
-24:                                               ; preds = %14
+23:                                               ; preds = %14
   store i8 0, ptr %12, align 8
-  br label %25
+  br label %24
 
-25:                                               ; preds = %14, %20, %22, %24
-  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %5, align 8
+24:                                               ; preds = %14, %19, %21, %23
+  %25 = getelementptr inbounds nuw i8, ptr %.fca.0.extract31922, i64 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %5, align 8
   store i8 0, ptr %.sroa.26.0..sroa_idx, align 8
   store i8 0, ptr %13, align 1
-  %.not = icmp eq ptr %27, %10
+  %.not = icmp eq ptr %26, %10
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %25, %4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %33
+._crit_edge:                                      ; preds = %24, %4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = load i8, ptr %27, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %._crit_edge
-  %32 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext true)
-  br label %33
+30:                                               ; preds = %._crit_edge
+  %31 = call noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i1 noundef zeroext true)
+  br label %32
 
-33:                                               ; preds = %31, %._crit_edge
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not1921 = icmp eq ptr %34, %36
-  br i1 %.not1921, label %._crit_edge25, label %.lr.ph24
+32:                                               ; preds = %30, %._crit_edge
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not2023 = icmp eq ptr %33, %35
+  br i1 %.not2023, label %._crit_edge27, label %.lr.ph26
 
-.lr.ph24:                                         ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %38
+.lr.ph26:                                         ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %37
 
-38:                                               ; preds = %.lr.ph24, %38
-  %.sroa.015.022 = phi ptr [ %34, %.lr.ph24 ], [ %50, %38 ]
-  %39 = load ptr, ptr %.sroa.015.022, align 8
-  %40 = load ptr, ptr %37, align 8
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %40, align 8
-  %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %40, ptr %43, align 8
-  %.0.copyload.i.i.i.i9.i.i.i.i = load i64, ptr %39, align 8
-  %44 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i, 7
-  %45 = or disjoint i64 %44, %41
-  store i64 %45, ptr %39, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %39, ptr %46, align 8
-  %.0.copyload.i.i.i.i10.i.i.i.i = load i64, ptr %40, align 8
-  %47 = ptrtoint ptr %39 to i64
-  %48 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i, 7
-  %49 = or disjoint i64 %48, %47
-  store i64 %49, ptr %40, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 8
-  %.not19 = icmp eq ptr %50, %36
-  br i1 %.not19, label %._crit_edge25, label %38
+37:                                               ; preds = %.lr.ph26, %37
+  %.sroa.015.024 = phi ptr [ %33, %.lr.ph26 ], [ %49, %37 ]
+  %38 = load ptr, ptr %.sroa.015.024, align 8
+  %39 = load ptr, ptr %36, align 8
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %39, align 8
+  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %39, ptr %42, align 8
+  %.0.copyload.i.i.i.i9.i.i.i.i = load i64, ptr %38, align 8
+  %43 = and i64 %.0.copyload.i.i.i.i9.i.i.i.i, 7
+  %44 = or disjoint i64 %43, %40
+  store i64 %44, ptr %38, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %38, ptr %45, align 8
+  %.0.copyload.i.i.i.i10.i.i.i.i = load i64, ptr %39, align 8
+  %46 = ptrtoint ptr %38 to i64
+  %47 = and i64 %.0.copyload.i.i.i.i10.i.i.i.i, 7
+  %48 = or disjoint i64 %47, %46
+  store i64 %48, ptr %39, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 8
+  %.not20 = icmp eq ptr %49, %35
+  br i1 %.not20, label %._crit_edge27, label %37
 
-._crit_edge25:                                    ; preds = %38, %33
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %2, align 8
+._crit_edge27:                                    ; preds = %37, %32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  tail call void @_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS3_S5_EEEEvSA_T_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %57, ptr %34, ptr %36)
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = ptrtoint ptr %59 to i64
-  %65 = ptrtoint ptr %63 to i64
-  %66 = sub i64 %64, %65
-  %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  tail call void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %67, ptr %60, ptr %62)
-  %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit, label %68
+  %55 = sub i64 %53, %54
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  tail call void @_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS3_S5_EEEEvSA_T_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %56, ptr %33, ptr %35)
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = ptrtoint ptr %58 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = getelementptr inbounds i8, ptr %62, i64 %65
+  tail call void @_ZNSt6vectorIjSaIjEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPjS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %66, ptr %59, ptr %61)
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit, label %67
 
-68:                                               ; preds = %._crit_edge25
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = ptrtoint ptr %34 to i64
-  %73 = sub i64 %71, %72
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %73) #26
+67:                                               ; preds = %._crit_edge27
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = ptrtoint ptr %33 to i64
+  %72 = sub i64 %70, %71
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %72) #26
   br label %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit: ; preds = %._crit_edge25, %68
-  %.not.i.i.i14 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %74
+_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit: ; preds = %._crit_edge27, %67
+  %.not.i.i.i14 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %73
 
-74:                                               ; preds = %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %78 = ptrtoint ptr %60 to i64
-  %79 = sub i64 %77, %78
-  tail call void @_ZdlPvm(ptr noundef nonnull %60, i64 noundef %79) #26
+73:                                               ; preds = %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %59 to i64
+  %78 = sub i64 %76, %77
+  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %78) #26
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit, %74
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN4llvm12IRSimilarity17IRInstructionDataESaIS3_EED2Ev.exit, %73
   ret void
 }
 

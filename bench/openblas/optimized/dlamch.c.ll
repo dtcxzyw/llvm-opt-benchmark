@@ -263,42 +263,42 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   br i1 %9, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %8
-  %.pre94 = load i32, ptr @dlamc2_.lbeta, align 4, !tbaa !3
-  %.pre95 = load double, ptr @dlamc2_.leps, align 8, !tbaa !7
-  %.pre96 = load double, ptr @dlamc2_.lrmin, align 8, !tbaa !7
+  %.pre93 = load i32, ptr @dlamc2_.lbeta, align 4, !tbaa !3
+  %.pre94 = load double, ptr @dlamc2_.leps, align 8, !tbaa !7
+  %.pre95 = load double, ptr @dlamc2_.lrmin, align 8, !tbaa !7
   br label %369
 
 10:                                               ; preds = %8
   %11 = load i1, ptr @dlamc1_.first, align 4
-  br i1 %11, label %52, label %.preheader34
+  br i1 %11, label %52, label %.preheader33
 
-.preheader34:                                     ; preds = %10, %.preheader34
-  %12 = phi double [ %13, %.preheader34 ], [ 1.000000e+00, %10 ]
+.preheader33:                                     ; preds = %10, %.preheader33
+  %12 = phi double [ %13, %.preheader33 ], [ 1.000000e+00, %10 ]
   %13 = fmul double %12, 2.000000e+00
   %14 = fadd double %13, 1.000000e+00
   %15 = fsub double %14, %13
   %16 = fcmp oeq double %15, 1.000000e+00
-  br i1 %16, label %.preheader34, label %17
+  br i1 %16, label %.preheader33, label %17
 
-17:                                               ; preds = %.preheader34
+17:                                               ; preds = %.preheader33
   %18 = fcmp oeq double %14, %13
-  br i1 %18, label %.preheader32, label %.loopexit33
+  br i1 %18, label %.preheader31, label %.loopexit32
 
-.preheader32:                                     ; preds = %17, %.preheader32
-  %19 = phi double [ %20, %.preheader32 ], [ 1.000000e+00, %17 ]
+.preheader31:                                     ; preds = %17, %.preheader31
+  %19 = phi double [ %20, %.preheader31 ], [ 1.000000e+00, %17 ]
   %20 = fmul double %19, 2.000000e+00
   %21 = fadd double %13, %20
   %22 = fcmp oeq double %21, %13
-  br i1 %22, label %.preheader32, label %.loopexit33.loopexit
+  br i1 %22, label %.preheader31, label %.loopexit32.loopexit
 
-.loopexit33.loopexit:                             ; preds = %.preheader32
-  %.pre98 = fsub double %21, %13
-  br label %.loopexit33
+.loopexit32.loopexit:                             ; preds = %.preheader31
+  %.pre97 = fsub double %21, %13
+  br label %.loopexit32
 
-.loopexit33:                                      ; preds = %.loopexit33.loopexit, %17
-  %.pre-phi99 = phi double [ %.pre98, %.loopexit33.loopexit ], [ %15, %17 ]
-  %23 = phi double [ %21, %.loopexit33.loopexit ], [ %14, %17 ]
-  %24 = fadd double %.pre-phi99, 2.500000e-01
+.loopexit32:                                      ; preds = %.loopexit32.loopexit, %17
+  %.pre-phi98 = phi double [ %.pre97, %.loopexit32.loopexit ], [ %15, %17 ]
+  %23 = phi double [ %21, %.loopexit32.loopexit ], [ %14, %17 ]
+  %24 = fadd double %.pre-phi98, 2.500000e-01
   %25 = fptosi double %24 to i32
   store i32 %25, ptr @dlamc1_.lbeta, align 4, !tbaa !3
   %26 = sitofp i32 %25 to double
@@ -322,17 +322,17 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   store i32 %42, ptr @dlamc1_.lieee1, align 4, !tbaa !3
   br label %43
 
-43:                                               ; preds = %43, %.loopexit33
-  %44 = phi double [ 1.000000e+00, %.loopexit33 ], [ %47, %43 ]
-  %45 = phi i32 [ 0, %.loopexit33 ], [ %46, %43 ]
+43:                                               ; preds = %43, %.loopexit32
+  %44 = phi double [ 1.000000e+00, %.loopexit32 ], [ %47, %43 ]
+  %45 = phi i32 [ 0, %.loopexit32 ], [ %46, %43 ]
   %46 = add nuw nsw i32 %45, 1
   %47 = fmul double %44, %26
   %48 = fadd double %47, 1.000000e+00
   %49 = fsub double %48, %47
   %50 = fcmp oeq double %49, 1.000000e+00
-  br i1 %50, label %43, label %.thread100
+  br i1 %50, label %43, label %.thread99
 
-.thread100:                                       ; preds = %43
+.thread99:                                        ; preds = %43
   store i32 %46, ptr @dlamc1_.lt, align 4, !tbaa !3
   store i32 %25, ptr @dlamc2_.lbeta, align 4, !tbaa !3
   store i32 %46, ptr @dlamc2_.lt, align 4, !tbaa !3
@@ -343,38 +343,38 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 52:                                               ; preds = %10
   %.pr = load i32, ptr @dlamc1_.lt, align 4, !tbaa !3
   %.pre = load i32, ptr @dlamc1_.lbeta, align 4, !tbaa !3
-  %.pre92 = load i1, ptr @dlamc1_.lrnd, align 4
-  %.pre93 = load i32, ptr @dlamc1_.lieee1, align 4, !tbaa !3
-  %.pre97 = sitofp i32 %.pre to double
-  %53 = icmp ne i32 %.pre93, 0
+  %.pre91 = load i1, ptr @dlamc1_.lrnd, align 4
+  %.pre92 = load i32, ptr @dlamc1_.lieee1, align 4, !tbaa !3
+  %.pre96 = sitofp i32 %.pre to double
+  %53 = icmp ne i32 %.pre92, 0
   store i32 %.pre, ptr @dlamc2_.lbeta, align 4, !tbaa !3
   store i32 %.pr, ptr @dlamc2_.lt, align 4, !tbaa !3
-  %54 = zext i1 %.pre92 to i32
+  %54 = zext i1 %.pre91 to i32
   store i1 true, ptr @dlamc1_.first, align 4
   %55 = icmp eq i32 %.pr, 0
-  br i1 %55, label %.loopexit31, label %56
+  br i1 %55, label %.loopexit30, label %56
 
-56:                                               ; preds = %.thread100, %52
-  %57 = phi i32 [ %51, %.thread100 ], [ %54, %52 ]
-  %58 = phi i32 [ %46, %.thread100 ], [ %.pr, %52 ]
-  %59 = phi i32 [ %25, %.thread100 ], [ %.pre, %52 ]
-  %60 = phi i1 [ %41, %.thread100 ], [ %53, %52 ]
-  %.pre-phi102 = phi double [ %26, %.thread100 ], [ %.pre97, %52 ]
+56:                                               ; preds = %.thread99, %52
+  %57 = phi i32 [ %51, %.thread99 ], [ %54, %52 ]
+  %58 = phi i32 [ %46, %.thread99 ], [ %.pr, %52 ]
+  %59 = phi i32 [ %25, %.thread99 ], [ %.pre, %52 ]
+  %60 = phi i1 [ %41, %.thread99 ], [ %53, %52 ]
+  %.pre-phi101 = phi double [ %26, %.thread99 ], [ %.pre96, %52 ]
   %61 = icmp sgt i32 %58, 0
-  %62 = fdiv double 1.000000e+00, %.pre-phi102
-  %63 = select i1 %61, double %62, double %.pre-phi102
+  %62 = fdiv double 1.000000e+00, %.pre-phi101
+  %63 = select i1 %61, double %62, double %.pre-phi101
   %64 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
   %65 = zext nneg i32 %64 to i64
   %66 = and i64 %65, 1
   %67 = icmp eq i64 %66, 0
   %68 = select i1 %67, double 1.000000e+00, double %63
   %69 = icmp samesign ult i32 %64, 2
-  br i1 %69, label %.loopexit31, label %.preheader30
+  br i1 %69, label %.loopexit30, label %.preheader29
 
-.preheader30:                                     ; preds = %56, %.preheader30
-  %70 = phi double [ %78, %.preheader30 ], [ %68, %56 ]
-  %71 = phi i64 [ %73, %.preheader30 ], [ %65, %56 ]
-  %72 = phi double [ %74, %.preheader30 ], [ %63, %56 ]
+.preheader29:                                     ; preds = %56, %.preheader29
+  %70 = phi double [ %78, %.preheader29 ], [ %68, %56 ]
+  %71 = phi i64 [ %73, %.preheader29 ], [ %65, %56 ]
+  %72 = phi double [ %74, %.preheader29 ], [ %63, %56 ]
   %73 = lshr i64 %71, 1
   %74 = fmul double %72, %72
   %75 = and i64 %71, 2
@@ -382,23 +382,23 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %77 = select i1 %76, double 1.000000e+00, double %74
   %78 = fmul double %70, %77
   %79 = icmp samesign ult i64 %71, 4
-  br i1 %79, label %.loopexit31, label %.preheader30, !llvm.loop !9
+  br i1 %79, label %.loopexit30, label %.preheader29, !llvm.loop !9
 
-.loopexit31:                                      ; preds = %.preheader30, %56, %52
-  %80 = phi i32 [ %54, %52 ], [ %57, %56 ], [ %57, %.preheader30 ]
-  %81 = phi i32 [ 0, %52 ], [ %58, %56 ], [ %58, %.preheader30 ]
-  %82 = phi i32 [ %.pre, %52 ], [ %59, %56 ], [ %59, %.preheader30 ]
-  %83 = phi i1 [ %53, %52 ], [ %60, %56 ], [ %60, %.preheader30 ]
-  %.pre-phi103 = phi double [ %.pre97, %52 ], [ %.pre-phi102, %56 ], [ %.pre-phi102, %.preheader30 ]
-  %84 = phi double [ 1.000000e+00, %52 ], [ %68, %56 ], [ %78, %.preheader30 ]
+.loopexit30:                                      ; preds = %.preheader29, %56, %52
+  %80 = phi i32 [ %54, %52 ], [ %57, %56 ], [ %57, %.preheader29 ]
+  %81 = phi i32 [ 0, %52 ], [ %58, %56 ], [ %58, %.preheader29 ]
+  %82 = phi i32 [ %.pre, %52 ], [ %59, %56 ], [ %59, %.preheader29 ]
+  %83 = phi i1 [ %53, %52 ], [ %60, %56 ], [ %60, %.preheader29 ]
+  %.pre-phi102 = phi double [ %.pre96, %52 ], [ %.pre-phi101, %56 ], [ %.pre-phi101, %.preheader29 ]
+  %84 = phi double [ 1.000000e+00, %52 ], [ %68, %56 ], [ %78, %.preheader29 ]
   %85 = fcmp ogt double %84, 0x3CA0000000000000
   %86 = select i1 %85, double %84, double 0x3CA0000000000000
   store double 1.000000e+00, ptr @dlamc2_.leps, align 8, !tbaa !7
   %87 = fcmp olt double %86, 1.000000e+00
-  br i1 %87, label %.preheader29, label %101
+  br i1 %87, label %.preheader28, label %101
 
-.preheader29:                                     ; preds = %.loopexit31, %.preheader29
-  %88 = phi double [ %96, %.preheader29 ], [ %86, %.loopexit31 ]
+.preheader28:                                     ; preds = %.loopexit30, %.preheader28
+  %88 = phi double [ %96, %.preheader28 ], [ %86, %.loopexit30 ]
   %89 = fmul double %88, 5.000000e-01
   %90 = fmul double %88, %88
   %91 = fmul double %90, 3.200000e+01
@@ -410,14 +410,14 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %97 = fcmp ogt double %88, %96
   %98 = fcmp ogt double %96, 0.000000e+00
   %99 = and i1 %98, %97
-  br i1 %99, label %.preheader29, label %100
+  br i1 %99, label %.preheader28, label %100
 
-100:                                              ; preds = %.preheader29
+100:                                              ; preds = %.preheader28
   store double %88, ptr @dlamc2_.leps, align 8, !tbaa !7
   br label %101
 
-101:                                              ; preds = %100, %.loopexit31
-  %102 = phi double [ %88, %100 ], [ 1.000000e+00, %.loopexit31 ]
+101:                                              ; preds = %100, %.loopexit30
+  %102 = phi double [ %88, %100 ], [ 1.000000e+00, %.loopexit30 ]
   %103 = fcmp olt double %84, %102
   br i1 %103, label %104, label %105
 
@@ -427,7 +427,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 
 105:                                              ; preds = %104, %101
   %106 = phi double [ %84, %104 ], [ %102, %101 ]
-  %107 = fdiv double 1.000000e+00, %.pre-phi103
+  %107 = fdiv double 1.000000e+00, %.pre-phi102
   br label %108
 
 108:                                              ; preds = %108, %105
@@ -444,7 +444,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %117 = icmp slt i32 %82, 1
   br label %128
 
-.loopexit27:                                      ; preds = %145, %.thread
+.loopexit26:                                      ; preds = %145, %.thread
   %.pn = phi double [ %136, %.thread ], [ %144, %145 ]
   %118 = phi double [ 0.000000e+00, %.thread ], [ %139, %145 ]
   %119 = phi double [ 0.000000e+00, %.thread ], [ %148, %145 ]
@@ -458,29 +458,29 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %128, label %151
 
-128:                                              ; preds = %.loopexit27, %115
-  %129 = phi i32 [ 1, %115 ], [ %131, %.loopexit27 ]
-  %130 = phi double [ %116, %115 ], [ %133, %.loopexit27 ]
+128:                                              ; preds = %.loopexit26, %115
+  %129 = phi i32 [ 1, %115 ], [ %131, %.loopexit26 ]
+  %130 = phi double [ %116, %115 ], [ %133, %.loopexit26 ]
   %131 = add nsw i32 %129, -1
-  %132 = fdiv double %130, %.pre-phi103
+  %132 = fdiv double %130, %.pre-phi102
   %133 = fadd double %132, 0.000000e+00
-  %134 = fmul double %133, %.pre-phi103
-  br i1 %117, label %.thread, label %.preheader28
+  %134 = fmul double %133, %.pre-phi102
+  br i1 %117, label %.thread, label %.preheader27
 
 .thread:                                          ; preds = %128
   %135 = fmul double %107, %130
   %136 = fadd double %135, 0.000000e+00
-  br label %.loopexit27
+  br label %.loopexit26
 
-.preheader28:                                     ; preds = %128, %.preheader28
-  %137 = phi double [ %139, %.preheader28 ], [ 0.000000e+00, %128 ]
-  %138 = phi i32 [ %140, %.preheader28 ], [ 1, %128 ]
+.preheader27:                                     ; preds = %128, %.preheader27
+  %137 = phi double [ %139, %.preheader27 ], [ 0.000000e+00, %128 ]
+  %138 = phi i32 [ %140, %.preheader27 ], [ 1, %128 ]
   %139 = fadd double %133, %137
   %140 = add nuw i32 %138, 1
   %141 = icmp eq i32 %138, %82
-  br i1 %141, label %142, label %.preheader28, !llvm.loop !13
+  br i1 %141, label %142, label %.preheader27, !llvm.loop !13
 
-142:                                              ; preds = %.preheader28
+142:                                              ; preds = %.preheader27
   %143 = fmul double %107, %130
   %144 = fadd double %143, 0.000000e+00
   br label %145
@@ -491,17 +491,17 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %148 = fadd double %144, %146
   %149 = add nuw i32 %147, 1
   %150 = icmp eq i32 %147, %82
-  br i1 %150, label %.loopexit27, label %145, !llvm.loop !14
+  br i1 %150, label %.loopexit26, label %145, !llvm.loop !14
 
-151:                                              ; preds = %.loopexit27
+151:                                              ; preds = %.loopexit26
   %152 = fsub double 0.000000e+00, %107
   br label %163
 
-.loopexit25:                                      ; preds = %180, %.thread14
-  %.pn62 = phi double [ %171, %.thread14 ], [ %179, %180 ]
-  %153 = phi double [ 0.000000e+00, %.thread14 ], [ %174, %180 ]
-  %154 = phi double [ 0.000000e+00, %.thread14 ], [ %183, %180 ]
-  %155 = fdiv double %.pn62, %107
+.loopexit24:                                      ; preds = %180, %.thread13
+  %.pn61 = phi double [ %171, %.thread13 ], [ %179, %180 ]
+  %153 = phi double [ 0.000000e+00, %.thread13 ], [ %174, %180 ]
+  %154 = phi double [ 0.000000e+00, %.thread13 ], [ %183, %180 ]
+  %155 = fdiv double %.pn61, %107
   %156 = fcmp oeq double %169, %165
   %157 = fcmp oeq double %155, %165
   %158 = select i1 %156, i1 %157, i1 false
@@ -511,29 +511,29 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %163, label %186
 
-163:                                              ; preds = %.loopexit25, %151
-  %164 = phi i32 [ 1, %151 ], [ %166, %.loopexit25 ]
-  %165 = phi double [ %152, %151 ], [ %168, %.loopexit25 ]
+163:                                              ; preds = %.loopexit24, %151
+  %164 = phi i32 [ 1, %151 ], [ %166, %.loopexit24 ]
+  %165 = phi double [ %152, %151 ], [ %168, %.loopexit24 ]
   %166 = add nsw i32 %164, -1
-  %167 = fdiv double %165, %.pre-phi103
+  %167 = fdiv double %165, %.pre-phi102
   %168 = fadd double %167, 0.000000e+00
-  %169 = fmul double %168, %.pre-phi103
-  br i1 %117, label %.thread14, label %.preheader26
+  %169 = fmul double %168, %.pre-phi102
+  br i1 %117, label %.thread13, label %.preheader25
 
-.thread14:                                        ; preds = %163
+.thread13:                                        ; preds = %163
   %170 = fmul double %107, %165
   %171 = fadd double %170, 0.000000e+00
-  br label %.loopexit25
+  br label %.loopexit24
 
-.preheader26:                                     ; preds = %163, %.preheader26
-  %172 = phi double [ %174, %.preheader26 ], [ 0.000000e+00, %163 ]
-  %173 = phi i32 [ %175, %.preheader26 ], [ 1, %163 ]
+.preheader25:                                     ; preds = %163, %.preheader25
+  %172 = phi double [ %174, %.preheader25 ], [ 0.000000e+00, %163 ]
+  %173 = phi i32 [ %175, %.preheader25 ], [ 1, %163 ]
   %174 = fadd double %168, %172
   %175 = add nuw i32 %173, 1
   %176 = icmp eq i32 %173, %82
-  br i1 %176, label %177, label %.preheader26, !llvm.loop !13
+  br i1 %176, label %177, label %.preheader25, !llvm.loop !13
 
-177:                                              ; preds = %.preheader26
+177:                                              ; preds = %.preheader25
   %178 = fmul double %107, %165
   %179 = fadd double %178, 0.000000e+00
   br label %180
@@ -544,23 +544,23 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %183 = fadd double %179, %181
   %184 = add nuw i32 %182, 1
   %185 = icmp eq i32 %182, %82
-  br i1 %185, label %.loopexit25, label %180, !llvm.loop !14
+  br i1 %185, label %.loopexit24, label %180, !llvm.loop !14
 
-186:                                              ; preds = %.loopexit25
+186:                                              ; preds = %.loopexit24
   %187 = fadd double %112, 1.000000e+00
   %188 = fcmp ord double %187, 0.000000e+00
-  br i1 %188, label %189, label %.thread16
+  br i1 %188, label %189, label %.thread15
 
 189:                                              ; preds = %186
   %190 = fmul double %107, %187
   %191 = fadd double %190, 0.000000e+00
   br label %202
 
-.loopexit23:                                      ; preds = %219, %.thread15
-  %.pn63 = phi double [ %210, %.thread15 ], [ %218, %219 ]
-  %192 = phi double [ 0.000000e+00, %.thread15 ], [ %213, %219 ]
-  %193 = phi double [ 0.000000e+00, %.thread15 ], [ %222, %219 ]
-  %194 = fdiv double %.pn63, %107
+.loopexit22:                                      ; preds = %219, %.thread14
+  %.pn62 = phi double [ %210, %.thread14 ], [ %218, %219 ]
+  %192 = phi double [ 0.000000e+00, %.thread14 ], [ %213, %219 ]
+  %193 = phi double [ 0.000000e+00, %.thread14 ], [ %222, %219 ]
+  %194 = fdiv double %.pn62, %107
   %195 = fcmp oeq double %208, %204
   %196 = fcmp oeq double %194, %204
   %197 = select i1 %195, i1 %196, i1 false
@@ -570,29 +570,29 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %201 = select i1 %199, i1 %200, i1 false
   br i1 %201, label %202, label %225
 
-202:                                              ; preds = %.loopexit23, %189
-  %203 = phi i32 [ 1, %189 ], [ %205, %.loopexit23 ]
-  %204 = phi double [ %191, %189 ], [ %207, %.loopexit23 ]
+202:                                              ; preds = %.loopexit22, %189
+  %203 = phi i32 [ 1, %189 ], [ %205, %.loopexit22 ]
+  %204 = phi double [ %191, %189 ], [ %207, %.loopexit22 ]
   %205 = add nsw i32 %203, -1
-  %206 = fdiv double %204, %.pre-phi103
+  %206 = fdiv double %204, %.pre-phi102
   %207 = fadd double %206, 0.000000e+00
-  %208 = fmul double %207, %.pre-phi103
-  br i1 %117, label %.thread15, label %.preheader24
+  %208 = fmul double %207, %.pre-phi102
+  br i1 %117, label %.thread14, label %.preheader23
 
-.thread15:                                        ; preds = %202
+.thread14:                                        ; preds = %202
   %209 = fmul double %107, %204
   %210 = fadd double %209, 0.000000e+00
-  br label %.loopexit23
+  br label %.loopexit22
 
-.preheader24:                                     ; preds = %202, %.preheader24
-  %211 = phi double [ %213, %.preheader24 ], [ 0.000000e+00, %202 ]
-  %212 = phi i32 [ %214, %.preheader24 ], [ 1, %202 ]
+.preheader23:                                     ; preds = %202, %.preheader23
+  %211 = phi double [ %213, %.preheader23 ], [ 0.000000e+00, %202 ]
+  %212 = phi i32 [ %214, %.preheader23 ], [ 1, %202 ]
   %213 = fadd double %207, %211
   %214 = add nuw i32 %212, 1
   %215 = icmp eq i32 %212, %82
-  br i1 %215, label %216, label %.preheader24, !llvm.loop !13
+  br i1 %215, label %216, label %.preheader23, !llvm.loop !13
 
-216:                                              ; preds = %.preheader24
+216:                                              ; preds = %.preheader23
   %217 = fmul double %107, %204
   %218 = fadd double %217, 0.000000e+00
   br label %219
@@ -603,17 +603,17 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %222 = fadd double %218, %220
   %223 = add nuw i32 %221, 1
   %224 = icmp eq i32 %221, %82
-  br i1 %224, label %.loopexit23, label %219, !llvm.loop !14
+  br i1 %224, label %.loopexit22, label %219, !llvm.loop !14
 
-225:                                              ; preds = %.loopexit23
+225:                                              ; preds = %.loopexit22
   %226 = fsub double 0.000000e+00, %190
   br label %237
 
-.loopexit:                                        ; preds = %254, %.thread17
-  %.pn64 = phi double [ %245, %.thread17 ], [ %253, %254 ]
-  %227 = phi double [ 0.000000e+00, %.thread17 ], [ %248, %254 ]
-  %228 = phi double [ 0.000000e+00, %.thread17 ], [ %257, %254 ]
-  %229 = fdiv double %.pn64, %107
+.loopexit:                                        ; preds = %254, %.thread16
+  %.pn63 = phi double [ %245, %.thread16 ], [ %253, %254 ]
+  %227 = phi double [ 0.000000e+00, %.thread16 ], [ %248, %254 ]
+  %228 = phi double [ 0.000000e+00, %.thread16 ], [ %257, %254 ]
+  %229 = fdiv double %.pn63, %107
   %230 = fcmp oeq double %243, %239
   %231 = fcmp oeq double %229, %239
   %232 = select i1 %230, i1 %231, i1 false
@@ -621,18 +621,18 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %234 = select i1 %232, i1 %233, i1 false
   %235 = fcmp oeq double %228, %239
   %236 = select i1 %234, i1 %235, i1 false
-  br i1 %236, label %237, label %.thread16
+  br i1 %236, label %237, label %.thread15
 
 237:                                              ; preds = %.loopexit, %225
   %238 = phi i32 [ 1, %225 ], [ %240, %.loopexit ]
   %239 = phi double [ %226, %225 ], [ %242, %.loopexit ]
   %240 = add nsw i32 %238, -1
-  %241 = fdiv double %239, %.pre-phi103
+  %241 = fdiv double %239, %.pre-phi102
   %242 = fadd double %241, 0.000000e+00
-  %243 = fmul double %242, %.pre-phi103
-  br i1 %117, label %.thread17, label %.preheader
+  %243 = fmul double %242, %.pre-phi102
+  br i1 %117, label %.thread16, label %.preheader
 
-.thread17:                                        ; preds = %237
+.thread16:                                        ; preds = %237
   %244 = fmul double %107, %239
   %245 = fadd double %244, 0.000000e+00
   br label %.loopexit
@@ -658,7 +658,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %259 = icmp eq i32 %256, %82
   br i1 %259, label %.loopexit, label %254, !llvm.loop !14
 
-.thread16:                                        ; preds = %.loopexit, %186
+.thread15:                                        ; preds = %.loopexit, %186
   %260 = phi i32 [ 1, %186 ], [ %205, %.loopexit ]
   %261 = phi i32 [ 1, %186 ], [ %240, %.loopexit ]
   %262 = icmp eq i32 %129, %164
@@ -667,7 +667,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %265 = icmp eq i32 %131, %260
   br i1 %264, label %266, label %275
 
-266:                                              ; preds = %.thread16
+266:                                              ; preds = %.thread15
   br i1 %265, label %299, label %267
 
 267:                                              ; preds = %266
@@ -684,7 +684,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %274 = tail call i32 @llvm.smin.i32(i32 %131, i32 %260)
   br label %299
 
-275:                                              ; preds = %.thread16
+275:                                              ; preds = %.thread15
   %276 = icmp eq i32 %166, %261
   %277 = select i1 %265, i1 %276, i1 false
   %278 = sub i32 %129, %164
@@ -793,7 +793,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   br i1 %343, label %.loopexit3.i, label %344
 
 344:                                              ; preds = %321
-  %345 = fadd double %.pre-phi103, -1.000000e+00
+  %345 = fadd double %.pre-phi102, -1.000000e+00
   br label %346
 
 346:                                              ; preds = %346, %344
@@ -820,7 +820,7 @@ define noundef i32 @dlamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 .preheader.i:                                     ; preds = %.loopexit3.i, %.preheader.i
   %362 = phi i32 [ %366, %.preheader.i ], [ 1, %.loopexit3.i ]
   %363 = phi double [ %365, %.preheader.i ], [ %360, %.loopexit3.i ]
-  %364 = fmul double %363, %.pre-phi103
+  %364 = fmul double %363, %.pre-phi102
   %365 = fadd double %364, 0.000000e+00
   %366 = add nuw i32 %362, 1
   %367 = icmp eq i32 %362, %341
@@ -832,9 +832,9 @@ dlamc5_.exit:                                     ; preds = %.preheader.i, %.loo
   br label %369
 
 369:                                              ; preds = %._crit_edge, %dlamc5_.exit
-  %370 = phi double [ %.pre96, %._crit_edge ], [ %313, %dlamc5_.exit ]
-  %371 = phi double [ %.pre95, %._crit_edge ], [ %106, %dlamc5_.exit ]
-  %372 = phi i32 [ %.pre94, %._crit_edge ], [ %82, %dlamc5_.exit ]
+  %370 = phi double [ %.pre95, %._crit_edge ], [ %313, %dlamc5_.exit ]
+  %371 = phi double [ %.pre94, %._crit_edge ], [ %106, %dlamc5_.exit ]
+  %372 = phi i32 [ %.pre93, %._crit_edge ], [ %82, %dlamc5_.exit ]
   %373 = phi i32 [ undef, %._crit_edge ], [ %80, %dlamc5_.exit ]
   store i32 %372, ptr %0, align 4, !tbaa !3
   %374 = load i32, ptr @dlamc2_.lt, align 4, !tbaa !3

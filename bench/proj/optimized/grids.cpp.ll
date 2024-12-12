@@ -5236,7 +5236,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %127, i32 noundef 3, ptr noundef nonnull @.str.24)
-  br label %176
+  br label %177
 
 128:                                              ; preds = %122
   %129 = load i16, ptr %11, align 2
@@ -5273,8 +5273,8 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %145 = load i16, ptr %144, align 2
   %146 = icmp ugt i16 %145, 1
-  %or.cond129 = select i1 %.not98, i1 true, i1 %146
-  br i1 %or.cond129, label %._crit_edge, label %151
+  %or.cond145 = select i1 %.not98, i1 true, i1 %146
+  br i1 %or.cond145, label %._crit_edge, label %151
 
 ._crit_edge:                                      ; preds = %141
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5282,11 +5282,11 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %149 = zext i16 %143 to i32
   %150 = zext i16 %145 to i32
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %148, i32 noundef 3, ptr noundef nonnull @.str.27, i32 noundef %149, i32 noundef %150)
-  %.pre126 = load i16, ptr %11, align 2
+  %.pre141 = load i16, ptr %11, align 2
   br label %151
 
 151:                                              ; preds = %141, %._crit_edge
-  %152 = phi i16 [ %.pre126, %._crit_edge ], [ %129, %141 ]
+  %152 = phi i16 [ %.pre141, %._crit_edge ], [ %129, %141 ]
   %153 = icmp ugt i16 %152, 7
   br i1 %153, label %.lr.ph, label %.loopexit
 
@@ -5295,260 +5295,260 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %155 = zext i16 %152 to i64
   br label %156
 
-156:                                              ; preds = %.lr.ph, %171
-  %indvars.iv124 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next125, %171 ]
-  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %171 ]
-  %.178119 = phi i1 [ false, %.lr.ph ], [ %.2, %171 ]
-  %157 = phi i8 [ 1, %.lr.ph ], [ %172, %171 ]
-  %158 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv124
-  %159 = load i16, ptr %158, align 2
-  switch i16 %159, label %171 [
-    i16 1024, label %160
-    i16 1025, label %167
+156:                                              ; preds = %.lr.ph, %172
+  %indvars.iv139 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next140, %172 ]
+  %indvars.iv = phi i64 [ 7, %.lr.ph ], [ %indvars.iv.next, %172 ]
+  %.178132 = phi i1 [ false, %.lr.ph ], [ %.2, %172 ]
+  %157 = phi i1 [ true, %.lr.ph ], [ %174, %172 ]
+  %158 = phi i8 [ 1, %.lr.ph ], [ %173, %172 ]
+  %159 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv139
+  %160 = load i16, ptr %159, align 2
+  switch i16 %160, label %172 [
+    i16 1024, label %161
+    i16 1025, label %168
   ]
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
-  %162 = load i16, ptr %161, align 2
-  switch i16 %162, label %164 [
-    i16 1, label %163
-    i16 2, label %171
+161:                                              ; preds = %156
+  %162 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
+  %163 = load i16, ptr %162, align 2
+  switch i16 %163, label %165 [
+    i16 1, label %164
+    i16 2, label %172
   ]
 
-163:                                              ; preds = %160
-  br label %171
+164:                                              ; preds = %161
+  br label %172
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %166 = load ptr, ptr %165, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %166, i32 noundef 1, ptr noundef nonnull @.str.28)
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %167 = load ptr, ptr %166, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %167, i32 noundef 1, ptr noundef nonnull @.str.28)
   store ptr null, ptr %0, align 8
   br label %328
 
-167:                                              ; preds = %156
-  %168 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
-  %169 = load i16, ptr %168, align 2
-  %170 = icmp eq i16 %169, 1
-  %spec.select = select i1 %170, i1 true, i1 %.178119
-  br label %171
+168:                                              ; preds = %156
+  %169 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
+  %170 = load i16, ptr %169, align 2
+  %171 = icmp eq i16 %170, 1
+  %spec.select = select i1 %171, i1 true, i1 %.178132
+  br label %172
 
-171:                                              ; preds = %167, %156, %160, %163
-  %172 = phi i8 [ 0, %163 ], [ %157, %160 ], [ %157, %156 ], [ %157, %167 ]
-  %.2 = phi i1 [ %.178119, %163 ], [ %.178119, %160 ], [ %.178119, %156 ], [ %spec.select, %167 ]
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
-  %173 = or disjoint i64 %indvars.iv.next125, 3
-  %174 = icmp samesign ult i64 %173, %155
+172:                                              ; preds = %168, %156, %161, %164
+  %173 = phi i8 [ 0, %164 ], [ %158, %161 ], [ %158, %156 ], [ %158, %168 ]
+  %174 = phi i1 [ false, %164 ], [ %157, %161 ], [ %157, %156 ], [ %157, %168 ]
+  %.2 = phi i1 [ %.178132, %164 ], [ %.178132, %161 ], [ %.178132, %156 ], [ %spec.select, %168 ]
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 4
+  %175 = or disjoint i64 %indvars.iv.next140, 3
+  %176 = icmp samesign ult i64 %175, %155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  br i1 %174, label %156, label %.loopexit, !llvm.loop !35
+  br i1 %176, label %156, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %171, %151
-  %.lcssa = phi i8 [ 1, %151 ], [ %172, %171 ]
-  %.178.lcssa = phi i1 [ false, %151 ], [ %.2, %171 ]
-  store i8 %.lcssa, ptr %13, align 8
-  %175 = trunc nuw i8 %.lcssa to i1
-  br label %176
+.loopexit:                                        ; preds = %172, %151
+  %.lcssa129 = phi i8 [ 1, %151 ], [ %173, %172 ]
+  %.lcssa = phi i1 [ true, %151 ], [ %174, %172 ]
+  %.178.lcssa = phi i1 [ false, %151 ], [ %.2, %172 ]
+  store i8 %.lcssa129, ptr %13, align 8
+  br label %177
 
-176:                                              ; preds = %.loopexit, %125
-  %177 = phi i1 [ true, %125 ], [ %175, %.loopexit ]
+177:                                              ; preds = %.loopexit, %125
+  %178 = phi i1 [ true, %125 ], [ %.lcssa, %.loopexit ]
   %.077 = phi i1 [ false, %125 ], [ %.178.lcssa, %.loopexit ]
   store ptr null, ptr %14, align 8
-  %178 = load ptr, ptr %29, align 8
-  %179 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %178, i32 noundef 34264, ptr noundef nonnull %11, ptr noundef nonnull %14)
-  %180 = icmp ne i32 %179, 0
-  %181 = load i16, ptr %11, align 2
-  %182 = icmp eq i16 %181, 16
-  %or.cond28 = select i1 %180, i1 %182, i1 false
-  br i1 %or.cond28, label %183, label %204
+  %179 = load ptr, ptr %29, align 8
+  %180 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %179, i32 noundef 34264, ptr noundef nonnull %11, ptr noundef nonnull %14)
+  %181 = icmp ne i32 %180, 0
+  %182 = load i16, ptr %11, align 2
+  %183 = icmp eq i16 %182, 16
+  %or.cond28 = select i1 %181, i1 %183, i1 false
+  br i1 %or.cond28, label %184, label %205
 
-183:                                              ; preds = %176
-  %184 = load ptr, ptr %14, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %186 = load double, ptr %185, align 8
-  %187 = fcmp une double %186, 0.000000e+00
-  br i1 %187, label %192, label %188
+184:                                              ; preds = %177
+  %185 = load ptr, ptr %14, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load double, ptr %186, align 8
+  %188 = fcmp une double %187, 0.000000e+00
+  br i1 %188, label %193, label %189
 
-188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %190 = load double, ptr %189, align 8
-  %191 = fcmp une double %190, 0.000000e+00
-  br i1 %191, label %192, label %195
+189:                                              ; preds = %184
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 32
+  %191 = load double, ptr %190, align 8
+  %192 = fcmp une double %191, 0.000000e+00
+  br i1 %192, label %193, label %196
 
-192:                                              ; preds = %188, %183
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %194 = load ptr, ptr %193, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %194, i32 noundef 1, ptr noundef nonnull @.str.29)
+193:                                              ; preds = %189, %184
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %195 = load ptr, ptr %194, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %195, i32 noundef 1, ptr noundef nonnull @.str.29)
   store ptr null, ptr %0, align 8
   br label %328
 
-195:                                              ; preds = %188
-  %196 = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %197 = load double, ptr %196, align 8
-  %198 = load double, ptr %184, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %184, i64 56
-  %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %202 = load double, ptr %201, align 8
-  %203 = fneg double %202
-  br label %242
+196:                                              ; preds = %189
+  %197 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %198 = load double, ptr %197, align 8
+  %199 = load double, ptr %185, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %185, i64 56
+  %201 = load double, ptr %200, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %185, i64 40
+  %203 = load double, ptr %202, align 8
+  %204 = fneg double %203
+  br label %243
 
-204:                                              ; preds = %176
+205:                                              ; preds = %177
   store ptr null, ptr %15, align 8
-  %205 = load ptr, ptr %29, align 8
-  %206 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %205, i32 noundef 33550, ptr noundef nonnull %11, ptr noundef nonnull %15)
-  %.not99 = icmp eq i32 %206, 1
-  br i1 %.not99, label %210, label %207
+  %206 = load ptr, ptr %29, align 8
+  %207 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %206, i32 noundef 33550, ptr noundef nonnull %11, ptr noundef nonnull %15)
+  %.not99 = icmp eq i32 %207, 1
+  br i1 %.not99, label %211, label %208
 
-207:                                              ; preds = %204
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %209 = load ptr, ptr %208, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %209, i32 noundef 1, ptr noundef nonnull @.str.30)
+208:                                              ; preds = %205
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %210 = load ptr, ptr %209, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %210, i32 noundef 1, ptr noundef nonnull @.str.30)
   store ptr null, ptr %0, align 8
   br label %328
 
-210:                                              ; preds = %204
-  %211 = load i16, ptr %11, align 2
-  %.not100 = icmp eq i16 %211, 3
-  br i1 %.not100, label %215, label %212
+211:                                              ; preds = %205
+  %212 = load i16, ptr %11, align 2
+  %.not100 = icmp eq i16 %212, 3
+  br i1 %.not100, label %216, label %213
 
-212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %214 = load ptr, ptr %213, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %214, i32 noundef 1, ptr noundef nonnull @.str.31)
+213:                                              ; preds = %211
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %215 = load ptr, ptr %214, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %215, i32 noundef 1, ptr noundef nonnull @.str.31)
   store ptr null, ptr %0, align 8
   br label %328
 
-215:                                              ; preds = %210
-  %216 = load ptr, ptr %15, align 8
-  %217 = load double, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %219 = load double, ptr %218, align 8
+216:                                              ; preds = %211
+  %217 = load ptr, ptr %15, align 8
+  %218 = load double, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %220 = load double, ptr %219, align 8
   store ptr null, ptr %16, align 8
-  %220 = load ptr, ptr %29, align 8
-  %221 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %220, i32 noundef 33922, ptr noundef nonnull %11, ptr noundef nonnull %16)
-  %.not101 = icmp eq i32 %221, 1
-  br i1 %.not101, label %225, label %222
+  %221 = load ptr, ptr %29, align 8
+  %222 = call i32 (ptr, i32, ...) @TIFFGetField(ptr noundef %221, i32 noundef 33922, ptr noundef nonnull %11, ptr noundef nonnull %16)
+  %.not101 = icmp eq i32 %222, 1
+  br i1 %.not101, label %226, label %223
 
-222:                                              ; preds = %215
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %224 = load ptr, ptr %223, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %224, i32 noundef 1, ptr noundef nonnull @.str.32)
+223:                                              ; preds = %216
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %225 = load ptr, ptr %224, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %225, i32 noundef 1, ptr noundef nonnull @.str.32)
   store ptr null, ptr %0, align 8
   br label %328
 
-225:                                              ; preds = %215
-  %226 = load i16, ptr %11, align 2
-  %.not102 = icmp eq i16 %226, 6
-  br i1 %.not102, label %230, label %227
+226:                                              ; preds = %216
+  %227 = load i16, ptr %11, align 2
+  %.not102 = icmp eq i16 %227, 6
+  br i1 %.not102, label %231, label %228
 
-227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %229 = load ptr, ptr %228, align 8
-  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %229, i32 noundef 1, ptr noundef nonnull @.str.33)
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %230 = load ptr, ptr %229, align 8
+  call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %230, i32 noundef 1, ptr noundef nonnull @.str.33)
   store ptr null, ptr %0, align 8
   br label %328
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %16, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 24
-  %233 = load double, ptr %232, align 8
-  %234 = load double, ptr %231, align 8
-  %235 = fneg double %234
-  %236 = call double @llvm.fmuladd.f64(double %235, double %217, double %233)
-  %237 = getelementptr inbounds nuw i8, ptr %231, i64 32
-  %238 = load double, ptr %237, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %240 = load double, ptr %239, align 8
-  %241 = call double @llvm.fmuladd.f64(double %240, double %219, double %238)
-  br label %242
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %16, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
+  %234 = load double, ptr %233, align 8
+  %235 = load double, ptr %232, align 8
+  %236 = fneg double %235
+  %237 = call double @llvm.fmuladd.f64(double %236, double %218, double %234)
+  %238 = getelementptr inbounds nuw i8, ptr %232, i64 32
+  %239 = load double, ptr %238, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %241 = load double, ptr %240, align 8
+  %242 = call double @llvm.fmuladd.f64(double %241, double %220, double %239)
+  br label %243
 
-242:                                              ; preds = %230, %195
-  %.076 = phi double [ %198, %195 ], [ %217, %230 ]
-  %.075 = phi double [ %203, %195 ], [ %219, %230 ]
-  %.073 = phi double [ %197, %195 ], [ %236, %230 ]
-  %.072 = phi double [ %200, %195 ], [ %241, %230 ]
-  %243 = call double @llvm.fmuladd.f64(double %.076, double 5.000000e-01, double %.073)
-  %244 = call double @llvm.fmuladd.f64(double %.075, double -5.000000e-01, double %.072)
-  %.174 = select i1 %.077, double %243, double %.073
-  %.1 = select i1 %.077, double %244, double %.072
-  %245 = select i1 %177, double 0x3F91DF46A2529D39, double 1.000000e+00
-  %246 = fmul double %.174, %245
-  %247 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store double %246, ptr %247, align 8
-  %248 = fmul double %.1, %245
-  %249 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store double %248, ptr %249, align 8
-  %250 = fmul double %.076, %245
-  %251 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store double %250, ptr %251, align 8
-  %252 = call double @llvm.fabs.f64(double %.075)
-  %253 = fmul double %252, %245
-  %254 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store double %253, ptr %254, align 8
-  %255 = load i32, ptr %3, align 4
-  %256 = add i32 %255, -1
-  %257 = uitofp i32 %256 to double
-  %258 = call double @llvm.fmuladd.f64(double %.076, double %257, double %.174)
-  %259 = fmul double %245, %258
-  %260 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store double %259, ptr %260, align 8
-  %261 = load i32, ptr %4, align 4
-  %262 = add i32 %261, -1
-  %263 = uitofp i32 %262 to double
-  %264 = fneg double %.075
-  %265 = call double @llvm.fmuladd.f64(double %264, double %263, double %.1)
-  %266 = fmul double %245, %265
-  %267 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %266, ptr %267, align 8
-  %268 = fdiv double 1.000000e+00, %250
-  %269 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store double %268, ptr %269, align 8
-  %270 = fdiv double 1.000000e+00, %253
-  %271 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store double %270, ptr %271, align 8
-  %272 = fcmp olt double %.075, 0.000000e+00
-  br i1 %272, label %273, label %274
+243:                                              ; preds = %231, %196
+  %.076 = phi double [ %199, %196 ], [ %218, %231 ]
+  %.075 = phi double [ %204, %196 ], [ %220, %231 ]
+  %.073 = phi double [ %198, %196 ], [ %237, %231 ]
+  %.072 = phi double [ %201, %196 ], [ %242, %231 ]
+  %244 = call double @llvm.fmuladd.f64(double %.076, double 5.000000e-01, double %.073)
+  %245 = call double @llvm.fmuladd.f64(double %.075, double -5.000000e-01, double %.072)
+  %.174 = select i1 %.077, double %244, double %.073
+  %.1 = select i1 %.077, double %245, double %.072
+  %246 = select i1 %178, double 0x3F91DF46A2529D39, double 1.000000e+00
+  %247 = fmul double %246, %.174
+  %248 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store double %247, ptr %248, align 8
+  %249 = fmul double %246, %.1
+  %250 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store double %249, ptr %250, align 8
+  %251 = fmul double %246, %.076
+  %252 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store double %251, ptr %252, align 8
+  %253 = call double @llvm.fabs.f64(double %.075)
+  %254 = fmul double %246, %253
+  %255 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store double %254, ptr %255, align 8
+  %256 = load i32, ptr %3, align 4
+  %257 = add i32 %256, -1
+  %258 = uitofp i32 %257 to double
+  %259 = call double @llvm.fmuladd.f64(double %.076, double %258, double %.174)
+  %260 = fmul double %246, %259
+  %261 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store double %260, ptr %261, align 8
+  %262 = load i32, ptr %4, align 4
+  %263 = add i32 %262, -1
+  %264 = uitofp i32 %263 to double
+  %265 = fneg double %.075
+  %266 = call double @llvm.fmuladd.f64(double %265, double %264, double %.1)
+  %267 = fmul double %246, %266
+  %268 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store double %267, ptr %268, align 8
+  %269 = fdiv double 1.000000e+00, %251
+  %270 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store double %269, ptr %270, align 8
+  %271 = fdiv double 1.000000e+00, %254
+  %272 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  store double %271, ptr %272, align 8
+  %273 = fcmp olt double %.075, 0.000000e+00
+  br i1 %273, label %274, label %275
 
-273:                                              ; preds = %242
-  store double %266, ptr %249, align 8
-  store double %248, ptr %267, align 8
-  br label %274
+274:                                              ; preds = %243
+  store double %267, ptr %250, align 8
+  store double %249, ptr %268, align 8
+  br label %275
 
-274:                                              ; preds = %273, %242
-  %275 = phi double [ %248, %273 ], [ %266, %242 ]
-  %276 = phi double [ %266, %273 ], [ %248, %242 ]
-  br i1 %177, label %277, label %288
+275:                                              ; preds = %274, %243
+  %276 = phi double [ %267, %274 ], [ %249, %243 ]
+  %277 = phi double [ %249, %274 ], [ %267, %243 ]
+  br i1 %178, label %278, label %288
 
-277:                                              ; preds = %274
-  %278 = call double @llvm.fabs.f64(double %246)
-  %279 = fcmp ugt double %278, 0x402921FB54442D18
-  %280 = call double @llvm.fabs.f64(double %259)
-  %281 = fcmp ugt double %280, 0x402921FB54442D18
-  %or.cond114 = select i1 %279, i1 true, i1 %281
-  %282 = call double @llvm.fabs.f64(double %276)
-  %283 = fcmp ugt double %282, 0x4009220092718F51
-  %or.cond132 = select i1 %or.cond114, i1 true, i1 %283
-  br i1 %or.cond132, label %293, label %284
-
-284:                                              ; preds = %277
-  %285 = call double @llvm.fabs.f64(double %275)
+278:                                              ; preds = %275
+  %279 = call double @llvm.fabs.f64(double %247)
+  %280 = fcmp ole double %279, 0x402921FB54442D18
+  %281 = call double @llvm.fabs.f64(double %260)
+  %282 = fcmp ole double %281, 0x402921FB54442D18
+  %or.cond114.not126 = select i1 %280, i1 %282, i1 false
+  %283 = call double @llvm.fabs.f64(double %276)
+  %284 = fcmp ole double %283, 0x4009220092718F51
+  %or.cond116.not123 = select i1 %or.cond114.not126, i1 %284, i1 false
+  %285 = call double @llvm.fabs.f64(double %277)
   %286 = fcmp ole double %285, 0x4009220092718F51
-  %287 = fcmp olt double %246, %259
-  %or.cond115 = select i1 %286, i1 %287, i1 false
-  br i1 %or.cond115, label %289, label %293
+  %or.cond118.not121 = select i1 %or.cond116.not123, i1 %286, i1 false
+  %287 = fcmp olt double %247, %260
+  %or.cond119 = select i1 %or.cond118.not121, i1 %287, i1 false
+  br i1 %or.cond119, label %289, label %293
 
-288:                                              ; preds = %274
-  %.old = fcmp olt double %246, %259
+288:                                              ; preds = %275
+  %.old = fcmp olt double %247, %260
   br i1 %.old, label %289, label %293
 
-289:                                              ; preds = %284, %288
-  %290 = fcmp olt double %275, %276
-  %291 = fcmp ogt double %250, 1.000000e-10
+289:                                              ; preds = %278, %288
+  %290 = fcmp olt double %277, %276
+  %291 = fcmp ogt double %251, 1.000000e-10
   %or.cond31 = select i1 %290, i1 %291, i1 false
-  %292 = fcmp ogt double %253, 1.000000e-10
+  %292 = fcmp ogt double %254, 1.000000e-10
   %or.cond34 = select i1 %or.cond31, i1 %292, i1 false
   br i1 %or.cond34, label %298, label %293
 
-293:                                              ; preds = %289, %288, %284, %277
+293:                                              ; preds = %289, %288, %278
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -5570,7 +5570,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %309 = load i16, ptr %5, align 2
   %310 = load i16, ptr %7, align 2
-  invoke void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEPNS0_4FileEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResENS0_12TIFFDataTypeEttb(ptr noundef nonnull align 8 dereferenceable(340) %299, ptr noundef %301, ptr noundef %302, ptr noundef nonnull align 8 dereferenceable(112) %303, ptr noundef %305, i32 noundef %307, ptr noundef nonnull align 8 dereferenceable(32) %308, i32 noundef %255, i32 noundef %261, ptr noundef nonnull align 8 dereferenceable(72) %13, i32 noundef %.071, i16 noundef zeroext %309, i16 noundef zeroext %310, i1 noundef zeroext %272)
+  invoke void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEPNS0_4FileEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResENS0_12TIFFDataTypeEttb(ptr noundef nonnull align 8 dereferenceable(340) %299, ptr noundef %301, ptr noundef %302, ptr noundef nonnull align 8 dereferenceable(112) %303, ptr noundef %305, i32 noundef %307, ptr noundef nonnull align 8 dereferenceable(32) %308, i32 noundef %256, i32 noundef %262, ptr noundef nonnull align 8 dereferenceable(72) %13, i32 noundef %.071, i16 noundef zeroext %309, i16 noundef zeroext %310, i1 noundef zeroext %273)
           to label %311 unwind label %322
 
 311:                                              ; preds = %298
@@ -5610,7 +5610,7 @@ _ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev.exit: ; pr
   store ptr null, ptr %0, align 8
   br label %329
 
-328:                                              ; preds = %321, %293, %227, %222, %212, %207, %192, %164, %138, %132, %119, %106, %101, %92, %85, %68, %62, %56, %50, %44, %38, %20
+328:                                              ; preds = %321, %293, %228, %223, %213, %208, %193, %165, %138, %132, %119, %106, %101, %92, %85, %68, %62, %56, %50, %44, %38, %20
   ret void
 
 329:                                              ; preds = %_ZNSt10unique_ptrIN5osgeo4proj9GTiffGridESt14default_deleteIS2_EED2Ev.exit, %322

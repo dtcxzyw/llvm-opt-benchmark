@@ -22306,11 +22306,11 @@ _Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread: ; preds = %9, %_Z17C
   br label %107
 
 107:                                              ; preds = %277, %58
-  %108 = phi ptr [ %59, %58 ], [ %160, %277 ]
   %.sroa.8.0 = phi float [ %99, %58 ], [ %.sroa.8.2, %277 ]
   %.sroa.0183.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i72.i, %58 ], [ %.sroa.0183.2, %277 ]
   %.sroa.6.0 = phi float [ %.sroa.6.0.copyload, %58 ], [ %.sroa.250.0.copyload, %277 ]
   %.sroa.0176.0 = phi <2 x float> [ %.sroa.0176.0.copyload, %58 ], [ %.sroa.049.0.copyload, %277 ]
+  %108 = phi ptr [ %59, %58 ], [ %160, %277 ]
   %.0 = phi float [ %37, %58 ], [ %227, %277 ]
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load ptr, ptr %109, align 8
@@ -22589,9 +22589,9 @@ _Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit148.thread: ; preds = %159, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %107, %240, %287
-  %291 = phi ptr [ %288, %287 ], [ %108, %107 ], [ %160, %240 ]
   %.sroa.8.1 = phi float [ %.sroa.8.0.copyload189, %287 ], [ %.sroa.8.0, %107 ], [ %.sroa.250.0.copyload, %240 ]
   %.sroa.0183.1 = phi <2 x float> [ %.sroa.0183.0.copyload186, %287 ], [ %.sroa.0183.0, %107 ], [ %.sroa.049.0.copyload, %240 ]
+  %291 = phi ptr [ %288, %287 ], [ %108, %107 ], [ %160, %240 ]
   store <2 x float> %.sroa.0183.1, ptr %60, align 4
   store float %.sroa.8.1, ptr %.sroa.6.0..sroa_idx, align 4
   store ptr %291, ptr %0, align 8

@@ -4893,8 +4893,8 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i.i.i.i.i: ; preds 
   br i1 %177, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i", label %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.3712155024907033177.exit"
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0ea68b0cbe8ba08bE.exit.sink.split.i": ; preds = %.split.us, %157
-  %178 = phi ptr [ %163, %157 ], [ %173, %.split.us ]
-  %179 = phi i64 [ %161, %157 ], [ %171, %.split.us ]
+  %178 = phi ptr [ %173, %.split.us ], [ %163, %157 ]
+  %179 = phi i64 [ %171, %.split.us ], [ %161, %157 ]
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %2), !noalias !805
   br label %"_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h2a225c395288df48E.llvm.3712155024907033177.exit"
 

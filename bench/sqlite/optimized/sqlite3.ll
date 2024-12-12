@@ -242078,9 +242078,7 @@ tailrecurse.i362:                                 ; preds = %854, %850
 
 sqlite3VdbeAddOp3.exit366:                        ; preds = %854, %856
   %.0.i365 = phi i64 [ %860, %856 ], [ 1, %854 ]
-  %.val313 = load ptr, ptr %6, align 8
-  %.val314 = load ptr, ptr %25, align 8
-  tail call fastcc void @windowAggFinal(ptr %.val313, ptr %.val314, i32 noundef 0)
+  tail call fastcc void @windowAggFinal(ptr %0, ptr %8, i32 noundef 0)
   %869 = load i32, ptr %31, align 4
   br label %tailrecurse.i.i367
 

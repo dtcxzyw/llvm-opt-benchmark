@@ -16827,9 +16827,9 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
   %8 = ptrtoint ptr %0 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %59
-  %.027 = phi ptr [ %.024, %.lr.ph ], [ %.0, %59 ]
-  %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.027, %59 ]
+9:                                                ; preds = %.lr.ph, %58
+  %.027 = phi ptr [ %.024, %.lr.ph ], [ %.0, %58 ]
+  %.pn26 = phi ptr [ %0, %.lr.ph ], [ %.027, %58 ]
   %.0.val = load ptr, ptr %.027, align 8
   %10 = getelementptr i8, ptr %.pn26, i64 24
   %.0.val17 = load ptr, ptr %10, align 8
@@ -16870,12 +16870,11 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPKN4llvm4LoopEPKNS1
 _ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
   store ptr %.sroa.0.0.copyload20, ptr %0, align 8
   store ptr %.sroa.2.0.copyload, ptr %7, align 8
-  br label %59
+  br label %58
 
 26:                                               ; preds = %9
-  %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.sroa.0.0.copyload, ptr %4, align 8
+  store ptr %2, ptr %4, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %.027, align 8
   %.sroa.3.0.copyload.i = load ptr, ptr %10, align 8
   %.0.val13.i = load ptr, ptr %.pn26, align 8
@@ -16918,40 +16917,39 @@ _ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit: ; 
   %50 = icmp eq i32 %49, 14
   br i1 %50, label %.lr.ph.i.backedge, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
 
-.lr.ph.i.backedge:                                ; preds = %45, %52, %55
+.lr.ph.i.backedge:                                ; preds = %45, %52, %54
   br label %.lr.ph.i, !llvm.loop !196
 
 51:                                               ; preds = %.lr.ph.i
   %.not.i = icmp eq ptr %.sroa.0.0.copyload.i, %.0.val.i
-  br i1 %.not.i, label %55, label %52
+  br i1 %.not.i, label %54, label %52
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %4, align 8
-  %54 = tail call fastcc noundef ptr @_ZL20PickMostRelevantLoopPKN4llvm4LoopES2_RNS_13DominatorTreeE(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %.0.val.i, ptr noundef nonnull align 8 dereferenceable(124) %53)
-  %.not23 = icmp eq ptr %54, %.sroa.0.0.copyload.i
+  %53 = tail call fastcc noundef ptr @_ZL20PickMostRelevantLoopPKN4llvm4LoopES2_RNS_13DominatorTreeE(ptr noundef %.sroa.0.0.copyload.i, ptr noundef %.0.val.i, ptr noundef nonnull align 8 dereferenceable(124) %2)
+  %.not23 = icmp eq ptr %53, %.sroa.0.0.copyload.i
   br i1 %.not23, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit, label %.lr.ph.i.backedge
 
-55:                                               ; preds = %51
-  %56 = tail call noundef zeroext i1 @_ZNK4llvm4SCEV21isNonConstantNegativeEv(ptr noundef nonnull align 8 dereferenceable(30) %.sroa.3.0.copyload.i) #18
-  %57 = tail call noundef zeroext i1 @_ZNK4llvm4SCEV21isNonConstantNegativeEv(ptr noundef nonnull align 8 dereferenceable(30) %.0.val11.i) #18
-  %.not22 = xor i1 %57, true
-  %brmerge = or i1 %56, %.not22
+54:                                               ; preds = %51
+  %55 = tail call noundef zeroext i1 @_ZNK4llvm4SCEV21isNonConstantNegativeEv(ptr noundef nonnull align 8 dereferenceable(30) %.sroa.3.0.copyload.i) #18
+  %56 = tail call noundef zeroext i1 @_ZNK4llvm4SCEV21isNonConstantNegativeEv(ptr noundef nonnull align 8 dereferenceable(30) %.0.val11.i) #18
+  %.not22 = xor i1 %56, true
+  %brmerge = or i1 %55, %.not22
   br i1 %brmerge, label %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit, label %.lr.ph.i.backedge
 
-_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit: ; preds = %55, %52, %45, %26
-  %.09.lcssa.i = phi ptr [ %.027, %26 ], [ %.016.i, %45 ], [ %.016.i, %52 ], [ %.016.i, %55 ]
+_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit: ; preds = %54, %52, %45, %26
+  %.09.lcssa.i = phi ptr [ %.027, %26 ], [ %.016.i, %45 ], [ %.016.i, %52 ], [ %.016.i, %54 ]
   store ptr %.sroa.0.0.copyload.i, ptr %.09.lcssa.i, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
-  store ptr %.sroa.3.0.copyload.i, ptr %58, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
+  store ptr %.sroa.3.0.copyload.i, ptr %57, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %_ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
+58:                                               ; preds = %_ZSt13move_backwardIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_ET0_T_SB_SA_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEEN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_T0_.exit
   %.0 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !197
 
-.loopexit:                                        ; preds = %59, %.preheader, %3
+.loopexit:                                        ; preds = %58, %.preheader, %3
   ret void
 }
 
@@ -17085,14 +17083,14 @@ _ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i50: ; preds = %
   br i1 %58, label %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i50, label %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit, !llvm.loop !199
 
 _ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit.i50
-  %.pre90 = ptrtoint ptr %.1.i60 to i64
+  %.pre89 = ptrtoint ptr %.1.i60 to i64
   br label %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit47
-  %.pre-phi91 = phi i64 [ %.pre90, %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %46, %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit47 ]
+  %.pre-phi90 = phi i64 [ %.pre89, %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %46, %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit47 ]
   %.0.lcssa.i48 = phi ptr [ %.1.i60, %_ZSt13__upper_boundIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES8_N9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LoopCompareEEEET_SG_SG_RKT0_T1_.exit.loopexit ], [ %.tr82, %_ZSt7advanceIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEElEvRT_T0_.exit47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %59 = sub i64 %.pre-phi91, %46
+  %59 = sub i64 %.pre-phi90, %46
   %60 = ashr exact i64 %59, 4
   br label %tailrecurse
 

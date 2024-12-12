@@ -1942,7 +1942,7 @@ for_each_cell_setup.exit:                         ; preds = %17
 
 .thread64:                                        ; preds = %25, %17, %for_each_cell_setup.exit
   %.not53 = icmp eq ptr %3, null
-  br i1 %.not53, label %80, label %.sink.split103
+  br i1 %.not53, label %79, label %.sink.split109
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %33 = getelementptr %union.ListCell, ptr %29, i64 %indvars.iv
@@ -1963,21 +1963,21 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
   %37 = sub i64 %35, %36
   %38 = lshr exact i64 %37, 3
   %39 = trunc i64 %38 to i32
-  %.pre92 = load i32, ptr %12, align 4
-  %40 = icmp sgt i32 %.pre92, %39
-  br i1 %40, label %.lr.ph78.preheader, label %._crit_edge
+  %.pre96 = load i32, ptr %12, align 4
+  %40 = icmp sgt i32 %.pre96, %39
+  br i1 %40, label %.lr.ph79.preheader, label %._crit_edge
 
-.lr.ph78.preheader:                               ; preds = %for_each_cell_setup.exit60
-  %sext104 = shl i64 %37, 29
-  %41 = ashr i64 %sext104, 32
-  br label %.lr.ph78
+.lr.ph79.preheader:                               ; preds = %for_each_cell_setup.exit60
+  %sext110 = shl i64 %37, 29
+  %41 = ashr i64 %sext110, 32
+  br label %.lr.ph79
 
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %73
-  %indvars.iv89 = phi i64 [ %41, %.lr.ph78.preheader ], [ %indvars.iv.next90, %73 ]
-  %.03577 = phi ptr [ %11, %.lr.ph78.preheader ], [ %.1, %73 ]
-  %42 = phi i32 [ %34, %.lr.ph78.preheader ], [ %74, %73 ]
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %73
+  %indvars.iv93 = phi i64 [ %41, %.lr.ph79.preheader ], [ %indvars.iv.next94, %73 ]
+  %.03578 = phi ptr [ %11, %.lr.ph79.preheader ], [ %.1, %73 ]
+  %42 = phi i32 [ %34, %.lr.ph79.preheader ], [ %74, %73 ]
   %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv89
+  %44 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv93
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @exprType(ptr noundef %45) #5
   %47 = call i32 @getBaseType(i32 noundef %46) #5
@@ -1987,7 +1987,7 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
   %or.cond = select i1 %.not50, i1 true, i1 %.not51
   br i1 %or.cond, label %73, label %48
 
-48:                                               ; preds = %.lr.ph78
+48:                                               ; preds = %.lr.ph79
   call void @get_type_category_preferred(i32 noundef %47, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %49 = icmp eq i32 %42, 705
   br i1 %49, label %.sink.split, label %50
@@ -2000,7 +2000,7 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
 
 53:                                               ; preds = %50
   %54 = icmp eq ptr %2, null
-  br i1 %54, label %80, label %55
+  br i1 %54, label %79, label %55
 
 55:                                               ; preds = %53
   %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -2036,31 +2036,31 @@ for_each_cell_setup.exit60:                       ; preds = %.loopexit
   store i8 %72, ptr %6, align 1
   br label %73
 
-73:                                               ; preds = %.sink.split, %.lr.ph78, %68, %66, %63
-  %74 = phi i32 [ %42, %63 ], [ %42, %68 ], [ %42, %66 ], [ %42, %.lr.ph78 ], [ %47, %.sink.split ]
-  %.1 = phi ptr [ %.03577, %63 ], [ %.03577, %68 ], [ %.03577, %66 ], [ %.03577, %.lr.ph78 ], [ %45, %.sink.split ]
-  %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
+73:                                               ; preds = %.sink.split, %.lr.ph79, %68, %66, %63
+  %74 = phi i32 [ %42, %63 ], [ %42, %68 ], [ %42, %66 ], [ %42, %.lr.ph79 ], [ %47, %.sink.split ]
+  %.1 = phi ptr [ %.03578, %63 ], [ %.03578, %68 ], [ %.03578, %66 ], [ %.03578, %.lr.ph79 ], [ %45, %.sink.split ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %75 = load i32, ptr %12, align 4
   %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next90, %76
-  br i1 %77, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
+  %77 = icmp slt i64 %indvars.iv.next94, %76
+  br i1 %77, label %.lr.ph79, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %73, %.loopexit, %for_each_cell_setup.exit60
-  %78 = phi i32 [ %34, %for_each_cell_setup.exit60 ], [ %34, %.loopexit ], [ %74, %73 ]
+  %.lcssa = phi i32 [ %34, %for_each_cell_setup.exit60 ], [ %34, %.loopexit ], [ %74, %73 ]
   %.035.lcssa = phi ptr [ %11, %for_each_cell_setup.exit60 ], [ %11, %.loopexit ], [ %.1, %73 ]
-  %79 = icmp eq i32 %78, 705
-  %spec.store.select = select i1 %79, i32 25, i32 %78
+  %78 = icmp eq i32 %.lcssa, 705
+  %spec.select108 = select i1 %78, i32 25, i32 %.lcssa
   %.not49 = icmp eq ptr %3, null
-  br i1 %.not49, label %80, label %.sink.split103
+  br i1 %.not49, label %79, label %.sink.split109
 
-.sink.split103:                                   ; preds = %._crit_edge, %.thread64
+.sink.split109:                                   ; preds = %._crit_edge, %.thread64
   %.035.lcssa.sink = phi ptr [ %11, %.thread64 ], [ %.035.lcssa, %._crit_edge ]
-  %.0.ph = phi i32 [ %16, %.thread64 ], [ %spec.store.select, %._crit_edge ]
+  %.0.ph = phi i32 [ %16, %.thread64 ], [ %spec.select108, %._crit_edge ]
   store ptr %.035.lcssa.sink, ptr %3, align 8
-  br label %80
+  br label %79
 
-80:                                               ; preds = %.sink.split103, %._crit_edge, %.thread64, %53
-  %.0 = phi i32 [ 0, %53 ], [ %16, %.thread64 ], [ %spec.store.select, %._crit_edge ], [ %.0.ph, %.sink.split103 ]
+79:                                               ; preds = %.sink.split109, %._crit_edge, %.thread64, %53
+  %.0 = phi i32 [ 0, %53 ], [ %16, %.thread64 ], [ %spec.select108, %._crit_edge ], [ %.0.ph, %.sink.split109 ]
   ret i32 %.0
 }
 
@@ -2246,12 +2246,11 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 .lr.ph25.preheader:                               ; preds = %17
   %20 = zext nneg i32 %.0 to i64
   %wide.trip.count31 = zext nneg i32 %0 to i64
-  %.promoted = load i32, ptr %4, align 4
   br label %.lr.ph25
 
-.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %49
-  %21 = phi i32 [ %.promoted, %.lr.ph25.preheader ], [ %50, %49 ]
-  %indvars.iv28 = phi i64 [ %20, %.lr.ph25.preheader ], [ %indvars.iv.next29, %49 ]
+.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %47
+  %21 = phi i32 [ %18, %.lr.ph25.preheader ], [ %48, %47 ]
+  %indvars.iv28 = phi i64 [ %20, %.lr.ph25.preheader ], [ %indvars.iv.next29, %47 ]
   %22 = getelementptr i32, ptr %1, i64 %indvars.iv28
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @getBaseType(i32 noundef %23) #5
@@ -2259,7 +2258,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   %.not17 = icmp eq i32 %24, 705
   %.not18 = icmp eq i32 %24, %21
   %or.cond = select i1 %.not17, i1 true, i1 %.not18
-  br i1 %or.cond, label %49, label %25
+  br i1 %or.cond, label %47, label %25
 
 25:                                               ; preds = %.lr.ph25
   call void @get_type_category_preferred(i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
@@ -2270,7 +2269,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   %28 = load i8, ptr %8, align 1
   %29 = load i8, ptr %5, align 1
   %.not19 = icmp eq i8 %28, %29
-  br i1 %.not19, label %39, label %30
+  br i1 %.not19, label %37, label %30
 
 30:                                               ; preds = %27
   br i1 %2, label %._crit_edge.thread, label %31
@@ -2279,50 +2278,44 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   call void @llvm.assume(i1 %32)
   %33 = call i32 @errcode(i32 noundef 67141764) #5
-  %34 = load i32, ptr %4, align 4
-  %35 = call ptr @format_type_be(i32 noundef %34) #5
-  %36 = load i32, ptr %7, align 4
-  %37 = call ptr @format_type_be(i32 noundef %36) #5
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %35, ptr noundef %37) #5
+  %34 = call ptr @format_type_be(i32 noundef %21) #5
+  %35 = call ptr @format_type_be(i32 noundef %24) #5
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %34, ptr noundef %35) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1501, ptr noundef nonnull @__func__.select_common_type_from_oids) #5
   unreachable
 
-39:                                               ; preds = %27
-  %40 = load i8, ptr %6, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %49, label %42
+37:                                               ; preds = %27
+  %38 = load i8, ptr %6, align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %47, label %40
 
-42:                                               ; preds = %39
-  %43 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 0)
-  br i1 %43, label %44, label %49
+40:                                               ; preds = %37
+  %41 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 0)
+  br i1 %41, label %42, label %47
 
-44:                                               ; preds = %42
-  %45 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef 0)
-  br i1 %45, label %49, label %.sink.split
+42:                                               ; preds = %40
+  %43 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %4, i32 noundef 0)
+  br i1 %43, label %47, label %.sink.split
 
-.sink.split:                                      ; preds = %44, %25
+.sink.split:                                      ; preds = %42, %25
   store i32 %24, ptr %4, align 4
-  %46 = load i8, ptr %8, align 1
-  store i8 %46, ptr %5, align 1
-  %47 = load i8, ptr %9, align 1
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %6, align 1
-  br label %49
+  %44 = load i8, ptr %8, align 1
+  store i8 %44, ptr %5, align 1
+  %45 = load i8, ptr %9, align 1
+  %46 = and i8 %45, 1
+  store i8 %46, ptr %6, align 1
+  br label %47
 
-49:                                               ; preds = %.sink.split, %.lr.ph25, %44, %42, %39
-  %50 = phi i32 [ %24, %.sink.split ], [ %21, %.lr.ph25 ], [ %21, %44 ], [ %21, %42 ], [ %21, %39 ]
+47:                                               ; preds = %.sink.split, %.lr.ph25, %42, %40, %37
+  %48 = phi i32 [ %24, %.sink.split ], [ %21, %.lr.ph25 ], [ %21, %42 ], [ %21, %40 ], [ %21, %37 ]
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
-  br i1 %exitcond32.not, label %._crit_edge26.loopexit, label %.lr.ph25, !llvm.loop !14
+  br i1 %exitcond32.not, label %._crit_edge26, label %.lr.ph25, !llvm.loop !14
 
-._crit_edge26.loopexit:                           ; preds = %49
-  %.pre = load i32, ptr %4, align 4
-  br label %._crit_edge26
-
-._crit_edge26:                                    ; preds = %._crit_edge26.loopexit, %17
-  %51 = phi i32 [ %.pre, %._crit_edge26.loopexit ], [ %18, %17 ]
-  %52 = icmp eq i32 %51, 705
-  %spec.select = select i1 %52, i32 25, i32 %51
+._crit_edge26:                                    ; preds = %47, %17
+  %49 = phi i32 [ %18, %17 ], [ %48, %47 ]
+  %50 = icmp eq i32 %49, 705
+  %spec.select = select i1 %50, i32 25, i32 %49
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge26, %._crit_edge, %30

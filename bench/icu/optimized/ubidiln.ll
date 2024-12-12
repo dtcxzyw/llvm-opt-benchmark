@@ -593,8 +593,8 @@ if.end4:                                          ; preds = %land.lhs.true7.i, %
   %runs = getelementptr inbounds nuw i8, ptr %pBiDi, i64 304
   %4 = load ptr, ptr %runs, align 8
   %iRun.sroa.0.0.copyload = load i32, ptr %4, align 4
-  %cmp532 = icmp sgt i32 %3, 0
-  br i1 %cmp532, label %for.body.preheader, label %for.end
+  %cmp537 = icmp sgt i32 %3, 0
+  br i1 %cmp537, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end4
   %wide.trip.count = zext nneg i32 %3 to i64
@@ -602,21 +602,21 @@ for.body.preheader:                               ; preds = %if.end4
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %visualStart.033 = phi i32 [ 0, %for.body.preheader ], [ %iRun.sroa.4.0.copyload3, %for.body ]
+  %visualStart.038 = phi i32 [ 0, %for.body.preheader ], [ %iRun.sroa.4.0.copyload3, %for.body ]
   %arrayidx7 = getelementptr inbounds nuw %struct.Run, ptr %4, i64 %indvars.iv
   %iRun.sroa.0.0.copyload2 = load i32, ptr %arrayidx7, align 4
   %iRun.sroa.4.0.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 4
   %iRun.sroa.4.0.copyload3 = load i32, ptr %iRun.sroa.4.0.arrayidx7.sroa_idx, align 4
   %and = and i32 %iRun.sroa.0.0.copyload2, 2147483647
-  %add = sub i32 %iRun.sroa.4.0.copyload3, %visualStart.033
+  %add = sub i32 %iRun.sroa.4.0.copyload3, %visualStart.038
   %sub = add i32 %add, %and
   %cmp9.not = icmp sge i32 %logicalPosition, %and
   %cmp10 = icmp slt i32 %logicalPosition, %sub
   %or.cond = select i1 %cmp9.not, i1 %cmp10, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond42 = select i1 %or.cond, i1 true, i1 %exitcond.not
-  br i1 %or.cond42, label %for.end, label %for.body, !llvm.loop !9
+  %or.cond44 = select i1 %or.cond, i1 true, i1 %exitcond.not
+  br i1 %or.cond44, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.end4
   %logicalLimit.1 = phi i32 [ 0, %if.end4 ], [ %sub, %for.body ]

@@ -5024,7 +5024,7 @@ define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind n
 
 27:                                               ; preds = %2
   store i32 2147483647, ptr %0, align 4, !alias.scope !98
-  br label %207
+  br label %208
 
 28:                                               ; preds = %2
   %29 = icmp eq i32 %25, 2139095040
@@ -5036,11 +5036,11 @@ _ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %28
 
 31:                                               ; preds = %_ZNK2cv9softfloateqERKS0_.exit
   store i32 2139095040, ptr %0, align 4
-  br label %207
+  br label %208
 
 _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit
   store i32 0, ptr %0, align 4, !alias.scope !103
-  br label %207
+  br label %208
 
 32:                                               ; preds = %28
   %33 = load atomic i8, ptr @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4 acquire, align 8
@@ -5201,230 +5201,230 @@ _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %69, %73, %76, %96
   br label %105
 
 105:                                              ; preds = %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit, %60
-  %storemerge = phi i64 [ %104, %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit ], [ %.sroa.032.0, %60 ]
-  %106 = icmp slt i64 %storemerge, 0
-  %107 = lshr i64 %storemerge, 52
-  %108 = and i64 %107, 2047
-  %109 = and i64 %storemerge, 4503599627370495
-  %110 = icmp ne i64 %108, 2047
-  %111 = icmp eq i64 %109, 0
-  %or.cond.not.i = or i1 %111, %110
-  %spec.select.i = and i1 %106, %or.cond.not.i
-  %.not.i = icmp eq i64 %108, 0
-  %112 = or disjoint i64 %109, 4503599627370496
-  %.016.i = select i1 %.not.i, i64 %109, i64 %112
-  %113 = icmp samesign ult i64 %108, 1063
-  br i1 %113, label %114, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %106 = phi i64 [ %104, %_ZN2cvL10f32_to_f64ENS_9softfloatE.exit ], [ %.sroa.032.0, %60 ]
+  %107 = icmp slt i64 %106, 0
+  %108 = lshr i64 %106, 52
+  %109 = and i64 %108, 2047
+  %110 = and i64 %106, 4503599627370495
+  %111 = icmp ne i64 %109, 2047
+  %112 = icmp eq i64 %110, 0
+  %or.cond.not.i = or i1 %112, %111
+  %spec.select.i = and i1 %107, %or.cond.not.i
+  %.not.i = icmp eq i64 %109, 0
+  %113 = or disjoint i64 %110, 4503599627370496
+  %.016.i = select i1 %.not.i, i64 %110, i64 %113
+  %114 = icmp samesign ult i64 %109, 1063
+  br i1 %114, label %115, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-114:                                              ; preds = %105
-  %115 = icmp samesign ugt i64 %108, 1000
-  br i1 %115, label %116, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
+115:                                              ; preds = %105
+  %116 = icmp samesign ugt i64 %109, 1000
+  br i1 %116, label %117, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
-116:                                              ; preds = %114
-  %.neg.i = add nuw nsw i64 %107, 25
-  %117 = sub nuw nsw i64 1063, %108
-  %118 = lshr i64 %112, %117
-  %119 = and i64 %.neg.i, 63
-  %120 = shl i64 %112, %119
-  %121 = icmp ne i64 %120, 0
-  %122 = zext i1 %121 to i64
-  %123 = or i64 %118, %122
+117:                                              ; preds = %115
+  %.neg.i = add nuw nsw i64 %108, 25
+  %118 = sub nuw nsw i64 1063, %109
+  %119 = lshr i64 %113, %118
+  %120 = and i64 %.neg.i, 63
+  %121 = shl i64 %113, %120
+  %122 = icmp ne i64 %121, 0
+  %123 = zext i1 %122 to i64
+  %124 = or i64 %119, %123
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %114
-  %124 = icmp ne i64 %.016.i, 0
-  %125 = zext i1 %124 to i64
-  br label %126
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %115
+  %125 = icmp ne i64 %.016.i, 0
+  %126 = zext i1 %125 to i64
+  br label %127
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %116, %105
-  %.1.i = phi i64 [ %.016.i, %105 ], [ %123, %116 ]
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %117, %105
+  %.1.i = phi i64 [ %.016.i, %105 ], [ %124, %117 ]
   %.not.i.i15 = icmp samesign ult i64 %.1.i, 17592186042368
-  br i1 %.not.i.i15, label %126, label %137
+  br i1 %.not.i.i15, label %127, label %138
 
-126:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %.1.i38 = phi i64 [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
-  %127 = add nuw nsw i64 %.1.i38, 2048
-  %128 = and i64 %.1.i38, 4095
-  %129 = lshr i64 %127, 12
-  %.not31.i.i = icmp eq i64 %128, 2048
-  %130 = zext i1 %.not31.i.i to i64
-  %131 = xor i64 %130, -1
-  %132 = and i64 %129, %131
-  %133 = sub nsw i64 0, %132
-  %134 = select i1 %spec.select.i, i64 %133, i64 %132
-  %sext.i.i = shl i64 %134, 32
-  %135 = ashr exact i64 %sext.i.i, 32
+127:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %.1.i38 = phi i64 [ %126, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
+  %128 = add nuw nsw i64 %.1.i38, 2048
+  %129 = and i64 %.1.i38, 4095
+  %130 = lshr i64 %128, 12
+  %.not31.i.i = icmp eq i64 %129, 2048
+  %131 = zext i1 %.not31.i.i to i64
+  %132 = xor i64 %131, -1
+  %133 = and i64 %130, %132
+  %134 = sub nsw i64 0, %133
+  %135 = select i1 %spec.select.i, i64 %134, i64 %133
+  %sext.i.i = shl i64 %135, 32
+  %136 = ashr exact i64 %sext.i.i, 32
   %.not32.i.i = icmp eq i64 %sext.i.i, 0
-  %136 = icmp sgt i64 %135, -1
-  %.not3334.i.i = xor i1 %spec.select.i, %136
+  %137 = icmp sgt i64 %136, -1
+  %.not3334.i.i = xor i1 %spec.select.i, %137
   %or.cond.i.i17 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i17, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %137
+  br i1 %or.cond.i.i17, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %138
 
-137:                                              ; preds = %126, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %138 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
+138:                                              ; preds = %127, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %139 = select i1 %spec.select.i, i64 -2147483648, i64 2147483647
   br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %126, %137
-  %.0.i.i16 = phi i64 [ %138, %137 ], [ %135, %126 ]
-  %139 = trunc nsw i64 %.0.i.i16 to i32
-  %140 = ashr i32 %139, 6
-  %141 = tail call i32 @llvm.smin.i32(i32 %140, i32 1024)
-  %142 = tail call i32 @llvm.smax.i32(i32 %141, i32 -1023)
-  %143 = add nsw i32 %142, 1023
-  %144 = zext nneg i32 %143 to i64
-  %145 = shl nuw nsw i64 %144, 52
-  store i64 %145, ptr %10, align 8
-  %146 = icmp samesign ult i64 %108, 1023
-  br i1 %146, label %147, label %154
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %127, %138
+  %.0.i.i16 = phi i64 [ %139, %138 ], [ %136, %127 ]
+  %140 = trunc nsw i64 %.0.i.i16 to i32
+  %141 = ashr i32 %140, 6
+  %142 = tail call i32 @llvm.smin.i32(i32 %141, i32 1024)
+  %143 = tail call i32 @llvm.smax.i32(i32 %142, i32 -1023)
+  %144 = add nsw i32 %143, 1023
+  %145 = zext nneg i32 %144 to i64
+  %146 = shl nuw nsw i64 %145, 52
+  store i64 %146, ptr %10, align 8
+  %147 = icmp samesign ult i64 %109, 1023
+  br i1 %147, label %148, label %155
 
-147:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
-  %148 = and i64 %storemerge, 9223372036854775807
-  %.not47.i = icmp eq i64 %148, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %149
+148:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  %149 = and i64 %106, 9223372036854775807
+  %.not47.i = icmp eq i64 %149, 0
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %150
 
-149:                                              ; preds = %147
-  %150 = and i64 %storemerge, -9223372036854775808
-  %151 = icmp ne i64 %109, 0
-  %152 = icmp eq i64 %108, 1022
-  %or.cond.i = and i1 %151, %152
-  %153 = or disjoint i64 %150, 4607182418800017408
-  %spec.select.i20 = select i1 %or.cond.i, i64 %153, i64 %150
+150:                                              ; preds = %148
+  %151 = and i64 %106, -9223372036854775808
+  %152 = icmp ne i64 %110, 0
+  %153 = icmp eq i64 %109, 1022
+  %or.cond.i = and i1 %152, %153
+  %154 = or disjoint i64 %151, 4607182418800017408
+  %spec.select.i20 = select i1 %or.cond.i, i64 %154, i64 %151
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-154:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
-  %155 = icmp samesign ugt i64 %108, 1074
-  br i1 %155, label %156, label %165
+155:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  %156 = icmp samesign ugt i64 %109, 1074
+  br i1 %156, label %157, label %166
 
-156:                                              ; preds = %154
+157:                                              ; preds = %155
   br i1 %or.cond.not.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
-_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %156
-  %157 = and i64 %storemerge, 9221120237041090560
-  %158 = icmp eq i64 %157, 9218868437227405312
-  %159 = and i64 %storemerge, 2251799813685247
-  %160 = icmp ne i64 %159, 0
-  %161 = and i1 %158, %160
-  %162 = and i64 %storemerge, 9218868437227405312
-  %.not1.i = icmp eq i64 %162, 9218868437227405312
-  %163 = or i1 %.not1.i, %161
-  %164 = or i64 %storemerge, 2251799813685248
-  %.0.i.i19 = select i1 %163, i64 %164, i64 2251799813685248
+_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %157
+  %158 = and i64 %106, 9221120237041090560
+  %159 = icmp eq i64 %158, 9218868437227405312
+  %160 = and i64 %106, 2251799813685247
+  %161 = icmp ne i64 %160, 0
+  %162 = and i1 %159, %161
+  %163 = and i64 %106, 9218868437227405312
+  %.not1.i = icmp eq i64 %163, 9218868437227405312
+  %164 = or i1 %.not1.i, %162
+  %165 = or i64 %106, 2251799813685248
+  %.0.i.i19 = select i1 %164, i64 %165, i64 2251799813685248
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-165:                                              ; preds = %154
-  %166 = sub nuw nsw i64 1075, %108
-  %167 = shl nuw nsw i64 1, %166
-  %168 = add nsw i64 %167, -1
-  %169 = lshr i64 %167, 1
-  %170 = add i64 %169, %storemerge
-  %171 = and i64 %170, %168
-  %.not.i18 = icmp eq i64 %171, 0
-  %172 = xor i64 %167, -1
-  %173 = select i1 %.not.i18, i64 %172, i64 -1
-  %174 = sub nsw i64 0, %167
-  %175 = and i64 %173, %174
-  %176 = and i64 %175, %170
+166:                                              ; preds = %155
+  %167 = sub nuw nsw i64 1075, %109
+  %168 = shl nuw nsw i64 1, %167
+  %169 = add nsw i64 %168, -1
+  %170 = lshr i64 %168, 1
+  %171 = add i64 %170, %106
+  %172 = and i64 %171, %169
+  %.not.i18 = icmp eq i64 %172, 0
+  %173 = xor i64 %168, -1
+  %174 = select i1 %.not.i18, i64 %173, i64 -1
+  %175 = sub nsw i64 0, %168
+  %176 = and i64 %174, %175
+  %177 = and i64 %176, %171
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %147, %149, %156, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %165
-  %.0.sink.i = phi i64 [ %storemerge, %147 ], [ %storemerge, %156 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %176, %165 ], [ %spec.select.i20, %149 ]
-  %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
-  %177 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %177, label %178, label %179
-
-178:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
-  br label %_ZNK2cv10softdoublemiERKS0_.exit
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %148, %150, %157, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %166
+  %.0.sink.i = phi i64 [ %106, %148 ], [ %106, %157 ], [ %.0.i.i19, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %177, %166 ], [ %spec.select.i20, %150 ]
+  %.unshifted.i.i = xor i64 %.0.sink.i, %106
+  %178 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %178, label %179, label %180
 
 179:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %106, i64 noundef %.0.sink.i, i1 noundef zeroext %107), !alias.scope !129
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %178, %179
+180:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %106, i64 noundef %.0.sink.i, i1 noundef zeroext %107), !alias.scope !129
+  br label %_ZNK2cv10softdoublemiERKS0_.exit
+
+_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %179, %180
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL13exp_postscaleE)
-  %180 = load i64, ptr %11, align 8
-  store i64 %180, ptr %7, align 8
+  %181 = load i64, ptr %11, align 8
+  store i64 %181, ptr %7, align 8
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  %181 = and i64 %.0.i.i16, 63
-  %182 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %181
-  %183 = load i64, ptr %182, align 8
-  store i64 %183, ptr %16, align 8, !alias.scope !134
+  %182 = and i64 %.0.i.i16, 63
+  %183 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %182
+  %184 = load i64, ptr %183, align 8
+  store i64 %184, ptr %16, align 8, !alias.scope !134
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  %184 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A1, align 8, !noalias !137
-  %185 = icmp slt i64 %180, 0
-  %.unshifted.i.i22 = xor i64 %184, %180
-  %186 = icmp sgt i64 %.unshifted.i.i22, -1
-  br i1 %186, label %187, label %188
-
-187:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !140
-  br label %_ZNK2cv10softdoubleplERKS0_.exit
+  %185 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A1, align 8, !noalias !137
+  %186 = icmp slt i64 %181, 0
+  %.unshifted.i.i22 = xor i64 %185, %181
+  %187 = icmp sgt i64 %.unshifted.i.i22, -1
+  br i1 %187, label %188, label %189
 
 188:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !140
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %181, i64 noundef %185, i1 noundef zeroext %186), !alias.scope !140
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %187, %188
+189:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %181, i64 noundef %185, i1 noundef zeroext %186), !alias.scope !140
+  br label %_ZNK2cv10softdoubleplERKS0_.exit
+
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %188, %189
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
-  %189 = load i64, ptr %22, align 8, !noalias !143
-  %190 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A2, align 8, !noalias !143
-  %191 = icmp slt i64 %189, 0
-  %.unshifted.i.i23 = xor i64 %190, %189
-  %192 = icmp sgt i64 %.unshifted.i.i23, -1
-  br i1 %192, label %193, label %194
-
-193:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !146
-  br label %_ZNK2cv10softdoubleplERKS0_.exit24
+  %190 = load i64, ptr %22, align 8, !noalias !143
+  %191 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A2, align 8, !noalias !143
+  %192 = icmp slt i64 %190, 0
+  %.unshifted.i.i23 = xor i64 %191, %190
+  %193 = icmp sgt i64 %.unshifted.i.i23, -1
+  br i1 %193, label %194, label %195
 
 194:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !146
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %190, i64 noundef %191, i1 noundef zeroext %192), !alias.scope !146
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
-_ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %193, %194
+195:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %190, i64 noundef %191, i1 noundef zeroext %192), !alias.scope !146
+  br label %_ZNK2cv10softdoubleplERKS0_.exit24
+
+_ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %194, %195
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
-  %195 = load i64, ptr %20, align 8, !noalias !149
-  %196 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A3, align 8, !noalias !149
-  %197 = icmp slt i64 %195, 0
-  %.unshifted.i.i25 = xor i64 %196, %195
-  %198 = icmp sgt i64 %.unshifted.i.i25, -1
-  br i1 %198, label %199, label %200
-
-199:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !152
-  br label %_ZNK2cv10softdoubleplERKS0_.exit26
+  %196 = load i64, ptr %20, align 8, !noalias !149
+  %197 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A3, align 8, !noalias !149
+  %198 = icmp slt i64 %196, 0
+  %.unshifted.i.i25 = xor i64 %197, %196
+  %199 = icmp sgt i64 %.unshifted.i.i25, -1
+  br i1 %199, label %200, label %201
 
 200:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !152
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %196, i64 noundef %197, i1 noundef zeroext %198), !alias.scope !152
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
-_ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %199, %200
+201:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %196, i64 noundef %197, i1 noundef zeroext %198), !alias.scope !152
+  br label %_ZNK2cv10softdoubleplERKS0_.exit26
+
+_ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %200, %201
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
-  %201 = load i64, ptr %18, align 8, !noalias !155
-  %202 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A4, align 8, !noalias !155
-  %203 = icmp slt i64 %201, 0
-  %.unshifted.i.i27 = xor i64 %202, %201
-  %204 = icmp sgt i64 %.unshifted.i.i27, -1
-  br i1 %204, label %205, label %206
-
-205:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !158
-  br label %_ZNK2cv10softdoubleplERKS0_.exit28
+  %202 = load i64, ptr %18, align 8, !noalias !155
+  %203 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A4, align 8, !noalias !155
+  %204 = icmp slt i64 %202, 0
+  %.unshifted.i.i27 = xor i64 %203, %202
+  %205 = icmp sgt i64 %.unshifted.i.i27, -1
+  br i1 %205, label %206, label %207
 
 206:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !158
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %202, i64 noundef %203, i1 noundef zeroext %204), !alias.scope !158
   br label %_ZNK2cv10softdoubleplERKS0_.exit28
 
-_ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %205, %206
+207:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %202, i64 noundef %203, i1 noundef zeroext %204), !alias.scope !158
+  br label %_ZNK2cv10softdoubleplERKS0_.exit28
+
+_ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %206, %207
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind writable sret(%"struct.cv::softfloat") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  br label %207
+  br label %208
 
-207:                                              ; preds = %31, %_ZNK2cv9softfloateqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit28, %27
+208:                                              ; preds = %31, %_ZNK2cv9softfloateqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit28, %27
   ret void
 }
 
@@ -5469,7 +5469,7 @@ define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind
 
 29:                                               ; preds = %2
   store i64 9223372036854775807, ptr %0, align 8, !alias.scope !161
-  br label %186
+  br label %187
 
 30:                                               ; preds = %2
   %31 = icmp eq i64 %27, 9218868437227405312
@@ -5481,11 +5481,11 @@ _ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %30
 
 33:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
   store i64 9218868437227405312, ptr %0, align 8
-  br label %186
+  br label %187
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
   store i64 0, ptr %0, align 8, !alias.scope !166
-  br label %186
+  br label %187
 
 34:                                               ; preds = %30
   %35 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5 acquire, align 8
@@ -5600,248 +5600,248 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br label %78
 
 78:                                               ; preds = %76, %74
-  %storemerge = phi i64 [ %77, %76 ], [ %.sroa.028.0, %74 ]
-  store i64 %storemerge, ptr %9, align 8
-  %79 = icmp slt i64 %storemerge, 0
-  %80 = lshr i64 %storemerge, 52
-  %81 = and i64 %80, 2047
-  %82 = and i64 %storemerge, 4503599627370495
-  %83 = icmp ne i64 %81, 2047
-  %84 = icmp eq i64 %82, 0
-  %or.cond.not.i.i = or i1 %84, %83
-  %spec.select.i.i = and i1 %79, %or.cond.not.i.i
-  %.not.i.i15 = icmp eq i64 %81, 0
-  %85 = or disjoint i64 %82, 4503599627370496
-  %.016.i.i = select i1 %.not.i.i15, i64 %82, i64 %85
-  %86 = icmp samesign ult i64 %81, 1063
-  br i1 %86, label %87, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
+  %79 = phi i64 [ %77, %76 ], [ %.sroa.028.0, %74 ]
+  store i64 %79, ptr %9, align 8
+  %80 = icmp slt i64 %79, 0
+  %81 = lshr i64 %79, 52
+  %82 = and i64 %81, 2047
+  %83 = and i64 %79, 4503599627370495
+  %84 = icmp ne i64 %82, 2047
+  %85 = icmp eq i64 %83, 0
+  %or.cond.not.i.i = or i1 %85, %84
+  %spec.select.i.i = and i1 %80, %or.cond.not.i.i
+  %.not.i.i15 = icmp eq i64 %82, 0
+  %86 = or disjoint i64 %83, 4503599627370496
+  %.016.i.i = select i1 %.not.i.i15, i64 %83, i64 %86
+  %87 = icmp samesign ult i64 %82, 1063
+  br i1 %87, label %88, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
-87:                                               ; preds = %78
-  %88 = icmp samesign ugt i64 %81, 1000
-  br i1 %88, label %89, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
+88:                                               ; preds = %78
+  %89 = icmp samesign ugt i64 %82, 1000
+  br i1 %89, label %90, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
 
-89:                                               ; preds = %87
-  %.neg.i.i = add nuw nsw i64 %80, 25
-  %90 = sub nuw nsw i64 1063, %81
-  %91 = lshr i64 %85, %90
-  %92 = and i64 %.neg.i.i, 63
-  %93 = shl i64 %85, %92
-  %94 = icmp ne i64 %93, 0
-  %95 = zext i1 %94 to i64
-  %96 = or i64 %91, %95
+90:                                               ; preds = %88
+  %.neg.i.i = add nuw nsw i64 %81, 25
+  %91 = sub nuw nsw i64 1063, %82
+  %92 = lshr i64 %86, %91
+  %93 = and i64 %.neg.i.i, 63
+  %94 = shl i64 %86, %93
+  %95 = icmp ne i64 %94, 0
+  %96 = zext i1 %95 to i64
+  %97 = or i64 %92, %96
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i: ; preds = %87
-  %97 = icmp ne i64 %.016.i.i, 0
-  %98 = zext i1 %97 to i64
-  br label %99
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i: ; preds = %88
+  %98 = icmp ne i64 %.016.i.i, 0
+  %99 = zext i1 %98 to i64
+  br label %100
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %89, %78
-  %.1.i.i = phi i64 [ %.016.i.i, %78 ], [ %96, %89 ]
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %90, %78
+  %.1.i.i = phi i64 [ %.016.i.i, %78 ], [ %97, %90 ]
   %.not.i.i.i = icmp samesign ult i64 %.1.i.i, 17592186042368
-  br i1 %.not.i.i.i, label %99, label %110
+  br i1 %.not.i.i.i, label %100, label %111
 
-99:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
-  %.1.i3.i = phi i64 [ %98, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i ], [ %.1.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ]
-  %100 = add nuw nsw i64 %.1.i3.i, 2048
-  %101 = and i64 %.1.i3.i, 4095
-  %102 = lshr i64 %100, 12
-  %.not31.i.i.i = icmp eq i64 %101, 2048
-  %103 = zext i1 %.not31.i.i.i to i64
-  %104 = xor i64 %103, -1
-  %105 = and i64 %102, %104
-  %106 = sub nsw i64 0, %105
-  %107 = select i1 %spec.select.i.i, i64 %106, i64 %105
-  %sext.i.i.i = shl i64 %107, 32
-  %108 = ashr exact i64 %sext.i.i.i, 32
+100:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i
+  %.1.i3.i = phi i64 [ %99, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread.i ], [ %.1.i.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ]
+  %101 = add nuw nsw i64 %.1.i3.i, 2048
+  %102 = and i64 %.1.i3.i, 4095
+  %103 = lshr i64 %101, 12
+  %.not31.i.i.i = icmp eq i64 %102, 2048
+  %104 = zext i1 %.not31.i.i.i to i64
+  %105 = xor i64 %104, -1
+  %106 = and i64 %103, %105
+  %107 = sub nsw i64 0, %106
+  %108 = select i1 %spec.select.i.i, i64 %107, i64 %106
+  %sext.i.i.i = shl i64 %108, 32
+  %109 = ashr exact i64 %sext.i.i.i, 32
   %.not32.i.i.i = icmp eq i64 %sext.i.i.i, 0
-  %109 = icmp sgt i64 %108, -1
-  %.not3334.i.i.i = xor i1 %spec.select.i.i, %109
+  %110 = icmp sgt i64 %109, -1
+  %.not3334.i.i.i = xor i1 %spec.select.i.i, %110
   %or.cond.i.i.i = select i1 %.not32.i.i.i, i1 true, i1 %.not3334.i.i.i
-  br i1 %or.cond.i.i.i, label %_Z7cvRoundRKN2cv10softdoubleE.exit, label %110
+  br i1 %or.cond.i.i.i, label %_Z7cvRoundRKN2cv10softdoubleE.exit, label %111
 
-110:                                              ; preds = %99, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
-  %111 = select i1 %spec.select.i.i, i64 -2147483648, i64 2147483647
+111:                                              ; preds = %100, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i
+  %112 = select i1 %spec.select.i.i, i64 -2147483648, i64 2147483647
   br label %_Z7cvRoundRKN2cv10softdoubleE.exit
 
-_Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %99, %110
-  %.0.i.i.i = phi i64 [ %111, %110 ], [ %108, %99 ]
-  %112 = trunc nsw i64 %.0.i.i.i to i32
-  %113 = ashr i32 %112, 6
-  %114 = tail call i32 @llvm.smin.i32(i32 %113, i32 1024)
-  %115 = tail call i32 @llvm.smax.i32(i32 %114, i32 -1023)
-  %116 = add nsw i32 %115, 1023
-  %117 = zext nneg i32 %116 to i64
-  %118 = shl nuw nsw i64 %117, 52
-  store i64 %118, ptr %11, align 8
-  %119 = icmp samesign ult i64 %81, 1023
-  br i1 %119, label %120, label %127
+_Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %100, %111
+  %.0.i.i.i = phi i64 [ %112, %111 ], [ %109, %100 ]
+  %113 = trunc nsw i64 %.0.i.i.i to i32
+  %114 = ashr i32 %113, 6
+  %115 = tail call i32 @llvm.smin.i32(i32 %114, i32 1024)
+  %116 = tail call i32 @llvm.smax.i32(i32 %115, i32 -1023)
+  %117 = add nsw i32 %116, 1023
+  %118 = zext nneg i32 %117 to i64
+  %119 = shl nuw nsw i64 %118, 52
+  store i64 %119, ptr %11, align 8
+  %120 = icmp samesign ult i64 %82, 1023
+  br i1 %120, label %121, label %128
 
-120:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
-  %121 = and i64 %storemerge, 9223372036854775807
-  %.not47.i = icmp eq i64 %121, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %122
+121:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
+  %122 = and i64 %79, 9223372036854775807
+  %.not47.i = icmp eq i64 %122, 0
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %123
 
-122:                                              ; preds = %120
-  %123 = and i64 %storemerge, -9223372036854775808
-  %124 = icmp ne i64 %82, 0
-  %125 = icmp eq i64 %81, 1022
-  %or.cond.i = and i1 %124, %125
-  %126 = or disjoint i64 %123, 4607182418800017408
-  %spec.select.i = select i1 %or.cond.i, i64 %126, i64 %123
+123:                                              ; preds = %121
+  %124 = and i64 %79, -9223372036854775808
+  %125 = icmp ne i64 %83, 0
+  %126 = icmp eq i64 %82, 1022
+  %or.cond.i = and i1 %125, %126
+  %127 = or disjoint i64 %124, 4607182418800017408
+  %spec.select.i = select i1 %or.cond.i, i64 %127, i64 %124
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-127:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
-  %128 = icmp samesign ugt i64 %81, 1074
-  br i1 %128, label %129, label %138
+128:                                              ; preds = %_Z7cvRoundRKN2cv10softdoubleE.exit
+  %129 = icmp samesign ugt i64 %82, 1074
+  br i1 %129, label %130, label %139
 
-129:                                              ; preds = %127
+130:                                              ; preds = %128
   br i1 %or.cond.not.i.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
-_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %129
-  %130 = and i64 %storemerge, 9221120237041090560
-  %131 = icmp eq i64 %130, 9218868437227405312
-  %132 = and i64 %storemerge, 2251799813685247
-  %133 = icmp ne i64 %132, 0
-  %134 = and i1 %131, %133
-  %135 = and i64 %storemerge, 9218868437227405312
-  %.not1.i = icmp eq i64 %135, 9218868437227405312
-  %136 = or i1 %.not1.i, %134
-  %137 = or i64 %storemerge, 2251799813685248
-  %.0.i.i16 = select i1 %136, i64 %137, i64 2251799813685248
+_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %130
+  %131 = and i64 %79, 9221120237041090560
+  %132 = icmp eq i64 %131, 9218868437227405312
+  %133 = and i64 %79, 2251799813685247
+  %134 = icmp ne i64 %133, 0
+  %135 = and i1 %132, %134
+  %136 = and i64 %79, 9218868437227405312
+  %.not1.i = icmp eq i64 %136, 9218868437227405312
+  %137 = or i1 %.not1.i, %135
+  %138 = or i64 %79, 2251799813685248
+  %.0.i.i16 = select i1 %137, i64 %138, i64 2251799813685248
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-138:                                              ; preds = %127
-  %139 = sub nuw nsw i64 1075, %81
-  %140 = shl nuw nsw i64 1, %139
-  %141 = add nsw i64 %140, -1
-  %142 = lshr i64 %140, 1
-  %143 = add i64 %142, %storemerge
-  %144 = and i64 %143, %141
-  %.not.i = icmp eq i64 %144, 0
-  %145 = xor i64 %140, -1
-  %146 = select i1 %.not.i, i64 %145, i64 -1
-  %147 = sub nsw i64 0, %140
-  %148 = and i64 %146, %147
-  %149 = and i64 %148, %143
+139:                                              ; preds = %128
+  %140 = sub nuw nsw i64 1075, %82
+  %141 = shl nuw nsw i64 1, %140
+  %142 = add nsw i64 %141, -1
+  %143 = lshr i64 %141, 1
+  %144 = add i64 %143, %79
+  %145 = and i64 %144, %142
+  %.not.i = icmp eq i64 %145, 0
+  %146 = xor i64 %141, -1
+  %147 = select i1 %.not.i, i64 %146, i64 -1
+  %148 = sub nsw i64 0, %141
+  %149 = and i64 %147, %148
+  %150 = and i64 %149, %144
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %120, %122, %129, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %138
-  %.0.sink.i = phi i64 [ %storemerge, %120 ], [ %storemerge, %129 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %149, %138 ], [ %spec.select.i, %122 ]
-  %.unshifted.i.i = xor i64 %.0.sink.i, %storemerge
-  %150 = icmp sgt i64 %.unshifted.i.i, -1
-  br i1 %150, label %151, label %152
-
-151:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
-  br label %_ZNK2cv10softdoublemiERKS0_.exit
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %121, %123, %130, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %139
+  %.0.sink.i = phi i64 [ %79, %121 ], [ %79, %130 ], [ %.0.i.i16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %150, %139 ], [ %spec.select.i, %123 ]
+  %.unshifted.i.i = xor i64 %.0.sink.i, %79
+  %151 = icmp sgt i64 %.unshifted.i.i, -1
+  br i1 %151, label %152, label %153
 
 152:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %79, i64 noundef %.0.sink.i, i1 noundef zeroext %80), !alias.scope !191
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
-_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %151, %152
+153:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %79, i64 noundef %.0.sink.i, i1 noundef zeroext %80), !alias.scope !191
+  br label %_ZNK2cv10softdoublemiERKS0_.exit
+
+_ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %152, %153
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL13exp_postscaleE)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
-  %153 = and i64 %.0.i.i.i, 63
-  %154 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %153
-  %155 = load i64, ptr %154, align 8
-  store i64 %155, ptr %15, align 8, !alias.scope !196
+  %154 = and i64 %.0.i.i.i, 63
+  %155 = getelementptr inbounds nuw [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %154
+  %156 = load i64, ptr %155, align 8
+  store i64 %156, ptr %15, align 8, !alias.scope !196
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
-  %156 = load i64, ptr %25, align 8, !noalias !199
-  %157 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, align 8, !noalias !199
-  %158 = icmp slt i64 %156, 0
-  %.unshifted.i.i18 = xor i64 %157, %156
-  %159 = icmp sgt i64 %.unshifted.i.i18, -1
-  br i1 %159, label %160, label %161
-
-160:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !202
-  br label %_ZNK2cv10softdoubleplERKS0_.exit
+  %157 = load i64, ptr %25, align 8, !noalias !199
+  %158 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, align 8, !noalias !199
+  %159 = icmp slt i64 %157, 0
+  %.unshifted.i.i18 = xor i64 %158, %157
+  %160 = icmp sgt i64 %.unshifted.i.i18, -1
+  br i1 %160, label %161, label %162
 
 161:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !202
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !202
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
-_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %160, %161
+162:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !202
+  br label %_ZNK2cv10softdoubleplERKS0_.exit
+
+_ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %161, %162
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
-  %162 = load i64, ptr %23, align 8, !noalias !205
-  %163 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, align 8, !noalias !205
-  %164 = icmp slt i64 %162, 0
-  %.unshifted.i.i19 = xor i64 %163, %162
-  %165 = icmp sgt i64 %.unshifted.i.i19, -1
-  br i1 %165, label %166, label %167
-
-166:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !208
-  br label %_ZNK2cv10softdoubleplERKS0_.exit20
+  %163 = load i64, ptr %23, align 8, !noalias !205
+  %164 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, align 8, !noalias !205
+  %165 = icmp slt i64 %163, 0
+  %.unshifted.i.i19 = xor i64 %164, %163
+  %166 = icmp sgt i64 %.unshifted.i.i19, -1
+  br i1 %166, label %167, label %168
 
 167:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !208
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !208
   br label %_ZNK2cv10softdoubleplERKS0_.exit20
 
-_ZNK2cv10softdoubleplERKS0_.exit20:               ; preds = %166, %167
+168:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !208
+  br label %_ZNK2cv10softdoubleplERKS0_.exit20
+
+_ZNK2cv10softdoubleplERKS0_.exit20:               ; preds = %167, %168
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  %168 = load i64, ptr %21, align 8, !noalias !211
-  %169 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, align 8, !noalias !211
-  %170 = icmp slt i64 %168, 0
-  %.unshifted.i.i21 = xor i64 %169, %168
-  %171 = icmp sgt i64 %.unshifted.i.i21, -1
-  br i1 %171, label %172, label %173
-
-172:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !214
-  br label %_ZNK2cv10softdoubleplERKS0_.exit22
+  %169 = load i64, ptr %21, align 8, !noalias !211
+  %170 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, align 8, !noalias !211
+  %171 = icmp slt i64 %169, 0
+  %.unshifted.i.i21 = xor i64 %170, %169
+  %172 = icmp sgt i64 %.unshifted.i.i21, -1
+  br i1 %172, label %173, label %174
 
 173:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !214
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !214
   br label %_ZNK2cv10softdoubleplERKS0_.exit22
 
-_ZNK2cv10softdoubleplERKS0_.exit22:               ; preds = %172, %173
+174:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !214
+  br label %_ZNK2cv10softdoubleplERKS0_.exit22
+
+_ZNK2cv10softdoubleplERKS0_.exit22:               ; preds = %173, %174
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  %174 = load i64, ptr %19, align 8, !noalias !217
-  %175 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, align 8, !noalias !217
-  %176 = icmp slt i64 %174, 0
-  %.unshifted.i.i23 = xor i64 %175, %174
-  %177 = icmp sgt i64 %.unshifted.i.i23, -1
-  br i1 %177, label %178, label %179
-
-178:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !220
-  br label %_ZNK2cv10softdoubleplERKS0_.exit24
+  %175 = load i64, ptr %19, align 8, !noalias !217
+  %176 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, align 8, !noalias !217
+  %177 = icmp slt i64 %175, 0
+  %.unshifted.i.i23 = xor i64 %176, %175
+  %178 = icmp sgt i64 %.unshifted.i.i23, -1
+  br i1 %178, label %179, label %180
 
 179:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !220
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !220
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
-_ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %178, %179
+180:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !220
+  br label %_ZNK2cv10softdoubleplERKS0_.exit24
+
+_ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %179, %180
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %180 = load i64, ptr %17, align 8, !noalias !223
-  %181 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, align 8, !noalias !223
-  %182 = icmp slt i64 %180, 0
-  %.unshifted.i.i25 = xor i64 %181, %180
-  %183 = icmp sgt i64 %.unshifted.i.i25, -1
-  br i1 %183, label %184, label %185
-
-184:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !226
-  br label %_ZNK2cv10softdoubleplERKS0_.exit26
+  %181 = load i64, ptr %17, align 8, !noalias !223
+  %182 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, align 8, !noalias !223
+  %183 = icmp slt i64 %181, 0
+  %.unshifted.i.i25 = xor i64 %182, %181
+  %184 = icmp sgt i64 %.unshifted.i.i25, -1
+  br i1 %184, label %185, label %186
 
 185:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !226
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !226
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
-_ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %184, %185
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  br label %186
+186:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !226
+  br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
-186:                                              ; preds = %33, %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit26, %29
+_ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %185, %186
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  br label %187
+
+187:                                              ; preds = %33, %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %_ZNK2cv10softdoubleplERKS0_.exit26, %29
   ret void
 }
 
@@ -6647,454 +6647,452 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br label %42
 
 42:                                               ; preds = %41, %39, %36
-  %43 = load i32, ptr %15, align 4, !noalias !374
-  %44 = and i32 %43, 2147483647
-  %45 = icmp eq i32 %44, 2139095040
-  %46 = load i32, ptr %16, align 4, !noalias !374
-  %47 = and i32 %46, 2147483647
-  %48 = icmp eq i32 %47, 2139095040
-  %49 = icmp samesign ugt i32 %44, 2139095040
-  %50 = icmp samesign ugt i32 %47, 2139095040
-  %51 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !noalias !374
-  %52 = zext i32 %51 to i64
-  %53 = and i64 %52, 2139095040
-  %54 = icmp eq i64 %53, 2139095040
-  %55 = and i64 %52, 8388607
-  %.not.i.i.i = icmp ne i64 %55, 0
-  %or.cond.i.i.i.not42 = and i1 %54, %.not.i.i.i
-  br i1 %or.cond.i.i.i.not42, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %56
+  %43 = and i32 %17, 2147483647
+  %44 = icmp eq i32 %43, 2139095040
+  %45 = and i32 %18, 2147483647
+  %46 = icmp eq i32 %45, 2139095040
+  %47 = icmp samesign ugt i32 %43, 2139095040
+  %48 = icmp samesign ugt i32 %45, 2139095040
+  %49 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !noalias !374
+  %50 = zext i32 %49 to i64
+  %51 = and i64 %50, 2139095040
+  %52 = icmp eq i64 %51, 2139095040
+  %53 = and i64 %50, 8388607
+  %.not.i.i.i = icmp ne i64 %53, 0
+  %or.cond.i.i.i.not42 = and i1 %52, %.not.i.i.i
+  br i1 %or.cond.i.i.i.not42, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %54
 
-56:                                               ; preds = %42
-  %57 = zext i32 %46 to i64
-  %58 = and i64 %57, 2139095040
-  %59 = icmp ne i64 %58, 2139095040
-  %60 = and i64 %57, 8388607
-  %.not19.i.i.i = icmp eq i64 %60, 0
-  %or.cond23.i.i.i = or i1 %59, %.not19.i.i.i
-  br i1 %or.cond23.i.i.i, label %61, label %_ZNK2cv9softfloatgtERKS0_.exit.i
+54:                                               ; preds = %42
+  %55 = zext i32 %18 to i64
+  %56 = and i64 %55, 2139095040
+  %57 = icmp ne i64 %56, 2139095040
+  %58 = and i64 %55, 8388607
+  %.not19.i.i.i = icmp eq i64 %58, 0
+  %or.cond23.i.i.i = or i1 %57, %.not19.i.i.i
+  br i1 %or.cond23.i.i.i, label %59, label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
-61:                                               ; preds = %56
-  %.not21.unshifted.i.i.i = xor i32 %51, %46
+59:                                               ; preds = %54
+  %.not21.unshifted.i.i.i = xor i32 %49, %18
   %.not21.i.i.i = icmp sgt i32 %.not21.unshifted.i.i.i, -1
-  br i1 %.not21.i.i.i, label %67, label %62
+  br i1 %.not21.i.i.i, label %65, label %60
 
-62:                                               ; preds = %61
-  %63 = icmp slt i32 %51, 0
-  br i1 %63, label %64, label %_ZNK2cv9softfloatgtERKS0_.exit.i
+60:                                               ; preds = %59
+  %61 = icmp slt i32 %49, 0
+  br i1 %61, label %62, label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
-64:                                               ; preds = %62
-  %65 = or i32 %51, %46
-  %.mask.i.i.i = and i32 %65, 2147483647
-  %66 = icmp ne i32 %.mask.i.i.i, 0
+62:                                               ; preds = %60
+  %63 = or i32 %49, %18
+  %.mask.i.i.i = and i32 %63, 2147483647
+  %64 = icmp ne i32 %.mask.i.i.i, 0
   br label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
-67:                                               ; preds = %61
-  %.not22.i.i.i = icmp eq i32 %51, %46
-  br i1 %.not22.i.i.i, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %68
+65:                                               ; preds = %59
+  %.not22.i.i.i = icmp eq i32 %49, %18
+  br i1 %.not22.i.i.i, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %66
 
-68:                                               ; preds = %67
-  %69 = icmp ult i32 %51, %46
-  %70 = icmp slt i32 %51, 0
-  %71 = xor i1 %70, %69
+66:                                               ; preds = %65
+  %67 = icmp ult i32 %49, %18
+  %68 = icmp slt i32 %49, 0
+  %69 = xor i1 %68, %67
   br label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
-_ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %68, %67, %64, %62, %56, %42
-  %.0.i.i.i = phi i1 [ false, %62 ], [ %66, %64 ], [ false, %67 ], [ %71, %68 ], [ false, %56 ], [ false, %42 ]
-  %72 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !noalias !374
-  %73 = zext i32 %72 to i64
-  %74 = and i64 %73, 2139095040
-  %75 = icmp eq i64 %74, 2139095040
-  %76 = and i64 %73, 8388607
-  %.not.i.i14.i = icmp ne i64 %76, 0
-  %or.cond.i.i15.not78.i = and i1 %75, %.not.i.i14.i
-  br i1 %or.cond.i.i15.not78.i, label %_ZNK2cv9softfloatgtERKS0_.exit23.i, label %77
+_ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %66, %65, %62, %60, %54, %42
+  %.0.i.i.i = phi i1 [ false, %60 ], [ %64, %62 ], [ false, %65 ], [ %69, %66 ], [ false, %54 ], [ false, %42 ]
+  %70 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !noalias !374
+  %71 = zext i32 %70 to i64
+  %72 = and i64 %71, 2139095040
+  %73 = icmp eq i64 %72, 2139095040
+  %74 = and i64 %71, 8388607
+  %.not.i.i14.i = icmp ne i64 %74, 0
+  %or.cond.i.i15.not78.i = and i1 %73, %.not.i.i14.i
+  br i1 %or.cond.i.i15.not78.i, label %_ZNK2cv9softfloatgtERKS0_.exit23.i, label %75
 
-77:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit.i
-  %78 = zext nneg i32 %44 to i64
-  %79 = and i64 %78, 2139095040
-  %80 = icmp ne i64 %79, 2139095040
-  %81 = and i64 %78, 8388607
-  %.not19.i.i17.i = icmp eq i64 %81, 0
-  %or.cond23.i.i18.i = or i1 %80, %.not19.i.i17.i
-  br i1 %or.cond23.i.i18.i, label %82, label %_ZNK2cv9softfloatgtERKS0_.exit23.i
+75:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit.i
+  %76 = zext nneg i32 %43 to i64
+  %77 = and i64 %76, 2139095040
+  %78 = icmp ne i64 %77, 2139095040
+  %79 = and i64 %76, 8388607
+  %.not19.i.i17.i = icmp eq i64 %79, 0
+  %or.cond23.i.i18.i = or i1 %78, %.not19.i.i17.i
+  br i1 %or.cond23.i.i18.i, label %80, label %_ZNK2cv9softfloatgtERKS0_.exit23.i
 
-82:                                               ; preds = %77
-  %.not21.i.i20.i = icmp sgt i32 %72, -1
-  br i1 %.not21.i.i20.i, label %86, label %83
+80:                                               ; preds = %75
+  %.not21.i.i20.i = icmp sgt i32 %70, -1
+  br i1 %.not21.i.i20.i, label %84, label %81
 
-83:                                               ; preds = %82
-  %84 = or i32 %72, %43
-  %.mask.i.i21.i = and i32 %84, 2147483647
-  %85 = icmp ne i32 %.mask.i.i21.i, 0
+81:                                               ; preds = %80
+  %82 = or i32 %70, %17
+  %.mask.i.i21.i = and i32 %82, 2147483647
+  %83 = icmp ne i32 %.mask.i.i21.i, 0
   br label %_ZNK2cv9softfloatgtERKS0_.exit23.i
 
-86:                                               ; preds = %82
-  %87 = icmp samesign ult i32 %72, %44
+84:                                               ; preds = %80
+  %85 = icmp samesign ult i32 %70, %43
   br label %_ZNK2cv9softfloatgtERKS0_.exit23.i
 
-_ZNK2cv9softfloatgtERKS0_.exit23.i:               ; preds = %86, %83, %77, %_ZNK2cv9softfloatgtERKS0_.exit.i
-  %.0.i.i16.i = phi i1 [ %85, %83 ], [ false, %77 ], [ false, %_ZNK2cv9softfloatgtERKS0_.exit.i ], [ %87, %86 ]
-  %88 = xor i1 %.0.i.i.i, %.0.i.i16.i
+_ZNK2cv9softfloatgtERKS0_.exit23.i:               ; preds = %84, %81, %75, %_ZNK2cv9softfloatgtERKS0_.exit.i
+  %.0.i.i16.i = phi i1 [ %83, %81 ], [ false, %75 ], [ false, %_ZNK2cv9softfloatgtERKS0_.exit.i ], [ %85, %84 ]
+  %86 = xor i1 %.0.i.i.i, %.0.i.i16.i
   store i32 0, ptr %0, align 4, !alias.scope !374
-  br i1 %50, label %89, label %92
+  br i1 %48, label %87, label %90
 
-89:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
+87:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
   %.not.i.i = icmp eq ptr %0, @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan
-  br i1 %.not.i.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %90
+  br i1 %.not.i.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %88
 
-90:                                               ; preds = %89
-  %91 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
+88:                                               ; preds = %87
+  %89 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-92:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
-  br i1 %48, label %93, label %106
+90:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
+  br i1 %46, label %91, label %104
 
-93:                                               ; preds = %92
-  %94 = zext nneg i32 %44 to i64
-  %95 = and i64 %94, 2139095040
-  %96 = icmp eq i64 %95, 2139095040
-  %97 = and i64 %94, 8388607
-  %.not.i.i24.i = icmp ne i64 %97, 0
-  %or.cond.i.i25.not76.i = and i1 %96, %.not.i.i24.i
+91:                                               ; preds = %90
+  %92 = zext nneg i32 %43 to i64
+  %93 = and i64 %92, 2139095040
+  %94 = icmp eq i64 %93, 2139095040
+  %95 = and i64 %92, 8388607
+  %.not.i.i24.i = icmp ne i64 %95, 0
+  %or.cond.i.i25.not76.i = and i1 %94, %.not.i.i24.i
   %brmerge.i = or i1 %or.cond.i.i25.not76.i, %or.cond.i.i15.not78.i
   br i1 %brmerge.i, label %_ZNK2cv9softfloateqERKS0_.exit.thread.i, label %_ZNK2cv9softfloateqERKS0_.exit.i
 
-_ZNK2cv9softfloateqERKS0_.exit.thread.i:          ; preds = %93
-  %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero68.i = select i1 %88, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf
-  %spec.select69.i = select i1 %49, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, ptr %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero68.i
-  br label %102
+_ZNK2cv9softfloateqERKS0_.exit.thread.i:          ; preds = %91
+  %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero68.i = select i1 %86, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf
+  %spec.select69.i = select i1 %47, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, ptr %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero68.i
+  br label %100
 
-_ZNK2cv9softfloateqERKS0_.exit.i:                 ; preds = %93
-  %98 = icmp eq i32 %44, %72
-  %99 = or i32 %72, %43
-  %.mask.i.i27.i = and i32 %99, 2147483647
+_ZNK2cv9softfloateqERKS0_.exit.i:                 ; preds = %91
+  %96 = icmp eq i32 %43, %70
+  %97 = or i32 %70, %17
+  %.mask.i.i27.i = and i32 %97, 2147483647
   %.not15.i.i.i = icmp eq i32 %.mask.i.i27.i, 0
-  %100 = select i1 %98, i1 true, i1 %.not15.i.i.i
-  %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i = select i1 %88, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf
-  %cond.fr.i = freeze i1 %100
-  %101 = select i1 %cond.fr.i, i1 true, i1 %49
-  %spec.select74.i = select i1 %101, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, ptr %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i
-  br label %102
+  %98 = select i1 %96, i1 true, i1 %.not15.i.i.i
+  %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i = select i1 %86, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf
+  %cond.fr.i = freeze i1 %98
+  %99 = select i1 %cond.fr.i, i1 true, i1 %47
+  %spec.select74.i = select i1 %99, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, ptr %_ZZN2cvL7f32_powENS_9softfloatES0_E3inf._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i
+  br label %100
 
-102:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.i, %_ZNK2cv9softfloateqERKS0_.exit.thread.i
-  %103 = phi ptr [ %spec.select69.i, %_ZNK2cv9softfloateqERKS0_.exit.thread.i ], [ %spec.select74.i, %_ZNK2cv9softfloateqERKS0_.exit.i ]
-  %.not.i28.i = icmp eq ptr %103, %0
-  br i1 %.not.i28.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %104
+100:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.i, %_ZNK2cv9softfloateqERKS0_.exit.thread.i
+  %101 = phi ptr [ %spec.select69.i, %_ZNK2cv9softfloateqERKS0_.exit.thread.i ], [ %spec.select74.i, %_ZNK2cv9softfloateqERKS0_.exit.i ]
+  %.not.i28.i = icmp eq ptr %101, %0
+  br i1 %.not.i28.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %102
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr %103, align 4, !noalias !374
+102:                                              ; preds = %100
+  %103 = load i32, ptr %101, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-106:                                              ; preds = %92
-  %107 = zext i32 %46 to i64
-  %108 = and i64 %107, 2139095040
-  %109 = icmp ne i64 %108, 2139095040
-  %110 = and i64 %107, 8388607
-  %.not.i.i30.i = icmp eq i64 %110, 0
-  %or.cond.i.i31.i = or i1 %109, %.not.i.i30.i
-  br i1 %or.cond.i.i31.i, label %111, label %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
+104:                                              ; preds = %90
+  %105 = zext i32 %18 to i64
+  %106 = and i64 %105, 2139095040
+  %107 = icmp ne i64 %106, 2139095040
+  %108 = and i64 %105, 8388607
+  %.not.i.i30.i = icmp eq i64 %108, 0
+  %or.cond.i.i31.i = or i1 %107, %.not.i.i30.i
+  br i1 %or.cond.i.i31.i, label %109, label %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
 
-111:                                              ; preds = %106
+109:                                              ; preds = %104
   br i1 %or.cond.i.i.i.not42, label %.thread72.i, label %_ZNK2cv9softfloateqERKS0_.exit37.i
 
-_ZNK2cv9softfloateqERKS0_.exit37.i:               ; preds = %111
-  %112 = icmp eq i32 %46, %51
-  %113 = or i32 %51, %46
-  %.mask.i.i35.i = and i32 %113, 2147483647
+_ZNK2cv9softfloateqERKS0_.exit37.i:               ; preds = %109
+  %110 = icmp eq i32 %18, %49
+  %111 = or i32 %49, %18
+  %.mask.i.i35.i = and i32 %111, 2147483647
   %.not15.i.i36.i = icmp eq i32 %.mask.i.i35.i, 0
-  %114 = select i1 %112, i1 true, i1 %.not15.i.i36.i
-  br i1 %114, label %115, label %.thread72.i
+  %112 = select i1 %110, i1 true, i1 %.not15.i.i36.i
+  br i1 %112, label %113, label %.thread72.i
 
-115:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit37.i
+113:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit37.i
   %.not.i38.i = icmp eq ptr %0, @_ZZN2cvL7f32_powENS_9softfloatES0_E3one
   br i1 %.not.i38.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-.thread72.i:                                      ; preds = %_ZNK2cv9softfloateqERKS0_.exit37.i, %111
+.thread72.i:                                      ; preds = %_ZNK2cv9softfloateqERKS0_.exit37.i, %109
   br i1 %or.cond.i.i15.not78.i, label %_ZNK2cv9softfloateqERKS0_.exit47.thread.i, label %_ZNK2cv9softfloateqERKS0_.exit47.i
 
 _ZNK2cv9softfloateqERKS0_.exit47.i:               ; preds = %.thread72.i
-  %116 = icmp eq i32 %46, %72
-  %117 = or i32 %72, %46
-  %.mask.i.i45.i = and i32 %117, 2147483647
+  %114 = icmp eq i32 %18, %70
+  %115 = or i32 %70, %18
+  %.mask.i.i45.i = and i32 %115, 2147483647
   %.not15.i.i46.i = icmp eq i32 %.mask.i.i45.i, 0
-  %118 = select i1 %116, i1 true, i1 %.not15.i.i46.i
-  br i1 %118, label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i, label %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
+  %116 = select i1 %114, i1 true, i1 %.not15.i.i46.i
+  br i1 %116, label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i, label %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
 
-_ZNK2cv9softfloateqERKS0_.exit47.thread.i:        ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %.thread72.i, %106
-  br i1 %49, label %119, label %122
+_ZNK2cv9softfloateqERKS0_.exit47.thread.i:        ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %.thread72.i, %104
+  br i1 %47, label %117, label %120
 
-119:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
+117:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
   %.not.i50.i = icmp eq ptr %0, @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan
-  br i1 %.not.i50.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %120
+  br i1 %.not.i50.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %118
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
+118:                                              ; preds = %117
+  %119 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-122:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
-  br i1 %45, label %123, label %137
+120:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
+  br i1 %44, label %121, label %135
 
-123:                                              ; preds = %122
+121:                                              ; preds = %120
   %or.cond.i.i31.i.not = xor i1 %or.cond.i.i31.i, true
   %brmerge = or i1 %or.cond.i.i.i.not42, %or.cond.i.i31.i.not
-  br i1 %brmerge, label %_ZNK2cv9softfloatltERKS0_.exit32.thread, label %124
+  br i1 %brmerge, label %_ZNK2cv9softfloatltERKS0_.exit32.thread, label %122
 
-124:                                              ; preds = %123
-  %.not21.unshifted.i.i28 = xor i32 %51, %46
+122:                                              ; preds = %121
+  %.not21.unshifted.i.i28 = xor i32 %49, %18
   %.not21.i.i29 = icmp sgt i32 %.not21.unshifted.i.i28, -1
-  br i1 %.not21.i.i29, label %129, label %125
+  br i1 %.not21.i.i29, label %127, label %123
 
-125:                                              ; preds = %124
-  %126 = icmp slt i32 %46, 0
-  br i1 %126, label %127, label %_ZNK2cv9softfloatltERKS0_.exit32.thread
+123:                                              ; preds = %122
+  %124 = icmp slt i32 %18, 0
+  br i1 %124, label %125, label %_ZNK2cv9softfloatltERKS0_.exit32.thread
 
-127:                                              ; preds = %125
-  %128 = or i32 %51, %46
-  %.fr = freeze i32 %128
+125:                                              ; preds = %123
+  %126 = or i32 %49, %18
+  %.fr = freeze i32 %126
   %.mask.i.i30 = and i32 %.fr, 2147483647
   %.not43 = icmp eq i32 %.mask.i.i30, 0
-  br i1 %.not43, label %_ZNK2cv9softfloatltERKS0_.exit32.thread, label %133
+  br i1 %.not43, label %_ZNK2cv9softfloatltERKS0_.exit32.thread, label %131
 
-129:                                              ; preds = %124
-  %.not22.i.i31 = icmp eq i32 %46, %51
+127:                                              ; preds = %122
+  %.not22.i.i31 = icmp eq i32 %18, %49
   br i1 %.not22.i.i31, label %_ZNK2cv9softfloatltERKS0_.exit32.thread, label %_ZNK2cv9softfloatltERKS0_.exit32
 
-_ZNK2cv9softfloatltERKS0_.exit32:                 ; preds = %129
-  %130 = icmp ult i32 %46, %51
-  %131 = icmp slt i32 %46, 0
-  %132 = xor i1 %131, %130
-  %cond.fr = freeze i1 %132
-  br i1 %cond.fr, label %133, label %_ZNK2cv9softfloatltERKS0_.exit32.thread
+_ZNK2cv9softfloatltERKS0_.exit32:                 ; preds = %127
+  %128 = icmp ult i32 %18, %49
+  %129 = icmp slt i32 %18, 0
+  %130 = xor i1 %129, %128
+  %cond.fr = freeze i1 %130
+  br i1 %cond.fr, label %131, label %_ZNK2cv9softfloatltERKS0_.exit32.thread
 
-133:                                              ; preds = %127, %_ZNK2cv9softfloatltERKS0_.exit32
+131:                                              ; preds = %125, %_ZNK2cv9softfloatltERKS0_.exit32
   br label %_ZNK2cv9softfloatltERKS0_.exit32.thread
 
-_ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %127, %_ZNK2cv9softfloatltERKS0_.exit32, %133
-  %134 = phi ptr [ @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, %133 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %_ZNK2cv9softfloatltERKS0_.exit32 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %127 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %125 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %129 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %123 ]
-  %.not.i52.i = icmp eq ptr %134, %0
-  br i1 %.not.i52.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %135
+_ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %121, %127, %123, %125, %_ZNK2cv9softfloatltERKS0_.exit32, %131
+  %132 = phi ptr [ @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, %131 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %_ZNK2cv9softfloatltERKS0_.exit32 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %125 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %123 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %127 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %121 ]
+  %.not.i52.i = icmp eq ptr %132, %0
+  br i1 %.not.i52.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %133
 
-135:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit32.thread
-  %136 = load i32, ptr %134, align 4, !noalias !374
+133:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit32.thread
+  %134 = load i32, ptr %132, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-137:                                              ; preds = %122
-  %138 = lshr i64 %107, 23
-  %139 = and i64 %138, 255
-  %140 = icmp samesign ult i64 %139, 127
-  br i1 %140, label %141, label %147
+135:                                              ; preds = %120
+  %136 = lshr i64 %105, 23
+  %137 = and i64 %136, 255
+  %138 = icmp samesign ult i64 %137, 127
+  br i1 %138, label %139, label %145
 
-141:                                              ; preds = %137
-  %.not47.i = icmp eq i32 %47, 0
-  br i1 %.not47.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, label %142
+139:                                              ; preds = %135
+  %.not47.i = icmp eq i32 %45, 0
+  br i1 %.not47.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, label %140
 
-142:                                              ; preds = %141
-  %143 = and i64 %107, 2147483648
-  %144 = icmp ne i64 %110, 0
-  %145 = icmp eq i64 %139, 126
-  %or.cond.i21 = and i1 %144, %145
-  %146 = or disjoint i64 %143, 1065353216
-  %spec.select.i22 = select i1 %or.cond.i21, i64 %146, i64 %143
-  br label %170
+140:                                              ; preds = %139
+  %141 = and i64 %105, 2147483648
+  %142 = icmp ne i64 %108, 0
+  %143 = icmp eq i64 %137, 126
+  %or.cond.i21 = and i1 %142, %143
+  %144 = or disjoint i64 %141, 1065353216
+  %spec.select.i22 = select i1 %or.cond.i21, i64 %144, i64 %141
+  br label %168
 
-147:                                              ; preds = %137
-  %148 = icmp samesign ugt i64 %139, 149
-  br i1 %148, label %149, label %158
+145:                                              ; preds = %135
+  %146 = icmp samesign ugt i64 %137, 149
+  br i1 %146, label %147, label %156
 
-149:                                              ; preds = %147
-  %150 = icmp ne i64 %139, 255
-  %or.cond48.i = or i1 %.not.i.i30.i, %150
+147:                                              ; preds = %145
+  %148 = icmp ne i64 %137, 255
+  %or.cond48.i = or i1 %.not.i.i30.i, %148
   br i1 %or.cond48.i, label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
 
-_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %149
-  %151 = and i64 %107, 2143289344
-  %152 = icmp eq i64 %151, 2139095040
-  %153 = and i64 %107, 4194303
-  %154 = icmp ne i64 %153, 0
-  %155 = and i1 %152, %154
-  %.not1.i = icmp eq i64 %108, 2139095040
-  %156 = or i1 %.not1.i, %155
-  %157 = or i64 %107, 4194304
-  %.0.i.i20 = select i1 %156, i64 %157, i64 4194304
-  br label %170
+_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %147
+  %149 = and i64 %105, 2143289344
+  %150 = icmp eq i64 %149, 2139095040
+  %151 = and i64 %105, 4194303
+  %152 = icmp ne i64 %151, 0
+  %153 = and i1 %150, %152
+  %.not1.i = icmp eq i64 %106, 2139095040
+  %154 = or i1 %.not1.i, %153
+  %155 = or i64 %105, 4194304
+  %.0.i.i20 = select i1 %154, i64 %155, i64 4194304
+  br label %168
 
-158:                                              ; preds = %147
-  %159 = sub nuw nsw i64 150, %139
-  %160 = shl nuw nsw i64 1, %159
-  %161 = add nsw i64 %160, -1
-  %162 = lshr i64 %160, 1
-  %163 = add nuw nsw i64 %162, %107
-  %164 = and i64 %163, %161
-  %.not.i18 = icmp eq i64 %164, 0
-  %165 = xor i64 %160, -1
-  %166 = select i1 %.not.i18, i64 %165, i64 9223372036854775807
-  %167 = sub nsw i64 0, %160
-  %168 = and i64 %166, %167
-  %169 = and i64 %168, %163
-  br label %170
+156:                                              ; preds = %145
+  %157 = sub nuw nsw i64 150, %137
+  %158 = shl nuw nsw i64 1, %157
+  %159 = add nsw i64 %158, -1
+  %160 = lshr i64 %158, 1
+  %161 = add nuw nsw i64 %160, %105
+  %162 = and i64 %161, %159
+  %.not.i18 = icmp eq i64 %162, 0
+  %163 = xor i64 %158, -1
+  %164 = select i1 %.not.i18, i64 %163, i64 9223372036854775807
+  %165 = sub nsw i64 0, %158
+  %166 = and i64 %164, %165
+  %167 = and i64 %166, %161
+  br label %168
 
-170:                                              ; preds = %158, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %142
-  %.0.i = phi i64 [ %.0.i.i20, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i22, %142 ]
-  %171 = trunc i64 %.0.i to i32
+168:                                              ; preds = %156, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %140
+  %.0.i = phi i64 [ %.0.i.i20, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %167, %156 ], [ %spec.select.i22, %140 ]
+  %169 = trunc i64 %.0.i to i32
   br label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
 
-_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %141, %149, %170
-  %.sink.i19 = phi i32 [ %171, %170 ], [ %46, %141 ], [ %46, %149 ]
-  br i1 %or.cond.i.i31.i, label %172, label %_ZNK2cv9softfloateqERKS0_.exit.thread
+_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %139, %147, %168
+  %.sink.i19 = phi i32 [ %169, %168 ], [ %18, %139 ], [ %18, %147 ]
+  br i1 %or.cond.i.i31.i, label %170, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
-172:                                              ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
-  %173 = zext i32 %.sink.i19 to i64
-  %174 = and i64 %173, 2139095040
-  %175 = icmp ne i64 %174, 2139095040
-  %176 = and i64 %173, 8388607
-  %.not14.i.i = icmp eq i64 %176, 0
-  %or.cond18.i.i = or i1 %175, %.not14.i.i
+170:                                              ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
+  %171 = zext i32 %.sink.i19 to i64
+  %172 = and i64 %171, 2139095040
+  %173 = icmp ne i64 %172, 2139095040
+  %174 = and i64 %171, 8388607
+  %.not14.i.i = icmp eq i64 %174, 0
+  %or.cond18.i.i = or i1 %173, %.not14.i.i
   br i1 %or.cond18.i.i, label %_ZNK2cv9softfloateqERKS0_.exit, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
-_ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %172
-  %177 = icmp eq i32 %46, %.sink.i19
-  %178 = or i32 %.sink.i19, %46
-  %.mask.i.i17 = and i32 %178, 2147483647
+_ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %170
+  %175 = icmp eq i32 %18, %.sink.i19
+  %176 = or i32 %.sink.i19, %18
+  %.mask.i.i17 = and i32 %176, 2147483647
   %.not15.i.i = icmp eq i32 %.mask.i.i17, 0
-  %179 = select i1 %177, i1 true, i1 %.not15.i.i
-  br i1 %179, label %180, label %_ZNK2cv9softfloateqERKS0_.exit.thread
+  %177 = select i1 %175, i1 true, i1 %.not15.i.i
+  br i1 %177, label %178, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
-180:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit
-  %181 = icmp slt i32 %46, 0
-  %182 = icmp ne i64 %139, 255
-  %or.cond.not.i = or i1 %.not.i.i30.i, %182
-  %spec.select.i9 = and i1 %181, %or.cond.not.i
-  %.not.i10 = icmp eq i64 %139, 0
-  %183 = shl nuw nsw i64 %110, 32
-  %184 = or disjoint i64 %183, 36028797018963968
-  %185 = select i1 %.not.i10, i64 %183, i64 %184
-  %186 = icmp samesign ult i64 %139, 170
-  br i1 %186, label %187, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+178:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit
+  %179 = icmp slt i32 %18, 0
+  %180 = icmp ne i64 %137, 255
+  %or.cond.not.i = or i1 %.not.i.i30.i, %180
+  %spec.select.i9 = and i1 %179, %or.cond.not.i
+  %.not.i10 = icmp eq i64 %137, 0
+  %181 = shl nuw nsw i64 %108, 32
+  %182 = or disjoint i64 %181, 36028797018963968
+  %183 = select i1 %.not.i10, i64 %181, i64 %182
+  %184 = icmp samesign ult i64 %137, 170
+  br i1 %184, label %185, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-187:                                              ; preds = %180
-  %188 = icmp samesign ugt i64 %139, 107
-  br i1 %188, label %189, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
+185:                                              ; preds = %178
+  %186 = icmp samesign ugt i64 %137, 107
+  br i1 %186, label %187, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
-189:                                              ; preds = %187
-  %.neg.i = add nuw nsw i64 %138, 22
-  %190 = sub nuw nsw i64 170, %139
-  %191 = lshr i64 %184, %190
-  %192 = and i64 %.neg.i, 63
-  %193 = shl i64 %184, %192
-  %194 = icmp ne i64 %193, 0
-  %195 = zext i1 %194 to i64
-  %196 = or i64 %191, %195
+187:                                              ; preds = %185
+  %.neg.i = add nuw nsw i64 %136, 22
+  %188 = sub nuw nsw i64 170, %137
+  %189 = lshr i64 %182, %188
+  %190 = and i64 %.neg.i, 63
+  %191 = shl i64 %182, %190
+  %192 = icmp ne i64 %191, 0
+  %193 = zext i1 %192 to i64
+  %194 = or i64 %189, %193
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %187
-  %197 = icmp ne i64 %185, 0
-  %198 = zext i1 %197 to i64
-  br label %199
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %185
+  %195 = icmp ne i64 %183, 0
+  %196 = zext i1 %195 to i64
+  br label %197
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %189, %180
-  %.017.i = phi i64 [ %185, %180 ], [ %196, %189 ]
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %187, %178
+  %.017.i = phi i64 [ %183, %178 ], [ %194, %187 ]
   %.not.i.i11 = icmp samesign ult i64 %.017.i, 17592186042368
-  br i1 %.not.i.i11, label %199, label %210
+  br i1 %.not.i.i11, label %197, label %208
 
-199:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %.017.i46 = phi i64 [ %198, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.017.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
-  %200 = add nuw nsw i64 %.017.i46, 2048
-  %201 = and i64 %.017.i46, 4095
-  %202 = lshr i64 %200, 12
-  %.not31.i.i = icmp eq i64 %201, 2048
-  %203 = zext i1 %.not31.i.i to i64
-  %204 = xor i64 %203, -1
-  %205 = and i64 %202, %204
-  %206 = sub nsw i64 0, %205
-  %207 = select i1 %spec.select.i9, i64 %206, i64 %205
-  %sext.i.i = shl i64 %207, 32
-  %208 = ashr exact i64 %sext.i.i, 32
+197:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %.017.i46 = phi i64 [ %196, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.017.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
+  %198 = add nuw nsw i64 %.017.i46, 2048
+  %199 = and i64 %.017.i46, 4095
+  %200 = lshr i64 %198, 12
+  %.not31.i.i = icmp eq i64 %199, 2048
+  %201 = zext i1 %.not31.i.i to i64
+  %202 = xor i64 %201, -1
+  %203 = and i64 %200, %202
+  %204 = sub nsw i64 0, %203
+  %205 = select i1 %spec.select.i9, i64 %204, i64 %203
+  %sext.i.i = shl i64 %205, 32
+  %206 = ashr exact i64 %sext.i.i, 32
   %.not32.i.i = icmp eq i64 %sext.i.i, 0
-  %209 = icmp sgt i64 %208, -1
-  %.not3334.i.i = xor i1 %spec.select.i9, %209
+  %207 = icmp sgt i64 %206, -1
+  %.not3334.i.i = xor i1 %spec.select.i9, %207
   %or.cond.i.i13 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i13, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %210
+  br i1 %or.cond.i.i13, label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit, label %208
 
-210:                                              ; preds = %199, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %211 = select i1 %spec.select.i9, i64 -2147483648, i64 2147483647
+208:                                              ; preds = %197, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %209 = select i1 %spec.select.i9, i64 -2147483648, i64 2147483647
   br label %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
 
-_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %199, %210
-  %.0.i.i12 = phi i64 [ %211, %210 ], [ %208, %199 ]
+_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %197, %208
+  %.0.i.i12 = phi i64 [ %209, %208 ], [ %206, %197 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %212 = zext i32 %43 to i64
-  %213 = and i64 %212, 2139095040
-  %214 = icmp ne i64 %213, 2139095040
-  %215 = and i64 %212, 8388607
-  %.not.i.i.i3 = icmp eq i64 %215, 0
-  %or.cond.i.i.i4 = or i1 %214, %.not.i.i.i3
-  %.not15.i.i.i6 = icmp eq i32 %44, 0
+  %210 = zext i32 %17 to i64
+  %211 = and i64 %210, 2139095040
+  %212 = icmp ne i64 %211, 2139095040
+  %213 = and i64 %210, 8388607
+  %.not.i.i.i3 = icmp eq i64 %213, 0
+  %or.cond.i.i.i4 = or i1 %212, %.not.i.i.i3
+  %.not15.i.i.i6 = icmp eq i32 %43, 0
   %or.cond.i = and i1 %.not15.i.i.i6, %or.cond.i.i.i4
-  br i1 %or.cond.i, label %216, label %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
+  br i1 %or.cond.i, label %214, label %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
 
-216:                                              ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
-  %217 = icmp slt i64 %.0.i.i12, 0
-  br i1 %217, label %_ZN2cvL8f32_powiENS_9softfloatEi.exit, label %218
+214:                                              ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
+  %215 = icmp slt i64 %.0.i.i12, 0
+  br i1 %215, label %_ZN2cvL8f32_powiENS_9softfloatEi.exit, label %216
 
-218:                                              ; preds = %216
-  %219 = icmp eq i64 %.0.i.i12, 0
-  %spec.select.i = select i1 %219, i32 1065353216, i32 0
+216:                                              ; preds = %214
+  %217 = icmp eq i64 %.0.i.i12, 0
+  %spec.select.i = select i1 %217, i32 1065353216, i32 0
   br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
 
 _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
-  %220 = trunc nsw i64 %.0.i.i12 to i32
+  %218 = trunc nsw i64 %.0.i.i12 to i32
   store i32 1065353216, ptr %6, align 4, !alias.scope !397, !noalias !402
-  store i32 %43, ptr %7, align 4, !noalias !402
-  %221 = tail call i32 @llvm.abs.i32(i32 %220, i1 true)
-  %222 = icmp slt i64 %.0.i.i12, 0
-  br i1 %222, label %223, label %225
+  store i32 %17, ptr %7, align 4, !noalias !402
+  %219 = tail call i32 @llvm.abs.i32(i32 %218, i1 true)
+  %220 = icmp slt i64 %.0.i.i12, 0
+  br i1 %220, label %221, label %223
 
-223:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
+221:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
   store i32 1065353216, ptr %9, align 4, !alias.scope !405, !noalias !402
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
-  %224 = load i32, ptr %8, align 4, !noalias !402
-  store i32 %224, ptr %7, align 4, !noalias !402
-  br label %225
+  %222 = load i32, ptr %8, align 4, !noalias !402
+  store i32 %222, ptr %7, align 4, !noalias !402
+  br label %223
 
-225:                                              ; preds = %223, %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
-  %226 = icmp samesign ugt i32 %221, 1
-  br i1 %226, label %.lr.ph.i, label %._crit_edge.i
+223:                                              ; preds = %221, %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
+  %224 = icmp samesign ugt i32 %219, 1
+  br i1 %224, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %225, %230
-  %.02.i = phi i32 [ %232, %230 ], [ %221, %225 ]
-  %227 = and i32 %.02.i, 1
-  %.not.i8 = icmp eq i32 %227, 0
-  br i1 %.not.i8, label %230, label %228
+.lr.ph.i:                                         ; preds = %223, %228
+  %.02.i = phi i32 [ %230, %228 ], [ %219, %223 ]
+  %225 = and i32 %.02.i, 1
+  %.not.i8 = icmp eq i32 %225, 0
+  br i1 %.not.i8, label %228, label %226
 
-228:                                              ; preds = %.lr.ph.i
+226:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !402
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
-  %229 = load i32, ptr %5, align 4, !noalias !402
-  store i32 %229, ptr %6, align 4, !noalias !402
+  %227 = load i32, ptr %5, align 4, !noalias !402
+  store i32 %227, ptr %6, align 4, !noalias !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !402
-  br label %230
+  br label %228
 
-230:                                              ; preds = %228, %.lr.ph.i
+228:                                              ; preds = %226, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !402
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
-  %231 = load i32, ptr %4, align 4, !noalias !402
-  store i32 %231, ptr %7, align 4, !noalias !402
+  %229 = load i32, ptr %4, align 4, !noalias !402
+  store i32 %229, ptr %7, align 4, !noalias !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !402
-  %232 = lshr i32 %.02.i, 1
-  %233 = icmp samesign ugt i32 %.02.i, 3
-  br i1 %233, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !410
+  %230 = lshr i32 %.02.i, 1
+  %231 = icmp samesign ugt i32 %.02.i, 3
+  br i1 %231, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !410
 
-._crit_edge.i:                                    ; preds = %230, %225
+._crit_edge.i:                                    ; preds = %228, %223
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
-  %234 = load i32, ptr %10, align 4, !noalias !402
+  %232 = load i32, ptr %10, align 4, !noalias !402
   br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
 
-_ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %216, %218, %._crit_edge.i
-  %storemerge.i = phi i32 [ %234, %._crit_edge.i ], [ 2139095040, %216 ], [ %spec.select.i, %218 ]
+_ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %214, %216, %._crit_edge.i
+  %storemerge.i = phi i32 [ %232, %._crit_edge.i ], [ 2139095040, %214 ], [ %spec.select.i, %216 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -7102,85 +7100,85 @@ _ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %216, %218, %._crit_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-_ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, %172, %_ZNK2cv9softfloateqERKS0_.exit
-  %235 = zext i32 %43 to i64
-  %236 = and i64 %235, 2139095040
-  %237 = icmp eq i64 %236, 2139095040
-  %238 = and i64 %235, 8388607
-  %.not.i.i2 = icmp ne i64 %238, 0
-  %or.cond.i.i.not41 = and i1 %237, %.not.i.i2
+_ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit, %170, %_ZNK2cv9softfloateqERKS0_.exit
+  %233 = zext i32 %17 to i64
+  %234 = and i64 %233, 2139095040
+  %235 = icmp eq i64 %234, 2139095040
+  %236 = and i64 %233, 8388607
+  %.not.i.i2 = icmp ne i64 %236, 0
+  %or.cond.i.i.not41 = and i1 %235, %.not.i.i2
   %brmerge40 = or i1 %or.cond.i.i.not41, %or.cond.i.i.i.not42
-  br i1 %brmerge40, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %239
+  br i1 %brmerge40, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %237
 
-239:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread
-  %.not21.unshifted.i.i = xor i32 %51, %43
+237:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread
+  %.not21.unshifted.i.i = xor i32 %49, %17
   %.not21.i.i = icmp sgt i32 %.not21.unshifted.i.i, -1
-  br i1 %.not21.i.i, label %244, label %240
+  br i1 %.not21.i.i, label %242, label %238
 
-240:                                              ; preds = %239
-  %241 = icmp slt i32 %43, 0
-  br i1 %241, label %242, label %_ZNK2cv9softfloatltERKS0_.exit.thread
+238:                                              ; preds = %237
+  %239 = icmp slt i32 %17, 0
+  br i1 %239, label %240, label %_ZNK2cv9softfloatltERKS0_.exit.thread
 
-242:                                              ; preds = %240
-  %243 = or i32 %51, %43
-  %.mask.i.i = and i32 %243, 2147483647
+240:                                              ; preds = %238
+  %241 = or i32 %49, %17
+  %.mask.i.i = and i32 %241, 2147483647
   %.not = icmp eq i32 %.mask.i.i, 0
-  br i1 %.not, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %248
+  br i1 %.not, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %246
 
-244:                                              ; preds = %239
-  %.not22.i.i = icmp eq i32 %43, %51
+242:                                              ; preds = %237
+  %.not22.i.i = icmp eq i32 %17, %49
   br i1 %.not22.i.i, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %_ZNK2cv9softfloatltERKS0_.exit
 
-_ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %244
-  %245 = icmp ult i32 %43, %51
-  %246 = icmp slt i32 %43, 0
-  %247 = xor i1 %246, %245
-  br i1 %247, label %248, label %_ZNK2cv9softfloatltERKS0_.exit.thread
+_ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %242
+  %243 = icmp ult i32 %17, %49
+  %244 = icmp slt i32 %17, 0
+  %245 = xor i1 %244, %243
+  br i1 %245, label %246, label %_ZNK2cv9softfloatltERKS0_.exit.thread
 
-248:                                              ; preds = %242, %_ZNK2cv9softfloatltERKS0_.exit
+246:                                              ; preds = %240, %_ZNK2cv9softfloatltERKS0_.exit
   %.not.i56.i = icmp eq ptr %0, @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan
-  br i1 %.not.i56.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %249
+  br i1 %.not.i56.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %247
 
-249:                                              ; preds = %248
-  %250 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
+247:                                              ; preds = %246
+  %248 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-_ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread, %244, %240, %242, %_ZNK2cv9softfloatltERKS0_.exit
-  %251 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
-  br i1 %251, label %252, label %260
+_ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread, %242, %238, %240, %_ZNK2cv9softfloatltERKS0_.exit
+  %249 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
+  br i1 %249, label %250, label %258
 
-252:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
-  %253 = call noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
-  br i1 %253, label %256, label %254
+250:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
+  %251 = call noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
+  br i1 %251, label %254, label %252
 
-254:                                              ; preds = %252
-  %255 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
-  %_ZZN2cvL7f32_powENS_9softfloatES0_E3one._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i = select i1 %255, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero
-  br label %256
+252:                                              ; preds = %250
+  %253 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
+  %_ZZN2cvL7f32_powENS_9softfloatES0_E3one._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i = select i1 %253, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero
+  br label %254
 
-256:                                              ; preds = %254, %252
-  %257 = phi ptr [ %_ZZN2cvL7f32_powENS_9softfloatES0_E3one._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i, %254 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %252 ]
-  %.not.i58.i = icmp eq ptr %257, %0
-  br i1 %.not.i58.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %258
+254:                                              ; preds = %252, %250
+  %255 = phi ptr [ %_ZZN2cvL7f32_powENS_9softfloatES0_E3one._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i, %252 ], [ @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, %250 ]
+  %.not.i58.i = icmp eq ptr %255, %0
+  br i1 %.not.i58.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %256
 
-258:                                              ; preds = %256
-  %259 = load i32, ptr %257, align 4, !noalias !374
+256:                                              ; preds = %254
+  %257 = load i32, ptr %255, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-260:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
-  store i32 %43, ptr %14, align 4, !noalias !374
+258:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
+  store i32 %17, ptr %14, align 4, !noalias !374
   call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %13, ptr noundef %14), !noalias !374
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %13), !noalias !374
   call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %11, ptr noundef %12), !noalias !374
-  %261 = load i32, ptr %11, align 4, !noalias !374
+  %259 = load i32, ptr %11, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
-_ZN2cv9softfloataSERKS0_.exit.sink.split.i:       ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %260, %258, %249, %_ZN2cvL8f32_powiENS_9softfloatEi.exit, %135, %120, %115, %104, %90
-  %.sink.i = phi i32 [ %261, %260 ], [ %259, %258 ], [ %250, %249 ], [ %storemerge.i, %_ZN2cvL8f32_powiENS_9softfloatEi.exit ], [ %136, %135 ], [ %121, %120 ], [ %105, %104 ], [ %91, %90 ], [ %72, %115 ], [ %43, %_ZNK2cv9softfloateqERKS0_.exit47.i ]
+_ZN2cv9softfloataSERKS0_.exit.sink.split.i:       ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %258, %256, %247, %_ZN2cvL8f32_powiENS_9softfloatEi.exit, %133, %118, %113, %102, %88
+  %.sink.i = phi i32 [ %259, %258 ], [ %257, %256 ], [ %248, %247 ], [ %storemerge.i, %_ZN2cvL8f32_powiENS_9softfloatEi.exit ], [ %134, %133 ], [ %119, %118 ], [ %103, %102 ], [ %89, %88 ], [ %70, %113 ], [ %17, %_ZNK2cv9softfloateqERKS0_.exit47.i ]
   store i32 %.sink.i, ptr %0, align 4, !alias.scope !374
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
-_ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %89, %102, %115, %119, %_ZNK2cv9softfloatltERKS0_.exit32.thread, %248, %256, %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
+_ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %87, %100, %113, %117, %_ZNK2cv9softfloatltERKS0_.exit32.thread, %246, %254, %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
@@ -7272,440 +7270,438 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   br label %42
 
 42:                                               ; preds = %41, %39, %36
-  %43 = load i64, ptr %15, align 8, !noalias !411
-  %44 = and i64 %43, 9223372036854775807
-  %45 = icmp eq i64 %44, 9218868437227405312
-  %46 = load i64, ptr %16, align 8, !noalias !411
-  %47 = and i64 %46, 9223372036854775807
-  %48 = icmp eq i64 %47, 9218868437227405312
-  %49 = icmp samesign ugt i64 %44, 9218868437227405312
-  %50 = icmp samesign ugt i64 %47, 9218868437227405312
-  %51 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !noalias !411
-  %52 = and i64 %51, 9218868437227405312
-  %53 = icmp eq i64 %52, 9218868437227405312
-  %54 = and i64 %51, 4503599627370495
-  %.not.i.i.i = icmp ne i64 %54, 0
-  %or.cond.i.i.i.not38 = and i1 %53, %.not.i.i.i
-  br i1 %or.cond.i.i.i.not38, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %55
+  %43 = and i64 %17, 9223372036854775807
+  %44 = icmp eq i64 %43, 9218868437227405312
+  %45 = and i64 %18, 9223372036854775807
+  %46 = icmp eq i64 %45, 9218868437227405312
+  %47 = icmp samesign ugt i64 %43, 9218868437227405312
+  %48 = icmp samesign ugt i64 %45, 9218868437227405312
+  %49 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !noalias !411
+  %50 = and i64 %49, 9218868437227405312
+  %51 = icmp eq i64 %50, 9218868437227405312
+  %52 = and i64 %49, 4503599627370495
+  %.not.i.i.i = icmp ne i64 %52, 0
+  %or.cond.i.i.i.not38 = and i1 %51, %.not.i.i.i
+  br i1 %or.cond.i.i.i.not38, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %53
 
-55:                                               ; preds = %42
-  %56 = and i64 %46, 9218868437227405312
-  %57 = icmp ne i64 %56, 9218868437227405312
-  %58 = and i64 %46, 4503599627370495
-  %.not19.i.i.i = icmp eq i64 %58, 0
-  %or.cond23.i.i.i = or i1 %57, %.not19.i.i.i
-  br i1 %or.cond23.i.i.i, label %59, label %_ZNK2cv10softdoublegtERKS0_.exit.i
+53:                                               ; preds = %42
+  %54 = and i64 %18, 9218868437227405312
+  %55 = icmp ne i64 %54, 9218868437227405312
+  %56 = and i64 %18, 4503599627370495
+  %.not19.i.i.i = icmp eq i64 %56, 0
+  %or.cond23.i.i.i = or i1 %55, %.not19.i.i.i
+  br i1 %or.cond23.i.i.i, label %57, label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
-59:                                               ; preds = %55
-  %.not21.unshifted.i.i.i = xor i64 %51, %46
+57:                                               ; preds = %53
+  %.not21.unshifted.i.i.i = xor i64 %49, %18
   %.not21.i.i.i = icmp sgt i64 %.not21.unshifted.i.i.i, -1
-  br i1 %.not21.i.i.i, label %66, label %60
+  br i1 %.not21.i.i.i, label %64, label %58
 
-60:                                               ; preds = %59
-  %61 = icmp slt i64 %51, 0
-  br i1 %61, label %62, label %_ZNK2cv10softdoublegtERKS0_.exit.i
+58:                                               ; preds = %57
+  %59 = icmp slt i64 %49, 0
+  br i1 %59, label %60, label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
-62:                                               ; preds = %60
-  %63 = or i64 %51, %46
-  %64 = and i64 %63, 9223372036854775807
-  %65 = icmp ne i64 %64, 0
+60:                                               ; preds = %58
+  %61 = or i64 %49, %18
+  %62 = and i64 %61, 9223372036854775807
+  %63 = icmp ne i64 %62, 0
   br label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
-66:                                               ; preds = %59
-  %.not22.i.i.i = icmp eq i64 %51, %46
-  br i1 %.not22.i.i.i, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %67
+64:                                               ; preds = %57
+  %.not22.i.i.i = icmp eq i64 %49, %18
+  br i1 %.not22.i.i.i, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %65
 
-67:                                               ; preds = %66
-  %68 = icmp ult i64 %51, %46
-  %69 = icmp slt i64 %51, 0
-  %70 = xor i1 %69, %68
+65:                                               ; preds = %64
+  %66 = icmp ult i64 %49, %18
+  %67 = icmp slt i64 %49, 0
+  %68 = xor i1 %67, %66
   br label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
-_ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %67, %66, %62, %60, %55, %42
-  %.0.i.i.i = phi i1 [ false, %60 ], [ %65, %62 ], [ false, %66 ], [ %70, %67 ], [ false, %55 ], [ false, %42 ]
-  %71 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !noalias !411
-  %72 = and i64 %71, 9218868437227405312
-  %73 = icmp eq i64 %72, 9218868437227405312
-  %74 = and i64 %71, 4503599627370495
-  %.not.i.i14.i = icmp ne i64 %74, 0
-  %or.cond.i.i15.not74.i = and i1 %73, %.not.i.i14.i
-  br i1 %or.cond.i.i15.not74.i, label %_ZNK2cv10softdoublegtERKS0_.exit22.i, label %75
+_ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %65, %64, %60, %58, %53, %42
+  %.0.i.i.i = phi i1 [ false, %58 ], [ %63, %60 ], [ false, %64 ], [ %68, %65 ], [ false, %53 ], [ false, %42 ]
+  %69 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !noalias !411
+  %70 = and i64 %69, 9218868437227405312
+  %71 = icmp eq i64 %70, 9218868437227405312
+  %72 = and i64 %69, 4503599627370495
+  %.not.i.i14.i = icmp ne i64 %72, 0
+  %or.cond.i.i15.not74.i = and i1 %71, %.not.i.i14.i
+  br i1 %or.cond.i.i15.not74.i, label %_ZNK2cv10softdoublegtERKS0_.exit22.i, label %73
 
-75:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit.i
-  %76 = and i64 %43, 9218868437227405312
-  %77 = icmp ne i64 %76, 9218868437227405312
-  %78 = and i64 %43, 4503599627370495
-  %.not19.i.i17.i = icmp eq i64 %78, 0
-  %or.cond23.i.i18.i = or i1 %77, %.not19.i.i17.i
-  br i1 %or.cond23.i.i18.i, label %79, label %_ZNK2cv10softdoublegtERKS0_.exit22.i
+73:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit.i
+  %74 = and i64 %17, 9218868437227405312
+  %75 = icmp ne i64 %74, 9218868437227405312
+  %76 = and i64 %17, 4503599627370495
+  %.not19.i.i17.i = icmp eq i64 %76, 0
+  %or.cond23.i.i18.i = or i1 %75, %.not19.i.i17.i
+  br i1 %or.cond23.i.i18.i, label %77, label %_ZNK2cv10softdoublegtERKS0_.exit22.i
 
-79:                                               ; preds = %75
-  %.not21.i.i20.i = icmp sgt i64 %71, -1
-  br i1 %.not21.i.i20.i, label %84, label %80
+77:                                               ; preds = %73
+  %.not21.i.i20.i = icmp sgt i64 %69, -1
+  br i1 %.not21.i.i20.i, label %82, label %78
 
-80:                                               ; preds = %79
-  %81 = or i64 %71, %43
-  %82 = and i64 %81, 9223372036854775807
-  %83 = icmp ne i64 %82, 0
+78:                                               ; preds = %77
+  %79 = or i64 %69, %17
+  %80 = and i64 %79, 9223372036854775807
+  %81 = icmp ne i64 %80, 0
   br label %_ZNK2cv10softdoublegtERKS0_.exit22.i
 
-84:                                               ; preds = %79
-  %85 = icmp samesign ult i64 %71, %44
+82:                                               ; preds = %77
+  %83 = icmp samesign ult i64 %69, %43
   br label %_ZNK2cv10softdoublegtERKS0_.exit22.i
 
-_ZNK2cv10softdoublegtERKS0_.exit22.i:             ; preds = %84, %80, %75, %_ZNK2cv10softdoublegtERKS0_.exit.i
-  %.0.i.i16.i = phi i1 [ %83, %80 ], [ false, %75 ], [ false, %_ZNK2cv10softdoublegtERKS0_.exit.i ], [ %85, %84 ]
-  %86 = xor i1 %.0.i.i.i, %.0.i.i16.i
+_ZNK2cv10softdoublegtERKS0_.exit22.i:             ; preds = %82, %78, %73, %_ZNK2cv10softdoublegtERKS0_.exit.i
+  %.0.i.i16.i = phi i1 [ %81, %78 ], [ false, %73 ], [ false, %_ZNK2cv10softdoublegtERKS0_.exit.i ], [ %83, %82 ]
+  %84 = xor i1 %.0.i.i.i, %.0.i.i16.i
   store i64 0, ptr %0, align 8, !alias.scope !411
-  br i1 %50, label %87, label %90
+  br i1 %48, label %85, label %88
 
-87:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
+85:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
   %.not.i.i = icmp eq ptr %0, @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan
-  br i1 %.not.i.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %88
+  br i1 %.not.i.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %86
 
-88:                                               ; preds = %87
-  %89 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
+86:                                               ; preds = %85
+  %87 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-90:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
-  br i1 %48, label %91, label %104
+88:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
+  br i1 %46, label %89, label %102
 
-91:                                               ; preds = %90
-  %92 = and i64 %43, 9218868437227405312
-  %93 = icmp eq i64 %92, 9218868437227405312
-  %94 = and i64 %43, 4503599627370495
-  %.not.i.i23.i = icmp ne i64 %94, 0
-  %or.cond.i.i24.not72.i = and i1 %93, %.not.i.i23.i
+89:                                               ; preds = %88
+  %90 = and i64 %17, 9218868437227405312
+  %91 = icmp eq i64 %90, 9218868437227405312
+  %92 = and i64 %17, 4503599627370495
+  %.not.i.i23.i = icmp ne i64 %92, 0
+  %or.cond.i.i24.not72.i = and i1 %91, %.not.i.i23.i
   %brmerge.i = or i1 %or.cond.i.i24.not72.i, %or.cond.i.i15.not74.i
   br i1 %brmerge.i, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i, label %_ZNK2cv10softdoubleeqERKS0_.exit.i
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread.i:        ; preds = %91
-  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero64.i = select i1 %86, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf
-  %spec.select65.i = select i1 %49, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, ptr %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero64.i
-  br label %100
+_ZNK2cv10softdoubleeqERKS0_.exit.thread.i:        ; preds = %89
+  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero64.i = select i1 %84, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf
+  %spec.select65.i = select i1 %47, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, ptr %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero64.i
+  br label %98
 
-_ZNK2cv10softdoubleeqERKS0_.exit.i:               ; preds = %91
-  %95 = icmp eq i64 %44, %71
-  %96 = or i64 %71, %43
-  %97 = and i64 %96, 9223372036854775807
-  %.not15.i.i.i = icmp eq i64 %97, 0
-  %98 = select i1 %95, i1 true, i1 %.not15.i.i.i
-  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i = select i1 %86, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf
-  %cond.fr.i = freeze i1 %98
-  %99 = select i1 %cond.fr.i, i1 true, i1 %49
-  %spec.select70.i = select i1 %99, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, ptr %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i
-  br label %100
+_ZNK2cv10softdoubleeqERKS0_.exit.i:               ; preds = %89
+  %93 = icmp eq i64 %43, %69
+  %94 = or i64 %69, %17
+  %95 = and i64 %94, 9223372036854775807
+  %.not15.i.i.i = icmp eq i64 %95, 0
+  %96 = select i1 %93, i1 true, i1 %.not15.i.i.i
+  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i = select i1 %84, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf
+  %cond.fr.i = freeze i1 %96
+  %97 = select i1 %cond.fr.i, i1 true, i1 %47
+  %spec.select70.i = select i1 %97, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, ptr %_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i
+  br label %98
 
-100:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.i, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i
-  %101 = phi ptr [ %spec.select65.i, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i ], [ %spec.select70.i, %_ZNK2cv10softdoubleeqERKS0_.exit.i ]
-  %.not.i26.i = icmp eq ptr %101, %0
-  br i1 %.not.i26.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %102
+98:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.i, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i
+  %99 = phi ptr [ %spec.select65.i, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i ], [ %spec.select70.i, %_ZNK2cv10softdoubleeqERKS0_.exit.i ]
+  %.not.i26.i = icmp eq ptr %99, %0
+  br i1 %.not.i26.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %100
 
-102:                                              ; preds = %100
-  %103 = load i64, ptr %101, align 8, !noalias !411
+100:                                              ; preds = %98
+  %101 = load i64, ptr %99, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-104:                                              ; preds = %90
-  %105 = and i64 %46, 9218868437227405312
-  %106 = icmp ne i64 %105, 9218868437227405312
-  %107 = and i64 %46, 4503599627370495
-  %.not.i.i28.i = icmp eq i64 %107, 0
-  %or.cond.i.i29.i = or i1 %106, %.not.i.i28.i
-  br i1 %or.cond.i.i29.i, label %108, label %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
+102:                                              ; preds = %88
+  %103 = and i64 %18, 9218868437227405312
+  %104 = icmp ne i64 %103, 9218868437227405312
+  %105 = and i64 %18, 4503599627370495
+  %.not.i.i28.i = icmp eq i64 %105, 0
+  %or.cond.i.i29.i = or i1 %104, %.not.i.i28.i
+  br i1 %or.cond.i.i29.i, label %106, label %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
 
-108:                                              ; preds = %104
+106:                                              ; preds = %102
   br i1 %or.cond.i.i.i.not38, label %.thread68.i, label %_ZNK2cv10softdoubleeqERKS0_.exit34.i
 
-_ZNK2cv10softdoubleeqERKS0_.exit34.i:             ; preds = %108
-  %109 = icmp eq i64 %46, %51
-  %110 = or i64 %51, %46
-  %111 = and i64 %110, 9223372036854775807
-  %.not15.i.i33.i = icmp eq i64 %111, 0
-  %112 = select i1 %109, i1 true, i1 %.not15.i.i33.i
-  br i1 %112, label %113, label %.thread68.i
+_ZNK2cv10softdoubleeqERKS0_.exit34.i:             ; preds = %106
+  %107 = icmp eq i64 %18, %49
+  %108 = or i64 %49, %18
+  %109 = and i64 %108, 9223372036854775807
+  %.not15.i.i33.i = icmp eq i64 %109, 0
+  %110 = select i1 %107, i1 true, i1 %.not15.i.i33.i
+  br i1 %110, label %111, label %.thread68.i
 
-113:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit34.i
+111:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit34.i
   %.not.i35.i = icmp eq ptr %0, @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one
   br i1 %.not.i35.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-.thread68.i:                                      ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit34.i, %108
+.thread68.i:                                      ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit34.i, %106
   br i1 %or.cond.i.i15.not74.i, label %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i, label %_ZNK2cv10softdoubleeqERKS0_.exit43.i
 
 _ZNK2cv10softdoubleeqERKS0_.exit43.i:             ; preds = %.thread68.i
-  %114 = icmp eq i64 %46, %71
-  %115 = or i64 %71, %46
-  %116 = and i64 %115, 9223372036854775807
-  %.not15.i.i42.i = icmp eq i64 %116, 0
-  %117 = select i1 %114, i1 true, i1 %.not15.i.i42.i
-  br i1 %117, label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i, label %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
+  %112 = icmp eq i64 %18, %69
+  %113 = or i64 %69, %18
+  %114 = and i64 %113, 9223372036854775807
+  %.not15.i.i42.i = icmp eq i64 %114, 0
+  %115 = select i1 %112, i1 true, i1 %.not15.i.i42.i
+  br i1 %115, label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i, label %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
 
-_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i:      ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %.thread68.i, %104
-  br i1 %49, label %118, label %121
+_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i:      ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %.thread68.i, %102
+  br i1 %47, label %116, label %119
 
-118:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
+116:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
   %.not.i46.i = icmp eq ptr %0, @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan
-  br i1 %.not.i46.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %119
+  br i1 %.not.i46.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %117
 
-119:                                              ; preds = %118
-  %120 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
+117:                                              ; preds = %116
+  %118 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-121:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
-  br i1 %45, label %122, label %137
+119:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
+  br i1 %44, label %120, label %135
 
-122:                                              ; preds = %121
+120:                                              ; preds = %119
   %or.cond.i.i29.i.not = xor i1 %or.cond.i.i29.i, true
   %brmerge = or i1 %or.cond.i.i.i.not38, %or.cond.i.i29.i.not
-  br i1 %brmerge, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %123
+  br i1 %brmerge, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %121
 
-123:                                              ; preds = %122
-  %.not21.unshifted.i.i25 = xor i64 %51, %46
+121:                                              ; preds = %120
+  %.not21.unshifted.i.i25 = xor i64 %49, %18
   %.not21.i.i26 = icmp sgt i64 %.not21.unshifted.i.i25, -1
-  br i1 %.not21.i.i26, label %129, label %124
+  br i1 %.not21.i.i26, label %127, label %122
 
-124:                                              ; preds = %123
-  %125 = icmp slt i64 %46, 0
-  br i1 %125, label %126, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
+122:                                              ; preds = %121
+  %123 = icmp slt i64 %18, 0
+  br i1 %123, label %124, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
 
-126:                                              ; preds = %124
-  %127 = or i64 %51, %46
-  %.fr39 = freeze i64 %127
-  %128 = and i64 %.fr39, 9223372036854775807
-  %.not40 = icmp eq i64 %128, 0
-  br i1 %.not40, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %133
+124:                                              ; preds = %122
+  %125 = or i64 %49, %18
+  %.fr39 = freeze i64 %125
+  %126 = and i64 %.fr39, 9223372036854775807
+  %.not40 = icmp eq i64 %126, 0
+  br i1 %.not40, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %131
 
-129:                                              ; preds = %123
-  %.not22.i.i27 = icmp eq i64 %46, %51
+127:                                              ; preds = %121
+  %.not22.i.i27 = icmp eq i64 %18, %49
   br i1 %.not22.i.i27, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %_ZNK2cv10softdoubleltERKS0_.exit28
 
-_ZNK2cv10softdoubleltERKS0_.exit28:               ; preds = %129
-  %130 = icmp ult i64 %46, %51
-  %131 = icmp slt i64 %46, 0
-  %132 = xor i1 %131, %130
-  %cond.fr = freeze i1 %132
-  br i1 %cond.fr, label %133, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
+_ZNK2cv10softdoubleltERKS0_.exit28:               ; preds = %127
+  %128 = icmp ult i64 %18, %49
+  %129 = icmp slt i64 %18, 0
+  %130 = xor i1 %129, %128
+  %cond.fr = freeze i1 %130
+  br i1 %cond.fr, label %131, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
 
-133:                                              ; preds = %126, %_ZNK2cv10softdoubleltERKS0_.exit28
+131:                                              ; preds = %124, %_ZNK2cv10softdoubleltERKS0_.exit28
   br label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
 
-_ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %126, %_ZNK2cv10softdoubleltERKS0_.exit28, %133
-  %134 = phi ptr [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, %133 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %_ZNK2cv10softdoubleltERKS0_.exit28 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %126 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %124 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %129 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %122 ]
-  %.not.i48.i = icmp eq ptr %134, %0
-  br i1 %.not.i48.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %135
+_ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %120, %127, %122, %124, %_ZNK2cv10softdoubleltERKS0_.exit28, %131
+  %132 = phi ptr [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, %131 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %_ZNK2cv10softdoubleltERKS0_.exit28 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %124 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %122 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %127 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %120 ]
+  %.not.i48.i = icmp eq ptr %132, %0
+  br i1 %.not.i48.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %133
 
-135:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit28.thread
-  %136 = load i64, ptr %134, align 8, !noalias !411
+133:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit28.thread
+  %134 = load i64, ptr %132, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-137:                                              ; preds = %121
-  %138 = lshr i64 %46, 52
-  %139 = and i64 %138, 2047
-  %140 = icmp samesign ult i64 %139, 1023
-  br i1 %140, label %141, label %147
+135:                                              ; preds = %119
+  %136 = lshr i64 %18, 52
+  %137 = and i64 %136, 2047
+  %138 = icmp samesign ult i64 %137, 1023
+  br i1 %138, label %139, label %145
 
-141:                                              ; preds = %137
-  %.not47.i = icmp eq i64 %47, 0
-  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %142
+139:                                              ; preds = %135
+  %.not47.i = icmp eq i64 %45, 0
+  br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %140
 
-142:                                              ; preds = %141
-  %143 = and i64 %46, -9223372036854775808
-  %144 = icmp ne i64 %107, 0
-  %145 = icmp eq i64 %139, 1022
-  %or.cond.i18 = and i1 %144, %145
-  %146 = or disjoint i64 %143, 4607182418800017408
-  %spec.select.i19 = select i1 %or.cond.i18, i64 %146, i64 %143
+140:                                              ; preds = %139
+  %141 = and i64 %18, -9223372036854775808
+  %142 = icmp ne i64 %105, 0
+  %143 = icmp eq i64 %137, 1022
+  %or.cond.i18 = and i1 %142, %143
+  %144 = or disjoint i64 %141, 4607182418800017408
+  %spec.select.i19 = select i1 %or.cond.i18, i64 %144, i64 %141
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-147:                                              ; preds = %137
-  %148 = icmp samesign ugt i64 %139, 1074
-  br i1 %148, label %149, label %158
+145:                                              ; preds = %135
+  %146 = icmp samesign ugt i64 %137, 1074
+  br i1 %146, label %147, label %156
 
-149:                                              ; preds = %147
-  %150 = icmp ne i64 %139, 2047
-  %or.cond48.i = or i1 %.not.i.i28.i, %150
+147:                                              ; preds = %145
+  %148 = icmp ne i64 %137, 2047
+  %or.cond48.i = or i1 %.not.i.i28.i, %148
   br i1 %or.cond48.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
-_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149
-  %151 = and i64 %46, 9221120237041090560
-  %152 = icmp eq i64 %151, 9218868437227405312
-  %153 = and i64 %46, 2251799813685247
-  %154 = icmp ne i64 %153, 0
-  %155 = and i1 %152, %154
-  %.not1.i = icmp eq i64 %105, 9218868437227405312
-  %156 = or i1 %.not1.i, %155
-  %157 = or i64 %46, 2251799813685248
-  %.0.i.i17 = select i1 %156, i64 %157, i64 2251799813685248
+_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %147
+  %149 = and i64 %18, 9221120237041090560
+  %150 = icmp eq i64 %149, 9218868437227405312
+  %151 = and i64 %18, 2251799813685247
+  %152 = icmp ne i64 %151, 0
+  %153 = and i1 %150, %152
+  %.not1.i = icmp eq i64 %103, 9218868437227405312
+  %154 = or i1 %.not1.i, %153
+  %155 = or i64 %18, 2251799813685248
+  %.0.i.i17 = select i1 %154, i64 %155, i64 2251799813685248
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-158:                                              ; preds = %147
-  %159 = sub nuw nsw i64 1075, %139
-  %160 = shl nuw nsw i64 1, %159
-  %161 = add nsw i64 %160, -1
-  %162 = lshr i64 %160, 1
-  %163 = add i64 %162, %46
-  %164 = and i64 %163, %161
-  %.not.i16 = icmp eq i64 %164, 0
-  %165 = xor i64 %160, -1
-  %166 = select i1 %.not.i16, i64 %165, i64 -1
-  %167 = sub nsw i64 0, %160
-  %168 = and i64 %166, %167
-  %169 = and i64 %168, %163
+156:                                              ; preds = %145
+  %157 = sub nuw nsw i64 1075, %137
+  %158 = shl nuw nsw i64 1, %157
+  %159 = add nsw i64 %158, -1
+  %160 = lshr i64 %158, 1
+  %161 = add i64 %160, %18
+  %162 = and i64 %161, %159
+  %.not.i16 = icmp eq i64 %162, 0
+  %163 = xor i64 %158, -1
+  %164 = select i1 %.not.i16, i64 %163, i64 -1
+  %165 = sub nsw i64 0, %158
+  %166 = and i64 %164, %165
+  %167 = and i64 %166, %161
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
-_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %141, %142, %149, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %158
-  %.0.sink.i = phi i64 [ %46, %141 ], [ %46, %149 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %169, %158 ], [ %spec.select.i19, %142 ]
-  br i1 %or.cond.i.i29.i, label %170, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %139, %140, %147, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %156
+  %.0.sink.i = phi i64 [ %18, %139 ], [ %18, %147 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %167, %156 ], [ %spec.select.i19, %140 ]
+  br i1 %or.cond.i.i29.i, label %168, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
-170:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  %171 = and i64 %.0.sink.i, 9218868437227405312
-  %172 = icmp ne i64 %171, 9218868437227405312
-  %173 = and i64 %.0.sink.i, 4503599627370495
-  %.not14.i.i = icmp eq i64 %173, 0
-  %or.cond18.i.i = or i1 %172, %.not14.i.i
+168:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
+  %169 = and i64 %.0.sink.i, 9218868437227405312
+  %170 = icmp ne i64 %169, 9218868437227405312
+  %171 = and i64 %.0.sink.i, 4503599627370495
+  %.not14.i.i = icmp eq i64 %171, 0
+  %or.cond18.i.i = or i1 %170, %.not14.i.i
   br i1 %or.cond18.i.i, label %_ZNK2cv10softdoubleeqERKS0_.exit, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
-_ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %170
-  %174 = icmp eq i64 %46, %.0.sink.i
-  %175 = or i64 %.0.sink.i, %46
-  %176 = and i64 %175, 9223372036854775807
-  %.not15.i.i = icmp eq i64 %176, 0
-  %177 = select i1 %174, i1 true, i1 %.not15.i.i
-  br i1 %177, label %178, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+_ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %168
+  %172 = icmp eq i64 %18, %.0.sink.i
+  %173 = or i64 %.0.sink.i, %18
+  %174 = and i64 %173, 9223372036854775807
+  %.not15.i.i = icmp eq i64 %174, 0
+  %175 = select i1 %172, i1 true, i1 %.not15.i.i
+  br i1 %175, label %176, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
-178:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
-  %179 = icmp slt i64 %46, 0
-  %180 = icmp ne i64 %139, 2047
-  %or.cond.not.i = or i1 %.not.i.i28.i, %180
-  %spec.select.i8 = and i1 %179, %or.cond.not.i
-  %.not.i9 = icmp eq i64 %139, 0
-  %181 = or disjoint i64 %107, 4503599627370496
-  %.016.i = select i1 %.not.i9, i64 %107, i64 %181
-  %182 = icmp samesign ult i64 %139, 1063
-  br i1 %182, label %183, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+176:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
+  %177 = icmp slt i64 %18, 0
+  %178 = icmp ne i64 %137, 2047
+  %or.cond.not.i = or i1 %.not.i.i28.i, %178
+  %spec.select.i8 = and i1 %177, %or.cond.not.i
+  %.not.i9 = icmp eq i64 %137, 0
+  %179 = or disjoint i64 %105, 4503599627370496
+  %.016.i = select i1 %.not.i9, i64 %105, i64 %179
+  %180 = icmp samesign ult i64 %137, 1063
+  br i1 %180, label %181, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-183:                                              ; preds = %178
-  %184 = icmp samesign ugt i64 %139, 1000
-  br i1 %184, label %185, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
+181:                                              ; preds = %176
+  %182 = icmp samesign ugt i64 %137, 1000
+  br i1 %182, label %183, label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread
 
-185:                                              ; preds = %183
-  %.neg.i = add nuw nsw i64 %138, 25
-  %186 = sub nuw nsw i64 1063, %139
-  %187 = lshr i64 %181, %186
-  %188 = and i64 %.neg.i, 63
-  %189 = shl i64 %181, %188
-  %190 = icmp ne i64 %189, 0
-  %191 = zext i1 %190 to i64
-  %192 = or i64 %187, %191
+183:                                              ; preds = %181
+  %.neg.i = add nuw nsw i64 %136, 25
+  %184 = sub nuw nsw i64 1063, %137
+  %185 = lshr i64 %179, %184
+  %186 = and i64 %.neg.i, 63
+  %187 = shl i64 %179, %186
+  %188 = icmp ne i64 %187, 0
+  %189 = zext i1 %188 to i64
+  %190 = or i64 %185, %189
   br label %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %183
-  %193 = icmp ne i64 %.016.i, 0
-  %194 = zext i1 %193 to i64
-  br label %195
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread: ; preds = %181
+  %191 = icmp ne i64 %.016.i, 0
+  %192 = zext i1 %191 to i64
+  br label %193
 
-_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %185, %178
-  %.1.i = phi i64 [ %.016.i, %178 ], [ %192, %185 ]
+_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %183, %176
+  %.1.i = phi i64 [ %.016.i, %176 ], [ %190, %183 ]
   %.not.i.i10 = icmp samesign ult i64 %.1.i, 17592186042368
-  br i1 %.not.i.i10, label %195, label %206
+  br i1 %.not.i.i10, label %193, label %204
 
-195:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %.1.i43 = phi i64 [ %194, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
-  %196 = add nuw nsw i64 %.1.i43, 2048
-  %197 = and i64 %.1.i43, 4095
-  %198 = lshr i64 %196, 12
-  %.not31.i.i = icmp eq i64 %197, 2048
-  %199 = zext i1 %.not31.i.i to i64
-  %200 = xor i64 %199, -1
-  %201 = and i64 %198, %200
-  %202 = sub nsw i64 0, %201
-  %203 = select i1 %spec.select.i8, i64 %202, i64 %201
-  %sext.i.i = shl i64 %203, 32
-  %204 = ashr exact i64 %sext.i.i, 32
+193:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %.1.i43 = phi i64 [ %192, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
+  %194 = add nuw nsw i64 %.1.i43, 2048
+  %195 = and i64 %.1.i43, 4095
+  %196 = lshr i64 %194, 12
+  %.not31.i.i = icmp eq i64 %195, 2048
+  %197 = zext i1 %.not31.i.i to i64
+  %198 = xor i64 %197, -1
+  %199 = and i64 %196, %198
+  %200 = sub nsw i64 0, %199
+  %201 = select i1 %spec.select.i8, i64 %200, i64 %199
+  %sext.i.i = shl i64 %201, 32
+  %202 = ashr exact i64 %sext.i.i, 32
   %.not32.i.i = icmp eq i64 %sext.i.i, 0
-  %205 = icmp sgt i64 %204, -1
-  %.not3334.i.i = xor i1 %spec.select.i8, %205
+  %203 = icmp sgt i64 %202, -1
+  %.not3334.i.i = xor i1 %spec.select.i8, %203
   %or.cond.i.i12 = select i1 %.not32.i.i, i1 true, i1 %.not3334.i.i
-  br i1 %or.cond.i.i12, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %206
+  br i1 %or.cond.i.i12, label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit, label %204
 
-206:                                              ; preds = %195, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %207 = select i1 %spec.select.i8, i64 -2147483648, i64 2147483647
+204:                                              ; preds = %193, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
+  %205 = select i1 %spec.select.i8, i64 -2147483648, i64 2147483647
   br label %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
 
-_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %195, %206
-  %.0.i.i11 = phi i64 [ %207, %206 ], [ %204, %195 ]
+_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %193, %204
+  %.0.i.i11 = phi i64 [ %205, %204 ], [ %202, %193 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %208 = and i64 %43, 9218868437227405312
-  %209 = icmp ne i64 %208, 9218868437227405312
-  %210 = and i64 %43, 4503599627370495
-  %.not.i.i.i3 = icmp eq i64 %210, 0
-  %or.cond.i.i.i4 = or i1 %209, %.not.i.i.i3
-  %.not15.i.i.i5 = icmp eq i64 %44, 0
+  %206 = and i64 %17, 9218868437227405312
+  %207 = icmp ne i64 %206, 9218868437227405312
+  %208 = and i64 %17, 4503599627370495
+  %.not.i.i.i3 = icmp eq i64 %208, 0
+  %or.cond.i.i.i4 = or i1 %207, %.not.i.i.i3
+  %.not15.i.i.i5 = icmp eq i64 %43, 0
   %or.cond.i = and i1 %.not15.i.i.i5, %or.cond.i.i.i4
-  br i1 %or.cond.i, label %211, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
+  br i1 %or.cond.i, label %209, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
 
-211:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
-  %212 = icmp slt i64 %.0.i.i11, 0
-  br i1 %212, label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, label %213
+209:                                              ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
+  %210 = icmp slt i64 %.0.i.i11, 0
+  br i1 %210, label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, label %211
 
-213:                                              ; preds = %211
-  %214 = icmp eq i64 %.0.i.i11, 0
-  %spec.select.i = select i1 %214, i64 4607182418800017408, i64 0
+211:                                              ; preds = %209
+  %212 = icmp eq i64 %.0.i.i11, 0
+  %spec.select.i = select i1 %212, i64 4607182418800017408, i64 0
   br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
-  %215 = trunc nsw i64 %.0.i.i11 to i32
+  %213 = trunc nsw i64 %.0.i.i11 to i32
   store i64 4607182418800017408, ptr %6, align 8, !alias.scope !434, !noalias !439
-  store i64 %43, ptr %7, align 8, !noalias !439
-  %216 = tail call i32 @llvm.abs.i32(i32 %215, i1 true)
-  %217 = icmp slt i64 %.0.i.i11, 0
-  br i1 %217, label %218, label %220
+  store i64 %17, ptr %7, align 8, !noalias !439
+  %214 = tail call i32 @llvm.abs.i32(i32 %213, i1 true)
+  %215 = icmp slt i64 %.0.i.i11, 0
+  br i1 %215, label %216, label %218
 
-218:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
+216:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
   store i64 4607182418800017408, ptr %9, align 8, !alias.scope !442, !noalias !439
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
-  %219 = load i64, ptr %8, align 8, !noalias !439
-  store i64 %219, ptr %7, align 8, !noalias !439
-  br label %220
+  %217 = load i64, ptr %8, align 8, !noalias !439
+  store i64 %217, ptr %7, align 8, !noalias !439
+  br label %218
 
-220:                                              ; preds = %218, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
-  %221 = icmp samesign ugt i32 %216, 1
-  br i1 %221, label %.lr.ph.i, label %._crit_edge.i
+218:                                              ; preds = %216, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
+  %219 = icmp samesign ugt i32 %214, 1
+  br i1 %219, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %220, %225
-  %.02.i = phi i32 [ %227, %225 ], [ %216, %220 ]
-  %222 = and i32 %.02.i, 1
-  %.not.i7 = icmp eq i32 %222, 0
-  br i1 %.not.i7, label %225, label %223
+.lr.ph.i:                                         ; preds = %218, %223
+  %.02.i = phi i32 [ %225, %223 ], [ %214, %218 ]
+  %220 = and i32 %.02.i, 1
+  %.not.i7 = icmp eq i32 %220, 0
+  br i1 %.not.i7, label %223, label %221
 
-223:                                              ; preds = %.lr.ph.i
+221:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !439
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
-  %224 = load i64, ptr %5, align 8, !noalias !439
-  store i64 %224, ptr %6, align 8, !noalias !439
+  %222 = load i64, ptr %5, align 8, !noalias !439
+  store i64 %222, ptr %6, align 8, !noalias !439
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !439
-  br label %225
+  br label %223
 
-225:                                              ; preds = %223, %.lr.ph.i
+223:                                              ; preds = %221, %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !439
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
-  %226 = load i64, ptr %4, align 8, !noalias !439
-  store i64 %226, ptr %7, align 8, !noalias !439
+  %224 = load i64, ptr %4, align 8, !noalias !439
+  store i64 %224, ptr %7, align 8, !noalias !439
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !439
-  %227 = lshr i32 %.02.i, 1
-  %228 = icmp samesign ugt i32 %.02.i, 3
-  br i1 %228, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !447
+  %225 = lshr i32 %.02.i, 1
+  %226 = icmp samesign ugt i32 %.02.i, 3
+  br i1 %226, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !447
 
-._crit_edge.i:                                    ; preds = %225, %220
+._crit_edge.i:                                    ; preds = %223, %218
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
-  %229 = load i64, ptr %10, align 8, !noalias !439
+  %227 = load i64, ptr %10, align 8, !noalias !439
   br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
 
-_ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %211, %213, %._crit_edge.i
-  %storemerge.i = phi i64 [ %229, %._crit_edge.i ], [ 9218868437227405312, %211 ], [ %spec.select.i, %213 ]
+_ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %209, %211, %._crit_edge.i
+  %storemerge.i = phi i64 [ %227, %._crit_edge.i ], [ 9218868437227405312, %209 ], [ %spec.select.i, %211 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -7713,84 +7709,84 @@ _ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %211, %213, %._crit_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, %170, %_ZNK2cv10softdoubleeqERKS0_.exit
-  %230 = and i64 %43, 9218868437227405312
-  %231 = icmp eq i64 %230, 9218868437227405312
-  %232 = and i64 %43, 4503599627370495
-  %.not.i.i2 = icmp ne i64 %232, 0
-  %or.cond.i.i.not37 = and i1 %231, %.not.i.i2
+_ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, %168, %_ZNK2cv10softdoubleeqERKS0_.exit
+  %228 = and i64 %17, 9218868437227405312
+  %229 = icmp eq i64 %228, 9218868437227405312
+  %230 = and i64 %17, 4503599627370495
+  %.not.i.i2 = icmp ne i64 %230, 0
+  %or.cond.i.i.not37 = and i1 %229, %.not.i.i2
   %brmerge36 = or i1 %or.cond.i.i.not37, %or.cond.i.i.i.not38
-  br i1 %brmerge36, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %233
+  br i1 %brmerge36, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %231
 
-233:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
-  %.not21.unshifted.i.i = xor i64 %51, %43
+231:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
+  %.not21.unshifted.i.i = xor i64 %49, %17
   %.not21.i.i = icmp sgt i64 %.not21.unshifted.i.i, -1
-  br i1 %.not21.i.i, label %239, label %234
+  br i1 %.not21.i.i, label %237, label %232
 
-234:                                              ; preds = %233
-  %235 = icmp slt i64 %43, 0
-  br i1 %235, label %236, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
+232:                                              ; preds = %231
+  %233 = icmp slt i64 %17, 0
+  br i1 %233, label %234, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
 
-236:                                              ; preds = %234
-  %237 = or i64 %51, %43
-  %238 = and i64 %237, 9223372036854775807
-  %.not = icmp eq i64 %238, 0
-  br i1 %.not, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %243
+234:                                              ; preds = %232
+  %235 = or i64 %49, %17
+  %236 = and i64 %235, 9223372036854775807
+  %.not = icmp eq i64 %236, 0
+  br i1 %.not, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %241
 
-239:                                              ; preds = %233
-  %.not22.i.i = icmp eq i64 %43, %51
+237:                                              ; preds = %231
+  %.not22.i.i = icmp eq i64 %17, %49
   br i1 %.not22.i.i, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %_ZNK2cv10softdoubleltERKS0_.exit
 
-_ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %239
-  %240 = icmp ult i64 %43, %51
-  %241 = icmp slt i64 %43, 0
-  %242 = xor i1 %241, %240
-  br i1 %242, label %243, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
+_ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %237
+  %238 = icmp ult i64 %17, %49
+  %239 = icmp slt i64 %17, 0
+  %240 = xor i1 %239, %238
+  br i1 %240, label %241, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
 
-243:                                              ; preds = %236, %_ZNK2cv10softdoubleltERKS0_.exit
+241:                                              ; preds = %234, %_ZNK2cv10softdoubleltERKS0_.exit
   %.not.i52.i = icmp eq ptr %0, @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan
-  br i1 %.not.i52.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %244
+  br i1 %.not.i52.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %242
 
-244:                                              ; preds = %243
-  %245 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
+242:                                              ; preds = %241
+  %243 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-_ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %239, %234, %236, %_ZNK2cv10softdoubleltERKS0_.exit
-  %246 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
-  br i1 %246, label %247, label %255
+_ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %237, %232, %234, %_ZNK2cv10softdoubleltERKS0_.exit
+  %244 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
+  br i1 %244, label %245, label %253
 
-247:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  %248 = call noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
-  br i1 %248, label %251, label %249
+245:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
+  %246 = call noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
+  br i1 %246, label %249, label %247
 
-249:                                              ; preds = %247
-  %250 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
-  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3one._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i = select i1 %250, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero
-  br label %251
+247:                                              ; preds = %245
+  %248 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
+  %_ZZN2cvL7f64_powENS_10softdoubleES0_E3one._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i = select i1 %248, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero
+  br label %249
 
-251:                                              ; preds = %249, %247
-  %252 = phi ptr [ %_ZZN2cvL7f64_powENS_10softdoubleES0_E3one._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i, %249 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %247 ]
-  %.not.i54.i = icmp eq ptr %252, %0
-  br i1 %.not.i54.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %253
+249:                                              ; preds = %247, %245
+  %250 = phi ptr [ %_ZZN2cvL7f64_powENS_10softdoubleES0_E3one._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i, %247 ], [ @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, %245 ]
+  %.not.i54.i = icmp eq ptr %250, %0
+  br i1 %.not.i54.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %251
 
-253:                                              ; preds = %251
-  %254 = load i64, ptr %252, align 8, !noalias !411
+251:                                              ; preds = %249
+  %252 = load i64, ptr %250, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-255:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  store i64 %43, ptr %14, align 8, !noalias !411
+253:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
+  store i64 %17, ptr %14, align 8, !noalias !411
   call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %14), !noalias !411
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %13), !noalias !411
   call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %12), !noalias !411
-  %256 = load i64, ptr %11, align 8, !noalias !411
+  %254 = load i64, ptr %11, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
-_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i:     ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %255, %253, %244, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, %135, %119, %113, %102, %88
-  %.sink.i = phi i64 [ %256, %255 ], [ %254, %253 ], [ %245, %244 ], [ %storemerge.i, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit ], [ %136, %135 ], [ %120, %119 ], [ %103, %102 ], [ %89, %88 ], [ %71, %113 ], [ %43, %_ZNK2cv10softdoubleeqERKS0_.exit43.i ]
+_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i:     ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %253, %251, %242, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, %133, %117, %111, %100, %86
+  %.sink.i = phi i64 [ %254, %253 ], [ %252, %251 ], [ %243, %242 ], [ %storemerge.i, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit ], [ %134, %133 ], [ %118, %117 ], [ %101, %100 ], [ %87, %86 ], [ %69, %111 ], [ %17, %_ZNK2cv10softdoubleeqERKS0_.exit43.i ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !411
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
-_ZN2cvL7f64_powENS_10softdoubleES0_.exit:         ; preds = %87, %100, %113, %118, %_ZNK2cv10softdoubleltERKS0_.exit28.thread, %243, %251, %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
+_ZN2cvL7f64_powENS_10softdoubleES0_.exit:         ; preds = %85, %98, %111, %116, %_ZNK2cv10softdoubleltERKS0_.exit28.thread, %241, %249, %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)

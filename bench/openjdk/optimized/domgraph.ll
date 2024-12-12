@@ -513,146 +513,145 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN8PhaseCFG6do_DFSEP6Tarjanj(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-.lr.ph:
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = load i32, ptr %5, align 8
-  %7 = add i32 %6, 1
-  %8 = sext i32 %7 to i64
-  %9 = shl nsw i64 %8, 4
-  %10 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i32 noundef 0) #9
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 1, ptr %12, align 4
-  store ptr %4, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = load i32, ptr %6, align 8
+  %8 = add i32 %7, 1
+  %9 = sext i32 %8 to i64
+  %10 = shl nsw i64 %9, 4
+  %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %10, i32 noundef 0) #9
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  store i32 1, ptr %13, align 4
+  store ptr %5, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store ptr %12, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store ptr %1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 1, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr null, ptr %19, align 8
-  store ptr %4, ptr %10, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 -1, ptr %20, align 8
-  %21 = tail call noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nonnull align 8 poison, ptr noundef nonnull %4)
-  %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %25
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr null, ptr %20, align 8
+  store ptr %5, ptr %11, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 -1, ptr %21, align 8
+  %22 = tail call noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nonnull align 8 poison, ptr noundef nonnull %5)
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %79
-  %.018 = phi i32 [ %2, %.lr.ph ], [ %.1, %79 ]
-  %.01317 = phi i32 [ 2, %.lr.ph ], [ %.114, %79 ]
-  %26 = phi ptr [ %10, %.lr.ph ], [ %80, %79 ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %28, %30
-  br i1 %31, label %69, label %32
+26:                                               ; preds = %3, %80
+  %.017 = phi i32 [ %2, %3 ], [ %.1, %80 ]
+  %.01316 = phi i32 [ 2, %3 ], [ %.114, %80 ]
+  %27 = phi ptr [ %11, %3 ], [ %81, %80 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %29, %31
+  br i1 %32, label %70, label %33
 
-32:                                               ; preds = %25
-  %33 = add nsw i32 %28, 1
-  %34 = icmp eq i32 %33, %30
-  %35 = add nsw i32 %28, 2
-  %spec.select.i = select i1 %34, i32 %35, i32 %33
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  %38 = load i32, ptr %37, align 8
-  %.not.i = icmp slt i32 %spec.select.i, %38
-  %spec.select8.i = select i1 %.not.i, i32 %spec.select.i, i32 %30
-  store i32 %spec.select8.i, ptr %27, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %40 = load ptr, ptr %39, align 8
-  %41 = zext i32 %spec.select8.i to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 76
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %79
+33:                                               ; preds = %26
+  %34 = add nsw i32 %29, 1
+  %35 = icmp eq i32 %34, %31
+  %36 = add nsw i32 %29, 2
+  %spec.select.i = select i1 %35, i32 %36, i32 %34
+  %37 = load ptr, ptr %27, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %39 = load i32, ptr %38, align 8
+  %.not.i = icmp slt i32 %spec.select.i, %39
+  %spec.select8.i = select i1 %.not.i, i32 %spec.select.i, i32 %31
+  store i32 %spec.select8.i, ptr %28, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %41 = load ptr, ptr %40, align 8
+  %42 = zext i32 %spec.select8.i to i64
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 76
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %80
 
-47:                                               ; preds = %32
-  %48 = zext i32 %.01317 to i64
-  %49 = getelementptr inbounds nuw %struct.Tarjan, ptr %1, i64 %48
-  store i32 %.01317, ptr %44, align 4
-  store ptr %43, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %.01317, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %49, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store ptr %1, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  store ptr null, ptr %55, align 8
-  %56 = icmp eq i32 %.01317, 1
-  br i1 %56, label %_ZN11Block_Stack4pushEjP5Block.exit, label %57
+48:                                               ; preds = %33
+  %49 = zext i32 %.01316 to i64
+  %50 = getelementptr inbounds nuw %struct.Tarjan, ptr %1, i64 %49
+  store i32 %.01316, ptr %45, align 4
+  store ptr %44, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 %.01316, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store ptr %50, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  store ptr %1, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 1, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  store ptr null, ptr %56, align 8
+  %57 = icmp eq i32 %.01316, 1
+  br i1 %57, label %_ZN11Block_Stack4pushEjP5Block.exit, label %58
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 76
-  %60 = load i32, ptr %59, align 4
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %struct.Tarjan, ptr %1, i64 %61
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %27, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 76
+  %61 = load i32, ptr %60, align 4
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %struct.Tarjan, ptr %1, i64 %62
   br label %_ZN11Block_Stack4pushEjP5Block.exit
 
-_ZN11Block_Stack4pushEjP5Block.exit:              ; preds = %47, %57
-  %.sink.i = phi ptr [ %62, %57 ], [ null, %47 ]
-  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %.sink.i, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %43, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i32 -1, ptr %65, align 8
-  %66 = tail call noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nonnull align 8 poison, ptr noundef nonnull %43)
-  %67 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  store i32 %66, ptr %67, align 4
-  %68 = add i32 %.01317, 1
-  br label %79
+_ZN11Block_Stack4pushEjP5Block.exit:              ; preds = %48, %58
+  %.sink.i = phi ptr [ %63, %58 ], [ null, %48 ]
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store ptr %.sink.i, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store ptr %44, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i32 -1, ptr %66, align 8
+  %67 = tail call noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nonnull align 8 poison, ptr noundef nonnull %44)
+  %68 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  store i32 %67, ptr %68, align 4
+  %69 = add i32 %.01316, 1
+  br label %80
 
-69:                                               ; preds = %25
-  %70 = load ptr, ptr %26, align 8
-  %71 = getelementptr inbounds i8, ptr %26, i64 -16
-  %72 = add i32 %.018, -1
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 104
-  store i32 %72, ptr %73, align 8
-  %74 = load i32, ptr %23, align 8
-  %.not.i15 = icmp ult i32 %72, %74
-  br i1 %.not.i15, label %_ZN11Block_Array3mapEjP5Block.exit, label %75
+70:                                               ; preds = %26
+  %71 = load ptr, ptr %27, align 8
+  %72 = getelementptr inbounds i8, ptr %27, i64 -16
+  %73 = add i32 %.017, -1
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 104
+  store i32 %73, ptr %74, align 8
+  %75 = load i32, ptr %24, align 8
+  %.not.i15 = icmp ult i32 %73, %75
+  br i1 %.not.i15, label %_ZN11Block_Array3mapEjP5Block.exit, label %76
 
-75:                                               ; preds = %69
-  tail call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %72) #9
+76:                                               ; preds = %70
+  tail call void @_ZN11Block_Array4growEj(ptr noundef nonnull align 8 dereferenceable(24) %24, i32 noundef %73) #9
   br label %_ZN11Block_Array3mapEjP5Block.exit
 
-_ZN11Block_Array3mapEjP5Block.exit:               ; preds = %69, %75
-  %76 = load ptr, ptr %24, align 8
-  %77 = zext i32 %72 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
-  store ptr %70, ptr %78, align 8
-  br label %79
+_ZN11Block_Array3mapEjP5Block.exit:               ; preds = %70, %76
+  %77 = load ptr, ptr %25, align 8
+  %78 = zext i32 %73 to i64
+  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  store ptr %71, ptr %79, align 8
+  br label %80
 
-79:                                               ; preds = %32, %_ZN11Block_Stack4pushEjP5Block.exit, %_ZN11Block_Array3mapEjP5Block.exit
-  %80 = phi ptr [ %71, %_ZN11Block_Array3mapEjP5Block.exit ], [ %64, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %26, %32 ]
-  %.114 = phi i32 [ %.01317, %_ZN11Block_Array3mapEjP5Block.exit ], [ %68, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %.01317, %32 ]
-  %.1 = phi i32 [ %72, %_ZN11Block_Array3mapEjP5Block.exit ], [ %.018, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %.018, %32 ]
-  %.not = icmp ult ptr %80, %10
-  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !17
+80:                                               ; preds = %33, %_ZN11Block_Stack4pushEjP5Block.exit, %_ZN11Block_Array3mapEjP5Block.exit
+  %81 = phi ptr [ %72, %_ZN11Block_Array3mapEjP5Block.exit ], [ %65, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %27, %33 ]
+  %.114 = phi i32 [ %.01316, %_ZN11Block_Array3mapEjP5Block.exit ], [ %69, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %.01316, %33 ]
+  %.1 = phi i32 [ %73, %_ZN11Block_Array3mapEjP5Block.exit ], [ %.017, %_ZN11Block_Stack4pushEjP5Block.exit ], [ %.017, %33 ]
+  %.not = icmp ult ptr %81, %11
+  br i1 %.not, label %82, label %26, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %79
+82:                                               ; preds = %80
   ret i32 %.114
 }
 

@@ -6379,18 +6379,18 @@ if.then31:                                        ; preds = %"_ZZN20eliminate_pr
   br label %if.end152
 
 if.end36:                                         ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.i154, %land.lhs.true.i157, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit10.i164, %if.end29, %land.rhs.i.i.i.i, %land.lhs.true19, %_ZNK11ast_manager5is_eqEPK4expr.exit.i.i, %land.lhs.true.i.i, %"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_0clEP4exprS4_.exit171", %_ZNK11ast_manager6is_iffEPK4exprRPS0_S4_.exit, %land.lhs.true17, %_ZNK20eliminate_predicates6clause7is_unitEv.exit108
-  %.pr535 = load ptr, ptr %m_literals.i, align 8
-  %cmp.i.i176 = icmp eq ptr %.pr535, null
+  %.pr536 = load ptr, ptr %m_literals.i, align 8
+  %cmp.i.i176 = icmp eq ptr %.pr536, null
   br i1 %cmp.i.i176, label %if.end73, label %_ZNK20eliminate_predicates6clause7is_unitEv.exit180
 
 _ZNK20eliminate_predicates6clause7is_unitEv.exit180: ; preds = %if.end36
-  %arrayidx.i.i178 = getelementptr inbounds i8, ptr %.pr535, i64 -4
+  %arrayidx.i.i178 = getelementptr inbounds i8, ptr %.pr536, i64 -4
   %58 = load i32, ptr %arrayidx.i.i178, align 4
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %land.lhs.true38, label %if.end73
 
 land.lhs.true38:                                  ; preds = %_ZNK20eliminate_predicates6clause7is_unitEv.exit180
-  %second.i182 = getelementptr inbounds nuw i8, ptr %.pr535, i64 16
+  %second.i182 = getelementptr inbounds nuw i8, ptr %.pr536, i64 16
   %60 = load i8, ptr %second.i182, align 8
   %tobool.i183 = trunc i8 %60 to i1
   br i1 %tobool.i183, label %if.end73, label %land.lhs.true40
@@ -6398,7 +6398,7 @@ land.lhs.true38:                                  ; preds = %_ZNK20eliminate_pre
 land.lhs.true40:                                  ; preds = %land.lhs.true38
   %m41 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %61 = load ptr, ptr %m41, align 8
-  %62 = load ptr, ptr %.pr535, align 8
+  %62 = load ptr, ptr %.pr536, align 8
   %m_kind.i.i.i.i.i186 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %bf.load.i.i.i.i.i187 = load i32, ptr %m_kind.i.i.i.i.i186, align 4
   %bf.clear.i.i.i.i.i188 = and i32 %bf.load.i.i.i.i.i187, 65535
@@ -6703,20 +6703,20 @@ if.then83:                                        ; preds = %land.lhs.true.i310
 
 if.end86:                                         ; preds = %if.then83
   %call87 = call fastcc noundef zeroext i1 @"_ZZN20eliminate_predicates14try_find_macroERNS_6clauseEENK3$_3clEP4exprS4_"(ptr noundef nonnull align 8 dereferenceable(48) %find_arith_macro, ptr noundef %129, ptr noundef %128)
-  %.pr518.pre = load ptr, ptr %m_literals.i, align 8
-  %cmp.i.i318 = icmp eq ptr %.pr518.pre, null
+  %.pr519.pre = load ptr, ptr %m_literals.i, align 8
+  %cmp.i.i318 = icmp eq ptr %.pr519.pre, null
   %or.cond = select i1 %call87, i1 true, i1 %cmp.i.i318
   br i1 %or.cond, label %if.end152, label %_ZNK20eliminate_predicates6clause7is_unitEv.exit322
 
 _ZNK20eliminate_predicates6clause7is_unitEv.exit322: ; preds = %if.end86, %_ZNK20eliminate_predicates6clause7is_unitEv.exit291, %land.lhs.true77, %land.lhs.true.i310, %_ZNK11ast_manager5is_eqEPK4expr.exit.i306, %land.lhs.true79, %land.rhs.i.i.i302
-  %.pr518547 = phi ptr [ %117, %land.rhs.i.i.i302 ], [ %117, %land.lhs.true79 ], [ %117, %_ZNK11ast_manager5is_eqEPK4expr.exit.i306 ], [ %117, %land.lhs.true.i310 ], [ %117, %land.lhs.true77 ], [ %117, %_ZNK20eliminate_predicates6clause7is_unitEv.exit291 ], [ %.pr518.pre, %if.end86 ]
-  %arrayidx.i.i320 = getelementptr inbounds i8, ptr %.pr518547, i64 -4
+  %.pr519548 = phi ptr [ %117, %land.rhs.i.i.i302 ], [ %117, %land.lhs.true79 ], [ %117, %_ZNK11ast_manager5is_eqEPK4expr.exit.i306 ], [ %117, %land.lhs.true.i310 ], [ %117, %land.lhs.true77 ], [ %117, %_ZNK20eliminate_predicates6clause7is_unitEv.exit291 ], [ %.pr519.pre, %if.end86 ]
+  %arrayidx.i.i320 = getelementptr inbounds i8, ptr %.pr519548, i64 -4
   %130 = load i32, ptr %arrayidx.i.i320, align 4
   %131 = icmp eq i32 %130, 1
   br i1 %131, label %land.lhs.true92, label %if.end135
 
 land.lhs.true92:                                  ; preds = %_ZNK20eliminate_predicates6clause7is_unitEv.exit322
-  %132 = load ptr, ptr %.pr518547, align 8
+  %132 = load ptr, ptr %.pr519548, align 8
   %m_kind.i.i.i.i325 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %bf.load.i.i.i.i326 = load i32, ptr %m_kind.i.i.i.i325, align 4
   %bf.clear.i.i.i.i327 = and i32 %bf.load.i.i.i.i326, 65535
@@ -6762,7 +6762,7 @@ _ZNK6vectorIP4sortLb0EjE5emptyEv.exit:            ; preds = %land.lhs.true96
   br i1 %cmp3.i, label %if.end135, label %if.then98
 
 if.then98:                                        ; preds = %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit
-  %second.i347 = getelementptr inbounds nuw i8, ptr %.pr518547, i64 16
+  %second.i347 = getelementptr inbounds nuw i8, ptr %.pr519548, i64 16
   %143 = load i8, ptr %second.i347, align 8
   %tobool.i348 = trunc i8 %143 to i1
   br i1 %tobool.i348, label %if.else, label %land.lhs.true100
@@ -6806,7 +6806,7 @@ land.lhs.true105:                                 ; preds = %if.else
 land.lhs.true105.if.else109_crit_edge:            ; preds = %land.lhs.true105
   %.pre = load ptr, ptr %m_literals.i, align 8
   %second.i369.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre544 = load i8, ptr %second.i369.phi.trans.insert, align 8
+  %.pre545 = load i8, ptr %second.i369.phi.trans.insert, align 8
   br label %if.else109
 
 if.then107:                                       ; preds = %land.lhs.true105
@@ -6814,7 +6814,7 @@ if.then107:                                       ; preds = %land.lhs.true105
   br label %if.end152
 
 if.else109:                                       ; preds = %land.lhs.true105.if.else109_crit_edge, %if.else
-  %147 = phi i8 [ %.pre544, %land.lhs.true105.if.else109_crit_edge ], [ %146, %if.else ]
+  %147 = phi i8 [ %.pre545, %land.lhs.true105.if.else109_crit_edge ], [ %146, %if.else ]
   %tobool.i370 = trunc i8 %147 to i1
   br i1 %tobool.i370, label %land.lhs.true111, label %if.else120
 
@@ -6856,12 +6856,12 @@ if.then127:                                       ; preds = %land.lhs.true125
   br label %if.end152
 
 if.end135:                                        ; preds = %land.lhs.true96, %land.rhs.i.i.i330, %land.lhs.true92, %_ZNK11ast_manager5is_eqEPK4expr.exit.i334, %land.lhs.true.i338, %land.lhs.true125, %land.lhs.true122, %_ZNK6vectorIP4sortLb0EjE5emptyEv.exit, %_ZNK20eliminate_predicates6clause7is_unitEv.exit322
-  %.pr531.pr = load ptr, ptr %m_literals.i, align 8
-  %cmp.i.i377 = icmp eq ptr %.pr531.pr, null
+  %.pr532.pr = load ptr, ptr %m_literals.i, align 8
+  %cmp.i.i377 = icmp eq ptr %.pr532.pr, null
   br i1 %cmp.i.i377, label %if.end152, label %_ZNK20eliminate_predicates6clause7is_unitEv.exit381
 
 _ZNK20eliminate_predicates6clause7is_unitEv.exit381: ; preds = %if.else120, %if.end135
-  %154 = phi ptr [ %.pr531.pr, %if.end135 ], [ %150, %if.else120 ]
+  %154 = phi ptr [ %.pr532.pr, %if.end135 ], [ %150, %if.else120 ]
   %arrayidx.i.i379 = getelementptr inbounds i8, ptr %154, i64 -4
   %155 = load i32, ptr %arrayidx.i.i379, align 4
   %156 = icmp eq i32 %155, 1

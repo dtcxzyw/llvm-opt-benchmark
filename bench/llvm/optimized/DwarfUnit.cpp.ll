@@ -7184,11 +7184,11 @@ _ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit: ;
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.0.i.i.i.i.i, ptr %44, align 8
   %45 = load i8, ptr %3, align 4
-  switch i8 %45, label %128 [
+  switch i8 %45, label %126 [
     i8 14, label %46
-    i8 12, label %125
-    i8 34, label %126
-    i8 15, label %127
+    i8 12, label %123
+    i8 34, label %124
+    i8 15, label %125
   ]
 
 46:                                               ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
@@ -7261,10 +7261,7 @@ _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit: ; preds = %75, %79
   br i1 %.not43, label %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge, label %86
 
 _ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge: ; preds = %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit
-  %.pre = load ptr, ptr %6, align 8
-  %.pre59 = load ptr, ptr %43, align 8
-  %.pre60 = load ptr, ptr %.pre59, align 8
-  %.pre61 = load ptr, ptr %44, align 8
+  %.pre = load ptr, ptr %5, align 8
   br label %121
 
 86:                                               ; preds = %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit, %_ZNK4llvm6DIType10getRawNameEv.exit
@@ -7325,7 +7322,7 @@ _ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit: ; 
   %115 = extractvalue { ptr, i64 } %114, 0
   %116 = extractvalue { ptr, i64 } %114, 1
   call void @_ZN4llvm10DwarfDebug20addDwarfTypeUnitTypeERNS_16DwarfCompileUnitENS_9StringRefERNS_3DIEEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(5828) %109, ptr noundef nonnull align 8 dereferenceable(696) %113, ptr %115, i64 %116, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3) #19
-  br label %129
+  br label %127
 
 117:                                              ; preds = %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit50
   call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %101, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
@@ -7333,36 +7330,34 @@ _ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit: ; 
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 88
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3) #19
-  br label %129
+  br label %127
 
 121:                                              ; preds = %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge, %52, %46
-  %122 = phi ptr [ %.pre61, %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge ], [ %.0.i.i.i.i.i, %52 ], [ %.0.i.i.i.i.i, %46 ]
-  %123 = phi ptr [ %.pre60, %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge ], [ %1, %52 ], [ %1, %46 ]
-  %124 = phi ptr [ %.pre, %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge ], [ %0, %52 ], [ %0, %46 ]
-  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %124, ptr noundef %123, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %122)
-  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(328) %124, ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull %3)
-  br label %129
+  %122 = phi ptr [ %.pre, %_ZNK4llvm15DICompositeType16getRawIdentifierEv.exit._crit_edge ], [ %1, %52 ], [ %1, %46 ]
+  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %122, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
+  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
+  br label %127
+
+123:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
+  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
+  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_11DIBasicTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
+  br label %127
+
+124:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
+  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
+  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_12DIStringTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
+  br label %127
 
 125:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
   call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
-  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_11DIBasicTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
-  br label %129
+  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_16DISubroutineTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
+  br label %127
 
 126:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
-  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
-  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_12DIStringTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
-  br label %129
-
-127:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
-  call void @_ZN4llvm9DwarfUnit23updateAcceleratorTablesEPKNS_7DIScopeEPKNS_6DITypeERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i)
-  call void @_ZN4llvm9DwarfUnit16constructTypeDIEERNS_3DIEEPKNS_16DISubroutineTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i.i, ptr noundef nonnull %3)
-  br label %129
-
-128:                                              ; preds = %_ZN4llvm9DwarfUnit15createAndAddDIEENS_5dwarf3TagERNS_3DIEEPKNS_6DINodeE.exit
   call fastcc void @"_ZZN4llvm9DwarfUnit13createTypeDIEEPKNS_7DIScopeERNS_3DIEEPKNS_6DITypeEENK3$_0clINS_13DIDerivedTypeEEEDaPKT_"(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %3)
-  br label %129
+  br label %127
 
-129:                                              ; preds = %121, %126, %128, %127, %125, %_ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit, %117
+127:                                              ; preds = %121, %124, %126, %125, %123, %_ZN4llvm9DwarfUnit13addGlobalTypeEPKNS_6DITypeERKNS_3DIEEPKNS_7DIScopeE.exit, %117
   ret ptr %.0.i.i.i.i.i
 }
 

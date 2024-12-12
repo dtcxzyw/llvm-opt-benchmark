@@ -2359,28 +2359,28 @@ _ZN9Node_ListC2EP5Arenaj.exit840:                 ; preds = %204, %206
   %226 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %umax = call i32 @llvm.umax.i32(i32 %.0694.lcssa, i32 1)
+  %brmerge1854 = or i1 %.not.i861, %222
+  %brmerge1865 = or i1 %brmerge1854, %.not.i1003
+  %brmerge1855 = or i1 %.not.i861, %222
+  %brmerge1866 = or i1 %brmerge1855, %.not.i1003
+  %brmerge1857 = or i1 %.not.i861, %222
+  %brmerge1868 = or i1 %brmerge1857, %.not.i1003
+  %brmerge1858 = or i1 %.not.i861, %222
+  %brmerge1869 = or i1 %brmerge1858, %.not.i1003
   %brmerge1860 = or i1 %.not.i861, %222
   %brmerge1871 = or i1 %brmerge1860, %.not.i1003
-  %brmerge1861 = or i1 %.not.i861, %222
-  %brmerge1872 = or i1 %brmerge1861, %.not.i1003
-  %brmerge1863 = or i1 %.not.i861, %222
-  %brmerge1874 = or i1 %brmerge1863, %.not.i1003
-  %brmerge1864 = or i1 %.not.i861, %222
-  %brmerge1875 = or i1 %brmerge1864, %.not.i1003
-  %brmerge1866 = or i1 %.not.i861, %222
-  %brmerge1877 = or i1 %brmerge1866, %.not.i1003
-  %brmerge1865 = or i1 %.not.i861, %222
-  %brmerge1876 = or i1 %brmerge1865, %.not.i1003
-  %brmerge1868 = or i1 %.not.i861, %222
-  %brmerge1879 = or i1 %brmerge1868, %.not.i1003
-  %brmerge1869 = or i1 %.not.i861, %222
-  %brmerge1880 = or i1 %brmerge1869, %.not.i1003
-  %brmerge1867 = or i1 %.not.i861, %222
-  %brmerge1878 = or i1 %brmerge1867, %.not.i1003
+  %brmerge1859 = or i1 %.not.i861, %222
+  %brmerge1870 = or i1 %brmerge1859, %.not.i1003
   %brmerge1862 = or i1 %.not.i861, %222
   %brmerge1873 = or i1 %brmerge1862, %.not.i1003
-  %brmerge1870 = or i1 %.not.i861, %222
-  %brmerge1881 = or i1 %brmerge1870, %.not.i1003
+  %brmerge1863 = or i1 %.not.i861, %222
+  %brmerge1874 = or i1 %brmerge1863, %.not.i1003
+  %brmerge1861 = or i1 %.not.i861, %222
+  %brmerge1872 = or i1 %brmerge1861, %.not.i1003
+  %brmerge1856 = or i1 %.not.i861, %222
+  %brmerge1867 = or i1 %brmerge1856, %.not.i1003
+  %brmerge1864 = or i1 %.not.i861, %222
+  %brmerge1875 = or i1 %brmerge1864, %.not.i1003
   br label %229
 
 .preheader1412:                                   ; preds = %._crit_edge1543, %_ZN9Node_ListC2EP5Arenaj.exit840
@@ -3218,7 +3218,7 @@ _ZNK5Block8get_nodeEj.exit860:                    ; preds = %705, %707
   %713 = load i32, ptr %712, align 4
   %714 = and i32 %713, 15
   %715 = icmp eq i32 %714, 12
-  br i1 %715, label %.thread1369.loopexit1771.split.loop.exit1812, label %716
+  br i1 %715, label %.thread1369.loopexit1769.split.loop.exit1808, label %716
 
 716:                                              ; preds = %_ZNK5Block8get_nodeEj.exit860
   %717 = getelementptr inbounds nuw i8, ptr %711, i64 40
@@ -3227,7 +3227,7 @@ _ZNK5Block8get_nodeEj.exit860:                    ; preds = %705, %707
   %720 = getelementptr inbounds i32, ptr %700, i64 %719
   %721 = load i32, ptr %720, align 4
   %722 = icmp eq i32 %721, %662
-  br i1 %722, label %.thread1369.loopexit1771.split.loop.exit, label %.preheader1413
+  br i1 %722, label %.thread1369.loopexit1769.split.loop.exit, label %.preheader1413
 
 .preheader1413:                                   ; preds = %716
   %723 = getelementptr inbounds nuw i8, ptr %711, i64 24
@@ -3262,16 +3262,16 @@ _ZNK5Block8get_nodeEj.exit860:                    ; preds = %705, %707
   %738 = trunc nuw nsw i64 %indvars.iv1701 to i32
   br label %.thread1369
 
-.thread1369.loopexit1771.split.loop.exit:         ; preds = %716
+.thread1369.loopexit1769.split.loop.exit:         ; preds = %716
   %739 = trunc nuw nsw i64 %indvars.iv1701 to i32
   br label %.thread1369
 
-.thread1369.loopexit1771.split.loop.exit1812:     ; preds = %_ZNK5Block8get_nodeEj.exit860
+.thread1369.loopexit1769.split.loop.exit1808:     ; preds = %_ZNK5Block8get_nodeEj.exit860
   %740 = trunc nuw nsw i64 %indvars.iv1701 to i32
   br label %.thread1369
 
-.thread1369:                                      ; preds = %.loopexit, %.thread1369.loopexit1771.split.loop.exit, %.thread1369.loopexit1771.split.loop.exit1812, %.thread1369.loopexit, %.preheader1415
-  %.07231435 = phi i32 [ %.07231509, %.preheader1415 ], [ %738, %.thread1369.loopexit ], [ %739, %.thread1369.loopexit1771.split.loop.exit ], [ %740, %.thread1369.loopexit1771.split.loop.exit1812 ], [ 0, %.loopexit ]
+.thread1369:                                      ; preds = %.loopexit, %.thread1369.loopexit1769.split.loop.exit, %.thread1369.loopexit1769.split.loop.exit1808, %.thread1369.loopexit, %.preheader1415
+  %.07231435 = phi i32 [ %.07231509, %.preheader1415 ], [ %738, %.thread1369.loopexit ], [ %739, %.thread1369.loopexit1769.split.loop.exit ], [ %740, %.thread1369.loopexit1769.split.loop.exit1808 ], [ 0, %.loopexit ]
   %741 = load i32, ptr %550, align 8
   %742 = add i32 %741, -1
   %743 = icmp ult i32 %742, %.pre1747
@@ -3291,7 +3291,7 @@ _ZNK5Block8get_nodeEj.exit860:                    ; preds = %705, %707
   %756 = load i32, ptr %4, align 4
   %757 = call noundef i32 @_ZN12PhaseChaitin9split_DEFEP4NodeP5BlockijPS1_S4_13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %657, ptr noundef nonnull %253, i32 noundef %.07231435, i32 noundef %756, ptr noundef %258, ptr noundef %.0.i.i.i826, ptr nonnull poison, i32 noundef %.31517)
   store i32 %757, ptr %4, align 4
-  br i1 %brmerge1871, label %_ZN13GrowableArrayIjED2Ev.exit, label %.loopexit.thread.i
+  br i1 %brmerge1865, label %_ZN13GrowableArrayIjED2Ev.exit, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.thread1369
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -3742,7 +3742,7 @@ _ZNK8JVMState14is_monitor_useEj.exit:             ; preds = %895, %876
 1011:                                             ; preds = %_ZNK8JVMState14is_monitor_useEj.exit
   %1012 = load i32, ptr %550, align 8
   %1013 = call noundef ptr @_ZN12PhaseChaitin19split_RematerializeEP4NodeP5BlockjRj13GrowableArrayIjEiPjPS1_b(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %881, ptr noundef nonnull %253, i32 noundef %.91529, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr nonnull poison, i32 poison, ptr noundef %.0.i.i.i, ptr noundef %258, i1 noundef zeroext true)
-  br i1 %brmerge1872, label %_ZN13GrowableArrayIjED2Ev.exit877, label %.loopexit.thread.i1011
+  br i1 %brmerge1866, label %_ZN13GrowableArrayIjED2Ev.exit877, label %.loopexit.thread.i1011
 
 .loopexit.thread.i1011:                           ; preds = %1011
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -3803,7 +3803,7 @@ _ZN13GrowableArrayIjED2Ev.exit877:                ; preds = %1011, %.loopexit.th
   %1041 = load i32, ptr %4, align 4
   %1042 = trunc nuw i64 %indvars.iv1705 to i32
   %1043 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 9, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1042, i32 noundef %1041, i1 noundef zeroext false, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1873, label %_ZN13GrowableArrayIjED2Ev.exit879, label %.loopexit.thread.i1027
+  br i1 %brmerge1867, label %_ZN13GrowableArrayIjED2Ev.exit879, label %.loopexit.thread.i1027
 
 .loopexit.thread.i1027:                           ; preds = %1040
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4086,7 +4086,7 @@ _ZN4Node7set_reqEjPS_.exit887:                    ; preds = %1081, %1070, %1045
 1201:                                             ; preds = %1199, %1196
   %1202 = load i32, ptr %4, align 4
   %1203 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 12, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1202, i1 noundef zeroext %1183, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1874, label %_ZN13GrowableArrayIjED2Ev.exit897, label %.loopexit.thread.i1043
+  br i1 %brmerge1868, label %_ZN13GrowableArrayIjED2Ev.exit897, label %.loopexit.thread.i1043
 
 .loopexit.thread.i1043:                           ; preds = %1201
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4119,7 +4119,7 @@ _ZN13GrowableArrayIjED2Ev.exit897:                ; preds = %1201, %.loopexit.th
 1216:                                             ; preds = %1212
   %1217 = load i32, ptr %4, align 4
   %1218 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 11, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1217, i1 noundef zeroext false, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1875, label %_ZN13GrowableArrayIjED2Ev.exit899, label %.loopexit.thread.i1059
+  br i1 %brmerge1869, label %_ZN13GrowableArrayIjED2Ev.exit899, label %.loopexit.thread.i1059
 
 .loopexit.thread.i1059:                           ; preds = %1216
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4245,7 +4245,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %1226, %_ZNK7RegMask
 1283:                                             ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread
   %1284 = load i32, ptr %4, align 4
   %1285 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 5, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1284, i1 noundef zeroext false, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1876, label %_ZN13GrowableArrayIjED2Ev.exit911, label %.loopexit.thread.i1075
+  br i1 %brmerge1870, label %_ZN13GrowableArrayIjED2Ev.exit911, label %.loopexit.thread.i1075
 
 .loopexit.thread.i1075:                           ; preds = %1283
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4340,7 +4340,7 @@ _ZN4NodenwEm.exit914:                             ; preds = %1313, %1315
   %1337 = add i32 %1336, 1
   store i32 %1337, ptr %4, align 4
   %1338 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 6, ptr noundef %.0.i.i.i913, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1337, i1 noundef zeroext false, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1877, label %_ZN13GrowableArrayIjED2Ev.exit916, label %.loopexit.thread.i1091
+  br i1 %brmerge1871, label %_ZN13GrowableArrayIjED2Ev.exit916, label %.loopexit.thread.i1091
 
 .loopexit.thread.i1091:                           ; preds = %1334
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4501,7 +4501,7 @@ _ZNK7RegMask7overlapERKS_.exit928:                ; preds = %.lr.ph.i921
 _ZNK7RegMask7overlapERKS_.exit928.thread:         ; preds = %_ZN7RegMask8SUBTRACTERKS_.exit, %_ZNK7RegMask7overlapERKS_.exit928, %1346
   %1420 = load i32, ptr %4, align 4
   %1421 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 6, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1420, i1 noundef zeroext false, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1878, label %_ZN13GrowableArrayIjED2Ev.exit938, label %.loopexit.thread.i1107
+  br i1 %brmerge1872, label %_ZN13GrowableArrayIjED2Ev.exit938, label %.loopexit.thread.i1107
 
 .loopexit.thread.i1107:                           ; preds = %_ZNK7RegMask7overlapERKS_.exit928.thread
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4583,7 +4583,7 @@ _ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946: ; preds = %1449, %145
 _ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946.thread: ; preds = %1435, %_ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946
   %1463 = load i32, ptr %4, align 4
   %1464 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 7, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1463, i1 noundef zeroext true, i1 noundef zeroext true, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1879, label %_ZN13GrowableArrayIjED2Ev.exit948, label %.loopexit.thread.i1123
+  br i1 %brmerge1873, label %_ZN13GrowableArrayIjED2Ev.exit948, label %.loopexit.thread.i1123
 
 .loopexit.thread.i1123:                           ; preds = %_ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946.thread
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4603,7 +4603,7 @@ _ZN13GrowableArrayIjED2Ev.exit948:                ; preds = %_ZN12PhaseChaitin16
 _ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946.thread1382: ; preds = %1443, %_ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946
   %1470 = load i32, ptr %4, align 4
   %1471 = call noundef i32 @_ZN12PhaseChaitin9split_USEEN17MachSpillCopyNode9SpillTypeEP4NodeP5BlockS3_jjbb13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, i32 noundef 7, ptr noundef nonnull %.0726, ptr noundef nonnull %253, ptr noundef nonnull %608, i32 noundef %1174, i32 noundef %1470, i1 noundef zeroext true, i1 noundef zeroext false, ptr nonnull poison, i32 poison)
-  br i1 %brmerge1880, label %_ZN13GrowableArrayIjED2Ev.exit950, label %.loopexit.thread.i1139
+  br i1 %brmerge1874, label %_ZN13GrowableArrayIjED2Ev.exit950, label %.loopexit.thread.i1139
 
 .loopexit.thread.i1139:                           ; preds = %_ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit946.thread1382
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9
@@ -4761,7 +4761,7 @@ _ZN12PhaseChaitin16is_high_pressureEP5BlockP3LRGj.exit960.thread: ; preds = %152
   %1551 = load i32, ptr %4, align 4
   %1552 = call noundef i32 @_ZN12PhaseChaitin9split_DEFEP4NodeP5BlockijPS1_S4_13GrowableArrayIjEi(ptr noundef nonnull align 8 dereferenceable(364) %0, ptr noundef nonnull %608, ptr noundef nonnull %253, i32 noundef %.8, i32 noundef %1551, ptr noundef %258, ptr noundef %.0.i.i.i826, ptr nonnull poison, i32 noundef %1490)
   store i32 %1552, ptr %4, align 4
-  br i1 %brmerge1881, label %_ZN13GrowableArrayIjED2Ev.exit962, label %.loopexit.thread.i1155
+  br i1 %brmerge1875, label %_ZN13GrowableArrayIjED2Ev.exit962, label %.loopexit.thread.i1155
 
 .loopexit.thread.i1155:                           ; preds = %1550
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #9

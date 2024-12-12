@@ -21608,21 +21608,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr75 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr74 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr73 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr73, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr71 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr70 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr69 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr69, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr75, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr71, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr73, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr69, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -21630,8 +21630,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr74
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr70
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -21927,21 +21927,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod348.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr84 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr83 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr34782 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr34782, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr80 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr79 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr34778 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr34778, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr84, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr80, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34782, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34778, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -21949,8 +21949,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr83
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr79
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 
@@ -24655,21 +24655,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr75 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr74 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr73 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr73, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr71 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr70 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr69 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr69, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr75, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr71, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr73, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr69, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -24677,8 +24677,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr74
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr70
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -24974,21 +24974,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod348.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr84 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr83 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr34782 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr34782, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr80 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr79 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr34778 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr34778, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr84, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr80, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34782, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34778, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -24996,8 +24996,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr83
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr79
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 
@@ -28446,21 +28446,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr75 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr74 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr73 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr73, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr71 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr70 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr69 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr69, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr75, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr71, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr73, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr69, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -28468,8 +28468,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr74
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr70
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -28765,21 +28765,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod402.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr84 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr83 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr40182 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr40182, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr80 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr79 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr40178 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr40178, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr84, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr80, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr40182, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr40178, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -28787,8 +28787,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr83
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr79
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 
@@ -29406,17 +29406,17 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod449.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i, label %for.body.i.i.i.i.i.i.epil
 
 for.body.i.i.i.i.i.i.epil:                        ; preds = %if.end.i.i.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa
-  %.unr44894 = phi <2 x float> [ %116, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i.i.i ]
-  %norm_r.023.i.i.i.i.i.i.unr93 = phi float [ %117, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i.i.i ]
-  %l_ptr.024.i.i.i.i.i.i.unr92 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %r_ptr.025.i.i.i.i.i.i.unr91 = phi ptr [ %incdec.ptr18.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %118 = load float, ptr %l_ptr.024.i.i.i.i.i.i.unr92, align 4, !tbaa !338, !noalias !493
-  %119 = load float, ptr %r_ptr.025.i.i.i.i.i.i.unr91, align 4, !tbaa !338, !noalias !493
+  %.unr44890 = phi <2 x float> [ %116, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i.i.i ]
+  %norm_r.023.i.i.i.i.i.i.unr89 = phi float [ %117, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i.i.i ]
+  %l_ptr.024.i.i.i.i.i.i.unr88 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %r_ptr.025.i.i.i.i.i.i.unr87 = phi ptr [ %incdec.ptr18.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %118 = load float, ptr %l_ptr.024.i.i.i.i.i.i.unr88, align 4, !tbaa !338, !noalias !493
+  %119 = load float, ptr %r_ptr.025.i.i.i.i.i.i.unr87, align 4, !tbaa !338, !noalias !493
   %120 = insertelement <2 x float> poison, float %118, i64 0
   %121 = shufflevector <2 x float> %120, <2 x float> poison, <2 x i32> zeroinitializer
   %122 = insertelement <2 x float> %120, float %119, i64 1
-  %123 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %121, <2 x float> %122, <2 x float> %.unr44894)
-  %124 = tail call float @llvm.fmuladd.f32(float %119, float %119, float %norm_r.023.i.i.i.i.i.i.unr93)
+  %123 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %121, <2 x float> %122, <2 x float> %.unr44890)
+  %124 = tail call float @llvm.fmuladd.f32(float %119, float %119, float %norm_r.023.i.i.i.i.i.i.unr89)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i: ; preds = %for.body.i.i.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa
@@ -29597,16 +29597,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod442.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i, label %for.body.i.i140.i.i.i.i.epil
 
 for.body.i.i140.i.i.i.i.epil:                     ; preds = %for.body.preheader.i.i137.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa
-  %.unr441105 = phi <2 x float> [ %152, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i.i.i ]
-  %distance.021.i.i146.i.i.i.i.unr104 = phi float [ %149, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i.i.i ]
-  %l_ptr.024.i.i143.i.i.i.i.unr103 = phi ptr [ %incdec.ptr.i.i147.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
-  %r_ptr.025.i.i142.i.i.i.i.unr102 = phi ptr [ %incdec.ptr18.i.i148.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
-  %153 = load float, ptr %l_ptr.024.i.i143.i.i.i.i.unr103, align 4, !tbaa !338, !noalias !493
-  %154 = load float, ptr %r_ptr.025.i.i142.i.i.i.i.unr102, align 4, !tbaa !338, !noalias !493
-  %155 = tail call float @llvm.fmuladd.f32(float %153, float %154, float %distance.021.i.i146.i.i.i.i.unr104)
+  %.unr441101 = phi <2 x float> [ %152, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i.i.i ]
+  %distance.021.i.i146.i.i.i.i.unr100 = phi float [ %149, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i.i.i ]
+  %l_ptr.024.i.i143.i.i.i.i.unr99 = phi ptr [ %incdec.ptr.i.i147.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
+  %r_ptr.025.i.i142.i.i.i.i.unr98 = phi ptr [ %incdec.ptr18.i.i148.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
+  %153 = load float, ptr %l_ptr.024.i.i143.i.i.i.i.unr99, align 4, !tbaa !338, !noalias !493
+  %154 = load float, ptr %r_ptr.025.i.i142.i.i.i.i.unr98, align 4, !tbaa !338, !noalias !493
+  %155 = tail call float @llvm.fmuladd.f32(float %153, float %154, float %distance.021.i.i146.i.i.i.i.unr100)
   %156 = insertelement <2 x float> poison, float %153, i64 0
   %157 = insertelement <2 x float> %156, float %154, i64 1
-  %158 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %157, <2 x float> %157, <2 x float> %.unr441105)
+  %158 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %157, <2 x float> %157, <2 x float> %.unr441101)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i: ; preds = %for.body.i.i140.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i135.i.i.i.i
@@ -30013,17 +30013,17 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod435.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i, label %for.body.i.i.i.i162.i.i.epil
 
 for.body.i.i.i.i162.i.i.epil:                     ; preds = %if.end.i.i.i.i159.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa
-  %.unr434115 = phi <2 x float> [ %211, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i159.i.i ]
-  %norm_r.023.i.i.i.i166.i.i.unr114 = phi float [ %212, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i159.i.i ]
-  %l_ptr.024.i.i.i.i165.i.i.unr113 = phi ptr [ %incdec.ptr.i.i.i.i169.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i161.i.i, %if.end.i.i.i.i159.i.i ]
-  %r_ptr.025.i.i.i.i164.i.i.unr112 = phi ptr [ %incdec.ptr18.i.i.i.i170.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i160.i.i, %if.end.i.i.i.i159.i.i ]
-  %213 = load float, ptr %l_ptr.024.i.i.i.i165.i.i.unr113, align 4, !tbaa !338, !noalias !509
-  %214 = load float, ptr %r_ptr.025.i.i.i.i164.i.i.unr112, align 4, !tbaa !338, !noalias !509
+  %.unr434111 = phi <2 x float> [ %211, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i159.i.i ]
+  %norm_r.023.i.i.i.i166.i.i.unr110 = phi float [ %212, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i159.i.i ]
+  %l_ptr.024.i.i.i.i165.i.i.unr109 = phi ptr [ %incdec.ptr.i.i.i.i169.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i161.i.i, %if.end.i.i.i.i159.i.i ]
+  %r_ptr.025.i.i.i.i164.i.i.unr108 = phi ptr [ %incdec.ptr18.i.i.i.i170.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i160.i.i, %if.end.i.i.i.i159.i.i ]
+  %213 = load float, ptr %l_ptr.024.i.i.i.i165.i.i.unr109, align 4, !tbaa !338, !noalias !509
+  %214 = load float, ptr %r_ptr.025.i.i.i.i164.i.i.unr108, align 4, !tbaa !338, !noalias !509
   %215 = insertelement <2 x float> poison, float %213, i64 0
   %216 = shufflevector <2 x float> %215, <2 x float> poison, <2 x i32> zeroinitializer
   %217 = insertelement <2 x float> %215, float %214, i64 1
-  %218 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %216, <2 x float> %217, <2 x float> %.unr434115)
-  %219 = tail call float @llvm.fmuladd.f32(float %214, float %214, float %norm_r.023.i.i.i.i166.i.i.unr114)
+  %218 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %216, <2 x float> %217, <2 x float> %.unr434111)
+  %219 = tail call float @llvm.fmuladd.f32(float %214, float %214, float %norm_r.023.i.i.i.i166.i.i.unr110)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i162.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa
@@ -30204,16 +30204,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod428.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i, label %for.body.i.i140.i.i227.i.i.epil
 
 for.body.i.i140.i.i227.i.i.epil:                  ; preds = %for.body.preheader.i.i137.i.i224.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa
-  %.unr427126 = phi <2 x float> [ %247, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i224.i.i ]
-  %distance.021.i.i146.i.i233.i.i.unr125 = phi float [ %244, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i224.i.i ]
-  %l_ptr.024.i.i143.i.i230.i.i.unr124 = phi ptr [ %incdec.ptr.i.i147.i.i234.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i226.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
-  %r_ptr.025.i.i142.i.i229.i.i.unr123 = phi ptr [ %incdec.ptr18.i.i148.i.i235.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i225.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
-  %248 = load float, ptr %l_ptr.024.i.i143.i.i230.i.i.unr124, align 4, !tbaa !338, !noalias !509
-  %249 = load float, ptr %r_ptr.025.i.i142.i.i229.i.i.unr123, align 4, !tbaa !338, !noalias !509
-  %250 = tail call float @llvm.fmuladd.f32(float %248, float %249, float %distance.021.i.i146.i.i233.i.i.unr125)
+  %.unr427122 = phi <2 x float> [ %247, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i224.i.i ]
+  %distance.021.i.i146.i.i233.i.i.unr121 = phi float [ %244, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i224.i.i ]
+  %l_ptr.024.i.i143.i.i230.i.i.unr120 = phi ptr [ %incdec.ptr.i.i147.i.i234.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i226.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
+  %r_ptr.025.i.i142.i.i229.i.i.unr119 = phi ptr [ %incdec.ptr18.i.i148.i.i235.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i225.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
+  %248 = load float, ptr %l_ptr.024.i.i143.i.i230.i.i.unr120, align 4, !tbaa !338, !noalias !509
+  %249 = load float, ptr %r_ptr.025.i.i142.i.i229.i.i.unr119, align 4, !tbaa !338, !noalias !509
+  %250 = tail call float @llvm.fmuladd.f32(float %248, float %249, float %distance.021.i.i146.i.i233.i.i.unr121)
   %251 = insertelement <2 x float> poison, float %248, i64 0
   %252 = insertelement <2 x float> %251, float %249, i64 1
-  %253 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %252, <2 x float> %252, <2 x float> %.unr427126)
+  %253 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %252, <2 x float> %252, <2 x float> %.unr427122)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i: ; preds = %for.body.i.i140.i.i227.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa, %if.end.i.i135.i.i222.i.i
@@ -30570,16 +30570,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod421.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i, label %for.body.i.i.i.i364.i.i.epil
 
 for.body.i.i.i.i364.i.i.epil:                     ; preds = %for.body.preheader.i.i.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa
-  %.unr420137 = phi <2 x float> [ %303, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i.i.i.i.i ]
-  %distance.021.i.i.i.i370.i.i.unr136 = phi float [ %300, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i.i.i.i.i ]
-  %l_ptr.024.i.i.i.i367.i.i.unr135 = phi ptr [ %incdec.ptr.i.i.i.i371.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i.i.i363.i.i, %for.body.preheader.i.i.i.i.i.i ]
-  %r_ptr.025.i.i.i.i366.i.i.unr134 = phi ptr [ %incdec.ptr18.i.i.i.i372.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i.i.i362.i.i, %for.body.preheader.i.i.i.i.i.i ]
-  %304 = load float, ptr %l_ptr.024.i.i.i.i367.i.i.unr135, align 4, !tbaa !338, !noalias !531
-  %305 = load float, ptr %r_ptr.025.i.i.i.i366.i.i.unr134, align 4, !tbaa !338, !noalias !531
-  %306 = tail call float @llvm.fmuladd.f32(float %304, float %305, float %distance.021.i.i.i.i370.i.i.unr136)
+  %.unr420133 = phi <2 x float> [ %303, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i.i.i.i.i ]
+  %distance.021.i.i.i.i370.i.i.unr132 = phi float [ %300, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i.i.i.i.i ]
+  %l_ptr.024.i.i.i.i367.i.i.unr131 = phi ptr [ %incdec.ptr.i.i.i.i371.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i.i.i363.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %r_ptr.025.i.i.i.i366.i.i.unr130 = phi ptr [ %incdec.ptr18.i.i.i.i372.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i.i.i362.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %304 = load float, ptr %l_ptr.024.i.i.i.i367.i.i.unr131, align 4, !tbaa !338, !noalias !531
+  %305 = load float, ptr %r_ptr.025.i.i.i.i366.i.i.unr130, align 4, !tbaa !338, !noalias !531
+  %306 = tail call float @llvm.fmuladd.f32(float %304, float %305, float %distance.021.i.i.i.i370.i.i.unr132)
   %307 = insertelement <2 x float> poison, float %304, i64 0
   %308 = insertelement <2 x float> %307, float %305, i64 1
-  %309 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %308, <2 x float> %308, <2 x float> %.unr420137)
+  %309 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %308, <2 x float> %308, <2 x float> %.unr420133)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i364.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i.i.i360.i.i
@@ -30762,16 +30762,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9D
   br i1 %lcmp.mod414.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i, label %for.body.i.i151.i.i.i.i.epil
 
 for.body.i.i151.i.i.i.i.epil:                     ; preds = %for.body.preheader.i.i148.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa
-  %.unr413148 = phi <2 x float> [ %338, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i148.i.i.i.i ]
-  %distance.021.i.i157.i.i.i.i.unr147 = phi float [ %335, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i148.i.i.i.i ]
-  %l_ptr.024.i.i154.i.i.i.i.unr146 = phi ptr [ %incdec.ptr.i.i158.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i150.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
-  %r_ptr.025.i.i153.i.i.i.i.unr145 = phi ptr [ %incdec.ptr18.i.i159.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i149.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
-  %339 = load float, ptr %l_ptr.024.i.i154.i.i.i.i.unr146, align 4, !tbaa !338, !noalias !531
-  %340 = load float, ptr %r_ptr.025.i.i153.i.i.i.i.unr145, align 4, !tbaa !338, !noalias !531
-  %341 = tail call float @llvm.fmuladd.f32(float %339, float %340, float %distance.021.i.i157.i.i.i.i.unr147)
+  %.unr413144 = phi <2 x float> [ %338, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i148.i.i.i.i ]
+  %distance.021.i.i157.i.i.i.i.unr143 = phi float [ %335, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i148.i.i.i.i ]
+  %l_ptr.024.i.i154.i.i.i.i.unr142 = phi ptr [ %incdec.ptr.i.i158.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i150.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
+  %r_ptr.025.i.i153.i.i.i.i.unr141 = phi ptr [ %incdec.ptr18.i.i159.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i149.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
+  %339 = load float, ptr %l_ptr.024.i.i154.i.i.i.i.unr142, align 4, !tbaa !338, !noalias !531
+  %340 = load float, ptr %r_ptr.025.i.i153.i.i.i.i.unr141, align 4, !tbaa !338, !noalias !531
+  %341 = tail call float @llvm.fmuladd.f32(float %339, float %340, float %distance.021.i.i157.i.i.i.i.unr143)
   %342 = insertelement <2 x float> poison, float %339, i64 0
   %343 = insertelement <2 x float> %342, float %340, i64 1
-  %344 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %343, <2 x float> %343, <2 x float> %.unr413148)
+  %344 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %343, <2 x float> %343, <2 x float> %.unr413144)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i: ; preds = %for.body.i.i151.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIfEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_fEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i146.i.i.i.i
@@ -31481,21 +31481,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr75 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr74 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr73 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr73, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr71 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr70 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr69 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr69, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr75, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr71, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr73, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr69, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -31503,8 +31503,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr75, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr74
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr71, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr70
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -31800,21 +31800,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod402.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr84 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr83 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr40182 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr40182, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr80 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr79 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr40178 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr40178, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr84, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr80, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr40182, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr40178, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -31822,8 +31822,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr84, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr83
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr80, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr79
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 
@@ -32439,16 +32439,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod449.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i, label %for.body.i.i.i.i.i.i.epil
 
 for.body.i.i.i.i.i.i.epil:                        ; preds = %if.end.i.i.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa
-  %.unr44894 = phi <2 x double> [ %115, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i.i.i ]
-  %distance.021.i.i.i.i.i.i.unr93 = phi double [ %112, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i.i.i ]
-  %l_ptr.024.i.i.i.i.i.i.unr92 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %r_ptr.025.i.i.i.i.i.i.unr91 = phi ptr [ %incdec.ptr18.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %116 = load double, ptr %l_ptr.024.i.i.i.i.i.i.unr92, align 8, !tbaa !416, !noalias !562
-  %117 = load double, ptr %r_ptr.025.i.i.i.i.i.i.unr91, align 8, !tbaa !416, !noalias !562
-  %118 = tail call double @llvm.fmuladd.f64(double %116, double %117, double %distance.021.i.i.i.i.i.i.unr93)
+  %.unr44890 = phi <2 x double> [ %115, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i.i.i ]
+  %distance.021.i.i.i.i.i.i.unr89 = phi double [ %112, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i.i.i ]
+  %l_ptr.024.i.i.i.i.i.i.unr88 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %r_ptr.025.i.i.i.i.i.i.unr87 = phi ptr [ %incdec.ptr18.i.i.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
+  %116 = load double, ptr %l_ptr.024.i.i.i.i.i.i.unr88, align 8, !tbaa !416, !noalias !562
+  %117 = load double, ptr %r_ptr.025.i.i.i.i.i.i.unr87, align 8, !tbaa !416, !noalias !562
+  %118 = tail call double @llvm.fmuladd.f64(double %116, double %117, double %distance.021.i.i.i.i.i.i.unr89)
   %119 = insertelement <2 x double> poison, double %117, i64 0
   %120 = insertelement <2 x double> %119, double %116, i64 1
-  %121 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %120, <2 x double> %120, <2 x double> %.unr44894)
+  %121 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %120, <2 x double> %120, <2 x double> %.unr44890)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i: ; preds = %for.body.i.i.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.loopexit.i.i.i.unr-lcssa
@@ -32633,18 +32633,18 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod442.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i, label %for.body.i.i140.i.i.i.i.epil
 
 for.body.i.i140.i.i.i.i.epil:                     ; preds = %for.body.preheader.i.i137.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa
-  %.unr441105 = phi <2 x double> [ %152, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i.i.i ]
-  %norm_r.023.i.i144.i.i.i.i.unr104 = phi double [ %153, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i.i.i ]
-  %l_ptr.024.i.i143.i.i.i.i.unr103 = phi ptr [ %incdec.ptr.i.i147.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
-  %r_ptr.025.i.i142.i.i.i.i.unr102 = phi ptr [ %incdec.ptr18.i.i148.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
-  %154 = load double, ptr %l_ptr.024.i.i143.i.i.i.i.unr103, align 8, !tbaa !416, !noalias !562
-  %155 = load double, ptr %r_ptr.025.i.i142.i.i.i.i.unr102, align 8, !tbaa !416, !noalias !562
+  %.unr441101 = phi <2 x double> [ %152, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i.i.i ]
+  %norm_r.023.i.i144.i.i.i.i.unr100 = phi double [ %153, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i.i.i ]
+  %l_ptr.024.i.i143.i.i.i.i.unr99 = phi ptr [ %incdec.ptr.i.i147.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
+  %r_ptr.025.i.i142.i.i.i.i.unr98 = phi ptr [ %incdec.ptr18.i.i148.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i.i.i, %for.body.preheader.i.i137.i.i.i.i ]
+  %154 = load double, ptr %l_ptr.024.i.i143.i.i.i.i.unr99, align 8, !tbaa !416, !noalias !562
+  %155 = load double, ptr %r_ptr.025.i.i142.i.i.i.i.unr98, align 8, !tbaa !416, !noalias !562
   %156 = insertelement <2 x double> poison, double %154, i64 0
   %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> zeroinitializer
   %158 = insertelement <2 x double> poison, double %155, i64 0
   %159 = insertelement <2 x double> %158, double %154, i64 1
-  %160 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %157, <2 x double> %159, <2 x double> %.unr441105)
-  %161 = tail call double @llvm.fmuladd.f64(double %155, double %155, double %norm_r.023.i.i144.i.i.i.i.unr104)
+  %160 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %157, <2 x double> %159, <2 x double> %.unr441101)
+  %161 = tail call double @llvm.fmuladd.f64(double %155, double %155, double %norm_r.023.i.i144.i.i.i.i.unr100)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i: ; preds = %for.body.i.i140.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i135.i.i.i.i
@@ -33049,16 +33049,16 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod435.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i, label %for.body.i.i.i.i162.i.i.epil
 
 for.body.i.i.i.i162.i.i.epil:                     ; preds = %if.end.i.i.i.i159.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa
-  %.unr434115 = phi <2 x double> [ %213, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i159.i.i ]
-  %distance.021.i.i.i.i168.i.i.unr114 = phi double [ %210, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i159.i.i ]
-  %l_ptr.024.i.i.i.i165.i.i.unr113 = phi ptr [ %incdec.ptr.i.i.i.i169.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i161.i.i, %if.end.i.i.i.i159.i.i ]
-  %r_ptr.025.i.i.i.i164.i.i.unr112 = phi ptr [ %incdec.ptr18.i.i.i.i170.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i160.i.i, %if.end.i.i.i.i159.i.i ]
-  %214 = load double, ptr %l_ptr.024.i.i.i.i165.i.i.unr113, align 8, !tbaa !416, !noalias !578
-  %215 = load double, ptr %r_ptr.025.i.i.i.i164.i.i.unr112, align 8, !tbaa !416, !noalias !578
-  %216 = tail call double @llvm.fmuladd.f64(double %214, double %215, double %distance.021.i.i.i.i168.i.i.unr114)
+  %.unr434111 = phi <2 x double> [ %213, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ zeroinitializer, %if.end.i.i.i.i159.i.i ]
+  %distance.021.i.i.i.i168.i.i.unr110 = phi double [ %210, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ 0.000000e+00, %if.end.i.i.i.i159.i.i ]
+  %l_ptr.024.i.i.i.i165.i.i.unr109 = phi ptr [ %incdec.ptr.i.i.i.i169.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr.i.i.i.i161.i.i, %if.end.i.i.i.i159.i.i ]
+  %r_ptr.025.i.i.i.i164.i.i.unr108 = phi ptr [ %incdec.ptr18.i.i.i.i170.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa ], [ %add.ptr16.i.i.i.i160.i.i, %if.end.i.i.i.i159.i.i ]
+  %214 = load double, ptr %l_ptr.024.i.i.i.i165.i.i.unr109, align 8, !tbaa !416, !noalias !578
+  %215 = load double, ptr %r_ptr.025.i.i.i.i164.i.i.unr108, align 8, !tbaa !416, !noalias !578
+  %216 = tail call double @llvm.fmuladd.f64(double %214, double %215, double %distance.021.i.i.i.i168.i.i.unr110)
   %217 = insertelement <2 x double> poison, double %215, i64 0
   %218 = insertelement <2 x double> %217, double %214, i64 1
-  %219 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %218, <2 x double> %218, <2 x double> %.unr434115)
+  %219 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %218, <2 x double> %218, <2 x double> %.unr434111)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i162.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.loopexit.i.i.i.i.unr-lcssa
@@ -33243,18 +33243,18 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod428.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i, label %for.body.i.i140.i.i227.i.i.epil
 
 for.body.i.i140.i.i227.i.i.epil:                  ; preds = %for.body.preheader.i.i137.i.i224.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa
-  %.unr427126 = phi <2 x double> [ %250, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i224.i.i ]
-  %norm_r.023.i.i144.i.i231.i.i.unr125 = phi double [ %251, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i224.i.i ]
-  %l_ptr.024.i.i143.i.i230.i.i.unr124 = phi ptr [ %incdec.ptr.i.i147.i.i234.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i226.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
-  %r_ptr.025.i.i142.i.i229.i.i.unr123 = phi ptr [ %incdec.ptr18.i.i148.i.i235.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i225.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
-  %252 = load double, ptr %l_ptr.024.i.i143.i.i230.i.i.unr124, align 8, !tbaa !416, !noalias !578
-  %253 = load double, ptr %r_ptr.025.i.i142.i.i229.i.i.unr123, align 8, !tbaa !416, !noalias !578
+  %.unr427122 = phi <2 x double> [ %250, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i137.i.i224.i.i ]
+  %norm_r.023.i.i144.i.i231.i.i.unr121 = phi double [ %251, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i137.i.i224.i.i ]
+  %l_ptr.024.i.i143.i.i230.i.i.unr120 = phi ptr [ %incdec.ptr.i.i147.i.i234.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i139.i.i226.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
+  %r_ptr.025.i.i142.i.i229.i.i.unr119 = phi ptr [ %incdec.ptr18.i.i148.i.i235.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i138.i.i225.i.i, %for.body.preheader.i.i137.i.i224.i.i ]
+  %252 = load double, ptr %l_ptr.024.i.i143.i.i230.i.i.unr120, align 8, !tbaa !416, !noalias !578
+  %253 = load double, ptr %r_ptr.025.i.i142.i.i229.i.i.unr119, align 8, !tbaa !416, !noalias !578
   %254 = insertelement <2 x double> poison, double %252, i64 0
   %255 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> zeroinitializer
   %256 = insertelement <2 x double> poison, double %253, i64 0
   %257 = insertelement <2 x double> %256, double %252, i64 1
-  %258 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %255, <2 x double> %257, <2 x double> %.unr427126)
-  %259 = tail call double @llvm.fmuladd.f64(double %253, double %253, double %norm_r.023.i.i144.i.i231.i.i.unr125)
+  %258 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %255, <2 x double> %257, <2 x double> %.unr427122)
+  %259 = tail call double @llvm.fmuladd.f64(double %253, double %253, double %norm_r.023.i.i144.i.i231.i.i.unr121)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i: ; preds = %for.body.i.i140.i.i227.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit162.i.i238.i.i.loopexit.unr-lcssa, %if.end.i.i135.i.i222.i.i
@@ -33615,18 +33615,18 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod421.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i, label %for.body.i.i.i.i364.i.i.epil
 
 for.body.i.i.i.i364.i.i.epil:                     ; preds = %for.body.preheader.i.i.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa
-  %.unr420137 = phi <2 x double> [ %312, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i.i.i.i.i ]
-  %norm_r.023.i.i.i.i368.i.i.unr136 = phi double [ %313, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i.i.i.i.i ]
-  %l_ptr.024.i.i.i.i367.i.i.unr135 = phi ptr [ %incdec.ptr.i.i.i.i371.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i.i.i363.i.i, %for.body.preheader.i.i.i.i.i.i ]
-  %r_ptr.025.i.i.i.i366.i.i.unr134 = phi ptr [ %incdec.ptr18.i.i.i.i372.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i.i.i362.i.i, %for.body.preheader.i.i.i.i.i.i ]
-  %314 = load double, ptr %l_ptr.024.i.i.i.i367.i.i.unr135, align 8, !tbaa !416, !noalias !600
-  %315 = load double, ptr %r_ptr.025.i.i.i.i366.i.i.unr134, align 8, !tbaa !416, !noalias !600
+  %.unr420133 = phi <2 x double> [ %312, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i.i.i.i.i ]
+  %norm_r.023.i.i.i.i368.i.i.unr132 = phi double [ %313, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i.i.i.i.i ]
+  %l_ptr.024.i.i.i.i367.i.i.unr131 = phi ptr [ %incdec.ptr.i.i.i.i371.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i.i.i363.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %r_ptr.025.i.i.i.i366.i.i.unr130 = phi ptr [ %incdec.ptr18.i.i.i.i372.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i.i.i362.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %314 = load double, ptr %l_ptr.024.i.i.i.i367.i.i.unr131, align 8, !tbaa !416, !noalias !600
+  %315 = load double, ptr %r_ptr.025.i.i.i.i366.i.i.unr130, align 8, !tbaa !416, !noalias !600
   %316 = insertelement <2 x double> poison, double %314, i64 0
   %317 = shufflevector <2 x double> %316, <2 x double> poison, <2 x i32> zeroinitializer
   %318 = insertelement <2 x double> poison, double %315, i64 0
   %319 = insertelement <2 x double> %318, double %314, i64 1
-  %320 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %317, <2 x double> %319, <2 x double> %.unr420137)
-  %321 = tail call double @llvm.fmuladd.f64(double %315, double %315, double %norm_r.023.i.i.i.i368.i.i.unr136)
+  %320 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %317, <2 x double> %319, <2 x double> %.unr420133)
+  %321 = tail call double @llvm.fmuladd.f64(double %315, double %315, double %norm_r.023.i.i.i.i368.i.i.unr132)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i364.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i.i.i360.i.i
@@ -33813,18 +33813,18 @@ _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9D
   br i1 %lcmp.mod414.not, label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i, label %for.body.i.i151.i.i.i.i.epil
 
 for.body.i.i151.i.i.i.i.epil:                     ; preds = %for.body.preheader.i.i148.i.i.i.i, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa
-  %.unr413148 = phi <2 x double> [ %353, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i148.i.i.i.i ]
-  %norm_r.023.i.i155.i.i.i.i.unr147 = phi double [ %354, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i148.i.i.i.i ]
-  %l_ptr.024.i.i154.i.i.i.i.unr146 = phi ptr [ %incdec.ptr.i.i158.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i150.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
-  %r_ptr.025.i.i153.i.i.i.i.unr145 = phi ptr [ %incdec.ptr18.i.i159.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i149.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
-  %355 = load double, ptr %l_ptr.024.i.i154.i.i.i.i.unr146, align 8, !tbaa !416, !noalias !600
-  %356 = load double, ptr %r_ptr.025.i.i153.i.i.i.i.unr145, align 8, !tbaa !416, !noalias !600
+  %.unr413144 = phi <2 x double> [ %353, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ zeroinitializer, %for.body.preheader.i.i148.i.i.i.i ]
+  %norm_r.023.i.i155.i.i.i.i.unr143 = phi double [ %354, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ 0.000000e+00, %for.body.preheader.i.i148.i.i.i.i ]
+  %l_ptr.024.i.i154.i.i.i.i.unr142 = phi ptr [ %incdec.ptr.i.i158.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr.i.i150.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
+  %r_ptr.025.i.i153.i.i.i.i.unr141 = phi ptr [ %incdec.ptr18.i.i159.i.i.i.i.1, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa ], [ %add.ptr16.i.i149.i.i.i.i, %for.body.preheader.i.i148.i.i.i.i ]
+  %355 = load double, ptr %l_ptr.024.i.i154.i.i.i.i.unr142, align 8, !tbaa !416, !noalias !600
+  %356 = load double, ptr %r_ptr.025.i.i153.i.i.i.i.unr141, align 8, !tbaa !416, !noalias !600
   %357 = insertelement <2 x double> poison, double %355, i64 0
   %358 = shufflevector <2 x double> %357, <2 x double> poison, <2 x i32> zeroinitializer
   %359 = insertelement <2 x double> poison, double %356, i64 0
   %360 = insertelement <2 x double> %359, double %355, i64 1
-  %361 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %358, <2 x double> %360, <2 x double> %.unr413148)
-  %362 = tail call double @llvm.fmuladd.f64(double %356, double %356, double %norm_r.023.i.i155.i.i.i.i.unr147)
+  %361 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %358, <2 x double> %360, <2 x double> %.unr413144)
+  %362 = tail call double @llvm.fmuladd.f64(double %356, double %356, double %norm_r.023.i.i155.i.i.i.i.unr143)
   br label %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i
 
 _ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i: ; preds = %for.body.i.i151.i.i.i.i.epil, %_ZN6duckdb19BinaryLambdaWrapper9OperationIZNS_L20ListCosineSimilarityIdEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEEUlNS_12list_entry_tES9_E_bS9_S9_dEET3_T_T1_T2_RNS_12ValidityMaskEm.exit173.i.i.i.i.loopexit.unr-lcssa, %if.end.i.i146.i.i.i.i
@@ -35278,21 +35278,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr72 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr71 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr70 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr70, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr68 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr67 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr66 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr66, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr72, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr68, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr72, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr70, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr68, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr66, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -35300,8 +35300,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr72, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr71
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr68, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr67
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -35597,21 +35597,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod348.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr81 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr80 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr34779 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr34779, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr77 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr76 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr34775 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr34775, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr81, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr77, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr81, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34779, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr77, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34775, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -35619,8 +35619,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr81, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr80
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr77, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr76
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 
@@ -38256,21 +38256,21 @@ for.body12.i.preheader.i.loopexit.unr-lcssa:      ; preds = %cleanup.i.i.1
   br i1 %lcmp.mod.not, label %for.body12.i.preheader.i, label %if.end15.i.i.epil
 
 if.end15.i.i.epil:                                ; preds = %if.end15.i.i.preheader, %for.body12.i.preheader.i.loopexit.unr-lcssa
-  %valid.050.i5.i.unr72 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
-  %inc.i6.i.unr71 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
-  %.unr70 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
-  switch i64 %.unr70, label %while.body.i.i.epil [
+  %valid.050.i5.i.unr68 = phi i64 [ %valid.3.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 0, %if.end15.i.i.preheader ]
+  %inc.i6.i.unr67 = phi i64 [ %inc.i.i.1, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ 1, %if.end15.i.i.preheader ]
+  %.unr66 = phi i64 [ %22, %for.body12.i.preheader.i.loopexit.unr-lcssa ], [ %3, %if.end15.i.i.preheader ]
+  switch i64 %.unr66, label %while.body.i.i.epil [
     i64 -1, label %if.then17.i.i.epil
     i64 0, label %cleanup.i.i.epil
   ]
 
 if.then17.i.i.epil:                               ; preds = %if.end15.i.i.epil
-  %add18.i.i.epil = add i64 %valid.050.i5.i.unr72, 64
+  %add18.i.i.epil = add i64 %valid.050.i5.i.unr68, 64
   br label %cleanup.i.i.epil, !llvm.loop !333
 
 while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, %while.body.i.i.epil
-  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr72, %if.end15.i.i.epil ]
-  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr70, %if.end15.i.i.epil ]
+  %valid.247.i.i.epil = phi i64 [ %inc20.i.i.epil, %while.body.i.i.epil ], [ %valid.050.i5.i.unr68, %if.end15.i.i.epil ]
+  %entry4.046.i.i.epil = phi i64 [ %and.i.i.epil, %while.body.i.i.epil ], [ %.unr66, %if.end15.i.i.epil ]
   %sub.i.i.epil = add i64 %entry4.046.i.i.epil, -1
   %and.i.i.epil = and i64 %sub.i.i.epil, %entry4.046.i.i.epil
   %inc20.i.i.epil = add i64 %valid.247.i.i.epil, 1
@@ -38278,8 +38278,8 @@ while.body.i.i.epil:                              ; preds = %if.end15.i.i.epil, 
   br i1 %tobool.not.i.i.epil, label %cleanup.i.i.epil, label %while.body.i.i.epil, !llvm.loop !332
 
 cleanup.i.i.epil:                                 ; preds = %while.body.i.i.epil, %if.then17.i.i.epil, %if.end15.i.i.epil
-  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr72, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
-  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr71
+  %valid.3.i.i.epil = phi i64 [ %add18.i.i.epil, %if.then17.i.i.epil ], [ %valid.050.i5.i.unr68, %if.end15.i.i.epil ], [ %inc20.i.i.epil, %while.body.i.i.epil ]
+  %arrayidx.i.i.i.i.epil = getelementptr inbounds i64, ptr %2, i64 %inc.i6.i.unr67
   %9 = load i64, ptr %arrayidx.i.i.i.i.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i
 
@@ -38575,21 +38575,21 @@ for.body12.i.preheader.i84.loopexit.unr-lcssa:    ; preds = %cleanup.i.i79.1
   br i1 %lcmp.mod348.not, label %for.body12.i.preheader.i84, label %if.end15.i.i76.epil
 
 if.end15.i.i76.epil:                              ; preds = %if.end15.i.i76.preheader, %for.body12.i.preheader.i84.loopexit.unr-lcssa
-  %valid.050.i5.i78.unr81 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
-  %inc.i6.i77.unr80 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
-  %.unr34779 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
-  switch i64 %.unr34779, label %while.body.i.i98.epil [
+  %valid.050.i5.i78.unr77 = phi i64 [ %valid.3.i.i80.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 0, %if.end15.i.i76.preheader ]
+  %inc.i6.i77.unr76 = phi i64 [ %inc.i.i81.1, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ 1, %if.end15.i.i76.preheader ]
+  %.unr34775 = phi i64 [ %49, %for.body12.i.preheader.i84.loopexit.unr-lcssa ], [ %30, %if.end15.i.i76.preheader ]
+  switch i64 %.unr34775, label %while.body.i.i98.epil [
     i64 -1, label %if.then17.i.i96.epil
     i64 0, label %cleanup.i.i79.epil
   ]
 
 if.then17.i.i96.epil:                             ; preds = %if.end15.i.i76.epil
-  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr81, 64
+  %add18.i.i97.epil = add i64 %valid.050.i5.i78.unr77, 64
   br label %cleanup.i.i79.epil, !llvm.loop !333
 
 while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil, %while.body.i.i98.epil
-  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr81, %if.end15.i.i76.epil ]
-  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34779, %if.end15.i.i76.epil ]
+  %valid.247.i.i99.epil = phi i64 [ %inc20.i.i103.epil, %while.body.i.i98.epil ], [ %valid.050.i5.i78.unr77, %if.end15.i.i76.epil ]
+  %entry4.046.i.i100.epil = phi i64 [ %and.i.i102.epil, %while.body.i.i98.epil ], [ %.unr34775, %if.end15.i.i76.epil ]
   %sub.i.i101.epil = add i64 %entry4.046.i.i100.epil, -1
   %and.i.i102.epil = and i64 %sub.i.i101.epil, %entry4.046.i.i100.epil
   %inc20.i.i103.epil = add i64 %valid.247.i.i99.epil, 1
@@ -38597,8 +38597,8 @@ while.body.i.i98.epil:                            ; preds = %if.end15.i.i76.epil
   br i1 %tobool.not.i.i104.epil, label %cleanup.i.i79.epil, label %while.body.i.i98.epil, !llvm.loop !332
 
 cleanup.i.i79.epil:                               ; preds = %while.body.i.i98.epil, %if.then17.i.i96.epil, %if.end15.i.i76.epil
-  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr81, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
-  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr80
+  %valid.3.i.i80.epil = phi i64 [ %add18.i.i97.epil, %if.then17.i.i96.epil ], [ %valid.050.i5.i78.unr77, %if.end15.i.i76.epil ], [ %inc20.i.i103.epil, %while.body.i.i98.epil ]
+  %arrayidx.i.i.i.i82.epil = getelementptr inbounds i64, ptr %29, i64 %inc.i6.i77.unr76
   %36 = load i64, ptr %arrayidx.i.i.i.i82.epil, align 8, !tbaa !37
   br label %for.body12.i.preheader.i84
 

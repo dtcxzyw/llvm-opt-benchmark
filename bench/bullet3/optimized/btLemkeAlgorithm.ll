@@ -510,7 +510,7 @@ for.body:                                         ; preds = %invoke.cont26, %for
   %63 = phi ptr [ %66, %for.inc ], [ null, %invoke.cont26 ]
   %64 = phi i32 [ %67, %for.inc ], [ 0, %invoke.cont26 ]
   %.pre2.i = phi i32 [ %inc.i129, %for.inc ], [ 0, %invoke.cont26 ]
-  %storemerge290 = phi i32 [ %inc, %for.inc ], [ 0, %invoke.cont26 ]
+  %storemerge291 = phi i32 [ %inc, %for.inc ], [ 0, %invoke.cont26 ]
   %cmp.i128 = icmp eq i32 %.pre2.i, %64
   br i1 %cmp.i128, label %if.then.i, label %for.inc
 
@@ -569,11 +569,11 @@ for.inc:                                          ; preds = %_ZN20btAlignedObjec
   %67 = phi i32 [ %cond.i.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %64, %if.then.i ], [ %64, %for.body ]
   %idxprom.i = sext i32 %.pre2.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %66, i64 %idxprom.i
-  store i32 %storemerge290, ptr %arrayidx.i, align 4
+  store i32 %storemerge291, ptr %arrayidx.i, align 4
   %68 = load i32, ptr %m_size.i.i125, align 4
   %inc.i129 = add nsw i32 %68, 1
   store i32 %inc.i129, ptr %m_size.i.i125, align 4
-  %inc = add nuw nsw i32 %storemerge290, 1
+  %inc = add nuw nsw i32 %storemerge291, 1
   %exitcond.not = icmp eq i32 %inc, %0
   br i1 %exitcond.not, label %invoke.cont36.lr.ph, label %for.body, !llvm.loop !16
 
@@ -600,18 +600,18 @@ lpad28:                                           ; preds = %lpad28.loopexit.spl
 
 invoke.cont36:                                    ; preds = %invoke.cont36.lr.ph, %invoke.cont36
   %indvars.iv = phi i64 [ 0, %invoke.cont36.lr.ph ], [ %indvars.iv.next, %invoke.cont36 ]
-  %greaterZero.0294 = phi i1 [ true, %invoke.cont36.lr.ph ], [ %greaterZero.1, %invoke.cont36 ]
-  %minValue.0293 = phi float [ 0x46293E5940000000, %invoke.cont36.lr.ph ], [ %minValue.1, %invoke.cont36 ]
-  %pivotRowIndex.0292 = phi i32 [ -1, %invoke.cont36.lr.ph ], [ %pivotRowIndex.1, %invoke.cont36 ]
+  %greaterZero.0295 = phi i1 [ true, %invoke.cont36.lr.ph ], [ %greaterZero.1, %invoke.cont36 ]
+  %minValue.0294 = phi float [ 0x46293E5940000000, %invoke.cont36.lr.ph ], [ %minValue.1, %invoke.cont36 ]
+  %pivotRowIndex.0293 = phi i32 [ -1, %invoke.cont36.lr.ph ], [ %pivotRowIndex.1, %invoke.cont36 ]
   %70 = mul nsw i64 %indvars.iv, %61
   %gep = getelementptr float, ptr %invariant.gep, i64 %70
   %71 = load float, ptr %gep, align 4
-  %cmp38 = fcmp olt float %71, %minValue.0293
+  %cmp38 = fcmp olt float %71, %minValue.0294
   %72 = trunc nuw nsw i64 %indvars.iv to i32
-  %pivotRowIndex.1 = select i1 %cmp38, i32 %72, i32 %pivotRowIndex.0292
-  %minValue.1 = select i1 %cmp38, float %71, float %minValue.0293
+  %pivotRowIndex.1 = select i1 %cmp38, i32 %72, i32 %pivotRowIndex.0293
+  %minValue.1 = select i1 %cmp38, float %71, float %minValue.0294
   %cmp39 = fcmp uge float %71, 0.000000e+00
-  %greaterZero.1 = select i1 %cmp39, i1 %greaterZero.0294, i1 false
+  %greaterZero.1 = select i1 %cmp39, i1 %greaterZero.0295, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond314.not, label %for.end44, label %invoke.cont36, !llvm.loop !17
@@ -640,10 +640,10 @@ if.then46:                                        ; preds = %for.end44
 
 for.body54:                                       ; preds = %if.then46, %for.inc80
   %pivotRowIndex.2299 = phi i32 [ %pivotRowIndex.1, %if.then46 ], [ %call70, %for.inc80 ]
-  %storemerge42297298 = phi i32 [ %mul, %if.then46 ], [ %storemerge42, %for.inc80 ]
+  %mul278298 = phi i32 [ %mul, %if.then46 ], [ %storemerge42, %for.inc80 ]
   %75 = load i32, ptr %m_cols.i54, align 4
   %mul.i.i142 = mul nsw i32 %75, %pivotRowIndex.2299
-  %add.i.i143 = add nsw i32 %mul.i.i142, %storemerge42297298
+  %add.i.i143 = add nsw i32 %mul.i.i142, %mul278298
   %76 = load ptr, ptr %m_data.i.i.i59, align 8
   %idxprom.i.i.i145 = sext i32 %add.i.i143 to i64
   %arrayidx.i.i.i146 = getelementptr inbounds float, ptr %76, i64 %idxprom.i.i.i145
@@ -677,7 +677,7 @@ for.body7.i:                                      ; preds = %for.body.i149, %for
   %84 = phi i32 [ %92, %for.inc.i ], [ %82, %for.body.i149 ]
   %85 = phi i32 [ %92, %for.inc.i ], [ %83, %for.body.i149 ]
   %j.078.i = phi i32 [ %inc.i155, %for.inc.i ], [ 0, %for.body.i149 ]
-  %cmp8.not.i = icmp eq i32 %j.078.i, %storemerge42297298
+  %cmp8.not.i = icmp eq i32 %j.078.i, %mul278298
   br i1 %cmp8.not.i, label %for.inc.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %for.body7.i
@@ -692,7 +692,7 @@ if.then9.i:                                       ; preds = %for.body7.i
   %idxprom.i.i46.i = sext i32 %add.i44.i to i64
   %arrayidx.i.i47.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i.i46.i
   %88 = load float, ptr %arrayidx.i.i47.i, align 4
-  %add.i50.i = add nsw i32 %mul.i37.i, %storemerge42297298
+  %add.i50.i = add nsw i32 %mul.i37.i, %mul278298
   %idxprom.i.i52.i = sext i32 %add.i50.i to i64
   %arrayidx.i.i53.i = getelementptr inbounds float, ptr %86, i64 %idxprom.i.i52.i
   %89 = load float, ptr %arrayidx.i.i53.i, align 4
@@ -763,7 +763,7 @@ if.then32.i:                                      ; preds = %for.body30.i
   store i32 %inc.i70.i, ptr %m_setElemOperations.i57, align 8
   %104 = load i32, ptr %m_cols.i54, align 4
   %mul.i72.i = mul nsw i32 %104, %i26.085.i
-  %add.i73.i = add nsw i32 %mul.i72.i, %storemerge42297298
+  %add.i73.i = add nsw i32 %mul.i72.i, %mul278298
   %105 = load ptr, ptr %m_data.i.i.i59, align 8
   %idxprom.i.i75.i = sext i32 %add.i73.i to i64
   %arrayidx.i.i76.i = getelementptr inbounds float, ptr %105, i64 %idxprom.i.i75.i
@@ -785,7 +785,7 @@ invoke.cont55:                                    ; preds = %for.inc34.i, %for.c
   %storemerge42.p = select i1 %cmp58, i32 %0, i32 %74
   %storemerge42 = add i32 %storemerge42.p, %107
   store i32 %storemerge42, ptr %pivotColIndex, align 4
-  store i32 %storemerge42297298, ptr %arrayidx.i159, align 4
+  store i32 %mul278298, ptr %arrayidx.i159, align 4
   store i8 0, ptr %isRayTermination, align 1
   %call70 = invoke noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK9btMatrixXIfERKiS5_Rb(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(88) %A, ptr noundef nonnull align 4 dereferenceable(4) %pivotColIndex, ptr noundef nonnull align 4 dereferenceable(4) %z0Row, ptr noundef nonnull align 1 dereferenceable(1) %isRayTermination)
           to label %invoke.cont69 unwind label %lpad28.loopexit

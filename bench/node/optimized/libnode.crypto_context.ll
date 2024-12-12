@@ -4018,16 +4018,17 @@ if.then112.critedge:                              ; preds = %_ZNSt10unique_ptrI7
   %p12.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit59 ], [ %46, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %46, %if.end76 ], [ %46, %if.end85 ]
   %pkey.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit59 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %48, %if.end76 ], [ %48, %if.end85 ]
   %extra_certs.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit59 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %50, %if.end76 ], [ %50, %if.end85 ]
+  %59 = phi ptr [ null, %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit59 ], [ null, %_ZNSt10unique_ptrI9PKCS12_stN4node15FunctionDeleterIS0_XadL_Z11PKCS12_freeEEEEE5resetEPS0_.exit ], [ %49, %if.end76 ], [ %49, %if.end85 ]
   %call113 = call i64 @ERR_get_error() #20
   %call114 = call ptr @ERR_reason_error_string(i64 noundef %call113) #20
   %cmp115.not = icmp eq ptr %call114, null
   %cond = select i1 %cmp115.not, ptr @.str.157, ptr %call114
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
   %isolate_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
-  %59 = load ptr, ptr %isolate_.i.i.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %59) #20
   %60 = load ptr, ptr %isolate_.i.i.i, align 8
-  %call.i.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %60, ptr noundef nonnull %cond, i32 noundef 0, i32 noundef -1) #20
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i, ptr noundef %60) #20
+  %61 = load ptr, ptr %isolate_.i.i.i, align 8
+  %call.i.i.i = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %61, ptr noundef nonnull %cond, i32 noundef 0, i32 noundef -1) #20
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4node11Environment10ThrowErrorEPKc.exit
 
@@ -4037,7 +4038,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then112.critedge
 
 _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %if.then112.critedge, %if.then.i.i.i.i
   %call11.i.i = call ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr %call.i.i.i) #20
-  %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr %call11.i.i) #20
+  %call18.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr %call11.i.i) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i.i) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
   br label %cleanup
@@ -4046,6 +4047,7 @@ cleanup:                                          ; preds = %if.end106, %for.con
   %p12.sroa.0.0 = phi ptr [ %p12.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %46, %if.then75 ], [ %46, %if.then72 ], [ %46, %for.cond.preheader ], [ %46, %if.end106 ]
   %pkey.sroa.0.0 = phi ptr [ %pkey.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %48, %if.then75 ], [ null, %if.then72 ], [ %48, %for.cond.preheader ], [ %48, %if.end106 ]
   %extra_certs.sroa.0.0 = phi ptr [ %extra_certs.sroa.0.1, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ %50, %if.then75 ], [ %50, %if.then72 ], [ %50, %for.cond.preheader ], [ %50, %if.end106 ]
+  %62 = phi ptr [ %59, %_ZN4node11Environment10ThrowErrorEPKc.exit ], [ null, %if.then75 ], [ %49, %if.then72 ], [ %49, %for.cond.preheader ], [ %49, %if.end106 ]
   %cmp.not.i = icmp eq ptr %extra_certs.sroa.0.0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, label %if.then.i74
 
@@ -4054,12 +4056,11 @@ if.then.i74:                                      ; preds = %cleanup
   br label %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit
 
 _ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit: ; preds = %cleanup, %if.then.i74
-  %61 = load ptr, ptr %cert, align 8
-  %cmp.not.i76 = icmp eq ptr %61, null
+  %cmp.not.i76 = icmp eq ptr %62, null
   br i1 %cmp.not.i76, label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit, label %if.then.i77
 
 if.then.i77:                                      ; preds = %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit
-  call void @X509_free(ptr noundef nonnull %61) #20
+  call void @X509_free(ptr noundef nonnull %62) #20
   br label %_ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI13stack_st_X509N4node6crypto18StackOfX509DeleterEED2Ev.exit, %if.then.i77
@@ -4080,12 +4081,12 @@ if.then.i83:                                      ; preds = %_ZNSt10unique_ptrI1
   br label %cleanup120
 
 cleanup120:                                       ; preds = %if.then.i83, %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit, %if.then40, %if.then25
-  %62 = load ptr, ptr %in, align 8
-  %cmp.not.i85 = icmp eq ptr %62, null
+  %63 = load ptr, ptr %in, align 8
+  %cmp.not.i85 = icmp eq ptr %63, null
   br i1 %cmp.not.i85, label %cleanup121, label %if.then.i86
 
 if.then.i86:                                      ; preds = %cleanup120
-  call void @BIO_free_all(ptr noundef nonnull %62) #20
+  call void @BIO_free_all(ptr noundef nonnull %63) #20
   br label %cleanup121
 
 cleanup121:                                       ; preds = %if.then.i86, %cleanup120, %if.then14
@@ -4093,12 +4094,12 @@ cleanup121:                                       ; preds = %if.then.i86, %clean
   br label %cleanup122
 
 cleanup122:                                       ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %cleanup121
-  %63 = load ptr, ptr %pass, align 8
-  %tobool.not.i.i.i88 = icmp eq ptr %63, null
+  %64 = load ptr, ptr %pass, align 8
+  %tobool.not.i.i.i88 = icmp eq ptr %64, null
   br i1 %tobool.not.i.i.i88, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i89
 
 if.then.i.i.i89:                                  ; preds = %cleanup122
-  call void @_ZdlPv(ptr noundef nonnull %63) #24
+  call void @_ZdlPv(ptr noundef nonnull %64) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %cleanup122, %if.then.i.i.i89

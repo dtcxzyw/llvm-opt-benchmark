@@ -583,11 +583,11 @@ _ZN12_GLOBAL__N_112WriteContext28UpdateStreamsNoLongerStalledEv.exit: ; preds = 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_112WriteContext28UpdateStreamsNoLongerStalledEv.exit, %_ZN12_GLOBAL__N_112WriteContext18FlushQueuedBuffersEv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i30)
   %46 = load ptr, ptr %ctx, align 8
-  %length.i169 = getelementptr inbounds nuw i8, ptr %46, i64 1096
-  %47 = load i64, ptr %length.i169, align 8
+  %length.i176 = getelementptr inbounds nuw i8, ptr %46, i64 1096
+  %47 = load i64, ptr %length.i176, align 8
   %48 = load i64, ptr %target_write_size_.i, align 8
-  %cmp.i32170 = icmp ugt i64 %47, %48
-  br i1 %cmp.i32170, label %if.then.i35, label %if.end.i33.lr.ph
+  %cmp.i32177 = icmp ugt i64 %47, %48
+  br i1 %cmp.i32177, label %if.then.i35, label %if.end.i33.lr.ph
 
 if.end.i33.lr.ph:                                 ; preds = %if.end
   %t_.i = getelementptr inbounds nuw i8, ptr %stream_ctx, i64 8
@@ -631,14 +631,14 @@ if.end.i33.lr.ph:                                 ; preds = %if.end
   %arrayinit.element.ptr.i.i12.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i8.i, i64 8
   %arrayinit.element4.i.i20.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i8.i, i64 16
   %arrayinit.element7.i.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i8.i, i64 24
+  %message_writes_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %is_end_of_stream.i112 = getelementptr inbounds nuw i8, ptr %ref.tmp.i97, i64 4
   %use_true_binary_metadata.i113 = getelementptr inbounds nuw i8, ptr %ref.tmp.i97, i64 5
   %max_frame_size.i115 = getelementptr inbounds nuw i8, ptr %ref.tmp.i97, i64 8
   %stats45.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i97, i64 16
+  %trailing_metadata_writes_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %ep = getelementptr inbounds nuw i8, ptr %t, i64 24
   %cl = getelementptr inbounds nuw i8, ptr %t, i64 3272
-  %message_writes_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
-  %trailing_metadata_writes_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   br label %if.end.i33
 
 if.then.i35:                                      ; preds = %if.end33, %if.end
@@ -882,14 +882,14 @@ if.then14.i:                                      ; preds = %_ZL27is_default_ini
 
 if.then.i164:                                     ; preds = %if.then14.i
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 623, i32 noundef 1, ptr noundef nonnull @.str.11)
-  %.pre171 = load ptr, ptr %send_initial_metadata.i44, align 8
-  %arrayidx.i.i.i.i.i.i159.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre171, i64 2
-  %.pre172 = load i16, ptr %arrayidx.i.i.i.i.i.i159.phi.trans.insert, align 2
+  %.pre178 = load ptr, ptr %send_initial_metadata.i44, align 8
+  %arrayidx.i.i.i.i.i.i159.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre178, i64 2
+  %.pre179 = load i16, ptr %arrayidx.i.i.i.i.i.i159.phi.trans.insert, align 2
   br label %_ZN12_GLOBAL__N_118StreamWriteContext40ConvertInitialMetadataToTrailingMetadataEv.exit
 
 _ZN12_GLOBAL__N_118StreamWriteContext40ConvertInitialMetadataToTrailingMetadataEv.exit: ; preds = %if.then14.i, %if.then.i164
-  %97 = phi i16 [ %66, %if.then14.i ], [ %.pre172, %if.then.i164 ]
-  %98 = phi ptr [ %60, %if.then14.i ], [ %.pre171, %if.then.i164 ]
+  %97 = phi i16 [ %66, %if.then14.i ], [ %.pre179, %if.then.i164 ]
+  %98 = phi ptr [ %60, %if.then14.i ], [ %.pre178, %if.then.i164 ]
   %and2.i.i.i.i.i.i = and i16 %97, 16
   %cmp.i.i.not.i.i.not.i.i = icmp eq i16 %and2.i.i.i.i.i.i, 0
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160 = getelementptr inbounds nuw i8, ptr %98, i64 28
@@ -1100,7 +1100,6 @@ if.end.i78:                                       ; preds = %_ZN12_GLOBAL__N_118
 if.end4.i81:                                      ; preds = %if.end.i78
   %flow_control.i.i = getelementptr inbounds nuw i8, ptr %51, i64 1816
   %143 = load ptr, ptr %flow_control.i.i, align 8
-  %remote_window_.i.i.i.i = getelementptr inbounds nuw i8, ptr %143, i64 192
   %sending_bytes.i.i = getelementptr inbounds nuw i8, ptr %51, i64 2152
   %144 = load i64, ptr %sending_bytes.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
@@ -1140,6 +1139,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   br i1 %cmp1.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_115DataSendContext11AnyOutgoingEv.exit.i, label %while.body.i.i.i.i.i, !llvm.loop !22
 
 _ZNK12_GLOBAL__N_115DataSendContext11AnyOutgoingEv.exit.i: ; preds = %while.body.i.i.i.i.i
+  %remote_window_.i.i.i.i = getelementptr inbounds nuw i8, ptr %143, i64 192
   %152 = load i64, ptr %spec.select.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   %153 = and i64 %152, 4294967295
@@ -1169,8 +1169,8 @@ if.then10.i:                                      ; preds = %if.then6.i
   %call.i.i96 = call noundef nonnull align 8 dereferenceable(2344) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %http2_transport_stalls.i.i = getelementptr inbounds nuw i8, ptr %call.i.i96, i64 104
   %156 = atomicrmw add ptr %http2_transport_stalls.i.i, i64 1 monotonic, align 8
-  call fastcc void @_ZL12report_stallP21grpc_chttp2_transportP18grpc_chttp2_streamPKc(ptr noundef nonnull %write_context.val.i, ptr noundef %51, ptr noundef nonnull @.str.43)
-  call void @_Z41grpc_chttp2_list_add_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef nonnull %write_context.val.i, ptr noundef %51)
+  call fastcc void @_ZL12report_stallP21grpc_chttp2_transportP18grpc_chttp2_streamPKc(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51, ptr noundef nonnull @.str.43)
+  call void @_Z41grpc_chttp2_list_add_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51)
   br label %_ZN12_GLOBAL__N_118StreamWriteContext9FlushDataEv.exit
 
 if.else.i95:                                      ; preds = %if.then6.i
@@ -1208,8 +1208,8 @@ land.rhs.i:                                       ; preds = %_ZN12_GLOBAL__N_115
   store i64 %160, ptr %arrayinit.element4.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 39)
   %.val.i.i = load i64, ptr %target_write_size_.i, align 8
-  %spec.select179 = select i1 %call.i.i.i, i64 %.val.i.i, i64 4294967295
-  store i64 %spec.select179, ptr %arrayinit.element7.i.i, align 8
+  %spec.select173 = select i1 %call.i.i.i, i64 %.val.i.i, i64 4294967295
+  store i64 %spec.select173, ptr %arrayinit.element7.i.i, align 8
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %land.rhs.i
@@ -1248,8 +1248,8 @@ while.body.i87:                                   ; preds = %_ZNK12_GLOBAL__N_11
   store i64 %167, ptr %arrayinit.element4.i.i20.i, align 8
   %call.i.i.i22.i = call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 39)
   %.val.i.i44.i = load i64, ptr %target_write_size_.i, align 8
-  %spec.select180 = select i1 %call.i.i.i22.i, i64 %.val.i.i44.i, i64 4294967295
-  store i64 %spec.select180, ptr %arrayinit.element7.i.i25.i, align 8
+  %spec.select174 = select i1 %call.i.i.i22.i, i64 %.val.i.i44.i, i64 4294967295
+  store i64 %spec.select174, ptr %arrayinit.element7.i.i25.i, align 8
   br label %while.body.i.i.i.i26.i
 
 while.body.i.i.i.i26.i:                           ; preds = %while.body.i.i.i.i26.i, %while.body.i87
@@ -1378,7 +1378,7 @@ if.end46.i:                                       ; preds = %if.then41.i, %_ZN12
   br label %_ZN12_GLOBAL__N_118StreamWriteContext9FlushDataEv.exit
 
 _ZN12_GLOBAL__N_118StreamWriteContext9FlushDataEv.exit: ; preds = %_ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit, %if.end.i78, %if.then10.i, %if.else.i95, %if.then18.i, %if.end46.i
-  %stream_ctx.val176 = phi i8 [ 0, %_ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit ], [ 0, %if.end.i78 ], [ 0, %if.then10.i ], [ 0, %if.else.i95 ], [ 0, %if.then18.i ], [ 1, %if.end46.i ]
+  %stream_ctx.val169 = phi i1 [ false, %_ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit ], [ false, %if.end.i78 ], [ false, %if.then10.i ], [ false, %if.else.i95 ], [ false, %if.then18.i ], [ true, %if.end46.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i97)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp60.i)
   %187 = load i8, ptr %sent_initial_metadata.i41, align 4
@@ -1457,27 +1457,27 @@ if.then21.i:                                      ; preds = %if.else.i110
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %191, i64 28
   %storemerge.i.i.i.i = load i32, ptr %send_status_.i161, align 4
   store i32 %storemerge.i.i.i.i, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %.pre174.pre = load ptr, ptr %send_trailing_metadata.i102, align 8
+  %.pre181.pre = load ptr, ptr %send_trailing_metadata.i102, align 8
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then21.i, %if.else.i110
-  %.pre174 = phi ptr [ %.pre174.pre, %if.then21.i ], [ %191, %if.else.i110 ]
+  %.pre181 = phi ptr [ %.pre181.pre, %if.then21.i ], [ %191, %if.else.i110 ]
   %tobool.i.i2.i = trunc nuw i8 %136 to i1
   br i1 %tobool.i.i2.i, label %if.then28.i, label %if.end34.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %arrayidx.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %.pre174, i64 2
+  %arrayidx.i.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %.pre181, i64 2
   %197 = load i16, ptr %arrayidx.i.i.i.i.i3.i, align 2
   %storemerge.i.i.i.i4.i = or i16 %197, 4096
   store i16 %storemerge.i.i.i.i4.i, ptr %arrayidx.i.i.i.i.i3.i, align 2
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre174, i64 13
+  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre181, i64 13
   %storemerge.i.i.i5.i = load i8, ptr %send_content_type_.i163, align 4
   store i8 %storemerge.i.i.i5.i, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  %.pre173 = load ptr, ptr %send_trailing_metadata.i102, align 8
+  %.pre180 = load ptr, ptr %send_trailing_metadata.i102, align 8
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then28.i, %if.end26.i
-  %198 = phi ptr [ %.pre173, %if.then28.i ], [ %.pre174, %if.end26.i ]
+  %198 = phi ptr [ %.pre180, %if.then28.i ], [ %.pre181, %if.end26.i ]
   %hpack_compressor.i111 = getelementptr inbounds nuw i8, ptr %write_context.val.i, i64 1328
   %id37.i = getelementptr inbounds nuw i8, ptr %51, i64 144
   %199 = load i32, ptr %id37.i, align 8
@@ -1632,13 +1632,10 @@ if.end24:                                         ; preds = %if.else.i133, %_ZNS
   %225 = load i64, ptr %outbuf_relative_start_pos, align 8
   %add25 = add nsw i64 %225, %224
   store i64 %add25, ptr %outbuf_relative_start_pos, align 8
-  %stream_ctx.val.pre = load i8, ptr %stream_became_writable_.i, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end24, %_ZN12_GLOBAL__N_118StreamWriteContext21FlushTrailingMetadataEv.exit
-  %stream_ctx.val = phi i8 [ %stream_ctx.val.pre, %if.end24 ], [ %stream_ctx.val176, %_ZN12_GLOBAL__N_118StreamWriteContext21FlushTrailingMetadataEv.exit ]
-  %tobool.i135 = trunc i8 %stream_ctx.val to i1
-  br i1 %tobool.i135, label %if.then28, label %if.end33.sink.split
+  br i1 %stream_ctx.val169, label %if.then28, label %if.end33.sink.split
 
 if.then28:                                        ; preds = %if.end26
   %call29 = call noundef zeroext i1 @_Z35grpc_chttp2_list_add_writing_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef nonnull %t, ptr noundef nonnull %51)

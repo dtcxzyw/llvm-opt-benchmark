@@ -1285,8 +1285,8 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %5 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ null, %entry ]
-  %6 = phi ptr [ %call5.i.i.i.i1.i, %if.then.i.i ], [ null, %entry ]
+  %5 = phi ptr [ null, %entry ], [ %add.ptr.i.i, %if.then.i.i ]
+  %6 = phi ptr [ null, %entry ], [ %call5.i.i.i.i1.i, %if.then.i.i ]
   store float 1.000000e+00, ptr %trafo, align 4
   %a2.i = getelementptr inbounds nuw i8, ptr %trafo, i64 4
   %b2.i = getelementptr inbounds nuw i8, ptr %trafo, i64 20

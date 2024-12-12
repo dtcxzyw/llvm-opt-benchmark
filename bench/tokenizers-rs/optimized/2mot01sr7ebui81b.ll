@@ -10619,7 +10619,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %.sroa.064.0.copyload, ptr %43, align 8, !alias.scope !2863, !noalias !2866
   store i64 0, ptr %14, align 8, !alias.scope !2863, !noalias !2866
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2868)
   %44 = icmp eq i64 %6, 0
   br i1 %44, label %46, label %.unreachable.i.i
 

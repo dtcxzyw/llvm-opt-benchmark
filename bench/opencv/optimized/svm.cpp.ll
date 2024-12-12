@@ -5804,8 +5804,8 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit99:            ; preds = %290
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %wide.trip.count138 = and i64 %282, 2147483647
   %300 = icmp sgt i32 %88, 1
+  %wide.trip.count138 = and i64 %282, 2147483647
   br label %301
 
 301:                                              ; preds = %.lr.ph127, %_ZN2cvlsERNS_11FileStorageEPKc.exit119

@@ -1209,8 +1209,8 @@ define hidden void @_ZN25G1CollectionSetCandidates6removeEP31G1CollectionCandida
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 11, ptr %12, align 8
   %13 = load i32, ptr %1, align 4
-  %.not87 = icmp eq i32 %13, 0
-  br i1 %.not87, label %._crit_edge, label %.lr.ph
+  %.not76 = icmp eq i32 %13, 0
+  br i1 %.not76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1218,221 +1218,233 @@ define hidden void @_ZN25G1CollectionSetCandidates6removeEP31G1CollectionCandida
   %16 = zext i32 %13 to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %18 = phi i32 [ 0, %.lr.ph ], [ %81, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %.0.i.i.i.i.i147689 = phi i32 [ 2, %.lr.ph ], [ %.0.i.i.i.i.i1474, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %19 = phi ptr [ %9, %.lr.ph ], [ %80, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %20 = phi i32 [ 0, %.lr.ph ], [ %79, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %.0.i.i.i.i.i8488 = phi i32 [ 2, %.lr.ph ], [ %.0.i.i.i.i.i82, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %21 = phi ptr [ %5, %.lr.ph ], [ %78, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %27 = load i32, ptr %26, align 8
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 1
-  br i1 %31, label %32, label %55
+17:                                               ; preds = %.lr.ph, %86
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
+  %18 = phi i32 [ 0, %.lr.ph ], [ %92, %86 ]
+  %19 = phi i32 [ 2, %.lr.ph ], [ %91, %86 ]
+  %20 = phi ptr [ %9, %.lr.ph ], [ %90, %86 ]
+  %21 = phi i32 [ 0, %.lr.ph ], [ %89, %86 ]
+  %22 = phi i32 [ 2, %.lr.ph ], [ %88, %86 ]
+  %23 = phi ptr [ %5, %.lr.ph ], [ %87, %86 ]
+  %24 = load ptr, ptr %14, align 8
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %15, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %29 = load i32, ptr %28, align 8
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 1
+  br i1 %33, label %34, label %60
 
-32:                                               ; preds = %17
-  %33 = icmp eq i32 %20, %.0.i.i.i.i.i8488
-  %34 = add nsw i32 %20, 1
-  br i1 %33, label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
+34:                                               ; preds = %17
+  %35 = icmp eq i32 %21, %22
+  %36 = add nsw i32 %21, 1
+  br i1 %35, label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
 
-_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i: ; preds = %32
-  %35 = icmp sgt i32 %20, -1
-  %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %37 = icmp samesign ult i32 %36, 2
-  %or.cond.i.i.i.i.i = select i1 %35, i1 %37, i1 false
-  %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %39 = sub nuw nsw i32 32, %38
-  %40 = shl nuw i32 1, %39
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %34, i32 %40
-  %41 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #18
-  %42 = icmp sgt i32 %20, 0
-  br i1 %42, label %.lr.ph.i.preheader, label %.preheader16.i
+_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i: ; preds = %34
+  %37 = icmp sgt i32 %21, -1
+  %38 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %36)
+  %39 = icmp samesign ult i32 %38, 2
+  %or.cond.i.i.i.i.i = select i1 %37, i1 %39, i1 false
+  %40 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %36, i1 true)
+  %41 = sub nuw nsw i32 32, %40
+  %42 = shl nuw i32 1, %41
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %36, i32 %42
+  store i32 %.0.i.i.i.i.i, ptr %6, align 4
+  %43 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i, i32 noundef 8, i8 noundef zeroext 5) #18
+  %44 = icmp sgt i32 %21, 0
+  br i1 %44, label %.lr.ph.i.preheader, label %.preheader16.i
 
 .lr.ph.i.preheader:                               ; preds = %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i
-  %43 = zext nneg i32 %20 to i64
+  %45 = zext nneg i32 %21 to i64
   br label %.lr.ph.i
 
 .preheader16.i:                                   ; preds = %.lr.ph.i, %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i ], [ %20, %.lr.ph.i ]
-  %44 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i.i
-  br i1 %44, label %.lr.ph19.preheader.i, label %.preheader.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i ], [ %21, %.lr.ph.i ]
+  %46 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i.i
+  br i1 %46, label %.lr.ph19.preheader.i, label %.preheader.i
 
 .lr.ph19.preheader.i:                             ; preds = %.preheader16.i
-  %45 = zext nneg i32 %.0.lcssa.i to i64
-  %46 = shl nuw nsw i64 %45, 3
-  %scevgep106 = getelementptr i8, ptr %41, i64 %46
-  %47 = xor i32 %.0.lcssa.i, -1
-  %48 = add i32 %.0.i.i.i.i.i, %47
-  %49 = zext i32 %48 to i64
-  %50 = shl nuw nsw i64 %49, 3
-  %51 = add nuw nsw i64 %50, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep106, i8 0, i64 %51, i1 false)
+  %47 = zext nneg i32 %.0.lcssa.i to i64
+  %48 = shl nuw nsw i64 %47, 3
+  %scevgep91 = getelementptr i8, ptr %43, i64 %48
+  %49 = xor i32 %.0.lcssa.i, -1
+  %50 = add i32 %.0.i.i.i.i.i, %49
+  %51 = zext i32 %50 to i64
+  %52 = shl nuw nsw i64 %51, 3
+  %53 = add nuw nsw i64 %52, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep91, i8 0, i64 %53, i1 false)
   br label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %52 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
-  %53 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %52, align 8
+  %54 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %54, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next.i, %43
-  br i1 %exitcond105.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !15
+  %exitcond90.not = icmp eq i64 %indvars.iv.next.i, %45
+  br i1 %exitcond90.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !15
 
 .preheader.i:                                     ; preds = %.lr.ph19.preheader.i, %.preheader16.i
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit, label %57
 
-55:                                               ; preds = %17
-  %56 = icmp eq i32 %18, %.0.i.i.i.i.i147689
-  %57 = add nsw i32 %18, 1
-  br i1 %56, label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
+57:                                               ; preds = %.preheader.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %23) #18
+  br label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit
 
-_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25: ; preds = %55
-  %58 = icmp sgt i32 %18, -1
-  %59 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %57)
-  %60 = icmp samesign ult i32 %59, 2
-  %or.cond.i.i.i.i.i13 = select i1 %58, i1 %60, i1 false
-  %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %57, i1 true)
-  %62 = sub nuw nsw i32 32, %61
-  %63 = shl nuw i32 1, %62
-  %.0.i.i.i.i.i14 = select i1 %or.cond.i.i.i.i.i13, i32 %57, i32 %63
-  %64 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i14, i32 noundef 8, i8 noundef zeroext 5) #18
-  %65 = icmp sgt i32 %18, 0
-  br i1 %65, label %.lr.ph.i36.preheader, label %.preheader16.i27
+_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.preheader.i, %57
+  store ptr %43, ptr %7, align 8
+  br label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
+
+_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit: ; preds = %34, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit
+  %58 = phi ptr [ %43, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit ], [ %23, %34 ]
+  %59 = phi i32 [ %.0.i.i.i.i.i, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit ], [ %22, %34 ]
+  store i32 %36, ptr %3, align 8
+  br label %86
+
+60:                                               ; preds = %17
+  %61 = icmp eq i32 %18, %19
+  %62 = add nsw i32 %18, 1
+  br i1 %61, label %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16
+
+_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25: ; preds = %60
+  %63 = icmp sgt i32 %18, -1
+  %64 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %62)
+  %65 = icmp samesign ult i32 %64, 2
+  %or.cond.i.i.i.i.i13 = select i1 %63, i1 %65, i1 false
+  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %62, i1 true)
+  %67 = sub nuw nsw i32 32, %66
+  %68 = shl nuw i32 1, %67
+  %.0.i.i.i.i.i14 = select i1 %or.cond.i.i.i.i.i13, i32 %62, i32 %68
+  store i32 %.0.i.i.i.i.i14, ptr %10, align 4
+  %69 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i14, i32 noundef 8, i8 noundef zeroext 5) #18
+  %70 = icmp sgt i32 %18, 0
+  br i1 %70, label %.lr.ph.i36.preheader, label %.preheader16.i27
 
 .lr.ph.i36.preheader:                             ; preds = %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25
-  %66 = zext nneg i32 %18 to i64
+  %71 = zext nneg i32 %18 to i64
   br label %.lr.ph.i36
 
 .preheader16.i27:                                 ; preds = %.lr.ph.i36, %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25
   %.0.lcssa.i28 = phi i32 [ 0, %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit.i25 ], [ %18, %.lr.ph.i36 ]
-  %67 = icmp slt i32 %.0.lcssa.i28, %.0.i.i.i.i.i14
-  br i1 %67, label %.lr.ph19.preheader.i32, label %.preheader.i29
+  %72 = icmp slt i32 %.0.lcssa.i28, %.0.i.i.i.i.i14
+  br i1 %72, label %.lr.ph19.preheader.i32, label %.preheader.i29
 
 .lr.ph19.preheader.i32:                           ; preds = %.preheader16.i27
-  %68 = zext nneg i32 %.0.lcssa.i28 to i64
-  %69 = shl nuw nsw i64 %68, 3
-  %scevgep = getelementptr i8, ptr %64, i64 %69
-  %70 = xor i32 %.0.lcssa.i28, -1
-  %71 = add i32 %.0.i.i.i.i.i14, %70
-  %72 = zext i32 %71 to i64
-  %73 = shl nuw nsw i64 %72, 3
-  %74 = add nuw nsw i64 %73, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %74, i1 false)
+  %73 = zext nneg i32 %.0.lcssa.i28 to i64
+  %74 = shl nuw nsw i64 %73, 3
+  %scevgep = getelementptr i8, ptr %69, i64 %74
+  %75 = xor i32 %.0.lcssa.i28, -1
+  %76 = add i32 %.0.i.i.i.i.i14, %75
+  %77 = zext i32 %76 to i64
+  %78 = shl nuw nsw i64 %77, 3
+  %79 = add nuw nsw i64 %78, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %79, i1 false)
   br label %.preheader.i29
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i36.preheader, %.lr.ph.i36
   %indvars.iv.i37 = phi i64 [ %indvars.iv.next.i38, %.lr.ph.i36 ], [ 0, %.lr.ph.i36.preheader ]
-  %75 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i37
-  %76 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i37
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %75, align 8
+  %80 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i37
+  %81 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i37
+  %82 = load ptr, ptr %81, align 8
+  store ptr %82, ptr %80, align 8
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i38, %66
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i38, %71
   br i1 %exitcond.not, label %.preheader16.i27, label %.lr.ph.i36, !llvm.loop !15
 
 .preheader.i29:                                   ; preds = %.lr.ph19.preheader.i32, %.preheader16.i27
-  %.not.i30 = icmp eq ptr %19, null
-  br i1 %.not.i30, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit, label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split
+  %.not.i30 = icmp eq ptr %20, null
+  br i1 %.not.i30, label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40, label %83
 
-_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split: ; preds = %.preheader.i29, %.preheader.i
-  %.sink122 = phi ptr [ %21, %.preheader.i ], [ %19, %.preheader.i29 ]
-  %.sink.ph = phi i32 [ %20, %.preheader.i ], [ %18, %.preheader.i29 ]
-  %.sink117.ph = phi ptr [ %41, %.preheader.i ], [ %64, %.preheader.i29 ]
-  %.ph = phi ptr [ %41, %.preheader.i ], [ %21, %.preheader.i29 ]
-  %.0.i.i.i.i.i82.ph = phi i32 [ %.0.i.i.i.i.i, %.preheader.i ], [ %.0.i.i.i.i.i8488, %.preheader.i29 ]
-  %.ph119 = phi i32 [ %34, %.preheader.i ], [ %20, %.preheader.i29 ]
-  %.ph120 = phi ptr [ %19, %.preheader.i ], [ %64, %.preheader.i29 ]
-  %.0.i.i.i.i.i1474.ph = phi i32 [ %.0.i.i.i.i.i147689, %.preheader.i ], [ %.0.i.i.i.i.i14, %.preheader.i29 ]
-  %.ph121 = phi i32 [ %18, %.preheader.i ], [ %57, %.preheader.i29 ]
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sink122) #18
-  br label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit
+83:                                               ; preds = %.preheader.i29
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %20) #18
+  br label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40
 
-_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit: ; preds = %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split, %.preheader.i29, %55, %.preheader.i, %32
-  %.sink = phi i32 [ %20, %32 ], [ %20, %.preheader.i ], [ %18, %55 ], [ %18, %.preheader.i29 ], [ %.sink.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %.sink117 = phi ptr [ %21, %32 ], [ %41, %.preheader.i ], [ %19, %55 ], [ %64, %.preheader.i29 ], [ %.sink117.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %78 = phi ptr [ %21, %32 ], [ %41, %.preheader.i ], [ %21, %55 ], [ %21, %.preheader.i29 ], [ %.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %.0.i.i.i.i.i82 = phi i32 [ %.0.i.i.i.i.i8488, %32 ], [ %.0.i.i.i.i.i, %.preheader.i ], [ %.0.i.i.i.i.i8488, %55 ], [ %.0.i.i.i.i.i8488, %.preheader.i29 ], [ %.0.i.i.i.i.i82.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %79 = phi i32 [ %34, %32 ], [ %34, %.preheader.i ], [ %20, %55 ], [ %20, %.preheader.i29 ], [ %.ph119, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %80 = phi ptr [ %19, %32 ], [ %19, %.preheader.i ], [ %19, %55 ], [ %64, %.preheader.i29 ], [ %.ph120, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %.0.i.i.i.i.i1474 = phi i32 [ %.0.i.i.i.i.i147689, %32 ], [ %.0.i.i.i.i.i147689, %.preheader.i ], [ %.0.i.i.i.i.i147689, %55 ], [ %.0.i.i.i.i.i14, %.preheader.i29 ], [ %.0.i.i.i.i.i1474.ph, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %81 = phi i32 [ %18, %32 ], [ %18, %.preheader.i ], [ %57, %55 ], [ %57, %.preheader.i29 ], [ %.ph121, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit.sink.split ]
-  %82 = sext i32 %.sink to i64
-  %83 = getelementptr inbounds ptr, ptr %.sink117, i64 %82
-  store ptr %24, ptr %83, align 8
+_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40: ; preds = %.preheader.i29, %83
+  store ptr %69, ptr %11, align 8
+  br label %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16
+
+_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16: ; preds = %60, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40
+  %84 = phi ptr [ %69, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40 ], [ %20, %60 ]
+  %85 = phi i32 [ %.0.i.i.i.i.i14, %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi.exit40 ], [ %19, %60 ]
+  store i32 %62, ptr %4, align 8
+  br label %86
+
+86:                                               ; preds = %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16
+  %.sink = phi i32 [ %21, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %18, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %.sink102 = phi ptr [ %58, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %84, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %87 = phi ptr [ %58, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %23, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %88 = phi i32 [ %59, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %22, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %89 = phi i32 [ %36, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %21, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %90 = phi ptr [ %20, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %84, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %91 = phi i32 [ %19, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %85, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %92 = phi i32 [ %18, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ], [ %62, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit16 ]
+  %93 = sext i32 %.sink to i64
+  %94 = getelementptr inbounds ptr, ptr %.sink102, i64 %93
+  store ptr %26, ptr %94, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %.not, label %._crit_edge, label %17
+  br i1 %.not, label %._crit_edge.loopexit, label %17
 
-._crit_edge:                                      ; preds = %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit, %2
-  %84 = phi ptr [ %5, %2 ], [ %78, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %85 = phi i32 [ 2, %2 ], [ %.0.i.i.i.i.i82, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %.lcssa80 = phi i32 [ 0, %2 ], [ %79, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %86 = phi ptr [ %9, %2 ], [ %80, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %87 = phi i32 [ 2, %2 ], [ %.0.i.i.i.i.i1474, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  %.lcssa = phi i32 [ 0, %2 ], [ %81, %_ZN31G1CollectionCandidateRegionList6appendEP12G1HeapRegion.exit ]
-  store i32 %.lcssa, ptr %4, align 8
-  store i32 %87, ptr %10, align 4
-  store ptr %86, ptr %11, align 8
-  store i32 %.lcssa80, ptr %3, align 8
-  store i32 %85, ptr %6, align 4
-  store ptr %84, ptr %7, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN25G1CollectionCandidateList6removeEP31G1CollectionCandidateRegionList(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull %3)
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @_ZN25G1CollectionCandidateList6removeEP31G1CollectionCandidateRegionList(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull %4)
-  %90 = load i32, ptr %1, align 4
-  %.not7296 = icmp eq i32 %90, 0
-  br i1 %.not7296, label %._crit_edge100, label %.lr.ph99
+._crit_edge.loopexit:                             ; preds = %86
+  %95 = icmp eq i32 %91, 0
+  %96 = icmp eq i32 %88, 0
+  br label %._crit_edge
 
-.lr.ph99:                                         ; preds = %._crit_edge
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %93 = zext i32 %90 to i64
-  br label %94
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.lcssa75 = phi ptr [ %5, %2 ], [ %87, %._crit_edge.loopexit ]
+  %.lcssa74 = phi i1 [ false, %2 ], [ %96, %._crit_edge.loopexit ]
+  %.lcssa73 = phi ptr [ %9, %2 ], [ %90, %._crit_edge.loopexit ]
+  %.lcssa = phi i1 [ false, %2 ], [ %95, %._crit_edge.loopexit ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN25G1CollectionCandidateList6removeEP31G1CollectionCandidateRegionList(ptr noundef nonnull align 8 dereferenceable(24) %97, ptr noundef nonnull %3)
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @_ZN25G1CollectionCandidateList6removeEP31G1CollectionCandidateRegionList(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull %4)
+  %99 = load i32, ptr %1, align 4
+  %.not7281 = icmp eq i32 %99, 0
+  br i1 %.not7281, label %._crit_edge85, label %.lr.ph84
 
-94:                                               ; preds = %.lr.ph99, %94
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next109, %94 ]
-  %95 = load ptr, ptr %91, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv108
-  %97 = load ptr, ptr %96, align 8
-  %98 = load ptr, ptr %92, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %100 = load i32, ptr %99, align 8
-  %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 %101
-  store i8 0, ptr %102, align 1
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %.not72 = icmp eq i64 %indvars.iv.next109, %93
-  br i1 %.not72, label %._crit_edge100, label %94
+.lr.ph84:                                         ; preds = %._crit_edge
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %102 = zext i32 %99 to i64
+  br label %103
 
-._crit_edge100:                                   ; preds = %94, %._crit_edge
-  %103 = icmp eq i32 %87, 0
-  %.not.i41 = icmp eq ptr %86, null
-  %or.cond = select i1 %103, i1 true, i1 %.not.i41
+103:                                              ; preds = %.lr.ph84, %103
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next94, %103 ]
+  %104 = load ptr, ptr %100, align 8
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv93
+  %106 = load ptr, ptr %105, align 8
+  %107 = load ptr, ptr %101, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %109 = load i32, ptr %108, align 8
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 %110
+  store i8 0, ptr %111, align 1
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %.not72 = icmp eq i64 %indvars.iv.next94, %102
+  br i1 %.not72, label %._crit_edge85, label %103
+
+._crit_edge85:                                    ; preds = %103, %._crit_edge
+  %.not.i41 = icmp eq ptr %.lcssa73, null
+  %or.cond = select i1 %.lcssa, i1 true, i1 %.not.i41
   br i1 %or.cond, label %_ZN31G1CollectionCandidateRegionListD2Ev.exit, label %.loopexit.thread.i
 
-.loopexit.thread.i:                               ; preds = %._crit_edge100
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %86) #18
+.loopexit.thread.i:                               ; preds = %._crit_edge85
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.lcssa73) #18
   br label %_ZN31G1CollectionCandidateRegionListD2Ev.exit
 
-_ZN31G1CollectionCandidateRegionListD2Ev.exit:    ; preds = %.loopexit.thread.i, %._crit_edge100
-  %104 = icmp eq i32 %85, 0
-  %.not.i48 = icmp eq ptr %84, null
-  %or.cond123 = select i1 %104, i1 true, i1 %.not.i48
-  br i1 %or.cond123, label %_ZN31G1CollectionCandidateRegionListD2Ev.exit22, label %.loopexit.thread.i49
+_ZN31G1CollectionCandidateRegionListD2Ev.exit:    ; preds = %.loopexit.thread.i, %._crit_edge85
+  %.not.i48 = icmp eq ptr %.lcssa75, null
+  %or.cond104 = select i1 %.lcssa74, i1 true, i1 %.not.i48
+  br i1 %or.cond104, label %_ZN31G1CollectionCandidateRegionListD2Ev.exit22, label %.loopexit.thread.i49
 
 .loopexit.thread.i49:                             ; preds = %_ZN31G1CollectionCandidateRegionListD2Ev.exit
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %84) #18
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.lcssa75) #18
   br label %_ZN31G1CollectionCandidateRegionListD2Ev.exit22
 
 _ZN31G1CollectionCandidateRegionListD2Ev.exit22:  ; preds = %.loopexit.thread.i49, %_ZN31G1CollectionCandidateRegionListD2Ev.exit
