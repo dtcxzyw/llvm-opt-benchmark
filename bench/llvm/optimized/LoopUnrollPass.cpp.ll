@@ -5330,7 +5330,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
   %.0.i.not = select i1 %or.cond.i.not162, i1 true, i1 %88
-  br i1 %.0.i.not, label %196, label %89
+  br i1 %.0.i.not, label %198, label %89
 
 89:                                               ; preds = %73
   br i1 %62, label %90, label %95
@@ -5348,7 +5348,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   %96 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %97 = load i32, ptr %96, align 4
   %.not = icmp eq i32 %97, 0
-  br i1 %.not, label %98, label %196
+  br i1 %.not, label %98, label %198
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -5553,38 +5553,40 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %55, %60
   %189 = call { ptr, i8 } @_ZN4llvm18makeFollowupLoopIDEPNS_6MDNodeENS_8ArrayRefINS_9StringRefEEEPKcb(ptr noundef %162, ptr nonnull %35, i64 2, ptr noundef nonnull @.str.60, i1 noundef zeroext false) #19
   %190 = extractvalue { ptr, i8 } %189, 1
   %191 = trunc i8 %190 to i1
-  br i1 %191, label %192, label %194
+  br i1 %191, label %192, label %195
 
 192:                                              ; preds = %188
   %193 = extractvalue { ptr, i8 } %189, 0
-  call void @_ZNK4llvm4Loop9setLoopIDEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %193) #19
+  %194 = load ptr, ptr %24, align 8
+  call void @_ZNK4llvm4Loop9setLoopIDEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(152) %194, ptr noundef %193) #19
   br label %.critedge
 
-194:                                              ; preds = %188
-  br i1 %phi.call, label %195, label %.critedge
+195:                                              ; preds = %188
+  br i1 %phi.call, label %196, label %.critedge
 
-195:                                              ; preds = %194
-  call void @_ZN4llvm4Loop22setLoopAlreadyUnrolledEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
+196:                                              ; preds = %195
+  %197 = load ptr, ptr %24, align 8
+  call void @_ZN4llvm4Loop22setLoopAlreadyUnrolledEv(ptr noundef nonnull align 8 dereferenceable(152) %197) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %195, %194, %187, %159, %151, %130, %192, %149
-  %.2 = phi i32 [ %.3, %149 ], [ %176, %192 ], [ 0, %130 ], [ 0, %151 ], [ 0, %159 ], [ 2, %187 ], [ %176, %194 ], [ %176, %195 ]
+.critedge:                                        ; preds = %196, %195, %187, %159, %151, %130, %192, %149
+  %.2 = phi i32 [ %.3, %149 ], [ %176, %192 ], [ 0, %130 ], [ 0, %151 ], [ 0, %159 ], [ 2, %187 ], [ %176, %195 ], [ %176, %196 ]
   call void @_ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %29) #19
-  br label %196
+  br label %198
 
-196:                                              ; preds = %95, %73, %.critedge
+198:                                              ; preds = %95, %73, %.critedge
   %.1 = phi i32 [ %.2, %.critedge ], [ 0, %73 ], [ 0, %95 ]
-  %197 = load ptr, ptr %75, align 8
-  %198 = load ptr, ptr %27, align 8
-  %199 = icmp eq ptr %197, %198
-  br i1 %199, label %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit, label %200
+  %199 = load ptr, ptr %75, align 8
+  %200 = load ptr, ptr %27, align 8
+  %201 = icmp eq ptr %199, %200
+  br i1 %201, label %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit, label %202
 
-200:                                              ; preds = %196
-  call void @free(ptr noundef %197) #19
+202:                                              ; preds = %198
+  call void @free(ptr noundef %199) #19
   br label %_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit
 
-_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit: ; preds = %200, %196, %66, %53, %51, %49, %44, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %44 ], [ 0, %49 ], [ 0, %51 ], [ 0, %53 ], [ 0, %66 ], [ %.1, %196 ], [ %.1, %200 ]
+_ZN4llvm11SmallPtrSetIPKNS_5ValueELj32EED2Ev.exit: ; preds = %202, %198, %66, %53, %51, %49, %44, %23
+  %.0 = phi i32 [ 0, %23 ], [ 0, %44 ], [ 0, %49 ], [ 0, %51 ], [ 0, %53 ], [ 0, %66 ], [ %.1, %198 ], [ %.1, %202 ]
   ret i32 %.0
 }
 

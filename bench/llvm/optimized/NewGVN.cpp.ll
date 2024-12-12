@@ -37629,8 +37629,8 @@ _ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.i: ; preds = %.lr.
 
 .critedge.i:                                      ; preds = %291, %289, %285, %_ZN12_GLOBAL__N_115CongruenceClass6insertEPN4llvm5ValueE.exit.i
   %294 = load i8, ptr %1, align 8
-  %.not123.i = icmp eq i8 %294, 62
-  br i1 %.not123.i, label %295, label %339
+  %.not300 = icmp eq i8 %294, 62
+  br i1 %.not300, label %295, label %339
 
 295:                                              ; preds = %.critedge.i
   %296 = getelementptr inbounds nuw i8, ptr %.0.i268278, i64 176
@@ -37651,8 +37651,8 @@ _ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.i: ; preds = %.lr.
 303:                                              ; preds = %301
   %304 = load i32, ptr %176, align 8
   %305 = icmp ne i32 %304, 12
-  %.not41124.i = icmp eq ptr %2, null
-  %.not41.i = or i1 %.not41124.i, %305
+  %.not41123.i = icmp eq ptr %2, null
+  %.not41.i = or i1 %.not41123.i, %305
   br i1 %.not41.i, label %336, label %306
 
 306:                                              ; preds = %303
@@ -38006,7 +38006,7 @@ _ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.i
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %454
-  %.val64150.i = phi i32 [ %.val10.pre.i.i, %.loopexit.loopexit.i.i ], [ 0, %454 ]
+  %.val64149.i = phi i32 [ %.val10.pre.i.i, %.loopexit.loopexit.i.i ], [ 0, %454 ]
   %.val10.i.i77 = phi i64 [ %482, %.loopexit.loopexit.i.i ], [ 0, %454 ]
   %.val9.i.i78 = phi ptr [ %.val9.pre.i.i, %.loopexit.loopexit.i.i ], [ %.val7.i.i, %454 ]
   %483 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.358", ptr %.val9.i.i78, i64 %.val10.i.i77
@@ -38018,13 +38018,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit.i, %.loopexit.i.i
-  %.val64.i = phi i32 [ %.val64150.i, %.loopexit.i.i ], [ %.val64.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit.i ]
+  %.val64.i = phi i32 [ %.val64149.i, %.loopexit.i.i ], [ %.val64.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit.i ]
   %.val63.i = phi ptr [ %.val9.i.i78, %.loopexit.i.i ], [ %.val63.pre.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit.i ]
   %.pn15.i.i = phi ptr [ %483, %.loopexit.i.i ], [ %472, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit.i ]
   %484 = zext i32 %.val64.i to i64
   %485 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.358", ptr %.val63.i, i64 %484
-  %.not125.i = icmp eq ptr %.pn15.i.i, %485
-  br i1 %.not125.i, label %_ZN12_GLOBAL__N_16NewGVN29moveValueToNewCongruenceClassEPN4llvm11InstructionEPKNS1_13GVNExpression10ExpressionEPNS_15CongruenceClassES9_.exit, label %486
+  %.not124.i = icmp eq ptr %.pn15.i.i, %485
+  br i1 %.not124.i, label %_ZN12_GLOBAL__N_16NewGVN29moveValueToNewCongruenceClassEPN4llvm11InstructionEPKNS1_13GVNExpression10ExpressionEPNS_15CongruenceClassES9_.exit, label %486
 
 486:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.i
   store ptr inttoptr (i64 34359738352 to ptr), ptr %.pn15.i.i, align 8
@@ -38137,7 +38137,7 @@ _ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i.i: ; preds = %.lr.ph.i5.i.i7.
 .lr.ph.i.i201:                                    ; preds = %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i.i
   %528 = icmp eq i32 %.val13.i, 0
   %529 = add i32 %.val13.i, -1
-  %.pre402 = load ptr, ptr %.sroa.0.4.i8.i.i.i.i, align 8
+  %.pre403 = load ptr, ptr %.sroa.0.4.i8.i.i.i.i, align 8
   br i1 %528, label %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i, label %.lr.ph.split.i.i
 
 _ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i: ; preds = %.lr.ph.i.i201, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.us.i.i
@@ -38162,7 +38162,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.us.i.i: ; preds = %.lr.ph.i4
   br i1 %.not.us.i.i, label %_ZNK12_GLOBAL__N_16NewGVN18getNextValueLeaderEPNS_15CongruenceClassE.exit, label %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i201, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214
-  %533 = phi ptr [ %557, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ %.pre402, %.lr.ph.i.i201 ]
+  %533 = phi ptr [ %557, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ %.pre403, %.lr.ph.i.i201 ]
   %.sroa.3.012.i.i = phi i32 [ %spec.select8.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ -1, %.lr.ph.i.i201 ]
   %.sroa.07.011.i.i = phi ptr [ %spec.select.i.i210, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ null, %.lr.ph.i.i201 ]
   %.sroa.03.010.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ %.sroa.0.4.i8.i.i.i.i, %.lr.ph.i.i201 ]
@@ -38226,7 +38226,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214: ; preds = %.lr.ph.i4
   br i1 %.not.i.i215, label %_ZNK12_GLOBAL__N_16NewGVN18getNextValueLeaderEPNS_15CongruenceClassE.exit, label %.lr.ph.split.i.i
 
 _ZNK12_GLOBAL__N_16NewGVN18getNextValueLeaderEPNS_15CongruenceClassE.exit: ; preds = %.critedge2.i7.i.i9.i11.i.i.i.i, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.i.i208, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214, %.critedge2.i6.i.i.i216, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.us.i.i, %.critedge2.i6.i.us.i.i, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i, %515, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i.i
-  %.0.i200 = phi ptr [ %514, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i ], [ %516, %515 ], [ null, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i.i ], [ %.pre402, %.critedge2.i6.i.us.i.i ], [ %.pre402, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.us.i.i ], [ %.pre402, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i ], [ %spec.select.i.i210, %.critedge2.i6.i.i.i216 ], [ %spec.select.i.i210, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ %spec.select.i.i210, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.i.i208 ], [ null, %.critedge2.i7.i.i9.i11.i.i.i.i ]
+  %.0.i200 = phi ptr [ %514, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i ], [ %516, %515 ], [ null, %_ZNK12_GLOBAL__N_115CongruenceClass5beginEv.exit.i.i ], [ %.pre403, %.critedge2.i6.i.us.i.i ], [ %.pre403, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.us.i.i ], [ %.pre403, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.us.i.i ], [ %spec.select.i.i210, %.critedge2.i6.i.i.i216 ], [ %spec.select.i.i210, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i214 ], [ %spec.select.i.i210, %_ZNK12_GLOBAL__N_16NewGVN13InstrToDFSNumEPKN4llvm5ValueE.exit.i.i208 ], [ null, %.critedge2.i7.i.i9.i11.i.i.i.i ]
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %.val.i = load ptr, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 2248
@@ -38334,11 +38334,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i: ; preds = %.lr.
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %.pre403 = load ptr, ptr %.sroa.0.4.i8.i.i.i, align 8
+  %.pre404 = load ptr, ptr %.sroa.0.4.i8.i.i.i, align 8
   br label %610
 
 610:                                              ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i, %.lr.ph.i.i82
-  %611 = phi ptr [ %.pre403, %.lr.ph.i.i82 ], [ %646, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i ]
+  %611 = phi ptr [ %.pre404, %.lr.ph.i.i82 ], [ %646, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i ]
   %.sroa.011.021.i.i = phi ptr [ %.sroa.0.4.i8.i.i.i, %.lr.ph.i.i82 ], [ %.sroa.011.1.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i ]
   %.val.i.i83 = load ptr, ptr %608, align 8
   %.val8.i.i84 = load i32, ptr %609, align 8
@@ -38606,11 +38606,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5beginEv.exit.i.i: ; preds = %.lr.ph.i5.i
   %742 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %744 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %.pre404 = load ptr, ptr %.sroa.0.4.i8.i.i.i112, align 8
+  %.pre405 = load ptr, ptr %.sroa.0.4.i8.i.i.i112, align 8
   br label %745
 
 745:                                              ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i, %.lr.ph.i.i113
-  %746 = phi ptr [ %.pre404, %.lr.ph.i.i113 ], [ %781, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ]
+  %746 = phi ptr [ %.pre405, %.lr.ph.i.i113 ], [ %781, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ]
   %.sroa.01.011.i.i = phi ptr [ %.sroa.0.4.i8.i.i.i112, %.lr.ph.i.i113 ], [ %.sroa.01.1.i.i, %_ZN4llvm19SmallPtrSetIteratorIPNS_5ValueEEppEv.exit.i.i ]
   %.val.i.i114 = load ptr, ptr %743, align 8
   %.val8.i.i115 = load i32, ptr %744, align 8
@@ -38905,11 +38905,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit.i.i158: ; preds = %.
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %.pre405 = load ptr, ptr %.sroa.0.4.i8.i.i.i159, align 8
+  %.pre406 = load ptr, ptr %.sroa.0.4.i8.i.i.i159, align 8
   br label %900
 
 900:                                              ; preds = %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i177, %.lr.ph.i.i161
-  %901 = phi ptr [ %.pre405, %.lr.ph.i.i161 ], [ %936, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i177 ]
+  %901 = phi ptr [ %.pre406, %.lr.ph.i.i161 ], [ %936, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i177 ]
   %.sroa.01.011.i.i162 = phi ptr [ %.sroa.0.4.i8.i.i.i159, %.lr.ph.i.i161 ], [ %.sroa.01.1.i.i175, %_ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit.i.i177 ]
   %.val.i.i163 = load ptr, ptr %898, align 8
   %.val8.i.i164 = load i32, ptr %899, align 8
@@ -39166,7 +39166,7 @@ _ZN4llvm12DenseMapInfoIPKNS_13GVNExpression10ExpressionEvE7isEqualES4_S4_.exit.i
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %_ZNK4llvm13GVNExpression10ExpressionneERKS1_.exit.thread
-  %.val52408 = phi i32 [ %.val10.pre.i, %.loopexit.loopexit.i ], [ 0, %_ZNK4llvm13GVNExpression10ExpressionneERKS1_.exit.thread ]
+  %.val52409 = phi i32 [ %.val10.pre.i, %.loopexit.loopexit.i ], [ 0, %_ZNK4llvm13GVNExpression10ExpressionneERKS1_.exit.thread ]
   %.val10.i = phi i64 [ %1023, %.loopexit.loopexit.i ], [ 0, %_ZNK4llvm13GVNExpression10ExpressionneERKS1_.exit.thread ]
   %.val9.i = phi ptr [ %.val9.pre.i, %.loopexit.loopexit.i ], [ %.val7.i, %_ZNK4llvm13GVNExpression10ExpressionneERKS1_.exit.thread ]
   %1024 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.358", ptr %.val9.i, i64 %.val10.i
@@ -39178,13 +39178,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit, %.loopexit.i
-  %.val52 = phi i32 [ %.val52408, %.loopexit.i ], [ %.val52.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit ]
+  %.val52 = phi i32 [ %.val52409, %.loopexit.i ], [ %.val52.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit ]
   %.val51 = phi ptr [ %.val9.i, %.loopexit.i ], [ %.val51.pre, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit ]
   %.pn15.i = phi ptr [ %1024, %.loopexit.i ], [ %1013, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit.loopexit ]
   %1025 = zext i32 %.val52 to i64
   %1026 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.358", ptr %.val51, i64 %1025
-  %.not300 = icmp eq ptr %.pn15.i, %1026
-  br i1 %.not300, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPKNS_13GVNExpression10ExpressionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E6lookupEPKS2_.exit.thread, label %1027
+  %.not301 = icmp eq ptr %.pn15.i, %1026
+  br i1 %.not301, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPKNS_13GVNExpression10ExpressionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E6lookupEPKS2_.exit.thread, label %1027
 
 1027:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13GVNExpression10ExpressionEPN12_GLOBAL__N_115CongruenceClassENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E7find_asINS_21ExactEqualsExpressionEEENS_16DenseMapIteratorIS5_S8_SA_SD_Lb0EEERKT_.exit
   store ptr inttoptr (i64 34359738352 to ptr), ptr %.pn15.i, align 8

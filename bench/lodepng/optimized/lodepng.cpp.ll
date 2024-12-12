@@ -2504,8 +2504,8 @@ for.body58.i.i:                                   ; preds = %for.body58.i.i, %fo
   br i1 %cmp57.not.i.i, label %_ZL9hash_initP4Hashj.exit.i, label %for.body58.i.i, !llvm.loop !66
 
 _ZL9hash_initP4Hashj.exit.i:                      ; preds = %for.body58.i.i, %for.cond47.preheader.i.thread.i
-  %cmp24137.not.i = icmp eq i64 %spec.store.select1.i, 0
-  br i1 %cmp24137.not.i, label %if.end43.i, label %for.body.lr.ph.i
+  %cmp24135.not.i = icmp eq i64 %spec.store.select1.i, 0
+  br i1 %cmp24135.not.i, label %if.end43.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZL9hash_initP4Hashj.exit.i
   %sub26.i = add i64 %spec.store.select1.i, -1
@@ -2539,10 +2539,10 @@ for.body.lr.ph.i:                                 ; preds = %_ZL9hash_initP4Hash
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.0138.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %cmp27.i = icmp eq i64 %i.0138.i, %sub26.i
+  %i.0136.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %cmp27.i = icmp eq i64 %i.0136.i, %sub26.i
   %conv.i = zext i1 %cmp27.i to i32
-  %mul.i = mul i64 %i.0138.i, %blocksize.0.i
+  %mul.i = mul i64 %i.0136.i, %blocksize.0.i
   %add28.i = add i64 %mul.i, %blocksize.0.i
   %spec.select.i = call i64 @llvm.umin.i64(i64 %add28.i, i64 %insize)
   %18 = load i32, ptr %settings, align 8
@@ -2595,36 +2595,36 @@ if.then3.i.i:                                     ; preds = %for.body.i.i.prehea
   %19 = load i8, ptr %bp.i.i, align 8
   %20 = and i8 %19, 7
   %cmp1.i.i.i = icmp eq i8 %20, 0
-  %.pre158.i = load ptr, ptr %writer.i, align 8
+  %.pre156.i = load ptr, ptr %writer.i, align 8
   br i1 %cmp1.i.i.i, label %if.then2.i.i.i, label %if.end9.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then3.i.i
-  %size.i.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
+  %size.i.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
   %21 = load i64, ptr %size.i.i.i, align 8
   %add.i.i.i = add i64 %21, 1
   store i64 %add.i.i.i, ptr %size.i.i.i, align 8
-  %allocsize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 16
+  %allocsize.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 16
   %22 = load i64, ptr %allocsize.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ugt i64 %add.i.i.i, %22
-  %.pre156.i = load ptr, ptr %.pre158.i, align 8
+  %.pre154.i = load ptr, ptr %.pre156.i, align 8
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then2.i.i.i
   %shr.i.i.i.i.i = lshr i64 %22, 1
   %add.i.i.i.i.i = add i64 %shr.i.i.i.i.i, %add.i.i.i
-  %call.i.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre156.i, i64 noundef %add.i.i.i.i.i) #32
+  %call.i.i.i.i.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre154.i, i64 noundef %add.i.i.i.i.i) #32
   %tobool.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i, label %if.then3.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %allocsize.i.i.i.i.i, align 8
-  store ptr %call.i.i.i.i.i.i, ptr %.pre158.i, align 8
-  %.pre157.i = load i64, ptr %size.i.i.i, align 8
+  store ptr %call.i.i.i.i.i.i, ptr %.pre156.i, align 8
+  %.pre155.i = load i64, ptr %size.i.i.i, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then3.i.i.i.i.i, %if.then2.i.i.i
-  %23 = phi i64 [ %.pre157.i, %if.then3.i.i.i.i.i ], [ %add.i.i.i, %if.then2.i.i.i ]
-  %24 = phi ptr [ %call.i.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %.pre156.i, %if.then2.i.i.i ]
+  %23 = phi i64 [ %.pre155.i, %if.then3.i.i.i.i.i ], [ %add.i.i.i, %if.then2.i.i.i ]
+  %24 = phi ptr [ %call.i.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %.pre154.i, %if.then2.i.i.i ]
   %25 = getelementptr i8, ptr %24, i64 %23
   %arrayidx.i22.i.i = getelementptr i8, ptr %25, i64 -1
   store i8 0, ptr %arrayidx.i22.i.i, align 1
@@ -2633,8 +2633,8 @@ if.end.i.i.i:                                     ; preds = %if.then3.i.i.i.i.i,
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.then3.i.i
   %and12.i.i.i = zext nneg i8 %20 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i, %and12.i.i.i
-  %26 = load ptr, ptr %.pre158.i, align 8
-  %size16.i.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
+  %26 = load ptr, ptr %.pre156.i, align 8
+  %size16.i.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
   %27 = load i64, ptr %size16.i.i.i, align 8
   %28 = getelementptr i8, ptr %26, i64 %27
   %arrayidx18.i.i.i = getelementptr i8, ptr %28, i64 -1
@@ -2653,32 +2653,32 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i:      ; preds = %if.end9.i.i.i, %if.
   br i1 %cmp1.i24.i.i, label %if.then2.i33.i.i, label %if.end9.i25.i.i
 
 if.then2.i33.i.i:                                 ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i
-  %size.i34.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
+  %size.i34.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
   %32 = load i64, ptr %size.i34.i.i, align 8
   %add.i35.i.i = add i64 %32, 1
   store i64 %add.i35.i.i, ptr %size.i34.i.i, align 8
-  %allocsize.i.i.i36.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 16
+  %allocsize.i.i.i36.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 16
   %33 = load i64, ptr %allocsize.i.i.i36.i.i, align 8
   %cmp.i.i.i37.i.i = icmp ugt i64 %add.i35.i.i, %33
-  %.pre159.i = load ptr, ptr %.pre158.i, align 8
+  %.pre157.i = load ptr, ptr %.pre156.i, align 8
   br i1 %cmp.i.i.i37.i.i, label %if.then.i.i.i43.i.i, label %if.end.i38.i.i
 
 if.then.i.i.i43.i.i:                              ; preds = %if.then2.i33.i.i
   %shr.i.i.i44.i.i = lshr i64 %33, 1
   %add.i.i.i45.i.i = add i64 %shr.i.i.i44.i.i, %add.i35.i.i
-  %call.i.i.i.i46.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre159.i, i64 noundef %add.i.i.i45.i.i) #32
+  %call.i.i.i.i46.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre157.i, i64 noundef %add.i.i.i45.i.i) #32
   %tobool.not.i.i.i47.i.i = icmp eq ptr %call.i.i.i.i46.i.i, null
   br i1 %tobool.not.i.i.i47.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i, label %if.then3.i.i.i48.i.i
 
 if.then3.i.i.i48.i.i:                             ; preds = %if.then.i.i.i43.i.i
   store i64 %add.i.i.i45.i.i, ptr %allocsize.i.i.i36.i.i, align 8
-  store ptr %call.i.i.i.i46.i.i, ptr %.pre158.i, align 8
-  %.pre160.i = load i64, ptr %size.i34.i.i, align 8
+  store ptr %call.i.i.i.i46.i.i, ptr %.pre156.i, align 8
+  %.pre158.i = load i64, ptr %size.i34.i.i, align 8
   br label %if.end.i38.i.i
 
 if.end.i38.i.i:                                   ; preds = %if.then3.i.i.i48.i.i, %if.then2.i33.i.i
-  %34 = phi i64 [ %.pre160.i, %if.then3.i.i.i48.i.i ], [ %add.i35.i.i, %if.then2.i33.i.i ]
-  %35 = phi ptr [ %call.i.i.i.i46.i.i, %if.then3.i.i.i48.i.i ], [ %.pre159.i, %if.then2.i33.i.i ]
+  %34 = phi i64 [ %.pre158.i, %if.then3.i.i.i48.i.i ], [ %add.i35.i.i, %if.then2.i33.i.i ]
+  %35 = phi ptr [ %call.i.i.i.i46.i.i, %if.then3.i.i.i48.i.i ], [ %.pre157.i, %if.then2.i33.i.i ]
   %36 = getelementptr i8, ptr %35, i64 %34
   %arrayidx.i40.i.i = getelementptr i8, ptr %36, i64 -1
   store i8 0, ptr %arrayidx.i40.i.i, align 1
@@ -2686,8 +2686,8 @@ if.end.i38.i.i:                                   ; preds = %if.then3.i.i.i48.i.
 
 if.end9.i25.i.i:                                  ; preds = %if.end.i38.i.i, %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i.i
   %shl.i28.i.i = shl nuw i8 1, %31
-  %37 = load ptr, ptr %.pre158.i, align 8
-  %size16.i29.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
+  %37 = load ptr, ptr %.pre156.i, align 8
+  %size16.i29.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
   %38 = load i64, ptr %size16.i29.i.i, align 8
   %39 = getelementptr i8, ptr %37, i64 %38
   %arrayidx18.i30.i.i = getelementptr i8, ptr %39, i64 -1
@@ -2705,32 +2705,32 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i:    ; preds = %if.end9.i25.i.i, %i
   br i1 %cmp1.i51.i.i, label %if.then2.i60.i.i, label %if.end9.i52.i.i
 
 if.then2.i60.i.i:                                 ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit49.i.i
-  %size.i61.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
+  %size.i61.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
   %42 = load i64, ptr %size.i61.i.i, align 8
   %add.i62.i.i = add i64 %42, 1
   store i64 %add.i62.i.i, ptr %size.i61.i.i, align 8
-  %allocsize.i.i.i63.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 16
+  %allocsize.i.i.i63.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 16
   %43 = load i64, ptr %allocsize.i.i.i63.i.i, align 8
   %cmp.i.i.i64.i.i = icmp ugt i64 %add.i62.i.i, %43
-  %.pre161.i = load ptr, ptr %.pre158.i, align 8
+  %.pre159.i = load ptr, ptr %.pre156.i, align 8
   br i1 %cmp.i.i.i64.i.i, label %if.then.i.i.i70.i.i, label %if.end.i65.i.i
 
 if.then.i.i.i70.i.i:                              ; preds = %if.then2.i60.i.i
   %shr.i.i.i71.i.i = lshr i64 %43, 1
   %add.i.i.i72.i.i = add i64 %shr.i.i.i71.i.i, %add.i62.i.i
-  %call.i.i.i.i73.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre161.i, i64 noundef %add.i.i.i72.i.i) #32
+  %call.i.i.i.i73.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre159.i, i64 noundef %add.i.i.i72.i.i) #32
   %tobool.not.i.i.i74.i.i = icmp eq ptr %call.i.i.i.i73.i.i, null
   br i1 %tobool.not.i.i.i74.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i, label %if.then3.i.i.i75.i.i
 
 if.then3.i.i.i75.i.i:                             ; preds = %if.then.i.i.i70.i.i
   store i64 %add.i.i.i72.i.i, ptr %allocsize.i.i.i63.i.i, align 8
-  store ptr %call.i.i.i.i73.i.i, ptr %.pre158.i, align 8
-  %.pre162.i = load i64, ptr %size.i61.i.i, align 8
+  store ptr %call.i.i.i.i73.i.i, ptr %.pre156.i, align 8
+  %.pre160.i = load i64, ptr %size.i61.i.i, align 8
   br label %if.end.i65.i.i
 
 if.end.i65.i.i:                                   ; preds = %if.then3.i.i.i75.i.i, %if.then2.i60.i.i
-  %44 = phi i64 [ %.pre162.i, %if.then3.i.i.i75.i.i ], [ %add.i62.i.i, %if.then2.i60.i.i ]
-  %45 = phi ptr [ %call.i.i.i.i73.i.i, %if.then3.i.i.i75.i.i ], [ %.pre161.i, %if.then2.i60.i.i ]
+  %44 = phi i64 [ %.pre160.i, %if.then3.i.i.i75.i.i ], [ %add.i62.i.i, %if.then2.i60.i.i ]
+  %45 = phi ptr [ %call.i.i.i.i73.i.i, %if.then3.i.i.i75.i.i ], [ %.pre159.i, %if.then2.i60.i.i ]
   %46 = getelementptr i8, ptr %45, i64 %44
   %arrayidx.i67.i.i = getelementptr i8, ptr %46, i64 -1
   store i8 0, ptr %arrayidx.i67.i.i, align 1
@@ -2742,7 +2742,7 @@ if.end9.i52.i.i:                                  ; preds = %if.end.i65.i.i, %_Z
   br label %_ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i
 
 _ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i:    ; preds = %if.end9.i52.i.i, %if.then.i.i.i70.i.i
-  %bp.i.promoted135.i = phi i8 [ %inc.i59.i.i, %if.end9.i52.i.i ], [ %.pre151.i.i, %if.then.i.i.i70.i.i ]
+  %bp.i.promoted133.i = phi i8 [ %inc.i59.i.i, %if.end9.i52.i.i ], [ %.pre151.i.i, %if.then.i.i.i70.i.i ]
   %47 = load i32, ptr %use_lz77.i60.i, align 4
   %tobool4.not.i.i = icmp eq i32 %47, 0
   br i1 %tobool4.not.i.i, label %for.cond.preheader.i.i, label %if.then5.i.i
@@ -2750,12 +2750,12 @@ _ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i:    ; preds = %if.end9.i52.i.i, %i
 for.cond.preheader.i.i:                           ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i
   %cmp148.i.i = icmp ult i64 %mul.i, %spec.select.i
   %.pre153.i.i = load ptr, ptr %tree_ll.i.i, align 8
-  %.pre167.i = load ptr, ptr %lengths.i.i, align 8
+  %.pre165.i = load ptr, ptr %lengths.i.i, align 8
   br i1 %cmp148.i.i, label %for.body.lr.ph.i44.i, label %if.then16.i.i
 
 for.body.lr.ph.i44.i:                             ; preds = %for.cond.preheader.i.i
-  %size.i86.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 8
-  %allocsize.i.i.i88.i.i = getelementptr inbounds nuw i8, ptr %.pre158.i, i64 16
+  %size.i86.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 8
+  %allocsize.i.i.i88.i.i = getelementptr inbounds nuw i8, ptr %.pre156.i, i64 16
   br label %for.body.i45.i
 
 if.then5.i.i:                                     ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit76.i.i
@@ -2773,18 +2773,18 @@ if.then8.i.i:                                     ; preds = %if.then5.i.i
   %52 = load ptr, ptr %lz77_encoded.i.i, align 8
   call void @free(ptr noundef %52) #31
   %.pre152.i.i = load ptr, ptr %tree_ll.i.i, align 8
-  %.pre166.i = load ptr, ptr %lengths.i.i, align 8
+  %.pre164.i = load ptr, ptr %lengths.i.i, align 8
   br label %if.then16.i.i
 
 for.body.i45.i:                                   ; preds = %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i, %for.body.lr.ph.i44.i
-  %53 = phi i8 [ %bp.i.promoted135.i, %for.body.lr.ph.i44.i ], [ %71, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i ]
+  %53 = phi i8 [ %bp.i.promoted133.i, %for.body.lr.ph.i44.i ], [ %71, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i ]
   %i.0149.i.i = phi i64 [ %mul.i, %for.body.lr.ph.i44.i ], [ %inc.i48.i, %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i ]
   %arrayidx.i46.i = getelementptr inbounds i8, ptr %in, i64 %i.0149.i.i
   %54 = load i8, ptr %arrayidx.i46.i, align 1
   %idxprom.i.i = zext i8 %54 to i64
   %arrayidx10.i.i = getelementptr inbounds nuw i32, ptr %.pre153.i.i, i64 %idxprom.i.i
   %55 = load i32, ptr %arrayidx10.i.i, align 4
-  %arrayidx13.i.i = getelementptr inbounds nuw i32, ptr %.pre167.i, i64 %idxprom.i.i
+  %arrayidx13.i.i = getelementptr inbounds nuw i32, ptr %.pre165.i, i64 %idxprom.i.i
   %56 = load i32, ptr %arrayidx13.i.i, align 4
   %conv.i47.i = zext i32 %56 to i64
   %cmp.not14.i.i.i = icmp eq i32 %56, 0
@@ -2803,25 +2803,25 @@ if.then.i.i.i:                                    ; preds = %for.body.i79.i.i
   store i64 %add.i87.i.i, ptr %size.i86.i.i, align 8
   %60 = load i64, ptr %allocsize.i.i.i88.i.i, align 8
   %cmp.i.i.i89.i.i = icmp ugt i64 %add.i87.i.i, %60
-  %.pre164.i = load ptr, ptr %.pre158.i, align 8
+  %.pre162.i = load ptr, ptr %.pre156.i, align 8
   br i1 %cmp.i.i.i89.i.i, label %if.then.i.i.i92.i.i, label %if.end.i90.i.i
 
 if.then.i.i.i92.i.i:                              ; preds = %if.then.i.i.i
   %shr.i.i.i93.i.i = lshr i64 %60, 1
   %add.i.i.i94.i.i = add i64 %shr.i.i.i93.i.i, %add.i87.i.i
-  %call.i.i.i.i95.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre164.i, i64 noundef %add.i.i.i94.i.i) #32
+  %call.i.i.i.i95.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre162.i, i64 noundef %add.i.i.i94.i.i) #32
   %tobool.not.i.i.i96.i.i = icmp eq ptr %call.i.i.i.i95.i.i, null
   br i1 %tobool.not.i.i.i96.i.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i.i, label %if.then3.i.i.i97.i.i
 
 if.then3.i.i.i97.i.i:                             ; preds = %if.then.i.i.i92.i.i
   store i64 %add.i.i.i94.i.i, ptr %allocsize.i.i.i88.i.i, align 8
-  store ptr %call.i.i.i.i95.i.i, ptr %.pre158.i, align 8
-  %.pre165.i = load i64, ptr %size.i86.i.i, align 8
+  store ptr %call.i.i.i.i95.i.i, ptr %.pre156.i, align 8
+  %.pre163.i = load i64, ptr %size.i86.i.i, align 8
   br label %if.end.i90.i.i
 
 if.end.i90.i.i:                                   ; preds = %if.then3.i.i.i97.i.i, %if.then.i.i.i
-  %61 = phi i64 [ %.pre165.i, %if.then3.i.i.i97.i.i ], [ %add.i87.i.i, %if.then.i.i.i ]
-  %62 = phi ptr [ %call.i.i.i.i95.i.i, %if.then3.i.i.i97.i.i ], [ %.pre164.i, %if.then.i.i.i ]
+  %61 = phi i64 [ %.pre163.i, %if.then3.i.i.i97.i.i ], [ %add.i87.i.i, %if.then.i.i.i ]
+  %62 = phi ptr [ %call.i.i.i.i95.i.i, %if.then3.i.i.i97.i.i ], [ %.pre162.i, %if.then.i.i.i ]
   %63 = getelementptr i8, ptr %62, i64 %61
   %arrayidx.i91.i.i = getelementptr i8, ptr %63, i64 -1
   store i8 0, ptr %arrayidx.i91.i.i, align 1
@@ -2835,7 +2835,7 @@ if.end8.i.i.i:                                    ; preds = %if.end.i90.i.i, %fo
   %conv12.i.i.i = and i32 %shr.i.i.i, 1
   %and16.i.i.i = zext nneg i8 %58 to i32
   %shl.i82.i.i = shl nuw nsw i32 %conv12.i.i.i, %and16.i.i.i
-  %66 = load ptr, ptr %.pre158.i, align 8
+  %66 = load ptr, ptr %.pre156.i, align 8
   %67 = load i64, ptr %size.i86.i.i, align 8
   %68 = getelementptr i8, ptr %66, i64 %67
   %arrayidx22.i.i.i = getelementptr i8, ptr %68, i64 -1
@@ -2859,7 +2859,7 @@ if.then16.i.loopexit.i:                           ; preds = %_ZL17writeBitsRever
   br label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %if.then16.i.loopexit.i, %if.then8.i.i, %for.cond.preheader.i.i
-  %72 = phi ptr [ %.pre166.i, %if.then8.i.i ], [ %.pre167.i, %for.cond.preheader.i.i ], [ %.pre167.i, %if.then16.i.loopexit.i ]
+  %72 = phi ptr [ %.pre164.i, %if.then8.i.i ], [ %.pre165.i, %for.cond.preheader.i.i ], [ %.pre165.i, %if.then16.i.loopexit.i ]
   %73 = phi ptr [ %.pre152.i.i, %if.then8.i.i ], [ %.pre153.i.i, %for.cond.preheader.i.i ], [ %.pre153.i.i, %if.then16.i.loopexit.i ]
   %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr %73, i64 1024
   %74 = load i32, ptr %arrayidx18.i.i, align 4
@@ -2889,25 +2889,25 @@ if.then.i120.i.i:                                 ; preds = %for.body.i102.i.i
   store i64 %add.i122.i.i, ptr %size.i121.i.i, align 8
   %80 = load i64, ptr %allocsize.i.i.i123.i.i, align 8
   %cmp.i.i.i124.i.i = icmp ugt i64 %add.i122.i.i, %80
-  %.pre168.i = load ptr, ptr %76, align 8
+  %.pre166.i = load ptr, ptr %76, align 8
   br i1 %cmp.i.i.i124.i.i, label %if.then.i.i.i130.i.i, label %if.end.i125.i.i
 
 if.then.i.i.i130.i.i:                             ; preds = %if.then.i120.i.i
   %shr.i.i.i131.i.i = lshr i64 %80, 1
   %add.i.i.i132.i.i = add i64 %shr.i.i.i131.i.i, %add.i122.i.i
-  %call.i.i.i.i133.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre168.i, i64 noundef %add.i.i.i132.i.i) #32
+  %call.i.i.i.i133.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre166.i, i64 noundef %add.i.i.i132.i.i) #32
   %tobool.not.i.i.i134.i.i = icmp eq ptr %call.i.i.i.i133.i.i, null
   br i1 %tobool.not.i.i.i134.i.i, label %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.loopexit.i, label %if.then3.i.i.i135.i.i
 
 if.then3.i.i.i135.i.i:                            ; preds = %if.then.i.i.i130.i.i
   store i64 %add.i.i.i132.i.i, ptr %allocsize.i.i.i123.i.i, align 8
   store ptr %call.i.i.i.i133.i.i, ptr %76, align 8
-  %.pre169.i = load i64, ptr %size.i121.i.i, align 8
+  %.pre167.i = load i64, ptr %size.i121.i.i, align 8
   br label %if.end.i125.i.i
 
 if.end.i125.i.i:                                  ; preds = %if.then3.i.i.i135.i.i, %if.then.i120.i.i
-  %81 = phi i64 [ %.pre169.i, %if.then3.i.i.i135.i.i ], [ %add.i122.i.i, %if.then.i120.i.i ]
-  %82 = phi ptr [ %call.i.i.i.i133.i.i, %if.then3.i.i.i135.i.i ], [ %.pre168.i, %if.then.i120.i.i ]
+  %81 = phi i64 [ %.pre167.i, %if.then3.i.i.i135.i.i ], [ %add.i122.i.i, %if.then.i120.i.i ]
+  %82 = phi ptr [ %call.i.i.i.i133.i.i, %if.then3.i.i.i135.i.i ], [ %.pre166.i, %if.then.i120.i.i ]
   %83 = getelementptr i8, ptr %82, i64 %81
   %arrayidx.i127.i.i = getelementptr i8, ptr %83, i64 -1
   store i8 0, ptr %arrayidx.i127.i.i, align 1
@@ -3385,11 +3385,11 @@ for.body205.lr.ph.i.i:                            ; preds = %land.rhs187.i.i, %w
   %133 = load ptr, ptr %writer.i, align 8
   %size30.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 8
   %allocsize.i.i23.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %bp.i.promoted129.i = load i8, ptr %bp.i.i, align 8
+  %bp.i.promoted127.i = load i8, ptr %bp.i.i, align 8
   br label %for.body205.i.i
 
 for.cond213.preheader.i.i:                        ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i
-  store i8 %bp.i.promoted133.i, ptr %bp.i.i, align 8
+  store i8 %bp.i.promoted131.i, ptr %bp.i.i, align 8
   br i1 %cmp167.not351366.i.i, label %for.end246.i.i, label %for.body215.lr.ph.i.i
 
 for.body215.lr.ph.i.i:                            ; preds = %for.cond213.preheader.i.i
@@ -3397,7 +3397,7 @@ for.body215.lr.ph.i.i:                            ; preds = %for.cond213.prehead
   br label %for.body215.i.i
 
 for.body205.i.i:                                  ; preds = %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i, %for.body205.lr.ph.i.i
-  %135 = phi i8 [ %bp.i.promoted129.i, %for.body205.lr.ph.i.i ], [ %bp.i.promoted133.i, %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i ]
+  %135 = phi i8 [ %bp.i.promoted127.i, %for.body205.lr.ph.i.i ], [ %bp.i.promoted131.i, %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i ]
   %i.9354.i.i = phi i64 [ 0, %for.body205.lr.ph.i.i ], [ %inc211.i.i, %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i ]
   %arrayidx207.i.i = getelementptr inbounds nuw [19 x i32], ptr @_ZL10CLCL_ORDER, i64 0, i64 %i.9354.i.i
   %136 = load i32, ptr %arrayidx207.i.i, align 4
@@ -3432,11 +3432,11 @@ if.then.i.i26.i.i.i:                              ; preds = %if.then27.i.i.i
 if.then3.i.i31.i.i.i:                             ; preds = %if.then.i.i26.i.i.i
   store i64 %add.i.i28.i.i.i, ptr %allocsize.i.i23.i.i.i, align 8
   store ptr %call.i.i.i29.i.i.i, ptr %133, align 8
-  %.pre147.i = load i64, ptr %size30.i.i.i, align 8
+  %.pre145.i = load i64, ptr %size30.i.i.i, align 8
   br label %if.end35.i.i.i
 
 if.end35.i.i.i:                                   ; preds = %if.then3.i.i31.i.i.i, %if.then27.i.i.i
-  %142 = phi i64 [ %.pre147.i, %if.then3.i.i31.i.i.i ], [ %add31.i.i.i, %if.then27.i.i.i ]
+  %142 = phi i64 [ %.pre145.i, %if.then3.i.i31.i.i.i ], [ %add31.i.i.i, %if.then27.i.i.i ]
   %143 = phi ptr [ %call.i.i.i29.i.i.i, %if.then3.i.i31.i.i.i ], [ %.pre.i, %if.then27.i.i.i ]
   %144 = getelementptr i8, ptr %143, i64 %142
   %arrayidx41.i.i.i = getelementptr i8, ptr %144, i64 -1
@@ -3463,13 +3463,13 @@ if.end42.i.i.i:                                   ; preds = %if.end35.i.i.i, %fo
   br i1 %cmp22.not.i.i.i, label %_ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i, label %for.body.i.i75.i, !llvm.loop !86
 
 _ZL9writeBitsP16LodePNGBitWriterjm.exit.i77.i:    ; preds = %if.end42.i.i.i, %if.then.i.i26.i.i.i
-  %bp.i.promoted133.i = phi i8 [ %inc60.i.i.i, %if.end42.i.i.i ], [ %138, %if.then.i.i26.i.i.i ]
+  %bp.i.promoted131.i = phi i8 [ %inc60.i.i.i, %if.end42.i.i.i ], [ %138, %if.then.i.i26.i.i.i ]
   %inc211.i.i = add nuw nsw i64 %i.9354.i.i, 1
   %cmp204.not.i.i = icmp eq i64 %inc211.i.i, %numcodes_cl.0.lcssa.i.i
   br i1 %cmp204.not.i.i, label %for.cond213.preheader.i.i, label %for.body205.i.i, !llvm.loop !87
 
 for.body215.i.i:                                  ; preds = %for.inc244.i.i, %for.body215.lr.ph.i.i
-  %150 = phi i8 [ %bp.i.promoted133.i, %for.body215.lr.ph.i.i ], [ %208, %for.inc244.i.i ]
+  %150 = phi i8 [ %bp.i.promoted131.i, %for.body215.lr.ph.i.i ], [ %208, %for.inc244.i.i ]
   %i.10356.i.i = phi i64 [ 0, %for.body215.lr.ph.i.i ], [ %inc245.i.i, %for.inc244.i.i ]
   %arrayidx216.i.i = getelementptr inbounds i32, ptr %call.i192.i.i, i64 %i.10356.i.i
   %151 = load i32, ptr %arrayidx216.i.i, align 4
@@ -3495,25 +3495,25 @@ if.then.i198.i.i:                                 ; preds = %for.body.i195.i.i
   store i64 %add.i199.i.i, ptr %size30.i.i.i, align 8
   %157 = load i64, ptr %allocsize.i.i23.i.i.i, align 8
   %cmp.i.i.i.i97.i = icmp ugt i64 %add.i199.i.i, %157
-  %.pre148.i = load ptr, ptr %133, align 8
+  %.pre146.i = load ptr, ptr %133, align 8
   br i1 %cmp.i.i.i.i97.i, label %if.then.i.i.i.i102.i, label %if.end.i200.i.i
 
 if.then.i.i.i.i102.i:                             ; preds = %if.then.i198.i.i
   %shr.i.i.i.i103.i = lshr i64 %157, 1
   %add.i.i.i.i104.i = add i64 %shr.i.i.i.i103.i, %add.i199.i.i
-  %call.i.i.i.i.i105.i = call noalias noundef ptr @realloc(ptr noundef %.pre148.i, i64 noundef %add.i.i.i.i104.i) #32
+  %call.i.i.i.i.i105.i = call noalias noundef ptr @realloc(ptr noundef %.pre146.i, i64 noundef %add.i.i.i.i104.i) #32
   %tobool.not.i.i.i.i106.i = icmp eq ptr %call.i.i.i.i.i105.i, null
   br i1 %tobool.not.i.i.i.i106.i, label %_ZL17writeBitsReversedP16LodePNGBitWriterjm.exit.i94.i, label %if.then3.i.i.i.i107.i
 
 if.then3.i.i.i.i107.i:                            ; preds = %if.then.i.i.i.i102.i
   store i64 %add.i.i.i.i104.i, ptr %allocsize.i.i23.i.i.i, align 8
   store ptr %call.i.i.i.i.i105.i, ptr %133, align 8
-  %.pre149.i = load i64, ptr %size30.i.i.i, align 8
+  %.pre147.i = load i64, ptr %size30.i.i.i, align 8
   br label %if.end.i200.i.i
 
 if.end.i200.i.i:                                  ; preds = %if.then3.i.i.i.i107.i, %if.then.i198.i.i
-  %158 = phi i64 [ %.pre149.i, %if.then3.i.i.i.i107.i ], [ %add.i199.i.i, %if.then.i198.i.i ]
-  %159 = phi ptr [ %call.i.i.i.i.i105.i, %if.then3.i.i.i.i107.i ], [ %.pre148.i, %if.then.i198.i.i ]
+  %158 = phi i64 [ %.pre147.i, %if.then3.i.i.i.i107.i ], [ %add.i199.i.i, %if.then.i198.i.i ]
+  %159 = phi ptr [ %call.i.i.i.i.i105.i, %if.then3.i.i.i.i107.i ], [ %.pre146.i, %if.then.i198.i.i ]
   %160 = getelementptr i8, ptr %159, i64 %158
   %arrayidx.i.i99.i = getelementptr i8, ptr %160, i64 -1
   store i8 0, ptr %arrayidx.i.i99.i, align 1
@@ -3567,25 +3567,25 @@ if.then27.i220.i.i:                               ; preds = %for.body.i204.i.i
   store i64 %add31.i222.i.i, ptr %size30.i.i.i, align 8
   %173 = load i64, ptr %allocsize.i.i23.i.i.i, align 8
   %cmp.i.i24.i224.i.i = icmp ugt i64 %add31.i222.i.i, %173
-  %.pre154.i = load ptr, ptr %133, align 8
+  %.pre152.i = load ptr, ptr %133, align 8
   br i1 %cmp.i.i24.i224.i.i, label %if.then.i.i26.i230.i.i, label %if.end35.i225.i.i
 
 if.then.i.i26.i230.i.i:                           ; preds = %if.then27.i220.i.i
   %shr.i.i27.i231.i.i = lshr i64 %173, 1
   %add.i.i28.i232.i.i = add i64 %shr.i.i27.i231.i.i, %add31.i222.i.i
-  %call.i.i.i29.i233.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre154.i, i64 noundef %add.i.i28.i232.i.i) #32
+  %call.i.i.i29.i233.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre152.i, i64 noundef %add.i.i28.i232.i.i) #32
   %tobool.not.i.i30.i234.i.i = icmp eq ptr %call.i.i.i29.i233.i.i, null
   br i1 %tobool.not.i.i30.i234.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i235.i.i
 
 if.then3.i.i31.i235.i.i:                          ; preds = %if.then.i.i26.i230.i.i
   store i64 %add.i.i28.i232.i.i, ptr %allocsize.i.i23.i.i.i, align 8
   store ptr %call.i.i.i29.i233.i.i, ptr %133, align 8
-  %.pre155.i = load i64, ptr %size30.i.i.i, align 8
+  %.pre153.i = load i64, ptr %size30.i.i.i, align 8
   br label %if.end35.i225.i.i
 
 if.end35.i225.i.i:                                ; preds = %if.then3.i.i31.i235.i.i, %if.then27.i220.i.i
-  %174 = phi i64 [ %.pre155.i, %if.then3.i.i31.i235.i.i ], [ %add31.i222.i.i, %if.then27.i220.i.i ]
-  %175 = phi ptr [ %call.i.i.i29.i233.i.i, %if.then3.i.i31.i235.i.i ], [ %.pre154.i, %if.then27.i220.i.i ]
+  %174 = phi i64 [ %.pre153.i, %if.then3.i.i31.i235.i.i ], [ %add31.i222.i.i, %if.then27.i220.i.i ]
+  %175 = phi ptr [ %call.i.i.i29.i233.i.i, %if.then3.i.i31.i235.i.i ], [ %.pre152.i, %if.then27.i220.i.i ]
   %176 = getelementptr i8, ptr %175, i64 %174
   %arrayidx41.i227.i.i = getelementptr i8, ptr %176, i64 -1
   store i8 0, ptr %arrayidx41.i227.i.i, align 1
@@ -3629,25 +3629,25 @@ if.then27.i256.i.i:                               ; preds = %for.body.i240.i.i
   store i64 %add31.i258.i.i, ptr %size30.i.i.i, align 8
   %186 = load i64, ptr %allocsize.i.i23.i.i.i, align 8
   %cmp.i.i24.i260.i.i = icmp ugt i64 %add31.i258.i.i, %186
-  %.pre152.i = load ptr, ptr %133, align 8
+  %.pre150.i = load ptr, ptr %133, align 8
   br i1 %cmp.i.i24.i260.i.i, label %if.then.i.i26.i266.i.i, label %if.end35.i261.i.i
 
 if.then.i.i26.i266.i.i:                           ; preds = %if.then27.i256.i.i
   %shr.i.i27.i267.i.i = lshr i64 %186, 1
   %add.i.i28.i268.i.i = add i64 %shr.i.i27.i267.i.i, %add31.i258.i.i
-  %call.i.i.i29.i269.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre152.i, i64 noundef %add.i.i28.i268.i.i) #32
+  %call.i.i.i29.i269.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre150.i, i64 noundef %add.i.i28.i268.i.i) #32
   %tobool.not.i.i30.i270.i.i = icmp eq ptr %call.i.i.i29.i269.i.i, null
   br i1 %tobool.not.i.i30.i270.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i271.i.i
 
 if.then3.i.i31.i271.i.i:                          ; preds = %if.then.i.i26.i266.i.i
   store i64 %add.i.i28.i268.i.i, ptr %allocsize.i.i23.i.i.i, align 8
   store ptr %call.i.i.i29.i269.i.i, ptr %133, align 8
-  %.pre153.i = load i64, ptr %size30.i.i.i, align 8
+  %.pre151.i = load i64, ptr %size30.i.i.i, align 8
   br label %if.end35.i261.i.i
 
 if.end35.i261.i.i:                                ; preds = %if.then3.i.i31.i271.i.i, %if.then27.i256.i.i
-  %187 = phi i64 [ %.pre153.i, %if.then3.i.i31.i271.i.i ], [ %add31.i258.i.i, %if.then27.i256.i.i ]
-  %188 = phi ptr [ %call.i.i.i29.i269.i.i, %if.then3.i.i31.i271.i.i ], [ %.pre152.i, %if.then27.i256.i.i ]
+  %187 = phi i64 [ %.pre151.i, %if.then3.i.i31.i271.i.i ], [ %add31.i258.i.i, %if.then27.i256.i.i ]
+  %188 = phi ptr [ %call.i.i.i29.i269.i.i, %if.then3.i.i31.i271.i.i ], [ %.pre150.i, %if.then27.i256.i.i ]
   %189 = getelementptr i8, ptr %188, i64 %187
   %arrayidx41.i263.i.i = getelementptr i8, ptr %189, i64 -1
   store i8 0, ptr %arrayidx41.i263.i.i, align 1
@@ -3691,25 +3691,25 @@ if.then27.i292.i.i:                               ; preds = %for.body.i276.i.i
   store i64 %add31.i294.i.i, ptr %size30.i.i.i, align 8
   %199 = load i64, ptr %allocsize.i.i23.i.i.i, align 8
   %cmp.i.i24.i296.i.i = icmp ugt i64 %add31.i294.i.i, %199
-  %.pre150.i = load ptr, ptr %133, align 8
+  %.pre148.i = load ptr, ptr %133, align 8
   br i1 %cmp.i.i24.i296.i.i, label %if.then.i.i26.i302.i.i, label %if.end35.i297.i.i
 
 if.then.i.i26.i302.i.i:                           ; preds = %if.then27.i292.i.i
   %shr.i.i27.i303.i.i = lshr i64 %199, 1
   %add.i.i28.i304.i.i = add i64 %shr.i.i27.i303.i.i, %add31.i294.i.i
-  %call.i.i.i29.i305.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre150.i, i64 noundef %add.i.i28.i304.i.i) #32
+  %call.i.i.i29.i305.i.i = call noalias noundef ptr @realloc(ptr noundef %.pre148.i, i64 noundef %add.i.i28.i304.i.i) #32
   %tobool.not.i.i30.i306.i.i = icmp eq ptr %call.i.i.i29.i305.i.i, null
   br i1 %tobool.not.i.i30.i306.i.i, label %for.inc244.i.i, label %if.then3.i.i31.i307.i.i
 
 if.then3.i.i31.i307.i.i:                          ; preds = %if.then.i.i26.i302.i.i
   store i64 %add.i.i28.i304.i.i, ptr %allocsize.i.i23.i.i.i, align 8
   store ptr %call.i.i.i29.i305.i.i, ptr %133, align 8
-  %.pre151.i = load i64, ptr %size30.i.i.i, align 8
+  %.pre149.i = load i64, ptr %size30.i.i.i, align 8
   br label %if.end35.i297.i.i
 
 if.end35.i297.i.i:                                ; preds = %if.then3.i.i31.i307.i.i, %if.then27.i292.i.i
-  %200 = phi i64 [ %.pre151.i, %if.then3.i.i31.i307.i.i ], [ %add31.i294.i.i, %if.then27.i292.i.i ]
-  %201 = phi ptr [ %call.i.i.i29.i305.i.i, %if.then3.i.i31.i307.i.i ], [ %.pre150.i, %if.then27.i292.i.i ]
+  %200 = phi i64 [ %.pre149.i, %if.then3.i.i31.i307.i.i ], [ %add31.i294.i.i, %if.then27.i292.i.i ]
+  %201 = phi ptr [ %call.i.i.i29.i305.i.i, %if.then3.i.i31.i307.i.i ], [ %.pre148.i, %if.then27.i292.i.i ]
   %202 = getelementptr i8, ptr %201, i64 %200
   %arrayidx41.i299.i.i = getelementptr i8, ptr %202, i64 -1
   store i8 0, ptr %arrayidx41.i299.i.i, align 1
@@ -3804,7 +3804,7 @@ _ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.ex
 
 for.inc.i:                                        ; preds = %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i, %for.body.i
   %error.2.i = phi i32 [ %error.1.i.i, %_ZL12deflateFixedP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i ], [ %error.1.i58.i, %_ZL14deflateDynamicP16LodePNGBitWriterP4HashPKhmmPK23LodePNGCompressSettingsj.exit.i ], [ 0, %for.body.i ]
-  %inc.i = add nuw i64 %i.0138.i, 1
+  %inc.i = add nuw i64 %i.0136.i, 1
   %cmp24.i = icmp ne i64 %inc.i, %spec.store.select1.i
   %tobool25.not.i = icmp eq i32 %error.2.i, 0
   %226 = and i1 %cmp24.i, %tobool25.not.i

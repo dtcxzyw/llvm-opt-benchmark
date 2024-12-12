@@ -92,38 +92,38 @@ i128_neg.exit:                                    ; preds = %13, %12, %4
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %41, %38, %34, %32, %29
-  %.ph62 = phi i64 [ %2, %29 ], [ 0, %32 ], [ 0, %34 ], [ 0, %38 ], [ %44, %41 ]
-  %.ph63 = phi i64 [ 0, %29 ], [ 0, %32 ], [ %2, %34 ], [ %40, %38 ], [ %43, %41 ]
+  %.ph62 = phi i64 [ 0, %34 ], [ 0, %32 ], [ %2, %29 ], [ %44, %41 ], [ 0, %38 ]
+  %.ph63 = phi i64 [ %2, %34 ], [ 0, %32 ], [ 0, %29 ], [ %43, %41 ], [ %40, %38 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
-  %45 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.sroa.8.1, %i128_shl64.exit.i.i.preheader ]
-  %46 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.sroa.018.1, %i128_shl64.exit.i.i.preheader ]
-  %47 = phi i64 [ %58, %i128_ucomp.exit.i.i ], [ %.ph62, %i128_shl64.exit.i.i.preheader ]
-  %48 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %.ph63, %i128_shl64.exit.i.i.preheader ]
+  %45 = phi i64 [ %58, %i128_ucomp.exit.i.i ], [ %.ph62, %i128_shl64.exit.i.i.preheader ]
+  %46 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %.ph63, %i128_shl64.exit.i.i.preheader ]
+  %47 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.sroa.8.1, %i128_shl64.exit.i.i.preheader ]
+  %48 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.sroa.018.1, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %60, %i128_ucomp.exit.i.i ], [ %27, %i128_shl64.exit.i.i.preheader ]
-  %49 = icmp ugt i64 %46, %48
+  %49 = icmp ugt i64 %48, %46
   br i1 %49, label %select.unfold.i.i, label %50
 
 50:                                               ; preds = %i128_shl64.exit.i.i
-  %51 = icmp ult i64 %46, %48
-  %or.cond.not.i.i = icmp ult i64 %45, %47
+  %51 = icmp ult i64 %48, %46
+  %or.cond.not.i.i = icmp ult i64 %47, %45
   %or.cond.i.i = select i1 %51, i1 true, i1 %or.cond.not.i.i
   br i1 %or.cond.i.i, label %i128_ucomp.exit.i.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %50, %i128_shl64.exit.i.i
-  %52 = sub i64 %46, %48
-  %53 = icmp ugt i64 %47, %45
+  %52 = sub i64 %48, %46
+  %53 = icmp ugt i64 %45, %47
   %54 = sext i1 %53 to i64
   %spec.select.i.i.i = add i64 %52, %54
-  %55 = sub i64 %45, %47
+  %55 = sub i64 %47, %45
   br label %i128_ucomp.exit.i.i
 
 i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, %50
-  %56 = phi i64 [ %45, %50 ], [ %55, %select.unfold.i.i ]
-  %57 = phi i64 [ %46, %50 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
-  %58 = tail call i64 @llvm.fshl.i64(i64 %48, i64 %47, i64 63)
-  %59 = lshr i64 %48, 1
+  %56 = phi i64 [ %47, %50 ], [ %55, %select.unfold.i.i ]
+  %57 = phi i64 [ %48, %50 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
+  %58 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %45, i64 63)
+  %59 = lshr i64 %46, 1
   %60 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
@@ -177,44 +177,44 @@ i128_urem.exit:                                   ; preds = %i128_ucomp.exit.i.i
   br label %i128_shl64.exit.i.i28.preheader
 
 i128_shl64.exit.i.i28.preheader:                  ; preds = %80, %77, %73, %71, %68
-  %.ph = phi i64 [ %2, %68 ], [ 0, %71 ], [ 0, %73 ], [ 0, %77 ], [ %83, %80 ]
-  %.ph61 = phi i64 [ 0, %68 ], [ 0, %71 ], [ %2, %73 ], [ %79, %77 ], [ %82, %80 ]
+  %.ph = phi i64 [ 0, %73 ], [ 0, %71 ], [ %2, %68 ], [ %83, %80 ], [ 0, %77 ]
+  %.ph61 = phi i64 [ %2, %73 ], [ 0, %71 ], [ 0, %68 ], [ %82, %80 ], [ %79, %77 ]
   br label %i128_shl64.exit.i.i28
 
 i128_shl64.exit.i.i28:                            ; preds = %i128_shl64.exit.i.i28.preheader, %i128_ucomp.exit.i.i36
-  %84 = phi i64 [ %100, %i128_ucomp.exit.i.i36 ], [ %.sroa.8.1, %i128_shl64.exit.i.i28.preheader ]
-  %85 = phi i64 [ %101, %i128_ucomp.exit.i.i36 ], [ %.sroa.018.1, %i128_shl64.exit.i.i28.preheader ]
-  %86 = phi i64 [ %102, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
-  %87 = phi i64 [ %90, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
-  %88 = phi i64 [ %103, %i128_ucomp.exit.i.i36 ], [ %.ph, %i128_shl64.exit.i.i28.preheader ]
-  %89 = phi i64 [ %104, %i128_ucomp.exit.i.i36 ], [ %.ph61, %i128_shl64.exit.i.i28.preheader ]
+  %84 = phi i64 [ %103, %i128_ucomp.exit.i.i36 ], [ %.ph, %i128_shl64.exit.i.i28.preheader ]
+  %85 = phi i64 [ %104, %i128_ucomp.exit.i.i36 ], [ %.ph61, %i128_shl64.exit.i.i28.preheader ]
+  %86 = phi i64 [ %100, %i128_ucomp.exit.i.i36 ], [ %.sroa.8.1, %i128_shl64.exit.i.i28.preheader ]
+  %87 = phi i64 [ %101, %i128_ucomp.exit.i.i36 ], [ %.sroa.018.1, %i128_shl64.exit.i.i28.preheader ]
+  %88 = phi i64 [ %102, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
+  %89 = phi i64 [ %90, %i128_ucomp.exit.i.i36 ], [ 0, %i128_shl64.exit.i.i28.preheader ]
   %.0.i.i31 = phi i32 [ %105, %i128_ucomp.exit.i.i36 ], [ %66, %i128_shl64.exit.i.i28.preheader ]
-  %90 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %86, i64 1)
-  %91 = shl i64 %86, 1
-  %92 = icmp ugt i64 %85, %89
+  %90 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %88, i64 1)
+  %91 = shl i64 %88, 1
+  %92 = icmp ugt i64 %87, %85
   br i1 %92, label %select.unfold.i.i34, label %93
 
 93:                                               ; preds = %i128_shl64.exit.i.i28
-  %94 = icmp ult i64 %85, %89
-  %or.cond.not.i.i32 = icmp ult i64 %84, %88
+  %94 = icmp ult i64 %87, %85
+  %or.cond.not.i.i32 = icmp ult i64 %86, %84
   %or.cond.i.i33 = select i1 %94, i1 true, i1 %or.cond.not.i.i32
   br i1 %or.cond.i.i33, label %i128_ucomp.exit.i.i36, label %select.unfold.i.i34
 
 select.unfold.i.i34:                              ; preds = %93, %i128_shl64.exit.i.i28
-  %95 = sub i64 %85, %89
-  %96 = icmp ugt i64 %88, %84
+  %95 = sub i64 %87, %85
+  %96 = icmp ugt i64 %84, %86
   %97 = sext i1 %96 to i64
   %spec.select.i.i.i35 = add i64 %95, %97
-  %98 = sub i64 %84, %88
+  %98 = sub i64 %86, %84
   %99 = or disjoint i64 %91, 1
   br label %i128_ucomp.exit.i.i36
 
 i128_ucomp.exit.i.i36:                            ; preds = %select.unfold.i.i34, %93
-  %100 = phi i64 [ %84, %93 ], [ %98, %select.unfold.i.i34 ]
-  %101 = phi i64 [ %85, %93 ], [ %spec.select.i.i.i35, %select.unfold.i.i34 ]
+  %100 = phi i64 [ %86, %93 ], [ %98, %select.unfold.i.i34 ]
+  %101 = phi i64 [ %87, %93 ], [ %spec.select.i.i.i35, %select.unfold.i.i34 ]
   %102 = phi i64 [ %91, %93 ], [ %99, %select.unfold.i.i34 ]
-  %103 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %88, i64 63)
-  %104 = lshr i64 %89, 1
+  %103 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %84, i64 63)
+  %104 = lshr i64 %85, 1
   %105 = add nsw i32 %.0.i.i31, -1
   %.not18.i.i37 = icmp eq i32 %.0.i.i31, 0
   br i1 %.not18.i.i37, label %i128_udiv.exit, label %i128_shl64.exit.i.i28, !llvm.loop !7
@@ -337,38 +337,38 @@ define dso_local { i64, i64 } @i128_urem(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br label %i128_shl64.exit.i.preheader
 
 i128_shl64.exit.i.preheader:                      ; preds = %25, %22, %18, %16, %13
-  %.ph = phi i64 [ %3, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ %30, %25 ]
-  %.ph8 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
+  %.ph = phi i64 [ 0, %18 ], [ 0, %16 ], [ %3, %13 ], [ %30, %25 ], [ 0, %22 ]
+  %.ph8 = phi i64 [ %3, %18 ], [ 0, %16 ], [ %2, %13 ], [ %29, %25 ], [ %24, %22 ]
   br label %i128_shl64.exit.i
 
 i128_shl64.exit.i:                                ; preds = %i128_shl64.exit.i.preheader, %i128_ucomp.exit.i
-  %31 = phi i64 [ %42, %i128_ucomp.exit.i ], [ %1, %i128_shl64.exit.i.preheader ]
-  %32 = phi i64 [ %43, %i128_ucomp.exit.i ], [ %0, %i128_shl64.exit.i.preheader ]
-  %33 = phi i64 [ %44, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
-  %34 = phi i64 [ %45, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %31 = phi i64 [ %44, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
+  %32 = phi i64 [ %45, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %33 = phi i64 [ %42, %i128_ucomp.exit.i ], [ %1, %i128_shl64.exit.i.preheader ]
+  %34 = phi i64 [ %43, %i128_ucomp.exit.i ], [ %0, %i128_shl64.exit.i.preheader ]
   %.0.i = phi i32 [ %46, %i128_ucomp.exit.i ], [ %11, %i128_shl64.exit.i.preheader ]
-  %35 = icmp ugt i64 %32, %34
+  %35 = icmp ugt i64 %34, %32
   br i1 %35, label %select.unfold.i, label %36
 
 36:                                               ; preds = %i128_shl64.exit.i
-  %37 = icmp ult i64 %32, %34
-  %or.cond.not.i = icmp ult i64 %31, %33
+  %37 = icmp ult i64 %34, %32
+  %or.cond.not.i = icmp ult i64 %33, %31
   %or.cond.i = select i1 %37, i1 true, i1 %or.cond.not.i
   br i1 %or.cond.i, label %i128_ucomp.exit.i, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %36, %i128_shl64.exit.i
-  %38 = sub i64 %32, %34
-  %39 = icmp ugt i64 %33, %31
+  %38 = sub i64 %34, %32
+  %39 = icmp ugt i64 %31, %33
   %40 = sext i1 %39 to i64
   %spec.select.i.i = add i64 %38, %40
-  %41 = sub i64 %31, %33
+  %41 = sub i64 %33, %31
   br label %i128_ucomp.exit.i
 
 i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %36
-  %42 = phi i64 [ %31, %36 ], [ %41, %select.unfold.i ]
-  %43 = phi i64 [ %32, %36 ], [ %spec.select.i.i, %select.unfold.i ]
-  %44 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %33, i64 63)
-  %45 = lshr i64 %34, 1
+  %42 = phi i64 [ %33, %36 ], [ %41, %select.unfold.i ]
+  %43 = phi i64 [ %34, %36 ], [ %spec.select.i.i, %select.unfold.i ]
+  %44 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %31, i64 63)
+  %45 = lshr i64 %32, 1
   %46 = add nsw i32 %.0.i, -1
   %.not18.i = icmp eq i32 %.0.i, 0
   br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !7
@@ -432,44 +432,44 @@ define dso_local { i64, i64 } @i128_udiv(i64 %0, i64 %1, i64 %2, i64 %3) local_u
   br label %i128_shl64.exit.i.preheader
 
 i128_shl64.exit.i.preheader:                      ; preds = %25, %22, %18, %16, %13
-  %.ph = phi i64 [ %3, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ %30, %25 ]
-  %.ph8 = phi i64 [ %2, %13 ], [ 0, %16 ], [ %3, %18 ], [ %24, %22 ], [ %29, %25 ]
+  %.ph = phi i64 [ 0, %18 ], [ 0, %16 ], [ %3, %13 ], [ %30, %25 ], [ 0, %22 ]
+  %.ph8 = phi i64 [ %3, %18 ], [ 0, %16 ], [ %2, %13 ], [ %29, %25 ], [ %24, %22 ]
   br label %i128_shl64.exit.i
 
 i128_shl64.exit.i:                                ; preds = %i128_shl64.exit.i.preheader, %i128_ucomp.exit.i
-  %31 = phi i64 [ %47, %i128_ucomp.exit.i ], [ %1, %i128_shl64.exit.i.preheader ]
-  %32 = phi i64 [ %48, %i128_ucomp.exit.i ], [ %0, %i128_shl64.exit.i.preheader ]
-  %33 = phi i64 [ %49, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
-  %34 = phi i64 [ %37, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
-  %35 = phi i64 [ %50, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
-  %36 = phi i64 [ %51, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %31 = phi i64 [ %50, %i128_ucomp.exit.i ], [ %.ph, %i128_shl64.exit.i.preheader ]
+  %32 = phi i64 [ %51, %i128_ucomp.exit.i ], [ %.ph8, %i128_shl64.exit.i.preheader ]
+  %33 = phi i64 [ %47, %i128_ucomp.exit.i ], [ %1, %i128_shl64.exit.i.preheader ]
+  %34 = phi i64 [ %48, %i128_ucomp.exit.i ], [ %0, %i128_shl64.exit.i.preheader ]
+  %35 = phi i64 [ %49, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
+  %36 = phi i64 [ %37, %i128_ucomp.exit.i ], [ 0, %i128_shl64.exit.i.preheader ]
   %.0.i = phi i32 [ %52, %i128_ucomp.exit.i ], [ %11, %i128_shl64.exit.i.preheader ]
-  %37 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %33, i64 1)
-  %38 = shl i64 %33, 1
-  %39 = icmp ugt i64 %32, %36
+  %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %35, i64 1)
+  %38 = shl i64 %35, 1
+  %39 = icmp ugt i64 %34, %32
   br i1 %39, label %select.unfold.i, label %40
 
 40:                                               ; preds = %i128_shl64.exit.i
-  %41 = icmp ult i64 %32, %36
-  %or.cond.not.i = icmp ult i64 %31, %35
+  %41 = icmp ult i64 %34, %32
+  %or.cond.not.i = icmp ult i64 %33, %31
   %or.cond.i = select i1 %41, i1 true, i1 %or.cond.not.i
   br i1 %or.cond.i, label %i128_ucomp.exit.i, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %40, %i128_shl64.exit.i
-  %42 = sub i64 %32, %36
-  %43 = icmp ugt i64 %35, %31
+  %42 = sub i64 %34, %32
+  %43 = icmp ugt i64 %31, %33
   %44 = sext i1 %43 to i64
   %spec.select.i.i = add i64 %42, %44
-  %45 = sub i64 %31, %35
+  %45 = sub i64 %33, %31
   %46 = or disjoint i64 %38, 1
   br label %i128_ucomp.exit.i
 
 i128_ucomp.exit.i:                                ; preds = %select.unfold.i, %40
-  %47 = phi i64 [ %31, %40 ], [ %45, %select.unfold.i ]
-  %48 = phi i64 [ %32, %40 ], [ %spec.select.i.i, %select.unfold.i ]
+  %47 = phi i64 [ %33, %40 ], [ %45, %select.unfold.i ]
+  %48 = phi i64 [ %34, %40 ], [ %spec.select.i.i, %select.unfold.i ]
   %49 = phi i64 [ %38, %40 ], [ %46, %select.unfold.i ]
-  %50 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %35, i64 63)
-  %51 = lshr i64 %36, 1
+  %50 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %31, i64 63)
+  %51 = lshr i64 %32, 1
   %52 = add nsw i32 %.0.i, -1
   %.not18.i = icmp eq i32 %.0.i, 0
   br i1 %.not18.i, label %i128_udivrem.exit, label %i128_shl64.exit.i, !llvm.loop !7
@@ -1837,44 +1837,44 @@ define dso_local void @i128_udivrem(i64 %0, i64 %1, i64 %2, i64 %3, ptr nocaptur
   br label %i128_shl64.exit.preheader
 
 i128_shl64.exit.preheader:                        ; preds = %16, %19, %21, %25, %28
-  %.ph = phi i64 [ %33, %28 ], [ 0, %25 ], [ 0, %21 ], [ 0, %19 ], [ %3, %16 ]
-  %.ph48 = phi i64 [ %32, %28 ], [ %27, %25 ], [ %3, %21 ], [ 0, %19 ], [ %2, %16 ]
+  %.ph = phi i64 [ 0, %21 ], [ 0, %19 ], [ %3, %16 ], [ %33, %28 ], [ 0, %25 ]
+  %.ph50 = phi i64 [ %3, %21 ], [ 0, %19 ], [ %2, %16 ], [ %32, %28 ], [ %27, %25 ]
   br label %i128_shl64.exit
 
 i128_shl64.exit:                                  ; preds = %i128_shl64.exit.preheader, %i128_ucomp.exit
-  %34 = phi i64 [ %50, %i128_ucomp.exit ], [ %1, %i128_shl64.exit.preheader ]
-  %35 = phi i64 [ %51, %i128_ucomp.exit ], [ %0, %i128_shl64.exit.preheader ]
-  %36 = phi i64 [ %52, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
-  %37 = phi i64 [ %40, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
-  %38 = phi i64 [ %53, %i128_ucomp.exit ], [ %.ph, %i128_shl64.exit.preheader ]
-  %39 = phi i64 [ %54, %i128_ucomp.exit ], [ %.ph48, %i128_shl64.exit.preheader ]
+  %34 = phi i64 [ %53, %i128_ucomp.exit ], [ %.ph, %i128_shl64.exit.preheader ]
+  %35 = phi i64 [ %54, %i128_ucomp.exit ], [ %.ph50, %i128_shl64.exit.preheader ]
+  %36 = phi i64 [ %50, %i128_ucomp.exit ], [ %1, %i128_shl64.exit.preheader ]
+  %37 = phi i64 [ %51, %i128_ucomp.exit ], [ %0, %i128_shl64.exit.preheader ]
+  %38 = phi i64 [ %52, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
+  %39 = phi i64 [ %40, %i128_ucomp.exit ], [ 0, %i128_shl64.exit.preheader ]
   %.0 = phi i32 [ %55, %i128_ucomp.exit ], [ %13, %i128_shl64.exit.preheader ]
-  %40 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %36, i64 1)
-  %41 = shl i64 %36, 1
-  %42 = icmp ugt i64 %35, %39
+  %40 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %38, i64 1)
+  %41 = shl i64 %38, 1
+  %42 = icmp ugt i64 %37, %35
   br i1 %42, label %select.unfold, label %43
 
 43:                                               ; preds = %i128_shl64.exit
-  %44 = icmp ult i64 %35, %39
-  %or.cond.not = icmp ult i64 %34, %38
+  %44 = icmp ult i64 %37, %35
+  %or.cond.not = icmp ult i64 %36, %34
   %or.cond = select i1 %44, i1 true, i1 %or.cond.not
   br i1 %or.cond, label %i128_ucomp.exit, label %select.unfold
 
 select.unfold:                                    ; preds = %43, %i128_shl64.exit
-  %45 = sub i64 %35, %39
-  %46 = icmp ugt i64 %38, %34
+  %45 = sub i64 %37, %35
+  %46 = icmp ugt i64 %34, %36
   %47 = sext i1 %46 to i64
   %spec.select.i = add i64 %45, %47
-  %48 = sub i64 %34, %38
+  %48 = sub i64 %36, %34
   %49 = or disjoint i64 %41, 1
   br label %i128_ucomp.exit
 
 i128_ucomp.exit:                                  ; preds = %43, %select.unfold
-  %50 = phi i64 [ %34, %43 ], [ %48, %select.unfold ]
-  %51 = phi i64 [ %35, %43 ], [ %spec.select.i, %select.unfold ]
+  %50 = phi i64 [ %36, %43 ], [ %48, %select.unfold ]
+  %51 = phi i64 [ %37, %43 ], [ %spec.select.i, %select.unfold ]
   %52 = phi i64 [ %41, %43 ], [ %49, %select.unfold ]
-  %53 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %38, i64 63)
-  %54 = lshr i64 %39, 1
+  %53 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %34, i64 63)
+  %54 = lshr i64 %35, 1
   %55 = add nsw i32 %.0, -1
   %.not18 = icmp eq i32 %.0, 0
   br i1 %.not18, label %56, label %i128_shl64.exit, !llvm.loop !7
@@ -1980,38 +1980,38 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
-  %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph36 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph = phi i64 [ 0, %36 ], [ 0, %34 ], [ %.sroa.5.0, %31 ], [ %48, %43 ], [ 0, %40 ]
+  %.ph36 = phi i64 [ %.sroa.5.0, %36 ], [ 0, %34 ], [ %.sroa.07.0, %31 ], [ %47, %43 ], [ %42, %40 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
-  %49 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
-  %50 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
-  %51 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %52 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph36, %i128_shl64.exit.i.i.preheader ]
+  %49 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
+  %50 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph36, %i128_shl64.exit.i.i.preheader ]
+  %51 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
+  %52 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %64, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
-  %53 = icmp ugt i64 %50, %52
+  %53 = icmp ugt i64 %52, %50
   br i1 %53, label %select.unfold.i.i, label %54
 
 54:                                               ; preds = %i128_shl64.exit.i.i
-  %55 = icmp ult i64 %50, %52
-  %or.cond.not.i.i = icmp ult i64 %49, %51
+  %55 = icmp ult i64 %52, %50
+  %or.cond.not.i.i = icmp ult i64 %51, %49
   %or.cond.i.i = select i1 %55, i1 true, i1 %or.cond.not.i.i
   br i1 %or.cond.i.i, label %i128_ucomp.exit.i.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %54, %i128_shl64.exit.i.i
-  %56 = sub i64 %50, %52
-  %57 = icmp ugt i64 %51, %49
+  %56 = sub i64 %52, %50
+  %57 = icmp ugt i64 %49, %51
   %58 = sext i1 %57 to i64
   %spec.select.i.i.i = add i64 %56, %58
-  %59 = sub i64 %49, %51
+  %59 = sub i64 %51, %49
   br label %i128_ucomp.exit.i.i
 
 i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, %54
-  %60 = phi i64 [ %49, %54 ], [ %59, %select.unfold.i.i ]
-  %61 = phi i64 [ %50, %54 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
-  %62 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %51, i64 63)
-  %63 = lshr i64 %52, 1
+  %60 = phi i64 [ %51, %54 ], [ %59, %select.unfold.i.i ]
+  %61 = phi i64 [ %52, %54 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
+  %62 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %49, i64 63)
+  %63 = lshr i64 %50, 1
   %64 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
@@ -2148,44 +2148,44 @@ i128_neg.exit25:                                  ; preds = %18, %17, %i128_neg.
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %43, %40, %36, %34, %31
-  %.ph = phi i64 [ %.sroa.5.0, %31 ], [ 0, %34 ], [ 0, %36 ], [ 0, %40 ], [ %48, %43 ]
-  %.ph46 = phi i64 [ %.sroa.07.0, %31 ], [ 0, %34 ], [ %.sroa.5.0, %36 ], [ %42, %40 ], [ %47, %43 ]
+  %.ph = phi i64 [ 0, %36 ], [ 0, %34 ], [ %.sroa.5.0, %31 ], [ %48, %43 ], [ 0, %40 ]
+  %.ph46 = phi i64 [ %.sroa.5.0, %36 ], [ 0, %34 ], [ %.sroa.07.0, %31 ], [ %47, %43 ], [ %42, %40 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
-  %49 = phi i64 [ %65, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
-  %50 = phi i64 [ %66, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
-  %51 = phi i64 [ %67, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
-  %52 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
-  %53 = phi i64 [ %68, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %54 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph46, %i128_shl64.exit.i.i.preheader ]
+  %49 = phi i64 [ %68, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
+  %50 = phi i64 [ %69, %i128_ucomp.exit.i.i ], [ %.ph46, %i128_shl64.exit.i.i.preheader ]
+  %51 = phi i64 [ %65, %i128_ucomp.exit.i.i ], [ %.sroa.514.0, %i128_shl64.exit.i.i.preheader ]
+  %52 = phi i64 [ %66, %i128_ucomp.exit.i.i ], [ %.sroa.011.0, %i128_shl64.exit.i.i.preheader ]
+  %53 = phi i64 [ %67, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
+  %54 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %70, %i128_ucomp.exit.i.i ], [ %29, %i128_shl64.exit.i.i.preheader ]
-  %55 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %51, i64 1)
-  %56 = shl i64 %51, 1
-  %57 = icmp ugt i64 %50, %54
+  %55 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %53, i64 1)
+  %56 = shl i64 %53, 1
+  %57 = icmp ugt i64 %52, %50
   br i1 %57, label %select.unfold.i.i, label %58
 
 58:                                               ; preds = %i128_shl64.exit.i.i
-  %59 = icmp ult i64 %50, %54
-  %or.cond.not.i.i = icmp ult i64 %49, %53
+  %59 = icmp ult i64 %52, %50
+  %or.cond.not.i.i = icmp ult i64 %51, %49
   %or.cond.i.i = select i1 %59, i1 true, i1 %or.cond.not.i.i
   br i1 %or.cond.i.i, label %i128_ucomp.exit.i.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %58, %i128_shl64.exit.i.i
-  %60 = sub i64 %50, %54
-  %61 = icmp ugt i64 %53, %49
+  %60 = sub i64 %52, %50
+  %61 = icmp ugt i64 %49, %51
   %62 = sext i1 %61 to i64
   %spec.select.i.i.i = add i64 %60, %62
-  %63 = sub i64 %49, %53
+  %63 = sub i64 %51, %49
   %64 = or disjoint i64 %56, 1
   br label %i128_ucomp.exit.i.i
 
 i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, %58
-  %65 = phi i64 [ %49, %58 ], [ %63, %select.unfold.i.i ]
-  %66 = phi i64 [ %50, %58 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
+  %65 = phi i64 [ %51, %58 ], [ %63, %select.unfold.i.i ]
+  %66 = phi i64 [ %52, %58 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
   %67 = phi i64 [ %56, %58 ], [ %64, %select.unfold.i.i ]
-  %68 = tail call i64 @llvm.fshl.i64(i64 %54, i64 %53, i64 63)
-  %69 = lshr i64 %54, 1
+  %68 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %49, i64 63)
+  %69 = lshr i64 %50, 1
   %70 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
@@ -3201,44 +3201,44 @@ define dso_local void @int_div(ptr dead_on_unwind noalias nocapture writable wri
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %37, %34, %30, %28, %25
-  %.ph = phi i64 [ %15, %25 ], [ 0, %28 ], [ 0, %30 ], [ 0, %34 ], [ %42, %37 ]
-  %.ph10 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
+  %.ph = phi i64 [ 0, %30 ], [ 0, %28 ], [ %15, %25 ], [ %42, %37 ], [ 0, %34 ]
+  %.ph10 = phi i64 [ %15, %30 ], [ 0, %28 ], [ %13, %25 ], [ %41, %37 ], [ %36, %34 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
-  %43 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %12, %i128_shl64.exit.i.i.preheader ]
-  %44 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %10, %i128_shl64.exit.i.i.preheader ]
-  %45 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
-  %46 = phi i64 [ %49, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
-  %47 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %48 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %43 = phi i64 [ %62, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
+  %44 = phi i64 [ %63, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %45 = phi i64 [ %59, %i128_ucomp.exit.i.i ], [ %12, %i128_shl64.exit.i.i.preheader ]
+  %46 = phi i64 [ %60, %i128_ucomp.exit.i.i ], [ %10, %i128_shl64.exit.i.i.preheader ]
+  %47 = phi i64 [ %61, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
+  %48 = phi i64 [ %49, %i128_ucomp.exit.i.i ], [ 0, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %64, %i128_ucomp.exit.i.i ], [ %23, %i128_shl64.exit.i.i.preheader ]
-  %49 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %45, i64 1)
-  %50 = shl i64 %45, 1
-  %51 = icmp ugt i64 %44, %48
+  %49 = tail call i64 @llvm.fshl.i64(i64 %48, i64 %47, i64 1)
+  %50 = shl i64 %47, 1
+  %51 = icmp ugt i64 %46, %44
   br i1 %51, label %select.unfold.i.i, label %52
 
 52:                                               ; preds = %i128_shl64.exit.i.i
-  %53 = icmp ult i64 %44, %48
-  %or.cond.not.i.i = icmp ult i64 %43, %47
+  %53 = icmp ult i64 %46, %44
+  %or.cond.not.i.i = icmp ult i64 %45, %43
   %or.cond.i.i = select i1 %53, i1 true, i1 %or.cond.not.i.i
   br i1 %or.cond.i.i, label %i128_ucomp.exit.i.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %52, %i128_shl64.exit.i.i
-  %54 = sub i64 %44, %48
-  %55 = icmp ugt i64 %47, %43
+  %54 = sub i64 %46, %44
+  %55 = icmp ugt i64 %43, %45
   %56 = sext i1 %55 to i64
   %spec.select.i.i.i = add i64 %54, %56
-  %57 = sub i64 %43, %47
+  %57 = sub i64 %45, %43
   %58 = or disjoint i64 %50, 1
   br label %i128_ucomp.exit.i.i
 
 i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, %52
-  %59 = phi i64 [ %43, %52 ], [ %57, %select.unfold.i.i ]
-  %60 = phi i64 [ %44, %52 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
+  %59 = phi i64 [ %45, %52 ], [ %57, %select.unfold.i.i ]
+  %60 = phi i64 [ %46, %52 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
   %61 = phi i64 [ %50, %52 ], [ %58, %select.unfold.i.i ]
-  %62 = tail call i64 @llvm.fshl.i64(i64 %48, i64 %47, i64 63)
-  %63 = lshr i64 %48, 1
+  %62 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %43, i64 63)
+  %63 = lshr i64 %44, 1
   %64 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_udiv.exit, label %i128_shl64.exit.i.i, !llvm.loop !7
@@ -3330,38 +3330,38 @@ define dso_local void @int_rem(ptr dead_on_unwind noalias nocapture writable wri
   br label %i128_shl64.exit.i.i.preheader
 
 i128_shl64.exit.i.i.preheader:                    ; preds = %37, %34, %30, %28, %25
-  %.ph = phi i64 [ %15, %25 ], [ 0, %28 ], [ 0, %30 ], [ 0, %34 ], [ %42, %37 ]
-  %.ph10 = phi i64 [ %13, %25 ], [ 0, %28 ], [ %15, %30 ], [ %36, %34 ], [ %41, %37 ]
+  %.ph = phi i64 [ 0, %30 ], [ 0, %28 ], [ %15, %25 ], [ %42, %37 ], [ 0, %34 ]
+  %.ph10 = phi i64 [ %15, %30 ], [ 0, %28 ], [ %13, %25 ], [ %41, %37 ], [ %36, %34 ]
   br label %i128_shl64.exit.i.i
 
 i128_shl64.exit.i.i:                              ; preds = %i128_shl64.exit.i.i.preheader, %i128_ucomp.exit.i.i
-  %43 = phi i64 [ %54, %i128_ucomp.exit.i.i ], [ %12, %i128_shl64.exit.i.i.preheader ]
-  %44 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ %10, %i128_shl64.exit.i.i.preheader ]
-  %45 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
-  %46 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %43 = phi i64 [ %56, %i128_ucomp.exit.i.i ], [ %.ph, %i128_shl64.exit.i.i.preheader ]
+  %44 = phi i64 [ %57, %i128_ucomp.exit.i.i ], [ %.ph10, %i128_shl64.exit.i.i.preheader ]
+  %45 = phi i64 [ %54, %i128_ucomp.exit.i.i ], [ %12, %i128_shl64.exit.i.i.preheader ]
+  %46 = phi i64 [ %55, %i128_ucomp.exit.i.i ], [ %10, %i128_shl64.exit.i.i.preheader ]
   %.0.i.i = phi i32 [ %58, %i128_ucomp.exit.i.i ], [ %23, %i128_shl64.exit.i.i.preheader ]
-  %47 = icmp ugt i64 %44, %46
+  %47 = icmp ugt i64 %46, %44
   br i1 %47, label %select.unfold.i.i, label %48
 
 48:                                               ; preds = %i128_shl64.exit.i.i
-  %49 = icmp ult i64 %44, %46
-  %or.cond.not.i.i = icmp ult i64 %43, %45
+  %49 = icmp ult i64 %46, %44
+  %or.cond.not.i.i = icmp ult i64 %45, %43
   %or.cond.i.i = select i1 %49, i1 true, i1 %or.cond.not.i.i
   br i1 %or.cond.i.i, label %i128_ucomp.exit.i.i, label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %48, %i128_shl64.exit.i.i
-  %50 = sub i64 %44, %46
-  %51 = icmp ugt i64 %45, %43
+  %50 = sub i64 %46, %44
+  %51 = icmp ugt i64 %43, %45
   %52 = sext i1 %51 to i64
   %spec.select.i.i.i = add i64 %50, %52
-  %53 = sub i64 %43, %45
+  %53 = sub i64 %45, %43
   br label %i128_ucomp.exit.i.i
 
 i128_ucomp.exit.i.i:                              ; preds = %select.unfold.i.i, %48
-  %54 = phi i64 [ %43, %48 ], [ %53, %select.unfold.i.i ]
-  %55 = phi i64 [ %44, %48 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
-  %56 = tail call i64 @llvm.fshl.i64(i64 %46, i64 %45, i64 63)
-  %57 = lshr i64 %46, 1
+  %54 = phi i64 [ %45, %48 ], [ %53, %select.unfold.i.i ]
+  %55 = phi i64 [ %46, %48 ], [ %spec.select.i.i.i, %select.unfold.i.i ]
+  %56 = tail call i64 @llvm.fshl.i64(i64 %44, i64 %43, i64 63)
+  %57 = lshr i64 %44, 1
   %58 = add nsw i32 %.0.i.i, -1
   %.not18.i.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not18.i.i, label %i128_urem.exit, label %i128_shl64.exit.i.i, !llvm.loop !7

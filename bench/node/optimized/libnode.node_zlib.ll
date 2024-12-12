@@ -9081,7 +9081,7 @@ sw.default.i:                                     ; preds = %entry
   br i1 %9, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
 switch.lookup:                                    ; preds = %sw.default.i
-  %switch.tableidx5 = add nsw i32 %0, 6
+  %switch.tableidx5 = add i32 %0, 6
   %10 = sext i32 %switch.tableidx5 to i64
   %switch.gep6 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
   %switch.load7 = load ptr, ptr %switch.gep6, align 8

@@ -26171,158 +26171,58 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3
 if.end.i:                                         ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit.i, %entry
   %14 = load i64, ptr %size.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
-  %my_segment_table.i.i.i43.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %or.i.i.i.i.i = or i64 %2, 1
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i, i1 true)
   %xor.i.i.i.i.i.i.i = xor i64 %15, 63
-  br i1 %cmp.i.i, label %for.cond.us.i, label %for.cond.i
+  %my_segment_table.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %for.cond.i
 
-for.cond.us.i:                                    ; preds = %if.end.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.us.i
-  %j.0.us.i = phi i64 [ %dec.us.us.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.us.i ], [ %14, %if.end.i ]
-  %i.0.us.i = phi i64 [ %inc.us.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.us.i ], [ 0, %if.end.i ]
-  br label %do.body.us.us.i
-
-do.body7.us.i:                                    ; preds = %do.body.us.us.i, %if.end10.us.i
-  %i.1.us.i = phi i64 [ %inc.us.i, %if.end10.us.i ], [ %i.0.us.i, %do.body.us.us.i ]
-  %cmp8.us.i = icmp eq i64 %i.1.us.i, %dec.us.us.i
-  br i1 %cmp8.us.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i, label %if.end10.us.i
-
-if.end10.us.i:                                    ; preds = %do.body7.us.i
-  %inc.us.i = add i64 %i.1.us.i, 1
-  %add.i50.us.i = add i64 %inc.us.i, %2
-  %or.i.i.i.i51.us.i = or i64 %add.i50.us.i, 1
-  %16 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i51.us.i, i1 true)
-  %xor.i.i.i.i.i.i52.us.i = xor i64 %16, 63
-  %17 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i54.us.i = inttoptr i64 %17 to ptr
-  %arrayidx.i.i.i55.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i54.us.i, i64 %xor.i.i.i.i.i.i52.us.i
-  %18 = load atomic i64, ptr %arrayidx.i.i.i55.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i56.us.i = inttoptr i64 %18 to ptr
-  %arrayidx4.i.i.i57.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i56.us.i, i64 %add.i50.us.i
-  %19 = load ptr, ptr %arrayidx4.i.i.i57.us.i, align 8
-  %20 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i66.us.i = inttoptr i64 %20 to ptr
-  %arrayidx.i.i.i67.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i66.us.i, i64 %xor.i.i.i.i.i.i.i
-  %21 = load atomic i64, ptr %arrayidx.i.i.i67.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i68.us.i = inttoptr i64 %21 to ptr
-  %arrayidx4.i.i.i69.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i68.us.i, i64 %2
-  %22 = load ptr, ptr %arrayidx4.i.i.i69.us.i, align 8
-  %.val.us.i = load ptr, ptr %19, align 8
-  %23 = getelementptr i8, ptr %19, i64 80
-  %.val19.us.i = load i32, ptr %23, align 8
-  %.val20.us.i = load ptr, ptr %22, align 8
-  %24 = getelementptr i8, ptr %22, i64 80
-  %.val21.us.i = load i32, ptr %24, align 8
-  %25 = getelementptr i8, ptr %.val.us.i, i64 116
-  %.val.val.us.i = load i32, ptr %25, align 4
-  %26 = getelementptr i8, ptr %.val20.us.i, i64 116
-  %.val20.val.us.i = load i32, ptr %26, align 4
-  %conv.i.i71.us.i = zext i32 %.val.val.us.i to i64
-  %shl.i.i72.us.i = shl nuw i64 %conv.i.i71.us.i, 32
-  %conv2.i.i73.us.i = zext i32 %.val19.us.i to i64
-  %or.i.i74.us.i = or disjoint i64 %shl.i.i72.us.i, %conv2.i.i73.us.i
-  %conv.i2.i75.us.i = zext i32 %.val20.val.us.i to i64
-  %shl.i3.i76.us.i = shl nuw i64 %conv.i2.i75.us.i, 32
-  %conv2.i5.i77.us.i = zext i32 %.val21.us.i to i64
-  %or.i6.i78.us.i = or disjoint i64 %shl.i3.i76.us.i, %conv2.i5.i77.us.i
-  %cmp.i79.us.i = icmp slt i64 %or.i.i74.us.i, %or.i6.i78.us.i
-  br i1 %cmp.i79.us.i, label %do.body7.us.i, label %do.end16.us.i, !llvm.loop !420
-
-do.end16.us.i:                                    ; preds = %if.end10.us.i
-  %cmp17.us.i = icmp eq i64 %inc.us.i, %dec.us.us.i
-  br i1 %cmp17.us.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i, label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.us.i
-
-_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.us.i: ; preds = %do.end16.us.i
-  %27 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i109.us.i = inttoptr i64 %27 to ptr
-  %arrayidx.i.i.i.i110.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i109.us.i, i64 %xor.i.i.i.i.i.i52.us.i
-  %28 = load atomic i64, ptr %arrayidx.i.i.i.i110.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i.i111.us.i = inttoptr i64 %28 to ptr
-  %arrayidx4.i.i.i.i112.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i111.us.i, i64 %add.i50.us.i
-  %29 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i9.i100.us.i = inttoptr i64 %29 to ptr
-  %arrayidx.i.i.i10.i101.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i9.i100.us.i, i64 %xor.i.i.i.i.i.i42.us.us.i
-  %30 = load atomic i64, ptr %arrayidx.i.i.i10.i101.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i11.i102.us.i = inttoptr i64 %30 to ptr
-  %arrayidx4.i.i.i12.i103.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i102.us.i, i64 %add.i40.us.us.i
-  %31 = load ptr, ptr %arrayidx4.i.i.i.i112.us.i, align 8
-  %32 = load ptr, ptr %arrayidx4.i.i.i12.i103.us.i, align 8
-  store ptr %32, ptr %arrayidx4.i.i.i.i112.us.i, align 8
-  store ptr %31, ptr %arrayidx4.i.i.i12.i103.us.i, align 8
-  br label %for.cond.us.i, !llvm.loop !421
-
-do.body.us.us.i:                                  ; preds = %do.body.us.us.i, %for.cond.us.i
-  %j.1.us.us.i = phi i64 [ %j.0.us.i, %for.cond.us.i ], [ %dec.us.us.i, %do.body.us.us.i ]
-  %dec.us.us.i = add i64 %j.1.us.us.i, -1
-  %33 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.us.us.i = inttoptr i64 %33 to ptr
-  %arrayidx.i.i.i.us.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.us.us.i, i64 %xor.i.i.i.i.i.i.i
-  %34 = load atomic i64, ptr %arrayidx.i.i.i.us.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i.us.us.i = inttoptr i64 %34 to ptr
-  %arrayidx4.i.i.i.us.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.us.us.i, i64 %2
-  %35 = load ptr, ptr %arrayidx4.i.i.i.us.us.i, align 8
-  %add.i40.us.us.i = add i64 %dec.us.us.i, %2
-  %or.i.i.i.i41.us.us.i = or i64 %add.i40.us.us.i, 1
-  %36 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i41.us.us.i, i1 true)
-  %xor.i.i.i.i.i.i42.us.us.i = xor i64 %36, 63
-  %37 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i44.us.us.i = inttoptr i64 %37 to ptr
-  %arrayidx.i.i.i45.us.us.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i44.us.us.i, i64 %xor.i.i.i.i.i.i42.us.us.i
-  %38 = load atomic i64, ptr %arrayidx.i.i.i45.us.us.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i46.us.us.i = inttoptr i64 %38 to ptr
-  %arrayidx4.i.i.i47.us.us.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i46.us.us.i, i64 %add.i40.us.us.i
-  %39 = load ptr, ptr %arrayidx4.i.i.i47.us.us.i, align 8
-  %.val22.us.us.i = load ptr, ptr %35, align 8
-  %40 = getelementptr i8, ptr %35, i64 80
-  %.val23.us.us.i = load i32, ptr %40, align 8
-  %.val24.us.us.i = load ptr, ptr %39, align 8
-  %41 = getelementptr i8, ptr %39, i64 80
-  %.val25.us.us.i = load i32, ptr %41, align 8
-  %42 = getelementptr i8, ptr %.val22.us.us.i, i64 116
-  %.val22.val.us.us.i = load i32, ptr %42, align 4
-  %43 = getelementptr i8, ptr %.val24.us.us.i, i64 116
-  %.val24.val.us.us.i = load i32, ptr %43, align 4
-  %conv.i.i.us.us.i = zext i32 %.val22.val.us.us.i to i64
-  %shl.i.i.us.us.i = shl nuw i64 %conv.i.i.us.us.i, 32
-  %conv2.i.i.us.us.i = zext i32 %.val23.us.us.i to i64
-  %or.i.i.us.us.i = or disjoint i64 %shl.i.i.us.us.i, %conv2.i.i.us.us.i
-  %conv.i2.i.us.us.i = zext i32 %.val24.val.us.us.i to i64
-  %shl.i3.i.us.us.i = shl nuw i64 %conv.i2.i.us.us.i, 32
-  %conv2.i5.i.us.us.i = zext i32 %.val25.us.us.i to i64
-  %or.i6.i.us.us.i = or disjoint i64 %shl.i3.i.us.us.i, %conv2.i5.i.us.us.i
-  %cmp.i48.us.us.i = icmp slt i64 %or.i.i.us.us.i, %or.i6.i.us.us.i
-  br i1 %cmp.i48.us.us.i, label %do.body.us.us.i, label %do.body7.us.i, !llvm.loop !422
-
-for.cond.i:                                       ; preds = %if.end.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i
-  %j.0.i = phi i64 [ %dec.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i ], [ %14, %if.end.i ]
-  %i.0.i = phi i64 [ %inc.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i ], [ 0, %if.end.i ]
+for.cond.i:                                       ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i, %if.end.i
+  %j.0.i = phi i64 [ %14, %if.end.i ], [ %dec.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i ]
+  %i.0.i = phi i64 [ 0, %if.end.i ], [ %inc.i, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i ]
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.body.i, %for.cond.i
-  %j.1.i = phi i64 [ %j.0.i, %for.cond.i ], [ %dec.i, %do.body.i ]
+do.body.i:                                        ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i, %for.cond.i
+  %j.1.i = phi i64 [ %j.0.i, %for.cond.i ], [ %dec.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i ]
   %dec.i = add i64 %j.1.i, -1
-  %44 = load ptr, ptr %3, align 8
-  %add.i40.i = add i64 %dec.i, %2
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i
+
+if.then.i.i:                                      ; preds = %do.body.i
+  %16 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %16 to ptr
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i
+  %17 = load atomic i64, ptr %arrayidx.i.i.i.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i.i = inttoptr i64 %17 to ptr
+  %arrayidx4.i.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i, i64 %2
+  br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i
+
+_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i: ; preds = %if.then.i.i, %do.body.i
+  %item.0.i.i = phi ptr [ %arrayidx4.i.i.i.i, %if.then.i.i ], [ %3, %do.body.i ]
+  %18 = load ptr, ptr %item.0.i.i, align 8
+  %19 = load ptr, ptr %array.i, align 8
+  %20 = load i64, ptr %my_index.i.i, align 8
+  %add.i40.i = add i64 %20, %dec.i
   %or.i.i.i.i41.i = or i64 %add.i40.i, 1
-  %45 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i41.i, i1 true)
-  %xor.i.i.i.i.i.i42.i = xor i64 %45, 63
-  %46 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i44.i = inttoptr i64 %46 to ptr
+  %21 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i41.i, i1 true)
+  %xor.i.i.i.i.i.i42.i = xor i64 %21, 63
+  %my_segment_table.i.i.i43.i = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %22 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i44.i = inttoptr i64 %22 to ptr
   %arrayidx.i.i.i45.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i44.i, i64 %xor.i.i.i.i.i.i42.i
-  %47 = load atomic i64, ptr %arrayidx.i.i.i45.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i46.i = inttoptr i64 %47 to ptr
+  %23 = load atomic i64, ptr %arrayidx.i.i.i45.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i46.i = inttoptr i64 %23 to ptr
   %arrayidx4.i.i.i47.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i46.i, i64 %add.i40.i
-  %48 = load ptr, ptr %arrayidx4.i.i.i47.i, align 8
-  %.val22.i = load ptr, ptr %44, align 8
-  %49 = getelementptr i8, ptr %44, i64 80
-  %.val23.i = load i32, ptr %49, align 8
-  %.val24.i = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %48, i64 80
-  %.val25.i = load i32, ptr %50, align 8
-  %51 = getelementptr i8, ptr %.val22.i, i64 116
-  %.val22.val.i = load i32, ptr %51, align 4
-  %52 = getelementptr i8, ptr %.val24.i, i64 116
-  %.val24.val.i = load i32, ptr %52, align 4
+  %24 = load ptr, ptr %arrayidx4.i.i.i47.i, align 8
+  %.val22.i = load ptr, ptr %18, align 8
+  %25 = getelementptr i8, ptr %18, i64 80
+  %.val23.i = load i32, ptr %25, align 8
+  %.val24.i = load ptr, ptr %24, align 8
+  %26 = getelementptr i8, ptr %24, i64 80
+  %.val25.i = load i32, ptr %26, align 8
+  %27 = getelementptr i8, ptr %.val22.i, i64 116
+  %.val22.val.i = load i32, ptr %27, align 4
+  %28 = getelementptr i8, ptr %.val24.i, i64 116
+  %.val24.val.i = load i32, ptr %28, align 4
   %conv.i.i.i = zext i32 %.val22.val.i to i64
   %shl.i.i.i = shl nuw i64 %conv.i.i.i, 32
   %conv2.i.i.i = zext i32 %.val23.i to i64
@@ -26332,44 +26232,53 @@ do.body.i:                                        ; preds = %do.body.i, %for.con
   %conv2.i5.i.i = zext i32 %.val25.i to i64
   %or.i6.i.i = or disjoint i64 %shl.i3.i.i, %conv2.i5.i.i
   %cmp.i48.i = icmp slt i64 %or.i.i.i, %or.i6.i.i
-  br i1 %cmp.i48.i, label %do.body.i, label %do.body7.i, !llvm.loop !422
+  br i1 %cmp.i48.i, label %do.body.i, label %do.body7.i, !llvm.loop !420
 
-do.body7.i:                                       ; preds = %do.body.i, %if.end10.i
-  %i.1.i = phi i64 [ %inc.i, %if.end10.i ], [ %i.0.i, %do.body.i ]
+do.body7.i:                                       ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i
+  %i.1.i = phi i64 [ %inc.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i ], [ %i.0.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i ]
   %cmp8.i = icmp eq i64 %i.1.i, %dec.i
-  br i1 %cmp8.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread, label %if.end10.i
-
-_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread: ; preds = %do.body7.i
-  %53 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i143.i14 = inttoptr i64 %53 to ptr
-  %arrayidx.i.i.i.i144.i15 = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i143.i14, i64 %xor.i.i.i.i.i.i42.i
-  %54 = load atomic i64, ptr %arrayidx.i.i.i.i144.i15 acquire, align 8
-  br label %_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit
+  br i1 %cmp8.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %do.body7.i
   %inc.i = add i64 %i.1.i, 1
-  %add.i50.i = add i64 %inc.i, %2
+  %29 = load ptr, ptr %array.i, align 8
+  %30 = load i64, ptr %my_index.i.i, align 8
+  %add.i50.i = add i64 %30, %inc.i
   %or.i.i.i.i51.i = or i64 %add.i50.i, 1
-  %55 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i51.i, i1 true)
-  %xor.i.i.i.i.i.i52.i = xor i64 %55, 63
-  %56 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i54.i = inttoptr i64 %56 to ptr
+  %31 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i51.i, i1 true)
+  %xor.i.i.i.i.i.i52.i = xor i64 %31, 63
+  %my_segment_table.i.i.i53.i = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %32 = load atomic i64, ptr %my_segment_table.i.i.i53.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i54.i = inttoptr i64 %32 to ptr
   %arrayidx.i.i.i55.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i54.i, i64 %xor.i.i.i.i.i.i52.i
-  %57 = load atomic i64, ptr %arrayidx.i.i.i55.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i56.i = inttoptr i64 %57 to ptr
+  %33 = load atomic i64, ptr %arrayidx.i.i.i55.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i56.i = inttoptr i64 %33 to ptr
   %arrayidx4.i.i.i57.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i56.i, i64 %add.i50.i
-  %58 = load ptr, ptr %arrayidx4.i.i.i57.i, align 8
-  %59 = load ptr, ptr %3, align 8
-  %.val.i = load ptr, ptr %58, align 8
-  %60 = getelementptr i8, ptr %58, i64 80
-  %.val19.i = load i32, ptr %60, align 8
-  %.val20.i = load ptr, ptr %59, align 8
-  %61 = getelementptr i8, ptr %59, i64 80
-  %.val21.i = load i32, ptr %61, align 8
-  %62 = getelementptr i8, ptr %.val.i, i64 116
-  %.val.val.i = load i32, ptr %62, align 4
-  %63 = getelementptr i8, ptr %.val20.i, i64 116
-  %.val20.val.i = load i32, ptr %63, align 4
+  %34 = load ptr, ptr %arrayidx4.i.i.i57.i, align 8
+  br i1 %cmp.i.i, label %if.then.i61.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i
+
+if.then.i61.i:                                    ; preds = %if.end10.i
+  %35 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i66.i = inttoptr i64 %35 to ptr
+  %arrayidx.i.i.i67.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i66.i, i64 %xor.i.i.i.i.i.i.i
+  %36 = load atomic i64, ptr %arrayidx.i.i.i67.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i68.i = inttoptr i64 %36 to ptr
+  %arrayidx4.i.i.i69.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i68.i, i64 %2
+  br label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i
+
+_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i: ; preds = %if.then.i61.i, %if.end10.i
+  %item.0.i60.i = phi ptr [ %arrayidx4.i.i.i69.i, %if.then.i61.i ], [ %3, %if.end10.i ]
+  %37 = load ptr, ptr %item.0.i60.i, align 8
+  %.val.i = load ptr, ptr %34, align 8
+  %38 = getelementptr i8, ptr %34, i64 80
+  %.val19.i = load i32, ptr %38, align 8
+  %.val20.i = load ptr, ptr %37, align 8
+  %39 = getelementptr i8, ptr %37, i64 80
+  %.val21.i = load i32, ptr %39, align 8
+  %40 = getelementptr i8, ptr %.val.i, i64 116
+  %.val.val.i = load i32, ptr %40, align 4
+  %41 = getelementptr i8, ptr %.val20.i, i64 116
+  %.val20.val.i = load i32, ptr %41, align 4
   %conv.i.i71.i = zext i32 %.val.val.i to i64
   %shl.i.i72.i = shl nuw i64 %conv.i.i71.i, 32
   %conv2.i.i73.i = zext i32 %.val19.i to i64
@@ -26379,78 +26288,90 @@ if.end10.i:                                       ; preds = %do.body7.i
   %conv2.i5.i77.i = zext i32 %.val21.i to i64
   %or.i6.i78.i = or disjoint i64 %shl.i3.i76.i, %conv2.i5.i77.i
   %cmp.i79.i = icmp slt i64 %or.i.i74.i, %or.i6.i78.i
-  br i1 %cmp.i79.i, label %do.body7.i, label %do.end16.i, !llvm.loop !420
+  br i1 %cmp.i79.i, label %do.body7.i, label %do.end16.i, !llvm.loop !421
 
-do.end16.i:                                       ; preds = %if.end10.i
+do.end16.i:                                       ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit70.i
   %cmp17.i = icmp eq i64 %inc.i, %dec.i
-  %64 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i14351.i = inttoptr i64 %64 to ptr
-  br i1 %cmp17.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i, label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i
-
-_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i: ; preds = %do.end16.i
-  %arrayidx.i.i.i.i14452.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i14351.i, i64 %xor.i.i.i.i.i.i42.i
-  %65 = load atomic i64, ptr %arrayidx.i.i.i.i14452.i acquire, align 8
-  br label %_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit
+  br i1 %cmp17.i, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i, label %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i
 
 _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS2_23cache_aligned_allocatorISA_EEEESA_EESE_EvT_T0_.exit113.i: ; preds = %do.end16.i
-  %arrayidx.i.i.i.i110.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i14351.i, i64 %xor.i.i.i.i.i.i52.i
-  %66 = load atomic i64, ptr %arrayidx.i.i.i.i110.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i.i111.i = inttoptr i64 %66 to ptr
-  %arrayidx4.i.i.i.i112.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i111.i, i64 %add.i50.i
-  %67 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i9.i100.i = inttoptr i64 %67 to ptr
-  %arrayidx.i.i.i10.i101.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i9.i100.i, i64 %xor.i.i.i.i.i.i42.i
-  %68 = load atomic i64, ptr %arrayidx.i.i.i10.i101.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i11.i102.i = inttoptr i64 %68 to ptr
-  %arrayidx4.i.i.i12.i103.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i102.i, i64 %add.i40.i
-  %69 = load ptr, ptr %arrayidx4.i.i.i.i112.i, align 8
-  %70 = load ptr, ptr %arrayidx4.i.i.i12.i103.i, align 8
-  store ptr %70, ptr %arrayidx4.i.i.i.i112.i, align 8
-  store ptr %69, ptr %arrayidx4.i.i.i12.i103.i, align 8
-  br label %for.cond.i, !llvm.loop !421
+  %42 = load ptr, ptr %array.i, align 8, !noalias !422
+  %43 = load i64, ptr %my_index.i.i, align 8, !noalias !422
+  %add.i81.i = add i64 %43, %inc.i
+  %add.i85.i = add i64 %43, %dec.i
+  %or.i.i.i.i.i106.i = or i64 %add.i81.i, 1
+  %44 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i106.i, i1 true)
+  %xor.i.i.i.i.i.i.i107.i = xor i64 %44, 63
+  %my_segment_table.i.i.i.i108.i = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %45 = load atomic i64, ptr %my_segment_table.i.i.i.i108.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i.i109.i = inttoptr i64 %45 to ptr
+  %arrayidx.i.i.i.i110.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i109.i, i64 %xor.i.i.i.i.i.i.i107.i
+  %46 = load atomic i64, ptr %arrayidx.i.i.i.i110.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i.i111.i = inttoptr i64 %46 to ptr
+  %arrayidx4.i.i.i.i112.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i111.i, i64 %add.i81.i
+  %or.i.i.i.i6.i97.i = or i64 %add.i85.i, 1
+  %47 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i6.i97.i, i1 true)
+  %xor.i.i.i.i.i.i7.i98.i = xor i64 %47, 63
+  %48 = load atomic i64, ptr %my_segment_table.i.i.i.i108.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i9.i100.i = inttoptr i64 %48 to ptr
+  %arrayidx.i.i.i10.i101.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i9.i100.i, i64 %xor.i.i.i.i.i.i7.i98.i
+  %49 = load atomic i64, ptr %arrayidx.i.i.i10.i101.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i11.i102.i = inttoptr i64 %49 to ptr
+  %arrayidx4.i.i.i12.i103.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i102.i, i64 %add.i85.i
+  %50 = load ptr, ptr %arrayidx4.i.i.i.i112.i, align 8
+  %51 = load ptr, ptr %arrayidx4.i.i.i12.i103.i, align 8
+  store ptr %51, ptr %arrayidx4.i.i.i.i112.i, align 8
+  store ptr %50, ptr %arrayidx4.i.i.i12.i103.i, align 8
+  br label %for.cond.i, !llvm.loop !425
 
-_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i: ; preds = %do.end16.us.i, %do.body7.us.i
-  %71 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i143.i = inttoptr i64 %71 to ptr
-  %arrayidx.i.i.i.i144.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i143.i, i64 %xor.i.i.i.i.i.i42.us.us.i
-  %72 = load atomic i64, ptr %arrayidx.i.i.i.i144.i acquire, align 8
-  %73 = load atomic i64, ptr %my_segment_table.i.i.i43.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i9.i134.i = inttoptr i64 %73 to ptr
+_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i: ; preds = %do.end16.i, %do.body7.i
+  %52 = load ptr, ptr %array.i, align 8, !noalias !426
+  %53 = load i64, ptr %my_index.i.i, align 8, !noalias !426
+  %add.i115.i = add i64 %53, %dec.i
+  %or.i.i.i.i.i140.i = or i64 %add.i115.i, 1
+  %54 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i.i140.i, i1 true)
+  %xor.i.i.i.i.i.i.i141.i = xor i64 %54, 63
+  %my_segment_table.i.i.i.i142.i = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %55 = load atomic i64, ptr %my_segment_table.i.i.i.i142.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i.i143.i = inttoptr i64 %55 to ptr
+  %arrayidx.i.i.i.i144.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i.i143.i, i64 %xor.i.i.i.i.i.i.i141.i
+  %56 = load atomic i64, ptr %arrayidx.i.i.i.i144.i acquire, align 8
+  br i1 %cmp.i.i, label %if.then.i4.i129.i, label %_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit
+
+if.then.i4.i129.i:                                ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i
+  %57 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i9.i134.i = inttoptr i64 %57 to ptr
   %arrayidx.i.i.i10.i135.i = getelementptr inbounds nuw %"struct.std::atomic.614", ptr %atomic-temp.i.0.i.i.i.i9.i134.i, i64 %xor.i.i.i.i.i.i.i
-  %74 = load atomic i64, ptr %arrayidx.i.i.i10.i135.i acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i11.i136.i = inttoptr i64 %74 to ptr
+  %58 = load atomic i64, ptr %arrayidx.i.i.i10.i135.i acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i11.i136.i = inttoptr i64 %58 to ptr
   %arrayidx4.i.i.i12.i137.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i11.i136.i, i64 %2
   br label %_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit
 
-_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i
-  %75 = phi i64 [ %72, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ], [ %65, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i ], [ %54, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread ]
-  %dec.lcssa1155.i = phi i64 [ %dec.us.us.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ], [ %dec.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i ], [ %dec.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread ]
-  %j.1.lcssa1354.i = phi i64 [ %j.1.us.us.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ], [ %j.1.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i ], [ %j.1.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread ]
-  %add.i40.lcssa1953.i = phi i64 [ %add.i40.us.us.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ], [ %add.i40.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i ], [ %add.i40.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread ]
-  %item.0.i3.i128.i = phi ptr [ %arrayidx4.i.i.i12.i137.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ], [ %3, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.thread.i ], [ %3, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i.thread ]
+_ZN3tbb6detail2d116quick_sort_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEZNS6_L18print_icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_SA_E_E11split_rangeERSL_.exit: ; preds = %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i, %if.then.i4.i129.i
+  %item.0.i3.i128.i = phi ptr [ %arrayidx4.i.i.i12.i137.i, %if.then.i4.i129.i ], [ %3, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EdeEv.exit.i124.i ]
   %size = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %atomic-temp.i.0.i2.i.i.i.i145.i = inttoptr i64 %75 to ptr
-  %arrayidx4.i.i.i.i146.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i145.i, i64 %add.i40.lcssa1953.i
-  %76 = load ptr, ptr %arrayidx4.i.i.i.i146.i, align 8
-  %77 = load ptr, ptr %item.0.i3.i128.i, align 8
-  store ptr %77, ptr %arrayidx4.i.i.i.i146.i, align 8
-  store ptr %76, ptr %item.0.i3.i128.i, align 8
-  %78 = load i64, ptr %size.i.i, align 8
-  %sub.i = sub i64 %78, %j.1.lcssa1354.i
-  store i64 %dec.lcssa1155.i, ptr %size.i.i, align 8
+  %atomic-temp.i.0.i2.i.i.i.i145.i = inttoptr i64 %56 to ptr
+  %arrayidx4.i.i.i.i146.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i.i145.i, i64 %add.i115.i
+  %59 = load ptr, ptr %arrayidx4.i.i.i.i146.i, align 8
+  %60 = load ptr, ptr %item.0.i3.i128.i, align 8
+  store ptr %60, ptr %arrayidx4.i.i.i.i146.i, align 8
+  store ptr %59, ptr %item.0.i3.i128.i, align 8
+  %61 = load i64, ptr %size.i.i, align 8
+  %sub.i = sub i64 %61, %j.1.i
+  store i64 %dec.i, ptr %size.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %array.i)
   store i64 %sub.i, ptr %size, align 8
   %begin = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %79 = load i64, ptr %size.i.i, align 8
-  %80 = load ptr, ptr %begin.i, align 8, !noalias !423
-  %81 = load i64, ptr %my_index3.i.i, align 8, !noalias !423
-  %add.i = add i64 %79, 1
-  %add.i7 = add i64 %add.i, %81
-  store ptr %80, ptr %begin, align 8, !alias.scope !426
+  %62 = load i64, ptr %size.i.i, align 8
+  %63 = load ptr, ptr %begin.i, align 8, !noalias !429
+  %64 = load i64, ptr %my_index3.i.i, align 8, !noalias !429
+  %add.i = add i64 %62, 1
+  %add.i7 = add i64 %add.i, %64
+  store ptr %63, ptr %begin, align 8, !alias.scope !432
   %my_index.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store i64 %add.i7, ptr %my_index.i.i8, align 8, !alias.scope !426
+  store i64 %add.i7, ptr %my_index.i.i8, align 8, !alias.scope !432
   %my_item.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr null, ptr %my_item.i.i9, align 8, !alias.scope !426
+  store ptr null, ptr %my_item.i.i9, align 8, !alias.scope !432
   ret void
 }
 
@@ -26784,22 +26705,22 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   %15 = load ptr, ptr %my_item4.i.i.i.i.i.i.i, align 16
   store ptr %15, ptr %my_item.i.i.i.i.i.i.i, align 8
   %my_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 88
-  call void @llvm.experimental.noalias.scope.decl(metadata !429)
-  %16 = load i64, ptr %my_index.i.i.i.i, align 8, !noalias !429
-  %17 = load i64, ptr %my_index1.i.i.i.i, align 32, !noalias !429
+  call void @llvm.experimental.noalias.scope.decl(metadata !435)
+  %16 = load i64, ptr %my_index.i.i.i.i, align 8, !noalias !435
+  %17 = load i64, ptr %my_index1.i.i.i.i, align 32, !noalias !435
   %sub.i.i.i.i.i.i.i.i = sub nsw i64 %16, %17
   %div.i.i.i.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i.i.i, 2
-  call void @llvm.experimental.noalias.scope.decl(metadata !432)
-  %18 = load ptr, ptr %my_begin.i.i.i.i.i.i.i, align 8, !noalias !435
+  call void @llvm.experimental.noalias.scope.decl(metadata !438)
+  %18 = load ptr, ptr %my_begin.i.i.i.i.i.i.i, align 8, !noalias !441
   %add.i.i.i.i.i.i.i.i = add i64 %div.i.i.i.i.i.i.i, %17
-  store ptr %18, ptr %my_begin.i.i.i.i.i.i, align 8, !alias.scope !435
+  store ptr %18, ptr %my_begin.i.i.i.i.i.i, align 8, !alias.scope !441
   %my_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 96
-  store i64 %add.i.i.i.i.i.i.i.i, ptr %my_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !435
+  store i64 %add.i.i.i.i.i.i.i.i, ptr %my_index.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !441
   %my_item.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 104
-  store ptr null, ptr %my_item.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !435
-  store ptr %18, ptr %my_range, align 64, !noalias !429
-  store i64 %add.i.i.i.i.i.i.i.i, ptr %my_index.i.i.i.i, align 8, !noalias !429
-  store ptr null, ptr %my_item4.i.i.i.i.i.i.i, align 16, !noalias !429
+  store ptr null, ptr %my_item.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !441
+  store ptr %18, ptr %my_range, align 64, !noalias !435
+  store i64 %add.i.i.i.i.i.i.i.i, ptr %my_index.i.i.i.i, align 8, !noalias !435
+  store ptr null, ptr %my_item4.i.i.i.i.i.i.i, align 16, !noalias !435
   %my_grainsize.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 112
   %19 = load i64, ptr %my_grainsize.i.i, align 16
   store i64 %19, ptr %my_grainsize.i.i.i.i.i.i, align 8
@@ -26863,7 +26784,7 @@ if.then4.i17.i:                                   ; preds = %land.lhs.true.i14.i
   br label %do.body.i.backedge
 
 do.body.i.backedge:                               ; preds = %if.then4.i17.i, %land.rhs.i
-  br label %do.body.i, !llvm.loop !436
+  br label %do.body.i, !llvm.loop !442
 
 if.end9.i:                                        ; preds = %land.lhs.true.i14.i, %if.end.i12.i, %do.body.i, %land.lhs.true.i.i, %if.end.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSD_6RV64LEEEENS1_23cache_aligned_allocatorISH_EEEESH_EEEENS1_23quick_sort_pretest_bodyISL_ZNSD_L18print_icf_sectionsISF_EEvRNSD_7ContextIT_EEEUlSH_SH_E_EEKNS1_16auto_partitionerEEEEEbRSQ_RKNS1_14execution_dataE.exit
   %sub.i.i.i.i.pre-phi.i = phi i64 [ %sub.i.i.i.i, %if.end.i.i ], [ %sub.i.i.i.i, %land.lhs.true.i.i ], [ %sub.i.i.i.i, %_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSD_6RV64LEEEENS1_23cache_aligned_allocatorISH_EEEESH_EEEENS1_23quick_sort_pretest_bodyISL_ZNSD_L18print_icf_sectionsISF_EEvRNSD_7ContextIT_EEEUlSH_SH_E_EEKNS1_16auto_partitionerEEEEEbRSQ_RKNS1_14execution_dataE.exit ], [ %sub.i.i.i9.i, %do.body.i ], [ %sub.i.i.i9.i, %if.end.i12.i ], [ %sub.i.i.i9.i, %land.lhs.true.i14.i ]
@@ -26973,17 +26894,17 @@ while.body.i.i.i:                                 ; preds = %_ZN3tbb6detail2d112
   %my_grainsize.i.i18.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 48
   store i64 %42, ptr %my_grainsize.i.i18.i.i, align 8
   store i64 %43, ptr %my_index.i.i.i.i.i.i25.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !437)
-  %47 = load i64, ptr %my_index.i.i.i10.i.i, align 8, !noalias !437
+  call void @llvm.experimental.noalias.scope.decl(metadata !443)
+  %47 = load i64, ptr %my_index.i.i.i10.i.i, align 8, !noalias !443
   %sub.i.i.i.i.i.i = sub nsw i64 %47, %44
   %div.i.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i, 2
   %add.i.i.i.i.i.i = add i64 %div.i.i.i.i.i, %44
-  store ptr %45, ptr %my_begin3.i.i14.i.i, align 8, !alias.scope !440
-  store i64 %add.i.i.i.i.i.i, ptr %my_index1.i.i.i.i.i.i.i, align 8, !alias.scope !440
-  store ptr null, ptr %my_item4.i6.i.i17.i.i, align 8, !alias.scope !440
-  store ptr %45, ptr %add.ptr.i.i.i, align 8, !noalias !437
-  store i64 %add.i.i.i.i.i.i, ptr %my_index.i.i.i10.i.i, align 8, !noalias !437
-  store ptr null, ptr %my_item.i.i.i11.i.i, align 8, !noalias !437
+  store ptr %45, ptr %my_begin3.i.i14.i.i, align 8, !alias.scope !446
+  store i64 %add.i.i.i.i.i.i, ptr %my_index1.i.i.i.i.i.i.i, align 8, !alias.scope !446
+  store ptr null, ptr %my_item4.i6.i.i17.i.i, align 8, !alias.scope !446
+  store ptr %45, ptr %add.ptr.i.i.i, align 8, !noalias !443
+  store i64 %add.i.i.i.i.i.i, ptr %my_index.i.i.i10.i.i, align 8, !noalias !443
+  store ptr null, ptr %my_item.i.i.i11.i.i, align 8, !noalias !443
   store i64 %42, ptr %my_grainsize.i.i.i.i.i, align 8
   %48 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %inc.i.i.i = add i8 %48, 1
@@ -26993,7 +26914,7 @@ while.body.i.i.i:                                 ; preds = %_ZN3tbb6detail2d112
   %inc32.i.i.i = add nuw nsw i8 %40, 1
   store i8 %inc32.i.i.i, ptr %my_size.i.i.i, align 2
   %exitcond.not.i.i.i = icmp eq i8 %inc32.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEELh8EE13split_to_fillEh.exit.thread.i.i, label %land.rhs.i.i.i, !llvm.loop !443
+  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEELh8EE13split_to_fillEh.exit.thread.i.i, label %land.rhs.i.i.i, !llvm.loop !449
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEELh8EE12is_divisibleEh.exit.i.i.i, %land.rhs.i.i.i, %do.body.i.i
   %.pr.i.i = phi i8 [ %my_size.promoted.i.i.i, %do.body.i.i ], [ %40, %land.rhs.i.i.i ], [ %40, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEELh8EE12is_divisibleEh.exit.i.i.i ]
@@ -27154,7 +27075,7 @@ land.rhs.i.i:                                     ; preds = %do.cond.i.i
   %85 = load ptr, ptr %84, align 8
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i43.i.i, ptr %85, ptr %82
   %call2.i.i.i = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i.i.i) #13
-  br i1 %call2.i.i.i, label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSB_6RV64LEEEENS1_23cache_aligned_allocatorISF_EEEESF_EEEENS1_23quick_sort_pretest_bodyISJ_ZNSB_L18print_icf_sectionsISD_EEvRNSB_7ContextIT_EEEUlSF_SF_E_EEKNS1_16auto_partitionerEEESK_EEvRSO_RT0_RNS1_14execution_dataE.exit, label %do.body.i.i, !llvm.loop !444
+  br i1 %call2.i.i.i, label %_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSB_6RV64LEEEENS1_23cache_aligned_allocatorISF_EEEESF_EEEENS1_23quick_sort_pretest_bodyISJ_ZNSB_L18print_icf_sectionsISD_EEvRNSB_7ContextIT_EEEUlSF_SF_E_EEKNS1_16auto_partitionerEEESK_EEvRSO_RT0_RNS1_14execution_dataE.exit, label %do.body.i.i, !llvm.loop !450
 
 _ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINSB_6RV64LEEEENS1_23cache_aligned_allocatorISF_EEEESF_EEEENS1_23quick_sort_pretest_bodyISJ_ZNSB_L18print_icf_sectionsISD_EEvRNSB_7ContextIT_EEEUlSF_SF_E_EEKNS1_16auto_partitionerEEESK_EEvRSO_RT0_RNS1_14execution_dataE.exit: ; preds = %do.cond.i.i, %land.rhs.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %range_pool.i.i)
@@ -27260,13 +27181,13 @@ _ZN3tbb6detail2d19start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17conc
 ; Function Attrs: mustprogress nounwind
 define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS7_6RV64LEEEENS1_23cache_aligned_allocatorISB_EEEESB_EEEENS1_23quick_sort_pretest_bodyISF_ZNS7_L18print_icf_sectionsIS9_EEvRNS7_7ContextIT_EEEUlSB_SB_E_EEKNS1_16auto_partitionerEE8run_bodyERSG_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %r) unnamed_addr #4 align 2 {
 entry:
-  %0 = load ptr, ptr %r, align 8, !noalias !445
+  %0 = load ptr, ptr %r, align 8, !noalias !451
   %my_index3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %r, i64 8
-  %1 = load i64, ptr %my_index3.i.i.i.i.i.i.i, align 8, !noalias !445
+  %1 = load i64, ptr %my_index3.i.i.i.i.i.i.i, align 8, !noalias !451
   %my_begin.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %r, i64 24
-  %2 = load ptr, ptr %my_begin.i.i.i.i.i.i, align 8, !noalias !448
+  %2 = load ptr, ptr %my_begin.i.i.i.i.i.i, align 8, !noalias !454
   %my_index3.i.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %r, i64 32
-  %3 = load i64, ptr %my_index3.i.i7.i.i.i.i.i, align 8, !noalias !448
+  %3 = load i64, ptr %my_index3.i.i7.i.i.i.i.i, align 8, !noalias !454
   %cmp.i.i.i.i.i.i.i = icmp ne ptr %2, %0
   %cmp3.i.i42.i.i.i.i.i = icmp ne i64 %3, %1
   %.not.i43.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %cmp3.i.i42.i.i.i.i.i
@@ -27274,7 +27195,7 @@ entry:
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %entry
   %my_item4.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %r, i64 40
-  %4 = load ptr, ptr %my_item4.i.i9.i.i.i.i.i, align 8, !noalias !448
+  %4 = load ptr, ptr %my_item4.i.i9.i.i.i.i.i, align 8, !noalias !454
   %context.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %my_segment_table.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %for.body.i.i.i.i.i
@@ -27370,7 +27291,7 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZNK3tbb6detail2d11
   %inc.i.i.i.i.i = add nuw nsw i32 %i.046.i.i.i.i.i, 1
   %cmp3.i.i.i.i.i.i.i = icmp ne i64 %inc.i.i.i.i.i.i, %1
   %.not.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKNS0_2d123quick_sort_pretest_bodyINS3_15vector_iteratorINS3_17concurrent_vectorIPN4mold3elf12InputSectionINS8_6RV64LEEEENS3_23cache_aligned_allocatorISC_EEEESC_EEZNS8_L18print_icf_sectionsISA_EEvRNS8_7ContextIT_EEEUlSC_SC_E_EEJRNS3_13blocked_rangeISG_EEEEENSt13invoke_resultISJ_JDpT0_EE4typeEOSJ_DpOSU_.exit, !llvm.loop !451
+  br i1 %.not.i.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZN3tbb6detail2d06invokeIRKNS0_2d123quick_sort_pretest_bodyINS3_15vector_iteratorINS3_17concurrent_vectorIPN4mold3elf12InputSectionINS8_6RV64LEEEENS3_23cache_aligned_allocatorISC_EEEESC_EEZNS8_L18print_icf_sectionsISA_EEvRNS8_7ContextIT_EEEUlSC_SC_E_EEJRNS3_13blocked_rangeISG_EEEEENSt13invoke_resultISJ_JDpT0_EE4typeEOSJ_DpOSU_.exit, !llvm.loop !457
 
 _ZN3tbb6detail2d06invokeIRKNS0_2d123quick_sort_pretest_bodyINS3_15vector_iteratorINS3_17concurrent_vectorIPN4mold3elf12InputSectionINS8_6RV64LEEEENS3_23cache_aligned_allocatorISC_EEEESC_EEZNS8_L18print_icf_sectionsISA_EEvRNS8_7ContextIT_EEEUlSC_SC_E_EEJRNS3_13blocked_rangeISG_EEEEENSt13invoke_resultISJ_JDpT0_EE4typeEOSJ_DpOSU_.exit: ; preds = %land.lhs.true.i.i.i.i.i, %for.inc.i.i.i.i.i, %entry, %if.then6.i.i.i.i.i
   ret void
@@ -27442,7 +27363,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %1 = load atomic i64, ptr %curr.0.i acquire, align 8
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %curr.0.i) #13
   %cmp.not.i = icmp eq i64 %1, 0
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !452
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !458
 
 while.end.i:                                      ; preds = %while.body.i, %entry
   store atomic i64 0, ptr %this monotonic, align 8
@@ -27483,7 +27404,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %for.body.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %sub.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !453
+  br i1 %cmp.not.i.i.i, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !459
 
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i: ; preds = %for.inc.i.i.i
   %7 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
@@ -27544,7 +27465,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %for.body.i.i.i.i2
   %cmp.not.i.i.i.i4 = icmp eq i64 %sub.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i4, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i, label %for.body.i.i.i.i2, !llvm.loop !453
+  br i1 %cmp.not.i.i.i.i4, label %_ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i, label %for.body.i.i.i.i2, !llvm.loop !459
 
 _ZN3tbb6detail2d113segment_tableISt6atomicIPNS1_9list_nodeImEEENS1_13tbb_allocatorISt4pairIKPN4mold3elf12InputSectionINSB_6RV64LEEEESF_EEENS1_25concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISF_SF_St4hashISF_ESt8equal_toISF_ESI_Lb1EEEE23unordered_segment_tableELm63EE14clear_segmentsEv.exit.i.i.i: ; preds = %for.inc.i.i.i.i
   %14 = load atomic i64, ptr %my_segment_table.i.i.i.i acquire, align 8
@@ -27622,7 +27543,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.preheader.
   %inc.i.i.i = add nuw i64 %i.09.i.i.i, 1
   %6 = load atomic i64, ptr %my_first_block.i.i.i seq_cst, align 8
   %cmp8.i.i.i = icmp ult i64 %inc.i.i.i, %6
-  br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EEE15nullify_segmentEPSt6atomicIPS8_Em.exit.i.i, !llvm.loop !454
+  br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EEE15nullify_segmentEPSt6atomicIPS8_Em.exit.i.i, !llvm.loop !460
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EEE15nullify_segmentEPSt6atomicIPS8_Em.exit.i.i: ; preds = %for.body.i.i.i, %for.cond.preheader.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   %atomic-temp.i.0.i.i5.i.i = inttoptr i64 %3 to ptr
@@ -27647,7 +27568,7 @@ if.end9.sink.split.i.i.i.i:                       ; preds = %if.end.i.i
 
 for.inc.i:                                        ; preds = %if.end9.sink.split.i.i.i.i, %if.end.i.i, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EEE15nullify_segmentEPSt6atomicIPS8_Em.exit.i.i, %for.body.i
   %cmp.not.i = icmp eq i64 %sub.i, 0
-  br i1 %cmp.not.i, label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE14clear_segmentsEv.exit, label %for.body.i, !llvm.loop !455
+  br i1 %cmp.not.i, label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE14clear_segmentsEv.exit, label %for.body.i, !llvm.loop !461
 
 _ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_6RV64LEEEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE14clear_segmentsEv.exit: ; preds = %for.inc.i
   %10 = load atomic i64, ptr %my_segment_table.i.i acquire, align 8
@@ -28151,7 +28072,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp.i10, label %do.body.backedge, label %if.end.i11
 
 do.body.backedge:                                 ; preds = %land.rhs, %if.then4.i16
-  br label %do.body, !llvm.loop !456
+  br label %do.body, !llvm.loop !462
 
 if.end.i11:                                       ; preds = %land.rhs
   %tobool.not.i12 = icmp eq i64 %18, 0
@@ -28414,7 +28335,7 @@ land.rhs:                                         ; preds = %do.cond
   %45 = load ptr, ptr %44, align 8
   %retval.0.i.i = select i1 %cmp.i.i.i33, ptr %45, ptr %42
   %call2.i = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %retval.0.i.i) #13
-  br i1 %call2.i, label %if.end22, label %do.bodythread-pre-split, !llvm.loop !457
+  br i1 %call2.i, label %if.end22, label %do.bodythread-pre-split, !llvm.loop !463
 
 if.end22:                                         ; preds = %land.rhs, %do.cond, %if.then
   ret void
@@ -28528,7 +28449,7 @@ for.inc.i.i.i.i.i.i.i:                            ; preds = %if.then.i7.i.i.i.i.
 _ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elf12icf_sectionsINS4_6RV64LEEEEvRNS4_7ContextIT_EEEUlPNS4_10ObjectFileIS6_EEE_E4callIRSD_NS1_11feeder_implISE_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSE_OS8_PT0_.exit.i: ; preds = %for.inc.i.i.i.i.i.i.i, %for.body.i
   %inc.i = add i64 %count.04.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, %agg.tmp.sroa.0.0.copyload
-  br i1 %cmp.not.i, label %_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6RV64LEEEESt6vectorISA_SaISA_EEEEZNS6_12icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EclENS0_2d113blocked_rangeImEE.exit, label %for.body.i, !llvm.loop !458
+  br i1 %cmp.not.i, label %_ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6RV64LEEEESt6vectorISA_SaISA_EEEEZNS6_12icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EclENS0_2d113blocked_rangeImEE.exit, label %for.body.i, !llvm.loop !464
 
 _ZNK3tbb6detail2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10ObjectFileINS6_6RV64LEEEESt6vectorISA_SaISA_EEEEZNS6_12icf_sectionsIS8_EEvRNS6_7ContextIT_EEEUlSA_E_SA_EclENS0_2d113blocked_rangeImEE.exit: ; preds = %_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN4mold3elf12icf_sectionsINS4_6RV64LEEEEvRNS4_7ContextIT_EEEUlPNS4_10ObjectFileIS6_EEE_E4callIRSD_NS1_11feeder_implISE_SD_EEEEDTcmclsr3tbb6detailE6invokefp_clsr3stdE7forwardIS8_Efp0_EEcvv_EERKSE_OS8_PT0_.exit.i, %entry
   ret void
@@ -29026,40 +28947,46 @@ attributes #33 = { nounwind memory(none) }
 !419 = distinct !{!419, !15}
 !420 = distinct !{!420, !15}
 !421 = distinct !{!421, !15}
-!422 = distinct !{!422, !15}
-!423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
-!425 = distinct !{!425, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
+!422 = !{!423}
+!423 = distinct !{!423, !424, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
+!424 = distinct !{!424, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
+!425 = distinct !{!425, !15}
 !426 = !{!427}
 !427 = distinct !{!427, !428, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
 !428 = distinct !{!428, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
 !429 = !{!430}
-!430 = distinct !{!430, !431, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE: %agg.result"}
-!431 = distinct !{!431, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE"}
+!430 = distinct !{!430, !431, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
+!431 = distinct !{!431, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
 !432 = !{!433}
 !433 = distinct !{!433, !434, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
 !434 = distinct !{!434, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
-!435 = !{!433, !430}
-!436 = distinct !{!436, !15}
-!437 = !{!438}
-!438 = distinct !{!438, !439, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE: %agg.result"}
-!439 = distinct !{!439, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE"}
-!440 = !{!441, !438}
-!441 = distinct !{!441, !442, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
-!442 = distinct !{!442, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
-!443 = distinct !{!443, !15}
-!444 = distinct !{!444, !15}
-!445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE3endEv: %agg.result"}
-!447 = distinct !{!447, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE3endEv"}
-!448 = !{!449}
-!449 = distinct !{!449, !450, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE5beginEv: %agg.result"}
-!450 = distinct !{!450, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE5beginEv"}
-!451 = distinct !{!451, !15}
-!452 = distinct !{!452, !15}
-!453 = distinct !{!453, !15}
-!454 = distinct !{!454, !15}
-!455 = distinct !{!455, !15}
-!456 = distinct !{!456, !15}
+!435 = !{!436}
+!436 = distinct !{!436, !437, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE: %agg.result"}
+!437 = distinct !{!437, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE"}
+!438 = !{!439}
+!439 = distinct !{!439, !440, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
+!440 = distinct !{!440, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
+!441 = !{!439, !436}
+!442 = distinct !{!442, !15}
+!443 = !{!444}
+!444 = distinct !{!444, !445, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE: %agg.result"}
+!445 = distinct !{!445, !"_ZN3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE8do_splitERSF_NS0_2d05splitE"}
+!446 = !{!447, !444}
+!447 = distinct !{!447, !448, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl: %agg.result"}
+!448 = distinct !{!448, !"_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS5_6RV64LEEEENS1_23cache_aligned_allocatorIS9_EEEES9_EplEl"}
+!449 = distinct !{!449, !15}
+!450 = distinct !{!450, !15}
+!451 = !{!452}
+!452 = distinct !{!452, !453, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE3endEv: %agg.result"}
+!453 = distinct !{!453, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE3endEv"}
+!454 = !{!455}
+!455 = distinct !{!455, !456, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE5beginEv: %agg.result"}
+!456 = distinct !{!456, !"_ZNK3tbb6detail2d113blocked_rangeINS1_15vector_iteratorINS1_17concurrent_vectorIPN4mold3elf12InputSectionINS6_6RV64LEEEENS1_23cache_aligned_allocatorISA_EEEESA_EEE5beginEv"}
 !457 = distinct !{!457, !15}
 !458 = distinct !{!458, !15}
+!459 = distinct !{!459, !15}
+!460 = distinct !{!460, !15}
+!461 = distinct !{!461, !15}
+!462 = distinct !{!462, !15}
+!463 = distinct !{!463, !15}
+!464 = distinct !{!464, !15}

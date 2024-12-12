@@ -10492,7 +10492,8 @@ _ZSt27__unguarded_partition_pivotIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKN4llvm7PHINodeERKNS4_8DenseMapIPKNS4_10BasicBlockEjNS4_12DenseMapInfoISB_vEENS4_6detail12DenseMapPairISB_jEEEEEUlSt4pairIPS9_PNS4_5ValueEESO_E_EC2ERKSQ_.exit24: ; preds = %338, %345
   call fastcc void @_ZSt16__introsort_loopIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_T1_(ptr noundef nonnull %.us-phi30.i.i, ptr noundef %.078, i64 noundef %62, ptr noundef %7)
   %.val = load ptr, ptr %7, align 8
-  %346 = zext i32 %337 to i64
+  %.val13 = load i32, ptr %15, align 8
+  %346 = zext i32 %.val13 to i64
   %347 = shl nuw nsw i64 %346, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.val, i64 noundef %347, i64 noundef 8) #19
   %348 = ptrtoint ptr %.us-phi30.i.i to i64

@@ -2000,43 +2000,48 @@ entry:
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread, label %if.then.i.i.i
+
+_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread: ; preds = %entry
+  call void @_ZN4node9inspector8protocol11NodeWorkers13WorkerCreatedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bSt10shared_ptrINS0_16MainThreadHandleEE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(32) %url, i1 noundef zeroext %waiting, ptr noundef nonnull %agg.tmp)
+  br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
+  br i1 %tobool.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread10
 
-if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
+_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread10: ; preds = %if.then.i.i.i
   %4 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i = add nsw i32 %4, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
+  call void @_ZN4node9inspector8protocol11NodeWorkers13WorkerCreatedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bSt10shared_ptrINS0_16MainThreadHandleEE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(32) %url, i1 noundef zeroext %waiting, ptr noundef nonnull %agg.tmp)
   br label %if.then.i.i.i3
 
-if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
+_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit: ; preds = %if.then.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
-  br label %if.then.i.i.i3
-
-_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit: ; preds = %entry
+  %.pr.pre = load ptr, ptr %_M_refcount.i.i, align 8
   call void @_ZN4node9inspector8protocol11NodeWorkers13WorkerCreatedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bSt10shared_ptrINS0_16MainThreadHandleEE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(32) %url, i1 noundef zeroext %waiting, ptr noundef nonnull %agg.tmp)
-  br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
+  %cmp.not.i.i.i2 = icmp eq ptr %.pr.pre, null
+  br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, label %if.then.i.i.i3
 
-if.then.i.i.i3:                                   ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  call void @_ZN4node9inspector8protocol11NodeWorkers13WorkerCreatedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_bSt10shared_ptrINS0_16MainThreadHandleEE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(32) %url, i1 noundef zeroext %waiting, ptr noundef nonnull %agg.tmp)
-  %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
+if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread10, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit
+  %.pr13 = phi ptr [ %2, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread10 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit ]
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %.pr13, i64 8
+  %6 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
-  store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr13, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i = load ptr, ptr %.pr13, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #14
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i3
@@ -2046,11 +2051,11 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i3
 
 if.then.i.i.i.i.i5:                               ; preds = %if.end.i.i.i.i
   %add.i.i.i.i.i6 = add nsw i32 %7, -1
-  store i32 %add.i.i.i.i.i6, ptr %_M_use_count.i.i.i.i, align 4
+  store i32 %add.i.i.i.i.i6, ptr %_M_use_count.i.i.i.i4, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 if.else.i.i.i.i.i7:                               ; preds = %if.end.i.i.i.i
-  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 -1 acq_rel, align 4
+  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i4, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i7, %if.then.i.i.i.i.i5
@@ -2059,11 +2064,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %.pr13, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #14
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pr13, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2084,13 +2089,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr13, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %.pr13) #14
   br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
-_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.thread, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   ret void
 }
 

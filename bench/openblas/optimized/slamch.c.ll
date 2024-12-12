@@ -263,42 +263,42 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   br i1 %9, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %8
-  %.pre93 = load i32, ptr @slamc2_.lbeta, align 4, !tbaa !3
-  %.pre94 = load float, ptr @slamc2_.leps, align 4, !tbaa !7
-  %.pre95 = load float, ptr @slamc2_.lrmin, align 4, !tbaa !7
+  %.pre94 = load i32, ptr @slamc2_.lbeta, align 4, !tbaa !3
+  %.pre95 = load float, ptr @slamc2_.leps, align 4, !tbaa !7
+  %.pre96 = load float, ptr @slamc2_.lrmin, align 4, !tbaa !7
   br label %369
 
 10:                                               ; preds = %8
   %11 = load i1, ptr @slamc1_.first, align 4
-  br i1 %11, label %52, label %.preheader33
+  br i1 %11, label %52, label %.preheader34
 
-.preheader33:                                     ; preds = %10, %.preheader33
-  %12 = phi float [ %13, %.preheader33 ], [ 1.000000e+00, %10 ]
+.preheader34:                                     ; preds = %10, %.preheader34
+  %12 = phi float [ %13, %.preheader34 ], [ 1.000000e+00, %10 ]
   %13 = fmul float %12, 2.000000e+00
   %14 = fadd float %13, 1.000000e+00
   %15 = fsub float %14, %13
   %16 = fcmp oeq float %15, 1.000000e+00
-  br i1 %16, label %.preheader33, label %17
+  br i1 %16, label %.preheader34, label %17
 
-17:                                               ; preds = %.preheader33
+17:                                               ; preds = %.preheader34
   %18 = fcmp oeq float %14, %13
-  br i1 %18, label %.preheader31, label %.loopexit32
+  br i1 %18, label %.preheader32, label %.loopexit33
 
-.preheader31:                                     ; preds = %17, %.preheader31
-  %19 = phi float [ %20, %.preheader31 ], [ 1.000000e+00, %17 ]
+.preheader32:                                     ; preds = %17, %.preheader32
+  %19 = phi float [ %20, %.preheader32 ], [ 1.000000e+00, %17 ]
   %20 = fmul float %19, 2.000000e+00
   %21 = fadd float %13, %20
   %22 = fcmp oeq float %21, %13
-  br i1 %22, label %.preheader31, label %.loopexit32.loopexit
+  br i1 %22, label %.preheader32, label %.loopexit33.loopexit
 
-.loopexit32.loopexit:                             ; preds = %.preheader31
-  %.pre97 = fsub float %21, %13
-  br label %.loopexit32
+.loopexit33.loopexit:                             ; preds = %.preheader32
+  %.pre98 = fsub float %21, %13
+  br label %.loopexit33
 
-.loopexit32:                                      ; preds = %.loopexit32.loopexit, %17
-  %.pre-phi98 = phi float [ %.pre97, %.loopexit32.loopexit ], [ %15, %17 ]
-  %23 = phi float [ %21, %.loopexit32.loopexit ], [ %14, %17 ]
-  %24 = fadd float %.pre-phi98, 2.500000e-01
+.loopexit33:                                      ; preds = %.loopexit33.loopexit, %17
+  %.pre-phi99 = phi float [ %.pre98, %.loopexit33.loopexit ], [ %15, %17 ]
+  %23 = phi float [ %21, %.loopexit33.loopexit ], [ %14, %17 ]
+  %24 = fadd float %.pre-phi99, 2.500000e-01
   %25 = fptosi float %24 to i32
   store i32 %25, ptr @slamc1_.lbeta, align 4, !tbaa !3
   %26 = sitofp i32 %25 to float
@@ -322,17 +322,17 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   store i32 %42, ptr @slamc1_.lieee1, align 4, !tbaa !3
   br label %43
 
-43:                                               ; preds = %43, %.loopexit32
-  %44 = phi float [ 1.000000e+00, %.loopexit32 ], [ %47, %43 ]
-  %45 = phi i32 [ 0, %.loopexit32 ], [ %46, %43 ]
+43:                                               ; preds = %43, %.loopexit33
+  %44 = phi float [ 1.000000e+00, %.loopexit33 ], [ %47, %43 ]
+  %45 = phi i32 [ 0, %.loopexit33 ], [ %46, %43 ]
   %46 = add nuw nsw i32 %45, 1
   %47 = fmul float %44, %26
   %48 = fadd float %47, 1.000000e+00
   %49 = fsub float %48, %47
   %50 = fcmp oeq float %49, 1.000000e+00
-  br i1 %50, label %43, label %.thread99
+  br i1 %50, label %43, label %.thread100
 
-.thread99:                                        ; preds = %43
+.thread100:                                       ; preds = %43
   store i32 %46, ptr @slamc1_.lt, align 4, !tbaa !3
   store i32 %25, ptr @slamc2_.lbeta, align 4, !tbaa !3
   store i32 %46, ptr @slamc2_.lt, align 4, !tbaa !3
@@ -343,38 +343,38 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 52:                                               ; preds = %10
   %.pr = load i32, ptr @slamc1_.lt, align 4, !tbaa !3
   %.pre = load i32, ptr @slamc1_.lbeta, align 4, !tbaa !3
-  %.pre91 = load i1, ptr @slamc1_.lrnd, align 4
-  %.pre92 = load i32, ptr @slamc1_.lieee1, align 4, !tbaa !3
-  %.pre96 = sitofp i32 %.pre to float
-  %53 = icmp ne i32 %.pre92, 0
+  %.pre92 = load i1, ptr @slamc1_.lrnd, align 4
+  %.pre93 = load i32, ptr @slamc1_.lieee1, align 4, !tbaa !3
+  %.pre97 = sitofp i32 %.pre to float
+  %53 = icmp ne i32 %.pre93, 0
   store i32 %.pre, ptr @slamc2_.lbeta, align 4, !tbaa !3
   store i32 %.pr, ptr @slamc2_.lt, align 4, !tbaa !3
-  %54 = zext i1 %.pre91 to i32
+  %54 = zext i1 %.pre92 to i32
   store i1 true, ptr @slamc1_.first, align 4
   %55 = icmp eq i32 %.pr, 0
-  br i1 %55, label %.loopexit30, label %56
+  br i1 %55, label %.loopexit31, label %56
 
-56:                                               ; preds = %.thread99, %52
-  %57 = phi i32 [ %51, %.thread99 ], [ %54, %52 ]
-  %58 = phi i32 [ %46, %.thread99 ], [ %.pr, %52 ]
-  %59 = phi i32 [ %25, %.thread99 ], [ %.pre, %52 ]
-  %60 = phi i1 [ %41, %.thread99 ], [ %53, %52 ]
-  %.pre-phi101 = phi float [ %26, %.thread99 ], [ %.pre96, %52 ]
+56:                                               ; preds = %.thread100, %52
+  %57 = phi i32 [ %51, %.thread100 ], [ %54, %52 ]
+  %58 = phi i32 [ %46, %.thread100 ], [ %.pr, %52 ]
+  %59 = phi i32 [ %25, %.thread100 ], [ %.pre, %52 ]
+  %60 = phi i1 [ %41, %.thread100 ], [ %53, %52 ]
+  %.pre-phi102 = phi float [ %26, %.thread100 ], [ %.pre97, %52 ]
   %61 = icmp sgt i32 %58, 0
-  %62 = fdiv float 1.000000e+00, %.pre-phi101
-  %63 = select i1 %61, float %62, float %.pre-phi101
+  %62 = fdiv float 1.000000e+00, %.pre-phi102
+  %63 = select i1 %61, float %62, float %.pre-phi102
   %64 = tail call i32 @llvm.abs.i32(i32 %58, i1 true)
   %65 = zext nneg i32 %64 to i64
   %66 = and i64 %65, 1
   %67 = icmp eq i64 %66, 0
   %68 = select i1 %67, float 1.000000e+00, float %63
   %69 = icmp samesign ult i32 %64, 2
-  br i1 %69, label %.loopexit30, label %.preheader29
+  br i1 %69, label %.loopexit31, label %.preheader30
 
-.preheader29:                                     ; preds = %56, %.preheader29
-  %70 = phi float [ %78, %.preheader29 ], [ %68, %56 ]
-  %71 = phi i64 [ %73, %.preheader29 ], [ %65, %56 ]
-  %72 = phi float [ %74, %.preheader29 ], [ %63, %56 ]
+.preheader30:                                     ; preds = %56, %.preheader30
+  %70 = phi float [ %78, %.preheader30 ], [ %68, %56 ]
+  %71 = phi i64 [ %73, %.preheader30 ], [ %65, %56 ]
+  %72 = phi float [ %74, %.preheader30 ], [ %63, %56 ]
   %73 = lshr i64 %71, 1
   %74 = fmul float %72, %72
   %75 = and i64 %71, 2
@@ -382,23 +382,23 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %77 = select i1 %76, float 1.000000e+00, float %74
   %78 = fmul float %70, %77
   %79 = icmp samesign ult i64 %71, 4
-  br i1 %79, label %.loopexit30, label %.preheader29, !llvm.loop !9
+  br i1 %79, label %.loopexit31, label %.preheader30, !llvm.loop !9
 
-.loopexit30:                                      ; preds = %.preheader29, %56, %52
-  %80 = phi i32 [ %54, %52 ], [ %57, %56 ], [ %57, %.preheader29 ]
-  %81 = phi i32 [ 0, %52 ], [ %58, %56 ], [ %58, %.preheader29 ]
-  %82 = phi i32 [ %.pre, %52 ], [ %59, %56 ], [ %59, %.preheader29 ]
-  %83 = phi i1 [ %53, %52 ], [ %60, %56 ], [ %60, %.preheader29 ]
-  %.pre-phi102 = phi float [ %.pre96, %52 ], [ %.pre-phi101, %56 ], [ %.pre-phi101, %.preheader29 ]
-  %84 = phi float [ 1.000000e+00, %52 ], [ %68, %56 ], [ %78, %.preheader29 ]
+.loopexit31:                                      ; preds = %.preheader30, %56, %52
+  %80 = phi i32 [ %54, %52 ], [ %57, %56 ], [ %57, %.preheader30 ]
+  %81 = phi i32 [ 0, %52 ], [ %58, %56 ], [ %58, %.preheader30 ]
+  %82 = phi i32 [ %.pre, %52 ], [ %59, %56 ], [ %59, %.preheader30 ]
+  %83 = phi i1 [ %53, %52 ], [ %60, %56 ], [ %60, %.preheader30 ]
+  %.pre-phi103 = phi float [ %.pre97, %52 ], [ %.pre-phi102, %56 ], [ %.pre-phi102, %.preheader30 ]
+  %84 = phi float [ 1.000000e+00, %52 ], [ %68, %56 ], [ %78, %.preheader30 ]
   %85 = fcmp ogt float %84, 0x3E70000000000000
   %86 = select i1 %85, float %84, float 0x3E70000000000000
   store float 1.000000e+00, ptr @slamc2_.leps, align 4, !tbaa !7
   %87 = fcmp olt float %86, 1.000000e+00
-  br i1 %87, label %.preheader28, label %101
+  br i1 %87, label %.preheader29, label %101
 
-.preheader28:                                     ; preds = %.loopexit30, %.preheader28
-  %88 = phi float [ %96, %.preheader28 ], [ %86, %.loopexit30 ]
+.preheader29:                                     ; preds = %.loopexit31, %.preheader29
+  %88 = phi float [ %96, %.preheader29 ], [ %86, %.loopexit31 ]
   %89 = fmul float %88, 5.000000e-01
   %90 = fmul float %88, %88
   %91 = fmul float %90, 3.200000e+01
@@ -410,14 +410,14 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %97 = fcmp ogt float %88, %96
   %98 = fcmp ogt float %96, 0.000000e+00
   %99 = and i1 %98, %97
-  br i1 %99, label %.preheader28, label %100
+  br i1 %99, label %.preheader29, label %100
 
-100:                                              ; preds = %.preheader28
+100:                                              ; preds = %.preheader29
   store float %88, ptr @slamc2_.leps, align 4, !tbaa !7
   br label %101
 
-101:                                              ; preds = %100, %.loopexit30
-  %102 = phi float [ %88, %100 ], [ 1.000000e+00, %.loopexit30 ]
+101:                                              ; preds = %100, %.loopexit31
+  %102 = phi float [ %88, %100 ], [ 1.000000e+00, %.loopexit31 ]
   %103 = fcmp olt float %84, %102
   br i1 %103, label %104, label %105
 
@@ -427,7 +427,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 
 105:                                              ; preds = %104, %101
   %106 = phi float [ %84, %104 ], [ %102, %101 ]
-  %107 = fdiv float 1.000000e+00, %.pre-phi102
+  %107 = fdiv float 1.000000e+00, %.pre-phi103
   br label %108
 
 108:                                              ; preds = %108, %105
@@ -444,7 +444,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %117 = icmp slt i32 %82, 1
   br label %128
 
-.loopexit26:                                      ; preds = %145, %.thread
+.loopexit27:                                      ; preds = %145, %.thread
   %.pn = phi float [ %136, %.thread ], [ %144, %145 ]
   %118 = phi float [ 0.000000e+00, %.thread ], [ %139, %145 ]
   %119 = phi float [ 0.000000e+00, %.thread ], [ %148, %145 ]
@@ -458,29 +458,29 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %127 = select i1 %125, i1 %126, i1 false
   br i1 %127, label %128, label %151
 
-128:                                              ; preds = %.loopexit26, %115
-  %129 = phi i32 [ 1, %115 ], [ %131, %.loopexit26 ]
-  %130 = phi float [ %116, %115 ], [ %133, %.loopexit26 ]
+128:                                              ; preds = %.loopexit27, %115
+  %129 = phi i32 [ 1, %115 ], [ %131, %.loopexit27 ]
+  %130 = phi float [ %116, %115 ], [ %133, %.loopexit27 ]
   %131 = add nsw i32 %129, -1
-  %132 = fdiv float %130, %.pre-phi102
+  %132 = fdiv float %130, %.pre-phi103
   %133 = fadd float %132, 0.000000e+00
-  %134 = fmul float %133, %.pre-phi102
-  br i1 %117, label %.thread, label %.preheader27
+  %134 = fmul float %133, %.pre-phi103
+  br i1 %117, label %.thread, label %.preheader28
 
 .thread:                                          ; preds = %128
   %135 = fmul float %107, %130
   %136 = fadd float %135, 0.000000e+00
-  br label %.loopexit26
+  br label %.loopexit27
 
-.preheader27:                                     ; preds = %128, %.preheader27
-  %137 = phi float [ %139, %.preheader27 ], [ 0.000000e+00, %128 ]
-  %138 = phi i32 [ %140, %.preheader27 ], [ 1, %128 ]
+.preheader28:                                     ; preds = %128, %.preheader28
+  %137 = phi float [ %139, %.preheader28 ], [ 0.000000e+00, %128 ]
+  %138 = phi i32 [ %140, %.preheader28 ], [ 1, %128 ]
   %139 = fadd float %133, %137
   %140 = add nuw i32 %138, 1
   %141 = icmp eq i32 %138, %82
-  br i1 %141, label %142, label %.preheader27, !llvm.loop !13
+  br i1 %141, label %142, label %.preheader28, !llvm.loop !13
 
-142:                                              ; preds = %.preheader27
+142:                                              ; preds = %.preheader28
   %143 = fmul float %107, %130
   %144 = fadd float %143, 0.000000e+00
   br label %145
@@ -491,17 +491,17 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %148 = fadd float %144, %146
   %149 = add nuw i32 %147, 1
   %150 = icmp eq i32 %147, %82
-  br i1 %150, label %.loopexit26, label %145, !llvm.loop !14
+  br i1 %150, label %.loopexit27, label %145, !llvm.loop !14
 
-151:                                              ; preds = %.loopexit26
+151:                                              ; preds = %.loopexit27
   %152 = fsub float 0.000000e+00, %107
   br label %163
 
-.loopexit24:                                      ; preds = %180, %.thread13
-  %.pn61 = phi float [ %171, %.thread13 ], [ %179, %180 ]
-  %153 = phi float [ 0.000000e+00, %.thread13 ], [ %174, %180 ]
-  %154 = phi float [ 0.000000e+00, %.thread13 ], [ %183, %180 ]
-  %155 = fdiv float %.pn61, %107
+.loopexit25:                                      ; preds = %180, %.thread14
+  %.pn62 = phi float [ %171, %.thread14 ], [ %179, %180 ]
+  %153 = phi float [ 0.000000e+00, %.thread14 ], [ %174, %180 ]
+  %154 = phi float [ 0.000000e+00, %.thread14 ], [ %183, %180 ]
+  %155 = fdiv float %.pn62, %107
   %156 = fcmp oeq float %169, %165
   %157 = fcmp oeq float %155, %165
   %158 = select i1 %156, i1 %157, i1 false
@@ -511,29 +511,29 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %162 = select i1 %160, i1 %161, i1 false
   br i1 %162, label %163, label %186
 
-163:                                              ; preds = %.loopexit24, %151
-  %164 = phi i32 [ 1, %151 ], [ %166, %.loopexit24 ]
-  %165 = phi float [ %152, %151 ], [ %168, %.loopexit24 ]
+163:                                              ; preds = %.loopexit25, %151
+  %164 = phi i32 [ 1, %151 ], [ %166, %.loopexit25 ]
+  %165 = phi float [ %152, %151 ], [ %168, %.loopexit25 ]
   %166 = add nsw i32 %164, -1
-  %167 = fdiv float %165, %.pre-phi102
+  %167 = fdiv float %165, %.pre-phi103
   %168 = fadd float %167, 0.000000e+00
-  %169 = fmul float %168, %.pre-phi102
-  br i1 %117, label %.thread13, label %.preheader25
+  %169 = fmul float %168, %.pre-phi103
+  br i1 %117, label %.thread14, label %.preheader26
 
-.thread13:                                        ; preds = %163
+.thread14:                                        ; preds = %163
   %170 = fmul float %107, %165
   %171 = fadd float %170, 0.000000e+00
-  br label %.loopexit24
+  br label %.loopexit25
 
-.preheader25:                                     ; preds = %163, %.preheader25
-  %172 = phi float [ %174, %.preheader25 ], [ 0.000000e+00, %163 ]
-  %173 = phi i32 [ %175, %.preheader25 ], [ 1, %163 ]
+.preheader26:                                     ; preds = %163, %.preheader26
+  %172 = phi float [ %174, %.preheader26 ], [ 0.000000e+00, %163 ]
+  %173 = phi i32 [ %175, %.preheader26 ], [ 1, %163 ]
   %174 = fadd float %168, %172
   %175 = add nuw i32 %173, 1
   %176 = icmp eq i32 %173, %82
-  br i1 %176, label %177, label %.preheader25, !llvm.loop !13
+  br i1 %176, label %177, label %.preheader26, !llvm.loop !13
 
-177:                                              ; preds = %.preheader25
+177:                                              ; preds = %.preheader26
   %178 = fmul float %107, %165
   %179 = fadd float %178, 0.000000e+00
   br label %180
@@ -544,23 +544,23 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %183 = fadd float %179, %181
   %184 = add nuw i32 %182, 1
   %185 = icmp eq i32 %182, %82
-  br i1 %185, label %.loopexit24, label %180, !llvm.loop !14
+  br i1 %185, label %.loopexit25, label %180, !llvm.loop !14
 
-186:                                              ; preds = %.loopexit24
+186:                                              ; preds = %.loopexit25
   %187 = fadd float %112, 1.000000e+00
   %188 = fcmp ord float %187, 0.000000e+00
-  br i1 %188, label %189, label %.thread15
+  br i1 %188, label %189, label %.thread16
 
 189:                                              ; preds = %186
   %190 = fmul float %107, %187
   %191 = fadd float %190, 0.000000e+00
   br label %202
 
-.loopexit22:                                      ; preds = %219, %.thread14
-  %.pn62 = phi float [ %210, %.thread14 ], [ %218, %219 ]
-  %192 = phi float [ 0.000000e+00, %.thread14 ], [ %213, %219 ]
-  %193 = phi float [ 0.000000e+00, %.thread14 ], [ %222, %219 ]
-  %194 = fdiv float %.pn62, %107
+.loopexit23:                                      ; preds = %219, %.thread15
+  %.pn63 = phi float [ %210, %.thread15 ], [ %218, %219 ]
+  %192 = phi float [ 0.000000e+00, %.thread15 ], [ %213, %219 ]
+  %193 = phi float [ 0.000000e+00, %.thread15 ], [ %222, %219 ]
+  %194 = fdiv float %.pn63, %107
   %195 = fcmp oeq float %208, %204
   %196 = fcmp oeq float %194, %204
   %197 = select i1 %195, i1 %196, i1 false
@@ -570,29 +570,29 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %201 = select i1 %199, i1 %200, i1 false
   br i1 %201, label %202, label %225
 
-202:                                              ; preds = %.loopexit22, %189
-  %203 = phi i32 [ 1, %189 ], [ %205, %.loopexit22 ]
-  %204 = phi float [ %191, %189 ], [ %207, %.loopexit22 ]
+202:                                              ; preds = %.loopexit23, %189
+  %203 = phi i32 [ 1, %189 ], [ %205, %.loopexit23 ]
+  %204 = phi float [ %191, %189 ], [ %207, %.loopexit23 ]
   %205 = add nsw i32 %203, -1
-  %206 = fdiv float %204, %.pre-phi102
+  %206 = fdiv float %204, %.pre-phi103
   %207 = fadd float %206, 0.000000e+00
-  %208 = fmul float %207, %.pre-phi102
-  br i1 %117, label %.thread14, label %.preheader23
+  %208 = fmul float %207, %.pre-phi103
+  br i1 %117, label %.thread15, label %.preheader24
 
-.thread14:                                        ; preds = %202
+.thread15:                                        ; preds = %202
   %209 = fmul float %107, %204
   %210 = fadd float %209, 0.000000e+00
-  br label %.loopexit22
+  br label %.loopexit23
 
-.preheader23:                                     ; preds = %202, %.preheader23
-  %211 = phi float [ %213, %.preheader23 ], [ 0.000000e+00, %202 ]
-  %212 = phi i32 [ %214, %.preheader23 ], [ 1, %202 ]
+.preheader24:                                     ; preds = %202, %.preheader24
+  %211 = phi float [ %213, %.preheader24 ], [ 0.000000e+00, %202 ]
+  %212 = phi i32 [ %214, %.preheader24 ], [ 1, %202 ]
   %213 = fadd float %207, %211
   %214 = add nuw i32 %212, 1
   %215 = icmp eq i32 %212, %82
-  br i1 %215, label %216, label %.preheader23, !llvm.loop !13
+  br i1 %215, label %216, label %.preheader24, !llvm.loop !13
 
-216:                                              ; preds = %.preheader23
+216:                                              ; preds = %.preheader24
   %217 = fmul float %107, %204
   %218 = fadd float %217, 0.000000e+00
   br label %219
@@ -603,17 +603,17 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %222 = fadd float %218, %220
   %223 = add nuw i32 %221, 1
   %224 = icmp eq i32 %221, %82
-  br i1 %224, label %.loopexit22, label %219, !llvm.loop !14
+  br i1 %224, label %.loopexit23, label %219, !llvm.loop !14
 
-225:                                              ; preds = %.loopexit22
+225:                                              ; preds = %.loopexit23
   %226 = fsub float 0.000000e+00, %190
   br label %237
 
-.loopexit:                                        ; preds = %254, %.thread16
-  %.pn63 = phi float [ %245, %.thread16 ], [ %253, %254 ]
-  %227 = phi float [ 0.000000e+00, %.thread16 ], [ %248, %254 ]
-  %228 = phi float [ 0.000000e+00, %.thread16 ], [ %257, %254 ]
-  %229 = fdiv float %.pn63, %107
+.loopexit:                                        ; preds = %254, %.thread17
+  %.pn64 = phi float [ %245, %.thread17 ], [ %253, %254 ]
+  %227 = phi float [ 0.000000e+00, %.thread17 ], [ %248, %254 ]
+  %228 = phi float [ 0.000000e+00, %.thread17 ], [ %257, %254 ]
+  %229 = fdiv float %.pn64, %107
   %230 = fcmp oeq float %243, %239
   %231 = fcmp oeq float %229, %239
   %232 = select i1 %230, i1 %231, i1 false
@@ -621,18 +621,18 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %234 = select i1 %232, i1 %233, i1 false
   %235 = fcmp oeq float %228, %239
   %236 = select i1 %234, i1 %235, i1 false
-  br i1 %236, label %237, label %.thread15
+  br i1 %236, label %237, label %.thread16
 
 237:                                              ; preds = %.loopexit, %225
   %238 = phi i32 [ 1, %225 ], [ %240, %.loopexit ]
   %239 = phi float [ %226, %225 ], [ %242, %.loopexit ]
   %240 = add nsw i32 %238, -1
-  %241 = fdiv float %239, %.pre-phi102
+  %241 = fdiv float %239, %.pre-phi103
   %242 = fadd float %241, 0.000000e+00
-  %243 = fmul float %242, %.pre-phi102
-  br i1 %117, label %.thread16, label %.preheader
+  %243 = fmul float %242, %.pre-phi103
+  br i1 %117, label %.thread17, label %.preheader
 
-.thread16:                                        ; preds = %237
+.thread17:                                        ; preds = %237
   %244 = fmul float %107, %239
   %245 = fadd float %244, 0.000000e+00
   br label %.loopexit
@@ -658,7 +658,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %259 = icmp eq i32 %256, %82
   br i1 %259, label %.loopexit, label %254, !llvm.loop !14
 
-.thread15:                                        ; preds = %.loopexit, %186
+.thread16:                                        ; preds = %.loopexit, %186
   %260 = phi i32 [ 1, %186 ], [ %205, %.loopexit ]
   %261 = phi i32 [ 1, %186 ], [ %240, %.loopexit ]
   %262 = icmp eq i32 %129, %164
@@ -667,7 +667,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %265 = icmp eq i32 %131, %260
   br i1 %264, label %266, label %275
 
-266:                                              ; preds = %.thread15
+266:                                              ; preds = %.thread16
   br i1 %265, label %299, label %267
 
 267:                                              ; preds = %266
@@ -684,7 +684,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   %274 = tail call i32 @llvm.smin.i32(i32 %131, i32 %260)
   br label %299
 
-275:                                              ; preds = %.thread15
+275:                                              ; preds = %.thread16
   %276 = icmp eq i32 %166, %261
   %277 = select i1 %265, i1 %276, i1 false
   %278 = sub i32 %129, %164
@@ -793,7 +793,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
   br i1 %343, label %.loopexit3.i, label %344
 
 344:                                              ; preds = %321
-  %345 = fadd float %.pre-phi102, -1.000000e+00
+  %345 = fadd float %.pre-phi103, -1.000000e+00
   br label %346
 
 346:                                              ; preds = %346, %344
@@ -820,7 +820,7 @@ define noundef i32 @slamc2_(ptr nocapture noundef writeonly %0, ptr nocapture no
 .preheader.i:                                     ; preds = %.loopexit3.i, %.preheader.i
   %362 = phi i32 [ %366, %.preheader.i ], [ 1, %.loopexit3.i ]
   %363 = phi float [ %365, %.preheader.i ], [ %360, %.loopexit3.i ]
-  %364 = fmul float %363, %.pre-phi102
+  %364 = fmul float %363, %.pre-phi103
   %365 = fadd float %364, 0.000000e+00
   %366 = add nuw i32 %362, 1
   %367 = icmp eq i32 %362, %341
@@ -832,9 +832,9 @@ slamc5_.exit:                                     ; preds = %.preheader.i, %.loo
   br label %369
 
 369:                                              ; preds = %._crit_edge, %slamc5_.exit
-  %370 = phi float [ %.pre95, %._crit_edge ], [ %313, %slamc5_.exit ]
-  %371 = phi float [ %.pre94, %._crit_edge ], [ %106, %slamc5_.exit ]
-  %372 = phi i32 [ %.pre93, %._crit_edge ], [ %82, %slamc5_.exit ]
+  %370 = phi float [ %.pre96, %._crit_edge ], [ %313, %slamc5_.exit ]
+  %371 = phi float [ %.pre95, %._crit_edge ], [ %106, %slamc5_.exit ]
+  %372 = phi i32 [ %.pre94, %._crit_edge ], [ %82, %slamc5_.exit ]
   %373 = phi i32 [ undef, %._crit_edge ], [ %80, %slamc5_.exit ]
   store i32 %372, ptr %0, align 4, !tbaa !3
   %374 = load i32, ptr @slamc2_.lt, align 4, !tbaa !3

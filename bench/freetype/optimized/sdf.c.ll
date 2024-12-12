@@ -524,13 +524,13 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %.thread
+  br i1 %or.cond, label %7, label %thread-pre-split.thread
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 8
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %10, label %thread-pre-split.thread
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -539,19 +539,19 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %14 = icmp ne ptr %12, null
   %15 = icmp ne ptr %13, null
   %or.cond3 = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond3, label %16, label %.thread
+  br i1 %or.cond3, label %16, label %thread-pre-split.thread
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
   %.not32 = icmp eq ptr %17, null
-  br i1 %.not32, label %.thread, label %18
+  br i1 %.not32, label %thread-pre-split.thread, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, -33
   %or.cond38 = icmp ult i32 %21, -31
-  br i1 %or.cond38, label %.thread, label %22
+  br i1 %or.cond38, label %thread-pre-split.thread, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -564,7 +564,7 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   store ptr %29, ptr %4, align 8
   %30 = load i32, ptr %3, align 4
   %.not33 = icmp eq i32 %30, 0
-  br i1 %.not33, label %31, label %44
+  br i1 %.not33, label %31, label %thread-pre-split
 
 31:                                               ; preds = %22
   %32 = load i32, ptr %23, align 4
@@ -578,38 +578,38 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   %37 = call fastcc i32 @bsdf_init_distance_map(ptr noundef %12, ptr noundef %4)
   store i32 %37, ptr %3, align 4
   %.not34 = icmp eq i32 %37, 0
-  br i1 %.not34, label %38, label %44
+  br i1 %.not34, label %38, label %thread-pre-split
 
 38:                                               ; preds = %31
   %39 = call fastcc i32 @bsdf_approximate_edge(ptr noundef %4)
   store i32 %39, ptr %3, align 4
   %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %40, label %44
+  br i1 %.not35, label %40, label %thread-pre-split
 
 40:                                               ; preds = %38
   %41 = call fastcc i32 @edt8(ptr noundef %4)
   store i32 %41, ptr %3, align 4
   %.not36 = icmp eq i32 %41, 0
-  br i1 %.not36, label %42, label %44
+  br i1 %.not36, label %42, label %thread-pre-split
 
 42:                                               ; preds = %40
   %43 = call fastcc i32 @finalize_sdf(ptr noundef %4, ptr noundef %13)
   store i32 %43, ptr %3, align 4
-  br label %44
+  br label %thread-pre-split
 
-44:                                               ; preds = %42, %40, %38, %31, %22
-  %45 = phi i32 [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %31 ], [ %30, %22 ]
+thread-pre-split:                                 ; preds = %42, %40, %38, %31, %22
+  %44 = phi i32 [ %30, %22 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %31 ]
   %.not37 = icmp eq ptr %29, null
-  br i1 %.not37, label %.thread, label %46
+  br i1 %.not37, label %thread-pre-split.thread, label %45
 
-46:                                               ; preds = %44
+45:                                               ; preds = %thread-pre-split
   call void @ft_mem_free(ptr noundef nonnull %17, ptr noundef nonnull %29) #11
   %.pre = load i32, ptr %3, align 4
-  br label %.thread
+  br label %thread-pre-split.thread
 
-.thread:                                          ; preds = %18, %16, %10, %7, %2, %46, %44
-  %47 = phi i32 [ %.pre, %46 ], [ %45, %44 ], [ 6, %2 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %18 ]
-  ret i32 %47
+thread-pre-split.thread:                          ; preds = %18, %16, %10, %7, %2, %45, %thread-pre-split
+  %46 = phi i32 [ %.pre, %45 ], [ %44, %thread-pre-split ], [ 6, %2 ], [ 97, %7 ], [ 6, %10 ], [ 32, %16 ], [ 6, %18 ]
+  ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable

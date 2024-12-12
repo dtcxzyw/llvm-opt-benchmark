@@ -7856,7 +7856,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %19, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %22, %19 ]
   invoke void @"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E"(ptr nonnull align 8 %4) #10
-          to label %41 unwind label %39
+          to label %42 unwind label %40
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -7883,7 +7883,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E.exit.i": ; preds = %16, %15
   %18 = icmp eq i64 %13, %10
-  br i1 %18, label %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit", label %.lr.ph.i
+  br i1 %18, label %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit.loopexit", label %.lr.ph.i
 
 19:                                               ; preds = %23, %21
   %.1.i = phi i64 [ %13, %21 ], [ %25, %23 ]
@@ -7907,41 +7907,46 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E.exit.i", %8
+"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit.loopexit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$wiggle_generate..config..WasmtimeConfigField$GT$17hb1a20dbc89229f87E.exit.i"
+  %.pre = load ptr, ptr %4, align 8
+  br label %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit"
+
+"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit.loopexit", %8
+  %28 = phi ptr [ %.pre, %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit.loopexit" ], [ %0, %8 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %28 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i64, ptr %29, align 8, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %31, align 8
-  store i64 %30, ptr %3, align 8
+  %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = load i64, ptr %30, align 8, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %29, ptr %32, align 8
+  store i64 %31, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdda5861b9478cd4aE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E.exit", label %34
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = load i64, ptr %33, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %34, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E.exit", label %35
 
-34:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit"
-  %35 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i64, ptr %36, align 8, !noundef !3
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %38, ptr nonnull %35, i64 %33, i64 %37)
+35:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit"
+  %36 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = load i64, ptr %37, align 8, !noundef !3
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %39, ptr nonnull %36, i64 %34, i64 %38)
   br label %"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E.exit"
 
-"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit", %34
+"_ZN4core3ptr198drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..WasmtimeConfigField$C$alloc..alloc..Global$GT$$GT$17h26378e0ade91b859E.exit": ; preds = %"_ZN4core3ptr75drop_in_place$LT$$u5b$wiggle_generate..config..WasmtimeConfigField$u5d$$GT$17h9ae4fbcb2529fe92E.exit", %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-39:                                               ; preds = %.body
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %.body
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-41:                                               ; preds = %.body
+42:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -7962,7 +7967,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %20, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %eh.lpad-body.i, %20 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE"(ptr nonnull align 8 %4) #10
-          to label %42 unwind label %40
+          to label %43 unwind label %41
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8025,39 +8030,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$u5d$$GT$17h1c127a8b8bc178f3E.exit": ; preds = %"_ZN4core3ptr87drop_in_place$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$GT$17h11d65a7e310b0523E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %29 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !noundef !3
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %29, ptr %32, align 8
-  store i64 %31, ptr %3, align 8
+  %29 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %32 = load i64, ptr %31, align 8, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %30, ptr %33, align 8
+  store i64 %32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h41de9f88c9934193E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load i64, ptr %33, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE.exit", label %35
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load i64, ptr %34, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE.exit", label %36
 
-35:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$u5d$$GT$17h1c127a8b8bc178f3E.exit"
-  %36 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = load i64, ptr %37, align 8, !noundef !3
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %39, ptr nonnull %36, i64 %34, i64 %38)
+36:                                               ; preds = %"_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$u5d$$GT$17h1c127a8b8bc178f3E.exit"
+  %37 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %39 = load i64, ptr %38, align 8, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %40, ptr nonnull %37, i64 %35, i64 %39)
   br label %"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE.exit"
 
-"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$u5d$$GT$17h1c127a8b8bc178f3E.exit", %35
+"_ZN4core3ptr220drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h0fae9265296ef99eE.exit": ; preds = %"_ZN4core3ptr97drop_in_place$LT$$u5b$$LP$wiggle_generate..config..FunctionField$C$syn..token..Comma$RP$$u5d$$GT$17h1c127a8b8bc178f3E.exit", %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-40:                                               ; preds = %.body
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %.body
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-42:                                               ; preds = %.body
+43:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8131,7 +8137,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr88drop_in_place$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$GT$17h2e48223a726f4aeeE.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr88drop_in_place$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$GT$17h2e48223a726f4aeeE.exit7.i" ]
   invoke void @"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E"(ptr nonnull align 8 %4) #10
-          to label %36 unwind label %34
+          to label %37 unwind label %35
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8173,39 +8179,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr98drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$u5d$$GT$17ha7a65080ce2a8b12E.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$GT$17h2e48223a726f4aeeE.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %26, align 8
-  store i64 %25, ptr %3, align 8
+  %23 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %24, ptr %27, align 8
+  store i64 %26, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h388c3b5fdf7041e5E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i64, ptr %27, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E.exit", label %29
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E.exit", label %30
 
-29:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$u5d$$GT$17ha7a65080ce2a8b12E.exit"
-  %30 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %33, ptr nonnull %30, i64 %28, i64 %32)
+30:                                               ; preds = %"_ZN4core3ptr98drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$u5d$$GT$17ha7a65080ce2a8b12E.exit"
+  %31 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %33 = load i64, ptr %32, align 8, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %34, ptr nonnull %31, i64 %29, i64 %33)
   br label %"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E.exit"
 
-"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$u5d$$GT$17ha7a65080ce2a8b12E.exit", %29
+"_ZN4core3ptr221drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h360ad88358465202E.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ErrorConfField$C$syn..token..Comma$RP$$u5d$$GT$17ha7a65080ce2a8b12E.exit", %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-34:                                               ; preds = %.body
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %.body
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-36:                                               ; preds = %.body
+37:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8226,7 +8233,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %21, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %eh.lpad-body.i, %21 ]
   invoke void @"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E"(ptr nonnull align 8 %4) #10
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8289,39 +8296,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..FunctionField$u5d$$GT$17h9dd3a0d4d803189aE.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %30 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %30, ptr %33, align 8
-  store i64 %32, ptr %3, align 8
+  %30 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %31 = load ptr, ptr %30, align 8, !nonnull !3, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %33 = load i64, ptr %32, align 8, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %31, ptr %34, align 8
+  store i64 %33, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18d1d9e1c62dec54E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %35 = load i64, ptr %34, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E.exit", label %36
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i64, ptr %35, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E.exit", label %37
 
-36:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..FunctionField$u5d$$GT$17h9dd3a0d4d803189aE.exit"
-  %37 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %39 = load i64, ptr %38, align 8, !noundef !3
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %40, ptr nonnull %37, i64 %35, i64 %39)
+37:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..FunctionField$u5d$$GT$17h9dd3a0d4d803189aE.exit"
+  %38 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %40 = load i64, ptr %39, align 8, !noundef !3
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %41, ptr nonnull %38, i64 %36, i64 %40)
   br label %"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E.exit"
 
-"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E.exit": ; preds = %"_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..FunctionField$u5d$$GT$17h9dd3a0d4d803189aE.exit", %36
+"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..FunctionField$C$alloc..alloc..Global$GT$$GT$17h44e007d94f977d90E.exit": ; preds = %"_ZN4core3ptr69drop_in_place$LT$$u5b$wiggle_generate..config..FunctionField$u5d$$GT$17h9dd3a0d4d803189aE.exit", %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-41:                                               ; preds = %.body
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %.body
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-43:                                               ; preds = %.body
+44:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8342,7 +8350,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E"(ptr nonnull align 8 %4) #10
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8384,39 +8392,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..ErrorConfField$u5d$$GT$17hf21c704bc2a59988E.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8, !noundef !3
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h158b142c308f3241E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..ErrorConfField$u5d$$GT$17hf21c704bc2a59988E.exit"
-  %32 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %35, ptr nonnull %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..ErrorConfField$u5d$$GT$17hf21c704bc2a59988E.exit"
+  %33 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %36, ptr nonnull %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E.exit"
 
-"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..ErrorConfField$u5d$$GT$17hf21c704bc2a59988E.exit", %31
+"_ZN4core3ptr193drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ErrorConfField$C$alloc..alloc..Global$GT$$GT$17h4a0c050ccd7bcb84E.exit": ; preds = %"_ZN4core3ptr70drop_in_place$LT$$u5b$wiggle_generate..config..ErrorConfField$u5d$$GT$17hf21c704bc2a59988E.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8484,7 +8493,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr85drop_in_place$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$GT$17hcdfbc9d368974927E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr85drop_in_place$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$GT$17hcdfbc9d368974927E.exit7.i" ]
   invoke void @"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE"(ptr nonnull align 8 %4) #10
-          to label %36 unwind label %34
+          to label %37 unwind label %35
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8526,39 +8535,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hae25aba470ca0bd9E.exit": ; preds = %"_ZN4core3ptr85drop_in_place$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$GT$17hcdfbc9d368974927E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %26, align 8
-  store i64 %25, ptr %3, align 8
+  %23 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %24, ptr %27, align 8
+  store i64 %26, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc337a34cc86417efE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i64, ptr %27, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE.exit", label %29
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE.exit", label %30
 
-29:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hae25aba470ca0bd9E.exit"
-  %30 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %33, ptr nonnull %30, i64 %28, i64 %32)
+30:                                               ; preds = %"_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hae25aba470ca0bd9E.exit"
+  %31 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %33 = load i64, ptr %32, align 8, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %34, ptr nonnull %31, i64 %29, i64 %33)
   br label %"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE.exit"
 
-"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE.exit": ; preds = %"_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hae25aba470ca0bd9E.exit", %29
+"_ZN4core3ptr218drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h2f3d95e2a8be632eE.exit": ; preds = %"_ZN4core3ptr95drop_in_place$LT$$u5b$$LP$wiggle_generate..config..ConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hae25aba470ca0bd9E.exit", %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-34:                                               ; preds = %.body
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %.body
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-36:                                               ; preds = %.body
+37:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8579,7 +8589,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE"(ptr nonnull align 8 %4) #10
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8621,39 +8631,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17hbc98553fb1fc9be0E.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8, !noundef !3
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h624f0a993a2c5ad2E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17hbc98553fb1fc9be0E.exit"
-  %32 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %35, ptr nonnull %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17hbc98553fb1fc9be0E.exit"
+  %33 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %36, ptr nonnull %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE.exit"
 
-"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17hbc98553fb1fc9be0E.exit", %31
+"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..Ident$C$alloc..alloc..Global$GT$$GT$17heb0a38e5e96f377eE.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$proc_macro2..Ident$u5d$$GT$17hbc98553fb1fc9be0E.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8674,7 +8685,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %19, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %22, %19 ]
   invoke void @"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E"(ptr nonnull align 8 %4) #10
-          to label %41 unwind label %39
+          to label %42 unwind label %40
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8701,7 +8712,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E.exit.i": ; preds = %16, %15
   %18 = icmp eq i64 %13, %10
-  br i1 %18, label %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit", label %.lr.ph.i
+  br i1 %18, label %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit.loopexit", label %.lr.ph.i
 
 19:                                               ; preds = %23, %21
   %.1.i = phi i64 [ %13, %21 ], [ %25, %23 ]
@@ -8725,41 +8736,46 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E.exit.i", %8
+"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit.loopexit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$GT$17hfb4c3040437d9a92E.exit.i"
+  %.pre = load ptr, ptr %4, align 8
+  br label %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit"
+
+"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit.loopexit", %8
+  %28 = phi ptr [ %.pre, %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit.loopexit" ], [ %0, %8 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %28 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i64, ptr %29, align 8, !noundef !3
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %31, align 8
-  store i64 %30, ptr %3, align 8
+  %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %31 = load i64, ptr %30, align 8, !noundef !3
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %29, ptr %32, align 8
+  store i64 %31, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcf1cf853cd0b2710E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E.exit", label %34
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = load i64, ptr %33, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %34, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E.exit", label %35
 
-34:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit"
-  %35 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i64, ptr %36, align 8, !noundef !3
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %38, ptr nonnull %35, i64 %33, i64 %37)
+35:                                               ; preds = %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit"
+  %36 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = load i64, ptr %37, align 8, !noundef !3
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %39, ptr nonnull %36, i64 %34, i64 %38)
   br label %"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E.exit"
 
-"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit", %34
+"_ZN4core3ptr226drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h9f2ce1ae704253e8E.exit": ; preds = %"_ZN4core3ptr103drop_in_place$LT$$u5b$$LP$wiggle_generate..config..WasmtimeConfigField$C$syn..token..Comma$RP$$u5d$$GT$17hc43c24f3b004247dE.exit", %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-39:                                               ; preds = %.body
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %.body
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-41:                                               ; preds = %.body
+42:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8780,7 +8796,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE"(ptr nonnull align 8 %4) #10
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8822,39 +8838,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..ConfigField$u5d$$GT$17h8fc87959f69f5b29E.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8, !noundef !3
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he7a6573481b8244fE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8, !range !5, !noundef !3
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8, !range !5, !noundef !3
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..ConfigField$u5d$$GT$17h8fc87959f69f5b29E.exit"
-  %32 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %35, ptr nonnull %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..ConfigField$u5d$$GT$17h8fc87959f69f5b29E.exit"
+  %33 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8, !noundef !3
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e76acdcf36e3309E"(ptr nonnull align 1 %36, ptr nonnull %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE.exit"
 
-"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..ConfigField$u5d$$GT$17h8fc87959f69f5b29E.exit", %31
+"_ZN4core3ptr190drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$wiggle_generate..config..ConfigField$C$alloc..alloc..Global$GT$$GT$17haa8239a60a55a4deE.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$wiggle_generate..config..ConfigField$u5d$$GT$17h8fc87959f69f5b29E.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -17036,7 +17036,7 @@ define void @_ZN17RtpAnalysisDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(
   %3 = alloca %class.QList.78, align 8
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %5, label %31
+  br i1 %.not.i.i, label %5, label %35
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -17083,48 +17083,54 @@ define void @_ZN17RtpAnalysisDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(
 
 _ZN5QListIP13_rtpstream_idEC2ERKS2_.exit:         ; preds = %.loopexit, %22
   invoke void @_ZN17RtpAnalysisDialog20addRtpStreamsPrivateE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %3)
-          to label %24 unwind label %27
+          to label %24 unwind label %29
 
 24:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
-  br i1 %.not.i.i.i, label %_ZN5QListIP13_rtpstream_idED2Ev.exit, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
+  %25 = load ptr, ptr %3, align 8
+  %.not.i.i.i8 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i8, label %_ZN5QListIP13_rtpstream_idED2Ev.exit, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i: ; preds = %24
-  %25 = atomicrmw sub ptr %15, i32 1 seq_cst, align 4
-  %.not.i.i9 = icmp eq i32 %25, 1
-  br i1 %.not.i.i9, label %26, label %_ZN5QListIP13_rtpstream_idED2Ev.exit
+  %26 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
+  %.not.i.i9 = icmp eq i32 %26, 1
+  br i1 %.not.i.i9, label %27, label %_ZN5QListIP13_rtpstream_idED2Ev.exit
 
-26:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 8) #20
+27:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
+  %28 = load ptr, ptr %3, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %28, i64 noundef 8, i64 noundef 8) #20
   br label %_ZN5QListIP13_rtpstream_idED2Ev.exit
 
-27:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i, label %_ZN5QListIP13_rtpstream_idED2Ev.exit13, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11
+  %31 = load ptr, ptr %3, align 8
+  %.not.i.i.i10 = icmp eq ptr %31, null
+  br i1 %.not.i.i.i10, label %_ZN5QListIP13_rtpstream_idED2Ev.exit13, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11
 
-_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11: ; preds = %27
-  %29 = atomicrmw sub ptr %15, i32 1 seq_cst, align 4
-  %.not.i.i12 = icmp eq i32 %29, 1
-  br i1 %.not.i.i12, label %30, label %_ZN5QListIP13_rtpstream_idED2Ev.exit13
+_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11: ; preds = %29
+  %32 = atomicrmw sub ptr %31, i32 1 seq_cst, align 4
+  %.not.i.i12 = icmp eq i32 %32, 1
+  br i1 %.not.i.i12, label %33, label %_ZN5QListIP13_rtpstream_idED2Ev.exit13
 
-30:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 8) #20
+33:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11
+  %34 = load ptr, ptr %3, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %34, i64 noundef 8, i64 noundef 8) #20
   br label %_ZN5QListIP13_rtpstream_idED2Ev.exit13
 
-31:                                               ; preds = %2
+35:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.80, i32 noundef 5, ptr noundef nonnull @.str.81, i64 noundef 1044, ptr noundef nonnull @__func__._ZN17RtpAnalysisDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE, ptr noundef nonnull @.str.82)
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZN5QListIP13_rtpstream_idED2Ev.exit:             ; preds = %24, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i, %26
-  %32 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
+_ZN5QListIP13_rtpstream_idED2Ev.exit:             ; preds = %24, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i, %27
+  %36 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %31, %_ZN5QListIP13_rtpstream_idED2Ev.exit
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %35, %_ZN5QListIP13_rtpstream_idED2Ev.exit
   ret void
 
-_ZN5QListIP13_rtpstream_idED2Ev.exit13:           ; preds = %27, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11, %30, %.loopexit20
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %28, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11 ], [ %28, %30 ], [ %lpad.loopexit, %.loopexit20 ]
-  %33 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
+_ZN5QListIP13_rtpstream_idED2Ev.exit13:           ; preds = %29, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11, %33, %.loopexit20
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %30, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i11 ], [ %30, %33 ], [ %lpad.loopexit, %.loopexit20 ]
+  %37 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   resume { ptr, i32 } %.pn
 }
 
@@ -17382,7 +17388,7 @@ define void @_ZN17RtpAnalysisDialog13addRtpStreamsE5QListIP13_rtpstream_idE(ptr 
   %3 = alloca %class.QList.78, align 8
   %4 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   %.not.i.i = icmp eq i32 %4, 0
-  br i1 %.not.i.i, label %5, label %22
+  br i1 %.not.i.i, label %5, label %26
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
@@ -17404,48 +17410,54 @@ define void @_ZN17RtpAnalysisDialog13addRtpStreamsE5QListIP13_rtpstream_idE(ptr 
 
 _ZN5QListIP13_rtpstream_idEC2ERKS2_.exit:         ; preds = %5, %13
   invoke void @_ZN17RtpAnalysisDialog20addRtpStreamsPrivateE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %3)
-          to label %15 unwind label %18
+          to label %15 unwind label %20
 
 15:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
-  br i1 %.not.i.i.i, label %23, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
+  %16 = load ptr, ptr %3, align 8
+  %.not.i.i.i4 = icmp eq ptr %16, null
+  br i1 %.not.i.i.i4, label %27, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i: ; preds = %15
-  %16 = atomicrmw sub ptr %6, i32 1 seq_cst, align 4
-  %.not.i.i5 = icmp eq i32 %16, 1
-  br i1 %.not.i.i5, label %17, label %23
+  %17 = atomicrmw sub ptr %16, i32 1 seq_cst, align 4
+  %.not.i.i5 = icmp eq i32 %17, 1
+  br i1 %.not.i.i5, label %18, label %27
 
-17:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 8) #20
-  br label %23
+18:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i
+  %19 = load ptr, ptr %3, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %19, i64 noundef 8, i64 noundef 8) #20
+  br label %27
 
-18:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %_ZN5QListIP13_rtpstream_idEC2ERKS2_.exit
+  %21 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7
+  %22 = load ptr, ptr %3, align 8
+  %.not.i.i.i6 = icmp eq ptr %22, null
+  br i1 %.not.i.i.i6, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12, label %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7
 
-_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7: ; preds = %18
-  %20 = atomicrmw sub ptr %6, i32 1 seq_cst, align 4
-  %.not.i.i8 = icmp eq i32 %20, 1
-  br i1 %.not.i.i8, label %21, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12
+_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7: ; preds = %20
+  %23 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
+  %.not.i.i8 = icmp eq i32 %23, 1
+  br i1 %.not.i.i8, label %24, label %_ZNSt11unique_lockISt5mutexED2Ev.exit12
 
-21:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 8) #20
+24:                                               ; preds = %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7
+  %25 = load ptr, ptr %3, align 8
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %25, i64 noundef 8, i64 noundef 8) #20
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit12
 
-22:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.80, i32 noundef 5, ptr noundef nonnull @.str.81, i64 noundef 1054, ptr noundef nonnull @__func__._ZN17RtpAnalysisDialog13addRtpStreamsE5QListIP13_rtpstream_idE, ptr noundef nonnull @.str.83)
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-23:                                               ; preds = %15, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i, %17
-  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
+27:                                               ; preds = %15, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i, %18
+  %28 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %22, %23
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %26, %27
   ret void
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit12:          ; preds = %18, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7, %21
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
-  resume { ptr, i32 } %19
+_ZNSt11unique_lockISt5mutexED2Ev.exit12:          ; preds = %20, %_ZN17QArrayDataPointerIP13_rtpstream_idE5derefEv.exit.i.i7, %24
+  %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog10run_mutex_E) #20
+  resume { ptr, i32 } %21
 }
 
 declare i32 @rtpstream_id_to_hash(ptr noundef) local_unnamed_addr #3

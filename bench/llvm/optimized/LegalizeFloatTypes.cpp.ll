@@ -11025,11 +11025,11 @@ _ZN4llvm5SDLocD2Ev.exit26:                        ; preds = %_ZN4llvm5SDLocC2EPK
   br label %48
 
 48:                                               ; preds = %_ZN4llvm5SDLocD2Ev.exit._crit_edge, %_ZN4llvm5SDLocD2Ev.exit26
-  %.sroa.22.0.copyload = phi i32 [ %.fca.1.extract7, %_ZN4llvm5SDLocD2Ev.exit26 ], [ %.sroa.22.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ]
-  %.sroa.01.0.copyload = phi ptr [ %.fca.0.extract6, %_ZN4llvm5SDLocD2Ev.exit26 ], [ %29, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ]
-  %.sroa.24.0.copyload = phi i32 [ %40, %_ZN4llvm5SDLocD2Ev.exit26 ], [ %.sroa.24.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ]
-  %.sroa.03.0.copyload = phi ptr [ %38, %_ZN4llvm5SDLocD2Ev.exit26 ], [ %.sroa.03.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ]
-  %49 = phi i32 [ 22, %_ZN4llvm5SDLocD2Ev.exit26 ], [ %18, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ]
+  %49 = phi i32 [ %18, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ], [ 22, %_ZN4llvm5SDLocD2Ev.exit26 ]
+  %.sroa.22.0.copyload = phi i32 [ %.sroa.22.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ], [ %.fca.1.extract7, %_ZN4llvm5SDLocD2Ev.exit26 ]
+  %.sroa.01.0.copyload = phi ptr [ %29, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ], [ %.fca.0.extract6, %_ZN4llvm5SDLocD2Ev.exit26 ]
+  %.sroa.24.0.copyload = phi i32 [ %.sroa.24.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ], [ %40, %_ZN4llvm5SDLocD2Ev.exit26 ]
+  %.sroa.03.0.copyload = phi ptr [ %.sroa.03.0.copyload.pre, %_ZN4llvm5SDLocD2Ev.exit._crit_edge ], [ %38, %_ZN4llvm5SDLocD2Ev.exit26 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %12, align 8

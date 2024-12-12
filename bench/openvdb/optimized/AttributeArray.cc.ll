@@ -261,13 +261,13 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %if.else.i.i.i.i
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %entry
   invoke void @_ZN7openvdb5v11_06points14AttributeArrayC2ERKS2_RKN3tbb6detail2d118unique_scoped_lockINS7_10spin_mutexEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %rhs, ptr nonnull align 8 poison)
-          to label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit4
+          to label %if.then.i unwind label %lpad
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+if.then.i:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   store atomic i8 0, ptr %mMutex release, align 1
   ret void
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit4: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+lpad:                                             ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   %2 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex release, align 1

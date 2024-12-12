@@ -1498,7 +1498,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i11
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPvE3$_0Lb1EED2Ev.exit": ; preds = %if.then.i11
-  store i32 %0, ptr %call, align 4, !tbaa !54
+  %135 = load i32, ptr %savedErrno, align 4, !tbaa !54
+  store i32 %135, ptr %call, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %savedErrno) #20
   ret void
 

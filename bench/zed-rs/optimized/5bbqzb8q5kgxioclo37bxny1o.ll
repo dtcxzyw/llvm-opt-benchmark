@@ -3343,58 +3343,63 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr171drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06b1ec5cbc583628E.llvm.3702776065181997029"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #37
-          to label %common.resume.i unwind label %35
+          to label %common.resume.i unwind label %36
 
 "_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029.exit.i": ; preds = %.noexc.i
-  %16 = load ptr, ptr %7, align 8, !invariant.load !4, !alias.scope !931, !noalias !941
-  %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %18, label %17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
+  %16 = load ptr, ptr %8, align 8, !alias.scope !947, !noalias !934, !nonnull !4, !align !584, !noundef !4
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !947
+  %.not.i.i.i = icmp eq ptr %17, null
+  %.pre.i.i.i = load ptr, ptr %4, align 8, !alias.scope !948, !noalias !934
+  br i1 %.not.i.i.i, label %19, label %18
 
-17:                                               ; preds = %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029.exit.i"
-  invoke void %16(ptr noundef nonnull align 1 %5)
-          to label %18 unwind label %26, !noalias !946
+18:                                               ; preds = %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029.exit.i"
+  invoke void %17(ptr noundef nonnull align 1 %.pre.i.i.i)
+          to label %19 unwind label %27, !noalias !947
 
-18:                                               ; preds = %17, %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029.exit.i"
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %20 = load i64, ptr %19, align 8, !range !585, !invariant.load !4, !alias.scope !931, !noalias !947
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load i64, ptr %21, align 8, !range !589, !invariant.load !4, !alias.scope !931, !noalias !947
-  %23 = icmp ult i64 %22, -9223372036854775807
-  tail call void @llvm.assume(i1 %23)
-  %24 = icmp eq i64 %20, 0
-  br i1 %24, label %_ZN4core3ops8function6FnOnce9call_once17h6861c43e9a6fb748E.exit, label %25
+19:                                               ; preds = %18, %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029.exit.i"
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !951)
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %21 = load i64, ptr %20, align 8, !range !585, !invariant.load !4, !noalias !948
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %23 = load i64, ptr %22, align 8, !range !589, !invariant.load !4, !noalias !948
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %_ZN4core3ops8function6FnOnce9call_once17h6861c43e9a6fb748E.exit, label %26
 
-25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull align 1 %5, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #28, !noalias !950
+26:                                               ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef range(i64 1, -9223372036854775807) %23) #28, !noalias !948
   br label %_ZN4core3ops8function6FnOnce9call_once17h6861c43e9a6fb748E.exit
 
-26:                                               ; preds = %17
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %18
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load i64, ptr %28, align 8, !range !585, !invariant.load !4, !alias.scope !931, !noalias !951
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %31 = load i64, ptr %30, align 8, !range !589, !invariant.load !4, !alias.scope !931, !noalias !951
-  %32 = icmp ult i64 %31, -9223372036854775807
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i64 %29, 0
-  br i1 %33, label %common.resume.i, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %30 = load i64, ptr %29, align 8, !range !585, !invariant.load !4, !noalias !952
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %32 = load i64, ptr %31, align 8, !range !589, !invariant.load !4, !noalias !952
+  %33 = icmp ult i64 %32, -9223372036854775807
+  tail call void @llvm.assume(i1 %33)
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %common.resume.i, label %35
 
-34:                                               ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull align 1 %5, i64 noundef range(i64 1, -9223372036854775808) %29, i64 noundef range(i64 1, -9223372036854775807) %31) #28, !noalias !954
+35:                                               ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %30, i64 noundef range(i64 1, -9223372036854775807) %32) #28, !noalias !952
   br label %common.resume.i
 
-common.resume.i:                                  ; preds = %34, %26, %14
-  %common.resume.op.i = phi { ptr, i32 } [ %27, %34 ], [ %27, %26 ], [ %15, %14 ]
+common.resume.i:                                  ; preds = %35, %27, %14
+  %common.resume.op.i = phi { ptr, i32 } [ %28, %35 ], [ %28, %27 ], [ %15, %14 ]
   resume { ptr, i32 } %common.resume.op.i
 
-35:                                               ; preds = %14
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %14
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #38
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17h6861c43e9a6fb748E.exit: ; preds = %18, %25
+_ZN4core3ops8function6FnOnce9call_once17h6861c43e9a6fb748E.exit: ; preds = %19, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
@@ -3434,58 +3439,63 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr200drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1642463882977eeE.llvm.3702776065181997029"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #37
-          to label %common.resume.i unwind label %35
+          to label %common.resume.i unwind label %36
 
 "_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029.exit.i": ; preds = %.noexc.i
-  %16 = load ptr, ptr %7, align 8, !invariant.load !4, !alias.scope !960, !noalias !970
-  %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %18, label %17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !970)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !973)
+  %16 = load ptr, ptr %8, align 8, !alias.scope !976, !noalias !963, !nonnull !4, !align !584, !noundef !4
+  %17 = load ptr, ptr %16, align 8, !invariant.load !4, !noalias !976
+  %.not.i.i.i = icmp eq ptr %17, null
+  %.pre.i.i.i = load ptr, ptr %4, align 8, !alias.scope !977, !noalias !963
+  br i1 %.not.i.i.i, label %19, label %18
 
-17:                                               ; preds = %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029.exit.i"
-  invoke void %16(ptr noundef nonnull align 1 %5)
-          to label %18 unwind label %26, !noalias !975
+18:                                               ; preds = %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029.exit.i"
+  invoke void %17(ptr noundef nonnull align 1 %.pre.i.i.i)
+          to label %19 unwind label %27, !noalias !976
 
-18:                                               ; preds = %17, %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029.exit.i"
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %20 = load i64, ptr %19, align 8, !range !585, !invariant.load !4, !alias.scope !960, !noalias !976
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load i64, ptr %21, align 8, !range !589, !invariant.load !4, !alias.scope !960, !noalias !976
-  %23 = icmp ult i64 %22, -9223372036854775807
-  tail call void @llvm.assume(i1 %23)
-  %24 = icmp eq i64 %20, 0
-  br i1 %24, label %_ZN4core3ops8function6FnOnce9call_once17h69e03944f42f03b0E.exit, label %25
+19:                                               ; preds = %18, %"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029.exit.i"
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !980)
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %21 = load i64, ptr %20, align 8, !range !585, !invariant.load !4, !noalias !977
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %23 = load i64, ptr %22, align 8, !range !589, !invariant.load !4, !noalias !977
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %_ZN4core3ops8function6FnOnce9call_once17h69e03944f42f03b0E.exit, label %26
 
-25:                                               ; preds = %18
-  tail call void @__rust_dealloc(ptr noundef nonnull align 1 %5, i64 noundef range(i64 1, -9223372036854775808) %20, i64 noundef range(i64 1, -9223372036854775807) %22) #28, !noalias !979
+26:                                               ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef range(i64 1, -9223372036854775807) %23) #28, !noalias !977
   br label %_ZN4core3ops8function6FnOnce9call_once17h69e03944f42f03b0E.exit
 
-26:                                               ; preds = %17
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %18
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load i64, ptr %28, align 8, !range !585, !invariant.load !4, !alias.scope !960, !noalias !980
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %31 = load i64, ptr %30, align 8, !range !589, !invariant.load !4, !alias.scope !960, !noalias !980
-  %32 = icmp ult i64 %31, -9223372036854775807
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i64 %29, 0
-  br i1 %33, label %common.resume.i, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %30 = load i64, ptr %29, align 8, !range !585, !invariant.load !4, !noalias !981
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %32 = load i64, ptr %31, align 8, !range !589, !invariant.load !4, !noalias !981
+  %33 = icmp ult i64 %32, -9223372036854775807
+  tail call void @llvm.assume(i1 %33)
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %common.resume.i, label %35
 
-34:                                               ; preds = %26
-  tail call void @__rust_dealloc(ptr noundef nonnull align 1 %5, i64 noundef range(i64 1, -9223372036854775808) %29, i64 noundef range(i64 1, -9223372036854775807) %31) #28, !noalias !983
+35:                                               ; preds = %27
+  tail call void @__rust_dealloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %30, i64 noundef range(i64 1, -9223372036854775807) %32) #28, !noalias !981
   br label %common.resume.i
 
-common.resume.i:                                  ; preds = %34, %26, %14
-  %common.resume.op.i = phi { ptr, i32 } [ %27, %34 ], [ %27, %26 ], [ %15, %14 ]
+common.resume.i:                                  ; preds = %35, %27, %14
+  %common.resume.op.i = phi { ptr, i32 } [ %28, %35 ], [ %28, %27 ], [ %15, %14 ]
   resume { ptr, i32 } %common.resume.op.i
 
-35:                                               ; preds = %14
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %14
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #38
   unreachable
 
-_ZN4core3ops8function6FnOnce9call_once17h69e03944f42f03b0E.exit: ; preds = %18, %25
+_ZN4core3ops8function6FnOnce9call_once17h69e03944f42f03b0E.exit: ; preds = %19, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }
@@ -19260,20 +19270,20 @@ attributes #40 = { noreturn nounwind }
 !938 = distinct !{!938, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029"}
 !939 = distinct !{!939, !938, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17habc0a8fb4847d917E.llvm.3702776065181997029: argument 1"}
 !940 = !{!935}
-!941 = !{!942, !944, !935}
-!942 = distinct !{!942, !943, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029: argument 0"}
-!943 = distinct !{!943, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029"}
-!944 = distinct !{!944, !945, !"_ZN4core3ptr171drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06b1ec5cbc583628E.llvm.3702776065181997029: argument 0"}
-!945 = distinct !{!945, !"_ZN4core3ptr171drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06b1ec5cbc583628E.llvm.3702776065181997029"}
-!946 = !{!942, !944}
-!947 = !{!948, !942, !944, !935}
-!948 = distinct !{!948, !949, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
-!949 = distinct !{!949, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
-!950 = !{!948, !942, !944}
-!951 = !{!952, !942, !944, !935}
-!952 = distinct !{!952, !953, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
-!953 = distinct !{!953, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
-!954 = !{!952, !942, !944}
+!941 = !{!942}
+!942 = distinct !{!942, !943, !"_ZN4core3ptr171drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06b1ec5cbc583628E.llvm.3702776065181997029: argument 0"}
+!943 = distinct !{!943, !"_ZN4core3ptr171drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h06b1ec5cbc583628E.llvm.3702776065181997029"}
+!944 = !{!945}
+!945 = distinct !{!945, !946, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029: argument 0"}
+!946 = distinct !{!946, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029"}
+!947 = !{!945, !942}
+!948 = !{!949, !945, !942}
+!949 = distinct !{!949, !950, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
+!950 = distinct !{!950, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
+!951 = !{!949}
+!952 = !{!953, !945, !942}
+!953 = distinct !{!953, !954, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
+!954 = distinct !{!954, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
 !955 = !{!956, !958}
 !956 = distinct !{!956, !957, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h36398337af3d7eeaE.llvm.3702776065181997029: argument 0"}
 !957 = distinct !{!957, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h36398337af3d7eeaE.llvm.3702776065181997029"}
@@ -19289,20 +19299,20 @@ attributes #40 = { noreturn nounwind }
 !967 = distinct !{!967, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029"}
 !968 = distinct !{!968, !967, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0c5d1aab0218b577E.llvm.3702776065181997029: argument 1"}
 !969 = !{!964}
-!970 = !{!971, !973, !964}
-!971 = distinct !{!971, !972, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029: argument 0"}
-!972 = distinct !{!972, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029"}
-!973 = distinct !{!973, !974, !"_ZN4core3ptr200drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1642463882977eeE.llvm.3702776065181997029: argument 0"}
-!974 = distinct !{!974, !"_ZN4core3ptr200drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1642463882977eeE.llvm.3702776065181997029"}
-!975 = !{!971, !973}
-!976 = !{!977, !971, !973, !964}
-!977 = distinct !{!977, !978, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
-!978 = distinct !{!978, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
-!979 = !{!977, !971, !973}
-!980 = !{!981, !971, !973, !964}
-!981 = distinct !{!981, !982, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
-!982 = distinct !{!982, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
-!983 = !{!981, !971, !973}
+!970 = !{!971}
+!971 = distinct !{!971, !972, !"_ZN4core3ptr200drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1642463882977eeE.llvm.3702776065181997029: argument 0"}
+!972 = distinct !{!972, !"_ZN4core3ptr200drop_in_place$LT$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..render_footer..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc1642463882977eeE.llvm.3702776065181997029"}
+!973 = !{!974}
+!974 = distinct !{!974, !975, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029: argument 0"}
+!975 = distinct !{!975, !"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17ha5d4739a632e5de2E.llvm.3702776065181997029"}
+!976 = !{!974, !971}
+!977 = !{!978, !974, !971}
+!978 = distinct !{!978, !979, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
+!979 = distinct !{!979, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
+!980 = !{!978}
+!981 = !{!982, !974, !971}
+!982 = distinct !{!982, !983, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029: argument 0"}
+!983 = distinct !{!983, !"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h68063c37577397beE.llvm.3702776065181997029"}
 !984 = !{!985, !987}
 !985 = distinct !{!985, !986, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a8718329a21df08E.llvm.3702776065181997029: argument 0"}
 !986 = distinct !{!986, !"_ZN78_$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$13render_footer28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6a8718329a21df08E.llvm.3702776065181997029"}

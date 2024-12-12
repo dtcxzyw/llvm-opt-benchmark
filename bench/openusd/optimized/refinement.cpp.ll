@@ -766,12 +766,12 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateChildToParentMappingEv.
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement24populateVertexTagVectorsEv(ptr noundef nonnull readonly align 8 dereferenceable(504) %0)
   %86 = and i32 %1, 4
   %.not = icmp eq i32 %86, 0
-  %. = select i1 %.not, i8 63, i8 1
-  store i8 %., ptr %4, align 4
+  %spec.select = select i1 %.not, i8 -1, i8 1
+  store i8 %spec.select, ptr %4, align 4
   br i1 %23, label %87, label %.critedge
 
 87:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement28populateChildToParentMappingEv.exit
-  %88 = or i8 %., 16
+  %88 = or i8 %spec.select, 16
   store i8 %88, ptr %4, align 4
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement17subdivideTopologyERKNS3_9RelationsE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement22subdivideEdgeSharpnessEv(ptr noundef nonnull readonly align 8 dereferenceable(504) %0)

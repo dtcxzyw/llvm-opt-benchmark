@@ -58350,7 +58350,9 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4247: ; preds = %3119, %3143
   %.sroa.04840.2 = phi ptr [ %.fca.0.extract1198, %3155 ], [ %.sroa.04840.1, %3150 ]
   %.sroa.40.2 = phi i32 [ %.fca.1.extract1199, %3155 ], [ %.sroa.40.1, %3150 ]
   %3162 = load ptr, ptr %302, align 8
-  %3163 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12SelectionDAG7setRootENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %3162, ptr %.fca.0.extract1246, i32 %.fca.1.extract1247)
+  %.sroa.01195.0.copyload = load ptr, ptr %203, align 8
+  %.sroa.21196.0.copyload = load i32, ptr %.sroa.21249.0..sroa_idx, align 8
+  %3163 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12SelectionDAG7setRootENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904) %3162, ptr %.sroa.01195.0.copyload, i32 %.sroa.21196.0.copyload)
   call void @_ZN4llvm19SelectionDAGBuilder8setValueEPKNS_5ValueENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull %1, ptr %.sroa.04840.2, i32 %.sroa.40.2)
   br label %_ZN4llvm5APIntD2Ev.exit
 

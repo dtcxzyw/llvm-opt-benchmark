@@ -10751,7 +10751,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %43
 
-43:                                               ; preds = %.backedge130, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$8children17hc9d561c66e7d7d64E.exit"
+43:                                               ; preds = %.backedge129, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$8children17hc9d561c66e7d7d64E.exit"
   %44 = invoke noundef ptr @"_ZN92_$LT$rowan..cursor..SyntaxNodeChildren$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h97b5dd790238cdffE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18)
           to label %"_ZN98_$LT$rowan..api..SyntaxNodeChildren$LT$L$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdfe79decd15dc51E.exit" unwind label %53
 
@@ -10816,8 +10816,8 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   invoke void @_ZN3hir9semantics13SemanticsImpl14original_range17h3f5e044ca5fb3fcaE(ptr noalias nocapture noundef nonnull sret({ { i32, i32 }, i32 }) align 4 dereferenceable(12) %16, ptr noundef nonnull align 8 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17)
           to label %72 unwind label %.loopexit.split-lp.loopexit
 
-.body:                                            ; preds = %.loopexit121, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %231, %175, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit47", %105, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit89"
-  %.pn29 = phi { ptr, i32 } [ %.pn27, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit89" ], [ %.pn23, %105 ], [ %.pn23, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit47" ], [ %lpad.phi126, %175 ], [ %232, %231 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit120, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %231, %175, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit47", %105, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit89"
+  %.pn29 = phi { ptr, i32 } [ %.pn27, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit89" ], [ %.pn23, %105 ], [ %.pn23, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit47" ], [ %lpad.phi125, %175 ], [ %232, %231 ], [ %lpad.loopexit, %.loopexit120 ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2552)
   call void @llvm.experimental.noalias.scope.decl(metadata !2555)
   call void @llvm.experimental.noalias.scope.decl(metadata !2558)
@@ -10833,18 +10833,18 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %66)
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit" unwind label %138
 
-.loopexit121:                                     ; preds = %.lr.ph, %167, %180, %183, %187, %190, %198, %171, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4d6718f703a0b606E.llvm.4279493060387207597.exit.i"
+.loopexit120:                                     ; preds = %.lr.ph, %167, %180, %183, %187, %190, %198, %171, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4d6718f703a0b606E.llvm.4279493060387207597.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %152, %.loopexit, %94, %65
-  %lpad.loopexit127 = landingpad { ptr, i32 }
+  %lpad.loopexit126 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %173, %93
-  %lpad.loopexit.split-lp128 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp127 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -10872,7 +10872,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %82 = add i32 %81, -1
   store i32 %82, ptr %80, align 4, !noalias !2571
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.invoke, label %.backedge130
+  br i1 %83, label %.invoke, label %.backedge129
 
 84:                                               ; preds = %74
   %85 = icmp eq i32 %75, %33
@@ -11091,21 +11091,21 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %160 = add i32 %159, -1
   store i32 %160, ptr %158, align 4, !noalias !2647
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.invoke, label %.backedge130
+  br i1 %161, label %.invoke, label %.backedge129
 
 .invoke:                                          ; preds = %156, %78
   %162 = phi ptr [ %79, %78 ], [ %157, %156 ]
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %162)
-          to label %.backedge130 unwind label %53
+          to label %.backedge129 unwind label %53
 
-.backedge130:                                     ; preds = %.invoke, %156, %78
+.backedge129:                                     ; preds = %.invoke, %156, %78
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %43
 
 .lr.ph:                                           ; preds = %153, %.backedge
-  %.sroa.0.0137 = phi ptr [ %163, %.backedge ], [ %.val, %153 ]
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 232
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 152
+  %.sroa.0.0136 = phi ptr [ %163, %.backedge ], [ %.val, %153 ]
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.0136, i64 232
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.0136, i64 152
   %.val39 = load ptr, ptr %164, align 8, !nonnull !4, !noundef !4
   %.val.i = load i64, ptr %.val39, align 8, !range !198, !noundef !4
   %165 = getelementptr i8, ptr %.val39, i64 8
@@ -11115,7 +11115,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.val2.i, i64 %.0.in.idx.i
   %.0.i61 = load i16, ptr %.0.in.i, align 4, !noundef !4
   %166 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i61)
-          to label %167 unwind label %.loopexit121, !range !1638
+          to label %167 unwind label %.loopexit120, !range !1638
 
 167:                                              ; preds = %.lr.ph
   %.val38 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
@@ -11127,7 +11127,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %.0.in.i68 = getelementptr inbounds nuw i8, ptr %.val2.i65, i64 %.0.in.idx.i67
   %.0.i69 = load i16, ptr %.0.in.i68, align 4, !noundef !4
   %169 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i69)
-          to label %170 unwind label %.loopexit121, !range !1638
+          to label %170 unwind label %.loopexit120, !range !1638
 
 170:                                              ; preds = %167
   %.not26 = icmp eq i16 %166, %169
@@ -11140,7 +11140,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 1, ptr %8, align 1, !noalias !2648
   %172 = invoke noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hcabd209abd53a5faE.llvm.4279493060387207597"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.b2c33f374dbb30fa6aad73fc0b66f3f4.62.llvm.4279493060387207597, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %8)
-          to label %.noexc90 unwind label %.loopexit121
+          to label %.noexc90 unwind label %.loopexit120
 
 .noexc90:                                         ; preds = %171
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !2648
@@ -11156,25 +11156,25 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4d6718f703a0b606E.llvm.4279493060387207597.exit.i": ; preds = %.noexc90
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %6), !noalias !2648
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7), !noalias !2648
-  invoke void @_ZN7ide_ssr8matching7Matcher9try_match17h42afc2c25e2e9283E(ptr noalias nocapture noundef nonnull sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.0.0137, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 %27)
-          to label %.noexc92 unwind label %.loopexit121
+  invoke void @_ZN7ide_ssr8matching7Matcher9try_match17h42afc2c25e2e9283E(ptr noalias nocapture noundef nonnull sret({ i64, [15 x i64] }) align 8 dereferenceable(128) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.0.0136, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 %27)
+          to label %.noexc92 unwind label %.loopexit120
 
 .noexc92:                                         ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4d6718f703a0b606E.llvm.4279493060387207597.exit.i"
   %174 = invoke noundef zeroext i1 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h21afdd1098eb8e1eE.llvm.4279493060387207597"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.b2c33f374dbb30fa6aad73fc0b66f3f4.62.llvm.4279493060387207597)
-          to label %176 unwind label %.loopexit122, !noalias !2648
+          to label %176 unwind label %.loopexit121, !noalias !2648
 
-.loopexit122:                                     ; preds = %.noexc92
-  %lpad.loopexit124 = landingpad { ptr, i32 }
+.loopexit121:                                     ; preds = %.noexc92
+  %lpad.loopexit123 = landingpad { ptr, i32 }
           cleanup
   br label %175
 
-.loopexit.split-lp123:                            ; preds = %177
-  %lpad.loopexit.split-lp125 = landingpad { ptr, i32 }
+.loopexit.split-lp122:                            ; preds = %177
+  %lpad.loopexit.split-lp124 = landingpad { ptr, i32 }
           cleanup
   br label %175
 
-175:                                              ; preds = %.loopexit.split-lp123, %.loopexit122
-  %lpad.phi126 = phi { ptr, i32 } [ %lpad.loopexit124, %.loopexit122 ], [ %lpad.loopexit.split-lp125, %.loopexit.split-lp123 ]
+175:                                              ; preds = %.loopexit.split-lp122, %.loopexit121
+  %lpad.phi125 = phi { ptr, i32 } [ %lpad.loopexit123, %.loopexit121 ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp122 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$ide_ssr..matching..Match$C$ide_ssr..matching..MatchFailed$GT$$GT$17h32d6b10d767983dfE.llvm.4279493060387207597"(ptr noalias noundef nonnull align 8 dereferenceable(128) %7) #27
           to label %.body unwind label %178, !noalias !2648
 
@@ -11184,7 +11184,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
 
 177:                                              ; preds = %176
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.b2c33f374dbb30fa6aad73fc0b66f3f4.63.llvm.4279493060387207597, i64 noundef 70, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b2c33f374dbb30fa6aad73fc0b66f3f4.42.llvm.4279493060387207597, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b2c33f374dbb30fa6aad73fc0b66f3f4.65.llvm.4279493060387207597) #26
-          to label %.noexc.i unwind label %.loopexit.split-lp123, !noalias !2648
+          to label %.noexc.i unwind label %.loopexit.split-lp122, !noalias !2648
 
 .noexc.i:                                         ; preds = %177
   unreachable
@@ -11205,11 +11205,11 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %.0.in.i74 = getelementptr inbounds nuw i8, ptr %.val2.i71, i64 %.0.in.idx.i73
   %.0.i75 = load i16, ptr %.0.in.i74, align 4, !noundef !4
   %182 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i75)
-          to label %183 unwind label %.loopexit121, !range !1638
+          to label %183 unwind label %.loopexit120, !range !1638
 
 183:                                              ; preds = %180
   %184 = invoke noundef zeroext i1 @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17h58271c06b0890007E"(i16 noundef %182)
-          to label %185 unwind label %.loopexit121
+          to label %185 unwind label %.loopexit120
 
 185:                                              ; preds = %183
   br i1 %184, label %187, label %.backedge
@@ -11228,11 +11228,11 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
   %.0.in.i81 = getelementptr inbounds nuw i8, ptr %.val2.i78, i64 %.0.in.idx.i80
   %.0.i82 = load i16, ptr %.0.in.i81, align 4, !noundef !4
   %189 = invoke noundef i16 @"_ZN74_$LT$syntax..syntax_node..RustLanguage$u20$as$u20$rowan..api..Language$GT$13kind_from_raw17h329786d93afe91e3E"(i16 noundef %.0.i82)
-          to label %190 unwind label %.loopexit121, !range !1638
+          to label %190 unwind label %.loopexit120, !range !1638
 
 190:                                              ; preds = %187
   %191 = invoke noundef zeroext i1 @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$8can_cast17h58271c06b0890007E"(i16 noundef %189)
-          to label %192 unwind label %.loopexit121
+          to label %192 unwind label %.loopexit120
 
 192:                                              ; preds = %190
   br i1 %191, label %171, label %.backedge
@@ -11264,7 +11264,7 @@ define internal fastcc void @_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at
 
 198:                                              ; preds = %196
   %199 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h608d8887e77cbd41E"(i64 noundef 37, i1 noundef zeroext false)
-          to label %.noexc83 unwind label %.loopexit121
+          to label %.noexc83 unwind label %.loopexit120
 
 .noexc83:                                         ; preds = %198
   %200 = extractvalue { i64, ptr } %199, 0

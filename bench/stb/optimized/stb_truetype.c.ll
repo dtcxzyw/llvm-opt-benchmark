@@ -13347,13 +13347,13 @@ stbtt_Rasterize.exit:                             ; preds = %if.then33, %if.then
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end20.if.end37_crit_edge, %if.then25, %stbtt_Rasterize.exit
-  %18 = phi ptr [ %.pre29, %if.then25 ], [ %.pre29, %stbtt_Rasterize.exit ], [ %.pre, %if.end20.if.end37_crit_edge ]
-  %19 = phi ptr [ null, %if.then25 ], [ %call29, %stbtt_Rasterize.exit ], [ null, %if.end20.if.end37_crit_edge ]
-  call void @free(ptr noundef %18) #33
+  %18 = phi ptr [ null, %if.end20.if.end37_crit_edge ], [ null, %if.then25 ], [ %call29, %stbtt_Rasterize.exit ]
+  %19 = phi ptr [ %.pre, %if.end20.if.end37_crit_edge ], [ %.pre29, %if.then25 ], [ %.pre29, %stbtt_Rasterize.exit ]
+  call void @free(ptr noundef %19) #33
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ %19, %if.end37 ]
+  %retval.0 = phi ptr [ null, %if.then4 ], [ %18, %if.end37 ]
   ret ptr %retval.0
 }
 

@@ -6365,21 +6365,21 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11In
   br i1 %2, label %_ZN4llvm6APSIntD2Ev.exit, label %_ZN4llvm6APSIntD2Ev.exit17
 
 _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %3
-  %.sink12.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink11.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @_ZNK4llvm5APInt4rotrEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %53) #16
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm6APSIntD2Ev.exit17:                       ; preds = %3
-  %.sink12.sroa.gep1 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink11.sroa.gep1 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @_ZNK4llvm5APInt4rotlEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %53) #16
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm6APSIntD2Ev.exit, %_ZN4llvm6APSIntD2Ev.exit17
-  %.sink12.sroa.phi = phi ptr [ %.sink12.sroa.gep, %_ZN4llvm6APSIntD2Ev.exit ], [ %.sink12.sroa.gep1, %_ZN4llvm6APSIntD2Ev.exit17 ]
-  %.sink12 = phi ptr [ %7, %_ZN4llvm6APSIntD2Ev.exit ], [ %8, %_ZN4llvm6APSIntD2Ev.exit17 ]
-  %54 = load i32, ptr %.sink12.sroa.phi, align 8
-  %55 = load i64, ptr %.sink12, align 8
-  store i32 0, ptr %.sink12.sroa.phi, align 8
+  %.sink11.sroa.phi = phi ptr [ %.sink11.sroa.gep, %_ZN4llvm6APSIntD2Ev.exit ], [ %.sink11.sroa.gep1, %_ZN4llvm6APSIntD2Ev.exit17 ]
+  %.sink11 = phi ptr [ %7, %_ZN4llvm6APSIntD2Ev.exit ], [ %8, %_ZN4llvm6APSIntD2Ev.exit17 ]
+  %54 = load i32, ptr %.sink11.sroa.phi, align 8
+  %55 = load i64, ptr %.sink11, align 8
+  store i32 0, ptr %.sink11.sroa.phi, align 8
   store i64 %55, ptr %6, align 8
   store i32 %54, ptr %47, align 8
   store i8 1, ptr %48, align 4

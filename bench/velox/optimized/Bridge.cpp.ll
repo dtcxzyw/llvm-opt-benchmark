@@ -69263,48 +69263,54 @@ _ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit: ; preds = %_Z
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox10BufferViewINS0_12_GLOBAL__N_118BufferViewReleaserEEE, i64 16), ptr %call, align 8
   %releaser_.i = getelementptr inbounds nuw i8, ptr %call, i64 64
-  store ptr %0, ptr %releaser_.i, align 8
+  %10 = load ptr, ptr %agg.tmp, align 8
+  store ptr %10, ptr %releaser_.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i, label %if.then.i.i.i.i.i
+  %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  store ptr %11, ptr %_M_refcount.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %11 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %11, 1
+  %13 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i = add nsw i32 %13, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   br label %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %12 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %14 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i
 
 _ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserC2ERKS2_.exit
   %arrayReleaser_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
-  store ptr %5, ptr %arrayReleaser_.i.i, align 8
+  %15 = load ptr, ptr %arrayReleaser_.i, align 8
+  store ptr %15, ptr %arrayReleaser_.i.i, align 8
   %_M_refcount.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
-  store ptr %6, ptr %_M_refcount.i.i2.i.i, align 8
-  br i1 %cmp.not.i.i.i4.i, label %invoke.cont, label %if.then.i.i.i5.i.i
+  %16 = load ptr, ptr %_M_refcount.i.i2.i, align 8
+  store ptr %16, ptr %_M_refcount.i.i2.i.i, align 8
+  %cmp.not.i.i.i4.i.i = icmp eq ptr %16, null
+  br i1 %cmp.not.i.i.i4.i.i, label %invoke.cont, label %if.then.i.i.i5.i.i
 
 if.then.i.i.i5.i.i:                               ; preds = %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i
-  %_M_use_count.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i7.i.i = icmp eq i8 %13, 0
+  %_M_use_count.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i7.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i7.i.i, label %if.else.i.i.i.i.i10.i.i, label %if.then.i.i.i.i.i8.i.i
 
 if.then.i.i.i.i.i8.i.i:                           ; preds = %if.then.i.i.i5.i.i
-  %14 = load i32, ptr %_M_use_count.i.i.i.i6.i.i, align 4
-  %add.i.i.i.i.i9.i.i = add nsw i32 %14, 1
+  %18 = load i32, ptr %_M_use_count.i.i.i.i6.i.i, align 4
+  %add.i.i.i.i.i9.i.i = add nsw i32 %18, 1
   store i32 %add.i.i.i.i.i9.i.i, ptr %_M_use_count.i.i.i.i6.i.i, align 4
   br label %invoke.cont
 
 if.else.i.i.i.i.i10.i.i:                          ; preds = %if.then.i.i.i5.i.i
-  %15 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i6.i.i, i32 1 acq_rel, align 4
+  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i6.i.i, i32 1 acq_rel, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i.i.i10.i.i, %if.then.i.i.i.i.i8.i.i, %_ZNSt10shared_ptrI11ArrowSchemaEC2ERKS1_.exit.i.i
@@ -69312,7 +69318,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i10
   store i64 %size, ptr %capacity_.i.i, align 8
   call void @_ZN8facebook5velox12_GLOBAL__N_118BufferViewReleaserD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #39
   store ptr %call, ptr %agg.result, align 8
-  %16 = atomicrmw add ptr %referenceCount_.i.i, i32 1 seq_cst, align 4
+  %20 = atomicrmw add ptr %referenceCount_.i.i, i32 1 seq_cst, align 4
   ret void
 }
 

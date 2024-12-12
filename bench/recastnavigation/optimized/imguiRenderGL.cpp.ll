@@ -6045,13 +6045,13 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %22, %24
   br label %67
 
 67:                                               ; preds = %._crit_edge, %61, %65
-  %68 = phi ptr [ %.pre58, %61 ], [ %.pre58, %65 ], [ %.pre, %._crit_edge ]
-  %69 = phi ptr [ null, %61 ], [ %64, %65 ], [ null, %._crit_edge ]
-  call void @free(ptr noundef %68) #28
+  %68 = phi ptr [ null, %._crit_edge ], [ null, %61 ], [ %64, %65 ]
+  %69 = phi ptr [ %.pre, %._crit_edge ], [ %.pre58, %61 ], [ %.pre58, %65 ]
+  call void @free(ptr noundef %69) #28
   br label %70
 
 70:                                               ; preds = %67, %20
-  %.0 = phi ptr [ null, %20 ], [ %69, %67 ]
+  %.0 = phi ptr [ null, %20 ], [ %68, %67 ]
   ret ptr %.0
 }
 

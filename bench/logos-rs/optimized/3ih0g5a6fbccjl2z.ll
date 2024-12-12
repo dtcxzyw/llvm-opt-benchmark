@@ -8833,7 +8833,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %24, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %27, %24 ]
   invoke void @"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E"(ptr nonnull align 8 %5) #11
-          to label %46 unwind label %44
+          to label %47 unwind label %45
 
 9:                                                ; preds = %1
   %10 = extractvalue { ptr, i64 } %6, 0
@@ -8869,7 +8869,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 "_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E.exit.i": ; preds = %19, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %23 = icmp eq i64 %17, %11
-  br i1 %23, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit", label %15
+  br i1 %23, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit.loopexit", label %15
 
 24:                                               ; preds = %28, %26
   %.sroa.0.1.i = phi i64 [ %17, %26 ], [ %30, %28 ]
@@ -8893,41 +8893,46 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E.exit.i", %9
+"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit.loopexit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..rope..Rope$GT$17h2719d89ad459c7a4E.exit.i"
+  %.pre = load ptr, ptr %5, align 8
+  br label %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit"
+
+"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit.loopexit", %9
+  %33 = phi ptr [ %.pre, %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit.loopexit" ], [ %0, %9 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %33, ptr %36, align 8
-  store i64 %35, ptr %3, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %34, ptr %37, align 8
+  store i64 %36, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf35bd2bf997d1c71E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i64, ptr %37, align 8
-  %.not.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E.exit", label %39
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load i64, ptr %38, align 8
+  %.not.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E.exit", label %40
 
-39:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit"
-  %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
+40:                                               ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit"
+  %41 = load ptr, ptr %2, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %43 = load i64, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
   br label %"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E.exit"
 
-"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit", %39
+"_ZN4core3ptr186drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..graph..rope..Rope$C$alloc..alloc..Global$GT$$GT$17h48855fab6aed18e2E.exit": ; preds = %"_ZN4core3ptr63drop_in_place$LT$$u5b$logos_codegen..graph..rope..Rope$u5d$$GT$17hc4222c38ca2aa0cfE.exit", %40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-44:                                               ; preds = %.body
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %.body
+  %46 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-46:                                               ; preds = %.body
+47:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -8948,7 +8953,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E"(ptr nonnull align 8 %4) #11
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -8990,39 +8995,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr54drop_in_place$LT$$u5b$logos_codegen..mir..Mir$u5d$$GT$17heb35c9d2cf3d17caE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9e8b836097e7cae6E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$logos_codegen..mir..Mir$u5d$$GT$17heb35c9d2cf3d17caE.exit"
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$logos_codegen..mir..Mir$u5d$$GT$17heb35c9d2cf3d17caE.exit"
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E.exit"
 
-"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E.exit": ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$logos_codegen..mir..Mir$u5d$$GT$17heb35c9d2cf3d17caE.exit", %31
+"_ZN4core3ptr177drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h32357096c408aa32E.exit": ; preds = %"_ZN4core3ptr54drop_in_place$LT$$u5b$logos_codegen..mir..Mir$u5d$$GT$17heb35c9d2cf3d17caE.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -9251,7 +9257,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E"(ptr nonnull align 8 %4) #11
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -9293,39 +9299,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr58drop_in_place$LT$$u5b$syn..generics..GenericParam$u5d$$GT$17h7379e8c3fdb9ddbcE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h59b400eaa74bac81E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$syn..generics..GenericParam$u5d$$GT$17h7379e8c3fdb9ddbcE.exit"
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$syn..generics..GenericParam$u5d$$GT$17h7379e8c3fdb9ddbcE.exit"
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E.exit"
 
-"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$syn..generics..GenericParam$u5d$$GT$17h7379e8c3fdb9ddbcE.exit", %31
+"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$syn..generics..GenericParam$C$alloc..alloc..Global$GT$$GT$17h10d9b1fc342e6789E.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$syn..generics..GenericParam$u5d$$GT$17h7379e8c3fdb9ddbcE.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

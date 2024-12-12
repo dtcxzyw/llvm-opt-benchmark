@@ -2311,22 +2311,22 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.096 = phi double [ %32, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.07595 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %20 = phi double [ %31, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %21 = phi double [ %27, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %22 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %15, i64 %.07595
+  %.094 = phi double [ %32, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %.07593 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %20 = phi double [ %27, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %21 = phi double [ %31, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
+  %22 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %15, i64 %.07593
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %22, align 8
   %25 = sitofp i32 %24 to double
   %26 = load double, ptr %23, align 8
-  %27 = tail call double @llvm.fmuladd.f64(double %25, double %26, double %21)
+  %27 = tail call double @llvm.fmuladd.f64(double %25, double %26, double %20)
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = sitofp i32 %29 to double
-  %31 = tail call double @llvm.fmuladd.f64(double %30, double %26, double %20)
-  %32 = fadd double %.096, %26
-  %33 = add nuw i64 %.07595, 1
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double %26, double %21)
+  %32 = fadd double %.094, %26
+  %33 = add nuw i64 %.07593, 1
   %exitcond.not = icmp eq i64 %33, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
@@ -2372,24 +2372,24 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   %47 = tail call double @sin(double noundef %45) #23
   %48 = load ptr, ptr %13, align 8
   %49 = load ptr, ptr %1, align 8
-  %.not113 = icmp eq ptr %48, %49
-  br i1 %.not113, label %._crit_edge108, label %.lr.ph107.preheader
+  %.not109 = icmp eq ptr %48, %49
+  br i1 %.not109, label %._crit_edge104, label %.lr.ph103.preheader
 
-.lr.ph107.preheader:                              ; preds = %42
+.lr.ph103.preheader:                              ; preds = %42
   %50 = ptrtoint ptr %48 to i64
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 5
-  %umax117 = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
-  br label %.lr.ph107
+  %umax113 = tail call i64 @llvm.umax.i64(i64 %53, i64 1)
+  br label %.lr.ph103
 
-.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %76
-  %.078105 = phi i64 [ %77, %76 ], [ 0, %.lr.ph107.preheader ]
-  %.079104 = phi double [ %.1, %76 ], [ 0.000000e+00, %.lr.ph107.preheader ]
-  %.080103 = phi double [ %.181, %76 ], [ 0.000000e+00, %.lr.ph107.preheader ]
-  %.082102 = phi double [ %.183, %76 ], [ 0.000000e+00, %.lr.ph107.preheader ]
-  %.084101 = phi double [ %.185, %76 ], [ 0.000000e+00, %.lr.ph107.preheader ]
-  %54 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %49, i64 %.078105
+.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %76
+  %.078101 = phi i64 [ %77, %76 ], [ 0, %.lr.ph103.preheader ]
+  %.079100 = phi double [ %.1, %76 ], [ 0.000000e+00, %.lr.ph103.preheader ]
+  %.08099 = phi double [ %.181, %76 ], [ 0.000000e+00, %.lr.ph103.preheader ]
+  %.08298 = phi double [ %.183, %76 ], [ 0.000000e+00, %.lr.ph103.preheader ]
+  %.08497 = phi double [ %.185, %76 ], [ 0.000000e+00, %.lr.ph103.preheader ]
+  %54 = getelementptr inbounds %"struct.cv::LineSegmentDetectorImpl::RegionPoint", ptr %49, i64 %.078101
   %55 = load i32, ptr %54, align 8
   %56 = sitofp i32 %55 to double
   %57 = fsub double %56, %43
@@ -2402,44 +2402,44 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   %64 = fneg double %57
   %65 = fmul double %46, %61
   %66 = tail call double @llvm.fmuladd.f64(double %64, double %47, double %65)
-  %67 = fcmp ogt double %63, %.082102
+  %67 = fcmp ogt double %63, %.08298
   br i1 %67, label %71, label %68
 
-68:                                               ; preds = %.lr.ph107
-  %69 = fcmp olt double %63, %.084101
+68:                                               ; preds = %.lr.ph103
+  %69 = fcmp olt double %63, %.08497
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68
   br label %71
 
-71:                                               ; preds = %.lr.ph107, %68, %70
-  %.185 = phi double [ %63, %70 ], [ %.084101, %68 ], [ %.084101, %.lr.ph107 ]
-  %.183 = phi double [ %.082102, %70 ], [ %.082102, %68 ], [ %63, %.lr.ph107 ]
-  %72 = fcmp ogt double %66, %.079104
+71:                                               ; preds = %.lr.ph103, %68, %70
+  %.185 = phi double [ %63, %70 ], [ %.08497, %68 ], [ %.08497, %.lr.ph103 ]
+  %.183 = phi double [ %.08298, %70 ], [ %.08298, %68 ], [ %63, %.lr.ph103 ]
+  %72 = fcmp ogt double %66, %.079100
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
-  %74 = fcmp olt double %66, %.080103
+  %74 = fcmp olt double %66, %.08099
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %73
   br label %76
 
 76:                                               ; preds = %71, %75, %73
-  %.181 = phi double [ %66, %75 ], [ %.080103, %73 ], [ %.080103, %71 ]
-  %.1 = phi double [ %.079104, %75 ], [ %.079104, %73 ], [ %66, %71 ]
-  %77 = add nuw i64 %.078105, 1
-  %exitcond118.not = icmp eq i64 %77, %umax117
-  br i1 %exitcond118.not, label %._crit_edge108.loopexit, label %.lr.ph107, !llvm.loop !35
+  %.181 = phi double [ %66, %75 ], [ %.08099, %73 ], [ %.08099, %71 ]
+  %.1 = phi double [ %.079100, %75 ], [ %.079100, %73 ], [ %66, %71 ]
+  %77 = add nuw i64 %.078101, 1
+  %exitcond114.not = icmp eq i64 %77, %umax113
+  br i1 %exitcond114.not, label %._crit_edge104.loopexit, label %.lr.ph103, !llvm.loop !35
 
-._crit_edge108.loopexit:                          ; preds = %76
+._crit_edge104.loopexit:                          ; preds = %76
   %78 = fsub double %.1, %.181
-  br label %._crit_edge108
+  br label %._crit_edge104
 
-._crit_edge108:                                   ; preds = %._crit_edge108.loopexit, %42
-  %.084.lcssa = phi double [ 0.000000e+00, %42 ], [ %.185, %._crit_edge108.loopexit ]
-  %.082.lcssa = phi double [ 0.000000e+00, %42 ], [ %.183, %._crit_edge108.loopexit ]
-  %79 = phi double [ 0.000000e+00, %42 ], [ %78, %._crit_edge108.loopexit ]
+._crit_edge104:                                   ; preds = %._crit_edge104.loopexit, %42
+  %.084.lcssa = phi double [ 0.000000e+00, %42 ], [ %.185, %._crit_edge104.loopexit ]
+  %.082.lcssa = phi double [ 0.000000e+00, %42 ], [ %.183, %._crit_edge104.loopexit ]
+  %79 = phi double [ 0.000000e+00, %42 ], [ %78, %._crit_edge104.loopexit ]
   %80 = tail call double @llvm.fmuladd.f64(double %.084.lcssa, double %46, double %43)
   store double %80, ptr %5, align 8
   %81 = tail call double @llvm.fmuladd.f64(double %.084.lcssa, double %47, double %44)
@@ -2470,11 +2470,11 @@ define hidden void @_ZNK2cv23LineSegmentDetectorImpl11region2rectERKSt6vectorINS
   %95 = fcmp olt double %79, 1.000000e+00
   br i1 %95, label %96, label %97
 
-96:                                               ; preds = %._crit_edge108
+96:                                               ; preds = %._crit_edge104
   store double 1.000000e+00, ptr %87, align 8
   br label %97
 
-97:                                               ; preds = %96, %._crit_edge108
+97:                                               ; preds = %96, %._crit_edge104
   ret void
 }
 
@@ -3303,9 +3303,9 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
 
 34:                                               ; preds = %2, %34
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %34 ]
-  %.082119 = phi i32 [ 0, %2 ], [ %spec.select, %34 ]
+  %.082118 = phi i32 [ 0, %2 ], [ %spec.select, %34 ]
   %35 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %indvars.iv
-  %36 = zext nneg i32 %.082119 to i64
+  %36 = zext nneg i32 %.082118 to i64
   %37 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load double, ptr %38, align 8
@@ -3318,23 +3318,23 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %46 = fcmp olt double %39, %41
   %.0.i = select i1 %42, i1 %45, i1 %46
   %47 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.0.i, i32 %47, i32 %.082119
+  %spec.select = select i1 %.0.i, i32 %47, i32 %.082118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader116, label %34, !llvm.loop !47
 
 .preheader:                                       ; preds = %.preheader116, %.preheader
-  %indvars.iv154 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next155, %.preheader ]
-  %48 = trunc i64 %indvars.iv154 to i32
+  %indvars.iv145 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next146, %.preheader ]
+  %48 = trunc i64 %indvars.iv145 to i32
   %49 = add i32 %spec.select, %48
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %51
-  %53 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %6, i64 0, i64 %indvars.iv154
+  %53 = getelementptr inbounds nuw [4 x %"class.cv::Point_.25"], ptr %6, i64 0, i64 %indvars.iv145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %52, i64 16, i1 false)
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next155, 4
-  br i1 %exitcond157.not, label %54, label %.preheader, !llvm.loop !48
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next146, 4
+  br i1 %exitcond148.not, label %54, label %.preheader, !llvm.loop !48
 
 54:                                               ; preds = %.preheader
   %.sroa.044.0.copyload = load double, ptr %6, align 16
@@ -3380,10 +3380,10 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %79 = fsub double %.sroa.238.0.copyload, %.sroa.233.0.copyload
   %80 = fdiv double %78, %79
   %81 = select i1 %.not.i102, double 0.000000e+00, double %80
-  %.not137 = icmp sgt i32 %59, %66
-  br i1 %.not137, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit106, label %.lr.ph143
+  %.not131 = icmp sgt i32 %59, %66
+  br i1 %.not131, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit106, label %.lr.ph137
 
-.lr.ph143:                                        ; preds = %54
+.lr.ph137:                                        ; preds = %54
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %83 = load i32, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -3402,157 +3402,147 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %97 = load double, ptr %87, align 8
   br label %98
 
-98:                                               ; preds = %.lr.ph143, %.loopexit
-  %.087140 = phi i32 [ %59, %.lr.ph143 ], [ %167, %.loopexit ]
-  %99 = phi i32 [ 0, %.lr.ph143 ], [ %166, %.loopexit ]
-  %100 = phi i32 [ 0, %.lr.ph143 ], [ %165, %.loopexit ]
-  %.lcssa121134139 = phi i32 [ 0, %.lr.ph143 ], [ %.lcssa121133, %.loopexit ]
-  %.lcssa123136138 = phi i32 [ 0, %.lr.ph143 ], [ %.lcssa123135, %.loopexit ]
-  %101 = icmp sgt i32 %.087140, -1
-  %.not93 = icmp slt i32 %.087140, %83
-  %or.cond = select i1 %101, i1 %.not93, i1 false
-  br i1 %or.cond, label %102, label %.loopexit
+98:                                               ; preds = %.lr.ph137, %.loopexit
+  %.087134 = phi i32 [ %59, %.lr.ph137 ], [ %157, %.loopexit ]
+  %.lcssa128133 = phi i32 [ 0, %.lr.ph137 ], [ %.lcssa127, %.loopexit ]
+  %.lcssa121130132 = phi i32 [ 0, %.lr.ph137 ], [ %.lcssa121129, %.loopexit ]
+  %99 = icmp sgt i32 %.087134, -1
+  %.not93 = icmp slt i32 %.087134, %83
+  %or.cond = select i1 %99, i1 %.not93, i1 false
+  br i1 %or.cond, label %100, label %.loopexit
 
-102:                                              ; preds = %98
-  %.not94 = icmp sgt i32 %.087140, %57
-  %103 = uitofp nneg i32 %.087140 to double
-  br i1 %.not94, label %107, label %104
+100:                                              ; preds = %98
+  %.not94 = icmp sgt i32 %.087134, %57
+  %101 = uitofp nneg i32 %.087134 to double
+  br i1 %.not94, label %105, label %102
 
-104:                                              ; preds = %102
-  %105 = fsub double %103, %.sroa.245.0.copyload
-  %106 = tail call noundef double @llvm.fmuladd.f64(double %105, double %63, double %.sroa.044.0.copyload)
-  br label %110
+102:                                              ; preds = %100
+  %103 = fsub double %101, %.sroa.245.0.copyload
+  %104 = tail call noundef double @llvm.fmuladd.f64(double %103, double %63, double %.sroa.044.0.copyload)
+  br label %108
 
-107:                                              ; preds = %102
-  %108 = fsub double %103, %.sroa.243.0.copyload
-  %109 = tail call noundef double @llvm.fmuladd.f64(double %108, double %70, double %.sroa.042.0.copyload)
-  br label %110
+105:                                              ; preds = %100
+  %106 = fsub double %101, %.sroa.243.0.copyload
+  %107 = tail call noundef double @llvm.fmuladd.f64(double %106, double %70, double %.sroa.042.0.copyload)
+  br label %108
 
-110:                                              ; preds = %107, %104
-  %.085 = phi double [ %106, %104 ], [ %109, %107 ]
-  %111 = icmp slt i32 %.087140, %73
-  %112 = uitofp nneg i32 %.087140 to double
-  br i1 %111, label %113, label %116
+108:                                              ; preds = %105, %102
+  %.085 = phi double [ %104, %102 ], [ %107, %105 ]
+  %109 = icmp slt i32 %.087134, %73
+  %110 = uitofp nneg i32 %.087134 to double
+  br i1 %109, label %111, label %114
 
-113:                                              ; preds = %110
-  %114 = fsub double %112, %.sroa.245.0.copyload
-  %115 = tail call noundef double @llvm.fmuladd.f64(double %114, double %77, double %.sroa.044.0.copyload)
-  br label %119
+111:                                              ; preds = %108
+  %112 = fsub double %110, %.sroa.245.0.copyload
+  %113 = tail call noundef double @llvm.fmuladd.f64(double %112, double %77, double %.sroa.044.0.copyload)
+  br label %117
 
-116:                                              ; preds = %110
-  %117 = fsub double %112, %.sroa.233.0.copyload
-  %118 = tail call noundef double @llvm.fmuladd.f64(double %117, double %81, double %.sroa.032.0.copyload)
-  br label %119
+114:                                              ; preds = %108
+  %115 = fsub double %110, %.sroa.233.0.copyload
+  %116 = tail call noundef double @llvm.fmuladd.f64(double %115, double %81, double %.sroa.032.0.copyload)
+  br label %117
 
-119:                                              ; preds = %116, %113
-  %.086 = phi double [ %115, %113 ], [ %118, %116 ]
-  %120 = tail call double @llvm.ceil.f64(double %.085)
-  %121 = fptosi double %120 to i32
-  %122 = fptosi double %.086 to i32
-  %.not95124 = icmp sgt i32 %121, %122
-  br i1 %.not95124, label %.loopexit, label %.lr.ph
+117:                                              ; preds = %114, %111
+  %.086 = phi double [ %113, %111 ], [ %116, %114 ]
+  %118 = tail call double @llvm.ceil.f64(double %.085)
+  %119 = fptosi double %118 to i32
+  %120 = fptosi double %.086 to i32
+  %.not95122 = icmp sgt i32 %119, %120
+  br i1 %.not95122, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %119
-  %.not27.i = icmp slt i32 %.087140, %91
-  %123 = zext nneg i32 %.087140 to i64
+.lr.ph:                                           ; preds = %117
+  %.not27.i = icmp slt i32 %.087134, %91
+  %121 = zext nneg i32 %.087134 to i64
   %.not27.i.fr = freeze i1 %.not27.i
   br i1 %.not27.i.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.0125.us = phi i32 [ %130, %.lr.ph.split.us ], [ %121, %.lr.ph ]
-  %124 = phi i32 [ %129, %.lr.ph.split.us ], [ %100, %.lr.ph ]
-  %125 = phi i32 [ %128, %.lr.ph.split.us ], [ %.lcssa121134139, %.lr.ph ]
-  %126 = icmp sgt i32 %.0125.us, -1
-  %.not96.us = icmp slt i32 %.0125.us, %85
-  %or.cond99.us = select i1 %126, i1 %.not96.us, i1 false
-  %127 = add nsw i32 %124, 1
-  %128 = select i1 %or.cond99.us, i32 %127, i32 %125
-  %129 = select i1 %or.cond99.us, i32 %127, i32 %124
-  %130 = add i32 %.0125.us, 1
-  %exitcond158.not = icmp eq i32 %.0125.us, %122
-  br i1 %exitcond158.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !49
+  %.0123.us = phi i32 [ %126, %.lr.ph.split.us ], [ %119, %.lr.ph ]
+  %122 = phi i32 [ %125, %.lr.ph.split.us ], [ %.lcssa128133, %.lr.ph ]
+  %123 = icmp sgt i32 %.0123.us, -1
+  %.not96.us = icmp slt i32 %.0123.us, %85
+  %or.cond99.us = select i1 %123, i1 %.not96.us, i1 false
+  %124 = zext i1 %or.cond99.us to i32
+  %125 = add nsw i32 %122, %124
+  %126 = add i32 %.0123.us, 1
+  %exitcond149.not = icmp eq i32 %.0123.us, %120
+  br i1 %exitcond149.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !49
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
-  %.0125 = phi i32 [ %164, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %121, %.lr.ph ]
-  %131 = phi i32 [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %99, %.lr.ph ]
-  %132 = phi i32 [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %100, %.lr.ph ]
-  %133 = phi i32 [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa121134139, %.lr.ph ]
-  %134 = phi i32 [ %160, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa123136138, %.lr.ph ]
-  %135 = icmp sgt i32 %.0125, -1
-  %.not96 = icmp slt i32 %.0125, %85
-  %or.cond99 = select i1 %135, i1 %.not96, i1 false
-  br i1 %or.cond99, label %136, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
+  %.0123 = phi i32 [ %156, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %119, %.lr.ph ]
+  %127 = phi i32 [ %155, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa128133, %.lr.ph ]
+  %128 = phi i32 [ %154, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa121130132, %.lr.ph ]
+  %129 = icmp sgt i32 %.0123, -1
+  %.not96 = icmp slt i32 %.0123, %85
+  %or.cond99 = select i1 %129, i1 %.not96, i1 false
+  br i1 %or.cond99, label %130, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-136:                                              ; preds = %.lr.ph.split
-  %137 = add nsw i32 %132, 1
-  %138 = or i32 %.0125, %.087140
-  %or.cond.not.i = icmp sgt i32 %138, -1
-  %.not.i103 = icmp slt i32 %.0125, %89
-  %or.cond146 = select i1 %or.cond.not.i, i1 %.not.i103, i1 false
-  br i1 %or.cond146, label %139, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
+130:                                              ; preds = %.lr.ph.split
+  %131 = add nsw i32 %127, 1
+  %132 = or i32 %.0123, %.087134
+  %or.cond.not.i = icmp sgt i32 %132, -1
+  %.not.i103 = icmp slt i32 %.0123, %89
+  %or.cond140 = select i1 %or.cond.not.i, i1 %.not.i103, i1 false
+  br i1 %or.cond140, label %133, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-139:                                              ; preds = %136
-  %140 = load i64, ptr %95, align 8
-  %141 = mul i64 %140, %123
-  %142 = getelementptr inbounds i8, ptr %93, i64 %141
-  %143 = zext nneg i32 %.0125 to i64
-  %144 = getelementptr inbounds nuw double, ptr %142, i64 %143
-  %145 = load double, ptr %144, align 8
-  %146 = fcmp oeq double %145, -1.024000e+03
-  br i1 %146, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %147
+133:                                              ; preds = %130
+  %134 = load i64, ptr %95, align 8
+  %135 = mul i64 %134, %121
+  %136 = getelementptr inbounds i8, ptr %93, i64 %135
+  %137 = zext nneg i32 %.0123 to i64
+  %138 = getelementptr inbounds nuw double, ptr %136, i64 %137
+  %139 = load double, ptr %138, align 8
+  %140 = fcmp oeq double %139, -1.024000e+03
+  br i1 %140, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %141
 
-147:                                              ; preds = %139
-  %148 = fsub double %96, %145
-  %149 = fcmp olt double %148, 0.000000e+00
-  %150 = fneg double %148
-  %.0.i104 = select i1 %149, double %150, double %148
-  %151 = fcmp ogt double %.0.i104, 0x4012D97C7F3321D2
-  br i1 %151, label %152, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+141:                                              ; preds = %133
+  %142 = fsub double %96, %139
+  %143 = fcmp olt double %142, 0.000000e+00
+  %144 = fneg double %142
+  %.0.i104 = select i1 %143, double %144, double %142
+  %145 = fcmp ogt double %.0.i104, 0x4012D97C7F3321D2
+  br i1 %145, label %146, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-152:                                              ; preds = %147
-  %153 = fadd double %.0.i104, 0xC01921FB54442D18
-  %154 = fcmp olt double %153, 0.000000e+00
-  br i1 %154, label %155, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+146:                                              ; preds = %141
+  %147 = fadd double %.0.i104, 0xC01921FB54442D18
+  %148 = fcmp olt double %147, 0.000000e+00
+  br i1 %148, label %149, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-155:                                              ; preds = %152
-  %156 = fneg double %153
+149:                                              ; preds = %146
+  %150 = fneg double %147
   br label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
 
-_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit: ; preds = %147, %152, %155
-  %.1.i = phi double [ %156, %155 ], [ %153, %152 ], [ %.0.i104, %147 ]
-  %157 = fcmp ugt double %.1.i, %97
-  br i1 %157, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %158
+_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit: ; preds = %141, %146, %149
+  %.1.i = phi double [ %150, %149 ], [ %147, %146 ], [ %.0.i104, %141 ]
+  %151 = fcmp ugt double %.1.i, %97
+  br i1 %151, label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, label %152
 
-158:                                              ; preds = %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
-  %159 = add nsw i32 %131, 1
+152:                                              ; preds = %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit
+  %153 = add nsw i32 %128, 1
   br label %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread
 
-_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %139, %136, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit, %158, %.lr.ph.split
-  %160 = phi i32 [ %134, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %159, %158 ], [ %134, %.lr.ph.split ], [ %134, %136 ], [ %134, %139 ]
-  %161 = phi i32 [ %137, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %137, %158 ], [ %133, %.lr.ph.split ], [ %137, %136 ], [ %137, %139 ]
-  %162 = phi i32 [ %137, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %137, %158 ], [ %132, %.lr.ph.split ], [ %137, %136 ], [ %137, %139 ]
-  %163 = phi i32 [ %131, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %159, %158 ], [ %131, %.lr.ph.split ], [ %131, %136 ], [ %131, %139 ]
-  %164 = add i32 %.0125, 1
-  %exitcond159.not = icmp eq i32 %.0125, %122
-  br i1 %exitcond159.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !49
+_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread: ; preds = %133, %130, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit, %152, %.lr.ph.split
+  %154 = phi i32 [ %128, %133 ], [ %128, %130 ], [ %128, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %153, %152 ], [ %128, %.lr.ph.split ]
+  %155 = phi i32 [ %131, %133 ], [ %131, %130 ], [ %131, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit ], [ %131, %152 ], [ %127, %.lr.ph.split ]
+  %156 = add i32 %.0123, 1
+  %exitcond150.not = icmp eq i32 %.0123, %120
+  br i1 %exitcond150.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !49
 
-.loopexit:                                        ; preds = %.lr.ph.split.us, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, %119, %98
-  %.lcssa123135 = phi i32 [ %.lcssa123136138, %98 ], [ %.lcssa123136138, %119 ], [ %160, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa123136138, %.lr.ph.split.us ]
-  %.lcssa121133 = phi i32 [ %.lcssa121134139, %98 ], [ %.lcssa121134139, %119 ], [ %161, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %128, %.lr.ph.split.us ]
-  %165 = phi i32 [ %100, %98 ], [ %100, %119 ], [ %162, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %129, %.lr.ph.split.us ]
-  %166 = phi i32 [ %99, %98 ], [ %99, %119 ], [ %163, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %99, %.lr.ph.split.us ]
-  %167 = add i32 %.087140, 1
-  %exitcond160.not = icmp eq i32 %.087140, %66
-  br i1 %exitcond160.not, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit106, label %98, !llvm.loop !50
+.loopexit:                                        ; preds = %.lr.ph.split.us, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread, %117, %98
+  %.lcssa121129 = phi i32 [ %.lcssa121130132, %98 ], [ %.lcssa121130132, %117 ], [ %154, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %.lcssa121130132, %.lr.ph.split.us ]
+  %.lcssa127 = phi i32 [ %.lcssa128133, %98 ], [ %.lcssa128133, %117 ], [ %155, %_ZNK2cv23LineSegmentDetectorImpl9isAlignedEiiRKdS2_.exit.thread ], [ %125, %.lr.ph.split.us ]
+  %157 = add i32 %.087134, 1
+  %exitcond151.not = icmp eq i32 %.087134, %66
+  br i1 %exitcond151.not, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit106, label %98, !llvm.loop !50
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit106: ; preds = %.loopexit, %54
-  %.lcssa123136.lcssa = phi i32 [ 0, %54 ], [ %.lcssa123135, %.loopexit ]
-  %.lcssa121134.lcssa = phi i32 [ 0, %54 ], [ %.lcssa121133, %.loopexit ]
-  store i32 %.lcssa121134.lcssa, ptr %3, align 4
-  store i32 %.lcssa123136.lcssa, ptr %4, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %169 = call noundef double @_ZNK2cv23LineSegmentDetectorImpl3nfaERKiS2_RKd(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %168)
-  ret double %169
+  %.lcssa121130.lcssa = phi i32 [ 0, %54 ], [ %.lcssa121129, %.loopexit ]
+  %.lcssa128.lcssa = phi i32 [ 0, %54 ], [ %.lcssa127, %.loopexit ]
+  store i32 %.lcssa128.lcssa, ptr %3, align 4
+  store i32 %.lcssa121130.lcssa, ptr %4, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %159 = call noundef double @_ZNK2cv23LineSegmentDetectorImpl3nfaERKiS2_RKd(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %158)
+  ret double %159
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable

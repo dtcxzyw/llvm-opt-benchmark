@@ -23533,7 +23533,7 @@ define hidden void @_ZN7copilot7Copilot24shutdown_language_server17h7306f4ac25f0
   ret void
 
 41:                                               ; preds = %24, %"_ZN4core3ptr185drop_in_place$LT$std..collections..hash..map..HashMap$LT$gpui..app..entity_map..EntityId$C$copilot..RegisteredBuffer$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h9fff86c1b05dfa5eE.exit17"
-  %42 = phi ptr [ %14, %"_ZN4core3ptr185drop_in_place$LT$std..collections..hash..map..HashMap$LT$gpui..app..entity_map..EntityId$C$copilot..RegisteredBuffer$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h9fff86c1b05dfa5eE.exit17" ], [ null, %24 ]
+  %42 = phi ptr [ null, %24 ], [ %14, %"_ZN4core3ptr185drop_in_place$LT$std..collections..hash..map..HashMap$LT$gpui..app..entity_map..EntityId$C$copilot..RegisteredBuffer$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h9fff86c1b05dfa5eE.exit17" ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$copilot..CopilotServer$GT$17hcc33e3f726603099E.llvm.10591374660323954188"(ptr noalias noundef nonnull align 8 dereferenceable(104) %6)
           to label %39 unwind label %.body21
 

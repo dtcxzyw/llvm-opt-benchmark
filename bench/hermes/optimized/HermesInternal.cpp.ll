@@ -908,7 +908,8 @@ if.end100:                                        ; preds = %if.end93
   br i1 %cmp109, label %cleanup, label %if.end111
 
 if.end111:                                        ; preds = %if.end100
-  %retval.sroa.0.0.copyload.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
+  %24 = load ptr, ptr %resultHandle, align 8
+  %retval.sroa.0.0.copyload.i = load i64, ptr %24, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end65, %if.end100, %if.end93, %if.end82, %if.end76, %"_ZZN6hermes2vm34hermesInternalGetRuntimePropertiesEPvRNS0_7RuntimeENS0_10NativeArgsEENK3$_0clENS0_6HandleINS0_11HermesValueEEEPKc.exit138", %if.end57, %if.end111

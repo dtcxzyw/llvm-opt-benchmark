@@ -19153,24 +19153,25 @@ while.cond.preheader:                             ; preds = %if.end, %invoke.con
 cleanup:                                          ; preds = %invoke.cont36, %invoke.cont181, %for.end145, %invoke.cont213
   %retval.0 = phi i32 [ %cond217, %invoke.cont213 ], [ 0, %for.end145 ], [ -1, %invoke.cont181 ], [ -1, %invoke.cont36 ]
   store i32 %39, ptr %m_level.i, align 8
-  %135 = load ptr, ptr %this, align 8
-  %m_ext.i203 = getelementptr inbounds nuw i8, ptr %135, i64 528
-  %136 = load ptr, ptr %m_ext.i203, align 8
-  %cmp.i.not.i204 = icmp eq ptr %136, null
+  %135 = load ptr, ptr %_scoped_ext, align 8
+  %136 = load ptr, ptr %135, align 8
+  %m_ext.i203 = getelementptr inbounds nuw i8, ptr %136, i64 528
+  %137 = load ptr, ptr %m_ext.i203, align 8
+  %cmp.i.not.i204 = icmp eq ptr %137, null
   br i1 %cmp.i.not.i204, label %_ZN3sat9lookahead10scoped_extD2Ev.exit, label %if.then.i205
 
 if.then.i205:                                     ; preds = %cleanup
-  %vtable.i206 = load ptr, ptr %136, align 8
+  %vtable.i206 = load ptr, ptr %137, align 8
   %vfn.i207 = getelementptr inbounds nuw i8, ptr %vtable.i206, i64 24
-  %137 = load ptr, ptr %vfn.i207, align 8
-  invoke void %137(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef null)
+  %138 = load ptr, ptr %vfn.i207, align 8
+  invoke void %138(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef null)
           to label %_ZN3sat9lookahead10scoped_extD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i205
-  %138 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           catch ptr null
-  %139 = extractvalue { ptr, i32 } %138, 0
-  tail call void @__clang_call_terminate(ptr %139) #28
+  %140 = extractvalue { ptr, i32 } %139, 0
+  tail call void @__clang_call_terminate(ptr %140) #28
   unreachable
 
 _ZN3sat9lookahead10scoped_extD2Ev.exit:           ; preds = %cleanup, %if.then.i205

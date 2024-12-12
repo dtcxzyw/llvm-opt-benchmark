@@ -951,9 +951,9 @@ do.end15.i:                                       ; preds = %do.end4.i
 
 for.cond.preheader.i:                             ; preds = %do.end15.i
   %cmp3564.not.i = icmp eq i32 %call5.i, 0
-  br i1 %cmp3564.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread290, label %for.body.i
+  br i1 %cmp3564.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread288, label %for.body.i
 
-_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread290: ; preds = %for.cond.preheader.i
+_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread288: ; preds = %for.cond.preheader.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i)
@@ -1109,9 +1109,9 @@ _ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810Maybe
   %cmp.i.i.not.i = icmp eq ptr %retval.sroa.0.0.i, null
   br i1 %cmp.i.i.not.i, label %cleanup743, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread290, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit
-  %retval.sroa.0.0.i293 = phi ptr [ %call28.i, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread290 ], [ %retval.sroa.0.0.i, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ]
-  %28 = load i64, ptr %retval.sroa.0.0.i293, align 8
+if.end.i:                                         ; preds = %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread288, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit
+  %retval.sroa.0.0.i291 = phi ptr [ %call28.i, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread288 ], [ %retval.sroa.0.0.i, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ]
+  %28 = load i64, ptr %retval.sroa.0.0.i291, align 8
   %and.i.i = and i64 %28, 3
   %cmp.i50.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i50.i, label %if.end.i.i, label %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit
@@ -1135,7 +1135,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp7.i.i, label %lor.lhs.false, label %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit
 
 _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit: ; preds = %if.end.i, %if.end.i.i, %if.end5.i.i
-  %call29.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call5, ptr %call2.i, ptr %7, ptr nonnull %retval.sroa.0.0.i293) #17
+  %call29.i = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call5, ptr %call2.i, ptr %7, ptr nonnull %retval.sroa.0.0.i291) #17
   %tobool.i.i73 = trunc i16 %call29.i to i1
   br i1 %tobool.i.i73, label %lor.lhs.false, label %cleanup743
 
@@ -1176,9 +1176,9 @@ do.end15.i83:                                     ; preds = %do.end4.i80
 
 for.cond.preheader.i88:                           ; preds = %do.end15.i83
   %cmp3564.not.i89 = icmp eq i32 %call5.i81, 0
-  br i1 %cmp3564.not.i89, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread299, label %for.body.i92
+  br i1 %cmp3564.not.i89, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread297, label %for.body.i92
 
-_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread299: ; preds = %for.cond.preheader.i88
+_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread297: ; preds = %for.cond.preheader.i88
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %type_buf.i75)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value_str.i76)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %accum.i77)
@@ -1334,9 +1334,9 @@ _ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeL
   %cmp.i.i.not.i166 = icmp eq ptr %retval.sroa.0.0.i121, null
   br i1 %cmp.i.i.not.i166, label %cleanup743, label %if.end.i167
 
-if.end.i167:                                      ; preds = %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread299, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit
-  %retval.sroa.0.0.i121302 = phi ptr [ %call28.i86, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread299 ], [ %retval.sroa.0.0.i121, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ]
-  %57 = load i64, ptr %retval.sroa.0.0.i121302, align 8
+if.end.i167:                                      ; preds = %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread297, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit
+  %retval.sroa.0.0.i121300 = phi ptr [ %call28.i86, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread297 ], [ %retval.sroa.0.0.i121, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ]
+  %57 = load i64, ptr %retval.sroa.0.0.i121300, align 8
   %and.i.i168 = and i64 %57, 3
   %cmp.i50.i169 = icmp eq i64 %and.i.i168, 1
   br i1 %cmp.i50.i169, label %if.end.i.i174, label %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182
@@ -1360,7 +1360,7 @@ if.end5.i.i178:                                   ; preds = %if.end.i.i174
   br i1 %cmp7.i.i181, label %lor.lhs.false84, label %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182
 
 _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182: ; preds = %if.end.i167, %if.end.i.i174, %if.end5.i.i178
-  %call29.i171 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call5, ptr %call2.i, ptr %36, ptr nonnull %retval.sroa.0.0.i121302) #17
+  %call29.i171 = call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %call5, ptr %call2.i, ptr %36, ptr nonnull %retval.sroa.0.0.i121300) #17
   %tobool.i.i172 = trunc i16 %call29.i171 to i1
   br i1 %tobool.i.i172, label %lor.lhs.false84, label %cleanup743
 
@@ -1476,24 +1476,17 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_
 
 if.end180:                                        ; preds = %if.end5.i.i232, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit
   %call181 = call ptr @X509_get_pubkey(ptr noundef %cert) #17
-  %cmp.i236.not = icmp eq ptr %call181, null
-  br i1 %cmp.i236.not, label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread, label %if.then183
-
-_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread: ; preds = %if.end180
   store ptr null, ptr %rsa, align 8
-  br label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread
+  store ptr null, ptr %ec, align 8
+  %cmp.i236.not = icmp eq ptr %call181, null
+  br i1 %cmp.i236.not, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259, label %if.then183
 
 if.then183:                                       ; preds = %if.end180
   %call185 = call i32 @EVP_PKEY_get_id(ptr noundef nonnull %call181) #17
-  switch i32 %call185, label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread325 [
+  switch i32 %call185, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256 [
     i32 6, label %if.end191
     i32 408, label %if.else
   ]
-
-_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread325: ; preds = %if.then183
-  call void @EVP_PKEY_free(ptr noundef nonnull %call181) #17
-  store ptr null, ptr %rsa, align 8
-  br label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread
 
 if.end191:                                        ; preds = %if.then183
   %call187 = call ptr @EVP_PKEY_get1_RSA(ptr noundef nonnull %call181) #17
@@ -1509,7 +1502,7 @@ if.then193:                                       ; preds = %if.end191
   %93 = load ptr, ptr %n, align 8
   %call207 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_116GetModulusStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %bio, ptr noundef %93)
   %call225 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %92, ptr %call207)
-  br i1 %call225, label %lor.lhs.false226, label %if.then.i273
+  br i1 %call225, label %lor.lhs.false226, label %cleanup
 
 lor.lhs.false226:                                 ; preds = %if.then193
   %94 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1520,7 +1513,7 @@ lor.lhs.false226:                                 ; preds = %if.then193
   %call1.i = call i32 @BN_num_bits(ptr noundef %96) #17
   %call2.i242 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %env.val, i32 noundef %call1.i) #17
   %call260 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %95, ptr %call2.i242)
-  br i1 %call260, label %lor.lhs.false261, label %if.then.i273
+  br i1 %call260, label %lor.lhs.false261, label %cleanup
 
 lor.lhs.false261:                                 ; preds = %lor.lhs.false226
   %97 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1529,7 +1522,7 @@ lor.lhs.false261:                                 ; preds = %lor.lhs.false226
   %99 = load ptr, ptr %e, align 8
   %call274 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_117GetExponentStringEPNS_11EnvironmentERKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS5_XadL_Z12BIO_free_allEEEEEPK9bignum_st(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %bio, ptr noundef %99)
   %call292 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %98, ptr %call274)
-  br i1 %call292, label %lor.lhs.false293, label %if.then.i273
+  br i1 %call292, label %lor.lhs.false293, label %cleanup
 
 lor.lhs.false293:                                 ; preds = %lor.lhs.false261
   %100 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1537,7 +1530,7 @@ lor.lhs.false293:                                 ; preds = %lor.lhs.false261
   %101 = load ptr, ptr %pubkey_string_.i.i, align 8
   %call306 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_19GetPubKeyEPNS_11EnvironmentERKSt10unique_ptrI6rsa_stNS_15FunctionDeleterIS5_XadL_Z8RSA_freeEEEEE(ptr noundef nonnull %env, ptr noundef nonnull align 8 dereferenceable(8) %rsa)
   %call324 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v86ObjectEEEbNS3_5LocalINS3_7ContextEEENS5_IS4_EENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %101, ptr %call306)
-  br i1 %call324, label %if.then.i.i255, label %if.then.i273
+  br i1 %call324, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread344, label %cleanup
 
 if.else:                                          ; preds = %if.then183
   %call190 = call ptr @EVP_PKEY_get1_EC_KEY(ptr noundef nonnull %call181) #17
@@ -1552,7 +1545,7 @@ if.then328:                                       ; preds = %if.else
   %103 = load ptr, ptr %bits_string_.i.i247, align 8
   %call343 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_110GetECGroupEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef nonnull %env, ptr noundef %call330)
   %call361 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %103, ptr %call343)
-  br i1 %call361, label %lor.lhs.false362, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread
+  br i1 %call361, label %lor.lhs.false362, label %cleanup
 
 lor.lhs.false362:                                 ; preds = %if.then328
   %104 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1560,7 +1553,7 @@ lor.lhs.false362:                                 ; preds = %if.then328
   %105 = load ptr, ptr %pubkey_string_.i.i249, align 8
   %call375 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_111GetECPubKeyEPNS_11EnvironmentEPK11ec_group_stRKSt10unique_ptrI9ec_key_stNS_15FunctionDeleterIS8_XadL_Z11EC_KEY_freeEEEEE(ptr noundef nonnull %env, ptr noundef %call330, ptr noundef nonnull align 8 dereferenceable(8) %ec)
   %call393 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %105, ptr %call375)
-  br i1 %call393, label %if.end395, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread
+  br i1 %call393, label %if.end395, label %cleanup
 
 if.end395:                                        ; preds = %lor.lhs.false362
   %call396 = call i32 @EC_GROUP_get_curve_name(ptr noundef %call330) #17
@@ -1573,7 +1566,7 @@ if.then398:                                       ; preds = %if.end395
   %107 = load ptr, ptr %asn1curve_string_.i.i, align 8
   %call411 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z10OBJ_nid2snEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef nonnull %env, i32 noundef %call396)
   %call429 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %107, ptr %call411)
-  br i1 %call429, label %lor.lhs.false430, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread
+  br i1 %call429, label %lor.lhs.false430, label %cleanup
 
 lor.lhs.false430:                                 ; preds = %if.then398
   %108 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1581,37 +1574,34 @@ lor.lhs.false430:                                 ; preds = %if.then398
   %109 = load ptr, ptr %nistcurve_string_.i.i, align 8
   %call443 = call fastcc ptr @_ZN4node6crypto12_GLOBAL__N_112GetCurveNameIXadL_Z17EC_curve_nid2nistEEEEN2v810MaybeLocalINS3_5ValueEEEPNS_11EnvironmentEi(ptr noundef nonnull %env, i32 noundef %call396)
   %call461 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %109, ptr %call443)
-  br i1 %call461, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread
+  br i1 %call461, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256, label %cleanup
 
-if.then.i.i255:                                   ; preds = %lor.lhs.false293
+_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread344: ; preds = %lor.lhs.false293
   call void @EVP_PKEY_free(ptr noundef nonnull %call181) #17
   store ptr null, ptr %rsa, align 8
   call void @RSA_free(ptr noundef nonnull %call187) #17
-  br label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread
-
-_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread: ; preds = %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread, %if.then.i.i255, %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEE5resetEPS0_.exit.thread325
   store ptr null, ptr %ec, align 8
   br label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259
 
-_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256: ; preds = %if.end191, %lor.lhs.false430, %if.end395, %if.else
-  %.ph.ph = phi ptr [ null, %if.else ], [ %call190, %if.end395 ], [ %call190, %lor.lhs.false430 ], [ null, %if.end191 ]
+_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256: ; preds = %if.end191, %if.then183, %if.else, %if.end395, %lor.lhs.false430
+  %.pr324338 = phi ptr [ %call190, %lor.lhs.false430 ], [ %call190, %if.end395 ], [ null, %if.else ], [ null, %if.then183 ], [ null, %if.end191 ]
   call void @EVP_PKEY_free(ptr noundef nonnull %call181) #17
   store ptr null, ptr %rsa, align 8
   store ptr null, ptr %ec, align 8
-  %tobool.not.i.i257 = icmp eq ptr %.ph.ph, null
+  %tobool.not.i.i257 = icmp eq ptr %.pr324338, null
   br i1 %tobool.not.i.i257, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259, label %if.then.i.i258
 
 if.then.i.i258:                                   ; preds = %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256
-  call void @EC_KEY_free(ptr noundef nonnull %.ph.ph) #17
+  call void @EC_KEY_free(ptr noundef nonnull %.pr324338) #17
   br label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259
 
-_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259: ; preds = %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256, %if.then.i.i258
+_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259: ; preds = %if.end180, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256.thread344, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEE5resetEPS0_.exit256, %if.then.i.i258
   %110 = load ptr, ptr %isolate_data_.i.i, align 8
   %valid_from_string_.i.i = getelementptr inbounds nuw i8, ptr %110, i64 2464
   %111 = load ptr, ptr %valid_from_string_.i.i, align 8
   %call480 = call ptr @_ZN4node6crypto12GetValidFromEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %call498 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %111, ptr %call480)
-  br i1 %call498, label %lor.lhs.false499, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  br i1 %call498, label %lor.lhs.false499, label %cleanup
 
 lor.lhs.false499:                                 ; preds = %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259
   %112 = load ptr, ptr %isolate_data_.i.i, align 8
@@ -1619,95 +1609,109 @@ lor.lhs.false499:                                 ; preds = %_ZNSt10unique_ptrI9
   %113 = load ptr, ptr %valid_to_string_.i.i, align 8
   %call512 = call ptr @_ZN4node6crypto10GetValidToEPNS_11EnvironmentEP7x509_stRKSt10unique_ptrI6bio_stNS_15FunctionDeleterIS6_XadL_Z12BIO_free_allEEEEE(ptr noundef nonnull %env, ptr noundef %cert, ptr noundef nonnull align 8 dereferenceable(8) %bio)
   %call530 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %113, ptr %call512)
-  br i1 %call530, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  br i1 %call530, label %if.end532, label %cleanup
 
-_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit: ; preds = %lor.lhs.false499
+if.end532:                                        ; preds = %lor.lhs.false499
+  %114 = load ptr, ptr %bio, align 8
   store ptr null, ptr %bio, align 8
-  call void @BIO_free_all(ptr noundef nonnull %call10) #17
-  %114 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint_string_.i.i = getelementptr inbounds nuw i8, ptr %114, i64 976
-  %115 = load ptr, ptr %fingerprint_string_.i.i, align 8
+  %tobool.not.i.i262 = icmp eq ptr %114, null
+  br i1 %tobool.not.i.i262, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit, label %if.then.i.i263
+
+if.then.i.i263:                                   ; preds = %if.end532
+  call void @BIO_free_all(ptr noundef nonnull %114) #17
+  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit
+
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit: ; preds = %if.end532, %if.then.i.i263
+  %115 = load ptr, ptr %isolate_data_.i.i, align 8
+  %fingerprint_string_.i.i = getelementptr inbounds nuw i8, ptr %115, i64 976
+  %116 = load ptr, ptr %fingerprint_string_.i.i, align 8
   %call545 = call ptr @EVP_sha1() #17
   %call546 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call545, ptr noundef %cert)
-  %call564 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %115, ptr %call546)
-  br i1 %call564, label %lor.lhs.false565, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call564 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %116, ptr %call546)
+  br i1 %call564, label %lor.lhs.false565, label %cleanup
 
 lor.lhs.false565:                                 ; preds = %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit
-  %116 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint256_string_.i.i = getelementptr inbounds nuw i8, ptr %116, i64 960
-  %117 = load ptr, ptr %fingerprint256_string_.i.i, align 8
+  %117 = load ptr, ptr %isolate_data_.i.i, align 8
+  %fingerprint256_string_.i.i = getelementptr inbounds nuw i8, ptr %117, i64 960
+  %118 = load ptr, ptr %fingerprint256_string_.i.i, align 8
   %call578 = call ptr @EVP_sha256() #17
   %call579 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call578, ptr noundef %cert)
-  %call597 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %117, ptr %call579)
-  br i1 %call597, label %lor.lhs.false598, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call597 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %118, ptr %call579)
+  br i1 %call597, label %lor.lhs.false598, label %cleanup
 
 lor.lhs.false598:                                 ; preds = %lor.lhs.false565
-  %118 = load ptr, ptr %isolate_data_.i.i, align 8
-  %fingerprint512_string_.i.i = getelementptr inbounds nuw i8, ptr %118, i64 968
-  %119 = load ptr, ptr %fingerprint512_string_.i.i, align 8
+  %119 = load ptr, ptr %isolate_data_.i.i, align 8
+  %fingerprint512_string_.i.i = getelementptr inbounds nuw i8, ptr %119, i64 968
+  %120 = load ptr, ptr %fingerprint512_string_.i.i, align 8
   %call611 = call ptr @EVP_sha512() #17
   %call612 = call ptr @_ZN4node6crypto20GetFingerprintDigestEPNS_11EnvironmentEPK9evp_md_stP7x509_st(ptr noundef nonnull %env, ptr noundef %call611, ptr noundef %cert)
-  %call630 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %119, ptr %call612)
-  br i1 %call630, label %lor.lhs.false631, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call630 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %120, ptr %call612)
+  br i1 %call630, label %lor.lhs.false631, label %cleanup
 
 lor.lhs.false631:                                 ; preds = %lor.lhs.false598
-  %120 = load ptr, ptr %isolate_data_.i.i, align 8
-  %ext_key_usage_string_.i.i = getelementptr inbounds nuw i8, ptr %120, i64 896
-  %121 = load ptr, ptr %ext_key_usage_string_.i.i, align 8
+  %121 = load ptr, ptr %isolate_data_.i.i, align 8
+  %ext_key_usage_string_.i.i = getelementptr inbounds nuw i8, ptr %121, i64 896
+  %122 = load ptr, ptr %ext_key_usage_string_.i.i, align 8
   %call644 = call ptr @_ZN4node6crypto11GetKeyUsageEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
-  %call662 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %121, ptr %call644)
-  br i1 %call662, label %lor.lhs.false663, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call662 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %122, ptr %call644)
+  br i1 %call662, label %lor.lhs.false663, label %cleanup
 
 lor.lhs.false663:                                 ; preds = %lor.lhs.false631
-  %122 = load ptr, ptr %isolate_data_.i.i, align 8
-  %serial_number_string_.i.i = getelementptr inbounds nuw i8, ptr %122, i64 2080
-  %123 = load ptr, ptr %serial_number_string_.i.i, align 8
+  %123 = load ptr, ptr %isolate_data_.i.i, align 8
+  %serial_number_string_.i.i = getelementptr inbounds nuw i8, ptr %123, i64 2080
+  %124 = load ptr, ptr %serial_number_string_.i.i, align 8
   %call676 = call ptr @_ZN4node6crypto15GetSerialNumberEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
-  %call694 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %123, ptr %call676)
-  br i1 %call694, label %lor.lhs.false695, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call694 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %124, ptr %call676)
+  br i1 %call694, label %lor.lhs.false695, label %cleanup
 
 lor.lhs.false695:                                 ; preds = %lor.lhs.false663
-  %124 = load ptr, ptr %isolate_data_.i.i, align 8
-  %raw_string_.i.i = getelementptr inbounds nuw i8, ptr %124, i64 1968
-  %125 = load ptr, ptr %raw_string_.i.i, align 8
+  %125 = load ptr, ptr %isolate_data_.i.i, align 8
+  %raw_string_.i.i = getelementptr inbounds nuw i8, ptr %125, i64 1968
+  %126 = load ptr, ptr %raw_string_.i.i, align 8
   %call708 = call ptr @_ZN4node6crypto20GetRawDERCertificateEPNS_11EnvironmentEP7x509_st(ptr noundef nonnull %env, ptr noundef %cert)
-  %call726 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %125, ptr %call708)
-  br i1 %call726, label %if.end728, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  %call726 = call fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE(ptr %call2.i, ptr %call5, ptr %126, ptr %call708)
+  br i1 %call726, label %if.end728, label %cleanup
 
 if.end728:                                        ; preds = %lor.lhs.false695
   %call4.i = call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %call5) #17
+  br label %cleanup
+
+cleanup:                                          ; preds = %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit, %lor.lhs.false565, %lor.lhs.false598, %lor.lhs.false631, %lor.lhs.false663, %lor.lhs.false695, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259, %lor.lhs.false499, %if.then398, %lor.lhs.false430, %if.then328, %lor.lhs.false362, %if.then193, %lor.lhs.false226, %lor.lhs.false261, %lor.lhs.false293, %if.end728
+  %pkey.sroa.0.0 = phi ptr [ null, %if.end728 ], [ null, %lor.lhs.false695 ], [ null, %lor.lhs.false663 ], [ null, %lor.lhs.false631 ], [ null, %lor.lhs.false598 ], [ null, %lor.lhs.false565 ], [ null, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit ], [ null, %lor.lhs.false499 ], [ null, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259 ], [ %call181, %lor.lhs.false293 ], [ %call181, %lor.lhs.false261 ], [ %call181, %lor.lhs.false226 ], [ %call181, %if.then193 ], [ %call181, %lor.lhs.false430 ], [ %call181, %if.then398 ], [ %call181, %lor.lhs.false362 ], [ %call181, %if.then328 ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %if.end728 ], [ null, %lor.lhs.false695 ], [ null, %lor.lhs.false663 ], [ null, %lor.lhs.false631 ], [ null, %lor.lhs.false598 ], [ null, %lor.lhs.false565 ], [ null, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit ], [ null, %lor.lhs.false499 ], [ null, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259 ], [ null, %lor.lhs.false293 ], [ null, %lor.lhs.false261 ], [ null, %lor.lhs.false226 ], [ null, %if.then193 ], [ null, %lor.lhs.false430 ], [ null, %if.then398 ], [ null, %lor.lhs.false362 ], [ null, %if.then328 ]
+  %127 = load ptr, ptr %ec, align 8
+  %cmp.not.i270 = icmp eq ptr %127, null
+  br i1 %cmp.not.i270, label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %cleanup
+  call void @EC_KEY_free(ptr noundef nonnull %127) #17
+  br label %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit
+
+_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit: ; preds = %cleanup, %if.then.i
+  %128 = load ptr, ptr %rsa, align 8
+  %cmp.not.i272 = icmp eq ptr %128, null
+  br i1 %cmp.not.i272, label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit, label %if.then.i273
+
+if.then.i273:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit
+  call void @RSA_free(ptr noundef nonnull %128) #17
   br label %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
 
-_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread: ; preds = %if.then398, %lor.lhs.false430, %if.then328, %lor.lhs.false362
-  call void @EC_KEY_free(ptr noundef nonnull %call190) #17
-  store ptr null, ptr %ec, align 8
-  br label %if.then.i276
+_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit, %if.then.i273
+  %cmp.not.i275 = icmp eq ptr %pkey.sroa.0.0, null
+  br i1 %cmp.not.i275, label %cleanup743, label %if.then.i276
 
-if.then.i273:                                     ; preds = %if.then193, %lor.lhs.false226, %lor.lhs.false261, %lor.lhs.false293
-  store ptr null, ptr %ec, align 8
-  call void @RSA_free(ptr noundef nonnull %call187) #17
-  br label %if.then.i276
-
-_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit, %lor.lhs.false565, %lor.lhs.false598, %lor.lhs.false631, %lor.lhs.false663, %lor.lhs.false695, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259, %lor.lhs.false499, %if.end728
-  %call10287.ph.ph = phi ptr [ null, %if.end728 ], [ %call10, %lor.lhs.false499 ], [ %call10, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259 ], [ null, %lor.lhs.false695 ], [ null, %lor.lhs.false663 ], [ null, %lor.lhs.false631 ], [ null, %lor.lhs.false598 ], [ null, %lor.lhs.false565 ], [ null, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit ]
-  %retval.sroa.0.1.ph.ph = phi ptr [ %call4.i, %if.end728 ], [ null, %lor.lhs.false499 ], [ null, %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEE5resetEPS0_.exit259 ], [ null, %lor.lhs.false695 ], [ null, %lor.lhs.false663 ], [ null, %lor.lhs.false631 ], [ null, %lor.lhs.false598 ], [ null, %lor.lhs.false565 ], [ null, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEE5resetEPS0_.exit ]
-  store ptr null, ptr %ec, align 8
-  store ptr null, ptr %rsa, align 8
-  br label %cleanup743
-
-if.then.i276:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_stN4node15FunctionDeleterIS0_XadL_Z11EC_KEY_freeEEEEED2Ev.exit.thread, %if.then.i273
-  store ptr null, ptr %rsa, align 8
-  call void @EVP_PKEY_free(ptr noundef nonnull %call181) #17
+if.then.i276:                                     ; preds = %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit
+  call void @EVP_PKEY_free(ptr noundef nonnull %pkey.sroa.0.0) #17
   br label %cleanup743
 
 cleanup743:                                       ; preds = %lor.lhs.false148, %lor.lhs.false116, %lor.lhs.false84, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit, %if.then.i276, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit200, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit218, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit
-  %call10286 = phi ptr [ %call10, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit ], [ %call10, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit218 ], [ %call10, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit200 ], [ %call10, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182 ], [ %call10, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit ], [ %call10287.ph.ph, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit ], [ %call10, %if.then.i276 ], [ %call10, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ %call10, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ %call10, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ %call10, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ %call10, %lor.lhs.false84 ], [ %call10, %lor.lhs.false116 ], [ %call10, %lor.lhs.false148 ]
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit218 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit200 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit ], [ %retval.sroa.0.1.ph.ph, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit ], [ null, %if.then.i276 ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ null, %lor.lhs.false84 ], [ null, %lor.lhs.false116 ], [ null, %lor.lhs.false148 ]
-  %cmp.not.i278 = icmp eq ptr %call10286, null
+  %retval.sroa.0.0 = phi ptr [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v87BooleanEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_INS3_5ValueEEENS3_10MaybeLocalIT_EE.exit ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit218 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit200 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit182 ], [ null, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit ], [ %retval.sroa.0.1, %_ZNSt10unique_ptrI6rsa_stN4node15FunctionDeleterIS0_XadL_Z8RSA_freeEEEEED2Ev.exit ], [ %retval.sroa.0.1, %if.then.i276 ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit ], [ null, %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread ], [ null, %lor.lhs.false84 ], [ null, %lor.lhs.false116 ], [ null, %lor.lhs.false148 ]
+  %129 = load ptr, ptr %bio, align 8
+  %cmp.not.i278 = icmp eq ptr %129, null
   br i1 %cmp.not.i278, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit, label %if.then.i279
 
 if.then.i279:                                     ; preds = %cleanup743
-  call void @BIO_free_all(ptr noundef nonnull %call10286) #17
+  call void @BIO_free_all(ptr noundef nonnull %129) #17
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit: ; preds = %cleanup743, %if.then.i279

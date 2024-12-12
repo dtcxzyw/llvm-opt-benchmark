@@ -1802,65 +1802,66 @@ _ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit:    ; preds = %58, %53, %_ZNK12_GL
   %.sroa.310.0.i = select i1 %65, i64 %69, i64 %64
   call fastcc void @_ZNK12_GLOBAL__N_117RegionBindingsRef10addBindingENS_10BindingKeyEN5clang4ento4SValE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(25) %5, i64 %.sroa.09.0.i, i64 %.sroa.310.0.i, ptr %.fca.0.extract, i8 %.fca.1.extract)
   %71 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i25 = icmp eq ptr %52, null
-  br i1 %.not.i.i.i.i25, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28, label %72
+  %72 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i25 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i25, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28, label %73
 
-72:                                               ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit
-  %73 = getelementptr inbounds nuw i8, ptr %52, i64 68
-  %74 = load i32, ptr %73, align 4
-  %75 = add i32 %74, -1
-  store i32 %75, ptr %73, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28
+73:                                               ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 68
+  %75 = load i32, ptr %74, align 4
+  %76 = add i32 %75, -1
+  store i32 %76, ptr %74, align 4
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28
 
-77:                                               ; preds = %72
-  tail call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %52)
+78:                                               ; preds = %73
+  tail call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %72)
   br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28
 
-_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28:  ; preds = %77, %72, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %79 = load ptr, ptr %78, align 8
-  call fastcc void @_ZNK4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEE14asImmutableMapEv(ptr dead_on_unwind noalias writable align 8 %8, ptr %71, ptr %79)
+_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28:  ; preds = %78, %73, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %80 = load ptr, ptr %79, align 8
+  call fastcc void @_ZNK4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEE14asImmutableMapEv(ptr dead_on_unwind noalias writable align 8 %8, ptr %71, ptr %80)
   %.val22 = load ptr, ptr %8, align 8
   store ptr %.val22, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %81, align 8
   %.not.i29 = icmp eq ptr %.val22, null
-  br i1 %.not.i29, label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit, label %81
+  br i1 %.not.i29, label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit, label %82
 
-81:                                               ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28
-  %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 128
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %.val22) #17
-  %85 = getelementptr inbounds nuw i8, ptr %.val22, i64 68
-  %86 = load i32, ptr %85, align 4
-  %87 = add i32 %86, -1
-  store i32 %87, ptr %85, align 4
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit
+82:                                               ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28
+  %83 = load ptr, ptr %1, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 128
+  %85 = load ptr, ptr %84, align 8
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %.val22) #17
+  %86 = getelementptr inbounds nuw i8, ptr %.val22, i64 68
+  %87 = load i32, ptr %86, align 4
+  %88 = add i32 %87, -1
+  store i32 %88, ptr %86, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit
 
-89:                                               ; preds = %81
+90:                                               ; preds = %82
   tail call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val22)
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit
 
-_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28, %81, %89
+_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit28, %82, %90
   %.not.i.i.i.i31 = icmp eq ptr %71, null
-  br i1 %.not.i.i.i.i31, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit, label %90
+  br i1 %.not.i.i.i.i31, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit, label %91
 
-90:                                               ; preds = %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit
-  %91 = getelementptr inbounds nuw i8, ptr %71, i64 68
-  %92 = load i32, ptr %91, align 4
-  %93 = add i32 %92, -1
-  store i32 %93, ptr %91, align 4
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
+91:                                               ; preds = %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 68
+  %93 = load i32, ptr %92, align 4
+  %94 = add i32 %93, -1
+  store i32 %94, ptr %92, align 4
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
 
-95:                                               ; preds = %90
+96:                                               ; preds = %91
   tail call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %71)
   br label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
 
-_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %95, %90, %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit, %26, %24
+_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %96, %91, %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS7_S8_EEEENS9_IS5_SB_EEED2Ev.exit, %26, %24
   ret void
 }
 
@@ -2452,8 +2453,8 @@ _ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE16GenerateClus
 
 _ZNK5clang4ento12SymbolReaper7regionsEv.exit:     ; preds = %.lr.ph.i6.i12.i3.i.i.i.i.i.i.i, %185
   %.pn14.i.i.i.i.i.i.i = phi ptr [ %180, %185 ], [ %.sroa.0.3.i4.i.i.i.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i.i.i.i ]
-  %.not96 = icmp eq ptr %.pn14.i.i.i.i.i.i.i, %184
-  br i1 %.not96, label %.preheader, label %.lr.ph
+  %.not92 = icmp eq ptr %.pn14.i.i.i.i.i.i.i, %184
+  br i1 %.not92, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.critedge2.i8.i14.i6.i.i.i.i.i.i.i, %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E13ConstIteratorppEv.exit, %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE16GenerateClustersEv.exit, %_ZNK5clang4ento12SymbolReaper7regionsEv.exit
   %188 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -2462,8 +2463,8 @@ _ZNK5clang4ento12SymbolReaper7regionsEv.exit:     ; preds = %.lr.ph.i6.i12.i3.i.
   br label %201
 
 .lr.ph:                                           ; preds = %_ZNK5clang4ento12SymbolReaper7regionsEv.exit, %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E13ConstIteratorppEv.exit
-  %.sroa.070.097 = phi ptr [ %.sroa.070.2, %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E13ConstIteratorppEv.exit ], [ %.pn14.i.i.i.i.i.i.i, %_ZNK5clang4ento12SymbolReaper7regionsEv.exit ]
-  %191 = load ptr, ptr %.sroa.070.097, align 8
+  %.sroa.070.093 = phi ptr [ %.sroa.070.2, %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E13ConstIteratorppEv.exit ], [ %.pn14.i.i.i.i.i.i.i, %_ZNK5clang4ento12SymbolReaper7regionsEv.exit ]
+  %191 = load ptr, ptr %.sroa.070.093, align 8
   %192 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %191) #17
   %.val.i21 = load ptr, ptr %76, align 8
   %.not.i.i.i = icmp eq ptr %.val.i21, null
@@ -2491,7 +2492,7 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12Immuta
 _ZN12_GLOBAL__N_124RemoveDeadBindingsWorker13AddToWorkListEPKN5clang4ento9MemRegionE.exit: ; preds = %195, %.lr.ph, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i
   %.0.i.i.i = phi ptr [ %197, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i ], [ null, %.lr.ph ], [ null, %195 ]
   call fastcc void @_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE13AddToWorkListEPKN5clang4ento9MemRegionEPKN4llvm12ImmutableMapINS_10BindingKeyENS4_4SValENS8_16ImutKeyValueInfoISA_SB_EEEE(ptr noundef nonnull align 8 dereferenceable(440) %21, ptr noundef nonnull %192, ptr noundef %.0.i.i.i)
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.070.097, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 8
   %.not5.i3.i.i = icmp eq ptr %198, %184
   br i1 %.not5.i3.i.i, label %_ZN4llvm6detail12DenseSetImplIPKN5clang4ento9MemRegionENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E13ConstIteratorppEv.exit, label %.lr.ph.i4.i.i
 
@@ -2839,6 +2840,7 @@ _ZN12_GLOBAL__N_124RemoveDeadBindingsWorker15UpdatePostponedEv.exit: ; preds = %
   br i1 %.1.i, label %201, label %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorker15UpdatePostponedEv.exit.thread, !llvm.loop !69
 
 _ZN12_GLOBAL__N_124RemoveDeadBindingsWorker15UpdatePostponedEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE11RunWorkListEv.exit, %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorker15UpdatePostponedEv.exit
+  %.val12 = load ptr, ptr %20, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %10), !noalias !70
@@ -2846,7 +2848,7 @@ _ZN12_GLOBAL__N_124RemoveDeadBindingsWorker15UpdatePostponedEv.exit.thread: ; pr
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %12), !noalias !70
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %13), !noalias !70
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %9), !noalias !76
-  call fastcc void @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEC2EPKNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef %29), !noalias !76
+  call fastcc void @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEC2EPKNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef %.val12), !noalias !76
   %336 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull %336, i64 noundef 20) #17, !noalias !81
   %337 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #17, !noalias !81
@@ -3032,323 +3034,299 @@ _ZNK4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4en
   %412 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %413
 
-413:                                              ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62, %_ZNK4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEE3endEv.exit
-  %414 = phi ptr [ %532, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62 ], [ %60, %_ZNK4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEE3endEv.exit ]
-  %.val1178 = phi ptr [ %.val1177, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62 ], [ %29, %_ZNK4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEE3endEv.exit ]
-  %415 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %23) #17
-  %416 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %24) #17
-  %.not.i.i.i.i.i.i37 = icmp eq i64 %415, %416
-  br i1 %.not.i.i.i.i.i.i37, label %417, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
+413:                                              ; preds = %525, %_ZNK4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEE3endEv.exit
+  %414 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %23) #17
+  %415 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %24) #17
+  %.not.i.i.i.i.i.i37 = icmp eq i64 %414, %415
+  br i1 %.not.i.i.i.i.i.i37, label %416, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
 
-417:                                              ; preds = %413
-  %418 = load ptr, ptr %23, align 8
-  %419 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %23) #17
-  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i64 %419, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread86, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit
+416:                                              ; preds = %413
+  %417 = load ptr, ptr %23, align 8
+  %418 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %23) #17
+  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i64 %418, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread84, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit
 
-_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit: ; preds = %417
-  %420 = load ptr, ptr %24, align 8
-  %.idx.i.i.i.i.i.i39 = shl nsw i64 %419, 3
-  %bcmp.i.i.i.i.i.i.i.i.i.i40 = call i32 @bcmp(ptr %418, ptr %420, i64 %.idx.i.i.i.i.i.i39)
+_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit: ; preds = %416
+  %419 = load ptr, ptr %24, align 8
+  %.idx.i.i.i.i.i.i39 = shl nsw i64 %418, 3
+  %bcmp.i.i.i.i.i.i.i.i.i.i40 = call i32 @bcmp(ptr %417, ptr %419, i64 %.idx.i.i.i.i.i.i39)
   %.not7.i.i.i.i.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i40, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i.i.not, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread86, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
+  br i1 %.not7.i.i.i.i.i.i.i.i.i.i.not, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread84, label %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
 
-_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread86: ; preds = %417, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit
-  %421 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %24) #17
-  %422 = load ptr, ptr %24, align 8
-  %423 = icmp eq ptr %422, %405
-  br i1 %423, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit, label %424
+_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread84: ; preds = %416, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit
+  %420 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %24) #17
+  %421 = load ptr, ptr %24, align 8
+  %422 = icmp eq ptr %421, %405
+  br i1 %422, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit, label %423
 
-424:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread86
-  call void @free(ptr noundef %422) #17
+423:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread84
+  call void @free(ptr noundef %421) #17
   br label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit
 
-_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit: ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread86, %424
-  %425 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %23) #17
-  %426 = load ptr, ptr %23, align 8
-  %427 = icmp eq ptr %426, %399
-  br i1 %427, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41, label %428
+_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit: ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread84, %423
+  %424 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %23) #17
+  %425 = load ptr, ptr %23, align 8
+  %426 = icmp eq ptr %425, %399
+  br i1 %426, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41, label %427
 
-428:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit
-  call void @free(ptr noundef %426) #17
+427:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit
+  call void @free(ptr noundef %425) #17
   br label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41
 
-_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41: ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit, %428
-  %429 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %366) #17
-  %430 = load ptr, ptr %366, align 8
-  %431 = icmp eq ptr %430, %367
-  br i1 %431, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i, label %432
+_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41: ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit, %427
+  %428 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %366) #17
+  %429 = load ptr, ptr %366, align 8
+  %430 = icmp eq ptr %429, %367
+  br i1 %430, label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i, label %431
 
-432:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41
-  call void @free(ptr noundef %430) #17
+431:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41
+  call void @free(ptr noundef %429) #17
   br label %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i
 
-_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i: ; preds = %432, %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41
-  %433 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(368) %22) #17
-  %434 = load ptr, ptr %22, align 8
-  %435 = icmp eq ptr %434, %360
-  br i1 %435, label %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit, label %436
+_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i: ; preds = %431, %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit41
+  %432 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(368) %22) #17
+  %433 = load ptr, ptr %22, align 8
+  %434 = icmp eq ptr %433, %360
+  br i1 %434, label %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit, label %435
 
-436:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i
-  call void @free(ptr noundef %434) #17
+435:                                              ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i
+  call void @free(ptr noundef %433) #17
   br label %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit
 
-_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit: ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i, %436
+_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit: ; preds = %_ZN4llvm15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS_16ImutKeyValueInfoIS9_SA_EEEENSB_IS6_SD_EEE8iteratorEZNS_16make_first_rangeIRNS8_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS6_SD_EE_RKS6_ED2Ev.exit.i, %435
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call fastcc void @_ZNK4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEE14asImmutableMapEv(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val1178, ptr %414)
+  %.val.i42 = load ptr, ptr %20, align 8
+  %.val1.i = load ptr, ptr %59, align 8
+  call fastcc void @_ZNK4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS2_4SValENS_16ImutKeyValueInfoIS8_S9_EEEENSA_IS5_SC_EEE14asImmutableMapEv(ptr dead_on_unwind noalias writable align 8 %6, ptr %.val.i42, ptr %.val1.i)
   %.val2.i = load ptr, ptr %6, align 8
-  %437 = load i8, ptr %57, align 8
+  %436 = load i8, ptr %57, align 8
   %.not.i.i.i.i43 = icmp eq ptr %.val2.i, null
-  br i1 %.not.i.i.i.i43, label %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit, label %438
+  br i1 %.not.i.i.i.i43, label %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit, label %437
 
-438:                                              ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit
-  %439 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 68
-  %440 = load i32, ptr %439, align 4
-  %441 = add i32 %440, -1
-  store i32 %441, ptr %439, align 4
-  %442 = icmp eq i32 %441, 0
-  br i1 %442, label %443, label %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit
+437:                                              ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit
+  %438 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 68
+  %439 = load i32, ptr %438, align 4
+  %440 = add i32 %439, -1
+  store i32 %440, ptr %438, align 4
+  %441 = icmp eq i32 %440, 0
+  br i1 %441, label %442, label %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit
 
-443:                                              ; preds = %438
+442:                                              ; preds = %437
   call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val2.i)
   br label %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit
 
-_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit: ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit, %438, %443
-  %444 = trunc i8 %437 to i1
-  %445 = select i1 %444, i64 2, i64 0
-  %446 = ptrtoint ptr %.val2.i to i64
-  %447 = and i64 %446, -3
-  %448 = or disjoint i64 %445, %447
-  %449 = inttoptr i64 %448 to ptr
+_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit: ; preds = %_ZN4llvm14iterator_rangeINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EEED2Ev.exit, %437, %442
+  %443 = trunc i8 %436 to i1
+  %444 = select i1 %443, i64 2, i64 0
+  %445 = ptrtoint ptr %.val2.i to i64
+  %446 = and i64 %445, -3
+  %447 = or disjoint i64 %444, %446
+  %448 = inttoptr i64 %447 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store ptr %449, ptr %0, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %450, align 8
-  %.not.i44 = icmp eq i64 %448, 0
-  br i1 %.not.i44, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit, label %451
+  store ptr %448, ptr %0, align 8
+  %449 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %449, align 8
+  %.not.i44 = icmp eq i64 %447, 0
+  br i1 %.not.i44, label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit, label %450
 
-451:                                              ; preds = %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit
-  %452 = load ptr, ptr %1, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 128
-  %454 = load ptr, ptr %453, align 8
-  call void %454(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %449) #17
+450:                                              ; preds = %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit
+  %451 = load ptr, ptr %1, align 8
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 128
+  %453 = load ptr, ptr %452, align 8
+  call void %453(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %448) #17
   br label %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
 
-_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit, %451
-  %455 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %79) #17
-  %456 = load ptr, ptr %79, align 8
-  %457 = icmp eq ptr %456, %80
-  br i1 %457, label %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i, label %458
+_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %_ZNK12_GLOBAL__N_117RegionBindingsRef7asStoreEv.exit, %450
+  %454 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %79) #17
+  %455 = load ptr, ptr %79, align 8
+  %456 = icmp eq ptr %455, %80
+  br i1 %456, label %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i, label %457
 
-458:                                              ; preds = %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
-  call void @free(ptr noundef %456) #17
+457:                                              ; preds = %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
+  call void @free(ptr noundef %455) #17
   br label %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i: ; preds = %458, %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
+_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i: ; preds = %457, %_ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit
   %.val.i.i45 = load ptr, ptr %76, align 8
   %.not.i.i.i.i.i.i46 = icmp eq ptr %.val.i.i45, null
-  br i1 %.not.i.i.i.i.i.i46, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i, label %459
+  br i1 %.not.i.i.i.i.i.i46, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i, label %458
 
-459:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i
-  %460 = getelementptr inbounds nuw i8, ptr %.val.i.i45, i64 68
-  %461 = load i32, ptr %460, align 4
-  %462 = add i32 %461, -1
-  store i32 %462, ptr %460, align 4
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %464, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
+458:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i
+  %459 = getelementptr inbounds nuw i8, ptr %.val.i.i45, i64 68
+  %460 = load i32, ptr %459, align 4
+  %461 = add i32 %460, -1
+  store i32 %461, ptr %459, align 4
+  %462 = icmp eq i32 %461, 0
+  br i1 %462, label %463, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
 
-464:                                              ; preds = %459
+463:                                              ; preds = %458
   call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val.i.i45)
   br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
 
-_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i: ; preds = %464, %459, %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i
-  %465 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(96) %66) #17
-  %466 = load ptr, ptr %66, align 8
-  %467 = icmp eq ptr %466, %67
-  br i1 %467, label %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i, label %468
+_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i: ; preds = %463, %458, %_ZN4llvm11SmallVectorIPKN5clang4ento14SymbolicRegionELj12EED2Ev.exit.i
+  %464 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(96) %66) #17
+  %465 = load ptr, ptr %66, align 8
+  %466 = icmp eq ptr %465, %67
+  br i1 %466, label %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i, label %467
 
-468:                                              ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
-  call void @free(ptr noundef %466) #17
+467:                                              ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
+  call void @free(ptr noundef %465) #17
   br label %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i: ; preds = %468, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
+_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i: ; preds = %467, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit.i.i
   %.val1.i.i = load ptr, ptr %21, align 8
   %.val2.i.i = load ptr, ptr %62, align 8
-  %469 = icmp eq ptr %.val2.i.i, %.val1.i.i
-  br i1 %469, label %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit, label %470
+  %468 = icmp eq ptr %.val2.i.i, %.val1.i.i
+  br i1 %468, label %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit, label %469
 
-470:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i
+469:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i
   call void @free(ptr noundef %.val2.i.i) #17
   br label %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit
 
-_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i, %470
-  %.not.i.i.i.i47 = icmp eq ptr %.val1178, null
-  br i1 %.not.i.i.i.i47, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48, label %471
+_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKN5clang4ento9MemRegionELj10EED2Ev.exit.i.i, %469
+  %.not.i.i.i.i47 = icmp eq ptr %.val.i42, null
+  br i1 %.not.i.i.i.i47, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48, label %470
 
-471:                                              ; preds = %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit
-  %472 = getelementptr inbounds nuw i8, ptr %.val1178, i64 68
-  %473 = load i32, ptr %472, align 4
-  %474 = add i32 %473, -1
-  store i32 %474, ptr %472, align 4
-  %475 = icmp eq i32 %474, 0
-  br i1 %475, label %476, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48
+470:                                              ; preds = %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit
+  %471 = getelementptr inbounds nuw i8, ptr %.val.i42, i64 68
+  %472 = load i32, ptr %471, align 4
+  %473 = add i32 %472, -1
+  store i32 %473, ptr %471, align 4
+  %474 = icmp eq i32 %473, 0
+  br i1 %474, label %475, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48
 
-476:                                              ; preds = %471
-  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val1178)
+475:                                              ; preds = %470
+  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val.i42)
   br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48
 
-_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48:  ; preds = %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit, %471, %476
+_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit48:  ; preds = %_ZN12_GLOBAL__N_124RemoveDeadBindingsWorkerD2Ev.exit, %470, %475
   ret void
 
 _ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread: ; preds = %413, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit
-  %477 = load ptr, ptr %23, align 8
-  %478 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %23) #17
-  %479 = getelementptr inbounds i64, ptr %477, i64 %478
-  %480 = getelementptr inbounds i8, ptr %479, i64 -8
-  %481 = load i64, ptr %480, align 8
-  %482 = and i64 %481, -4
-  %483 = inttoptr i64 %482 to ptr
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 48
-  %485 = load ptr, ptr %484, align 8
-  store ptr %485, ptr %25, align 8
+  %476 = load ptr, ptr %23, align 8
+  %477 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(178) %23) #17
+  %478 = getelementptr inbounds i64, ptr %476, i64 %477
+  %479 = getelementptr inbounds i8, ptr %478, i64 -8
+  %480 = load i64, ptr %479, align 8
+  %481 = and i64 %480, -4
+  %482 = inttoptr i64 %481 to ptr
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 48
+  %484 = load ptr, ptr %483, align 8
+  store ptr %484, ptr %25, align 8
   %.val.i49 = load ptr, ptr %76, align 8
   %.not.i.i.i50 = icmp eq ptr %.val.i49, null
   br i1 %.not.i.i.i50, label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i, label %.preheader.i.i.i51
 
-.preheader.i.i.i51:                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread, %488
-  %.0111.i.i.i.i52 = phi ptr [ %.1.i.i.i.i56, %488 ], [ %.val.i49, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread ]
-  %486 = getelementptr inbounds nuw i8, ptr %.0111.i.i.i.i52, i64 48
-  %.val13.i.i.i.i53 = load ptr, ptr %486, align 8
-  %487 = icmp eq ptr %485, %.val13.i.i.i.i53
-  br i1 %487, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59, label %488
+.preheader.i.i.i51:                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread, %487
+  %.0111.i.i.i.i52 = phi ptr [ %.1.i.i.i.i56, %487 ], [ %.val.i49, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread ]
+  %485 = getelementptr inbounds nuw i8, ptr %.0111.i.i.i.i52, i64 48
+  %.val13.i.i.i.i53 = load ptr, ptr %485, align 8
+  %486 = icmp eq ptr %484, %.val13.i.i.i.i53
+  br i1 %486, label %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59, label %487
 
-488:                                              ; preds = %.preheader.i.i.i51
-  %489 = icmp ult ptr %485, %.val13.i.i.i.i53
-  %.1.in.v.i.i.i.i54 = select i1 %489, i64 8, i64 16
+487:                                              ; preds = %.preheader.i.i.i51
+  %488 = icmp ult ptr %484, %.val13.i.i.i.i53
+  %.1.in.v.i.i.i.i54 = select i1 %488, i64 8, i64 16
   %.1.in.i.i.i.i55 = getelementptr i8, ptr %.0111.i.i.i.i52, i64 %.1.in.v.i.i.i.i54
   %.1.i.i.i.i56 = load ptr, ptr %.1.in.i.i.i.i55, align 8
   %.not.i.i.i.i57 = icmp eq ptr %.1.i.i.i.i56, null
   br i1 %.not.i.i.i.i57, label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i, label %.preheader.i.i.i51, !llvm.loop !29
 
 _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59: ; preds = %.preheader.i.i.i51
-  %490 = getelementptr inbounds nuw i8, ptr %.0111.i.i.i.i52, i64 56
+  %489 = getelementptr inbounds nuw i8, ptr %.0111.i.i.i.i52, i64 56
   br label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i
 
-_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i: ; preds = %488, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
-  %.0.i.i.i58 = phi ptr [ %490, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59 ], [ null, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread ], [ null, %488 ]
-  %491 = load ptr, ptr %62, align 8
-  %492 = load ptr, ptr %21, align 8
-  %493 = icmp eq ptr %491, %492
-  br i1 %493, label %494, label %503
+_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i: ; preds = %487, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread
+  %.0.i.i.i58 = phi ptr [ %489, %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE4findERKS6_.exit.i.i.i59 ], [ null, %_ZNK4llvm20iterator_facade_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNS_16make_first_rangeIRNS9_17RegionBindingsRefEEEDaOT_EUlRKSt4pairIS7_SE_EE_RKS7_EESt26bidirectional_iterator_tagSS_lPSS_ST_EneERKSU_.exit.thread ], [ null, %487 ]
+  %490 = load ptr, ptr %62, align 8
+  %491 = load ptr, ptr %21, align 8
+  %492 = icmp eq ptr %490, %491
+  br i1 %492, label %493, label %502
 
-494:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i
-  %495 = load i32, ptr %64, align 4
-  %496 = zext i32 %495 to i64
-  %497 = getelementptr inbounds nuw ptr, ptr %492, i64 %496
-  %.not1317.i.i.i = icmp eq i32 %495, 0
+493:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i
+  %494 = load i32, ptr %64, align 4
+  %495 = zext i32 %494 to i64
+  %496 = getelementptr inbounds nuw ptr, ptr %491, i64 %495
+  %.not1317.i.i.i = icmp eq i32 %494, 0
   br i1 %.not1317.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %494, %500
-  %.01118.i.i.i = phi ptr [ %501, %500 ], [ %492, %494 ]
-  %498 = load ptr, ptr %.01118.i.i.i, align 8
-  %499 = icmp eq ptr %498, %.0.i.i.i58
-  br i1 %499, label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit, label %500
+.lr.ph.i.i.i:                                     ; preds = %493, %499
+  %.01118.i.i.i = phi ptr [ %500, %499 ], [ %491, %493 ]
+  %497 = load ptr, ptr %.01118.i.i.i, align 8
+  %498 = icmp eq ptr %497, %.0.i.i.i58
+  br i1 %498, label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit, label %499
 
-500:                                              ; preds = %.lr.ph.i.i.i
-  %501 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i, i64 8
-  %.not13.i.i.i = icmp eq ptr %501, %497
+499:                                              ; preds = %.lr.ph.i.i.i
+  %500 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i, i64 8
+  %.not13.i.i.i = icmp eq ptr %500, %496
   br i1 %.not13.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !97
 
-._crit_edge.i.i.i:                                ; preds = %500, %494
-  %502 = getelementptr inbounds nuw ptr, ptr %491, i64 %496
+._crit_edge.i.i.i:                                ; preds = %499, %493
+  %501 = getelementptr inbounds nuw ptr, ptr %490, i64 %495
   br label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
 
-503:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i
-  %504 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(312) %21, ptr noundef %.0.i.i.i58) #17
-  %.not.i.i2.i = icmp eq ptr %504, null
+502:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE10getClusterEPKN5clang4ento9MemRegionE.exit.i
+  %503 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(312) %21, ptr noundef %.0.i.i.i58) #17
+  %.not.i.i2.i = icmp eq ptr %503, null
   %.pre.i.i = load ptr, ptr %62, align 8
   %.pre4.i.i = load ptr, ptr %21, align 8
-  br i1 %.not.i.i2.i, label %505, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i
+  br i1 %.not.i.i2.i, label %504, label %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i
 
-._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %503
+._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i: ; preds = %502
   %.pre5.i.i = load i32, ptr %64, align 4
   br label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
 
-505:                                              ; preds = %503
-  %506 = icmp eq ptr %.pre.i.i, %.pre4.i.i
-  %507 = load i32, ptr %64, align 4
-  %508 = load i32, ptr %63, align 8
-  %.v.v.i14.i.i.i = select i1 %506, i32 %507, i32 %508
+504:                                              ; preds = %502
+  %505 = icmp eq ptr %.pre.i.i, %.pre4.i.i
+  %506 = load i32, ptr %64, align 4
+  %507 = load i32, ptr %63, align 8
+  %.v.v.i14.i.i.i = select i1 %505, i32 %506, i32 %507
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
-  %509 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
+  %508 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
   br label %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
 
-_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %505
-  %510 = phi i32 [ %495, %._crit_edge.i.i.i ], [ %507, %505 ], [ %.pre5.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %495, %.lr.ph.i.i.i ]
-  %511 = phi ptr [ %491, %._crit_edge.i.i.i ], [ %.pre4.i.i, %505 ], [ %.pre4.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %491, %.lr.ph.i.i.i ]
-  %512 = phi ptr [ %491, %._crit_edge.i.i.i ], [ %.pre.i.i, %505 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %491, %.lr.ph.i.i.i ]
-  %.0.i.i3.i = phi ptr [ %502, %._crit_edge.i.i.i ], [ %509, %505 ], [ %504, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %.01118.i.i.i, %.lr.ph.i.i.i ]
-  %513 = icmp eq ptr %512, %511
-  %514 = load i32, ptr %63, align 8
-  %.v.v.i.i.i = select i1 %513, i32 %510, i32 %514
+_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %504
+  %509 = phi i32 [ %494, %._crit_edge.i.i.i ], [ %506, %504 ], [ %.pre5.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %494, %.lr.ph.i.i.i ]
+  %510 = phi ptr [ %490, %._crit_edge.i.i.i ], [ %.pre4.i.i, %504 ], [ %.pre4.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %490, %.lr.ph.i.i.i ]
+  %511 = phi ptr [ %490, %._crit_edge.i.i.i ], [ %.pre.i.i, %504 ], [ %.pre.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %490, %.lr.ph.i.i.i ]
+  %.0.i.i3.i = phi ptr [ %501, %._crit_edge.i.i.i ], [ %508, %504 ], [ %503, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i ], [ %.01118.i.i.i, %.lr.ph.i.i.i ]
+  %512 = icmp eq ptr %511, %510
+  %513 = load i32, ptr %63, align 8
+  %.v.v.i.i.i = select i1 %512, i32 %509, i32 %513
   %.v.i.i.i = zext i32 %.v.v.i.i.i to i64
-  %515 = getelementptr inbounds nuw ptr, ptr %512, i64 %.v.i.i.i
-  %.not90 = icmp eq ptr %.0.i.i3.i, %515
-  br i1 %.not90, label %516, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
+  %514 = getelementptr inbounds nuw ptr, ptr %511, i64 %.v.i.i.i
+  %.not86 = icmp eq ptr %.0.i.i3.i, %514
+  br i1 %.not86, label %515, label %525
 
-516:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
+515:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
   call fastcc void @_ZNK12_GLOBAL__N_117RegionBindingsRef6removeERKPKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(25) %20, ptr noundef nonnull align 8 dereferenceable(8) %25)
-  %517 = load ptr, ptr %26, align 8
+  %516 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
-  store ptr %517, ptr %20, align 8
-  %.not.i.i.i.i60 = icmp eq ptr %.val1178, null
-  br i1 %.not.i.i.i.i60, label %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread, label %519
+  %517 = load ptr, ptr %20, align 8
+  store ptr %516, ptr %20, align 8
+  %.not.i.i.i.i60 = icmp eq ptr %517, null
+  br i1 %.not.i.i.i.i60, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62, label %518
 
-_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread: ; preds = %516
-  %518 = load ptr, ptr %411, align 8
-  store ptr %518, ptr %59, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %58, ptr noundef nonnull align 8 dereferenceable(9) %412, i64 9, i1 false)
+518:                                              ; preds = %515
+  %519 = getelementptr inbounds nuw i8, ptr %517, i64 68
+  %520 = load i32, ptr %519, align 4
+  %521 = add i32 %520, -1
+  store i32 %521, ptr %519, align 4
+  %522 = icmp eq i32 %521, 0
+  br i1 %522, label %523, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
+
+523:                                              ; preds = %518
+  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %517)
   br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
 
-519:                                              ; preds = %516
-  %520 = getelementptr inbounds nuw i8, ptr %.val1178, i64 68
-  %521 = load i32, ptr %520, align 4
-  %522 = add i32 %521, -1
-  store i32 %522, ptr %520, align 4
-  %523 = icmp eq i32 %522, 0
-  br i1 %523, label %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit, label %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread106
-
-_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread106: ; preds = %519
+_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62:  ; preds = %523, %518, %515
   %524 = load ptr, ptr %411, align 8
   store ptr %524, ptr %59, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %58, ptr noundef nonnull align 8 dereferenceable(9) %412, i64 9, i1 false)
-  br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
+  br label %525
 
-_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit: ; preds = %519
-  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val1178)
-  %.val10.pr.pre = load ptr, ptr %26, align 8
-  %525 = load ptr, ptr %411, align 8
-  store ptr %525, ptr %59, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %58, ptr noundef nonnull align 8 dereferenceable(9) %412, i64 9, i1 false)
-  %.not.i.i.i.i61 = icmp eq ptr %.val10.pr.pre, null
-  br i1 %.not.i.i.i.i61, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62, label %526
-
-526:                                              ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit
-  %527 = getelementptr inbounds nuw i8, ptr %.val10.pr.pre, i64 68
-  %528 = load i32, ptr %527, align 4
-  %529 = add i32 %528, -1
-  store i32 %529, ptr %527, align 4
-  %530 = icmp eq i32 %529, 0
-  br i1 %530, label %531, label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
-
-531:                                              ; preds = %526
-  call fastcc void @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE7destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %.val10.pr.pre)
-  br label %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
-
-_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62:  ; preds = %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread106, %531, %526, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread, %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit
-  %532 = phi ptr [ %414, %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit ], [ %518, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread ], [ %525, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit ], [ %525, %526 ], [ %525, %531 ], [ %524, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread106 ]
-  %.val1177 = phi ptr [ %.val1178, %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit ], [ %517, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread ], [ %517, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit ], [ %517, %526 ], [ %517, %531 ], [ %517, %_ZN12_GLOBAL__N_117RegionBindingsRefaSEOS0_.exit.thread106 ]
-  %533 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %23)
+525:                                              ; preds = %_ZN12_GLOBAL__N_115ClusterAnalysisINS_24RemoveDeadBindingsWorkerEE9isVisitedEPKN5clang4ento9MemRegionE.exit, %_ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit62
+  %526 = call fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %23)
   br label %413
 }
 

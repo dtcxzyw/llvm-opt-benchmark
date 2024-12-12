@@ -611,25 +611,28 @@ if.then:                                          ; preds = %invoke.cont2
   %call11 = call noundef zeroext i1 @_ZNK3net24QuicCompressedCertsCache11CachedCerts24MatchesUncompressedCertsERKNS0_17UncompressedCertsE(ptr noundef nonnull align 8 dereferenceable(104) %second, ptr noundef nonnull align 8 dereferenceable(24) %uncompressed_certs)
   %compressed_cert_.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i, i64 96
   %spec.select = select i1 %call11, ptr %compressed_cert_.i, ptr null
+  %.pre = load ptr, ptr %uncompressed_certs, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit, %invoke.cont2
+  %9 = phi ptr [ %0, %invoke.cont2 ], [ %0, %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit ], [ %0, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %0, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i ], [ %.pre, %if.then ]
   %retval.0 = phi ptr [ null, %invoke.cont2 ], [ null, %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit ], [ null, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ null, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i ], [ %spec.select, %if.then ]
-  br i1 %tobool.not.i.i, label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15, label %if.then.i.i8
+  %tobool.not.i.i7 = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i7, label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %cleanup
-  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %add.ptr.i.i.i9, align 4
-  %dec.i.i.i.i.i10 = add nsw i32 %9, -1
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load i32, ptr %add.ptr.i.i.i9, align 4
+  %dec.i.i.i.i.i10 = add nsw i32 %10, -1
   store i32 %dec.i.i.i.i.i10, ptr %add.ptr.i.i.i9, align 4
   %cmp.i.i.i.i.i11 = icmp eq i32 %dec.i.i.i.i.i10, 0
   br i1 %cmp.i.i.i.i.i11, label %delete.notnull.i.i.i.i12, label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15
 
 delete.notnull.i.i.i.i12:                         ; preds = %if.then.i.i8
-  %vtable.i.i.i.i13 = load ptr, ptr %0, align 8
+  %vtable.i.i.i.i13 = load ptr, ptr %9, align 8
   %vfn.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i13, i64 8
-  %10 = load ptr, ptr %vfn.i.i.i.i14, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
+  %11 = load ptr, ptr %vfn.i.i.i.i14, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(40) %9) #14
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15
 
 _ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15: ; preds = %cleanup, %if.then.i.i8, %delete.notnull.i.i.i.i12

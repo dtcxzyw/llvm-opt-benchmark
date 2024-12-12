@@ -120,8 +120,8 @@ initJvmlLauncherData.exit:                        ; preds = %31, %35, %38, %40, 
   %46 = call i32 @dlclose(ptr noundef nonnull %26) #9
   call void @free(ptr noundef nonnull %24) #9
   store ptr %.0.ph.i, ptr %4, align 8
-  %.not11 = icmp eq ptr %.0.ph.i, null
-  br i1 %.not11, label %129, label %47
+  %.not10 = icmp eq ptr %.0.ph.i, null
+  br i1 %.not10, label %129, label %47
 
 47:                                               ; preds = %initJvmlLauncherData.exit
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -139,8 +139,8 @@ initJvmlLauncherData.exit:                        ; preds = %31, %35, %38, %40, 
 
 56:                                               ; preds = %47
   %57 = load i32, ptr %5, align 4
-  %.not12 = icmp eq i32 %57, 0
-  br i1 %.not12, label %129, label %58
+  %.not11 = icmp eq i32 %57, 0
+  br i1 %.not11, label %129, label %58
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %48, align 4
@@ -179,27 +179,27 @@ initJvmlLauncherData.exit:                        ; preds = %31, %35, %38, %40, 
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %82, label %closePipeEnd.exit13
+  br i1 %81, label %82, label %closePipeEnd.exit12
 
 82:                                               ; preds = %78
   %83 = call i32 @close(i32 noundef %80) #9
   store i32 -1, ptr %79, align 4
-  br label %closePipeEnd.exit13
+  br label %closePipeEnd.exit12
 
-closePipeEnd.exit13:                              ; preds = %78, %82
+closePipeEnd.exit12:                              ; preds = %78, %82
   %84 = load i32, ptr %3, align 4
   %85 = call i64 @read(i32 noundef %84, ptr noundef nonnull %5, i64 noundef 4) #9
   %86 = icmp eq i64 %85, -1
   br i1 %86, label %87, label %91
 
-87:                                               ; preds = %closePipeEnd.exit13
+87:                                               ; preds = %closePipeEnd.exit12
   %88 = tail call ptr @__errno_location() #10
   %89 = load i32, ptr %88, align 4
   %90 = call ptr @strerror(i32 noundef %89) #9
   call void (ptr, ...) @jvmLauncherLog(ptr noundef %90) #9
   br label %129
 
-91:                                               ; preds = %closePipeEnd.exit13
+91:                                               ; preds = %closePipeEnd.exit12
   %92 = load i32, ptr %5, align 4
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %98
@@ -254,49 +254,49 @@ closePipeEnd.exit13:                              ; preds = %78, %82
 121:                                              ; preds = %113
   %122 = load i32, ptr %3, align 4
   %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %124, label %closePipeEnd.exit14
+  br i1 %123, label %124, label %closePipeEnd.exit13
 
 124:                                              ; preds = %121
   %125 = call i32 @close(i32 noundef %122) #9
   store i32 -1, ptr %3, align 4
-  br label %closePipeEnd.exit14
+  br label %closePipeEnd.exit13
 
-closePipeEnd.exit14:                              ; preds = %121, %124
+closePipeEnd.exit13:                              ; preds = %121, %124
   %126 = call i32 @wait(ptr noundef null) #9
   %127 = load ptr, ptr %6, align 8
-  call fastcc void @initJvmlLauncherDataPointers(ptr noundef %127, ptr noundef %108)
-  %128 = call fastcc i32 @launchJvm(ptr noundef %108)
+  call fastcc void @initJvmlLauncherDataPointers(ptr noundef %127, ptr noundef nonnull %108)
+  %128 = call fastcc i32 @launchJvm(ptr noundef nonnull %108)
   br label %129
 
-129:                                              ; preds = %initJvmlLauncherData.exit.thread, %initJvmlLauncherData.exit, %66, %56, %15, %76, %closePipeEnd.exit14, %117, %109, %102, %94, %87, %72, %62, %52
-  %.0 = phi i32 [ 1, %15 ], [ 1, %52 ], [ 1, %62 ], [ 1, %72 ], [ 1, %87 ], [ 1, %94 ], [ 1, %102 ], [ 1, %117 ], [ %128, %closePipeEnd.exit14 ], [ 1, %109 ], [ 1, %76 ], [ 0, %56 ], [ 0, %66 ], [ 0, %initJvmlLauncherData.exit ], [ 0, %initJvmlLauncherData.exit.thread ]
-  %130 = phi ptr [ null, %15 ], [ %.0.ph.i, %52 ], [ %.0.ph.i, %62 ], [ %.0.ph.i, %72 ], [ null, %87 ], [ null, %94 ], [ null, %102 ], [ %108, %117 ], [ %108, %closePipeEnd.exit14 ], [ null, %109 ], [ null, %76 ], [ %.0.ph.i, %56 ], [ %.0.ph.i, %66 ], [ null, %initJvmlLauncherData.exit ], [ null, %initJvmlLauncherData.exit.thread ]
+129:                                              ; preds = %initJvmlLauncherData.exit.thread, %initJvmlLauncherData.exit, %66, %56, %15, %76, %closePipeEnd.exit13, %117, %109, %102, %94, %87, %72, %62, %52
+  %130 = phi ptr [ null, %15 ], [ %.0.ph.i, %52 ], [ %.0.ph.i, %62 ], [ %.0.ph.i, %72 ], [ null, %87 ], [ null, %94 ], [ null, %102 ], [ %108, %117 ], [ %108, %closePipeEnd.exit13 ], [ null, %109 ], [ null, %76 ], [ %.0.ph.i, %56 ], [ %.0.ph.i, %66 ], [ null, %initJvmlLauncherData.exit ], [ null, %initJvmlLauncherData.exit.thread ]
+  %.0 = phi i32 [ 1, %15 ], [ 1, %52 ], [ 1, %62 ], [ 1, %72 ], [ 1, %87 ], [ 1, %94 ], [ 1, %102 ], [ 1, %117 ], [ %128, %closePipeEnd.exit13 ], [ 1, %109 ], [ 1, %76 ], [ 0, %56 ], [ 0, %66 ], [ 0, %initJvmlLauncherData.exit ], [ 0, %initJvmlLauncherData.exit.thread ]
   %131 = load i32, ptr %3, align 4
   %132 = icmp sgt i32 %131, -1
-  br i1 %132, label %133, label %closePipeEnd.exit15
+  br i1 %132, label %133, label %closePipeEnd.exit14
 
 133:                                              ; preds = %129
   %134 = call i32 @close(i32 noundef %131) #9
   store i32 -1, ptr %3, align 4
-  br label %closePipeEnd.exit15
+  br label %closePipeEnd.exit14
 
-closePipeEnd.exit15:                              ; preds = %129, %133
+closePipeEnd.exit14:                              ; preds = %129, %133
   %135 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, -1
-  br i1 %137, label %138, label %closePipeEnd.exit16
+  br i1 %137, label %138, label %closePipeEnd.exit15
 
-138:                                              ; preds = %closePipeEnd.exit15
+138:                                              ; preds = %closePipeEnd.exit14
   %139 = call i32 @close(i32 noundef %136) #9
   store i32 -1, ptr %135, align 4
-  br label %closePipeEnd.exit16
+  br label %closePipeEnd.exit15
 
-closePipeEnd.exit16:                              ; preds = %closePipeEnd.exit15, %138
+closePipeEnd.exit15:                              ; preds = %closePipeEnd.exit14, %138
   call void @free(ptr noundef %130) #9
   br label %140
 
-140:                                              ; preds = %closePipeEnd.exit16, %9
-  %.07 = phi i32 [ 1, %9 ], [ %.0, %closePipeEnd.exit16 ]
+140:                                              ; preds = %closePipeEnd.exit15, %9
+  %.07 = phi i32 [ 1, %9 ], [ %.0, %closePipeEnd.exit15 ]
   ret i32 %.07
 }
 
@@ -326,7 +326,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare i32 @wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
@@ -392,7 +392,7 @@ define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @launchJvm(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc i32 @launchJvm(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @dlopen(ptr noundef %2, i32 noundef 2) #9
   %.not = icmp eq ptr %3, null

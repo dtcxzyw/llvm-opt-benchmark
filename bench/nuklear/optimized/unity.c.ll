@@ -23053,17 +23053,17 @@ if.then33:                                        ; preds = %if.then25
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end20.if.end37_crit_edge, %if.then25, %if.then33
-  %18 = phi ptr [ %.pre31, %if.then25 ], [ %.pre31, %if.then33 ], [ %.pre, %if.end20.if.end37_crit_edge ]
-  %19 = phi ptr [ null, %if.then25 ], [ %call.i26, %if.then33 ], [ null, %if.end20.if.end37_crit_edge ]
+  %18 = phi ptr [ null, %if.end20.if.end37_crit_edge ], [ null, %if.then25 ], [ %call.i26, %if.then33 ]
+  %19 = phi ptr [ %.pre, %if.end20.if.end37_crit_edge ], [ %.pre31, %if.then25 ], [ %.pre31, %if.then33 ]
   %20 = load ptr, ptr %info, align 8
   %.val22 = load ptr, ptr %20, align 8
   %21 = getelementptr i8, ptr %20, i64 16
   %.val23 = load ptr, ptr %21, align 8
-  call void %.val23(ptr %.val22, ptr noundef %18) #52
+  call void %.val23(ptr %.val22, ptr noundef %19) #52
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ %19, %if.end37 ]
+  %retval.0 = phi ptr [ null, %if.then4 ], [ %18, %if.end37 ]
   ret ptr %retval.0
 }
 

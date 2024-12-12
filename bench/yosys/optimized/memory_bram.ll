@@ -11325,11 +11325,11 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bra
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 4
   %.pre = load ptr, ptr %0, align 8
-  %.pre36 = load ptr, ptr %6, align 8
+  %.pre35 = load ptr, ptr %6, align 8
   br label %56
 
 56:                                               ; preds = %50, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread
-  %57 = phi ptr [ %.pre36, %50 ], [ %48, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ]
+  %57 = phi ptr [ %.pre35, %50 ], [ %48, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ]
   %58 = phi ptr [ %.pre, %50 ], [ %49, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_17rules_t6bram_tESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.thread ]
   store i32 %.val14, ptr %4, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8

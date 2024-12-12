@@ -4762,29 +4762,31 @@ _ZN12_GLOBAL__N_17Context15collectFunctionERN4llvm12GCOVFunctionERNS_7SummaryE.e
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %526, %528
   %531 = phi ptr [ %.pre, %526 ], [ %530, %528 ]
   %.0.i.i = phi ptr [ %527, %526 ], [ %257, %528 ]
+  %.sroa.020.0.copyload = load ptr, ptr %38, align 8
+  %.sroa.221.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %532 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %533 = load ptr, ptr %532, align 8
   %534 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %535 = ptrtoint ptr %533 to i64
   %536 = ptrtoint ptr %531 to i64
   %537 = sub i64 %535, %536
-  %538 = icmp ugt i64 %291, %537
+  %538 = icmp ugt i64 %.sroa.221.0.copyload, %537
   br i1 %538, label %539, label %541
 
 539:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %290, i64 noundef %291) #20
+  %540 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.sroa.020.0.copyload, i64 noundef %.sroa.221.0.copyload) #20
   %.phi.trans.insert313 = getelementptr inbounds nuw i8, ptr %540, i64 32
   %.pre314 = load ptr, ptr %.phi.trans.insert313, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 541:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %.not.i81 = icmp eq i64 %291, 0
+  %.not.i81 = icmp eq i64 %.sroa.221.0.copyload, 0
   br i1 %.not.i81, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %542
 
 542:                                              ; preds = %541
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %531, ptr align 1 %290, i64 %291, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %531, ptr align 1 %.sroa.020.0.copyload, i64 %.sroa.221.0.copyload, i1 false)
   %543 = load ptr, ptr %534, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 %291
+  %544 = getelementptr inbounds i8, ptr %543, i64 %.sroa.221.0.copyload
   store ptr %544, ptr %534, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -5458,29 +5460,31 @@ _ZNK12_GLOBAL__N_17Context15getCoveragePathB5cxx11EN4llvm9StringRefES2_.exit: ; 
 _ZN4llvm11raw_ostreamlsEPKc.exit99:               ; preds = %836, %838
   %841 = phi ptr [ %.pre316, %836 ], [ %840, %838 ]
   %.0.i.i98 = phi ptr [ %837, %836 ], [ %257, %838 ]
+  %.sroa.05.0.copyload = load ptr, ptr %39, align 8
+  %.sroa.26.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx.i89, align 8
   %842 = getelementptr inbounds nuw i8, ptr %.0.i.i98, i64 24
   %843 = load ptr, ptr %842, align 8
   %844 = getelementptr inbounds nuw i8, ptr %.0.i.i98, i64 32
   %845 = ptrtoint ptr %843 to i64
   %846 = ptrtoint ptr %841 to i64
   %847 = sub i64 %845, %846
-  %848 = icmp ugt i64 %606, %847
+  %848 = icmp ugt i64 %.sroa.26.0.copyload, %847
   br i1 %848, label %849, label %851
 
 849:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit99
-  %850 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i98, ptr noundef %605, i64 noundef %606) #20
+  %850 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i98, ptr noundef %.sroa.05.0.copyload, i64 noundef %.sroa.26.0.copyload) #20
   %.phi.trans.insert317 = getelementptr inbounds nuw i8, ptr %850, i64 32
   %.pre318 = load ptr, ptr %.phi.trans.insert317, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit102
 
 851:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit99
-  %.not.i100 = icmp eq i64 %606, 0
+  %.not.i100 = icmp eq i64 %.sroa.26.0.copyload, 0
   br i1 %.not.i100, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit102, label %852
 
 852:                                              ; preds = %851
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %841, ptr align 1 %605, i64 %606, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %841, ptr align 1 %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, i1 false)
   %853 = load ptr, ptr %844, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 %606
+  %854 = getelementptr inbounds i8, ptr %853, i64 %.sroa.26.0.copyload
   store ptr %854, ptr %844, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit102
 

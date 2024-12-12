@@ -101596,9 +101596,10 @@ _ZSt13move_backwardIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptio
   br label %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionD2Ev.exit
 
 49:                                               ; preds = %19
+  %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5)
-  store ptr %2, ptr %4, align 8
+  store ptr %.sroa.0.0.copyload, ptr %4, align 8
   %50 = load ptr, ptr %.021, align 8
   store ptr %50, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.pn20, i64 176
@@ -101628,124 +101629,125 @@ _ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit.i: ; 
   %61 = getelementptr inbounds i8, ptr %.0911.i, i64 -144
   %62 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %60, ptr noundef nonnull align 8 dereferenceable(144) %61)
   %.0.i = getelementptr inbounds i8, ptr %.012.i, i64 -168
-  %63 = load ptr, ptr %10, align 8
-  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #25
-  %65 = getelementptr inbounds %"class.llvm::StringRef", ptr %63, i64 %64
-  %.not30.i.i = icmp eq i64 %64, 0
+  %63 = load ptr, ptr %4, align 8
+  %64 = load ptr, ptr %10, align 8
+  %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #25
+  %66 = getelementptr inbounds %"class.llvm::StringRef", ptr %64, i64 %65
+  %.not30.i.i = icmp eq i64 %65, 0
   br i1 %.not30.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
-  %.033.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
-  %.01732.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %63, %.lr.ph.i ]
+  %.033.i.i = phi i32 [ %71, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
+  %.01732.i.i = phi ptr [ %72, %.lr.ph.i.i ], [ %64, %.lr.ph.i ]
   %.02931.i.i = phi i32 [ %.sroa.speculated21.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
   %.sroa.03.0.copyload.i.i = load ptr, ptr %.01732.i.i, align 8
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01732.i.i, i64 8
   %.sroa.24.0.copyload.i.i = load i64, ptr %.sroa.24.0..sroa_idx.i.i, align 8
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 616
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(489) %2, ptr %.sroa.03.0.copyload.i.i, i64 %.sroa.24.0.copyload.i.i) #25
-  %.sroa.speculated21.i.i = call i32 @llvm.umax.i32(i32 %.02931.i.i, i32 %69)
-  %70 = add i32 %.033.i.i, 1
-  %71 = getelementptr inbounds nuw i8, ptr %.01732.i.i, i64 16
-  %.not.i.i = icmp eq ptr %71, %65
+  %67 = load ptr, ptr %63, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 616
+  %69 = load ptr, ptr %68, align 8
+  %70 = call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(489) %63, ptr %.sroa.03.0.copyload.i.i, i64 %.sroa.24.0.copyload.i.i) #25
+  %.sroa.speculated21.i.i = call i32 @llvm.umax.i32(i32 %.02931.i.i, i32 %70)
+  %71 = add i32 %.033.i.i, 1
+  %72 = getelementptr inbounds nuw i8, ptr %.01732.i.i, i64 16
+  %.not.i.i = icmp eq ptr %72, %66
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.029.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.speculated21.i.i, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %70, %.lr.ph.i.i ]
-  %72 = load i64, ptr %12, align 8
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i, label %74
+  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %71, %.lr.ph.i.i ]
+  %73 = load i64, ptr %12, align 8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i, label %75
 
-74:                                               ; preds = %._crit_edge.i.i
+75:                                               ; preds = %._crit_edge.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %9, align 8
-  %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 616
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef i32 %77(ptr noundef nonnull align 8 dereferenceable(489) %2, ptr %.sroa.0.0.copyload.i.i, i64 %72) #25
-  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %.029.lcssa.i.i, i32 %78)
+  %76 = load ptr, ptr %63, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 616
+  %78 = load ptr, ptr %77, align 8
+  %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(489) %63, ptr %.sroa.0.0.copyload.i.i, i64 %73) #25
+  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %.029.lcssa.i.i, i32 %79)
   br label %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i
 
-_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i: ; preds = %74, %._crit_edge.i.i
-  %.1.i.i = phi i32 [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %.sroa.speculated.i.i, %74 ]
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 624
-  %81 = load ptr, ptr %80, align 8
-  %82 = call noundef i32 %81(ptr noundef nonnull align 8 dereferenceable(489) %2) #25
-  %83 = getelementptr inbounds i8, ptr %.012.i, i64 -160
-  %84 = getelementptr inbounds i8, ptr %.012.i, i64 -144
-  %85 = load ptr, ptr %84, align 8
-  %86 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #25
-  %87 = getelementptr inbounds %"class.llvm::StringRef", ptr %85, i64 %86
-  %.not30.i3.i = icmp eq i64 %86, 0
+_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i: ; preds = %75, %._crit_edge.i.i
+  %.1.i.i = phi i32 [ %.029.lcssa.i.i, %._crit_edge.i.i ], [ %.sroa.speculated.i.i, %75 ]
+  %80 = load ptr, ptr %63, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 624
+  %82 = load ptr, ptr %81, align 8
+  %83 = call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(489) %63) #25
+  %84 = getelementptr inbounds i8, ptr %.012.i, i64 -160
+  %85 = getelementptr inbounds i8, ptr %.012.i, i64 -144
+  %86 = load ptr, ptr %85, align 8
+  %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #25
+  %88 = getelementptr inbounds %"class.llvm::StringRef", ptr %86, i64 %87
+  %.not30.i3.i = icmp eq i64 %87, 0
   br i1 %.not30.i3.i, label %._crit_edge.i13.i, label %.lr.ph.i4.i
 
 .lr.ph.i4.i:                                      ; preds = %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i, %.lr.ph.i4.i
-  %.033.i5.i = phi i32 [ %92, %.lr.ph.i4.i ], [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ]
-  %.01732.i6.i = phi ptr [ %93, %.lr.ph.i4.i ], [ %85, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ]
+  %.033.i5.i = phi i32 [ %93, %.lr.ph.i4.i ], [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ]
+  %.01732.i6.i = phi ptr [ %94, %.lr.ph.i4.i ], [ %86, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ]
   %.02931.i7.i = phi i32 [ %.sroa.speculated21.i11.i, %.lr.ph.i4.i ], [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ]
   %.sroa.03.0.copyload.i8.i = load ptr, ptr %.01732.i6.i, align 8
   %.sroa.24.0..sroa_idx.i9.i = getelementptr inbounds nuw i8, ptr %.01732.i6.i, i64 8
   %.sroa.24.0.copyload.i10.i = load i64, ptr %.sroa.24.0..sroa_idx.i9.i, align 8
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 616
-  %90 = load ptr, ptr %89, align 8
-  %91 = call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(489) %2, ptr %.sroa.03.0.copyload.i8.i, i64 %.sroa.24.0.copyload.i10.i) #25
-  %.sroa.speculated21.i11.i = call i32 @llvm.umax.i32(i32 %.02931.i7.i, i32 %91)
-  %92 = add i32 %.033.i5.i, 1
-  %93 = getelementptr inbounds nuw i8, ptr %.01732.i6.i, i64 16
-  %.not.i12.i = icmp eq ptr %93, %87
+  %89 = load ptr, ptr %63, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 616
+  %91 = load ptr, ptr %90, align 8
+  %92 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(489) %63, ptr %.sroa.03.0.copyload.i8.i, i64 %.sroa.24.0.copyload.i10.i) #25
+  %.sroa.speculated21.i11.i = call i32 @llvm.umax.i32(i32 %.02931.i7.i, i32 %92)
+  %93 = add i32 %.033.i5.i, 1
+  %94 = getelementptr inbounds nuw i8, ptr %.01732.i6.i, i64 16
+  %.not.i12.i = icmp eq ptr %94, %88
   br i1 %.not.i12.i, label %._crit_edge.i13.i, label %.lr.ph.i4.i
 
 ._crit_edge.i13.i:                                ; preds = %.lr.ph.i4.i, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i
   %.029.lcssa.i14.i = phi i32 [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ], [ %.sroa.speculated21.i11.i, %.lr.ph.i4.i ]
-  %.0.lcssa.i15.i = phi i32 [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ], [ %92, %.lr.ph.i4.i ]
-  %94 = getelementptr inbounds i8, ptr %.012.i, i64 -152
-  %95 = load i64, ptr %94, align 8
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit", label %97
+  %.0.lcssa.i15.i = phi i32 [ 0, %_ZL16TargetMVPriorityRKN5clang10TargetInfoERKNS_7CodeGen15CodeGenFunction26MultiVersionResolverOptionE.exit.i ], [ %93, %.lr.ph.i4.i ]
+  %95 = getelementptr inbounds i8, ptr %.012.i, i64 -152
+  %96 = load i64, ptr %95, align 8
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit", label %98
 
-97:                                               ; preds = %._crit_edge.i13.i
-  %.sroa.0.0.copyload.i16.i = load ptr, ptr %83, align 8
-  %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 616
-  %100 = load ptr, ptr %99, align 8
-  %101 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(489) %2, ptr %.sroa.0.0.copyload.i16.i, i64 %95) #25
-  %.sroa.speculated.i17.i = call i32 @llvm.umax.i32(i32 %.029.lcssa.i14.i, i32 %101)
+98:                                               ; preds = %._crit_edge.i13.i
+  %.sroa.0.0.copyload.i16.i = load ptr, ptr %84, align 8
+  %99 = load ptr, ptr %63, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 616
+  %101 = load ptr, ptr %100, align 8
+  %102 = call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(489) %63, ptr %.sroa.0.0.copyload.i16.i, i64 %96) #25
+  %.sroa.speculated.i17.i = call i32 @llvm.umax.i32(i32 %.029.lcssa.i14.i, i32 %102)
   br label %"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit"
 
-"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit": ; preds = %._crit_edge.i13.i, %97
-  %.1.i18.i = phi i32 [ %.029.lcssa.i14.i, %._crit_edge.i13.i ], [ %.sroa.speculated.i17.i, %97 ]
-  %102 = mul i32 %82, %.0.lcssa.i.i
-  %103 = add i32 %102, %.1.i.i
-  %104 = load ptr, ptr %2, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 624
-  %106 = load ptr, ptr %105, align 8
-  %107 = call noundef i32 %106(ptr noundef nonnull align 8 dereferenceable(489) %2) #25
-  %108 = mul i32 %107, %.0.lcssa.i15.i
-  %109 = add i32 %108, %.1.i18.i
-  %110 = icmp ugt i32 %103, %109
-  br i1 %110, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !880
+"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit": ; preds = %._crit_edge.i13.i, %98
+  %.1.i18.i = phi i32 [ %.029.lcssa.i14.i, %._crit_edge.i13.i ], [ %.sroa.speculated.i17.i, %98 ]
+  %103 = mul i32 %83, %.0.lcssa.i.i
+  %104 = add i32 %103, %.1.i.i
+  %105 = load ptr, ptr %63, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 624
+  %107 = load ptr, ptr %106, align 8
+  %108 = call noundef i32 %107(ptr noundef nonnull align 8 dereferenceable(489) %63) #25
+  %109 = mul i32 %108, %.0.lcssa.i15.i
+  %110 = add i32 %109, %.1.i18.i
+  %111 = icmp ugt i32 %104, %110
+  br i1 %111, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !880
 
 ._crit_edge.i:                                    ; preds = %"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit", %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit.i
   %.09.lcssa.i = phi ptr [ %.021, %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionC2EOS2_.exit.i ], [ %.012.i, %"_ZZN5clang7CodeGen13CodeGenModule25emitMultiVersionFunctionsEvENK3$_1clERKNS0_15CodeGenFunction26MultiVersionResolverOptionES6_.exit" ]
-  %111 = load ptr, ptr %5, align 8
-  store ptr %111, ptr %.09.lcssa.i, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %112, ptr noundef nonnull align 8 dereferenceable(160) %9, i64 16, i1 false)
-  %113 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 24
-  %114 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %113, ptr noundef nonnull align 8 dereferenceable(144) %10)
-  %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %10) #25
-  %116 = load ptr, ptr %10, align 8
-  %117 = icmp eq ptr %116, %11
-  br i1 %117, label %"_ZSt25__unguarded_linear_insertIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_T0_.exit", label %118
+  %112 = load ptr, ptr %5, align 8
+  store ptr %112, ptr %.09.lcssa.i, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %113, ptr noundef nonnull align 8 dereferenceable(160) %9, i64 16, i1 false)
+  %114 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 24
+  %115 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_9StringRefEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %114, ptr noundef nonnull align 8 dereferenceable(144) %10)
+  %116 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %10) #25
+  %117 = load ptr, ptr %10, align 8
+  %118 = icmp eq ptr %117, %11
+  br i1 %118, label %"_ZSt25__unguarded_linear_insertIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_T0_.exit", label %119
 
-118:                                              ; preds = %._crit_edge.i
-  call void @free(ptr noundef %116) #25
+119:                                              ; preds = %._crit_edge.i
+  call void @free(ptr noundef %117) #25
   br label %"_ZSt25__unguarded_linear_insertIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_T0_.exit"
 
-"_ZSt25__unguarded_linear_insertIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_T0_.exit": ; preds = %._crit_edge.i, %118
+"_ZSt25__unguarded_linear_insertIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_T0_.exit": ; preds = %._crit_edge.i, %119
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5)
   br label %_ZN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionD2Ev.exit
@@ -101775,6 +101777,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN5clang7CodeGen15Cod
   br label %13
 
 13:                                               ; preds = %.lr.ph, %tailrecurse
+  %.tr7180 = phi ptr [ %5, %.lr.ph ], [ %.sroa.02.0.copyload, %tailrecurse ]
   %.tr7079 = phi i64 [ %4, %.lr.ph ], [ %53, %tailrecurse ]
   %.tr6978 = phi i64 [ %3, %.lr.ph ], [ %52, %tailrecurse ]
   %.tr6776 = phi ptr [ %1, %.lr.ph ], [ %.063, %tailrecurse ]
@@ -101800,7 +101803,7 @@ _ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT
   %22 = sdiv i64 %.tr6978, 2
   %23 = getelementptr inbounds %"struct.clang::CodeGen::CodeGenFunction::MultiVersionResolverOption", ptr %.tr75, i64 %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %5, ptr %8, align 8
+  store ptr %.tr7180, ptr %8, align 8
   %24 = sub i64 %12, %21
   %25 = icmp sgt i64 %24, 0
   br i1 %25, label %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit.preheader.i, label %"_ZSt13__lower_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit"
@@ -101839,7 +101842,7 @@ _ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT
   %36 = sdiv i64 %.tr7079, 2
   %37 = getelementptr inbounds %"struct.clang::CodeGen::CodeGenFunction::MultiVersionResolverOption", ptr %.tr6776, i64 %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %5, ptr %7, align 8
+  store ptr %.tr7180, ptr %7, align 8
   %38 = ptrtoint ptr %.tr75 to i64
   %39 = sub i64 %21, %38
   %40 = icmp sgt i64 %39, 0
@@ -101864,14 +101867,14 @@ _ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT
   br i1 %48, label %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit.i47, label %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit", !llvm.loop !883
 
 "_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit": ; preds = %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit.i47
-  %.pre82 = ptrtoint ptr %.1.i53 to i64
+  %.pre83 = ptrtoint ptr %.1.i53 to i64
   br label %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit44
-  %.pre-phi83 = phi i64 [ %.pre82, %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %38, %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit44 ]
+  %.pre-phi84 = phi i64 [ %.pre83, %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %38, %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit44 ]
   %.0.lcssa.i45 = phi ptr [ %.1.i53, %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit.loopexit" ], [ %.tr75, %_ZSt7advanceIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElEvRT_T0_.exit44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %49 = sub i64 %.pre-phi83, %38
+  %49 = sub i64 %.pre-phi84, %38
   %50 = sdiv exact i64 %49, 168
   br label %tailrecurse
 
@@ -101881,10 +101884,11 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %.038 = phi i64 [ %35, %"_ZSt13__lower_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit" ], [ %36, %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %22, %"_ZSt13__lower_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit" ], [ %50, %"_ZSt13__upper_boundIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEET_SB_SB_RKT0_T1_.exit" ]
   %51 = tail call noundef ptr @_ZNSt3_V28__rotateIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.064, ptr noundef %.tr6776, ptr noundef %.063)
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %.tr75, ptr noundef %.064, ptr noundef %51, i64 noundef %.0, i64 noundef %.038, ptr %5)
+  %.sroa.02.0.copyload = load ptr, ptr %9, align 8
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPN5clang7CodeGen15CodeGenFunction26MultiVersionResolverOptionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13CodeGenModule25emitMultiVersionFunctionsEvE3$_1EEEvT_SB_SB_T0_SC_T1_"(ptr noundef %.tr75, ptr noundef %.064, ptr noundef %51, i64 noundef %.0, i64 noundef %.038, ptr %.sroa.02.0.copyload)
   %52 = sub nsw i64 %.tr6978, %.0
   %53 = sub nsw i64 %.tr7079, %.038
-  store ptr %5, ptr %9, align 8
+  store ptr %.sroa.02.0.copyload, ptr %9, align 8
   %54 = icmp eq i64 %52, 0
   %55 = icmp eq i64 %53, 0
   %or.cond = or i1 %54, %55

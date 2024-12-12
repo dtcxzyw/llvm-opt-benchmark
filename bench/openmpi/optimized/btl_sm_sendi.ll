@@ -50,11 +50,11 @@ define range(i32 -2, 1) i32 @mca_btl_sm_sendi(ptr noundef %0, ptr noundef %1, pt
 
 21:                                               ; preds = %10
   %.not50 = icmp eq ptr %9, null
-  br i1 %.not50, label %190, label %22
+  br i1 %.not50, label %191, label %22
 
 22:                                               ; preds = %21
   store ptr null, ptr %9, align 8
-  br label %190
+  br label %191
 
 23:                                               ; preds = %10
   %.not45 = icmp eq i64 %5, 0
@@ -93,7 +93,7 @@ opal_convertor_need_buffers.exit:                 ; preds = %39
 
 .split:                                           ; preds = %23
   %46 = tail call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext %8, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0)
-  br i1 %46, label %190, label %opal_convertor_need_buffers.exit.thread56
+  br i1 %46, label %191, label %opal_convertor_need_buffers.exit.thread56
 
 opal_convertor_need_buffers.exit.thread:          ; preds = %39
   %.old = and i32 %36, 4194304
@@ -102,7 +102,7 @@ opal_convertor_need_buffers.exit.thread:          ; preds = %39
 
 47:                                               ; preds = %opal_convertor_need_buffers.exit, %opal_convertor_need_buffers.exit.thread
   %48 = tail call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext %8, ptr noundef %3, i64 noundef %4, ptr noundef %34, i64 noundef %5)
-  br i1 %48, label %190, label %opal_convertor_need_buffers.exit.thread56
+  br i1 %48, label %191, label %opal_convertor_need_buffers.exit.thread56
 
 opal_convertor_need_buffers.exit.thread56:        ; preds = %24, %.split, %47, %opal_convertor_need_buffers.exit.thread, %opal_convertor_need_buffers.exit
   %49 = add i64 %5, %4
@@ -114,11 +114,11 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %24, %.split, %47, %
 
 53:                                               ; preds = %opal_convertor_need_buffers.exit.thread56
   %.not49 = icmp eq ptr %9, null
-  br i1 %.not49, label %190, label %54
+  br i1 %.not49, label %191, label %54
 
 54:                                               ; preds = %53
   store ptr null, ptr %9, align 8
-  br label %190
+  br label %191
 
 55:                                               ; preds = %opal_convertor_need_buffers.exit.thread56
   %56 = trunc i64 %49 to i32
@@ -381,52 +381,53 @@ mca_btl_sm_try_fbox_setup.exit.i:                 ; preds = %171, %168, %opal_th
   store volatile i64 -2, ptr %72, align 8
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %174 = load ptr, ptr %173, align 8
+  %175 = load i64, ptr %15, align 8
   fence release
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %176 = atomicrmw volatile xchg ptr %175, i64 %80 monotonic, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %177 = atomicrmw volatile xchg ptr %176, i64 %175 monotonic, align 8
   fence acquire
-  %.not.i8.i = icmp eq i64 %176, -2
-  br i1 %.not.i8.i, label %184, label %177
+  %.not.i8.i = icmp eq i64 %177, -2
+  br i1 %.not.i8.i, label %185, label %178
 
-177:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
-  %178 = and i64 %176, 4294967295
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_sm_component, i64 5960), align 8
-  %180 = ashr i64 %176, 32
-  %181 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %179, i64 %180, i32 5
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %178
-  store volatile i64 %80, ptr %183, align 8
+178:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
+  %179 = and i64 %177, 4294967295
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_btl_sm_component, i64 5960), align 8
+  %181 = ashr i64 %177, 32
+  %182 = getelementptr inbounds %struct.mca_btl_base_endpoint_t, ptr %180, i64 %181, i32 5
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 %179
+  store volatile i64 %175, ptr %184, align 8
   br label %sm_fifo_write_ep.exit.thread
 
-184:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
-  store volatile i64 %80, ptr %174, align 8
+185:                                              ; preds = %mca_btl_sm_try_fbox_setup.exit.i
+  store volatile i64 %175, ptr %174, align 8
   br label %sm_fifo_write_ep.exit.thread
 
-sm_fifo_write_ep.exit.thread:                     ; preds = %177, %184
+sm_fifo_write_ep.exit.thread:                     ; preds = %178, %185
   fence release
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %190
+  br label %191
 
 sm_fifo_write_ep.exit:                            ; preds = %71
   fence release
-  %185 = call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext -2, ptr noundef nonnull %15, i64 noundef 8, ptr noundef null, i64 noundef 0)
+  %186 = call fastcc zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef nonnull %1, i8 noundef zeroext -2, ptr noundef nonnull %15, i64 noundef 8, ptr noundef null, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br i1 %185, label %190, label %186
+  br i1 %186, label %191, label %187
 
-186:                                              ; preds = %sm_fifo_write_ep.exit
+187:                                              ; preds = %sm_fifo_write_ep.exit
   %.not48 = icmp eq ptr %9, null
-  br i1 %.not48, label %188, label %187
+  br i1 %.not48, label %189, label %188
 
-187:                                              ; preds = %186
+188:                                              ; preds = %187
   store ptr %51, ptr %9, align 8
-  br label %190
+  br label %191
 
-188:                                              ; preds = %186
-  %189 = call i32 @mca_btl_sm_free(ptr noundef %0, ptr noundef nonnull %51) #6
-  br label %190
+189:                                              ; preds = %187
+  %190 = call i32 @mca_btl_sm_free(ptr noundef %0, ptr noundef nonnull %51) #6
+  br label %191
 
-190:                                              ; preds = %sm_fifo_write_ep.exit.thread, %.split, %sm_fifo_write_ep.exit, %187, %188, %53, %54, %47, %21, %22
-  %.0 = phi i32 [ -2, %22 ], [ -2, %21 ], [ 0, %47 ], [ -2, %54 ], [ -2, %53 ], [ -2, %188 ], [ -2, %187 ], [ 0, %sm_fifo_write_ep.exit ], [ 0, %.split ], [ 0, %sm_fifo_write_ep.exit.thread ]
+191:                                              ; preds = %sm_fifo_write_ep.exit.thread, %.split, %sm_fifo_write_ep.exit, %188, %189, %53, %54, %47, %21, %22
+  %.0 = phi i32 [ -2, %22 ], [ -2, %21 ], [ 0, %47 ], [ -2, %54 ], [ -2, %53 ], [ -2, %189 ], [ -2, %188 ], [ 0, %sm_fifo_write_ep.exit ], [ 0, %.split ], [ 0, %sm_fifo_write_ep.exit.thread ]
   ret i32 %.0
 }
 

@@ -12097,11 +12097,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %451 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i687 = load i64, ptr %451, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i687, ptr %4, align 8
+  %.val.i.i.i.i688 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   %452 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %453 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
-  %.val.i.i.i.i.i.i689 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i689 = load ptr, ptr %.val.i.i.i.i688, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i689, ptr %452, i64 %453) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -12119,11 +12120,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %455 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i682 = load i64, ptr %455, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i682, ptr %7, align 8
+  %.val.i.i.i.i683 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #21
   %456 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %457 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
-  %.val.i.i.i.i.i.i684 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i684 = load ptr, ptr %.val.i.i.i.i683, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i684, ptr %456, i64 %457) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -12141,11 +12143,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %459 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i677 = load i64, ptr %459, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i677, ptr %10, align 8
+  %.val.i.i.i.i678 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #21
   %460 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %461 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
-  %.val.i.i.i.i.i.i679 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i679 = load ptr, ptr %.val.i.i.i.i678, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i679, ptr %460, i64 %461) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -12163,11 +12166,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %463 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i672 = load i64, ptr %463, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i672, ptr %13, align 8
+  %.val.i.i.i.i673 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %13) #21
   %464 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
   %465 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  %.val.i.i.i.i.i.i674 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i674 = load ptr, ptr %.val.i.i.i.i673, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i674, ptr %464, i64 %465) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
@@ -12185,11 +12189,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %467 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i667 = load i64, ptr %467, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i667, ptr %16, align 8
+  %.val.i.i.i.i668 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %16) #21
   %468 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %469 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  %.val.i.i.i.i.i.i669 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i669 = load ptr, ptr %.val.i.i.i.i668, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i669, ptr %468, i64 %469) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
@@ -12207,11 +12212,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %471 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i662 = load i64, ptr %471, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i662, ptr %19, align 8
+  %.val.i.i.i.i663 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19) #21
   %472 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
   %473 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
-  %.val.i.i.i.i.i.i664 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i664 = load ptr, ptr %.val.i.i.i.i663, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i664, ptr %472, i64 %473) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
@@ -12229,11 +12235,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %475 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i657 = load i64, ptr %475, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i657, ptr %22, align 8
+  %.val.i.i.i.i658 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22) #21
   %476 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #21
   %477 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #21
-  %.val.i.i.i.i.i.i659 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i659 = load ptr, ptr %.val.i.i.i.i658, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i659, ptr %476, i64 %477) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
@@ -12251,11 +12258,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %479 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i652 = load i64, ptr %479, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i652, ptr %25, align 8
+  %.val.i.i.i.i653 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %25) #21
   %480 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
   %481 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
-  %.val.i.i.i.i.i.i654 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i654 = load ptr, ptr %.val.i.i.i.i653, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i654, ptr %480, i64 %481) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
@@ -12273,11 +12281,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %483 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i647 = load i64, ptr %483, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i647, ptr %28, align 8
+  %.val.i.i.i.i648 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) %28) #21
   %484 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
   %485 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
-  %.val.i.i.i.i.i.i649 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i649 = load ptr, ptr %.val.i.i.i.i648, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i649, ptr %484, i64 %485) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
@@ -12295,11 +12304,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %487 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i642 = load i64, ptr %487, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i642, ptr %31, align 8
+  %.val.i.i.i.i643 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %31) #21
   %488 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #21
   %489 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #21
-  %.val.i.i.i.i.i.i644 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i644 = load ptr, ptr %.val.i.i.i.i643, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i644, ptr %488, i64 %489) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
@@ -12317,11 +12327,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %491 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i637 = load i64, ptr %491, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i637, ptr %34, align 8
+  %.val.i.i.i.i638 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %34) #21
   %492 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
   %493 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
-  %.val.i.i.i.i.i.i639 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i639 = load ptr, ptr %.val.i.i.i.i638, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i639, ptr %492, i64 %493) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
@@ -12339,11 +12350,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %495 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i632 = load i64, ptr %495, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i632, ptr %37, align 8
+  %.val.i.i.i.i633 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %37) #21
   %496 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
   %497 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
-  %.val.i.i.i.i.i.i634 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i634 = load ptr, ptr %.val.i.i.i.i633, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i634, ptr %496, i64 %497) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
@@ -12361,11 +12373,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %499 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i627 = load i64, ptr %499, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i627, ptr %40, align 8
+  %.val.i.i.i.i628 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %40) #21
   %500 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   %501 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
-  %.val.i.i.i.i.i.i629 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i629 = load ptr, ptr %.val.i.i.i.i628, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i629, ptr %500, i64 %501) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
@@ -12383,11 +12396,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %503 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i622 = load i64, ptr %503, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i622, ptr %43, align 8
+  %.val.i.i.i.i623 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) %43) #21
   %504 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #21
   %505 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #21
-  %.val.i.i.i.i.i.i624 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i624 = load ptr, ptr %.val.i.i.i.i623, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i624, ptr %504, i64 %505) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
@@ -12405,11 +12419,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %507 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i617 = load i64, ptr %507, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i617, ptr %46, align 8
+  %.val.i.i.i.i618 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr noundef nonnull align 8 dereferenceable(8) %46) #21
   %508 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
   %509 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
-  %.val.i.i.i.i.i.i619 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i619 = load ptr, ptr %.val.i.i.i.i618, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i619, ptr %508, i64 %509) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
@@ -12427,11 +12442,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %511 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i612 = load i64, ptr %511, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i612, ptr %49, align 8
+  %.val.i.i.i.i613 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 8 dereferenceable(8) %49) #21
   %512 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #21
   %513 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #21
-  %.val.i.i.i.i.i.i614 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i614 = load ptr, ptr %.val.i.i.i.i613, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i614, ptr %512, i64 %513) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48)
@@ -12449,11 +12465,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %515 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i607 = load i64, ptr %515, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i607, ptr %52, align 8
+  %.val.i.i.i.i608 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %51, ptr noundef nonnull align 8 dereferenceable(8) %52) #21
   %516 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
   %517 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
-  %.val.i.i.i.i.i.i609 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i609 = load ptr, ptr %.val.i.i.i.i608, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i609, ptr %516, i64 %517) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
@@ -12471,11 +12488,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %519 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i602 = load i64, ptr %519, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i602, ptr %55, align 8
+  %.val.i.i.i.i603 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 8 dereferenceable(8) %55) #21
   %520 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
   %521 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
-  %.val.i.i.i.i.i.i604 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i604 = load ptr, ptr %.val.i.i.i.i603, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i604, ptr %520, i64 %521) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54)
@@ -12493,11 +12511,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %523 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i597 = load i64, ptr %523, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i597, ptr %58, align 8
+  %.val.i.i.i.i598 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %57, ptr noundef nonnull align 8 dereferenceable(8) %58) #21
   %524 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #21
   %525 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #21
-  %.val.i.i.i.i.i.i599 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i599 = load ptr, ptr %.val.i.i.i.i598, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i599, ptr %524, i64 %525) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57)
@@ -12515,11 +12534,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %527 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i592 = load i64, ptr %527, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i592, ptr %61, align 8
+  %.val.i.i.i.i593 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %60, ptr noundef nonnull align 8 dereferenceable(8) %61) #21
   %528 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #21
   %529 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #21
-  %.val.i.i.i.i.i.i594 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i594 = load ptr, ptr %.val.i.i.i.i593, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i594, ptr %528, i64 %529) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60)
@@ -12537,11 +12557,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %531 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i587 = load i64, ptr %531, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i587, ptr %64, align 8
+  %.val.i.i.i.i588 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %63, ptr noundef nonnull align 8 dereferenceable(8) %64) #21
   %532 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #21
   %533 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %63) #21
-  %.val.i.i.i.i.i.i589 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i589 = load ptr, ptr %.val.i.i.i.i588, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i589, ptr %532, i64 %533) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63)
@@ -12559,11 +12580,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %535 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i582 = load i64, ptr %535, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i582, ptr %67, align 8
+  %.val.i.i.i.i583 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %66, ptr noundef nonnull align 8 dereferenceable(8) %67) #21
   %536 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
   %537 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
-  %.val.i.i.i.i.i.i584 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i584 = load ptr, ptr %.val.i.i.i.i583, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i584, ptr %536, i64 %537) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66)
@@ -12581,11 +12603,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %539 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i577 = load i64, ptr %539, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i577, ptr %70, align 8
+  %.val.i.i.i.i.i578 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %69, ptr noundef nonnull align 8 dereferenceable(8) %70) #21
   %540 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #21
   %541 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %69) #21
-  %.val.i.i.i.i.i.i.i579 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i579 = load ptr, ptr %.val.i.i.i.i.i578, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i579, ptr %540, i64 %541) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
@@ -12603,11 +12626,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %543 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i572 = load i64, ptr %543, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i572, ptr %73, align 8
+  %.val.i.i.i.i.i573 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull align 8 dereferenceable(8) %73) #21
   %544 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #21
   %545 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #21
-  %.val.i.i.i.i.i.i.i574 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i574 = load ptr, ptr %.val.i.i.i.i.i573, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i574, ptr %544, i64 %545) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72)
@@ -12625,11 +12649,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %547 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i567 = load i64, ptr %547, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i567, ptr %76, align 8
+  %.val.i.i.i.i.i568 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %75, ptr noundef nonnull align 8 dereferenceable(8) %76) #21
   %548 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
   %549 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
-  %.val.i.i.i.i.i.i.i569 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i569 = load ptr, ptr %.val.i.i.i.i.i568, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i569, ptr %548, i64 %549) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75)
@@ -12647,11 +12672,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %551 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i562 = load i64, ptr %551, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i562, ptr %79, align 8
+  %.val.i.i.i.i.i563 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr noundef nonnull align 8 dereferenceable(8) %79) #21
   %552 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #21
   %553 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %78) #21
-  %.val.i.i.i.i.i.i.i564 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i564 = load ptr, ptr %.val.i.i.i.i.i563, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i564, ptr %552, i64 %553) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78)
@@ -12669,11 +12695,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %555 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i557 = load i64, ptr %555, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i557, ptr %82, align 8
+  %.val.i.i.i.i.i558 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %81, ptr noundef nonnull align 8 dereferenceable(8) %82) #21
   %556 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
   %557 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
-  %.val.i.i.i.i.i.i.i559 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i559 = load ptr, ptr %.val.i.i.i.i.i558, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i559, ptr %556, i64 %557) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81)
@@ -12691,11 +12718,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %559 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i552 = load i64, ptr %559, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i552, ptr %85, align 8
+  %.val.i.i.i.i.i553 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %84, ptr noundef nonnull align 8 dereferenceable(8) %85) #21
   %560 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
   %561 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
-  %.val.i.i.i.i.i.i.i554 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i554 = load ptr, ptr %.val.i.i.i.i.i553, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i554, ptr %560, i64 %561) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84)
@@ -12713,11 +12741,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %563 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i547 = load i64, ptr %563, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i547, ptr %88, align 8
+  %.val.i.i.i.i.i548 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %87, ptr noundef nonnull align 8 dereferenceable(8) %88) #21
   %564 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #21
   %565 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #21
-  %.val.i.i.i.i.i.i.i549 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i549 = load ptr, ptr %.val.i.i.i.i.i548, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i549, ptr %564, i64 %565) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87)
@@ -12735,11 +12764,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %567 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i542 = load i64, ptr %567, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i542, ptr %91, align 8
+  %.val.i.i.i.i.i543 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %90, ptr noundef nonnull align 8 dereferenceable(8) %91) #21
   %568 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %90) #21
   %569 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %90) #21
-  %.val.i.i.i.i.i.i.i544 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i544 = load ptr, ptr %.val.i.i.i.i.i543, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i544, ptr %568, i64 %569) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90)
@@ -12757,11 +12787,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %571 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i537 = load i64, ptr %571, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i537, ptr %94, align 8
+  %.val.i.i.i.i.i538 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %93, ptr noundef nonnull align 8 dereferenceable(8) %94) #21
   %572 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #21
   %573 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %93) #21
-  %.val.i.i.i.i.i.i.i539 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i539 = load ptr, ptr %.val.i.i.i.i.i538, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i539, ptr %572, i64 %573) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93)
@@ -12779,11 +12810,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %575 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i532 = load i64, ptr %575, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i532, ptr %97, align 8
+  %.val.i.i.i.i.i533 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %96, ptr noundef nonnull align 8 dereferenceable(8) %97) #21
   %576 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #21
   %577 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %96) #21
-  %.val.i.i.i.i.i.i.i534 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i534 = load ptr, ptr %.val.i.i.i.i.i533, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i534, ptr %576, i64 %577) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96)
@@ -12801,11 +12833,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %579 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i528 = load i64, ptr %579, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i528, ptr %100, align 8
+  %.val.i.i.i.i529 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %99, ptr noundef nonnull align 8 dereferenceable(8) %100) #21
   %580 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #21
   %581 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %99) #21
-  %.val.i.i.i.i.i.i530 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i530 = load ptr, ptr %.val.i.i.i.i529, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i530, ptr %580, i64 %581) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99)
@@ -12849,11 +12882,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %589 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i523 = load i64, ptr %589, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i523, ptr %103, align 8
+  %.val.i.i.i.i524 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %102, ptr noundef nonnull align 8 dereferenceable(8) %103) #21
   %590 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
   %591 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
-  %.val.i.i.i.i.i.i525 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i525 = load ptr, ptr %.val.i.i.i.i524, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i525, ptr %590, i64 %591) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102)
@@ -12871,11 +12905,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %593 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i518 = load i64, ptr %593, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i518, ptr %106, align 8
+  %.val.i.i.i.i519 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %105, ptr noundef nonnull align 8 dereferenceable(8) %106) #21
   %594 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #21
   %595 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %105) #21
-  %.val.i.i.i.i.i.i520 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i520 = load ptr, ptr %.val.i.i.i.i519, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i520, ptr %594, i64 %595) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105)
@@ -12893,11 +12928,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %597 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i513 = load i64, ptr %597, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i513, ptr %109, align 8
+  %.val.i.i.i.i514 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %108, ptr noundef nonnull align 8 dereferenceable(8) %109) #21
   %598 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %108) #21
   %599 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %108) #21
-  %.val.i.i.i.i.i.i515 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i515 = load ptr, ptr %.val.i.i.i.i514, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i515, ptr %598, i64 %599) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108)
@@ -12915,11 +12951,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %601 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i508 = load i64, ptr %601, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i508, ptr %112, align 8
+  %.val.i.i.i.i509 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %111, ptr noundef nonnull align 8 dereferenceable(8) %112) #21
   %602 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #21
   %603 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %111) #21
-  %.val.i.i.i.i.i.i510 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i510 = load ptr, ptr %.val.i.i.i.i509, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i510, ptr %602, i64 %603) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %111) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111)
@@ -12937,11 +12974,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %605 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i503 = load i64, ptr %605, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i503, ptr %115, align 8
+  %.val.i.i.i.i504 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %114, ptr noundef nonnull align 8 dereferenceable(8) %115) #21
   %606 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %114) #21
   %607 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %114) #21
-  %.val.i.i.i.i.i.i505 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i505 = load ptr, ptr %.val.i.i.i.i504, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i505, ptr %606, i64 %607) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114)
@@ -12959,11 +12997,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %609 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i498 = load i64, ptr %609, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i498, ptr %118, align 8
+  %.val.i.i.i.i499 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(8) %118) #21
   %610 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
   %611 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
-  %.val.i.i.i.i.i.i500 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i500 = load ptr, ptr %.val.i.i.i.i499, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i500, ptr %610, i64 %611) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117)
@@ -12981,11 +13020,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %613 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i493 = load i64, ptr %613, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i493, ptr %121, align 8
+  %.val.i.i.i.i494 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %120, ptr noundef nonnull align 8 dereferenceable(8) %121) #21
   %614 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %120) #21
   %615 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %120) #21
-  %.val.i.i.i.i.i.i495 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i495 = load ptr, ptr %.val.i.i.i.i494, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i495, ptr %614, i64 %615) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120)
@@ -13003,11 +13043,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %617 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i488 = load i64, ptr %617, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i488, ptr %124, align 8
+  %.val.i.i.i.i489 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %123, ptr noundef nonnull align 8 dereferenceable(8) %124) #21
   %618 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #21
   %619 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %123) #21
-  %.val.i.i.i.i.i.i490 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i490 = load ptr, ptr %.val.i.i.i.i489, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i490, ptr %618, i64 %619) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123)
@@ -13025,11 +13066,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %621 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i483 = load i64, ptr %621, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i483, ptr %127, align 8
+  %.val.i.i.i.i484 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %126, ptr noundef nonnull align 8 dereferenceable(8) %127) #21
   %622 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #21
   %623 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %126) #21
-  %.val.i.i.i.i.i.i485 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i485 = load ptr, ptr %.val.i.i.i.i484, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i485, ptr %622, i64 %623) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126)
@@ -13047,11 +13089,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %625 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i478 = load i64, ptr %625, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i478, ptr %130, align 8
+  %.val.i.i.i.i479 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %129, ptr noundef nonnull align 8 dereferenceable(8) %130) #21
   %626 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %129) #21
   %627 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %129) #21
-  %.val.i.i.i.i.i.i480 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i480 = load ptr, ptr %.val.i.i.i.i479, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i480, ptr %626, i64 %627) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129)
@@ -13069,11 +13112,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %629 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i473 = load i64, ptr %629, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i473, ptr %133, align 8
+  %.val.i.i.i.i474 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %132, ptr noundef nonnull align 8 dereferenceable(8) %133) #21
   %630 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #21
   %631 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #21
-  %.val.i.i.i.i.i.i475 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i475 = load ptr, ptr %.val.i.i.i.i474, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i475, ptr %630, i64 %631) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132)
@@ -13091,11 +13135,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %633 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i468 = load i64, ptr %633, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i468, ptr %136, align 8
+  %.val.i.i.i.i469 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %135, ptr noundef nonnull align 8 dereferenceable(8) %136) #21
   %634 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #21
   %635 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %135) #21
-  %.val.i.i.i.i.i.i470 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i470 = load ptr, ptr %.val.i.i.i.i469, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i470, ptr %634, i64 %635) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %135) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135)
@@ -13113,11 +13158,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %637 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i463 = load i64, ptr %637, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i463, ptr %139, align 8
+  %.val.i.i.i.i464 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %138, ptr noundef nonnull align 8 dereferenceable(8) %139) #21
   %638 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #21
   %639 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %138) #21
-  %.val.i.i.i.i.i.i465 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i465 = load ptr, ptr %.val.i.i.i.i464, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i465, ptr %638, i64 %639) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %138) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138)
@@ -13135,11 +13181,12 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
   %641 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i458 = load i64, ptr %641, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i458, ptr %142, align 8
+  %.val.i.i.i.i459 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %141, ptr noundef nonnull align 8 dereferenceable(8) %142) #21
   %642 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %141) #21
   %643 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %141) #21
-  %.val.i.i.i.i.i.i460 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i460 = load ptr, ptr %.val.i.i.i.i459, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i460, ptr %642, i64 %643) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %141) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141)
@@ -13395,8 +13442,8 @@ define internal fastcc void @_ZL23CollectStmtSequenceDataRKN5clang12StmtSequence
 
 ..thread.i.i_crit_edge:                           ; preds = %644
   %.pre = load i32, ptr %441, align 8
-  %.pre698 = lshr i32 %.pre, 18
-  %.pre699 = and i32 %.pre698, 31
+  %.pre699 = lshr i32 %.pre, 18
+  %.pre700 = and i32 %.pre699, 31
   br label %.thread.i.i
 
 645:                                              ; preds = %644
@@ -13453,21 +13500,22 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE14
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEEC2EPKN5clang4StmtERNS3_10ASTContextERS1_.exit
 
 .thread.i.i:                                      ; preds = %..thread.i.i_crit_edge, %584
-  %.pre-phi700 = phi i32 [ %.pre699, %..thread.i.i_crit_edge ], [ %587, %584 ]
+  %.pre-phi701 = phi i32 [ %.pre700, %..thread.i.i_crit_edge ], [ %587, %584 ]
   %.val.val.i442 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %148)
-  store i32 %.pre-phi700, ptr %148, align 4
+  store i32 %.pre-phi701, ptr %148, align 4
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.val.i442, ptr nonnull %148, i64 4) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %148)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147)
   %666 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i443 = load i64, ptr %666, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i443, ptr %147, align 8
+  %.val.i.i.i444 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %146, ptr noundef nonnull align 8 dereferenceable(8) %147) #21
   %667 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %146) #21
   %668 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %146) #21
-  %.val.i.i.i.i.i445 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i445 = load ptr, ptr %.val.i.i.i444, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i445, ptr %667, i64 %668) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %146) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %146)
@@ -13534,11 +13582,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE14
   %686 = load ptr, ptr %685, align 8
   %.sroa.0.0.copyload.i.i430 = load i64, ptr %686, align 8
   store i64 %.sroa.0.0.copyload.i.i430, ptr %157, align 8
+  %.val.i431 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %155)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %155, ptr noundef nonnull align 8 dereferenceable(8) %157) #21
   %687 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %155) #21
   %688 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %155) #21
-  %.val.i.i.i432 = load ptr, ptr %1, align 8
+  %.val.i.i.i432 = load ptr, ptr %.val.i431, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i432, ptr %687, i64 %688) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %155)
@@ -13553,11 +13602,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %692 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i433 = load i64, ptr %692, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i433, ptr %154, align 8
+  %.val.i.i9.i = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %153)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %153, ptr noundef nonnull align 8 dereferenceable(8) %154) #21
   %693 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %153) #21
   %694 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %153) #21
-  %.val.i.i.i.i.i434 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i434 = load ptr, ptr %.val.i.i9.i, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i434, ptr %693, i64 %694) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %153) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %153)
@@ -13766,11 +13816,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %743 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i392 = load i64, ptr %743, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i392, ptr %181, align 8
+  %.val.i.i.i393 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %180)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %180, ptr noundef nonnull align 8 dereferenceable(8) %181) #21
   %744 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %180) #21
   %745 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %180) #21
-  %.val.i.i.i.i.i394 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i394 = load ptr, ptr %.val.i.i.i393, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i394, ptr %744, i64 %745) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %180) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %180)
@@ -13998,7 +14049,8 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %800 = trunc i64 %.0.copyload.i.i.i.i.i348 to i8
   %801 = lshr i8 %800, 2
   %802 = and i8 %801, 1
-  %.val5.val.i350 = load ptr, ptr %1, align 8
+  %.val5.i349 = load ptr, ptr %437, align 8
+  %.val5.val.i350 = load ptr, ptr %.val5.i349, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %209)
   store i8 %802, ptr %209, align 1
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val5.val.i350, ptr nonnull %209, i64 1) #21
@@ -14007,11 +14059,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %803 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i351 = load i64, ptr %803, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i351, ptr %208, align 8
+  %.val.i.i.i352 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %207, ptr noundef nonnull align 8 dereferenceable(8) %208) #21
   %804 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %207) #21
   %805 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %207) #21
-  %.val.i.i.i.i.i353 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i353 = load ptr, ptr %.val.i.i.i352, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i353, ptr %804, i64 %805) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %207) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %207)
@@ -14084,11 +14137,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %823 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i334 = load i64, ptr %823, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i334, ptr %218, align 8
+  %.val.i.i.i335 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %217)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %217, ptr noundef nonnull align 8 dereferenceable(8) %218) #21
   %824 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #21
   %825 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %217) #21
-  %.val.i.i.i.i.i336 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i336 = load ptr, ptr %.val.i.i.i335, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i336, ptr %824, i64 %825) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %217) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %217)
@@ -14348,13 +14402,15 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %887 = load i32, ptr %886, align 4
   %888 = icmp ne i32 %887, 0
   %889 = zext i1 %888 to i8
-  %.val15.val.i = load ptr, ptr %1, align 8
+  %.val15.i = load ptr, ptr %437, align 8
+  %.val15.val.i = load ptr, ptr %.val15.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %254)
   store i8 %889, ptr %254, align 1
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val15.val.i, ptr nonnull %254, i64 1) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %254)
   %890 = call noundef i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull align 8 dereferenceable(16) %.030.i) #21
-  %.val21.val.i = load ptr, ptr %1, align 8
+  %.val21.i = load ptr, ptr %437, align 8
+  %.val21.val.i = load ptr, ptr %.val21.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %253)
   store i32 %890, ptr %253, align 4
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val21.val.i, ptr nonnull %253, i64 4) #21
@@ -14377,11 +14433,12 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.i: ; preds = %.lr.ph.i282
   %899 = getelementptr inbounds nuw i8, ptr %892, i64 48
   %.sroa.0.0.copyload.i.i287 = load i64, ptr %899, align 8
   store i64 %.sroa.0.0.copyload.i.i287, ptr %255, align 8
+  %.val.i288 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %252, ptr noundef nonnull align 8 dereferenceable(8) %255) #21
   %900 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %252) #21
   %901 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %252) #21
-  %.val.i.i.i289 = load ptr, ptr %1, align 8
+  %.val.i.i.i289 = load ptr, ptr %.val.i288, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i289, ptr %900, i64 %901) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %252) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252)
@@ -14396,14 +14453,16 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE15
   %903 = call noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32) %441) #21
   %904 = icmp ne ptr %903, null
   %905 = zext i1 %904 to i8
-  %.val17.val.i = load ptr, ptr %1, align 8
+  %.val17.i = load ptr, ptr %437, align 8
+  %.val17.val.i = load ptr, ptr %.val17.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %251)
   store i8 %905, ptr %251, align 1
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val17.val.i, ptr nonnull %251, i64 1) #21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %251)
   %906 = call noundef zeroext i1 @_ZNK5clang10LambdaExpr9isMutableEv(ptr noundef nonnull align 8 dereferenceable(32) %441) #21
   %907 = zext i1 %906 to i8
-  %.val19.val.i = load ptr, ptr %1, align 8
+  %.val19.i = load ptr, ptr %437, align 8
+  %.val19.val.i = load ptr, ptr %.val19.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %250)
   store i8 %907, ptr %250, align 1
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val19.val.i, ptr nonnull %250, i64 1) #21
@@ -14412,11 +14471,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE15
   %908 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i285 = load i64, ptr %908, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i285, ptr %249, align 8
+  %.val.i.i24.i = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %248)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %248, ptr noundef nonnull align 8 dereferenceable(8) %249) #21
   %909 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %248) #21
   %910 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %248) #21
-  %.val.i.i.i.i.i286 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i286 = load ptr, ptr %.val.i.i24.i, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i286, ptr %909, i64 %910) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %248) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %248)
@@ -14548,20 +14608,26 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE15
 _ZNK5clang20GenericSelectionExpr13AssociationTyILb1EE7getTypeEv.exit.i: ; preds = %949, %947
   %.sroa.0.0.i.i261 = phi i64 [ %.sroa.0.0.copyload.i.i.i260, %949 ], [ 0, %947 ]
   store i64 %.sroa.0.0.i.i261, ptr %269, align 8
+  %.val.i262 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %268)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %268, ptr noundef nonnull align 8 dereferenceable(8) %269) #21
   %950 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %268) #21
   %951 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %268) #21
-  %.val.i.i.i263 = load ptr, ptr %1, align 8
+  %.val.i.i.i263 = load ptr, ptr %.val.i262, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i263, ptr %950, i64 %951) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %268) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %268)
   %952 = getelementptr inbounds nuw i8, ptr %.sroa.07.016.i, i64 8
   %953 = getelementptr inbounds nuw i8, ptr %.sroa.5.017.i, i64 8
   %.not.i264 = icmp eq ptr %952, %940
-  br i1 %.not.i264, label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit, label %947
+  br i1 %.not.i264, label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit.loopexit, label %947
 
-_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit: ; preds = %_ZNK5clang20GenericSelectionExpr13AssociationTyILb1EE7getTypeEv.exit.i, %931
+_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit.loopexit: ; preds = %_ZNK5clang20GenericSelectionExpr13AssociationTyILb1EE7getTypeEv.exit.i
+  %.val.i.i5.i.pre = load ptr, ptr %437, align 8
+  br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit
+
+_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit: ; preds = %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit.loopexit, %931
+  %.val.i.i5.i = phi ptr [ %.val.i.i5.i.pre, %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25VisitGenericSelectionExprIvEEvPKN5clang20GenericSelectionExprE.exit.loopexit ], [ %1, %931 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %267)
   %954 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i265 = load i64, ptr %954, align 8
@@ -14570,7 +14636,7 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %266, ptr noundef nonnull align 8 dereferenceable(8) %267) #21
   %955 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %266) #21
   %956 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %266) #21
-  %.val.i.i.i.i.i266 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i266 = load ptr, ptr %.val.i.i5.i, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i266, ptr %955, i64 %956) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %266) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266)
@@ -14711,11 +14777,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25
   %989 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i233 = load i64, ptr %989, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i233, ptr %285, align 8
+  %.val.i.i.i234 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %284)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %284, ptr noundef nonnull align 8 dereferenceable(8) %285) #21
   %990 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %284) #21
   %991 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %284) #21
-  %.val.i.i.i.i.i235 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i235 = load ptr, ptr %.val.i.i.i234, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i235, ptr %990, i64 %991) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %284) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %284)
@@ -14975,11 +15042,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE25
   %1053 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i186 = load i64, ptr %1053, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i.i186, ptr %316, align 8
+  %.val.i.i.i.i.i187 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %315)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %315, ptr noundef nonnull align 8 dereferenceable(8) %316) #21
   %1054 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %315) #21
   %1055 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %315) #21
-  %.val.i.i.i.i.i.i.i188 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i.i188 = load ptr, ptr %.val.i.i.i.i.i187, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i.i188, ptr %1054, i64 %1055) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %315) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %315)
@@ -15404,7 +15472,8 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %365)
   %1159 = getelementptr inbounds nuw i8, ptr %441, i64 56
   %1160 = load i32, ptr %1159, align 8
-  %.val.val.i116 = load ptr, ptr %1, align 8
+  %.val.i115 = load ptr, ptr %437, align 8
+  %.val.val.i116 = load ptr, ptr %.val.i115, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %364)
   store i32 %1160, ptr %364, align 4
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.val.i116, ptr nonnull %364, i64 4) #21
@@ -15413,11 +15482,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1161 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i117 = load i64, ptr %1161, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i117, ptr %363, align 8
+  %.val.i.i.i118 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %362)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %362, ptr noundef nonnull align 8 dereferenceable(8) %363) #21
   %1162 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %362) #21
   %1163 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %362) #21
-  %.val.i.i.i.i.i119 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i119 = load ptr, ptr %.val.i.i.i118, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i119, ptr %1162, i64 %1163) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %362) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %362)
@@ -15456,7 +15526,8 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1174 = lshr i32 %1173, 18
   %1175 = trunc i32 %1174 to i8
   %1176 = and i8 %1175, 1
-  %.val5.val.i = load ptr, ptr %1, align 8
+  %.val5.i = load ptr, ptr %437, align 8
+  %.val5.val.i = load ptr, ptr %.val5.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %370)
   store i8 %1176, ptr %370, align 1
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val5.val.i, ptr nonnull %370, i64 1) #21
@@ -15465,11 +15536,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1177 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i106 = load i64, ptr %1177, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i106, ptr %369, align 8
+  %.val.i.i.i107 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %368)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %368, ptr noundef nonnull align 8 dereferenceable(8) %369) #21
   %1178 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %368) #21
   %1179 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %368) #21
-  %.val.i.i.i.i.i108 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i108 = load ptr, ptr %.val.i.i.i107, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i108, ptr %1178, i64 %1179) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %368) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %368)
@@ -15609,11 +15681,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1212 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i80 = load i64, ptr %1212, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i80, ptr %387, align 8
+  %.val.i.i.i81 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %386)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %386, ptr noundef nonnull align 8 dereferenceable(8) %387) #21
   %1213 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %386) #21
   %1214 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %386) #21
-  %.val.i.i.i.i.i82 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i82 = load ptr, ptr %.val.i.i.i81, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i82, ptr %1213, i64 %1214) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %386) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %386)
@@ -15634,11 +15707,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1219 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %1219, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %390, align 8
+  %.val.i.i.i.i77 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %389)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %389, ptr noundef nonnull align 8 dereferenceable(8) %390) #21
   %1220 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %389) #21
   %1221 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %389) #21
-  %.val.i.i.i.i.i.i = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i77, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i.i, ptr %1220, i64 %1221) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %389) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %389)
@@ -15694,11 +15768,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE16
   %1235 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i67 = load i64, ptr %1235, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i67, ptr %397, align 8
+  %.val.i.i.i68 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %396)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %396, ptr noundef nonnull align 8 dereferenceable(8) %397) #21
   %1236 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %396) #21
   %1237 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %396) #21
-  %.val.i.i.i.i.i69 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i69 = load ptr, ptr %.val.i.i.i68, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i69, ptr %1236, i64 %1237) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %396) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %396)
@@ -15804,11 +15879,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE18
   %1269 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %.sroa.0.0.copyload.i.i.i.i52 = load i64, ptr %1269, align 8
   store i64 %.sroa.0.0.copyload.i.i.i.i52, ptr %408, align 8
+  %.val.i.i.i53 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %407)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %407, ptr noundef nonnull align 8 dereferenceable(8) %408) #21
   %1270 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %407) #21
   %1271 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %407) #21
-  %.val.i.i.i.i.i54 = load ptr, ptr %1, align 8
+  %.val.i.i.i.i.i54 = load ptr, ptr %.val.i.i.i53, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i.i.i54, ptr %1270, i64 %1271) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %407) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %407)
@@ -15884,9 +15960,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %1291 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1287) #21
   %1292 = getelementptr inbounds i8, ptr %1287, i64 %1291
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %413, ptr noundef nonnull %1287, ptr noundef nonnull %1292)
+  %.val.i39 = load ptr, ptr %437, align 8
   %1293 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %413) #21
   %1294 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %413) #21
-  %.val.i.i = load ptr, ptr %1, align 8
+  %.val.i.i = load ptr, ptr %.val.i39, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i, ptr %1293, i64 %1294) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %413) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %414) #21
@@ -16325,7 +16402,8 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE19
 _ZNK5clang9NamedDecl7getNameEv.exit.i:            ; preds = %1407, %1400
   %.sroa.3.0.i.i30 = phi i64 [ %1413, %1407 ], [ 0, %1400 ]
   %.sroa.0.0.i.i31 = phi ptr [ %1411, %1407 ], [ @.str, %1400 ]
-  %.val.val.i33 = load ptr, ptr %1, align 8
+  %.val.i32 = load ptr, ptr %437, align 8
+  %.val.val.i33 = load ptr, ptr %.val.i32, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.val.i33, ptr nonnull %.sroa.0.0.i.i31, i64 %.sroa.3.0.i.i30) #21
   br label %_ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE21VisitIndirectGotoStmtIvEEvPKN5clang16IndirectGotoStmtE.exit
 
@@ -16456,11 +16534,12 @@ _ZNK5clang8DeclStmt5declsEv.exit.i:               ; preds = %1462, %1458
   %1476 = getelementptr inbounds nuw i8, ptr %1469, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %1476, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %419, align 8
+  %.val.i22 = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %417)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %417, ptr noundef nonnull align 8 dereferenceable(8) %419) #21
   %1477 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %417) #21
   %1478 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %417) #21
-  %.val.i.i.i23 = load ptr, ptr %1, align 8
+  %.val.i.i.i23 = load ptr, ptr %.val.i22, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i23, ptr %1477, i64 %1478) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %417) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %417)
@@ -16508,11 +16587,12 @@ _ZN12_GLOBAL__N_128CloneTypeIIStmtDataCollectorINS_23FoldingSetNodeIDWrapperEE13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %421)
   %1489 = call i64 @_ZNK5clang12CXXCatchStmt13getCaughtTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %441) #21
   store i64 %1489, ptr %421, align 8
+  %.val.i = load ptr, ptr %437, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %420)
   call void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %420, ptr noundef nonnull align 8 dereferenceable(8) %421) #21
   %1490 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %420) #21
   %1491 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %420) #21
-  %.val.i.i.i = load ptr, ptr %1, align 8
+  %.val.i.i.i = load ptr, ptr %.val.i, align 8
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i.i, ptr %1490, i64 %1491) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %420) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %420)

@@ -4448,7 +4448,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E"(ptr nonnull align 8 %4) #9
-          to label %38 unwind label %36
+          to label %39 unwind label %37
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -4490,39 +4490,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h04d5c03271be603cE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %28, align 8
-  store i64 %27, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %29, align 8
+  store i64 %28, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h42a3bfd2798ca9d9E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %30 = load i64, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E.exit", label %31
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = load i64, ptr %30, align 8
+  %.not.i.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E.exit", label %32
 
-31:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h04d5c03271be603cE.exit"
-  %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
+32:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h04d5c03271be603cE.exit"
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
   br label %"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E.exit"
 
-"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h04d5c03271be603cE.exit", %31
+"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$alloc..string..String$C$alloc..alloc..Global$GT$$GT$17h2a113a8b2574acf0E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h04d5c03271be603cE.exit", %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-36:                                               ; preds = %.body
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.body
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-38:                                               ; preds = %.body
+39:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -4543,7 +4544,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E.exit7.i" ]
   invoke void @"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE"(ptr nonnull align 8 %4) #9
-          to label %36 unwind label %34
+          to label %37 unwind label %35
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -4585,39 +4586,40 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17h1fe258895ce14a8dE.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hac05c6ec097db537E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %23, ptr %26, align 8
-  store i64 %25, ptr %3, align 8
+  %23 = load ptr, ptr %4, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %24, ptr %27, align 8
+  store i64 %26, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbd2d38a6147c5d57E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i64, ptr %27, align 8
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE.exit", label %29
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load i64, ptr %28, align 8
+  %.not.i.i.i.i = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE.exit", label %30
 
-29:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17h1fe258895ce14a8dE.exit"
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
+30:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17h1fe258895ce14a8dE.exit"
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
   br label %"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE.exit"
 
-"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17h1fe258895ce14a8dE.exit", %29
+"_ZN4core3ptr172drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$std..path..PathBuf$C$alloc..alloc..Global$GT$$GT$17hba477cc20a57defaE.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$$u5b$std..path..PathBuf$u5d$$GT$17h1fe258895ce14a8dE.exit", %30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-34:                                               ; preds = %.body
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %.body
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-36:                                               ; preds = %.body
+37:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

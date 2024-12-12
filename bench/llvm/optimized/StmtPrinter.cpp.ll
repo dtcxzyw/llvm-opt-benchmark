@@ -514,27 +514,27 @@ define dso_local void @_ZNK5clang4Stmt10dumpPrettyERKNS_10ASTContextE(ptr nounde
   %30 = and i64 %27, 8589934592
   %31 = xor i64 %30, 56100862820352
   %32 = select i1 %.not17.i, i64 56092272885760, i64 %31
-  %33 = or disjoint i64 %12, %10
+  %33 = or disjoint i64 %10, %12
   %34 = or disjoint i64 %33, %18
   %35 = or disjoint i64 %34, %20
   %36 = or disjoint i64 %35, %22
-  %37 = or disjoint i64 %36, %24
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %39 = load i64, ptr %38, align 8
-  %40 = shl i64 %39, 37
-  %41 = and i64 %40, 70368744177664
-  %.masked.masked.masked.masked.masked.masked = or i64 %37, %26
-  %.masked3.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %28
-  %.masked.masked.masked = or i64 %.masked3.masked.masked.masked.masked, %16
-  %42 = or i64 %.masked.masked.masked, %32
-  %43 = or i64 %42, %41
-  %44 = xor i64 %43, 807542786
-  store i64 %44, ptr %3, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %45, align 8
+  %.masked.masked.masked.masked.masked.masked = or disjoint i64 %36, %24
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %38 = load i64, ptr %37, align 8
+  %39 = shl i64 %38, 37
+  %40 = and i64 %39, 70368744177664
+  %.masked3.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %26
+  %.masked.masked.masked.masked.masked.masked8.masked = or i64 %.masked3.masked.masked.masked.masked.masked.masked.masked, %28
+  %.masked6.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked8.masked, %16
+  %41 = or i64 %.masked6.masked.masked.masked.masked.masked, %32
+  %42 = or i64 %41, %40
+  %43 = xor i64 %42, 807542786
+  store i64 %43, ptr %3, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %44, align 8
   store ptr @.str, ptr %4, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %46, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %45, align 8
   call void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %4, ptr noundef null)
   ret void
 }

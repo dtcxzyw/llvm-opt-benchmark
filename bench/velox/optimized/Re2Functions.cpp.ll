@@ -19940,14 +19940,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -19956,20 +19957,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -26232,14 +26233,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -26248,20 +26250,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -30831,14 +30833,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -30847,20 +30850,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -35383,14 +35386,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -35399,20 +35403,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -63226,14 +63230,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -63242,20 +63247,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -68832,14 +68837,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -68848,20 +68854,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -73837,14 +73843,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -73853,20 +73860,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i
@@ -78834,14 +78841,15 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i39.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
+  %48 = load ptr, ptr %newPtr.addr.i.i.i, align 8
+  %tobool.not.i.i2.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i, label %if.then.i42.i.i.i
 
 _ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i: ; preds = %if.then.i42.i.i.i
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %call2.i.i.i) #21
-  call void @_ZdlPv(ptr noundef nonnull %call2.i.i.i) #37
+  call fastcc void @_ZN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS2_17SelectivityVectorERSt6vectorISt10shared_ptrINS2_10BaseVectorEESaISD_EERKSB_IKNS2_4TypeEERNS2_4exec7EvalCtxERSD_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSR_11DefaultMakeISQ_EEvE7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %48) #21
+  call void @_ZdlPv(ptr noundef nonnull %48) #37
   br label %lpad.body.i.i.i
 
 if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -78850,20 +78858,20 @@ if.then.i42.i.i.i:                                ; preds = %_ZN5folly18threadlo
           to label %if.end.thread.i.i.i.i unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
 
 if.end.thread.i.i.i.i:                            ; preds = %if.then.i42.i.i.i
-  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %49, align 8
+  store ptr %48, ptr %arrayidx.i.i.i.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSU_11DefaultMakeIST_EEvE7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeES12_S13_, ptr %50, align 8
   store i8 0, ptr %ownsDeleter.i37.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i27.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i21.i.i.i, %cond.false.i.i.i30.i.i.i, %cond.false12.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i13.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i.i.i.i
-  %50 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body.i.i.i
 
 lpad.body.i.i.i:                                  ; preds = %lpad.i.i.i, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %lpad.i.i.i ], [ 1, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %50, %lpad.i.i.i ], [ %48, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %51, %lpad.i.i.i ], [ %49, %_ZN5folly6detail14ScopeGuardImplIZNS_18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS7_17SelectivityVectorERSt6vectorISt10shared_ptrINS7_10BaseVectorEESaISI_EERKSG_IKNS7_4TypeEERNS7_4exec7EvalCtxERSI_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISV_EEvE7WrapperEEEvT_EUlvE_Lb1EED2Ev.exit.i.i.i ]
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS5_17SelectivityVectorERSt6vectorISt10shared_ptrINS5_10BaseVectorEESaISG_EERKSE_IKNS5_4TypeEERNS5_4exec7EvalCtxERSG_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeIST_EEvE7WrapperEvvE5resetEPSY_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #21
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #21
   resume { ptr, i32 } %eh.lpad-body.i.i.i

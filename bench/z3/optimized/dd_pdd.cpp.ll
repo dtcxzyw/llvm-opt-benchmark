@@ -26398,8 +26398,11 @@ terminate.lpad.i86:                               ; preds = %invoke.cont33
   unreachable
 
 _ZN6vectorISt4pairI8rational7svectorIjjEELb1EjED2Ev.exit87: ; preds = %invoke.cont33
-  %58 = load ptr, ptr %42, align 8
-  %arrayidx.i.i.i90 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %58, i64 %idxprom.i.i.i.i68
+  %58 = load ptr, ptr %m.i.i67, align 8
+  %59 = load i32, ptr %ref.tmp28, align 8
+  %60 = load ptr, ptr %58, align 8
+  %idxprom.i.i.i89 = zext i32 %59 to i64
+  %arrayidx.i.i.i90 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %60, i64 %idxprom.i.i.i89
   %bf.load.i.i91 = load i32, ptr %arrayidx.i.i.i90, align 4
   %bf.clear.i.i92 = and i32 %bf.load.i.i91, 1023
   %cmp.not.i.i93 = icmp eq i32 %bf.clear.i.i92, 1023
@@ -26414,27 +26417,35 @@ if.then.i.i94:                                    ; preds = %_ZN6vectorISt4pairI
   br label %return
 
 lpad30:                                           ; preds = %invoke.cont29
-  %59 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup35
 
 lpad32:                                           ; preds = %_ZN6vectorISt4pairI8rational7svectorIjjEELb1EjE9push_backERKS4_.exit.i, %if.then.i.i83
-  %60 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6vectorISt4pairI8rational7svectorIjjEELb1EjE7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp27)
-          to label %ehcleanup35 unwind label %terminate.lpad.i100
+          to label %lpad32.ehcleanup35_crit_edge unwind label %terminate.lpad.i100
+
+lpad32.ehcleanup35_crit_edge:                     ; preds = %lpad32
+  %.pre = load ptr, ptr %m.i.i67, align 8
+  %.pre119 = load i32, ptr %ref.tmp28, align 8
+  %.pre120 = zext i32 %.pre119 to i64
+  br label %ehcleanup35
 
 terminate.lpad.i100:                              ; preds = %lpad32
-  %61 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #25
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #25
   unreachable
 
-ehcleanup35:                                      ; preds = %lpad32, %lpad30
-  %.pn = phi { ptr, i32 } [ %59, %lpad30 ], [ %60, %lpad32 ]
-  %63 = load ptr, ptr %42, align 8
-  %arrayidx.i.i.i104 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %63, i64 %idxprom.i.i.i.i68
+ehcleanup35:                                      ; preds = %lpad32.ehcleanup35_crit_edge, %lpad30
+  %idxprom.i.i.i103.pre-phi = phi i64 [ %.pre120, %lpad32.ehcleanup35_crit_edge ], [ %idxprom.i.i.i.i68, %lpad30 ]
+  %65 = phi ptr [ %.pre, %lpad32.ehcleanup35_crit_edge ], [ %42, %lpad30 ]
+  %.pn = phi { ptr, i32 } [ %62, %lpad32.ehcleanup35_crit_edge ], [ %61, %lpad30 ]
+  %66 = load ptr, ptr %65, align 8
+  %arrayidx.i.i.i104 = getelementptr inbounds nuw %"struct.dd::pdd_manager::node", ptr %66, i64 %idxprom.i.i.i103.pre-phi
   %bf.load.i.i105 = load i32, ptr %arrayidx.i.i.i104, align 4
   %bf.clear.i.i106 = and i32 %bf.load.i.i105, 1023
   %cmp.not.i.i107 = icmp eq i32 %bf.clear.i.i106, 1023
@@ -26454,10 +26465,10 @@ ehcleanup39:                                      ; preds = %if.then.i.i108, %eh
           to label %eh.resume unwind label %terminate.lpad.i114
 
 terminate.lpad.i114:                              ; preds = %ehcleanup39
-  %64 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #25
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #25
   unreachable
 
 return:                                           ; preds = %if.then.i.i94, %_ZN6vectorISt4pairI8rational7svectorIjjEELb1EjED2Ev.exit87, %.noexc.i.i

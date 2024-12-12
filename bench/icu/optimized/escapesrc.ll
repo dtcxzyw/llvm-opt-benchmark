@@ -455,21 +455,21 @@ if.then20:                                        ; preds = %land.lhs.true19
   br label %return
 
 if.end22:                                         ; preds = %if.end, %land.lhs.true19
-  %storemerge75 = add i64 %spec.select, 1
-  %call2476 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #16
-  %cmp2577 = icmp ult i64 %storemerge75, %call2476
-  br i1 %cmp2577, label %for.body, label %return
+  %storemerge74 = add i64 %spec.select, 1
+  %call2475 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #16
+  %cmp2576 = icmp ult i64 %storemerge74, %call2475
+  br i1 %cmp2576, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end22, %for.inc
-  %storemerge80 = phi i64 [ %storemerge, %for.inc ], [ %storemerge75, %if.end22 ]
-  %pos5878 = phi i64 [ %pos57, %for.inc ], [ %spec.select, %if.end22 ]
-  %call26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge80)
+  %storemerge78 = phi i64 [ %storemerge, %for.inc ], [ %storemerge74, %if.end22 ]
+  %storemerge.in7177 = phi i64 [ %storemerge.in70, %for.inc ], [ %spec.select, %if.end22 ]
+  %call26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge78)
   %8 = load i8, ptr %call26, align 1
   %cmp29 = icmp eq i8 %8, %4
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %for.body
-  store i64 %storemerge80, ptr %pos.addr, align 8
+  store i64 %storemerge78, ptr %pos.addr, align 8
   br i1 %cmp4, label %if.then32, label %return
 
 if.then32:                                        ; preds = %if.then30
@@ -477,13 +477,13 @@ if.then32:                                        ; preds = %if.then30
   br label %return
 
 if.end34:                                         ; preds = %for.body
-  %call35 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge80)
+  %call35 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge78)
   %9 = load i8, ptr %call35, align 1
   %cmp37 = icmp eq i8 %9, 92
   br i1 %cmp37, label %if.then38, label %if.else56
 
 if.then38:                                        ; preds = %if.end34
-  %inc39 = add i64 %pos5878, 2
+  %inc39 = add i64 %storemerge.in7177, 2
   %call40 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %inc39)
   %10 = load i8, ptr %call40, align 1
   %cmp43 = icmp eq i8 %10, %4
@@ -500,11 +500,11 @@ if.end50:                                         ; preds = %if.end45
   br label %for.inc
 
 if.else56:                                        ; preds = %if.end34
-  %conv57 = trunc i64 %storemerge80 to i32
+  %conv57 = trunc i64 %storemerge78 to i32
   %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #16
   %call59 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #16
   %conv60 = trunc i64 %call59 to i32
-  %sext = shl i64 %storemerge80, 32
+  %sext = shl i64 %storemerge78, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds i8, ptr %call58, i64 %idxprom
   %12 = load i8, ptr %arrayidx, align 1
@@ -519,11 +519,11 @@ land.lhs.true63:                                  ; preds = %if.else56
   br i1 %tobool68, label %for.inc, label %if.end155.thread
 
 if.end155.thread:                                 ; preds = %land.lhs.true63
-  %conv7460 = zext nneg i8 %12 to i32
-  %inc7159 = shl i64 %pos5878, 32
-  %sext72 = add i64 %inc7159, 8589934592
-  %conv15666 = ashr exact i64 %sext72, 32
-  %sub15767 = sub i64 %conv15666, %storemerge80
+  %conv7457 = zext nneg i8 %12 to i32
+  %inc7156 = shl i64 %storemerge.in7177, 32
+  %sext69 = add i64 %inc7156, 8589934592
+  %conv15663 = ashr exact i64 %sext69, 32
+  %sub15764 = sub i64 %conv15663, %storemerge78
   br label %if.then159
 
 if.then77:                                        ; preds = %if.else56
@@ -545,14 +545,14 @@ cond.true82:                                      ; preds = %cond.true
   %idxprom84 = zext nneg i32 %and83 to i64
   %arrayidx85 = getelementptr inbounds nuw [17 x i8], ptr @.str.10, i64 0, i64 %idxprom84
   %14 = load i8, ptr %arrayidx85, align 1
-  %conv8685 = zext i8 %14 to i32
+  %conv8683 = zext i8 %14 to i32
   %idxprom87 = sext i32 %inc71 to i64
   %arrayidx88 = getelementptr inbounds i8, ptr %call58, i64 %idxprom87
   %15 = load i8, ptr %arrayidx88, align 1
   %16 = lshr i8 %15, 5
   %shr = zext nneg i8 %16 to i32
   %shl = shl nuw nsw i32 1, %shr
-  %and90 = and i32 %shl, %conv8685
+  %and90 = and i32 %shl, %conv8683
   %tobool91.not = icmp eq i32 %and90, 0
   br i1 %tobool91.not, label %if.then150, label %land.lhs.true92
 
@@ -639,14 +639,14 @@ if.end155:                                        ; preds = %land.lhs.true132
   %or143 = or disjoint i32 %shl141, %conv138
   %inc144 = add nsw i32 %i.2, 1
   %conv156 = sext i32 %inc144 to i64
-  %sub157 = sub i64 %conv156, %storemerge80
+  %sub157 = sub i64 %conv156, %storemerge78
   %cmp158 = icmp ult i32 %c.1, 1024
   br i1 %cmp158, label %if.then159, label %if.else161
 
 if.then159:                                       ; preds = %if.end155.thread, %if.end155
-  %sub15771 = phi i64 [ %sub15767, %if.end155.thread ], [ %sub157, %if.end155 ]
-  %c.269 = phi i32 [ %conv7460, %if.end155.thread ], [ %or143, %if.end155 ]
-  %call160 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %newSeq, i64 noundef 20, ptr noundef nonnull @.str.14, i32 noundef %c.269) #16
+  %sub15768 = phi i64 [ %sub15764, %if.end155.thread ], [ %sub157, %if.end155 ]
+  %c.266 = phi i32 [ %conv7457, %if.end155.thread ], [ %or143, %if.end155 ]
+  %call160 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %newSeq, i64 noundef 20, ptr noundef nonnull @.str.14, i32 noundef %c.266) #16
   br label %if.end164
 
 if.else161:                                       ; preds = %if.end155
@@ -654,15 +654,15 @@ if.else161:                                       ; preds = %if.end155
   br label %if.end164
 
 if.end164:                                        ; preds = %if.else161, %if.then159
-  %sub15770 = phi i64 [ %sub157, %if.else161 ], [ %sub15771, %if.then159 ]
-  %call166 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge80, i64 noundef %sub15770, ptr noundef nonnull %newSeq)
+  %sub15767 = phi i64 [ %sub157, %if.else161 ], [ %sub15768, %if.then159 ]
+  %call166 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %linestr, i64 noundef %storemerge78, i64 noundef %sub15767, ptr noundef nonnull %newSeq)
   %call168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %newSeq) #19
-  %add = add i64 %call168, %pos5878
+  %add = add i64 %call168, %storemerge.in7177
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end50, %if.end164, %land.lhs.true63, %if.end45, %if.then38
-  %pos57 = phi i64 [ %inc39, %if.end50 ], [ %add, %if.end164 ], [ %storemerge80, %land.lhs.true63 ], [ %inc39, %if.end45 ], [ %inc39, %if.then38 ]
-  %storemerge = add i64 %pos57, 1
+  %storemerge.in70 = phi i64 [ %inc39, %if.end50 ], [ %add, %if.end164 ], [ %storemerge78, %land.lhs.true63 ], [ %inc39, %if.end45 ], [ %inc39, %if.then38 ]
+  %storemerge = add i64 %storemerge.in70, 1
   %call24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #16
   %cmp25 = icmp ult i64 %storemerge, %call24
   br i1 %cmp25, label %for.body, label %return, !llvm.loop !9

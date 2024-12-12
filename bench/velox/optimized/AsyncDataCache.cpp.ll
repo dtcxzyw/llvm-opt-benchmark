@@ -6848,7 +6848,7 @@ if.end.i15:                                       ; preds = %if.then13
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont14:                                    ; preds = %if.end.i15
-  br i1 %call2.i17, label %if.then.i29, label %if.end18
+  br i1 %call2.i17, label %cleanup, label %if.end18
 
 lpad.loopexit:                                    ; preds = %while.cond.i
   %lpad.loopexit45 = landingpad { ptr, i32 }
@@ -7018,7 +7018,7 @@ invoke.cont94:                                    ; preds = %call2.i.noexc
 invoke.cont96:                                    ; preds = %invoke.cont94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #21
-  br label %if.then.i29
+  br label %cleanup
 
 lpad93:                                           ; preds = %call2.i.noexc
   %30 = landingpad { ptr, i32 }
@@ -7036,33 +7036,43 @@ ehcleanup:                                        ; preds = %lpad95, %lpad93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #21
   br label %ehcleanup97
 
-if.then.i29:                                      ; preds = %invoke.cont14, %invoke.cont96
+cleanup:                                          ; preds = %invoke.cont14, %invoke.cont96
   %cmp1155 = phi i1 [ false, %invoke.cont96 ], [ true, %invoke.cont14 ]
-  %32 = load ptr, ptr %allocator_.i, align 8
-  %vtable.i.i.i = load ptr, ptr %32, align 8
+  %32 = load i8, ptr %guard, align 8
+  %tobool.i = trunc i8 %32 to i1
+  br i1 %tobool.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev.exit", label %if.then.i29
+
+if.then.i29:                                      ; preds = %cleanup
+  %33 = load ptr, ptr %function_.i.i.i, align 8
+  %allocator_.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %34 = load ptr, ptr %allocator_.i.i.i, align 8
+  %35 = load ptr, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
+  %vtable.i.i.i = load ptr, ptr %34, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 40
-  %33 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i1.i.i = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(880) %32, ptr noundef nonnull align 8 dereferenceable(36) %acquired)
+  %36 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i1.i.i = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(880) %34, ptr noundef nonnull align 8 dereferenceable(36) %35)
           to label %call.i.noexc.i.i unwind label %lpad.i.i.i
 
 call.i.noexc.i.i:                                 ; preds = %if.then.i29
-  %34 = load i8, ptr %isCounted, align 1
-  %tobool.i.i.i = trunc i8 %34 to i1
+  %37 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
+  %38 = load i8, ptr %37, align 1
+  %tobool.i.i.i = trunc i8 %38 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev.exit"
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc.i.i
-  %35 = atomicrmw sub ptr %numThreadsInAllocate_, i32 1 seq_cst, align 4
+  %numThreadsInAllocate_.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 296
+  %39 = atomicrmw sub ptr %numThreadsInAllocate_.i.i.i, i32 1 seq_cst, align 4
   br label %"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev.exit"
 
 lpad.i.i.i:                                       ; preds = %if.then.i29
-  %36 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = call ptr @__cxa_begin_catch(ptr %37) #21
+  %41 = extractvalue { ptr, i32 } %40, 0
+  %42 = call ptr @__cxa_begin_catch(ptr %41) #21
   call void @_ZN5folly6detail18ScopeGuardImplBase9terminateEv()
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev.exit": ; preds = %call.i.noexc.i.i, %if.then.i.i.i
+"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev.exit": ; preds = %cleanup, %call.i.noexc.i.i, %if.then.i.i.i
   call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %acquired) #21
   ret i1 %cmp1155
 

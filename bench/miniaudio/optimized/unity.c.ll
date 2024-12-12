@@ -68275,15 +68275,14 @@ if.end:                                           ; preds = %ma_malloc.exit
   store i32 %mul, ptr %bitsPerSample, align 4
   %cmp10 = icmp eq i32 %4, 5
   %spec.select = select i1 %cmp10, i32 3, i32 1
-  %spec.select18 = select i1 %cmp10, i16 3, i16 1
   %6 = getelementptr inbounds nuw i8, ptr %wavFormat, i64 4
   store i32 %spec.select, ptr %6, align 4
-  %7 = load ptr, ptr %allocationCallbacks1, align 8
-  %8 = load ptr, ptr %onMalloc.i, align 8
+  %7 = load ptr, ptr %onMalloc.i, align 8
   %onRealloc = getelementptr inbounds nuw i8, ptr %pEncoder, i64 32
-  %9 = load ptr, ptr %onRealloc, align 8
+  %8 = load ptr, ptr %onRealloc, align 8
   %onFree = getelementptr inbounds nuw i8, ptr %pEncoder, i64 40
-  %10 = load ptr, ptr %onFree, align 8
+  %9 = load ptr, ptr %onFree, align 8
+  %10 = load ptr, ptr %allocationCallbacks1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %call.i, i8 0, i64 400, i1 false)
   %onWrite15.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @ma_encoder__internal_on_write_wav, ptr %onWrite15.i.i, align 8
@@ -68292,25 +68291,26 @@ if.end:                                           ; preds = %ma_malloc.exit
   %pUserData17.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %pEncoder, ptr %pUserData17.i.i, align 8
   %allocationCallbacks.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
-  store ptr %7, ptr %allocationCallbacks.i.i, align 8
+  store ptr %10, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  store ptr %8, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  store ptr %7, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
-  store ptr %9, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
+  store ptr %8, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
-  store ptr %10, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, align 8
-  %cmp19.i.i = icmp eq ptr %10, null
+  store ptr %9, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %cmp19.i.i = icmp eq ptr %9, null
   br i1 %cmp19.i.i, label %return, label %lor.lhs.false20.i.i
 
 lor.lhs.false20.i.i:                              ; preds = %if.end
-  %cmp22.i.i = icmp eq ptr %8, null
-  %cmp25.i.i = icmp eq ptr %9, null
+  %cmp22.i.i = icmp eq ptr %7, null
+  %cmp25.i.i = icmp eq ptr %8, null
   %or.cond45.i.i = select i1 %cmp22.i.i, i1 %cmp25.i.i, i1 false
   br i1 %or.cond45.i.i, label %return, label %ma_dr_wav_init_write.exit
 
 ma_dr_wav_init_write.exit:                        ; preds = %lor.lhs.false20.i.i
+  %conv.i.i = trunc nuw nsw i32 %spec.select to i16
   %fmt.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 68
-  store i16 %spec.select18, ptr %fmt.i.i, align 4
+  store i16 %conv.i.i, ptr %fmt.i.i, align 4
   %conv29.i.i = trunc i32 %2 to i16
   %channels31.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 70
   store i16 %conv29.i.i, ptr %channels31.i.i, align 2

@@ -44046,32 +44046,33 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h686f26a93d1111e9E.llvm.240573438051967091.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.thread.i
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17hbce41dc1eeafd3c7E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2)
-  %24 = extractvalue { ptr, ptr } %23, 0
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %28, label %25
+  %23 = load ptr, ptr %4, align 8, !nonnull !7, !align !8, !noundef !7
+  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17hbce41dc1eeafd3c7E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %23)
+  %25 = extractvalue { ptr, ptr } %24, 0
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %29, label %26
 
-25:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h686f26a93d1111e9E.llvm.240573438051967091.exit"
-  %26 = extractvalue { ptr, ptr } %23, 1
-  %27 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %27)
+26:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h686f26a93d1111e9E.llvm.240573438051967091.exit"
+  %27 = extractvalue { ptr, ptr } %24, 1
+  %28 = icmp ne ptr %27, null
+  tail call void @llvm.assume(i1 %28)
   store ptr %15, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %.sroa.53.0..sroa_idx, align 8
+  store ptr %27, ptr %.sroa.53.0..sroa_idx, align 8
   br label %"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6"
 
-"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6": ; preds = %31, %28, %25
+"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6": ; preds = %32, %29, %26
   ret void
 
-28:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h686f26a93d1111e9E.llvm.240573438051967091.exit"
+29:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h686f26a93d1111e9E.llvm.240573438051967091.exit"
   store ptr null, ptr %0, align 8
-  %29 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !8485
-  %30 = icmp eq i64 %29, 6
-  br i1 %30, label %31, label %"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6"
+  %30 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !8485
+  %31 = icmp eq i64 %30, 6
+  br i1 %31, label %32, label %"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6"
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h5e40f258fe85e474E(ptr noundef nonnull align 8 %15), !noalias !8485
   br label %"_ZN4core3ptr271drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..logstore..LogStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17ha351421d497156d2E.llvm.240573438051967091.exit6"
 }
@@ -44112,32 +44113,33 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h6f53396c8e2a36e1E.llvm.240573438051967091.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.thread.i
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h7793cafda4ba5902E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %2)
-  %24 = extractvalue { ptr, ptr } %23, 0
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %28, label %25
+  %23 = load ptr, ptr %4, align 8, !nonnull !7, !align !8, !noundef !7
+  %24 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h7793cafda4ba5902E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %23)
+  %25 = extractvalue { ptr, ptr } %24, 0
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %29, label %26
 
-25:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h6f53396c8e2a36e1E.llvm.240573438051967091.exit"
-  %26 = extractvalue { ptr, ptr } %23, 1
-  %27 = icmp ne ptr %26, null
-  tail call void @llvm.assume(i1 %27)
+26:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h6f53396c8e2a36e1E.llvm.240573438051967091.exit"
+  %27 = extractvalue { ptr, ptr } %24, 1
+  %28 = icmp ne ptr %27, null
+  tail call void @llvm.assume(i1 %28)
   store ptr %15, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %26, ptr %.sroa.53.0..sroa_idx, align 8
+  store ptr %27, ptr %.sroa.53.0..sroa_idx, align 8
   br label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6"
 
-"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6": ; preds = %31, %28, %25
+"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6": ; preds = %32, %29, %26
   ret void
 
-28:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h6f53396c8e2a36e1E.llvm.240573438051967091.exit"
+29:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17h6f53396c8e2a36e1E.llvm.240573438051967091.exit"
   store ptr null, ptr %0, align 8
-  %29 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !8493
-  %30 = icmp eq i64 %29, 6
-  br i1 %30, label %31, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6"
+  %30 = atomicrmw sub ptr %15, i64 4 release, align 8, !noalias !8493
+  %31 = icmp eq i64 %30, 6
+  br i1 %31, label %32, label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6"
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h5e40f258fe85e474E(ptr noundef nonnull align 8 %15), !noalias !8493
   br label %"_ZN4core3ptr273drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$url..Url$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h98de5d1034cc0d34E.llvm.240573438051967091.exit6"
 }
@@ -44180,32 +44182,34 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb841eb69109519a3E.llvm.240573438051967091.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %25 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h7b781ed1e95ac3c3E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %26 = extractvalue { ptr, ptr } %25, 0
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %30, label %27
+  %25 = load ptr, ptr %5, align 8, !nonnull !7, !align !1548, !noundef !7
+  %26 = load i64, ptr %6, align 8, !noundef !7
+  %27 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h7b781ed1e95ac3c3E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26)
+  %28 = extractvalue { ptr, ptr } %27, 0
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %32, label %29
 
-27:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb841eb69109519a3E.llvm.240573438051967091.exit"
-  %28 = extractvalue { ptr, ptr } %25, 1
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
+29:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb841eb69109519a3E.llvm.240573438051967091.exit"
+  %30 = extractvalue { ptr, ptr } %27, 1
+  %31 = icmp ne ptr %30, null
+  tail call void @llvm.assume(i1 %31)
   store ptr %17, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %28, ptr %.sroa.53.0..sroa_idx, align 8
+  store ptr %30, ptr %.sroa.53.0..sroa_idx, align 8
   br label %"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6"
 
-"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6": ; preds = %33, %30, %27
+"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6": ; preds = %35, %32, %29
   ret void
 
-30:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb841eb69109519a3E.llvm.240573438051967091.exit"
+32:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb841eb69109519a3E.llvm.240573438051967091.exit"
   store ptr null, ptr %0, align 8
-  %31 = atomicrmw sub ptr %17, i64 4 release, align 8, !noalias !8501
-  %32 = icmp eq i64 %31, 6
-  br i1 %32, label %33, label %"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6"
+  %33 = atomicrmw sub ptr %17, i64 4 release, align 8, !noalias !8501
+  %34 = icmp eq i64 %33, 6
+  br i1 %34, label %35, label %"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6"
 
-33:                                               ; preds = %30
+35:                                               ; preds = %32
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h5e40f258fe85e474E(ptr noundef nonnull align 8 %17), !noalias !8501
   br label %"_ZN4core3ptr279drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..CatalogProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17hc30ba5d97b01be79E.llvm.240573438051967091.exit6"
 }
@@ -44248,32 +44252,34 @@ _ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb39ae33014e042b1E.llvm.240573438051967091.exit": ; preds = %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.i, %_ZN7dashmap4lock9RawRwLock20try_lock_shared_fast17h40ff150da3c003d9E.llvm.240573438051967091.exit.thread.i
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %25 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h4512199ab4f7fd21E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  %26 = extractvalue { ptr, ptr } %25, 0
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %30, label %27
+  %25 = load ptr, ptr %5, align 8, !nonnull !7, !align !1548, !noundef !7
+  %26 = load i64, ptr %6, align 8, !noundef !7
+  %27 = tail call { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_key_value17h4512199ab4f7fd21E.llvm.240573438051967091"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %26)
+  %28 = extractvalue { ptr, ptr } %27, 0
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %32, label %29
 
-27:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb39ae33014e042b1E.llvm.240573438051967091.exit"
-  %28 = extractvalue { ptr, ptr } %25, 1
-  %29 = icmp ne ptr %28, null
-  tail call void @llvm.assume(i1 %29)
+29:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb39ae33014e042b1E.llvm.240573438051967091.exit"
+  %30 = extractvalue { ptr, ptr } %27, 1
+  %31 = icmp ne ptr %30, null
+  tail call void @llvm.assume(i1 %31)
   store ptr %17, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %28, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %28, ptr %.sroa.53.0..sroa_idx, align 8
+  store ptr %30, ptr %.sroa.53.0..sroa_idx, align 8
   br label %"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6"
 
-"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6": ; preds = %33, %30, %27
+"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6": ; preds = %35, %32, %29
   ret void
 
-30:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb39ae33014e042b1E.llvm.240573438051967091.exit"
+32:                                               ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$17_yield_read_shard17hb39ae33014e042b1E.llvm.240573438051967091.exit"
   store ptr null, ptr %0, align 8
-  %31 = atomicrmw sub ptr %17, i64 4 release, align 8, !noalias !8509
-  %32 = icmp eq i64 %31, 6
-  br i1 %32, label %33, label %"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6"
+  %33 = atomicrmw sub ptr %17, i64 4 release, align 8, !noalias !8509
+  %34 = icmp eq i64 %33, 6
+  br i1 %34, label %35, label %"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6"
 
-33:                                               ; preds = %30
+35:                                               ; preds = %32
   tail call void @_ZN7dashmap4lock9RawRwLock18unlock_shared_slow17h5e40f258fe85e474E(ptr noundef nonnull align 8 %17), !noalias !8509
   br label %"_ZN4core3ptr286drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$alloc..string..String$C$dashmap..util..SharedValue$LT$alloc..sync..Arc$LT$dyn$u20$datafusion..catalog..schema..SchemaProvider$GT$$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$17h34c1ba402d7497beE.llvm.240573438051967091.exit6"
 }

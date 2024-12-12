@@ -6356,8 +6356,8 @@ fons__tmpalloc.exit:                              ; preds = %59
   call void @stbtt_Rasterize(ptr noundef nonnull %15, float noundef 0x3FD6666660000000, ptr noundef %80, i32 noundef %17, float noundef %.031, float noundef %.mux, float noundef %3, float noundef %4, i32 noundef %.053, i32 noundef %.055, i32 noundef 1, ptr noundef %81)
   br label %fons__tmpalloc.exit.thread
 
-fons__tmpalloc.exit.thread:                       ; preds = %68, %71, %10, %56, %78, %fons__tmpalloc.exit
-  %.0 = phi ptr [ null, %fons__tmpalloc.exit ], [ %77, %78 ], [ null, %56 ], [ null, %10 ], [ null, %71 ], [ null, %68 ]
+fons__tmpalloc.exit.thread:                       ; preds = %68, %71, %56, %78, %fons__tmpalloc.exit, %10
+  %.0 = phi ptr [ null, %10 ], [ %77, %fons__tmpalloc.exit ], [ %77, %78 ], [ null, %56 ], [ null, %71 ], [ null, %68 ]
   ret ptr %.0
 }
 

@@ -2586,8 +2586,8 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %5 = phi ptr [ null, %entry ], [ %add.ptr.i.i, %if.then.i.i ]
-  %6 = phi ptr [ null, %entry ], [ %call5.i.i.i.i1.i, %if.then.i.i ]
+  %5 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ null, %entry ]
+  %6 = phi ptr [ %call5.i.i.i.i1.i, %if.then.i.i ], [ null, %entry ]
   invoke void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator13mkCResolutionERKSt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaISB_EERKS9_IbSaIbEE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %clause, ptr noundef nonnull align 8 dereferenceable(24) %lits, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
