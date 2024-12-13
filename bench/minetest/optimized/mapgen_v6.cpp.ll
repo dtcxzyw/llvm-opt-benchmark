@@ -5876,7 +5876,8 @@ if.end141:                                        ; preds = %if.else, %if.then12
   %.sink448 = phi i16 [ 16, %if.else ], [ 18, %if.then120 ]
   %.sink447 = phi i16 [ 16, %if.else ], [ 21, %if.then120 ]
   %.sink = phi i32 [ 0, %if.else ], [ 1, %if.then120 ]
-  %35 = phi <4 x i16> [ <i16 4, i16 4, i16 8, i16 6>, %if.else ], [ <i16 9, i16 6, i16 10, i16 11>, %if.then120 ]
+  %35 = phi <2 x i16> [ <i16 8, i16 undef>, %if.else ], [ <i16 10, i16 undef>, %if.then120 ]
+  %36 = phi <4 x i16> [ <i16 4, i16 4, i16 8, i16 6>, %if.else ], [ <i16 9, i16 6, i16 10, i16 11>, %if.then120 ]
   %c_alt_wall127 = getelementptr inbounds nuw i8, ptr %dp, i64 6
   store i16 %.sink464, ptr %c_alt_wall127, align 2, !tbaa !188
   %c_stair_cobble = getelementptr inbounds nuw i8, ptr %this, i64 %.sink463
@@ -5888,13 +5889,12 @@ if.end141:                                        ; preds = %if.else, %if.then12
   store i16 %.sink460, ptr %holesize.i, align 4, !tbaa !49
   store i16 %.sink459, ptr %Y.i8.i, align 2, !tbaa !49
   store i16 %.sink460, ptr %Z.i9.i, align 4, !tbaa !49
-  %36 = extractelement <4 x i16> %35, i64 1
-  store i16 %36, ptr %room_size_min.i, align 2, !tbaa !49
+  %37 = extractelement <4 x i16> %36, i64 1
+  store i16 %37, ptr %room_size_min.i, align 2, !tbaa !49
   %ref.tmp132.sroa.4.0.room_size_min133.sroa_idx = getelementptr inbounds nuw i8, ptr %dp, i64 60
-  store <4 x i16> %35, ptr %ref.tmp132.sroa.4.0.room_size_min133.sroa_idx, align 4, !tbaa !49
+  store <4 x i16> %36, ptr %ref.tmp132.sroa.4.0.room_size_min133.sroa_idx, align 4, !tbaa !49
   %ref.tmp134.sroa.5.0.room_size_max135.sroa_idx = getelementptr inbounds nuw i8, ptr %dp, i64 68
-  %37 = shufflevector <4 x i16> %35, <4 x i16> poison, <2 x i32> <i32 2, i32 poison>
-  %38 = insertelement <2 x i16> %37, i16 %.sink450, i64 1
+  %38 = insertelement <2 x i16> %35, i16 %.sink450, i64 1
   %39 = shufflevector <2 x i16> %38, <2 x i16> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
   store <4 x i16> %39, ptr %ref.tmp134.sroa.5.0.room_size_max135.sroa_idx, align 4, !tbaa !49
   %room_size_large_max139 = getelementptr inbounds nuw i8, ptr %dp, i64 76
