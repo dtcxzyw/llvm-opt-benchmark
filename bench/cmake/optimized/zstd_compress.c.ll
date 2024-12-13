@@ -749,9 +749,9 @@ define dso_local range(i64 -42, 1) i64 @ZSTD_checkCParams(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { i64, i64 } @ZSTD_cParam_getBounds(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %19 [
+  switch i32 %0, label %18 [
     i32 100, label %2
-    i32 101, label %20
+    i32 101, label %19
     i32 102, label %3
     i32 103, label %3
     i32 104, label %4
@@ -777,8 +777,8 @@ define dso_local { i64, i64 } @ZSTD_cParam_getBounds(i32 noundef %0) local_unnam
     i32 1002, label %10
     i32 1003, label %15
     i32 1004, label %16
-    i32 1006, label %17
-    i32 1007, label %17
+    i32 1006, label %8
+    i32 1007, label %8
     i32 1008, label %8
     i32 1009, label %8
     i32 1010, label %10
@@ -786,67 +786,64 @@ define dso_local { i64, i64 } @ZSTD_cParam_getBounds(i32 noundef %0) local_unnam
     i32 1012, label %8
     i32 1013, label %10
     i32 1014, label %8
-    i32 1015, label %18
+    i32 1015, label %17
     i32 1016, label %10
   ]
 
 2:                                                ; preds = %1
-  br label %20
+  br label %19
 
 3:                                                ; preds = %1, %1, %1
-  br label %20
+  br label %19
 
 4:                                                ; preds = %1
-  br label %20
+  br label %19
 
 5:                                                ; preds = %1
-  br label %20
+  br label %19
 
 6:                                                ; preds = %1
-  br label %20
+  br label %19
 
 7:                                                ; preds = %1
-  br label %20
+  br label %19
 
-8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %20
+8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %19
 
 9:                                                ; preds = %1, %1, %1
-  br label %20
+  br label %19
 
 10:                                               ; preds = %1, %1, %1, %1, %1, %1
-  br label %20
+  br label %19
 
 11:                                               ; preds = %1
-  br label %20
+  br label %19
 
 12:                                               ; preds = %1
-  br label %20
+  br label %19
 
 13:                                               ; preds = %1
-  br label %20
+  br label %19
 
 14:                                               ; preds = %1
-  br label %20
+  br label %19
 
 15:                                               ; preds = %1
-  br label %20
+  br label %19
 
 16:                                               ; preds = %1
-  br label %20
+  br label %19
 
-17:                                               ; preds = %1, %1
-  br label %20
+17:                                               ; preds = %1
+  br label %19
 
 18:                                               ; preds = %1
-  br label %20
+  br label %19
 
-19:                                               ; preds = %1
-  br label %20
-
-20:                                               ; preds = %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %19 ], [ 562949953422336, %18 ], [ 4294967296, %17 ], [ 9223372032559808512, %16 ], [ 562949953421376, %15 ], [ 12884901888, %14 ], [ 107374182400, %13 ], [ 34359738369, %12 ], [ 17592186044420, %11 ], [ 8589934592, %10 ], [ 0, %9 ], [ 4294967296, %8 ], [ 38654705665, %7 ], [ 562949953421312, %6 ], [ 30064771075, %5 ], [ 128849018881, %4 ], [ 128849018886, %3 ], [ 98784116736, %2 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
+19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.sroa.3.0 = phi i64 [ 0, %18 ], [ 562949953422336, %17 ], [ 9223372032559808512, %16 ], [ 562949953421376, %15 ], [ 12884901888, %14 ], [ 107374182400, %13 ], [ 34359738369, %12 ], [ 17592186044420, %11 ], [ 8589934592, %10 ], [ 0, %9 ], [ 4294967296, %8 ], [ 38654705665, %7 ], [ 562949953421312, %6 ], [ 30064771075, %5 ], [ 128849018881, %4 ], [ 128849018886, %3 ], [ 98784116736, %2 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

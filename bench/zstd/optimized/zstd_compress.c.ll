@@ -797,8 +797,8 @@ entry:
     i32 1002, label %sw.bb45
     i32 1003, label %sw.bb75
     i32 1004, label %sw.bb78
-    i32 1006, label %sw.bb81
-    i32 1007, label %sw.bb81
+    i32 1006, label %sw.bb23
+    i32 1007, label %sw.bb23
     i32 1008, label %sw.bb23
     i32 1009, label %sw.bb23
     i32 1010, label %sw.bb45
@@ -828,7 +828,7 @@ sw.bb17:                                          ; preds = %entry
 sw.bb20:                                          ; preds = %entry
   br label %return
 
-sw.bb23:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
+sw.bb23:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb32:                                          ; preds = %entry
@@ -861,18 +861,15 @@ sw.bb75:                                          ; preds = %entry
 sw.bb78:                                          ; preds = %entry
   br label %return
 
-sw.bb81:                                          ; preds = %entry, %entry
-  br label %return
-
 sw.bb105:                                         ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb105, %sw.bb81, %sw.bb78, %sw.bb75, %sw.bb69, %sw.bb57, %sw.bb54, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb35, %sw.bb32, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb5, %sw.bb
-  %retval.sroa.3.0 = phi i64 [ 0, %sw.default ], [ 562949953422336, %sw.bb105 ], [ 4294967296, %sw.bb81 ], [ 9223372032559808512, %sw.bb78 ], [ 562949953421376, %sw.bb75 ], [ 12884901888, %sw.bb69 ], [ 107374182400, %sw.bb57 ], [ 34359738369, %sw.bb54 ], [ 17592186044420, %sw.bb51 ], [ 8589934592, %sw.bb45 ], [ 38654705664, %sw.bb39 ], [ 4611686018427387904, %sw.bb35 ], [ 1099511627776, %sw.bb32 ], [ 4294967296, %sw.bb23 ], [ 38654705665, %sw.bb20 ], [ 562949953421312, %sw.bb17 ], [ 30064771075, %sw.bb14 ], [ 128849018881, %sw.bb11 ], [ 128849018886, %sw.bb5 ], [ 98784116736, %sw.bb ], [ 133143986186, %entry ]
-  %retval.sroa.0.0 = phi i64 [ -40, %sw.default ], [ 0, %sw.bb105 ], [ 0, %sw.bb81 ], [ 0, %sw.bb78 ], [ 0, %sw.bb75 ], [ 0, %sw.bb69 ], [ 0, %sw.bb57 ], [ 0, %sw.bb54 ], [ 0, %sw.bb51 ], [ 0, %sw.bb45 ], [ 0, %sw.bb39 ], [ 0, %sw.bb35 ], [ 0, %sw.bb32 ], [ 0, %sw.bb23 ], [ 0, %sw.bb20 ], [ 0, %sw.bb17 ], [ 0, %sw.bb14 ], [ 0, %sw.bb11 ], [ 0, %sw.bb5 ], [ 0, %sw.bb ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb105, %sw.bb78, %sw.bb75, %sw.bb69, %sw.bb57, %sw.bb54, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb35, %sw.bb32, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb5, %sw.bb
+  %retval.sroa.3.0 = phi i64 [ 0, %sw.default ], [ 562949953422336, %sw.bb105 ], [ 9223372032559808512, %sw.bb78 ], [ 562949953421376, %sw.bb75 ], [ 12884901888, %sw.bb69 ], [ 107374182400, %sw.bb57 ], [ 34359738369, %sw.bb54 ], [ 17592186044420, %sw.bb51 ], [ 8589934592, %sw.bb45 ], [ 38654705664, %sw.bb39 ], [ 4611686018427387904, %sw.bb35 ], [ 1099511627776, %sw.bb32 ], [ 4294967296, %sw.bb23 ], [ 38654705665, %sw.bb20 ], [ 562949953421312, %sw.bb17 ], [ 30064771075, %sw.bb14 ], [ 128849018881, %sw.bb11 ], [ 128849018886, %sw.bb5 ], [ 98784116736, %sw.bb ], [ 133143986186, %entry ]
+  %retval.sroa.0.0 = phi i64 [ -40, %sw.default ], [ 0, %sw.bb105 ], [ 0, %sw.bb78 ], [ 0, %sw.bb75 ], [ 0, %sw.bb69 ], [ 0, %sw.bb57 ], [ 0, %sw.bb54 ], [ 0, %sw.bb51 ], [ 0, %sw.bb45 ], [ 0, %sw.bb39 ], [ 0, %sw.bb35 ], [ 0, %sw.bb32 ], [ 0, %sw.bb23 ], [ 0, %sw.bb20 ], [ 0, %sw.bb17 ], [ 0, %sw.bb14 ], [ 0, %sw.bb11 ], [ 0, %sw.bb5 ], [ 0, %sw.bb ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

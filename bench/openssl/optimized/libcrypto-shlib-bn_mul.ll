@@ -241,13 +241,13 @@ if.end17:                                         ; preds = %if.end
   %add26 = add nsw i32 %mul25, %call24
   switch i32 %add26, label %sw.epilog [
     i32 -4, label %sw.bb
-    i32 -3, label %sw.bb37
+    i32 -3, label %sw.epilog.thread
     i32 -2, label %sw.bb38
-    i32 -1, label %sw.bb49
-    i32 0, label %sw.bb49
-    i32 1, label %sw.bb49
+    i32 -1, label %sw.epilog.thread
+    i32 0, label %sw.epilog.thread
+    i32 1, label %sw.epilog.thread
     i32 2, label %sw.bb50
-    i32 3, label %sw.bb37
+    i32 3, label %sw.epilog.thread
     i32 4, label %sw.bb62
   ]
 
@@ -258,16 +258,10 @@ sw.bb:                                            ; preds = %if.end17
   %call36 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx32, ptr noundef %b, ptr noundef %arrayidx22, i32 noundef %add1, i32 noundef %sub35)
   br label %sw.epilog
 
-sw.bb37:                                          ; preds = %if.end17, %if.end17
-  br label %sw.epilog
-
 sw.bb38:                                          ; preds = %if.end17
   %call42 = tail call i64 @bn_sub_part_words(ptr noundef %t, ptr noundef %arrayidx19, ptr noundef %a, i32 noundef %add, i32 noundef %dna)
   %arrayidx44 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom18
   %call48 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx44, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
-  br label %sw.epilog
-
-sw.bb49:                                          ; preds = %if.end17, %if.end17, %if.end17
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end17
@@ -283,107 +277,129 @@ sw.bb62:                                          ; preds = %if.end17
   %call72 = tail call i64 @bn_sub_part_words(ptr noundef %arrayidx68, ptr noundef %arrayidx22, ptr noundef %b, i32 noundef %add1, i32 noundef %dnb)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb62, %sw.bb50, %sw.bb49, %sw.bb38, %sw.bb37, %sw.bb, %if.end17
-  %tobool150.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ false, %sw.bb50 ], [ true, %sw.bb49 ], [ false, %sw.bb38 ], [ true, %sw.bb37 ], [ true, %sw.bb ]
-  %tobool126.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ true, %sw.bb50 ], [ false, %sw.bb49 ], [ true, %sw.bb38 ], [ false, %sw.bb37 ], [ true, %sw.bb ]
+sw.epilog:                                        ; preds = %sw.bb62, %sw.bb50, %sw.bb38, %sw.bb, %if.end17
+  %tobool150.not = phi i1 [ true, %if.end17 ], [ true, %sw.bb62 ], [ false, %sw.bb50 ], [ false, %sw.bb38 ], [ true, %sw.bb ]
   %2 = and i32 %n2, 2147483646
   %cmp73 = icmp eq i32 %2, 8
   %or.cond3 = and i1 %cmp73, %1
-  br i1 %or.cond3, label %if.then81, label %if.else96
+  br i1 %or.cond3, label %if.then82, label %if.else96
 
-if.then81:                                        ; preds = %sw.epilog
+sw.epilog.thread:                                 ; preds = %if.end17, %if.end17, %if.end17, %if.end17, %if.end17
+  %3 = and i32 %n2, 2147483646
+  %cmp73205 = icmp eq i32 %3, 8
+  %or.cond3206 = and i1 %cmp73205, %1
+  br i1 %or.cond3206, label %if.else, label %if.else96.thread
+
+if.then82:                                        ; preds = %sw.epilog
   %idxprom83 = zext nneg i32 %n2 to i64
   %arrayidx84 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom83
-  br i1 %tobool126.not, label %if.then82, label %if.else
-
-if.then82:                                        ; preds = %if.then81
   %arrayidx86 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom18
-  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx84, ptr noundef %t, ptr noundef nonnull %arrayidx86) #4
-  br label %if.end89
+  tail call void @bn_mul_comba4(ptr noundef %arrayidx84, ptr noundef %t, ptr noundef nonnull %arrayidx86) #4
+  br label %if.end145
 
-if.else:                                          ; preds = %if.then81
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx84, i8 0, i64 64, i1 false)
-  br label %if.end89
-
-if.end89:                                         ; preds = %if.else, %if.then82
-  tail call void @bn_mul_comba4(ptr noundef %r, ptr noundef %a, ptr noundef %b) #4
-  %arrayidx91 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom83
-  tail call void @bn_mul_comba4(ptr noundef nonnull %arrayidx91, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
+if.else:                                          ; preds = %sw.epilog.thread
+  %idxprom87 = zext nneg i32 %n2 to i64
+  %arrayidx88 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom87
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx88, i8 0, i64 64, i1 false)
   br label %if.end145
 
 if.else96:                                        ; preds = %sw.epilog
   %cmp97 = icmp eq i32 %2, 16
   %or.cond5 = and i1 %cmp97, %1
-  br i1 %or.cond5, label %if.then105, label %if.else122
+  br i1 %or.cond5, label %if.then107, label %if.then127
 
-if.then105:                                       ; preds = %if.else96
+if.else96.thread:                                 ; preds = %sw.epilog.thread
+  %cmp97218 = icmp eq i32 %3, 16
+  %or.cond5219 = and i1 %cmp97218, %1
+  br i1 %or.cond5219, label %if.else112, label %if.else132
+
+if.then107:                                       ; preds = %if.else96
   %idxprom108 = zext nneg i32 %n2 to i64
   %arrayidx109 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom108
-  br i1 %tobool126.not, label %if.then107, label %if.else112
-
-if.then107:                                       ; preds = %if.then105
   %arrayidx111 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom18
-  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx109, ptr noundef %t, ptr noundef nonnull %arrayidx111) #4
+  tail call void @bn_mul_comba8(ptr noundef %arrayidx109, ptr noundef %t, ptr noundef nonnull %arrayidx111) #4
   br label %if.end115
 
-if.else112:                                       ; preds = %if.then105
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx109, i8 0, i64 128, i1 false)
+if.else112:                                       ; preds = %if.else96.thread
+  %idxprom113 = zext nneg i32 %n2 to i64
+  %arrayidx114 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom113
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx114, i8 0, i64 128, i1 false)
   br label %if.end115
 
 if.end115:                                        ; preds = %if.else112, %if.then107
+  %idxprom116.pre-phi = phi i64 [ %idxprom113, %if.else112 ], [ %idxprom108, %if.then107 ]
+  %tobool150.not208222226 = phi i1 [ true, %if.else112 ], [ %tobool150.not, %if.then107 ]
   tail call void @bn_mul_comba8(ptr noundef %r, ptr noundef %a, ptr noundef %b) #4
-  %arrayidx117 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom108
-  tail call void @bn_mul_comba8(ptr noundef nonnull %arrayidx117, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
-  br label %if.end145
+  %arrayidx117 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom116.pre-phi
+  tail call void @bn_mul_comba8(ptr noundef %arrayidx117, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
+  %call148239 = tail call i64 @bn_add_words(ptr noundef %t, ptr noundef %r, ptr noundef %arrayidx117, i32 noundef %n2) #4
+  %conv149240 = trunc i64 %call148239 to i32
+  br i1 %tobool150.not208222226, label %if.else159, label %if.then151
 
-if.else122:                                       ; preds = %if.else96
+if.then127:                                       ; preds = %if.else96
+  %mul123230 = shl nuw nsw i32 %n2, 1
+  %idxprom124231 = zext nneg i32 %mul123230 to i64
+  %arrayidx125232 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom124231
+  %idxprom128 = zext nneg i32 %n2 to i64
+  %arrayidx129 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom128
+  %arrayidx131 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom18
+  tail call void @bn_mul_recursive(ptr noundef %arrayidx129, ptr noundef %t, ptr noundef %arrayidx131, i32 noundef %div, i32 noundef 0, i32 noundef 0, ptr noundef %arrayidx125232)
+  br label %if.end137
+
+if.else132:                                       ; preds = %if.else96.thread
   %mul123 = shl nuw nsw i32 %n2, 1
   %idxprom124 = zext nneg i32 %mul123 to i64
   %arrayidx125 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom124
-  %idxprom128 = zext nneg i32 %n2 to i64
-  %arrayidx129 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom128
-  br i1 %tobool126.not, label %if.then127, label %if.else132
-
-if.then127:                                       ; preds = %if.else122
-  %arrayidx131 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom18
-  tail call void @bn_mul_recursive(ptr noundef nonnull %arrayidx129, ptr noundef %t, ptr noundef %arrayidx131, i32 noundef %div, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %arrayidx125)
-  br label %if.end137
-
-if.else132:                                       ; preds = %if.else122
-  %mul136 = shl nuw nsw i64 %idxprom128, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %arrayidx129, i8 0, i64 %mul136, i1 false)
+  %idxprom133 = zext nneg i32 %n2 to i64
+  %arrayidx134 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom133
+  %mul136 = shl nuw nsw i64 %idxprom133, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %arrayidx134, i8 0, i64 %mul136, i1 false)
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else132, %if.then127
-  tail call void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %div, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %arrayidx125)
-  %arrayidx139 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom128
-  tail call void @bn_mul_recursive(ptr noundef nonnull %arrayidx139, ptr noundef %arrayidx19, ptr noundef %arrayidx22, i32 noundef %div, i32 noundef %dna, i32 noundef %dnb, ptr noundef nonnull %arrayidx125)
-  br label %if.end145
+  %idxprom138.pre-phi = phi i64 [ %idxprom133, %if.else132 ], [ %idxprom128, %if.then127 ]
+  %arrayidx125235 = phi ptr [ %arrayidx125, %if.else132 ], [ %arrayidx125232, %if.then127 ]
+  %tobool150.not208223233 = phi i1 [ true, %if.else132 ], [ %tobool150.not, %if.then127 ]
+  tail call void @bn_mul_recursive(ptr noundef %r, ptr noundef %a, ptr noundef %b, i32 noundef %div, i32 noundef 0, i32 noundef 0, ptr noundef %arrayidx125235)
+  %arrayidx139 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom138.pre-phi
+  tail call void @bn_mul_recursive(ptr noundef %arrayidx139, ptr noundef %arrayidx19, ptr noundef %arrayidx22, i32 noundef %div, i32 noundef %dna, i32 noundef %dnb, ptr noundef %arrayidx125235)
+  %call148248 = tail call i64 @bn_add_words(ptr noundef %t, ptr noundef %r, ptr noundef %arrayidx139, i32 noundef %n2) #4
+  %conv149249 = trunc i64 %call148248 to i32
+  br i1 %tobool150.not208223233, label %if.else159, label %if.then151
 
-if.end145:                                        ; preds = %if.end115, %if.end137, %if.end89
-  %idxprom146.pre-phi = phi i64 [ %idxprom108, %if.end115 ], [ %idxprom128, %if.end137 ], [ %idxprom83, %if.end89 ]
-  %arrayidx147 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom146.pre-phi
-  %call148 = tail call i64 @bn_add_words(ptr noundef %t, ptr noundef %r, ptr noundef %arrayidx147, i32 noundef %n2) #4
+if.end145:                                        ; preds = %if.then82, %if.else
+  %idxprom90.pre-phi = phi i64 [ %idxprom83, %if.then82 ], [ %idxprom87, %if.else ]
+  %tobool150.not209214 = phi i1 [ %tobool150.not, %if.then82 ], [ true, %if.else ]
+  tail call void @bn_mul_comba4(ptr noundef %r, ptr noundef %a, ptr noundef %b) #4
+  %arrayidx91 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom90.pre-phi
+  tail call void @bn_mul_comba4(ptr noundef %arrayidx91, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %arrayidx22) #4
+  %call148 = tail call i64 @bn_add_words(ptr noundef %t, ptr noundef %r, ptr noundef %arrayidx91, i32 noundef %n2) #4
   %conv149 = trunc i64 %call148 to i32
-  %arrayidx161 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom146.pre-phi
-  br i1 %tobool150.not, label %if.else159, label %if.then151
+  br i1 %tobool150.not209214, label %if.else159, label %if.then151
 
-if.then151:                                       ; preds = %if.end145
-  %call156 = tail call i64 @bn_sub_words(ptr noundef %arrayidx161, ptr noundef %t, ptr noundef %arrayidx161, i32 noundef %n2) #4
+if.then151:                                       ; preds = %if.end137, %if.end115, %if.end145
+  %conv149244 = phi i32 [ %conv149240, %if.end115 ], [ %conv149, %if.end145 ], [ %conv149249, %if.end137 ]
+  %idxprom146243 = phi i64 [ %idxprom116.pre-phi, %if.end115 ], [ %idxprom90.pre-phi, %if.end145 ], [ %idxprom138.pre-phi, %if.end137 ]
+  %arrayidx153 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom146243
+  %call156 = tail call i64 @bn_sub_words(ptr noundef %arrayidx153, ptr noundef %t, ptr noundef %arrayidx153, i32 noundef %n2) #4
   %conv157 = trunc i64 %call156 to i32
-  %sub158 = sub nsw i32 %conv149, %conv157
+  %sub158 = sub nsw i32 %conv149244, %conv157
   br label %if.end167
 
-if.else159:                                       ; preds = %if.end145
+if.else159:                                       ; preds = %if.end137, %if.end115, %if.end145
+  %conv149245 = phi i32 [ %conv149240, %if.end115 ], [ %conv149, %if.end145 ], [ %conv149249, %if.end137 ]
+  %idxprom146241 = phi i64 [ %idxprom116.pre-phi, %if.end115 ], [ %idxprom90.pre-phi, %if.end145 ], [ %idxprom138.pre-phi, %if.end137 ]
+  %arrayidx161 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom146241
   %call164 = tail call i64 @bn_add_words(ptr noundef %arrayidx161, ptr noundef %arrayidx161, ptr noundef %t, i32 noundef %n2) #4
   %conv165 = trunc i64 %call164 to i32
-  %add166 = add nsw i32 %conv165, %conv149
+  %add166 = add nsw i32 %conv149245, %conv165
   br label %if.end167
 
 if.end167:                                        ; preds = %if.else159, %if.then151
+  %idxprom146242 = phi i64 [ %idxprom146243, %if.then151 ], [ %idxprom146241, %if.else159 ]
   %c1.0 = phi i32 [ %sub158, %if.then151 ], [ %add166, %if.else159 ]
   %arrayidx169 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom18
-  %arrayidx173 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom146.pre-phi
+  %arrayidx173 = getelementptr inbounds nuw i64, ptr %t, i64 %idxprom146242
   %call174 = tail call i64 @bn_add_words(ptr noundef %arrayidx169, ptr noundef %arrayidx169, ptr noundef %arrayidx173, i32 noundef %n2) #4
   %conv175 = trunc i64 %call174 to i32
   %add176 = add nsw i32 %c1.0, %conv175
@@ -394,9 +410,9 @@ if.then178:                                       ; preds = %if.end167
   %add179 = add nuw nsw i32 %div, %n2
   %idxprom180 = zext nneg i32 %add179 to i64
   %arrayidx181 = getelementptr inbounds nuw i64, ptr %r, i64 %idxprom180
-  %3 = load i64, ptr %arrayidx181, align 8
+  %4 = load i64, ptr %arrayidx181, align 8
   %conv182 = sext i32 %add176 to i64
-  %add183 = add i64 %3, %conv182
+  %add183 = add i64 %4, %conv182
   store i64 %add183, ptr %arrayidx181, align 8
   %cmp185 = icmp ult i64 %add183, %conv182
   br i1 %cmp185, label %do.body, label %if.end193
@@ -404,8 +420,8 @@ if.then178:                                       ; preds = %if.end167
 do.body:                                          ; preds = %if.then178, %do.body
   %p.0 = phi ptr [ %incdec.ptr, %do.body ], [ %arrayidx181, %if.then178 ]
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 8
-  %4 = load i64, ptr %incdec.ptr, align 8
-  %add188 = add i64 %4, 1
+  %5 = load i64, ptr %incdec.ptr, align 8
+  %add188 = add i64 %5, 1
   store i64 %add188, ptr %incdec.ptr, align 8
   %cmp190 = icmp eq i64 %add188, 0
   br i1 %cmp190, label %do.body, label %if.end193, !llvm.loop !6

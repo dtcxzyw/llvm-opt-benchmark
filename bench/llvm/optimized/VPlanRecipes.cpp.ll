@@ -970,25 +970,25 @@ $_ZTVN4llvm17VPHeaderPHIRecipeE = comdat any
 define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
-  switch i8 %3, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit [
+  switch i8 %3, label %37 [
     i8 4, label %4
-    i8 20, label %38
-    i8 19, label %38
+    i8 20, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 19, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
     i8 7, label %13
     i8 11, label %25
-    i8 0, label %37
-    i8 9, label %37
-    i8 23, label %37
-    i8 21, label %38
-    i8 5, label %38
-    i8 6, label %38
-    i8 12, label %38
-    i8 13, label %38
-    i8 14, label %38
-    i8 28, label %38
-    i8 15, label %38
-    i8 16, label %38
-    i8 22, label %38
+    i8 0, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 9, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 23, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 21, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 5, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 6, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 12, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 13, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 14, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 28, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 15, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 16, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 22, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
   ]
 
 4:                                                ; preds = %1
@@ -1038,14 +1038,11 @@ _ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %13, %19
   %36 = xor i1 %35, true
   br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
 
-37:                                               ; preds = %1, %1, %1
+37:                                               ; preds = %1
   br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
 
-38:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
-
-_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %38, %1, %37, %25, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, %4
-  %.0 = phi i1 [ false, %37 ], [ %36, %25 ], [ %24, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %12, %4 ], [ true, %1 ], [ false, %38 ]
+_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %37, %25, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit, %4
+  %.0 = phi i1 [ true, %37 ], [ %36, %25 ], [ %24, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ %12, %4 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -1058,24 +1055,24 @@ declare noundef zeroext i1 @_ZNK4llvm8Function15onlyReadsMemoryEv(ptr noundef no
 define dso_local noundef zeroext i1 @_ZNK4llvm12VPRecipeBase17mayReadFromMemoryEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
-  switch i8 %3, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit [
-    i8 20, label %29
-    i8 19, label %29
+  switch i8 %3, label %28 [
+    i8 20, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 19, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
     i8 7, label %4
     i8 11, label %16
-    i8 0, label %28
-    i8 23, label %28
-    i8 9, label %28
-    i8 17, label %28
-    i8 18, label %28
-    i8 21, label %29
-    i8 5, label %29
-    i8 6, label %29
-    i8 12, label %29
-    i8 13, label %29
-    i8 14, label %29
-    i8 28, label %29
-    i8 22, label %29
+    i8 0, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 23, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 9, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 17, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 18, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 21, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 5, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 6, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 12, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 13, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 14, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 28, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
+    i8 22, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
   ]
 
 4:                                                ; preds = %1
@@ -1113,14 +1110,11 @@ _ZNK4llvm5VPDef16getVPSingleValueEv.exit:         ; preds = %4, %10
   %27 = xor i1 %26, true
   br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
 
-28:                                               ; preds = %1, %1, %1, %1, %1
+28:                                               ; preds = %1
   br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
 
-29:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit
-
-_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %29, %1, %28, %16, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
-  %.0 = phi i1 [ false, %28 ], [ %27, %16 ], [ %15, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ true, %1 ], [ false, %29 ]
+_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %28, %16, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit
+  %.0 = phi i1 [ true, %28 ], [ %27, %16 ], [ %15, %_ZNK4llvm5VPDef16getVPSingleValueEv.exit ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ], [ false, %1 ]
   ret i1 %.0
 }
 

@@ -5528,11 +5528,11 @@ _ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit: ; 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %54
 
-54:                                               ; preds = %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i, %.lr.ph.i2
-  %55 = phi i64 [ %48, %.lr.ph.i2 ], [ %70, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i ]
-  %56 = phi i64 [ 0, %.lr.ph.i2 ], [ %72, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i ]
-  %.020.i = phi i32 [ 5, %.lr.ph.i2 ], [ %62, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i ]
-  %.01019.i = phi i32 [ 0, %.lr.ph.i2 ], [ %71, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i ]
+54:                                               ; preds = %68, %.lr.ph.i2
+  %55 = phi i64 [ %48, %.lr.ph.i2 ], [ %71, %68 ]
+  %56 = phi i64 [ 0, %.lr.ph.i2 ], [ %73, %68 ]
+  %.020.i = phi i32 [ 5, %.lr.ph.i2 ], [ %62, %68 ]
+  %.01019.i = phi i32 [ 0, %.lr.ph.i2 ], [ %72, %68 ]
   %57 = load ptr, ptr %51, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
   %59 = load ptr, ptr %52, align 8
@@ -5548,44 +5548,44 @@ _ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit: ; 
   switch i32 %64, label %67 [
     i32 332, label %66
     i32 34404, label %65
-    i32 452, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
-    i32 43620, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
-    i32 42561, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
-    i32 42574, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
+    i32 452, label %68
+    i32 43620, label %68
+    i32 42561, label %68
+    i32 42574, label %68
   ]
 
 65:                                               ; preds = %54
-  br label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
+  br label %68
 
 66:                                               ; preds = %54
-  br label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i
+  br label %68
 
 67:                                               ; preds = %54
   unreachable
 
-_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i: ; preds = %66, %65, %54, %54, %54, %54
+68:                                               ; preds = %66, %65, %54, %54, %54, %54
   %.sink.i = phi i16 [ 7, %66 ], [ 3, %65 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ]
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 1) ]
-  store i16 %.sink.i, ptr %68, align 1
-  %69 = load i64, ptr %2, align 8
-  %70 = add i64 %69, 10
-  store i64 %70, ptr %2, align 8
-  %71 = add i32 %.01019.i, 1
-  %72 = zext i32 %71 to i64
-  %73 = load i64, ptr %49, align 8
-  %74 = icmp ugt i64 %73, %72
-  br i1 %74, label %54, label %_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit, !llvm.loop !152
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 1) ]
+  store i16 %.sink.i, ptr %69, align 1
+  %70 = load i64, ptr %2, align 8
+  %71 = add i64 %70, 10
+  store i64 %71, ptr %2, align 8
+  %72 = add i32 %.01019.i, 1
+  %73 = zext i32 %72 to i64
+  %74 = load i64, ptr %49, align 8
+  %75 = icmp ugt i64 %74, %73
+  br i1 %75, label %54, label %_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit, !llvm.loop !152
 
-_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit: ; preds = %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit
-  %75 = phi i64 [ %48, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit ], [ %70, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit.i ]
-  %76 = icmp ne i64 %75, 0
-  %.neg = sext i1 %76 to i64
-  %77 = add i64 %75, %.neg
-  %78 = select i1 %76, i64 8, i64 0
-  %79 = add i64 %77, %78
-  %80 = and i64 %79, -8
-  store i64 %80, ptr %2, align 8
+_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit: ; preds = %68, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit
+  %76 = phi i64 [ %48, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit ], [ %71, %68 ]
+  %77 = icmp ne i64 %76, 0
+  %.neg = sext i1 %77 to i64
+  %78 = add i64 %76, %.neg
+  %79 = select i1 %77, i64 8, i64 0
+  %80 = add i64 %78, %79
+  %81 = and i64 %80, -8
+  store i64 %81, ptr %2, align 8
   ret void
 }
 
@@ -6793,11 +6793,11 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSec
   %.pre = load i64, ptr %5, align 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
-  %9 = phi i64 [ %.pre, %.lr.ph ], [ %24, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit ]
-  %10 = phi i64 [ 0, %.lr.ph ], [ %26, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit ]
-  %.020 = phi i32 [ 5, %.lr.ph ], [ %16, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit ]
-  %.01019 = phi i32 [ 0, %.lr.ph ], [ %25, %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit ]
+8:                                                ; preds = %.lr.ph, %22
+  %9 = phi i64 [ %.pre, %.lr.ph ], [ %25, %22 ]
+  %10 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
+  %.020 = phi i32 [ 5, %.lr.ph ], [ %16, %22 ]
+  %.01019 = phi i32 [ 0, %.lr.ph ], [ %26, %22 ]
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   %13 = load ptr, ptr %6, align 8
@@ -6813,36 +6813,36 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSec
   switch i32 %18, label %21 [
     i32 332, label %20
     i32 34404, label %19
-    i32 452, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
-    i32 43620, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
-    i32 42561, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
-    i32 42574, label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
+    i32 452, label %22
+    i32 43620, label %22
+    i32 42561, label %22
+    i32 42574, label %22
   ]
 
 19:                                               ; preds = %8
-  br label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
+  br label %22
 
 20:                                               ; preds = %8
-  br label %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit
+  br label %22
 
 21:                                               ; preds = %8
   unreachable
 
-_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit: ; preds = %8, %8, %8, %8, %20, %19
+22:                                               ; preds = %8, %8, %8, %8, %20, %19
   %.sink = phi i16 [ 7, %20 ], [ 3, %19 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ]
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
-  store i16 %.sink, ptr %22, align 1
-  %23 = load i64, ptr %5, align 8
-  %24 = add i64 %23, 10
-  store i64 %24, ptr %5, align 8
-  %25 = add i32 %.01019, 1
-  %26 = zext i32 %25 to i64
-  %27 = load i64, ptr %2, align 8
-  %28 = icmp ugt i64 %27, %26
-  br i1 %28, label %8, label %._crit_edge, !llvm.loop !152
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 1) ]
+  store i16 %.sink, ptr %23, align 1
+  %24 = load i64, ptr %5, align 8
+  %25 = add i64 %24, 10
+  store i64 %25, ptr %5, align 8
+  %26 = add i32 %.01019, 1
+  %27 = zext i32 %26 to i64
+  %28 = load i64, ptr %2, align 8
+  %29 = icmp ugt i64 %28, %27
+  br i1 %29, label %8, label %._crit_edge, !llvm.loop !152
 
-._crit_edge:                                      ; preds = %_ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exit, %1
+._crit_edge:                                      ; preds = %22, %1
   ret void
 }
 

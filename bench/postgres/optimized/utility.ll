@@ -234,7 +234,7 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
-  switch i32 %20, label %39 [
+  switch i32 %20, label %38 [
     i32 134, label %select.unfold
     i32 218, label %select.unfold
     i32 219, label %select.unfold
@@ -338,16 +338,16 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
     i32 141, label %23
     i32 225, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 143, label %ClassifyUtilityCommandAsReadOnly.exit
-    i32 207, label %27
-    i32 206, label %27
-    i32 230, label %28
-    i32 209, label %32
+    i32 207, label %22
+    i32 206, label %22
+    i32 230, label %27
+    i32 209, label %31
   ]
 
 21:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
   br label %select.unfold
 
-22:                                               ; preds = %17, %17, %17
+22:                                               ; preds = %17, %17, %17, %17, %17
   br label %select.unfold
 
 23:                                               ; preds = %17
@@ -356,19 +356,16 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
   %26 = trunc i8 %25 to i1
   br i1 %26, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
 
-27:                                               ; preds = %17, %17
-  br label %select.unfold
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp sgt i32 %29, 3
+  br i1 %30, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp sgt i32 %30, 3
-  br i1 %31, label %select.unfold, label %ClassifyUtilityCommandAsReadOnly.exit
-
-32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %34 = load i32, ptr %33, align 4
-  switch i32 %34, label %35 [
+31:                                               ; preds = %17
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %33 = load i32, ptr %32, align 4
+  switch i32 %33, label %34 [
     i32 0, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 1, label %ClassifyUtilityCommandAsReadOnly.exit
     i32 2, label %ClassifyUtilityCommandAsReadOnly.exit
@@ -381,648 +378,648 @@ define dso_local void @standard_ProcessUtility(ptr noundef %0, ptr noundef %1, i
     i32 9, label %select.unfold
   ]
 
-35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %36)
-  %37 = load i32, ptr %33, align 4
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %37) #10
+34:                                               ; preds = %31
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %35)
+  %36 = load i32, ptr %32, align 4
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %36) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 393, ptr noundef nonnull @__func__.ClassifyUtilityCommandAsReadOnly) #10
   unreachable
 
-39:                                               ; preds = %17
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %40)
-  %41 = load i32, ptr %19, align 4
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %41) #10
+38:                                               ; preds = %17
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %39)
+  %40 = load i32, ptr %19, align 4
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %40) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.ClassifyUtilityCommandAsReadOnly) #10
   unreachable
 
-select.unfold:                                    ; preds = %28, %23, %32, %32, %32, %27, %22, %21, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
-  %43 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ true, %22 ], [ true, %27 ], [ true, %32 ], [ true, %32 ], [ true, %32 ], [ true, %23 ], [ true, %28 ]
-  %44 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ false, %22 ], [ false, %27 ], [ false, %32 ], [ false, %32 ], [ false, %32 ], [ false, %23 ], [ false, %28 ]
-  %45 = load i8, ptr @XactReadOnly, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %49, label %47
+select.unfold:                                    ; preds = %27, %23, %31, %31, %31, %22, %21, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
+  %42 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ true, %22 ], [ true, %31 ], [ true, %31 ], [ true, %31 ], [ true, %23 ], [ true, %27 ]
+  %43 = phi i1 [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ true, %17 ], [ false, %21 ], [ false, %22 ], [ false, %31 ], [ false, %31 ], [ false, %31 ], [ false, %23 ], [ false, %27 ]
+  %44 = load i8, ptr @XactReadOnly, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %48, label %46
 
-47:                                               ; preds = %select.unfold
-  %48 = tail call zeroext i1 @IsInParallelMode() #10
-  br i1 %48, label %49, label %ClassifyUtilityCommandAsReadOnly.exit
+46:                                               ; preds = %select.unfold
+  %47 = tail call zeroext i1 @IsInParallelMode() #10
+  br i1 %47, label %48, label %ClassifyUtilityCommandAsReadOnly.exit
 
-49:                                               ; preds = %47, %select.unfold
-  %50 = tail call i32 @CreateCommandTag(ptr noundef nonnull %19)
-  br i1 %44, label %51, label %PreventCommandIfReadOnly.exit
+48:                                               ; preds = %46, %select.unfold
+  %49 = tail call i32 @CreateCommandTag(ptr noundef nonnull %19)
+  br i1 %43, label %50, label %PreventCommandIfReadOnly.exit
 
-51:                                               ; preds = %49
-  %52 = tail call ptr @GetCommandTagName(i32 noundef %50) #10
-  %53 = load i8, ptr @XactReadOnly, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %PreventCommandIfReadOnly.exit
+50:                                               ; preds = %48
+  %51 = tail call ptr @GetCommandTagName(i32 noundef %49) #10
+  %52 = load i8, ptr @XactReadOnly, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %PreventCommandIfReadOnly.exit
 
-55:                                               ; preds = %51
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 100663618) #10
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %52) #10
+54:                                               ; preds = %50
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %55)
+  %56 = tail call i32 @errcode(i32 noundef 100663618) #10
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %51) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.PreventCommandIfReadOnly) #10
   unreachable
 
-PreventCommandIfReadOnly.exit:                    ; preds = %49, %51
-  %59 = tail call ptr @GetCommandTagName(i32 noundef %50) #10
-  %60 = tail call zeroext i1 @IsInParallelMode() #10
-  br i1 %60, label %61, label %PreventCommandIfParallelMode.exit
+PreventCommandIfReadOnly.exit:                    ; preds = %48, %50
+  %58 = tail call ptr @GetCommandTagName(i32 noundef %49) #10
+  %59 = tail call zeroext i1 @IsInParallelMode() #10
+  br i1 %59, label %60, label %PreventCommandIfParallelMode.exit
 
-61:                                               ; preds = %PreventCommandIfReadOnly.exit
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 322) #10
-  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %59) #10
+60:                                               ; preds = %PreventCommandIfReadOnly.exit
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %61)
+  %62 = tail call i32 @errcode(i32 noundef 322) #10
+  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %58) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 436, ptr noundef nonnull @__func__.PreventCommandIfParallelMode) #10
   unreachable
 
 PreventCommandIfParallelMode.exit:                ; preds = %PreventCommandIfReadOnly.exit
-  br i1 %43, label %65, label %ClassifyUtilityCommandAsReadOnly.exit
+  br i1 %42, label %64, label %ClassifyUtilityCommandAsReadOnly.exit
 
-65:                                               ; preds = %PreventCommandIfParallelMode.exit
-  %66 = tail call ptr @GetCommandTagName(i32 noundef %50) #10
-  %67 = tail call zeroext i1 @RecoveryInProgress() #10
-  br i1 %67, label %68, label %ClassifyUtilityCommandAsReadOnly.exit
+64:                                               ; preds = %PreventCommandIfParallelMode.exit
+  %65 = tail call ptr @GetCommandTagName(i32 noundef %49) #10
+  %66 = tail call zeroext i1 @RecoveryInProgress() #10
+  br i1 %66, label %67, label %ClassifyUtilityCommandAsReadOnly.exit
 
-68:                                               ; preds = %65
-  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %69)
-  %70 = tail call i32 @errcode(i32 noundef 100663618) #10
-  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %66) #10
+67:                                               ; preds = %64
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %68)
+  %69 = tail call i32 @errcode(i32 noundef 100663618) #10
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %65) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.PreventCommandDuringRecovery) #10
   unreachable
 
-ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %65, %32, %32, %32, %32, %32, %32, %32, %23, %28, %PreventCommandIfParallelMode.exit, %47
-  %72 = tail call ptr @make_parsestate(ptr noundef null) #10
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 160
-  store ptr %5, ptr %74, align 8
-  %75 = load i32, ptr %19, align 4
-  switch i32 %75, label %295 [
-    i32 209, label %76
-    i32 185, label %140
-    i32 186, label %141
-    i32 187, label %144
-    i32 195, label %145
-    i32 146, label %146
-    i32 147, label %148
-    i32 148, label %149
-    i32 182, label %151
-    i32 141, label %152
-    i32 236, label %160
-    i32 237, label %170
-    i32 238, label %171
-    i32 139, label %172
-    i32 216, label %173
-    i32 217, label %175
-    i32 218, label %177
-    i32 219, label %179
-    i32 220, label %181
-    i32 206, label %182
-    i32 207, label %187
-    i32 208, label %196
-    i32 215, label %201
-    i32 197, label %206
-    i32 222, label %207
-    i32 223, label %208
-    i32 225, label %209
-    i32 221, label %210
-    i32 142, label %211
-    i32 143, label %212
-    i32 229, label %215
-    i32 166, label %216
-    i32 167, label %218
-    i32 169, label %220
-    i32 170, label %222
-    i32 171, label %224
-    i32 172, label %226
-    i32 240, label %227
-    i32 230, label %228
-    i32 231, label %229
-    i32 228, label %230
-    i32 136, label %241
-    i32 181, label %247
-    i32 199, label %253
-    i32 200, label %260
-    i32 201, label %267
-    i32 202, label %274
-    i32 183, label %281
-    i32 184, label %288
+ClassifyUtilityCommandAsReadOnly.exit:            ; preds = %17, %17, %17, %17, %17, %17, %64, %31, %31, %31, %31, %31, %31, %31, %23, %27, %PreventCommandIfParallelMode.exit, %46
+  %71 = tail call ptr @make_parsestate(ptr noundef null) #10
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 160
+  store ptr %5, ptr %73, align 8
+  %74 = load i32, ptr %19, align 4
+  switch i32 %74, label %294 [
+    i32 209, label %75
+    i32 185, label %139
+    i32 186, label %140
+    i32 187, label %143
+    i32 195, label %144
+    i32 146, label %145
+    i32 147, label %147
+    i32 148, label %148
+    i32 182, label %150
+    i32 141, label %151
+    i32 236, label %159
+    i32 237, label %169
+    i32 238, label %170
+    i32 139, label %171
+    i32 216, label %172
+    i32 217, label %174
+    i32 218, label %176
+    i32 219, label %178
+    i32 220, label %180
+    i32 206, label %181
+    i32 207, label %186
+    i32 208, label %195
+    i32 215, label %200
+    i32 197, label %205
+    i32 222, label %206
+    i32 223, label %207
+    i32 225, label %208
+    i32 221, label %209
+    i32 142, label %210
+    i32 143, label %211
+    i32 229, label %214
+    i32 166, label %215
+    i32 167, label %217
+    i32 169, label %219
+    i32 170, label %221
+    i32 171, label %223
+    i32 172, label %225
+    i32 240, label %226
+    i32 230, label %227
+    i32 231, label %228
+    i32 228, label %229
+    i32 136, label %240
+    i32 181, label %246
+    i32 199, label %252
+    i32 200, label %259
+    i32 201, label %266
+    i32 202, label %273
+    i32 183, label %280
+    i32 184, label %287
   ]
 
-76:                                               ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %78 = load i32, ptr %77, align 4
-  switch i32 %78, label %.thread [
-    i32 0, label %79
-    i32 1, label %79
-    i32 2, label %106
-    i32 7, label %114
-    i32 8, label %121
-    i32 9, label %124
-    i32 3, label %127
-    i32 4, label %131
-    i32 5, label %134
-    i32 6, label %137
+75:                                               ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %76 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %77 = load i32, ptr %76, align 4
+  switch i32 %77, label %.thread [
+    i32 0, label %78
+    i32 1, label %78
+    i32 2, label %105
+    i32 7, label %113
+    i32 8, label %120
+    i32 9, label %123
+    i32 3, label %126
+    i32 4, label %130
+    i32 5, label %133
+    i32 6, label %136
   ]
 
-79:                                               ; preds = %76, %76
+78:                                               ; preds = %75, %75
   tail call void @BeginTransactionBlock() #10
-  %80 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %.not = icmp eq ptr %81, null
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  %.not = icmp eq ptr %80, null
   br i1 %.not, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %84 = load i32, ptr %82, align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph311, label %.thread
+.lr.ph:                                           ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = load i32, ptr %81, align 4
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph311, label %.thread
 
-.lr.ph311:                                        ; preds = %.lr.ph, %102
-  %indvars.iv310 = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
-  %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv310
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(22) @.str.5) #12
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.sink.split, label %93
+.lr.ph311:                                        ; preds = %.lr.ph, %101
+  %indvars.iv310 = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph ]
+  %85 = load ptr, ptr %82, align 8
+  %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv310
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(22) @.str.5) #12
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %.sink.split, label %92
 
-93:                                               ; preds = %.lr.ph311
-  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(22) @.str.6) #12
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %.sink.split, label %96
+92:                                               ; preds = %.lr.ph311
+  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(22) @.str.6) #12
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %.sink.split, label %95
 
-96:                                               ; preds = %93
-  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(23) @.str.7) #12
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.sink.split, label %102
+95:                                               ; preds = %92
+  %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(23) @.str.7) #12
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.sink.split, label %101
 
-.sink.split:                                      ; preds = %96, %93, %.lr.ph311
-  %.str.5.sink = phi ptr [ @.str.5, %.lr.ph311 ], [ @.str.6, %93 ], [ @.str.7, %96 ]
-  %99 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %100) #10
-  tail call void @SetPGVariable(ptr noundef nonnull %.str.5.sink, ptr noundef %101, i1 noundef zeroext true) #10
-  br label %102
+.sink.split:                                      ; preds = %95, %92, %.lr.ph311
+  %.str.5.sink = phi ptr [ @.str.5, %.lr.ph311 ], [ @.str.6, %92 ], [ @.str.7, %95 ]
+  %98 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %99 = load ptr, ptr %98, align 8
+  %100 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %99) #10
+  tail call void @SetPGVariable(ptr noundef nonnull %.str.5.sink, ptr noundef %100, i1 noundef zeroext true) #10
+  br label %101
 
-102:                                              ; preds = %.sink.split, %96
+101:                                              ; preds = %.sink.split, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
-  %103 = load i32, ptr %82, align 4
-  %104 = sext i32 %103 to i64
-  %105 = icmp slt i64 %indvars.iv.next, %104
-  br i1 %105, label %.lr.ph311, label %.thread
+  %102 = load i32, ptr %81, align 4
+  %103 = sext i32 %102 to i64
+  %104 = icmp slt i64 %indvars.iv.next, %103
+  br i1 %104, label %.lr.ph311, label %.thread
 
-106:                                              ; preds = %76
-  %107 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %108 = load i8, ptr %107, align 8
-  %109 = trunc i8 %108 to i1
-  %110 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext %109) #10
-  %111 = icmp eq ptr %7, null
-  %or.cond3.not = or i1 %111, %110
-  br i1 %or.cond3.not, label %.thread, label %112
+105:                                              ; preds = %75
+  %106 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %107 = load i8, ptr %106, align 8
+  %108 = trunc i8 %107 to i1
+  %109 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext %108) #10
+  %110 = icmp eq ptr %7, null
+  %or.cond3.not = or i1 %110, %109
+  br i1 %or.cond3.not, label %.thread, label %111
 
-112:                                              ; preds = %106
+111:                                              ; preds = %105
   store i32 175, ptr %7, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %113, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %112, align 8
   br label %.thread
 
-114:                                              ; preds = %76
-  %115 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call zeroext i1 @PrepareTransactionBlock(ptr noundef %116) #10
-  %118 = icmp eq ptr %7, null
-  %or.cond6.not = or i1 %118, %117
-  br i1 %or.cond6.not, label %.thread, label %119
+113:                                              ; preds = %75
+  %114 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call zeroext i1 @PrepareTransactionBlock(ptr noundef %115) #10
+  %117 = icmp eq ptr %7, null
+  %or.cond6.not = or i1 %117, %116
+  br i1 %or.cond6.not, label %.thread, label %118
 
-119:                                              ; preds = %114
+118:                                              ; preds = %113
   store i32 175, ptr %7, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %120, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %119, align 8
   br label %.thread
 
-121:                                              ; preds = %76
+120:                                              ; preds = %75
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.8) #10
-  %122 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %123 = load ptr, ptr %122, align 8
-  tail call void @FinishPreparedTransaction(ptr noundef %123, i1 noundef zeroext true) #10
+  %121 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %122 = load ptr, ptr %121, align 8
+  tail call void @FinishPreparedTransaction(ptr noundef %122, i1 noundef zeroext true) #10
   br label %.thread
 
-124:                                              ; preds = %76
+123:                                              ; preds = %75
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.9) #10
-  %125 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %126 = load ptr, ptr %125, align 8
-  tail call void @FinishPreparedTransaction(ptr noundef %126, i1 noundef zeroext false) #10
+  %124 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %125 = load ptr, ptr %124, align 8
+  tail call void @FinishPreparedTransaction(ptr noundef %125, i1 noundef zeroext false) #10
   br label %.thread
 
-127:                                              ; preds = %76
-  %128 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %129 = load i8, ptr %128, align 8
-  %130 = trunc i8 %129 to i1
-  tail call void @UserAbortTransactionBlock(i1 noundef zeroext %130) #10
+126:                                              ; preds = %75
+  %127 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %128 = load i8, ptr %127, align 8
+  %129 = trunc i8 %128 to i1
+  tail call void @UserAbortTransactionBlock(i1 noundef zeroext %129) #10
   br label %.thread
 
-131:                                              ; preds = %76
+130:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.10) #10
-  %132 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %133 = load ptr, ptr %132, align 8
-  tail call void @DefineSavepoint(ptr noundef %133) #10
+  %131 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %132 = load ptr, ptr %131, align 8
+  tail call void @DefineSavepoint(ptr noundef %132) #10
   br label %.thread
 
-134:                                              ; preds = %76
+133:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.11) #10
-  %135 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %136 = load ptr, ptr %135, align 8
-  tail call void @ReleaseSavepoint(ptr noundef %136) #10
+  %134 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %135 = load ptr, ptr %134, align 8
+  tail call void @ReleaseSavepoint(ptr noundef %135) #10
   br label %.thread
 
-137:                                              ; preds = %76
+136:                                              ; preds = %75
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.12) #10
-  %138 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %139 = load ptr, ptr %138, align 8
-  tail call void @RollbackToSavepoint(ptr noundef %139) #10
+  %137 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %138 = load ptr, ptr %137, align 8
+  tail call void @RollbackToSavepoint(ptr noundef %138) #10
+  br label %.thread
+
+139:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @PerformCursorOpen(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef %4, i1 noundef zeroext %10) #10
   br label %.thread
 
 140:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @PerformCursorOpen(ptr noundef nonnull %72, ptr noundef nonnull %19, ptr noundef %4, i1 noundef zeroext %10) #10
-  br label %.thread
-
-141:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.13)
-  %142 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %143 = load ptr, ptr %142, align 8
-  tail call void @PerformPortalClose(ptr noundef %143) #10
+  %141 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %142 = load ptr, ptr %141, align 8
+  tail call void @PerformPortalClose(ptr noundef %142) #10
   br label %.thread
 
-144:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+143:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PerformPortalFetch(ptr noundef nonnull %19, ptr noundef %6, ptr noundef %7) #10
   br label %.thread
 
+144:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @ExecuteDoStmt(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %14) #10
+  br label %.thread
+
 145:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @ExecuteDoStmt(ptr noundef nonnull %72, ptr noundef nonnull %19, i1 noundef zeroext %14) #10
-  br label %.thread
-
-146:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.14) #10
-  %147 = tail call i32 @CreateTableSpace(ptr noundef nonnull %19) #10
+  %146 = tail call i32 @CreateTableSpace(ptr noundef nonnull %19) #10
   br label %.thread
 
-148:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+147:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.15) #10
   tail call void @DropTableSpace(ptr noundef nonnull %19) #10
   br label %.thread
 
-149:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %150 = tail call i32 @AlterTableSpaceOptions(ptr noundef nonnull %19) #10
+148:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %149 = tail call i32 @AlterTableSpaceOptions(ptr noundef nonnull %19) #10
   br label %.thread
 
-151:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+150:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteTruncate(ptr noundef nonnull %19) #10
   br label %.thread
 
-152:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %153 = getelementptr inbounds nuw i8, ptr %.0, i64 128
-  %154 = load i32, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.0, i64 132
-  %156 = load i32, ptr %155, align 4
-  call void @DoCopy(ptr noundef nonnull %72, ptr noundef nonnull %19, i32 noundef %154, i32 noundef %156, ptr noundef nonnull %9) #10
+151:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %152 = getelementptr inbounds nuw i8, ptr %.0, i64 128
+  %153 = load i32, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %.0, i64 132
+  %155 = load i32, ptr %154, align 4
+  call void @DoCopy(ptr noundef nonnull %71, ptr noundef nonnull %19, i32 noundef %153, i32 noundef %155, ptr noundef nonnull %9) #10
   %.not296 = icmp eq ptr %7, null
-  br i1 %.not296, label %.thread, label %157
+  br i1 %.not296, label %.thread, label %156
 
-157:                                              ; preds = %152
-  %158 = load i64, ptr %9, align 8
+156:                                              ; preds = %151
+  %157 = load i64, ptr %9, align 8
   store i32 56, ptr %7, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %158, ptr %159, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %157, ptr %158, align 8
   br label %.thread
 
-160:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %161 = tail call zeroext i1 @InSecurityRestrictedOperation() #10
-  br i1 %161, label %162, label %CheckRestrictedOperation.exit
+159:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %160 = tail call zeroext i1 @InSecurityRestrictedOperation() #10
+  br i1 %160, label %161, label %CheckRestrictedOperation.exit
 
-162:                                              ; preds = %160
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %163)
-  %164 = tail call i32 @errcode(i32 noundef 16797828) #10
-  %165 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16) #10
+161:                                              ; preds = %159
+  %162 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %162)
+  %163 = tail call i32 @errcode(i32 noundef 16797828) #10
+  %164 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.16) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.CheckRestrictedOperation) #10
   unreachable
 
-CheckRestrictedOperation.exit:                    ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %.0, i64 128
-  %167 = load i32, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %.0, i64 132
-  %169 = load i32, ptr %168, align 4
-  tail call void @PrepareQuery(ptr noundef nonnull %72, ptr noundef nonnull %19, i32 noundef %167, i32 noundef %169) #10
+CheckRestrictedOperation.exit:                    ; preds = %159
+  %165 = getelementptr inbounds nuw i8, ptr %.0, i64 128
+  %166 = load i32, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %.0, i64 132
+  %168 = load i32, ptr %167, align 4
+  tail call void @PrepareQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, i32 noundef %166, i32 noundef %168) #10
+  br label %.thread
+
+169:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @ExecuteQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef null, ptr noundef %4, ptr noundef %6, ptr noundef %7) #10
   br label %.thread
 
 170:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @ExecuteQuery(ptr noundef nonnull %72, ptr noundef nonnull %19, ptr noundef null, ptr noundef %4, ptr noundef %6, ptr noundef %7) #10
-  br label %.thread
-
-171:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.17)
   tail call void @DeallocateQuery(ptr noundef nonnull %19) #10
   br label %.thread
 
+171:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @GrantRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #10
+  br label %.thread
+
 172:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @GrantRole(ptr noundef nonnull %72, ptr noundef nonnull %19) #10
-  br label %.thread
-
-173:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.18) #10
-  %174 = tail call i32 @createdb(ptr noundef nonnull %72, ptr noundef nonnull %19) #10
+  %173 = tail call i32 @createdb(ptr noundef nonnull %71, ptr noundef nonnull %19) #10
   br label %.thread
 
-175:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %176 = tail call i32 @AlterDatabase(ptr noundef nonnull %72, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
+174:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %175 = tail call i32 @AlterDatabase(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
   br label %.thread
 
-177:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %178 = tail call { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef nonnull %19) #10
+176:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %177 = tail call { i64, i32 } @AlterDatabaseRefreshColl(ptr noundef nonnull %19) #10
   br label %.thread
 
-179:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %180 = tail call i32 @AlterDatabaseSet(ptr noundef nonnull %19) #10
+178:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %179 = tail call i32 @AlterDatabaseSet(ptr noundef nonnull %19) #10
+  br label %.thread
+
+180:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.19) #10
+  tail call void @DropDatabase(ptr noundef nonnull %71, ptr noundef nonnull %19) #10
   br label %.thread
 
 181:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.19) #10
-  tail call void @DropDatabase(ptr noundef nonnull %72, ptr noundef nonnull %19) #10
+  %182 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %185 = load ptr, ptr %184, align 8
+  tail call void @Async_Notify(ptr noundef %183, ptr noundef %185) #10
   br label %.thread
 
-182:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %183 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %186 = load ptr, ptr %185, align 8
-  tail call void @Async_Notify(ptr noundef %184, ptr noundef %186) #10
-  br label %.thread
-
-187:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+186:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.20)
-  %188 = load i32, ptr @MyBackendType, align 4
-  %.not295 = icmp eq i32 %188, 4
-  br i1 %.not295, label %193, label %189
+  %187 = load i32, ptr @MyBackendType, align 4
+  %.not295 = icmp eq i32 %187, 4
+  br i1 %.not295, label %192, label %188
 
-189:                                              ; preds = %187
-  %190 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %190)
-  %191 = tail call i32 @errcode(i32 noundef 1088) #10
-  %192 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20) #10
+188:                                              ; preds = %186
+  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %189)
+  %190 = tail call i32 @errcode(i32 noundef 1088) #10
+  %191 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.20) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 829, ptr noundef nonnull @__func__.standard_ProcessUtility) #10
   unreachable
 
-193:                                              ; preds = %187
-  %194 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %195 = load ptr, ptr %194, align 8
-  tail call void @Async_Listen(ptr noundef %195) #10
+192:                                              ; preds = %186
+  %193 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %194 = load ptr, ptr %193, align 8
+  tail call void @Async_Listen(ptr noundef %194) #10
   br label %.thread
 
-196:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+195:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.22)
-  %197 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %.not294 = icmp eq ptr %198, null
-  br i1 %.not294, label %200, label %199
+  %196 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %197 = load ptr, ptr %196, align 8
+  %.not294 = icmp eq ptr %197, null
+  br i1 %.not294, label %199, label %198
 
-199:                                              ; preds = %196
-  tail call void @Async_Unlisten(ptr noundef nonnull %198) #10
+198:                                              ; preds = %195
+  tail call void @Async_Unlisten(ptr noundef nonnull %197) #10
   br label %.thread
 
-200:                                              ; preds = %196
+199:                                              ; preds = %195
   tail call void @Async_UnlistenAll() #10
   br label %.thread
 
-201:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+200:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @closeAllVfds() #10
-  %202 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %203 = load ptr, ptr %202, align 8
-  %204 = tail call zeroext i1 @superuser() #10
-  %205 = xor i1 %204, true
-  tail call void @load_file(ptr noundef %203, i1 noundef zeroext %205) #10
+  %201 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = tail call zeroext i1 @superuser() #10
+  %204 = xor i1 %203, true
+  tail call void @load_file(ptr noundef %202, i1 noundef zeroext %204) #10
   br label %.thread
 
-206:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+205:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecuteCallStmt(ptr noundef nonnull %19, ptr noundef %4, i1 noundef zeroext %14, ptr noundef %6) #10
   br label %.thread
 
+206:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call void @cluster(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
+  br label %.thread
+
 207:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @cluster(ptr noundef nonnull %72, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
+  tail call void @ExecVacuum(ptr noundef nonnull %71, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
   br label %.thread
 
 208:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @ExecVacuum(ptr noundef nonnull %72, ptr noundef nonnull %19, i1 noundef zeroext %10) #10
+  tail call void @ExplainQuery(ptr noundef nonnull %71, ptr noundef nonnull %19, ptr noundef %4, ptr noundef %6) #10
   br label %.thread
 
 209:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call void @ExplainQuery(ptr noundef nonnull %72, ptr noundef nonnull %19, ptr noundef %4, ptr noundef %6) #10
-  br label %.thread
-
-210:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.23) #10
   tail call void @AlterSystemSetConfigFile(ptr noundef nonnull %19) #10
   br label %.thread
 
-211:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+210:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ExecSetVariableStmt(ptr noundef nonnull %19, i1 noundef zeroext %10) #10
   br label %.thread
 
-212:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %213 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %214 = load ptr, ptr %213, align 8
-  tail call void @GetPGVariable(ptr noundef %214, ptr noundef %6) #10
+211:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %212 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %213 = load ptr, ptr %212, align 8
+  tail call void @GetPGVariable(ptr noundef %213, ptr noundef %6) #10
   br label %.thread
 
-215:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+214:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call fastcc void @CheckRestrictedOperation(ptr noundef nonnull @.str.24)
   tail call void @DiscardCommand(ptr noundef nonnull %19, i1 noundef zeroext %10) #10
   br label %.thread
 
-216:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %217 = tail call i32 @CreateEventTrigger(ptr noundef nonnull %19) #10
+215:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %216 = tail call i32 @CreateEventTrigger(ptr noundef nonnull %19) #10
   br label %.thread
 
-218:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %219 = tail call i32 @AlterEventTrigger(ptr noundef nonnull %19) #10
+217:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %218 = tail call i32 @AlterEventTrigger(ptr noundef nonnull %19) #10
   br label %.thread
 
-220:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %221 = tail call i32 @CreateRole(ptr noundef nonnull %72, ptr noundef nonnull %19) #10
+219:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %220 = tail call i32 @CreateRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #10
   br label %.thread
 
-222:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %223 = tail call i32 @AlterRole(ptr noundef nonnull %72, ptr noundef nonnull %19) #10
+221:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %222 = tail call i32 @AlterRole(ptr noundef nonnull %71, ptr noundef nonnull %19) #10
   br label %.thread
 
-224:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %225 = tail call i32 @AlterRoleSet(ptr noundef nonnull %19) #10
+223:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %224 = tail call i32 @AlterRoleSet(ptr noundef nonnull %19) #10
   br label %.thread
 
-226:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+225:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @DropRole(ptr noundef nonnull %19) #10
   br label %.thread
 
-227:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+226:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @ReassignOwnedObjects(ptr noundef nonnull %19) #10
   br label %.thread
 
-228:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+227:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @RequireTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.25) #10
   tail call void @LockTableCommand(ptr noundef nonnull %19) #10
   br label %.thread
 
-229:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+228:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
   tail call void @WarnNoTransactionBlock(i1 noundef zeroext %10, ptr noundef nonnull @.str.26) #10
   tail call void @AfterTriggerSetState(ptr noundef nonnull %19) #10
   br label %.thread
 
-230:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %231 = tail call i32 @GetUserId() #10
-  %232 = tail call zeroext i1 @has_privs_of_role(i32 noundef %231, i32 noundef 4544) #10
-  br i1 %232, label %238, label %233
+229:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %230 = tail call i32 @GetUserId() #10
+  %231 = tail call zeroext i1 @has_privs_of_role(i32 noundef %230, i32 noundef 4544) #10
+  br i1 %231, label %237, label %232
 
-233:                                              ; preds = %230
-  %234 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %234)
-  %235 = tail call i32 @errcode(i32 noundef 16797828) #10
-  %236 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #10
-  %237 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #10
+232:                                              ; preds = %229
+  %233 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %233)
+  %234 = tail call i32 @errcode(i32 noundef 16797828) #10
+  %235 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #10
+  %236 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 957, ptr noundef nonnull @__func__.standard_ProcessUtility) #10
   unreachable
 
-238:                                              ; preds = %230
-  %239 = tail call zeroext i1 @RecoveryInProgress() #10
-  %240 = select i1 %239, i32 36, i32 44
-  tail call void @RequestCheckpoint(i32 noundef %240) #10
+237:                                              ; preds = %229
+  %238 = tail call zeroext i1 @RecoveryInProgress() #10
+  %239 = select i1 %238, i32 36, i32 44
+  tail call void @RequestCheckpoint(i32 noundef %239) #10
   br label %.thread
 
-241:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %242 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %243 = load i32, ptr %242, align 4
-  %244 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %243) #10
-  br i1 %244, label %245, label %246
+240:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %241 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %242 = load i32, ptr %241, align 4
+  %243 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %242) #10
+  br i1 %243, label %244, label %245
 
-245:                                              ; preds = %241
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+244:                                              ; preds = %240
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-246:                                              ; preds = %241
+245:                                              ; preds = %240
   tail call void @ExecuteGrantStmt(ptr noundef nonnull %19) #10
   br label %.thread
 
-247:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %248 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %249 = load i32, ptr %248, align 8
-  %250 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %249) #10
-  br i1 %250, label %251, label %252
+246:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %247 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %248 = load i32, ptr %247, align 8
+  %249 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %248) #10
+  br i1 %249, label %250, label %251
 
-251:                                              ; preds = %247
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+250:                                              ; preds = %246
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-252:                                              ; preds = %247
+251:                                              ; preds = %246
   tail call fastcc void @ExecDropStmt(ptr noundef nonnull %19, i1 noundef zeroext %10)
   br label %.thread
 
-253:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %254 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %255 = load i32, ptr %254, align 4
-  %256 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %255) #10
-  br i1 %256, label %257, label %258
+252:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %253 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %254 = load i32, ptr %253, align 4
+  %255 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %254) #10
+  br i1 %255, label %256, label %257
 
-257:                                              ; preds = %253
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+256:                                              ; preds = %252
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-258:                                              ; preds = %253
-  %259 = tail call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %19) #10
+257:                                              ; preds = %252
+  %258 = tail call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %19) #10
   br label %.thread
 
-260:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %261 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %262 = load i32, ptr %261, align 4
-  %263 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %262) #10
-  br i1 %263, label %264, label %265
+259:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %260 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %261 = load i32, ptr %260, align 4
+  %262 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %261) #10
+  br i1 %262, label %263, label %264
 
-264:                                              ; preds = %260
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+263:                                              ; preds = %259
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-265:                                              ; preds = %260
-  %266 = tail call { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef nonnull %19, ptr noundef null) #10
+264:                                              ; preds = %259
+  %265 = tail call { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef nonnull %19, ptr noundef null) #10
   br label %.thread
 
-267:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %268 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %269 = load i32, ptr %268, align 4
-  %270 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %269) #10
-  br i1 %270, label %271, label %272
+266:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %267 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %268 = load i32, ptr %267, align 4
+  %269 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %268) #10
+  br i1 %269, label %270, label %271
 
-271:                                              ; preds = %267
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+270:                                              ; preds = %266
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-272:                                              ; preds = %267
-  %273 = tail call { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef nonnull %19, ptr noundef null) #10
+271:                                              ; preds = %266
+  %272 = tail call { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef nonnull %19, ptr noundef null) #10
   br label %.thread
 
-274:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %275 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %276 = load i32, ptr %275, align 4
-  %277 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %276) #10
-  br i1 %277, label %278, label %279
+273:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %274 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %275 = load i32, ptr %274, align 4
+  %276 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %275) #10
+  br i1 %276, label %277, label %278
 
-278:                                              ; preds = %274
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+277:                                              ; preds = %273
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-279:                                              ; preds = %274
-  %280 = tail call { i64, i32 } @ExecAlterOwnerStmt(ptr noundef nonnull %19) #10
+278:                                              ; preds = %273
+  %279 = tail call { i64, i32 } @ExecAlterOwnerStmt(ptr noundef nonnull %19) #10
   br label %.thread
 
-281:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %282 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %283 = load i32, ptr %282, align 4
-  %284 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %283) #10
-  br i1 %284, label %285, label %286
+280:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %281 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %282 = load i32, ptr %281, align 4
+  %283 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %282) #10
+  br i1 %283, label %284, label %285
 
-285:                                              ; preds = %281
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+284:                                              ; preds = %280
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-286:                                              ; preds = %281
-  %287 = tail call { i64, i32 } @CommentObject(ptr noundef nonnull %19) #10
+285:                                              ; preds = %280
+  %286 = tail call { i64, i32 } @CommentObject(ptr noundef nonnull %19) #10
   br label %.thread
 
-288:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  %289 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %290 = load i32, ptr %289, align 4
-  %291 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %290) #10
-  br i1 %291, label %292, label %293
+287:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  %288 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %289 = load i32, ptr %288, align 4
+  %290 = tail call zeroext i1 @EventTriggerSupportsObjectType(i32 noundef %289) #10
+  br i1 %290, label %291, label %292
 
-292:                                              ; preds = %288
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+291:                                              ; preds = %287
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-293:                                              ; preds = %288
-  %294 = tail call { i64, i32 } @ExecSecLabelStmt(ptr noundef nonnull %19) #10
+292:                                              ; preds = %287
+  %293 = tail call { i64, i32 } @ExecSecLabelStmt(ptr noundef nonnull %19) #10
   br label %.thread
 
-295:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
-  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %72, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
+294:                                              ; preds = %ClassifyUtilityCommandAsReadOnly.exit
+  tail call fastcc void @ProcessUtilitySlow(ptr noundef nonnull %71, ptr noundef nonnull %.0, ptr noundef %1, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   br label %.thread
 
-.thread:                                          ; preds = %102, %.lr.ph, %79, %292, %293, %285, %286, %278, %279, %271, %272, %264, %265, %257, %258, %251, %252, %245, %246, %199, %200, %152, %157, %76, %121, %124, %127, %131, %134, %137, %112, %106, %119, %114, %295, %238, %229, %228, %227, %226, %224, %222, %220, %218, %216, %215, %212, %211, %210, %209, %208, %207, %206, %201, %193, %182, %181, %179, %177, %175, %173, %172, %171, %170, %CheckRestrictedOperation.exit, %151, %149, %148, %146, %145, %144, %141, %140
-  call void @free_parsestate(ptr noundef %72) #10
+.thread:                                          ; preds = %101, %.lr.ph, %78, %291, %292, %284, %285, %277, %278, %270, %271, %263, %264, %256, %257, %250, %251, %244, %245, %198, %199, %151, %156, %75, %120, %123, %126, %130, %133, %136, %111, %105, %118, %113, %294, %237, %228, %227, %226, %225, %223, %221, %219, %217, %215, %214, %211, %210, %209, %208, %207, %206, %205, %200, %192, %181, %180, %178, %176, %174, %172, %171, %170, %169, %CheckRestrictedOperation.exit, %150, %148, %147, %145, %144, %143, %140, %139
+  call void @free_parsestate(ptr noundef %71) #10
   call void @CommandCounterIncrement() #10
   ret void
 }
@@ -3144,11 +3141,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 124, label %.loopexit.loopexit
     i32 125, label %.loopexit.loopexit
     i32 126, label %5
-    i32 129, label %.loopexit.loopexit107
-    i32 209, label %.loopexit.loopexit107
-    i32 185, label %.loopexit.loopexit107
-    i32 186, label %.loopexit.loopexit107
-    i32 187, label %.loopexit.loopexit107
+    i32 129, label %.loopexit.loopexit97
+    i32 209, label %.loopexit.loopexit97
+    i32 185, label %.loopexit.loopexit97
+    i32 186, label %.loopexit.loopexit97
+    i32 187, label %.loopexit.loopexit97
     i32 130, label %.loopexit
     i32 144, label %.loopexit
     i32 157, label %.loopexit
@@ -3173,7 +3170,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 141, label %8
     i32 236, label %12
     i32 237, label %14
-    i32 238, label %.loopexit.loopexit107
+    i32 238, label %.loopexit.loopexit97
     i32 199, label %.loopexit
     i32 200, label %.loopexit
     i32 201, label %.loopexit
@@ -3198,26 +3195,26 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 205, label %.loopexit
     i32 173, label %.loopexit
     i32 174, label %.loopexit
-    i32 195, label %.loopexit.loopexit107
+    i32 195, label %.loopexit.loopexit97
     i32 216, label %.loopexit
     i32 217, label %.loopexit
     i32 218, label %.loopexit
     i32 219, label %.loopexit
     i32 220, label %.loopexit
-    i32 206, label %.loopexit.loopexit107
-    i32 207, label %.loopexit.loopexit107
-    i32 208, label %.loopexit.loopexit107
-    i32 215, label %.loopexit.loopexit107
-    i32 197, label %.loopexit.loopexit107
+    i32 206, label %.loopexit.loopexit97
+    i32 207, label %.loopexit.loopexit97
+    i32 208, label %.loopexit.loopexit97
+    i32 215, label %.loopexit.loopexit97
+    i32 197, label %.loopexit.loopexit97
     i32 222, label %.loopexit
-    i32 223, label %.loopexit.loopexit107
+    i32 223, label %.loopexit.loopexit97
     i32 225, label %25
     i32 226, label %.loopexit
     i32 227, label %.loopexit
     i32 221, label %.loopexit
-    i32 142, label %.loopexit.loopexit107
-    i32 143, label %.loopexit.loopexit107
-    i32 229, label %.loopexit.loopexit107
+    i32 142, label %.loopexit.loopexit97
+    i32 143, label %.loopexit.loopexit97
+    i32 229, label %.loopexit.loopexit97
     i32 165, label %.loopexit
     i32 166, label %.loopexit
     i32 167, label %.loopexit
@@ -3229,10 +3226,10 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 172, label %.loopexit
     i32 239, label %.loopexit
     i32 240, label %.loopexit
-    i32 230, label %.loopexit.loopexit107
-    i32 231, label %.loopexit.loopexit107
-    i32 228, label %.loopexit.loopexit107
-    i32 232, label %.loopexit.loopexit107
+    i32 230, label %.loopexit.loopexit97
+    i32 231, label %.loopexit.loopexit97
+    i32 228, label %.loopexit.loopexit97
+    i32 232, label %.loopexit.loopexit97
     i32 233, label %.loopexit
     i32 234, label %.loopexit
     i32 177, label %.loopexit
@@ -3313,12 +3310,12 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph70, label %.loopexit.loopexit
+  br i1 %31, label %.lr.ph65, label %.loopexit.loopexit
 
-.lr.ph70:                                         ; preds = %.lr.ph, %42
+.lr.ph65:                                         ; preds = %.lr.ph, %42
   %32 = phi i32 [ %43, %42 ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
-  %.0336468 = phi i1 [ %.1, %42 ], [ false, %.lr.ph ]
+  %.0335963 = phi i1 [ %.1, %42 ], [ false, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -3328,18 +3325,18 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 
-40:                                               ; preds = %.lr.ph70
+40:                                               ; preds = %.lr.ph65
   %41 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %35) #10
   %.pre = load i32, ptr %28, align 4
   br label %42
 
-42:                                               ; preds = %.lr.ph70, %40
-  %43 = phi i32 [ %.pre, %40 ], [ %32, %.lr.ph70 ]
-  %.1 = phi i1 [ %41, %40 ], [ %.0336468, %.lr.ph70 ]
+42:                                               ; preds = %.lr.ph65, %40
+  %43 = phi i32 [ %.pre, %40 ], [ %32, %.lr.ph65 ]
+  %.1 = phi i1 [ %41, %40 ], [ %.0335963, %.lr.ph65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph70, label %._crit_edge
+  br i1 %45, label %.lr.ph65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42
   br i1 %.1, label %46, label %.loopexit.loopexit
@@ -3353,10 +3350,10 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %50 = load i32, ptr %49, align 4
   switch i32 %50, label %53 [
     i32 1, label %.loopexit.loopexit
-    i32 2, label %.loopexit.loopexit107
-    i32 3, label %.loopexit.loopexit107
-    i32 4, label %.loopexit.loopexit107
-    i32 5, label %.loopexit.loopexit107
+    i32 2, label %.loopexit.loopexit97
+    i32 3, label %.loopexit.loopexit97
+    i32 4, label %.loopexit.loopexit97
+    i32 5, label %.loopexit.loopexit97
     i32 6, label %51
   ]
 
@@ -3380,10 +3377,10 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %61 = load i32, ptr %60, align 4
   switch i32 %61, label %64 [
     i32 1, label %.loopexit.loopexit
-    i32 2, label %.loopexit.loopexit107
-    i32 3, label %.loopexit.loopexit107
-    i32 4, label %.loopexit.loopexit107
-    i32 5, label %.loopexit.loopexit107
+    i32 2, label %.loopexit.loopexit97
+    i32 3, label %.loopexit.loopexit97
+    i32 4, label %.loopexit.loopexit97
+    i32 5, label %.loopexit.loopexit97
     i32 6, label %62
   ]
 
@@ -3416,12 +3413,12 @@ tailrecurse.backedge:                             ; preds = %3, %12, %23, %46, %
   %.0.ph = phi i32 [ 3, %25 ], [ 3, %.lr.ph ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 2, %tailrecurse ], [ 3, %18 ], [ 3, %14 ], [ 3, %._crit_edge ], [ 3, %48 ], [ 3, %59 ]
   br label %.loopexit
 
-.loopexit.loopexit107:                            ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %48, %48, %48, %59, %59, %59, %59
-  %.0.ph108 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ]
+.loopexit.loopexit97:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %48, %48, %48, %48, %59, %59, %59, %59
+  %.0.ph98 = phi i32 [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 3, %tailrecurse ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %48 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ], [ 2, %59 ]
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit107, %.loopexit.loopexit, %5, %8, %53, %55, %64, %66, %70, %72
-  %.0 = phi i32 [ %., %5 ], [ %.42, %8 ], [ 3, %53 ], [ 3, %55 ], [ 3, %64 ], [ 3, %66 ], [ 3, %70 ], [ 3, %72 ], [ %.0.ph, %.loopexit.loopexit ], [ %.0.ph108, %.loopexit.loopexit107 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %.loopexit.loopexit97, %.loopexit.loopexit, %5, %8, %53, %55, %64, %66, %70, %72
+  %.0 = phi i32 [ %., %5 ], [ %.42, %8 ], [ 3, %53 ], [ 3, %55 ], [ 3, %64 ], [ 3, %66 ], [ 3, %70 ], [ 3, %72 ], [ %.0.ph, %.loopexit.loopexit ], [ %.0.ph98, %.loopexit.loopexit97 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
   ret i32 %.0
 }
 

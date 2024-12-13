@@ -202,7 +202,7 @@ define dso_local void @cleanup_output_dirs() local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef %21)
   br label %22
 
-22:                                               ; preds = %11, %14, %17, %11, %11, %0, %20
+22:                                               ; preds = %14, %17, %11, %11, %11, %0, %20
   ret void
 }
 

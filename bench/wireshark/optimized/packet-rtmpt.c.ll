@@ -4820,7 +4820,7 @@ define internal fastcc noundef i32 @dissect_amf0_value_type(ptr noundef %0, i32 
   %153 = call i32 @tvb_reported_length(ptr noundef %0) #8
   br label %154
 
-154:                                              ; preds = %145, %151, %45, %128, %131, %45, %45, %79, %82, %59, %67, %52, %58, %152, %144, %132, %113, %._crit_edge, %90, %.thread194, %83, %.thread
+154:                                              ; preds = %145, %151, %128, %131, %45, %45, %45, %79, %82, %59, %67, %52, %58, %152, %144, %132, %113, %._crit_edge, %90, %.thread194, %83, %.thread
   %.0183 = phi i32 [ %153, %152 ], [ %149, %151 ], [ %149, %145 ], [ %51, %144 ], [ %143, %132 ], [ %129, %131 ], [ %129, %128 ], [ %114, %113 ], [ %.1.lcssa, %._crit_edge ], [ %93, %90 ], [ %32, %.thread194 ], [ %88, %83 ], [ %51, %45 ], [ %51, %45 ], [ %51, %45 ], [ %19, %.thread ], [ %80, %82 ], [ %80, %79 ], [ %64, %67 ], [ %64, %59 ], [ %56, %58 ], [ %56, %52 ]
   %155 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %155, ptr noundef %0, i32 noundef %.0183) #8

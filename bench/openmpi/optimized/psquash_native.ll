@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [25 x i8] c"psquash: native finalize\00", align 1
 @.str.3 = private unnamed_addr constant [37 x i8] c"PMIX ERROR: %s in file %s at line %d\00", align 1
 @.str.4 = private unnamed_addr constant [17 x i8] c"psquash_native.c\00", align 1
-@switch.table.native_get_max_size = private unnamed_addr constant [12 x i64] [i64 8, i64 2, i64 4, i64 2, i64 2, i64 4, i64 8, i64 4, i64 2, i64 2, i64 4, i64 8], align 8
+@switch.table.native_decode_int = private unnamed_addr constant [12 x i64] [i64 8, i64 2, i64 4, i64 2, i64 2, i64 4, i64 8, i64 4, i64 2, i64 2, i64 4, i64 8], align 8
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @native_init() #0 {
@@ -91,7 +91,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_get_max_size, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   store i64 %switch.load, ptr %1, align 8
   br label %5
@@ -105,96 +105,83 @@ switch.lookup:                                    ; preds = %switch.hole_check
 define internal range(i32 -27, 1) i32 @native_encode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
-  switch i16 %0, label %9 [
-    i16 8, label %11
-    i16 13, label %11
-    i16 6, label %6
-    i16 9, label %6
-    i16 11, label %6
-    i16 14, label %6
-    i16 10, label %7
-    i16 15, label %7
-    i16 4, label %.thread29
+  %switch.tableidx = add i16 %0, -4
+  %6 = icmp ult i16 %switch.tableidx, 12
+  br i1 %6, label %switch.hole_check, label %7
+
+7:                                                ; preds = %switch.hole_check, %4
+  %8 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef 139) #5
+  br label %26
+
+switch.hole_check:                                ; preds = %4
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %7
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %9 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %9
+  %switch.load = load i64, ptr %switch.gep, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
+  switch i16 %0, label %24 [
+    i16 8, label %10
+    i16 13, label %10
+    i16 6, label %14
+    i16 11, label %14
+    i16 9, label %14
+    i16 14, label %14
+    i16 4, label %18
+    i16 10, label %18
+    i16 15, label %18
   ]
 
-6:                                                ; preds = %4, %4, %4, %4
-  br label %11
-
-7:                                                ; preds = %4, %4
-  br label %11
-
-.thread29:                                        ; preds = %4
-  %8 = load i64, ptr %1, align 1
-  store i64 %8, ptr %5, align 8
-  br label %20
-
-9:                                                ; preds = %4
-  %10 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef 139) #5
-  br label %28
-
-11:                                               ; preds = %7, %6, %4, %4
-  %.023.ph = phi i64 [ 2, %4 ], [ 2, %4 ], [ 4, %6 ], [ 8, %7 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.023.ph, i1 false)
-  switch i16 %0, label %26 [
-    i16 8, label %12
-    i16 13, label %12
-    i16 6, label %16
-    i16 11, label %16
-    i16 9, label %16
-    i16 14, label %16
-    i16 15, label %20
-    i16 10, label %20
-  ]
-
-12:                                               ; preds = %11, %11
+10:                                               ; preds = %switch.lookup, %switch.lookup
   %.0..0..0..0. = load i64, ptr %5, align 8
-  %13 = trunc i64 %.0..0..0..0. to i16
-  %14 = tail call zeroext i16 @htons(i16 noundef zeroext %13) #6
-  %15 = zext i16 %14 to i64
+  %11 = trunc i64 %.0..0..0..0. to i16
+  %12 = tail call zeroext i16 @htons(i16 noundef zeroext %11) #6
+  %13 = zext i16 %12 to i64
   br label %pmix_hton64.exit
 
-16:                                               ; preds = %11, %11, %11, %11
+14:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %.0..0..0..0.6 = load i64, ptr %5, align 8
-  %17 = trunc i64 %.0..0..0..0.6 to i32
-  %18 = tail call i32 @htonl(i32 noundef %17) #6
-  %19 = zext i32 %18 to i64
+  %15 = trunc i64 %.0..0..0..0.6 to i32
+  %16 = tail call i32 @htonl(i32 noundef %15) #6
+  %17 = zext i32 %16 to i64
   br label %pmix_hton64.exit
 
-20:                                               ; preds = %11, %.thread29, %11
-  %.023.ph31 = phi i64 [ 8, %.thread29 ], [ %.023.ph, %11 ], [ %.023.ph, %11 ]
+18:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup
   %.0..0..0..0.7 = load i64, ptr %5, align 8
-  %21 = tail call i32 @htonl(i32 noundef 1) #6
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %pmix_hton64.exit, label %23
+  %19 = tail call i32 @htonl(i32 noundef 1) #6
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %pmix_hton64.exit, label %21
 
-23:                                               ; preds = %20
+21:                                               ; preds = %18
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0..0..0..0.7 to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0..0..0..0.7, 32
   %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
-  %24 = tail call i32 @htonl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
-  %25 = tail call i32 @htonl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
-  %.sroa.2.0.insert.ext.i = zext i32 %25 to i64
+  %22 = tail call i32 @htonl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
+  %23 = tail call i32 @htonl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
+  %.sroa.2.0.insert.ext.i = zext i32 %23 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %24 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %22 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %pmix_hton64.exit
 
-26:                                               ; preds = %11
-  %27 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %27, ptr noundef nonnull @.str.4, i32 noundef 145) #5
-  br label %28
+24:                                               ; preds = %switch.lookup
+  %25 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef nonnull @.str.4, i32 noundef 145) #5
+  br label %26
 
-pmix_hton64.exit:                                 ; preds = %23, %20, %16, %12
-  %.0.i.sink = phi i64 [ %19, %16 ], [ %15, %12 ], [ %.sroa.0.0.insert.insert.i, %23 ], [ %.0..0..0..0.7, %20 ]
-  %.023.ph32.ph = phi i64 [ %.023.ph, %16 ], [ %.023.ph, %12 ], [ %.023.ph31, %23 ], [ %.023.ph31, %20 ]
+pmix_hton64.exit:                                 ; preds = %21, %18, %14, %10
+  %.0.i.sink = phi i64 [ %17, %14 ], [ %13, %10 ], [ %.sroa.0.0.insert.insert.i, %21 ], [ %.0..0..0..0.7, %18 ]
   store i64 %.0.i.sink, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 8 %5, i64 %.023.ph32.ph, i1 false)
-  store i64 %.023.ph32.ph, ptr %3, align 8
-  br label %28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %switch.load, i1 false)
+  store i64 %switch.load, ptr %3, align 8
+  br label %26
 
-28:                                               ; preds = %pmix_hton64.exit, %26, %9
-  %.0 = phi i32 [ -27, %9 ], [ -27, %26 ], [ 0, %pmix_hton64.exit ]
+26:                                               ; preds = %pmix_hton64.exit, %24, %7
+  %.0 = phi i32 [ -27, %7 ], [ -27, %24 ], [ 0, %pmix_hton64.exit ]
   ret i32 %.0
 }
 
@@ -202,96 +189,83 @@ pmix_hton64.exit:                                 ; preds = %23, %20, %16, %12
 define internal range(i32 -27, 1) i32 @native_decode_int(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
-  switch i16 %0, label %10 [
-    i16 8, label %12
-    i16 13, label %12
-    i16 6, label %7
-    i16 9, label %7
-    i16 11, label %7
-    i16 14, label %7
-    i16 10, label %8
-    i16 15, label %8
-    i16 4, label %.thread32
+  %switch.tableidx = add i16 %0, -4
+  %7 = icmp ult i16 %switch.tableidx, 12
+  br i1 %7, label %switch.hole_check, label %8
+
+8:                                                ; preds = %switch.hole_check, %5
+  %9 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %9, ptr noundef nonnull @.str.4, i32 noundef 163) #5
+  br label %27
+
+switch.hole_check:                                ; preds = %5
+  %switch.shifted = lshr i16 3829, %switch.tableidx
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %8
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %10 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.native_decode_int, i64 0, i64 %10
+  %switch.load = load i64, ptr %switch.gep, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %switch.load, i1 false)
+  switch i16 %0, label %25 [
+    i16 8, label %11
+    i16 13, label %11
+    i16 6, label %15
+    i16 11, label %15
+    i16 9, label %15
+    i16 14, label %15
+    i16 10, label %19
+    i16 4, label %19
+    i16 15, label %19
   ]
 
-7:                                                ; preds = %5, %5, %5, %5
-  br label %12
-
-8:                                                ; preds = %5, %5
-  br label %12
-
-.thread32:                                        ; preds = %5
-  %9 = load i64, ptr %1, align 1
-  store i64 %9, ptr %6, align 8
-  br label %21
-
-10:                                               ; preds = %5
-  %11 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef nonnull @.str.4, i32 noundef 163) #5
-  br label %29
-
-12:                                               ; preds = %8, %7, %5, %5
-  %.025.ph = phi i64 [ 2, %5 ], [ 2, %5 ], [ 4, %7 ], [ 8, %8 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.025.ph, i1 false)
-  switch i16 %0, label %27 [
-    i16 8, label %13
-    i16 13, label %13
-    i16 6, label %17
-    i16 11, label %17
-    i16 9, label %17
-    i16 14, label %17
-    i16 10, label %21
-    i16 15, label %21
-  ]
-
-13:                                               ; preds = %12, %12
+11:                                               ; preds = %switch.lookup, %switch.lookup
   %.0..0..0..0. = load i64, ptr %6, align 8
-  %14 = trunc i64 %.0..0..0..0. to i16
-  %15 = tail call zeroext i16 @ntohs(i16 noundef zeroext %14) #6
-  %16 = zext i16 %15 to i64
+  %12 = trunc i64 %.0..0..0..0. to i16
+  %13 = tail call zeroext i16 @ntohs(i16 noundef zeroext %12) #6
+  %14 = zext i16 %13 to i64
   br label %pmix_ntoh64.exit
 
-17:                                               ; preds = %12, %12, %12, %12
+15:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup, %switch.lookup
   %.0..0..0..0.7 = load i64, ptr %6, align 8
-  %18 = trunc i64 %.0..0..0..0.7 to i32
-  %19 = tail call i32 @ntohl(i32 noundef %18) #6
-  %20 = zext i32 %19 to i64
+  %16 = trunc i64 %.0..0..0..0.7 to i32
+  %17 = tail call i32 @ntohl(i32 noundef %16) #6
+  %18 = zext i32 %17 to i64
   br label %pmix_ntoh64.exit
 
-21:                                               ; preds = %12, %.thread32, %12
-  %.025.ph34 = phi i64 [ 8, %.thread32 ], [ %.025.ph, %12 ], [ %.025.ph, %12 ]
+19:                                               ; preds = %switch.lookup, %switch.lookup, %switch.lookup
   %.0..0..0..0.8 = load i64, ptr %6, align 8
-  %22 = tail call i32 @htonl(i32 noundef 1) #6
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %pmix_ntoh64.exit, label %24
+  %20 = tail call i32 @htonl(i32 noundef 1) #6
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %pmix_ntoh64.exit, label %22
 
-24:                                               ; preds = %21
+22:                                               ; preds = %19
   %.sroa.01.0.extract.trunc.i = trunc i64 %.0..0..0..0.8 to i32
   %.sroa.22.0.extract.shift.i = lshr i64 %.0..0..0..0.8, 32
   %.sroa.22.0.extract.trunc.i = trunc nuw i64 %.sroa.22.0.extract.shift.i to i32
-  %25 = tail call i32 @ntohl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
-  %26 = tail call i32 @ntohl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
-  %.sroa.2.0.insert.ext.i = zext i32 %26 to i64
+  %23 = tail call i32 @ntohl(i32 noundef %.sroa.22.0.extract.trunc.i) #6
+  %24 = tail call i32 @ntohl(i32 noundef %.sroa.01.0.extract.trunc.i) #6
+  %.sroa.2.0.insert.ext.i = zext i32 %24 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %25 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %pmix_ntoh64.exit
 
-27:                                               ; preds = %12
-  %28 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %28, ptr noundef nonnull @.str.4, i32 noundef 174) #5
-  br label %29
+25:                                               ; preds = %switch.lookup
+  %26 = tail call ptr @PMIx_Error_string(i32 noundef -27) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %26, ptr noundef nonnull @.str.4, i32 noundef 174) #5
+  br label %27
 
-pmix_ntoh64.exit:                                 ; preds = %24, %21, %17, %13
-  %.0.i.sink = phi i64 [ %20, %17 ], [ %16, %13 ], [ %.sroa.0.0.insert.insert.i, %24 ], [ %.0..0..0..0.8, %21 ]
-  %.025.ph35.ph = phi i64 [ %.025.ph, %17 ], [ %.025.ph, %13 ], [ %.025.ph34, %24 ], [ %.025.ph34, %21 ]
+pmix_ntoh64.exit:                                 ; preds = %22, %19, %15, %11
+  %.0.i.sink = phi i64 [ %18, %15 ], [ %14, %11 ], [ %.sroa.0.0.insert.insert.i, %22 ], [ %.0..0..0..0.8, %19 ]
   store i64 %.0.i.sink, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 8 %6, i64 %.025.ph35.ph, i1 false)
-  store i64 %.025.ph35.ph, ptr %4, align 8
-  br label %29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %switch.load, i1 false)
+  store i64 %switch.load, ptr %4, align 8
+  br label %27
 
-29:                                               ; preds = %pmix_ntoh64.exit, %27, %10
-  %.0 = phi i32 [ -27, %10 ], [ -27, %27 ], [ 0, %pmix_ntoh64.exit ]
+27:                                               ; preds = %pmix_ntoh64.exit, %25, %8
+  %.0 = phi i32 [ -27, %8 ], [ -27, %25 ], [ 0, %pmix_ntoh64.exit ]
   ret i32 %.0
 }
 

@@ -14,17 +14,17 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"JVMTI\00", align 1
 @.str.7 = private unnamed_addr constant [5 x i8] c"%s()\00", align 1
 @.str.8 = private unnamed_addr constant [17 x i8] c"GetFrameLocation\00", align 1
-@switch.table.standardHandlers_defaultHandler = private unnamed_addr constant [22 x ptr] [ptr @genericHandler, ptr @genericHandler, ptr null, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr @handleClassPrepare, ptr @handleClassUnload, ptr null, ptr @genericHandler, ptr @genericHandler, ptr null, ptr @handleFrameEvent, ptr @handleFrameEvent, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr null, ptr @genericHandler, ptr null, ptr null], align 8
+@switch.table.standardHandlers_defaultHandler = private unnamed_addr constant [20 x ptr] [ptr @genericHandler, ptr @genericHandler, ptr null, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr @handleClassPrepare, ptr @handleClassUnload, ptr null, ptr @genericHandler, ptr @genericHandler, ptr null, ptr @handleFrameEvent, ptr @handleFrameEvent, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr @genericHandler, ptr null, ptr @genericHandler], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @standardHandlers_defaultHandler(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -1
-  %2 = icmp ult i32 %switch.tableidx, 22
+  %2 = icmp ult i32 %switch.tableidx, 20
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table.standardHandlers_defaultHandler, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [20 x ptr], ptr @switch.table.standardHandlers_defaultHandler, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

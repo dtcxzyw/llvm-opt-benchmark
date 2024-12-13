@@ -17558,8 +17558,8 @@ entry:
     i32 45, label %sw.epilog118
     i32 46, label %sw.epilog118
     i32 47, label %sw.epilog118
-    i32 48, label %sw.bb37
-    i32 49, label %sw.bb37
+    i32 48, label %sw.bb13
+    i32 49, label %sw.bb13
     i32 50, label %sw.epilog118
     i32 51, label %sw.epilog118
     i32 52, label %sw.epilog118
@@ -17616,7 +17616,7 @@ do.body:                                          ; preds = %sw.bb2
 sw.bb11:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %sw.epilog118
 
-sw.bb13:                                          ; preds = %entry, %entry, %entry
+sw.bb13:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   br label %sw.epilog118
 
 sw.bb15:                                          ; preds = %entry
@@ -17635,9 +17635,6 @@ sw.bb15:                                          ; preds = %entry
   %cmp17 = icmp sgt i64 %mul5.i, %conv
   %7 = trunc i64 %mul5.i to i32
   %spec.select = select i1 %cmp17, i32 %cond, i32 %7
-  br label %sw.epilog118
-
-sw.bb37:                                          ; preds = %entry, %entry
   br label %sw.epilog118
 
 sw.bb44:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
@@ -17710,8 +17707,8 @@ do.body114:                                       ; preds = %if.then106, %if.els
   tail call void @abort() #47
   unreachable
 
-sw.epilog118:                                     ; preds = %sw.bb15, %sw.bb75, %sw.bb57, %sw.bb45, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %entry, %entry, %entry, %entry, %entry, %if.else83, %if.else65, %if.else, %sw.bb4, %sw.bb44, %sw.bb37, %sw.bb13, %sw.bb11, %sw.bb1
-  %n_tasks.0 = phi i32 [ %.n_threads50, %if.else83 ], [ %.n_threads49, %if.else65 ], [ %.n_threads, %if.else ], [ 1, %sw.bb44 ], [ 1, %sw.bb37 ], [ 1, %sw.bb13 ], [ 1, %sw.bb11 ], [ %n_threads, %sw.bb4 ], [ 1, %sw.bb1 ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %sw.bb45 ], [ %n_threads, %sw.bb57 ], [ %n_threads, %sw.bb75 ], [ %spec.select, %sw.bb15 ]
+sw.epilog118:                                     ; preds = %sw.bb15, %sw.bb75, %sw.bb57, %sw.bb45, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %sw.bb2, %entry, %entry, %entry, %entry, %entry, %if.else83, %if.else65, %if.else, %sw.bb4, %sw.bb44, %sw.bb13, %sw.bb11, %sw.bb1
+  %n_tasks.0 = phi i32 [ %.n_threads50, %if.else83 ], [ %.n_threads49, %if.else65 ], [ %.n_threads, %if.else ], [ 1, %sw.bb44 ], [ 1, %sw.bb13 ], [ 1, %sw.bb11 ], [ %n_threads, %sw.bb4 ], [ 1, %sw.bb1 ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ 1, %sw.bb2 ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %entry ], [ %n_threads, %sw.bb45 ], [ %n_threads, %sw.bb57 ], [ %n_threads, %sw.bb75 ], [ %spec.select, %sw.bb15 ]
   ret i32 %n_tasks.0
 }
 

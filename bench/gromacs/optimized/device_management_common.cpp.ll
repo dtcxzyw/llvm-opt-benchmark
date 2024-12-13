@@ -107,7 +107,6 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @.str.19 = private unnamed_addr constant [70 x i8] c"incompatible (please recompile with GMX_ACPP_ENABLE_AMD_RDNA_SUPPORT)\00", align 1
 @.str.20 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.21 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@switch.table._Z26getDeviceComputeUnitFactorRK17DeviceInformation = private unnamed_addr constant [4 x i32] [i32 1, i32 1, i32 16, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_Z25canPerformDeviceDetectionPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
@@ -164,19 +163,9 @@ declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_ad
 define noundef range(i32 1, 17) i32 @_Z26getDeviceComputeUnitFactorRK17DeviceInformation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %switch.tableidx = add i32 %3, -1
-  %4 = icmp ult i32 %switch.tableidx, 4
-  br i1 %4, label %switch.lookup, label %6
-
-switch.lookup:                                    ; preds = %1
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._Z26getDeviceComputeUnitFactorRK17DeviceInformation, i64 0, i64 %5
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %6
-
-6:                                                ; preds = %1, %switch.lookup
-  %.0 = phi i32 [ %switch.load, %switch.lookup ], [ 1, %1 ]
-  ret i32 %.0
+  %cond = icmp eq i32 %3, 3
+  %. = select i1 %cond, i32 16, i32 1
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress uwtable

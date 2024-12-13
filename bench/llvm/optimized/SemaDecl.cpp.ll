@@ -34711,7 +34711,7 @@ default.unreachable:                              ; preds = %_ZN5clang20ParsedAt
   unreachable
 
 _ZL37StorageClassSpecToVarDeclStorageClassRKN5clang8DeclSpecE.exit: ; preds = %_ZN5clang20ParsedAttributesView4noneEv.exit, %_ZN5clang20ParsedAttributesView4noneEv.exit, %_ZN5clang20ParsedAttributesView4noneEv.exit, %436, %438, %439, %440
-  %.0.i244 = phi i32 [ 3, %440 ], [ %435, %439 ], [ 2, %438 ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ], [ %..i, %436 ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ]
+  %.0.i244 = phi i32 [ 3, %440 ], [ %435, %439 ], [ 2, %438 ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ], [ 0, %_ZN5clang20ParsedAttributesView4noneEv.exit ], [ %..i, %436 ]
   %441 = call noundef ptr @_ZN5clang4Sema20GetTypeForDeclaratorERNS_10DeclaratorE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(4456) %51) #27
   %442 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %443 = load i16, ptr %442, align 8
@@ -35198,7 +35198,7 @@ default.unreachable:                              ; preds = %82
   unreachable
 
 _ZL37StorageClassSpecToVarDeclStorageClassRKN5clang8DeclSpecE.exit: ; preds = %82, %82, %82, %86, %88, %89, %90
-  %.0.i = phi i32 [ 3, %90 ], [ %85, %89 ], [ 2, %88 ], [ 0, %82 ], [ %..i, %86 ], [ 0, %82 ], [ 0, %82 ]
+  %.0.i = phi i32 [ 3, %90 ], [ %85, %89 ], [ 2, %88 ], [ 0, %82 ], [ 0, %82 ], [ 0, %82 ], [ %..i, %86 ]
   %91 = call fastcc noundef zeroext i1 @_ZL35InjectAnonymousStructOrUnionMembersRN5clang4SemaEPNS_5ScopeEPNS_11DeclContextEPNS_10RecordDeclENS_15AccessSpecifierENS_12StorageClassERN4llvm15SmallVectorImplIPNS_9NamedDeclEEE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef %83, ptr noundef %78, i32 noundef 3, i32 noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br i1 %91, label %92, label %93
 
@@ -48723,7 +48723,7 @@ default.unreachable:                              ; preds = %813, %112
   unreachable
 
 _ZL37StorageClassSpecToVarDeclStorageClassRKN5clang8DeclSpecE.exit: ; preds = %112, %112, %112, %118, %120, %121, %122
-  %.0.i504 = phi i32 [ 3, %122 ], [ %117, %121 ], [ 2, %120 ], [ 0, %112 ], [ %..i, %118 ], [ 0, %112 ], [ 0, %112 ]
+  %.0.i504 = phi i32 [ 3, %122 ], [ %117, %121 ], [ 2, %120 ], [ 0, %112 ], [ 0, %112 ], [ 0, %112 ], [ %..i, %118 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %124 = load ptr, ptr %123, align 8
   %125 = load i64, ptr %124, align 8

@@ -62561,11 +62561,11 @@ _ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_
     i32 69, label %647
     i32 66, label %648
     i32 68, label %649
-    i32 8036, label %2538
-    i32 8034, label %2538
     i32 8035, label %2538
     i32 344, label %2520
     i32 292, label %2465
+    i32 8034, label %2538
+    i32 8036, label %2538
     i32 233, label %650
     i32 236, label %650
     i32 238, label %650

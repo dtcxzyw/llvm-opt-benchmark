@@ -7258,29 +7258,29 @@ define hidden noundef range(i32 1, 65539) i32 @_ZN12ConstantPool16cpool_entry_si
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = load volatile i8, ptr %7, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  switch i8 %8, label %22 [
-    i8 6, label %21
-    i8 5, label %21
+  switch i8 %8, label %21 [
+    i8 6, label %20
+    i8 5, label %20
     i8 1, label %9
-    i8 7, label %17
-    i8 8, label %17
-    i8 101, label %17
-    i8 100, label %17
-    i8 103, label %17
-    i8 102, label %17
-    i8 16, label %17
-    i8 105, label %17
-    i8 15, label %18
-    i8 104, label %18
-    i8 3, label %19
-    i8 4, label %19
-    i8 9, label %19
-    i8 10, label %19
-    i8 11, label %19
-    i8 12, label %19
-    i8 17, label %20
-    i8 106, label %20
-    i8 18, label %20
+    i8 7, label %22
+    i8 8, label %22
+    i8 101, label %22
+    i8 100, label %22
+    i8 103, label %22
+    i8 102, label %22
+    i8 16, label %22
+    i8 105, label %22
+    i8 15, label %17
+    i8 104, label %17
+    i8 3, label %18
+    i8 4, label %18
+    i8 9, label %18
+    i8 10, label %18
+    i8 11, label %18
+    i8 12, label %18
+    i8 17, label %19
+    i8 106, label %19
+    i8 18, label %19
   ]
 
 9:                                                ; preds = %2
@@ -7293,23 +7293,23 @@ define hidden noundef range(i32 1, 65539) i32 @_ZN12ConstantPool16cpool_entry_si
   %16 = add nuw nsw i32 %15, 3
   br label %22
 
-17:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
+17:                                               ; preds = %2, %2
   br label %22
 
-18:                                               ; preds = %2, %2
+18:                                               ; preds = %2, %2, %2, %2, %2, %2
   br label %22
 
-19:                                               ; preds = %2, %2, %2, %2, %2, %2
+19:                                               ; preds = %2, %2, %2
   br label %22
 
-20:                                               ; preds = %2, %2, %2
+20:                                               ; preds = %2, %2
   br label %22
 
-21:                                               ; preds = %2, %2
+21:                                               ; preds = %2
   br label %22
 
-22:                                               ; preds = %2, %21, %20, %19, %18, %17, %9
-  %.0 = phi i32 [ 9, %21 ], [ 5, %20 ], [ 5, %19 ], [ 4, %18 ], [ 3, %17 ], [ %16, %9 ], [ 1, %2 ]
+22:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %21, %20, %19, %18, %17, %9
+  %.0 = phi i32 [ 1, %21 ], [ 9, %20 ], [ 5, %19 ], [ 5, %18 ], [ 4, %17 ], [ %16, %9 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ]
   ret i32 %.0
 }
 

@@ -739,8 +739,8 @@ thread-pre-split:                                 ; preds = %49, %98
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.type_homogenous_aggregate_small_enough, ptr noundef nonnull @.str.6, i32 noundef 156) #5
   unreachable
 
-type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %120, %.thread.i, %113, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %3, %49, %._crit_edge82, %11, %3, %3, %3, %7
-  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %3 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %121, %120 ], [ %112, %111 ], [ %114, %113 ], [ %119, %.thread.i ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
+type_homogenous_aggregate_small_enough.exit:      ; preds = %._crit_edge, %120, %.thread.i, %113, %111, %104, %104, %104, %104, %101, %98, %92, %77, %58, %54, %49, %._crit_edge82, %11, %3, %3, %3, %3, %7
+  %.062 = phi i1 [ true, %7 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %11 ], [ false, %._crit_edge82 ], [ false, %49 ], [ false, %54 ], [ false, %58 ], [ false, %77 ], [ false, %92 ], [ false, %98 ], [ false, %101 ], [ %121, %120 ], [ %112, %111 ], [ %114, %113 ], [ %119, %.thread.i ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %104 ], [ false, %._crit_edge ]
   ret i1 %.062
 }
 

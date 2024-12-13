@@ -5633,9 +5633,9 @@ if.then1:                                         ; preds = %if.end
     i32 5, label %sw.bb3.i
     i32 3, label %sw.bb3.i
     i32 1, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-    i32 2, label %sw.bb4.i
-    i32 0, label %sw.bb4.i
+    i32 4, label %sw.bb3.i
+    i32 2, label %sw.bb3.i
+    i32 0, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then1
@@ -5648,14 +5648,11 @@ sw.bb1.i:                                         ; preds = %if.then1
   %conv2.i = fptoui double %8 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb3.i:                                         ; preds = %if.then1, %if.then1, %if.then1
+sw.bb3.i:                                         ; preds = %if.then1, %if.then1, %if.then1, %if.then1, %if.then1, %if.then1
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb4.i:                                         ; preds = %if.then1, %if.then1, %if.then1
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then1, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb4.i
-  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb4.i ], [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then1 ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then1, %sw.bb.i, %sw.bb1.i, %sw.bb3.i
+  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then1 ]
   %conv = zext i32 %retval.0.i to i64
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %p_pcOut, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5878,9 +5875,9 @@ if.then:                                          ; preds = %entry
     i32 5, label %sw.bb3.i
     i32 3, label %sw.bb3.i
     i32 1, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-    i32 2, label %sw.bb4.i
-    i32 0, label %sw.bb4.i
+    i32 4, label %sw.bb3.i
+    i32 2, label %sw.bb3.i
+    i32 0, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %if.then
@@ -5893,14 +5890,11 @@ sw.bb1.i:                                         ; preds = %if.then
   %conv2.i = fptoui double %4 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb3.i:                                         ; preds = %if.then, %if.then, %if.then
+sw.bb3.i:                                         ; preds = %if.then, %if.then, %if.then, %if.then, %if.then, %if.then
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb4.i:                                         ; preds = %if.then, %if.then, %if.then
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb4.i
-  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb4.i ], [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb3.i
+  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i, %sw.bb.i ], [ 0, %if.then ]
   %conv = zext i32 %retval.0.i to i64
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %p_pcOut, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8

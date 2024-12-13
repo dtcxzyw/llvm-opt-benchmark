@@ -721,9 +721,9 @@ entry:
     i32 30, label %sw.bb5
     i32 657, label %sw.bb5
     i32 656, label %sw.bb5
-    i32 61, label %sw.bb6
-    i32 659, label %sw.bb6
-    i32 658, label %sw.bb6
+    i32 61, label %sw.bb5
+    i32 659, label %sw.bb5
+    i32 658, label %sw.bb5
   ]
 
 sw.bb1:                                           ; preds = %entry, %entry
@@ -738,10 +738,7 @@ sw.bb3:                                           ; preds = %entry, %entry, %ent
 sw.bb4:                                           ; preds = %entry, %entry, %entry
   br label %return
 
-sw.bb5:                                           ; preds = %entry, %entry, %entry
-  br label %return
-
-sw.bb6:                                           ; preds = %entry, %entry, %entry
+sw.bb5:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -752,8 +749,8 @@ sw.default:                                       ; preds = %entry
   tail call void @ASN1_OBJECT_free(ptr noundef %call7) #13
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %sw.default, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ %spec.select, %sw.default ], [ 30, %sw.bb6 ], [ 30, %sw.bb5 ], [ 429, %sw.bb4 ], [ 425, %sw.bb3 ], [ 421, %sw.bb2 ], [ 5, %sw.bb1 ], [ 37, %entry ], [ 37, %entry ], [ 37, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %sw.default, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
+  %retval.0 = phi i32 [ %spec.select, %sw.default ], [ 30, %sw.bb5 ], [ 429, %sw.bb4 ], [ 425, %sw.bb3 ], [ 421, %sw.bb2 ], [ 5, %sw.bb1 ], [ 37, %entry ], [ 37, %entry ], [ 37, %entry ]
   ret i32 %retval.0
 }
 

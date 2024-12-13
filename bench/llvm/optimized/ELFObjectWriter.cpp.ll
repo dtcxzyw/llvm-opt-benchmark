@@ -1117,7 +1117,7 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread29:  ; preds = %13, %_ZNK4llvm8MCSy
   %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(13) %58, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %5) #16
   br label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread
 
-_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread:    ; preds = %15, %25, %56, %54, %53, %47, %38, %37, %27, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread29, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %8, %6, %12
+_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread:    ; preds = %15, %56, %54, %53, %47, %38, %37, %27, %25, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread29, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %8, %6, %12
   %.0 = phi i1 [ true, %12 ], [ false, %6 ], [ false, %8 ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread29 ], [ true, %25 ], [ true, %27 ], [ true, %37 ], [ true, %38 ], [ true, %47 ], [ true, %53 ], [ true, %54 ], [ %62, %56 ], [ true, %15 ]
   ret i1 %.0
 }

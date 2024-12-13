@@ -2585,8 +2585,8 @@ switch.lookup:                                    ; preds = %invoke.cont65
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %switch.lookup, %invoke.cont65
-  %shading_mode_out.0 = phi i16 [ 1, %invoke.cont65 ], [ %switch.load, %switch.lookup ]
+sw.epilog:                                        ; preds = %invoke.cont65, %switch.lookup
+  %shading_mode_out.0 = phi i16 [ %switch.load, %switch.lookup ], [ 1, %invoke.cont65 ]
   %add.i.i = add i64 %160, 6
   %163 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %164 = load ptr, ptr %buffer.i.i.i, align 8

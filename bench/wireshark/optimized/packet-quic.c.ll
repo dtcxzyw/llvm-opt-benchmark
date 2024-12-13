@@ -2407,36 +2407,33 @@ is_quic_draft_max.exit.thread3.i:                 ; preds = %is_quic_draft_max.e
 
 490:                                              ; preds = %488
   %491 = trunc i32 %434 to i8
-  br label %is_quic_draft_max.exit69.i
+  br label %is_quic_draft_max.exit68.i
 
 492:                                              ; preds = %488, %.thread.i160
   %493 = phi i32 [ %477, %.thread.i160 ], [ %489, %488 ]
   %.08.i = phi i32 [ %471, %.thread.i160 ], [ %.0.i162, %488 ]
   switch i32 %434, label %494 [
-    i32 -87117823, label %is_quic_draft_max.exit69.i
-    i32 -87117810, label %.fold.split.i.i64.i
-    i32 -87117822, label %.fold.split.i.i64.i
-    i32 1412445489, label %.fold.split18.i.i62.i
-    i32 1412445488, label %.fold.split18.i.i62.i
-    i32 1362113840, label %.fold.split18.i.i62.i
+    i32 -87117823, label %is_quic_draft_max.exit68.i
+    i32 -87117810, label %.fold.split.i.i62.i
+    i32 -87117822, label %.fold.split.i.i62.i
+    i32 1412445489, label %.fold.split.i.i62.i
+    i32 1412445488, label %.fold.split.i.i62.i
+    i32 1362113840, label %.fold.split.i.i62.i
   ]
 
 494:                                              ; preds = %492
-  %switch.select.i.i66.i = select i1 %.not.i155, i8 100, i8 0
-  %switch.selectcmp19.i.i67.i = icmp eq i32 %434, 1
-  %switch.select20.i.i68.i = select i1 %switch.selectcmp19.i.i67.i, i8 34, i8 %switch.select.i.i66.i
-  br label %is_quic_draft_max.exit69.i
+  %switch.select.i.i65.i = select i1 %.not.i155, i8 100, i8 0
+  %switch.selectcmp19.i.i66.i = icmp eq i32 %434, 1
+  %switch.select20.i.i67.i = select i1 %switch.selectcmp19.i.i66.i, i8 34, i8 %switch.select.i.i65.i
+  br label %is_quic_draft_max.exit68.i
 
-.fold.split.i.i64.i:                              ; preds = %492, %492
-  br label %is_quic_draft_max.exit69.i
+.fold.split.i.i62.i:                              ; preds = %492, %492, %492, %492, %492
+  br label %is_quic_draft_max.exit68.i
 
-.fold.split18.i.i62.i:                            ; preds = %492, %492, %492
-  br label %is_quic_draft_max.exit69.i
-
-is_quic_draft_max.exit69.i:                       ; preds = %.fold.split18.i.i62.i, %.fold.split.i.i64.i, %494, %492, %490
-  %495 = phi i32 [ %489, %490 ], [ %493, %492 ], [ %493, %.fold.split.i.i64.i ], [ %493, %.fold.split18.i.i62.i ], [ %493, %494 ]
-  %.07.i = phi i32 [ %.0.i162, %490 ], [ %.08.i, %492 ], [ %.08.i, %.fold.split.i.i64.i ], [ %.08.i, %.fold.split18.i.i62.i ], [ %.08.i, %494 ]
-  %.0.i.i63.i = phi i8 [ %491, %490 ], [ 22, %492 ], [ 27, %.fold.split.i.i64.i ], [ 27, %.fold.split18.i.i62.i ], [ %switch.select20.i.i68.i, %494 ]
+is_quic_draft_max.exit68.i:                       ; preds = %.fold.split.i.i62.i, %494, %492, %490
+  %495 = phi i32 [ %489, %490 ], [ %493, %492 ], [ %493, %.fold.split.i.i62.i ], [ %493, %494 ]
+  %.07.i = phi i32 [ %.0.i162, %490 ], [ %.08.i, %492 ], [ %.08.i, %.fold.split.i.i62.i ], [ %.08.i, %494 ]
+  %.0.i.i63.i = phi i8 [ %491, %490 ], [ 22, %492 ], [ 27, %.fold.split.i.i62.i ], [ %switch.select20.i.i67.i, %494 ]
   %496 = add i8 %.0.i.i63.i, -25
   %497 = icmp ult i8 %496, -24
   %498 = icmp ugt i32 %495, 15
@@ -2448,33 +2445,33 @@ is_quic_draft_max.exit69.i:                       ; preds = %.fold.split18.i.i62
   %502 = add i32 %spec.select.i, %.07.i
   br i1 %472, label %503, label %505
 
-503:                                              ; preds = %is_quic_draft_max.exit69.i
+503:                                              ; preds = %is_quic_draft_max.exit68.i
   %504 = trunc i32 %434 to i8
-  br label %is_quic_draft_max.exit78.i
+  br label %is_quic_draft_max.exit76.i
 
-505:                                              ; preds = %is_quic_draft_max.exit69.i
+505:                                              ; preds = %is_quic_draft_max.exit68.i
   switch i32 %434, label %506 [
     i32 -87117823, label %dissect_quic_retry_packet.exit
-    i32 -87117810, label %is_quic_draft_max.exit78.thread.i
-    i32 -87117822, label %is_quic_draft_max.exit78.thread.i
-    i32 1412445489, label %is_quic_draft_max.exit78.thread.i
-    i32 1412445488, label %is_quic_draft_max.exit78.thread.i
-    i32 1362113840, label %is_quic_draft_max.exit78.thread.i
+    i32 -87117810, label %is_quic_draft_max.exit76.thread.i
+    i32 -87117822, label %is_quic_draft_max.exit76.thread.i
+    i32 1412445489, label %is_quic_draft_max.exit76.thread.i
+    i32 1412445488, label %is_quic_draft_max.exit76.thread.i
+    i32 1362113840, label %is_quic_draft_max.exit76.thread.i
   ]
 
 506:                                              ; preds = %505
-  %switch.select.i.i75.i = select i1 %.not.i155, i8 100, i8 0
-  %switch.selectcmp19.i.i76.i = icmp eq i32 %434, 1
-  %switch.select20.i.i77.i = select i1 %switch.selectcmp19.i.i76.i, i8 34, i8 %switch.select.i.i75.i
-  br label %is_quic_draft_max.exit78.i
+  %switch.select.i.i73.i = select i1 %.not.i155, i8 100, i8 0
+  %switch.selectcmp19.i.i74.i = icmp eq i32 %434, 1
+  %switch.select20.i.i75.i = select i1 %switch.selectcmp19.i.i74.i, i8 34, i8 %switch.select.i.i73.i
+  br label %is_quic_draft_max.exit76.i
 
-is_quic_draft_max.exit78.i:                       ; preds = %506, %503
-  %.0.i.i72.i = phi i8 [ %504, %503 ], [ %switch.select20.i.i77.i, %506 ]
-  %507 = add i8 %.0.i.i72.i, -25
+is_quic_draft_max.exit76.i:                       ; preds = %506, %503
+  %.0.i.i71.i = phi i8 [ %504, %503 ], [ %switch.select20.i.i75.i, %506 ]
+  %507 = add i8 %.0.i.i71.i, -25
   %508 = icmp ult i8 %507, -24
-  br i1 %508, label %is_quic_draft_max.exit78.thread.i, label %dissect_quic_retry_packet.exit
+  br i1 %508, label %is_quic_draft_max.exit76.thread.i, label %dissect_quic_retry_packet.exit
 
-is_quic_draft_max.exit78.thread.i:                ; preds = %is_quic_draft_max.exit78.i, %505, %505, %505, %505, %505
+is_quic_draft_max.exit76.thread.i:                ; preds = %is_quic_draft_max.exit76.i, %505, %505, %505, %505, %505
   %509 = load i32, ptr @hf_quic_retry_integrity_tag, align 4
   %510 = call ptr @proto_tree_add_item(ptr noundef %.1109, i32 noundef %509, ptr noundef %.0.i153, i32 noundef %502, i32 noundef 16, i32 noundef 0) #15
   %511 = load ptr, ptr %48, align 8
@@ -2485,7 +2482,7 @@ is_quic_draft_max.exit78.thread.i:                ; preds = %is_quic_draft_max.e
   %or.cond3.i = and i1 %276, %515
   br i1 %or.cond3.i, label %516, label %576
 
-516:                                              ; preds = %is_quic_draft_max.exit78.thread.i
+516:                                              ; preds = %is_quic_draft_max.exit76.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store ptr null, ptr %27, align 8
   %517 = call i32 @tvb_reported_length(ptr noundef %.0.i153) #15
@@ -2523,28 +2520,28 @@ is_quic_draft_max.exit.i.i:                       ; preds = %525
   %527 = trunc i32 %434 to i8
   %528 = add i8 %527, -29
   %529 = icmp ult i8 %528, -28
-  br i1 %529, label %is_quic_draft_max.exit37.i.i, label %is_quic_draft_max.exit.thread.i.thread.i
+  br i1 %529, label %is_quic_draft_max.exit36.i.i, label %is_quic_draft_max.exit.thread.i.thread.i
 
-is_quic_draft_max.exit37.i.i:                     ; preds = %is_quic_draft_max.exit.i.i
+is_quic_draft_max.exit36.i.i:                     ; preds = %is_quic_draft_max.exit.i.i
   %530 = add i8 %527, -33
   %531 = icmp ult i8 %530, -32
-  br i1 %531, label %is_quic_draft_max.exit46.i.i, label %.thread117.i.i
+  br i1 %531, label %is_quic_draft_max.exit44.i.i, label %.thread112.i.i
 
 .thread.i.i:                                      ; preds = %526
-  %switch.select.i.i43.i.i = select i1 %.not.i155, i8 100, i8 0
-  %switch.selectcmp19.i.i44.i.i = icmp eq i32 %434, 1
-  %switch.select20.i.i45.i.i = select i1 %switch.selectcmp19.i.i44.i.i, i8 34, i8 %switch.select.i.i43.i.i
-  br label %is_quic_draft_max.exit46.i.i
+  %switch.select.i.i41.i.i = select i1 %.not.i155, i8 100, i8 0
+  %switch.selectcmp19.i.i42.i.i = icmp eq i32 %434, 1
+  %switch.select20.i.i43.i.i = select i1 %switch.selectcmp19.i.i42.i.i, i8 34, i8 %switch.select.i.i41.i.i
+  br label %is_quic_draft_max.exit44.i.i
 
-is_quic_draft_max.exit46.i.i:                     ; preds = %.thread.i.i, %is_quic_draft_max.exit37.i.i
-  %.0.i.i40.i.i = phi i8 [ %switch.select20.i.i45.i.i, %.thread.i.i ], [ %527, %is_quic_draft_max.exit37.i.i ]
-  %532 = add i8 %.0.i.i40.i.i, -35
+is_quic_draft_max.exit44.i.i:                     ; preds = %.thread.i.i, %is_quic_draft_max.exit36.i.i
+  %.0.i.i39.i.i = phi i8 [ %switch.select20.i.i43.i.i, %.thread.i.i ], [ %527, %is_quic_draft_max.exit36.i.i ]
+  %532 = add i8 %.0.i.i39.i.i, -35
   %533 = icmp ult i8 %532, -34
   %spec.select.i.i = select i1 %533, ptr @quic_verify_retry_token.key_v2, ptr @quic_verify_retry_token.key_v1
   br label %is_quic_draft_max.exit.thread.i.i
 
-is_quic_draft_max.exit.thread.i.i:                ; preds = %is_quic_draft_max.exit46.i.i, %526, %526, %526, %526, %526, %526
-  %quic_verify_retry_token.key_v2.sink.i.i = phi ptr [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ %spec.select.i.i, %is_quic_draft_max.exit46.i.i ]
+is_quic_draft_max.exit.thread.i.i:                ; preds = %is_quic_draft_max.exit44.i.i, %526, %526, %526, %526, %526, %526
+  %quic_verify_retry_token.key_v2.sink.i.i = phi ptr [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ @quic_verify_retry_token.key_draft_25, %526 ], [ %spec.select.i.i, %is_quic_draft_max.exit44.i.i ]
   %534 = load ptr, ptr %27, align 8
   %535 = call i32 @gcry_cipher_setkey(ptr noundef %534, ptr noundef nonnull %quic_verify_retry_token.key_v2.sink.i.i, i64 noundef 16) #15
   %536 = icmp eq i32 %535, 0
@@ -2554,67 +2551,67 @@ is_quic_draft_max.exit.thread.i.thread.i:         ; preds = %is_quic_draft_max.e
   %537 = load ptr, ptr %27, align 8
   %538 = call i32 @gcry_cipher_setkey(ptr noundef %537, ptr noundef nonnull @quic_verify_retry_token.key_draft_25, i64 noundef 16) #15
   %539 = icmp eq i32 %538, 0
-  br i1 %539, label %is_quic_draft_max.exit55.thread.i.i, label %543
+  br i1 %539, label %is_quic_draft_max.exit52.thread.i.i, label %543
 
-.thread117.i.i:                                   ; preds = %is_quic_draft_max.exit37.i.i
+.thread112.i.i:                                   ; preds = %is_quic_draft_max.exit36.i.i
   %540 = load ptr, ptr %27, align 8
   %541 = call i32 @gcry_cipher_setkey(ptr noundef %540, ptr noundef nonnull @quic_verify_retry_token.key_draft_29, i64 noundef 16) #15
   %542 = icmp eq i32 %541, 0
-  br i1 %542, label %is_quic_draft_max.exit55.thread.i.i, label %543
+  br i1 %542, label %is_quic_draft_max.exit52.thread.i.i, label %543
 
-543:                                              ; preds = %.thread117.i.i, %is_quic_draft_max.exit.thread.i.thread.i, %is_quic_draft_max.exit.thread.i.i
+543:                                              ; preds = %.thread112.i.i, %is_quic_draft_max.exit.thread.i.thread.i, %is_quic_draft_max.exit.thread.i.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.487, ptr noundef nonnull @.str.395, i32 noundef 3631, ptr noundef nonnull @.str.488, ptr noundef nonnull @.str.490) #14
   unreachable
 
 544:                                              ; preds = %is_quic_draft_max.exit.thread.i.i
-  br i1 %472, label %is_quic_draft_max.exit55.i.i, label %545
+  br i1 %472, label %is_quic_draft_max.exit52.i.i, label %545
 
 545:                                              ; preds = %544
-  switch i32 %434, label %.thread100.i.i [
-    i32 -87117823, label %is_quic_draft_max.exit55.thread.i.i
-    i32 -87117810, label %is_quic_draft_max.exit55.thread.i.i
-    i32 -87117822, label %is_quic_draft_max.exit55.thread.i.i
-    i32 1412445489, label %is_quic_draft_max.exit55.thread.i.i
-    i32 1412445488, label %is_quic_draft_max.exit55.thread.i.i
-    i32 1362113840, label %is_quic_draft_max.exit55.thread.i.i
+  switch i32 %434, label %.thread95.i.i [
+    i32 -87117823, label %is_quic_draft_max.exit52.thread.i.i
+    i32 -87117810, label %is_quic_draft_max.exit52.thread.i.i
+    i32 -87117822, label %is_quic_draft_max.exit52.thread.i.i
+    i32 1412445489, label %is_quic_draft_max.exit52.thread.i.i
+    i32 1412445488, label %is_quic_draft_max.exit52.thread.i.i
+    i32 1362113840, label %is_quic_draft_max.exit52.thread.i.i
   ]
 
-is_quic_draft_max.exit55.i.i:                     ; preds = %544
+is_quic_draft_max.exit52.i.i:                     ; preds = %544
   %.pre.i = trunc i32 %434 to i8
   %.pre16.i = add i8 %.pre.i, -29
   %546 = icmp ult i8 %.pre16.i, -28
-  br i1 %546, label %is_quic_draft_max.exit64.i.i, label %is_quic_draft_max.exit55.thread.i.i
+  br i1 %546, label %is_quic_draft_max.exit60.i.i, label %is_quic_draft_max.exit52.thread.i.i
 
-is_quic_draft_max.exit64.i.i:                     ; preds = %is_quic_draft_max.exit55.i.i
+is_quic_draft_max.exit60.i.i:                     ; preds = %is_quic_draft_max.exit52.i.i
   %.pre310 = add i8 %.pre.i, -33
   %547 = icmp ult i8 %.pre310, -32
-  br i1 %547, label %is_quic_draft_max.exit73.i.i, label %is_quic_draft_max.exit55.thread.i.i
+  br i1 %547, label %is_quic_draft_max.exit68.i.i, label %is_quic_draft_max.exit52.thread.i.i
 
-.thread100.i.i:                                   ; preds = %545
-  %switch.select.i.i70.i.i = select i1 %.not.i155, i8 100, i8 0
-  %switch.selectcmp19.i.i71.i.i = icmp eq i32 %434, 1
-  %switch.select20.i.i72.i.i = select i1 %switch.selectcmp19.i.i71.i.i, i8 34, i8 %switch.select.i.i70.i.i
-  br label %is_quic_draft_max.exit73.i.i
+.thread95.i.i:                                    ; preds = %545
+  %switch.select.i.i65.i.i = select i1 %.not.i155, i8 100, i8 0
+  %switch.selectcmp19.i.i66.i.i = icmp eq i32 %434, 1
+  %switch.select20.i.i67.i.i = select i1 %switch.selectcmp19.i.i66.i.i, i8 34, i8 %switch.select.i.i65.i.i
+  br label %is_quic_draft_max.exit68.i.i
 
-is_quic_draft_max.exit73.i.i:                     ; preds = %.thread100.i.i, %is_quic_draft_max.exit64.i.i
-  %.0.i.i67.i.i = phi i8 [ %switch.select20.i.i72.i.i, %.thread100.i.i ], [ %.pre.i, %is_quic_draft_max.exit64.i.i ]
-  %548 = add i8 %.0.i.i67.i.i, -35
+is_quic_draft_max.exit68.i.i:                     ; preds = %.thread95.i.i, %is_quic_draft_max.exit60.i.i
+  %.0.i.i63.i.i = phi i8 [ %switch.select20.i.i67.i.i, %.thread95.i.i ], [ %.pre.i, %is_quic_draft_max.exit60.i.i ]
+  %548 = add i8 %.0.i.i63.i.i, -35
   %549 = icmp ult i8 %548, -34
-  %spec.select121.i.i = select i1 %549, ptr @quic_verify_retry_token.nonce_v2, ptr @quic_verify_retry_token.nonce_v1
-  br label %is_quic_draft_max.exit55.thread.i.i
+  %spec.select116.i.i = select i1 %549, ptr @quic_verify_retry_token.nonce_v2, ptr @quic_verify_retry_token.nonce_v1
+  br label %is_quic_draft_max.exit52.thread.i.i
 
-is_quic_draft_max.exit55.thread.i.i:              ; preds = %.thread117.i.i, %is_quic_draft_max.exit73.i.i, %is_quic_draft_max.exit64.i.i, %is_quic_draft_max.exit55.i.i, %545, %545, %545, %545, %545, %545, %is_quic_draft_max.exit.thread.i.thread.i
-  %quic_verify_retry_token.nonce_draft_29.sink.i.i = phi ptr [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %is_quic_draft_max.exit55.i.i ], [ @quic_verify_retry_token.nonce_draft_29, %is_quic_draft_max.exit64.i.i ], [ %spec.select121.i.i, %is_quic_draft_max.exit73.i.i ], [ @quic_verify_retry_token.nonce_draft_25, %is_quic_draft_max.exit.thread.i.thread.i ], [ @quic_verify_retry_token.nonce_draft_29, %.thread117.i.i ]
+is_quic_draft_max.exit52.thread.i.i:              ; preds = %.thread112.i.i, %is_quic_draft_max.exit68.i.i, %is_quic_draft_max.exit60.i.i, %is_quic_draft_max.exit52.i.i, %545, %545, %545, %545, %545, %545, %is_quic_draft_max.exit.thread.i.thread.i
+  %quic_verify_retry_token.nonce_draft_29.sink.i.i = phi ptr [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %545 ], [ @quic_verify_retry_token.nonce_draft_25, %is_quic_draft_max.exit52.i.i ], [ @quic_verify_retry_token.nonce_draft_29, %is_quic_draft_max.exit60.i.i ], [ %spec.select116.i.i, %is_quic_draft_max.exit68.i.i ], [ @quic_verify_retry_token.nonce_draft_25, %is_quic_draft_max.exit.thread.i.thread.i ], [ @quic_verify_retry_token.nonce_draft_29, %.thread112.i.i ]
   %550 = load ptr, ptr %27, align 8
   %551 = call i32 @gcry_cipher_setiv(ptr noundef %550, ptr noundef nonnull %quic_verify_retry_token.nonce_draft_29.sink.i.i, i64 noundef 12) #15
   %552 = icmp eq i32 %551, 0
   br i1 %552, label %554, label %553
 
-553:                                              ; preds = %is_quic_draft_max.exit55.thread.i.i
+553:                                              ; preds = %is_quic_draft_max.exit52.thread.i.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.487, ptr noundef nonnull @.str.395, i32 noundef 3641, ptr noundef nonnull @.str.488, ptr noundef nonnull @.str.491) #14
   unreachable
 
-554:                                              ; preds = %is_quic_draft_max.exit55.thread.i.i
+554:                                              ; preds = %is_quic_draft_max.exit52.thread.i.i
   %555 = load ptr, ptr %27, align 8
   %556 = load i8, ptr %.0113, align 8
   %557 = zext i8 %556 to i64
@@ -2654,7 +2651,7 @@ quic_verify_retry_token.exit.i:                   ; preds = %562
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
   br label %576
 
-576:                                              ; preds = %quic_verify_retry_token.exit.i, %is_quic_draft_max.exit78.thread.i
+576:                                              ; preds = %quic_verify_retry_token.exit.i, %is_quic_draft_max.exit76.thread.i
   %577 = getelementptr inbounds nuw i8, ptr %.1116, i64 43
   %578 = load i8, ptr %577, align 1
   %579 = trunc i8 %578 to i1
@@ -2681,8 +2678,8 @@ quic_verify_retry_token.exit.i:                   ; preds = %562
   %588 = add i32 %502, 16
   br label %dissect_quic_retry_packet.exit
 
-dissect_quic_retry_packet.exit:                   ; preds = %505, %is_quic_draft_max.exit78.i, %587
-  %.1.i = phi i32 [ %502, %is_quic_draft_max.exit78.i ], [ %588, %587 ], [ %502, %505 ]
+dissect_quic_retry_packet.exit:                   ; preds = %505, %is_quic_draft_max.exit76.i, %587
+  %.1.i = phi i32 [ %502, %is_quic_draft_max.exit76.i ], [ %588, %587 ], [ %502, %505 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
@@ -5185,12 +5182,12 @@ define internal fastcc void @quic_create_initial_decoders(ptr noundef nonnull %0
 
 30:                                               ; preds = %28
   switch i32 %12, label %.thread.i [
-    i32 -87117823, label %is_quic_draft_max.exit.thread62.i
-    i32 -87117810, label %is_quic_draft_max.exit47.thread.i
-    i32 -87117822, label %is_quic_draft_max.exit47.thread.i
-    i32 1412445489, label %is_quic_draft_max.exit47.thread.i
-    i32 1412445488, label %is_quic_draft_max.exit47.thread.i
-    i32 1362113840, label %is_quic_draft_max.exit47.thread.i
+    i32 -87117823, label %is_quic_draft_max.exit.thread60.i
+    i32 -87117810, label %is_quic_draft_max.exit46.thread.i
+    i32 -87117822, label %is_quic_draft_max.exit46.thread.i
+    i32 1412445489, label %is_quic_draft_max.exit46.thread.i
+    i32 1412445488, label %is_quic_draft_max.exit46.thread.i
+    i32 1362113840, label %is_quic_draft_max.exit46.thread.i
   ]
 
 .thread.i:                                        ; preds = %30
@@ -5202,33 +5199,33 @@ is_quic_draft_max.exit.i:                         ; preds = %28
   %33 = trunc i32 %12 to i8
   %34 = add i8 %33, -23
   %35 = icmp ult i8 %34, -22
-  br i1 %35, label %is_quic_draft_max.exit47.i, label %is_quic_draft_max.exit.thread62.i
+  br i1 %35, label %is_quic_draft_max.exit46.i, label %is_quic_draft_max.exit.thread60.i
 
-is_quic_draft_max.exit.thread62.i:                ; preds = %is_quic_draft_max.exit.i, %30
+is_quic_draft_max.exit.thread60.i:                ; preds = %is_quic_draft_max.exit.i, %30
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %37 = load i8, ptr %0, align 8
   %38 = zext i8 %37 to i64
   %39 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %36, i64 noundef range(i64 0, 256) %38, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_22, i64 noundef 20) #15
   br label %67
 
-is_quic_draft_max.exit47.i:                       ; preds = %is_quic_draft_max.exit.i
+is_quic_draft_max.exit46.i:                       ; preds = %is_quic_draft_max.exit.i
   %40 = add i8 %33, -29
   %41 = icmp ult i8 %40, -28
-  br i1 %41, label %is_quic_draft_max.exit56.i, label %is_quic_draft_max.exit47.thread.i
+  br i1 %41, label %is_quic_draft_max.exit54.i, label %is_quic_draft_max.exit46.thread.i
 
-is_quic_draft_max.exit47.thread.i:                ; preds = %is_quic_draft_max.exit47.i, %30, %30, %30, %30, %30
+is_quic_draft_max.exit46.thread.i:                ; preds = %is_quic_draft_max.exit46.i, %30, %30, %30, %30, %30
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %43 = load i8, ptr %0, align 8
   %44 = zext i8 %43 to i64
   %45 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %42, i64 noundef range(i64 0, 256) %44, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_draft_23, i64 noundef 20) #15
   br label %67
 
-is_quic_draft_max.exit56.i:                       ; preds = %is_quic_draft_max.exit47.i
+is_quic_draft_max.exit54.i:                       ; preds = %is_quic_draft_max.exit46.i
   %46 = add i8 %33, -33
   %47 = icmp ult i8 %46, -32
-  br i1 %47, label %is_quic_draft_max.exit, label %is_quic_draft_max.exit56.thread.i
+  br i1 %47, label %is_quic_draft_max.exit, label %is_quic_draft_max.exit54.thread.i
 
-is_quic_draft_max.exit56.thread.i:                ; preds = %is_quic_draft_max.exit56.i
+is_quic_draft_max.exit54.thread.i:                ; preds = %is_quic_draft_max.exit54.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %49 = load i8, ptr %0, align 8
   %50 = zext i8 %49 to i64
@@ -5248,8 +5245,8 @@ is_quic_draft_max.exit.thread:                    ; preds = %.thread.i
   %55 = zext i8 %54 to i64
   br label %61
 
-is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.exit56.i, %52
-  %.0.i.i = phi i8 [ %switch.select20.i.i, %52 ], [ %33, %is_quic_draft_max.exit56.i ]
+is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.exit54.i, %52
+  %.0.i.i = phi i8 [ %switch.select20.i.i, %52 ], [ %33, %is_quic_draft_max.exit54.i ]
   %56 = add i8 %.0.i.i, -35
   %57 = icmp ult i8 %56, -34
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -5267,8 +5264,8 @@ is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.e
   %66 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %58, i64 noundef range(i64 0, 256) %60, ptr noundef nonnull @quic_derive_initial_secrets.handshake_salt_v2, i64 noundef 20) #15
   br label %67
 
-67:                                               ; preds = %65, %61, %is_quic_draft_max.exit56.thread.i, %is_quic_draft_max.exit47.thread.i, %is_quic_draft_max.exit.thread62.i, %23, %18, %13
-  %.0.i = phi i32 [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %39, %is_quic_draft_max.exit.thread62.i ], [ %45, %is_quic_draft_max.exit47.thread.i ], [ %51, %is_quic_draft_max.exit56.thread.i ], [ %64, %61 ], [ %66, %65 ]
+67:                                               ; preds = %65, %61, %is_quic_draft_max.exit54.thread.i, %is_quic_draft_max.exit46.thread.i, %is_quic_draft_max.exit.thread60.i, %23, %18, %13
+  %.0.i = phi i32 [ %17, %13 ], [ %22, %18 ], [ %27, %23 ], [ %39, %is_quic_draft_max.exit.thread60.i ], [ %45, %is_quic_draft_max.exit46.thread.i ], [ %51, %is_quic_draft_max.exit54.thread.i ], [ %64, %61 ], [ %66, %65 ]
   %.not36.i = icmp eq i32 %.0.i, 0
   br i1 %.not36.i, label %72, label %68
 
@@ -5307,8 +5304,8 @@ is_quic_draft_max.exit:                           ; preds = %is_quic_draft_max.e
   store i32 32, ptr %78, align 8
   store ptr null, ptr %5, align 8
   %79 = call i32 @tls13_hkdf_expand_label(i32 noundef 8, ptr noundef nonnull %4, ptr noundef nonnull @.str.509, ptr noundef nonnull @.str.507, i16 noundef zeroext 32, ptr noundef nonnull %5) #15
-  %.not.i57.i = icmp eq i32 %79, 0
-  br i1 %.not.i57.i, label %80, label %81
+  %.not.i55.i = icmp eq i32 %79, 0
+  br i1 %.not.i55.i, label %80, label %81
 
 80:                                               ; preds = %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -8421,41 +8418,41 @@ define internal fastcc void @quic_update_key(i32 noundef %0, i32 noundef %1, ptr
 
 8:                                                ; preds = %3
   switch i32 %0, label %.thread [
-    i32 -87117823, label %is_quic_draft_max.exit.thread22
-    i32 -87117810, label %is_quic_draft_max.exit19
-    i32 -87117822, label %is_quic_draft_max.exit19
-    i32 1412445489, label %is_quic_draft_max.exit19
-    i32 1412445488, label %is_quic_draft_max.exit19
-    i32 1362113840, label %is_quic_draft_max.exit19
+    i32 -87117823, label %is_quic_draft_max.exit.thread21
+    i32 -87117810, label %is_quic_draft_max.exit18
+    i32 -87117822, label %is_quic_draft_max.exit18
+    i32 1412445489, label %is_quic_draft_max.exit18
+    i32 1412445488, label %is_quic_draft_max.exit18
+    i32 1362113840, label %is_quic_draft_max.exit18
   ]
 
 .thread:                                          ; preds = %8
   %9 = and i32 %0, 252645135
   %10 = icmp eq i32 %9, 168430090
-  br i1 %10, label %is_quic_draft_max.exit19, label %14
+  br i1 %10, label %is_quic_draft_max.exit18, label %14
 
 is_quic_draft_max.exit:                           ; preds = %3
   %11 = trunc i32 %0 to i8
   %12 = add i8 %11, -24
   %13 = icmp ult i8 %12, -23
-  br i1 %13, label %is_quic_draft_max.exit19, label %is_quic_draft_max.exit.thread22
+  br i1 %13, label %is_quic_draft_max.exit18, label %is_quic_draft_max.exit.thread21
 
 14:                                               ; preds = %.thread
-  %switch.selectcmp.i.i15 = icmp eq i32 %0, 1798521807
-  %switch.select.i.i16 = select i1 %switch.selectcmp.i.i15, i8 100, i8 0
-  %switch.selectcmp19.i.i17 = icmp eq i32 %0, 1
-  %switch.select20.i.i18 = select i1 %switch.selectcmp19.i.i17, i8 34, i8 %switch.select.i.i16
-  br label %is_quic_draft_max.exit19
+  %switch.selectcmp.i.i14 = icmp eq i32 %0, 1798521807
+  %switch.select.i.i15 = select i1 %switch.selectcmp.i.i14, i8 100, i8 0
+  %switch.selectcmp19.i.i16 = icmp eq i32 %0, 1
+  %switch.select20.i.i17 = select i1 %switch.selectcmp19.i.i16, i8 34, i8 %switch.select.i.i15
+  br label %is_quic_draft_max.exit18
 
-is_quic_draft_max.exit19:                         ; preds = %is_quic_draft_max.exit, %8, %8, %8, %8, %8, %.thread, %14
-  %.0.i.i13 = phi i8 [ 34, %.thread ], [ %switch.select20.i.i18, %14 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ %11, %is_quic_draft_max.exit ]
+is_quic_draft_max.exit18:                         ; preds = %is_quic_draft_max.exit, %8, %8, %8, %8, %8, %.thread, %14
+  %.0.i.i13 = phi i8 [ 34, %.thread ], [ %switch.select20.i.i17, %14 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ 27, %8 ], [ %11, %is_quic_draft_max.exit ]
   %15 = add i8 %.0.i.i13, -35
   %16 = icmp ult i8 %15, -34
   %17 = select i1 %16, ptr @.str.598, ptr @.str.597
-  br label %is_quic_draft_max.exit.thread22
+  br label %is_quic_draft_max.exit.thread21
 
-is_quic_draft_max.exit.thread22:                  ; preds = %8, %is_quic_draft_max.exit, %is_quic_draft_max.exit19
-  %18 = phi ptr [ %17, %is_quic_draft_max.exit19 ], [ @.str.596, %is_quic_draft_max.exit ], [ @.str.596, %8 ]
+is_quic_draft_max.exit.thread21:                  ; preds = %8, %is_quic_draft_max.exit, %is_quic_draft_max.exit18
+  %18 = phi ptr [ %17, %is_quic_draft_max.exit18 ], [ @.str.596, %is_quic_draft_max.exit ], [ @.str.596, %8 ]
   %19 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8468,13 +8465,13 @@ is_quic_draft_max.exit.thread22:                  ; preds = %8, %is_quic_draft_m
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %24
 
-23:                                               ; preds = %is_quic_draft_max.exit.thread22
+23:                                               ; preds = %is_quic_draft_max.exit.thread21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.394, ptr noundef nonnull @.str.395, i32 noundef 3375, ptr noundef nonnull @.str.599) #14
   unreachable
 
-24:                                               ; preds = %is_quic_draft_max.exit.thread22
+24:                                               ; preds = %is_quic_draft_max.exit.thread21
   %25 = load ptr, ptr %5, align 8
   %26 = zext i32 %6 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %25, i64 %26, i1 false)

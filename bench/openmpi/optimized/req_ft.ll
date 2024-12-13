@@ -242,7 +242,7 @@ ompi_request_cancel.exit:                         ; preds = %121, %126
   %129 = icmp eq ptr %128, inttoptr (i64 1 to ptr)
   br label %130
 
-130:                                              ; preds = %4, %119, %.critedge65, %.critedge63, %66, %13, %1, %ompi_request_cancel.exit
+130:                                              ; preds = %119, %.critedge65, %.critedge63, %66, %13, %4, %1, %ompi_request_cancel.exit
   %.0 = phi i1 [ %129, %ompi_request_cancel.exit ], [ false, %1 ], [ false, %4 ], [ false, %13 ], [ false, %66 ], [ false, %.critedge63 ], [ false, %.critedge65 ], [ true, %119 ]
   ret i1 %.0
 }

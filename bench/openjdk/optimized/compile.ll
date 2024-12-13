@@ -16481,10 +16481,6 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 50, label %32
     i32 49, label %32
     i32 326, label %64
-    i32 178, label %598
-    i32 88, label %623
-    i32 213, label %583
-    i32 217, label %576
     i32 222, label %576
     i32 143, label %568
     i32 145, label %568
@@ -16496,6 +16492,8 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 446, label %561
     i32 445, label %561
     i32 444, label %561
+    i32 217, label %576
+    i32 213, label %583
     i32 233, label %531
     i32 232, label %501
     i32 231, label %471
@@ -16504,6 +16502,8 @@ define hidden void @_ZN7Compile33final_graph_reshaping_main_switchEP4NodeR20Fina
     i32 282, label %396
     i32 169, label %352
     i32 168, label %352
+    i32 178, label %598
+    i32 88, label %623
     i32 85, label %283
     i32 60, label %170
     i32 25, label %69

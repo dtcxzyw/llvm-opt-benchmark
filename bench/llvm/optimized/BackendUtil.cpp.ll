@@ -5571,9 +5571,9 @@ _ZN4llvm12StringSwitchINS_8FloatABI7ABITypeES2_E4CaseENS_13StringLiteralES2_.exi
   %28 = load i64, ptr %14, align 8
   %29 = and i64 %28, 25165824
   %switch = icmp ne i64 %29, 16777216
-  %spec.select = zext i1 %switch to i32
+  %. = zext i1 %switch to i32
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 %spec.select, ptr %30, align 8
+  store i32 %., ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %32 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #22
   %33 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #22

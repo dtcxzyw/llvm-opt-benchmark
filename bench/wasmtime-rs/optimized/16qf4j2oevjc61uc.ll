@@ -31579,8 +31579,8 @@ define { ptr, ptr } @"_ZN78_$LT$cranelift_codegen..result..CodegenError$u20$as$u
   %2 = load i8, ptr %0, align 8, !range !1641, !noundef !4
   %switch = icmp eq i8 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %spec.select = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
+  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.28b2a46fe930e0b5b02fc988328aadfd.257, 1
   ret { ptr, ptr } %5
 }

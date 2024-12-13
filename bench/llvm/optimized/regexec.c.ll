@@ -1512,10 +1512,10 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   switch i64 %29, label %166 [
     i64 13, label %158
     i64 1, label %38
-    i64 12, label %150
     i64 14, label %.preheader
     i64 8, label %.preheader190
     i64 10, label %.preheader191
+    i64 12, label %150
     i64 4, label %40
     i64 5, label %40
   ]
@@ -1815,7 +1815,7 @@ sstep_back.exit183:                               ; preds = %.lr.ph.i164, %90, %
   br label %166
 
 166:                                              ; preds = %81, %._crit_edge, %38, %40, %125, %._crit_edge213, %150, %158, %.loopexit
-  %.1154 = phi ptr [ %.0153216, %.loopexit ], [ %41, %40 ], [ %.lcssa198, %125 ], [ %127, %._crit_edge213 ], [ %.0153216, %150 ], [ %39, %38 ], [ %.0153216, %158 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %81 ]
+  %.1154 = phi ptr [ %.0153216, %.loopexit ], [ %41, %40 ], [ %.0153216, %150 ], [ %.lcssa198, %125 ], [ %127, %._crit_edge213 ], [ %39, %38 ], [ %.0153216, %158 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %81 ]
   %167 = icmp slt i64 %26, %4
   br i1 %167, label %9, label %._crit_edge220, !llvm.loop !14
 
@@ -2963,10 +2963,10 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   switch i64 %29, label %182 [
     i64 13, label %174
     i64 1, label %38
-    i64 12, label %166
     i64 14, label %.preheader
     i64 8, label %.preheader190
     i64 10, label %.preheader191
+    i64 12, label %166
     i64 4, label %40
     i64 5, label %40
   ]
@@ -3286,7 +3286,7 @@ lstep_back.exit183:                               ; preds = %94, %98, %.lr.ph50.
   br label %182
 
 182:                                              ; preds = %85, %._crit_edge, %38, %40, %133, %._crit_edge213, %166, %174, %.loopexit
-  %.1154 = phi ptr [ %.0153216, %.loopexit ], [ %41, %40 ], [ %.lcssa198, %133 ], [ %135, %._crit_edge213 ], [ %.0153216, %166 ], [ %39, %38 ], [ %.0153216, %174 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %85 ]
+  %.1154 = phi ptr [ %.0153216, %.loopexit ], [ %41, %40 ], [ %.0153216, %166 ], [ %.lcssa198, %133 ], [ %135, %._crit_edge213 ], [ %39, %38 ], [ %.0153216, %174 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %85 ]
   %183 = icmp slt i64 %26, %4
   br i1 %183, label %9, label %._crit_edge220, !llvm.loop !23
 

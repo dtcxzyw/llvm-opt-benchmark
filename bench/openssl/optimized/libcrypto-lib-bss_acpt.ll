@@ -154,13 +154,11 @@ entry:
     i32 124, label %sw.bb97
     i32 8, label %sw.bb145
     i32 9, label %sw.bb148
-    i32 10, label %sw.bb151
-    i32 13, label %sw.bb151
+    i32 2, label %sw.bb160
+    i32 12, label %sw.epilog169
     i32 11, label %sw.epilog169
     i32 131, label %sw.bb153
     i32 132, label %sw.bb156
-    i32 12, label %sw.epilog169
-    i32 2, label %sw.bb160
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -430,9 +428,6 @@ sw.bb148:                                         ; preds = %entry
   store i32 %conv149, ptr %shutdown150, align 4
   br label %sw.epilog169
 
-sw.bb151:                                         ; preds = %entry, %entry
-  br label %sw.epilog169
-
 sw.bb153:                                         ; preds = %entry
   %conv154 = trunc i64 %num to i32
   %bind_mode155 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -458,8 +453,8 @@ if.else164:                                       ; preds = %sw.bb160
 sw.default168:                                    ; preds = %entry
   br label %sw.epilog169
 
-sw.epilog169:                                     ; preds = %sw.bb160, %sw.bb97, %if.else127, %if.then130, %sw.bb85, %if.else56, %if.then, %if.then20, %if.else164, %entry, %entry, %if.then112, %if.then126, %sw.bb133, %sw.bb134, %sw.default, %if.then119, %if.then105, %if.end92, %if.then73, %if.else75, %if.else27, %if.then37, %if.then47, %if.then43, %if.then33, %if.end, %if.then64, %if.then59, %sw.default168, %sw.bb156, %sw.bb153, %sw.bb151, %sw.bb148, %sw.bb145, %sw.bb79, %sw.bb3, %acpt_close_socket.exit
-  %ret.0 = phi i64 [ 0, %sw.default168 ], [ %call166, %if.else164 ], [ %conv158, %sw.bb156 ], [ 1, %sw.bb153 ], [ 1, %entry ], [ 1, %entry ], [ 0, %sw.bb151 ], [ 1, %sw.bb148 ], [ %conv147, %sw.bb145 ], [ 1, %if.then105 ], [ 1, %if.then112 ], [ 1, %if.then119 ], [ 1, %if.then126 ], [ -1, %sw.default ], [ %conv136, %sw.bb134 ], [ 4, %sw.bb133 ], [ %conv94, %if.end92 ], [ 1, %sw.bb79 ], [ 1, %if.then73 ], [ 1, %if.else75 ], [ %conv13, %if.end ], [ 1, %if.else27 ], [ 1, %if.then33 ], [ 1, %if.then37 ], [ 1, %if.then43 ], [ 1, %if.then47 ], [ 1, %if.then59 ], [ 1, %if.then64 ], [ %conv, %sw.bb3 ], [ 0, %acpt_close_socket.exit ], [ 0, %if.then20 ], [ 1, %if.then ], [ 1, %if.else56 ], [ -1, %sw.bb85 ], [ 6, %if.then130 ], [ -1, %if.else127 ], [ -1, %sw.bb97 ], [ 0, %sw.bb160 ]
+sw.epilog169:                                     ; preds = %sw.bb160, %sw.bb97, %if.else127, %if.then130, %sw.bb85, %if.else56, %if.then, %if.then20, %entry, %if.else164, %entry, %if.then112, %if.then126, %sw.bb133, %sw.bb134, %sw.default, %if.then119, %if.then105, %if.end92, %if.then73, %if.else75, %if.else27, %if.then37, %if.then47, %if.then43, %if.then33, %if.end, %if.then64, %if.then59, %sw.default168, %sw.bb156, %sw.bb153, %sw.bb148, %sw.bb145, %sw.bb79, %sw.bb3, %acpt_close_socket.exit
+  %ret.0 = phi i64 [ 0, %sw.default168 ], [ %call166, %if.else164 ], [ %conv158, %sw.bb156 ], [ 1, %sw.bb153 ], [ 1, %entry ], [ 1, %entry ], [ 1, %sw.bb148 ], [ %conv147, %sw.bb145 ], [ 1, %if.then105 ], [ 1, %if.then112 ], [ 1, %if.then119 ], [ 1, %if.then126 ], [ -1, %sw.default ], [ %conv136, %sw.bb134 ], [ 4, %sw.bb133 ], [ %conv94, %if.end92 ], [ 1, %sw.bb79 ], [ 1, %if.then73 ], [ 1, %if.else75 ], [ %conv13, %if.end ], [ 1, %if.else27 ], [ 1, %if.then33 ], [ 1, %if.then37 ], [ 1, %if.then43 ], [ 1, %if.then47 ], [ 1, %if.then59 ], [ 1, %if.then64 ], [ %conv, %sw.bb3 ], [ 0, %acpt_close_socket.exit ], [ 0, %if.then20 ], [ 1, %if.then ], [ 1, %if.else56 ], [ -1, %sw.bb85 ], [ 6, %if.then130 ], [ -1, %if.else127 ], [ -1, %sw.bb97 ], [ 0, %sw.bb160 ]
   ret i64 %ret.0
 }
 

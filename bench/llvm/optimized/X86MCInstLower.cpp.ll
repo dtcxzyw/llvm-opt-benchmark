@@ -3681,16 +3681,16 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %23, %27
 57:                                               ; preds = %55
   %58 = load i32, ptr %2, align 8
   switch i32 %58, label %128 [
-    i32 1029, label %110
-    i32 1028, label %110
     i32 1027, label %110
     i32 1026, label %110
+    i32 1025, label %110
+    i32 1024, label %110
     i32 12712, label %107
     i32 2259, label %107
     i32 4850, label %104
     i32 4849, label %104
-    i32 1025, label %110
-    i32 1024, label %110
+    i32 1029, label %110
+    i32 1028, label %110
     i32 1579, label %69
     i32 1580, label %69
     i32 1174, label %80

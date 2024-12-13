@@ -79155,7 +79155,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 386
   br label %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i"
 
-._crit_edge:                                      ; preds = %32, %2
+._crit_edge:                                      ; preds = %31, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 385
   %12 = load i8, ptr %11, align 1, !range !57, !noundef !24
   store i8 0, ptr %11, align 1
@@ -79166,8 +79166,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.16baf3b4cbe340408413aa23ba3c7431.326.llvm.933925041898046037) #74
   unreachable
 
-"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i.lr.ph", %32
-  %14 = phi { i8, i1 } [ %9, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i.lr.ph" ], [ %36, %32 ]
+"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i.lr.ph", %31
+  %14 = phi { i8, i1 } [ %9, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i.lr.ph" ], [ %35, %31 ]
   %.sroa.08.0.i.i.i = extractvalue { i8, i1 } %14, 0
   switch i8 %.sroa.08.0.i.i.i, label %15 [
     i8 4, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit"
@@ -79187,15 +79187,15 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
 "_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit": ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i"
   br label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
 
-"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17": ; preds = %30, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i", %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit", %._crit_edge, %28, %29, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13", %22
-  %.sroa.0.0 = phi i8 [ 2, %28 ], [ 2, %29 ], [ 0, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13" ], [ 0, %22 ], [ 0, %._crit_edge ], [ 2, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i" ], [ 1, %30 ], [ 0, %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit" ]
+"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17": ; preds = %29, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i", %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit", %._crit_edge, %28, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13", %22
+  %.sroa.0.0 = phi i8 [ 2, %28 ], [ 0, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13" ], [ 0, %22 ], [ 0, %._crit_edge ], [ 2, %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i" ], [ 1, %29 ], [ 0, %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17.loopexit" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i8 %.sroa.0.0
 
 17:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i"
   %18 = load atomic i8, ptr %10 acquire, align 2
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %30
+  br i1 %19, label %20, label %29
 
 20:                                               ; preds = %17
   %21 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
@@ -79217,8 +79217,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   %.sroa.08.0.i.i.i14 = extractvalue { i8, i1 } %21, 0
   switch i8 %.sroa.08.0.i.i.i14, label %26 [
     i8 4, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
-    i8 0, label %29
-    i8 1, label %29
+    i8 0, label %28
+    i8 1, label %28
     i8 2, label %27
     i8 3, label %28
   ]
@@ -79230,27 +79230,24 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN7postage4sync8transfer17Transfer$LT
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.284dc1eb7b1e379a734e7d790bd202f2.133.llvm.11704451251615781814, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.284dc1eb7b1e379a734e7d790bd202f2.135.llvm.11704451251615781814) #74
   unreachable
 
-28:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13"
+28:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13"
   br label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
 
-29:                                               ; preds = %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13", %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i13"
-  br label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
-
-30:                                               ; preds = %17
+29:                                               ; preds = %17
   call void @_ZN7postage4sync8notifier8Notifier9subscribe17hc2dd2f4d9cadd432E(ptr noundef nonnull align 128 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %31 = call noundef zeroext i1 @_ZN7postage4sync8notifier17NotificationGuard10is_expired17h911bce5cbddc4a4cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-  br i1 %31, label %32, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
+  %30 = call noundef zeroext i1 @_ZN7postage4sync8notifier17NotificationGuard10is_expired17h911bce5cbddc4a4cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
+  br i1 %30, label %31, label %"_ZN7postage4sync12oneshot_cell20OneshotCell$LT$T$GT$8try_recv17h23cce10812aa8ce2E.exit17"
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %33 = call { ptr, i64 } @_ZN7postage4sync8notifier8Notifier5guard17ha2a9ab08a0e201a2E(ptr noundef nonnull align 128 %0)
-  %34 = extractvalue { ptr, i64 } %33, 0
-  %35 = extractvalue { ptr, i64 } %33, 1
-  store ptr %34, ptr %3, align 8
-  store i64 %35, ptr %7, align 8
-  %36 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
-  %.sroa.18.0.in.i.i.i = extractvalue { i8, i1 } %36, 1
+  %32 = call { ptr, i64 } @_ZN7postage4sync8notifier8Notifier5guard17ha2a9ab08a0e201a2E(ptr noundef nonnull align 128 %0)
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = extractvalue { ptr, i64 } %32, 1
+  store ptr %33, ptr %3, align 8
+  store i64 %34, ptr %7, align 8
+  %35 = cmpxchg ptr %8, i8 2, i8 3 acq_rel monotonic, align 1
+  %.sroa.18.0.in.i.i.i = extractvalue { i8, i1 } %35, 1
   br i1 %.sroa.18.0.in.i.i.i, label %._crit_edge, label %"_ZN7postage4sync10state_cell22StateCell$LT$S$C$T$GT$12compare_take17h176784b737fb9054E.exit.i"
 }
 

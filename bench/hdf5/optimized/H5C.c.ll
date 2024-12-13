@@ -1032,7 +1032,7 @@ define range(i32 -1, 1) i32 @H5C_flush_cache(ptr noundef %0, i32 noundef %1) loc
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C_flush_cache, i32 noundef 702, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.15) #8
   br label %.loopexit
 
-48:                                               ; preds = %23, %27, %24, %37, %34, %23, %23, %20
+48:                                               ; preds = %23, %23, %23, %27, %24, %37, %34, %20
   %49 = tail call i32 @H5C__flush_ring(ptr noundef %0, i32 noundef %.02526, i32 noundef %1) #8
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %18

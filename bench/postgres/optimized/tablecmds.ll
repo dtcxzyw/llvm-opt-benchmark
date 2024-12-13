@@ -8610,7 +8610,7 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %cond = icmp eq i32 %20, 9
-  %spec.select20 = select i1 %cond, i32 6, i32 8
+  %. = select i1 %cond, i32 6, i32 8
   br label %37
 
 21:                                               ; preds = %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33
@@ -8632,7 +8632,7 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
-  %. = select i1 %32, i32 4, i32 8
+  %.20 = select i1 %32, i32 4, i32 8
   br label %37
 
 .split:                                           ; preds = %.lr.ph33
@@ -8644,9 +8644,9 @@ define dso_local range(i32 4, -2147483648) i32 @AlterTableGetLockLevel(ptr nound
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4738, ptr noundef nonnull @__func__.AlterTableGetLockLevel) #13
   unreachable
 
-37:                                               ; preds = %18, %27, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %13, %23, %22, %21, %12
-  %38 = phi i32 [ %.pre, %23 ], [ %6, %22 ], [ %6, %21 ], [ %6, %13 ], [ %6, %12 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %27 ], [ %6, %18 ]
-  %.016 = phi i32 [ %26, %23 ], [ 4, %22 ], [ 4, %21 ], [ 8, %13 ], [ 6, %12 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ %., %27 ], [ %spec.select20, %18 ]
+37:                                               ; preds = %27, %18, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %.lr.ph33, %13, %23, %22, %21, %12
+  %38 = phi i32 [ %.pre, %23 ], [ %6, %22 ], [ %6, %21 ], [ %6, %13 ], [ %6, %12 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %.lr.ph33 ], [ %6, %18 ], [ %6, %27 ]
+  %.016 = phi i32 [ %26, %23 ], [ 4, %22 ], [ 4, %21 ], [ 8, %13 ], [ 6, %12 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ 8, %.lr.ph33 ], [ %., %18 ], [ %.20, %27 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.016, i32 %.0172631)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = sext i32 %38 to i64

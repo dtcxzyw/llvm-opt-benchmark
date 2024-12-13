@@ -171,7 +171,7 @@ define void @lv_sdl_mousewheel_handler(ptr nocapture noundef readonly %0) local_
   tail call void @lv_indev_read(ptr noundef nonnull %.us-phi) #2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %9, %3, %1, %37
+.loopexit:                                        ; preds = %16, %9, %3, %37, %1
   ret void
 }
 

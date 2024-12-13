@@ -2313,7 +2313,7 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
 default.unreachable:                              ; preds = %9
   unreachable
 
-30:                                               ; preds = %9, %9, %20, %23, %10, %13, %9
+30:                                               ; preds = %20, %23, %10, %13, %9, %9, %9
   %31 = load ptr, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %33 = load ptr, ptr %32, align 8

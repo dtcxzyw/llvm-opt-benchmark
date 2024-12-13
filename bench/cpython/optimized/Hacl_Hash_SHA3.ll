@@ -984,7 +984,7 @@ if.then50:                                        ; preds = %if.else47
   %rem61 = urem i64 %s.sroa.384.0.copyload, %switch.load721
   %cmp62 = icmp eq i64 %rem61, 0
   %or.cond2 = and i1 %cmp7, %cmp62
-  br i1 %or.cond2, label %for.body.preheader.i, label %if.else69
+  br i1 %or.cond2, label %if.then77, label %if.else69
 
 if.else69:                                        ; preds = %if.then50
   %switch.tableidx723 = add nsw i8 %s.sroa.0.0.copyload, -8
@@ -993,9 +993,9 @@ if.else69:                                        ; preds = %if.then50
   %switch.load725 = load i64, ptr %switch.gep724, align 8
   %rem72 = urem i64 %s.sroa.384.0.copyload, %switch.load725
   %9 = icmp eq i64 %rem72, 0
-  br i1 %9, label %if.end81, label %for.body.preheader.i
+  br i1 %9, label %if.end81, label %if.then77
 
-for.body.preheader.i:                             ; preds = %if.else69, %if.then50
+if.then77:                                        ; preds = %if.then50, %if.else69
   switch i8 %s.sroa.0.0.copyload, label %block_len.exit.i [
     i8 9, label %block_len.exit11.i
     i8 12, label %block_len.exit.thread29.i
@@ -1003,21 +1003,21 @@ for.body.preheader.i:                             ; preds = %if.else69, %if.then
     i8 11, label %block_len.exit.thread23.i
   ]
 
-block_len.exit.thread17.i:                        ; preds = %for.body.preheader.i
+block_len.exit.thread17.i:                        ; preds = %if.then77
   br label %block_len.exit11.i
 
-block_len.exit.thread23.i:                        ; preds = %for.body.preheader.i
+block_len.exit.thread23.i:                        ; preds = %if.then77
   br label %block_len.exit11.i
 
-block_len.exit.thread29.i:                        ; preds = %for.body.preheader.i
+block_len.exit.thread29.i:                        ; preds = %if.then77
   br label %block_len.exit11.i
 
-block_len.exit.i:                                 ; preds = %for.body.preheader.i
+block_len.exit.i:                                 ; preds = %if.then77
   br label %block_len.exit11.i
 
-block_len.exit11.i:                               ; preds = %block_len.exit.i, %block_len.exit.thread29.i, %block_len.exit.thread23.i, %block_len.exit.thread17.i, %for.body.preheader.i
-  %.sink38.i.sroa.phi = phi ptr [ %.sink38.i.sroa.gep, %block_len.exit.thread29.i ], [ %.sink38.i.sroa.gep468, %block_len.exit.thread23.i ], [ %.sink38.i.sroa.gep469, %block_len.exit.thread17.i ], [ %.sink38.i.sroa.gep470, %block_len.exit.i ], [ %.sink38.i.sroa.gep471, %for.body.preheader.i ]
-  %.sink38.i = phi i64 [ 168, %block_len.exit.thread29.i ], [ 72, %block_len.exit.thread23.i ], [ 104, %block_len.exit.thread17.i ], [ 136, %block_len.exit.i ], [ 144, %for.body.preheader.i ]
+block_len.exit11.i:                               ; preds = %block_len.exit.i, %block_len.exit.thread29.i, %block_len.exit.thread23.i, %block_len.exit.thread17.i, %if.then77
+  %.sink38.i.sroa.phi = phi ptr [ %.sink38.i.sroa.gep, %block_len.exit.thread29.i ], [ %.sink38.i.sroa.gep468, %block_len.exit.thread23.i ], [ %.sink38.i.sroa.gep469, %block_len.exit.thread17.i ], [ %.sink38.i.sroa.gep470, %block_len.exit.i ], [ %.sink38.i.sroa.gep471, %if.then77 ]
+  %.sink38.i = phi i64 [ 168, %block_len.exit.thread29.i ], [ 72, %block_len.exit.thread23.i ], [ 104, %block_len.exit.thread17.i ], [ 136, %block_len.exit.i ], [ 144, %if.then77 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %block.i.i.i)
   %10 = sub nuw nsw i64 200, %.sink38.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %.sink38.i.sroa.phi, i8 0, i64 %10, i1 false)

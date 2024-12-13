@@ -1061,8 +1061,8 @@ define dso_local ptr @cgroup_p_constrain_get(i32 noundef %0, i32 noundef %1) loc
   tail call void @cgroup_free_limits(ptr noundef nonnull %3) #11
   br label %28
 
-28:                                               ; preds = %25, %2, %24, %2, %2, %27
-  %.0 = phi ptr [ null, %27 ], [ %3, %2 ], [ %3, %2 ], [ %3, %24 ], [ %3, %2 ], [ %3, %25 ]
+28:                                               ; preds = %25, %2, %2, %2, %24, %27
+  %.0 = phi ptr [ null, %27 ], [ %3, %24 ], [ %3, %2 ], [ %3, %2 ], [ %3, %2 ], [ %3, %25 ]
   ret ptr %.0
 }
 

@@ -40872,15 +40872,15 @@ _ZNSt8optionalIN4llvm13ConstantRangeEED2Ev.exit:  ; preds = %_ZNSt8optionalIN4ll
 define internal fastcc noundef range(i32 4, 17) i32 @_ZN12_GLOBAL__N_120LowerTypeTestsModule21getJumpTableEntrySizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %57 [
+  switch i32 %3, label %56 [
     i32 37, label %4
     i32 38, label %4
-    i32 1, label %58
+    i32 1, label %57
     i32 35, label %15
     i32 3, label %37
     i32 27, label %55
     i32 28, label %55
-    i32 14, label %56
+    i32 14, label %55
   ]
 
 4:                                                ; preds = %1, %1
@@ -40904,16 +40904,16 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   %.0.in.i.i = select i1 %13, ptr %10, ptr %14
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %.not4 = icmp eq i64 %.0.i.i, 0
-  br i1 %.not4, label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread, label %58
+  br i1 %.not4, label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread, label %57
 
 _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread: ; preds = %4, %9, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit
-  br label %58
+  br label %57
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %58
+  br i1 %18, label %19, label %57
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -40954,7 +40954,7 @@ _ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit: ; pr
   %36 = phi i32 [ %21, %19 ], [ %.sink.i, %.sink.split.i ]
   %.not18 = icmp eq i32 %36, 0
   %. = select i1 %.not18, i32 4, i32 8
-  br label %58
+  br label %57
 
 37:                                               ; preds = %1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -40995,20 +40995,17 @@ _ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit14: ; 
   %54 = phi i32 [ %39, %37 ], [ %.sink.i13, %.sink.split.i12 ]
   %.not17 = icmp eq i32 %54, 0
   %.5 = select i1 %.not17, i32 4, i32 8
-  br label %58
+  br label %57
 
-55:                                               ; preds = %1, %1
-  br label %58
+55:                                               ; preds = %1, %1, %1
+  br label %57
 
 56:                                               ; preds = %1
-  br label %58
-
-57:                                               ; preds = %1
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.163, i1 noundef zeroext true) #26
   unreachable
 
-58:                                               ; preds = %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit14, %15, %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit, %1, %9, %56, %55, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread
-  %.0 = phi i32 [ 8, %56 ], [ 8, %55 ], [ 8, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread ], [ 16, %9 ], [ 4, %1 ], [ %., %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit ], [ 16, %15 ], [ %.5, %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit14 ]
+57:                                               ; preds = %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit14, %15, %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit, %1, %9, %55, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread
+  %.0 = phi i32 [ 8, %55 ], [ 8, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread ], [ 16, %9 ], [ 4, %1 ], [ %., %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit ], [ 16, %15 ], [ %.5, %_ZN12_GLOBAL__N_120LowerTypeTestsModule26hasBranchTargetEnforcementEv.exit14 ]
   ret i32 %.0
 }
 

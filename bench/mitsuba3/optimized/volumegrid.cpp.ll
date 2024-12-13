@@ -3965,8 +3965,8 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
     i8 102, label %.loopexit116
     i8 71, label %280
     i8 103, label %.loopexit117
-    i8 115, label %303
     i8 0, label %.loopexit118
+    i8 115, label %303
   ]
 
 .critedge:                                        ; preds = %229, %229, %229, %229, %229, %229

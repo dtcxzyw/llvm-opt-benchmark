@@ -11382,7 +11382,7 @@ lpad299:                                          ; preds = %invoke.cont300, %in
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp296) #30
   br label %ehcleanup
 
-sw.epilog:                                        ; preds = %_ZN8proxygen10HPACKCodec25setEncoderHeaderTableSizeEj.exit, %cleanup.done218, %for.body, %for.body, %sw.bb269, %if.end170, %sw.bb78, %for.body, %for.body, %for.body, %lor.lhs.false
+sw.epilog:                                        ; preds = %_ZN8proxygen10HPACKCodec25setEncoderHeaderTableSizeEj.exit, %cleanup.done218, %sw.bb269, %if.end170, %sw.bb78, %for.body, %for.body, %for.body, %for.body, %for.body, %lor.lhs.false
   %44 = load i64, ptr %__begin1.sroa.0.084, align 8
   %second318 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.084, i64 8
   %45 = load i32, ptr %second318, align 8
@@ -15777,7 +15777,7 @@ lpad113:                                          ; preds = %invoke.cont121, %in
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp111) #30
   br label %ehcleanup
 
-sw.epilog:                                        ; preds = %cond.false78, %sw.bb39, %_ZN5folly8OptionalIjEaSIRKmEERS1_OT_.exit, %cond.end80, %if.else19, %for.body, %for.body, %sw.bb105, %cleanup.action99, %for.body, %for.body, %for.body
+sw.epilog:                                        ; preds = %cond.false78, %sw.bb39, %_ZN5folly8OptionalIjEaSIRKmEERS1_OT_.exit, %cond.end80, %if.else19, %sw.bb105, %cleanup.action99, %for.body, %for.body, %for.body, %for.body, %for.body
   %value128 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.038, i64 8
   %20 = load i64, ptr %__begin1.sroa.0.038, align 8
   store i64 %20, ptr %ref.tmp126, align 8

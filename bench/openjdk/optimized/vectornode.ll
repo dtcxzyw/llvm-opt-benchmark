@@ -491,9 +491,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 14:                                               ; preds = %2
-  %switch.tableidx73 = add i8 %1, -4
-  %15 = icmp ult i8 %switch.tableidx73, 7
-  br i1 %15, label %switch.lookup72, label %185
+  %switch.tableidx74 = add i8 %1, -4
+  %15 = icmp ult i8 %switch.tableidx74, 7
+  br i1 %15, label %switch.lookup73, label %185
 
 16:                                               ; preds = %2
   %17 = icmp eq i8 %1, 11
@@ -511,9 +511,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 25:                                               ; preds = %2
-  %switch.tableidx77 = add i8 %1, -5
-  %26 = icmp ult i8 %switch.tableidx77, 6
-  br i1 %26, label %switch.lookup76, label %185
+  %switch.tableidx78 = add i8 %1, -5
+  %26 = icmp ult i8 %switch.tableidx78, 6
+  br i1 %26, label %switch.lookup77, label %185
 
 27:                                               ; preds = %2
   %28 = icmp eq i8 %1, 11
@@ -561,9 +561,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 54:                                               ; preds = %2
-  %switch.tableidx81 = add i8 %1, -8
-  %55 = icmp ult i8 %switch.tableidx81, 3
-  br i1 %55, label %switch.lookup80, label %185
+  %switch.tableidx82 = add i8 %1, -8
+  %55 = icmp ult i8 %switch.tableidx82, 3
+  br i1 %55, label %switch.lookup81, label %185
 
 56:                                               ; preds = %2
   %57 = icmp eq i8 %1, 11
@@ -571,9 +571,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 59:                                               ; preds = %2
-  %.off61 = add i8 %1, -8
-  %switch62 = icmp ult i8 %.off61, 3
-  %spec.select = select i1 %switch62, i32 419, i32 0
+  %.off = add i8 %1, -8
+  %switch = icmp ult i8 %.off, 3
+  %. = select i1 %switch, i32 419, i32 0
   br label %185
 
 60:                                               ; preds = %2
@@ -592,9 +592,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 69:                                               ; preds = %2
-  %.off63 = add i8 %1, -8
-  %switch64 = icmp ult i8 %.off63, 3
-  %spec.select65 = select i1 %switch64, i32 420, i32 0
+  %.off61 = add i8 %1, -8
+  %switch62 = icmp ult i8 %.off61, 3
+  %.63 = select i1 %switch62, i32 420, i32 0
   br label %185
 
 70:                                               ; preds = %2
@@ -623,9 +623,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 85:                                               ; preds = %2
-  %.off = add i8 %1, -8
-  %switch = icmp ult i8 %.off, 3
-  %. = select i1 %switch, i32 393, i32 0
+  %.off64 = add i8 %1, -8
+  %switch65 = icmp ult i8 %.off64, 3
+  %.66 = select i1 %switch65, i32 393, i32 0
   br label %185
 
 86:                                               ; preds = %2
@@ -660,12 +660,12 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
 
 103:                                              ; preds = %2
   %104 = add i8 %1, -4
-  %switch.and.i.i66 = and i8 %104, -6
-  %switch.selectcmp.i.i67 = icmp eq i8 %switch.and.i.i66, 0
+  %switch.and.i.i67 = and i8 %104, -6
+  %switch.selectcmp.i.i68 = icmp eq i8 %switch.and.i.i67, 0
   %105 = and i8 %1, -2
   %106 = icmp eq i8 %105, 10
-  %spec.select.i68 = or i1 %106, %switch.selectcmp.i.i67
-  %107 = select i1 %spec.select.i68, i32 299, i32 0
+  %spec.select.i69 = or i1 %106, %switch.selectcmp.i.i68
+  %107 = select i1 %spec.select.i69, i32 299, i32 0
   br label %185
 
 108:                                              ; preds = %2
@@ -696,12 +696,12 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
 
 122:                                              ; preds = %2, %2
   %123 = add i8 %1, -4
-  %switch.and.i.i69 = and i8 %123, -6
-  %switch.selectcmp.i.i70 = icmp eq i8 %switch.and.i.i69, 0
+  %switch.and.i.i70 = and i8 %123, -6
+  %switch.selectcmp.i.i71 = icmp eq i8 %switch.and.i.i70, 0
   %124 = and i8 %1, -2
   %125 = icmp eq i8 %124, 10
-  %spec.select.i71 = or i1 %125, %switch.selectcmp.i.i70
-  %126 = select i1 %spec.select.i71, i32 290, i32 0
+  %spec.select.i72 = or i1 %125, %switch.selectcmp.i.i71
+  %126 = select i1 %spec.select.i72, i32 290, i32 0
   br label %185
 
 127:                                              ; preds = %2, %2
@@ -735,9 +735,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 147:                                              ; preds = %2
-  %switch.tableidx83 = add i8 %1, -4
-  %148 = icmp ult i8 %switch.tableidx83, 7
-  br i1 %148, label %switch.lookup82, label %185
+  %switch.tableidx84 = add i8 %1, -4
+  %148 = icmp ult i8 %switch.tableidx84, 7
+  br i1 %148, label %switch.lookup83, label %185
 
 149:                                              ; preds = %2
   %150 = icmp eq i8 %1, 11
@@ -745,9 +745,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 152:                                              ; preds = %2
-  %switch.tableidx87 = add i8 %1, -4
-  %153 = icmp ult i8 %switch.tableidx87, 7
-  br i1 %153, label %switch.lookup86, label %185
+  %switch.tableidx88 = add i8 %1, -4
+  %153 = icmp ult i8 %switch.tableidx88, 7
+  br i1 %153, label %switch.lookup87, label %185
 
 154:                                              ; preds = %2
   %155 = icmp eq i8 %1, 11
@@ -765,9 +765,9 @@ define hidden noundef range(i32 0, 476) i32 @_ZN10VectorNode6opcodeEi9BasicType(
   br label %185
 
 163:                                              ; preds = %2
-  %switch.tableidx91 = add i8 %1, -4
-  %164 = icmp ult i8 %switch.tableidx91, 7
-  br i1 %164, label %switch.lookup90, label %185
+  %switch.tableidx92 = add i8 %1, -4
+  %164 = icmp ult i8 %switch.tableidx92, 7
+  br i1 %164, label %switch.lookup91, label %185
 
 165:                                              ; preds = %2
   %166 = icmp eq i8 %1, 11
@@ -813,43 +813,43 @@ switch.lookup:                                    ; preds = %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %185
 
-switch.lookup72:                                  ; preds = %14
-  %180 = zext nneg i8 %switch.tableidx73 to i64
-  %switch.gep74 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.2, i64 0, i64 %180
-  %switch.load75 = load i32, ptr %switch.gep74, align 4
+switch.lookup73:                                  ; preds = %14
+  %180 = zext nneg i8 %switch.tableidx74 to i64
+  %switch.gep75 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.2, i64 0, i64 %180
+  %switch.load76 = load i32, ptr %switch.gep75, align 4
   br label %185
 
-switch.lookup76:                                  ; preds = %25
-  %181 = zext nneg i8 %switch.tableidx77 to i64
-  %switch.gep78 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.3, i64 0, i64 %181
-  %switch.load79 = load i32, ptr %switch.gep78, align 4
+switch.lookup77:                                  ; preds = %25
+  %181 = zext nneg i8 %switch.tableidx78 to i64
+  %switch.gep79 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.3, i64 0, i64 %181
+  %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %185
 
-switch.lookup80:                                  ; preds = %54
-  %switch.idx.cast = zext nneg i8 %switch.tableidx81 to i32
+switch.lookup81:                                  ; preds = %54
+  %switch.idx.cast = zext nneg i8 %switch.tableidx82 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 387
   br label %185
 
-switch.lookup82:                                  ; preds = %147
-  %182 = zext nneg i8 %switch.tableidx83 to i64
-  %switch.gep84 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 0, i64 %182
-  %switch.load85 = load i32, ptr %switch.gep84, align 4
+switch.lookup83:                                  ; preds = %147
+  %182 = zext nneg i8 %switch.tableidx84 to i64
+  %switch.gep85 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.4, i64 0, i64 %182
+  %switch.load86 = load i32, ptr %switch.gep85, align 4
   br label %185
 
-switch.lookup86:                                  ; preds = %152
-  %183 = zext nneg i8 %switch.tableidx87 to i64
-  %switch.gep88 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 0, i64 %183
-  %switch.load89 = load i32, ptr %switch.gep88, align 4
+switch.lookup87:                                  ; preds = %152
+  %183 = zext nneg i8 %switch.tableidx88 to i64
+  %switch.gep89 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.5, i64 0, i64 %183
+  %switch.load90 = load i32, ptr %switch.gep89, align 4
   br label %185
 
-switch.lookup90:                                  ; preds = %163
-  %184 = zext nneg i8 %switch.tableidx91 to i64
-  %switch.gep92 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 0, i64 %184
-  %switch.load93 = load i32, ptr %switch.gep92, align 4
+switch.lookup91:                                  ; preds = %163
+  %184 = zext nneg i8 %switch.tableidx92 to i64
+  %switch.gep93 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN10VectorNode6opcodeEi9BasicType.6, i64 0, i64 %184
+  %switch.load94 = load i32, ptr %switch.gep93, align 4
   br label %185
 
-185:                                              ; preds = %163, %switch.lookup90, %152, %switch.lookup86, %147, %switch.lookup82, %switch.lookup80, %54, %25, %switch.lookup76, %14, %switch.lookup72, %3, %switch.lookup, %69, %59, %85, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
-  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 472, %2 ], [ 0, %54 ], [ %., %85 ], [ %spec.select, %59 ], [ %spec.select65, %69 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load75, %switch.lookup72 ], [ 0, %14 ], [ %switch.load79, %switch.lookup76 ], [ 0, %25 ], [ %switch.offset, %switch.lookup80 ], [ %switch.load85, %switch.lookup82 ], [ 0, %147 ], [ %switch.load89, %switch.lookup86 ], [ 0, %152 ], [ %switch.load93, %switch.lookup90 ], [ 0, %163 ]
+185:                                              ; preds = %163, %switch.lookup91, %152, %switch.lookup87, %147, %switch.lookup83, %54, %switch.lookup81, %25, %switch.lookup77, %14, %switch.lookup73, %3, %switch.lookup, %85, %69, %59, %2, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %165, %160, %157, %154, %149, %143, %139, %136, %132, %127, %122, %121, %120, %117, %114, %111, %108, %103, %98, %95, %92, %89, %86, %82, %79, %76, %73, %70, %66, %63, %60, %56, %51, %48, %45, %42, %39, %36, %33, %30, %27, %22, %19, %16, %11, %8, %5
+  %.0 = phi i32 [ 0, %178 ], [ 317, %177 ], [ 316, %176 ], [ 152, %175 ], [ 149, %174 ], [ 382, %173 ], [ 429, %172 ], [ 426, %171 ], [ 417, %170 ], [ 415, %169 ], [ 413, %168 ], [ %167, %165 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %151, %149 ], [ %146, %143 ], [ %142, %139 ], [ %138, %136 ], [ %135, %132 ], [ %131, %127 ], [ %126, %122 ], [ 279, %121 ], [ 278, %120 ], [ %119, %117 ], [ %116, %114 ], [ %113, %111 ], [ %110, %108 ], [ %107, %103 ], [ %102, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %89 ], [ %88, %86 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %58, %56 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %13, %11 ], [ %10, %8 ], [ %7, %5 ], [ 472, %2 ], [ %., %59 ], [ %.63, %69 ], [ %.66, %85 ], [ %switch.load, %switch.lookup ], [ 0, %3 ], [ %switch.load76, %switch.lookup73 ], [ 0, %14 ], [ %switch.load80, %switch.lookup77 ], [ 0, %25 ], [ %switch.offset, %switch.lookup81 ], [ 0, %54 ], [ %switch.load86, %switch.lookup83 ], [ 0, %147 ], [ %switch.load90, %switch.lookup87 ], [ 0, %152 ], [ %switch.load94, %switch.lookup91 ], [ 0, %163 ]
   ret i32 %.0
 }
 
@@ -943,8 +943,8 @@ switch.lookup19:                                  ; preds = %14
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %22
 
-22:                                               ; preds = %switch.lookup19, %14, %switch.lookup15, %12, %10, %switch.lookup11, %8, %switch.lookup7, %6, %switch.lookup, %2, %2, %16, %5, %4, %3
-  %.0 = phi i32 [ 0, %16 ], [ 247, %5 ], [ 246, %4 ], [ 24, %3 ], [ 23, %2 ], [ 23, %2 ], [ 0, %12 ], [ 0, %14 ], [ %switch.load, %switch.lookup ], [ 0, %6 ], [ %switch.load10, %switch.lookup7 ], [ 0, %8 ], [ %switch.load14, %switch.lookup11 ], [ 0, %10 ], [ %switch.load18, %switch.lookup15 ], [ %switch.load22, %switch.lookup19 ]
+22:                                               ; preds = %14, %switch.lookup19, %12, %switch.lookup15, %10, %switch.lookup11, %8, %switch.lookup7, %6, %switch.lookup, %2, %2, %16, %5, %4, %3
+  %.0 = phi i32 [ 0, %16 ], [ 247, %5 ], [ 246, %4 ], [ 24, %3 ], [ 23, %2 ], [ 23, %2 ], [ %switch.load, %switch.lookup ], [ 0, %6 ], [ %switch.load10, %switch.lookup7 ], [ 0, %8 ], [ %switch.load14, %switch.lookup11 ], [ 0, %10 ], [ %switch.load18, %switch.lookup15 ], [ 0, %12 ], [ %switch.load22, %switch.lookup19 ], [ 0, %14 ]
   ret i32 %.0
 }
 

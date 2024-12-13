@@ -633,44 +633,41 @@ declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef double @default_multirange_selectivity(i32 noundef %0) unnamed_addr #2 {
-  switch i32 %0, label %5 [
-    i32 4142, label %4
-    i32 3585, label %4
-    i32 4035, label %4
-    i32 4539, label %2
-    i32 4540, label %2
-    i32 2870, label %2
-    i32 2871, label %2
-    i32 2873, label %2
-    i32 2874, label %2
-    i32 2869, label %3
-    i32 2872, label %3
-    i32 2862, label %4
-    i32 2863, label %4
-    i32 2865, label %4
-    i32 2864, label %4
-    i32 4396, label %4
-    i32 4397, label %4
-    i32 4395, label %4
-    i32 4399, label %4
-    i32 4400, label %4
-    i32 4398, label %4
-    i32 2876, label %4
-    i32 2875, label %4
-    i32 2877, label %4
+  switch i32 %0, label %3 [
+    i32 4142, label %2
+    i32 3585, label %2
+    i32 4035, label %2
+    i32 4539, label %4
+    i32 4540, label %4
+    i32 2870, label %4
+    i32 2871, label %4
+    i32 2873, label %4
+    i32 2874, label %4
+    i32 2869, label %4
+    i32 2872, label %4
+    i32 2862, label %2
+    i32 2863, label %2
+    i32 2865, label %2
+    i32 2864, label %2
+    i32 4396, label %2
+    i32 4397, label %2
+    i32 4395, label %2
+    i32 4399, label %2
+    i32 4400, label %2
+    i32 4398, label %2
+    i32 2876, label %2
+    i32 2875, label %2
+    i32 2877, label %2
   ]
 
-2:                                                ; preds = %1, %1, %1, %1, %1, %1
-  br label %5
+2:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %4
 
-3:                                                ; preds = %1, %1
-  br label %5
+3:                                                ; preds = %1
+  br label %4
 
-4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %5
-
-5:                                                ; preds = %1, %4, %3, %2
-  %.0 = phi double [ 0x3FD5555555555555, %4 ], [ 5.000000e-03, %3 ], [ 5.000000e-03, %2 ], [ 1.000000e-02, %1 ]
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %3, %2
+  %.0 = phi double [ 1.000000e-02, %3 ], [ 0x3FD5555555555555, %2 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ], [ 5.000000e-03, %1 ]
   ret double %.0
 }
 

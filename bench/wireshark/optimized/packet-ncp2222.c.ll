@@ -12978,13 +12978,13 @@ ncp_requires_subfunc.exit:                        ; preds = %221
     i8 3, label %547
     i8 4, label %571
     i8 5, label %580
-    i8 110, label %698
     i8 57, label %695
     i8 53, label %672
     i8 27, label %666
     i8 22, label %627
     i8 19, label %624
     i8 18, label %612
+    i8 110, label %698
     i8 15, label %595
   ]
 

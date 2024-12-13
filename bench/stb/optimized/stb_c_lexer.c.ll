@@ -183,7 +183,7 @@ if.then:                                          ; preds = %entry
     i8 48, label %sw.bb9
     i8 120, label %sw.bb10
     i8 88, label %sw.bb10
-    i8 117, label %sw.bb11
+    i8 117, label %sw.bb10
   ]
 
 sw.bb3:                                           ; preds = %if.then
@@ -207,10 +207,7 @@ sw.bb8:                                           ; preds = %if.then
 sw.bb9:                                           ; preds = %if.then
   br label %return
 
-sw.bb10:                                          ; preds = %if.then, %if.then
-  br label %return
-
-sw.bb11:                                          ; preds = %if.then
+sw.bb10:                                          ; preds = %if.then, %if.then, %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
@@ -220,8 +217,8 @@ if.end:                                           ; preds = %if.then, %entry
   %conv13 = zext i8 %2 to i32
   br label %return
 
-return:                                           ; preds = %if.then, %if.end, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3
-  %retval.0 = phi i32 [ %conv13, %if.end ], [ -1, %sw.bb11 ], [ -1, %sw.bb10 ], [ 0, %sw.bb9 ], [ 13, %sw.bb8 ], [ 10, %sw.bb7 ], [ 12, %sw.bb6 ], [ 9, %sw.bb5 ], [ 34, %sw.bb4 ], [ 39, %sw.bb3 ], [ 92, %if.then ]
+return:                                           ; preds = %if.then, %if.end, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3
+  %retval.0 = phi i32 [ %conv13, %if.end ], [ -1, %sw.bb10 ], [ 0, %sw.bb9 ], [ 13, %sw.bb8 ], [ 10, %sw.bb7 ], [ 12, %sw.bb6 ], [ 9, %sw.bb5 ], [ 34, %sw.bb4 ], [ 39, %sw.bb3 ], [ 92, %if.then ]
   ret i32 %retval.0
 }
 

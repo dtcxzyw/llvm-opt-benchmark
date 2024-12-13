@@ -1467,10 +1467,10 @@ sw.epilog:                                        ; preds = %while.body, %while.
   switch i64 %7, label %for.inc [
     i64 13, label %sw.bb105
     i64 1, label %sw.bb21
-    i64 12, label %sw.bb99
     i64 14, label %for.cond60
     i64 8, label %for.cond37
     i64 10, label %for.cond27
+    i64 12, label %sw.bb99
     i64 4, label %sw.bb23
     i64 5, label %sw.bb23
   ]
@@ -1592,7 +1592,7 @@ sw.bb105:                                         ; preds = %sw.epilog
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then33, %for.end, %sw.bb21, %sw.bb23, %for.end53, %for.end95, %sw.bb99, %sw.bb105, %sw.epilog
-  %sp.1 = phi ptr [ %sp.0133, %sw.epilog ], [ %incdec.ptr24, %sw.bb23 ], [ %call38, %for.end53 ], [ %call61, %for.end95 ], [ %sp.0133, %sw.bb99 ], [ %incdec.ptr, %sw.bb21 ], [ %sp.0133, %sw.bb105 ], [ %call, %for.end ], [ %call, %if.then33 ]
+  %sp.1 = phi ptr [ %sp.0133, %sw.epilog ], [ %incdec.ptr24, %sw.bb23 ], [ %sp.0133, %sw.bb99 ], [ %call38, %for.end53 ], [ %call61, %for.end95 ], [ %incdec.ptr, %sw.bb21 ], [ %sp.0133, %sw.bb105 ], [ %call, %for.end ], [ %call, %if.then33 ]
   %cmp = icmp slt i64 %inc, %stopst
   br i1 %cmp, label %for.body, label %for.end119, !llvm.loop !12
 
@@ -2692,10 +2692,10 @@ sw.epilog:                                        ; preds = %while.body, %while.
   switch i64 %7, label %for.inc [
     i64 13, label %sw.bb105
     i64 1, label %sw.bb21
-    i64 12, label %sw.bb99
     i64 14, label %for.cond60
     i64 8, label %for.cond37
     i64 10, label %for.cond27
+    i64 12, label %sw.bb99
     i64 4, label %sw.bb23
     i64 5, label %sw.bb23
   ]
@@ -2825,7 +2825,7 @@ sw.bb105:                                         ; preds = %sw.epilog
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then33, %for.end, %sw.bb21, %sw.bb23, %for.end53, %for.end95, %sw.bb99, %sw.bb105, %sw.epilog
-  %sp.1 = phi ptr [ %sp.0133, %sw.epilog ], [ %incdec.ptr24, %sw.bb23 ], [ %call38, %for.end53 ], [ %call61, %for.end95 ], [ %sp.0133, %sw.bb99 ], [ %incdec.ptr, %sw.bb21 ], [ %sp.0133, %sw.bb105 ], [ %call, %for.end ], [ %call, %if.then33 ]
+  %sp.1 = phi ptr [ %sp.0133, %sw.epilog ], [ %incdec.ptr24, %sw.bb23 ], [ %sp.0133, %sw.bb99 ], [ %call38, %for.end53 ], [ %call61, %for.end95 ], [ %incdec.ptr, %sw.bb21 ], [ %sp.0133, %sw.bb105 ], [ %call, %for.end ], [ %call, %if.then33 ]
   %cmp = icmp slt i64 %inc, %stopst
   br i1 %cmp, label %for.body, label %for.end119, !llvm.loop !19
 

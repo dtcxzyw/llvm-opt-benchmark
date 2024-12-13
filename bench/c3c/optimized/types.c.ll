@@ -6744,7 +6744,7 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
 2:                                                ; preds = %.backedge, %1
   %.0 = phi ptr [ %0, %1 ], [ %.0.be, %.backedge ]
   %3 = load i32, ptr %.0, align 8
-  switch i32 %3, label %26 [
+  switch i32 %3, label %25 [
     i32 0, label %.loopexit
     i32 1, label %.loopexit
     i32 3, label %.loopexit
@@ -6785,17 +6785,17 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
     i32 35, label %23
     i32 37, label %23
     i32 38, label %23
-    i32 40, label %24
-    i32 39, label %25
-    i32 42, label %25
-    i32 43, label %25
+    i32 40, label %4
+    i32 39, label %24
+    i32 42, label %24
+    i32 43, label %24
   ]
 
-4:                                                ; preds = %2, %2
+4:                                                ; preds = %2, %2, %2
   br label %.backedge
 
-.backedge:                                        ; preds = %2, %4, %23, %24
-  %.sink = phi i64 [ 56, %4 ], [ 56, %23 ], [ 56, %24 ], [ 8, %2 ]
+.backedge:                                        ; preds = %2, %4, %23
+  %.sink = phi i64 [ 56, %4 ], [ 56, %23 ], [ 8, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   %.0.be = load ptr, ptr %5, align 8
   br label %2
@@ -6835,14 +6835,11 @@ define dso_local ptr @type_base_module(ptr nocapture noundef readonly %0) local_
 23:                                               ; preds = %2, %2, %2, %2, %2, %2
   br label %.backedge
 
-24:                                               ; preds = %2
-  br label %.backedge
-
-25:                                               ; preds = %2, %2, %2
+24:                                               ; preds = %2, %2, %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #13
   unreachable
 
-26:                                               ; preds = %2
+25:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #13
   unreachable
 

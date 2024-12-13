@@ -13932,9 +13932,9 @@ define internal fastcc range(i32 -2147483648, 65536) i32 @get_branchlength(ptr n
     i16 14, label %278
     i16 20, label %.sink.split
     i16 7, label %279
-    i16 1, label %.thread179
-    i16 25, label %.thread179
-    i16 33, label %.thread179
+    i16 1, label %278
+    i16 25, label %278
+    i16 33, label %278
     i16 57, label %.thread184
     i16 58, label %.thread184
     i16 59, label %.thread184
@@ -14451,10 +14451,7 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
   store ptr %277, ptr %10, align 8
   br label %.thread191
 
-278:                                              ; preds = %34
-  br label %.sink.split
-
-.thread179:                                       ; preds = %34, %34, %34
+278:                                              ; preds = %34, %34, %34, %34
   br label %.sink.split
 
 279:                                              ; preds = %34
@@ -14493,8 +14490,8 @@ set_lookbehind_lengths.exit:                      ; preds = %117, %118
   %298 = and i32 %291, 65535
   br label %324
 
-.sink.split:                                      ; preds = %278, %34, %34, %34, %34, %34, %.thread179
-  %.sink507 = phi i64 [ 4, %.thread179 ], [ 4, %278 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ]
+.sink.split:                                      ; preds = %278, %34, %34, %34, %34, %34
+  %.sink507 = phi i64 [ 4, %278 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ], [ 16, %34 ]
   %299 = getelementptr inbounds nuw i8, ptr %31, i64 %.sink507
   store ptr %299, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)

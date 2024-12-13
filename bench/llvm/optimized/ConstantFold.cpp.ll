@@ -3932,29 +3932,26 @@ _ZN4llvm11Instruction13isAssociativeEj.exit:      ; preds = %673, %640, %670, %6
     i32 25, label %681
     i32 26, label %681
     i32 27, label %681
-    i32 20, label %682
-    i32 19, label %682
-    i32 22, label %683
-    i32 23, label %683
+    i32 20, label %681
+    i32 19, label %681
+    i32 22, label %682
+    i32 23, label %682
   ]
 
 679:                                              ; preds = %678, %678
   %680 = call noundef ptr @_ZN4llvm12ConstantExpr6getXorEPNS_8ConstantES2_(ptr noundef nonnull %.tr426490, ptr noundef nonnull %.tr427472) #10
   br label %_ZN4llvm5APIntD2Ev.exit254
 
-681:                                              ; preds = %678, %678, %678
+681:                                              ; preds = %678, %678, %678, %678, %678
   br label %_ZN4llvm5APIntD2Ev.exit254
 
 682:                                              ; preds = %678, %678
+  %683 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr426490) #10
+  %684 = call noundef ptr @_ZN4llvm11ConstantInt8getFalseERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %683) #10
   br label %_ZN4llvm5APIntD2Ev.exit254
 
-683:                                              ; preds = %678, %678
-  %684 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr426490) #10
-  %685 = call noundef ptr @_ZN4llvm11ConstantInt8getFalseERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %684) #10
-  br label %_ZN4llvm5APIntD2Ev.exit254
-
-_ZN4llvm5APIntD2Ev.exit254:                       ; preds = %40, %38, %36, %67, %65, %69, %.split569.us, %.split554.us, %.split548.us, %.thread403, %_ZNK4llvm11ConstantInt6isZeroEv.exit276, %548, %538, %535, %529, %520, %517, %511, %502, %499, %493, %487, %484, %_ZN4llvm5APIntD2Ev.exit270, %464, %461, %_ZN4llvm5APIntD2Ev.exit267, %441, %438, %_ZN4llvm5APIntD2Ev.exit264, %418, %415, %409, %400, %397, %391, %390, %387, %381, %372, %369, %363, %362, %359, %353, %352, %349, %_ZN4llvm5APIntD2Ev.exit256, %326, %323, %_ZN4llvm5APIntD2Ev.exit253, %291, %_ZNK4llvm11ConstantInt6isZeroEv.exit244, %215, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %172, %161, %155, %_ZN4llvm11Instruction13isAssociativeEj.exit, %678, %591, %.split607.us, %_ZN4llvm5APIntD2Ev.exit248, %683, %682, %681, %679, %674, %662, %.loopexit, %593, %582, %539, %521, %503, %405, %377, %206, %201, %187, %164, %150, %146, %143, %139, %136, %132, %129, %126, %122, %118, %114, %110, %107, %94, %.loopexit428, %90, %.split539.us
-  %.0 = phi ptr [ %80, %.split539.us ], [ %669, %662 ], [ %685, %683 ], [ %.tr426490, %682 ], [ %.tr426490, %681 ], [ %680, %679 ], [ %675, %674 ], [ %541, %539 ], [ %523, %521 ], [ %505, %503 ], [ %408, %405 ], [ %380, %377 ], [ %583, %582 ], [ %599, %593 ], [ %.4, %.loopexit ], [ %.1, %_ZN4llvm5APIntD2Ev.exit248 ], [ %204, %201 ], [ %209, %206 ], [ %190, %187 ], [ %166, %164 ], [ %149, %146 ], [ %151, %150 ], [ %142, %139 ], [ %144, %143 ], [ %135, %132 ], [ %137, %136 ], [ %130, %129 ], [ %125, %122 ], [ %128, %126 ], [ %117, %114 ], [ %120, %118 ], [ %109, %107 ], [ %112, %110 ], [ %95, %94 ], [ %93, %.loopexit428 ], [ %91, %90 ], [ %293, %.split607.us ], [ null, %591 ], [ null, %678 ], [ null, %_ZN4llvm11Instruction13isAssociativeEj.exit ], [ %.us-phi592, %155 ], [ %.tr426491, %161 ], [ %.us-phi601, %172 ], [ %.us-phi601, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi601, %215 ], [ %.us-phi601, %_ZNK4llvm11ConstantInt6isZeroEv.exit244 ], [ %.us-phi601, %291 ], [ %314, %_ZN4llvm5APIntD2Ev.exit253 ], [ %314, %323 ], [ %314, %326 ], [ %340, %_ZN4llvm5APIntD2Ev.exit256 ], [ %340, %349 ], [ %340, %352 ], [ %355, %353 ], [ %355, %359 ], [ %355, %362 ], [ %365, %363 ], [ %365, %369 ], [ %365, %372 ], [ %383, %381 ], [ %383, %387 ], [ %383, %390 ], [ %393, %391 ], [ %393, %397 ], [ %393, %400 ], [ %411, %409 ], [ %411, %415 ], [ %411, %418 ], [ %428, %_ZN4llvm5APIntD2Ev.exit264 ], [ %428, %438 ], [ %428, %441 ], [ %451, %_ZN4llvm5APIntD2Ev.exit267 ], [ %451, %461 ], [ %451, %464 ], [ %474, %_ZN4llvm5APIntD2Ev.exit270 ], [ %474, %484 ], [ %474, %487 ], [ %495, %493 ], [ %495, %499 ], [ %495, %502 ], [ %513, %511 ], [ %513, %517 ], [ %513, %520 ], [ %531, %529 ], [ %531, %535 ], [ %531, %538 ], [ %.tr426490, %548 ], [ %.tr426490, %_ZNK4llvm11ConstantInt6isZeroEv.exit276 ], [ %569, %.thread403 ], [ %.us-phi551, %.split548.us ], [ %.us-phi556, %.split554.us ], [ %.us-phi572, %.split569.us ], [ %1, %69 ], [ %2, %65 ], [ %1, %67 ], [ %.tr426.us, %40 ], [ %.tr427.us, %36 ], [ %.tr426.us, %38 ]
+_ZN4llvm5APIntD2Ev.exit254:                       ; preds = %40, %38, %36, %67, %65, %69, %.split569.us, %.split554.us, %.split548.us, %.thread403, %_ZNK4llvm11ConstantInt6isZeroEv.exit276, %548, %538, %535, %529, %520, %517, %511, %502, %499, %493, %487, %484, %_ZN4llvm5APIntD2Ev.exit270, %464, %461, %_ZN4llvm5APIntD2Ev.exit267, %441, %438, %_ZN4llvm5APIntD2Ev.exit264, %418, %415, %409, %400, %397, %391, %390, %387, %381, %372, %369, %363, %362, %359, %353, %352, %349, %_ZN4llvm5APIntD2Ev.exit256, %326, %323, %_ZN4llvm5APIntD2Ev.exit253, %291, %_ZNK4llvm11ConstantInt6isZeroEv.exit244, %215, %_ZNK4llvm11ConstantInt6isZeroEv.exit, %172, %161, %155, %_ZN4llvm11Instruction13isAssociativeEj.exit, %678, %591, %.split607.us, %_ZN4llvm5APIntD2Ev.exit248, %682, %681, %679, %674, %662, %.loopexit, %593, %582, %539, %521, %503, %405, %377, %206, %201, %187, %164, %150, %146, %143, %139, %136, %132, %129, %126, %122, %118, %114, %110, %107, %94, %.loopexit428, %90, %.split539.us
+  %.0 = phi ptr [ %80, %.split539.us ], [ %669, %662 ], [ %684, %682 ], [ %.tr426490, %681 ], [ %680, %679 ], [ %675, %674 ], [ %541, %539 ], [ %523, %521 ], [ %505, %503 ], [ %408, %405 ], [ %380, %377 ], [ %583, %582 ], [ %599, %593 ], [ %.4, %.loopexit ], [ %.1, %_ZN4llvm5APIntD2Ev.exit248 ], [ %204, %201 ], [ %209, %206 ], [ %190, %187 ], [ %166, %164 ], [ %149, %146 ], [ %151, %150 ], [ %142, %139 ], [ %144, %143 ], [ %135, %132 ], [ %137, %136 ], [ %130, %129 ], [ %125, %122 ], [ %128, %126 ], [ %117, %114 ], [ %120, %118 ], [ %109, %107 ], [ %112, %110 ], [ %95, %94 ], [ %93, %.loopexit428 ], [ %91, %90 ], [ %293, %.split607.us ], [ null, %591 ], [ null, %678 ], [ null, %_ZN4llvm11Instruction13isAssociativeEj.exit ], [ %.us-phi592, %155 ], [ %.tr426491, %161 ], [ %.us-phi601, %172 ], [ %.us-phi601, %_ZNK4llvm11ConstantInt6isZeroEv.exit ], [ %.us-phi601, %215 ], [ %.us-phi601, %_ZNK4llvm11ConstantInt6isZeroEv.exit244 ], [ %.us-phi601, %291 ], [ %314, %_ZN4llvm5APIntD2Ev.exit253 ], [ %314, %323 ], [ %314, %326 ], [ %340, %_ZN4llvm5APIntD2Ev.exit256 ], [ %340, %349 ], [ %340, %352 ], [ %355, %353 ], [ %355, %359 ], [ %355, %362 ], [ %365, %363 ], [ %365, %369 ], [ %365, %372 ], [ %383, %381 ], [ %383, %387 ], [ %383, %390 ], [ %393, %391 ], [ %393, %397 ], [ %393, %400 ], [ %411, %409 ], [ %411, %415 ], [ %411, %418 ], [ %428, %_ZN4llvm5APIntD2Ev.exit264 ], [ %428, %438 ], [ %428, %441 ], [ %451, %_ZN4llvm5APIntD2Ev.exit267 ], [ %451, %461 ], [ %451, %464 ], [ %474, %_ZN4llvm5APIntD2Ev.exit270 ], [ %474, %484 ], [ %474, %487 ], [ %495, %493 ], [ %495, %499 ], [ %495, %502 ], [ %513, %511 ], [ %513, %517 ], [ %513, %520 ], [ %531, %529 ], [ %531, %535 ], [ %531, %538 ], [ %.tr426490, %548 ], [ %.tr426490, %_ZNK4llvm11ConstantInt6isZeroEv.exit276 ], [ %569, %.thread403 ], [ %.us-phi551, %.split548.us ], [ %.us-phi556, %.split554.us ], [ %.us-phi572, %.split569.us ], [ %1, %69 ], [ %2, %65 ], [ %1, %67 ], [ %.tr426.us, %40 ], [ %.tr427.us, %36 ], [ %.tr426.us, %38 ]
   ret ptr %.0
 }
 

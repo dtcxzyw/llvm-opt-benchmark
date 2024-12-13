@@ -253,7 +253,7 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @fd_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
-  switch i32 %cmd, label %return [
+  switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
     i32 128, label %sw.bb1
     i32 133, label %sw.bb3
@@ -262,7 +262,7 @@ entry:
     i32 105, label %sw.bb14
     i32 8, label %sw.bb25
     i32 9, label %sw.bb28
-    i32 11, label %sw.bb32
+    i32 11, label %return
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -362,11 +362,11 @@ sw.bb28:                                          ; preds = %entry
   store i32 %conv29, ptr %shutdown30, align 4
   br label %return
 
-sw.bb32:                                          ; preds = %entry
+sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %fd_free.exit, %sw.bb25, %sw.bb28, %sw.bb32, %if.then, %sw.bb1, %if.then6, %sw.bb3, %sw.bb14, %entry, %if.end21
-  %retval.0 = phi i64 [ %conv23, %if.end21 ], [ 1, %sw.bb32 ], [ 1, %sw.bb28 ], [ %conv27, %sw.bb25 ], [ 1, %fd_free.exit ], [ %call8, %if.then6 ], [ 0, %sw.bb3 ], [ %call, %if.then ], [ 0, %sw.bb1 ], [ -1, %sw.bb14 ], [ 0, %entry ]
+return:                                           ; preds = %fd_free.exit, %sw.bb25, %sw.bb28, %sw.default, %if.then, %sw.bb1, %if.then6, %sw.bb3, %sw.bb14, %entry, %if.end21
+  %retval.0 = phi i64 [ %conv23, %if.end21 ], [ 0, %sw.default ], [ 1, %sw.bb28 ], [ %conv27, %sw.bb25 ], [ 1, %fd_free.exit ], [ %call8, %if.then6 ], [ 0, %sw.bb3 ], [ %call, %if.then ], [ 0, %sw.bb1 ], [ -1, %sw.bb14 ], [ 1, %entry ]
   ret i64 %retval.0
 }
 

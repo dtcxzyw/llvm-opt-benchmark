@@ -252,7 +252,7 @@ if.end12:                                         ; preds = %if.then9, %while.en
 ; Function Attrs: nounwind uwtable
 define internal i64 @fd_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
-  switch i32 %cmd, label %sw.epilog [
+  switch i32 %cmd, label %sw.default [
     i32 1, label %sw.bb
     i32 128, label %sw.bb1
     i32 133, label %sw.bb3
@@ -262,8 +262,8 @@ entry:
     i32 8, label %sw.bb17
     i32 9, label %sw.bb20
     i32 2, label %sw.bb25
-    i32 11, label %sw.bb24
-    i32 12, label %sw.bb24
+    i32 11, label %sw.epilog
+    i32 12, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -353,9 +353,6 @@ sw.bb20:                                          ; preds = %entry
   store i32 %conv21, ptr %shutdown22, align 4
   br label %sw.epilog
 
-sw.bb24:                                          ; preds = %entry, %entry
-  br label %sw.epilog
-
 sw.bb25:                                          ; preds = %entry
   %flags = getelementptr inbounds nuw i8, ptr %b, i64 48
   %8 = load i32, ptr %flags, align 8
@@ -364,8 +361,11 @@ sw.bb25:                                          ; preds = %entry
   %conv28 = zext nneg i32 %and.lobit to i64
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %sw.bb9, %if.end, %sw.bb25, %sw.bb24, %sw.bb20, %sw.bb17, %fd_free.exit, %sw.bb3, %sw.bb1
-  %ret.0 = phi i64 [ %conv28, %sw.bb25 ], [ 1, %sw.bb24 ], [ 1, %sw.bb20 ], [ %conv19, %sw.bb17 ], [ %conv15, %if.end ], [ 1, %fd_free.exit ], [ %call5, %sw.bb3 ], [ %call, %sw.bb1 ], [ -1, %sw.bb9 ], [ 0, %entry ]
+sw.default:                                       ; preds = %entry
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %entry, %sw.bb9, %if.end, %sw.default, %sw.bb25, %sw.bb20, %sw.bb17, %fd_free.exit, %sw.bb3, %sw.bb1
+  %ret.0 = phi i64 [ 0, %sw.default ], [ %conv28, %sw.bb25 ], [ 1, %sw.bb20 ], [ %conv19, %sw.bb17 ], [ %conv15, %if.end ], [ 1, %fd_free.exit ], [ %call5, %sw.bb3 ], [ %call, %sw.bb1 ], [ -1, %sw.bb9 ], [ 1, %entry ], [ 1, %entry ]
   ret i64 %ret.0
 }
 
