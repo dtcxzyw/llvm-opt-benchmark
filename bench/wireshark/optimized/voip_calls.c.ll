@@ -6284,18 +6284,18 @@ define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocaptu
   %switch = icmp ult i32 %.off, 10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.087 = select i1 %switch, ptr %14, ptr %15
-  %.086 = select i1 %switch, ptr %15, ptr %14
-  call void @address_to_str_buf(ptr noundef nonnull %.087, ptr noundef nonnull %6, i32 noundef 128) #12
+  %. = select i1 %switch, ptr %14, ptr %15
+  %.98 = select i1 %switch, ptr %15, ptr %14
+  call void @address_to_str_buf(ptr noundef nonnull %., ptr noundef nonnull %6, i32 noundef 128) #12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @g_queue_peek_nth_link(ptr noundef %17, i32 noundef 0) #12
-  %.not99 = icmp eq ptr %18, null
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.not100 = icmp eq ptr %18, null
+  br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %28
-  %.085100 = phi ptr [ %30, %28 ], [ %18, %11 ]
-  %19 = load ptr, ptr %.085100, align 8
+  %.085101 = phi ptr [ %30, %28 ], [ %18, %11 ]
+  %19 = load ptr, ptr %.085101, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 7
@@ -6309,7 +6309,7 @@ define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocaptu
   br i1 %27, label %71, label %28
 
 28:                                               ; preds = %23, %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %.085100, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.085101, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
@@ -6336,10 +6336,10 @@ define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr nocaptu
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store i32 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  %45 = load i32, ptr %.086, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.086, i64 4
+  %45 = load i32, ptr %.98, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.98, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %.086, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.98, i64 8
   %49 = load ptr, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
   store i32 %45, ptr %44, align 8
@@ -6398,17 +6398,17 @@ copy_address.exit:                                ; preds = %._crit_edge, %51
   call void @g_free(ptr noundef %81) #12
   %82 = load ptr, ptr %72, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %.0101 = load ptr, ptr %83, align 8
-  %.not94102 = icmp eq ptr %.0101, null
-  br i1 %.not94102, label %._crit_edge106, label %.lr.ph105
+  %.0102 = load ptr, ptr %83, align 8
+  %.not94103 = icmp eq ptr %.0102, null
+  br i1 %.not94103, label %._crit_edge107, label %.lr.ph106
 
-.lr.ph105:                                        ; preds = %71, %88
-  %.0103 = phi ptr [ %.0, %88 ], [ %.0101, %71 ]
-  %84 = load ptr, ptr %.0103, align 8
+.lr.ph106:                                        ; preds = %71, %88
+  %.0104 = phi ptr [ %.0, %88 ], [ %.0102, %71 ]
+  %84 = load ptr, ptr %.0104, align 8
   %.not95 = icmp eq ptr %84, null
   br i1 %.not95, label %88, label %85
 
-85:                                               ; preds = %.lr.ph105
+85:                                               ; preds = %.lr.ph106
   %86 = load ptr, ptr %84, align 8
   %.not96 = icmp eq ptr %86, null
   br i1 %.not96, label %88, label %87
@@ -6417,13 +6417,13 @@ copy_address.exit:                                ; preds = %._crit_edge, %51
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %73, ptr noundef nonnull @.str.117, ptr noundef nonnull %86) #12
   br label %88
 
-88:                                               ; preds = %.lr.ph105, %85, %87
-  %89 = getelementptr inbounds nuw i8, ptr %.0103, i64 8
+88:                                               ; preds = %.lr.ph106, %85, %87
+  %89 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
   %.0 = load ptr, ptr %89, align 8
   %.not94 = icmp eq ptr %.0, null
-  br i1 %.not94, label %._crit_edge106, label %.lr.ph105, !llvm.loop !35
+  br i1 %.not94, label %._crit_edge107, label %.lr.ph106, !llvm.loop !35
 
-._crit_edge106:                                   ; preds = %88, %71
+._crit_edge107:                                   ; preds = %88, %71
   %90 = call ptr @g_string_free(ptr noundef %73, i32 noundef 0) #12
   store ptr %90, ptr %80, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -6439,8 +6439,8 @@ copy_address.exit:                                ; preds = %._crit_edge, %51
   store i32 %98, ptr %96, align 8
   br label %99
 
-99:                                               ; preds = %._crit_edge106, %copy_address.exit
-  %.1 = phi ptr [ %31, %copy_address.exit ], [ %19, %._crit_edge106 ]
+99:                                               ; preds = %._crit_edge107, %copy_address.exit
+  %.1 = phi ptr [ %31, %copy_address.exit ], [ %19, %._crit_edge107 ]
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %101 = load ptr, ptr %100, align 8
   %.not97 = icmp eq ptr %101, null

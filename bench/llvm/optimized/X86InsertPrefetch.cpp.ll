@@ -141,7 +141,6 @@ $_ZTVN4llvm2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 @.str.9 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 @.str.10 = private unnamed_addr constant [9 x i8] c"selected\00", align 1
 @_ZN4llvm10sampleprof15FunctionSamples13HasUniqSuffixE = external local_unnamed_addr global i8, align 1
-@.str.11 = private unnamed_addr constant [5 x i8] c"none\00", align 1
 @_ZN4llvm20X86MCRegisterClassesE = external local_unnamed_addr global [0 x %"class.llvm::MCRegisterClass"], align 8
 @_ZZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEEE9HintTypes = internal unnamed_addr constant [4 x { { ptr, i64 }, i32 }] [{ { ptr, i64 }, i32 } { { ptr, i64 } { ptr @.str.12, i64 5 }, i32 3307 }, { { ptr, i64 }, i32 } { { ptr, i64 } { ptr @.str.13, i64 4 }, i32 3308 }, { { ptr, i64 }, i32 } { { ptr, i64 } { ptr @.str.14, i64 4 }, i32 3309 }, { { ptr, i64 }, i32 } { { ptr, i64 } { ptr @.str.15, i64 4 }, i32 3310 }], align 16
 @.str.12 = private unnamed_addr constant [6 x i8] c"_nta_\00", align 1
@@ -1647,17 +1646,16 @@ define linkonce_odr hidden { ptr, i64 } @_ZN4llvm10sampleprof15FunctionSamples18
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
-  switch i64 %3, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread78 [
+  switch i64 %3, label %_ZN4llvmeqENS_9StringRefES0_.exit45 [
     i64 0, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit30
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit34
-    i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit45
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit30:              ; preds = %4
   %bcmp.i29 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @.str.9, i64 3)
   %9 = icmp eq i32 %bcmp.i29, 0
-  br i1 %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread78
+  br i1 %9, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit45
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -1675,9 +1673,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmeqENS_9
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit34:              ; preds = %4
-  %bcmp.i33 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.10, i64 %3)
+  %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %2, ptr noundef nonnull dereferenceable(8) @.str.10, i64 8)
   %13 = icmp eq i32 %bcmp.i33, 0
-  br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread78
+  br i1 %13, label %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit45
 
 _ZN4llvmeqENS_9StringRefES0_.exit34.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
@@ -1685,8 +1683,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit34.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %15
 
 15:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit34.thread, %37
-  %.0.idx80 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ %.0.add, %37 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_.KnownSuffixes, i64 %.0.idx80
+  %.0.idx77 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit34.thread ], [ %.0.add, %37 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4llvm10sampleprof15FunctionSamples18getCanonicalFnNameENS_9StringRefES2_.KnownSuffixes, i64 %.0.idx77
   %16 = load ptr, ptr %.0.ptr, align 8
   %.not.i35 = icmp eq ptr %16, null
   br i1 %.not.i35, label %_ZN4llvmeqENS_9StringRefES0_.exit39.thread75, label %_ZN4llvm9StringRefC2EPKc.exit
@@ -1742,24 +1740,15 @@ _ZNK4llvm9StringRef5rfindEcm.exit:                ; preds = %27, %28
   br label %37
 
 37:                                               ; preds = %_ZNK4llvm9StringRef5rfindEcm.exit, %36, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread75, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread
-  %.0.add = add nuw nsw i64 %.0.idx80, 8
+  %.0.add = add nuw nsw i64 %.0.idx77, 8
   %.not = icmp eq i64 %.0.add, 24
   br i1 %.not, label %.loopexit, label %15
 
-_ZN4llvmeqENS_9StringRefES0_.exit45:              ; preds = %4
-  %bcmp.i44 = tail call i32 @bcmp(ptr %2, ptr nonnull @.str.11, i64 %3)
-  %38 = icmp eq i32 %bcmp.i44, 0
-  br i1 %38, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread78
-
-_ZN4llvmeqENS_9StringRefES0_.exit45.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45
+_ZN4llvmeqENS_9StringRefES0_.exit45:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit30, %_ZN4llvmeqENS_9StringRefES0_.exit34, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   br label %.loopexit
 
-_ZN4llvmeqENS_9StringRefES0_.exit45.thread78:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit34, %_ZN4llvmeqENS_9StringRefES0_.exit30, %4, %_ZN4llvmeqENS_9StringRefES0_.exit45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %37, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread78, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+.loopexit:                                        ; preds = %37, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
   %.fca.0.load = load ptr, ptr %6, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %6, i64 8

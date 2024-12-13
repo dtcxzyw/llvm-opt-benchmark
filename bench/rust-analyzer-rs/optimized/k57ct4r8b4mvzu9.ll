@@ -27798,7 +27798,7 @@ define noundef zeroext i1 @"_ZN6syntax3ast8node_ext57_$LT$impl$u20$syntax..ast..
 define noundef range(i8 0, 3) i8 @"_ZN6syntax3ast8node_ext58_$LT$impl$u20$syntax..ast..generated..nodes..SelfParam$GT$4kind17hf7878ec819e0dc05E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = tail call noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i16 noundef 17)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit3", label %3
+  br i1 %.not, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit2", label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -27815,7 +27815,7 @@ define noundef range(i8 0, 3) i8 @"_ZN6syntax3ast8node_ext58_$LT$impl$u20$syntax
 "_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit": ; preds = %3, %8
   %9 = tail call noundef ptr @_ZN6syntax3ast7support5token17h4bb8f4a16ba5c3e6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i16 noundef 82)
   %.not1 = icmp eq ptr %9, null
-  br i1 %.not1, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit3", label %10
+  br i1 %.not1, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit2", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit"
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -27823,14 +27823,14 @@ define noundef range(i8 0, 3) i8 @"_ZN6syntax3ast8node_ext58_$LT$impl$u20$syntax
   %13 = add i32 %12, -1
   store i32 %13, ptr %11, align 4, !noalias !8277
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit3"
+  br i1 %14, label %15, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit2"
 
 15:                                               ; preds = %10
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %9), !noalias !8277
-  br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit3"
+  br label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit2"
 
-"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit3": ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit", %1, %15, %10
-  %.0 = phi i8 [ 2, %10 ], [ 2, %15 ], [ 0, %1 ], [ 1, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit" ]
+"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit2": ; preds = %1, %15, %10, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit"
+  %.0 = phi i8 [ 1, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h5beb69e4d2745f96E.llvm.5640989741778157468.exit" ], [ 2, %10 ], [ 2, %15 ], [ 0, %1 ]
   ret i8 %.0
 }
 

@@ -10668,8 +10668,8 @@ define hidden noundef ptr @_ZN9itertools9Itertools10next_tuple17he78fe7eee8851c2
   br i1 %6, label %2, label %"_ZN68_$LT$$LP$A$C$$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17h6c81a3210b96b175E.exit"
 
 "_ZN68_$LT$$LP$A$C$$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17h6c81a3210b96b175E.exit": ; preds = %2, %4
-  %.0.i = phi ptr [ %5, %4 ], [ null, %2 ]
-  ret ptr %.0.i
+  %.0.i4.i.i.i.i = phi ptr [ %5, %4 ], [ null, %2 ]
+  ret ptr %.0.i4.i.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -25937,13 +25937,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc43, %_ZN4dmlc
 42:                                               ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i, %24, %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %151
+  br label %148
 
 44:                                               ; preds = %29, %39, %37, %34, %32, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %151 unwind label %152
+          to label %148 unwind label %149
 
 46:                                               ; preds = %41
   %.pr55 = load ptr, ptr %8, align 8
@@ -26081,97 +26081,97 @@ _ZN7xgboost6linalg6detail8CalcSizeILi2EEEmRAT__m.exit.i: ; preds = %61
   %.sroa.0.0.copyload.i.i52 = load i32, ptr %102, align 8
   %103 = and i32 %.sroa.0.0.copyload.i.i52, 65535
   %104 = icmp eq i32 %103, 1
-  br i1 %104, label %.critedge, label %108
+  br i1 %104, label %105, label %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit
 
-.critedge:                                        ; preds = %.loopexit
+105:                                              ; preds = %.loopexit
   call void @_ZNK7xgboost16HostDeviceVectorIfE15ConstDeviceSpanEv(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::Span") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %98)
-  %105 = load i64, ptr %14, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %107 = load ptr, ptr %106, align 8
-  br label %118
+  %.pre = load i64, ptr %14, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.pre60 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %115
 
-108:                                              ; preds = %.loopexit
+_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit: ; preds = %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !576)
   call void @llvm.experimental.noalias.scope.decl(metadata !579)
-  %109 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %98)
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8, !noalias !582
-  %112 = load ptr, ptr %109, align 8, !noalias !582
-  %113 = ptrtoint ptr %111 to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %116 = ashr exact i64 %115, 2
-  store i64 %116, ptr %14, align 8, !alias.scope !582
-  %117 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %112, ptr %117, align 8, !alias.scope !582
-  br label %118
+  %106 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %98)
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8, !noalias !582
+  %109 = load ptr, ptr %106, align 8, !noalias !582
+  %110 = ptrtoint ptr %108 to i64
+  %111 = ptrtoint ptr %109 to i64
+  %112 = sub i64 %110, %111
+  %113 = ashr exact i64 %112, 2
+  store i64 %113, ptr %14, align 8, !alias.scope !582
+  %114 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %109, ptr %114, align 8, !alias.scope !582
+  br label %115
 
-118:                                              ; preds = %108, %.critedge
-  %119 = phi ptr [ %112, %108 ], [ %107, %.critedge ]
-  %120 = phi i64 [ %116, %108 ], [ %105, %.critedge ]
-  %121 = load ptr, ptr %48, align 8
+115:                                              ; preds = %105, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit
+  %116 = phi ptr [ %.pre60, %105 ], [ %109, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit ]
+  %117 = phi i64 [ %.pre, %105 ], [ %113, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit ]
+  %118 = load ptr, ptr %48, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %15, ptr noundef nonnull align 8 dereferenceable(68) %11, i64 32, i1 false)
-  %122 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %123 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %124 = load i64, ptr %123, align 8
-  store i64 %124, ptr %122, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %126 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %125, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %129 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %128, ptr noundef nonnull align 8 dereferenceable(20) %129, i64 20, i1 false)
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %121 = load i64, ptr %120, align 8
+  store i64 %121, ptr %119, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %124 = load ptr, ptr %123, align 8
+  store ptr %124, ptr %122, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %125, ptr noundef nonnull align 8 dereferenceable(20) %126, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %16, ptr noundef nonnull align 8 dereferenceable(68) %13, i64 32, i1 false)
-  %130 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 %86, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store ptr %85, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %132, ptr noundef nonnull align 8 dereferenceable(20) %92, i64 20, i1 false)
-  %133 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %133, ptr noundef nonnull align 8 dereferenceable(68) %11, i64 32, i1 false)
-  %134 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  store i64 %124, ptr %134, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  store ptr %127, ptr %135, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %136, ptr noundef nonnull align 8 dereferenceable(20) %129, i64 20, i1 false)
-  %137 = getelementptr inbounds nuw i8, ptr %16, i64 144
-  %138 = load float, ptr %7, align 4
-  store float %138, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  store i64 %120, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %16, i64 160
-  store ptr %119, ptr %140, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %16, i64 168
-  store float 1.000000e+00, ptr %141, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %16, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %142, ptr noundef nonnull align 8 dereferenceable(68) %12, i64 32, i1 false)
-  %143 = getelementptr inbounds nuw i8, ptr %16, i64 208
-  %144 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %145 = load i64, ptr %144, align 8
-  store i64 %145, ptr %143, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %16, i64 216
-  %147 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %148 = load ptr, ptr %147, align 8
-  store ptr %148, ptr %146, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %16, i64 224
-  %150 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %149, ptr noundef nonnull align 8 dereferenceable(20) %150, i64 20, i1 false)
-  call void @_ZN7xgboost6linalg17ElementWiseKernelIKfLi2EZNS_3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvPKNS_7ContextENS0_10TensorViewIT_XT0_EEEOT1_(ptr noundef %121, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(248) %16)
+  %127 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i64 %86, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store ptr %85, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %129, ptr noundef nonnull align 8 dereferenceable(20) %92, i64 20, i1 false)
+  %130 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %130, ptr noundef nonnull align 8 dereferenceable(68) %11, i64 32, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  store i64 %121, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  store ptr %124, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %133, ptr noundef nonnull align 8 dereferenceable(20) %126, i64 20, i1 false)
+  %134 = getelementptr inbounds nuw i8, ptr %16, i64 144
+  %135 = load float, ptr %7, align 4
+  store float %135, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  store i64 %117, ptr %136, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %16, i64 160
+  store ptr %116, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %16, i64 168
+  store float 1.000000e+00, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %16, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %139, ptr noundef nonnull align 8 dereferenceable(68) %12, i64 32, i1 false)
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 208
+  %141 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %142 = load i64, ptr %141, align 8
+  store i64 %142, ptr %140, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 216
+  %144 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %145 = load ptr, ptr %144, align 8
+  store ptr %145, ptr %143, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %16, i64 224
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %146, ptr noundef nonnull align 8 dereferenceable(20) %147, i64 20, i1 false)
+  call void @_ZN7xgboost6linalg17ElementWiseKernelIKfLi2EZNS_3obj21PseudoHuberRegression11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvPKNS_7ContextENS0_10TensorViewIT_XT0_EEEOT1_(ptr noundef %118, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(248) %16)
   ret void
 
-151:                                              ; preds = %44, %42
+148:                                              ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %45, %44 ]
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #17
   resume { ptr, i32 } %.pn
 
-152:                                              ; preds = %44
-  %153 = landingpad { ptr, i32 }
+149:                                              ; preds = %44
+  %150 = landingpad { ptr, i32 }
           catch ptr null
-  %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #34
+  %151 = extractvalue { ptr, i32 } %150, 0
+  call void @__clang_call_terminate(ptr %151) #34
   unreachable
 }
 
@@ -35931,82 +35931,82 @@ _ZN7xgboost6linalg6detail8CalcSizeILi2EEEmRAT__m.exit.i: ; preds = %26
   %.sroa.0.0.copyload.i.i37 = load i32, ptr %67, align 8
   %68 = and i32 %.sroa.0.0.copyload.i.i37, 65535
   %69 = icmp eq i32 %68, 1
-  br i1 %69, label %.critedge, label %73
+  br i1 %69, label %70, label %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit
 
-.critedge:                                        ; preds = %.loopexit
+70:                                               ; preds = %.loopexit
   call void @_ZNK7xgboost16HostDeviceVectorIfE15ConstDeviceSpanEv(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::Span") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %63)
-  %70 = load i64, ptr %9, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %72 = load ptr, ptr %71, align 8
-  br label %83
+  %.pre = load i64, ptr %9, align 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %80
 
-73:                                               ; preds = %.loopexit
+_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit: ; preds = %.loopexit
   call void @llvm.experimental.noalias.scope.decl(metadata !799)
   call void @llvm.experimental.noalias.scope.decl(metadata !802)
-  %74 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %63)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8, !noalias !805
-  %77 = load ptr, ptr %74, align 8, !noalias !805
-  %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = ashr exact i64 %80, 2
-  store i64 %81, ptr %9, align 8, !alias.scope !805
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %77, ptr %82, align 8, !alias.scope !805
-  br label %83
+  %71 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %63)
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !noalias !805
+  %74 = load ptr, ptr %71, align 8, !noalias !805
+  %75 = ptrtoint ptr %73 to i64
+  %76 = ptrtoint ptr %74 to i64
+  %77 = sub i64 %75, %76
+  %78 = ashr exact i64 %77, 2
+  store i64 %78, ptr %9, align 8, !alias.scope !805
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %74, ptr %79, align 8, !alias.scope !805
+  br label %80
 
-83:                                               ; preds = %73, %.critedge
-  %84 = phi ptr [ %77, %73 ], [ %72, %.critedge ]
-  %85 = phi i64 [ %81, %73 ], [ %70, %.critedge ]
-  %86 = load ptr, ptr %13, align 8
+80:                                               ; preds = %70, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit
+  %81 = phi ptr [ %.pre42, %70 ], [ %74, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit ]
+  %82 = phi i64 [ %.pre, %70 ], [ %78, %_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv.exit ]
+  %83 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %10, ptr noundef nonnull align 8 dereferenceable(68) %6, i64 32, i1 false)
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %89 = load i64, ptr %88, align 8
-  store i64 %89, ptr %87, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %92 = load ptr, ptr %91, align 8
-  store ptr %92, ptr %90, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %93, ptr noundef nonnull align 8 dereferenceable(20) %94, i64 20, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %86 = load i64, ptr %85, align 8
+  store i64 %86, ptr %84, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %89 = load ptr, ptr %88, align 8
+  store ptr %89, ptr %87, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %90, ptr noundef nonnull align 8 dereferenceable(20) %91, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %11, ptr noundef nonnull align 8 dereferenceable(68) %6, i64 32, i1 false)
-  %95 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i64 %89, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %92, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %97, ptr noundef nonnull align 8 dereferenceable(20) %94, i64 20, i1 false)
-  %98 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i64 %85, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store ptr %84, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store float 1.000000e+00, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %101, ptr noundef nonnull align 8 dereferenceable(68) %8, i64 32, i1 false)
-  %102 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  store i64 %51, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  store ptr %50, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %104, ptr noundef nonnull align 8 dereferenceable(20) %57, i64 20, i1 false)
-  %105 = getelementptr inbounds nuw i8, ptr %11, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %105, ptr noundef nonnull align 8 dereferenceable(68) %7, i64 32, i1 false)
-  %106 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %107 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %108 = load i64, ptr %107, align 8
-  store i64 %108, ptr %106, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %11, i64 208
-  %110 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %111 = load ptr, ptr %110, align 8
-  store ptr %111, ptr %109, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %113 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %112, ptr noundef nonnull align 8 dereferenceable(20) %113, i64 20, i1 false)
-  call void @_ZN7xgboost6linalg17ElementWiseKernelIKfLi2EZNS_3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvPKNS_7ContextENS0_10TensorViewIT_XT0_EEEOT1_(ptr noundef %86, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(240) %11)
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i64 %86, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr %89, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %94, ptr noundef nonnull align 8 dereferenceable(20) %91, i64 20, i1 false)
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store i64 %82, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store ptr %81, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store float 1.000000e+00, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %98, ptr noundef nonnull align 8 dereferenceable(68) %8, i64 32, i1 false)
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  store i64 %51, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  store ptr %50, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %101, ptr noundef nonnull align 8 dereferenceable(20) %57, i64 20, i1 false)
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %102, ptr noundef nonnull align 8 dereferenceable(68) %7, i64 32, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %105 = load i64, ptr %104, align 8
+  store i64 %105, ptr %103, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %108 = load ptr, ptr %107, align 8
+  store ptr %108, ptr %106, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %109, ptr noundef nonnull align 8 dereferenceable(20) %110, i64 20, i1 false)
+  call void @_ZN7xgboost6linalg17ElementWiseKernelIKfLi2EZNS_3obj17MeanAbsoluteError11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvPKNS_7ContextENS0_10TensorViewIT_XT0_EEEOT1_(ptr noundef %83, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(240) %11)
   ret void
 }
 

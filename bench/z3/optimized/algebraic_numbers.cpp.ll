@@ -16193,10 +16193,10 @@ invoke.cont56.us:                                 ; preds = %invoke.cont54.us
 if.else.us:                                       ; preds = %invoke.cont56.us
   %cmp61.us = icmp eq i32 %sub.us, 1
   %inc63.us = add i32 %num_rem.0130.us, 1
-  br i1 %cmp61.us, label %if.then62.us, label %for.inc68.us
-
-if.then62.us:                                     ; preds = %if.else.us
   %25 = trunc nuw i64 %indvars.iv148 to i32
+  %i37.0.target_i.0.us = select i1 %cmp61.us, i32 %25, i32 %target_i.0131.us
+  %call50.target_lV.0.us = select i1 %cmp61.us, i32 %call50.us, i32 %target_lV.0132.us
+  %call57.target_uV.0.us = select i1 %cmp61.us, i32 %call57.us, i32 %target_uV.0133.us
   br label %for.inc68.us
 
 if.then59.us:                                     ; preds = %invoke.cont56.us
@@ -16217,11 +16217,11 @@ if.end.i57.us:                                    ; preds = %if.then59.us
   store ptr null, ptr %arrayidx.i7.i.us, align 8
   br label %for.inc68.us
 
-for.inc68.us:                                     ; preds = %if.else.us, %.noexc60.us, %if.then59.us, %if.then62.us, %invoke.cont41.us
-  %num_rem.1.us = phi i32 [ %num_rem.0130.us, %invoke.cont41.us ], [ %inc63.us, %if.then62.us ], [ %num_rem.0130.us, %if.then59.us ], [ %num_rem.0130.us, %.noexc60.us ], [ %inc63.us, %if.else.us ]
-  %target_i.1.us = phi i32 [ %target_i.0131.us, %invoke.cont41.us ], [ %25, %if.then62.us ], [ %target_i.0131.us, %if.then59.us ], [ %target_i.0131.us, %.noexc60.us ], [ %target_i.0131.us, %if.else.us ]
-  %target_lV.1.us = phi i32 [ %target_lV.0132.us, %invoke.cont41.us ], [ %call50.us, %if.then62.us ], [ %target_lV.0132.us, %if.then59.us ], [ %target_lV.0132.us, %.noexc60.us ], [ %target_lV.0132.us, %if.else.us ]
-  %target_uV.1.us = phi i32 [ %target_uV.0133.us, %invoke.cont41.us ], [ %call57.us, %if.then62.us ], [ %target_uV.0133.us, %if.then59.us ], [ %target_uV.0133.us, %.noexc60.us ], [ %target_uV.0133.us, %if.else.us ]
+for.inc68.us:                                     ; preds = %.noexc60.us, %if.then59.us, %if.else.us, %invoke.cont41.us
+  %num_rem.1.us = phi i32 [ %num_rem.0130.us, %invoke.cont41.us ], [ %inc63.us, %if.else.us ], [ %num_rem.0130.us, %if.then59.us ], [ %num_rem.0130.us, %.noexc60.us ]
+  %target_i.1.us = phi i32 [ %target_i.0131.us, %invoke.cont41.us ], [ %i37.0.target_i.0.us, %if.else.us ], [ %target_i.0131.us, %if.then59.us ], [ %target_i.0131.us, %.noexc60.us ]
+  %target_lV.1.us = phi i32 [ %target_lV.0132.us, %invoke.cont41.us ], [ %call50.target_lV.0.us, %if.else.us ], [ %target_lV.0132.us, %if.then59.us ], [ %target_lV.0132.us, %.noexc60.us ]
+  %target_uV.1.us = phi i32 [ %target_uV.0133.us, %invoke.cont41.us ], [ %call57.target_uV.0.us, %if.else.us ], [ %target_uV.0133.us, %if.then59.us ], [ %target_uV.0133.us, %.noexc60.us ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %retval.0.i.i155
   br i1 %exitcond152.not, label %for.cond38.for.end70_crit_edge.us, label %invoke.cont41.us, !llvm.loop !71
@@ -17876,10 +17876,10 @@ invoke.cont55.us:                                 ; preds = %invoke.cont53.us
 if.else.us:                                       ; preds = %invoke.cont55.us
   %cmp60.us = icmp eq i32 %sub.us, 1
   %inc62.us = add i32 %num_rem.0134.us, 1
-  br i1 %cmp60.us, label %if.then61.us, label %for.inc67.us
-
-if.then61.us:                                     ; preds = %if.else.us
   %27 = trunc nuw i64 %indvars.iv152 to i32
+  %i36.0.target_i.0.us = select i1 %cmp60.us, i32 %27, i32 %target_i.0135.us
+  %call49.target_lV.0.us = select i1 %cmp60.us, i32 %call49.us, i32 %target_lV.0136.us
+  %call56.target_uV.0.us = select i1 %cmp60.us, i32 %call56.us, i32 %target_uV.0137.us
   br label %for.inc67.us
 
 if.then58.us:                                     ; preds = %invoke.cont55.us
@@ -17900,11 +17900,11 @@ if.end.i59.us:                                    ; preds = %if.then58.us
   store ptr null, ptr %arrayidx.i7.i.us, align 8
   br label %for.inc67.us
 
-for.inc67.us:                                     ; preds = %if.else.us, %.noexc62.us, %if.then58.us, %if.then61.us, %invoke.cont40.us
-  %num_rem.1.us = phi i32 [ %num_rem.0134.us, %invoke.cont40.us ], [ %inc62.us, %if.then61.us ], [ %num_rem.0134.us, %if.then58.us ], [ %num_rem.0134.us, %.noexc62.us ], [ %inc62.us, %if.else.us ]
-  %target_i.1.us = phi i32 [ %target_i.0135.us, %invoke.cont40.us ], [ %27, %if.then61.us ], [ %target_i.0135.us, %if.then58.us ], [ %target_i.0135.us, %.noexc62.us ], [ %target_i.0135.us, %if.else.us ]
-  %target_lV.1.us = phi i32 [ %target_lV.0136.us, %invoke.cont40.us ], [ %call49.us, %if.then61.us ], [ %target_lV.0136.us, %if.then58.us ], [ %target_lV.0136.us, %.noexc62.us ], [ %target_lV.0136.us, %if.else.us ]
-  %target_uV.1.us = phi i32 [ %target_uV.0137.us, %invoke.cont40.us ], [ %call56.us, %if.then61.us ], [ %target_uV.0137.us, %if.then58.us ], [ %target_uV.0137.us, %.noexc62.us ], [ %target_uV.0137.us, %if.else.us ]
+for.inc67.us:                                     ; preds = %.noexc62.us, %if.then58.us, %if.else.us, %invoke.cont40.us
+  %num_rem.1.us = phi i32 [ %num_rem.0134.us, %invoke.cont40.us ], [ %inc62.us, %if.else.us ], [ %num_rem.0134.us, %if.then58.us ], [ %num_rem.0134.us, %.noexc62.us ]
+  %target_i.1.us = phi i32 [ %target_i.0135.us, %invoke.cont40.us ], [ %i36.0.target_i.0.us, %if.else.us ], [ %target_i.0135.us, %if.then58.us ], [ %target_i.0135.us, %.noexc62.us ]
+  %target_lV.1.us = phi i32 [ %target_lV.0136.us, %invoke.cont40.us ], [ %call49.target_lV.0.us, %if.else.us ], [ %target_lV.0136.us, %if.then58.us ], [ %target_lV.0136.us, %.noexc62.us ]
+  %target_uV.1.us = phi i32 [ %target_uV.0137.us, %invoke.cont40.us ], [ %call56.target_uV.0.us, %if.else.us ], [ %target_uV.0137.us, %if.then58.us ], [ %target_uV.0137.us, %.noexc62.us ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %retval.0.i.i159
   br i1 %exitcond156.not, label %for.cond37.for.end69_crit_edge.us, label %invoke.cont40.us, !llvm.loop !78
@@ -19432,17 +19432,17 @@ if.end.i66:                                       ; preds = %if.then61
 if.else:                                          ; preds = %invoke.cont58
   %cmp63 = icmp eq i32 %sub, 1
   %inc65 = add i32 %num_rem.0150, 1
-  br i1 %cmp63, label %if.then64, label %for.inc70
-
-if.then64:                                        ; preds = %if.else
   %35 = trunc nuw i64 %indvars.iv162 to i32
+  %i39.0.target_i.0 = select i1 %cmp63, i32 %35, i32 %target_i.0151
+  %call52.target_lV.0 = select i1 %cmp63, i32 %call52, i32 %target_lV.0152
+  %call59.target_uV.0 = select i1 %cmp63, i32 %call59, i32 %target_uV.0153
   br label %for.inc70
 
-for.inc70:                                        ; preds = %if.else, %.noexc69, %if.then61, %if.then64, %invoke.cont43
-  %num_rem.1 = phi i32 [ %num_rem.0150, %invoke.cont43 ], [ %inc65, %if.then64 ], [ %num_rem.0150, %if.then61 ], [ %num_rem.0150, %.noexc69 ], [ %inc65, %if.else ]
-  %target_i.1 = phi i32 [ %target_i.0151, %invoke.cont43 ], [ %35, %if.then64 ], [ %target_i.0151, %if.then61 ], [ %target_i.0151, %.noexc69 ], [ %target_i.0151, %if.else ]
-  %target_lV.1 = phi i32 [ %target_lV.0152, %invoke.cont43 ], [ %call52, %if.then64 ], [ %target_lV.0152, %if.then61 ], [ %target_lV.0152, %.noexc69 ], [ %target_lV.0152, %if.else ]
-  %target_uV.1 = phi i32 [ %target_uV.0153, %invoke.cont43 ], [ %call59, %if.then64 ], [ %target_uV.0153, %if.then61 ], [ %target_uV.0153, %.noexc69 ], [ %target_uV.0153, %if.else ]
+for.inc70:                                        ; preds = %.noexc69, %if.then61, %if.else, %invoke.cont43
+  %num_rem.1 = phi i32 [ %num_rem.0150, %invoke.cont43 ], [ %inc65, %if.else ], [ %num_rem.0150, %if.then61 ], [ %num_rem.0150, %.noexc69 ]
+  %target_i.1 = phi i32 [ %target_i.0151, %invoke.cont43 ], [ %i39.0.target_i.0, %if.else ], [ %target_i.0151, %if.then61 ], [ %target_i.0151, %.noexc69 ]
+  %target_lV.1 = phi i32 [ %target_lV.0152, %invoke.cont43 ], [ %call52.target_lV.0, %if.else ], [ %target_lV.0152, %if.then61 ], [ %target_lV.0152, %.noexc69 ]
+  %target_uV.1 = phi i32 [ %target_uV.0153, %invoke.cont43 ], [ %call59.target_uV.0, %if.else ], [ %target_uV.0153, %if.then61 ], [ %target_uV.0153, %.noexc69 ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %retval.0.i.i169
   br i1 %exitcond166.not, label %for.end72, label %invoke.cont43, !llvm.loop !83
@@ -20970,17 +20970,17 @@ if.end.i67:                                       ; preds = %if.then61
 if.else:                                          ; preds = %invoke.cont58
   %cmp63 = icmp eq i32 %sub, 1
   %inc65 = add i32 %num_rem.0151, 1
-  br i1 %cmp63, label %if.then64, label %for.inc70
-
-if.then64:                                        ; preds = %if.else
   %35 = trunc nuw i64 %indvars.iv163 to i32
+  %i39.0.target_i.0 = select i1 %cmp63, i32 %35, i32 %target_i.0152
+  %call52.target_lV.0 = select i1 %cmp63, i32 %call52, i32 %target_lV.0153
+  %call59.target_uV.0 = select i1 %cmp63, i32 %call59, i32 %target_uV.0154
   br label %for.inc70
 
-for.inc70:                                        ; preds = %if.else, %.noexc70, %if.then61, %if.then64, %invoke.cont43
-  %num_rem.1 = phi i32 [ %num_rem.0151, %invoke.cont43 ], [ %inc65, %if.then64 ], [ %num_rem.0151, %if.then61 ], [ %num_rem.0151, %.noexc70 ], [ %inc65, %if.else ]
-  %target_i.1 = phi i32 [ %target_i.0152, %invoke.cont43 ], [ %35, %if.then64 ], [ %target_i.0152, %if.then61 ], [ %target_i.0152, %.noexc70 ], [ %target_i.0152, %if.else ]
-  %target_lV.1 = phi i32 [ %target_lV.0153, %invoke.cont43 ], [ %call52, %if.then64 ], [ %target_lV.0153, %if.then61 ], [ %target_lV.0153, %.noexc70 ], [ %target_lV.0153, %if.else ]
-  %target_uV.1 = phi i32 [ %target_uV.0154, %invoke.cont43 ], [ %call59, %if.then64 ], [ %target_uV.0154, %if.then61 ], [ %target_uV.0154, %.noexc70 ], [ %target_uV.0154, %if.else ]
+for.inc70:                                        ; preds = %.noexc70, %if.then61, %if.else, %invoke.cont43
+  %num_rem.1 = phi i32 [ %num_rem.0151, %invoke.cont43 ], [ %inc65, %if.else ], [ %num_rem.0151, %if.then61 ], [ %num_rem.0151, %.noexc70 ]
+  %target_i.1 = phi i32 [ %target_i.0152, %invoke.cont43 ], [ %i39.0.target_i.0, %if.else ], [ %target_i.0152, %if.then61 ], [ %target_i.0152, %.noexc70 ]
+  %target_lV.1 = phi i32 [ %target_lV.0153, %invoke.cont43 ], [ %call52.target_lV.0, %if.else ], [ %target_lV.0153, %if.then61 ], [ %target_lV.0153, %.noexc70 ]
+  %target_uV.1 = phi i32 [ %target_uV.0154, %invoke.cont43 ], [ %call59.target_uV.0, %if.else ], [ %target_uV.0154, %if.then61 ], [ %target_uV.0154, %.noexc70 ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %retval.0.i.i170
   br i1 %exitcond167.not, label %for.end72, label %invoke.cont43, !llvm.loop !86
@@ -22399,10 +22399,10 @@ invoke.cont58.us:                                 ; preds = %invoke.cont56.us
 if.else.us:                                       ; preds = %invoke.cont58.us
   %cmp63.us = icmp eq i32 %sub.us, 1
   %inc65.us = add i32 %num_rem.0149.us, 1
-  br i1 %cmp63.us, label %if.then64.us, label %for.inc70.us
-
-if.then64.us:                                     ; preds = %if.else.us
   %29 = trunc nuw i64 %indvars.iv167 to i32
+  %i39.0.target_i.0.us = select i1 %cmp63.us, i32 %29, i32 %target_i.0150.us
+  %call52.target_lV.0.us = select i1 %cmp63.us, i32 %call52.us, i32 %target_lV.0151.us
+  %call59.target_uV.0.us = select i1 %cmp63.us, i32 %call59.us, i32 %target_uV.0152.us
   br label %for.inc70.us
 
 if.then61.us:                                     ; preds = %invoke.cont58.us
@@ -22423,11 +22423,11 @@ if.end.i65.us:                                    ; preds = %if.then61.us
   store ptr null, ptr %arrayidx.i7.i.us, align 8
   br label %for.inc70.us
 
-for.inc70.us:                                     ; preds = %if.else.us, %.noexc68.us, %if.then61.us, %if.then64.us, %invoke.cont43.us
-  %num_rem.1.us = phi i32 [ %num_rem.0149.us, %invoke.cont43.us ], [ %inc65.us, %if.then64.us ], [ %num_rem.0149.us, %if.then61.us ], [ %num_rem.0149.us, %.noexc68.us ], [ %inc65.us, %if.else.us ]
-  %target_i.1.us = phi i32 [ %target_i.0150.us, %invoke.cont43.us ], [ %29, %if.then64.us ], [ %target_i.0150.us, %if.then61.us ], [ %target_i.0150.us, %.noexc68.us ], [ %target_i.0150.us, %if.else.us ]
-  %target_lV.1.us = phi i32 [ %target_lV.0151.us, %invoke.cont43.us ], [ %call52.us, %if.then64.us ], [ %target_lV.0151.us, %if.then61.us ], [ %target_lV.0151.us, %.noexc68.us ], [ %target_lV.0151.us, %if.else.us ]
-  %target_uV.1.us = phi i32 [ %target_uV.0152.us, %invoke.cont43.us ], [ %call59.us, %if.then64.us ], [ %target_uV.0152.us, %if.then61.us ], [ %target_uV.0152.us, %.noexc68.us ], [ %target_uV.0152.us, %if.else.us ]
+for.inc70.us:                                     ; preds = %.noexc68.us, %if.then61.us, %if.else.us, %invoke.cont43.us
+  %num_rem.1.us = phi i32 [ %num_rem.0149.us, %invoke.cont43.us ], [ %inc65.us, %if.else.us ], [ %num_rem.0149.us, %if.then61.us ], [ %num_rem.0149.us, %.noexc68.us ]
+  %target_i.1.us = phi i32 [ %target_i.0150.us, %invoke.cont43.us ], [ %i39.0.target_i.0.us, %if.else.us ], [ %target_i.0150.us, %if.then61.us ], [ %target_i.0150.us, %.noexc68.us ]
+  %target_lV.1.us = phi i32 [ %target_lV.0151.us, %invoke.cont43.us ], [ %call52.target_lV.0.us, %if.else.us ], [ %target_lV.0151.us, %if.then61.us ], [ %target_lV.0151.us, %.noexc68.us ]
+  %target_uV.1.us = phi i32 [ %target_uV.0152.us, %invoke.cont43.us ], [ %call59.target_uV.0.us, %if.else.us ], [ %target_uV.0152.us, %if.then61.us ], [ %target_uV.0152.us, %.noexc68.us ]
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %retval.0.i.i174
   br i1 %exitcond171.not, label %for.cond40.for.end72_crit_edge.us, label %invoke.cont43.us, !llvm.loop !90

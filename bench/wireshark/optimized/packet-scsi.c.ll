@@ -9146,7 +9146,7 @@ define internal range(i32 0, 2) i32 @dissect_scsi_mmc5_modepage(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_scsi_spc_modepage(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
-  switch i8 %4, label %178 [
+  switch i8 %4, label %179 [
     i8 10, label %8
     i8 2, label %61
     i8 28, label %98
@@ -9155,8 +9155,8 @@ define internal range(i32 0, 2) i32 @dissect_scsi_spc_modepage(ptr noundef %0, p
   ]
 
 8:                                                ; preds = %7
-  %.not192 = icmp eq i8 %5, 0
-  br i1 %.not192, label %9, label %46
+  %.not190 = icmp eq i8 %5, 0
+  br i1 %.not190, label %9, label %46
 
 9:                                                ; preds = %8
   %10 = load i32, ptr @hf_scsi_modesns_tst, align 4
@@ -9195,11 +9195,11 @@ define internal range(i32 0, 2) i32 @dissect_scsi_spc_modepage(ptr noundef %0, p
   %43 = load i32, ptr @hf_scsi_spc_modepage_extended_self_test_completion_time, align 4
   %44 = add i32 %3, 10
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 2, i32 noundef 0) #10
-  br label %178
+  br label %179
 
 46:                                               ; preds = %8
   %cond = icmp eq i8 %6, 1
-  br i1 %cond, label %47, label %178
+  br i1 %cond, label %47, label %179
 
 47:                                               ; preds = %46
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.1629) #10
@@ -9216,7 +9216,7 @@ define internal range(i32 0, 2) i32 @dissect_scsi_spc_modepage(ptr noundef %0, p
   %58 = load i32, ptr @hf_scsi_modepage_msdl, align 4
   %59 = add i32 %3, 6
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef 0) #10
-  br label %178
+  br label %179
 
 61:                                               ; preds = %7
   %62 = load i32, ptr @hf_scsi_spc_modepage_buffer_full_ratio, align 4
@@ -9255,7 +9255,7 @@ define internal range(i32 0, 2) i32 @dissect_scsi_spc_modepage(ptr noundef %0, p
   %95 = shl nuw nsw i32 %94, 9
   %96 = load i32, ptr @hf_scsi_spc_modepage_first_burst_size, align 4
   %97 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %96, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef %95) #10
-  br label %178
+  br label %179
 
 98:                                               ; preds = %7
   %99 = add i32 %3, 2
@@ -9301,7 +9301,7 @@ proto_item_set_hidden.exit:                       ; preds = %98, %120, %117
   %127 = load i32, ptr @hf_scsi_spc_modepage_report_count, align 4
   %128 = add i32 %3, 8
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef 0) #10
-  br label %178
+  br label %179
 
 130:                                              ; preds = %7
   %131 = load i32, ptr @hf_scsi_spc_modepage_idle, align 4
@@ -9321,7 +9321,7 @@ proto_item_set_hidden.exit:                       ; preds = %98, %120, %117
   %145 = mul nuw nsw i32 %144, 100
   %146 = load i32, ptr @hf_scsi_spc_modepage_standby_condition_timer, align 4
   %147 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %146, ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef %145) #10
-  br label %178
+  br label %179
 
 148:                                              ; preds = %7
   %149 = add i32 %3, 2
@@ -9329,37 +9329,37 @@ proto_item_set_hidden.exit:                       ; preds = %98, %120, %117
   %151 = and i8 %150, 15
   %152 = load i32, ptr @hf_scsi_protocol, align 4
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %152, ptr noundef %0, i32 noundef %149, i32 noundef 1, i32 noundef 0) #10
-  %cond193 = icmp eq i8 %151, 0
-  br i1 %cond193, label %154, label %178
+  %154 = icmp eq i8 %151, 0
+  br i1 %154, label %155, label %179
 
-154:                                              ; preds = %148
-  %155 = load i32, ptr @hf_scsi_spc_modepage_dtfd, align 4
-  %156 = add i32 %3, 3
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %158 = load i32, ptr @hf_scsi_spc_modepage_plpb, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %160 = load i32, ptr @hf_scsi_spc_modepage_ddis, align 4
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %160, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %162 = load i32, ptr @hf_scsi_spc_modepage_dlm, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %162, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %164 = load i32, ptr @hf_scsi_spc_modepage_rha, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %164, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %166 = load i32, ptr @hf_scsi_spc_modepage_alwi, align 4
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %166, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %168 = load i32, ptr @hf_scsi_spc_modepage_dtipe, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %168, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %170 = load i32, ptr @hf_scsi_spc_modepage_dtoli, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %170, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0) #10
-  %172 = load i32, ptr @hf_scsi_spc_modepage_rr_tov_units, align 4
-  %173 = add i32 %3, 6
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %172, ptr noundef %0, i32 noundef %173, i32 noundef 1, i32 noundef 0) #10
-  %175 = load i32, ptr @hf_scsi_spc_modepage_rr_tov, align 4
-  %176 = add i32 %3, 7
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %175, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0) #10
-  br label %178
+155:                                              ; preds = %148
+  %156 = load i32, ptr @hf_scsi_spc_modepage_dtfd, align 4
+  %157 = add i32 %3, 3
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %156, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %159 = load i32, ptr @hf_scsi_spc_modepage_plpb, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %159, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %161 = load i32, ptr @hf_scsi_spc_modepage_ddis, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %161, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %163 = load i32, ptr @hf_scsi_spc_modepage_dlm, align 4
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %165 = load i32, ptr @hf_scsi_spc_modepage_rha, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %167 = load i32, ptr @hf_scsi_spc_modepage_alwi, align 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %167, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %169 = load i32, ptr @hf_scsi_spc_modepage_dtipe, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %171 = load i32, ptr @hf_scsi_spc_modepage_dtoli, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0) #10
+  %173 = load i32, ptr @hf_scsi_spc_modepage_rr_tov_units, align 4
+  %174 = add i32 %3, 6
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef %174, i32 noundef 1, i32 noundef 0) #10
+  %176 = load i32, ptr @hf_scsi_spc_modepage_rr_tov, align 4
+  %177 = add i32 %3, 7
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #10
+  br label %179
 
-178:                                              ; preds = %148, %61, %proto_item_set_hidden.exit, %130, %154, %47, %46, %9, %7
-  %.0 = phi i32 [ 0, %148 ], [ 0, %7 ], [ 1, %9 ], [ 1, %46 ], [ 1, %47 ], [ 1, %154 ], [ 1, %130 ], [ 1, %proto_item_set_hidden.exit ], [ 1, %61 ]
+179:                                              ; preds = %61, %proto_item_set_hidden.exit, %130, %155, %47, %46, %9, %7, %148
+  %.0 = phi i32 [ 0, %148 ], [ 0, %7 ], [ 1, %9 ], [ 1, %46 ], [ 1, %47 ], [ 1, %155 ], [ 1, %130 ], [ 1, %proto_item_set_hidden.exit ], [ 1, %61 ]
   ret i32 %.0
 }
 

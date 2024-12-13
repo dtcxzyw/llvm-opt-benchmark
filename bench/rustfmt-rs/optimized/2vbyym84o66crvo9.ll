@@ -2670,7 +2670,7 @@ define hidden i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..functi
   %3 = alloca { { [17 x i32], i32 } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  %.sroa.0.0.i = load i64, ptr %3, align 8, !alias.scope !274
+  %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !alias.scope !274
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %5 = load i32, ptr %4, align 4, !range !280, !alias.scope !281, !noundef !10
@@ -2716,7 +2716,7 @@ define hidden i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..functi
   br i1 %19, label %"_ZN4core3ptr57drop_in_place$LT$alloc..sync..Arc$LT$$u5b$u8$u5d$$GT$$GT$17h000e98a63820b932E.llvm.17249484671449717553.exit.sink.split.i.i.i.i", label %"_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb863f25a714ff765E.llvm.7442130522521287225.exit"
 
 "_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb863f25a714ff765E.llvm.7442130522521287225.exit": ; preds = %6, %7, %"_ZN4core3ptr57drop_in_place$LT$alloc..sync..Arc$LT$$u5b$u8$u5d$$GT$$GT$17h000e98a63820b932E.llvm.17249484671449717553.exit.sink.split.i.i.i.i", %10, %15
-  ret i64 %.sroa.0.0.i
+  ret i64 %.sroa.0.0.copyload.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -11158,7 +11158,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden i64 @"_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb863f25a714ff765E.llvm.7442130522521287225"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1) unnamed_addr #0 {
-  %.sroa.0.0 = load i64, ptr %1, align 8
+  %.sroa.0.0.copyload = load i64, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1565)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4, !range !280, !alias.scope !1565, !noundef !10
@@ -11204,7 +11204,7 @@ define hidden i64 @"_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure
   br i1 %18, label %"_ZN4core3ptr57drop_in_place$LT$alloc..sync..Arc$LT$$u5b$u8$u5d$$GT$$GT$17h000e98a63820b932E.llvm.17249484671449717553.exit.sink.split.i.i.i", label %"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225.exit": ; preds = %5, %6, %"_ZN4core3ptr57drop_in_place$LT$alloc..sync..Arc$LT$$u5b$u8$u5d$$GT$$GT$17h000e98a63820b932E.llvm.17249484671449717553.exit.sink.split.i.i.i", %9, %14
-  ret i64 %.sroa.0.0
+  ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: nonlazybind uwtable

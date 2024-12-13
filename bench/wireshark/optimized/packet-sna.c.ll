@@ -2410,22 +2410,22 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %9, i32 noundef 0) #5
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %9, i32 noundef 1) #5
   %. = select i1 %10, i8 %11, i8 %12
-  %.118 = select i1 %10, i8 %12, i8 %11
-  %.088 = zext i8 %.118 to i32
+  %.102 = select i1 %10, i8 %12, i8 %11
+  %.088 = zext i8 %.102 to i32
   %.089 = zext i8 %. to i32
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %38, label %13
 
 13:                                               ; preds = %6
-  %14 = icmp eq i8 %.118, 5
+  %14 = icmp eq i8 %.102, 5
   %.not100 = icmp eq i32 %4, 0
   %ett_sna_control_05.val = load i32, ptr @ett_sna_control_05, align 4
   %ett_sna_control_05hpr.val = load i32, ptr @ett_sna_control_05hpr, align 4
   %ett_sna_control_05.ett_sna_control_05hpr.val = select i1 %.not100, i32 %ett_sna_control_05.val, i32 %ett_sna_control_05hpr.val
   %ett_sna_control_un.val = load i32, ptr @ett_sna_control_un, align 4
   %.0.in.val = select i1 %14, i32 %ett_sna_control_05.ett_sna_control_05hpr.val, i32 %ett_sna_control_un.val
-  %15 = icmp eq i8 %.118, 0
-  %16 = icmp eq i8 %.118, 3
+  %15 = icmp eq i8 %.102, 0
+  %16 = icmp eq i8 %.102, 3
   %or.cond = or i1 %15, %16
   %or.cond3 = or i1 %14, %or.cond
   %17 = icmp ne i32 %4, 0
@@ -2435,15 +2435,15 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
 18:                                               ; preds = %13
   %19 = tail call ptr @val_to_str_const(i32 noundef %.088, ptr noundef nonnull @sna_control_hpr_vals, ptr noundef nonnull @.str.711) #5
   %20 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %9, i32 noundef 0, i32 noundef -1, i32 noundef %.0.in.val, ptr noundef null, ptr noundef %19) #5
-  br i1 %10, label %24, label %.thread110
+  br i1 %10, label %24, label %.thread111
 
 .thread:                                          ; preds = %13
-  %21 = icmp eq i8 %.118, 14
+  %21 = icmp eq i8 %.102, 14
   %ett_sna_control_0e.val = load i32, ptr @ett_sna_control_0e, align 4
   %.1 = select i1 %21, i32 %ett_sna_control_0e.val, i32 %.0.in.val
   %22 = tail call ptr @val_to_str_const(i32 noundef %.088, ptr noundef nonnull @sna_control_vals, ptr noundef nonnull @.str.711) #5
   %23 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %9, i32 noundef 0, i32 noundef -1, i32 noundef %.1, ptr noundef null, ptr noundef %22) #5
-  br i1 %10, label %29, label %.thread110
+  br i1 %10, label %29, label %.thread111
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @hf_sna_control_len, align 4
@@ -2459,7 +2459,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %33 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %32, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef %.088) #5
   br label %38
 
-.thread110:                                       ; preds = %.thread, %18
+.thread111:                                       ; preds = %.thread, %18
   %hf_sna_control_key.sink = phi ptr [ @hf_sna_control_hprkey, %18 ], [ @hf_sna_control_key, %.thread ]
   %.sink = phi ptr [ %20, %18 ], [ %23, %.thread ]
   %34 = load i32, ptr %hf_sna_control_key.sink, align 4
@@ -2468,20 +2468,20 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %37 = tail call ptr @proto_tree_add_uint(ptr noundef %.sink, i32 noundef %36, ptr noundef %9, i32 noundef 1, i32 noundef 1, i32 noundef %.089) #5
   br label %38
 
-38:                                               ; preds = %.thread110, %29, %24, %6
-  %.090 = phi ptr [ %20, %24 ], [ %23, %29 ], [ %.sink, %.thread110 ], [ null, %6 ]
-  switch i8 %.118, label %dissect_control_05hpr.exit [
+38:                                               ; preds = %.thread111, %29, %24, %6
+  %.090 = phi ptr [ %20, %24 ], [ %23, %29 ], [ %.sink, %.thread111 ], [ null, %6 ]
+  switch i8 %.102, label %dissect_control_05hpr.exit [
     i8 5, label %39
     i8 14, label %85
   ]
 
 39:                                               ; preds = %38
   %.not101 = icmp eq i32 %4, 0
-  %.not.i102 = icmp eq ptr %.090, null
+  %.not.i103 = icmp eq ptr %.090, null
   br i1 %.not101, label %81, label %40
 
 40:                                               ; preds = %39
-  br i1 %.not.i102, label %dissect_control_05hpr.exit, label %41
+  br i1 %.not.i103, label %dissect_control_05hpr.exit, label %41
 
 41:                                               ; preds = %40
   %42 = load i32, ptr @hf_sna_control_05_type, align 4
@@ -2490,8 +2490,8 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   %45 = load i32, ptr @hf_sna_reserved, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.090, i32 noundef %45, ptr noundef %9, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %47 = tail call i32 @tvb_offset_exists(ptr noundef %9, i32 noundef 4) #5
-  %.not33.i114 = icmp eq i32 %47, 0
-  br i1 %.not33.i114, label %dissect_control_05hpr.exit, label %.lr.ph
+  %.not33.i115 = icmp eq i32 %47, 0
+  br i1 %.not33.i115, label %dissect_control_05hpr.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
   br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
@@ -2554,7 +2554,7 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   br i1 %.not33.i, label %dissect_control_05hpr.exit, label %.lr.ph.split, !llvm.loop !11
 
 81:                                               ; preds = %39
-  br i1 %.not.i102, label %dissect_control_05hpr.exit, label %82
+  br i1 %.not.i103, label %dissect_control_05hpr.exit, label %82
 
 82:                                               ; preds = %81
   %83 = load i32, ptr @hf_sna_control_05_delay, align 4
@@ -2562,8 +2562,8 @@ define internal fastcc void @dissect_sna_control(ptr noundef %0, i32 noundef %1,
   br label %dissect_control_05hpr.exit
 
 85:                                               ; preds = %38
-  %.not.i103 = icmp eq ptr %.090, null
-  br i1 %.not.i103, label %dissect_control_05hpr.exit, label %86
+  %.not.i104 = icmp eq ptr %.090, null
+  br i1 %.not.i104, label %dissect_control_05hpr.exit, label %86
 
 86:                                               ; preds = %85
   %87 = load i32, ptr @hf_sna_control_0e_type, align 4

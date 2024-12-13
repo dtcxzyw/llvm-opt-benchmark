@@ -76258,11 +76258,11 @@ _ZN5typst7realize10ParBuilder6finish17h208b6d745ac6911bE.exit: ; preds = %32, %3
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = icmp eq ptr %52, null
   %54 = extractvalue { ptr, i64 } %51, 1
-  %.sroa.4.0.ph = select i1 %53, i64 undef, i64 %54
+  %..sroa.79.0 = select i1 %53, i64 undef, i64 %54
   br label %55
 
 55:                                               ; preds = %"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE.exit", %18, %1
-  %.sroa.4.0 = phi i64 [ %17, %1 ], [ undef, %18 ], [ %.sroa.4.0.ph, %"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE.exit" ]
+  %.sroa.4.0 = phi i64 [ %17, %1 ], [ undef, %18 ], [ %..sroa.79.0, %"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE.exit" ]
   %.sroa.0.0 = phi ptr [ %15, %1 ], [ null, %18 ], [ %52, %"_ZN86_$LT$typst..foundations..content..Content$u20$as$u20$typst..realize..arenas..Store$GT$5store17h8112954224eae07bE.exit" ]
   %56 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %57 = insertvalue { ptr, i64 } %56, i64 %.sroa.4.0, 1
@@ -76321,28 +76321,28 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder14interrupt_page17
   call fastcc void @_ZN5typst7realize11FlowBuilder6finish17h06723bf7aa20c10bE(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr noalias nocapture noundef align 8 dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.0.0.copyload = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   %28 = icmp eq ptr %.sroa.0.0.copyload, @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414
-  %29 = icmp eq i64 %.sroa.6.0.copyload, 0
+  %29 = icmp eq i64 %.sroa.5.0.copyload, 0
   %30 = and i1 %28, %29
-  %31 = icmp eq ptr %.sroa.7.0.copyload, null
+  %31 = icmp eq ptr %.sroa.6.0.copyload, null
   %or.cond42 = select i1 %30, i1 %31, i1 false
   br i1 %or.cond42, label %"_ZN79_$LT$typst..foundations..styles..StyleChain$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha76f9ddc98669f9bE.exit", label %32
 
 32:                                               ; preds = %26
   store ptr %.sroa.0.0.copyload, ptr %6, align 8
-  %.sroa.6.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx31, align 8
-  %.sroa.7.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx33, align 8
+  %.sroa.5.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8
+  %.sroa.6.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx33, align 8
   br label %36
 
 "_ZN79_$LT$typst..foundations..styles..StyleChain$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha76f9ddc98669f9bE.exit": ; preds = %26
@@ -76399,7 +76399,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder14interrupt_page17
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !alias.scope !16831
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 456
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !16831
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !16831
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 476
   store i8 3, ptr %51, align 4, !alias.scope !16829, !noalias !16826
   call void @_ZN5typst11foundations7content7Content3new17h4a157ca2e8aa3c9eE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, ptr } }, {}, {} }, i64 }) align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(480) %8)
@@ -76421,7 +76421,7 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder14interrupt_page17
   br i1 %54, label %58, label %.noexc
 
 58:                                               ; preds = %57
-  store i64 %.sroa.5.0.copyload, ptr %52, align 8, !alias.scope !16835, !noalias !16832
+  store i64 %.sroa.4.0.copyload, ptr %52, align 8, !alias.scope !16835, !noalias !16832
   br label %.noexc
 
 59:                                               ; preds = %55
@@ -76471,11 +76471,11 @@ define internal fastcc { ptr, i64 } @_ZN5typst7realize7Builder14interrupt_page17
   %74 = extractvalue { ptr, i64 } %73, 0
   %75 = icmp eq ptr %74, null
   %76 = extractvalue { ptr, i64 } %73, 1
-  %spec.select = select i1 %75, i64 undef, i64 %76
+  %..sroa.713.0 = select i1 %75, i64 undef, i64 %76
   br label %77
 
 77:                                               ; preds = %72, %24, %16, %3
-  %.sroa.5.0 = phi i64 [ %15, %3 ], [ undef, %16 ], [ undef, %24 ], [ %spec.select, %72 ]
+  %.sroa.5.0 = phi i64 [ %15, %3 ], [ undef, %16 ], [ undef, %24 ], [ %..sroa.713.0, %72 ]
   %.sroa.0.0 = phi ptr [ %13, %3 ], [ null, %16 ], [ null, %24 ], [ %74, %72 ]
   %78 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %79 = insertvalue { ptr, i64 } %78, i64 %.sroa.5.0, 1

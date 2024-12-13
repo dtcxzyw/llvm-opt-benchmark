@@ -505,9 +505,9 @@ if.then7:                                         ; preds = %sw.bb
   %3 = load ptr, ptr %d1.i, align 8
   %next_timeout5.i = getelementptr inbounds nuw i8, ptr %3, i64 448
   %4 = load i64, ptr %next_timeout5.i, align 8
-  %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %call1.i)
-  %cmp.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
-  %5 = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i.i, i64 999)
+  %.sub.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %call1.i)
+  %cmp.i = icmp ult i64 %.sub.i.i.i, 15000001
+  %5 = tail call i64 @llvm.uadd.sat.i64(i64 %.sub.i.i.i, i64 999)
   %t.sroa.0.0.i = select i1 %cmp.i, i64 999, i64 %5
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
@@ -575,9 +575,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %d1, align 8
   %next_timeout5 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5, align 8
-  %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1)
-  %cmp = icmp ult i64 %retval.sroa.0.0.i, 15000001
-  %spec.store.select = select i1 %cmp, i64 0, i64 %retval.sroa.0.0.i
+  %.sub.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1)
+  %cmp = icmp ult i64 %.sub.i.i, 15000001
+  %spec.store.select = select i1 %cmp, i64 0, i64 %.sub.i.i
   store i64 %spec.store.select, ptr %timeleft, align 8
   br label %return
 
@@ -605,8 +605,8 @@ dtls1_is_timer_expired.exit:                      ; preds = %entry
   %2 = load ptr, ptr %d1.i.i, align 8
   %next_timeout5.i.i = getelementptr inbounds nuw i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5.i.i, align 8
-  %retval.sroa.0.0.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i.i)
-  %cmp.i.i = icmp ugt i64 %retval.sroa.0.0.i.i.i, 15000000
+  %.sub.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i.i)
+  %cmp.i.i = icmp ugt i64 %.sub.i.i.i.i, 15000000
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %dtls1_is_timer_expired.exit
@@ -781,8 +781,8 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %d1.i, align 8
   %next_timeout5.i = getelementptr inbounds nuw i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5.i, align 8
-  %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i)
-  %cmp.i = icmp ult i64 %retval.sroa.0.0.i.i, 15000001
+  %.sub.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i)
+  %cmp.i = icmp ult i64 %.sub.i.i.i, 15000001
   %. = zext i1 %cmp.i to i32
   br label %return
 

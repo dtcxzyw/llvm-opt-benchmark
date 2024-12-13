@@ -108,8 +108,8 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
   %24 = add nsw i32 %18, -4
   %25 = icmp eq i32 %.0117185195, -1
   %26 = zext i16 %23 to i32
-  %.1118 = select i1 %25, i32 %26, i32 %.0117185195
-  %.1116 = select i1 %25, i32 %.0115186194, i32 %26
+  %..0117 = select i1 %25, i32 %26, i32 %.0117185195
+  %.0115. = select i1 %25, i32 %.0115186194, i32 %26
   %27 = and i32 %13, 2147483646
   %.not176 = icmp eq i32 %27, 8
   br i1 %.not176, label %.thread, label %28
@@ -121,8 +121,8 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph198, %28, %22
-  %.1116153 = phi i32 [ %.1116, %28 ], [ %.1116, %22 ], [ %.0115186194, %.lr.ph198 ]
-  %.1118152 = phi i32 [ %.1118, %28 ], [ %.1118, %22 ], [ %.0117185195, %.lr.ph198 ]
+  %.1116153 = phi i32 [ %.0115., %28 ], [ %.0115., %22 ], [ %.0115186194, %.lr.ph198 ]
+  %.1118152 = phi i32 [ %..0117, %28 ], [ %..0117, %22 ], [ %.0117185195, %.lr.ph198 ]
   %.1120150 = phi i16 [ %23, %28 ], [ %23, %22 ], [ %.0119184196, %.lr.ph198 ]
   %.2127 = phi i32 [ %31, %28 ], [ %24, %22 ], [ %21, %.lr.ph198 ]
   %.1 = phi i16 [ %30, %28 ], [ %.0114187193, %22 ], [ %.0114187193, %.lr.ph198 ]

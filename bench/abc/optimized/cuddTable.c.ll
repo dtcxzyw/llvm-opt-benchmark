@@ -3983,67 +3983,67 @@ declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #
 define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
-  %.fr207 = freeze i32 %4
+  %.fr208 = freeze i32 %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %1, %8
-  br i1 %9, label %.preheader192, label %42
+  br i1 %9, label %.preheader193, label %42
 
-.preheader192:                                    ; preds = %2
-  %.not190204 = icmp sgt i32 %6, %1
-  br i1 %.not190204, label %.loopexit, label %.lr.ph206
+.preheader193:                                    ; preds = %2
+  %.not190205 = icmp sgt i32 %6, %1
+  br i1 %.not190205, label %.loopexit, label %.lr.ph207
 
-.lr.ph206:                                        ; preds = %.preheader192
+.lr.ph207:                                        ; preds = %.preheader193
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %11 = shl i32 %.fr207, 2
+  %11 = shl i32 %.fr208, 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %14 = zext i32 %.fr207 to i64
+  %14 = zext i32 %.fr208 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %.not209 = icmp eq i32 %.fr207, 0
+  %.not210 = icmp eq i32 %.fr208, 0
   %16 = sext i32 %6 to i64
   %17 = add nsw i32 %1, 1
   br label %18
 
-18:                                               ; preds = %.lr.ph206, %._crit_edge
-  %indvars.iv228 = phi i64 [ %16, %.lr.ph206 ], [ %indvars.iv.next229, %._crit_edge ]
+18:                                               ; preds = %.lr.ph207, %._crit_edge
+  %indvars.iv229 = phi i64 [ %16, %.lr.ph207 ], [ %indvars.iv.next230, %._crit_edge ]
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %indvars.iv228, i32 2
-  store i32 %.fr207, ptr %20, align 4
-  %21 = tail call i32 @cuddComputeFloorLog2(i32 noundef %.fr207) #14
+  %20 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %indvars.iv229, i32 2
+  store i32 %.fr208, ptr %20, align 4
+  %21 = tail call i32 @cuddComputeFloorLog2(i32 noundef %.fr208) #14
   %22 = sub i32 32, %21
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %indvars.iv228, i32 1
+  %24 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %indvars.iv229, i32 1
   store i32 %22, ptr %24, align 8
   %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds %struct.DdSubtable, ptr %25, i64 %indvars.iv228, i32 3
+  %26 = getelementptr inbounds %struct.DdSubtable, ptr %25, i64 %indvars.iv229, i32 3
   store i32 0, ptr %26, align 8
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %indvars.iv228, i32 4
+  %28 = getelementptr inbounds %struct.DdSubtable, ptr %27, i64 %indvars.iv229, i32 4
   store i32 %11, ptr %28, align 4
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %struct.DdSubtable, ptr %29, i64 %indvars.iv228, i32 5
+  %30 = getelementptr inbounds %struct.DdSubtable, ptr %29, i64 %indvars.iv229, i32 5
   store i32 0, ptr %30, align 8
   %31 = load ptr, ptr %12, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv228
-  %33 = trunc nsw i64 %indvars.iv228 to i32
+  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv229
+  %33 = trunc nsw i64 %indvars.iv229 to i32
   store i32 %33, ptr %32, align 4
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv228
+  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv229
   store i32 %33, ptr %35, align 4
   %36 = tail call noalias ptr @malloc(i64 noundef %15) #13
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds %struct.DdSubtable, ptr %37, i64 %indvars.iv228
+  %38 = getelementptr inbounds %struct.DdSubtable, ptr %37, i64 %indvars.iv229
   store ptr %36, ptr %38, align 8
   %39 = icmp eq ptr %36, null
   br i1 %39, label %40, label %.preheader
 
 .preheader:                                       ; preds = %18
-  br i1 %.not209, label %._crit_edge, label %.lr.ph203.preheader
+  br i1 %.not210, label %._crit_edge, label %.lr.ph204.preheader
 
-.lr.ph203.preheader:                              ; preds = %.preheader
+.lr.ph204.preheader:                              ; preds = %.preheader
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %15, i1 false)
   br label %._crit_edge
 
@@ -4052,11 +4052,11 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   store i32 1, ptr %41, align 8
   br label %199
 
-._crit_edge:                                      ; preds = %.lr.ph203.preheader, %.preheader
-  %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
-  %lftr.wideiv231 = trunc i64 %indvars.iv.next229 to i32
-  %exitcond232.not = icmp eq i32 %17, %lftr.wideiv231
-  br i1 %exitcond232.not, label %.loopexit, label %18, !llvm.loop !69
+._crit_edge:                                      ; preds = %.lr.ph204.preheader, %.preheader
+  %indvars.iv.next230 = add nsw i64 %indvars.iv229, 1
+  %lftr.wideiv232 = trunc i64 %indvars.iv.next230 to i32
+  %exitcond233.not = icmp eq i32 %17, %lftr.wideiv232
+  br i1 %exitcond233.not, label %.loopexit, label %18, !llvm.loop !69
 
 42:                                               ; preds = %2
   %43 = add nsw i32 %1, 10
@@ -4095,7 +4095,7 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
 61:                                               ; preds = %56
   %62 = sub nsw i32 %43, %8
   %63 = sext i32 %62 to i64
-  %64 = add i32 %.fr207, 1
+  %64 = add i32 %.fr208, 1
   %65 = zext i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 3
   %67 = add nuw nsw i64 %66, 64
@@ -4148,7 +4148,7 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
 
 95:                                               ; preds = %87, %61
   %96 = icmp sgt i32 %6, 0
-  br i1 %96, label %.lr.ph, label %.preheader194
+  br i1 %96, label %.lr.ph, label %.preheader195
 
 .lr.ph:                                           ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4160,25 +4160,25 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %120
 
-.preheader194:                                    ; preds = %120, %95
-  %.not186198 = icmp sgt i32 %6, %1
-  br i1 %.not186198, label %._crit_edge201, label %.lr.ph200
+.preheader195:                                    ; preds = %120, %95
+  %.not186199 = icmp sgt i32 %6, %1
+  br i1 %.not186199, label %._crit_edge202, label %.lr.ph201
 
-.lr.ph200:                                        ; preds = %.preheader194
-  %103 = shl i32 %.fr207, 2
-  %104 = zext i32 %.fr207 to i64
+.lr.ph201:                                        ; preds = %.preheader195
+  %103 = shl i32 %.fr208, 2
+  %104 = zext i32 %.fr208 to i64
   %105 = shl nuw nsw i64 %104, 3
-  %.not208 = icmp eq i32 %.fr207, 0
+  %.not209 = icmp eq i32 %.fr208, 0
   %106 = sext i32 %6 to i64
   %107 = add i32 %1, 1
-  br i1 %.not208, label %.lr.ph200.split, label %.lr.ph200.split.us
+  br i1 %.not209, label %.lr.ph201.split, label %.lr.ph201.split.us
 
-.lr.ph200.split.us:                               ; preds = %.lr.ph200, %.preheader193.us.preheader
-  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.preheader193.us.preheader ], [ %106, %.lr.ph200 ]
-  %108 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %indvars.iv216
+.lr.ph201.split.us:                               ; preds = %.lr.ph201, %.preheader194.us.preheader
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.preheader194.us.preheader ], [ %106, %.lr.ph201 ]
+  %108 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %indvars.iv217
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  store i32 %.fr207, ptr %109, align 4
-  %110 = tail call i32 @cuddComputeFloorLog2(i32 noundef %.fr207) #14
+  store i32 %.fr208, ptr %109, align 4
+  %110 = tail call i32 @cuddComputeFloorLog2(i32 noundef %.fr208) #14
   %111 = sub i32 32, %110
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 %111, ptr %112, align 8
@@ -4188,21 +4188,21 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   store i32 %103, ptr %114, align 4
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv216
-  %117 = trunc nsw i64 %indvars.iv216 to i32
+  %116 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv217
+  %117 = trunc nsw i64 %indvars.iv217 to i32
   store i32 %117, ptr %116, align 4
-  %118 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv216
+  %118 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv217
   store i32 %117, ptr %118, align 4
   %calloc = tail call ptr @calloc(i64 1, i64 %105)
   store ptr %calloc, ptr %108, align 8
   %119 = icmp eq ptr %calloc, null
-  br i1 %119, label %.split.us, label %.preheader193.us.preheader
+  br i1 %119, label %.split.us, label %.preheader194.us.preheader
 
-.preheader193.us.preheader:                       ; preds = %.lr.ph200.split.us
-  %indvars.iv.next217 = add nsw i64 %indvars.iv216, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next217 to i32
-  %exitcond219.not = icmp eq i32 %107, %lftr.wideiv
-  br i1 %exitcond219.not, label %._crit_edge201, label %.lr.ph200.split.us, !llvm.loop !70
+.preheader194.us.preheader:                       ; preds = %.lr.ph201.split.us
+  %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next218 to i32
+  %exitcond220.not = icmp eq i32 %107, %lftr.wideiv
+  br i1 %exitcond220.not, label %._crit_edge202, label %.lr.ph201.split.us, !llvm.loop !70
 
 120:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
@@ -4240,11 +4240,11 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   store i32 %143, ptr %144, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader194, label %120, !llvm.loop !71
+  br i1 %exitcond.not, label %.preheader195, label %120, !llvm.loop !71
 
-.lr.ph200.split:                                  ; preds = %.lr.ph200, %.preheader193
-  %indvars.iv220 = phi i64 [ %indvars.iv.next221, %.preheader193 ], [ %106, %.lr.ph200 ]
-  %145 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %indvars.iv220
+.lr.ph201.split:                                  ; preds = %.lr.ph201, %.preheader194
+  %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.preheader194 ], [ %106, %.lr.ph201 ]
+  %145 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %indvars.iv221
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
   store i32 0, ptr %146, align 4
   %147 = tail call i32 @cuddComputeFloorLog2(i32 noundef 0) #14
@@ -4257,38 +4257,38 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   store i32 %103, ptr %151, align 4
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv220
-  %154 = trunc nsw i64 %indvars.iv220 to i32
+  %153 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv221
+  %154 = trunc nsw i64 %indvars.iv221 to i32
   store i32 %154, ptr %153, align 4
-  %155 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv220
+  %155 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv221
   store i32 %154, ptr %155, align 4
   %156 = tail call noalias ptr @malloc(i64 noundef %105) #13
   store ptr %156, ptr %145, align 8
   %157 = icmp eq ptr %156, null
-  br i1 %157, label %.split.us, label %.preheader193
+  br i1 %157, label %.split.us, label %.preheader194
 
-.preheader193:                                    ; preds = %.lr.ph200.split
-  %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
-  %lftr.wideiv223 = trunc i64 %indvars.iv.next221 to i32
-  %exitcond224.not = icmp eq i32 %107, %lftr.wideiv223
-  br i1 %exitcond224.not, label %._crit_edge201, label %.lr.ph200.split, !llvm.loop !70
+.preheader194:                                    ; preds = %.lr.ph201.split
+  %indvars.iv.next222 = add nsw i64 %indvars.iv221, 1
+  %lftr.wideiv224 = trunc i64 %indvars.iv.next222 to i32
+  %exitcond225.not = icmp eq i32 %107, %lftr.wideiv224
+  br i1 %exitcond225.not, label %._crit_edge202, label %.lr.ph201.split, !llvm.loop !70
 
-.split.us:                                        ; preds = %.lr.ph200.split.us, %.lr.ph200.split
+.split.us:                                        ; preds = %.lr.ph201.split.us, %.lr.ph201.split
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %158, align 8
   br label %199
 
-._crit_edge201:                                   ; preds = %.preheader193.us.preheader, %.preheader193, %.preheader194
+._crit_edge202:                                   ; preds = %.preheader194.us.preheader, %.preheader194, %.preheader195
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %160 = load ptr, ptr %159, align 8
   %.not187 = icmp eq ptr %160, null
   br i1 %.not187, label %162, label %161
 
-161:                                              ; preds = %._crit_edge201
+161:                                              ; preds = %._crit_edge202
   tail call void @free(ptr noundef nonnull %160) #14
   br label %162
 
-162:                                              ; preds = %._crit_edge201, %161
+162:                                              ; preds = %._crit_edge202, %161
   store ptr %46, ptr %159, align 8
   store i32 %43, ptr %7, align 4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -4315,11 +4315,11 @@ define range(i32 0, 2) i32 @cuddResizeTableZdd(ptr noundef %0, i32 noundef %1) l
   store ptr %57, ptr %167, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader192, %170
+.loopexit:                                        ; preds = %._crit_edge, %.preheader193, %170
   %171 = add nsw i32 %1, 1
   %172 = load i32, ptr %5, align 4
   %173 = sub nsw i32 %171, %172
-  %174 = mul i32 %173, %.fr207
+  %174 = mul i32 %173, %.fr208
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %176 = load i32, ptr %175, align 8
   %177 = add i32 %174, %176
@@ -4360,11 +4360,11 @@ ddFixLimits.exit:                                 ; preds = %.loopexit, %195
   %198 = tail call i32 @cuddZddInitUniv(ptr noundef nonnull %0) #14
   %.not191 = icmp ne i32 %198, 0
   store i32 %197, ptr %196, align 8
-  %.235 = zext i1 %.not191 to i32
+  %.192 = zext i1 %.not191 to i32
   br label %199
 
 199:                                              ; preds = %ddFixLimits.exit, %.split.us, %85, %59, %54, %48, %40
-  %.0 = phi i32 [ 0, %40 ], [ 0, %48 ], [ 0, %54 ], [ 0, %59 ], [ 0, %85 ], [ 0, %.split.us ], [ %.235, %ddFixLimits.exit ]
+  %.0 = phi i32 [ 0, %40 ], [ 0, %48 ], [ 0, %54 ], [ 0, %59 ], [ 0, %85 ], [ 0, %.split.us ], [ %.192, %ddFixLimits.exit ]
   ret i32 %.0
 }
 

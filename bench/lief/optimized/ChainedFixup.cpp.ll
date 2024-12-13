@@ -723,8 +723,8 @@ define hidden noundef zeroext i1 @_ZNK4LIEF5MachO7details13chained_fixup9is_reba
   call void @abort() #25
   unreachable
 
-14:                                               ; preds = %4, %2, %2, %2, %10, %7
-  %.0 = phi i1 [ %12, %10 ], [ %9, %7 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ %.not, %4 ]
+14:                                               ; preds = %2, %2, %2, %4, %10, %7
+  %.0 = phi i1 [ %12, %10 ], [ %9, %7 ], [ %.not, %4 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0
 }
 

@@ -912,14 +912,14 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %.loopexit, label %.lr.ph106
 
-._crit_edge102:                                   ; preds = %.backedge93
+._crit_edge102:                                   ; preds = %.backedge94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   %34 = icmp eq i64 %18, 1
   %spec.select = select i1 %34, ptr @anon.ed49a406a3700145873275f46ab0f926.16, ptr @anon.ed49a406a3700145873275f46ab0f926.17
-  %spec.select94 = select i1 %34, i64 2, i64 3
+  %spec.select95 = select i1 %34, i64 2, i64 3
   store ptr %spec.select, ptr %16, align 8
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %spec.select94, ptr %35, align 8
+  store i64 %spec.select95, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store ptr %16, ptr %14, align 8
@@ -939,9 +939,9 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   br i1 %41, label %88, label %48
 
-42:                                               ; preds = %.lr.ph, %.backedge93
-  %.sroa.0.0100 = phi ptr [ %21, %.lr.ph ], [ %43, %.backedge93 ]
-  %.sroa.8.099 = phi i64 [ 0, %.lr.ph ], [ %44, %.backedge93 ]
+42:                                               ; preds = %.lr.ph, %.backedge94
+  %.sroa.0.0100 = phi ptr [ %21, %.lr.ph ], [ %43, %.backedge94 ]
+  %.sroa.8.099 = phi i64 [ 0, %.lr.ph ], [ %44, %.backedge94 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 48
   %44 = add nuw nsw i64 %.sroa.8.099, 1
   %45 = icmp eq i64 %.sroa.8.099, 0
@@ -984,11 +984,11 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
 ._crit_edge107:                                   ; preds = %.backedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %66 = icmp eq i64 %32, 1
-  %spec.select95 = select i1 %66, ptr @anon.ed49a406a3700145873275f46ab0f926.16, ptr @anon.ed49a406a3700145873275f46ab0f926.17
-  %spec.select96 = select i1 %66, i64 2, i64 3
-  store ptr %spec.select95, ptr %13, align 8
+  %spec.select96 = select i1 %66, ptr @anon.ed49a406a3700145873275f46ab0f926.16, ptr @anon.ed49a406a3700145873275f46ab0f926.17
+  %spec.select97 = select i1 %66, i64 2, i64 3
+  store ptr %spec.select96, ptr %13, align 8
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %spec.select96, ptr %67, align 8
+  store i64 %spec.select97, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %13, ptr %11, align 8
@@ -1010,12 +1010,12 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   br label %.loopexit
 
 74:                                               ; preds = %.lr.ph106, %.backedge
-  %.sroa.879.0104 = phi i64 [ 0, %.lr.ph106 ], [ %76, %.backedge ]
-  %.sroa.077.0103 = phi ptr [ %56, %.lr.ph106 ], [ %75, %.backedge ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.077.0103, i64 48
-  %76 = add nuw nsw i64 %.sroa.879.0104, 1
-  %77 = icmp eq i64 %.sroa.879.0104, 0
-  %78 = icmp eq i64 %.sroa.879.0104, %58
+  %.sroa.880.0104 = phi i64 [ 0, %.lr.ph106 ], [ %76, %.backedge ]
+  %.sroa.078.0103 = phi ptr [ %56, %.lr.ph106 ], [ %75, %.backedge ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.078.0103, i64 48
+  %76 = add nuw nsw i64 %.sroa.880.0104, 1
+  %77 = icmp eq i64 %.sroa.880.0104, 0
+  %78 = icmp eq i64 %.sroa.880.0104, %58
   %anon.ed49a406a3700145873275f46ab0f926.15.anon.ed49a406a3700145873275f46ab0f926.14 = select i1 %78, ptr @anon.ed49a406a3700145873275f46ab0f926.15, ptr @anon.ed49a406a3700145873275f46ab0f926.14
   %. = select i1 %78, i64 5, i64 2
   %.sroa.026.0 = select i1 %77, ptr @anon.ed49a406a3700145873275f46ab0f926.3, ptr %anon.ed49a406a3700145873275f46ab0f926.15.anon.ed49a406a3700145873275f46ab0f926.14
@@ -1023,24 +1023,24 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   %79 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.026.0, i64 noundef %.sroa.427.0)
   br i1 %79, label %.loopexit, label %80
 
-.loopexit:                                        ; preds = %93, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76", %42, %84, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %74, %._crit_edge107, %31, %88
-  %.1 = phi i1 [ true, %88 ], [ false, %31 ], [ %73, %._crit_edge107 ], [ true, %74 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit" ], [ true, %84 ], [ true, %42 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76" ], [ true, %93 ]
+.loopexit:                                        ; preds = %93, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit77", %42, %84, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit", %74, %._crit_edge107, %31, %88
+  %.1 = phi i1 [ true, %88 ], [ false, %31 ], [ %73, %._crit_edge107 ], [ true, %74 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit" ], [ true, %84 ], [ true, %42 ], [ true, %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit77" ], [ true, %93 ]
   ret i1 %.1
 
 80:                                               ; preds = %74
   call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.077.0103, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.078.0103, i64 24
   %82 = load i8, ptr %81, align 8, !range !9, !alias.scope !202, !noalias !205, !noundef !4
   %83 = icmp eq i8 %82, 26
   br i1 %83, label %84, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit"
 
 84:                                               ; preds = %80
-  %85 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.077.0103, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %85 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.078.0103, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %85, label %.loopexit, label %.backedge
 
 "_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit": ; preds = %80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !207
-  store ptr %.sroa.077.0103, ptr %10, align 8, !noalias !207
+  store ptr %.sroa.078.0103, ptr %10, align 8, !noalias !207
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !207
   store ptr %81, ptr %9, align 8, !noalias !207
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !207
@@ -1074,13 +1074,13 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0100, i64 24
   %91 = load i8, ptr %90, align 8, !range !9, !alias.scope !214, !noalias !217, !noundef !4
   %92 = icmp eq i8 %91, 26
-  br i1 %92, label %93, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76"
+  br i1 %92, label %93, label %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit77"
 
 93:                                               ; preds = %89
   %94 = call noundef zeroext i1 @"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..fmt..Display$GT$3fmt17he819a81dda67466dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0100, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  br i1 %94, label %.loopexit, label %.backedge93
+  br i1 %94, label %.loopexit, label %.backedge94
 
-"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76": ; preds = %89
+"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit77": ; preds = %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !219
   store ptr %.sroa.0.0100, ptr %6, align 8, !noalias !219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !219
@@ -1101,9 +1101,9 @@ define noundef zeroext i1 @"_ZN58_$LT$cfg..InactiveReason$u20$as$u20$core..fmt..
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !219
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !219
-  br i1 %95, label %.loopexit, label %.backedge93
+  br i1 %95, label %.loopexit, label %.backedge94
 
-.backedge93:                                      ; preds = %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit76", %93
+.backedge94:                                      ; preds = %"_ZN61_$LT$cfg..cfg_expr..CfgAtom$u20$as$u20$core..fmt..Display$GT$3fmt17h5dac7cf497f5f6bbE.exit77", %93
   %96 = icmp eq ptr %43, %22
   br i1 %96, label %._crit_edge102, label %42
 }

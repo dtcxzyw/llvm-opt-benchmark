@@ -151233,8 +151233,9 @@ define hidden void @_ZN7project11lsp_command14signature_help22proto_to_lsp_signa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7project11lsp_command14signature_help26proto_to_lsp_documentation17h7f8fb0f697b2ff97E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #22 {
-  %.sroa.518 = alloca [16 x i8], align 8
+  %.sroa.6.sroa.0 = alloca [16 x i8], align 8
   %.sroa.6.sroa.7 = alloca [7 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.sroa.0)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.sroa.7)
   %.sroa.03.0.copyload = load i64, ptr %1, align 8
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -151250,17 +151251,18 @@ define hidden void @_ZN7project11lsp_command14signature_help26proto_to_lsp_docum
   br label %4
 
 4:                                                ; preds = %7, %3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.0)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.sroa.7)
   ret void
 
 5:                                                ; preds = %2
   %.sroa.65.sroa.6.0..sroa.65.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.65.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.65.0..sroa_idx, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.sroa.7, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.65.sroa.6.0..sroa.65.0..sroa_idx.sroa_idx, i64 7, i1 false)
   br label %7
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.65.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.65.0..sroa_idx, i64 16, i1 false)
   %. = and i8 %.sroa.65.sroa.5.0.copyload, 1
   br label %7
 
@@ -151268,7 +151270,7 @@ define hidden void @_ZN7project11lsp_command14signature_help26proto_to_lsp_docum
   %.sroa.6.sroa.6.0 = phi i8 [ %.sroa.65.sroa.5.0.copyload, %5 ], [ %., %6 ]
   store i64 %.sroa.03.0.copyload, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.518, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false)
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25

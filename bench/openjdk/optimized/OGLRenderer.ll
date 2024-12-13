@@ -580,17 +580,17 @@ define hidden void @OGLRenderer_FillAAParallelogram(ptr noundef readnone %0, ptr
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -5) #4
   %30 = fcmp ult float %4, 0.000000e+00
   %31 = fadd float %2, %4
-  %.0110 = select i1 %30, float %2, float %31
-  %.0 = select i1 %30, float %31, float %2
+  %. = select i1 %30, float %2, float %31
+  %.123 = select i1 %30, float %31, float %2
   %32 = fcmp ult float %5, 0.000000e+00
   %33 = fadd float %3, %5
   %.0112 = select i1 %32, float %3, float %33
   %.0108 = select i1 %32, float %33, float %3
   %34 = fcmp ult float %6, 0.000000e+00
-  %35 = fadd float %.0110, %6
-  %36 = fadd float %.0, %6
-  %.1111 = select i1 %34, float %.0110, float %35
-  %.1 = select i1 %34, float %36, float %.0
+  %35 = fadd float %., %6
+  %36 = fadd float %.123, %6
+  %.1111 = select i1 %34, float %., float %35
+  %.1 = select i1 %34, float %36, float %.123
   %37 = fcmp ult float %7, 0.000000e+00
   %38 = fadd float %.0112, %7
   %39 = fadd float %.0108, %7
@@ -712,17 +712,17 @@ define hidden void @OGLRenderer_FillAAParallelogramInnerOuter(ptr noundef %0, pt
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -5) #4
   %55 = fcmp ult float %4, 0.000000e+00
   %56 = fadd float %2, %4
-  %.0189 = select i1 %55, float %2, float %56
-  %.0 = select i1 %55, float %56, float %2
+  %. = select i1 %55, float %2, float %56
+  %.205 = select i1 %55, float %56, float %2
   %57 = fcmp ult float %5, 0.000000e+00
   %58 = fadd float %3, %5
   %.0191 = select i1 %57, float %3, float %58
   %.0187 = select i1 %57, float %58, float %3
   %59 = fcmp ult float %6, 0.000000e+00
-  %60 = fadd float %.0189, %6
-  %61 = fadd float %.0, %6
-  %.1190 = select i1 %59, float %.0189, float %60
-  %.1 = select i1 %59, float %61, float %.0
+  %60 = fadd float %., %6
+  %61 = fadd float %.205, %6
+  %.1190 = select i1 %59, float %., float %60
+  %.1 = select i1 %59, float %61, float %.205
   %62 = fcmp ult float %7, 0.000000e+00
   %63 = fadd float %.0191, %7
   %64 = fadd float %.0187, %7

@@ -10920,8 +10920,8 @@ define hidden { i64, ptr } @"_ZN3std4sync5mutex14Mutex$LT$T$GT$10into_inner17hec
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load atomic i8, ptr %4 monotonic, align 4
   %6 = icmp ne i8 %5, 0
-  %spec.select.i = zext i1 %6 to i64
-  %7 = insertvalue { i64, ptr } poison, i64 %spec.select.i, 0
+  %..i = zext i1 %6 to i64
+  %7 = insertvalue { i64, ptr } poison, i64 %..i, 0
   %8 = insertvalue { i64, ptr } %7, ptr %3, 1
   ret { i64, ptr } %8
 }

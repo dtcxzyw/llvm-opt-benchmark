@@ -4939,8 +4939,8 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   %8 = call i32 @list_for_each(ptr noundef %7, ptr noundef nonnull @_foreach_delayed_work, ptr noundef nonnull %2) #17
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
-  %.not22 = icmp eq ptr %10, null
-  br i1 %.not22, label %36, label %11
+  %.not20 = icmp eq ptr %10, null
+  br i1 %.not20, label %36, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -4953,8 +4953,8 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
   store i64 %16, ptr %17, align 8
   %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %19 = and i64 %18, 1024
-  %.not24 = icmp eq i64 %19, 0
-  br i1 %.not24, label %43, label %20
+  %.not22 = icmp eq i64 %19, 0
+  br i1 %.not22, label %43, label %20
 
 20:                                               ; preds = %11
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 88), align 8
@@ -4981,8 +4981,8 @@ define internal fastcc void @_update_timer() unnamed_addr #0 {
 36:                                               ; preds = %6
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 1024
-  %.not23 = icmp eq i64 %38, 0
-  br i1 %.not23, label %43, label %39
+  %.not21 = icmp eq i64 %38, 0
+  br i1 %.not21, label %43, label %39
 
 39:                                               ; preds = %36
   %40 = call i32 @get_log_level() #17
@@ -5049,8 +5049,8 @@ define internal noundef i32 @_foreach_delayed_work(ptr noundef %0, ptr nocapture
 27:                                               ; preds = %19, %16, %2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
-  %.not30 = icmp eq ptr %29, null
-  br i1 %.not30, label %.sink.split, label %30
+  %.not28 = icmp eq ptr %29, null
+  br i1 %.not28, label %.sink.split, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48

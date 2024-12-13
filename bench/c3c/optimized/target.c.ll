@@ -1972,8 +1972,8 @@ os_target_alignment_of_int.exit.thread:           ; preds = %450, %452, %453, %.
   br label %458
 
 os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i, %445, %449, %os_is_apple.exit57.thread.i
-  %.sroa.0.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %439, %449 ], [ %..i90, %os_is_apple.exit.i ]
-  %.sroa.11.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ 32, %449 ], [ %444, %os_is_apple.exit.i ]
+  %.sroa.0.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %..i90, %os_is_apple.exit.i ], [ %439, %449 ]
+  %.sroa.11.0.i = phi i32 [ %439, %os_is_apple.exit57.thread.i ], [ %446, %445 ], [ %444, %os_is_apple.exit.i ], [ 32, %449 ]
   %.sroa.11.0.insert.ext.i = zext nneg i32 %.sroa.11.0.i to i64
   %.sroa.11.0.insert.shift.i = shl nuw nsw i64 %.sroa.11.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.0.i to i64

@@ -11901,11 +11901,11 @@ ehcleanup360:                                     ; preds = %arraydestroy.body32
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN9grpc_core8channelz12_GLOBAL__N_125PopulateSocketAddressJsonEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEEPKcSK_(ptr noundef nonnull %json, ptr noundef %name, ptr noundef %addr_str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %__an.i434 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  %__an.i408 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  %__an.i382 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  %__an.i356 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  %__an.i330 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %__an.i431 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %__an.i405 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %__an.i379 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %__an.i353 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %__an.i327 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i312 = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i304 = alloca %class.anon, align 1
@@ -12145,27 +12145,27 @@ invoke.cont60:                                    ; preds = %_ZN9grpc_core12expe
 for.body.i:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i, %invoke.cont60
   %__first.addr.04.i.idx = phi i64 [ 0, %invoke.cont60 ], [ %__first.addr.04.i.add, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i ]
   %__first.addr.04.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 %__first.addr.04.i.idx
-  %call3.i.i328 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(88) %__first.addr.04.i.ptr)
+  %call3.i.i325 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37, ptr nonnull %16, ptr noundef nonnull align 8 dereferenceable(88) %__first.addr.04.i.ptr)
           to label %call3.i.i.noexc unwind label %lpad4.i
 
 call3.i.i.noexc:                                  ; preds = %for.body.i
-  %17 = extractvalue { ptr, ptr } %call3.i.i328, 1
+  %17 = extractvalue { ptr, ptr } %call3.i.i325, 1
   %tobool.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i, label %if.then.i.i326
+  br i1 %tobool.not.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i, label %if.then.i.i322
 
-if.then.i.i326:                                   ; preds = %call3.i.i.noexc
-  %18 = extractvalue { ptr, ptr } %call3.i.i328, 0
+if.then.i.i322:                                   ; preds = %call3.i.i.noexc
+  %18 = extractvalue { ptr, ptr } %call3.i.i325, 0
   %cmp.not.i.i.i = icmp ne ptr %18, null
   %cmp2.i.i.i = icmp eq ptr %17, %16
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
-lor.rhs.i.i.i:                                    ; preds = %if.then.i.i326
+lor.rhs.i.i.i:                                    ; preds = %if.then.i.i322
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %__first.addr.04.i.ptr, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i327
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i323
 
-terminate.lpad.i.i.i.i.i327:                      ; preds = %lor.rhs.i.i.i
+terminate.lpad.i.i.i.i.i323:                      ; preds = %lor.rhs.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
@@ -12173,16 +12173,16 @@ terminate.lpad.i.i.i.i.i327:                      ; preds = %lor.rhs.i.i.i
   unreachable
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i: ; preds = %lor.rhs.i.i.i
-  %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i324 = icmp slt i32 %call.i.i.i.i.i, 0
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %if.then.i.i326
-  %21 = phi i1 [ true, %if.then.i.i326 ], [ %cmp.i.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
-  %call6.i.i.i329 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i, ptr noundef nonnull align 8 dereferenceable(88) %__first.addr.04.i.ptr)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i, %if.then.i.i322
+  %21 = phi i1 [ true, %if.then.i.i322 ], [ %cmp.i.i.i.i.i324, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ]
+  %call6.i.i.i326 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i, ptr noundef nonnull align 8 dereferenceable(88) %__first.addr.04.i.ptr)
           to label %call6.i.i.i.noexc unwind label %lpad4.i
 
 call6.i.i.i.noexc:                                ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %21, ptr noundef %call6.i.i.i329, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #24
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %21, ptr noundef %call6.i.i.i326, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   %22 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %inc.i.i.i = add i64 %22, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8
@@ -12218,53 +12218,53 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   store ptr %24, ptr %_M_right.i.i.i.i.i67, align 8
   %_M_node_count.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp33, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i330)
-  store ptr %ref.tmp33, ptr %__an.i330, align 8
-  %call3.i.i352 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp33, ptr nonnull %24, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35)
-          to label %call3.i.i.noexc351 unwind label %lpad4.i70
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i327)
+  store ptr %ref.tmp33, ptr %__an.i327, align 8
+  %call3.i.i349 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp33, ptr nonnull %24, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35)
+          to label %call3.i.i.noexc348 unwind label %lpad4.i70
 
-call3.i.i.noexc351:                               ; preds = %invoke.cont66
-  %25 = extractvalue { ptr, ptr } %call3.i.i352, 1
-  %tobool.not.i.i335 = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i335, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i348, label %if.then.i.i336
+call3.i.i.noexc348:                               ; preds = %invoke.cont66
+  %25 = extractvalue { ptr, ptr } %call3.i.i349, 1
+  %tobool.not.i.i332 = icmp eq ptr %25, null
+  br i1 %tobool.not.i.i332, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i345, label %if.then.i.i333
 
-if.then.i.i336:                                   ; preds = %call3.i.i.noexc351
-  %26 = extractvalue { ptr, ptr } %call3.i.i352, 0
-  %cmp.not.i.i.i337 = icmp ne ptr %26, null
-  %cmp2.i.i.i338 = icmp eq ptr %25, %24
-  %or.cond.i.i.i339 = or i1 %cmp.not.i.i.i337, %cmp2.i.i.i338
-  br i1 %or.cond.i.i.i339, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i346, label %lor.rhs.i.i.i340
+if.then.i.i333:                                   ; preds = %call3.i.i.noexc348
+  %26 = extractvalue { ptr, ptr } %call3.i.i349, 0
+  %cmp.not.i.i.i334 = icmp ne ptr %26, null
+  %cmp2.i.i.i335 = icmp eq ptr %25, %24
+  %or.cond.i.i.i336 = or i1 %cmp.not.i.i.i334, %cmp2.i.i.i335
+  br i1 %or.cond.i.i.i336, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i343, label %lor.rhs.i.i.i337
 
-lor.rhs.i.i.i340:                                 ; preds = %if.then.i.i336
-  %_M_storage.i.i.i.i.i.i341 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %call.i.i.i.i.i342 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i341)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i344 unwind label %terminate.lpad.i.i.i.i.i343
+lor.rhs.i.i.i337:                                 ; preds = %if.then.i.i333
+  %_M_storage.i.i.i.i.i.i338 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %call.i.i.i.i.i339 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i338)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i341 unwind label %terminate.lpad.i.i.i.i.i340
 
-terminate.lpad.i.i.i.i.i343:                      ; preds = %lor.rhs.i.i.i340
+terminate.lpad.i.i.i.i.i340:                      ; preds = %lor.rhs.i.i.i337
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   call void @__clang_call_terminate(ptr %28) #25
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i344: ; preds = %lor.rhs.i.i.i340
-  %cmp.i.i.i.i.i345 = icmp slt i32 %call.i.i.i.i.i342, 0
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i346
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i341: ; preds = %lor.rhs.i.i.i337
+  %cmp.i.i.i.i.i342 = icmp slt i32 %call.i.i.i.i.i339, 0
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i343
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i346: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i344, %if.then.i.i336
-  %29 = phi i1 [ true, %if.then.i.i336 ], [ %cmp.i.i.i.i.i345, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i344 ]
-  %call6.i.i.i354 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i330, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35)
-          to label %call6.i.i.i.noexc353 unwind label %lpad4.i70
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i343: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i341, %if.then.i.i333
+  %29 = phi i1 [ true, %if.then.i.i333 ], [ %cmp.i.i.i.i.i342, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i341 ]
+  %call6.i.i.i351 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i327, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp35)
+          to label %call6.i.i.i.noexc350 unwind label %lpad4.i70
 
-call6.i.i.i.noexc353:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i346
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %call6.i.i.i354, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(32) %24) #24
+call6.i.i.i.noexc350:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i343
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %29, ptr noundef %call6.i.i.i351, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(32) %24) #24
   %30 = load i64, ptr %_M_node_count.i.i.i.i.i68, align 8
-  %inc.i.i.i347 = add i64 %30, 1
-  store i64 %inc.i.i.i347, ptr %_M_node_count.i.i.i.i.i68, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i348
+  %inc.i.i.i344 = add i64 %30, 1
+  store i64 %inc.i.i.i344, ptr %_M_node_count.i.i.i.i.i68, align 8
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i345
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i348: ; preds = %call6.i.i.i.noexc353, %call3.i.i.noexc351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i330)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i345: ; preds = %call6.i.i.i.noexc350, %call3.i.i.noexc348
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i327)
   %_M_index.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i73, align 8, !alias.scope !265
   %call.i74 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp33) #24
@@ -12272,13 +12272,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %call.i7580 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75)
           to label %call.i75.noexc unwind label %lpad77
 
-lpad4.i70:                                        ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i346, %invoke.cont66
+lpad4.i70:                                        ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i343, %invoke.cont66
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp33) #24
   br label %ehcleanup85
 
-call.i75.noexc:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i348
+call.i75.noexc:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i345
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp75, ptr noundef %call.i7580, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76)
           to label %.noexc81 unwind label %lpad77
 
@@ -12524,15 +12524,15 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit120:     ; preds = %_ZN9grpc_core12expe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %packed_host) #24
   %62 = load i64, ptr %address, align 8
-  %and.i.i.i1.i.i = and i64 %62, 1
-  %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
-  br i1 %cmp.i.i.i2.i.i, label %cleanup343, label %if.then.i.i3.i.i
+  %and.i.i.i.i.i = and i64 %62, 1
+  %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %cleanup343, label %if.then.i.i.i.i
 
-if.then.i.i3.i.i:                                 ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit120
+if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit120
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %62)
-          to label %cleanup343 unwind label %terminate.lpad.i4.i.i
+          to label %cleanup343 unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
@@ -12570,7 +12570,7 @@ lpad65:                                           ; preds = %invoke.cont64
           cleanup
   br label %ehcleanup94
 
-lpad77:                                           ; preds = %call.i75.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i348
+lpad77:                                           ; preds = %call.i75.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i345
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -12635,12 +12635,12 @@ arraydestroy.body115:                             ; preds = %ehcleanup114, %arra
   br i1 %arraydestroy.done118, label %cleanup.done129, label %arraydestroy.body115
 
 cleanup.done129:                                  ; preds = %arraydestroy.body115, %lpad45, %lpad.i, %ehcleanup114
-  %.pn18.pn.pn.pn.pn.pn.pn465 = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn, %ehcleanup114 ], [ %9, %lpad.i ], [ %67, %lpad45 ], [ %.pn18.pn.pn.pn.pn.pn, %arraydestroy.body115 ]
+  %.pn18.pn.pn.pn.pn.pn.pn462 = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn, %ehcleanup114 ], [ %9, %lpad.i ], [ %67, %lpad45 ], [ %.pn18.pn.pn.pn.pn.pn, %arraydestroy.body115 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %packed_host) #24
   br label %ehcleanup132
 
 ehcleanup132:                                     ; preds = %cleanup.done129, %lpad26
-  %.pn18.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn.pn465, %cleanup.done129 ], [ %66, %lpad26 ]
+  %.pn18.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn.pn462, %cleanup.done129 ], [ %66, %lpad26 ]
   call void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %address) #24
   br label %ehcleanup346
 
@@ -12701,66 +12701,66 @@ invoke.cont160:                                   ; preds = %invoke.cont158
   store ptr %77, ptr %_M_right.i.i.i.i.i139, align 8
   %_M_node_count.i.i.i.i.i140 = getelementptr inbounds nuw i8, ptr %ref.tmp147, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i140, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i356)
-  store ptr %ref.tmp147, ptr %__an.i356, align 8
-  %call3.i.i378 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp147, ptr nonnull %77, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149)
-          to label %call3.i.i.noexc377 unwind label %lpad4.i142
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i353)
+  store ptr %ref.tmp147, ptr %__an.i353, align 8
+  %call3.i.i375 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp147, ptr nonnull %77, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149)
+          to label %call3.i.i.noexc374 unwind label %lpad4.i142
 
-call3.i.i.noexc377:                               ; preds = %invoke.cont160
-  %78 = extractvalue { ptr, ptr } %call3.i.i378, 1
-  %tobool.not.i.i361 = icmp eq ptr %78, null
-  br i1 %tobool.not.i.i361, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i374, label %if.then.i.i362
+call3.i.i.noexc374:                               ; preds = %invoke.cont160
+  %78 = extractvalue { ptr, ptr } %call3.i.i375, 1
+  %tobool.not.i.i358 = icmp eq ptr %78, null
+  br i1 %tobool.not.i.i358, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i371, label %if.then.i.i359
 
-if.then.i.i362:                                   ; preds = %call3.i.i.noexc377
-  %79 = extractvalue { ptr, ptr } %call3.i.i378, 0
-  %cmp.not.i.i.i363 = icmp ne ptr %79, null
-  %cmp2.i.i.i364 = icmp eq ptr %78, %77
-  %or.cond.i.i.i365 = or i1 %cmp.not.i.i.i363, %cmp2.i.i.i364
-  br i1 %or.cond.i.i.i365, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i372, label %lor.rhs.i.i.i366
+if.then.i.i359:                                   ; preds = %call3.i.i.noexc374
+  %79 = extractvalue { ptr, ptr } %call3.i.i375, 0
+  %cmp.not.i.i.i360 = icmp ne ptr %79, null
+  %cmp2.i.i.i361 = icmp eq ptr %78, %77
+  %or.cond.i.i.i362 = or i1 %cmp.not.i.i.i360, %cmp2.i.i.i361
+  br i1 %or.cond.i.i.i362, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i369, label %lor.rhs.i.i.i363
 
-lor.rhs.i.i.i366:                                 ; preds = %if.then.i.i362
-  %_M_storage.i.i.i.i.i.i367 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %call.i.i.i.i.i368 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i367)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i370 unwind label %terminate.lpad.i.i.i.i.i369
+lor.rhs.i.i.i363:                                 ; preds = %if.then.i.i359
+  %_M_storage.i.i.i.i.i.i364 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %call.i.i.i.i.i365 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i364)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i367 unwind label %terminate.lpad.i.i.i.i.i366
 
-terminate.lpad.i.i.i.i.i369:                      ; preds = %lor.rhs.i.i.i366
+terminate.lpad.i.i.i.i.i366:                      ; preds = %lor.rhs.i.i.i363
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
   call void @__clang_call_terminate(ptr %81) #25
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i370: ; preds = %lor.rhs.i.i.i366
-  %cmp.i.i.i.i.i371 = icmp slt i32 %call.i.i.i.i.i368, 0
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i372
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i367: ; preds = %lor.rhs.i.i.i363
+  %cmp.i.i.i.i.i368 = icmp slt i32 %call.i.i.i.i.i365, 0
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i369
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i372: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i370, %if.then.i.i362
-  %82 = phi i1 [ true, %if.then.i.i362 ], [ %cmp.i.i.i.i.i371, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i370 ]
-  %call6.i.i.i380 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i356, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149)
-          to label %call6.i.i.i.noexc379 unwind label %lpad4.i142
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i369: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i367, %if.then.i.i359
+  %82 = phi i1 [ true, %if.then.i.i359 ], [ %cmp.i.i.i.i.i368, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i367 ]
+  %call6.i.i.i377 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i353, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp149)
+          to label %call6.i.i.i.noexc376 unwind label %lpad4.i142
 
-call6.i.i.i.noexc379:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i372
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %82, ptr noundef %call6.i.i.i380, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(32) %77) #24
+call6.i.i.i.noexc376:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i369
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %82, ptr noundef %call6.i.i.i377, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(32) %77) #24
   %83 = load i64, ptr %_M_node_count.i.i.i.i.i140, align 8
-  %inc.i.i.i373 = add i64 %83, 1
-  store i64 %inc.i.i.i373, ptr %_M_node_count.i.i.i.i.i140, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i374
+  %inc.i.i.i370 = add i64 %83, 1
+  store i64 %inc.i.i.i370, ptr %_M_node_count.i.i.i.i.i140, align 8
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i371
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i374: ; preds = %call6.i.i.i.noexc379, %call3.i.i.noexc377
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i356)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i371: ; preds = %call6.i.i.i.noexc376, %call3.i.i.noexc374
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i353)
   %_M_index.i.i.i.i.i.i.i.i.i.i145 = getelementptr inbounds nuw i8, ptr %ref.tmp146, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i145, align 8, !alias.scope !271
   %call.i146 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp146, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp147) #24
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEC2IRA12_KcS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143, ptr noundef nonnull align 1 dereferenceable(12) @.str.59, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp146)
           to label %invoke.cont170 unwind label %lpad169
 
-lpad4.i142:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i372, %invoke.cont160
+lpad4.i142:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i369, %invoke.cont160
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp147) #24
   br label %ehcleanup207
 
-invoke.cont170:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i374
+invoke.cont170:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i371
   %85 = getelementptr inbounds nuw i8, ptr %ref.tmp141, i64 8
   store i32 0, ptr %85, align 8
   %_M_parent.i.i.i.i.i148 = getelementptr inbounds nuw i8, ptr %ref.tmp141, i64 16
@@ -12771,53 +12771,53 @@ invoke.cont170:                                   ; preds = %_ZNSt8_Rb_treeINSt7
   store ptr %85, ptr %_M_right.i.i.i.i.i150, align 8
   %_M_node_count.i.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %ref.tmp141, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i151, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i382)
-  store ptr %ref.tmp141, ptr %__an.i382, align 8
-  %call3.i.i404 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp141, ptr nonnull %85, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143)
-          to label %call3.i.i.noexc403 unwind label %lpad4.i153
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i379)
+  store ptr %ref.tmp141, ptr %__an.i379, align 8
+  %call3.i.i401 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp141, ptr nonnull %85, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143)
+          to label %call3.i.i.noexc400 unwind label %lpad4.i153
 
-call3.i.i.noexc403:                               ; preds = %invoke.cont170
-  %86 = extractvalue { ptr, ptr } %call3.i.i404, 1
-  %tobool.not.i.i387 = icmp eq ptr %86, null
-  br i1 %tobool.not.i.i387, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i400, label %if.then.i.i388
+call3.i.i.noexc400:                               ; preds = %invoke.cont170
+  %86 = extractvalue { ptr, ptr } %call3.i.i401, 1
+  %tobool.not.i.i384 = icmp eq ptr %86, null
+  br i1 %tobool.not.i.i384, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i397, label %if.then.i.i385
 
-if.then.i.i388:                                   ; preds = %call3.i.i.noexc403
-  %87 = extractvalue { ptr, ptr } %call3.i.i404, 0
-  %cmp.not.i.i.i389 = icmp ne ptr %87, null
-  %cmp2.i.i.i390 = icmp eq ptr %86, %85
-  %or.cond.i.i.i391 = or i1 %cmp.not.i.i.i389, %cmp2.i.i.i390
-  br i1 %or.cond.i.i.i391, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i398, label %lor.rhs.i.i.i392
+if.then.i.i385:                                   ; preds = %call3.i.i.noexc400
+  %87 = extractvalue { ptr, ptr } %call3.i.i401, 0
+  %cmp.not.i.i.i386 = icmp ne ptr %87, null
+  %cmp2.i.i.i387 = icmp eq ptr %86, %85
+  %or.cond.i.i.i388 = or i1 %cmp.not.i.i.i386, %cmp2.i.i.i387
+  br i1 %or.cond.i.i.i388, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i395, label %lor.rhs.i.i.i389
 
-lor.rhs.i.i.i392:                                 ; preds = %if.then.i.i388
-  %_M_storage.i.i.i.i.i.i393 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %call.i.i.i.i.i394 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i393)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i396 unwind label %terminate.lpad.i.i.i.i.i395
+lor.rhs.i.i.i389:                                 ; preds = %if.then.i.i385
+  %_M_storage.i.i.i.i.i.i390 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  %call.i.i.i.i.i391 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i390)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i393 unwind label %terminate.lpad.i.i.i.i.i392
 
-terminate.lpad.i.i.i.i.i395:                      ; preds = %lor.rhs.i.i.i392
+terminate.lpad.i.i.i.i.i392:                      ; preds = %lor.rhs.i.i.i389
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
   call void @__clang_call_terminate(ptr %89) #25
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i396: ; preds = %lor.rhs.i.i.i392
-  %cmp.i.i.i.i.i397 = icmp slt i32 %call.i.i.i.i.i394, 0
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i398
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i393: ; preds = %lor.rhs.i.i.i389
+  %cmp.i.i.i.i.i394 = icmp slt i32 %call.i.i.i.i.i391, 0
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i395
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i398: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i396, %if.then.i.i388
-  %90 = phi i1 [ true, %if.then.i.i388 ], [ %cmp.i.i.i.i.i397, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i396 ]
-  %call6.i.i.i406 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i382, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143)
-          to label %call6.i.i.i.noexc405 unwind label %lpad4.i153
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i395: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i393, %if.then.i.i385
+  %90 = phi i1 [ true, %if.then.i.i385 ], [ %cmp.i.i.i.i.i394, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i393 ]
+  %call6.i.i.i403 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i379, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp143)
+          to label %call6.i.i.i.noexc402 unwind label %lpad4.i153
 
-call6.i.i.i.noexc405:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i398
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %90, ptr noundef %call6.i.i.i406, ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(32) %85) #24
+call6.i.i.i.noexc402:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i395
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %90, ptr noundef %call6.i.i.i403, ptr noundef nonnull %86, ptr noundef nonnull align 8 dereferenceable(32) %85) #24
   %91 = load i64, ptr %_M_node_count.i.i.i.i.i151, align 8
-  %inc.i.i.i399 = add i64 %91, 1
-  store i64 %inc.i.i.i399, ptr %_M_node_count.i.i.i.i.i151, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i400
+  %inc.i.i.i396 = add i64 %91, 1
+  store i64 %inc.i.i.i396, ptr %_M_node_count.i.i.i.i.i151, align 8
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i397
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i400: ; preds = %call6.i.i.i.noexc405, %call3.i.i.noexc403
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i382)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i397: ; preds = %call6.i.i.i.noexc402, %call3.i.i.noexc400
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i379)
   %_M_index.i.i.i.i.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %ref.tmp140, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i156, align 8, !alias.scope !274
   %call.i157 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp141) #24
@@ -12825,13 +12825,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %call.i158166 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179)
           to label %call.i158.noexc unwind label %lpad181
 
-lpad4.i153:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i398, %invoke.cont170
+lpad4.i153:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i395, %invoke.cont170
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp141) #24
   br label %ehcleanup191
 
-call.i158.noexc:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i400
+call.i158.noexc:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i397
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, ptr noundef %call.i158166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp180)
           to label %.noexc167 unwind label %lpad181
 
@@ -13057,12 +13057,12 @@ lpad159:                                          ; preds = %invoke.cont158
           cleanup
   br label %ehcleanup221
 
-lpad169:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i374
+lpad169:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i371
   %122 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup205
 
-lpad181:                                          ; preds = %call.i158.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i400
+lpad181:                                          ; preds = %call.i158.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i397
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup188
@@ -13102,22 +13102,22 @@ ehcleanup221:                                     ; preds = %ehcleanup207, %lpad
   br label %ehcleanup346
 
 if.end244.critedge:                               ; preds = %invoke.cont27
-  %and.i.i.i1.i.i225 = and i64 %6, 1
-  %cmp.i.i.i2.i.i226 = icmp eq i64 %and.i.i.i1.i.i225, 0
-  br i1 %cmp.i.i.i2.i.i226, label %if.end244, label %if.then.i.i3.i.i227
+  %and.i.i.i.i.i225 = and i64 %6, 1
+  %cmp.i.i.i.i.i226 = icmp eq i64 %and.i.i.i.i.i225, 0
+  br i1 %cmp.i.i.i.i.i226, label %if.end244, label %if.then.i.i.i.i227
 
-if.then.i.i3.i.i227:                              ; preds = %if.end244.critedge
+if.then.i.i.i.i227:                               ; preds = %if.end244.critedge
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %6)
-          to label %if.end244 unwind label %terminate.lpad.i4.i.i228
+          to label %if.end244 unwind label %terminate.lpad.i.i.i228
 
-terminate.lpad.i4.i.i228:                         ; preds = %if.then.i.i3.i.i227
+terminate.lpad.i.i.i228:                          ; preds = %if.then.i.i.i.i227
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
   call void @__clang_call_terminate(ptr %126) #25
   unreachable
 
-if.end244:                                        ; preds = %if.then.i.i3.i.i227, %if.end244.critedge, %invoke.cont133, %invoke.cont
+if.end244:                                        ; preds = %if.then.i.i.i.i227, %if.end244.critedge, %invoke.cont133, %invoke.cont
   invoke void @_ZN9grpc_core12experimental4Json10FromStringEPKc(ptr nonnull sret(%"class.grpc_core::experimental::Json") align 8 %ref.tmp257, ptr noundef nonnull %addr_str)
           to label %invoke.cont259 unwind label %lpad258
 
@@ -13136,66 +13136,66 @@ invoke.cont261:                                   ; preds = %invoke.cont259
   store ptr %127, ptr %_M_right.i.i.i.i.i233, align 8
   %_M_node_count.i.i.i.i.i234 = getelementptr inbounds nuw i8, ptr %ref.tmp252, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i234, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i408)
-  store ptr %ref.tmp252, ptr %__an.i408, align 8
-  %call3.i.i430 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp252, ptr nonnull %127, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254)
-          to label %call3.i.i.noexc429 unwind label %lpad4.i236
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i405)
+  store ptr %ref.tmp252, ptr %__an.i405, align 8
+  %call3.i.i427 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp252, ptr nonnull %127, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254)
+          to label %call3.i.i.noexc426 unwind label %lpad4.i236
 
-call3.i.i.noexc429:                               ; preds = %invoke.cont261
-  %128 = extractvalue { ptr, ptr } %call3.i.i430, 1
-  %tobool.not.i.i413 = icmp eq ptr %128, null
-  br i1 %tobool.not.i.i413, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i426, label %if.then.i.i414
+call3.i.i.noexc426:                               ; preds = %invoke.cont261
+  %128 = extractvalue { ptr, ptr } %call3.i.i427, 1
+  %tobool.not.i.i410 = icmp eq ptr %128, null
+  br i1 %tobool.not.i.i410, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i423, label %if.then.i.i411
 
-if.then.i.i414:                                   ; preds = %call3.i.i.noexc429
-  %129 = extractvalue { ptr, ptr } %call3.i.i430, 0
-  %cmp.not.i.i.i415 = icmp ne ptr %129, null
-  %cmp2.i.i.i416 = icmp eq ptr %128, %127
-  %or.cond.i.i.i417 = or i1 %cmp.not.i.i.i415, %cmp2.i.i.i416
-  br i1 %or.cond.i.i.i417, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i424, label %lor.rhs.i.i.i418
+if.then.i.i411:                                   ; preds = %call3.i.i.noexc426
+  %129 = extractvalue { ptr, ptr } %call3.i.i427, 0
+  %cmp.not.i.i.i412 = icmp ne ptr %129, null
+  %cmp2.i.i.i413 = icmp eq ptr %128, %127
+  %or.cond.i.i.i414 = or i1 %cmp.not.i.i.i412, %cmp2.i.i.i413
+  br i1 %or.cond.i.i.i414, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i421, label %lor.rhs.i.i.i415
 
-lor.rhs.i.i.i418:                                 ; preds = %if.then.i.i414
-  %_M_storage.i.i.i.i.i.i419 = getelementptr inbounds nuw i8, ptr %128, i64 32
-  %call.i.i.i.i.i420 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i419)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i422 unwind label %terminate.lpad.i.i.i.i.i421
+lor.rhs.i.i.i415:                                 ; preds = %if.then.i.i411
+  %_M_storage.i.i.i.i.i.i416 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %call.i.i.i.i.i417 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i416)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i419 unwind label %terminate.lpad.i.i.i.i.i418
 
-terminate.lpad.i.i.i.i.i421:                      ; preds = %lor.rhs.i.i.i418
+terminate.lpad.i.i.i.i.i418:                      ; preds = %lor.rhs.i.i.i415
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
   call void @__clang_call_terminate(ptr %131) #25
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i422: ; preds = %lor.rhs.i.i.i418
-  %cmp.i.i.i.i.i423 = icmp slt i32 %call.i.i.i.i.i420, 0
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i424
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i419: ; preds = %lor.rhs.i.i.i415
+  %cmp.i.i.i.i.i420 = icmp slt i32 %call.i.i.i.i.i417, 0
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i421
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i424: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i422, %if.then.i.i414
-  %132 = phi i1 [ true, %if.then.i.i414 ], [ %cmp.i.i.i.i.i423, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i422 ]
-  %call6.i.i.i432 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i408, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254)
-          to label %call6.i.i.i.noexc431 unwind label %lpad4.i236
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i421: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i419, %if.then.i.i411
+  %132 = phi i1 [ true, %if.then.i.i411 ], [ %cmp.i.i.i.i.i420, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i419 ]
+  %call6.i.i.i429 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i405, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp254)
+          to label %call6.i.i.i.noexc428 unwind label %lpad4.i236
 
-call6.i.i.i.noexc431:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i424
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %132, ptr noundef %call6.i.i.i432, ptr noundef nonnull %128, ptr noundef nonnull align 8 dereferenceable(32) %127) #24
+call6.i.i.i.noexc428:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i421
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %132, ptr noundef %call6.i.i.i429, ptr noundef nonnull %128, ptr noundef nonnull align 8 dereferenceable(32) %127) #24
   %133 = load i64, ptr %_M_node_count.i.i.i.i.i234, align 8
-  %inc.i.i.i425 = add i64 %133, 1
-  store i64 %inc.i.i.i425, ptr %_M_node_count.i.i.i.i.i234, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i426
+  %inc.i.i.i422 = add i64 %133, 1
+  store i64 %inc.i.i.i422, ptr %_M_node_count.i.i.i.i.i234, align 8
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i423
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i426: ; preds = %call6.i.i.i.noexc431, %call3.i.i.noexc429
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i408)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i423: ; preds = %call6.i.i.i.noexc428, %call3.i.i.noexc426
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i405)
   %_M_index.i.i.i.i.i.i.i.i.i.i239 = getelementptr inbounds nuw i8, ptr %ref.tmp251, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i239, align 8, !alias.scope !277
   %call.i240 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp251, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp252) #24
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEEC2IRA14_KcS9_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248, ptr noundef nonnull align 1 dereferenceable(14) @.str.61, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp251)
           to label %invoke.cont271 unwind label %lpad270
 
-lpad4.i236:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i424, %invoke.cont261
+lpad4.i236:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i421, %invoke.cont261
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp252) #24
   br label %ehcleanup308
 
-invoke.cont271:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i426
+invoke.cont271:                                   ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i423
   %135 = getelementptr inbounds nuw i8, ptr %ref.tmp246, i64 8
   store i32 0, ptr %135, align 8
   %_M_parent.i.i.i.i.i242 = getelementptr inbounds nuw i8, ptr %ref.tmp246, i64 16
@@ -13206,53 +13206,53 @@ invoke.cont271:                                   ; preds = %_ZNSt8_Rb_treeINSt7
   store ptr %135, ptr %_M_right.i.i.i.i.i244, align 8
   %_M_node_count.i.i.i.i.i245 = getelementptr inbounds nuw i8, ptr %ref.tmp246, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i245, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i434)
-  store ptr %ref.tmp246, ptr %__an.i434, align 8
-  %call3.i.i456 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp246, ptr nonnull %135, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248)
-          to label %call3.i.i.noexc455 unwind label %lpad4.i247
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__an.i431)
+  store ptr %ref.tmp246, ptr %__an.i431, align 8
+  %call3.i.i453 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISB_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp246, ptr nonnull %135, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248)
+          to label %call3.i.i.noexc452 unwind label %lpad4.i247
 
-call3.i.i.noexc455:                               ; preds = %invoke.cont271
-  %136 = extractvalue { ptr, ptr } %call3.i.i456, 1
-  %tobool.not.i.i439 = icmp eq ptr %136, null
-  br i1 %tobool.not.i.i439, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i452, label %if.then.i.i440
+call3.i.i.noexc452:                               ; preds = %invoke.cont271
+  %136 = extractvalue { ptr, ptr } %call3.i.i453, 1
+  %tobool.not.i.i436 = icmp eq ptr %136, null
+  br i1 %tobool.not.i.i436, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i449, label %if.then.i.i437
 
-if.then.i.i440:                                   ; preds = %call3.i.i.noexc455
-  %137 = extractvalue { ptr, ptr } %call3.i.i456, 0
-  %cmp.not.i.i.i441 = icmp ne ptr %137, null
-  %cmp2.i.i.i442 = icmp eq ptr %136, %135
-  %or.cond.i.i.i443 = or i1 %cmp.not.i.i.i441, %cmp2.i.i.i442
-  br i1 %or.cond.i.i.i443, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i450, label %lor.rhs.i.i.i444
+if.then.i.i437:                                   ; preds = %call3.i.i.noexc452
+  %137 = extractvalue { ptr, ptr } %call3.i.i453, 0
+  %cmp.not.i.i.i438 = icmp ne ptr %137, null
+  %cmp2.i.i.i439 = icmp eq ptr %136, %135
+  %or.cond.i.i.i440 = or i1 %cmp.not.i.i.i438, %cmp2.i.i.i439
+  br i1 %or.cond.i.i.i440, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i447, label %lor.rhs.i.i.i441
 
-lor.rhs.i.i.i444:                                 ; preds = %if.then.i.i440
-  %_M_storage.i.i.i.i.i.i445 = getelementptr inbounds nuw i8, ptr %136, i64 32
-  %call.i.i.i.i.i446 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i445)
-          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i448 unwind label %terminate.lpad.i.i.i.i.i447
+lor.rhs.i.i.i441:                                 ; preds = %if.then.i.i437
+  %_M_storage.i.i.i.i.i.i442 = getelementptr inbounds nuw i8, ptr %136, i64 32
+  %call.i.i.i.i.i443 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i442)
+          to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i445 unwind label %terminate.lpad.i.i.i.i.i444
 
-terminate.lpad.i.i.i.i.i447:                      ; preds = %lor.rhs.i.i.i444
+terminate.lpad.i.i.i.i.i444:                      ; preds = %lor.rhs.i.i.i441
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
   call void @__clang_call_terminate(ptr %139) #25
   unreachable
 
-_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i448: ; preds = %lor.rhs.i.i.i444
-  %cmp.i.i.i.i.i449 = icmp slt i32 %call.i.i.i.i.i446, 0
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i450
+_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i445: ; preds = %lor.rhs.i.i.i441
+  %cmp.i.i.i.i.i446 = icmp slt i32 %call.i.i.i.i.i443, 0
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i447
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i450: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i448, %if.then.i.i440
-  %140 = phi i1 [ true, %if.then.i.i440 ], [ %cmp.i.i.i.i.i449, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i448 ]
-  %call6.i.i.i458 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i434, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248)
-          to label %call6.i.i.i.noexc457 unwind label %lpad4.i247
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i447: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i445, %if.then.i.i437
+  %140 = phi i1 [ true, %if.then.i.i437 ], [ %cmp.i.i.i.i.i446, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i445 ]
+  %call6.i.i.i455 = invoke noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE11_Alloc_nodeclIRKSB_EEPSt13_Rb_tree_nodeISB_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %__an.i431, ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp248)
+          to label %call6.i.i.i.noexc454 unwind label %lpad4.i247
 
-call6.i.i.i.noexc457:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i450
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %140, ptr noundef %call6.i.i.i458, ptr noundef nonnull %136, ptr noundef nonnull align 8 dereferenceable(32) %135) #24
+call6.i.i.i.noexc454:                             ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i447
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %140, ptr noundef %call6.i.i.i455, ptr noundef nonnull %136, ptr noundef nonnull align 8 dereferenceable(32) %135) #24
   %141 = load i64, ptr %_M_node_count.i.i.i.i.i245, align 8
-  %inc.i.i.i451 = add i64 %141, 1
-  store i64 %inc.i.i.i451, ptr %_M_node_count.i.i.i.i.i245, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i452
+  %inc.i.i.i448 = add i64 %141, 1
+  store i64 %inc.i.i.i448, ptr %_M_node_count.i.i.i.i.i245, align 8
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i449
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i452: ; preds = %call6.i.i.i.noexc457, %call3.i.i.noexc455
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i434)
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i449: ; preds = %call6.i.i.i.noexc454, %call3.i.i.noexc452
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i431)
   %_M_index.i.i.i.i.i.i.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %ref.tmp245, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i250, align 8, !alias.scope !280
   %call.i251 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp246) #24
@@ -13260,13 +13260,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %call.i252260 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp280)
           to label %call.i252.noexc unwind label %lpad282
 
-lpad4.i247:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i450, %invoke.cont271
+lpad4.i247:                                       ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE10_M_insert_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSP_OT_RT0_.exit.i.i447, %invoke.cont271
   %142 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp246) #24
   br label %ehcleanup292
 
-call.i252.noexc:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i452
+call.i252.noexc:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i449
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp280, ptr noundef %call.i252260, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp281)
           to label %.noexc261 unwind label %lpad282
 
@@ -13483,7 +13483,7 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit318:     ; preds = %_ZNSt4pairIKNSt7__c
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i312)
   br label %cleanup343
 
-cleanup343:                                       ; preds = %if.then.i.i3.i.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit120, %_ZN9grpc_core12experimental4JsonD2Ev.exit318, %_ZN9grpc_core12experimental4JsonD2Ev.exit224
+cleanup343:                                       ; preds = %if.then.i.i.i.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit120, %_ZN9grpc_core12experimental4JsonD2Ev.exit318, %_ZN9grpc_core12experimental4JsonD2Ev.exit224
   %170 = load i64, ptr %uri, align 8
   %cmp.i.i.i.i319 = icmp eq i64 %170, 0
   br i1 %cmp.i.i.i.i319, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i320
@@ -13494,22 +13494,22 @@ _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup343
   br label %cleanup.cont345
 
 if.else.i.i320:                                   ; preds = %cleanup343
-  %and.i.i.i1.i.i321 = and i64 %170, 1
-  %cmp.i.i.i2.i.i322 = icmp eq i64 %and.i.i.i1.i.i321, 0
-  br i1 %cmp.i.i.i2.i.i322, label %cleanup.cont345, label %if.then.i.i3.i.i323
+  %and.i.i.i1.i.i = and i64 %170, 1
+  %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
+  br i1 %cmp.i.i.i2.i.i, label %cleanup.cont345, label %if.then.i.i3.i.i
 
-if.then.i.i3.i.i323:                              ; preds = %if.else.i.i320
+if.then.i.i3.i.i:                                 ; preds = %if.else.i.i320
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %170)
-          to label %cleanup.cont345 unwind label %terminate.lpad.i4.i.i324
+          to label %cleanup.cont345 unwind label %terminate.lpad.i4.i.i
 
-terminate.lpad.i4.i.i324:                         ; preds = %if.then.i.i3.i.i323
+terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   %172 = landingpad { ptr, i32 }
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
   call void @__clang_call_terminate(ptr %173) #25
   unreachable
 
-cleanup.cont345:                                  ; preds = %if.then.i.i3.i.i323, %if.else.i.i320, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %entry
+cleanup.cont345:                                  ; preds = %if.then.i.i3.i.i, %if.else.i.i320, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %entry
   ret void
 
 lpad258:                                          ; preds = %if.end244
@@ -13522,12 +13522,12 @@ lpad260:                                          ; preds = %invoke.cont259
           cleanup
   br label %ehcleanup322
 
-lpad270:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i426
+lpad270:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i423
   %176 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup306
 
-lpad282:                                          ; preds = %call.i252.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i452
+lpad282:                                          ; preds = %call.i252.noexc, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_.exit.i449
   %177 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup289
@@ -17400,22 +17400,22 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %and.i.i.i1.i = and i64 %0, 1
-  %cmp.i.i.i2.i = icmp eq i64 %and.i.i.i1.i, 0
-  br i1 %cmp.i.i.i2.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit, label %if.then.i.i3.i
+  %and.i.i.i.i = and i64 %0, 1
+  %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i3.i:                                   ; preds = %entry
+if.then.i.i.i:                                    ; preds = %entry
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
-          to label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit unwind label %terminate.lpad.i4.i
+          to label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit unwind label %terminate.lpad.i.i
 
-terminate.lpad.i4.i:                              ; preds = %if.then.i.i3.i
+terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 
-_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit: ; preds = %entry, %if.then.i.i3.i
+_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit: ; preds = %entry, %if.then.i.i.i
   ret void
 }
 

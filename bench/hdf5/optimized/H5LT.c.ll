@@ -410,9 +410,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5LTopen_file_image(ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.H5LTopen_file_image.callbacks, i64 56, i1 false)
   %9 = icmp ne ptr %0, null
   %10 = icmp ne i64 %1, 0
-  %or.cond.not57 = and i1 %9, %10
+  %or.cond.not58 = and i1 %9, %10
   %.not = icmp ult i32 %2, 8
-  %or.cond54 = and i1 %or.cond.not57, %.not
+  %or.cond54 = and i1 %or.cond.not58, %.not
   br i1 %or.cond54, label %11, label %udata_free.exit
 
 11:                                               ; preds = %3
@@ -3712,12 +3712,11 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #25
   %20 = tail call i64 @llvm.umax.i64(i64 %17, i64 %16)
   %21 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef %20) #25
-  %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
 22:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
@@ -3749,18 +3748,18 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
   %36 = add i64 %4, 3
   %37 = icmp ult i64 %36, 80
   %38 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %36
-  %smax162 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count163 = zext nneg i32 %smax162 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
+  %wide.trip.count162 = zext nneg i32 %smax to i64
   br label %40
 
 39:                                               ; preds = %64
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %exitcond164.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count163
-  br i1 %exitcond164.not, label %.lr.ph152.preheader, label %40
+  %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
+  br i1 %exitcond163.not, label %.lr.ph152.preheader, label %40
 
 .lr.ph152.preheader:                              ; preds = %39
-  %smax168 = call i32 @llvm.smax.i32(i32 %8, i32 1)
-  %wide.trip.count169 = zext nneg i32 %smax168 to i64
+  %smax167 = call i32 @llvm.smax.i32(i32 %8, i32 1)
+  %wide.trip.count168 = zext nneg i32 %smax167 to i64
   br label %.lr.ph152
 
 40:                                               ; preds = %.lr.ph150, %39
@@ -3823,13 +3822,13 @@ indentation.exit:                                 ; preds = %41, %42
   br i1 %.not118, label %.loopexit, label %39
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next166, %.lr.ph152 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv165
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next165, %.lr.ph152 ]
+  %66 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv164
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @H5free_memory(ptr noundef %67) #20
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
-  br i1 %exitcond170.not, label %._crit_edge153, label %.lr.ph152
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count168
+  br i1 %exitcond169.not, label %._crit_edge153, label %.lr.ph152
 
 ._crit_edge153:                                   ; preds = %.lr.ph152
   call void @free(ptr noundef nonnull %19) #20
@@ -3856,12 +3855,12 @@ indentation.exit:                                 ; preds = %41, %42
   br label %80
 
 .lr.ph155.preheader:                              ; preds = %.loopexit
-  %wide.trip.count174 = zext nneg i32 %8 to i64
+  %wide.trip.count173 = zext nneg i32 %8 to i64
   br label %.lr.ph155
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %79
-  %indvars.iv171 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next172, %79 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv171
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next171, %79 ]
+  %76 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv170
   %77 = load ptr, ptr %76, align 8
   %.not121 = icmp eq ptr %77, null
   br i1 %.not121, label %79, label %78
@@ -3871,32 +3870,32 @@ indentation.exit:                                 ; preds = %41, %42
   br label %79
 
 79:                                               ; preds = %.lr.ph155, %78
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge156, label %.lr.ph155
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %._crit_edge156, label %.lr.ph155
 
 ._crit_edge156:                                   ; preds = %79
   call void @free(ptr noundef %19) #20
   br label %80
 
 80:                                               ; preds = %.thread, %._crit_edge156, %.loopexit
-  %.098189 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
-  %.0100182 = phi ptr [ null, %.thread ], [ %21, %._crit_edge156 ], [ %21, %.loopexit ]
-  %.not120 = icmp eq ptr %.0100182, null
+  %.098188 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
+  %.0100181 = phi ptr [ null, %.thread ], [ %21, %._crit_edge156 ], [ %21, %.loopexit ]
+  %.not120 = icmp eq ptr %.0100181, null
   br i1 %.not120, label %82, label %81
 
 81:                                               ; preds = %80
-  call void @free(ptr noundef nonnull %.0100182) #20
+  call void @free(ptr noundef nonnull %.0100181) #20
   br label %82
 
 82:                                               ; preds = %81, %80
-  %83 = icmp sgt i64 %.098189, -1
+  %83 = icmp sgt i64 %.098188, -1
   br i1 %83, label %.thread141.sink.split, label %.thread141
 
 .thread141.sink.split:                            ; preds = %82, %._crit_edge153
-  %.098189.sink = phi i64 [ %11, %._crit_edge153 ], [ %.098189, %82 ]
+  %.098188.sink = phi i64 [ %11, %._crit_edge153 ], [ %.098188, %82 ]
   %.094.ph = phi ptr [ %65, %._crit_edge153 ], [ null, %82 ]
-  %84 = call i32 @H5Tclose(i64 noundef %.098189.sink) #20
+  %84 = call i32 @H5Tclose(i64 noundef %.098188.sink) #20
   br label %.thread141
 
 .thread141:                                       ; preds = %.thread141.sink.split, %.loopexit.thread, %10, %82

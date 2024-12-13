@@ -420,11 +420,11 @@ _ZL25get_chained_signal_actioni.exit.thread9:     ; preds = %8, %_ZL25get_chaine
   %24 = getelementptr inbounds nuw i8, ptr %.1.i12, i64 8
   %25 = tail call i32 @sigaddset(ptr noundef nonnull %24, i32 noundef %0) #20
   %.pr.i = load i32, ptr %19, align 8
-  %.pre = load ptr, ptr %.1.i12, align 8
+  %.pre.i = load ptr, ptr %.1.i12, align 8
   br label %26
 
 26:                                               ; preds = %23, %18
-  %27 = phi ptr [ %.pre, %23 ], [ %17, %18 ]
+  %27 = phi ptr [ %.pre.i, %23 ], [ %17, %18 ]
   %28 = phi i32 [ %.pr.i, %23 ], [ %20, %18 ]
   %29 = and i32 %28, 4
   %.not22.i = icmp eq i32 %29, 0

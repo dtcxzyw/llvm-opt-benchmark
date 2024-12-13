@@ -4308,10 +4308,10 @@ sw.bb19:                                          ; preds = %sw.bb17, %sw.bb17
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
-    i32 4, label %if.else.i34
-    i32 5, label %if.else.i34
-    i32 6, label %if.else.i34
-    i32 9, label %if.else.i34
+    i32 4, label %sw.bb4.i
+    i32 5, label %sw.bb4.i
+    i32 6, label %sw.bb4.i
+    i32 9, label %sw.bb4.i
     i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
@@ -4326,7 +4326,7 @@ sw.bb2.i:                                         ; preds = %sw.bb19
 sw.bb3.i:                                         ; preds = %sw.bb19, %sw.bb19
   br label %thunk_type_size.exit
 
-if.else.i34:                                      ; preds = %sw.bb19, %sw.bb19, %sw.bb19, %sw.bb19
+sw.bb4.i:                                         ; preds = %sw.bb19, %sw.bb19, %sw.bb19, %sw.bb19
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %sw.bb19
@@ -4350,8 +4350,8 @@ do.body.i:                                        ; preds = %sw.bb19
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.598, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #10
   unreachable
 
-thunk_type_size.exit:                             ; preds = %sw.bb19, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i34, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i = phi i32 [ %10, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i34 ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %6, %sw.bb19 ]
+thunk_type_size.exit:                             ; preds = %sw.bb19, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i = phi i32 [ %10, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %sw.bb4.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %6, %sw.bb19 ]
   %conv21 = sext i32 %retval.0.i to i64
   %call22 = call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef %conv21, i1 noundef zeroext true) #9
   %tobool.not = icmp eq ptr %call22, null
@@ -4427,10 +4427,10 @@ if.then14:                                        ; preds = %land.lhs.true, %lan
     i32 3, label %sw.bb2.i
     i32 7, label %sw.bb3.i
     i32 8, label %sw.bb3.i
-    i32 4, label %if.else.i
-    i32 5, label %if.else.i
-    i32 6, label %if.else.i
-    i32 9, label %if.else.i
+    i32 4, label %sw.bb4.i
+    i32 5, label %sw.bb4.i
+    i32 6, label %sw.bb4.i
+    i32 9, label %sw.bb4.i
     i32 12, label %sw.bb1.i
     i32 10, label %sw.bb9.i
     i32 11, label %sw.bb10.i
@@ -4445,7 +4445,7 @@ sw.bb2.i:                                         ; preds = %if.then14
 sw.bb3.i:                                         ; preds = %if.then14, %if.then14
   br label %thunk_type_size.exit
 
-if.else.i:                                        ; preds = %if.then14, %if.then14, %if.then14, %if.then14
+sw.bb4.i:                                         ; preds = %if.then14, %if.then14, %if.then14, %if.then14
   br label %thunk_type_size.exit
 
 sw.bb9.i:                                         ; preds = %if.then14
@@ -4469,8 +4469,8 @@ do.body.i:                                        ; preds = %if.then14
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.598, i32 noundef 141, ptr noundef nonnull @__func__.thunk_type_size, ptr noundef null) #10
   unreachable
 
-thunk_type_size.exit:                             ; preds = %if.then14, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %if.else.i, %sw.bb9.i, %sw.bb10.i
-  %retval.0.i17 = phi i32 [ %7, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %if.else.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %3, %if.then14 ]
+thunk_type_size.exit:                             ; preds = %if.then14, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb9.i, %sw.bb10.i
+  %retval.0.i17 = phi i32 [ %7, %sw.bb10.i ], [ %mul.i, %sw.bb9.i ], [ 8, %sw.bb4.i ], [ 8, %sw.bb3.i ], [ 4, %sw.bb2.i ], [ 2, %sw.bb1.i ], [ %3, %if.then14 ]
   %conv18 = sext i32 %retval.0.i17 to i64
   %call19 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %arg2, i64 noundef %conv18, i1 noundef zeroext true) #9
   %tobool.not = icmp eq ptr %call19, null
@@ -4482,17 +4482,17 @@ if.then20:                                        ; preds = %thunk_type_size.exi
 
 if.else:                                          ; preds = %thunk_type_size.exit
   %cmp.i = icmp eq i64 %arg2, 0
-  br i1 %cmp.i, label %if.then.i19, label %if.else.i18
+  br i1 %cmp.i, label %if.then.i18, label %if.else.i
 
-if.then.i19:                                      ; preds = %if.else
+if.then.i18:                                      ; preds = %if.else
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.425, ptr noundef nonnull @.str.18) #9
   br label %if.end23
 
-if.else.i18:                                      ; preds = %if.else
+if.else.i:                                        ; preds = %if.else
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.426, i64 noundef %arg2, ptr noundef nonnull @.str.18) #9
   br label %if.end23
 
-if.end23:                                         ; preds = %if.else.i18, %if.then.i19, %if.then20
+if.end23:                                         ; preds = %if.else.i, %if.then.i18, %if.then20
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.428) #9
   br label %if.end25
 

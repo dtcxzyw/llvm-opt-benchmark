@@ -2745,7 +2745,7 @@ _ZN7uu_head32head_backwards_without_seek_file17hc9b021d44a37ba4aE.exit.i.i: ; pr
   br label %_ZN7uu_head19head_backwards_file17h306104e4982dc7ffE.exit.i
 
 _ZN7uu_head19head_backwards_file17h306104e4982dc7ffE.exit.i: ; preds = %.noexc70, %217, %.noexc68, %.noexc66, %.noexc65, %.noexc62, %176
-  %.1.i.i = phi ptr [ %153, %176 ], [ %.1.i.i.i, %.noexc62 ], [ %206, %.noexc66 ], [ null, %217 ], [ %202, %.noexc65 ], [ %211, %.noexc68 ], [ %223, %.noexc70 ]
+  %.1.i.i = phi ptr [ %153, %176 ], [ %.1.i.i.i, %.noexc62 ], [ %206, %.noexc66 ], [ null, %217 ], [ %211, %.noexc68 ], [ %223, %.noexc70 ], [ %202, %.noexc65 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %20), !noalias !635
   br label %_ZN7uu_head9head_file17h3630e2b416c48b90E.exit
 

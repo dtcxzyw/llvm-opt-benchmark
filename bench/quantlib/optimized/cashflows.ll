@@ -18549,8 +18549,8 @@ while.body.preheader:                             ; preds = %do.end
 
 while.body:                                       ; preds = %while.body.preheader, %if.end63
   %26 = phi double [ %36, %if.end63 ], [ %.pre, %while.body.preheader ]
-  %xl.1119 = phi double [ %xl.2, %if.end63 ], [ %xl.0, %while.body.preheader ]
-  %xh.1118 = phi double [ %xh.2, %if.end63 ], [ %xh.0, %while.body.preheader ]
+  %xl.1119 = phi double [ %.xl.1, %if.end63 ], [ %xl.0, %while.body.preheader ]
+  %xh.1118 = phi double [ %xh.1., %if.end63 ], [ %xh.0, %while.body.preheader ]
   %dxold.0117 = phi double [ %dx.0116, %if.end63 ], [ %sub, %while.body.preheader ]
   %dx.0116 = phi double [ %dx.1, %if.end63 ], [ %sub, %while.body.preheader ]
   %dfroot.0115 = phi double [ %call67, %if.end63 ], [ %call7, %while.body.preheader ]
@@ -18606,9 +18606,9 @@ if.end63:                                         ; preds = %if.end55
   %inc69 = add i64 %35, 1
   store i64 %inc69, ptr %evaluationNumber_, align 8, !tbaa !262
   %cmp70 = fcmp olt double %call59, 0.000000e+00
-  %36 = load double, ptr %this, align 8
-  %xh.2 = select i1 %cmp70, double %xh.1118, double %36
-  %xl.2 = select i1 %cmp70, double %36, double %xl.1119
+  %36 = load double, ptr %this, align 8, !tbaa !255
+  %xh.1. = select i1 %cmp70, double %xh.1118, double %36
+  %.xl.1 = select i1 %cmp70, double %36, double %xl.1119
   %37 = load i64, ptr %maxEvaluations_, align 8, !tbaa !178
   %cmp38.not = icmp ugt i64 %inc69, %37
   br i1 %cmp38.not, label %do.body76, label %while.body, !llvm.loop !264

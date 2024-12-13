@@ -144155,19 +144155,19 @@ define noundef float @_ZN6editor6scroll13scroll_amount12ScrollAmount5lines17h06c
   %trunc = trunc nuw i32 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4, !noundef !9
-  br i1 %trunc, label %_ZN6editor6scroll13scroll_amount12ScrollAmount12is_full_page17h6fc0f5a8319c102dE.exit, label %12
+  br i1 %trunc, label %6, label %12
 
-_ZN6editor6scroll13scroll_amount12ScrollAmount12is_full_page17h6fc0f5a8319c102dE.exit: ; preds = %2
-  %6 = tail call float @llvm.fabs.f32(float %5)
-  %7 = fcmp oeq float %6, 1.000000e+00
-  %8 = fadd float %1, -1.000000e+00
-  %9 = select i1 %7, float %8, float %1
-  %10 = fmul float %5, %9
+6:                                                ; preds = %2
+  %7 = tail call float @llvm.fabs.f32(float %5)
+  %8 = fcmp oeq float %7, 1.000000e+00
+  %9 = fadd float %1, -1.000000e+00
+  %. = select i1 %8, float %9, float %1
+  %10 = fmul float %5, %.
   %11 = tail call float @llvm.trunc.f32(float %10)
   br label %12
 
-12:                                               ; preds = %2, %_ZN6editor6scroll13scroll_amount12ScrollAmount12is_full_page17h6fc0f5a8319c102dE.exit
-  %.sroa.02.0 = phi float [ %11, %_ZN6editor6scroll13scroll_amount12ScrollAmount12is_full_page17h6fc0f5a8319c102dE.exit ], [ %5, %2 ]
+12:                                               ; preds = %2, %6
+  %.sroa.02.0 = phi float [ %11, %6 ], [ %5, %2 ]
   ret float %.sroa.02.0
 }
 

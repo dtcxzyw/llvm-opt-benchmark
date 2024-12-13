@@ -11107,8 +11107,8 @@ if.end17:                                         ; preds = %lor.lhs.false
   br i1 %cmp22, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end17
-  %retval.sroa.0.0.i = sub nuw i64 %3, %2
-  %div = udiv i64 %retval.sroa.0.0.i, 1000
+  %.sub.i.i = sub nuw i64 %3, %2
+  %div = udiv i64 %.sub.i.i, 1000
   store i64 %div, ptr %rtt, align 8
   br label %return
 

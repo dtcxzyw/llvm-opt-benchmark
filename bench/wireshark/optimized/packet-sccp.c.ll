@@ -1250,10 +1250,10 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
   %17 = and i8 %16, 1
   %18 = and i8 %5, 2
   %19 = and i8 %5, 1
-  %.043 = select i1 %6, i8 %19, i8 %18
-  %.042 = select i1 %6, i8 %18, i8 %19
+  %. = select i1 %6, i8 %19, i8 %18
+  %.48 = select i1 %6, i8 %18, i8 %19
   %20 = icmp ne i8 %17, 0
-  %21 = icmp eq i8 %.043, 0
+  %21 = icmp eq i8 %., 0
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %35, label %22
 
@@ -1263,12 +1263,12 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
   %or.cond5 = select i1 %23, i1 %24, i1 false
   %25 = icmp ne i32 %2, 0
   %or.cond7 = and i1 %25, %23
-  %or.cond49 = or i1 %or.cond5, %or.cond7
-  br i1 %or.cond49, label %35, label %26
+  %or.cond50 = or i1 %or.cond5, %or.cond7
+  br i1 %or.cond50, label %35, label %26
 
 26:                                               ; preds = %22
   %spec.select = select i1 %21, i8 1, i8 2
-  %.not44 = icmp eq i8 %.042, 0
+  %.not44 = icmp eq i8 %.48, 0
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
@@ -1287,14 +1287,14 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
 31:                                               ; preds = %29, %30, %26
   %.1 = phi i8 [ %narrow45, %29 ], [ %narrow, %30 ], [ %spec.select, %26 ]
   %32 = add nuw nsw i8 %.1, 2
-  %spec.select48 = select i1 %24, i8 %.1, i8 %32
-  %33 = zext nneg i8 %spec.select48 to i32
+  %spec.select49 = select i1 %24, i8 %.1, i8 %32
+  %33 = zext nneg i8 %spec.select49 to i32
   %34 = icmp uge i32 %4, %33
-  %spec.select50 = zext i1 %34 to i32
+  %spec.select51 = zext i1 %34 to i32
   br label %35
 
 35:                                               ; preds = %31, %22, %15, %13, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %22 ], [ %spec.select50, %31 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %22 ], [ %spec.select51, %31 ]
   ret i32 %.0
 }
 

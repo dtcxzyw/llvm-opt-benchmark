@@ -51305,17 +51305,17 @@ define internal fastcc noundef zeroext i1 @"_ZN4core4iter8adapters3map12map_try_
   %48 = call noundef range(i8 -1, 3) i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.0.val), !range !6227, !noalias !16915
   %49 = add nsw i8 %48, -3
   %switch.i.i.i.i = icmp samesign ult i8 %49, -2
-  br i1 %switch.i.i.i.i, label %"_ZN6editor18mouse_context_menu19deploy_context_menu28_$u7b$$u7b$closure$u7d$$u7d$17ha0cd567140de705eE.exit.i", label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h53f1ce923e427310E.exit"
+  br i1 %switch.i.i.i.i, label %50, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h53f1ce923e427310E.exit"
 
-"_ZN6editor18mouse_context_menu19deploy_context_menu28_$u7b$$u7b$closure$u7d$$u7d$17ha0cd567140de705eE.exit.i": ; preds = %1
-  %50 = call noundef range(i8 -1, 3) i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.0.val, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.53.0..sroa_idx), !range !6227, !noalias !16915
-  %51 = icmp eq i8 %50, -1
+50:                                               ; preds = %1
+  %51 = call noundef range(i8 -1, 3) i8 @"_ZN60_$LT$rope..point..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hf185a913ff4fb3daE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.0.val, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.53.0..sroa_idx), !range !6227, !noalias !16915
+  %52 = icmp eq i8 %51, -1
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h53f1ce923e427310E.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h53f1ce923e427310E.exit": ; preds = %1, %"_ZN6editor18mouse_context_menu19deploy_context_menu28_$u7b$$u7b$closure$u7d$$u7d$17ha0cd567140de705eE.exit.i"
-  %.sroa.06.0.i.i2.i = phi i1 [ false, %1 ], [ %51, %"_ZN6editor18mouse_context_menu19deploy_context_menu28_$u7b$$u7b$closure$u7d$$u7d$17ha0cd567140de705eE.exit.i" ]
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h53f1ce923e427310E.exit": ; preds = %1, %50
+  %.sroa.06.0.i.i.i = phi i1 [ %52, %50 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !16915
-  ret i1 %.sroa.06.0.i.i2.i
+  ret i1 %.sroa.06.0.i.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

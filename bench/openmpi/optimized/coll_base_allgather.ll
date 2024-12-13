@@ -179,87 +179,93 @@ opal_datatype_span.exit:                          ; preds = %57, %66
 
 ompi_datatype_copy_content_same_ddt.exit131:      ; preds = %.lr.ph.i122
   %90 = icmp slt i32 %84, 0
-  br i1 %90, label %.loopexit.sink.split, label %ompi_datatype_copy_content_same_ddt.exit131.thread
+  br i1 %90, label %91, label %ompi_datatype_copy_content_same_ddt.exit131.thread
+
+91:                                               ; preds = %ompi_datatype_copy_content_same_ddt.exit131
+  tail call void @free(ptr noundef %78) #8
+  br label %.loopexit
 
 ompi_datatype_copy_content_same_ddt.exit131.thread: ; preds = %85, %80, %ompi_datatype_copy_content_same_ddt.exit131
-  %91 = sext i32 %.val115 to i64
-  %92 = mul nsw i64 %91, %60
+  %92 = sext i32 %.val115 to i64
+  %93 = mul nsw i64 %92, %60
   %.val.i132 = load i64, ptr %12, align 8
   %.val23.i133 = load i64, ptr %14, align 8
-  %93 = sub nsw i64 %.val23.i133, %.val.i132
+  %94 = sub nsw i64 %.val23.i133, %.val.i132
   %.not25.i134 = icmp eq i32 %4, 0
   br i1 %.not25.i134, label %ompi_datatype_copy_content_same_ddt.exit144.thread, label %.lr.ph.i135.preheader
 
 .lr.ph.i135.preheader:                            ; preds = %ompi_datatype_copy_content_same_ddt.exit131.thread
-  %94 = mul nsw i64 %61, %16
-  %95 = getelementptr inbounds i8, ptr %3, i64 %94
+  %95 = mul nsw i64 %61, %16
+  %96 = getelementptr inbounds i8, ptr %3, i64 %95
   br label %.lr.ph.i135
 
-.lr.ph.i135:                                      ; preds = %.lr.ph.i135.preheader, %97
-  %.01828.i136 = phi ptr [ %100, %97 ], [ %95, %.lr.ph.i135.preheader ]
-  %.01927.i137 = phi ptr [ %99, %97 ], [ %3, %.lr.ph.i135.preheader ]
-  %.02026.i138 = phi i64 [ %101, %97 ], [ %92, %.lr.ph.i135.preheader ]
+.lr.ph.i135:                                      ; preds = %.lr.ph.i135.preheader, %98
+  %.01828.i136 = phi ptr [ %101, %98 ], [ %96, %.lr.ph.i135.preheader ]
+  %.01927.i137 = phi ptr [ %100, %98 ], [ %3, %.lr.ph.i135.preheader ]
+  %.02026.i138 = phi i64 [ %102, %98 ], [ %93, %.lr.ph.i135.preheader ]
   %spec.select24.i139 = tail call i64 @llvm.umin.i64(i64 %.02026.i138, i64 2147483647)
   %spec.select.i140 = trunc nuw nsw i64 %spec.select24.i139 to i32
-  %96 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i140, ptr noundef %.01927.i137, ptr noundef %.01828.i136) #8
-  %.not22.i141 = icmp eq i32 %96, 0
-  br i1 %.not22.i141, label %97, label %ompi_datatype_copy_content_same_ddt.exit144
+  %97 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i140, ptr noundef %.01927.i137, ptr noundef %.01828.i136) #8
+  %.not22.i141 = icmp eq i32 %97, 0
+  br i1 %.not22.i141, label %98, label %ompi_datatype_copy_content_same_ddt.exit144
 
-97:                                               ; preds = %.lr.ph.i135
-  %98 = mul nsw i64 %spec.select24.i139, %93
-  %99 = getelementptr inbounds i8, ptr %.01927.i137, i64 %98
-  %100 = getelementptr inbounds i8, ptr %.01828.i136, i64 %98
-  %101 = sub i64 %.02026.i138, %spec.select24.i139
-  %.not.i143 = icmp eq i64 %101, 0
+98:                                               ; preds = %.lr.ph.i135
+  %99 = mul nsw i64 %spec.select24.i139, %94
+  %100 = getelementptr inbounds i8, ptr %.01927.i137, i64 %99
+  %101 = getelementptr inbounds i8, ptr %.01828.i136, i64 %99
+  %102 = sub i64 %.02026.i138, %spec.select24.i139
+  %.not.i143 = icmp eq i64 %102, 0
   br i1 %.not.i143, label %ompi_datatype_copy_content_same_ddt.exit144.thread, label %.lr.ph.i135, !llvm.loop !4
 
 ompi_datatype_copy_content_same_ddt.exit144:      ; preds = %.lr.ph.i135
-  %102 = icmp slt i32 %96, 0
-  br i1 %102, label %.loopexit.sink.split, label %ompi_datatype_copy_content_same_ddt.exit144.thread
+  %103 = icmp slt i32 %97, 0
+  br i1 %103, label %104, label %ompi_datatype_copy_content_same_ddt.exit144.thread
 
-ompi_datatype_copy_content_same_ddt.exit144.thread: ; preds = %97, %ompi_datatype_copy_content_same_ddt.exit131.thread, %ompi_datatype_copy_content_same_ddt.exit144
-  %.val.i145 = load i64, ptr %12, align 8
-  %.val23.i146 = load i64, ptr %14, align 8
-  %103 = sub nsw i64 %.val23.i146, %.val.i145
-  br i1 %65, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148.preheader
-
-.lr.ph.i148.preheader:                            ; preds = %ompi_datatype_copy_content_same_ddt.exit144.thread
-  %104 = mul nsw i64 %16, %92
-  %105 = getelementptr inbounds i8, ptr %3, i64 %104
-  br label %.lr.ph.i148
-
-.lr.ph.i148:                                      ; preds = %.lr.ph.i148.preheader, %107
-  %.01828.i149 = phi ptr [ %110, %107 ], [ %82, %.lr.ph.i148.preheader ]
-  %.01927.i150 = phi ptr [ %109, %107 ], [ %105, %.lr.ph.i148.preheader ]
-  %.02026.i151 = phi i64 [ %111, %107 ], [ %61, %.lr.ph.i148.preheader ]
-  %spec.select24.i152 = tail call i64 @llvm.umin.i64(i64 %.02026.i151, i64 2147483647)
-  %spec.select.i153 = trunc nuw nsw i64 %spec.select24.i152 to i32
-  %106 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i153, ptr noundef %.01927.i150, ptr noundef %.01828.i149) #8
-  %.not22.i154 = icmp eq i32 %106, 0
-  br i1 %.not22.i154, label %107, label %ompi_datatype_copy_content_same_ddt.exit157
-
-107:                                              ; preds = %.lr.ph.i148
-  %108 = mul nsw i64 %spec.select24.i152, %103
-  %109 = getelementptr inbounds i8, ptr %.01927.i150, i64 %108
-  %110 = getelementptr inbounds i8, ptr %.01828.i149, i64 %108
-  %111 = sub i64 %.02026.i151, %spec.select24.i152
-  %.not.i156 = icmp eq i64 %111, 0
-  br i1 %.not.i156, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148, !llvm.loop !4
-
-ompi_datatype_copy_content_same_ddt.exit157:      ; preds = %.lr.ph.i148
-  %112 = icmp slt i32 %106, 0
-  br i1 %112, label %.loopexit.sink.split, label %ompi_datatype_copy_content_same_ddt.exit157.thread
-
-ompi_datatype_copy_content_same_ddt.exit157.thread: ; preds = %107, %ompi_datatype_copy_content_same_ddt.exit144.thread, %ompi_datatype_copy_content_same_ddt.exit157
-  br label %.loopexit.sink.split
-
-.loopexit.sink.split:                             ; preds = %ompi_datatype_copy_content_same_ddt.exit157, %ompi_datatype_copy_content_same_ddt.exit144, %ompi_datatype_copy_content_same_ddt.exit131, %ompi_datatype_copy_content_same_ddt.exit157.thread
-  %.0.ph = phi i32 [ 0, %ompi_datatype_copy_content_same_ddt.exit157.thread ], [ %84, %ompi_datatype_copy_content_same_ddt.exit131 ], [ %96, %ompi_datatype_copy_content_same_ddt.exit144 ], [ %106, %ompi_datatype_copy_content_same_ddt.exit157 ]
+104:                                              ; preds = %ompi_datatype_copy_content_same_ddt.exit144
   tail call void @free(ptr noundef %78) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ompi_coll_base_sendrecv.exit, %.loopexit.sink.split, %17, %ompi_datatype_copy_content_same_ddt.exit, %opal_datatype_span.exit, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %18, %17 ], [ %25, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit ], [ %.0.ph, %.loopexit.sink.split ], [ %.0.i116, %ompi_coll_base_sendrecv.exit ]
+ompi_datatype_copy_content_same_ddt.exit144.thread: ; preds = %98, %ompi_datatype_copy_content_same_ddt.exit131.thread, %ompi_datatype_copy_content_same_ddt.exit144
+  %.val.i145 = load i64, ptr %12, align 8
+  %.val23.i146 = load i64, ptr %14, align 8
+  %105 = sub nsw i64 %.val23.i146, %.val.i145
+  br i1 %65, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148.preheader
+
+.lr.ph.i148.preheader:                            ; preds = %ompi_datatype_copy_content_same_ddt.exit144.thread
+  %106 = mul nsw i64 %16, %93
+  %107 = getelementptr inbounds i8, ptr %3, i64 %106
+  br label %.lr.ph.i148
+
+.lr.ph.i148:                                      ; preds = %.lr.ph.i148.preheader, %109
+  %.01828.i149 = phi ptr [ %112, %109 ], [ %82, %.lr.ph.i148.preheader ]
+  %.01927.i150 = phi ptr [ %111, %109 ], [ %107, %.lr.ph.i148.preheader ]
+  %.02026.i151 = phi i64 [ %113, %109 ], [ %61, %.lr.ph.i148.preheader ]
+  %spec.select24.i152 = tail call i64 @llvm.umin.i64(i64 %.02026.i151, i64 2147483647)
+  %spec.select.i153 = trunc nuw nsw i64 %spec.select24.i152 to i32
+  %108 = tail call i32 @opal_datatype_copy_content_same_ddt(ptr noundef %5, i32 noundef %spec.select.i153, ptr noundef %.01927.i150, ptr noundef %.01828.i149) #8
+  %.fr = freeze i32 %108
+  %.not22.i154 = icmp eq i32 %.fr, 0
+  br i1 %.not22.i154, label %109, label %ompi_datatype_copy_content_same_ddt.exit157
+
+109:                                              ; preds = %.lr.ph.i148
+  %110 = mul nsw i64 %spec.select24.i152, %105
+  %111 = getelementptr inbounds i8, ptr %.01927.i150, i64 %110
+  %112 = getelementptr inbounds i8, ptr %.01828.i149, i64 %110
+  %113 = sub i64 %.02026.i151, %spec.select24.i152
+  %.not.i156 = icmp eq i64 %113, 0
+  br i1 %.not.i156, label %ompi_datatype_copy_content_same_ddt.exit157.thread, label %.lr.ph.i148, !llvm.loop !4
+
+ompi_datatype_copy_content_same_ddt.exit157.thread: ; preds = %109, %ompi_datatype_copy_content_same_ddt.exit144.thread
+  tail call void @free(ptr noundef %78) #8
+  br label %.loopexit
+
+ompi_datatype_copy_content_same_ddt.exit157:      ; preds = %.lr.ph.i148
+  tail call void @free(ptr noundef %78) #8
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.fr, i32 0)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %ompi_coll_base_sendrecv.exit, %ompi_datatype_copy_content_same_ddt.exit157, %ompi_datatype_copy_content_same_ddt.exit157.thread, %91, %104, %17, %ompi_datatype_copy_content_same_ddt.exit, %opal_datatype_span.exit, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ %84, %91 ], [ %97, %104 ], [ %18, %17 ], [ %25, %ompi_datatype_copy_content_same_ddt.exit ], [ -2, %opal_datatype_span.exit ], [ 0, %ompi_datatype_copy_content_same_ddt.exit157.thread ], [ %spec.select, %ompi_datatype_copy_content_same_ddt.exit157 ], [ %.0.i116, %ompi_coll_base_sendrecv.exit ]
   ret i32 %.0
 }
 
@@ -904,6 +910,9 @@ declare i32 @opal_datatype_commit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

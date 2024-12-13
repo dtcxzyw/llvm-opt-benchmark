@@ -3202,8 +3202,8 @@ define noundef zeroext i1 @"_ZN73_$LT$ockam_core..error..code..ErrorCode$u20$as$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %27
 
-27:                                               ; preds = %20, %2, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %2 ], [ %26, %20 ]
+27:                                               ; preds = %2, %20, %17
+  %.0 = phi i1 [ false, %17 ], [ %26, %20 ], [ true, %2 ]
   ret i1 %.0
 }
 

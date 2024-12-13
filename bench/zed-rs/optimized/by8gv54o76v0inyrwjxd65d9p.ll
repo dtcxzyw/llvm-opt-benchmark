@@ -14438,8 +14438,8 @@ default.unreachable63.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %85
   %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.48.0.copyload.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.45.0.copyload.i.i.i.i.i.i.i, i64 %.sroa.59.0.copyload.i.i.i.i.i), !alias.scope !2359, !noalias !2332
   %105 = icmp eq i32 %bcmp.i.i.i51.i.i.i.i.i.i.i.i.i.i.i, 0
   %.not.i.i.i57.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.711.0.copyload.i.i.i.i.i, %.sroa.78.0.copyload.i.i.i.i.i.i.i
-  %or.cond13.i.i.i.i.i.i.i.i = select i1 %105, i1 %.not.i.i.i57.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond13.i.i.i.i.i.i.i.i, label %112, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i
+  %or.cond6.i.i.i.i.i.i.i.i = select i1 %105, i1 %.not.i.i.i57.i.i.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond6.i.i.i.i.i.i.i.i, label %112, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i
 
 106:                                              ; preds = %85
   %107 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i
@@ -14465,9 +14465,9 @@ default.unreachable63.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %85
 
 116:                                              ; preds = %81
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.59.0.copyload.i.i.i.i.i, %.sroa.56.0.copyload.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hd12eb39062227eb6E.exit.i.i.i.i.i.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h138316a177f85081E.exit.i.i.i.i.i.i.i", label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i
 
-"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hd12eb39062227eb6E.exit.i.i.i.i.i.i.i.i": ; preds = %116
+"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h138316a177f85081E.exit.i.i.i.i.i.i.i": ; preds = %116
   %117 = icmp ne ptr %.sroa.45.0.copyload.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %117)
   %118 = icmp ne ptr %.sroa.48.0.copyload.i.i.i.i.i, null
@@ -14476,7 +14476,7 @@ default.unreachable63.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %85
   %119 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %119, label %120, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i
 
-120:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hd12eb39062227eb6E.exit.i.i.i.i.i.i.i.i", %112, %108, %106, %98, %95, %87, %82, %81
+120:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h138316a177f85081E.exit.i.i.i.i.i.i.i", %112, %108, %106, %98, %95, %87, %82, %81
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !2319
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !2304
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !2304
@@ -14485,7 +14485,7 @@ default.unreachable63.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %85
   %122 = icmp eq i8 %121, 10
   br i1 %122, label %.loopexit.i.i, label %66
 
-_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17hd12eb39062227eb6E.exit.i.i.i.i.i.i.i.i", %116, %112, %108, %106, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3a4dfee9d1747418E.exit52.i.i.i.i.i.i.i.i.i.i.i", %102, %98, %97, %95, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3a4dfee9d1747418E.exit44.i.i.i.i.i.i.i.i.i.i.i", %91, %87, %86, %83, %70, %66
+_ZN4core4iter6traits8iterator8Iterator12try_for_each17h97779f7ba2bf03a5E.exit.i.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h138316a177f85081E.exit.i.i.i.i.i.i.i", %116, %112, %108, %106, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3a4dfee9d1747418E.exit52.i.i.i.i.i.i.i.i.i.i.i", %102, %98, %97, %95, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h3a4dfee9d1747418E.exit44.i.i.i.i.i.i.i.i.i.i.i", %91, %87, %86, %83, %70, %66
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !2319
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !2304
   br label %_ZN4core4iter6traits8iterator8Iterator5eq_by17h7581eda5ac880263E.exit

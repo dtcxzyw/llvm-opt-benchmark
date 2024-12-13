@@ -1262,20 +1262,20 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i
-  %cmp.i31.i.i = icmp sgt i128 %24, %25
-  br i1 %cmp.i31.i.i, label %if.else.i, label %if.else12.i.i
+  %cmp.i27.i.i = icmp sgt i128 %24, %25
+  br i1 %cmp.i27.i.i, label %if.else.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
   %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %26 = load i128, ptr %size.i.i, align 16
   %size15.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 16
   %27 = load i128, ptr %size15.i.i, align 16
-  %cmp.i40.i.i = icmp slt i128 %26, %27
-  br i1 %cmp.i40.i.i, label %if.then.i, label %if.else20.i.i
+  %cmp.i36.i.i = icmp slt i128 %26, %27
+  br i1 %cmp.i36.i.i, label %if.then.i, label %if.else20.i.i
 
 if.else20.i.i:                                    ; preds = %if.else12.i.i
-  %cmp.i49.i.i = icmp sgt i128 %26, %27
-  br i1 %cmp.i49.i.i, label %if.else.i, label %if.else29.i.i
+  %cmp.i45.i.i = icmp sgt i128 %26, %27
+  br i1 %cmp.i45.i.i, label %if.else.i, label %if.else29.i.i
 
 if.else29.i.i:                                    ; preds = %if.else20.i.i
   %match_data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1393,20 +1393,20 @@ lor.lhs.false19.i:                                ; preds = %land.lhs.true17.i
   br i1 %cmp.i.i46.i, label %if.then25.i, label %if.else.i47.i
 
 if.else.i47.i:                                    ; preds = %lor.lhs.false19.i
-  %cmp.i31.i48.i = icmp sgt i128 %43, %44
-  br i1 %cmp.i31.i48.i, label %if.else67.i, label %if.else12.i49.i
+  %cmp.i27.i48.i = icmp sgt i128 %43, %44
+  br i1 %cmp.i27.i48.i, label %if.else67.i, label %if.else12.i49.i
 
 if.else12.i49.i:                                  ; preds = %if.else.i47.i
   %size.i50.i = getelementptr inbounds nuw i8, ptr %arrayidx21.i, i64 16
   %45 = load i128, ptr %size.i50.i, align 16
   %size15.i51.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 16
   %46 = load i128, ptr %size15.i51.i, align 16
-  %cmp.i40.i52.i = icmp slt i128 %45, %46
-  br i1 %cmp.i40.i52.i, label %if.then25.i, label %if.else20.i53.i
+  %cmp.i36.i52.i = icmp slt i128 %45, %46
+  br i1 %cmp.i36.i52.i, label %if.then25.i, label %if.else20.i53.i
 
 if.else20.i53.i:                                  ; preds = %if.else12.i49.i
-  %cmp.i49.i54.i = icmp sgt i128 %45, %46
-  br i1 %cmp.i49.i54.i, label %if.else67.i, label %if.else29.i55.i
+  %cmp.i45.i54.i = icmp sgt i128 %45, %46
+  br i1 %cmp.i45.i54.i, label %if.else67.i, label %if.else29.i55.i
 
 if.else29.i55.i:                                  ; preds = %if.else20.i53.i
   %match_data.i56.i = getelementptr inbounds nuw i8, ptr %arrayidx21.i, i64 32
@@ -5735,18 +5735,18 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i23.us, label %for.end.loopexit.split.loop.exit81, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %for.body.us
-  %cmp.i31.i.us = icmp slt i128 %8, %coerce.sroa.0.0.insert.ext
-  br i1 %cmp.i31.i.us, label %for.inc.us, label %if.else12.i.us
+  %cmp.i27.i.us = icmp slt i128 %8, %coerce.sroa.0.0.insert.ext
+  br i1 %cmp.i27.i.us, label %for.inc.us, label %if.else12.i.us
 
 if.else12.i.us:                                   ; preds = %if.else.i.us
   %size15.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 16
   %9 = load i128, ptr %size15.i.us, align 16
-  %cmp.i40.i.us = icmp sgt i128 %9, %coerce4.sroa.0.0.insert.ext
-  br i1 %cmp.i40.i.us, label %for.end.loopexit.split.loop.exit79, label %if.else20.i.us
+  %cmp.i36.i.us = icmp sgt i128 %9, %coerce4.sroa.0.0.insert.ext
+  br i1 %cmp.i36.i.us, label %for.end.loopexit.split.loop.exit79, label %if.else20.i.us
 
 if.else20.i.us:                                   ; preds = %if.else12.i.us
-  %cmp.i49.i.us = icmp slt i128 %9, %coerce4.sroa.0.0.insert.ext
-  br i1 %cmp.i49.i.us, label %for.inc.us, label %if.else29.i.us
+  %cmp.i45.i.us = icmp slt i128 %9, %coerce4.sroa.0.0.insert.ext
+  br i1 %cmp.i45.i.us, label %for.inc.us, label %if.else29.i.us
 
 if.else29.i.us:                                   ; preds = %if.else20.i.us
   %match_data30.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 32
@@ -5788,18 +5788,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.i23, label %for.end.loopexit64.split.loop.exit68, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
-  %cmp.i31.i = icmp slt i128 %14, %coerce.sroa.0.0.insert.ext
-  br i1 %cmp.i31.i, label %for.inc, label %if.else12.i
+  %cmp.i27.i = icmp slt i128 %14, %coerce.sroa.0.0.insert.ext
+  br i1 %cmp.i27.i, label %for.inc, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
   %size15.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %15 = load i128, ptr %size15.i, align 16
-  %cmp.i40.i = icmp sgt i128 %15, %coerce4.sroa.0.0.insert.ext
-  br i1 %cmp.i40.i, label %for.end.loopexit64.split.loop.exit66, label %if.else20.i
+  %cmp.i36.i = icmp sgt i128 %15, %coerce4.sroa.0.0.insert.ext
+  br i1 %cmp.i36.i, label %for.end.loopexit64.split.loop.exit66, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else12.i
-  %cmp.i49.i = icmp slt i128 %15, %coerce4.sroa.0.0.insert.ext
-  br i1 %cmp.i49.i, label %for.inc, label %if.else29.i
+  %cmp.i45.i = icmp slt i128 %15, %coerce4.sroa.0.0.insert.ext
+  br i1 %cmp.i45.i, label %for.inc, label %if.else29.i
 
 if.else29.i:                                      ; preds = %if.else20.i
   %match_data30.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32

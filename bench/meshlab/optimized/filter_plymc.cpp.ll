@@ -34130,17 +34130,17 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit:        ; preds = %323, %321, %_ZNK3vc
   %359 = load ptr, ptr @_ZN3vcg3ply10bboxheaderE, align 8
   %360 = call i64 @fwrite(ptr noundef %359, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %356)
   %.not.i63 = icmp eq i64 %360, 8
-  br i1 %.not.i63, label %361, label %_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit.sink.split
+  br i1 %.not.i63, label %361, label %.sink.split.i
 
 361:                                              ; preds = %358
   %362 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 48, i64 noundef 1, ptr noundef nonnull %356)
-  br label %_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit.sink.split
+  br label %.sink.split.i
 
-_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit.sink.split: ; preds = %358, %361
+.sink.split.i:                                    ; preds = %361, %358
   %363 = call i32 @fclose(ptr noundef nonnull %356)
   br label %_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit
 
-_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit: ; preds = %_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit.sink.split, %335, %355
+_ZN3vcg3plyL13SaveBBoxCacheIfEEbPKcRKNS_4Box3IT_EE.exit: ; preds = %335, %355, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %364

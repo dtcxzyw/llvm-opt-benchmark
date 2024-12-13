@@ -4631,8 +4631,8 @@ _ZN4core3fmt8builders9DebugList7entries17h5f030dc79fa02605E.exit: ; preds = %.lr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %31
 
-31:                                               ; preds = %_ZN4core3fmt8builders9DebugList7entries17h5f030dc79fa02605E.exit, %2, %21, %17
-  %.0 = phi i1 [ false, %17 ], [ true, %21 ], [ true, %2 ], [ %30, %_ZN4core3fmt8builders9DebugList7entries17h5f030dc79fa02605E.exit ]
+31:                                               ; preds = %2, %_ZN4core3fmt8builders9DebugList7entries17h5f030dc79fa02605E.exit, %21, %17
+  %.0 = phi i1 [ false, %17 ], [ true, %21 ], [ %30, %_ZN4core3fmt8builders9DebugList7entries17h5f030dc79fa02605E.exit ], [ true, %2 ]
   ret i1 %.0
 }
 

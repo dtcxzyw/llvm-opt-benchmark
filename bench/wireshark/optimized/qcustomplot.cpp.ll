@@ -110551,9 +110551,9 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit37.thread:     ; preds = %_ZNK8QPointerI7QCPA
   %93 = sitofp i32 %92 to double
   br label %94
 
-94:                                               ; preds = %42, %69, %.critedge, %.critedge3, %.critedge7, %.critedge5, %33
-  %.sroa.8.0 = phi double [ %88, %.critedge5 ], [ %93, %.critedge7 ], [ 0.000000e+00, %33 ], [ %2, %.critedge3 ], [ %2, %.critedge ], [ 0.000000e+00, %69 ], [ %., %42 ]
-  %.sroa.055.0 = phi double [ %1, %.critedge5 ], [ %1, %.critedge7 ], [ 0.000000e+00, %33 ], [ %68, %.critedge3 ], [ %63, %.critedge ], [ 0.000000e+00, %69 ], [ %.59, %42 ]
+94:                                               ; preds = %69, %42, %.critedge, %.critedge3, %.critedge7, %.critedge5, %33
+  %.sroa.8.0 = phi double [ %88, %.critedge5 ], [ %93, %.critedge7 ], [ 0.000000e+00, %33 ], [ %2, %.critedge3 ], [ %2, %.critedge ], [ %., %42 ], [ 0.000000e+00, %69 ]
+  %.sroa.055.0 = phi double [ %1, %.critedge5 ], [ %1, %.critedge7 ], [ 0.000000e+00, %33 ], [ %68, %.critedge3 ], [ %63, %.critedge ], [ %.59, %42 ], [ 0.000000e+00, %69 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.055.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.8.0, 1
   ret { double, double } %.fca.1.insert

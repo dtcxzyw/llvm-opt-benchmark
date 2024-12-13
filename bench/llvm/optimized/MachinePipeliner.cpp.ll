@@ -43708,13 +43708,13 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseINS_13SmallDenseSetIN
   br label %44
 
 44:                                               ; preds = %44, %37
-  %indvars.iv86.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next87.i.i.i.i.i.i.i.i.i.i, %44 ]
-  %45 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %41, i64 %indvars.iv86.i.i.i.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %43, i64 %indvars.iv86.i.i.i.i.i.i.i.i.i.i
+  %indvars.iv84.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next85.i.i.i.i.i.i.i.i.i.i, %44 ]
+  %45 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %41, i64 %indvars.iv84.i.i.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %43, i64 %indvars.iv84.i.i.i.i.i.i.i.i.i.i
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %45, align 4
-  %indvars.iv.next87.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv86.i.i.i.i.i.i.i.i.i.i, 1
-  %.not59.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next87.i.i.i.i.i.i.i.i.i.i, 16
+  %indvars.iv.next85.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv84.i.i.i.i.i.i.i.i.i.i, 1
+  %.not59.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next85.i.i.i.i.i.i.i.i.i.i, 16
   br i1 %.not59.i.i.i.i.i.i.i.i.i.i, label %48, label %44, !llvm.loop !630
 
 48:                                               ; preds = %44
@@ -45041,13 +45041,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrENS_13SmallDenseSetINS_8Re
   br label %80
 
 80:                                               ; preds = %80, %73
-  %indvars.iv86.i.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next87.i.i.i.i, %80 ]
-  %81 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %77, i64 %indvars.iv86.i.i.i.i
-  %82 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %79, i64 %indvars.iv86.i.i.i.i
+  %indvars.iv84.i.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next85.i.i.i.i, %80 ]
+  %81 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %77, i64 %indvars.iv84.i.i.i.i
+  %82 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.971", ptr %79, i64 %indvars.iv84.i.i.i.i
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %81, align 4
-  %indvars.iv.next87.i.i.i.i = add nuw nsw i64 %indvars.iv86.i.i.i.i, 1
-  %.not59.i.i.i.i = icmp eq i64 %indvars.iv.next87.i.i.i.i, 4
+  %indvars.iv.next85.i.i.i.i = add nuw nsw i64 %indvars.iv84.i.i.i.i, 1
+  %.not59.i.i.i.i = icmp eq i64 %indvars.iv.next85.i.i.i.i, 4
   br i1 %.not59.i.i.i.i, label %84, label %80, !llvm.loop !638
 
 84:                                               ; preds = %80

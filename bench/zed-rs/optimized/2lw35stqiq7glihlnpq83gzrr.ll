@@ -27970,8 +27970,8 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
   store i64 %740, ptr %56, align 8, !alias.scope !5873, !noalias !5874
   %741 = add i8 %738, -1
   store i8 %741, ptr %185, align 8, !alias.scope !5873, !noalias !5874
-  %.not3887.i = icmp slt i64 %739, 0
-  %..i = select i1 %.not3887.i, i16 %310, i16 %313
+  %.not3855.i = icmp slt i64 %739, 0
+  %..i = select i1 %.not3855.i, i16 %310, i16 %313
   br label %707
 
 742:                                              ; preds = %.noexc431

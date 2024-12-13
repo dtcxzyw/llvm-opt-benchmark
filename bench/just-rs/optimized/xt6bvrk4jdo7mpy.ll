@@ -25468,8 +25468,8 @@ switch.lookup:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %28
 
-28:                                               ; preds = %21, %switch.lookup, %20
-  %.0 = phi i1 [ false, %20 ], [ true, %switch.lookup ], [ %27, %21 ]
+28:                                               ; preds = %switch.lookup, %21, %20
+  %.0 = phi i1 [ false, %20 ], [ %27, %21 ], [ true, %switch.lookup ]
   ret i1 %.0
 }
 

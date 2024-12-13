@@ -4126,7 +4126,7 @@ define void @_ZN7globset14GlobSetBuilder5build17hf1d32080c550ddc0E(ptr noalias n
   %.1114.i = phi i1 [ %.2115.i, %594 ], [ true, %762 ], [ true, %681 ], [ true, %657 ], [ true, %748 ], [ true, %752 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit.i ]
   %.3108.i = phi i1 [ %.4109.i, %594 ], [ true, %762 ], [ true, %681 ], [ true, %657 ], [ true, %748 ], [ true, %752 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit.i ]
   %.6.i = phi i1 [ false, %594 ], [ true, %762 ], [ true, %681 ], [ true, %657 ], [ true, %748 ], [ true, %752 ], [ true, %.loopexit.split-lp.i ], [ true, %.loopexit.i ]
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %594 ], [ %763, %762 ], [ %lpad.phi466.i, %681 ], [ %lpad.thr_comm.split-lp.i, %657 ], [ %749, %748 ], [ %eh.lpad-body.ph.i.i, %752 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %594 ], [ %763, %762 ], [ %lpad.phi469.i, %681 ], [ %lpad.thr_comm.split-lp.i, %657 ], [ %749, %748 ], [ %eh.lpad-body.ph.i.i, %752 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit.i, %.loopexit.i ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$globset..MultiStrategyBuilder$GT$17hc6798153968ffddbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %97) #22
           to label %114 unwind label %553, !noalias !961
 
@@ -4144,14 +4144,14 @@ define void @_ZN7globset14GlobSetBuilder5build17hf1d32080c550ddc0E(ptr noalias n
   unreachable
 
 149:                                              ; preds = %646, %.lr.ph.i
-  %.sroa.0.0474.i = phi ptr [ %105, %.lr.ph.i ], [ %150, %646 ]
-  %.sroa.7264.0473.i = phi i64 [ 0, %.lr.ph.i ], [ %151, %646 ]
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.0.0474.i, i64 80
-  %151 = add nuw nsw i64 %.sroa.7264.0473.i, 1
+  %.sroa.0.0477.i = phi ptr [ %105, %.lr.ph.i ], [ %150, %646 ]
+  %.sroa.7264.0476.i = phi i64 [ 0, %.lr.ph.i ], [ %151, %646 ]
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.0.0477.i, i64 80
+  %151 = add nuw nsw i64 %.sroa.7264.0476.i, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96), !noalias !966
-  store ptr %.sroa.0.0474.i, ptr %96, align 8, !noalias !966
+  store ptr %.sroa.0.0477.i, ptr %96, align 8, !noalias !966
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95), !noalias !966
-  invoke void @_ZN7globset4glob13MatchStrategy3new17h53c0d656562dfba1E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.0.0474.i)
+  invoke void @_ZN7globset4glob13MatchStrategy3new17h53c0d656562dfba1E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %.sroa.0.0477.i)
           to label %595 unwind label %.loopexit.i, !noalias !961
 
 152:                                              ; preds = %188, %._crit_edge.i
@@ -5898,7 +5898,7 @@ _ZN7globset15LiteralStrategy3add17hf4320d29678dc3dfE.exit.i: ; preds = %.noexc23
   %609 = getelementptr inbounds nuw i8, ptr %602, i64 8
   %610 = load ptr, ptr %609, align 8, !alias.scope !1250, !noalias !1253, !nonnull !9, !noundef !9
   %611 = getelementptr inbounds i64, ptr %610, i64 %608
-  store i64 %.sroa.7264.0473.i, ptr %611, align 8, !noalias !1253
+  store i64 %.sroa.7264.0476.i, ptr %611, align 8, !noalias !1253
   %612 = load i64, ptr %603, align 8, !alias.scope !1250, !noalias !1253, !noundef !9
   %613 = add i64 %612, 1
   store i64 %613, ptr %603, align 8, !alias.scope !1250, !noalias !1253
@@ -5947,7 +5947,7 @@ _ZN7globset23BasenameLiteralStrategy3add17h0bfc7255c2c2aee5E.exit.i: ; preds = %
   %623 = getelementptr inbounds nuw i8, ptr %616, i64 8
   %624 = load ptr, ptr %623, align 8, !alias.scope !1258, !noalias !1261, !nonnull !9, !noundef !9
   %625 = getelementptr inbounds i64, ptr %624, i64 %622
-  store i64 %.sroa.7264.0473.i, ptr %625, align 8, !noalias !1261
+  store i64 %.sroa.7264.0476.i, ptr %625, align 8, !noalias !1261
   %626 = load i64, ptr %617, align 8, !alias.scope !1258, !noalias !1261, !noundef !9
   %627 = add i64 %626, 1
   store i64 %627, ptr %617, align 8, !alias.scope !1258, !noalias !1261
@@ -5996,7 +5996,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   %637 = getelementptr inbounds nuw i8, ptr %630, i64 8
   %638 = load ptr, ptr %637, align 8, !alias.scope !1266, !noalias !1269, !nonnull !9, !noundef !9
   %639 = getelementptr inbounds i64, ptr %638, i64 %636
-  store i64 %.sroa.7264.0473.i, ptr %639, align 8, !noalias !1269
+  store i64 %.sroa.7264.0476.i, ptr %639, align 8, !noalias !1269
   %640 = load i64, ptr %631, align 8, !alias.scope !1266, !noalias !1269, !noundef !9
   %641 = add i64 %640, 1
   store i64 %641, ptr %631, align 8, !alias.scope !1266, !noalias !1269
@@ -6004,7 +6004,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
 
 642:                                              ; preds = %595
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false), !noalias !966
-  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %100, i64 noundef %.sroa.7264.0473.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %94)
+  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %100, i64 noundef %.sroa.7264.0476.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %94)
           to label %646 unwind label %.loopexit.i, !noalias !961
 
 643:                                              ; preds = %595
@@ -6023,7 +6023,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
 648:                                              ; preds = %673, %643
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92), !noalias !966
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !noalias !966
-  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %99, i64 noundef %.sroa.7264.0473.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %92)
+  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %99, i64 noundef %.sroa.7264.0476.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %92)
           to label %680 unwind label %657, !noalias !961
 
 649:                                              ; preds = %643
@@ -6044,7 +6044,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
 
 656:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hed0867ec8f33457eE.exit.i.i", %651
   invoke void @_ZN4core3str16slice_error_fail17hc482bbaa01e121c2E(ptr noalias noundef nonnull readonly align 1 %.val178.i, i64 noundef %.val179.i, i64 noundef 1, i64 noundef %.val179.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.39407585f495d1787dbee1eca4945b4a.90) #20
-          to label %.noexc245.i unwind label %.loopexit.split-lp463.i, !noalias !961
+          to label %.noexc245.i unwind label %.loopexit.split-lp466.i, !noalias !961
 
 .noexc245.i:                                      ; preds = %656
   unreachable
@@ -6057,7 +6057,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
 658:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hed0867ec8f33457eE.exit.i.i", %651
   %659 = add i64 %.val179.i, -1
   %660 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h504aeed381656eecE"(i64 noundef %659, i1 noundef zeroext false)
-          to label %661 unwind label %.loopexit462.i, !noalias !961
+          to label %661 unwind label %.loopexit465.i, !noalias !961
 
 661:                                              ; preds = %658
   %662 = getelementptr inbounds nuw i8, ptr %.val178.i, i64 1
@@ -6073,7 +6073,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   store i64 %659, ptr %.sroa.5270.0..sroa_idx.i, align 8, !noalias !1279
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !1275
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17ha63f1374deaf89e7E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %103, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
-          to label %.noexc249.i unwind label %.loopexit462.i, !noalias !961
+          to label %.noexc249.i unwind label %.loopexit465.i, !noalias !961
 
 .noexc249.i:                                      ; preds = %661
   %666 = load i64, ptr %11, align 8, !range !11, !noalias !1275, !noundef !9
@@ -6086,7 +6086,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   store ptr inttoptr (i64 8 to ptr), ptr %134, align 8, !noalias !1275
   store i64 0, ptr %135, align 8, !noalias !1275
   %667 = invoke fastcc noundef align 8 dereferenceable(24) ptr @"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17h496e03ab2ffa3cfdE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %14, ptr noalias nocapture noundef align 8 dereferenceable(24) %12)
-          to label %.noexc250.i unwind label %.loopexit462.i, !noalias !961
+          to label %.noexc250.i unwind label %.loopexit465.i, !noalias !961
 
 .noexc250.i:                                      ; preds = %.noexc249.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1275
@@ -6099,7 +6099,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
 
 672:                                              ; preds = %.noexc250.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha140097eb2051ae5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %667, i64 noundef %669)
-          to label %.noexc251.i unwind label %.loopexit462.i, !noalias !961
+          to label %.noexc251.i unwind label %.loopexit465.i, !noalias !961
 
 .noexc251.i:                                      ; preds = %672
   %.pre.i.i248.i = load i64, ptr %668, align 8, !alias.scope !1280, !noalias !1283
@@ -6110,7 +6110,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   %675 = getelementptr inbounds nuw i8, ptr %667, i64 8
   %676 = load ptr, ptr %675, align 8, !alias.scope !1280, !noalias !1283, !nonnull !9, !noundef !9
   %677 = getelementptr inbounds i64, ptr %676, i64 %674
-  store i64 %.sroa.7264.0473.i, ptr %677, align 8, !noalias !1283
+  store i64 %.sroa.7264.0476.i, ptr %677, align 8, !noalias !1283
   %678 = load i64, ptr %668, align 8, !alias.scope !1280, !noalias !1283, !noundef !9
   %679 = add i64 %678, 1
   store i64 %679, ptr %668, align 8, !alias.scope !1280, !noalias !1283
@@ -6121,18 +6121,18 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93), !noalias !966
   br label %646
 
-.loopexit462.i:                                   ; preds = %672, %.noexc249.i, %661, %658
-  %lpad.loopexit464.i = landingpad { ptr, i32 }
+.loopexit465.i:                                   ; preds = %672, %.noexc249.i, %661, %658
+  %lpad.loopexit467.i = landingpad { ptr, i32 }
           cleanup
   br label %681
 
-.loopexit.split-lp463.i:                          ; preds = %656
-  %lpad.loopexit.split-lp465.i = landingpad { ptr, i32 }
+.loopexit.split-lp466.i:                          ; preds = %656
+  %lpad.loopexit.split-lp468.i = landingpad { ptr, i32 }
           cleanup
   br label %681
 
-681:                                              ; preds = %.loopexit.split-lp463.i, %.loopexit462.i
-  %lpad.phi466.i = phi { ptr, i32 } [ %lpad.loopexit464.i, %.loopexit462.i ], [ %lpad.loopexit.split-lp465.i, %.loopexit.split-lp463.i ]
+681:                                              ; preds = %.loopexit.split-lp466.i, %.loopexit465.i
+  %lpad.phi469.i = phi { ptr, i32 } [ %lpad.loopexit467.i, %.loopexit465.i ], [ %lpad.loopexit.split-lp468.i, %.loopexit.split-lp466.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcc7caa30a17d6f1bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %93) #22
           to label %.body260.i unwind label %553, !noalias !961
 
@@ -6295,7 +6295,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1287
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false), !noalias !1332
-  store i64 %.sroa.7264.0473.i, ptr %8, align 8, !noalias !1287
+  store i64 %.sroa.7264.0476.i, ptr %8, align 8, !noalias !1287
   %743 = getelementptr inbounds i8, ptr %.pn.i.i257.i, i64 -8
   %744 = load i64, ptr %743, align 8, !alias.scope !1333, !noalias !1336, !noundef !9
   %745 = load i64, ptr %.09.i.i.i, align 8, !alias.scope !1333, !noalias !1336, !noundef !9
@@ -6397,7 +6397,7 @@ _ZN7globset17ExtensionStrategy3add17hd34e8e9773f4e95cE.exit.i: ; preds = %.noexc
   store i64 %777, ptr %87, align 8, !noalias !966
   store ptr %778, ptr %.sroa.478.0..sroa_idx.i, align 8, !noalias !966
   store i64 %774, ptr %.sroa.579.0..sroa_idx.i, align 8, !noalias !966
-  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %97, i64 noundef %.sroa.7264.0473.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %87)
+  invoke fastcc void @_ZN7globset20MultiStrategyBuilder3add17ha191685504a26c22E(ptr noalias noundef align 8 dereferenceable(56) %97, i64 noundef %.sroa.7264.0476.i, ptr noalias nocapture noundef align 8 dereferenceable(24) %87)
           to label %780 unwind label %.loopexit.i, !noalias !961
 
 780:                                              ; preds = %776

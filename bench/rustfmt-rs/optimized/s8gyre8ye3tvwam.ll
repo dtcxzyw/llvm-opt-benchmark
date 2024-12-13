@@ -243,12 +243,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.05, i64 68, i1 false)
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 %.sroa.4.0.copyload2, ptr %.sroa.46.0..sroa_idx, align 4
-  %.sroa.0.0.i.i = load i64, ptr %3, align 8, !alias.scope !14, !noalias !17
+  %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8, !alias.scope !14, !noalias !17
   call void @"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !17
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %.sroa.05)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.0.0.i.i, ptr %23, align 4
+  store i64 %.sroa.0.0.copyload.i.i, ptr %23, align 4
   br label %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.thread"
 
 "_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.thread": ; preds = %2, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit", %22
@@ -18664,14 +18664,14 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.05.i, i64 68, i1 false), !noalias !3229
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 %.sroa.4.0.copyload2.i, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !3229
-  %.sroa.0.0.i.i.i = load i64, ptr %3, align 8, !alias.scope !3230, !noalias !3233
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %3, align 8, !alias.scope !3230, !noalias !3233
   call void @"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !3233
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !3229
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %.sroa.05.i)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h220078157106aec3E.llvm.7841824541249400019.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h220078157106aec3E.llvm.7841824541249400019.exit": ; preds = %2, %27, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i", %8
-  %.sroa.3.0 = phi i64 [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i" ], [ %.sroa.0.0.i.i.i, %27 ], [ undef, %8 ], [ %.sroa.5.0.copyload, %2 ]
+  %.sroa.3.0 = phi i64 [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i" ], [ %.sroa.0.0.copyload.i.i.i, %27 ], [ undef, %8 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.0.0 = phi i32 [ 0, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i" ], [ 1, %27 ], [ 0, %8 ], [ %.sroa.0.0.copyload, %2 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8, !nonnull !9, !align !65, !noundef !9
@@ -23574,7 +23574,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %9, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.05.i.i.i, i64 68, i1 false), !noalias !4020
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 68
   store i32 %.sroa.4.0.copyload2.i.i.i, ptr %.sroa.46.0..sroa_idx.i.i.i, align 4, !noalias !4020
-  %.sroa.0.0.i.i.i.i.i = load i64, ptr %9, align 8, !alias.scope !4021, !noalias !4024
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %9, align 8, !alias.scope !4021, !noalias !4024
   invoke void @"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
           to label %.noexc51 unwind label %.thread
 
@@ -23584,7 +23584,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i": ; preds = %.noexc51, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i", %46
-  %.sroa.4.0.i = phi i64 [ undef, %46 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i" ], [ %.sroa.0.0.i.i.i.i.i, %.noexc51 ]
+  %.sroa.4.0.i = phi i64 [ undef, %46 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i" ], [ %.sroa.0.0.copyload.i.i.i.i.i, %.noexc51 ]
   %storemerge.i.i.i = phi i32 [ 0, %46 ], [ 0, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i" ], [ 1, %.noexc51 ]
   store i32 %storemerge.i.i.i, ptr %43, align 8, !alias.scope !3996, !noalias !3999
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 20
@@ -23766,7 +23766,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %6, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.05.i.i.i72, i64 68, i1 false), !noalias !4061
   %.sroa.46.0..sroa_idx.i.i.i78 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store i32 %.sroa.4.0.copyload2.i.i.i77, ptr %.sroa.46.0..sroa_idx.i.i.i78, align 4, !noalias !4061
-  %.sroa.0.0.i.i.i.i.i79 = load i64, ptr %6, align 8, !alias.scope !4062, !noalias !4065
+  %.sroa.0.0.copyload.i.i.i.i.i79 = load i64, ptr %6, align 8, !alias.scope !4062, !noalias !4065
   invoke void @"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
           to label %.noexc85 unwind label %.thread
 
@@ -23776,7 +23776,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %94
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i80"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i80": ; preds = %.noexc85, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i74", %101
-  %.sroa.4.0.i81 = phi i64 [ undef, %101 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i74" ], [ %.sroa.0.0.i.i.i.i.i79, %.noexc85 ]
+  %.sroa.4.0.i81 = phi i64 [ undef, %101 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i74" ], [ %.sroa.0.0.copyload.i.i.i.i.i79, %.noexc85 ]
   %storemerge.i.i.i82 = phi i32 [ 0, %101 ], [ 0, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i74" ], [ 1, %.noexc85 ]
   store i32 %storemerge.i.i.i82, ptr %43, align 8, !alias.scope !4037, !noalias !4040
   store i64 %.sroa.4.0.i81, ptr %70, align 4, !alias.scope !4037, !noalias !4040
@@ -23880,7 +23880,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.05.i.i.i87, i64 68, i1 false), !noalias !4092
   %.sroa.46.0..sroa_idx.i.i.i93 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %.sroa.4.0.copyload2.i.i.i92, ptr %.sroa.46.0..sroa_idx.i.i.i93, align 4, !noalias !4092
-  %.sroa.0.0.i.i.i.i.i94 = load i64, ptr %5, align 8, !alias.scope !4093, !noalias !4096
+  %.sroa.0.0.copyload.i.i.i.i.i94 = load i64, ptr %5, align 8, !alias.scope !4093, !noalias !4096
   invoke void @"_ZN4core3ptr51drop_in_place$LT$rustc_ast..ast..NestedMetaItem$GT$17h08db8afcae125415E.llvm.7442130522521287225"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5)
           to label %.noexc100 unwind label %164
 
@@ -23890,7 +23890,7 @@ _ZN15rustfmt_nightly5utils5mk_sp17h98cfa70ea005048dE.exit: ; preds = %94
   br label %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i95"
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17hadb3897b8d47c685E.exit.i95": ; preds = %.noexc100, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i89", %144
-  %.sroa.4.0.i96 = phi i64 [ undef, %144 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i89" ], [ %.sroa.0.0.i.i.i.i.i94, %.noexc100 ]
+  %.sroa.4.0.i96 = phi i64 [ undef, %144 ], [ undef, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i89" ], [ %.sroa.0.0.copyload.i.i.i.i.i94, %.noexc100 ]
   %storemerge.i.i.i97 = phi i32 [ 0, %144 ], [ 0, %"_ZN86_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h923a609444f4d3f5E.exit.i.i.i89" ], [ 1, %.noexc100 ]
   store i32 %storemerge.i.i.i97, ptr %43, align 8, !alias.scope !4068, !noalias !4071
   store i64 %.sroa.4.0.i96, ptr %70, align 4, !alias.scope !4068, !noalias !4071

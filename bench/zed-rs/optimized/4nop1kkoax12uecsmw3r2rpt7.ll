@@ -11558,9 +11558,9 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hd33e738fb9fe8a04E(ptr
   %13 = load i64, ptr %4, align 8, !range !49, !noundef !4
   %trunc = trunc nuw i64 %13 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %anon.f7a154783db94f1ede95c5122ae90897.123. = select i1 %trunc, ptr @anon.f7a154783db94f1ede95c5122ae90897.123, ptr null
+  %.anon.f7a154783db94f1ede95c5122ae90897.123 = select i1 %trunc, ptr @anon.f7a154783db94f1ede95c5122ae90897.123, ptr null
   %14 = insertvalue { i64, ptr } poison, i64 %13, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %anon.f7a154783db94f1ede95c5122ae90897.123., 1
+  %15 = insertvalue { i64, ptr } %14, ptr %.anon.f7a154783db94f1ede95c5122ae90897.123, 1
   ret { i64, ptr } %15
 
 16:                                               ; preds = %10

@@ -1531,8 +1531,8 @@ if.else.i:                                        ; preds = %if.end11
 
 get_time.exit:                                    ; preds = %if.then.i8, %if.else.i
   %retval.sroa.0.0.i = phi i64 [ %call.i9, %if.then.i8 ], [ %call2.i, %if.else.i ]
-  %retval.sroa.0.0.i10 = tail call i64 @llvm.usub.sat.i64(i64 %call4, i64 %retval.sroa.0.0.i)
-  %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i10, i64 999)
+  %.sub.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call4, i64 %retval.sroa.0.0.i)
+  %t.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %.sub.i.i, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
   %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32

@@ -4870,13 +4870,13 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit: ; preds = %29
   store i64 %36, ptr %17, align 8, !alias.scope !918, !noalias !919
   %37 = load ptr, ptr %20, align 8, !alias.scope !918, !noalias !919, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %37, i64 %32
-  %.sroa.0.0.copyload148 = load i64, ptr %38, align 8, !noalias !918
-  %.not = icmp eq i64 %.sroa.0.0.copyload148, -9223372036854775808
+  %.sroa.0.0.copyload149 = load i64, ptr %38, align 8, !noalias !918
+  %.not = icmp eq i64 %.sroa.0.0.copyload149, -9223372036854775808
   br i1 %.not, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit", label %50
 
 39:                                               ; preds = %175, %173, %180, %57, %50
   %.sroa.7.0 = phi ptr [ %1, %173 ], [ undef, %180 ], [ %59, %57 ], [ %52, %50 ], [ %1, %175 ]
-  %.sroa.0.0 = phi i64 [ 4, %173 ], [ 1, %180 ], [ 3, %57 ], [ 0, %50 ], [ %.175, %175 ]
+  %.sroa.0.0 = phi i64 [ 4, %173 ], [ 1, %180 ], [ 3, %57 ], [ 0, %50 ], [ %.102, %175 ]
   %.0 = phi i64 [ %174, %173 ], [ %181, %180 ], [ %58, %57 ], [ %51, %50 ], [ %179, %175 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.0, ptr %40, align 8
@@ -4914,15 +4914,15 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69: ; preds = %"_Z
   store i64 %47, ptr %21, align 8, !alias.scope !931, !noalias !932
   %48 = load ptr, ptr %24, align 8, !alias.scope !931, !noalias !932, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %48, i64 %43
-  %.sroa.0152.0.copyload153 = load i64, ptr %49, align 8, !noalias !931
-  %.not60 = icmp eq i64 %.sroa.0152.0.copyload153, -9223372036854775808
+  %.sroa.0153.0.copyload154 = load i64, ptr %49, align 8, !noalias !931
+  %.not60 = icmp eq i64 %.sroa.0153.0.copyload154, -9223372036854775808
   br i1 %.not60, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit72", label %57
 
 50:                                               ; preds = %_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit
-  %.sroa.7.0..sroa_idx149.le = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx149.le, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx150.le = getelementptr inbounds nuw i8, ptr %38, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx150.le, i64 16, i1 false)
   %51 = load i64, ptr %16, align 8, !alias.scope !938, !noundef !4
-  %52 = inttoptr i64 %.sroa.0.0.copyload148 to ptr
+  %52 = inttoptr i64 %.sroa.0.0.copyload149 to ptr
   br label %39
 
 53:                                               ; preds = %136, %103
@@ -4938,10 +4938,10 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69: ; preds = %"_Z
   br i1 %56, label %60, label %183
 
 57:                                               ; preds = %_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69
-  %.sroa.7154.0..sroa_idx155.le = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7154.0..sroa_idx155.le, i64 16, i1 false)
+  %.sroa.7155.0..sroa_idx156.le = getelementptr inbounds nuw i8, ptr %49, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7155.0..sroa_idx156.le, i64 16, i1 false)
   %58 = load i64, ptr %16, align 8, !alias.scope !941, !noundef !4
-  %59 = inttoptr i64 %.sroa.0152.0.copyload153 to ptr
+  %59 = inttoptr i64 %.sroa.0153.0.copyload154 to ptr
   br label %39
 
 60:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit72"
@@ -5261,7 +5261,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit69: ; preds = %"_Z
   %177 = load i8, ptr %176, align 2, !range !281, !noundef !4
   %178 = trunc nuw i8 %177 to i1
   %179 = load i64, ptr %16, align 8, !noundef !4
-  %.175 = select i1 %178, i64 6, i64 5
+  %.102 = select i1 %178, i64 6, i64 5
   br label %39
 
 180:                                              ; preds = %169
@@ -5362,8 +5362,8 @@ define hidden void @"_ZN6rustls4conn10unbuffered70_$LT$impl$u20$rustls..conn..Un
   store i64 %47, ptr %18, align 8, !alias.scope !994, !noalias !995
   %48 = load ptr, ptr %21, align 8, !alias.scope !994, !noalias !995, !nonnull !4, !noundef !4
   %49 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %48, i64 %43
-  %.sroa.0.0.copyload158 = load i64, ptr %49, align 8, !noalias !994
-  %.not = icmp eq i64 %.sroa.0.0.copyload158, -9223372036854775808
+  %.sroa.0.0.copyload159 = load i64, ptr %49, align 8, !noalias !994
+  %.not = icmp eq i64 %.sroa.0.0.copyload159, -9223372036854775808
   br i1 %.not, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit", label %59
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit": ; preds = %34, %40, %"_ZN6rustls4conn10unbuffered115_$LT$impl$u20$rustls..conn..UnbufferedConnectionCommon$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$19process_tls_records28_$u7b$$u7b$closure$u7d$$u7d$17h6f62b7370ba071ccE.exit"
@@ -5385,20 +5385,20 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit: ; preds = %"_ZN4
   store i64 %56, ptr %22, align 8, !alias.scope !1007, !noalias !1008
   %57 = load ptr, ptr %25, align 8, !alias.scope !1007, !noalias !1008, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %57, i64 %52
-  %.sroa.0162.0.copyload163 = load i64, ptr %58, align 8, !noalias !1007
-  %.not58 = icmp eq i64 %.sroa.0162.0.copyload163, -9223372036854775808
+  %.sroa.0163.0.copyload164 = load i64, ptr %58, align 8, !noalias !1007
+  %.not58 = icmp eq i64 %.sroa.0163.0.copyload164, -9223372036854775808
   br i1 %.not58, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit68", label %75
 
 59:                                               ; preds = %"_ZN6rustls4conn10unbuffered115_$LT$impl$u20$rustls..conn..UnbufferedConnectionCommon$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$19process_tls_records28_$u7b$$u7b$closure$u7d$$u7d$17h6f62b7370ba071ccE.exit"
-  %.sroa.8159.0..sroa_idx160.le = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8159.0..sroa_idx160.le, i64 16, i1 false)
+  %.sroa.8160.0..sroa_idx161.le = getelementptr inbounds nuw i8, ptr %49, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8160.0..sroa_idx161.le, i64 16, i1 false)
   %60 = load i64, ptr %16, align 8, !alias.scope !1014, !noundef !4
-  %61 = inttoptr i64 %.sroa.0.0.copyload158 to ptr
+  %61 = inttoptr i64 %.sroa.0.0.copyload159 to ptr
   br label %62
 
 62:                                               ; preds = %198, %196, %203, %80, %75, %59
   %.sroa.887.0 = phi ptr [ %1, %196 ], [ undef, %203 ], [ %82, %80 ], [ %77, %75 ], [ %61, %59 ], [ %1, %198 ]
-  %.sroa.086.0 = phi i64 [ 4, %196 ], [ 1, %203 ], [ 3, %80 ], [ 0, %75 ], [ 2, %59 ], [ %.194, %198 ]
+  %.sroa.086.0 = phi i64 [ 4, %196 ], [ 1, %203 ], [ 3, %80 ], [ 0, %75 ], [ 2, %59 ], [ %.107, %198 ]
   %.0 = phi i64 [ %197, %196 ], [ %204, %203 ], [ %81, %80 ], [ %76, %75 ], [ %60, %59 ], [ %202, %198 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.0, ptr %63, align 8
@@ -5442,15 +5442,15 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71: ; preds = %"_Z
   store i64 %72, ptr %26, align 8, !alias.scope !1023, !noalias !1024
   %73 = load ptr, ptr %29, align 8, !alias.scope !1023, !noalias !1024, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %73, i64 %68
-  %.sroa.0168.0.copyload169 = load i64, ptr %74, align 8, !noalias !1023
-  %.not59 = icmp eq i64 %.sroa.0168.0.copyload169, -9223372036854775808
+  %.sroa.0169.0.copyload170 = load i64, ptr %74, align 8, !noalias !1023
+  %.not59 = icmp eq i64 %.sroa.0169.0.copyload170, -9223372036854775808
   br i1 %.not59, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit74", label %80
 
 75:                                               ; preds = %_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit
-  %.sroa.7.0..sroa_idx165.le = getelementptr inbounds nuw i8, ptr %58, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx165.le, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx166.le = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx166.le, i64 16, i1 false)
   %76 = load i64, ptr %16, align 8, !alias.scope !1030, !noundef !4
-  %77 = inttoptr i64 %.sroa.0162.0.copyload163 to ptr
+  %77 = inttoptr i64 %.sroa.0163.0.copyload164 to ptr
   br label %62
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit74": ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit68", %_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71
@@ -5460,10 +5460,10 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71: ; preds = %"_Z
   br i1 %79, label %83, label %206
 
 80:                                               ; preds = %_ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71
-  %.sroa.7170.0..sroa_idx171.le = getelementptr inbounds nuw i8, ptr %74, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7170.0..sroa_idx171.le, i64 16, i1 false)
+  %.sroa.7171.0..sroa_idx172.le = getelementptr inbounds nuw i8, ptr %74, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7171.0..sroa_idx172.le, i64 16, i1 false)
   %81 = load i64, ptr %16, align 8, !alias.scope !1033, !noundef !4
-  %82 = inttoptr i64 %.sroa.0168.0.copyload169 to ptr
+  %82 = inttoptr i64 %.sroa.0169.0.copyload170 to ptr
   br label %62
 
 83:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit74"
@@ -5774,7 +5774,7 @@ _ZN6rustls6vecbuf14ChunkVecBuffer3pop17hd0016c913b79fae6E.exit71: ; preds = %"_Z
   %200 = load i8, ptr %199, align 2, !range !281, !noundef !4
   %201 = trunc nuw i8 %200 to i1
   %202 = load i64, ptr %16, align 8, !noundef !4
-  %.194 = select i1 %201, i64 6, i64 5
+  %.107 = select i1 %201, i64 6, i64 5
   br label %62
 
 203:                                              ; preds = %192

@@ -3927,34 +3927,30 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
   store i32 0, ptr %.089, align 8
   store i32 0, ptr %.092, align 8
   %8 = icmp samesign ugt i32 %1, 1
-  br i1 %8, label %.lr.ph21.i.preheader, label %psh_blues_set_zones_0.exit
+  br i1 %8, label %.lr.ph21.i, label %psh_blues_set_zones_0.exit
 
-.lr.ph21.i.preheader:                             ; preds = %7
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.lr.ph21.i
-
-.lr.ph21.i:                                       ; preds = %.lr.ph21.i.preheader, %38
-  %.019.i = phi i32 [ %40, %38 ], [ %1, %.lr.ph21.i.preheader ]
-  %or.cond.not.not.i = phi i1 [ true, %38 ], [ false, %.lr.ph21.i.preheader ]
-  %.06217.i = phi i32 [ %.163.i, %38 ], [ 0, %.lr.ph21.i.preheader ]
-  %.06416.i = phi i32 [ %.165.i, %38 ], [ 0, %.lr.ph21.i.preheader ]
-  %.06615.i = phi ptr [ %39, %38 ], [ %2, %.lr.ph21.i.preheader ]
+.lr.ph21.i:                                       ; preds = %7, %38
+  %.019.i = phi i32 [ %40, %38 ], [ %1, %7 ]
+  %or.cond.not.not.i = phi i1 [ true, %38 ], [ false, %7 ]
+  %.06217.i = phi i32 [ %.163.i, %38 ], [ 0, %7 ]
+  %.06416.i = phi i32 [ %.165.i, %38 ], [ 0, %7 ]
+  %.06615.i = phi ptr [ %39, %38 ], [ %2, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.06615.i, i64 2
   %..06615.i = select i1 %or.cond.not.not.i, ptr %9, ptr %.06615.i
   %.06615.i. = select i1 %or.cond.not.not.i, ptr %.06615.i, ptr %9
   %.06416.i..06217.i = select i1 %or.cond.not.not.i, i32 %.06416.i, i32 %.06217.i
-  %.089.idx..092.v = select i1 %or.cond.not.not.i, i64 %.089.idx, i64 %.092.v
+  %.089..092 = select i1 %or.cond.not.not.i, ptr %.089, ptr %.092
   %.sink36.in.i = load i16, ptr %.06615.i., align 2
   %.sink36.i = sext i16 %.sink36.in.i to i32
   %.sink37.i = load i16, ptr %..06615.i, align 2
   %10 = sext i16 %.sink37.i to i32
   %11 = sub nsw i32 %10, %.sink36.i
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.089.idx..092.v
+  %.056.i = getelementptr inbounds nuw i8, ptr %.089..092, i64 8
   %.not3.i = icmp eq i32 %.06416.i..06217.i, 0
   br i1 %.not3.i, label %._crit_edge14.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph21.i, %26
-  %.0555.i = phi ptr [ %28, %26 ], [ %gep, %.lr.ph21.i ]
+  %.0555.i = phi ptr [ %28, %26 ], [ %.056.i, %.lr.ph21.i ]
   %.14.i = phi i32 [ %27, %26 ], [ %.06416.i..06217.i, %.lr.ph21.i ]
   %12 = load i32, ptr %.0555.i, align 8
   %13 = icmp sgt i32 %12, %.sink36.i
@@ -4006,7 +4002,7 @@ define internal fastcc void @psh_blues_set_zones(ptr noundef %0, i32 noundef ran
   br i1 %.not68.wide.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !72
 
 ._crit_edge14.i:                                  ; preds = %26, %.lr.ph13.i, %.lr.ph21.i
-  %.055.lcssa30.i = phi ptr [ %gep, %.lr.ph21.i ], [ %.0555.i, %.lr.ph13.i ], [ %28, %26 ]
+  %.055.lcssa30.i = phi ptr [ %.056.i, %.lr.ph21.i ], [ %.0555.i, %.lr.ph13.i ], [ %28, %26 ]
   store i32 %.sink36.i, ptr %.055.lcssa30.i, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.055.lcssa30.i, i64 4
   store i32 %11, ptr %33, align 4

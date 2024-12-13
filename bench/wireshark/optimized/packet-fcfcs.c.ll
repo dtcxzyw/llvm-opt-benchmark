@@ -481,15 +481,15 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %89 = icmp eq i16 %30, -32766
   %90 = load i32, ptr %87, align 4
   %. = select i1 %89, i32 %90, i32 %31
-  %.185 = select i1 %89, i32 0, i32 %90
+  %.183 = select i1 %89, i32 0, i32 %90
   br label %91
 
 91:                                               ; preds = %88, %83
   %.1 = phi i32 [ %31, %83 ], [ %., %88 ]
-  %.0168 = phi i32 [ 0, %83 ], [ %.185, %88 ]
-  %.not184 = icmp eq i32 %.1, 32769
+  %.0168 = phi i32 [ 0, %83 ], [ %.183, %88 ]
+  %.not185 = icmp eq i32 %.1, 32769
   %92 = load ptr, ptr %9, align 8
-  br i1 %.not184, label %.thread, label %94
+  br i1 %.not185, label %.thread, label %94
 
 .thread:                                          ; preds = %91
   %93 = call ptr @val_to_str(i32 noundef %.0168, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4

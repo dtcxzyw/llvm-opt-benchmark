@@ -2789,8 +2789,8 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
 41:                                               ; preds = %39
   store i8 1, ptr %8, align 1
   %42 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %35, i32 noundef 0)
-  %.not16.i = icmp eq i32 %42, 0
-  br i1 %.not16.i, label %45, label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %45, label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread
 
 43:                                               ; preds = %39
   %44 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %35, i32 noundef 0)
@@ -2962,8 +2962,8 @@ define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb
 20:                                               ; preds = %18
   store i8 1, ptr %3, align 1
   %21 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %14, i32 noundef 0)
-  %.not16.i = icmp eq i32 %21, 0
-  br i1 %.not16.i, label %23, label %22
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %23, label %22
 
 22:                                               ; preds = %20
   store i8 0, ptr %3, align 1
@@ -2978,7 +2978,7 @@ define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb
   br label %_ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit
 
 _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %25
-  %.0.i = phi float [ -1.000000e+00, %22 ], [ %24, %23 ], [ -1.000000e+00, %13 ], [ -1.000000e+00, %25 ]
+  %.0.i = phi float [ -1.000000e+00, %22 ], [ %24, %23 ], [ -1.000000e+00, %25 ], [ -1.000000e+00, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %27 = load i8, ptr %3, align 1
@@ -3022,8 +3022,8 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
 10:                                               ; preds = %.preheader
   store i8 1, ptr %3, align 1
   %11 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %7, i32 noundef 0)
-  %.not17 = icmp eq i32 %11, 0
-  br i1 %.not17, label %13, label %12
+  %.not16 = icmp eq i32 %11, 0
+  br i1 %.not16, label %13, label %12
 
 12:                                               ; preds = %10
   store i8 0, ptr %3, align 1
@@ -3042,8 +3042,8 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !36
 
-.loopexit:                                        ; preds = %17, %15, %4, %13, %12
-  %.0 = phi float [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %17 ]
+.loopexit:                                        ; preds = %17, %4, %15, %13, %12
+  %.0 = phi float [ -1.000000e+00, %12 ], [ %14, %13 ], [ -1.000000e+00, %15 ], [ -1.000000e+00, %4 ], [ -1.000000e+00, %17 ]
   ret float %.0
 }
 
@@ -3111,8 +3111,8 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
 15:                                               ; preds = %.preheader.i
   store i8 1, ptr %3, align 1
   %16 = tail call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %0, i64 noundef %12, i32 noundef 0)
-  %.not17.i = icmp eq i32 %16, 0
-  br i1 %.not17.i, label %18, label %17
+  %.not16.i = icmp eq i32 %16, 0
+  br i1 %.not16.i, label %18, label %17
 
 17:                                               ; preds = %15
   store i8 0, ptr %3, align 1
@@ -3132,7 +3132,7 @@ define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noun
   br i1 %.not.i, label %.preheader.i, label %_ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit, !llvm.loop !37
 
 _ZL28xtc_get_current_frame_numberP8_IO_FILEP3XDRiPb.exit: ; preds = %22, %11, %17, %18, %20
-  %.0.i = phi i32 [ -1, %17 ], [ %19, %18 ], [ -1, %11 ], [ -1, %20 ], [ -1, %22 ]
+  %.0.i = phi i32 [ -1, %17 ], [ %19, %18 ], [ -1, %20 ], [ -1, %11 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %24 = load i8, ptr %3, align 1

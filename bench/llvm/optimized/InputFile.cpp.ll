@@ -4266,296 +4266,296 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm3pdb9
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %19, align 8
   %20 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 6
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %79
+  br i1 %21, label %22, label %80
 
 22:                                               ; preds = %18
   %23 = select i1 %17, ptr %14, ptr %9
   %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %17, label %.critedge, label %27
+  br i1 %17, label %26, label %27
+
+26:                                               ; preds = %22
+  call void @_ZN4llvm3pdb7PDBFile15getPDBIpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.252") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %25) #19
+  br label %_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit
 
 27:                                               ; preds = %22
   call void @_ZN4llvm3pdb7PDBFile15getPDBTpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.252") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %25) #19
   br label %_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit
 
-.critedge:                                        ; preds = %22
-  call void @_ZN4llvm3pdb7PDBFile15getPDBIpiStreamEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.252") align 8 %3, ptr noundef nonnull align 8 dereferenceable(280) %25) #19
-  br label %_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit
-
-_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit:  ; preds = %.critedge, %27
-  %28 = load i8, ptr %26, align 8
-  %29 = trunc i8 %28 to i1
-  %30 = xor i1 %29, true
-  call void @llvm.assume(i1 %30)
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %33 = call noundef i32 @_ZNK4llvm3pdb9TpiStream17getNumTypeRecordsEv(ptr noundef nonnull align 8 dereferenceable(360) %31) #19
-  store i32 %33, ptr %4, align 4
-  call void @_ZNK4llvm3pdb9TpiStream19getTypeIndexOffsetsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::FixedStreamArray.251") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %31) #19
-  call void @_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRKNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEERjRNS0_16FixedStreamArrayINS1_15TypeIndexOffsetEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.21") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
-  %34 = load ptr, ptr %6, align 8
+_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit:  ; preds = %26, %27
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %29 = load i8, ptr %28, align 8
+  %30 = trunc i8 %29 to i1
+  %31 = xor i1 %30, true
+  call void @llvm.assume(i1 %31)
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  %34 = call noundef i32 @_ZNK4llvm3pdb9TpiStream17getNumTypeRecordsEv(ptr noundef nonnull align 8 dereferenceable(360) %32) #19
+  store i32 %34, ptr %4, align 4
+  call void @_ZNK4llvm3pdb9TpiStream19getTypeIndexOffsetsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::FixedStreamArray.251") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %32) #19
+  call void @_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRKNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEERjRNS0_16FixedStreamArrayINS1_15TypeIndexOffsetEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.21") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %35 = load ptr, ptr %6, align 8
   store ptr null, ptr %6, align 8
-  %35 = load ptr, ptr %23, align 8
-  store ptr %34, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %35, null
+  %36 = load ptr, ptr %23, align 8
+  store ptr %35, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(248) %35) #19
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(248) %36) #19
   %.pr = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EEaSEOS5_.exit
-  %39 = load ptr, ptr %.pr, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(248) %.pr) #19
+  %40 = load ptr, ptr %.pr, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(248) %.pr) #19
   br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvm8ExpectedIRNS_3pdb9TpiStreamEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i
   store ptr null, ptr %6, align 8
-  %42 = load ptr, ptr %23, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %45
+  %43 = load ptr, ptr %23, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %46
 
-45:                                               ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = icmp eq i64 %47, 4294967297
-  %49 = trunc i64 %47 to i32
-  br i1 %48, label %50, label %55
+46:                                               ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %48 = load atomic i64, ptr %47 acquire, align 8
+  %49 = icmp eq i64 %48, 4294967297
+  %50 = trunc i64 %48 to i32
+  br i1 %49, label %51, label %56
 
-50:                                               ; preds = %45
-  store i32 0, ptr %46, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 0, ptr %51, align 4
-  %52 = load ptr, ptr %44, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
+51:                                               ; preds = %46
+  store i32 0, ptr %47, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  store i32 0, ptr %52, align 4
+  %53 = load ptr, ptr %45, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
 
-55:                                               ; preds = %45
-  %56 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %56, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %59, label %57
+56:                                               ; preds = %46
+  %57 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %57, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %60, label %58
 
-57:                                               ; preds = %55
-  %58 = add nsw i32 %49, -1
-  store i32 %58, ptr %46, align 4
-  br label %61
+58:                                               ; preds = %56
+  %59 = add nsw i32 %50, -1
+  store i32 %59, ptr %47, align 4
+  br label %62
 
-59:                                               ; preds = %55
-  %60 = atomicrmw volatile add ptr %46, i32 -1 acq_rel, align 4
-  br label %61
+60:                                               ; preds = %56
+  %61 = atomicrmw volatile add ptr %47, i32 -1 acq_rel, align 4
+  br label %62
 
-61:                                               ; preds = %59, %57
-  %.0.i.i.i.i.i.i.i = phi i32 [ %49, %57 ], [ %60, %59 ]
-  %62 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %62, label %63, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
+62:                                               ; preds = %60, %58
+  %.0.i.i.i.i.i.i.i = phi i32 [ %50, %58 ], [ %61, %60 ]
+  %63 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %63, label %64, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %44, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
-  %67 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %68 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %68, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %72, label %69
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %45, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = load ptr, ptr %66, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(16) %45) #19
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %69 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %69, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %73, label %70
 
-69:                                               ; preds = %63
-  %70 = load i32, ptr %67, align 4
-  %71 = add nsw i32 %70, -1
-  store i32 %71, ptr %67, align 4
-  br label %74
+70:                                               ; preds = %64
+  %71 = load i32, ptr %68, align 4
+  %72 = add nsw i32 %71, -1
+  store i32 %72, ptr %68, align 4
+  br label %75
 
-72:                                               ; preds = %63
-  %73 = atomicrmw volatile add ptr %67, i32 -1 acq_rel, align 4
-  br label %74
+73:                                               ; preds = %64
+  %74 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
+  br label %75
 
-74:                                               ; preds = %72, %69
-  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %70, %69 ], [ %73, %72 ]
-  %75 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %75, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
+75:                                               ; preds = %73, %70
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %71, %70 ], [ %74, %73 ]
+  %76 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %76, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %74, %50
-  %76 = load ptr, ptr %44, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(16) %44) #19
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %75, %51
+  %77 = load ptr, ptr %45, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %45) #19
   br label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
 
-79:                                               ; preds = %18
-  %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
-  %81 = inttoptr i64 %80 to ptr
-  %82 = load ptr, ptr %81, align 8, !noalias !217
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 352
-  %84 = load ptr, ptr %83, align 8, !noalias !217
-  %85 = tail call { i64, ptr } %84(ptr noundef nonnull align 8 dereferenceable(48) %81) #19, !noalias !217
-  %86 = extractvalue { i64, ptr } %85, 0
-  %87 = extractvalue { i64, ptr } %85, 1
-  %88 = load ptr, ptr %81, align 8, !noalias !217
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 360
-  %90 = load ptr, ptr %89, align 8, !noalias !217
-  %91 = tail call { i64, ptr } %90(ptr noundef nonnull align 8 dereferenceable(48) %81) #19, !noalias !217
-  %92 = extractvalue { i64, ptr } %91, 0
-  %93 = extractvalue { i64, ptr } %91, 1
-  store i64 %86, ptr %7, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %87, ptr %94, align 8
-  %95 = icmp ne ptr %87, %93
-  %.not.i.i.i.i3563 = icmp ne i64 %86, %92
-  %.not2.i64 = select i1 %95, i1 true, i1 %.not.i.i.i.i3563
-  br i1 %.not2.i64, label %.lr.ph, label %._crit_edge
+80:                                               ; preds = %18
+  %81 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %82 = inttoptr i64 %81 to ptr
+  %83 = load ptr, ptr %82, align 8, !noalias !217
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 352
+  %85 = load ptr, ptr %84, align 8, !noalias !217
+  %86 = tail call { i64, ptr } %85(ptr noundef nonnull align 8 dereferenceable(48) %82) #19, !noalias !217
+  %87 = extractvalue { i64, ptr } %86, 0
+  %88 = extractvalue { i64, ptr } %86, 1
+  %89 = load ptr, ptr %82, align 8, !noalias !217
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 360
+  %91 = load ptr, ptr %90, align 8, !noalias !217
+  %92 = tail call { i64, ptr } %91(ptr noundef nonnull align 8 dereferenceable(48) %82) #19, !noalias !217
+  %93 = extractvalue { i64, ptr } %92, 0
+  %94 = extractvalue { i64, ptr } %92, 1
+  store i64 %87, ptr %7, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %88, ptr %95, align 8
+  %96 = icmp ne ptr %88, %94
+  %.not.i.i.i.i3159 = icmp ne i64 %87, %93
+  %.not2.i60 = select i1 %96, i1 true, i1 %.not.i.i.i.i3159
+  br i1 %.not2.i60, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %79
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %99
+.lr.ph:                                           ; preds = %80
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %100
 
-99:                                               ; preds = %.lr.ph, %143
-  %lhsv.i.i.i.i66 = phi i64 [ %86, %.lr.ph ], [ %lhsv.i.i.i.i, %143 ]
-  %100 = phi ptr [ %87, %.lr.ph ], [ %148, %143 ]
-  %.165 = phi ptr [ undef, %.lr.ph ], [ %.2, %143 ]
-  store i8 0, ptr %96, align 8
+100:                                              ; preds = %.lr.ph, %144
+  %lhsv.i.i.i.i62 = phi i64 [ %87, %.lr.ph ], [ %lhsv.i.i.i.i, %144 ]
+  %101 = phi ptr [ %88, %.lr.ph ], [ %149, %144 ]
+  %.161 = phi ptr [ undef, %.lr.ph ], [ %.2, %144 ]
+  store i8 0, ptr %97, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 32, i1 false)
-  store i32 0, ptr %97, align 4
-  %101 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i66, ptr %100, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  br i1 %101, label %102, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
+  store i32 0, ptr %98, align 4
+  %102 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i62, ptr %101, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  br i1 %102, label %103, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37
 
-102:                                              ; preds = %99
-  %103 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20, !noalias !220
-  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEj(ptr noundef nonnull align 8 dereferenceable(248) %103, ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 100) #19, !noalias !220
-  %104 = load ptr, ptr %9, align 8
-  store ptr %103, ptr %9, align 8
-  %.not.i.i.i.i36 = icmp eq ptr %104, null
-  br i1 %.not.i.i.i.i36, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37
+103:                                              ; preds = %100
+  %104 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20, !noalias !220
+  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEj(ptr noundef nonnull align 8 dereferenceable(248) %104, ptr noundef nonnull align 8 dereferenceable(56) %8, i32 noundef 100) #19, !noalias !220
+  %105 = load ptr, ptr %9, align 8
+  store ptr %104, ptr %9, align 8
+  %.not.i.i.i.i32 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i.i32, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i33
 
-_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37: ; preds = %102
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(248) %104) #19
+_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i33: ; preds = %103
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8
+  call void %108(ptr noundef nonnull align 8 dereferenceable(248) %105) #19
   %.pre = load ptr, ptr %9, align 8
-  br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
+  br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37
 
-_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41: ; preds = %102, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37, %99
-  %.2 = phi ptr [ %.165, %99 ], [ %.pre, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37 ], [ %103, %102 ]
-  %108 = load ptr, ptr %98, align 8
-  %.not.i.i.i.i.i.i42 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i.i.i.i42, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, label %109
+_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37: ; preds = %103, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i33, %100
+  %.2 = phi ptr [ %.161, %100 ], [ %.pre, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i33 ], [ %104, %103 ]
+  %109 = load ptr, ptr %99, align 8
+  %.not.i.i.i.i.i.i38 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i.i.i.i38, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, label %110
 
-109:                                              ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %111 = load atomic i64, ptr %110 acquire, align 8
-  %112 = icmp eq i64 %111, 4294967297
-  %113 = trunc i64 %111 to i32
-  br i1 %112, label %114, label %119
+110:                                              ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %112 = load atomic i64, ptr %111 acquire, align 8
+  %113 = icmp eq i64 %112, 4294967297
+  %114 = trunc i64 %112 to i32
+  br i1 %113, label %115, label %120
 
-114:                                              ; preds = %109
-  store i32 0, ptr %110, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  store i32 0, ptr %115, align 4
-  %116 = load ptr, ptr %108, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(16) %108) #19
-  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i47
+115:                                              ; preds = %110
+  store i32 0, ptr %111, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  store i32 0, ptr %116, align 4
+  %117 = load ptr, ptr %109, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %109) #19
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i43
 
-119:                                              ; preds = %109
-  %120 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i43 = icmp eq i8 %120, 0
-  br i1 %.not.i.i.i.i.i.i.i43, label %123, label %121
+120:                                              ; preds = %110
+  %121 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i39 = icmp eq i8 %121, 0
+  br i1 %.not.i.i.i.i.i.i.i39, label %124, label %122
 
-121:                                              ; preds = %119
-  %122 = add nsw i32 %113, -1
-  store i32 %122, ptr %110, align 4
-  br label %125
+122:                                              ; preds = %120
+  %123 = add nsw i32 %114, -1
+  store i32 %123, ptr %111, align 4
+  br label %126
 
-123:                                              ; preds = %119
-  %124 = atomicrmw volatile add ptr %110, i32 -1 acq_rel, align 4
-  br label %125
+124:                                              ; preds = %120
+  %125 = atomicrmw volatile add ptr %111, i32 -1 acq_rel, align 4
+  br label %126
 
-125:                                              ; preds = %123, %121
-  %.0.i.i.i.i.i.i.i44 = phi i32 [ %113, %121 ], [ %124, %123 ]
-  %126 = icmp eq i32 %.0.i.i.i.i.i.i.i44, 1
-  br i1 %126, label %127, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
+126:                                              ; preds = %124, %122
+  %.0.i.i.i.i.i.i.i40 = phi i32 [ %114, %122 ], [ %125, %124 ]
+  %127 = icmp eq i32 %.0.i.i.i.i.i.i.i40, 1
+  br i1 %127, label %128, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %108, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(16) %108) #19
-  %131 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  %132 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i45 = icmp eq i8 %132, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i45, label %136, label %133
+128:                                              ; preds = %126
+  %129 = load ptr, ptr %109, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %131 = load ptr, ptr %130, align 8
+  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %109) #19
+  %132 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  %133 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i41 = icmp eq i8 %133, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i41, label %137, label %134
 
-133:                                              ; preds = %127
-  %134 = load i32, ptr %131, align 4
-  %135 = add nsw i32 %134, -1
-  store i32 %135, ptr %131, align 4
-  br label %138
+134:                                              ; preds = %128
+  %135 = load i32, ptr %132, align 4
+  %136 = add nsw i32 %135, -1
+  store i32 %136, ptr %132, align 4
+  br label %139
 
-136:                                              ; preds = %127
-  %137 = atomicrmw volatile add ptr %131, i32 -1 acq_rel, align 4
-  br label %138
+137:                                              ; preds = %128
+  %138 = atomicrmw volatile add ptr %132, i32 -1 acq_rel, align 4
+  br label %139
 
-138:                                              ; preds = %136, %133
-  %.0.i.i.i.i.i.i.i.i.i46 = phi i32 [ %134, %133 ], [ %137, %136 ]
-  %139 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i46, 1
-  br i1 %139, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i47, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
+139:                                              ; preds = %137, %134
+  %.0.i.i.i.i.i.i.i.i.i42 = phi i32 [ %135, %134 ], [ %138, %137 ]
+  %140 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i42, 1
+  br i1 %140, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i43, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i47: ; preds = %138, %114
-  %140 = load ptr, ptr %108, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(16) %108) #19
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i43: ; preds = %139, %115
+  %141 = load ptr, ptr %109, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %143 = load ptr, ptr %142, align 8
+  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %109) #19
   br label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41, %125, %138, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i47
-  br i1 %101, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %143
+_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit37, %126, %139, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i43
+  br i1 %102, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %144
 
-143:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
-  %144 = load ptr, ptr %94, align 8
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 136
-  %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(48) %144, ptr noundef nonnull align 8 dereferenceable(16) %7) #19
-  %148 = load ptr, ptr %94, align 8
-  %149 = icmp ne ptr %148, %93
+144:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
+  %145 = load ptr, ptr %95, align 8
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 136
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull align 8 dereferenceable(48) %145, ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %149 = load ptr, ptr %95, align 8
+  %150 = icmp ne ptr %149, %94
   %lhsv.i.i.i.i = load i64, ptr %7, align 8
-  %.not.i.i.i.i35 = icmp ne i64 %lhsv.i.i.i.i, %92
-  %.not2.i = select i1 %149, i1 true, i1 %.not.i.i.i.i35
-  br i1 %.not2.i, label %99, label %._crit_edge
+  %.not.i.i.i.i31 = icmp ne i64 %lhsv.i.i.i.i, %93
+  %.not2.i = select i1 %150, i1 true, i1 %.not.i.i.i.i31
+  br i1 %.not2.i, label %100, label %._crit_edge
 
-._crit_edge:                                      ; preds = %143, %79
-  %150 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20, !noalias !223
-  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1Ej(ptr noundef nonnull align 8 dereferenceable(248) %150, i32 noundef 100) #19, !noalias !223
-  %151 = load ptr, ptr %9, align 8
-  store ptr %150, ptr %9, align 8
-  %.not.i.i.i.i48 = icmp eq ptr %151, null
-  br i1 %.not.i.i.i.i48, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i49
+._crit_edge:                                      ; preds = %144, %80
+  %151 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20, !noalias !223
+  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1Ej(ptr noundef nonnull align 8 dereferenceable(248) %151, i32 noundef 100) #19, !noalias !223
+  %152 = load ptr, ptr %9, align 8
+  store ptr %151, ptr %9, align 8
+  %.not.i.i.i.i44 = icmp eq ptr %152, null
+  br i1 %.not.i.i.i.i44, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i45
 
-_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i49: ; preds = %._crit_edge
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(248) %151) #19
-  %.pre68 = load ptr, ptr %9, align 8
+_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i45: ; preds = %._crit_edge
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  call void %155(ptr noundef nonnull align 8 dereferenceable(248) %152) #19
+  %.pre64 = load ptr, ptr %9, align 8
   br label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
 
-_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit: ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, %._crit_edge, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %74, %61, %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit, %13, %2
-  %.021 = phi ptr [ %10, %2 ], [ %15, %13 ], [ %42, %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit ], [ %42, %61 ], [ %42, %74 ], [ %42, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i ], [ %.pre68, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i49 ], [ %150, %._crit_edge ], [ %.2, %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit ]
+_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit: ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, %._crit_edge, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i45, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %75, %62, %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit, %13, %2
+  %.021 = phi ptr [ %10, %2 ], [ %15, %13 ], [ %43, %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit ], [ %43, %62 ], [ %43, %75 ], [ %43, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i ], [ %.pre64, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i45 ], [ %151, %._crit_edge ], [ %.2, %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit ]
   ret ptr %.021
 }
 

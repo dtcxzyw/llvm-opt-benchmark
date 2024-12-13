@@ -21019,7 +21019,7 @@ _ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit21.i.i.i.i: 
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueEKS6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS9_RSA_.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %19 = load i64, ptr %15, align 8, !noalias !642
+  %19 = load i64, ptr %15, align 8, !tbaa !15, !noalias !642
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueEKS6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS9_RSA_.exit
 
 _ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueEKS6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS9_RSA_.exit: ; preds = %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i.i, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit21.i.i.i.i, %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i.i
@@ -21137,7 +21137,7 @@ _ZN5boost4wave8grammars8closures7as_boolERKNS2_13closure_valueE.exit.i.i.i: ; pr
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit
 
 _ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i: ; preds = %_ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES7_S7_S7_S7_EEE4evalINS_5tupleIRKS6_S7_S7_S7_S7_S7_S7_EEEERS6_RKT_.exit
-  %22 = load i64, ptr %15, align 8, !noalias !662
+  %22 = load i64, ptr %15, align 8, !tbaa !15, !noalias !662
   %.not7.i.i.i = icmp eq i64 %22, 0
   %23 = zext i1 %.not7.i.i.i to i8
   br label %_ZNK7phoenix9assign_opclIN5boost4wave8grammars8closures13closure_valueES6_EENS_15binary_operatorIS0_T_T0_E11result_typeERS8_RS9_.exit

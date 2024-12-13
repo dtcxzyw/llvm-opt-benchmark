@@ -6640,10 +6640,10 @@ define internal fastcc noundef i64 @pipe_open(i64 noundef %0, i32 noundef %1, pt
   %12 = load i64, ptr %10, align 8
   br label %.thread
 
-.thread:                                          ; preds = %11, %3, %9
-  %.not2 = phi i1 [ true, %9 ], [ true, %3 ], [ false, %11 ]
-  %13 = phi ptr [ null, %9 ], [ null, %3 ], [ %10, %11 ]
-  %14 = phi i64 [ 0, %9 ], [ 0, %3 ], [ %12, %11 ]
+.thread:                                          ; preds = %3, %11, %9
+  %.not2 = phi i1 [ true, %9 ], [ false, %11 ], [ true, %3 ]
+  %13 = phi ptr [ null, %9 ], [ %10, %11 ], [ null, %3 ]
+  %14 = phi i64 [ 0, %9 ], [ %12, %11 ], [ 0, %3 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   store i64 %0, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8

@@ -3848,19 +3848,11 @@ define dso_local i64 @dsinh(ptr nocapture noundef readonly %0) local_unnamed_add
   %5 = tail call double @sinh(double noundef %3) #19
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %6, 34
-  br i1 %7, label %8, label %11
-
-8:                                                ; preds = %1
-  %9 = fcmp olt double %3, 0.000000e+00
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %8
-  br label %11
-
-11:                                               ; preds = %8, %10, %1
-  %.0 = phi double [ 0x7FF0000000000000, %10 ], [ %5, %1 ], [ 0xFFF0000000000000, %8 ]
-  %12 = bitcast double %.0 to i64
-  ret i64 %12
+  %8 = fcmp olt double %3, 0.000000e+00
+  %. = select i1 %8, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.0 = select i1 %7, double %., double %5
+  %9 = bitcast double %.0 to i64
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

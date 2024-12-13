@@ -10190,9 +10190,9 @@ define hidden noundef ptr @_ZN9itertools9Itertools10next_tuple17he9374cd3abddaf0
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN68_$LT$$LP$A$C$$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17h916e1a478e334225E.exit", label %4
 
 "_ZN68_$LT$$LP$A$C$$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17h916e1a478e334225E.exit": ; preds = %13, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17haf542c9c3eb2a79cE.exit.i.thread.i.i.i.i.i.i.i", %1
-  %.0.i = phi ptr [ null, %1 ], [ null, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17haf542c9c3eb2a79cE.exit.i.thread.i.i.i.i.i.i.i" ], [ %.sroa.3.0.copyload.i.i.i.i.i.i.i, %13 ]
+  %.0.i.i.i5.i.i.i.i = phi ptr [ null, %1 ], [ null, %"_ZN5rowan6cursor10SyntaxNode23descendants_with_tokens28_$u7b$$u7b$closure$u7d$$u7d$17haf542c9c3eb2a79cE.exit.i.thread.i.i.i.i.i.i.i" ], [ %.sroa.3.0.copyload.i.i.i.i.i.i.i, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !3816
-  ret ptr %.0.i
+  ret ptr %.0.i.i.i5.i.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

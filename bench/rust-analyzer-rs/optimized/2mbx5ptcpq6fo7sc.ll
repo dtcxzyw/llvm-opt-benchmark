@@ -30756,7 +30756,7 @@ default.unreachable:                              ; preds = %.lr.ph.i419, %.lr.p
   unreachable
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h12192c63da1fc464E.exit": ; preds = %353, %351
-  %.sroa.0116.3 = phi i8 [ %.sroa.0116.0, %351 ], [ 0, %353 ]
+  %..sroa.0116.0 = phi i8 [ 0, %353 ], [ %.sroa.0116.0, %351 ]
   %525 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %526 = load i8, ptr %525, align 2, !noundef !4
   %527 = and i8 %526, 4
@@ -30790,7 +30790,7 @@ default.unreachable:                              ; preds = %.lr.ph.i419, %.lr.p
   %.sroa.0104.sroa.0.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i56 %.sroa.3132.sroa.0.0.lcssa, ptr %.sroa.0104.sroa.0.sroa.0.sroa.5.0..sroa_idx, align 1
   %.sroa.0104.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sroa.0116.3, ptr %.sroa.0104.sroa.0.sroa.4.0..sroa_idx, align 16
+  store i8 %..sroa.0116.0, ptr %.sroa.0104.sroa.0.sroa.4.0..sroa_idx, align 16
   %.sroa.0104.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 %.sroa.6120.0, ptr %.sroa.0104.sroa.0.sroa.5.0..sroa_idx, align 1
   %.sroa.0104.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 50

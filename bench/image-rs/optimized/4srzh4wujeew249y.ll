@@ -2459,8 +2459,8 @@ _ZN12jpeg_decoder7decoder12decode_block17h34354babc26b43d2E.exit.thread: ; preds
   store i64 %720, ptr %58, align 8, !alias.scope !303, !noalias !304
   %721 = add i8 %718, -1
   store i8 %721, ptr %166, align 8, !alias.scope !303, !noalias !304
-  %.not195244.i = icmp slt i64 %719, 0
-  %..i = select i1 %.not195244.i, i16 %298, i16 %301
+  %.not195212.i = icmp slt i64 %719, 0
+  %..i = select i1 %.not195212.i, i16 %298, i16 %301
   br label %687
 
 722:                                              ; preds = %.noexc536
@@ -5004,8 +5004,8 @@ _ZN12jpeg_decoder7decoder12decode_block17h64c72aeb45474cfaE.exit.thread: ; preds
   store i64 %720, ptr %58, align 8, !alias.scope !525, !noalias !526
   %721 = add i8 %718, -1
   store i8 %721, ptr %166, align 8, !alias.scope !525, !noalias !526
-  %.not195244.i = icmp slt i64 %719, 0
-  %..i = select i1 %.not195244.i, i16 %298, i16 %301
+  %.not195212.i = icmp slt i64 %719, 0
+  %..i = select i1 %.not195212.i, i16 %298, i16 %301
   br label %687
 
 722:                                              ; preds = %.noexc534
@@ -7546,8 +7546,8 @@ _ZN12jpeg_decoder7decoder12decode_block17h3f49e6a20d32686aE.exit.thread: ; preds
   store i64 %720, ptr %58, align 8, !alias.scope !745, !noalias !746
   %721 = add i8 %718, -1
   store i8 %721, ptr %166, align 8, !alias.scope !745, !noalias !746
-  %.not195244.i = icmp slt i64 %719, 0
-  %..i = select i1 %.not195244.i, i16 %298, i16 %301
+  %.not195212.i = icmp slt i64 %719, 0
+  %..i = select i1 %.not195212.i, i16 %298, i16 %301
   br label %687
 
 722:                                              ; preds = %.noexc534
@@ -25803,8 +25803,8 @@ define noundef zeroext i1 @"_ZN67_$LT$image..error..ParameterError$u20$as$u20$co
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %52
 
-52:                                               ; preds = %45, %17, %23, %30, %36, %42
-  %.0 = phi i1 [ true, %36 ], [ false, %42 ], [ true, %30 ], [ true, %23 ], [ true, %17 ], [ %51, %45 ]
+52:                                               ; preds = %17, %23, %30, %45, %36, %42
+  %.0 = phi i1 [ true, %36 ], [ false, %42 ], [ %51, %45 ], [ true, %30 ], [ true, %23 ], [ true, %17 ]
   ret i1 %.0
 }
 

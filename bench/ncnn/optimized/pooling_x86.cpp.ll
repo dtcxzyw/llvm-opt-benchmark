@@ -128,14 +128,14 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %48 = fdiv fast float 1.000000e+00, %47
   %49 = insertelement <4 x float> poison, float %48, i64 0
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
-  %wide.trip.count935 = zext nneg i32 %20 to i64
+  %wide.trip.count934 = zext nneg i32 %20 to i64
   br i1 %46, label %.lr.ph.us, label %.lr.ph807.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph807, %._crit_edge.us
-  %indvars.iv932 = phi i64 [ %indvars.iv.next933, %._crit_edge.us ], [ 0, %.lr.ph807 ]
+  %indvars.iv931 = phi i64 [ %indvars.iv.next932, %._crit_edge.us ], [ 0, %.lr.ph807 ]
   %51 = load ptr, ptr %1, align 8
   %52 = load i64, ptr %45, align 8
-  %53 = mul i64 %52, %indvars.iv932
+  %53 = mul i64 %52, %indvars.iv931
   %54 = load i64, ptr %21, align 8
   %55 = mul i64 %53, %54
   %56 = getelementptr inbounds i8, ptr %51, i64 %55
@@ -149,18 +149,18 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %59 = fadd fast <4 x float> %58, %.0547804.us
   %60 = getelementptr inbounds nuw i8, ptr %.0546805.us, i64 16
   %61 = add nuw nsw i32 %.0548803.us, 1
-  %exitcond931.not = icmp eq i32 %61, %41
-  br i1 %exitcond931.not, label %._crit_edge.us, label %57, !llvm.loop !4
+  %exitcond930.not = icmp eq i32 %61, %41
+  br i1 %exitcond930.not, label %._crit_edge.us, label %57, !llvm.loop !4
 
 ._crit_edge.us:                                   ; preds = %57
   %62 = fmul fast <4 x float> %59, %50
   %63 = load ptr, ptr %2, align 8
-  %.idx1014 = shl nsw i64 %indvars.iv932, 4
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx1014
+  %.idx1013 = shl nsw i64 %indvars.iv931, 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx1013
   store <4 x float> %62, ptr %64, align 1
-  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
-  %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count935
-  br i1 %exitcond936.not, label %.critedge, label %.lr.ph.us, !llvm.loop !6
+  %indvars.iv.next932 = add nuw nsw i64 %indvars.iv931, 1
+  %exitcond935.not = icmp eq i64 %indvars.iv.next932, %wide.trip.count934
+  br i1 %exitcond935.not, label %.critedge, label %.lr.ph.us, !llvm.loop !6
 
 .preheader800:                                    ; preds = %40
   %65 = icmp sgt i32 %20, 0
@@ -169,14 +169,14 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
 .lr.ph812:                                        ; preds = %.preheader800
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %67 = icmp sgt i32 %41, 0
-  %wide.trip.count946 = zext nneg i32 %20 to i64
+  %wide.trip.count945 = zext nneg i32 %20 to i64
   br i1 %67, label %.lr.ph.us813, label %.lr.ph812.split
 
 .lr.ph.us813:                                     ; preds = %.lr.ph812, %._crit_edge.us814
-  %indvars.iv943 = phi i64 [ %indvars.iv.next944, %._crit_edge.us814 ], [ 0, %.lr.ph812 ]
+  %indvars.iv942 = phi i64 [ %indvars.iv.next943, %._crit_edge.us814 ], [ 0, %.lr.ph812 ]
   %68 = load ptr, ptr %1, align 8
   %69 = load i64, ptr %66, align 8
-  %70 = mul i64 %69, %indvars.iv943
+  %70 = mul i64 %69, %indvars.iv942
   %71 = load i64, ptr %21, align 8
   %72 = mul i64 %70, %71
   %73 = getelementptr inbounds i8, ptr %68, i64 %72
@@ -191,34 +191,34 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %77 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.0543809.us, <4 x float> %76)
   %78 = getelementptr inbounds nuw i8, ptr %.0528810.us, i64 16
   %79 = add nuw nsw i32 %.0544808.us, 1
-  %exitcond942.not = icmp eq i32 %79, %41
-  br i1 %exitcond942.not, label %._crit_edge.us814, label %75, !llvm.loop !7
+  %exitcond941.not = icmp eq i32 %79, %41
+  br i1 %exitcond941.not, label %._crit_edge.us814, label %75, !llvm.loop !7
 
 ._crit_edge.us814:                                ; preds = %75
   %80 = load ptr, ptr %2, align 8
-  %.idx1016 = shl nsw i64 %indvars.iv943, 4
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx1016
+  %.idx1015 = shl nsw i64 %indvars.iv942, 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx1015
   store <4 x float> %77, ptr %81, align 1
-  %indvars.iv.next944 = add nuw nsw i64 %indvars.iv943, 1
-  %exitcond947.not = icmp eq i64 %indvars.iv.next944, %wide.trip.count946
-  br i1 %exitcond947.not, label %.critedge, label %.lr.ph.us813, !llvm.loop !8
+  %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
+  %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
+  br i1 %exitcond946.not, label %.critedge, label %.lr.ph.us813, !llvm.loop !8
 
 .lr.ph812.split:                                  ; preds = %.lr.ph812, %.lr.ph812.split
-  %indvars.iv937 = phi i64 [ %indvars.iv.next938, %.lr.ph812.split ], [ 0, %.lr.ph812 ]
+  %indvars.iv936 = phi i64 [ %indvars.iv.next937, %.lr.ph812.split ], [ 0, %.lr.ph812 ]
   %82 = load ptr, ptr %1, align 8
   %83 = load i64, ptr %66, align 8
-  %84 = mul i64 %83, %indvars.iv937
+  %84 = mul i64 %83, %indvars.iv936
   %85 = load i64, ptr %21, align 8
   %86 = mul i64 %84, %85
   %87 = getelementptr inbounds i8, ptr %82, i64 %86
   %88 = load <4 x float>, ptr %87, align 1
   %89 = load ptr, ptr %2, align 8
-  %.idx1015 = shl nsw i64 %indvars.iv937, 4
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx1015
+  %.idx1014 = shl nsw i64 %indvars.iv936, 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx1014
   store <4 x float> %88, ptr %90, align 1
-  %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
-  %exitcond941.not = icmp eq i64 %indvars.iv.next938, %wide.trip.count946
-  br i1 %exitcond941.not, label %.critedge, label %.lr.ph812.split, !llvm.loop !8
+  %indvars.iv.next937 = add nuw nsw i64 %indvars.iv936, 1
+  %exitcond940.not = icmp eq i64 %indvars.iv.next937, %wide.trip.count945
+  br i1 %exitcond940.not, label %.critedge, label %.lr.ph812.split, !llvm.loop !8
 
 .lr.ph807.split:                                  ; preds = %.lr.ph807, %.lr.ph807.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph807.split ], [ 0, %.lr.ph807 ]
@@ -227,7 +227,7 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx
   store <4 x float> zeroinitializer, ptr %92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count935
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count934
   br i1 %exitcond.not, label %.critedge, label %.lr.ph807.split, !llvm.loop !6
 
 93:                                               ; preds = %24
@@ -314,8 +314,8 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %151 = load i32, ptr %122, align 8
   %152 = icmp sgt i32 %151, 0
   %153 = icmp sgt i32 %149, 0
-  %or.cond1036 = select i1 %152, i1 %153, i1 false
-  br i1 %or.cond1036, label %.preheader799, label %._crit_edge823
+  %or.cond = select i1 %152, i1 %153, i1 false
+  br i1 %or.cond, label %.preheader799, label %._crit_edge823
 
 .preheader799:                                    ; preds = %147, %._crit_edge
   %154 = phi i32 [ %166, %._crit_edge ], [ %151, %147 ]
@@ -331,12 +331,12 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv948 = phi i64 [ %157, %.lr.ph.preheader ], [ %indvars.iv.next949, %.lr.ph ]
+  %indvars.iv947 = phi i64 [ %157, %.lr.ph.preheader ], [ %indvars.iv.next948, %.lr.ph ]
   %.0536818 = phi i32 [ 0, %.lr.ph.preheader ], [ %160, %.lr.ph ]
   %.1540817 = phi i32 [ %.0539821, %.lr.ph.preheader ], [ %159, %.lr.ph ]
-  %158 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv948
+  %158 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv947
   store i32 %.1540817, ptr %158, align 4
-  %indvars.iv.next949 = add nsw i64 %indvars.iv948, 1
+  %indvars.iv.next948 = add nsw i64 %indvars.iv947, 1
   %159 = add nsw i32 %.1540817, 1
   %160 = add nuw nsw i32 %.0536818, 1
   %161 = load i32, ptr %115, align 4
@@ -349,7 +349,7 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %165 = trunc nsw i64 %indvars.iv.next949 to i32
+  %165 = trunc nsw i64 %indvars.iv.next948 to i32
   %.pre = load i32, ptr %122, align 8
   br label %._crit_edge
 
@@ -408,10 +408,10 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %187 = icmp sgt i32 %145, 0
   %188 = shl nsw i32 %121, 2
   %189 = sext i32 %188 to i64
-  %wide.trip.count1012 = zext nneg i32 %20 to i64
-  %wide.trip.count995 = zext nneg i32 %121 to i64
-  %wide.trip.count1006 = zext nneg i32 %121 to i64
-  %wide.trip.count1001 = zext nneg i32 %145 to i64
+  %wide.trip.count1011 = zext nneg i32 %20 to i64
+  %wide.trip.count994 = zext nneg i32 %121 to i64
+  %wide.trip.count1005 = zext nneg i32 %121 to i64
+  %wide.trip.count1000 = zext nneg i32 %145 to i64
   br label %191
 
 190:                                              ; preds = %182
@@ -419,16 +419,16 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %.loopexit
 
 191:                                              ; preds = %.lr.ph906, %._crit_edge900
-  %indvars.iv1009 = phi i64 [ 0, %.lr.ph906 ], [ %indvars.iv.next1010, %._crit_edge900 ]
+  %indvars.iv1008 = phi i64 [ 0, %.lr.ph906 ], [ %indvars.iv.next1009, %._crit_edge900 ]
   %192 = load ptr, ptr %5, align 8
   %193 = load i64, ptr %100, align 8
-  %194 = mul i64 %193, %indvars.iv1009
+  %194 = mul i64 %193, %indvars.iv1008
   %195 = load i64, ptr %95, align 8
   %196 = mul i64 %194, %195
   %197 = getelementptr inbounds i8, ptr %192, i64 %196
   %198 = load ptr, ptr %2, align 8
   %199 = load i64, ptr %135, align 8
-  %200 = mul i64 %199, %indvars.iv1009
+  %200 = mul i64 %199, %indvars.iv1008
   %201 = load i64, ptr %186, align 8
   %202 = mul i64 %200, %201
   %203 = getelementptr inbounds i8, ptr %198, i64 %202
@@ -449,14 +449,14 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %.lr.ph888.us.us
 
 .lr.ph888.us.us:                                  ; preds = %._crit_edge889.us.us, %.preheader.us901
-  %indvars.iv1003 = phi i64 [ %indvars.iv.next1004, %._crit_edge889.us.us ], [ 0, %.preheader.us901 ]
+  %indvars.iv1002 = phi i64 [ %indvars.iv.next1003, %._crit_edge889.us.us ], [ 0, %.preheader.us901 ]
   %207 = load i32, ptr %125, align 8
   %208 = mul nsw i32 %207, %.0533898.us902
   %209 = sext i32 %208 to i64
   %210 = mul i64 %206, %209
   %211 = getelementptr inbounds i8, ptr %197, i64 %210
   %212 = load i32, ptr %118, align 4
-  %213 = trunc nuw nsw i64 %indvars.iv1003 to i32
+  %213 = trunc nuw nsw i64 %indvars.iv1002 to i32
   %214 = shl i32 %213, 2
   %215 = mul i32 %214, %212
   %216 = sext i32 %215 to i64
@@ -465,32 +465,32 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %219
 
 219:                                              ; preds = %219, %.lr.ph888.us.us
-  %indvars.iv998 = phi i64 [ %indvars.iv.next999, %219 ], [ 0, %.lr.ph888.us.us ]
+  %indvars.iv997 = phi i64 [ %indvars.iv.next998, %219 ], [ 0, %.lr.ph888.us.us ]
   %.0530885.us.us = phi <4 x float> [ %226, %219 ], [ %218, %.lr.ph888.us.us ]
-  %220 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv998
+  %220 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv997
   %221 = load i32, ptr %220, align 4
   %222 = shl nsw i32 %221, 2
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds float, ptr %217, i64 %223
   %225 = load <4 x float>, ptr %224, align 1
   %226 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %.0530885.us.us, <4 x float> %225)
-  %indvars.iv.next999 = add nuw nsw i64 %indvars.iv998, 1
-  %exitcond1002.not = icmp eq i64 %indvars.iv.next999, %wide.trip.count1001
-  br i1 %exitcond1002.not, label %._crit_edge889.us.us, label %219, !llvm.loop !12
+  %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
+  %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
+  br i1 %exitcond1001.not, label %._crit_edge889.us.us, label %219, !llvm.loop !12
 
 ._crit_edge889.us.us:                             ; preds = %219
-  %.idx1020 = shl nsw i64 %indvars.iv1003, 4
-  %227 = getelementptr inbounds nuw i8, ptr %.0534896.us903, i64 %.idx1020
+  %.idx1019 = shl nsw i64 %indvars.iv1002, 4
+  %227 = getelementptr inbounds nuw i8, ptr %.0534896.us903, i64 %.idx1019
   store <4 x float> %226, ptr %227, align 1
-  %indvars.iv.next1004 = add nuw nsw i64 %indvars.iv1003, 1
-  %exitcond1007.not = icmp eq i64 %indvars.iv.next1004, %wide.trip.count1006
-  br i1 %exitcond1007.not, label %._crit_edge894.split.us.us, label %.lr.ph888.us.us, !llvm.loop !13
+  %indvars.iv.next1003 = add nuw nsw i64 %indvars.iv1002, 1
+  %exitcond1006.not = icmp eq i64 %indvars.iv.next1003, %wide.trip.count1005
+  br i1 %exitcond1006.not, label %._crit_edge894.split.us.us, label %.lr.ph888.us.us, !llvm.loop !13
 
 ._crit_edge894.split.us.us:                       ; preds = %._crit_edge889.us.us
   %228 = getelementptr inbounds nuw float, ptr %.0534896.us903, i64 %189
   %229 = add nuw i32 %.0533898.us902, 1
-  %exitcond1008.not = icmp eq i32 %.0533898.us902, %127
-  br i1 %exitcond1008.not, label %._crit_edge900, label %.preheader.us901, !llvm.loop !14
+  %exitcond1007.not = icmp eq i32 %.0533898.us902, %127
+  br i1 %exitcond1007.not, label %._crit_edge900, label %.preheader.us901, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %._crit_edge894.split
   %.0533898 = phi i32 [ %245, %._crit_edge894.split ], [ 0, %.preheader.lr.ph.split ]
@@ -498,14 +498,14 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %230
 
 230:                                              ; preds = %.preheader, %230
-  %indvars.iv992 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next993, %230 ]
+  %indvars.iv991 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next992, %230 ]
   %231 = load i32, ptr %125, align 8
   %232 = mul nsw i32 %231, %.0533898
   %233 = sext i32 %232 to i64
   %234 = mul i64 %206, %233
   %235 = getelementptr inbounds i8, ptr %197, i64 %234
   %236 = load i32, ptr %118, align 4
-  %237 = shl i64 %indvars.iv992, 2
+  %237 = shl i64 %indvars.iv991, 2
   %238 = trunc nuw nsw i64 %237 to i32
   %239 = mul i32 %236, %238
   %240 = sext i32 %239 to i64
@@ -513,20 +513,20 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %242 = load <4 x float>, ptr %241, align 1
   %243 = getelementptr inbounds nuw float, ptr %.0534896, i64 %237
   store <4 x float> %242, ptr %243, align 1
-  %indvars.iv.next993 = add nuw nsw i64 %indvars.iv992, 1
-  %exitcond996.not = icmp eq i64 %indvars.iv.next993, %wide.trip.count995
-  br i1 %exitcond996.not, label %._crit_edge894.split, label %230, !llvm.loop !13
+  %indvars.iv.next992 = add nuw nsw i64 %indvars.iv991, 1
+  %exitcond995.not = icmp eq i64 %indvars.iv.next992, %wide.trip.count994
+  br i1 %exitcond995.not, label %._crit_edge894.split, label %230, !llvm.loop !13
 
 ._crit_edge894.split:                             ; preds = %230
   %244 = getelementptr inbounds nuw float, ptr %.0534896, i64 %189
   %245 = add nuw i32 %.0533898, 1
-  %exitcond997.not = icmp eq i32 %.0533898, %127
-  br i1 %exitcond997.not, label %._crit_edge900, label %.preheader, !llvm.loop !14
+  %exitcond996.not = icmp eq i32 %.0533898, %127
+  br i1 %exitcond996.not, label %._crit_edge900, label %.preheader, !llvm.loop !14
 
 ._crit_edge900:                                   ; preds = %._crit_edge894.split, %._crit_edge894.split.us.us, %.preheader.lr.ph, %191
-  %indvars.iv.next1010 = add nuw nsw i64 %indvars.iv1009, 1
-  %exitcond1013.not = icmp eq i64 %indvars.iv.next1010, %wide.trip.count1012
-  br i1 %exitcond1013.not, label %.loopexit, label %191, !llvm.loop !15
+  %indvars.iv.next1009 = add nuw nsw i64 %indvars.iv1008, 1
+  %exitcond1012.not = icmp eq i64 %indvars.iv.next1009, %wide.trip.count1011
+  br i1 %exitcond1012.not, label %.loopexit, label %191, !llvm.loop !15
 
 246:                                              ; preds = %._crit_edge823
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -551,8 +551,8 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %258 = sext i32 %257 to i64
   %259 = zext i32 %121 to i64
   %260 = shl nuw nsw i64 %259, 4
-  %wide.trip.count969 = zext nneg i32 %20 to i64
-  %wide.trip.count958 = zext nneg i32 %145 to i64
+  %wide.trip.count968 = zext nneg i32 %20 to i64
+  %wide.trip.count957 = zext nneg i32 %145 to i64
   br label %354
 
 261:                                              ; preds = %246
@@ -600,15 +600,15 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %290 = add i32 %.0527.neg, %113
   %291 = shl nsw i32 %121, 2
   %292 = sext i32 %291 to i64
-  %wide.trip.count990 = zext nneg i32 %20 to i64
-  %wide.trip.count984 = zext nneg i32 %121 to i64
+  %wide.trip.count989 = zext nneg i32 %20 to i64
+  %wide.trip.count983 = zext nneg i32 %121 to i64
   br label %293
 
 293:                                              ; preds = %.lr.ph884, %._crit_edge881
-  %indvars.iv987 = phi i64 [ 0, %.lr.ph884 ], [ %indvars.iv.next988, %._crit_edge881 ]
+  %indvars.iv986 = phi i64 [ 0, %.lr.ph884 ], [ %indvars.iv.next987, %._crit_edge881 ]
   %294 = load ptr, ptr %5, align 8
   %295 = load i64, ptr %100, align 8
-  %296 = mul i64 %295, %indvars.iv987
+  %296 = mul i64 %295, %indvars.iv986
   %297 = load i64, ptr %95, align 8
   %298 = mul i64 %296, %297
   %299 = getelementptr inbounds i8, ptr %294, i64 %298
@@ -623,7 +623,7 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
 .lr.ph874.preheader:                              ; preds = %.lr.ph880
   %303 = load ptr, ptr %2, align 8
   %304 = load i64, ptr %135, align 8
-  %305 = mul i64 %304, %indvars.iv987
+  %305 = mul i64 %304, %indvars.iv986
   %306 = load i64, ptr %284, align 8
   %307 = mul i64 %305, %306
   %308 = getelementptr inbounds i8, ptr %303, i64 %307
@@ -638,9 +638,9 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %312
 
 312:                                              ; preds = %.lr.ph874, %._crit_edge861
-  %indvars.iv981 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next982, %._crit_edge861 ]
+  %indvars.iv980 = phi i64 [ 0, %.lr.ph874 ], [ %indvars.iv.next981, %._crit_edge861 ]
   %313 = load i32, ptr %118, align 4
-  %314 = trunc nuw nsw i64 %indvars.iv981 to i32
+  %314 = trunc nuw nsw i64 %indvars.iv980 to i32
   %315 = mul nsw i32 %313, %314
   %316 = load i32, ptr %122, align 8
   %317 = icmp sgt i32 %316, 0
@@ -648,8 +648,8 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
 
 .lr.ph860:                                        ; preds = %312
   %318 = load i32, ptr %115, align 4
-  %.fr910 = freeze i32 %318
-  %319 = icmp sgt i32 %.fr910, 0
+  %.fr909 = freeze i32 %318
+  %319 = icmp sgt i32 %.fr909, 0
   br i1 %319, label %.lr.ph860.split.us.preheader, label %._crit_edge861
 
 .lr.ph860.split.us.preheader:                     ; preds = %.lr.ph860
@@ -664,15 +664,15 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %328 = sext i32 %321 to i64
   %329 = sext i32 %325 to i64
   %330 = sext i32 %324 to i64
-  %wide.trip.count979 = zext nneg i32 %316 to i64
-  %wide.trip.count974 = zext nneg i32 %.fr910 to i64
+  %wide.trip.count978 = zext nneg i32 %316 to i64
+  %wide.trip.count973 = zext nneg i32 %.fr909 to i64
   br label %.lr.ph860.split.us
 
 .lr.ph860.split.us:                               ; preds = %.lr.ph860.split.us.preheader, %.loopexit794.us
-  %indvars.iv976 = phi i64 [ 0, %.lr.ph860.split.us.preheader ], [ %indvars.iv.next977, %.loopexit794.us ]
+  %indvars.iv975 = phi i64 [ 0, %.lr.ph860.split.us.preheader ], [ %indvars.iv.next976, %.loopexit794.us ]
   %.0514857.us = phi i32 [ 0, %.lr.ph860.split.us.preheader ], [ %.1515.us, %.loopexit794.us ]
   %.0517856.us = phi <4 x float> [ zeroinitializer, %.lr.ph860.split.us.preheader ], [ %.1518.us, %.loopexit794.us ]
-  %331 = add nsw i64 %indvars.iv976, %311
+  %331 = add nsw i64 %indvars.iv975, %311
   %332 = icmp slt i64 %331, %329
   br i1 %332, label %.loopexit794.us, label %333
 
@@ -681,10 +681,10 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br i1 %.not759.us, label %.preheader793.us, label %._crit_edge861.loopexit
 
 334:                                              ; preds = %.preheader793.us, %343
-  %indvars.iv971 = phi i64 [ 0, %.preheader793.us ], [ %indvars.iv.next972, %343 ]
+  %indvars.iv970 = phi i64 [ 0, %.preheader793.us ], [ %indvars.iv.next971, %343 ]
   %.2516848.us = phi i32 [ %.0514857.us, %.preheader793.us ], [ %.3.us, %343 ]
   %.2519847.us = phi <4 x float> [ %.0517856.us, %.preheader793.us ], [ %.3520.us, %343 ]
-  %335 = add nsw i64 %indvars.iv971, %326
+  %335 = add nsw i64 %indvars.iv970, %326
   %336 = icmp slt i64 %335, %327
   br i1 %336, label %343, label %337
 
@@ -693,8 +693,8 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br i1 %.not761.us, label %338, label %.loopexit794.us
 
 338:                                              ; preds = %337
-  %.idx1018 = shl nsw i64 %335, 4
-  %339 = getelementptr inbounds i8, ptr %345, i64 %.idx1018
+  %.idx1017 = shl nsw i64 %335, 4
+  %339 = getelementptr inbounds i8, ptr %345, i64 %.idx1017
   %340 = load <4 x float>, ptr %339, align 1
   %341 = fadd fast <4 x float> %340, %.2519847.us
   %342 = add nsw i32 %.2516848.us, 1
@@ -703,16 +703,16 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
 343:                                              ; preds = %338, %334
   %.3520.us = phi nsz <4 x float> [ %.2519847.us, %334 ], [ %341, %338 ]
   %.3.us = phi i32 [ %.2516848.us, %334 ], [ %342, %338 ]
-  %indvars.iv.next972 = add nuw nsw i64 %indvars.iv971, 1
-  %exitcond975.not = icmp eq i64 %indvars.iv.next972, %wide.trip.count974
-  br i1 %exitcond975.not, label %.loopexit794.us, label %334, !llvm.loop !16
+  %indvars.iv.next971 = add nuw nsw i64 %indvars.iv970, 1
+  %exitcond974.not = icmp eq i64 %indvars.iv.next971, %wide.trip.count973
+  br i1 %exitcond974.not, label %.loopexit794.us, label %334, !llvm.loop !16
 
 .loopexit794.us:                                  ; preds = %343, %337, %.lr.ph860.split.us
   %.1518.us = phi nsz <4 x float> [ %.0517856.us, %.lr.ph860.split.us ], [ %.2519847.us, %337 ], [ %.3520.us, %343 ]
   %.1515.us = phi i32 [ %.0514857.us, %.lr.ph860.split.us ], [ %.2516848.us, %337 ], [ %.3.us, %343 ]
-  %indvars.iv.next977 = add nuw nsw i64 %indvars.iv976, 1
-  %exitcond980.not = icmp eq i64 %indvars.iv.next977, %wide.trip.count979
-  br i1 %exitcond980.not, label %._crit_edge861.loopexit, label %.lr.ph860.split.us, !llvm.loop !17
+  %indvars.iv.next976 = add nuw nsw i64 %indvars.iv975, 1
+  %exitcond979.not = icmp eq i64 %indvars.iv.next976, %wide.trip.count978
+  br i1 %exitcond979.not, label %._crit_edge861.loopexit, label %.lr.ph860.split.us, !llvm.loop !17
 
 .preheader793.us:                                 ; preds = %333
   %344 = mul i64 %302, %331
@@ -732,35 +732,35 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   %348 = insertelement <4 x float> poison, float %347, i64 0
   %349 = shufflevector <4 x float> %348, <4 x float> poison, <4 x i32> zeroinitializer
   %350 = fmul fast <4 x float> %349, %.0517.lcssa
-  %.idx1019 = shl nsw i64 %indvars.iv981, 4
-  %351 = getelementptr inbounds nuw i8, ptr %.0524877, i64 %.idx1019
+  %.idx1018 = shl nsw i64 %indvars.iv980, 4
+  %351 = getelementptr inbounds nuw i8, ptr %.0524877, i64 %.idx1018
   store <4 x float> %350, ptr %351, align 1
-  %indvars.iv.next982 = add nuw nsw i64 %indvars.iv981, 1
-  %exitcond985.not = icmp eq i64 %indvars.iv.next982, %wide.trip.count984
-  br i1 %exitcond985.not, label %._crit_edge875, label %312, !llvm.loop !18
+  %indvars.iv.next981 = add nuw nsw i64 %indvars.iv980, 1
+  %exitcond984.not = icmp eq i64 %indvars.iv.next981, %wide.trip.count983
+  br i1 %exitcond984.not, label %._crit_edge875, label %312, !llvm.loop !18
 
 ._crit_edge875:                                   ; preds = %._crit_edge861
   %352 = getelementptr inbounds nuw float, ptr %.0524877, i64 %292
   %353 = add nuw i32 %.0523878, 1
-  %exitcond986.not = icmp eq i32 %.0523878, %127
-  br i1 %exitcond986.not, label %._crit_edge881, label %.lr.ph874, !llvm.loop !19
+  %exitcond985.not = icmp eq i32 %.0523878, %127
+  br i1 %exitcond985.not, label %._crit_edge881, label %.lr.ph874, !llvm.loop !19
 
 ._crit_edge881:                                   ; preds = %._crit_edge875, %.lr.ph880, %293
-  %indvars.iv.next988 = add nuw nsw i64 %indvars.iv987, 1
-  %exitcond991.not = icmp eq i64 %indvars.iv.next988, %wide.trip.count990
-  br i1 %exitcond991.not, label %.loopexit, label %293, !llvm.loop !20
+  %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
+  %exitcond990.not = icmp eq i64 %indvars.iv.next987, %wide.trip.count989
+  br i1 %exitcond990.not, label %.loopexit, label %293, !llvm.loop !20
 
 354:                                              ; preds = %.lr.ph846, %._crit_edge840
-  %indvars.iv966 = phi i64 [ 0, %.lr.ph846 ], [ %indvars.iv.next967, %._crit_edge840 ]
+  %indvars.iv965 = phi i64 [ 0, %.lr.ph846 ], [ %indvars.iv.next966, %._crit_edge840 ]
   %355 = load ptr, ptr %5, align 8
   %356 = load i64, ptr %100, align 8
-  %357 = mul i64 %356, %indvars.iv966
+  %357 = mul i64 %356, %indvars.iv965
   %358 = load i64, ptr %95, align 8
   %359 = mul i64 %357, %358
   %360 = getelementptr inbounds i8, ptr %355, i64 %359
   %361 = load ptr, ptr %2, align 8
   %362 = load i64, ptr %135, align 8
-  %363 = mul i64 %362, %indvars.iv966
+  %363 = mul i64 %362, %indvars.iv965
   %364 = load i64, ptr %251, align 8
   %365 = mul i64 %363, %364
   %366 = getelementptr inbounds i8, ptr %361, i64 %365
@@ -781,14 +781,14 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %.lr.ph828.us.us
 
 .lr.ph828.us.us:                                  ; preds = %._crit_edge829.us.us, %.preheader796.us841
-  %indvars.iv960 = phi i64 [ %indvars.iv.next961, %._crit_edge829.us.us ], [ 0, %.preheader796.us841 ]
+  %indvars.iv959 = phi i64 [ %indvars.iv.next960, %._crit_edge829.us.us ], [ 0, %.preheader796.us841 ]
   %370 = load i32, ptr %125, align 8
   %371 = mul nsw i32 %370, %.0508838.us842
   %372 = sext i32 %371 to i64
   %373 = mul i64 %369, %372
   %374 = getelementptr inbounds i8, ptr %360, i64 %373
   %375 = load i32, ptr %118, align 4
-  %376 = trunc nuw nsw i64 %indvars.iv960 to i32
+  %376 = trunc nuw nsw i64 %indvars.iv959 to i32
   %377 = shl i32 %376, 2
   %378 = mul i32 %377, %375
   %379 = sext i32 %378 to i64
@@ -796,33 +796,33 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   br label %381
 
 381:                                              ; preds = %381, %.lr.ph828.us.us
-  %indvars.iv955 = phi i64 [ %indvars.iv.next956, %381 ], [ 0, %.lr.ph828.us.us ]
+  %indvars.iv954 = phi i64 [ %indvars.iv.next955, %381 ], [ 0, %.lr.ph828.us.us ]
   %.0506825.us.us = phi <4 x float> [ %388, %381 ], [ zeroinitializer, %.lr.ph828.us.us ]
-  %382 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv955
+  %382 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv954
   %383 = load i32, ptr %382, align 4
   %384 = shl nsw i32 %383, 2
   %385 = sext i32 %384 to i64
   %386 = getelementptr inbounds float, ptr %380, i64 %385
   %387 = load <4 x float>, ptr %386, align 1
   %388 = fadd fast <4 x float> %387, %.0506825.us.us
-  %indvars.iv.next956 = add nuw nsw i64 %indvars.iv955, 1
-  %exitcond959.not = icmp eq i64 %indvars.iv.next956, %wide.trip.count958
-  br i1 %exitcond959.not, label %._crit_edge829.us.us, label %381, !llvm.loop !21
+  %indvars.iv.next955 = add nuw nsw i64 %indvars.iv954, 1
+  %exitcond958.not = icmp eq i64 %indvars.iv.next955, %wide.trip.count957
+  br i1 %exitcond958.not, label %._crit_edge829.us.us, label %381, !llvm.loop !21
 
 ._crit_edge829.us.us:                             ; preds = %381
   %389 = fmul fast <4 x float> %388, %255
-  %.idx1017 = shl nsw i64 %indvars.iv960, 4
-  %390 = getelementptr inbounds nuw i8, ptr %.0509836.us843, i64 %.idx1017
+  %.idx1016 = shl nsw i64 %indvars.iv959, 4
+  %390 = getelementptr inbounds nuw i8, ptr %.0509836.us843, i64 %.idx1016
   store <4 x float> %389, ptr %390, align 1
-  %indvars.iv.next961 = add nuw nsw i64 %indvars.iv960, 1
-  %exitcond964.not = icmp eq i64 %indvars.iv.next961, %259
-  br i1 %exitcond964.not, label %._crit_edge834.split.us.us, label %.lr.ph828.us.us, !llvm.loop !22
+  %indvars.iv.next960 = add nuw nsw i64 %indvars.iv959, 1
+  %exitcond963.not = icmp eq i64 %indvars.iv.next960, %259
+  br i1 %exitcond963.not, label %._crit_edge834.split.us.us, label %.lr.ph828.us.us, !llvm.loop !22
 
 ._crit_edge834.split.us.us:                       ; preds = %._crit_edge829.us.us
   %391 = getelementptr inbounds nuw float, ptr %.0509836.us843, i64 %258
   %392 = add nuw i32 %.0508838.us842, 1
-  %exitcond965.not = icmp eq i32 %.0508838.us842, %127
-  br i1 %exitcond965.not, label %._crit_edge840, label %.preheader796.us841, !llvm.loop !23
+  %exitcond964.not = icmp eq i32 %.0508838.us842, %127
+  br i1 %exitcond964.not, label %._crit_edge840, label %.preheader796.us841, !llvm.loop !23
 
 .preheader796:                                    ; preds = %.preheader796.lr.ph.split, %.preheader796
   %.0508838 = phi i32 [ %394, %.preheader796 ], [ 0, %.preheader796.lr.ph.split ]
@@ -830,13 +830,13 @@ define hidden noundef i32 @_ZNK4ncnn11Pooling_x867forwardERKNS_3MatERS1_RKNS_6Op
   call void @llvm.memset.p0.i64(ptr align 1 %.0509836, i8 0, i64 %260, i1 false)
   %393 = getelementptr inbounds nuw float, ptr %.0509836, i64 %258
   %394 = add nuw i32 %.0508838, 1
-  %exitcond954.not = icmp eq i32 %.0508838, %127
-  br i1 %exitcond954.not, label %._crit_edge840, label %.preheader796, !llvm.loop !23
+  %exitcond953.not = icmp eq i32 %.0508838, %127
+  br i1 %exitcond953.not, label %._crit_edge840, label %.preheader796, !llvm.loop !23
 
 ._crit_edge840:                                   ; preds = %.preheader796, %._crit_edge834.split.us.us, %.preheader796.lr.ph, %354
-  %indvars.iv.next967 = add nuw nsw i64 %indvars.iv966, 1
-  %exitcond970.not = icmp eq i64 %indvars.iv.next967, %wide.trip.count969
-  br i1 %exitcond970.not, label %.loopexit, label %354, !llvm.loop !24
+  %indvars.iv.next966 = add nuw nsw i64 %indvars.iv965, 1
+  %exitcond969.not = icmp eq i64 %indvars.iv.next966, %wide.trip.count968
+  br i1 %exitcond969.not, label %.loopexit, label %354, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge840, %._crit_edge881, %._crit_edge900, %.preheader797, %282, %.preheader792, %181, %190, %._crit_edge823
   %395 = load ptr, ptr %6, align 8
@@ -957,8 +957,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %163, %110
   %448 = tail call noundef i32 @_ZNK4ncnn7Pooling7forwardERKNS_3MatERS1_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(268) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph807.split, %._crit_edge.us, %.lr.ph812.split, %._crit_edge.us814, %447, %.critedge2, %403, %413, %414, %409, %.preheader801, %.preheader800, %40, %32, %27, %445, %10
-  %.0511 = phi i32 [ %11, %10 ], [ %446, %445 ], [ -100, %27 ], [ -100, %32 ], [ 0, %40 ], [ 0, %.preheader800 ], [ 0, %.preheader801 ], [ %.1, %409 ], [ %.1, %414 ], [ %.1, %413 ], [ %.1, %403 ], [ %.1, %.critedge2 ], [ %448, %447 ], [ 0, %._crit_edge.us814 ], [ 0, %.lr.ph812.split ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph807.split ]
+.critedge:                                        ; preds = %.lr.ph807.split, %._crit_edge.us, %.lr.ph812.split, %._crit_edge.us814, %.critedge2, %403, %413, %414, %409, %.preheader801, %.preheader800, %447, %40, %32, %27, %445, %10
+  %.0511 = phi i32 [ %11, %10 ], [ %446, %445 ], [ -100, %27 ], [ -100, %32 ], [ 0, %40 ], [ %448, %447 ], [ 0, %.preheader800 ], [ 0, %.preheader801 ], [ %.1, %409 ], [ %.1, %414 ], [ %.1, %413 ], [ %.1, %403 ], [ %.1, %.critedge2 ], [ 0, %._crit_edge.us814 ], [ 0, %.lr.ph812.split ], [ 0, %._crit_edge.us ], [ 0, %.lr.ph807.split ]
   ret i32 %.0511
 }
 

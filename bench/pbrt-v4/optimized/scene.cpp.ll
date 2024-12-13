@@ -28968,11 +28968,11 @@ land.rhs.i.i.i.i.i.i.i:                           ; preds = %entry
   %3 = load i64, ptr %film.i.i.i.i.i.i.i, align 8, !noalias !203
   %and.i.i.i.i.i.i.i.i.i.i = and i64 %3, 144115188075855871
   %4 = inttoptr i64 %and.i.i.i.i.i.i.i.i.i.i to ptr
-  %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !203
+  %retval.sroa.0.0.copyload.i.i6.i.i.i.i.i.i.i.i.i.i = load i64, ptr %4, align 8, !noalias !203
   %5 = load ptr, ptr %__functor.val, align 8, !noalias !203
   %parameters.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 32
   %loc.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 8
-  tail call void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(108) %parameters.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %loc.i.i.i.i.i.i.i, ptr %alloc.sroa.0.0.copyload.i.i.i.i.i.i.i)
+  tail call void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(108) %parameters.i.i.i.i.i.i.i, i64 %retval.sroa.0.0.copyload.i.i6.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %loc.i.i.i.i.i.i.i, ptr %alloc.sroa.0.0.copyload.i.i.i.i.i.i.i)
   ret void
 }
 

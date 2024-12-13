@@ -8031,7 +8031,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1
   %181 = icmp samesign ugt i64 %.051.in98, 1
   br i1 %181, label %158, label %.loopexit, !llvm.loop !297
 
-.loopexit:                                        ; preds = %180, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE7setZeroEv.exit68, %130, %131, %.preheader
+.loopexit:                                        ; preds = %180, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE7setZeroEv.exit68, %131, %.preheader, %130
   ret void
 }
 

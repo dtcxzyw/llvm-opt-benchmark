@@ -141924,7 +141924,7 @@ define internal fastcc noundef zeroext i1 @"_ZN95_$LT$deltalake_core..delta_data
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i8, ptr %21, align 16, !range !11347, !noundef !4
-  switch i8 %22, label %default.unreachable26 [
+  switch i8 %22, label %default.unreachable28 [
     i8 0, label %33
     i8 1, label %33
     i8 2, label %33
@@ -141933,9 +141933,9 @@ define internal fastcc noundef zeroext i1 @"_ZN95_$LT$deltalake_core..delta_data
     i8 5, label %33
     i8 6, label %30
     i8 7, label %30
-    i8 8, label %.thread27
-    i8 9, label %.thread27
-    i8 10, label %.thread27
+    i8 8, label %.thread29
+    i8 9, label %.thread29
+    i8 10, label %.thread29
     i8 11, label %31
     i8 12, label %32
     i8 13, label %.thread
@@ -141981,7 +141981,7 @@ define internal fastcc noundef zeroext i1 @"_ZN95_$LT$deltalake_core..delta_data
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %47
 
-default.unreachable26:                            ; preds = %19
+default.unreachable28:                            ; preds = %19
   unreachable
 
 30:                                               ; preds = %19, %19
@@ -141996,7 +141996,7 @@ default.unreachable26:                            ; preds = %19
 33:                                               ; preds = %19, %19, %19, %19, %19, %19, %32, %31, %30
   %.014 = phi i8 [ 5, %32 ], [ 10, %31 ], [ 30, %30 ], [ 20, %19 ], [ 20, %19 ], [ 20, %19 ], [ 20, %19 ], [ 20, %19 ], [ 20, %19 ]
   %34 = icmp samesign ult i8 %.014, %2
-  br i1 %34, label %.thread, label %.thread27
+  br i1 %34, label %.thread, label %.thread29
 
 .thread:                                          ; preds = %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %19, %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
@@ -142021,7 +142021,7 @@ default.unreachable26:                            ; preds = %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %47
 
-.thread27:                                        ; preds = %19, %19, %19, %33
+.thread29:                                        ; preds = %19, %19, %19, %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -142044,9 +142044,9 @@ default.unreachable26:                            ; preds = %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %47
 
-47:                                               ; preds = %.thread27, %.thread, %23
-  %.sink = phi i1 [ %46, %.thread27 ], [ %40, %.thread ], [ %29, %23 ]
-  ret i1 %.sink
+47:                                               ; preds = %.thread29, %.thread, %23
+  %.0 = phi i1 [ %29, %23 ], [ %40, %.thread ], [ %46, %.thread29 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

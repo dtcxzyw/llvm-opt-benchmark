@@ -4960,14 +4960,14 @@ if.then43:                                        ; preds = %if.then40
   %a.val26.i = load i64, ptr %15, align 8
   %spec.store.select.i = call i64 @llvm.smax.i64(i64 %value.val123, i64 0)
   %a.val26..i = call i64 @llvm.smin.i64(i64 %a.val26.i, i64 0)
-  %spec.select.i = call i64 @llvm.smin.i64(i64 %spec.store.select.i, i64 %a.val26.i)
+  %ihigh.addr.0.i = call i64 @llvm.smin.i64(i64 %spec.store.select.i, i64 %a.val26.i)
   %17 = load ptr, ptr %call1.val.i, align 8
-  %sub.i = sub i64 %spec.select.i, %a.val26..i
+  %sub.i = sub i64 %ihigh.addr.0.i, %a.val26..i
   %ob_descr.i = getelementptr inbounds nuw i8, ptr %value, i64 40
   %18 = load ptr, ptr %ob_descr.i, align 8
   %call20.i = call fastcc ptr @newarrayobject(ptr noundef %17, i64 noundef %sub.i, ptr noundef %18)
   %cmp21.i = icmp ne ptr %call20.i, null
-  %cmp24.i = icmp sgt i64 %spec.select.i, 0
+  %cmp24.i = icmp sgt i64 %ihigh.addr.0.i, 0
   %or.cond.i = and i1 %cmp24.i, %cmp21.i
   br i1 %or.cond.i, label %array_slice.exit.thread, label %array_slice.exit
 
@@ -5674,14 +5674,14 @@ entry:
   %a.val26.i.i = load i64, ptr %0, align 8
   %spec.store.select.i.i = tail call i64 @llvm.smax.i64(i64 %self.val.i, i64 0)
   %a.val26..i.i = tail call i64 @llvm.smin.i64(i64 %a.val26.i.i, i64 0)
-  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i, i64 %a.val26.i.i)
+  %ihigh.addr.0.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i, i64 %a.val26.i.i)
   %3 = load ptr, ptr %call1.val.i.i, align 8
-  %sub.i.i = sub i64 %spec.select.i.i, %a.val26..i.i
+  %sub.i.i = sub i64 %ihigh.addr.0.i.i, %a.val26..i.i
   %ob_descr.i.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_descr.i.i, align 8
   %call20.i.i = tail call fastcc ptr @newarrayobject(ptr noundef %3, i64 noundef %sub.i.i, ptr noundef %4)
   %cmp21.i.i = icmp ne ptr %call20.i.i, null
-  %cmp24.i.i = icmp sgt i64 %spec.select.i.i, 0
+  %cmp24.i.i = icmp sgt i64 %ihigh.addr.0.i.i, 0
   %or.cond.i.i = and i1 %cmp24.i.i, %cmp21.i.i
   br i1 %or.cond.i.i, label %if.then25.i.i, label %array_array___copy___impl.exit
 
@@ -5785,14 +5785,14 @@ entry:
   %a.val26.i.i = load i64, ptr %0, align 8
   %spec.store.select.i.i = tail call i64 @llvm.smax.i64(i64 %self.val.i, i64 0)
   %a.val26..i.i = tail call i64 @llvm.smin.i64(i64 %a.val26.i.i, i64 0)
-  %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i, i64 %a.val26.i.i)
+  %ihigh.addr.0.i.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i.i, i64 %a.val26.i.i)
   %3 = load ptr, ptr %call1.val.i.i, align 8
-  %sub.i.i = sub i64 %spec.select.i.i, %a.val26..i.i
+  %sub.i.i = sub i64 %ihigh.addr.0.i.i, %a.val26..i.i
   %ob_descr.i.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   %4 = load ptr, ptr %ob_descr.i.i, align 8
   %call20.i.i = tail call fastcc ptr @newarrayobject(ptr noundef %3, i64 noundef %sub.i.i, ptr noundef %4)
   %cmp21.i.i = icmp ne ptr %call20.i.i, null
-  %cmp24.i.i = icmp sgt i64 %spec.select.i.i, 0
+  %cmp24.i.i = icmp sgt i64 %ihigh.addr.0.i.i, 0
   %or.cond.i.i = and i1 %cmp24.i.i, %cmp21.i.i
   br i1 %or.cond.i.i, label %if.then25.i.i, label %array_array___copy___impl.exit
 

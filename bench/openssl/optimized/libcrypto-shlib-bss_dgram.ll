@@ -195,13 +195,13 @@ ossl_time_from_timeval.exit.i:                    ; preds = %if.end.i.i, %if.els
 if.end.i:                                         ; preds = %ossl_time_from_timeval.exit.i, %if.then2.i
   %call8.i = call i64 @ossl_time_now() #11
   %8 = load i64, ptr %next_timeout.i, align 8
-  %retval.sroa.0.0.i10.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 %call8.i)
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %retval.sroa.0.0.i10.i, i64 1000)
+  %.sub.i.i.i = call i64 @llvm.usub.sat.i64(i64 %8, i64 %call8.i)
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %.sub.i.i.i, i64 1000)
   %socket_timeout26.i = getelementptr inbounds nuw i8, ptr %1, i64 248
   %9 = load i64, ptr %socket_timeout26.i, align 8
-  %cmp.i11.i = icmp eq i64 %9, 0
+  %cmp.i10.i = icmp eq i64 %9, 0
   %cmp34.i = icmp uge i64 %9, %spec.select.i
-  %or.cond.i = select i1 %cmp.i11.i, i1 true, i1 %cmp34.i
+  %or.cond.i = select i1 %cmp.i10.i, i1 true, i1 %cmp34.i
   br i1 %or.cond.i, label %if.then35.i, label %dgram_adjust_rcv_timeout.exit
 
 if.then35.i:                                      ; preds = %if.end.i

@@ -3268,14 +3268,14 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN4text7History11transa
 
 .loopexit:                                        ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17hf794aabe5cc2677eE.exit.i", %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val14 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
+  %.val15 = load ptr, ptr %19, align 8, !nonnull !9, !noundef !9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val715 = load i64, ptr %20, align 8
-  %21 = icmp eq i64 %.val715, 0
+  %.val816 = load i64, ptr %20, align 8
+  %21 = icmp eq i64 %.val816, 0
   br i1 %21, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit", label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.loopexit
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val14, i64 %.val715
+  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val15, i64 %.val816
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i", %.lr.ph.i.preheader.i.i
@@ -3293,12 +3293,12 @@ define noundef align 8 dereferenceable_or_null(80) ptr @_ZN4text7History11transa
   br i1 %30, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit", label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i"
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i": ; preds = %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i", %.lr.ph.i.i.i
-  %31 = icmp eq ptr %.val14, %24
+  %31 = icmp eq ptr %.val15, %24
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit", label %.lr.ph.i.i.i
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h7091e5d8c0bd0f06E.exit": ; preds = %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i", %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i", %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i", %.loopexit
-  %.sroa.0.0 = phi ptr [ null, %.loopexit ], [ %24, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i" ], [ null, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i" ], [ %11, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i" ]
-  ret ptr %.sroa.0.0
+  %.sroa.02.0.i = phi ptr [ null, %.loopexit ], [ null, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17he15e841c071d35e5E.exit.i.i.i" ], [ %24, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9253ff206873ea13E.exit.i.i.i.i" ], [ %11, %"_ZN4text7History11transaction28_$u7b$$u7b$closure$u7d$$u7d$17hbe2cb853e1903501E.exit.i.i" ]
+  ret ptr %.sroa.02.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -11836,14 +11836,14 @@ _ZN4text7History6forget17h4e3d4b5517afc19dE.exit.i: ; preds = %"_ZN5alloc3vec16V
 
 .loopexit.i.i:                                    ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h1c5af9a654997db0E.exit.i.i.i", %60
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val14.i.i = load ptr, ptr %72, align 8, !alias.scope !2323, !nonnull !9, !noundef !9
+  %.val15.i.i = load ptr, ptr %72, align 8, !alias.scope !2323, !nonnull !9, !noundef !9
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val715.i.i = load i64, ptr %73, align 8, !alias.scope !2323
-  %74 = icmp eq i64 %.val715.i.i, 0
+  %.val816.i.i = load i64, ptr %73, align 8, !alias.scope !2323
+  %74 = icmp eq i64 %.val816.i.i, 0
   br i1 %74, label %.loopexit9.i, label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %.loopexit.i.i
-  %75 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val14.i.i, i64 %.val715.i.i
+  %75 = getelementptr inbounds { { { { i64, ptr, {} }, i64 }, { i32, i16, [1 x i16] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] } }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i8, [7 x i8] }, ptr %.val15.i.i, i64 %.val816.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h97cc9f9baf79e2f8E.exit.i.i.i.i.i", %.lr.ph.i.preheader.i.i.i.i
@@ -11861,11 +11861,11 @@ _ZN4text7History6forget17h4e3d4b5517afc19dE.exit.i: ; preds = %"_ZN5alloc3vec16V
   br i1 %83, label %.loopexit.i, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h97cc9f9baf79e2f8E.exit.i.i.i.i.i"
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h97cc9f9baf79e2f8E.exit.i.i.i.i.i": ; preds = %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcc33ba6d2cdc1f72E.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i
-  %84 = icmp eq ptr %.val14.i.i, %77
+  %84 = icmp eq ptr %.val15.i.i, %77
   br i1 %84, label %.loopexit9.i, label %.lr.ph.i.i.i.i.i
 
 .loopexit.i:                                      ; preds = %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$17h23c8f4043424553eE.exit.i.i.i.i", %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcc33ba6d2cdc1f72E.exit.i.i.i.i.i.i"
-  %.sroa.0.0.i.i = phi ptr [ %77, %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcc33ba6d2cdc1f72E.exit.i.i.i.i.i.i" ], [ %64, %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$17h23c8f4043424553eE.exit.i.i.i.i" ]
+  %.sroa.02.0.i.i.i = phi ptr [ %77, %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcc33ba6d2cdc1f72E.exit.i.i.i.i.i.i" ], [ %64, %"_ZN4text7History15transaction_mut28_$u7b$$u7b$closure$u7d$$u7d$17h23c8f4043424553eE.exit.i.i.i.i" ]
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx3, align 8, !noalias !2277, !nonnull !9, !noundef !9
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !2277
@@ -11878,7 +11878,7 @@ _ZN4text7History6forget17h4e3d4b5517afc19dE.exit.i: ; preds = %"_ZN5alloc3vec16V
   store ptr %.sroa.4.0.copyload.i, ptr %87, align 8, !alias.scope !2333, !noalias !2336
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %85, ptr %88, align 8, !alias.scope !2333, !noalias !2336
-  invoke void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h5d909132c116dd0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h5d909132c116dd0eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.02.0.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10)
           to label %89 unwind label %117, !noalias !2277
 
 89:                                               ; preds = %.loopexit.i

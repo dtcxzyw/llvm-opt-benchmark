@@ -2118,65 +2118,19 @@ while.body.lr.ph.i:                               ; preds = %if.then3
   %poolBundleKeys.i = getelementptr inbounds nuw i8, ptr %pResData, i64 24
   %idx.ext11.i = sext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext11.i
-  %useNativeStrcmp.i = getelementptr inbounds nuw i8, ptr %pResData, i64 59
-  %4 = load i8, ptr %useNativeStrcmp.i, align 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %while.body.us.i, label %while.body.i
+  br label %while.body.i
 
-while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %if.end22.us.i
-  %limit.021.us.i = phi i32 [ %limit.1.us.i, %if.end22.us.i ], [ %conv, %while.body.lr.ph.i ]
-  %start.020.us.i = phi i32 [ %start.1.us.i, %if.end22.us.i ], [ 0, %while.body.lr.ph.i ]
-  %add.us.i = add nuw nsw i32 %start.020.us.i, %limit.021.us.i
-  %div18.us.i = lshr i32 %add.us.i, 1
-  %idxprom.us.i = zext nneg i32 %div18.us.i to i64
-  %arrayidx.us.i = getelementptr inbounds nuw i16, ptr %incdec.ptr, i64 %idxprom.us.i
-  %5 = load i16, ptr %arrayidx.us.i, align 2
-  %conv.us.i = zext i16 %5 to i32
-  %cmp1.us.i = icmp sgt i32 %3, %conv.us.i
-  %idx.ext.us.i = zext i16 %5 to i64
-  br i1 %cmp1.us.i, label %cond.true.us.i, label %cond.false.us.i
-
-cond.false.us.i:                                  ; preds = %while.body.us.i
-  %6 = load ptr, ptr %poolBundleKeys.i, align 8
-  %add.ptr9.us.i = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext.us.i
-  %add.ptr12.us.i = getelementptr inbounds i8, ptr %add.ptr9.us.i, i64 %idx.neg.i
-  br label %cond.end.us.i
-
-cond.true.us.i:                                   ; preds = %while.body.us.i
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %1, i64 %idx.ext.us.i
-  br label %cond.end.us.i
-
-cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
-  %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
-  %cmp14.us.i = icmp slt i32 %call13.us.i, 0
-  br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
-
-if.else16.us.i:                                   ; preds = %cond.end.us.i
-  %cmp17.not.us.i = icmp eq i32 %call13.us.i, 0
-  br i1 %cmp17.not.us.i, label %if.then5, label %if.then18.us.i
-
-if.then18.us.i:                                   ; preds = %if.else16.us.i
-  %add19.us.i = add nuw nsw i32 %div18.us.i, 1
-  br label %if.end22.us.i
-
-if.end22.us.i:                                    ; preds = %if.then18.us.i, %cond.end.us.i
-  %start.1.us.i = phi i32 [ %add19.us.i, %if.then18.us.i ], [ %start.020.us.i, %cond.end.us.i ]
-  %limit.1.us.i = phi i32 [ %limit.021.us.i, %if.then18.us.i ], [ %div18.us.i, %cond.end.us.i ]
-  %cmp.us.i = icmp slt i32 %start.1.us.i, %limit.1.us.i
-  br i1 %cmp.us.i, label %while.body.us.i, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !7
-
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end22.i
-  %limit.021.i = phi i32 [ %limit.1.i, %if.end22.i ], [ %conv, %while.body.lr.ph.i ]
-  %start.020.i = phi i32 [ %start.1.i, %if.end22.i ], [ 0, %while.body.lr.ph.i ]
+while.body.i:                                     ; preds = %if.end22.i, %while.body.lr.ph.i
+  %limit.021.i = phi i32 [ %conv, %while.body.lr.ph.i ], [ %limit.1.i, %if.end22.i ]
+  %start.020.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %start.1.i, %if.end22.i ]
   %add.i = add nuw nsw i32 %start.020.i, %limit.021.i
   %div18.i = lshr i32 %add.i, 1
   %idxprom.i = zext nneg i32 %div18.i to i64
   %arrayidx.i = getelementptr inbounds nuw i16, ptr %incdec.ptr, i64 %idxprom.i
-  %7 = load i16, ptr %arrayidx.i, align 2
-  %conv.i = zext i16 %7 to i32
+  %4 = load i16, ptr %arrayidx.i, align 2
+  %conv.i = zext i16 %4 to i32
   %cmp1.i = icmp sgt i32 %3, %conv.i
-  %idx.ext.i = zext i16 %7 to i64
+  %idx.ext.i = zext i16 %4 to i64
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %while.body.i
@@ -2184,19 +2138,19 @@ cond.true.i:                                      ; preds = %while.body.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %while.body.i
-  %8 = load ptr, ptr %poolBundleKeys.i, align 8
-  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i
+  %5 = load ptr, ptr %poolBundleKeys.i, align 8
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 %idx.neg.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
-  %cmp14.i = icmp slt i32 %call.i, 0
+  %call13.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
 if.else16.i:                                      ; preds = %cond.end.i
-  %cmp17.not.i = icmp eq i32 %call.i, 0
+  %cmp17.not.i = icmp eq i32 %call13.i, 0
   br i1 %cmp17.not.i, label %if.then5, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.else16.i
@@ -2209,165 +2163,113 @@ if.end22.i:                                       ; preds = %if.then18.i, %cond.
   %cmp.i = icmp slt i32 %start.1.i, %limit.1.i
   br i1 %cmp.i, label %while.body.i, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !7
 
-_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread: ; preds = %if.end22.i, %if.end22.us.i, %if.then3
+_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread: ; preds = %if.end22.i, %if.then3
   store i32 -1, ptr %indexR, align 4
   br label %return
 
-if.then5:                                         ; preds = %if.else16.i, %if.else16.us.i
-  %idxprom.pre-phi = phi i64 [ %idxprom.us.i, %if.else16.us.i ], [ %idxprom.i, %if.else16.i ]
-  %.us-phi.i = phi ptr [ %cond.us.i, %if.else16.us.i ], [ %cond.i, %if.else16.i ]
-  %.us-phi22.i = phi i32 [ %div18.us.i, %if.else16.us.i ], [ %div18.i, %if.else16.i ]
-  store ptr %.us-phi.i, ptr %key, align 8
-  store i32 %.us-phi22.i, ptr %indexR, align 4
+if.then5:                                         ; preds = %if.else16.i
+  store ptr %cond.i, ptr %key, align 8
+  store i32 %div18.i, ptr %indexR, align 4
   %idx.ext6 = zext i16 %2 to i64
   %add.ptr7 = getelementptr inbounds nuw i16, ptr %incdec.ptr, i64 %idx.ext6
   %not = and i32 %conv, 1
   %and8 = xor i32 %not, 1
   %idx.ext9 = zext nneg i32 %and8 to i64
   %add.ptr10 = getelementptr inbounds nuw i16, ptr %add.ptr7, i64 %idx.ext9
-  %arrayidx = getelementptr inbounds nuw i32, ptr %add.ptr10, i64 %idxprom.pre-phi
-  %9 = load i32, ptr %arrayidx, align 4
+  %arrayidx = getelementptr inbounds nuw i32, ptr %add.ptr10, i64 %idxprom.i
+  %6 = load i32, ptr %arrayidx, align 4
   br label %return
 
 sw.bb13:                                          ; preds = %if.end
   %p16BitUnits = getelementptr inbounds nuw i8, ptr %pResData, i64 16
-  %10 = load ptr, ptr %p16BitUnits, align 8
+  %7 = load ptr, ptr %p16BitUnits, align 8
   %idx.ext15 = zext nneg i32 %and to i64
-  %add.ptr16 = getelementptr inbounds nuw i16, ptr %10, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw i16, ptr %7, i64 %idx.ext15
   %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %add.ptr16, i64 2
-  %11 = load i16, ptr %add.ptr16, align 2
-  %conv18 = zext i16 %11 to i32
-  %cmp19.i38.not = icmp eq i16 %11, 0
-  br i1 %cmp19.i38.not, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread, label %while.body.lr.ph.i40
+  %8 = load i16, ptr %add.ptr16, align 2
+  %conv18 = zext i16 %8 to i32
+  %cmp19.i38.not = icmp eq i16 %8, 0
+  br i1 %cmp19.i38.not, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit74.thread, label %while.body.lr.ph.i40
 
 while.body.lr.ph.i40:                             ; preds = %sw.bb13
   %localKeyLimit.i41 = getelementptr inbounds nuw i8, ptr %pResData, i64 36
-  %12 = load i32, ptr %localKeyLimit.i41, align 4
+  %9 = load i32, ptr %localKeyLimit.i41, align 4
   %poolBundleKeys.i42 = getelementptr inbounds nuw i8, ptr %pResData, i64 24
-  %idx.ext11.i43 = sext i32 %12 to i64
+  %idx.ext11.i43 = sext i32 %9 to i64
   %idx.neg.i44 = sub nsw i64 0, %idx.ext11.i43
   %pRoot.i45 = getelementptr inbounds nuw i8, ptr %pResData, i64 8
-  %useNativeStrcmp.i46 = getelementptr inbounds nuw i8, ptr %pResData, i64 59
-  %13 = load i8, ptr %useNativeStrcmp.i46, align 1
-  %tobool.not.i47 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i47, label %while.body.us.i78, label %while.body.i48
+  br label %while.body.i46
 
-while.body.us.i78:                                ; preds = %while.body.lr.ph.i40, %if.end22.us.i99
-  %limit.021.us.i79 = phi i32 [ %limit.1.us.i101, %if.end22.us.i99 ], [ %conv18, %while.body.lr.ph.i40 ]
-  %start.020.us.i80 = phi i32 [ %start.1.us.i100, %if.end22.us.i99 ], [ 0, %while.body.lr.ph.i40 ]
-  %add.us.i81 = add nuw nsw i32 %start.020.us.i80, %limit.021.us.i79
-  %div18.us.i82 = lshr i32 %add.us.i81, 1
-  %idxprom.us.i83 = zext nneg i32 %div18.us.i82 to i64
-  %arrayidx.us.i84 = getelementptr inbounds nuw i16, ptr %incdec.ptr17, i64 %idxprom.us.i83
-  %14 = load i16, ptr %arrayidx.us.i84, align 2
-  %conv.us.i85 = zext i16 %14 to i32
-  %cmp1.us.i86 = icmp sgt i32 %12, %conv.us.i85
-  %idx.ext.us.i87 = zext i16 %14 to i64
-  br i1 %cmp1.us.i86, label %cond.true.us.i103, label %cond.false.us.i88
+while.body.i46:                                   ; preds = %if.end22.i67, %while.body.lr.ph.i40
+  %limit.021.i47 = phi i32 [ %conv18, %while.body.lr.ph.i40 ], [ %limit.1.i69, %if.end22.i67 ]
+  %start.020.i48 = phi i32 [ 0, %while.body.lr.ph.i40 ], [ %start.1.i68, %if.end22.i67 ]
+  %add.i49 = add nuw nsw i32 %start.020.i48, %limit.021.i47
+  %div18.i50 = lshr i32 %add.i49, 1
+  %idxprom.i51 = zext nneg i32 %div18.i50 to i64
+  %arrayidx.i52 = getelementptr inbounds nuw i16, ptr %incdec.ptr17, i64 %idxprom.i51
+  %10 = load i16, ptr %arrayidx.i52, align 2
+  %conv.i53 = zext i16 %10 to i32
+  %cmp1.i54 = icmp sgt i32 %9, %conv.i53
+  %idx.ext.i55 = zext i16 %10 to i64
+  br i1 %cmp1.i54, label %cond.true.i72, label %cond.false.i56
 
-cond.false.us.i88:                                ; preds = %while.body.us.i78
-  %15 = load ptr, ptr %poolBundleKeys.i42, align 8
-  %add.ptr9.us.i89 = getelementptr inbounds nuw i8, ptr %15, i64 %idx.ext.us.i87
-  %add.ptr12.us.i90 = getelementptr inbounds i8, ptr %add.ptr9.us.i89, i64 %idx.neg.i44
-  br label %cond.end.us.i91
+cond.true.i72:                                    ; preds = %while.body.i46
+  %11 = load ptr, ptr %pRoot.i45, align 8
+  %add.ptr.i73 = getelementptr inbounds nuw i8, ptr %11, i64 %idx.ext.i55
+  br label %cond.end.i59
 
-cond.true.us.i103:                                ; preds = %while.body.us.i78
-  %16 = load ptr, ptr %pRoot.i45, align 8
-  %add.ptr.us.i104 = getelementptr inbounds nuw i8, ptr %16, i64 %idx.ext.us.i87
-  br label %cond.end.us.i91
+cond.false.i56:                                   ; preds = %while.body.i46
+  %12 = load ptr, ptr %poolBundleKeys.i42, align 8
+  %add.ptr9.i57 = getelementptr inbounds nuw i8, ptr %12, i64 %idx.ext.i55
+  %add.ptr12.i58 = getelementptr inbounds i8, ptr %add.ptr9.i57, i64 %idx.neg.i44
+  br label %cond.end.i59
 
-cond.end.us.i91:                                  ; preds = %cond.true.us.i103, %cond.false.us.i88
-  %cond.us.i92 = phi ptr [ %add.ptr.us.i104, %cond.true.us.i103 ], [ %add.ptr12.us.i90, %cond.false.us.i88 ]
-  %call13.us.i93 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.us.i92) #18
-  %cmp14.us.i94 = icmp slt i32 %call13.us.i93, 0
-  br i1 %cmp14.us.i94, label %if.end22.us.i99, label %if.else16.us.i95
+cond.end.i59:                                     ; preds = %cond.false.i56, %cond.true.i72
+  %cond.i60 = phi ptr [ %add.ptr.i73, %cond.true.i72 ], [ %add.ptr12.i58, %cond.false.i56 ]
+  %call13.i61 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i60) #18
+  %cmp14.i62 = icmp slt i32 %call13.i61, 0
+  br i1 %cmp14.i62, label %if.end22.i67, label %if.else16.i63
 
-if.else16.us.i95:                                 ; preds = %cond.end.us.i91
-  %cmp17.not.us.i96 = icmp eq i32 %call13.us.i93, 0
-  br i1 %cmp17.not.us.i96, label %if.then21, label %if.then18.us.i97
+if.else16.i63:                                    ; preds = %cond.end.i59
+  %cmp17.not.i64 = icmp eq i32 %call13.i61, 0
+  br i1 %cmp17.not.i64, label %if.then21, label %if.then18.i65
 
-if.then18.us.i97:                                 ; preds = %if.else16.us.i95
-  %add19.us.i98 = add nuw nsw i32 %div18.us.i82, 1
-  br label %if.end22.us.i99
+if.then18.i65:                                    ; preds = %if.else16.i63
+  %add19.i66 = add nuw nsw i32 %div18.i50, 1
+  br label %if.end22.i67
 
-if.end22.us.i99:                                  ; preds = %if.then18.us.i97, %cond.end.us.i91
-  %start.1.us.i100 = phi i32 [ %add19.us.i98, %if.then18.us.i97 ], [ %start.020.us.i80, %cond.end.us.i91 ]
-  %limit.1.us.i101 = phi i32 [ %limit.021.us.i79, %if.then18.us.i97 ], [ %div18.us.i82, %cond.end.us.i91 ]
-  %cmp.us.i102 = icmp slt i32 %start.1.us.i100, %limit.1.us.i101
-  br i1 %cmp.us.i102, label %while.body.us.i78, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread, !llvm.loop !7
+if.end22.i67:                                     ; preds = %if.then18.i65, %cond.end.i59
+  %start.1.i68 = phi i32 [ %add19.i66, %if.then18.i65 ], [ %start.020.i48, %cond.end.i59 ]
+  %limit.1.i69 = phi i32 [ %limit.021.i47, %if.then18.i65 ], [ %div18.i50, %cond.end.i59 ]
+  %cmp.i70 = icmp slt i32 %start.1.i68, %limit.1.i69
+  br i1 %cmp.i70, label %while.body.i46, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit74.thread, !llvm.loop !7
 
-while.body.i48:                                   ; preds = %while.body.lr.ph.i40, %if.end22.i69
-  %limit.021.i49 = phi i32 [ %limit.1.i71, %if.end22.i69 ], [ %conv18, %while.body.lr.ph.i40 ]
-  %start.020.i50 = phi i32 [ %start.1.i70, %if.end22.i69 ], [ 0, %while.body.lr.ph.i40 ]
-  %add.i51 = add nuw nsw i32 %start.020.i50, %limit.021.i49
-  %div18.i52 = lshr i32 %add.i51, 1
-  %idxprom.i53 = zext nneg i32 %div18.i52 to i64
-  %arrayidx.i54 = getelementptr inbounds nuw i16, ptr %incdec.ptr17, i64 %idxprom.i53
-  %17 = load i16, ptr %arrayidx.i54, align 2
-  %conv.i55 = zext i16 %17 to i32
-  %cmp1.i56 = icmp sgt i32 %12, %conv.i55
-  %idx.ext.i57 = zext i16 %17 to i64
-  br i1 %cmp1.i56, label %cond.true.i76, label %cond.false.i58
-
-cond.true.i76:                                    ; preds = %while.body.i48
-  %18 = load ptr, ptr %pRoot.i45, align 8
-  %add.ptr.i77 = getelementptr inbounds nuw i8, ptr %18, i64 %idx.ext.i57
-  br label %cond.end.i61
-
-cond.false.i58:                                   ; preds = %while.body.i48
-  %19 = load ptr, ptr %poolBundleKeys.i42, align 8
-  %add.ptr9.i59 = getelementptr inbounds nuw i8, ptr %19, i64 %idx.ext.i57
-  %add.ptr12.i60 = getelementptr inbounds i8, ptr %add.ptr9.i59, i64 %idx.neg.i44
-  br label %cond.end.i61
-
-cond.end.i61:                                     ; preds = %cond.false.i58, %cond.true.i76
-  %cond.i62 = phi ptr [ %add.ptr.i77, %cond.true.i76 ], [ %add.ptr12.i60, %cond.false.i58 ]
-  %call.i63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %cond.i62) #18
-  %cmp14.i64 = icmp slt i32 %call.i63, 0
-  br i1 %cmp14.i64, label %if.end22.i69, label %if.else16.i65
-
-if.else16.i65:                                    ; preds = %cond.end.i61
-  %cmp17.not.i66 = icmp eq i32 %call.i63, 0
-  br i1 %cmp17.not.i66, label %if.then21, label %if.then18.i67
-
-if.then18.i67:                                    ; preds = %if.else16.i65
-  %add19.i68 = add nuw nsw i32 %div18.i52, 1
-  br label %if.end22.i69
-
-if.end22.i69:                                     ; preds = %if.then18.i67, %cond.end.i61
-  %start.1.i70 = phi i32 [ %add19.i68, %if.then18.i67 ], [ %start.020.i50, %cond.end.i61 ]
-  %limit.1.i71 = phi i32 [ %limit.021.i49, %if.then18.i67 ], [ %div18.i52, %cond.end.i61 ]
-  %cmp.i72 = icmp slt i32 %start.1.i70, %limit.1.i71
-  br i1 %cmp.i72, label %while.body.i48, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread, !llvm.loop !7
-
-_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread: ; preds = %if.end22.i69, %if.end22.us.i99, %sw.bb13
+_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit74.thread: ; preds = %if.end22.i67, %sw.bb13
   store i32 -1, ptr %indexR, align 4
   br label %return
 
-if.then21:                                        ; preds = %if.else16.i65, %if.else16.us.i95
-  %.us-phi.i74 = phi ptr [ %cond.us.i92, %if.else16.us.i95 ], [ %cond.i62, %if.else16.i65 ]
-  %.us-phi22.i75 = phi i32 [ %div18.us.i82, %if.else16.us.i95 ], [ %div18.i52, %if.else16.i65 ]
-  store ptr %.us-phi.i74, ptr %key, align 8
-  store i32 %.us-phi22.i75, ptr %indexR, align 4
-  %add = add nuw nsw i32 %.us-phi22.i75, %conv18
+if.then21:                                        ; preds = %if.else16.i63
+  store ptr %cond.i60, ptr %key, align 8
+  store i32 %div18.i50, ptr %indexR, align 4
+  %add = add nuw nsw i32 %div18.i50, %conv18
   %idxprom22 = zext nneg i32 %add to i64
   %arrayidx23 = getelementptr inbounds nuw i16, ptr %incdec.ptr17, i64 %idxprom22
-  %20 = load i16, ptr %arrayidx23, align 2
-  %conv24 = zext i16 %20 to i32
+  %13 = load i16, ptr %arrayidx23, align 2
+  %conv24 = zext i16 %13 to i32
   %poolStringIndex16Limit.i = getelementptr inbounds nuw i8, ptr %pResData, i64 52
-  %21 = load i32, ptr %poolStringIndex16Limit.i, align 4
-  %cmp.i106 = icmp sgt i32 %21, %conv24
-  br i1 %cmp.i106, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
+  %14 = load i32, ptr %poolStringIndex16Limit.i, align 4
+  %cmp.i75 = icmp sgt i32 %14, %conv24
+  br i1 %cmp.i75, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then21
-  %sub.i = sub i32 %conv24, %21
+  %sub.i = sub i32 %conv24, %14
   %poolStringIndexLimit.i = getelementptr inbounds nuw i8, ptr %pResData, i64 48
-  %22 = load i32, ptr %poolStringIndexLimit.i, align 8
-  %add.i107 = add nsw i32 %sub.i, %22
+  %15 = load i32, ptr %poolStringIndexLimit.i, align 8
+  %add.i76 = add nsw i32 %sub.i, %15
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
 
 _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then21, %if.else.i
-  %res16.addr.0.i = phi i32 [ %conv24, %if.then21 ], [ %add.i107, %if.else.i ]
+  %res16.addr.0.i = phi i32 [ %conv24, %if.then21 ], [ %add.i76, %if.else.i ]
   %or.i = or i32 %res16.addr.0.i, 1610612736
   br label %return
 
@@ -2377,102 +2279,65 @@ sw.bb27:                                          ; preds = %if.end
 
 if.then29:                                        ; preds = %sw.bb27
   %pRoot31 = getelementptr inbounds nuw i8, ptr %pResData, i64 8
-  %23 = load ptr, ptr %pRoot31, align 8
+  %16 = load ptr, ptr %pRoot31, align 8
   %idx.ext32 = zext nneg i32 %and to i64
-  %add.ptr33 = getelementptr inbounds nuw i32, ptr %23, i64 %idx.ext32
+  %add.ptr33 = getelementptr inbounds nuw i32, ptr %16, i64 %idx.ext32
   %incdec.ptr34 = getelementptr inbounds nuw i8, ptr %add.ptr33, i64 4
-  %24 = load i32, ptr %add.ptr33, align 4
-  %cmp17.i = icmp sgt i32 %24, 0
-  br i1 %cmp17.i, label %while.body.lr.ph.i109, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread
+  %17 = load i32, ptr %add.ptr33, align 4
+  %cmp17.i = icmp sgt i32 %17, 0
+  br i1 %cmp17.i, label %while.body.lr.ph.i78, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread
 
-while.body.lr.ph.i109:                            ; preds = %if.then29
-  %poolBundleKeys.i110 = getelementptr inbounds nuw i8, ptr %pResData, i64 24
-  %useNativeStrcmp.i112 = getelementptr inbounds nuw i8, ptr %pResData, i64 59
-  %25 = load i8, ptr %useNativeStrcmp.i112, align 1
-  %tobool.not.i113 = icmp eq i8 %25, 0
-  br i1 %tobool.not.i113, label %while.body.us.i127, label %while.body.i114
+while.body.lr.ph.i78:                             ; preds = %if.then29
+  %poolBundleKeys.i79 = getelementptr inbounds nuw i8, ptr %pResData, i64 24
+  br label %while.body.i81
 
-while.body.us.i127:                               ; preds = %while.body.lr.ph.i109, %if.end17.us.i
-  %limit.019.us.i = phi i32 [ %limit.1.us.i137, %if.end17.us.i ], [ %24, %while.body.lr.ph.i109 ]
-  %start.018.us.i = phi i32 [ %start.1.us.i136, %if.end17.us.i ], [ 0, %while.body.lr.ph.i109 ]
-  %add.us.i128 = add nuw nsw i32 %start.018.us.i, %limit.019.us.i
-  %div16.us.i = lshr i32 %add.us.i128, 1
-  %idxprom.us.i129 = zext nneg i32 %div16.us.i to i64
-  %arrayidx.us.i130 = getelementptr inbounds nuw i32, ptr %incdec.ptr34, i64 %idxprom.us.i129
-  %26 = load i32, ptr %arrayidx.us.i130, align 4
-  %and.us.i = and i32 %26, 2147483647
-  %cmp1.us.i131150 = icmp slt i32 %26, 0
-  %spec.select146 = select i1 %cmp1.us.i131150, ptr %poolBundleKeys.i110, ptr %pRoot31
-  %.sink.i = load ptr, ptr %spec.select146, align 8
-  %idx.ext.us.i134 = zext nneg i32 %and.us.i to i64
-  %add.ptr.us.i135 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %idx.ext.us.i134
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i135) #18
-  %cmp9.us.i = icmp slt i32 %call8.us.i, 0
-  br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
-
-if.else11.us.i:                                   ; preds = %while.body.us.i127
-  %cmp12.not.us.i = icmp eq i32 %call8.us.i, 0
-  br i1 %cmp12.not.us.i, label %if.then37, label %if.then13.us.i
-
-if.then13.us.i:                                   ; preds = %if.else11.us.i
-  %add14.us.i = add nuw nsw i32 %div16.us.i, 1
-  br label %if.end17.us.i
-
-if.end17.us.i:                                    ; preds = %if.then13.us.i, %while.body.us.i127
-  %start.1.us.i136 = phi i32 [ %add14.us.i, %if.then13.us.i ], [ %start.018.us.i, %while.body.us.i127 ]
-  %limit.1.us.i137 = phi i32 [ %limit.019.us.i, %if.then13.us.i ], [ %div16.us.i, %while.body.us.i127 ]
-  %cmp.us.i138 = icmp slt i32 %start.1.us.i136, %limit.1.us.i137
-  br i1 %cmp.us.i138, label %while.body.us.i127, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread, !llvm.loop !8
-
-while.body.i114:                                  ; preds = %while.body.lr.ph.i109, %if.end17.i
-  %limit.019.i = phi i32 [ %limit.1.i123, %if.end17.i ], [ %24, %while.body.lr.ph.i109 ]
-  %start.018.i = phi i32 [ %start.1.i122, %if.end17.i ], [ 0, %while.body.lr.ph.i109 ]
-  %add.i115 = add nuw nsw i32 %start.018.i, %limit.019.i
-  %div16.i = lshr i32 %add.i115, 1
-  %idxprom.i116 = zext nneg i32 %div16.i to i64
-  %arrayidx.i117 = getelementptr inbounds nuw i32, ptr %incdec.ptr34, i64 %idxprom.i116
-  %27 = load i32, ptr %arrayidx.i117, align 4
-  %and.i = and i32 %27, 2147483647
-  %cmp1.i118149 = icmp slt i32 %27, 0
-  %spec.select148 = select i1 %cmp1.i118149, ptr %poolBundleKeys.i110, ptr %pRoot31
-  %.sink34.i = load ptr, ptr %spec.select148, align 8
+while.body.i81:                                   ; preds = %if.end17.i, %while.body.lr.ph.i78
+  %limit.019.i = phi i32 [ %17, %while.body.lr.ph.i78 ], [ %limit.1.i89, %if.end17.i ]
+  %start.018.i = phi i32 [ 0, %while.body.lr.ph.i78 ], [ %start.1.i88, %if.end17.i ]
+  %add.i82 = add nuw nsw i32 %start.018.i, %limit.019.i
+  %div16.i = lshr i32 %add.i82, 1
+  %idxprom.i83 = zext nneg i32 %div16.i to i64
+  %arrayidx.i84 = getelementptr inbounds nuw i32, ptr %incdec.ptr34, i64 %idxprom.i83
+  %18 = load i32, ptr %arrayidx.i84, align 4
+  %and.i = and i32 %18, 2147483647
+  %cmp1.i8599 = icmp slt i32 %18, 0
+  %spec.select98 = select i1 %cmp1.i8599, ptr %poolBundleKeys.i79, ptr %pRoot31
+  %.sink.i = load ptr, ptr %spec.select98, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
-  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
-  %cmp9.i = icmp slt i32 %call.i121, 0
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %idx.ext6.i
+  %call8.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 
-if.else11.i:                                      ; preds = %while.body.i114
-  %cmp12.not.i = icmp eq i32 %call.i121, 0
+if.else11.i:                                      ; preds = %while.body.i81
+  %cmp12.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp12.not.i, label %if.then37, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else11.i
   %add14.i = add nuw nsw i32 %div16.i, 1
   br label %if.end17.i
 
-if.end17.i:                                       ; preds = %if.then13.i, %while.body.i114
-  %start.1.i122 = phi i32 [ %add14.i, %if.then13.i ], [ %start.018.i, %while.body.i114 ]
-  %limit.1.i123 = phi i32 [ %limit.019.i, %if.then13.i ], [ %div16.i, %while.body.i114 ]
-  %cmp.i124 = icmp slt i32 %start.1.i122, %limit.1.i123
-  br i1 %cmp.i124, label %while.body.i114, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread, !llvm.loop !8
+if.end17.i:                                       ; preds = %if.then13.i, %while.body.i81
+  %start.1.i88 = phi i32 [ %add14.i, %if.then13.i ], [ %start.018.i, %while.body.i81 ]
+  %limit.1.i89 = phi i32 [ %limit.019.i, %if.then13.i ], [ %div16.i, %while.body.i81 ]
+  %cmp.i90 = icmp slt i32 %start.1.i88, %limit.1.i89
+  br i1 %cmp.i90, label %while.body.i81, label %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread, !llvm.loop !8
 
-_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread: ; preds = %if.end17.i, %if.end17.us.i, %if.then29
+_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread: ; preds = %if.end17.i, %if.then29
   store i32 -1, ptr %indexR, align 4
   br label %return
 
-if.then37:                                        ; preds = %if.else11.i, %if.else11.us.i
-  %.us-phi.i125 = phi ptr [ %add.ptr.us.i135, %if.else11.us.i ], [ %add.ptr7.i, %if.else11.i ]
-  %.us-phi20.i = phi i32 [ %div16.us.i, %if.else11.us.i ], [ %div16.i, %if.else11.i ]
-  store ptr %.us-phi.i125, ptr %key, align 8
-  store i32 %.us-phi20.i, ptr %indexR, align 4
-  %add38 = add nuw nsw i32 %.us-phi20.i, %24
+if.then37:                                        ; preds = %if.else11.i
+  store ptr %add.ptr7.i, ptr %key, align 8
+  store i32 %div16.i, ptr %indexR, align 4
+  %add38 = add nuw nsw i32 %div16.i, %17
   %idxprom39 = zext nneg i32 %add38 to i64
   %arrayidx40 = getelementptr inbounds nuw i32, ptr %incdec.ptr34, i64 %idxprom39
-  %28 = load i32, ptr %arrayidx40, align 4
+  %19 = load i32, ptr %arrayidx40, align 4
   br label %return
 
-return:                                           ; preds = %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, %sw.bb, %sw.bb27, %if.end, %entry, %lor.lhs.false, %if.then37, %_ZL18makeResourceFrom16PK12ResourceDatai.exit, %if.then5
-  %retval.0 = phi i32 [ %28, %if.then37 ], [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %9, %if.then5 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.end ], [ -1, %sw.bb27 ], [ -1, %sw.bb ], [ -1, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread ], [ -1, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit105.thread ], [ -1, %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread ]
+return:                                           ; preds = %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit74.thread, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, %sw.bb, %sw.bb27, %if.end, %entry, %lor.lhs.false, %if.then37, %_ZL18makeResourceFrom16PK12ResourceDatai.exit, %if.then5
+  %retval.0 = phi i32 [ %19, %if.then37 ], [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %6, %if.then5 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ -1, %if.end ], [ -1, %sw.bb27 ], [ -1, %sw.bb ], [ -1, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread ], [ -1, %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit74.thread ], [ -1, %_ZL20_res_findTable32ItemPK12ResourceDataPKiiPKcPS5_.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2824,87 +2689,40 @@ while.body.lr.ph.i:                               ; preds = %if.then
   %idx.ext11.i = sext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext11.i
   %pRoot.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %useNativeStrcmp.i = getelementptr inbounds nuw i8, ptr %2, i64 59
-  %4 = load i8, ptr %useNativeStrcmp.i, align 1
-  %tobool.not.i = icmp eq i8 %4, 0
-  br i1 %tobool.not.i, label %while.body.us.i, label %while.body.i
+  br label %while.body.i
 
-while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %if.end22.us.i
-  %limit.021.us.i = phi i32 [ %limit.1.us.i, %if.end22.us.i ], [ %1, %while.body.lr.ph.i ]
-  %start.020.us.i = phi i32 [ %start.1.us.i, %if.end22.us.i ], [ 0, %while.body.lr.ph.i ]
-  %add.us.i = add nuw nsw i32 %start.020.us.i, %limit.021.us.i
-  %div18.us.i = lshr i32 %add.us.i, 1
-  %idxprom.us.i = zext nneg i32 %div18.us.i to i64
-  %arrayidx.us.i = getelementptr inbounds nuw i16, ptr %0, i64 %idxprom.us.i
-  %5 = load i16, ptr %arrayidx.us.i, align 2
-  %conv.us.i = zext i16 %5 to i32
-  %cmp1.us.i = icmp sgt i32 %3, %conv.us.i
-  %idx.ext.us.i = zext i16 %5 to i64
-  br i1 %cmp1.us.i, label %cond.true.us.i, label %cond.false.us.i
-
-cond.false.us.i:                                  ; preds = %while.body.us.i
-  %6 = load ptr, ptr %poolBundleKeys.i, align 8
-  %add.ptr9.us.i = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext.us.i
-  %add.ptr12.us.i = getelementptr inbounds i8, ptr %add.ptr9.us.i, i64 %idx.neg.i
-  br label %cond.end.us.i
-
-cond.true.us.i:                                   ; preds = %while.body.us.i
-  %7 = load ptr, ptr %pRoot.i, align 8
-  %add.ptr.us.i = getelementptr inbounds nuw i8, ptr %7, i64 %idx.ext.us.i
-  br label %cond.end.us.i
-
-cond.end.us.i:                                    ; preds = %cond.true.us.i, %cond.false.us.i
-  %cond.us.i = phi ptr [ %add.ptr.us.i, %cond.true.us.i ], [ %add.ptr12.us.i, %cond.false.us.i ]
-  %call13.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.us.i) #18
-  %cmp14.us.i = icmp slt i32 %call13.us.i, 0
-  br i1 %cmp14.us.i, label %if.end22.us.i, label %if.else16.us.i
-
-if.else16.us.i:                                   ; preds = %cond.end.us.i
-  %cmp17.not.us.i = icmp eq i32 %call13.us.i, 0
-  br i1 %cmp17.not.us.i, label %if.then8, label %if.then18.us.i
-
-if.then18.us.i:                                   ; preds = %if.else16.us.i
-  %add19.us.i = add nuw nsw i32 %div18.us.i, 1
-  br label %if.end22.us.i
-
-if.end22.us.i:                                    ; preds = %if.then18.us.i, %cond.end.us.i
-  %start.1.us.i = phi i32 [ %add19.us.i, %if.then18.us.i ], [ %start.020.us.i, %cond.end.us.i ]
-  %limit.1.us.i = phi i32 [ %limit.021.us.i, %if.then18.us.i ], [ %div18.us.i, %cond.end.us.i ]
-  %cmp.us.i = icmp slt i32 %start.1.us.i, %limit.1.us.i
-  br i1 %cmp.us.i, label %while.body.us.i, label %return, !llvm.loop !7
-
-while.body.i:                                     ; preds = %while.body.lr.ph.i, %if.end22.i
-  %limit.021.i = phi i32 [ %limit.1.i, %if.end22.i ], [ %1, %while.body.lr.ph.i ]
-  %start.020.i = phi i32 [ %start.1.i, %if.end22.i ], [ 0, %while.body.lr.ph.i ]
+while.body.i:                                     ; preds = %if.end22.i, %while.body.lr.ph.i
+  %limit.021.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %limit.1.i, %if.end22.i ]
+  %start.020.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %start.1.i, %if.end22.i ]
   %add.i = add nuw nsw i32 %start.020.i, %limit.021.i
   %div18.i = lshr i32 %add.i, 1
   %idxprom.i = zext nneg i32 %div18.i to i64
   %arrayidx.i = getelementptr inbounds nuw i16, ptr %0, i64 %idxprom.i
-  %8 = load i16, ptr %arrayidx.i, align 2
-  %conv.i = zext i16 %8 to i32
+  %4 = load i16, ptr %arrayidx.i, align 2
+  %conv.i = zext i16 %4 to i32
   %cmp1.i = icmp sgt i32 %3, %conv.i
-  %idx.ext.i = zext i16 %8 to i64
+  %idx.ext.i = zext i16 %4 to i64
   br i1 %cmp1.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %while.body.i
-  %9 = load ptr, ptr %pRoot.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %idx.ext.i
+  %5 = load ptr, ptr %pRoot.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %while.body.i
-  %10 = load ptr, ptr %poolBundleKeys.i, align 8
-  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %10, i64 %idx.ext.i
+  %6 = load ptr, ptr %poolBundleKeys.i, align 8
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext.i
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 %idx.neg.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ %add.ptr12.i, %cond.false.i ]
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
-  %cmp14.i = icmp slt i32 %call.i, 0
+  %call13.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %cond.i) #18
+  %cmp14.i = icmp slt i32 %call13.i, 0
   br i1 %cmp14.i, label %if.end22.i, label %if.else16.i
 
 if.else16.i:                                      ; preds = %cond.end.i
-  %cmp17.not.i = icmp eq i32 %call.i, 0
+  %cmp17.not.i = icmp eq i32 %call13.i, 0
   br i1 %cmp17.not.i, label %if.then8, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.else16.i
@@ -2919,132 +2737,96 @@ if.end22.i:                                       ; preds = %if.then18.i, %cond.
 
 if.else:                                          ; preds = %entry
   %keys32 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %11 = load ptr, ptr %keys32, align 8
+  %7 = load ptr, ptr %keys32, align 8
   %length5 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %12 = load i32, ptr %length5, align 8
-  %cmp17.i = icmp sgt i32 %12, 0
+  %8 = load i32, ptr %length5, align 8
+  %cmp17.i = icmp sgt i32 %8, 0
   br i1 %cmp17.i, label %while.body.lr.ph.i10, label %return
 
 while.body.lr.ph.i10:                             ; preds = %if.else
   %pResData.i8 = getelementptr inbounds nuw i8, ptr %value, i64 8
-  %13 = load ptr, ptr %pResData.i8, align 8
-  %poolBundleKeys.i11 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %pRoot.i12 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %useNativeStrcmp.i13 = getelementptr inbounds nuw i8, ptr %13, i64 59
-  %14 = load i8, ptr %useNativeStrcmp.i13, align 1
-  %tobool.not.i14 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i14, label %while.body.us.i28, label %while.body.i15
+  %9 = load ptr, ptr %pResData.i8, align 8
+  br label %while.body.i13
 
-while.body.us.i28:                                ; preds = %while.body.lr.ph.i10, %if.end17.us.i
-  %limit.019.us.i = phi i32 [ %limit.1.us.i38, %if.end17.us.i ], [ %12, %while.body.lr.ph.i10 ]
-  %start.018.us.i = phi i32 [ %start.1.us.i37, %if.end17.us.i ], [ 0, %while.body.lr.ph.i10 ]
-  %add.us.i29 = add nuw nsw i32 %start.018.us.i, %limit.019.us.i
-  %div16.us.i = lshr i32 %add.us.i29, 1
-  %idxprom.us.i30 = zext nneg i32 %div16.us.i to i64
-  %arrayidx.us.i31 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.us.i30
-  %15 = load i32, ptr %arrayidx.us.i31, align 4
-  %and.us.i = and i32 %15, 2147483647
-  %cmp1.us.i3250 = icmp slt i32 %15, 0
-  %spec.select46 = select i1 %cmp1.us.i3250, ptr %poolBundleKeys.i11, ptr %pRoot.i12
-  %.sink.i = load ptr, ptr %spec.select46, align 8
-  %idx.ext.us.i35 = zext nneg i32 %and.us.i to i64
-  %add.ptr.us.i36 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %idx.ext.us.i35
-  %call8.us.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr.us.i36) #18
-  %cmp9.us.i = icmp slt i32 %call8.us.i, 0
-  br i1 %cmp9.us.i, label %if.end17.us.i, label %if.else11.us.i
-
-if.else11.us.i:                                   ; preds = %while.body.us.i28
-  %cmp12.not.us.i = icmp eq i32 %call8.us.i, 0
-  br i1 %cmp12.not.us.i, label %if.then8, label %if.then13.us.i
-
-if.then13.us.i:                                   ; preds = %if.else11.us.i
-  %add14.us.i = add nuw nsw i32 %div16.us.i, 1
-  br label %if.end17.us.i
-
-if.end17.us.i:                                    ; preds = %if.then13.us.i, %while.body.us.i28
-  %start.1.us.i37 = phi i32 [ %add14.us.i, %if.then13.us.i ], [ %start.018.us.i, %while.body.us.i28 ]
-  %limit.1.us.i38 = phi i32 [ %limit.019.us.i, %if.then13.us.i ], [ %div16.us.i, %while.body.us.i28 ]
-  %cmp.us.i39 = icmp slt i32 %start.1.us.i37, %limit.1.us.i38
-  br i1 %cmp.us.i39, label %while.body.us.i28, label %return, !llvm.loop !8
-
-while.body.i15:                                   ; preds = %while.body.lr.ph.i10, %if.end17.i
-  %limit.019.i = phi i32 [ %limit.1.i24, %if.end17.i ], [ %12, %while.body.lr.ph.i10 ]
-  %start.018.i = phi i32 [ %start.1.i23, %if.end17.i ], [ 0, %while.body.lr.ph.i10 ]
-  %add.i16 = add nuw nsw i32 %start.018.i, %limit.019.i
-  %div16.i = lshr i32 %add.i16, 1
-  %idxprom.i17 = zext nneg i32 %div16.i to i64
-  %arrayidx.i18 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i17
-  %16 = load i32, ptr %arrayidx.i18, align 4
-  %and.i = and i32 %16, 2147483647
-  %cmp1.i1949 = icmp slt i32 %16, 0
-  %spec.select48 = select i1 %cmp1.i1949, ptr %poolBundleKeys.i11, ptr %pRoot.i12
-  %.sink34.i = load ptr, ptr %spec.select48, align 8
+while.body.i13:                                   ; preds = %if.end17.i, %while.body.lr.ph.i10
+  %limit.019.i = phi i32 [ %8, %while.body.lr.ph.i10 ], [ %limit.1.i21, %if.end17.i ]
+  %start.018.i = phi i32 [ 0, %while.body.lr.ph.i10 ], [ %start.1.i20, %if.end17.i ]
+  %add.i14 = add nuw nsw i32 %start.018.i, %limit.019.i
+  %div16.i = lshr i32 %add.i14, 1
+  %idxprom.i15 = zext nneg i32 %div16.i to i64
+  %arrayidx.i16 = getelementptr inbounds nuw i32, ptr %7, i64 %idxprom.i15
+  %10 = load i32, ptr %arrayidx.i16, align 4
+  %and.i = and i32 %10, 2147483647
+  %cmp1.i1730 = icmp slt i32 %10, 0
+  %spec.select29.v = select i1 %cmp1.i1730, i64 24, i64 8
+  %spec.select29 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select29.v
+  %.sink.i = load ptr, ptr %spec.select29, align 8
   %idx.ext6.i = zext nneg i32 %and.i to i64
-  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %.sink34.i, i64 %idx.ext6.i
-  %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
-  %cmp9.i = icmp slt i32 %call.i22, 0
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %idx.ext6.i
+  %call8.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %add.ptr7.i) #18
+  %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %if.end17.i, label %if.else11.i
 
-if.else11.i:                                      ; preds = %while.body.i15
-  %cmp12.not.i = icmp eq i32 %call.i22, 0
+if.else11.i:                                      ; preds = %while.body.i13
+  %cmp12.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp12.not.i, label %if.then8, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.else11.i
   %add14.i = add nuw nsw i32 %div16.i, 1
   br label %if.end17.i
 
-if.end17.i:                                       ; preds = %if.then13.i, %while.body.i15
-  %start.1.i23 = phi i32 [ %add14.i, %if.then13.i ], [ %start.018.i, %while.body.i15 ]
-  %limit.1.i24 = phi i32 [ %limit.019.i, %if.then13.i ], [ %div16.i, %while.body.i15 ]
-  %cmp.i25 = icmp slt i32 %start.1.i23, %limit.1.i24
-  br i1 %cmp.i25, label %while.body.i15, label %return, !llvm.loop !8
+if.end17.i:                                       ; preds = %if.then13.i, %while.body.i13
+  %start.1.i20 = phi i32 [ %add14.i, %if.then13.i ], [ %start.018.i, %while.body.i13 ]
+  %limit.1.i21 = phi i32 [ %limit.019.i, %if.then13.i ], [ %div16.i, %while.body.i13 ]
+  %cmp.i22 = icmp slt i32 %start.1.i20, %limit.1.i21
+  br i1 %cmp.i22, label %while.body.i13, label %return, !llvm.loop !8
 
-if.then8:                                         ; preds = %if.else16.i, %if.else16.us.i, %if.else11.i, %if.else11.us.i
-  %17 = phi ptr [ %13, %if.else11.us.i ], [ %13, %if.else11.i ], [ %2, %if.else16.us.i ], [ %2, %if.else16.i ]
-  %i.0 = phi i32 [ %div16.us.i, %if.else11.us.i ], [ %div16.i, %if.else11.i ], [ %div18.us.i, %if.else16.us.i ], [ %div18.i, %if.else16.i ]
+if.then8:                                         ; preds = %if.else16.i, %if.else11.i
+  %11 = phi ptr [ %9, %if.else11.i ], [ %2, %if.else16.i ]
+  %i.0 = phi i32 [ %div16.i, %if.else11.i ], [ %div18.i, %if.else16.i ]
   %items16 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %18 = load ptr, ptr %items16, align 8
-  %cmp9.not = icmp eq ptr %18, null
+  %12 = load ptr, ptr %items16, align 8
+  %cmp9.not = icmp eq ptr %12, null
   br i1 %cmp9.not, label %if.else14, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
   %idxprom = zext nneg i32 %i.0 to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %18, i64 %idxprom
-  %19 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %19 to i32
-  %poolStringIndex16Limit.i = getelementptr inbounds nuw i8, ptr %17, i64 52
-  %20 = load i32, ptr %poolStringIndex16Limit.i, align 4
-  %cmp.i42 = icmp sgt i32 %20, %conv
-  br i1 %cmp.i42, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
+  %arrayidx = getelementptr inbounds nuw i16, ptr %12, i64 %idxprom
+  %13 = load i16, ptr %arrayidx, align 2
+  %conv = zext i16 %13 to i32
+  %poolStringIndex16Limit.i = getelementptr inbounds nuw i8, ptr %11, i64 52
+  %14 = load i32, ptr %poolStringIndex16Limit.i, align 4
+  %cmp.i25 = icmp sgt i32 %14, %conv
+  br i1 %cmp.i25, label %_ZL18makeResourceFrom16PK12ResourceDatai.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then10
-  %sub.i = sub i32 %conv, %20
-  %poolStringIndexLimit.i = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %21 = load i32, ptr %poolStringIndexLimit.i, align 8
-  %add.i43 = add nsw i32 %sub.i, %21
+  %sub.i = sub i32 %conv, %14
+  %poolStringIndexLimit.i = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %15 = load i32, ptr %poolStringIndexLimit.i, align 8
+  %add.i26 = add nsw i32 %sub.i, %15
   br label %_ZL18makeResourceFrom16PK12ResourceDatai.exit
 
 _ZL18makeResourceFrom16PK12ResourceDatai.exit:    ; preds = %if.then10, %if.else.i
-  %res16.addr.0.i = phi i32 [ %conv, %if.then10 ], [ %add.i43, %if.else.i ]
+  %res16.addr.0.i = phi i32 [ %conv, %if.then10 ], [ %add.i26, %if.else.i ]
   %or.i = or i32 %res16.addr.0.i, 1610612736
   br label %if.end17
 
 if.else14:                                        ; preds = %if.then8
   %items32 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %22 = load ptr, ptr %items32, align 8
+  %16 = load ptr, ptr %items32, align 8
   %idxprom15 = zext nneg i32 %i.0 to i64
-  %arrayidx16 = getelementptr inbounds nuw i32, ptr %22, i64 %idxprom15
-  %23 = load i32, ptr %arrayidx16, align 4
+  %arrayidx16 = getelementptr inbounds nuw i32, ptr %16, i64 %idxprom15
+  %17 = load i32, ptr %arrayidx16, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else14, %_ZL18makeResourceFrom16PK12ResourceDatai.exit
-  %res.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %23, %if.else14 ]
+  %res.0 = phi i32 [ %or.i, %_ZL18makeResourceFrom16PK12ResourceDatai.exit ], [ %17, %if.else14 ]
   %res.i = getelementptr inbounds nuw i8, ptr %value, i64 24
   store i32 %res.0, ptr %res.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end22.i, %if.end22.us.i, %if.end17.i, %if.end17.us.i, %if.else, %if.then, %if.end17
-  %retval.0 = phi i8 [ 1, %if.end17 ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %if.end17.us.i ], [ 0, %if.end17.i ], [ 0, %if.end22.us.i ], [ 0, %if.end22.i ]
+return:                                           ; preds = %if.end22.i, %if.end17.i, %if.else, %if.then, %if.end17
+  %retval.0 = phi i8 [ 1, %if.end17 ], [ 0, %if.then ], [ 0, %if.else ], [ 0, %if.end17.i ], [ 0, %if.end22.i ]
   ret i8 %retval.0
 }
 

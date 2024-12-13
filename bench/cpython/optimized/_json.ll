@@ -7367,21 +7367,21 @@ encoder_encode_string.exit:                       ; preds = %if.then11
   br i1 %cmp13, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.i, %encoder_encode_string.exit
-  %retval.0.i134 = phi ptr [ %call.i, %encoder_encode_string.exit ], [ %call2.i, %land.lhs.true.i ]
-  %call.i72 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %retval.0.i134) #3
-  %12 = load i64, ptr %retval.0.i134, align 8
+  %retval.0.i124 = phi ptr [ %call.i, %encoder_encode_string.exit ], [ %call2.i, %land.lhs.true.i ]
+  %call.i72 = tail call i32 @_PyUnicodeWriter_WriteStr(ptr noundef nonnull %writer, ptr noundef nonnull %retval.0.i124) #3
+  %12 = load i64, ptr %retval.0.i124, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i2.not.i = icmp eq i64 %13, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i73, label %return
 
 if.end.i.i73:                                     ; preds = %if.end
   %dec.i.i74 = add i64 %12, -1
-  store i64 %dec.i.i74, ptr %retval.0.i134, align 8
+  store i64 %dec.i.i74, ptr %retval.0.i124, align 8
   %cmp.i.i75 = icmp eq i64 %dec.i.i74, 0
   br i1 %cmp.i.i75, label %if.then1.i.i76, label %return
 
 if.then1.i.i76:                                   ; preds = %if.end.i.i73
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i134) #3
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i124) #3
   br label %return
 
 if.else16:                                        ; preds = %if.else8
@@ -7645,45 +7645,33 @@ if.then91:                                        ; preds = %Py_DECREF.exit
 
 if.end92:                                         ; preds = %Py_DECREF.exit
   %cmp93.not = icmp eq ptr %ident.0, null
-  br i1 %cmp93.not, label %return, label %if.then94
+  br i1 %cmp93.not, label %return, label %if.then.i112
 
-if.then94:                                        ; preds = %if.end92
+if.then.i112:                                     ; preds = %if.end92
   %43 = load ptr, ptr %markers, align 8
   %call96 = tail call i32 @PyDict_DelItem(ptr noundef %43, ptr noundef nonnull %ident.0) #3
-  %tobool97.not = icmp eq i32 %call96, 0
+  %tobool97.not = icmp ne i32 %call96, 0
   %44 = load i64, ptr %ident.0, align 8
   %45 = and i64 %44, 2147483648
-  %cmp.i2.not.i121 = icmp eq i64 %45, 0
-  br i1 %tobool97.not, label %if.then.i120, label %if.then.i112
-
-if.then.i112:                                     ; preds = %if.then94
-  br i1 %cmp.i2.not.i121, label %if.end.i.i115, label %return
+  %cmp.i2.not.i113 = icmp eq i64 %45, 0
+  br i1 %cmp.i2.not.i113, label %if.end.i.i115, label %Py_XDECREF.exit
 
 if.end.i.i115:                                    ; preds = %if.then.i112
   %dec.i.i116 = add i64 %44, -1
   store i64 %dec.i.i116, ptr %ident.0, align 8
   %cmp.i.i117 = icmp eq i64 %dec.i.i116, 0
-  br i1 %cmp.i.i117, label %if.then1.i.i118, label %return
+  br i1 %cmp.i.i117, label %if.then1.i.i118, label %Py_XDECREF.exit
 
 if.then1.i.i118:                                  ; preds = %if.end.i.i115
   tail call void @_Py_Dealloc(ptr noundef nonnull %ident.0) #3
+  br label %Py_XDECREF.exit
+
+Py_XDECREF.exit:                                  ; preds = %if.then.i112, %if.end.i.i115, %if.then1.i.i118
+  %. = sext i1 %tobool97.not to i32
   br label %return
 
-if.then.i120:                                     ; preds = %if.then94
-  br i1 %cmp.i2.not.i121, label %if.end.i.i124, label %return
-
-if.end.i.i124:                                    ; preds = %if.then.i120
-  %dec.i.i125 = add i64 %44, -1
-  store i64 %dec.i.i125, ptr %ident.0, align 8
-  %cmp.i.i126 = icmp eq i64 %dec.i.i125, 0
-  br i1 %cmp.i.i126, label %if.then1.i.i127, label %return
-
-if.then1.i.i127:                                  ; preds = %if.end.i.i124
-  tail call void @_Py_Dealloc(ptr noundef nonnull %ident.0) #3
-  br label %return
-
-return:                                           ; preds = %if.end.i71, %if.end.i.i, %if.then1.i.i, %if.then6.i, %if.then1.i.i127, %if.end.i.i124, %if.then.i120, %if.then1.i.i118, %if.end.i.i115, %if.then.i112, %encoder_encode_float.exit.thread, %if.then1.i.i85, %if.end.i.i82, %if.end25, %if.then1.i.i76, %if.end.i.i73, %if.end, %if.end92, %if.end.i113, %if.then1.i116, %if.then78, %if.end.i122, %if.then1.i125, %if.end73, %if.then62, %if.then54, %if.then44, %encoder_encode_float.exit, %if.then20, %encoder_encode_string.exit, %if.then91, %Py_DECREF.exit109, %if.then83, %if.end58, %if.end48, %if.end35, %if.then6, %if.then2, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %call7, %if.then6 ], [ %call36, %if.end35 ], [ %call49, %if.end48 ], [ %call59, %if.end58 ], [ -1, %if.then83 ], [ -1, %Py_DECREF.exit109 ], [ -1, %if.then91 ], [ -1, %encoder_encode_string.exit ], [ -1, %if.then20 ], [ -1, %encoder_encode_float.exit ], [ -1, %if.then44 ], [ -1, %if.then54 ], [ -1, %if.then62 ], [ -1, %if.end73 ], [ -1, %if.then1.i125 ], [ -1, %if.end.i122 ], [ -1, %if.then78 ], [ -1, %if.then1.i116 ], [ -1, %if.end.i113 ], [ 0, %if.end92 ], [ %call.i72, %if.end ], [ %call.i72, %if.end.i.i73 ], [ %call.i72, %if.then1.i.i76 ], [ %call.i80, %if.end25 ], [ %call.i80, %if.end.i.i82 ], [ %call.i80, %if.then1.i.i85 ], [ -1, %encoder_encode_float.exit.thread ], [ -1, %if.then.i112 ], [ -1, %if.end.i.i115 ], [ -1, %if.then1.i.i118 ], [ 0, %if.then.i120 ], [ 0, %if.end.i.i124 ], [ 0, %if.then1.i.i127 ], [ -1, %if.then6.i ], [ -1, %if.then1.i.i ], [ -1, %if.end.i.i ], [ -1, %if.end.i71 ]
+return:                                           ; preds = %if.end.i71, %if.end.i.i, %if.then1.i.i, %if.then6.i, %encoder_encode_float.exit.thread, %if.then1.i.i85, %if.end.i.i82, %if.end25, %if.then1.i.i76, %if.end.i.i73, %if.end, %Py_XDECREF.exit, %if.end92, %if.end.i113, %if.then1.i116, %if.then78, %if.end.i122, %if.then1.i125, %if.end73, %if.then62, %if.then54, %if.then44, %encoder_encode_float.exit, %if.then20, %encoder_encode_string.exit, %if.then91, %Py_DECREF.exit109, %if.then83, %if.end58, %if.end48, %if.end35, %if.then6, %if.then2, %if.then
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %call7, %if.then6 ], [ %call36, %if.end35 ], [ %call49, %if.end48 ], [ %call59, %if.end58 ], [ -1, %if.then83 ], [ -1, %Py_DECREF.exit109 ], [ -1, %if.then91 ], [ -1, %encoder_encode_string.exit ], [ -1, %if.then20 ], [ -1, %encoder_encode_float.exit ], [ -1, %if.then44 ], [ -1, %if.then54 ], [ -1, %if.then62 ], [ -1, %if.end73 ], [ -1, %if.then1.i125 ], [ -1, %if.end.i122 ], [ -1, %if.then78 ], [ -1, %if.then1.i116 ], [ -1, %if.end.i113 ], [ 0, %if.end92 ], [ %., %Py_XDECREF.exit ], [ %call.i72, %if.end ], [ %call.i72, %if.end.i.i73 ], [ %call.i72, %if.then1.i.i76 ], [ %call.i80, %if.end25 ], [ %call.i80, %if.end.i.i82 ], [ %call.i80, %if.then1.i.i85 ], [ -1, %encoder_encode_float.exit.thread ], [ -1, %if.then6.i ], [ -1, %if.then1.i.i ], [ -1, %if.end.i.i ], [ -1, %if.end.i71 ]
   ret i32 %retval.0
 }
 

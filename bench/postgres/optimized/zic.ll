@@ -3987,8 +3987,8 @@ limitrange.exit485.i.i:                           ; preds = %1622, %.lr.ph44.i47
 
 .lr.ph708.i.i:                                    ; preds = %._crit_edge704.i.i, %.lr.ph708.i.i
   %.3707.i.i = phi i64 [ %1717, %.lr.ph708.i.i ], [ %.1380.i.i, %._crit_edge704.i.i ]
-  %.0359706.i.i = phi i32 [ %.1360.i.i, %.lr.ph708.i.i ], [ -1, %._crit_edge704.i.i ]
-  %.0361705.i.i = phi i32 [ %.1362.i.i, %.lr.ph708.i.i ], [ -1, %._crit_edge704.i.i ]
+  %.0359706.i.i = phi i32 [ %..0359.i.i, %.lr.ph708.i.i ], [ -1, %._crit_edge704.i.i ]
+  %.0361705.i.i = phi i32 [ %.0361..i.i, %.lr.ph708.i.i ], [ -1, %._crit_edge704.i.i ]
   %1711 = getelementptr i8, ptr %1399, i64 %.3707.i.i
   %1712 = load i8, ptr %1711, align 1
   %1713 = zext i8 %1712 to i64
@@ -3996,16 +3996,16 @@ limitrange.exit485.i.i:                           ; preds = %1622, %.lr.ph44.i47
   %1715 = load i8, ptr %1714, align 1
   %.not447.i.i = icmp eq i8 %1715, 0
   %1716 = zext i8 %1712 to i32
-  %.1362.i.i = select i1 %.not447.i.i, i32 %.0361705.i.i, i32 %1716
-  %.1360.i.i = select i1 %.not447.i.i, i32 %1716, i32 %.0359706.i.i
+  %.0361..i.i = select i1 %.not447.i.i, i32 %.0361705.i.i, i32 %1716
+  %..0359.i.i = select i1 %.not447.i.i, i32 %1716, i32 %.0359706.i.i
   %1717 = add nsw i64 %.3707.i.i, 1
   %exitcond804.not.i.i = icmp eq i64 %1717, %1681
   br i1 %exitcond804.not.i.i, label %._crit_edge709.i.i, label %.lr.ph708.i.i, !llvm.loop !42
 
 ._crit_edge709.i.i:                               ; preds = %.lr.ph708.i.i, %._crit_edge704.thread.i.i
   %1718 = phi i64 [ %1707, %._crit_edge704.thread.i.i ], [ %1704, %.lr.ph708.i.i ]
-  %.0361.lcssa.i.i = phi i32 [ -1, %._crit_edge704.thread.i.i ], [ %.1362.i.i, %.lr.ph708.i.i ]
-  %.0359.lcssa.i.i = phi i32 [ -1, %._crit_edge704.thread.i.i ], [ %.1360.i.i, %.lr.ph708.i.i ]
+  %.0361.lcssa.i.i = phi i32 [ -1, %._crit_edge704.thread.i.i ], [ %.0361..i.i, %.lr.ph708.i.i ]
+  %.0359.lcssa.i.i = phi i32 [ -1, %._crit_edge704.thread.i.i ], [ %..0359.i.i, %.lr.ph708.i.i ]
   %sext.i.i = shl i64 %1718, 32
   %1719 = ashr exact i64 %sext.i.i, 32
   %1720 = icmp slt i64 %1719, %1695
@@ -4031,13 +4031,13 @@ limitrange.exit485.i.i:                           ; preds = %1622, %.lr.ph44.i47
   %1731 = load i8, ptr %1730, align 1
   %.not446.i.i = icmp eq i8 %1731, 0
   %1732 = trunc nsw i64 %.4714.i.i to i32
-  %.0357712..i.i = select i1 %.not446.i.i, i32 %.0357712.i.i, i32 %1732
-  %..0355713.i.i = select i1 %.not446.i.i, i32 %1732, i32 %.0355713.i.i
+  %.0357..i.i = select i1 %.not446.i.i, i32 %.0357712.i.i, i32 %1732
+  %..0355.i.i = select i1 %.not446.i.i, i32 %1732, i32 %.0355713.i.i
   br label %1733
 
 1733:                                             ; preds = %1729, %.lr.ph716.i.i
-  %.1358.i.i = phi i32 [ %.0357712.i.i, %.lr.ph716.i.i ], [ %.0357712..i.i, %1729 ]
-  %.1356.i.i = phi i32 [ %.0355713.i.i, %.lr.ph716.i.i ], [ %..0355713.i.i, %1729 ]
+  %.1358.i.i = phi i32 [ %.0357712.i.i, %.lr.ph716.i.i ], [ %.0357..i.i, %1729 ]
+  %.1356.i.i = phi i32 [ %.0355713.i.i, %.lr.ph716.i.i ], [ %..0355.i.i, %1729 ]
   %1734 = add nsw i64 %.4714.i.i, 1
   %exitcond805.not.i.i = icmp eq i64 %1734, %1695
   br i1 %exitcond805.not.i.i, label %._crit_edge717.i.i, label %.lr.ph716.i.i, !llvm.loop !43

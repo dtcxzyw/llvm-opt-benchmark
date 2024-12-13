@@ -1902,7 +1902,7 @@ if.end35.i.i.i20.i:                               ; preds = %do.body32.i.i.i16.i
   br label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i
 
 _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i: ; preds = %if.end35.i.i.i20.i, %do.body32.i.i.i16.i, %if.end21.i.i.i14.i, %do.body13.i.i.i10.i, %if.end.i.i.i8.i, %lor.rhs.i.i, %if.then.i
-  %27 = phi i1 [ true, %if.then.i ], [ true, %lor.rhs.i.i ], [ false, %if.end.i.i.i8.i ], [ true, %do.body13.i.i.i10.i ], [ false, %if.end21.i.i.i14.i ], [ true, %do.body32.i.i.i16.i ], [ false, %if.end35.i.i.i20.i ]
+  %27 = phi i1 [ true, %if.then.i ], [ false, %if.end35.i.i.i20.i ], [ true, %lor.rhs.i.i ], [ false, %if.end.i.i.i8.i ], [ true, %do.body13.i.i.i10.i ], [ false, %if.end21.i.i.i14.i ], [ true, %do.body32.i.i.i16.i ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #22
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   %28 = load i16, ptr %__x, align 8

@@ -298,10 +298,10 @@ tailrecurse.i:                                    ; preds = %40, %23
   %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %27, %26 ]
   %29 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
+  %31 = load ptr, ptr %30, align 8
   %32 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %31)
   %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %32)
-  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %31, i64 noundef %33) #8
+  %34 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef readonly %31, i64 noundef %33) #8
   %.not.i.i.i.i = icmp eq i32 %34, 0
   %35 = icmp eq i64 %.tr15.i, %32
   %spec.select.i.i.i = and i1 %35, %.not.i.i.i.i
@@ -311,8 +311,8 @@ tailrecurse.i:                                    ; preds = %40, %23
   %37 = trunc i64 %.tr15.i to i32
   %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.47, ptr noundef nonnull @picgen_msghdr, i32 noundef %37, ptr noundef nonnull %18) #7
   %39 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr15.i)
-  %.not.i27 = icmp eq ptr %39, null
-  br i1 %.not.i27, label %picfontname.exit, label %40
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %picfontname.exit, label %40
 
 40:                                               ; preds = %36
   %41 = ptrtoint ptr %39 to i64
@@ -325,12 +325,12 @@ picfontname.exit:                                 ; preds = %36, %28
   %43 = load ptr, ptr %14, align 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr @pic_textspan.lastname, align 8
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %.pre33 = load double, ptr %.phi.trans.insert32, align 8
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.pre32 = load double, ptr %.phi.trans.insert31, align 8
   br label %45
 
 45:                                               ; preds = %picfontname.exit, %21, %._crit_edge
-  %46 = phi double [ %.pre33, %picfontname.exit ], [ %17, %21 ], [ %17, %._crit_edge ]
+  %46 = phi double [ %.pre32, %picfontname.exit ], [ %17, %21 ], [ %17, %._crit_edge ]
   %47 = tail call double @llvm.maxnum.f64(double %46, double 1.000000e+00)
   %48 = load double, ptr @pic_textspan.lastsize, align 8
   %49 = fsub double %47, %48
@@ -592,4 +592,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{}

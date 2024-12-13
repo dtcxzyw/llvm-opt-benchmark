@@ -9447,7 +9447,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.ex
   %258 = icmp samesign ugt i64 %.051.in92, 1
   br i1 %258, label %213, label %.loopexit, !llvm.loop !227
 
-.loopexit:                                        ; preds = %257, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit57, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit59, %.preheader
+.loopexit:                                        ; preds = %257, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit57, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit59, %.preheader, %_ZN5Eigen10MatrixBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE11setIdentityEll.exit
   ret void
 }
 
@@ -20405,7 +20405,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi1ELi2ELi2EEELi2ELi1ELb0
   %162 = icmp samesign ugt i64 %.051.in87, 1
   br i1 %162, label %131, label %.loopexit, !llvm.loop !642
 
-.loopexit:                                        ; preds = %161, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi1ELi2ELi2EEELi2ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit59, %103, %104, %.preheader
+.loopexit:                                        ; preds = %161, %_ZN5Eigen9DenseBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi1ELi2ELi2EEELi2ELi1ELb0EEELin1ELi1ELb0EEEE7setZeroEv.exit59, %104, %.preheader, %103
   ret void
 }
 

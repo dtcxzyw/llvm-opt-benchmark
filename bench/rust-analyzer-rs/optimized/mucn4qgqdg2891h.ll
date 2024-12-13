@@ -39175,7 +39175,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i: ; preds = %312, %.noex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) @anon.5bcdf0f39a39a1f1bdb121e0a7249614.413, i64 24, i1 false), !noalias !8390
   br label %492
 
-458:                                              ; preds = %"_ZN7hir_def7nameres9collector12DefCollector14inject_prelude28_$u7b$$u7b$closure$u7d$$u7d$17ha1d612eba1b33d5fE.exit.i.i.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i"
+458:                                              ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i", %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i"
   %459 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %114) #55
@@ -39213,7 +39213,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i: ; preds = %312, %.noex
   %475 = icmp eq i64 %473, 0
   br i1 %475, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit.i.sink.split.i", label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i"
 
-"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i": ; preds = %460, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i"
+"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i": ; preds = %460, %.critedge.backedge.i.i.i
   %476 = invoke noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17haa65f10841de6a5fE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %113)
           to label %.noexc.i.i unwind label %458, !noalias !8387
 
@@ -39228,21 +39228,21 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i: ; preds = %312, %.noex
 480:                                              ; preds = %.noexc.i.i
   %481 = load i8, ptr %479, align 8, !range !151, !alias.scope !8417, !noalias !8422, !noundef !4
   %482 = icmp eq i8 %481, 26
-  br i1 %482, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i", label %"_ZN7hir_def7nameres9collector12DefCollector14inject_prelude28_$u7b$$u7b$closure$u7d$$u7d$17ha1d612eba1b33d5fE.exit.i.i.i.i.i"
+  br i1 %482, label %.critedge.backedge.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i"
 
-"_ZN7hir_def7nameres9collector12DefCollector14inject_prelude28_$u7b$$u7b$closure$u7d$$u7d$17ha1d612eba1b33d5fE.exit.i.i.i.i.i": ; preds = %480
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i": ; preds = %480
   %483 = invoke noundef zeroext i1 @"_ZN58_$LT$smol_str..SmolStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6277a0595e422268E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %479, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %114)
           to label %.noexc67.i.i unwind label %458, !noalias !8387
 
-.noexc67.i.i:                                     ; preds = %"_ZN7hir_def7nameres9collector12DefCollector14inject_prelude28_$u7b$$u7b$closure$u7d$$u7d$17ha1d612eba1b33d5fE.exit.i.i.i.i.i"
-  br i1 %483, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit.i.sink.split.i", label %".noexc67._ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i_crit_edge.i.i"
+.noexc67.i.i:                                     ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i"
+  br i1 %483, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit.i.sink.split.i", label %.noexc67..critedge.backedge.i_crit_edge.i.i
 
-".noexc67._ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i_crit_edge.i.i": ; preds = %.noexc67.i.i
+.noexc67..critedge.backedge.i_crit_edge.i.i:      ; preds = %.noexc67.i.i
   %.pre.i.i = load i64, ptr %.sroa.0.sroa.8.0..sroa_idx.i.i.i, align 8, !alias.scope !8406, !noalias !8415
-  br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i"
+  br label %.critedge.backedge.i.i.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i": ; preds = %".noexc67._ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i_crit_edge.i.i", %480
-  %484 = phi i64 [ %.pre.i.i, %".noexc67._ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i_crit_edge.i.i" ], [ %478, %480 ]
+.critedge.backedge.i.i.i:                         ; preds = %.noexc67..critedge.backedge.i_crit_edge.i.i, %480
+  %484 = phi i64 [ %.pre.i.i, %.noexc67..critedge.backedge.i_crit_edge.i.i ], [ %478, %480 ]
   %485 = icmp eq i64 %484, 0
   br i1 %485, label %.noexc._crit_edge.i.i, label %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7e87312903d932a4E.exit.i.i.i"
 
@@ -39257,7 +39257,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i: ; preds = %312, %.noex
   %.pre99.i.i = load ptr, ptr %371, align 8, !alias.scope !8390
   br label %492
 
-.noexc._crit_edge.i.i:                            ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb5a8ec9706fa342E.exit.i.i.i", %.noexc.i.i
+.noexc._crit_edge.i.i:                            ; preds = %.critedge.backedge.i.i.i, %.noexc.i.i
   %.pre98.i.i = load i8, ptr %114, align 8, !range !151, !alias.scope !8426, !noalias !8390
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %113), !noalias !8390
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) @anon.5bcdf0f39a39a1f1bdb121e0a7249614.413, i64 24, i1 false), !noalias !8390

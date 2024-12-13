@@ -520,7 +520,7 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = tail call ptr @g_module_error() #11
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.5, ptr noundef %8) #11
-  br label %27
+  br label %25
 
 9:                                                ; preds = %1
   %10 = call i32 @g_module_symbol(ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef nonnull %2) #11
@@ -529,7 +529,7 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %9
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.7, ptr noundef %0) #11
-  br label %27
+  br label %25
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %2, align 8
@@ -549,30 +549,26 @@ define i32 @plugins_check_file(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %12
   %20 = icmp sgt i32 %17, 0
-  br i1 %20, label %21, label %25
+  br i1 %20, label %21, label %pass_plugin_compatibility.exit
 
 21:                                               ; preds = %19
   %cond.i.i = icmp eq i32 %14, 3
   %..i16.i = zext i1 %cond.i.i to i32
   %22 = icmp samesign ugt i32 %17, %..i16.i
-  br i1 %22, label %23, label %25
+  br i1 %22, label %23, label %pass_plugin_compatibility.exit
 
 23:                                               ; preds = %21
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, ptr noundef %15, i32 noundef %17, i32 noundef %..i16.i) #11
   br label %pass_plugin_compatibility.exit
 
-pass_plugin_compatibility.exit:                   ; preds = %23, %18
+pass_plugin_compatibility.exit:                   ; preds = %18, %19, %21, %23
+  %.0.i = phi i32 [ 0, %18 ], [ 0, %23 ], [ %14, %21 ], [ %14, %19 ]
   %24 = call i32 @g_module_close(ptr noundef nonnull %5) #11
   call void @g_free(ptr noundef %15) #11
-  br label %27
+  br label %25
 
-25:                                               ; preds = %21, %19
-  %26 = call i32 @g_module_close(ptr noundef nonnull %5) #11
-  call void @g_free(ptr noundef %15) #11
-  br label %27
-
-27:                                               ; preds = %25, %pass_plugin_compatibility.exit, %11, %7
-  %.0 = phi i32 [ 0, %7 ], [ %14, %25 ], [ 0, %pass_plugin_compatibility.exit ], [ 0, %11 ]
+25:                                               ; preds = %pass_plugin_compatibility.exit, %11, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %11 ], [ %.0.i, %pass_plugin_compatibility.exit ]
   ret i32 %.0
 }
 

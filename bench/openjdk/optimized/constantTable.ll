@@ -710,7 +710,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   %11 = mul nsw i32 %10, %7
   %12 = tail call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %11, i32 noundef %3) #10
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %72, label %.preheader
+  br i1 %.not, label %75, label %.preheader
 
 .preheader:                                       ; preds = %4
   %13 = icmp sgt i32 %7, 0
@@ -720,173 +720,173 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.off = add i8 %1, -4
   %switch = icmp ult i8 %.off, 8
-  br i1 %switch, label %.lr.ph.split, label %70
+  br i1 %switch, label %.lr.ph.split, label %73
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %wide.trip.count162 = zext nneg i32 %7 to i64
+  %wide.trip.count159 = zext nneg i32 %7 to i64
   switch i8 %1, label %.lr.ph.split.split [
     i8 4, label %.lr.ph.split.split.us
-    i8 8, label %.lr.ph.split.split.us91
-    i8 5, label %.lr.ph.split.split.us96
-    i8 9, label %.lr.ph.split.split.us101
-    i8 10, label %.lr.ph.split.split.us106
-    i8 11, label %.lr.ph.split.split.us111
-    i8 6, label %.lr.ph.split.split.us116
+    i8 8, label %.lr.ph.split.split.us88
+    i8 5, label %.lr.ph.split.split.us93
+    i8 9, label %.lr.ph.split.split.us98
+    i8 10, label %.lr.ph.split.split.us103
+    i8 11, label %.lr.ph.split.split.us108
+    i8 6, label %.lr.ph.split.split.us113
   ]
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw %union.jvalue, ptr %15, i64 %indvars.iv154
+  %16 = getelementptr inbounds nuw %union.jvalue, ptr %15, i64 %indvars.iv151
   %.sroa.0.0.copyload8.us = load i32, ptr %16, align 8
   %17 = load ptr, ptr %5, align 8
-  %.0.i.i.us = trunc i32 %.sroa.0.0.copyload8.us to i8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 %.0.i.i.us, ptr %19, align 1
-  store ptr %20, ptr %18, align 8
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
-  %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count162
-  br i1 %exitcond158.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
+  %18 = trunc i32 %.sroa.0.0.copyload8.us to i8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store i8 %18, ptr %20, align 1
+  store ptr %21, ptr %19, align 8
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count159
+  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
 
-.lr.ph.split.split.us91:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us91
-  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph.split.split.us91 ], [ 0, %.lr.ph.split ]
-  %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds nuw %union.jvalue, ptr %21, i64 %indvars.iv149
-  %.sroa.0.0.copyload8.us93 = load i32, ptr %22, align 8
-  %23 = load ptr, ptr %5, align 8
-  %.0.i.i87.us = trunc i32 %.sroa.0.0.copyload8.us93 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %.0.i.i87.us, ptr %25, align 1
-  store ptr %26, ptr %24, align 8
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
-  %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count162
-  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph.split.split.us91, !llvm.loop !21
+.lr.ph.split.split.us88:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us88
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph.split.split.us88 ], [ 0, %.lr.ph.split ]
+  %22 = load ptr, ptr %14, align 8
+  %23 = getelementptr inbounds nuw %union.jvalue, ptr %22, i64 %indvars.iv146
+  %.sroa.0.0.copyload8.us90 = load i32, ptr %23, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = trunc i32 %.sroa.0.0.copyload8.us90 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %25, ptr %27, align 1
+  store ptr %28, ptr %26, align 8
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count159
+  br i1 %exitcond150.not, label %._crit_edge, label %.lr.ph.split.split.us88, !llvm.loop !21
 
-.lr.ph.split.split.us96:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us96
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.lr.ph.split.split.us96 ], [ 0, %.lr.ph.split ]
-  %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds nuw %union.jvalue, ptr %27, i64 %indvars.iv144
-  %.sroa.0.0.copyload8.us98 = load i32, ptr %28, align 8
-  %29 = load ptr, ptr %5, align 8
-  %.0.i.i88.us = trunc i32 %.sroa.0.0.copyload8.us98 to i16
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  store i16 %.0.i.i88.us, ptr %31, align 1
-  %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store ptr %33, ptr %30, align 8
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count162
-  br i1 %exitcond148.not, label %._crit_edge, label %.lr.ph.split.split.us96, !llvm.loop !21
+.lr.ph.split.split.us93:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us93
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph.split.split.us93 ], [ 0, %.lr.ph.split ]
+  %29 = load ptr, ptr %14, align 8
+  %30 = getelementptr inbounds nuw %union.jvalue, ptr %29, i64 %indvars.iv141
+  %.sroa.0.0.copyload8.us95 = load i32, ptr %30, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = trunc i32 %.sroa.0.0.copyload8.us95 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %34 = load ptr, ptr %33, align 8
+  store i16 %32, ptr %34, align 1
+  %35 = load ptr, ptr %33, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  store ptr %36, ptr %33, align 8
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count159
+  br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph.split.split.us93, !llvm.loop !21
 
-.lr.ph.split.split.us101:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us101
-  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.lr.ph.split.split.us101 ], [ 0, %.lr.ph.split ]
-  %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr inbounds nuw %union.jvalue, ptr %34, i64 %indvars.iv139
-  %.sroa.0.0.copyload8.us103 = load i32, ptr %35, align 8
-  %36 = trunc i32 %.sroa.0.0.copyload8.us103 to i16
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  store i16 %36, ptr %39, align 1
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  store ptr %41, ptr %38, align 8
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count162
-  br i1 %exitcond143.not, label %._crit_edge, label %.lr.ph.split.split.us101, !llvm.loop !21
+.lr.ph.split.split.us98:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us98
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph.split.split.us98 ], [ 0, %.lr.ph.split ]
+  %37 = load ptr, ptr %14, align 8
+  %38 = getelementptr inbounds nuw %union.jvalue, ptr %37, i64 %indvars.iv136
+  %.sroa.0.0.copyload8.us100 = load i32, ptr %38, align 8
+  %39 = trunc i32 %.sroa.0.0.copyload8.us100 to i16
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
+  store i16 %39, ptr %42, align 1
+  %43 = load ptr, ptr %41, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  store ptr %44, ptr %41, align 8
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count159
+  br i1 %exitcond140.not, label %._crit_edge, label %.lr.ph.split.split.us98, !llvm.loop !21
 
-.lr.ph.split.split.us106:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us106
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.split.us106 ], [ 0, %.lr.ph.split ]
-  %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr inbounds nuw %union.jvalue, ptr %42, i64 %indvars.iv134
-  %.sroa.0.0.copyload8.us108 = load i32, ptr %43, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8
-  store i32 %.sroa.0.0.copyload8.us108, ptr %46, align 1
-  %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store ptr %48, ptr %45, align 8
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count162
-  br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph.split.split.us106, !llvm.loop !21
+.lr.ph.split.split.us103:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us103
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph.split.split.us103 ], [ 0, %.lr.ph.split ]
+  %45 = load ptr, ptr %14, align 8
+  %46 = getelementptr inbounds nuw %union.jvalue, ptr %45, i64 %indvars.iv131
+  %.sroa.0.0.copyload8.us105 = load i32, ptr %46, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  store i32 %.sroa.0.0.copyload8.us105, ptr %49, align 1
+  %50 = load ptr, ptr %48, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store ptr %51, ptr %48, align 8
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count159
+  br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph.split.split.us103, !llvm.loop !21
 
-.lr.ph.split.split.us111:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us111
-  %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.lr.ph.split.split.us111 ], [ 0, %.lr.ph.split ]
-  %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds nuw %union.jvalue, ptr %49, i64 %indvars.iv129
-  %.sroa.0.0.copyload8.us113 = load i32, ptr %50, align 8
-  %.sroa_idx.us114 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %.sroa.0.0.copyload9.us115 = load i32, ptr %.sroa_idx.us114, align 4
-  %.sroa.0.sroa.9.0.insert.ext13.us = zext i32 %.sroa.0.0.copyload9.us115 to i64
+.lr.ph.split.split.us108:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us108
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph.split.split.us108 ], [ 0, %.lr.ph.split ]
+  %52 = load ptr, ptr %14, align 8
+  %53 = getelementptr inbounds nuw %union.jvalue, ptr %52, i64 %indvars.iv126
+  %.sroa.0.0.copyload8.us110 = load i32, ptr %53, align 8
+  %.sroa_idx.us111 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %.sroa.0.0.copyload9.us112 = load i32, ptr %.sroa_idx.us111, align 4
+  %.sroa.0.sroa.9.0.insert.ext13.us = zext i32 %.sroa.0.0.copyload9.us112 to i64
   %.sroa.0.sroa.9.0.insert.shift14.us = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext13.us, 32
-  %.sroa.0.sroa.0.0.insert.ext10.us = zext i32 %.sroa.0.0.copyload8.us113 to i64
+  %.sroa.0.sroa.0.0.insert.ext10.us = zext i32 %.sroa.0.0.copyload8.us110 to i64
   %.sroa.0.sroa.0.0.insert.insert12.us = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift14.us, %.sroa.0.sroa.0.0.insert.ext10.us
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  store i64 %.sroa.0.sroa.0.0.insert.insert12.us, ptr %53, align 1
-  %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %55, ptr %52, align 8
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count162
-  br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.split.split.us111, !llvm.loop !21
+  %54 = load ptr, ptr %5, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load ptr, ptr %55, align 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert12.us, ptr %56, align 1
+  %57 = load ptr, ptr %55, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %58, ptr %55, align 8
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count159
+  br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph.split.split.us108, !llvm.loop !21
 
-.lr.ph.split.split.us116:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us116
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us116 ], [ 0, %.lr.ph.split ]
-  %56 = load ptr, ptr %14, align 8
-  %57 = getelementptr inbounds nuw %union.jvalue, ptr %56, i64 %indvars.iv
-  %.sroa.0.0.copyload8.us118 = load i32, ptr %57, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load ptr, ptr %59, align 8
-  store i32 %.sroa.0.0.copyload8.us118, ptr %60, align 1
-  %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store ptr %62, ptr %59, align 8
+.lr.ph.split.split.us113:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us113
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us113 ], [ 0, %.lr.ph.split ]
+  %59 = load ptr, ptr %14, align 8
+  %60 = getelementptr inbounds nuw %union.jvalue, ptr %59, i64 %indvars.iv
+  %.sroa.0.0.copyload8.us115 = load i32, ptr %60, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load ptr, ptr %62, align 8
+  store i32 %.sroa.0.0.copyload8.us115, ptr %63, align 1
+  %64 = load ptr, ptr %62, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store ptr %65, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count162
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us116, !llvm.loop !21
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count159
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us113, !llvm.loop !21
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %63 = load ptr, ptr %14, align 8
-  %64 = getelementptr inbounds nuw %union.jvalue, ptr %63, i64 %indvars.iv159
-  %.sroa.0.0.copyload8 = load i32, ptr %64, align 8
-  %.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
+  %66 = load ptr, ptr %14, align 8
+  %67 = getelementptr inbounds nuw %union.jvalue, ptr %66, i64 %indvars.iv156
+  %.sroa.0.0.copyload8 = load i32, ptr %67, align 8
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
   %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.0.copyload9 to i64
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %67 = load ptr, ptr %66, align 8
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %67, align 1
-  %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %69, ptr %66, align 8
-  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !21
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %70, align 1
+  %71 = load ptr, ptr %69, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %72, ptr %69, align 8
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !21
 
-70:                                               ; preds = %.lr.ph
-  %71 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %71, align 1
+73:                                               ; preds = %.lr.ph
+  %74 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %74, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.10, i32 noundef 501) #9
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.us116, %.lr.ph.split.split.us111, %.lr.ph.split.split.us106, %.lr.ph.split.split.us101, %.lr.ph.split.split.us96, %.lr.ph.split.split.us91, %.lr.ph.split.split.us, %.lr.ph.split.split, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph.split.split.us113, %.lr.ph.split.split.us108, %.lr.ph.split.split.us103, %.lr.ph.split.split.us98, %.lr.ph.split.split.us93, %.lr.ph.split.split.us88, %.lr.ph.split.split.us, %.lr.ph.split.split, %.preheader
   tail call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %6) #10
-  br label %72
+  br label %75
 
-72:                                               ; preds = %._crit_edge, %4
+75:                                               ; preds = %._crit_edge, %4
   ret ptr %12
 }
 

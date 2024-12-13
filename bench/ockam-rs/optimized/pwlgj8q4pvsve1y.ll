@@ -15456,12 +15456,12 @@ define internal void @"_ZN123_$LT$ockam_transport_websocket..workers..listener..
   %102 = alloca { i64, [40 x i64] }, align 8
   %.sroa.033.i.i.i.i.i = alloca { i64, [12 x i64] }, align 8
   %103 = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, { { i64, [8 x i64] }, {} } }, align 8
-  %.sroa.337.i.sroa.8.sroa.5.i.i.i = alloca [20 x i64], align 8
   %.sroa.3.i.sroa.11.sroa.5.i.i.i = alloca [20 x i64], align 8
   %.sroa.926.i.sroa.11.sroa.8.i.i.i = alloca [20 x i64], align 8
   %.sroa.022.i.i.i.i = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, { { i64, [8 x i64] }, {} } }, align 8
   %.sroa.023.i.i.i.i = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, { { i64, [8 x i64] }, {} } }, align 8
   %.sroa.732.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.i.i.i = alloca [20 x i64], align 8
+  %.sroa.8.sroa.8.sroa.6.i.i.i = alloca [20 x i64], align 8
   %.sroa.020.i.i.i = alloca { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, { { i64, [8 x i64] }, {} }, [1080 x i8] }, align 8
   %.sroa.1936.i.i = alloca [20 x i64], align 8
   %.sroa.25.i = alloca [20 x i64], align 8
@@ -16738,7 +16738,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   store i64 2, ptr %.sroa.016.sroa.6.0..sroa_idx.i.i, align 8, !noalias !2267
   %.sroa.617.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1424
   store i8 0, ptr %.sroa.617.0..sroa_idx.i.i, align 8, !noalias !2267
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.337.i.sroa.8.sroa.5.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.8.sroa.8.sroa.6.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1184, ptr nonnull %.sroa.020.i.i.i)
   br label %.thread.i.i.i
 
@@ -16767,7 +16767,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1424
   %.pre.i.i234 = load i8, ptr %.phi.trans.insert.i.i, align 8, !range !103, !noalias !2272
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.337.i.sroa.8.sroa.5.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %.sroa.8.sroa.8.sroa.6.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1184, ptr nonnull %.sroa.020.i.i.i)
   switch i8 %.pre.i.i234, label %default.unreachable746 [
     i8 0, label %.thread.i.i.i
@@ -17425,7 +17425,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
 
 679:                                              ; preds = %667
   %680 = icmp eq i64 %.sroa.038.1.i46.i.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.337.i.sroa.8.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.3.i.sroa.11.sroa.5.i.i.i, i64 160, i1 false), !noalias !2272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8.sroa.8.sroa.6.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.3.i.sroa.11.sroa.5.i.i.i, i64 160, i1 false), !noalias !2272
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.023.i.i.i.i)
   %..sroa.5.1.i47.i.i.i.i = select i1 %680, i64 65536, i64 %.sroa.5.1.i47.i.i.i.i
   store i8 1, ptr %674, align 8, !noalias !2277
@@ -17468,7 +17468,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   store i8 3, ptr %697, align 8, !noalias !2277
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.3.i.sroa.11.sroa.5.i.i.i)
   store i8 3, ptr %696, align 8, !noalias !2272
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.337.i.sroa.8.sroa.5.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.8.sroa.8.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1184, ptr nonnull %.sroa.020.i.i.i)
   br label %758
 
@@ -17518,7 +17518,7 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   %.sroa.8.0..sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 144
   store i64 %.sroa.926.i.sroa.11.sroa.0.0.i.i.i, ptr %.sroa.8.0..sroa_idx14.i.i.i.i, align 8, !noalias !2323
   %.sroa.827.sroa.3.0..sroa.8.0..sroa_idx14.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.827.sroa.3.0..sroa.8.0..sroa_idx14.i.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.337.i.sroa.8.sroa.5.i.i.i, i64 160, i1 false), !noalias !2272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.827.sroa.3.0..sroa.8.0..sroa_idx14.i.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8.sroa.8.sroa.6.i.i.i, i64 160, i1 false), !noalias !2272
   %.sroa.928.144..sroa.8.0..sroa_idx14.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 312
   store i64 %.sroa.5.1.i47.i.i.i.i, ptr %.sroa.928.144..sroa.8.0..sroa_idx14.i.sroa_idx.i.i.i, align 8, !noalias !2323
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %99), !noalias !2315
@@ -17652,15 +17652,15 @@ common.ret:                                       ; preds = %"_ZN25ockam_transpo
   %.sroa.531.0.i.ph.i.i = phi ptr [ %716, %.noexc16.i.i.i ], [ %.sroa.926.i.sroa.8.0.i.i.i, %711 ]
   %.sroa.330.0.i.ph.i.i = phi i64 [ 5, %.noexc16.i.i.i ], [ %.sroa.926.i.sroa.0.0.i.i.i, %711 ]
   store i8 1, ptr %672, align 8, !noalias !2272
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.337.i.sroa.8.sroa.5.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.8.sroa.8.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1184, ptr nonnull %.sroa.020.i.i.i)
   br label %735
 
 732:                                              ; preds = %698
   %733 = ptrtoint ptr %.sroa.926.i.sroa.8.0.i.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.732.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.337.i.sroa.8.sroa.5.i.i.i, i64 160, i1 false), !noalias !2263
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %.sroa.732.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.sroa.3.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %.sroa.8.sroa.8.sroa.6.i.i.i, i64 160, i1 false), !noalias !2263
   store i8 1, ptr %672, align 8, !noalias !2272
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.337.i.sroa.8.sroa.5.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %.sroa.8.sroa.8.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1184, ptr nonnull %.sroa.020.i.i.i)
   %734 = icmp eq i64 %.sroa.926.i.sroa.0.0.i.i.i, 3
   br i1 %734, label %758, label %735

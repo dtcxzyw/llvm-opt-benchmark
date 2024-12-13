@@ -2226,8 +2226,8 @@ Abc_MfsObjProb.exit24.thread:                     ; preds = %9, %.lr.ph.split, %
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 28
-  %.val3248 = load i32, ptr %3, align 4
-  %4 = icmp sgt i32 %.val3248, 0
+  %.val3147 = load i32, ptr %3, align 4
+  %4 = icmp sgt i32 %.val3147, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
@@ -2235,22 +2235,22 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) 
   br label %6
 
 6:                                                ; preds = %.lr.ph, %22
-  %.val3260 = phi i32 [ %.val3248, %.lr.ph ], [ %.val32, %22 ]
+  %.val3159 = phi i32 [ %.val3147, %.lr.ph ], [ %.val31, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.val35 = load ptr, ptr %1, align 8
-  %.val36 = load ptr, ptr %5, align 8
-  %7 = getelementptr i8, ptr %.val35, i64 32
-  %.val35.val = load ptr, ptr %7, align 8
-  %8 = getelementptr i8, ptr %.val35.val, i64 8
-  %.val35.val.val = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
+  %.val34 = load ptr, ptr %1, align 8
+  %.val35 = load ptr, ptr %5, align 8
+  %7 = getelementptr i8, ptr %.val34, i64 32
+  %.val34.val = load ptr, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val34.val, i64 8
+  %.val34.val.val = load ptr, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i32, ptr %.val35, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %.val35.val.val, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %.val34.val.val, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 20
-  %.val38 = load i32, ptr %14, align 4
-  %15 = and i32 %.val38, 15
+  %.val37 = load i32, ptr %14, align 4
+  %15 = and i32 %.val37, 15
   switch i32 %15, label %16 [
     i32 5, label %22
     i32 2, label %22
@@ -2258,58 +2258,58 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) 
 
 16:                                               ; preds = %6
   %17 = getelementptr i8, ptr %13, i64 44
-  %.val40 = load i32, ptr %17, align 4
-  %18 = icmp eq i32 %.val40, 1
+  %.val39 = load i32, ptr %17, align 4
+  %18 = icmp eq i32 %.val39, 1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %20, i32 noundef 0, i32 noundef 0)
-  %.not30 = icmp eq i32 %21, 0
-  br i1 %.not30, label %._crit_edge, label %.critedge2
+  %.not29 = icmp eq i32 %21, 0
+  br i1 %.not29, label %._crit_edge, label %.critedge2
 
 ._crit_edge:                                      ; preds = %19
-  %.val32.pre = load i32, ptr %3, align 4
+  %.val31.pre = load i32, ptr %3, align 4
   br label %22
 
 22:                                               ; preds = %._crit_edge, %6, %6, %16
-  %.val32 = phi i32 [ %.val32.pre, %._crit_edge ], [ %.val3260, %6 ], [ %.val3260, %6 ], [ %.val3260, %16 ]
+  %.val31 = phi i32 [ %.val31.pre, %._crit_edge ], [ %.val3159, %6 ], [ %.val3159, %6 ], [ %.val3159, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = sext i32 %.val32 to i64
+  %23 = sext i32 %.val31 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
   br i1 %24, label %6, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %22, %2
-  %.val3150 = phi i32 [ %.val3248, %2 ], [ %.val32, %22 ]
+  %.val3049 = phi i32 [ %.val3147, %2 ], [ %.val31, %22 ]
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
-  %28 = icmp sgt i32 %.val3150, 0
+  %28 = icmp sgt i32 %.val3049, 0
   %or.cond = and i1 %.not, %28
-  br i1 %or.cond, label %.lr.ph52, label %.critedge2
+  br i1 %or.cond, label %.lr.ph51, label %.critedge2
 
-.lr.ph52:                                         ; preds = %.critedge
+.lr.ph51:                                         ; preds = %.critedge
   %29 = getelementptr i8, ptr %1, i64 32
   br label %30
 
-30:                                               ; preds = %.lr.ph52, %45
-  %.val3164 = phi i32 [ %.val3150, %.lr.ph52 ], [ %.val31, %45 ]
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next58, %45 ]
-  %.val33 = load ptr, ptr %1, align 8
-  %.val34 = load ptr, ptr %29, align 8
-  %31 = getelementptr i8, ptr %.val33, i64 32
-  %.val33.val = load ptr, ptr %31, align 8
-  %32 = getelementptr i8, ptr %.val33.val, i64 8
-  %.val33.val.val = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv57
+30:                                               ; preds = %.lr.ph51, %45
+  %.val3063 = phi i32 [ %.val3049, %.lr.ph51 ], [ %.val30, %45 ]
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next57, %45 ]
+  %.val32 = load ptr, ptr %1, align 8
+  %.val33 = load ptr, ptr %29, align 8
+  %31 = getelementptr i8, ptr %.val32, i64 32
+  %.val32.val = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %.val32.val, i64 8
+  %.val32.val.val = load ptr, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv56
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val33.val.val, i64 %35
+  %36 = getelementptr inbounds ptr, ptr %.val32.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 20
-  %.val37 = load i32, ptr %38, align 4
-  %39 = and i32 %.val37, 15
+  %.val36 = load i32, ptr %38, align 4
+  %39 = and i32 %.val36, 15
   switch i32 %39, label %40 [
     i32 5, label %42
     i32 2, label %42
@@ -2317,30 +2317,30 @@ define range(i32 0, 2) i32 @Abc_NtkMfsResubNode(ptr noundef %0, ptr noundef %1) 
 
 40:                                               ; preds = %30
   %41 = getelementptr i8, ptr %37, i64 44
-  %.val39 = load i32, ptr %41, align 4
-  %.not27 = icmp eq i32 %.val39, 1
-  br i1 %.not27, label %45, label %42
+  %.val38 = load i32, ptr %41, align 4
+  %.not26 = icmp eq i32 %.val38, 1
+  br i1 %.not26, label %45, label %42
 
 42:                                               ; preds = %30, %30, %40
-  %43 = trunc nuw nsw i64 %indvars.iv57 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv56 to i32
   %44 = tail call i32 @Abc_NtkMfsSolveSatResub(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %43, i32 noundef 1, i32 noundef 0)
-  %.not28 = icmp eq i32 %44, 0
-  br i1 %.not28, label %._crit_edge63, label %.critedge2
+  %.not27 = icmp eq i32 %44, 0
+  br i1 %.not27, label %._crit_edge62, label %.critedge2
 
-._crit_edge63:                                    ; preds = %42
-  %.val31.pre = load i32, ptr %3, align 4
+._crit_edge62:                                    ; preds = %42
+  %.val30.pre = load i32, ptr %3, align 4
   br label %45
 
-45:                                               ; preds = %._crit_edge63, %40
-  %.val31 = phi i32 [ %.val31.pre, %._crit_edge63 ], [ %.val3164, %40 ]
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %46 = sext i32 %.val31 to i64
-  %47 = icmp slt i64 %indvars.iv.next58, %46
+45:                                               ; preds = %._crit_edge62, %40
+  %.val30 = phi i32 [ %.val30.pre, %._crit_edge62 ], [ %.val3063, %40 ]
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %46 = sext i32 %.val30 to i64
+  %47 = icmp slt i64 %indvars.iv.next57, %46
   br i1 %47, label %30, label %.critedge2, !llvm.loop !23
 
 .critedge2:                                       ; preds = %19, %42, %45, %.critedge
-  %.025 = phi i32 [ 0, %.critedge ], [ 1, %42 ], [ 0, %45 ], [ 1, %19 ]
-  ret i32 %.025
+  %.024 = phi i32 [ 0, %.critedge ], [ 1, %42 ], [ 0, %45 ], [ 1, %19 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable

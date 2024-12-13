@@ -58282,8 +58282,8 @@ define internal fastcc noundef i64 @_ZN11ide_assists8handlers31generate_document
 _ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit: ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Param$GT$$GT$17h6e77baa6eca68004E.exit.i", %26, %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %34 = call noundef ptr @_ZN6syntax3ast9generated5nodes9ParamList10self_param17h0aa091caecf78ce5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h6619f04c74361e0eE.exit", label %35
+  %.not = icmp ne ptr %34, null
+  br i1 %.not, label %35, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h6619f04c74361e0eE.exit"
 
 35:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -58297,9 +58297,9 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit: ; preds = 
   call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %34), !noalias !14747
   br label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h6619f04c74361e0eE.exit"
 
-"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h6619f04c74361e0eE.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit, %40, %35
-  %.0 = phi i64 [ 1, %35 ], [ 1, %40 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit ]
-  %41 = add i64 %.0, %.0.i
+"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..SelfParam$GT$$GT$17h6619f04c74361e0eE.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17hdbaf418059bb9729E.exit, %35, %40
+  %. = zext i1 %.not to i64
+  %41 = add i64 %.0.i, %.
   ret i64 %41
 }
 

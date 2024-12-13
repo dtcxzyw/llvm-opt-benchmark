@@ -5227,8 +5227,8 @@ define hidden { ptr, i1 } @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new28_$u7b$$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, ptr } @_ZN3std4sync6poison10map_result17h054dd10234d379ebE(i1 noundef zeroext %0, ptr noundef %1) unnamed_addr #15 {
-  %spec.select = zext i1 %0 to i64
-  %3 = insertvalue { i64, ptr } poison, i64 %spec.select, 0
+  %. = zext i1 %0 to i64
+  %3 = insertvalue { i64, ptr } poison, i64 %., 0
   %4 = insertvalue { i64, ptr } %3, ptr %1, 1
   ret { i64, ptr } %4
 }

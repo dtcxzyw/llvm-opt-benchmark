@@ -27311,10 +27311,10 @@ _ZN3hir9semantics13SemanticsImpl16wrap_node_infile17hf96a200e8f223b4dE.exit: ; p
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !17, !align !558, !noundef !17
   store i64 %20, ptr %6, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %21, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %19, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 %19, ptr %.sroa.5.0..sroa_idx, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %22, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -27377,7 +27377,7 @@ _ZN3hir9semantics13source_to_def14SourceToDefCtx18item_to_macro_call17h225e1eb90
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread: ; preds = %_ZN3hir9semantics13source_to_def14SourceToDefCtx18item_to_macro_call17h225e1eb9042c64b8E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7039
-  br label %67
+  br label %66
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %44, align 4, !range !599, !noalias !7048, !noundef !17
@@ -27422,21 +27422,19 @@ _ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread: ; pre
           to label %common.resume unwind label %60
 
 _ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit: ; preds = %.noexc6.i
-  %65 = extractvalue { i32, i32 } %56, 0
-  %66 = extractvalue { i32, i32 } %56, 1
-  br label %67
+  %65 = extractvalue { i32, i32 } %56, 1
+  br label %66
 
-67:                                               ; preds = %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread
-  %.sroa.0.0.i4.i10 = phi i32 [ 3, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread ], [ %65, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit ]
-  %68 = phi i32 [ undef, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread ], [ %66, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit ]
+66:                                               ; preds = %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread
+  %67 = phi { i32, i32 } [ { i32 3, i32 poison }, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread ], [ %56, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit ]
+  %68 = phi i32 [ undef, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit.thread ], [ %65, %_ZN3hir9semantics13SemanticsImpl8with_ctx17he5d0d969c0e9ab93E.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7029
   %69 = load i64, ptr %27, align 8, !noalias !7049, !noundef !17
   %70 = add i64 %69, 1
   store i64 %70, ptr %27, align 8, !noalias !7049
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %71 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i4.i10, 0
-  %72 = insertvalue { i32, i32 } %71, i32 %68, 1
-  ret { i32, i32 } %72
+  %71 = insertvalue { i32, i32 } %67, i32 %68, 1
+  ret { i32, i32 } %71
 }
 
 ; Function Attrs: nonlazybind uwtable

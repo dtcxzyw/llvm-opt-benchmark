@@ -1347,9 +1347,9 @@ unreachable:                                      ; preds = %invoke.cont17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN19OpenColorIO_v2_4dev18RangeStyleToStringENS_10RangeStyleE(i32 noundef %style) local_unnamed_addr #8 {
 entry:
-  %switch.selectcmp2 = icmp eq i32 %style, 0
-  %switch.select3 = select i1 %switch.selectcmp2, ptr @.str.55, ptr @.str.58
-  ret ptr %switch.select3
+  %cmp = icmp eq i32 %style, 0
+  %.str.55..str.58 = select i1 %cmp, ptr @.str.55, ptr @.str.58
+  ret ptr %.str.55..str.58
 }
 
 ; Function Attrs: mustprogress uwtable

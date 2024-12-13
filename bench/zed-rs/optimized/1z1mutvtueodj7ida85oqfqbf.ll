@@ -17843,14 +17843,14 @@ default.unreachable21:                            ; preds = %2
   %127 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !5258
   store ptr %.sroa.2.0.copyload, ptr %6, align 8, !noalias !5258
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !5258
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.017.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5258
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %127, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !5258
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 0, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !5258
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !5258
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %.sroa.017.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !5258
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %127, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5258
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 0, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !5258
   %128 = call noundef align 8 ptr @"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E$GT$3end17hde86efb58f47b375E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !5258
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !5258
   br label %160

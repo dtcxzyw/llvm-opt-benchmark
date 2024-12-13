@@ -534,9 +534,9 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   %17 = load ptr, ptr %now_arg.i.i.i, align 8
   %call.i.i.i = tail call i64 %16(ptr noundef %17) #9
   %18 = load i64, ptr %epoch_start, align 8
-  %retval.sroa.0.0.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call.i.i.i, i64 %18)
+  %.sub.i.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call.i.i.i, i64 %18)
   %19 = load i64, ptr %cur_window_size.i.i, align 8
-  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.sroa.0.0.i.i.i.i, i64 %19)
+  %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sub.i.i.i.i.i, i64 %19)
   %21 = extractvalue { i64, i1 } %20, 1
   br i1 %21, label %if.end4.i.i.i.i.i, label %safe_muldiv_time.exit.thread.i.i.i.i
 
@@ -546,8 +546,8 @@ safe_muldiv_time.exit.thread.i.i.i.i:             ; preds = %if.end.i.i.i
   br label %rxfc_should_bump_window_size.exit.i.i
 
 if.end4.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %retval.sroa.0.0.i.i.i.i)
-  %spec.select20.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %retval.sroa.0.0.i.i.i.i)
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %.sub.i.i.i.i.i)
+  %spec.select20.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %.sub.i.i.i.i.i)
   %div9.i.i.i.i.i = udiv i64 %spec.select20.i.i.i.i.i, %sub.i.i.i
   %rem.i.i.i.i.i = urem i64 %spec.select20.i.i.i.i.i, %sub.i.i.i
   %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %div9.i.i.i.i.i, i64 %spec.select.i.i.i.i.i)
@@ -572,11 +572,11 @@ cond.true.i.i.i.i:                                ; preds = %safe_mul_time.exit3
   br label %rxfc_should_bump_window_size.exit.i.i
 
 rxfc_should_bump_window_size.exit.i.i:            ; preds = %cond.true.i.i.i.i, %safe_mul_time.exit32.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
-  %retval.sroa.0.0.i7.i.i.i = phi i64 [ 0, %cond.true.i.i.i.i ], [ %div.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %31, %safe_mul_time.exit32.i.i.i.i.i ]
+  %retval.sroa.0.0.i.i.i.i = phi i64 [ 0, %cond.true.i.i.i.i ], [ %div.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %31, %safe_mul_time.exit32.i.i.i.i.i ]
   %33 = icmp ugt i64 %rtt.coerce, 4611686018427387903
   %34 = shl nuw i64 %rtt.coerce, 2
-  %retval.sroa.0.0.i8.i.i.i = select i1 %33, i64 -1, i64 %34
-  %35 = icmp uge i64 %retval.sroa.0.0.i7.i.i.i, %retval.sroa.0.0.i8.i.i.i
+  %retval.sroa.0.0.i7.i.i.i = select i1 %33, i64 -1, i64 %34
+  %35 = icmp uge i64 %retval.sroa.0.0.i.i.i.i, %retval.sroa.0.0.i7.i.i.i
   %mul.i.i = shl i64 %6, 1
   %cond.fr.i.i = freeze i1 %35
   br i1 %cond.fr.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %rxfc_adjust_window_size.exit.i

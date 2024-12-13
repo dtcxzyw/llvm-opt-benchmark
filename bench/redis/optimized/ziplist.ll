@@ -1623,12 +1623,12 @@ if.else30.i:                                      ; preds = %if.else23.i
   %or.cond5.i = icmp ult i64 %13, 4294967296
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %. = select i1 %or.cond5.i, i8 -48, i8 -32
-  %.202 = select i1 %or.cond5.i, i64 4, i64 8
+  %14 = select i1 %or.cond5.i, i64 4, i64 8
   br label %if.else50.i
 
 if.then39:                                        ; preds = %if.then3.i
-  %14 = trunc nuw i64 %9 to i8
-  %conv9.i = add nuw nsw i8 %14, -15
+  %15 = trunc nuw i64 %9 to i8
+  %conv9.i = add nuw nsw i8 %15, -15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   br label %if.else50.i
 
@@ -1644,12 +1644,12 @@ if.then.i:                                        ; preds = %if.end37
 
 if.else.i83:                                      ; preds = %if.then.i
   %cmp8.i = icmp ult i32 %slen, 16384
-  %spec.select201 = select i1 %cmp8.i, i64 2, i64 5
+  %spec.select202 = select i1 %cmp8.i, i64 2, i64 5
   br label %zipStoreEntryEncoding.exit
 
 if.else50.i:                                      ; preds = %if.else30.i, %if.then39, %if.then39.thread, %if.then39.thread141, %if.then39.thread144
   %encoding.0136.ph = phi i8 [ -16, %if.then39.thread144 ], [ -64, %if.then39.thread141 ], [ -2, %if.then39.thread ], [ %conv9.i, %if.then39 ], [ %., %if.else30.i ]
-  %reqlen.0.in.ph = phi i64 [ 3, %if.then39.thread144 ], [ 2, %if.then39.thread141 ], [ 1, %if.then39.thread ], [ 0, %if.then39 ], [ %.202, %if.else30.i ]
+  %reqlen.0.in.ph = phi i64 [ 3, %if.then39.thread144 ], [ 2, %if.then39.thread141 ], [ 1, %if.then39.thread ], [ 0, %if.then39 ], [ %14, %if.else30.i ]
   %cmp1.i157 = icmp ult i32 %prevlen.0, 254
   %conv.i81158 = select i1 %cmp1.i157, i32 1, i32 5
   %conv46159 = zext nneg i32 %conv.i81158 to i64
@@ -1663,15 +1663,15 @@ zipStoreEntryEncoding.exit:                       ; preds = %if.else.i83, %if.th
   %cmp1.i166 = phi i1 [ %cmp1.i157, %if.else50.i ], [ %cmp1.i178, %if.then.i.thread ], [ %cmp1.i, %if.then.i ], [ %cmp1.i, %if.else.i83 ]
   %encoding.0136164 = phi i8 [ %encoding.0136.ph, %if.else50.i ], [ 0, %if.then.i.thread ], [ 0, %if.then.i ], [ 0, %if.else.i83 ]
   %value.0138162 = phi i64 [ %9, %if.else50.i ], [ 123456789, %if.then.i.thread ], [ 123456789, %if.then.i ], [ 123456789, %if.else.i83 ]
-  %retval.0.i84 = phi i64 [ 1, %if.else50.i ], [ 1, %if.then.i.thread ], [ 1, %if.then.i ], [ %spec.select201, %if.else.i83 ]
+  %retval.0.i84 = phi i64 [ 1, %if.else50.i ], [ 1, %if.then.i.thread ], [ 1, %if.then.i ], [ %spec.select202, %if.else.i83 ]
   %add49 = add nuw nsw i64 %retval.0.i84, %add170
-  %15 = load i8, ptr %p, align 1
-  %cmp52.not = icmp eq i8 %15, -1
+  %16 = load i8, ptr %p, align 1
+  %cmp52.not = icmp eq i8 %16, -1
   br i1 %cmp52.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %zipStoreEntryEncoding.exit
   %conv54 = trunc i64 %add49 to i32
-  %cmp.i.not = icmp eq i8 %15, -2
+  %cmp.i.not = icmp eq i8 %16, -2
   %..i85 = select i1 %cmp.i.not, i32 -5, i32 -1
   %cmp1.i.i = icmp ult i32 %conv54, 254
   %conv.i.i = select i1 %cmp1.i.i, i32 1, i32 5
@@ -1702,20 +1702,20 @@ ziplistResize.exit:                               ; preds = %cond.end
   %call.i88 = call ptr @zrealloc(ptr noundef nonnull %zl, i64 noundef %add64) #19
   %conv2.i = trunc nuw i64 %add64 to i32
   store i32 %conv2.i, ptr %call.i88, align 4
-  %16 = getelementptr i8, ptr %call.i88, i64 %add64
-  %arrayidx.i = getelementptr i8, ptr %16, i64 -1
+  %17 = getelementptr i8, ptr %call.i88, i64 %add64
+  %arrayidx.i = getelementptr i8, ptr %17, i64 -1
   store i8 -1, ptr %arrayidx.i, align 1
   %add.ptr66 = getelementptr inbounds i8, ptr %call.i88, i64 %sub.ptr.sub
-  %17 = load i8, ptr %add.ptr66, align 1
-  %cmp69.not = icmp eq i8 %17, -1
+  %18 = load i8, ptr %add.ptr66, align 1
+  %cmp69.not = icmp eq i8 %18, -1
   br i1 %cmp69.not, label %if.else115, label %if.then71
 
 if.then71:                                        ; preds = %ziplistResize.exit
   %add.ptr72 = getelementptr inbounds nuw i8, ptr %add.ptr66, i64 %add49
   %idx.neg = sub nsw i64 0, %conv63
   %add.ptr74 = getelementptr inbounds i8, ptr %add.ptr66, i64 %idx.neg
-  %18 = xor i64 %sub.ptr.sub, -1
-  %sub75 = add i64 %conv, %18
+  %19 = xor i64 %sub.ptr.sub, -1
+  %sub75 = add i64 %conv, %19
   %add77 = add i64 %sub75, %conv63
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr72, ptr nonnull align 1 %add.ptr74, i64 %add77, i1 false)
   %conv85 = trunc i64 %add49 to i32
@@ -1744,8 +1744,8 @@ zipStorePrevEntryLengthLarge.exit.i:              ; preds = %if.else83
 
 if.end87:                                         ; preds = %zipStorePrevEntryLengthLarge.exit.i, %if.then4.i96, %if.then79
   %add.ptr88 = getelementptr inbounds nuw i8, ptr %call.i88, i64 4
-  %19 = load i32, ptr %add.ptr88, align 4
-  %conv91 = add i32 %19, %conv85
+  %20 = load i32, ptr %add.ptr88, align 4
+  %conv91 = add i32 %20, %conv85
   store i32 %conv91, ptr %add.ptr88, align 4
   %call94 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %call.i88, i64 noundef %add64, ptr noundef nonnull %add.ptr72, ptr noundef %tail, i32 noundef 1)
   %tobool95.not = icmp eq i32 %call94, 0
@@ -1758,20 +1758,20 @@ cond.false100:                                    ; preds = %if.end87
 
 cond.end101:                                      ; preds = %if.end87
   %headersize = getelementptr inbounds nuw i8, ptr %tail, i64 16
-  %20 = load i32, ptr %headersize, align 8
-  %conv102 = zext i32 %20 to i64
+  %21 = load i32, ptr %headersize, align 8
+  %conv102 = zext i32 %21 to i64
   %len = getelementptr inbounds nuw i8, ptr %tail, i64 12
-  %21 = load i32, ptr %len, align 4
-  %conv104 = zext i32 %21 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %add.ptr72, i64 %conv102
-  %arrayidx106 = getelementptr inbounds nuw i8, ptr %22, i64 %conv104
-  %23 = load i8, ptr %arrayidx106, align 1
-  %cmp108.not = icmp eq i8 %23, -1
+  %22 = load i32, ptr %len, align 4
+  %conv104 = zext i32 %22 to i64
+  %23 = getelementptr inbounds nuw i8, ptr %add.ptr72, i64 %conv102
+  %arrayidx106 = getelementptr inbounds nuw i8, ptr %23, i64 %conv104
+  %24 = load i8, ptr %arrayidx106, align 1
+  %cmp108.not = icmp eq i8 %24, -1
   br i1 %cmp108.not, label %if.end121, label %if.then110
 
 if.then110:                                       ; preds = %cond.end101
-  %24 = load i32, ptr %add.ptr88, align 4
-  %add112 = add i32 %24, %spec.select
+  %25 = load i32, ptr %add.ptr88, align 4
+  %add112 = add i32 %25, %spec.select
   store i32 %add112, ptr %add.ptr88, align 4
   br label %if.end121
 
@@ -1832,8 +1832,8 @@ if.else.i113:                                     ; preds = %if.then.i111
 
 if.then10.i117:                                   ; preds = %if.else.i113
   %shr.i = lshr i32 %slen, 8
-  %25 = trunc nuw i32 %shr.i to i8
-  %conv19.i = or disjoint i8 %25, 64
+  %26 = trunc nuw i32 %shr.i to i8
+  %conv19.i = or disjoint i8 %26, 64
   store i8 %conv19.i, ptr %buf.i, align 1
   %conv22.i = trunc i32 %slen to i8
   %buf.i.1.buf.i.1.buf.i.1.buf.1.buf.1.buf.1.arrayidx23.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 1
@@ -1905,8 +1905,8 @@ if.then24.i:                                      ; preds = %if.else143
   br label %if.end144
 
 if.else25.i:                                      ; preds = %if.else143
-  %26 = add nsw i8 %encoding.0136164, 15
-  %or.cond.i127 = icmp ult i8 %26, 14
+  %27 = add nsw i8 %encoding.0136164, 15
+  %or.cond.i127 = icmp ult i8 %27, 14
   br i1 %or.cond.i127, label %if.end144, label %if.else33.i
 
 if.else33.i:                                      ; preds = %if.else25.i
@@ -1916,12 +1916,12 @@ if.else33.i:                                      ; preds = %if.else25.i
 
 if.end144:                                        ; preds = %if.else25.i, %if.then24.i, %if.then18.i, %if.then12.i, %if.then6.i, %if.then.i125, %if.then141
   %add.ptr145 = getelementptr inbounds nuw i8, ptr %zl.addr.0193, i64 8
-  %27 = load i16, ptr %add.ptr145, align 2
-  %cmp147.not = icmp eq i16 %27, -1
+  %28 = load i16, ptr %add.ptr145, align 2
+  %cmp147.not = icmp eq i16 %28, -1
   br i1 %cmp147.not, label %if.end155, label %if.then149
 
 if.then149:                                       ; preds = %if.end144
-  %add152 = add nuw i16 %27, 1
+  %add152 = add nuw i16 %28, 1
   store i16 %add152, ptr %add.ptr145, align 2
   br label %if.end155
 
@@ -2556,12 +2556,12 @@ if.else.i14:                                      ; preds = %if.then.i
   %spec.select = select i1 %cmp8.i, i32 2, i32 5
   br label %zipStoreEntryEncoding.exit
 
-zipStoreEntryEncoding.exit:                       ; preds = %if.else30.i, %if.else.i14, %if.then.thread55, %if.then.thread52, %if.then.thread, %if.then, %if.then.i, %if.then.i.thread
-  %cmp.not.i74 = phi i1 [ false, %if.then.i.thread ], [ false, %if.then.i ], [ true, %if.then ], [ true, %if.then.thread ], [ true, %if.then.thread52 ], [ true, %if.then.thread55 ], [ false, %if.else.i14 ], [ true, %if.else30.i ]
-  %reqlen.072 = phi i32 [ %slen, %if.then.i.thread ], [ %slen, %if.then.i ], [ 0, %if.then ], [ 1, %if.then.thread ], [ 2, %if.then.thread52 ], [ 3, %if.then.thread55 ], [ %slen, %if.else.i14 ], [ %., %if.else30.i ]
-  %encoding.04670 = phi i8 [ 0, %if.then.i.thread ], [ 0, %if.then.i ], [ %conv9.i, %if.then ], [ -2, %if.then.thread ], [ -64, %if.then.thread52 ], [ -16, %if.then.thread55 ], [ 0, %if.else.i14 ], [ %.101, %if.else30.i ]
-  %value.04968 = phi i64 [ 123456789, %if.then.i.thread ], [ 123456789, %if.then.i ], [ %1, %if.then ], [ %1, %if.then.thread ], [ %1, %if.then.thread52 ], [ %1, %if.then.thread55 ], [ 123456789, %if.else.i14 ], [ %1, %if.else30.i ]
-  %retval.0.i15 = phi i32 [ 1, %if.then.i.thread ], [ 1, %if.then.i ], [ 1, %if.then ], [ 1, %if.then.thread ], [ 1, %if.then.thread52 ], [ 1, %if.then.thread55 ], [ %spec.select, %if.else.i14 ], [ 1, %if.else30.i ]
+zipStoreEntryEncoding.exit:                       ; preds = %if.else.i14, %if.else30.i, %if.then.thread55, %if.then.thread52, %if.then.thread, %if.then, %if.then.i, %if.then.i.thread
+  %cmp.not.i74 = phi i1 [ false, %if.then.i.thread ], [ false, %if.then.i ], [ true, %if.then ], [ true, %if.then.thread ], [ true, %if.then.thread52 ], [ true, %if.then.thread55 ], [ true, %if.else30.i ], [ false, %if.else.i14 ]
+  %reqlen.072 = phi i32 [ %slen, %if.then.i.thread ], [ %slen, %if.then.i ], [ 0, %if.then ], [ 1, %if.then.thread ], [ 2, %if.then.thread52 ], [ 3, %if.then.thread55 ], [ %., %if.else30.i ], [ %slen, %if.else.i14 ]
+  %encoding.04670 = phi i8 [ 0, %if.then.i.thread ], [ 0, %if.then.i ], [ %conv9.i, %if.then ], [ -2, %if.then.thread ], [ -64, %if.then.thread52 ], [ -16, %if.then.thread55 ], [ %.101, %if.else30.i ], [ 0, %if.else.i14 ]
+  %value.04968 = phi i64 [ 123456789, %if.then.i.thread ], [ 123456789, %if.then.i ], [ %1, %if.then ], [ %1, %if.then.thread ], [ %1, %if.then.thread52 ], [ %1, %if.then.thread55 ], [ %1, %if.else30.i ], [ 123456789, %if.else.i14 ]
+  %retval.0.i15 = phi i32 [ 1, %if.then.i.thread ], [ 1, %if.then.i ], [ 1, %if.then ], [ 1, %if.then.thread ], [ 1, %if.then.thread52 ], [ 1, %if.then.thread55 ], [ 1, %if.else30.i ], [ %spec.select, %if.else.i14 ]
   %add = add i32 %retval.0.i15, %reqlen.072
   %lensize = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   %7 = load i32, ptr %lensize, align 8

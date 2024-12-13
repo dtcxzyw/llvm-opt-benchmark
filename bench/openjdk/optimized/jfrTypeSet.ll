@@ -7484,15 +7484,15 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit.i:       ; preds = %2
   %14 = trunc i8 %13 to i1
   %.sink.i.i = select i1 %14, i64 4, i64 8
   %15 = and i64 %.sink.i.i, %11
-  %.not14.i = icmp eq i64 %15, 0
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph18.i
+  %.not13.i = icmp eq i64 %15, 0
+  br i1 %.not13.i, label %.loopexit, label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %_ZN19MethodUsedPredicateclEPK5Klass.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %.lr.ph18.i
-  %.0817.i = phi ptr [ %4, %.lr.ph18.i ], [ %40, %._crit_edge.i ]
+  %.0817.i = phi ptr [ %4, %.lr.ph18.i ], [ %43, %._crit_edge.i ]
   %18 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 400
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
@@ -7503,50 +7503,50 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit.i:       ; preds = %2
   %wide.trip.count.i = zext nneg i32 %20 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %38 ]
+.lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %22 = load ptr, ptr %18, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
-  %.0.in.in.in.i.i = getelementptr inbounds nuw i8, ptr %25, i64 54
-  %.0.in.in.i.i = load i16, ptr %.0.in.in.in.i.i, align 2
-  %.0.in.i.i = and i16 %.0.in.in.i.i, 1024
-  %.0.i9.not.i = icmp eq i16 %.0.in.i.i, 0
-  br i1 %.0.i9.not.i, label %38, label %26
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 54
+  %27 = load i16, ptr %26, align 2
+  %28 = and i16 %27, 1024
+  %.not14.i = icmp eq i16 %28, 0
+  br i1 %.not14.i, label %41, label %29
 
-26:                                               ; preds = %.lr.ph.i
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 55
-  br label %29
+29:                                               ; preds = %.lr.ph.i
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 55
+  br label %32
 
-29:                                               ; preds = %33, %26
-  %30 = load volatile i8, ptr %28, align 1
-  %31 = and i8 %30, -5
-  %32 = icmp eq i8 %30, %31
-  br i1 %32, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, label %33
+32:                                               ; preds = %36, %29
+  %33 = load volatile i8, ptr %31, align 1
+  %34 = and i8 %33, -5
+  %35 = icmp eq i8 %33, %34
+  br i1 %35, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, label %36
 
-33:                                               ; preds = %29
-  %34 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %31, i8 %30, ptr nonnull %28) #9, !srcloc !7
-  %35 = icmp eq i8 %34, %30
-  br i1 %35, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, label %29, !llvm.loop !8
+36:                                               ; preds = %32
+  %37 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %34, i8 %33, ptr nonnull %31) #9, !srcloc !7
+  %38 = icmp eq i8 %37, %33
+  br i1 %38, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, label %32, !llvm.loop !8
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i: ; preds = %33, %29
-  tail call fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef %27, ptr noundef nonnull %25, i1 noundef zeroext true)
-  %36 = load i32, ptr %16, align 8
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %16, align 8
-  br label %38
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i: ; preds = %36, %32
+  tail call fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef %30, ptr noundef nonnull %25, i1 noundef zeroext true)
+  %39 = load i32, ptr %16, align 8
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %16, align 8
+  br label %41
 
-38:                                               ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, %.lr.ph.i
+41:                                               ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicateIS3_EXadL_Z20write__method__leakpP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
-._crit_edge.i:                                    ; preds = %38, %17
-  %39 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 376
-  %40 = load ptr, ptr %39, align 8
-  %.not.i = icmp eq ptr %40, null
+._crit_edge.i:                                    ; preds = %41, %17
+  %42 = getelementptr inbounds nuw i8, ptr %.0817.i, i64 376
+  %43 = load ptr, ptr %42, align 8
+  %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %.loopexit.loopexit, label %17, !llvm.loop !22
 
 .loopexit.loopexit:                               ; preds = %._crit_edge.i
@@ -7554,11 +7554,11 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method13LeakPredicat
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2, %_ZN19MethodUsedPredicateclEPK5Klass.exit.i
-  %41 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %4, %2 ], [ %4, %_ZN19MethodUsedPredicateclEPK5Klass.exit.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %43, ptr noundef %41)
-  ret i1 %44
+  %44 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %4, %2 ], [ %4, %_ZN19MethodUsedPredicateclEPK5Klass.exit.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %46, ptr noundef %44)
+  ret i1 %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

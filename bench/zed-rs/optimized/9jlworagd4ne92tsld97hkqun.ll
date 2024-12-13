@@ -14040,7 +14040,7 @@ define hidden { i64, ptr } @"_ZN11auto_update11AutoUpdater35set_should_show_upda
   %18 = alloca [72 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1, !range !344, !noundef !11
-  switch i8 %20, label %default.unreachable74 [
+  switch i8 %20, label %default.unreachable75 [
     i8 0, label %21
     i8 1, label %77
     i8 2, label %78
@@ -14048,7 +14048,7 @@ define hidden { i64, ptr } @"_ZN11auto_update11AutoUpdater35set_should_show_upda
     i8 4, label %25
   ]
 
-default.unreachable74:                            ; preds = %149, %79, %2
+default.unreachable75:                            ; preds = %149, %79, %2
   unreachable
 
 21:                                               ; preds = %2
@@ -14298,7 +14298,7 @@ default.unreachable74:                            ; preds = %149, %79, %2
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load i8, ptr %81, align 8, !range !260, !noalias !2740, !noundef !11
-  switch i8 %82, label %default.unreachable74 [
+  switch i8 %82, label %default.unreachable75 [
     i8 0, label %83
     i8 1, label %103
     i8 2, label %104
@@ -14546,7 +14546,7 @@ common.ret:                                       ; preds = %209, %205, %144
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %152 = load i8, ptr %151, align 8, !range !260, !noalias !2781, !noundef !11
-  switch i8 %152, label %default.unreachable74 [
+  switch i8 %152, label %default.unreachable75 [
     i8 0, label %153
     i8 1, label %170
     i8 2, label %171

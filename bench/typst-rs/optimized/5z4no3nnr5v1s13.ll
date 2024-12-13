@@ -4360,8 +4360,8 @@ _ZN12jpeg_decoder7decoder12decode_block17hb22e0fa044175229E.exit.thread: ; preds
   store i64 %785, ptr %59, align 8, !alias.scope !361, !noalias !362
   %786 = add i8 %783, -1
   store i8 %786, ptr %181, align 8, !alias.scope !361, !noalias !362
-  %.not199248.i = icmp slt i64 %784, 0
-  %..i = select i1 %.not199248.i, i16 %319, i16 %322
+  %.not199216.i = icmp slt i64 %784, 0
+  %..i = select i1 %.not199216.i, i16 %319, i16 %322
   br label %752
 
 787:                                              ; preds = %.noexc611

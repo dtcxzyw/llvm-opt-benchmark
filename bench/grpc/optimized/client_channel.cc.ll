@@ -42344,17 +42344,17 @@ invoke.cont48:                                    ; preds = %while.body.i.i, %if
   br i1 %cmp.i.i, label %if.end69, label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %invoke.cont48, %while.end.i.i
-  %__begin5.sroa.6.051 = phi ptr [ %__begin5.sroa.6.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %invoke.cont48 ]
-  %__begin5.sroa.0.050 = phi ptr [ %__begin5.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %invoke.cont48 ]
-  %29 = load ptr, ptr %__begin5.sroa.6.051, align 8
+  %__begin5.sroa.6.046 = phi ptr [ %__begin5.sroa.6.1, %while.end.i.i ], [ %retval.sroa.5.0.i, %invoke.cont48 ]
+  %__begin5.sroa.0.045 = phi ptr [ %__begin5.sroa.0.1, %while.end.i.i ], [ %retval.sroa.0.0.i, %invoke.cont48 ]
+  %29 = load ptr, ptr %__begin5.sroa.6.046, align 8
   %subchannel_.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   %30 = load ptr, ptr %subchannel_.i, align 8
   invoke void @_ZN9grpc_core10Subchannel21ThrottleKeepaliveTimeEi(ptr noundef nonnull align 8 dereferenceable(928) %30, i32 noundef %9)
           to label %for.inc unwind label %lpad15.loopexit
 
 for.inc:                                          ; preds = %invoke.cont52
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.050, i64 1
-  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.6.051, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.0.045, i64 1
+  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %__begin5.sroa.6.046, i64 8
   %31 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i3.i.i17 = icmp slt i8 %31, -1
   br i1 %cmp.i3.i.i17, label %while.body.i.i20, label %while.end.i.i
@@ -42445,16 +42445,13 @@ cond.end:                                         ; preds = %if.then.i.i34, %con
 
 invoke.cont79:                                    ; preds = %cond.end
   %45 = load i64, ptr %agg.tmp72, align 8
-  %and.i.i.i38 = and i64 %45, 1
-  %cmp.i.i.i39 = icmp eq i64 %and.i.i.i38, 0
-  br i1 %cmp73, label %cleanup.action84, label %cleanup.action
+  %and.i.i.i35 = and i64 %45, 1
+  %cmp.i.i.i36 = icmp eq i64 %and.i.i.i35, 0
+  br i1 %cmp.i.i.i36, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i37
 
-cleanup.action:                                   ; preds = %invoke.cont79
-  br i1 %cmp.i.i.i39, label %cleanup.done85, label %if.then.i.i37
-
-if.then.i.i37:                                    ; preds = %cleanup.action
+if.then.i.i37:                                    ; preds = %invoke.cont79
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %45)
-          to label %cleanup.done85 unwind label %terminate.lpad.i
+          to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i37
   %46 = landingpad { ptr, i32 }
@@ -42463,30 +42460,16 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i37
   call void @__clang_call_terminate(ptr %47) #41
   unreachable
 
-cleanup.action84:                                 ; preds = %invoke.cont79
-  br i1 %cmp.i.i.i39, label %cleanup.done85, label %if.then.i.i40
-
-if.then.i.i40:                                    ; preds = %cleanup.action84
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %45)
-          to label %cleanup.done85 unwind label %terminate.lpad.i41
-
-terminate.lpad.i41:                               ; preds = %if.then.i.i40
-  %48 = landingpad { ptr, i32 }
-          catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #41
-  unreachable
-
-cleanup.done85:                                   ; preds = %if.then.i.i40, %cleanup.action84, %if.then.i.i37, %cleanup.action
-  %50 = load i8, ptr %_M_engaged.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %50 to i1
+_ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont79, %if.then.i.i37
+  %48 = load i8, ptr %_M_engaged.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %48 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev.exit
 
-if.then.i.i.i.i:                                  ; preds = %cleanup.done85
+if.then.i.i.i.i:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit
   store i8 0, ptr %_M_engaged.i.i, align 8
-  %51 = load i8, ptr %keepalive_throttling, align 8
-  %52 = and i8 %51, 1
-  %cmp.i.i.not.i.i.i.i.i.i = icmp eq i8 %52, 0
+  %49 = load i8, ptr %keepalive_throttling, align 8
+  %50 = and i8 %49, 1
+  %cmp.i.i.not.i.i.i.i.i.i = icmp eq i8 %50, 0
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
@@ -42494,23 +42477,23 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
           to label %_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
-  %53 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #41
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #41
   unreachable
 
-_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev.exit: ; preds = %cleanup.done85, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i
+_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i.i.i.i, %if.then.i.i.i.i.i.i
   ret void
 
 lpad78:                                           ; preds = %cond.end
-  %55 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp72) #40
   br label %ehcleanup89
 
-ehcleanup89:                                      ; preds = %lpad78, %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad66, %lpad20
-  %.pn7 = phi { ptr, i32 } [ %39, %lpad66 ], [ %17, %lpad20 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ], [ %55, %lpad78 ]
+ehcleanup89:                                      ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad78, %lpad66, %lpad20
+  %.pn7 = phi { ptr, i32 } [ %39, %lpad66 ], [ %17, %lpad20 ], [ %53, %lpad78 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
   call void @_ZNSt8optionalIN4absl12lts_202308024CordEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %keepalive_throttling) #40
   br label %eh.resume
 

@@ -3149,44 +3149,44 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef nonnull 
   br label %34
 
 34:                                               ; preds = %30, %27
-  %.098 = phi ptr [ %26, %27 ], [ %33, %30 ]
-  %.097 = phi ptr [ %29, %27 ], [ %20, %30 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.097, i64 48
+  %.095 = phi ptr [ %26, %27 ], [ %33, %30 ]
+  %.0 = phi ptr [ %29, %27 ], [ %20, %30 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %36 = load ptr, ptr %35, align 8
-  %.not108 = icmp eq ptr %36, null
-  br i1 %.not108, label %37, label %.thread
+  %.not106 = icmp eq ptr %36, null
+  br i1 %.not106, label %37, label %.thread
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %16, align 8
   %39 = tail call ptr @wmem_list_head(ptr noundef %38) #10
-  %.not109 = icmp eq ptr %39, null
-  br i1 %.not109, label %.thread, label %40
+  %.not107 = icmp eq ptr %39, null
+  br i1 %.not107, label %.thread, label %40
 
 40:                                               ; preds = %37
   %41 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %39) #10
-  %.not110 = icmp eq ptr %41, null
-  br i1 %.not110, label %.thread, label %42
+  %.not108 = icmp eq ptr %41, null
+  br i1 %.not108, label %.thread, label %42
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, 2
-  %.not111 = icmp eq i8 %45, 0
-  br i1 %.not111, label %.thread, label %46
+  %.not109 = icmp eq i8 %45, 0
+  br i1 %.not109, label %.thread, label %46
 
 46:                                               ; preds = %42
   store ptr %41, ptr %35, align 8
   br label %.thread
 
 .thread:                                          ; preds = %37, %40, %42, %46, %34
-  %47 = tail call ptr @wmem_list_frame_prev(ptr noundef %.098) #10
-  %.not112 = icmp eq ptr %47, null
-  br i1 %.not112, label %48, label %52
+  %47 = tail call ptr @wmem_list_frame_prev(ptr noundef %.095) #10
+  %.not110 = icmp eq ptr %47, null
+  br i1 %.not110, label %48, label %52
 
 48:                                               ; preds = %.thread
   %49 = and i8 %2, 2
-  %.not113 = icmp eq i8 %49, 0
-  br i1 %.not113, label %50, label %60
+  %.not111 = icmp eq i8 %49, 0
+  br i1 %.not111, label %50, label %60
 
 50:                                               ; preds = %48
   %51 = tail call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull @ei_tcpclv4_xfer_seg_missing_start) #10
@@ -3195,8 +3195,8 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef nonnull 
 52:                                               ; preds = %.thread
   %53 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %47) #10
   %54 = and i8 %2, 2
-  %.not114 = icmp eq i8 %54, 0
-  br i1 %.not114, label %57, label %55
+  %.not112 = icmp eq i8 %54, 0
+  br i1 %.not112, label %57, label %55
 
 55:                                               ; preds = %52
   %56 = tail call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull @ei_tcpclv4_xfer_seg_duplicate_start) #10
@@ -3208,18 +3208,18 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef nonnull 
   br label %60
 
 60:                                               ; preds = %48, %50, %57
-  %.099 = phi i64 [ %59, %57 ], [ 0, %50 ], [ 0, %48 ]
-  %61 = tail call ptr @wmem_list_frame_next(ptr noundef %.098) #10
-  %.not115 = icmp eq ptr %61, null
+  %.096 = phi i64 [ %59, %57 ], [ 0, %50 ], [ 0, %48 ]
+  %61 = tail call ptr @wmem_list_frame_next(ptr noundef %.095) #10
+  %.not113 = icmp eq ptr %61, null
   %62 = and i8 %2, 1
-  %.not116 = icmp eq i8 %62, 0
-  br i1 %.not115, label %63, label %64
+  %.not114 = icmp eq i8 %62, 0
+  br i1 %.not113, label %63, label %64
 
 63:                                               ; preds = %60
-  br i1 %.not116, label %.sink.split, label %66
+  br i1 %.not114, label %.sink.split, label %66
 
 64:                                               ; preds = %60
-  br i1 %.not116, label %66, label %.sink.split
+  br i1 %.not114, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %64, %63
   %ei_tcpclv4_xfer_seg_duplicate_end.sink = phi ptr [ @ei_tcpclv4_xfer_seg_missing_end, %63 ], [ @ei_tcpclv4_xfer_seg_duplicate_end, %64 ]
@@ -3227,8 +3227,8 @@ define internal fastcc void @transfer_add_segment(ptr nocapture noundef nonnull 
   br label %66
 
 66:                                               ; preds = %.sink.split, %64, %63
-  %67 = add i64 %.099, %3
-  %68 = getelementptr inbounds nuw i8, ptr %.097, i64 40
+  %67 = add i64 %.096, %3
+  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store i64 %67, ptr %68, align 8
   %69 = load i32, ptr @hf_tcpclv4_xfer_segment_seen_len, align 4
   %70 = tail call ptr @proto_tree_add_uint64(ptr noundef %6, i32 noundef %69, ptr noundef %5, i32 noundef 0, i32 noundef 0, i64 noundef %67) #10
@@ -3264,152 +3264,152 @@ proto_item_set_generated.exit:                    ; preds = %66, %71, %74
 86:                                               ; preds = %84, %proto_item_set_generated.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %88 = load ptr, ptr %87, align 8
-  %.not118 = icmp eq ptr %88, null
-  br i1 %.not118, label %proto_item_set_generated.exit127, label %89
+  %.not116 = icmp eq ptr %88, null
+  br i1 %.not116, label %proto_item_set_generated.exit125, label %89
 
 89:                                               ; preds = %86
   %90 = load i64, ptr %68, align 8
   %91 = load i64, ptr %88, align 8
   %92 = icmp ugt i64 %90, %91
-  br i1 %92, label %.sink.split141, label %93
+  br i1 %92, label %.sink.split139, label %93
 
 93:                                               ; preds = %89
   %94 = and i8 %2, 1
-  %.not119 = icmp eq i8 %94, 0
-  %.not120 = icmp eq i64 %90, %91
-  %or.cond = or i1 %.not119, %.not120
-  br i1 %or.cond, label %96, label %.sink.split141
+  %.not117 = icmp eq i8 %94, 0
+  %.not118 = icmp eq i64 %90, %91
+  %or.cond = or i1 %.not117, %.not118
+  br i1 %or.cond, label %96, label %.sink.split139
 
-.sink.split141:                                   ; preds = %93, %89
+.sink.split139:                                   ; preds = %93, %89
   %ei_xfer_mismatch_total_len.sink = phi ptr [ @ei_xfer_seg_over_total_len, %89 ], [ @ei_xfer_mismatch_total_len, %93 ]
   %95 = tail call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef %70, ptr noundef nonnull %ei_xfer_mismatch_total_len.sink) #10
   br label %96
 
-96:                                               ; preds = %.sink.split141, %93
+96:                                               ; preds = %.sink.split139, %93
   %97 = load i32, ptr @hf_tcpclv4_xfer_total_len, align 4
   %98 = load ptr, ptr %87, align 8
   %99 = load i64, ptr %98, align 8
   %100 = tail call ptr @proto_tree_add_uint64(ptr noundef %6, i32 noundef %97, ptr noundef %5, i32 noundef 0, i32 noundef 0, i64 noundef %99) #10
-  %.not.i125 = icmp eq ptr %100, null
-  br i1 %.not.i125, label %proto_item_set_generated.exit127, label %101
+  %.not.i123 = icmp eq ptr %100, null
+  br i1 %.not.i123, label %proto_item_set_generated.exit125, label %101
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %103 = load ptr, ptr %102, align 8
-  %.not5.i126 = icmp eq ptr %103, null
-  br i1 %.not5.i126, label %proto_item_set_generated.exit127, label %104
+  %.not5.i124 = icmp eq ptr %103, null
+  br i1 %.not5.i124, label %proto_item_set_generated.exit125, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %106 = load i32, ptr %105, align 4
   %107 = or i32 %106, 2
   store i32 %107, ptr %105, align 4
-  br label %proto_item_set_generated.exit127
+  br label %proto_item_set_generated.exit125
 
-proto_item_set_generated.exit127:                 ; preds = %104, %101, %96, %86
-  %108 = getelementptr inbounds nuw i8, ptr %.097, i64 56
+proto_item_set_generated.exit125:                 ; preds = %104, %101, %96, %86
+  %108 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %109 = load ptr, ptr %108, align 8
-  %.not121 = icmp eq ptr %109, null
-  br i1 %.not121, label %133, label %110
+  %.not119 = icmp eq ptr %109, null
+  br i1 %.not119, label %133, label %110
 
-110:                                              ; preds = %proto_item_set_generated.exit127
+110:                                              ; preds = %proto_item_set_generated.exit125
   %111 = load i32, ptr @hf_tcpclv4_xfer_segment_related_ack, align 4
   %112 = load i32, ptr %109, align 8
   %113 = tail call ptr @proto_tree_add_uint(ptr noundef %6, i32 noundef %111, ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef %112) #10
-  %.not.i128 = icmp eq ptr %113, null
-  br i1 %.not.i128, label %proto_item_set_generated.exit130, label %114
+  %.not.i126 = icmp eq ptr %113, null
+  br i1 %.not.i126, label %proto_item_set_generated.exit128, label %114
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %116 = load ptr, ptr %115, align 8
-  %.not5.i129 = icmp eq ptr %116, null
-  br i1 %.not5.i129, label %proto_item_set_generated.exit130, label %117
+  %.not5.i127 = icmp eq ptr %116, null
+  br i1 %.not5.i127, label %proto_item_set_generated.exit128, label %117
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 28
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, 2
   store i32 %120, ptr %118, align 4
-  br label %proto_item_set_generated.exit130
+  br label %proto_item_set_generated.exit128
 
-proto_item_set_generated.exit130:                 ; preds = %110, %114, %117
+proto_item_set_generated.exit128:                 ; preds = %110, %114, %117
   %121 = load ptr, ptr %108, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %123 = getelementptr inbounds nuw i8, ptr %.097, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   call void @nstime_delta(ptr noundef nonnull %10, ptr noundef nonnull %122, ptr noundef nonnull %123) #10
   %124 = load i32, ptr @hf_tcpclv4_xfer_segment_time_diff, align 4
   %125 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %124, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10) #10
-  %.not.i131 = icmp eq ptr %125, null
-  br i1 %.not.i131, label %proto_item_set_generated.exit133, label %126
+  %.not.i129 = icmp eq ptr %125, null
+  br i1 %.not.i129, label %proto_item_set_generated.exit131, label %126
 
-126:                                              ; preds = %proto_item_set_generated.exit130
+126:                                              ; preds = %proto_item_set_generated.exit128
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %128 = load ptr, ptr %127, align 8
-  %.not5.i132 = icmp eq ptr %128, null
-  br i1 %.not5.i132, label %proto_item_set_generated.exit133, label %129
+  %.not5.i130 = icmp eq ptr %128, null
+  br i1 %.not5.i130, label %proto_item_set_generated.exit131, label %129
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
   %131 = load i32, ptr %130, align 4
   %132 = or i32 %131, 2
   store i32 %132, ptr %130, align 4
-  br label %proto_item_set_generated.exit133
+  br label %proto_item_set_generated.exit131
 
-133:                                              ; preds = %proto_item_set_generated.exit127
+133:                                              ; preds = %proto_item_set_generated.exit125
   %134 = tail call ptr @expert_add_info(ptr noundef nonnull %4, ptr noundef %7, ptr noundef nonnull @ei_tcpclv4_xfer_seg_no_relation) #10
-  br label %proto_item_set_generated.exit133
+  br label %proto_item_set_generated.exit131
 
-proto_item_set_generated.exit133:                 ; preds = %129, %126, %proto_item_set_generated.exit130, %133
+proto_item_set_generated.exit131:                 ; preds = %129, %126, %proto_item_set_generated.exit128, %133
   %135 = load ptr, ptr %35, align 8
-  %.not122 = icmp eq ptr %135, null
-  %.not123 = icmp eq ptr %135, %.097
-  %or.cond124 = or i1 %.not122, %.not123
-  br i1 %or.cond124, label %proto_item_set_generated.exit139, label %136
+  %.not120 = icmp eq ptr %135, null
+  %.not121 = icmp eq ptr %135, %.0
+  %or.cond122 = or i1 %.not120, %.not121
+  br i1 %or.cond122, label %proto_item_set_generated.exit137, label %136
 
-136:                                              ; preds = %proto_item_set_generated.exit133
+136:                                              ; preds = %proto_item_set_generated.exit131
   %137 = load i32, ptr @hf_tcpclv4_xfer_segment_related_start, align 4
   %138 = load i32, ptr %135, align 8
   %139 = call ptr @proto_tree_add_uint(ptr noundef %6, i32 noundef %137, ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef %138) #10
-  %.not.i134 = icmp eq ptr %139, null
-  br i1 %.not.i134, label %proto_item_set_generated.exit136, label %140
+  %.not.i132 = icmp eq ptr %139, null
+  br i1 %.not.i132, label %proto_item_set_generated.exit134, label %140
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %142 = load ptr, ptr %141, align 8
-  %.not5.i135 = icmp eq ptr %142, null
-  br i1 %.not5.i135, label %proto_item_set_generated.exit136, label %143
+  %.not5.i133 = icmp eq ptr %142, null
+  br i1 %.not5.i133, label %proto_item_set_generated.exit134, label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 28
   %145 = load i32, ptr %144, align 4
   %146 = or i32 %145, 2
   store i32 %146, ptr %144, align 4
-  br label %proto_item_set_generated.exit136
+  br label %proto_item_set_generated.exit134
 
-proto_item_set_generated.exit136:                 ; preds = %136, %140, %143
-  %147 = getelementptr inbounds nuw i8, ptr %.097, i64 16
+proto_item_set_generated.exit134:                 ; preds = %136, %140, %143
+  %147 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %148 = load ptr, ptr %35, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   call void @nstime_delta(ptr noundef nonnull %11, ptr noundef nonnull %147, ptr noundef nonnull %149) #10
   %150 = load i32, ptr @hf_tcpclv4_xfer_segment_time_start, align 4
   %151 = call ptr @proto_tree_add_time(ptr noundef %6, i32 noundef %150, ptr noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %11) #10
-  %.not.i137 = icmp eq ptr %151, null
-  br i1 %.not.i137, label %proto_item_set_generated.exit139, label %152
+  %.not.i135 = icmp eq ptr %151, null
+  br i1 %.not.i135, label %proto_item_set_generated.exit137, label %152
 
-152:                                              ; preds = %proto_item_set_generated.exit136
+152:                                              ; preds = %proto_item_set_generated.exit134
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %154 = load ptr, ptr %153, align 8
-  %.not5.i138 = icmp eq ptr %154, null
-  br i1 %.not5.i138, label %proto_item_set_generated.exit139, label %155
+  %.not5.i136 = icmp eq ptr %154, null
+  br i1 %.not5.i136, label %proto_item_set_generated.exit137, label %155
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 28
   %157 = load i32, ptr %156, align 4
   %158 = or i32 %157, 2
   store i32 %158, ptr %156, align 4
-  br label %proto_item_set_generated.exit139
+  br label %proto_item_set_generated.exit137
 
-proto_item_set_generated.exit139:                 ; preds = %155, %152, %proto_item_set_generated.exit136, %proto_item_set_generated.exit133
+proto_item_set_generated.exit137:                 ; preds = %155, %152, %proto_item_set_generated.exit134, %proto_item_set_generated.exit131
   ret void
 }
 

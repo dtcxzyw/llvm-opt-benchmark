@@ -312,8 +312,8 @@ define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4Type
   %31 = tail call noundef zeroext i1 @_ZN18FunctionInvocation21BinaryOpWorksForFloatE10eBinaryOps(i32 noundef %3)
   br label %32
 
-32:                                               ; preds = %30, %15, %23, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %7 ], [ true, %23 ], [ true, %15 ], [ false, %30 ]
+32:                                               ; preds = %15, %23, %7, %4, %30
+  %.0 = phi i1 [ false, %30 ], [ false, %4 ], [ true, %7 ], [ true, %23 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -356,8 +356,8 @@ define dso_local noundef zeroext i1 @_ZN11SafeOpFlags17return_float_typeEPK4Type
   %22 = tail call noundef zeroext i1 @_ZN18FunctionInvocation20UnaryOpWorksForFloatE9eUnaryOps(i32 noundef %2)
   br label %23
 
-23:                                               ; preds = %21, %14, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %6 ], [ true, %14 ], [ false, %21 ]
+23:                                               ; preds = %14, %6, %3, %21
+  %.0 = phi i1 [ false, %21 ], [ false, %3 ], [ true, %6 ], [ true, %14 ]
   ret i1 %.0
 }
 

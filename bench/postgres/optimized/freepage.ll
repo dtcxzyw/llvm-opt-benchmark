@@ -3553,7 +3553,7 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %25, %19, %.lr.ph.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %44
   %46 = icmp eq ptr %gep.i, null
   %47 = or i1 %45, %46
-  br i1 %47, label %.lr.ph.i56.preheader, label %.lr.ph.i
+  br i1 %47, label %.lr.ph.i55.preheader, label %.lr.ph.i
 
 .lr.ph41.i:                                       ; preds = %31, %.lr.ph41.i
   %.140.i = phi ptr [ %51, %.lr.ph41.i ], [ %39, %31 ]
@@ -3570,17 +3570,17 @@ FreePageBtreeSearchInternal.exit.i:               ; preds = %25, %19, %.lr.ph.i
 FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
   %.0.i = phi ptr [ %39, %31 ], [ %51, %.lr.ph41.i ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %.lr.ph.i56.preheader, label %54
+  br i1 %.not, label %.lr.ph.i55.preheader, label %54
 
-.lr.ph.i56.preheader:                             ; preds = %41, %54, %FreePageBtreeFindRightSibling.exit
-  br label %.lr.ph.i56
+.lr.ph.i55.preheader:                             ; preds = %41, %54, %FreePageBtreeFindRightSibling.exit
+  br label %.lr.ph.i55
 
 54:                                               ; preds = %FreePageBtreeFindRightSibling.exit
   %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %7
   %58 = icmp ult i64 %57, 255
-  br i1 %58, label %59, label %.lr.ph.i56.preheader
+  br i1 %58, label %59, label %.lr.ph.i55.preheader
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %1, align 8
@@ -3607,9 +3607,9 @@ FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
   %74 = add i64 %73, %72
   store i64 %74, ptr %6, align 8
   %.not.i = icmp eq i64 %74, 0
-  br i1 %.not.i, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, label %.lr.ph.i53
+  br i1 %.not.i, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, label %.lr.ph.i52
 
-.lr.ph.i53:                                       ; preds = %70
+.lr.ph.i52:                                       ; preds = %70
   %75 = getelementptr i8, ptr %1, i64 32
   %76 = ptrtoint ptr %1 to i64
   %77 = ptrtoint ptr %5 to i64
@@ -3617,14 +3617,14 @@ FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
   %78 = sub i64 %reass.sub.i, %77
   br label %79
 
-79:                                               ; preds = %79, %.lr.ph.i53
-  %.011.i = phi i64 [ 0, %.lr.ph.i53 ], [ %85, %79 ]
+79:                                               ; preds = %79, %.lr.ph.i52
+  %.011.i = phi i64 [ 0, %.lr.ph.i52 ], [ %85, %79 ]
   %.idx.i = shl i64 %.011.i, 4
   %80 = getelementptr i8, ptr %75, i64 %.idx.i
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 0
-  %gep.i54 = getelementptr i8, ptr %invariant.gep.i, i64 %81
-  %83 = select i1 %82, ptr null, ptr %gep.i54
+  %gep.i53 = getelementptr i8, ptr %invariant.gep.i, i64 %81
+  %83 = select i1 %82, ptr null, ptr %gep.i53
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 %78, ptr %84, align 8
   %85 = add nuw i64 %.011.i, 1
@@ -3632,46 +3632,46 @@ FreePageBtreeFindRightSibling.exit:               ; preds = %.lr.ph41.i, %31
   %87 = icmp ult i64 %85, %86
   br i1 %87, label %79, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, !llvm.loop !15
 
-.lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %FreePageBtreeSearchInternal.exit.thread.i
-  %88 = phi ptr [ %gep.i68, %FreePageBtreeSearchInternal.exit.thread.i ], [ %gep34.i, %.lr.ph.i56.preheader ]
-  %.pn.i57 = phi ptr [ %88, %FreePageBtreeSearchInternal.exit.thread.i ], [ %1, %.lr.ph.i56.preheader ]
-  %.02438.i = phi i32 [ %112, %FreePageBtreeSearchInternal.exit.thread.i ], [ 0, %.lr.ph.i56.preheader ]
-  %.023.val39.in.i = getelementptr i8, ptr %.pn.i57, i64 24
+.lr.ph.i55:                                       ; preds = %.lr.ph.i55.preheader, %FreePageBtreeSearchInternal.exit.thread.i
+  %88 = phi ptr [ %gep.i67, %FreePageBtreeSearchInternal.exit.thread.i ], [ %gep34.i, %.lr.ph.i55.preheader ]
+  %.pn.i56 = phi ptr [ %88, %FreePageBtreeSearchInternal.exit.thread.i ], [ %1, %.lr.ph.i55.preheader ]
+  %.02438.i = phi i32 [ %112, %FreePageBtreeSearchInternal.exit.thread.i ], [ 0, %.lr.ph.i55.preheader ]
+  %.023.val39.in.i = getelementptr i8, ptr %.pn.i56, i64 24
   %.023.val39.i = load i64, ptr %.023.val39.in.i, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i64, ptr %89, align 8
-  %.not.i.i58 = icmp eq i64 %90, 0
-  br i1 %.not.i.i58, label %FreePageBtreeSearchInternal.exit.thread.i, label %.lr.ph.i.i59
+  %.not.i.i57 = icmp eq i64 %90, 0
+  br i1 %.not.i.i57, label %FreePageBtreeSearchInternal.exit.thread.i, label %.lr.ph.i.i58
 
-.lr.ph.i.i59:                                     ; preds = %.lr.ph.i56
+.lr.ph.i.i58:                                     ; preds = %.lr.ph.i55
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
   br label %92
 
-92:                                               ; preds = %98, %.lr.ph.i.i59
-  %.01521.i.i60 = phi i64 [ 0, %.lr.ph.i.i59 ], [ %.1.i.i63, %98 ]
-  %.01620.i.i61 = phi i64 [ %90, %.lr.ph.i.i59 ], [ %.117.i.i62, %98 ]
-  %93 = add i64 %.01620.i.i61, %.01521.i.i60
+92:                                               ; preds = %98, %.lr.ph.i.i58
+  %.01521.i.i59 = phi i64 [ 0, %.lr.ph.i.i58 ], [ %.1.i.i62, %98 ]
+  %.01620.i.i60 = phi i64 [ %90, %.lr.ph.i.i58 ], [ %.117.i.i61, %98 ]
+  %93 = add i64 %.01620.i.i60, %.01521.i.i59
   %94 = lshr i64 %93, 1
   %95 = getelementptr [254 x %struct.FreePageBtreeInternalKey], ptr %91, i64 0, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = icmp eq i64 %.023.val39.i, %96
-  br i1 %97, label %FreePageBtreeSearchInternal.exit.i64, label %98
+  br i1 %97, label %FreePageBtreeSearchInternal.exit.i63, label %98
 
 98:                                               ; preds = %92
   %99 = icmp ult i64 %.023.val39.i, %96
   %100 = add nuw i64 %94, 1
-  %.117.i.i62 = select i1 %99, i64 %94, i64 %.01620.i.i61
-  %.1.i.i63 = select i1 %99, i64 %.01521.i.i60, i64 %100
-  %101 = icmp ult i64 %.1.i.i63, %.117.i.i62
-  br i1 %101, label %92, label %FreePageBtreeSearchInternal.exit.i64, !llvm.loop !10
+  %.117.i.i61 = select i1 %99, i64 %94, i64 %.01620.i.i60
+  %.1.i.i62 = select i1 %99, i64 %.01521.i.i59, i64 %100
+  %101 = icmp ult i64 %.1.i.i62, %.117.i.i61
+  br i1 %101, label %92, label %FreePageBtreeSearchInternal.exit.i63, !llvm.loop !10
 
-FreePageBtreeSearchInternal.exit.i64:             ; preds = %98, %92
-  %.0.i.i65 = phi i64 [ %.1.i.i63, %98 ], [ %94, %92 ]
-  %.not.i66 = icmp eq i64 %.0.i.i65, 0
-  br i1 %.not.i66, label %FreePageBtreeSearchInternal.exit.thread.i, label %102
+FreePageBtreeSearchInternal.exit.i63:             ; preds = %98, %92
+  %.0.i.i64 = phi i64 [ %.1.i.i62, %98 ], [ %94, %92 ]
+  %.not.i65 = icmp eq i64 %.0.i.i64, 0
+  br i1 %.not.i65, label %FreePageBtreeSearchInternal.exit.thread.i, label %102
 
-102:                                              ; preds = %FreePageBtreeSearchInternal.exit.i64
-  %103 = shl i64 %.0.i.i65, 4
+102:                                              ; preds = %FreePageBtreeSearchInternal.exit.i63
+  %103 = shl i64 %.0.i.i64, 4
   %104 = getelementptr i8, ptr %88, i64 16
   %105 = getelementptr i8, ptr %104, i64 %103
   %106 = load i64, ptr %105, align 8
@@ -3682,15 +3682,15 @@ FreePageBtreeSearchInternal.exit.i64:             ; preds = %98, %92
   %111 = icmp sgt i32 %.02438.i, 0
   br i1 %111, label %.lr.ph44.i, label %FreePageBtreeFindLeftSibling.exit
 
-FreePageBtreeSearchInternal.exit.thread.i:        ; preds = %FreePageBtreeSearchInternal.exit.i64, %.lr.ph.i56
+FreePageBtreeSearchInternal.exit.thread.i:        ; preds = %FreePageBtreeSearchInternal.exit.i63, %.lr.ph.i55
   %112 = add i32 %.02438.i, 1
   %113 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %114 = load i64, ptr %113, align 8
   %115 = icmp eq i64 %114, 0
-  %gep.i68 = getelementptr i8, ptr %invariant.gep.i, i64 %114
-  %116 = icmp eq ptr %gep.i68, null
+  %gep.i67 = getelementptr i8, ptr %invariant.gep.i, i64 %114
+  %116 = icmp eq ptr %gep.i67, null
   %117 = or i1 %115, %116
-  br i1 %117, label %FreePageBtreeFindLeftSibling.exit.thread, label %.lr.ph.i56
+  br i1 %117, label %FreePageBtreeFindLeftSibling.exit.thread, label %.lr.ph.i55
 
 .lr.ph44.i:                                       ; preds = %102, %.lr.ph44.i
   %.143.i = phi ptr [ %125, %.lr.ph44.i ], [ %110, %102 ]
@@ -3709,12 +3709,12 @@ FreePageBtreeSearchInternal.exit.thread.i:        ; preds = %FreePageBtreeSearch
   br i1 %127, label %.lr.ph44.i, label %FreePageBtreeFindLeftSibling.exit, !llvm.loop !21
 
 FreePageBtreeFindLeftSibling.exit:                ; preds = %.lr.ph44.i, %102
-  %.0.i67 = phi ptr [ %110, %102 ], [ %125, %.lr.ph44.i ]
-  %.not51 = icmp eq ptr %.0.i67, null
-  br i1 %.not51, label %FreePageBtreeFindLeftSibling.exit.thread, label %128
+  %.0.i66 = phi ptr [ %110, %102 ], [ %125, %.lr.ph44.i ]
+  %.not50 = icmp eq ptr %.0.i66, null
+  br i1 %.not50, label %FreePageBtreeFindLeftSibling.exit.thread, label %128
 
 128:                                              ; preds = %FreePageBtreeFindLeftSibling.exit
-  %129 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, %7
   %132 = icmp ult i64 %131, 255
@@ -3723,7 +3723,7 @@ FreePageBtreeFindLeftSibling.exit:                ; preds = %.lr.ph44.i, %102
 133:                                              ; preds = %128
   %134 = load i32, ptr %1, align 8
   %135 = icmp eq i32 %134, -1729435864
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 24
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %138 = shl nuw nsw i64 %7, 4
   br i1 %135, label %139, label %144
@@ -3744,28 +3744,28 @@ FreePageBtreeFindLeftSibling.exit:                ; preds = %.lr.ph44.i, %102
   %147 = load i64, ptr %129, align 8
   %148 = add i64 %147, %146
   store i64 %148, ptr %129, align 8
-  %.not.i70 = icmp eq i64 %148, 0
-  br i1 %.not.i70, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, label %.lr.ph.i71
+  %.not.i69 = icmp eq i64 %148, 0
+  br i1 %.not.i69, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, label %.lr.ph.i70
 
-.lr.ph.i71:                                       ; preds = %144
-  %149 = getelementptr i8, ptr %.0.i67, i64 32
-  %150 = ptrtoint ptr %.0.i67 to i64
+.lr.ph.i70:                                       ; preds = %144
+  %149 = getelementptr i8, ptr %.0.i66, i64 32
+  %150 = ptrtoint ptr %.0.i66 to i64
   %151 = ptrtoint ptr %5 to i64
   %reass.sub = sub i64 %150, %151
   %152 = add i64 %reass.sub, 1
   br label %153
 
-153:                                              ; preds = %153, %.lr.ph.i71
-  %.011.i73 = phi i64 [ 0, %.lr.ph.i71 ], [ %159, %153 ]
-  %.idx.i74 = shl i64 %.011.i73, 4
-  %154 = getelementptr i8, ptr %149, i64 %.idx.i74
+153:                                              ; preds = %153, %.lr.ph.i70
+  %.011.i72 = phi i64 [ 0, %.lr.ph.i70 ], [ %159, %153 ]
+  %.idx.i73 = shl i64 %.011.i72, 4
+  %154 = getelementptr i8, ptr %149, i64 %.idx.i73
   %155 = load i64, ptr %154, align 8
   %156 = icmp eq i64 %155, 0
-  %gep.i75 = getelementptr i8, ptr %invariant.gep.i, i64 %155
-  %157 = select i1 %156, ptr null, ptr %gep.i75
+  %gep.i74 = getelementptr i8, ptr %invariant.gep.i, i64 %155
+  %157 = select i1 %156, ptr null, ptr %gep.i74
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i64 %152, ptr %158, align 8
-  %159 = add nuw i64 %.011.i73, 1
+  %159 = add nuw i64 %.011.i72, 1
   %160 = load i64, ptr %129, align 8
   %161 = icmp ult i64 %159, %160
   br i1 %161, label %153, label %FreePageBtreeFindLeftSibling.exit.thread.sink.split, !llvm.loop !15

@@ -6357,18 +6357,18 @@ common.resume.i:                                  ; preds = %.thread45.i, %110, 
   %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.525.0.extract.trunc = trunc i64 %.sroa.819.0.copyload to i32
   store i32 %.sroa.525.0.extract.trunc, ptr %.sroa.525.0..sroa_idx, align 4
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 720
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !673
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !673
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !noalias !681
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !673
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %179, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !noalias !682
-  %180 = load i64, ptr %5, align 8, !range !34, !noalias !673, !noundef !4
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(32) %181, i64 32, i1 false), !noalias !673
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store i64 %180, ptr %8, align 8, !noalias !673
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %180, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !noalias !682
+  %181 = load i64, ptr %5, align 8, !range !34, !noalias !673, !noundef !4
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(32) %182, i64 32, i1 false), !noalias !673
+  store i64 %181, ptr %8, align 8, !noalias !673
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !673
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !673
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !673
@@ -6376,7 +6376,7 @@ common.resume.i:                                  ; preds = %.thread45.i, %110, 
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %184, ptr %6, align 8, !noalias !673
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %183, ptr %186, align 8, !noalias !673
+  store ptr %179, ptr %186, align 8, !noalias !673
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %27, ptr %187, align 8, !noalias !673
   %188 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -6475,18 +6475,18 @@ default.unreachable41:                            ; preds = %24
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 720
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !687
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !687
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !687
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !noalias !695
-  %29 = load i64, ptr %5, align 8, !range !34, !noalias !687, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !noalias !687
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store i64 %29, ptr %8, align 8, !noalias !687
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %29, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %7), !noalias !695
+  %30 = load i64, ptr %5, align 8, !range !34, !noalias !687, !noundef !4
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !noalias !687
+  store i64 %30, ptr %8, align 8, !noalias !687
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !687
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !687
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !687
@@ -6494,7 +6494,7 @@ default.unreachable41:                            ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %33, ptr %6, align 8, !noalias !687
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %32, ptr %35, align 8, !noalias !687
+  store ptr %28, ptr %35, align 8, !noalias !687
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %36, align 8, !noalias !687
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -8598,18 +8598,18 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %80)
   %330 = getelementptr inbounds nuw i8, ptr %100, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %80, ptr noundef nonnull align 4 dereferenceable(12) %330, i64 12, i1 false)
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 720
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !1032
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15), !noalias !1032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) %330, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !1032
-  %331 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %331, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %15), !noalias !1040
-  %332 = load i64, ptr %13, align 8, !range !34, !noalias !1032, !noundef !4
-  %333 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %334 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef nonnull align 8 dereferenceable(32) %333, i64 32, i1 false), !noalias !1032
-  %335 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store i64 %332, ptr %16, align 8, !noalias !1032
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %332, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %15), !noalias !1040
+  %333 = load i64, ptr %13, align 8, !range !34, !noalias !1032, !noundef !4
+  %334 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %335, ptr noundef nonnull align 8 dereferenceable(32) %334, i64 32, i1 false), !noalias !1032
+  store i64 %333, ptr %16, align 8, !noalias !1032
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !1032
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15), !noalias !1032
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !1032
@@ -8617,7 +8617,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %336, ptr %14, align 8, !noalias !1032
   %338 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %335, ptr %338, align 8, !noalias !1032
+  store ptr %331, ptr %338, align 8, !noalias !1032
   %339 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %80, ptr %339, align 8, !noalias !1032
   %340 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8635,18 +8635,18 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %79)
   %345 = getelementptr inbounds nuw i8, ptr %100, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %79, ptr noundef nonnull align 4 dereferenceable(12) %345, i64 12, i1 false)
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 720
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !1041
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11), !noalias !1041
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %345, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !1041
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %346, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %11), !noalias !1049
-  %347 = load i64, ptr %9, align 8, !range !34, !noalias !1041, !noundef !4
-  %348 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %349 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %349, ptr noundef nonnull align 8 dereferenceable(32) %348, i64 32, i1 false), !noalias !1041
-  %350 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  store i64 %347, ptr %12, align 8, !noalias !1041
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %347, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %11), !noalias !1049
+  %348 = load i64, ptr %9, align 8, !range !34, !noalias !1041, !noundef !4
+  %349 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %350, ptr noundef nonnull align 8 dereferenceable(32) %349, i64 32, i1 false), !noalias !1041
+  store i64 %348, ptr %12, align 8, !noalias !1041
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1041
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11), !noalias !1041
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !1041
@@ -8654,7 +8654,7 @@ _ZN16wasmtime_environ9component5types21ComponentTypesBuilder7valtype17h391df8f17
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %351, ptr %10, align 8, !noalias !1041
   %353 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %350, ptr %353, align 8, !noalias !1041
+  store ptr %346, ptr %353, align 8, !noalias !1041
   %354 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %79, ptr %354, align 8, !noalias !1041
   %355 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -8920,18 +8920,18 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder7convert17h2c4f
   %3 = alloca { ptr, ptr, ptr, ptr }, align 8
   %4 = alloca <{ i64, i32 }>, align 4
   %5 = alloca { i64, [4 x i64] }, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 720
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !1058
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !1058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !1063
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !1058
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %6, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !1064
-  %7 = load i64, ptr %2, align 8, !range !34, !noalias !1058, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !1058
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store i64 %7, ptr %5, align 8, !noalias !1058
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hcad394c88cb02f36E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %7, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4), !noalias !1064
+  %8 = load i64, ptr %2, align 8, !range !34, !noalias !1058, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !1058
+  store i64 %8, ptr %5, align 8, !noalias !1058
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1058
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !1058
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1058
@@ -8939,7 +8939,7 @@ _ZN16wasmtime_environ9component5types9resources16ResourcesBuilder7convert17h2c4f
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %11, ptr %3, align 8, !noalias !1058
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %10, ptr %13, align 8, !noalias !1058
+  store ptr %6, ptr %13, align 8, !noalias !1058
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %14, align 8, !noalias !1058
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24

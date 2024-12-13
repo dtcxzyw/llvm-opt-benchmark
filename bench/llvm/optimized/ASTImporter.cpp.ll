@@ -36098,9 +36098,9 @@ _ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.e
   %84 = load ptr, ptr %10, align 8
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %67, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread
-  %.sink = phi ptr [ %84, %67 ], [ %.sroa.020.352, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread ]
-  store ptr %.sink, ptr %0, align 8
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread, %67
+  %storemerge = phi ptr [ %.sroa.020.352, %_ZN5clang15ASTNodeImporter13importCheckedINS_8QualTypeEEET_RN4llvm5ErrorERKS3_.exit.thread ], [ %84, %67 ]
+  store ptr %storemerge, ptr %0, align 8
   ret void
 }
 

@@ -15586,8 +15586,8 @@ common.ret:                                       ; preds = %259, %255, %201
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %.sroa.872)
   br label %259
 
-259:                                              ; preds = %258, %202
-  %.0 = phi ptr [ %.fca.1.extract, %202 ], [ %.fca.1.extract30, %258 ]
+259:                                              ; preds = %202, %258
+  %.0 = phi ptr [ %.fca.1.extract30, %258 ], [ %.fca.1.extract, %202 ]
   store i8 1, ptr %21, align 8
   %260 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0, 1
   br label %common.ret

@@ -2909,11 +2909,11 @@ _ZNSt3setIN18cmCTestTestHandler17cmCTestTestResultENS0_21cmCTestTestResultLessES
   %234 = load ptr, ptr %80, align 8
   %235 = icmp eq ptr %233, %234
   store ptr null, ptr %65, align 8
-  %spec.select = select i1 %235, i32 %.023, i32 -1
+  %.023. = select i1 %235, i32 %.023, i32 -1
   br label %236
 
 236:                                              ; preds = %232, %224, %221, %68, %231
-  %.1 = phi i32 [ -1, %231 ], [ -1, %68 ], [ 1, %221 ], [ 1, %224 ], [ %spec.select, %232 ]
+  %.1 = phi i32 [ -1, %231 ], [ -1, %68 ], [ 1, %221 ], [ 1, %224 ], [ %.023., %232 ]
   %237 = load ptr, ptr %7, align 8
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %239 = load ptr, ptr %238, align 8

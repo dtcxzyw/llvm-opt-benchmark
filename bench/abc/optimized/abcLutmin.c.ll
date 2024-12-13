@@ -747,15 +747,15 @@ define ptr @Abc_NtkBddCofactors_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   %or.cond36 = or i1 %11, %10
   br i1 %or.cond36, label %tailrecurse._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %tailrecurse.backedge
-  %12 = phi ptr [ %41, %tailrecurse.backedge ], [ %8, %5 ]
-  %13 = phi i64 [ %39, %tailrecurse.backedge ], [ %6, %5 ]
-  %.tr3438 = phi i32 [ %.tr34.be, %tailrecurse.backedge ], [ %3, %5 ]
-  %.tr3237 = phi ptr [ %.tr32.be, %tailrecurse.backedge ], [ %1, %5 ]
+.lr.ph:                                           ; preds = %5, %tailrecurse
+  %12 = phi ptr [ %42, %tailrecurse ], [ %8, %5 ]
+  %13 = phi i64 [ %40, %tailrecurse ], [ %6, %5 ]
+  %.tr3438 = phi i32 [ %39, %tailrecurse ], [ %3, %5 ]
+  %.tr3237 = phi ptr [ %.027..0, %tailrecurse ], [ %1, %5 ]
   %14 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %.tr3237) #18
   %15 = tail call i32 @Cudd_ReadPerm(ptr noundef %0, i32 noundef %14) #18
   %16 = icmp sgt i32 %15, %.tr3438
-  br i1 %16, label %tailrecurse.backedge, label %17
+  br i1 %16, label %tailrecurse, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = and i64 %13, 1
@@ -773,16 +773,16 @@ define ptr @Abc_NtkBddCofactors_rec(ptr noundef %0, ptr noundef %1, i32 noundef 
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
-  br label %tailrecurse.backedge
+  br label %tailrecurse
 
 30:                                               ; preds = %17
   %31 = getelementptr inbounds nuw i8, ptr %.tr3237, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.tr3237, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
-  br label %tailrecurse.backedge
+  br label %tailrecurse
 
-tailrecurse.backedge:                             ; preds = %.lr.ph, %19, %30
+tailrecurse:                                      ; preds = %.lr.ph, %19, %30
   %.027 = phi ptr [ %25, %19 ], [ %33, %30 ], [ %.tr3237, %.lr.ph ]
   %.0 = phi ptr [ %29, %19 ], [ %34, %30 ], [ %.tr3237, %.lr.ph ]
   %35 = xor i32 %.tr3438, -1
@@ -790,19 +790,19 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %19, %30
   %37 = shl nuw i32 1, %36
   %38 = and i32 %37, %2
   %.not31 = icmp eq i32 %38, 0
-  %.tr32.be = select i1 %.not31, ptr %.027, ptr %.0
-  %.tr34.be = add nsw i32 %.tr3438, 1
-  %39 = ptrtoint ptr %.tr32.be to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 2147483647
-  %44 = icmp eq i32 %.tr34.be, %4
-  %or.cond = or i1 %44, %43
+  %39 = add nsw i32 %.tr3438, 1
+  %.027..0 = select i1 %.not31, ptr %.027, ptr %.0
+  %40 = ptrtoint ptr %.027..0 to i64
+  %41 = and i64 %40, -2
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 2147483647
+  %45 = icmp eq i32 %39, %4
+  %or.cond = or i1 %45, %44
   br i1 %or.cond, label %tailrecurse._crit_edge, label %.lr.ph
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %5
-  %.tr32.lcssa = phi ptr [ %1, %5 ], [ %.tr32.be, %tailrecurse.backedge ]
+tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
+  %.tr32.lcssa = phi ptr [ %1, %5 ], [ %.027..0, %tailrecurse ]
   ret ptr %.tr32.lcssa
 }
 
@@ -902,20 +902,20 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   br i1 %exitcond12.not, label %._crit_edge, label %Abc_NtkBddCofactors_rec.exit.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Vec_PtrPush.exit
-  %.09 = phi i32 [ %103, %Vec_PtrPush.exit ], [ 0, %.lr.ph.split.preheader ]
+  %.09 = phi i32 [ %104, %Vec_PtrPush.exit ], [ 0, %.lr.ph.split.preheader ]
   %41 = load i32, ptr %11, align 8
   %42 = icmp eq i32 %41, 2147483647
   br i1 %42, label %Abc_NtkBddCofactors_rec.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.split, %tailrecurse.backedge.i
-  %43 = phi ptr [ %72, %tailrecurse.backedge.i ], [ %11, %.lr.ph.split ]
-  %44 = phi i64 [ %70, %tailrecurse.backedge.i ], [ %9, %.lr.ph.split ]
-  %.tr3438.i = phi i32 [ %.tr34.be.i, %tailrecurse.backedge.i ], [ 0, %.lr.ph.split ]
-  %.tr3237.i = phi ptr [ %.tr32.be.i, %tailrecurse.backedge.i ], [ %1, %.lr.ph.split ]
+.lr.ph.i:                                         ; preds = %.lr.ph.split, %tailrecurse.i
+  %43 = phi ptr [ %73, %tailrecurse.i ], [ %11, %.lr.ph.split ]
+  %44 = phi i64 [ %71, %tailrecurse.i ], [ %9, %.lr.ph.split ]
+  %.tr3438.i = phi i32 [ %70, %tailrecurse.i ], [ 0, %.lr.ph.split ]
+  %.tr3237.i = phi ptr [ %.027..0.i, %tailrecurse.i ], [ %1, %.lr.ph.split ]
   %45 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %.tr3237.i) #18
   %46 = tail call i32 @Cudd_ReadPerm(ptr noundef %0, i32 noundef %45) #18
   %47 = icmp sgt i32 %46, %.tr3438.i
-  br i1 %47, label %tailrecurse.backedge.i, label %48
+  br i1 %47, label %tailrecurse.i, label %48
 
 48:                                               ; preds = %.lr.ph.i
   %49 = and i64 %44, 1
@@ -933,16 +933,16 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
   %58 = ptrtoint ptr %57 to i64
   %59 = xor i64 %58, 1
   %60 = inttoptr i64 %59 to ptr
-  br label %tailrecurse.backedge.i
+  br label %tailrecurse.i
 
 61:                                               ; preds = %48
   %62 = getelementptr inbounds nuw i8, ptr %.tr3237.i, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %.tr3237.i, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %62, align 8
-  br label %tailrecurse.backedge.i
+  br label %tailrecurse.i
 
-tailrecurse.backedge.i:                           ; preds = %61, %50, %.lr.ph.i
+tailrecurse.i:                                    ; preds = %61, %50, %.lr.ph.i
   %.027.i = phi ptr [ %56, %50 ], [ %64, %61 ], [ %.tr3237.i, %.lr.ph.i ]
   %.0.i = phi ptr [ %60, %50 ], [ %65, %61 ], [ %.tr3237.i, %.lr.ph.i ]
   %66 = xor i32 %.tr3438.i, -1
@@ -950,82 +950,82 @@ tailrecurse.backedge.i:                           ; preds = %61, %50, %.lr.ph.i
   %68 = shl nuw i32 1, %67
   %69 = and i32 %68, %.09
   %.not31.i = icmp eq i32 %69, 0
-  %.tr32.be.i = select i1 %.not31.i, ptr %.027.i, ptr %.0.i
-  %.tr34.be.i = add nuw nsw i32 %.tr3438.i, 1
-  %70 = ptrtoint ptr %.tr32.be.i to i64
-  %71 = and i64 %70, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, 2147483647
-  %75 = icmp eq i32 %.tr34.be.i, %2
-  %or.cond.i = or i1 %75, %74
+  %70 = add nuw nsw i32 %.tr3438.i, 1
+  %.027..0.i = select i1 %.not31.i, ptr %.027.i, ptr %.0.i
+  %71 = ptrtoint ptr %.027..0.i to i64
+  %72 = and i64 %71, -2
+  %73 = inttoptr i64 %72 to ptr
+  %74 = load i32, ptr %73, align 8
+  %75 = icmp eq i32 %74, 2147483647
+  %76 = icmp eq i32 %70, %2
+  %or.cond.i = or i1 %76, %75
   br i1 %or.cond.i, label %Abc_NtkBddCofactors_rec.exit, label %.lr.ph.i
 
-Abc_NtkBddCofactors_rec.exit:                     ; preds = %tailrecurse.backedge.i, %.lr.ph.split
-  %.tr32.lcssa.i = phi ptr [ %1, %.lr.ph.split ], [ %.tr32.be.i, %tailrecurse.backedge.i ]
-  %76 = load i32, ptr %6, align 4
-  %77 = load i32, ptr %5, align 8
-  %78 = icmp eq i32 %76, %77
-  br i1 %78, label %79, label %.Vec_PtrGrow.exit11_crit_edge.i
+Abc_NtkBddCofactors_rec.exit:                     ; preds = %tailrecurse.i, %.lr.ph.split
+  %.tr32.lcssa.i = phi ptr [ %1, %.lr.ph.split ], [ %.027..0.i, %tailrecurse.i ]
+  %77 = load i32, ptr %6, align 4
+  %78 = load i32, ptr %5, align 8
+  %79 = icmp eq i32 %77, %78
+  br i1 %79, label %80, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Abc_NtkBddCofactors_rec.exit
   %.pre.i = load ptr, ptr %8, align 8
   br label %Vec_PtrPush.exit
 
-79:                                               ; preds = %Abc_NtkBddCofactors_rec.exit
-  %80 = icmp slt i32 %76, 16
-  br i1 %80, label %81, label %88
+80:                                               ; preds = %Abc_NtkBddCofactors_rec.exit
+  %81 = icmp slt i32 %77, 16
+  br i1 %81, label %82, label %89
 
-81:                                               ; preds = %79
-  %82 = load ptr, ptr %8, align 8
-  %.not9.i.i = icmp eq ptr %82, null
-  br i1 %.not9.i.i, label %85, label %83
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %8, align 8
+  %.not9.i.i = icmp eq ptr %83, null
+  br i1 %.not9.i.i, label %86, label %84
 
-83:                                               ; preds = %81
-  %84 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %82, i64 noundef 128) #16
+84:                                               ; preds = %82
+  %85 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %83, i64 noundef 128) #16
   br label %Vec_PtrGrow.exit.i
 
-85:                                               ; preds = %81
-  %86 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
+86:                                               ; preds = %82
+  %87 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #17
   br label %Vec_PtrGrow.exit.i
 
-Vec_PtrGrow.exit.i:                               ; preds = %85, %83
-  %87 = phi ptr [ %84, %83 ], [ %86, %85 ]
-  store ptr %87, ptr %8, align 8
+Vec_PtrGrow.exit.i:                               ; preds = %86, %84
+  %88 = phi ptr [ %85, %84 ], [ %87, %86 ]
+  store ptr %88, ptr %8, align 8
   store i32 16, ptr %5, align 8
   br label %Vec_PtrPush.exit
 
-88:                                               ; preds = %79
-  %89 = shl nuw nsw i32 %76, 1
-  %90 = load ptr, ptr %8, align 8
-  %.not9.i10.i = icmp eq ptr %90, null
-  %91 = zext nneg i32 %89 to i64
-  %92 = shl nuw nsw i64 %91, 3
-  br i1 %.not9.i10.i, label %95, label %93
+89:                                               ; preds = %80
+  %90 = shl nuw nsw i32 %77, 1
+  %91 = load ptr, ptr %8, align 8
+  %.not9.i10.i = icmp eq ptr %91, null
+  %92 = zext nneg i32 %90 to i64
+  %93 = shl nuw nsw i64 %92, 3
+  br i1 %.not9.i10.i, label %96, label %94
 
-93:                                               ; preds = %88
-  %94 = tail call ptr @realloc(ptr noundef nonnull %90, i64 noundef %92) #16
-  br label %97
+94:                                               ; preds = %89
+  %95 = tail call ptr @realloc(ptr noundef nonnull %91, i64 noundef %93) #16
+  br label %98
 
-95:                                               ; preds = %88
-  %96 = tail call noalias ptr @malloc(i64 noundef %92) #17
-  br label %97
+96:                                               ; preds = %89
+  %97 = tail call noalias ptr @malloc(i64 noundef %93) #17
+  br label %98
 
-97:                                               ; preds = %95, %93
-  %98 = phi ptr [ %94, %93 ], [ %96, %95 ]
-  store ptr %98, ptr %8, align 8
-  store i32 %89, ptr %5, align 8
+98:                                               ; preds = %96, %94
+  %99 = phi ptr [ %95, %94 ], [ %97, %96 ]
+  store ptr %99, ptr %8, align 8
+  store i32 %90, ptr %5, align 8
   br label %Vec_PtrPush.exit
 
-Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %97
-  %99 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %98, %97 ], [ %87, %Vec_PtrGrow.exit.i ]
-  %100 = add nsw i32 %76, 1
-  store i32 %100, ptr %6, align 4
-  %101 = sext i32 %76 to i64
-  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
-  store ptr %.tr32.lcssa.i, ptr %102, align 8
-  %103 = add nuw nsw i32 %.09, 1
-  %exitcond.not = icmp eq i32 %103, %smax
+Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %98
+  %100 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %99, %98 ], [ %88, %Vec_PtrGrow.exit.i ]
+  %101 = add nsw i32 %77, 1
+  store i32 %101, ptr %6, align 4
+  %102 = sext i32 %77 to i64
+  %103 = getelementptr inbounds ptr, ptr %100, i64 %102
+  store ptr %.tr32.lcssa.i, ptr %103, align 8
+  %104 = add nuw nsw i32 %.09, 1
+  %exitcond.not = icmp eq i32 %104, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit.us, %3
@@ -1401,8 +1401,8 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 28
-  %.val114123 = load i32, ptr %9, align 4
-  %10 = icmp sgt i32 %.val114123, 0
+  %.val114125 = load i32, ptr %9, align 4
+  %10 = icmp sgt i32 %.val114125, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
@@ -1411,8 +1411,8 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   br label %13
 
 13:                                               ; preds = %.lr.ph, %25
-  %.099124 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
-  %14 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %.099124) #18
+  %.099126 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
+  %14 = tail call ptr @Cudd_bddIthVar(ptr noundef %6, i32 noundef %.099126) #18
   %15 = load ptr, ptr %11, align 8
   %16 = ptrtoint ptr %14 to i64
   %17 = xor i64 %16, 1
@@ -1434,18 +1434,18 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 25:                                               ; preds = %23
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %19) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %21) #18
-  %26 = add nuw nsw i32 %.099124, 1
+  %26 = add nuw nsw i32 %.099126, 1
   %.val114 = load i32, ptr %9, align 4
   %27 = icmp slt i32 %26, %.val114
   br i1 %27, label %13, label %._crit_edge.loopexit, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %23, %13, %25
-  %.099.lcssa.ph = phi i32 [ %.099124, %23 ], [ %.099124, %13 ], [ %26, %25 ]
+  %.099.lcssa.ph = phi i32 [ %.099126, %23 ], [ %.099126, %13 ], [ %26, %25 ]
   %.val113.pre = load i32, ptr %9, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.val113 = phi i32 [ %.val114123, %3 ], [ %.val113.pre, %._crit_edge.loopexit ]
+  %.val113 = phi i32 [ %.val114125, %3 ], [ %.val113.pre, %._crit_edge.loopexit ]
   %.099.lcssa = phi i32 [ 0, %3 ], [ %.099.lcssa.ph, %._crit_edge.loopexit ]
   %.1105 = phi ptr [ null, %3 ], [ %21, %._crit_edge.loopexit ]
   %.1103 = phi ptr [ null, %3 ], [ %19, %._crit_edge.loopexit ]
@@ -1457,66 +1457,66 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %30 = select i1 %.not109, ptr %.1103, ptr %.1105
   %31 = tail call ptr @Cudd_Support(ptr noundef %6, ptr noundef %30) #18
   tail call void @Cudd_Ref(ptr noundef %31) #18
-  %.val112143 = load i32, ptr %9, align 4
-  %32 = icmp sgt i32 %.val112143, 0
-  br i1 %32, label %.lr.ph146, label %.thread
+  %.val112145 = load i32, ptr %9, align 4
+  %32 = icmp sgt i32 %.val112145, 0
+  br i1 %32, label %.lr.ph148, label %.thread
 
-.lr.ph146:                                        ; preds = %29
+.lr.ph148:                                        ; preds = %29
   %33 = ptrtoint ptr %31 to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
   br label %36
 
-36:                                               ; preds = %.lr.ph146, %50
-  %.val112170 = phi i32 [ %.val112143, %.lr.ph146 ], [ %.val112, %50 ]
-  %.0100144 = phi i32 [ 0, %.lr.ph146 ], [ %51, %50 ]
-  %37 = icmp eq i32 %.0100144, %.099.lcssa
+36:                                               ; preds = %.lr.ph148, %50
+  %.val112172 = phi i32 [ %.val112145, %.lr.ph148 ], [ %.val112, %50 ]
+  %.0100146 = phi i32 [ 0, %.lr.ph148 ], [ %51, %50 ]
+  %37 = icmp eq i32 %.0100146, %.099.lcssa
   br i1 %37, label %50, label %.preheader
 
 .preheader:                                       ; preds = %36
   %38 = load i32, ptr %35, align 8
-  %.not110138 = icmp eq i32 %38, 2147483647
-  br i1 %.not110138, label %.thread, label %.lr.ph140.preheader
+  %.not110140 = icmp eq i32 %38, 2147483647
+  br i1 %.not110140, label %.thread, label %.lr.ph142.preheader
 
-.lr.ph140.preheader:                              ; preds = %.preheader
+.lr.ph142.preheader:                              ; preds = %.preheader
   %39 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %31) #18
-  %40 = icmp eq i32 %.0100144, %39
-  br i1 %40, label %.lr.ph140._crit_edge, label %.lr.ph185
+  %40 = icmp eq i32 %.0100146, %39
+  br i1 %40, label %.lr.ph142._crit_edge, label %.lr.ph185
 
-.lr.ph140:                                        ; preds = %.lr.ph185
+.lr.ph142:                                        ; preds = %.lr.ph185
   %41 = tail call i32 @Cudd_NodeReadIndex(ptr noundef %44) #18
-  %42 = icmp eq i32 %.0100144, %41
-  br i1 %42, label %.lr.ph140._crit_edge, label %.lr.ph185, !llvm.loop !23
+  %42 = icmp eq i32 %.0100146, %41
+  br i1 %42, label %.lr.ph142._crit_edge, label %.lr.ph185, !llvm.loop !23
 
-.lr.ph185:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
-  %.0106139184 = phi ptr [ %44, %.lr.ph140 ], [ %31, %.lr.ph140.preheader ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0106139184, i64 16
+.lr.ph185:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
+  %.0106141184 = phi ptr [ %44, %.lr.ph142 ], [ %31, %.lr.ph142.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %.0106141184, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
   %48 = load i32, ptr %47, align 8
   %.not110 = icmp eq i32 %48, 2147483647
-  br i1 %.not110, label %.thread, label %.lr.ph140, !llvm.loop !23
+  br i1 %.not110, label %.thread, label %.lr.ph142, !llvm.loop !23
 
-.lr.ph140._crit_edge:                             ; preds = %.lr.ph140, %.lr.ph140.preheader
-  %.lcssa = phi ptr [ %35, %.lr.ph140.preheader ], [ %47, %.lr.ph140 ]
+.lr.ph142._crit_edge:                             ; preds = %.lr.ph142, %.lr.ph142.preheader
+  %.lcssa = phi ptr [ %35, %.lr.ph142.preheader ], [ %47, %.lr.ph142 ]
   %.pr = load i32, ptr %.lcssa, align 8
   %49 = icmp eq i32 %.pr, 2147483647
-  br i1 %49, label %.thread, label %._crit_edge169
+  br i1 %49, label %.thread, label %._crit_edge171
 
-._crit_edge169:                                   ; preds = %.lr.ph140._crit_edge
+._crit_edge171:                                   ; preds = %.lr.ph142._crit_edge
   %.val112.pre = load i32, ptr %9, align 4
   br label %50
 
-50:                                               ; preds = %._crit_edge169, %36
-  %.val112 = phi i32 [ %.val112.pre, %._crit_edge169 ], [ %.val112170, %36 ]
-  %51 = add nuw nsw i32 %.0100144, 1
+50:                                               ; preds = %._crit_edge171, %36
+  %.val112 = phi i32 [ %.val112.pre, %._crit_edge171 ], [ %.val112172, %36 ]
+  %51 = add nuw nsw i32 %.0100146, 1
   %52 = icmp slt i32 %51, %.val112
   br i1 %52, label %36, label %.thread, !llvm.loop !24
 
-.thread:                                          ; preds = %50, %.lr.ph140._crit_edge, %.preheader, %.lr.ph185, %29
-  %.098 = phi i32 [ -1, %29 ], [ %.0100144, %.lr.ph185 ], [ %.0100144, %.preheader ], [ -1, %50 ], [ %.0100144, %.lr.ph140._crit_edge ]
+.thread:                                          ; preds = %50, %.lr.ph142._crit_edge, %.preheader, %.lr.ph185, %29
+  %.098 = phi i32 [ -1, %29 ], [ %.0100146, %.lr.ph185 ], [ %.0100146, %.preheader ], [ -1, %50 ], [ %.0100146, %.lr.ph142._crit_edge ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %31) #18
   %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1103) #18
   tail call void @Cudd_Ref(ptr noundef %53) #18
@@ -1525,16 +1525,16 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1103) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1105) #18
   %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
-  %.val111150 = load i32, ptr %9, align 4
-  %56 = icmp sgt i32 %.val111150, 0
-  br i1 %56, label %.lr.ph152, label %._crit_edge153
+  %.val111152 = load i32, ptr %9, align 4
+  %56 = icmp sgt i32 %.val111152, 0
+  br i1 %56, label %.lr.ph154, label %._crit_edge155
 
-.lr.ph152:                                        ; preds = %.thread
+.lr.ph154:                                        ; preds = %.thread
   %57 = getelementptr i8, ptr %1, i64 32
   br label %58
 
-58:                                               ; preds = %.lr.ph152, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next, %58 ]
+58:                                               ; preds = %.lr.ph154, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next, %58 ]
   %.val117 = load ptr, ptr %1, align 8
   %.val118 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %.val117, i64 32
@@ -1553,25 +1553,25 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.val111 = load i32, ptr %9, align 4
   %68 = sext i32 %.val111 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %58, label %._crit_edge153, !llvm.loop !25
+  br i1 %69, label %58, label %._crit_edge155, !llvm.loop !25
 
-._crit_edge153:                                   ; preds = %58, %.thread
+._crit_edge155:                                   ; preds = %58, %.thread
   %70 = select i1 %.not109, ptr %54, ptr %53
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 56
   store ptr %70, ptr %71, align 8
   %72 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
-  %.val154 = load i32, ptr %9, align 4
-  %73 = icmp sgt i32 %.val154, 0
-  br i1 %73, label %.lr.ph157, label %._crit_edge158
+  %.val156 = load i32, ptr %9, align 4
+  %73 = icmp sgt i32 %.val156, 0
+  br i1 %73, label %.lr.ph159, label %._crit_edge160
 
-.lr.ph157:                                        ; preds = %._crit_edge153
+.lr.ph159:                                        ; preds = %._crit_edge155
   %74 = getelementptr i8, ptr %1, i64 32
   %75 = zext i32 %.098 to i64
   br label %76
 
-76:                                               ; preds = %.lr.ph157, %88
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %88 ]
-  %77 = icmp eq i64 %indvars.iv165, %75
+76:                                               ; preds = %.lr.ph159, %88
+  %indvars.iv167 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next168, %88 ]
+  %77 = icmp eq i64 %indvars.iv167, %75
   br i1 %77, label %88, label %78
 
 78:                                               ; preds = %76
@@ -1581,7 +1581,7 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   %.val115.val = load ptr, ptr %79, align 8
   %80 = getelementptr i8, ptr %.val115.val, i64 8
   %.val115.val.val = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %.val116, i64 %indvars.iv165
+  %81 = getelementptr inbounds nuw i32, ptr %.val116, i64 %indvars.iv167
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds ptr, ptr %.val115.val.val, i64 %83
@@ -1593,27 +1593,27 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 88:                                               ; preds = %76, %78
   %.sink = phi ptr [ %87, %78 ], [ %55, %76 ]
   tail call void @Abc_ObjAddFanin(ptr noundef %72, ptr noundef %.sink) #18
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %.val = load i32, ptr %9, align 4
   %89 = sext i32 %.val to i64
-  %90 = icmp slt i64 %indvars.iv.next166, %89
-  br i1 %90, label %76, label %._crit_edge158, !llvm.loop !26
+  %90 = icmp slt i64 %indvars.iv.next168, %89
+  br i1 %90, label %76, label %._crit_edge160, !llvm.loop !26
 
-._crit_edge158:                                   ; preds = %88, %._crit_edge153
+._crit_edge160:                                   ; preds = %88, %._crit_edge155
   %91 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.099.lcssa) #18
   %92 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.098) #18
   %. = select i1 %.not109, ptr %92, ptr %54
-  %.177 = select i1 %.not109, ptr %53, ptr %54
-  %.178 = select i1 %.not109, ptr %53, ptr %92
-  %93 = tail call ptr @Cudd_bddIte(ptr noundef %8, ptr noundef %91, ptr noundef %., ptr noundef %.178) #18
+  %.120 = select i1 %.not109, ptr %53, ptr %54
+  %.121 = select i1 %.not109, ptr %53, ptr %92
+  %93 = tail call ptr @Cudd_bddIte(ptr noundef %8, ptr noundef %91, ptr noundef %., ptr noundef %.121) #18
   %94 = getelementptr inbounds nuw i8, ptr %72, i64 56
   store ptr %93, ptr %94, align 8
   tail call void @Cudd_Ref(ptr noundef %93) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %.177) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %.120) #18
   br label %95
 
-95:                                               ; preds = %._crit_edge, %._crit_edge158
-  %.0101 = phi ptr [ %72, %._crit_edge158 ], [ null, %._crit_edge ]
+95:                                               ; preds = %._crit_edge, %._crit_edge160
+  %.0101 = phi ptr [ %72, %._crit_edge160 ], [ null, %._crit_edge ]
   ret ptr %.0101
 }
 

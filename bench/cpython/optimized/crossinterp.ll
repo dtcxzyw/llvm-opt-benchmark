@@ -2547,26 +2547,14 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %for.cond.preheader.i.i, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %interpid.i.i = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %2 = load i64, ptr %interpid.i.i, align 8
-  %cmp.i5 = icmp sgt i64 %ns.val, 1
-  br i1 %cmp.i5, label %if.then5.i, label %if.end17.i
-
-if.then5.i:                                       ; preds = %if.end4.i
-  %3 = getelementptr %struct._sharednsitem, ptr %0, i64 %ns.val
-  %arrayidx8.i = getelementptr i8, ptr %3, i64 -16
-  %arrayidx8.val.i = load ptr, ptr %arrayidx8.i, align 8
-  %cmp.not.i8.not.i = icmp eq ptr %arrayidx8.val.i, null
-  br i1 %cmp.not.i8.not.i, label %if.end4, label %if.end12.i
-
-if.end12.i:                                       ; preds = %if.then5.i
-  %4 = getelementptr i8, ptr %3, i64 -8
-  %arrayidx8.val7.i = load ptr, ptr %4, align 8
-  %cmp.i10.i = icmp eq ptr %arrayidx8.val7.i, null
-  br i1 %cmp.i10.i, label %if.end4, label %if.end17.i
-
-if.end17.i:                                       ; preds = %if.end12.i, %if.end4.i
-  br label %if.end4
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %3 = load ptr, ptr %2, align 8
+  %interp.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %4 = load ptr, ptr %interp.i, align 8
+  %call6 = tail call i64 @PyInterpreterState_GetID(ptr noundef %4) #13
+  %ns.val.i.i7 = load i64, ptr %ns, align 8
+  %cmp.i.not.i.i8 = icmp eq i64 %ns.val.i.i7, 0
+  br i1 %cmp.i.not.i.i8, label %if.end8.sink.split, label %for.cond.preheader.i.i9
 
 for.cond.preheader.i.i:                           ; preds = %if.end, %if.end.i
   %cmp8.i.i = icmp sgt i64 %ns.val, 0
@@ -2592,73 +2580,31 @@ _sharednsitem_clear.exit.i.i:                     ; preds = %if.then.i.i.i, %for
   %cmp.i.i6 = icmp slt i64 %inc.i.i, %7
   br i1 %cmp.i.i6, label %for.body.i.i, label %if.end8.sink.split.sink.split.sink.split, !llvm.loop !7
 
-if.end4:                                          ; preds = %if.end17.i, %if.then5.i, %if.end12.i
-  %interpid.0.ph = phi i64 [ %2, %if.end17.i ], [ -1, %if.end12.i ], [ -1, %if.then5.i ]
-  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %9 = load ptr, ptr %8, align 8
-  %interp.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %10 = load ptr, ptr %interp.i, align 8
-  %call6 = tail call i64 @PyInterpreterState_GetID(ptr noundef %10) #13
-  %cmp = icmp eq i64 %interpid.0.ph, %call6
-  %ns.val.i.i7 = load i64, ptr %ns, align 8
-  %cmp.i.not.i.i8 = icmp eq i64 %ns.val.i.i7, 0
-  br i1 %cmp, label %if.then7, label %if.else
-
-if.then7:                                         ; preds = %if.end4
-  br i1 %cmp.i.not.i.i8, label %if.end8.sink.split, label %for.cond.preheader.i.i9
-
-for.cond.preheader.i.i9:                          ; preds = %if.then7
+for.cond.preheader.i.i9:                          ; preds = %if.end4.i
   %cmp8.i.i10 = icmp sgt i64 %ns.val.i.i7, 0
   br i1 %cmp8.i.i10, label %for.body.i.i15, label %if.end8.sink.split.sink.split.sink.split
 
 for.body.i.i15:                                   ; preds = %for.cond.preheader.i.i9, %_sharednsitem_clear.exit.i.i20
   %i.09.i.i16 = phi i64 [ %inc.i.i21, %_sharednsitem_clear.exit.i.i20 ], [ 0, %for.cond.preheader.i.i9 ]
-  %11 = load ptr, ptr %items.i, align 8
-  %arrayidx.i.i17 = getelementptr %struct._sharednsitem, ptr %11, i64 %i.09.i.i16
-  %12 = load ptr, ptr %arrayidx.i.i17, align 8
-  %cmp.not.i.i.i18 = icmp eq ptr %12, null
+  %8 = load ptr, ptr %items.i, align 8
+  %arrayidx.i.i17 = getelementptr %struct._sharednsitem, ptr %8, i64 %i.09.i.i16
+  %9 = load ptr, ptr %arrayidx.i.i17, align 8
+  %cmp.not.i.i.i18 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i18, label %_sharednsitem_clear.exit.i.i20, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %for.body.i.i15
-  tail call void @PyMem_RawFree(ptr noundef nonnull %12) #13
+  tail call void @PyMem_RawFree(ptr noundef nonnull %9) #13
   store ptr null, ptr %arrayidx.i.i17, align 8
   br label %_sharednsitem_clear.exit.i.i20
 
 _sharednsitem_clear.exit.i.i20:                   ; preds = %if.then.i.i.i19, %for.body.i.i15
   tail call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %arrayidx.i.i17)
   %inc.i.i21 = add nuw nsw i64 %i.09.i.i16, 1
-  %13 = load i64, ptr %ns, align 8
-  %cmp.i.i22 = icmp slt i64 %inc.i.i21, %13
+  %10 = load i64, ptr %ns, align 8
+  %cmp.i.i22 = icmp slt i64 %inc.i.i21, %10
   br i1 %cmp.i.i22, label %for.body.i.i15, label %if.end8.sink.split.sink.split.sink.split, !llvm.loop !7
 
-if.else:                                          ; preds = %if.end4
-  br i1 %cmp.i.not.i.i8, label %if.end8.sink.split, label %for.cond.preheader.i.i26
-
-for.cond.preheader.i.i26:                         ; preds = %if.else
-  %cmp8.i.i27 = icmp sgt i64 %ns.val.i.i7, 0
-  br i1 %cmp8.i.i27, label %for.body.i.i32, label %if.end8.sink.split.sink.split.sink.split
-
-for.body.i.i32:                                   ; preds = %for.cond.preheader.i.i26, %_sharednsitem_clear.exit.i.i37
-  %i.09.i.i33 = phi i64 [ %inc.i.i38, %_sharednsitem_clear.exit.i.i37 ], [ 0, %for.cond.preheader.i.i26 ]
-  %14 = load ptr, ptr %items.i, align 8
-  %arrayidx.i.i34 = getelementptr %struct._sharednsitem, ptr %14, i64 %i.09.i.i33
-  %15 = load ptr, ptr %arrayidx.i.i34, align 8
-  %cmp.not.i.i.i35 = icmp eq ptr %15, null
-  br i1 %cmp.not.i.i.i35, label %_sharednsitem_clear.exit.i.i37, label %if.then.i.i.i36
-
-if.then.i.i.i36:                                  ; preds = %for.body.i.i32
-  tail call void @PyMem_RawFree(ptr noundef nonnull %15) #13
-  store ptr null, ptr %arrayidx.i.i34, align 8
-  br label %_sharednsitem_clear.exit.i.i37
-
-_sharednsitem_clear.exit.i.i37:                   ; preds = %if.then.i.i.i36, %for.body.i.i32
-  tail call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %arrayidx.i.i34)
-  %inc.i.i38 = add nuw nsw i64 %i.09.i.i33, 1
-  %16 = load i64, ptr %ns, align 8
-  %cmp.i.i39 = icmp slt i64 %inc.i.i38, %16
-  br i1 %cmp.i.i39, label %for.body.i.i32, label %if.end8.sink.split.sink.split.sink.split, !llvm.loop !7
-
-if.end8.sink.split.sink.split.sink.split:         ; preds = %_sharednsitem_clear.exit.i.i37, %_sharednsitem_clear.exit.i.i20, %_sharednsitem_clear.exit.i.i, %for.cond.preheader.i.i26, %for.cond.preheader.i.i9
+if.end8.sink.split.sink.split.sink.split:         ; preds = %_sharednsitem_clear.exit.i.i20, %_sharednsitem_clear.exit.i.i, %for.cond.preheader.i.i9
   %.pre = load ptr, ptr %items.i, align 8
   br label %if.end8.sink.split.sink.split
 
@@ -2668,7 +2614,7 @@ if.end8.sink.split.sink.split:                    ; preds = %if.end8.sink.split.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ns, i8 0, i64 16, i1 false)
   br label %if.end8.sink.split
 
-if.end8.sink.split:                               ; preds = %if.end8.sink.split.sink.split, %if.else, %if.then7
+if.end8.sink.split:                               ; preds = %if.end8.sink.split.sink.split, %if.end4.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %ns) #13
   br label %if.end8
 

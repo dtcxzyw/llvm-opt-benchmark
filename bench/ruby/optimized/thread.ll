@@ -2886,7 +2886,7 @@ define internal fastcc noundef i64 @do_mutex_lock(i64 noundef returned %0, i32 n
 
 rb_mutex_trylock.exit:                            ; preds = %27, %35
   store ptr %32, ptr %33, align 8
-  br label %172
+  br label %168
 
 37:                                               ; preds = %23
   %38 = load ptr, ptr %11, align 8
@@ -2918,8 +2918,8 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %57, ptr noundef nonnull @.str.126) #36
   unreachable
 
-58:                                               ; preds = %.lr.ph, %threadptr_get_interrupts.exit84
-  %.091 = phi i32 [ 0, %.lr.ph ], [ %.1, %threadptr_get_interrupts.exit84 ]
+58:                                               ; preds = %.lr.ph, %156
+  %.086 = phi i32 [ 0, %.lr.ph ], [ %.1, %156 ]
   %59 = call i64 @rb_fiber_scheduler_current() #19
   %.not68 = icmp eq i64 %59, 4
   br i1 %.not68, label %66, label %60
@@ -2968,9 +2968,9 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
   store i64 %0, ptr %4, align 8
   store ptr %8, ptr %48, align 8
   %78 = call i32 @rb_fiberptr_blocking(ptr noundef %10) #19
-  %.not.i77 = icmp eq i32 %78, 0
-  %..i78 = select i1 %.not.i77, ptr %10, ptr null
-  store ptr %..i78, ptr %49, align 8
+  %.not.i76 = icmp eq i32 %78, 0
+  %..i77 = select i1 %.not.i76, ptr %10, ptr null
+  store ptr %..i77, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   %79 = load i8, ptr %51, align 8
   %80 = and i8 %79, 3
@@ -3042,8 +3042,8 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
   %115 = inttoptr i64 %.val6.i to ptr
   %116 = load i64, ptr %115, align 8
   %117 = and i64 %116, 8192
-  %.not.i.i.i79 = icmp eq i64 %117, 0
-  br i1 %.not.i.i.i79, label %121, label %118
+  %.not.i.i.i78 = icmp eq i64 %117, 0
+  br i1 %.not.i.i.i78, label %121, label %118
 
 118:                                              ; preds = %110
   %119 = lshr i64 %116, 15
@@ -3057,8 +3057,8 @@ rb_mutex_trylock.exit:                            ; preds = %27, %35
 
 rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
   %.0.i.i.i = phi i64 [ %120, %118 ], [ %123, %121 ]
-  %.not.i80 = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i80, label %124, label %129
+  %.not.i79 = icmp eq i64 %.0.i.i.i, 0
+  br i1 %.not.i79, label %124, label %129
 
 124:                                              ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
   %125 = getelementptr i8, ptr %112, i64 32
@@ -3087,11 +3087,11 @@ rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %121, %118
 vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %137 = phi ptr [ %111, %124 ], [ %.pre, %135 ]
   %.not74 = icmp eq ptr %137, null
-  br i1 %.not74, label %138, label %threadptr_get_interrupts.exit84
+  br i1 %.not74, label %138, label %156
 
 138:                                              ; preds = %vm_check_ints_blocking.exit
   store ptr %10, ptr %11, align 8
-  br label %threadptr_get_interrupts.exit84
+  br label %156
 
 139:                                              ; preds = %105
   %140 = load ptr, ptr %55, align 8
@@ -3103,79 +3103,69 @@ vm_check_ints_blocking.exit:                      ; preds = %124, %135
   %146 = and i32 %142, 10
   %147 = and i32 %146, %145
   %.not73 = icmp eq i32 %147, 0
-  br i1 %.not73, label %threadptr_get_interrupts.exit84, label %148
+  br i1 %.not73, label %156, label %.preheader
 
-148:                                              ; preds = %139
-  %149 = icmp eq i32 %.091, 0
-  br i1 %149, label %.preheader, label %.preheader87
-
-.preheader:                                       ; preds = %148, %.preheader
-  %150 = load i32, ptr %141, align 8
-  %151 = load i32, ptr %143, align 4
-  %152 = and i32 %151, %150
-  %153 = cmpxchg volatile ptr %141, i32 %150, i32 %152 seq_cst seq_cst, align 4
-  %.not.i82 = extractvalue { i32, i1 } %153, 1
-  br i1 %.not.i82, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !17
+.preheader:                                       ; preds = %139, %.preheader
+  %148 = load i32, ptr %141, align 8
+  %149 = load i32, ptr %143, align 4
+  %150 = and i32 %149, %148
+  %151 = cmpxchg volatile ptr %141, i32 %148, i32 %150 seq_cst seq_cst, align 4
+  %.not.i81 = extractvalue { i32, i1 } %151, 1
+  br i1 %.not.i81, label %threadptr_get_interrupts.exit, label %.preheader, !llvm.loop !17
 
 threadptr_get_interrupts.exit:                    ; preds = %.preheader
-  %154 = load i32, ptr %143, align 4
-  %155 = xor i32 %154, -1
-  %156 = and i32 %150, %155
-  br label %threadptr_get_interrupts.exit84
+  %152 = icmp eq i32 %.086, 0
+  %153 = load i32, ptr %143, align 4
+  %154 = xor i32 %153, -1
+  %155 = and i32 %148, %154
+  %..0 = select i1 %152, i32 %155, i32 %.086
+  br label %156
 
-.preheader87:                                     ; preds = %148, %.preheader87
-  %157 = load i32, ptr %141, align 8
-  %158 = load i32, ptr %143, align 4
-  %159 = and i32 %158, %157
-  %160 = cmpxchg volatile ptr %141, i32 %157, i32 %159 seq_cst seq_cst, align 4
-  %.not.i83 = extractvalue { i32, i1 } %160, 1
-  br i1 %.not.i83, label %threadptr_get_interrupts.exit84, label %.preheader87, !llvm.loop !17
-
-threadptr_get_interrupts.exit84:                  ; preds = %.preheader87, %139, %threadptr_get_interrupts.exit, %vm_check_ints_blocking.exit, %138
-  %.1 = phi i32 [ %.091, %vm_check_ints_blocking.exit ], [ %.091, %138 ], [ %156, %threadptr_get_interrupts.exit ], [ %.091, %139 ], [ %.091, %.preheader87 ]
-  %161 = load ptr, ptr %11, align 8
-  %.not66 = icmp eq ptr %161, %10
+156:                                              ; preds = %threadptr_get_interrupts.exit, %139, %vm_check_ints_blocking.exit, %138
+  %.1 = phi i32 [ %.086, %vm_check_ints_blocking.exit ], [ %.086, %138 ], [ %.086, %139 ], [ %..0, %threadptr_get_interrupts.exit ]
+  %157 = load ptr, ptr %11, align 8
+  %.not66 = icmp eq ptr %157, %10
   br i1 %.not66, label %._crit_edge, label %58, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %threadptr_get_interrupts.exit84
+._crit_edge:                                      ; preds = %156
   %.not67 = icmp eq i32 %.1, 0
-  br i1 %.not67, label %.thread, label %162
+  br i1 %.not67, label %.thread, label %158
 
-162:                                              ; preds = %._crit_edge
-  %163 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  store i32 %.1, ptr %165, align 8
-  %.pre92 = load ptr, ptr %11, align 8
-  %166 = icmp eq ptr %.pre92, %10
-  br i1 %166, label %.thread, label %172
+158:                                              ; preds = %._crit_edge
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
+  store i32 %.1, ptr %161, align 8
+  %.pre87 = load ptr, ptr %11, align 8
+  %162 = icmp eq ptr %.pre87, %10
+  br i1 %162, label %.thread, label %168
 
-.thread:                                          ; preds = %._crit_edge, %162
-  %167 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
-  %168 = getelementptr inbounds nuw i8, ptr %8, i64 352
-  %169 = load ptr, ptr %168, align 8
-  %.not.i.i = icmp eq ptr %169, null
-  br i1 %.not.i.i, label %mutex_locked.exit, label %170
+.thread:                                          ; preds = %._crit_edge, %158
+  %163 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @mutex_data_type) #19
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 352
+  %165 = load ptr, ptr %164, align 8
+  %.not.i.i = icmp eq ptr %165, null
+  br i1 %.not.i.i, label %mutex_locked.exit, label %166
 
-170:                                              ; preds = %.thread
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store ptr %169, ptr %171, align 8
+166:                                              ; preds = %.thread
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  store ptr %165, ptr %167, align 8
   br label %mutex_locked.exit
 
-mutex_locked.exit:                                ; preds = %.thread, %170
-  store ptr %167, ptr %168, align 8
-  br label %172
+mutex_locked.exit:                                ; preds = %.thread, %166
+  store ptr %163, ptr %164, align 8
+  br label %168
 
-172:                                              ; preds = %rb_mutex_trylock.exit, %162, %mutex_locked.exit
-  %.val76 = load ptr, ptr %11, align 8
-  %.not86 = icmp eq ptr %.val76, %10
-  br i1 %.not86, label %174, label %173
+168:                                              ; preds = %rb_mutex_trylock.exit, %158, %mutex_locked.exit
+  %.val75 = load ptr, ptr %11, align 8
+  %.not83 = icmp eq ptr %.val75, %10
+  br i1 %.not83, label %170, label %169
 
-173:                                              ; preds = %172
+169:                                              ; preds = %168
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.131) #45
   unreachable
 
-174:                                              ; preds = %172
+170:                                              ; preds = %168
   ret i64 %0
 }
 

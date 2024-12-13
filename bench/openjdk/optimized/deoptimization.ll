@@ -7686,8 +7686,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN14Deoptimization21trap_state_has_
   %3 = and i32 %0, 2147483647
   %4 = icmp eq i32 %3, 2147483647
   %5 = icmp eq i32 %3, %1
-  %spec.select = zext i1 %5 to i32
-  %.0 = select i1 %4, i32 -1, i32 %spec.select
+  %. = zext i1 %5 to i32
+  %.0 = select i1 %4, i32 -1, i32 %.
   ret i32 %.0
 }
 

@@ -59293,8 +59293,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit
-  %__begin2.0.idx65 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %_ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit ]
-  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %__begin2.0.idx65
+  %__begin2.0.idx52 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %_ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit ]
+  %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 %__begin2.0.idx52
   %0 = load i8, ptr %__begin2.0.ptr, align 1
   %tobool = trunc i8 %0 to i1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %refs, i8 0, i64 24, i1 false)
@@ -59595,7 +59595,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   unreachable
 
 _ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit:     ; preds = %for.end.i, %if.then.i.i.i.i
-  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx65, 1
+  %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx52, 1
   %cmp.not = icmp eq i64 %__begin2.0.add, 2
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -59604,8 +59604,8 @@ ehcleanup61:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #29
   br label %ehcleanup63
 
-ehcleanup63:                                      ; preds = %ehcleanup37, %lpad5.loopexit, %lpad24, %lpad.i, %ehcleanup61
-  %.pn15 = phi { ptr, i32 } [ %.pn12.pn, %ehcleanup61 ], [ %6, %lpad.i ], [ %11, %lpad24 ], [ %lpad.loopexit, %lpad5.loopexit ], [ %.pn.pn.pn, %ehcleanup37 ]
+ehcleanup63:                                      ; preds = %lpad5.loopexit, %ehcleanup37, %lpad24, %lpad.i, %ehcleanup61
+  %.pn15 = phi { ptr, i32 } [ %.pn12.pn, %ehcleanup61 ], [ %6, %lpad.i ], [ %11, %lpad24 ], [ %.pn.pn.pn, %ehcleanup37 ], [ %lpad.loopexit, %lpad5.loopexit ]
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_993) #29
   br label %ehcleanup64
 

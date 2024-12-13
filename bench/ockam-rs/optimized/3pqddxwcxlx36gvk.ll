@@ -3946,8 +3946,8 @@ define noundef zeroext i1 @"_ZN77_$LT$ockam_core..api..internal..MietteError$u20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %24
 
-24:                                               ; preds = %17, %2, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %2 ], [ %23, %17 ]
+24:                                               ; preds = %2, %17, %14
+  %.0 = phi i1 [ false, %14 ], [ %23, %17 ], [ true, %2 ]
   ret i1 %.0
 }
 

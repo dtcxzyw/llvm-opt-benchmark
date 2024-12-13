@@ -3546,9 +3546,9 @@ define hidden noundef range(i8 0, 3) i8 @_ZN16quick_action_bar14QuickActionBar25
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %2), !noalias !706
   %17 = load i64, ptr %3, align 8, !range !363, !noalias !706, !noundef !4
   %18 = icmp eq i64 %17, 3
-  br i1 %18, label %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit, label %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread5
+  br i1 %18, label %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit, label %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread2
 
-_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread5: ; preds = %12
+_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread2: ; preds = %12
   call void @"_ZN4core3ptr40drop_in_place$LT$gpui..view..AnyView$GT$17h76ca7c96de4e2ef7E"(ptr noalias noundef nonnull align 8 dereferenceable(608) %3), !noalias !706
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %3), !noalias !706
   br label %.sink.split
@@ -3586,8 +3586,8 @@ _ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h03e6ad3bcb9bb063E.llvm.17491308101926866017"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread5, %8, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$editor..Editor$GT$$GT$$GT$17hb6835771510174a9E.llvm.12798251578978233453.exit"
-  %.sroa.0.0.ph = phi i8 [ 2, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$editor..Editor$GT$$GT$$GT$17hb6835771510174a9E.llvm.12798251578978233453.exit" ], [ 0, %8 ], [ 0, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread5 ], [ 0, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit ]
+.sink.split:                                      ; preds = %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread2, %8, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$editor..Editor$GT$$GT$$GT$17hb6835771510174a9E.llvm.12798251578978233453.exit"
+  %.sroa.0.0.ph = phi i8 [ 2, %"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$gpui..view..View$LT$editor..Editor$GT$$GT$$GT$17hb6835771510174a9E.llvm.12798251578978233453.exit" ], [ 0, %8 ], [ 0, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit.thread2 ], [ 0, %_ZN16quick_action_bar14QuickActionBar13active_editor17h8098e16466bff538E.llvm.12798251578978233453.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %28
 

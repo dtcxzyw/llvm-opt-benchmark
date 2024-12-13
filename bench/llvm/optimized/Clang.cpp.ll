@@ -74451,10 +74451,11 @@ define internal fastcc void @"_ZZL26RenderFloatingPointOptionsRKN5clang6driver9T
   call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %9, ptr noundef %3, ptr noundef %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
+  %.pre = load ptr, ptr %0, align 8
   br label %19
 
 19:                                               ; preds = %18, %2
-  %20 = load ptr, ptr %0, align 8
+  %20 = phi ptr [ %.pre, %18 ], [ %5, %2 ]
   store i32 %1, ptr %20, align 4
   ret void
 }

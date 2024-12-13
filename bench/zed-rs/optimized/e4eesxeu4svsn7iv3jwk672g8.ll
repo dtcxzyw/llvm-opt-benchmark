@@ -41381,7 +41381,7 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7550)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7553)
   %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %.loopexit63, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit62, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -41423,9 +41423,9 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   %.sroa.013.0.i.i = select i1 %25, i64 %26, i64 %.sroa.03.019.i.i
   %27 = sub i64 %.sroa.014.0.i.i, %.sroa.013.0.i.i
   %28 = icmp ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
-  br i1 %28, label %9, label %.loopexit63
+  br i1 %28, label %9, label %.loopexit62
 
-.loopexit63:                                      ; preds = %23, %2
+.loopexit62:                                      ; preds = %23, %2
   %.sroa.03.0.lcssa.i.i = phi i64 [ 0, %2 ], [ %.sroa.013.0.i.i, %23 ]
   %29 = icmp ule i64 %.sroa.03.0.lcssa.i.i, %6
   tail call void @llvm.assume(i1 %29)
@@ -41436,9 +41436,9 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7564)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7567)
   %.not.i.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i.i12, label %.loopexit61, label %.lr.ph.i.i13
+  br i1 %.not.i.i12, label %.loopexit60, label %.lr.ph.i.i13
 
-.lr.ph.i.i13:                                     ; preds = %.loopexit63
+.lr.ph.i.i13:                                     ; preds = %.loopexit62
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val2.i.i.i.i14 = load ptr, ptr %34, align 8, !noalias !7570, !nonnull !11, !noundef !11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -41476,14 +41476,14 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   %.sroa.013.0.i.i25 = select i1 %50, i64 %51, i64 %.sroa.03.019.i.i17
   %52 = sub i64 %.sroa.014.0.i.i24, %.sroa.013.0.i.i25
   %53 = icmp ult i64 %.sroa.013.0.i.i25, %.sroa.014.0.i.i24
-  br i1 %53, label %36, label %.loopexit61
+  br i1 %53, label %36, label %.loopexit60
 
-.loopexit:                                        ; preds = %9, %36, %61, %.loopexit59
-  %.sroa.0.0 = phi i8 [ 0, %.loopexit59 ], [ 2, %61 ], [ 1, %36 ], [ 3, %9 ]
+.loopexit:                                        ; preds = %9, %36, %61, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hebfbb25fc851fd21E.exit"
+  %.sroa.0.0 = phi i8 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hebfbb25fc851fd21E.exit" ], [ 2, %61 ], [ 1, %36 ], [ 3, %9 ]
   ret i8 %.sroa.0.0
 
-.loopexit61:                                      ; preds = %48, %.loopexit63
-  %.sroa.03.0.lcssa.i.i27 = phi i64 [ 0, %.loopexit63 ], [ %.sroa.013.0.i.i25, %48 ]
+.loopexit60:                                      ; preds = %48, %.loopexit62
+  %.sroa.03.0.lcssa.i.i27 = phi i64 [ 0, %.loopexit62 ], [ %.sroa.013.0.i.i25, %48 ]
   %54 = icmp ule i64 %.sroa.03.0.lcssa.i.i27, %33
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -41493,9 +41493,9 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7578)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7581)
   %.not.i.i30 = icmp eq i64 %58, 0
-  br i1 %.not.i.i30, label %.loopexit59, label %.lr.ph.i.i31
+  br i1 %.not.i.i30, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hebfbb25fc851fd21E.exit", label %.lr.ph.i.i31
 
-.lr.ph.i.i31:                                     ; preds = %.loopexit61
+.lr.ph.i.i31:                                     ; preds = %.loopexit60
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val2.i.i.i.i32 = load ptr, ptr %59, align 8, !noalias !7584, !nonnull !11, !noundef !11
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -41533,10 +41533,10 @@ define noundef range(i8 0, 4) i8 @_ZN6client4user9UserStore22contact_request_sta
   %.sroa.013.0.i.i43 = select i1 %75, i64 %76, i64 %.sroa.03.019.i.i35
   %77 = sub i64 %.sroa.014.0.i.i42, %.sroa.013.0.i.i43
   %78 = icmp ult i64 %.sroa.013.0.i.i43, %.sroa.014.0.i.i42
-  br i1 %78, label %61, label %.loopexit59
+  br i1 %78, label %61, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hebfbb25fc851fd21E.exit"
 
-.loopexit59:                                      ; preds = %73, %.loopexit61
-  %.sroa.03.0.lcssa.i.i45 = phi i64 [ 0, %.loopexit61 ], [ %.sroa.013.0.i.i43, %73 ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key17hebfbb25fc851fd21E.exit": ; preds = %73, %.loopexit60
+  %.sroa.03.0.lcssa.i.i45 = phi i64 [ 0, %.loopexit60 ], [ %.sroa.013.0.i.i43, %73 ]
   %79 = icmp ule i64 %.sroa.03.0.lcssa.i.i45, %58
   tail call void @llvm.assume(i1 %79)
   br label %.loopexit

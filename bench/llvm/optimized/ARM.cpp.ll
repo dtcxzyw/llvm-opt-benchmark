@@ -10280,7 +10280,7 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets13ARMTargetInfo21validateAsm
   switch i8 %5, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread [
     i8 108, label %6
     i8 104, label %9
-    i8 115, label %207
+    i8 115, label %188
     i8 116, label %16
     i8 119, label %16
     i8 120, label %16
@@ -10288,20 +10288,20 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets13ARMTargetInfo21validateAsm
     i8 73, label %35
     i8 74, label %60
     i8 75, label %85
-    i8 76, label %107
-    i8 77, label %132
-    i8 78, label %151
-    i8 79, label %171
-    i8 81, label %188
-    i8 84, label %191
-    i8 85, label %199
+    i8 76, label %88
+    i8 77, label %113
+    i8 78, label %132
+    i8 79, label %152
+    i8 81, label %169
+    i8 84, label %172
+    i8 85, label %180
   ]
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %2, align 8
   %8 = or i32 %7, 2
   store i32 %8, ptr %2, align 8
-  br label %207
+  br label %188
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -10313,20 +10313,20 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets13ARMTargetInfo21validateAsm
   %14 = load i32, ptr %2, align 8
   %15 = or i32 %14, 2
   store i32 %15, ptr %2, align 8
-  br label %207
+  br label %188
 
 16:                                               ; preds = %3, %3, %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 524288
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %207
+  br i1 %.not, label %20, label %188
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %2, align 8
   %22 = or i32 %21, 2
   store i32 %22, ptr %2, align 8
-  br label %207
+  br label %188
 
 23:                                               ; preds = %3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -10359,7 +10359,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   store i32 65535, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %34, align 8
-  br label %207
+  br label %188
 
 35:                                               ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -10381,8 +10381,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %43 = load i32, ptr %42, align 8
   %44 = icmp ugt i32 %43, 6
-  %or.cond108 = select i1 %41, i1 true, i1 %44
-  br i1 %or.cond108, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99
+  %or.cond107 = select i1 %41, i1 true, i1 %44
+  br i1 %or.cond107, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i:      ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -10396,8 +10396,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i:      ; preds = %39
 
 49:                                               ; preds = %48
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not133 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not133, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread
+  %.not129 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %.not129, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread
 
 _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i, %49
   %50 = load i32, ptr %2, align 8
@@ -10409,19 +10409,19 @@ _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99: ; preds = %_Z
   store i32 255, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %54, align 8
-  br label %207
+  br label %188
 
 _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread: ; preds = %48, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %49
   %55 = load i32, ptr %2, align 8
   %56 = or i32 %55, 16
   store i32 %56, ptr %2, align 8
-  br label %207
+  br label %188
 
 57:                                               ; preds = %35
   %58 = load i32, ptr %2, align 8
   %59 = or i32 %58, 16
   store i32 %59, ptr %2, align 8
-  br label %207
+  br label %188
 
 60:                                               ; preds = %3
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 596
@@ -10443,8 +10443,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i38:            ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %68 = load i32, ptr %67, align 8
   %69 = icmp ugt i32 %68, 6
-  %or.cond111 = select i1 %66, i1 true, i1 %69
-  br i1 %or.cond111, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100
+  %or.cond110 = select i1 %66, i1 true, i1 %69
+  br i1 %or.cond110, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i35:    ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -10458,8 +10458,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread6.i35:    ; preds = %64
 
 74:                                               ; preds = %73
   %bcmp.i.i.i37 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i31, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not132 = icmp eq i32 %bcmp.i.i.i37, 0
-  br i1 %.not132, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread
+  %.not128 = icmp eq i32 %bcmp.i.i.i37, 0
+  br i1 %.not128, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread
 
 _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i35, %74
   %75 = load i32, ptr %2, align 8
@@ -10471,7 +10471,7 @@ _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100: ; preds = 
   store i32 -1, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %79, align 8
-  br label %207
+  br label %188
 
 _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread: ; preds = %73, %_ZN4llvmeqENS_9StringRefES0_.exit.i38, %74, %60
   %80 = load i32, ptr %2, align 8
@@ -10483,320 +10483,270 @@ _ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread: ; preds = %73
   store i32 4095, ptr %83, align 4
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 1, ptr %84, align 8
-  br label %207
+  br label %188
 
 85:                                               ; preds = %3
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, 2
-  br i1 %88, label %89, label %104
+  %86 = load i32, ptr %2, align 8
+  %87 = or i32 %86, 16
+  store i32 %87, ptr %2, align 8
+  br label %188
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.sroa.01.0.copyload.i42 = load ptr, ptr %90, align 8
-  %.sroa.22.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %.sroa.22.0.copyload.i44 = load i64, ptr %.sroa.22.0..sroa_idx.i43, align 8
-  %.not.i.i45 = icmp eq i64 %.sroa.22.0.copyload.i44, 3
-  br i1 %.not.i.i45, label %_ZN4llvmeqENS_9StringRefES0_.exit.i49, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i46
+88:                                               ; preds = %3
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %90 = load i32, ptr %89, align 4
+  %91 = icmp eq i32 %90, 2
+  br i1 %91, label %92, label %110
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i49:            ; preds = %89
-  %bcmp.i.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.01.0.copyload.i42, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
-  %91 = icmp eq i32 %bcmp.i.i50, 0
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %93 = load i32, ptr %92, align 8
-  %94 = icmp ugt i32 %93, 6
-  %or.cond114 = select i1 %91, i1 true, i1 %94
-  br i1 %or.cond114, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101
-
-_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i46:    ; preds = %89
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp ugt i32 %96, 6
-  br i1 %97, label %98, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101
-
-98:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i46
-  %.not.i.i.i47 = icmp eq i64 %.sroa.22.0.copyload.i44, 7
-  br i1 %.not.i.i.i47, label %99, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread
-
-99:                                               ; preds = %98
-  %bcmp.i.i.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i42, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not131 = icmp eq i32 %bcmp.i.i.i48, 0
-  br i1 %.not131, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread
-
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i49, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i46, %99
-  %100 = load i32, ptr %2, align 8
-  %101 = or i32 %100, 16
-  store i32 %101, ptr %2, align 8
-  br label %207
-
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread: ; preds = %98, %_ZN4llvmeqENS_9StringRefES0_.exit.i49, %99
-  %102 = load i32, ptr %2, align 8
-  %103 = or i32 %102, 16
-  store i32 %103, ptr %2, align 8
-  br label %207
-
-104:                                              ; preds = %85
-  %105 = load i32, ptr %2, align 8
-  %106 = or i32 %105, 16
-  store i32 %106, ptr %2, align 8
-  br label %207
-
-107:                                              ; preds = %3
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp eq i32 %109, 2
-  br i1 %110, label %111, label %129
-
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.sroa.01.0.copyload.i53 = load ptr, ptr %112, align 8
+92:                                               ; preds = %88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %.sroa.01.0.copyload.i53 = load ptr, ptr %93, align 8
   %.sroa.22.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.sroa.22.0.copyload.i55 = load i64, ptr %.sroa.22.0..sroa_idx.i54, align 8
   %.not.i.i56 = icmp eq i64 %.sroa.22.0.copyload.i55, 3
   br i1 %.not.i.i56, label %_ZN4llvmeqENS_9StringRefES0_.exit.i60, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i60:            ; preds = %111
+_ZN4llvmeqENS_9StringRefES0_.exit.i60:            ; preds = %92
   %bcmp.i.i61 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.01.0.copyload.i53, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
-  %113 = icmp eq i32 %bcmp.i.i61, 0
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %115 = load i32, ptr %114, align 8
-  %116 = icmp ugt i32 %115, 6
-  %or.cond117 = select i1 %113, i1 true, i1 %116
-  br i1 %or.cond117, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102
+  %94 = icmp eq i32 %bcmp.i.i61, 0
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %96 = load i32, ptr %95, align 8
+  %97 = icmp ugt i32 %96, 6
+  %or.cond114 = select i1 %94, i1 true, i1 %97
+  br i1 %or.cond114, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57:    ; preds = %111
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %118 = load i32, ptr %117, align 8
-  %119 = icmp ugt i32 %118, 6
-  br i1 %119, label %120, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102
+_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57:    ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %99 = load i32, ptr %98, align 8
+  %100 = icmp ugt i32 %99, 6
+  br i1 %100, label %101, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101
 
-120:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57
+101:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57
   %.not.i.i.i58 = icmp eq i64 %.sroa.22.0.copyload.i55, 7
-  br i1 %.not.i.i.i58, label %121, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread
+  br i1 %.not.i.i.i58, label %102, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread
 
-121:                                              ; preds = %120
+102:                                              ; preds = %101
   %bcmp.i.i.i59 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i53, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not130 = icmp eq i32 %bcmp.i.i.i59, 0
-  br i1 %.not130, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread
+  %.not127 = icmp eq i32 %bcmp.i.i.i59, 0
+  br i1 %.not127, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i60, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57, %121
-  %122 = load i32, ptr %2, align 8
-  %123 = or i32 %122, 16
-  store i32 %123, ptr %2, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 -7, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 7, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %126, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i60, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i57, %102
+  %103 = load i32, ptr %2, align 8
+  %104 = or i32 %103, 16
+  store i32 %104, ptr %2, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 -7, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 7, ptr %106, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %107, align 8
+  br label %188
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread: ; preds = %120, %_ZN4llvmeqENS_9StringRefES0_.exit.i60, %121
-  %127 = load i32, ptr %2, align 8
-  %128 = or i32 %127, 16
-  store i32 %128, ptr %2, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread: ; preds = %101, %_ZN4llvmeqENS_9StringRefES0_.exit.i60, %102
+  %108 = load i32, ptr %2, align 8
+  %109 = or i32 %108, 16
+  store i32 %109, ptr %2, align 8
+  br label %188
 
-129:                                              ; preds = %107
-  %130 = load i32, ptr %2, align 8
-  %131 = or i32 %130, 16
-  store i32 %131, ptr %2, align 8
-  br label %207
+110:                                              ; preds = %88
+  %111 = load i32, ptr %2, align 8
+  %112 = or i32 %111, 16
+  store i32 %112, ptr %2, align 8
+  br label %188
 
-132:                                              ; preds = %3
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp eq i32 %134, 2
-  br i1 %135, label %136, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
+113:                                              ; preds = %3
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %115 = load i32, ptr %114, align 4
+  %116 = icmp eq i32 %115, 2
+  br i1 %116, label %117, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
 
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.sroa.01.0.copyload.i64 = load ptr, ptr %137, align 8
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %.sroa.01.0.copyload.i64 = load ptr, ptr %118, align 8
   %.sroa.22.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.sroa.22.0.copyload.i66 = load i64, ptr %.sroa.22.0..sroa_idx.i65, align 8
   %.not.i.i67 = icmp eq i64 %.sroa.22.0.copyload.i66, 3
   br i1 %.not.i.i67, label %_ZN4llvmeqENS_9StringRefES0_.exit.i71, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i71:            ; preds = %136
+_ZN4llvmeqENS_9StringRefES0_.exit.i71:            ; preds = %117
   %bcmp.i.i72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.01.0.copyload.i64, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
-  %138 = icmp eq i32 %bcmp.i.i72, 0
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %140 = load i32, ptr %139, align 8
-  %141 = icmp ugt i32 %140, 6
-  %or.cond120 = select i1 %138, i1 true, i1 %141
-  br i1 %or.cond120, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103
+  %119 = icmp eq i32 %bcmp.i.i72, 0
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %121 = load i32, ptr %120, align 8
+  %122 = icmp ugt i32 %121, 6
+  %or.cond117 = select i1 %119, i1 true, i1 %122
+  br i1 %or.cond117, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68:    ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp ugt i32 %143, 6
-  br i1 %144, label %145, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103
+_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68:    ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %124 = load i32, ptr %123, align 8
+  %125 = icmp ugt i32 %124, 6
+  br i1 %125, label %126, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102
 
-145:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68
+126:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68
   %.not.i.i.i69 = icmp eq i64 %.sroa.22.0.copyload.i66, 7
-  br i1 %.not.i.i.i69, label %146, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
+  br i1 %.not.i.i.i69, label %127, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
 
-146:                                              ; preds = %145
+127:                                              ; preds = %126
   %bcmp.i.i.i70 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i64, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not129 = icmp eq i32 %bcmp.i.i.i70, 0
-  br i1 %.not129, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
+  %.not126 = icmp eq i32 %bcmp.i.i.i70, 0
+  br i1 %.not126, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68, %146
-  %147 = load i32, ptr %2, align 8
-  %148 = or i32 %147, 16
-  store i32 %148, ptr %2, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i71, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i68, %127
+  %128 = load i32, ptr %2, align 8
+  %129 = or i32 %128, 16
+  store i32 %129, ptr %2, align 8
+  br label %188
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread: ; preds = %145, %_ZN4llvmeqENS_9StringRefES0_.exit.i71, %146, %132
-  %149 = load i32, ptr %2, align 8
-  %150 = or i32 %149, 16
-  store i32 %150, ptr %2, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread: ; preds = %126, %_ZN4llvmeqENS_9StringRefES0_.exit.i71, %127, %113
+  %130 = load i32, ptr %2, align 8
+  %131 = or i32 %130, 16
+  store i32 %131, ptr %2, align 8
+  br label %188
 
-151:                                              ; preds = %3
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %153 = load i32, ptr %152, align 4
-  %154 = icmp eq i32 %153, 2
-  br i1 %154, label %155, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+132:                                              ; preds = %3
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp eq i32 %134, 2
+  br i1 %135, label %136, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.sroa.01.0.copyload.i75 = load ptr, ptr %156, align 8
+136:                                              ; preds = %132
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %.sroa.01.0.copyload.i75 = load ptr, ptr %137, align 8
   %.sroa.22.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.sroa.22.0.copyload.i77 = load i64, ptr %.sroa.22.0..sroa_idx.i76, align 8
   %.not.i.i78 = icmp eq i64 %.sroa.22.0.copyload.i77, 3
   br i1 %.not.i.i78, label %_ZN4llvmeqENS_9StringRefES0_.exit.i82, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i82:            ; preds = %155
+_ZN4llvmeqENS_9StringRefES0_.exit.i82:            ; preds = %136
   %bcmp.i.i83 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.01.0.copyload.i75, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
-  %157 = icmp eq i32 %bcmp.i.i83, 0
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %159 = load i32, ptr %158, align 8
-  %160 = icmp ugt i32 %159, 6
-  %or.cond123 = select i1 %157, i1 true, i1 %160
-  br i1 %or.cond123, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104
+  %138 = icmp eq i32 %bcmp.i.i83, 0
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %140 = load i32, ptr %139, align 8
+  %141 = icmp ugt i32 %140, 6
+  %or.cond120 = select i1 %138, i1 true, i1 %141
+  br i1 %or.cond120, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79:    ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %162 = load i32, ptr %161, align 8
-  %163 = icmp ugt i32 %162, 6
-  br i1 %163, label %164, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104
+_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79:    ; preds = %136
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %143 = load i32, ptr %142, align 8
+  %144 = icmp ugt i32 %143, 6
+  br i1 %144, label %145, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103
 
-164:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79
+145:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79
   %.not.i.i.i80 = icmp eq i64 %.sroa.22.0.copyload.i77, 7
-  br i1 %.not.i.i.i80, label %165, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+  br i1 %.not.i.i.i80, label %146, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-165:                                              ; preds = %164
+146:                                              ; preds = %145
   %bcmp.i.i.i81 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i75, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not128 = icmp eq i32 %bcmp.i.i.i81, 0
-  br i1 %.not128, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+  %.not125 = icmp eq i32 %bcmp.i.i.i81, 0
+  br i1 %.not125, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i82, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79, %165
-  %166 = load i32, ptr %2, align 8
-  %167 = or i32 %166, 16
-  store i32 %167, ptr %2, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %168, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 31, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %170, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i82, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i79, %146
+  %147 = load i32, ptr %2, align 8
+  %148 = or i32 %147, 16
+  store i32 %148, ptr %2, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 31, ptr %150, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %151, align 8
+  br label %188
 
-171:                                              ; preds = %3
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  %173 = load i32, ptr %172, align 4
-  %174 = icmp eq i32 %173, 2
-  br i1 %174, label %175, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+152:                                              ; preds = %3
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  %154 = load i32, ptr %153, align 4
+  %155 = icmp eq i32 %154, 2
+  br i1 %155, label %156, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %.sroa.01.0.copyload.i86 = load ptr, ptr %176, align 8
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %.sroa.01.0.copyload.i86 = load ptr, ptr %157, align 8
   %.sroa.22.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.sroa.22.0.copyload.i88 = load i64, ptr %.sroa.22.0..sroa_idx.i87, align 8
   %.not.i.i89 = icmp eq i64 %.sroa.22.0.copyload.i88, 3
   br i1 %.not.i.i89, label %_ZN4llvmeqENS_9StringRefES0_.exit.i93, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90
 
-_ZN4llvmeqENS_9StringRefES0_.exit.i93:            ; preds = %175
+_ZN4llvmeqENS_9StringRefES0_.exit.i93:            ; preds = %156
   %bcmp.i.i94 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %.sroa.01.0.copyload.i86, ptr noundef nonnull dereferenceable(3) @.str.13, i64 3)
-  %177 = icmp eq i32 %bcmp.i.i94, 0
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %179 = load i32, ptr %178, align 8
-  %180 = icmp ugt i32 %179, 6
-  %or.cond126 = select i1 %177, i1 true, i1 %180
-  br i1 %or.cond126, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105
+  %158 = icmp eq i32 %bcmp.i.i94, 0
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp ugt i32 %160, 6
+  %or.cond123 = select i1 %158, i1 true, i1 %161
+  br i1 %or.cond123, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90:    ; preds = %175
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp ugt i32 %182, 6
-  br i1 %183, label %184, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105
+_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90:    ; preds = %156
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %163 = load i32, ptr %162, align 8
+  %164 = icmp ugt i32 %163, 6
+  br i1 %164, label %165, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104
 
-184:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90
+165:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90
   %.not.i.i.i91 = icmp eq i64 %.sroa.22.0.copyload.i88, 7
-  br i1 %.not.i.i.i91, label %185, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+  br i1 %.not.i.i.i91, label %166, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-185:                                              ; preds = %184
+166:                                              ; preds = %165
   %bcmp.i.i.i92 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.01.0.copyload.i86, ptr noundef nonnull dereferenceable(7) @.str.14, i64 7)
-  %.not127 = icmp eq i32 %bcmp.i.i.i92, 0
-  br i1 %.not127, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
+  %.not124 = icmp eq i32 %bcmp.i.i.i92, 0
+  br i1 %.not124, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i93, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90, %185
-  %186 = load i32, ptr %2, align 8
-  %187 = or i32 %186, 16
-  store i32 %187, ptr %2, align 8
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i93, %_ZN4llvmeqENS_9StringRefES0_.exit.thread6.i90, %166
+  %167 = load i32, ptr %2, align 8
+  %168 = or i32 %167, 16
+  store i32 %168, ptr %2, align 8
+  br label %188
 
-188:                                              ; preds = %3
-  %189 = load i32, ptr %2, align 8
-  %190 = or i32 %189, 1
-  store i32 %190, ptr %2, align 8
-  br label %207
+169:                                              ; preds = %3
+  %170 = load i32, ptr %2, align 8
+  %171 = or i32 %170, 1
+  store i32 %171, ptr %2, align 8
+  br label %188
 
-191:                                              ; preds = %3
-  %192 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %193 = load i8, ptr %192, align 1
-  switch i8 %193, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread [
-    i8 101, label %194
-    i8 111, label %194
+172:                                              ; preds = %3
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %174 = load i8, ptr %173, align 1
+  switch i8 %174, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread [
+    i8 101, label %175
+    i8 111, label %175
   ]
 
-194:                                              ; preds = %191, %191
-  %195 = load i32, ptr %2, align 8
-  %196 = or i32 %195, 2
-  store i32 %196, ptr %2, align 8
-  %197 = load ptr, ptr %1, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 1
-  store ptr %198, ptr %1, align 8
-  br label %207
+175:                                              ; preds = %172, %172
+  %176 = load i32, ptr %2, align 8
+  %177 = or i32 %176, 2
+  store i32 %177, ptr %2, align 8
+  %178 = load ptr, ptr %1, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 1
+  store ptr %179, ptr %1, align 8
+  br label %188
 
-199:                                              ; preds = %3
-  %200 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %201 = load i8, ptr %200, align 1
-  switch i8 %201, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread [
-    i8 113, label %202
-    i8 118, label %202
-    i8 121, label %202
-    i8 116, label %202
-    i8 110, label %202
-    i8 109, label %202
-    i8 115, label %202
+180:                                              ; preds = %3
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %182 = load i8, ptr %181, align 1
+  switch i8 %182, label %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread [
+    i8 113, label %183
+    i8 118, label %183
+    i8 121, label %183
+    i8 116, label %183
+    i8 110, label %183
+    i8 109, label %183
+    i8 115, label %183
   ]
 
-202:                                              ; preds = %199, %199, %199, %199, %199, %199, %199
-  %203 = load i32, ptr %2, align 8
-  %204 = or i32 %203, 1
-  store i32 %204, ptr %2, align 8
-  %205 = load ptr, ptr %1, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 1
-  store ptr %206, ptr %1, align 8
-  br label %207
+183:                                              ; preds = %180, %180, %180, %180, %180, %180, %180
+  %184 = load i32, ptr %2, align 8
+  %185 = or i32 %184, 1
+  store i32 %185, ptr %2, align 8
+  %186 = load ptr, ptr %1, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 1
+  store ptr %187, ptr %1, align 8
+  br label %188
 
-_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread: ; preds = %184, %_ZN4llvmeqENS_9StringRefES0_.exit.i93, %164, %_ZN4llvmeqENS_9StringRefES0_.exit.i82, %185, %165, %_ZN4llvmeqENS_9StringRefES0_.exit, %199, %191, %171, %151, %9, %3
-  br label %207
+_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread: ; preds = %165, %_ZN4llvmeqENS_9StringRefES0_.exit.i93, %145, %_ZN4llvmeqENS_9StringRefES0_.exit.i82, %166, %146, %_ZN4llvmeqENS_9StringRefES0_.exit, %180, %172, %152, %132, %9, %3
+  br label %188
 
-207:                                              ; preds = %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread, %129, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102, %104, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread, %57, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99, %16, %3, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, %202, %194, %188, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %20, %13, %6
-  %.0 = phi i1 [ false, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread ], [ true, %202 ], [ true, %194 ], [ true, %188 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread105 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread104 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %20 ], [ true, %13 ], [ true, %6 ], [ true, %3 ], [ false, %16 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread ], [ true, %57 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread101 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit52.thread ], [ true, %104 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread102 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread ], [ true, %129 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread103 ]
+188:                                              ; preds = %85, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread, %110, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread, %57, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99, %16, %3, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread, %183, %175, %169, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %20, %13, %6
+  %.0 = phi i1 [ false, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread ], [ true, %183 ], [ true, %175 ], [ true, %169 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit96.thread104 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit85.thread103 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ true, %20 ], [ true, %13 ], [ true, %6 ], [ true, %3 ], [ false, %16 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread99 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit.thread ], [ true, %57 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit41.thread100 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread101 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit63.thread ], [ true, %110 ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread ], [ true, %_ZNK5clang7targets13ARMTargetInfo14supportsThumb2Ev.exit74.thread102 ], [ true, %85 ]
   ret i1 %.0
 }
 

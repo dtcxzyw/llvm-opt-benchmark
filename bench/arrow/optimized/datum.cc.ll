@@ -898,7 +898,7 @@ cond.true:                                        ; preds = %entry
   %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.true
   %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -910,27 +910,20 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %4 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i = add nsw i32 %4, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40
+  br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40
+  br label %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit
 
-_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %entry
+_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %cond.true, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %entry
+  %agg.tmp.sroa.0.0 = phi ptr [ %1, %cond.true ], [ %1, %if.then.i.i.i.i.i ], [ %1, %if.else.i.i.i.i.i ], [ null, %entry ]
+  %agg.tmp.sroa.4.0 = phi ptr [ null, %cond.true ], [ %2, %if.then.i.i.i.i.i ], [ %2, %if.else.i.i.i.i.i ], [ null, %entry ]
+  store ptr %agg.tmp.sroa.0.0, ptr %this, align 8
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store ptr %agg.tmp.sroa.4.0, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  br label %cleanup.done10
-
-_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40: ; preds = %cond.true, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  store ptr %1, ptr %this, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i45, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i.i46, align 8
-  br label %cleanup.done10
-
-cleanup.done10:                                   ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit, %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit40
   ret void
 }
 

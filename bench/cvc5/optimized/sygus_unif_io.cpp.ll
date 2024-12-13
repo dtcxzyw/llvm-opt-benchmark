@@ -22075,9 +22075,9 @@ invoke.cont227:                                   ; preds = %.noexc818, %if.then
 if.else:                                          ; preds = %cond.true210
   %cmp235 = fcmp olt double %entropySum.0.lcssa, %minEntropy.01124
   %156 = load i32, ptr %j96, align 4
-  %.bestIndex.01123 = select i1 %cmp235, i32 %156, i32 %bestIndex.01123
-  %.numEqual.01122 = select i1 %cmp235, i32 1, i32 %numEqual.01122
-  %entropySum.0.lcssa.minEntropy.01124 = select i1 %cmp235, double %entropySum.0.lcssa, double %minEntropy.01124
+  %.bestIndex.0 = select i1 %cmp235, i32 %156, i32 %bestIndex.01123
+  %.numEqual.0 = select i1 %cmp235, i32 1, i32 %numEqual.01122
+  %entropySum.0.minEntropy.0 = select i1 %cmp235, double %entropySum.0.lcssa, double %minEntropy.01124
   br label %for.cond97
 
 if.end238:                                        ; preds = %invoke.cont227
@@ -22088,10 +22088,10 @@ if.end238:                                        ; preds = %invoke.cont227
   br label %for.cond97
 
 for.cond97:                                       ; preds = %if.else, %158, %if.end238
-  %159 = phi i32 [ %bestIndex.01123, %if.end238 ], [ %157, %158 ], [ %.bestIndex.01123, %if.else ]
-  %numEqual.110481058 = phi i32 [ %inc226, %if.end238 ], [ %inc226, %158 ], [ %.numEqual.01122, %if.else ]
+  %159 = phi i32 [ %bestIndex.01123, %if.end238 ], [ %157, %158 ], [ %.bestIndex.0, %if.else ]
+  %numEqual.110481058 = phi i32 [ %inc226, %if.end238 ], [ %inc226, %158 ], [ %.numEqual.0, %if.else ]
   %160 = phi i32 [ %157, %if.end238 ], [ %157, %158 ], [ %156, %if.else ]
-  %161 = phi double [ %minEntropy.01124, %if.end238 ], [ %entropySum.0.lcssa, %158 ], [ %entropySum.0.lcssa.minEntropy.01124, %if.else ]
+  %161 = phi double [ %minEntropy.01124, %if.end238 ], [ %entropySum.0.lcssa, %158 ], [ %entropySum.0.minEntropy.0, %if.else ]
   %inc243 = add i32 %160, 1
   store i32 %inc243, ptr %j96, align 4
   %cmp98 = icmp ult i32 %inc243, %conv

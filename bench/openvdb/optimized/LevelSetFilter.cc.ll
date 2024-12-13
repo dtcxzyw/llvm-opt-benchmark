@@ -2807,8 +2807,8 @@ while.body.i.preheader:                           ; preds = %if.end.i.i
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i
   %sub.ptr.div.i20.i = phi i64 [ %sub.ptr.div.i.i201, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %sub.ptr.div.i.i, %while.body.i.preheader ]
   %__depth_limit.addr.019.i = phi i64 [ %dec.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %mul.i.i24, %while.body.i.preheader ]
-  %__first.sroa.0.018.i = phi ptr [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i26, %while.body.i.preheader ]
-  %__last.sroa.0.017.i = phi ptr [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.body.i.preheader ]
+  %__first.sroa.0.018.i = phi ptr [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i26, %while.body.i.preheader ]
+  %__last.sroa.0.017.i = phi ptr [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.body.i.preheader ]
   %cmp3.i = icmp eq i64 %__depth_limit.addr.019.i, 0
   br i1 %cmp3.i, label %if.then.i204, label %if.end.i199
 
@@ -2920,18 +2920,18 @@ if.end.i.i.i:                                     ; preds = %while.end18.i.i.i
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i: ; preds = %while.end18.i.i.i
   %cmp.i.not.i = icmp ugt ptr %__first.sroa.0.1.i.i.i, %add.ptr.i.i
-  %__first.sroa.0.1.i.i.__last.sroa.0.0.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.1.i.i.i, ptr %__last.sroa.0.017.i
-  %__first.sroa.0.0.__first.sroa.0.1.i.i.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.018.i, ptr %__first.sroa.0.1.i.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.sroa.0.1.i.i.__last.sroa.0.0.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.sroa.0.0.__first.sroa.0.1.i.i.i to i64
+  %__last.sroa.0.0.__first.sroa.0.1.i.i.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.1.i.i.i, ptr %__last.sroa.0.017.i
+  %__first.sroa.0.1.i.i.__first.sroa.0.0.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.018.i, ptr %__first.sroa.0.1.i.i.i
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.sroa.0.0.__first.sroa.0.1.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.sroa.0.1.i.i.__first.sroa.0.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i201 = ashr exact i64 %sub.ptr.sub.i.i, 2
   %cmp.i202 = icmp sgt i64 %sub.ptr.div.i.i201, 3
   br i1 %cmp.i202, label %while.body.i, label %while.end.i, !llvm.loop !32
 
 while.end.i:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i, %if.end.i.i
-  %__last.sroa.0.0.lcssa.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ], [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %call5.i.i.i.i2.i6.i.i26, %if.end.i.i ], [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %__last.sroa.0.0.lcssa.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ], [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %call5.i.i.i.i2.i6.i.i26, %if.end.i.i ], [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %sub.ptr.rhs.cast.i.lcssa.i = phi i64 [ %sub.ptr.rhs.cast.i13.i, %if.end.i.i ], [ %sub.ptr.rhs.cast.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %cmp.i.i.i198 = icmp eq ptr %__first.sroa.0.0.lcssa.i, %__last.sroa.0.0.lcssa.i
   %__i.sroa.0.010.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i, i64 4
@@ -3338,8 +3338,8 @@ while.body.i242.preheader:                        ; preds = %if.end.i.i137
 while.body.i242:                                  ; preds = %while.body.i242.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275
   %sub.ptr.div.i20.i243 = phi i64 [ %sub.ptr.div.i.i282, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %sub.ptr.div.i.i139, %while.body.i242.preheader ]
   %__depth_limit.addr.019.i244 = phi i64 [ %dec.i249, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %mul.i.i141, %while.body.i242.preheader ]
-  %__first.sroa.0.018.i245 = phi ptr [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %call5.i.i.i.i2.i6.i.i146, %while.body.i242.preheader ]
-  %__last.sroa.0.017.i246 = phi ptr [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %while.body.i242.preheader ]
+  %__first.sroa.0.018.i245 = phi ptr [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %call5.i.i.i.i2.i6.i.i146, %while.body.i242.preheader ]
+  %__last.sroa.0.017.i246 = phi ptr [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %while.body.i242.preheader ]
   %cmp3.i247 = icmp eq i64 %__depth_limit.addr.019.i244, 0
   br i1 %cmp3.i247, label %if.then.i294, label %if.end.i248
 
@@ -3451,18 +3451,18 @@ if.end.i.i.i284:                                  ; preds = %while.end18.i.i.i27
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275: ; preds = %while.end18.i.i.i273
   %cmp.i.not.i276 = icmp ugt ptr %__first.sroa.0.1.i.i.i265, %add.ptr.i.i135
-  %__first.sroa.0.1.i.i.__last.sroa.0.0.i277 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.1.i.i.i265, ptr %__last.sroa.0.017.i246
-  %__first.sroa.0.0.__first.sroa.0.1.i.i.i278 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.018.i245, ptr %__first.sroa.0.1.i.i.i265
-  %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %__first.sroa.0.1.i.i.__last.sroa.0.0.i277 to i64
-  %sub.ptr.rhs.cast.i.i280 = ptrtoint ptr %__first.sroa.0.0.__first.sroa.0.1.i.i.i278 to i64
+  %__last.sroa.0.0.__first.sroa.0.1.i.i.i277 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.1.i.i.i265, ptr %__last.sroa.0.017.i246
+  %__first.sroa.0.1.i.i.__first.sroa.0.0.i278 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.018.i245, ptr %__first.sroa.0.1.i.i.i265
+  %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %__last.sroa.0.0.__first.sroa.0.1.i.i.i277 to i64
+  %sub.ptr.rhs.cast.i.i280 = ptrtoint ptr %__first.sroa.0.1.i.i.__first.sroa.0.0.i278 to i64
   %sub.ptr.sub.i.i281 = sub i64 %sub.ptr.lhs.cast.i.i279, %sub.ptr.rhs.cast.i.i280
   %sub.ptr.div.i.i282 = ashr exact i64 %sub.ptr.sub.i.i281, 2
   %cmp.i283 = icmp sgt i64 %sub.ptr.div.i.i282, 3
   br i1 %cmp.i283, label %while.body.i242, label %while.end.i212, !llvm.loop !32
 
 while.end.i212:                                   ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275, %if.end.i.i137
-  %__last.sroa.0.0.lcssa.i213 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %if.end.i.i137 ], [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
-  %__first.sroa.0.0.lcssa.i214 = phi ptr [ %call5.i.i.i.i2.i6.i.i146, %if.end.i.i137 ], [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
+  %__last.sroa.0.0.lcssa.i213 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %if.end.i.i137 ], [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
+  %__first.sroa.0.0.lcssa.i214 = phi ptr [ %call5.i.i.i.i2.i6.i.i146, %if.end.i.i137 ], [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
   %sub.ptr.rhs.cast.i.lcssa.i215 = phi i64 [ %sub.ptr.rhs.cast.i13.i208, %if.end.i.i137 ], [ %sub.ptr.rhs.cast.i.i280, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
   %cmp.i.i.i216 = icmp eq ptr %__first.sroa.0.0.lcssa.i214, %__last.sroa.0.0.lcssa.i213
   %__i.sroa.0.010.i.i217 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i214, i64 4
@@ -17196,8 +17196,8 @@ while.body.i.preheader:                           ; preds = %if.end.i.i
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i
   %sub.ptr.div.i20.i = phi i64 [ %sub.ptr.div.i.i201, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %sub.ptr.div.i.i, %while.body.i.preheader ]
   %__depth_limit.addr.019.i = phi i64 [ %dec.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %mul.i.i24, %while.body.i.preheader ]
-  %__first.sroa.0.018.i = phi ptr [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i26, %while.body.i.preheader ]
-  %__last.sroa.0.017.i = phi ptr [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.body.i.preheader ]
+  %__first.sroa.0.018.i = phi ptr [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %call5.i.i.i.i2.i6.i.i26, %while.body.i.preheader ]
+  %__last.sroa.0.017.i = phi ptr [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %while.body.i.preheader ]
   %cmp3.i = icmp eq i64 %__depth_limit.addr.019.i, 0
   br i1 %cmp3.i, label %if.then.i204, label %if.end.i199
 
@@ -17309,18 +17309,18 @@ if.end.i.i.i:                                     ; preds = %while.end18.i.i.i
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i: ; preds = %while.end18.i.i.i
   %cmp.i.not.i = icmp ugt ptr %__first.sroa.0.1.i.i.i, %add.ptr.i.i
-  %__first.sroa.0.1.i.i.__last.sroa.0.0.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.1.i.i.i, ptr %__last.sroa.0.017.i
-  %__first.sroa.0.0.__first.sroa.0.1.i.i.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.018.i, ptr %__first.sroa.0.1.i.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.sroa.0.1.i.i.__last.sroa.0.0.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.sroa.0.0.__first.sroa.0.1.i.i.i to i64
+  %__last.sroa.0.0.__first.sroa.0.1.i.i.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.1.i.i.i, ptr %__last.sroa.0.017.i
+  %__first.sroa.0.1.i.i.__first.sroa.0.0.i = select i1 %cmp.i.not.i, ptr %__first.sroa.0.018.i, ptr %__first.sroa.0.1.i.i.i
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__last.sroa.0.0.__first.sroa.0.1.i.i.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.sroa.0.1.i.i.__first.sroa.0.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i201 = ashr exact i64 %sub.ptr.sub.i.i, 3
   %cmp.i202 = icmp sgt i64 %sub.ptr.div.i.i201, 3
   br i1 %cmp.i202, label %while.body.i, label %while.end.i, !llvm.loop !171
 
 while.end.i:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i, %if.end.i.i
-  %__last.sroa.0.0.lcssa.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ], [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %call5.i.i.i.i2.i6.i.i26, %if.end.i.i ], [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %__last.sroa.0.0.lcssa.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %if.end.i.i ], [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %call5.i.i.i.i2.i6.i.i26, %if.end.i.i ], [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %sub.ptr.rhs.cast.i.lcssa.i = phi i64 [ %sub.ptr.rhs.cast.i13.i, %if.end.i.i ], [ %sub.ptr.rhs.cast.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %cmp.i.i.i198 = icmp eq ptr %__first.sroa.0.0.lcssa.i, %__last.sroa.0.0.lcssa.i
   %__i.sroa.0.010.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i, i64 8
@@ -17728,8 +17728,8 @@ while.body.i242.preheader:                        ; preds = %if.end.i.i137
 while.body.i242:                                  ; preds = %while.body.i242.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275
   %sub.ptr.div.i20.i243 = phi i64 [ %sub.ptr.div.i.i282, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %sub.ptr.div.i.i139, %while.body.i242.preheader ]
   %__depth_limit.addr.019.i244 = phi i64 [ %dec.i249, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %mul.i.i141, %while.body.i242.preheader ]
-  %__first.sroa.0.018.i245 = phi ptr [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %call5.i.i.i.i2.i6.i.i146, %while.body.i242.preheader ]
-  %__last.sroa.0.017.i246 = phi ptr [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %while.body.i242.preheader ]
+  %__first.sroa.0.018.i245 = phi ptr [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %call5.i.i.i.i2.i6.i.i146, %while.body.i242.preheader ]
+  %__last.sroa.0.017.i246 = phi ptr [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ], [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %while.body.i242.preheader ]
   %cmp3.i247 = icmp eq i64 %__depth_limit.addr.019.i244, 0
   br i1 %cmp3.i247, label %if.then.i294, label %if.end.i248
 
@@ -17841,18 +17841,18 @@ if.end.i.i.i284:                                  ; preds = %while.end18.i.i.i27
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275: ; preds = %while.end18.i.i.i273
   %cmp.i.not.i276 = icmp ugt ptr %__first.sroa.0.1.i.i.i265, %add.ptr.i.i135
-  %__first.sroa.0.1.i.i.__last.sroa.0.0.i277 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.1.i.i.i265, ptr %__last.sroa.0.017.i246
-  %__first.sroa.0.0.__first.sroa.0.1.i.i.i278 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.018.i245, ptr %__first.sroa.0.1.i.i.i265
-  %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %__first.sroa.0.1.i.i.__last.sroa.0.0.i277 to i64
-  %sub.ptr.rhs.cast.i.i280 = ptrtoint ptr %__first.sroa.0.0.__first.sroa.0.1.i.i.i278 to i64
+  %__last.sroa.0.0.__first.sroa.0.1.i.i.i277 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.1.i.i.i265, ptr %__last.sroa.0.017.i246
+  %__first.sroa.0.1.i.i.__first.sroa.0.0.i278 = select i1 %cmp.i.not.i276, ptr %__first.sroa.0.018.i245, ptr %__first.sroa.0.1.i.i.i265
+  %sub.ptr.lhs.cast.i.i279 = ptrtoint ptr %__last.sroa.0.0.__first.sroa.0.1.i.i.i277 to i64
+  %sub.ptr.rhs.cast.i.i280 = ptrtoint ptr %__first.sroa.0.1.i.i.__first.sroa.0.0.i278 to i64
   %sub.ptr.sub.i.i281 = sub i64 %sub.ptr.lhs.cast.i.i279, %sub.ptr.rhs.cast.i.i280
   %sub.ptr.div.i.i282 = ashr exact i64 %sub.ptr.sub.i.i281, 3
   %cmp.i283 = icmp sgt i64 %sub.ptr.div.i.i282, 3
   br i1 %cmp.i283, label %while.body.i242, label %while.end.i212, !llvm.loop !171
 
 while.end.i212:                                   ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275, %if.end.i.i137
-  %__last.sroa.0.0.lcssa.i213 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %if.end.i.i137 ], [ %__first.sroa.0.1.i.i.__last.sroa.0.0.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
-  %__first.sroa.0.0.lcssa.i214 = phi ptr [ %call5.i.i.i.i2.i6.i.i146, %if.end.i.i137 ], [ %__first.sroa.0.0.__first.sroa.0.1.i.i.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
+  %__last.sroa.0.0.lcssa.i213 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i138, %if.end.i.i137 ], [ %__last.sroa.0.0.__first.sroa.0.1.i.i.i277, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
+  %__first.sroa.0.0.lcssa.i214 = phi ptr [ %call5.i.i.i.i2.i6.i.i146, %if.end.i.i137 ], [ %__first.sroa.0.1.i.i.__first.sroa.0.0.i278, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
   %sub.ptr.rhs.cast.i.lcssa.i215 = phi i64 [ %sub.ptr.rhs.cast.i13.i208, %if.end.i.i137 ], [ %sub.ptr.rhs.cast.i.i280, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i275 ]
   %cmp.i.i.i216 = icmp eq ptr %__first.sroa.0.0.lcssa.i214, %__last.sroa.0.0.lcssa.i213
   %__i.sroa.0.010.i.i217 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i214, i64 8

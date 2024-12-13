@@ -527,8 +527,8 @@ thread-pre-split29.thread:                        ; preds = %22, %thread-pre-spl
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br i1 %48, label %49, label %27
 
-49:                                               ; preds = %thread-pre-split29.thread, %27, %2
-  %.0 = phi i1 [ true, %2 ], [ %34, %27 ], [ true, %thread-pre-split29.thread ]
+49:                                               ; preds = %thread-pre-split29.thread, %2, %27
+  %.0 = phi i1 [ %34, %27 ], [ true, %2 ], [ true, %thread-pre-split29.thread ]
   ret i1 %.0
 }
 

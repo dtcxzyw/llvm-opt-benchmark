@@ -59207,7 +59207,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   store i64 0, ptr %4, align 8, !alias.scope !16219, !noalias !16230
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false), !alias.scope !16219, !noalias !16230
-  br label %70
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7400d9842156aed3E.exit"
 
 55:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc8cad5067c900c69E.exit.i"
   store i64 1, ptr %4, align 8, !alias.scope !16219, !noalias !16230
@@ -59234,16 +59234,16 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   store i64 %64, ptr %63, align 8, !alias.scope !16246, !noalias !16247
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %66, ptr %67, align 8, !alias.scope !16246, !noalias !16247
-  br label %70
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7400d9842156aed3E.exit"
 
 68:                                               ; preds = %55
   %69 = load ptr, ptr %61, align 8, !noalias !16242, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !16242
-  br label %70
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7400d9842156aed3E.exit"
 
-70:                                               ; preds = %62, %53, %68
-  %.sroa.01.0 = phi ptr [ %69, %68 ], [ null, %53 ], [ null, %62 ]
-  ret ptr %.sroa.01.0
+"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7400d9842156aed3E.exit": ; preds = %53, %62, %68
+  %.sroa.01.0.i = phi ptr [ null, %53 ], [ %69, %68 ], [ null, %62 ]
+  ret ptr %.sroa.01.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59350,7 +59350,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   store i64 0, ptr %4, align 8, !alias.scope !16253, !noalias !16264
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false), !alias.scope !16253, !noalias !16264
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h524460aa469f3dcbE.llvm.12421936933170541089.exit"
 
 54:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc8cad5067c900c69E.exit.i"
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 248
@@ -59375,17 +59375,17 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !16268
   %67 = zext i32 %66 to i64
   store i64 %67, ptr %64, align 8, !alias.scope !16270, !noalias !16272
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h524460aa469f3dcbE.llvm.12421936933170541089.exit"
 
 68:                                               ; preds = %54
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load ptr, ptr %69, align 8, !noalias !16268, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !16268
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h524460aa469f3dcbE.llvm.12421936933170541089.exit"
 
-71:                                               ; preds = %63, %52, %68
-  %.sroa.01.0 = phi ptr [ %70, %68 ], [ null, %52 ], [ null, %63 ]
-  ret ptr %.sroa.01.0
+"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h524460aa469f3dcbE.llvm.12421936933170541089.exit": ; preds = %52, %63, %68
+  %.sroa.01.0.i = phi ptr [ null, %52 ], [ %70, %68 ], [ null, %63 ]
+  ret ptr %.sroa.01.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -59492,7 +59492,7 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   store i64 0, ptr %4, align 8, !alias.scope !16278, !noalias !16289
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false), !alias.scope !16278, !noalias !16289
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h5fe9ff2f66f63993E.llvm.12421936933170541089.exit"
 
 54:                                               ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hc8cad5067c900c69E.exit.i"
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 248
@@ -59517,17 +59517,17 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !16293
   %67 = zext i32 %66 to i64
   store i64 %67, ptr %64, align 8, !alias.scope !16295, !noalias !16296
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h5fe9ff2f66f63993E.llvm.12421936933170541089.exit"
 
 68:                                               ; preds = %54
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load ptr, ptr %69, align 8, !noalias !16293, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !16293
-  br label %71
+  br label %"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h5fe9ff2f66f63993E.llvm.12421936933170541089.exit"
 
-71:                                               ; preds = %63, %52, %68
-  %.sroa.01.0 = phi ptr [ %70, %68 ], [ null, %52 ], [ null, %63 ]
-  ret ptr %.sroa.01.0
+"_ZN98_$LT$core..option..Option$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h5fe9ff2f66f63993E.llvm.12421936933170541089.exit": ; preds = %52, %63, %68
+  %.sroa.01.0.i = phi ptr [ null, %52 ], [ %70, %68 ], [ null, %63 ]
+  ret ptr %.sroa.01.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -4207,18 +4207,18 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   %.not35 = icmp eq i32 %70, 0
   %71 = load ptr, ptr %20, align 8
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %BZ2_bzDecompressEnd.exit, label %73
+  br i1 %72, label %BZ2_bzDecompressEnd.exit42, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %71, align 8
-  %.not.i45 = icmp eq ptr %74, %7
-  br i1 %.not.i45, label %75, label %BZ2_bzDecompressEnd.exit
+  %.not.i37 = icmp eq ptr %74, %7
+  br i1 %.not.i37, label %75, label %BZ2_bzDecompressEnd.exit42
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 3152
   %77 = load ptr, ptr %76, align 8
-  %.not26.i46 = icmp eq ptr %77, null
-  br i1 %.not26.i46, label %81, label %78
+  %.not26.i39 = icmp eq ptr %77, null
+  br i1 %.not26.i39, label %81, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr %15, align 8
@@ -4229,8 +4229,8 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 81:                                               ; preds = %78, %75
   %82 = getelementptr inbounds nuw i8, ptr %71, i64 3160
   %83 = load ptr, ptr %82, align 8
-  %.not27.i47 = icmp eq ptr %83, null
-  br i1 %.not27.i47, label %87, label %84
+  %.not27.i40 = icmp eq ptr %83, null
+  br i1 %.not27.i40, label %87, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %15, align 8
@@ -4241,8 +4241,8 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
 87:                                               ; preds = %84, %81
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 3168
   %89 = load ptr, ptr %88, align 8
-  %.not28.i48 = icmp eq ptr %89, null
-  br i1 %.not28.i48, label %93, label %90
+  %.not28.i41 = icmp eq ptr %89, null
+  br i1 %.not28.i41, label %93, label %90
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %15, align 8
@@ -4255,9 +4255,9 @@ define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr nound
   %95 = load ptr, ptr %16, align 8
   %96 = load ptr, ptr %20, align 8
   call void %94(ptr noundef %95, ptr noundef %96) #22
-  br label %BZ2_bzDecompressEnd.exit
+  br label %BZ2_bzDecompressEnd.exit42
 
-BZ2_bzDecompressEnd.exit:                         ; preds = %69, %73, %93
+BZ2_bzDecompressEnd.exit42:                       ; preds = %69, %73, %93
   %. = select i1 %.not35, i32 -8, i32 -7
   br label %BZ2_bzDecompressInit.exit
 
@@ -4268,14 +4268,14 @@ BZ2_bzDecompressEnd.exit:                         ; preds = %69, %73, %93
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %98, align 8
-  %.not.i37 = icmp eq ptr %101, %7
-  br i1 %.not.i37, label %102, label %BZ2_bzDecompressInit.exit
+  %.not.i43 = icmp eq ptr %101, %7
+  br i1 %.not.i43, label %102, label %BZ2_bzDecompressInit.exit
 
 102:                                              ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 3152
   %104 = load ptr, ptr %103, align 8
-  %.not26.i39 = icmp eq ptr %104, null
-  br i1 %.not26.i39, label %108, label %105
+  %.not26.i45 = icmp eq ptr %104, null
+  br i1 %.not26.i45, label %108, label %105
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %15, align 8
@@ -4286,8 +4286,8 @@ BZ2_bzDecompressEnd.exit:                         ; preds = %69, %73, %93
 108:                                              ; preds = %105, %102
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 3160
   %110 = load ptr, ptr %109, align 8
-  %.not27.i40 = icmp eq ptr %110, null
-  br i1 %.not27.i40, label %114, label %111
+  %.not27.i46 = icmp eq ptr %110, null
+  br i1 %.not27.i46, label %114, label %111
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %15, align 8
@@ -4298,8 +4298,8 @@ BZ2_bzDecompressEnd.exit:                         ; preds = %69, %73, %93
 114:                                              ; preds = %111, %108
   %115 = getelementptr inbounds nuw i8, ptr %98, i64 3168
   %116 = load ptr, ptr %115, align 8
-  %.not28.i41 = icmp eq ptr %116, null
-  br i1 %.not28.i41, label %120, label %117
+  %.not28.i47 = icmp eq ptr %116, null
+  br i1 %.not28.i47, label %120, label %117
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %15, align 8
@@ -4314,8 +4314,8 @@ BZ2_bzDecompressEnd.exit:                         ; preds = %69, %73, %93
   call void %121(ptr noundef %122, ptr noundef %123) #22
   br label %BZ2_bzDecompressInit.exit
 
-BZ2_bzDecompressInit.exit:                        ; preds = %BZ2_bzDecompressEnd.exit, %120, %100, %97, %65, %45, %39, %13, %6, %11
-  %.0 = phi i32 [ -2, %11 ], [ -2, %6 ], [ -3, %13 ], [ 0, %39 ], [ 0, %45 ], [ 0, %65 ], [ %38, %97 ], [ %38, %100 ], [ %38, %120 ], [ %., %BZ2_bzDecompressEnd.exit ]
+BZ2_bzDecompressInit.exit:                        ; preds = %120, %100, %97, %65, %45, %39, %13, %BZ2_bzDecompressEnd.exit42, %6, %11
+  %.0 = phi i32 [ -2, %11 ], [ -2, %6 ], [ %., %BZ2_bzDecompressEnd.exit42 ], [ -3, %13 ], [ 0, %39 ], [ 0, %45 ], [ 0, %65 ], [ %38, %97 ], [ %38, %100 ], [ %38, %120 ]
   ret i32 %.0
 }
 

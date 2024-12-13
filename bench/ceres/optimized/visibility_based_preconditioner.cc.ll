@@ -2847,9 +2847,9 @@ _ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iterator
   %..i = call i32 @llvm.smax.i32(i32 %178, i32 %179)
   %.22.i = call i32 @llvm.smin.i32(i32 %178, i32 %179)
   %..i..sroa.566.1 = select i1 %180, i32 %..i, i32 %.sroa.566.1124
-  %.22.i..sroa.065.1 = select i1 %180, i32 %.22.i, i32 %.sroa.065.1125
+  %.sroa.065.0.extract.trunc..sroa.065.1 = select i1 %180, i32 %.22.i, i32 %.sroa.065.1125
   %.sroa.5.1...i = select i1 %180, i32 %.sroa.5.1126, i32 %..i
-  %.sroa.064.1..22.i = select i1 %180, i32 %.sroa.064.1127, i32 %.22.i
+  %.sroa.064.1..sroa.065.0.extract.trunc = select i1 %180, i32 %.sroa.064.1127, i32 %.22.i
   %182 = sext i32 %.22.i to i64
   %183 = sext i32 %..i to i64
   %184 = add nsw i64 %182, 2266404186210603134
@@ -2940,11 +2940,11 @@ _ZNKSt8__detail15_Hashtable_baseISt4pairIiiES1_IKS2_dENS_10_Select1stESt8equal_t
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %.sroa.566.0.insert.ext = zext i32 %..i..sroa.566.1 to i64
   %.sroa.566.0.insert.shift = shl nuw i64 %.sroa.566.0.insert.ext, 32
-  %.sroa.065.0.insert.ext = zext i32 %.22.i..sroa.065.1 to i64
+  %.sroa.065.0.insert.ext = zext i32 %.sroa.065.0.extract.trunc..sroa.065.1 to i64
   %.sroa.065.0.insert.insert = or disjoint i64 %.sroa.566.0.insert.shift, %.sroa.065.0.insert.ext
   %.sroa.5.0.insert.ext = zext i32 %.sroa.5.1...i to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
-  %.sroa.064.0.insert.ext = zext i32 %.sroa.064.1..22.i to i64
+  %.sroa.064.0.insert.ext = zext i32 %.sroa.064.1..sroa.065.0.extract.trunc to i64
   %.sroa.064.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.064.0.insert.ext
   %.sroa.speculated60 = select i1 %180, i64 %.sroa.065.0.insert.insert, i64 %.sroa.064.0.insert.insert
   store i64 %.sroa.speculated60, ptr %245, align 8
@@ -2992,9 +2992,9 @@ _ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit: ; preds = %_ZNKSt8__d
 
 250:                                              ; preds = %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit
   %.sroa.566.2 = phi i32 [ %.sroa.566.1124, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %..i..sroa.566.1, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
-  %.sroa.065.2 = phi i32 [ %.sroa.065.1125, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %.22.i..sroa.065.1, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
+  %.sroa.065.2 = phi i32 [ %.sroa.065.1125, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %.sroa.065.0.extract.trunc..sroa.065.1, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
   %.sroa.5.2 = phi i32 [ %.sroa.5.1126, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %.sroa.5.1...i, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
-  %.sroa.064.2 = phi i32 [ %.sroa.064.1127, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %.sroa.064.1..22.i, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
+  %.sroa.064.2 = phi i32 [ %.sroa.064.1127, %_ZSt16set_intersectionISt23_Rb_tree_const_iteratorIiES1_St20back_insert_iteratorISt6vectorIiSaIiEEEET1_T_S8_T0_S9_S7_.exit ], [ %.sroa.064.1..sroa.065.0.extract.trunc, %_ZN5ceres8internal13WeightedGraphIiE7AddEdgeERKiS4_d.exit ]
   %.not.i.i.i23 = icmp eq ptr %.sroa.0.5, null
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %251
 

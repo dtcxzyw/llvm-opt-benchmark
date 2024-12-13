@@ -152455,8 +152455,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i.i: ; preds = %46
   %72 = icmp eq ptr %14, %9
   br i1 %72, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread", label %12
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread": ; preds = %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17hf878a3497a9f5cabE.exit", %21, %12, %.backedge.i.i, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i", %3, %33
-  %.0 = phi i8 [ 0, %33 ], [ 2, %3 ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i" ], [ 0, %.backedge.i.i ], [ 2, %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17hf878a3497a9f5cabE.exit" ], [ 0, %21 ], [ 0, %12 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread": ; preds = %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17hf878a3497a9f5cabE.exit", %21, %12, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i", %.backedge.i.i, %3, %33
+  %.0 = phi i8 [ 0, %33 ], [ 2, %3 ], [ 0, %.backedge.i.i ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i" ], [ 2, %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17hf878a3497a9f5cabE.exit" ], [ 0, %21 ], [ 0, %12 ]
   ret i8 %.0
 }
 
@@ -152617,8 +152617,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit.i.i.i: ; preds = %46
   %72 = icmp eq ptr %14, %9
   br i1 %72, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread", label %12
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread": ; preds = %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17h7f6ae5cc5c35f6c6E.exit", %21, %12, %.backedge.i.i, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i", %3, %33
-  %.0 = phi i8 [ 0, %33 ], [ 2, %3 ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i" ], [ 0, %.backedge.i.i ], [ 2, %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17h7f6ae5cc5c35f6c6E.exit" ], [ 0, %21 ], [ 0, %12 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.7162415618632116964.exit.thread": ; preds = %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17h7f6ae5cc5c35f6c6E.exit", %21, %12, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i", %.backedge.i.i, %3, %33
+  %.0 = phi i8 [ 0, %33 ], [ 2, %3 ], [ 0, %.backedge.i.i ], [ 1, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h0491dd30fa5ca6e1E.exit5.i.i.i" ], [ 2, %"_ZN14datafusion_sql4expr8function60_$LT$impl$u20$datafusion_sql..planner..SqlToRel$LT$S$GT$$GT$20sql_function_to_expr28_$u7b$$u7b$closure$u7d$$u7d$17h7f6ae5cc5c35f6c6E.exit" ], [ 0, %21 ], [ 0, %12 ]
   ret i8 %.0
 }
 

@@ -707,81 +707,58 @@ _ZNSt10shared_ptrIN6json117JsonIntEED2Ev.exit:
 define void @_ZN6json114JsonC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN6json11L7staticsEvE1s acquire, align 8
   %4 = icmp eq i8 %3, 0
-  br i1 %1, label %5, label %11
+  br i1 %4, label %5, label %_ZN6json11L7staticsEv.exit, !prof !6
 
 5:                                                ; preds = %2
-  br i1 %4, label %6, label %_ZN6json11L7staticsEv.exit, !prof !6
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %_ZN6json11L7staticsEv.exit, label %7
 
-6:                                                ; preds = %5
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
-  %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %_ZN6json11L7staticsEv.exit, label %8
-
-8:                                                ; preds = %6
+7:                                                ; preds = %5
   invoke void @_ZN6json117StaticsC2Ev(ptr noundef nonnull align 8 dereferenceable(152) @_ZZN6json11L7staticsEvE1s)
-          to label %_ZN6json11L7staticsEv.exit.sink.split unwind label %9
+          to label %8 unwind label %10
 
-common.resume:                                    ; preds = %15, %9
-  %common.resume.op = phi { ptr, i32 } [ %10, %9 ], [ %16, %15 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
-  resume { ptr, i32 } %common.resume.op
-
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-11:                                               ; preds = %2
-  br i1 %4, label %12, label %_ZN6json11L7staticsEv.exit, !prof !6
-
-12:                                               ; preds = %11
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
-  %.not.i1 = icmp eq i32 %13, 0
-  br i1 %.not.i1, label %_ZN6json11L7staticsEv.exit, label %14
-
-14:                                               ; preds = %12
-  invoke void @_ZN6json117StaticsC2Ev(ptr noundef nonnull align 8 dereferenceable(152) @_ZZN6json11L7staticsEvE1s)
-          to label %_ZN6json11L7staticsEv.exit.sink.split unwind label %15
-
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume
-
-_ZN6json11L7staticsEv.exit.sink.split:            ; preds = %14, %8
-  %.ph = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 16), %8 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 32), %14 ]
-  %17 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6json117StaticsD2Ev, ptr nonnull @_ZZN6json11L7staticsEvE1s, ptr nonnull @__dso_handle) #22
+8:                                                ; preds = %7
+  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6json117StaticsD2Ev, ptr nonnull @_ZZN6json11L7staticsEvE1s, ptr nonnull @__dso_handle) #22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
   br label %_ZN6json11L7staticsEv.exit
 
-_ZN6json11L7staticsEv.exit:                       ; preds = %_ZN6json11L7staticsEv.exit.sink.split, %12, %11, %6, %5
-  %18 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 16), %5 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 16), %6 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 32), %11 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 32), %12 ], [ %.ph, %_ZN6json11L7staticsEv.exit.sink.split ]
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %20, align 8
-  %.not.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit, label %23
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6json11L7staticsEvE1s) #22
+  resume { ptr, i32 } %11
 
-23:                                               ; preds = %_ZN6json11L7staticsEv.exit
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i.i, label %29, label %26
+_ZN6json11L7staticsEv.exit:                       ; preds = %2, %5, %8
+  %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 16), align 8
+  %.val1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 32), align 8
+  %12 = select i1 %1, ptr %.val, ptr %.val1
+  store ptr %12, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 24), align 8
+  %.val3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6json11L7staticsEvE1s, i64 40), align 8
+  %14 = select i1 %1, ptr %.val2, ptr %.val3
+  store ptr %14, ptr %13, align 8
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit, label %15
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %24, align 4
-  %28 = add nsw i32 %27, 1
-  store i32 %28, ptr %24, align 4
+15:                                               ; preds = %_ZN6json11L7staticsEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %17, 0
+  br i1 %.not.i.i.i.i, label %21, label %18
+
+18:                                               ; preds = %15
+  %19 = load i32, ptr %16, align 4
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %16, align 4
   br label %_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit
 
-29:                                               ; preds = %23
-  %30 = atomicrmw volatile add ptr %24, i32 1 acq_rel, align 4
+21:                                               ; preds = %15
+  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit: ; preds = %_ZN6json11L7staticsEv.exit, %26, %29
+_ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit: ; preds = %_ZN6json11L7staticsEv.exit, %18, %21
   ret void
 }
 

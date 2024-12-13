@@ -3566,9 +3566,9 @@ if.end69:                                         ; preds = %save.exit91
   %62 = load i8, ptr %tt_, align 8
   %cmp71 = icmp eq i8 %62, 3
   %63 = load double, ptr %obj, align 8
-  %retval.0 = select i1 %cmp71, i32 290, i32 289
+  %. = select i1 %cmp71, i32 290, i32 289
   store double %63, ptr %seminfo, align 8
-  ret i32 %retval.0
+  ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable

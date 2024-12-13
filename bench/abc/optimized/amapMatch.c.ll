@@ -420,9 +420,9 @@ define void @Amap_ManMatchNode(ptr nocapture noundef readonly %0, ptr nocapture 
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph145, label %._crit_edge
+  br i1 %32, label %.lr.ph147, label %._crit_edge
 
-.lr.ph145:                                        ; preds = %29
+.lr.ph147:                                        ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -439,11 +439,11 @@ define void @Amap_ManMatchNode(ptr nocapture noundef readonly %0, ptr nocapture 
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 20
   br label %46
 
-46:                                               ; preds = %.lr.ph145, %.loopexit
-  %47 = phi i32 [ %31, %.lr.ph145 ], [ %242, %.loopexit ]
-  %.0144 = phi i32 [ 0, %.lr.ph145 ], [ %244, %.loopexit ]
-  %.094142 = phi ptr [ %34, %.lr.ph145 ], [ %248, %.loopexit ]
-  %48 = load i32, ptr %.094142, align 4
+46:                                               ; preds = %.lr.ph147, %.loopexit
+  %47 = phi i32 [ %31, %.lr.ph147 ], [ %242, %.loopexit ]
+  %.0146 = phi i32 [ 0, %.lr.ph147 ], [ %244, %.loopexit ]
+  %.094144 = phi ptr [ %34, %.lr.ph147 ], [ %248, %.loopexit ]
+  %48 = load i32, ptr %.094144, align 4
   %49 = and i32 %48, 65535
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.loopexit, label %51
@@ -454,22 +454,22 @@ define void @Amap_ManMatchNode(ptr nocapture noundef readonly %0, ptr nocapture 
   %.val119 = load ptr, ptr %53, align 8
   %54 = zext nneg i32 %49 to i64
   %55 = getelementptr inbounds nuw %struct.Amap_Nod_t_, ptr %.val119, i64 %54, i32 5
-  %.093139 = load ptr, ptr %55, align 8
-  %.not112140 = icmp eq ptr %.093139, null
-  br i1 %.not112140, label %.loopexit, label %.lr.ph
+  %.093141 = load ptr, ptr %55, align 8
+  %.not112142 = icmp eq ptr %.093141, null
+  br i1 %.not112142, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %.094142, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.094144, i64 4
   br label %57
 
 57:                                               ; preds = %.lr.ph, %Amap_CutCompareArea.exit
   %58 = phi i32 [ %48, %.lr.ph ], [ %199, %Amap_CutCompareArea.exit ]
-  %.093141 = phi ptr [ %.093139, %.lr.ph ], [ %.093, %Amap_CutCompareArea.exit ]
+  %.093143 = phi ptr [ %.093141, %.lr.ph ], [ %.093, %Amap_CutCompareArea.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 16, i1 false)
-  store ptr %.094142, ptr %7, align 8
-  store ptr %.093141, ptr %37, align 8
+  store ptr %.094144, ptr %7, align 8
+  store ptr %.093143, ptr %37, align 8
   %59 = load ptr, ptr %35, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.093141, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.093143, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 65535
   %63 = getelementptr i8, ptr %59, i64 8
@@ -490,7 +490,7 @@ define void @Amap_ManMatchNode(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %.not.i, label %Amap_ManMatchGetFlows.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.093141, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %.093143, i64 12
   %.val.i = load ptr, ptr %40, align 8
   %73 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %73, align 8
@@ -572,7 +572,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   br i1 %.not.i122, label %.critedge.i, label %.lr.ph.i123
 
 .lr.ph.i123:                                      ; preds = %123
-  %124 = getelementptr inbounds nuw i8, ptr %.093141, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %.093143, i64 12
   %.val.i125 = load ptr, ptr %40, align 8
   %125 = getelementptr i8, ptr %.val.i125, i64 8
   %.val.val.i126 = load ptr, ptr %125, align 8
@@ -608,8 +608,8 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %150 = sitofp i32 %149 to float
   %151 = fadd float %129, %150
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i124, 1
-  %exitcond149.not = icmp eq i64 %indvars.iv.next.i127, %127
-  br i1 %exitcond149.not, label %.critedge.loopexit.i128, label %128, !llvm.loop !12
+  %exitcond151.not = icmp eq i64 %indvars.iv.next.i127, %127
+  br i1 %exitcond151.not, label %.critedge.loopexit.i128, label %128, !llvm.loop !12
 
 .critedge.loopexit.i128:                          ; preds = %128
   %152 = fadd float %146, 1.000000e+00
@@ -655,7 +655,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   br i1 %176, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %.critedge.i
-  %177 = load i32, ptr %.094142, align 4
+  %177 = load i32, ptr %.094144, align 4
   %178 = load i32, ptr %60, align 8
   %179 = xor i32 %178, %177
   %180 = lshr i32 %179, 16
@@ -769,7 +769,7 @@ Amap_CutCompareArea.exit.thread:                  ; preds = %238, %235, %228, %A
   br label %Amap_CutCompareArea.exit
 
 Amap_CutCompareArea.exit:                         ; preds = %238, %231, %223, %Amap_CutCompareArea.exit.thread
-  %.093 = load ptr, ptr %.093141, align 8
+  %.093 = load ptr, ptr %.093143, align 8
   %.not112 = icmp eq ptr %.093, null
   br i1 %.not112, label %.loopexit.loopexit, label %57, !llvm.loop !14
 
@@ -780,26 +780,26 @@ Amap_CutCompareArea.exit:                         ; preds = %238, %231, %223, %A
 .loopexit:                                        ; preds = %.loopexit.loopexit, %51, %46
   %242 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %47, %51 ], [ %47, %46 ]
   %243 = phi i32 [ %199, %.loopexit.loopexit ], [ %48, %51 ], [ %48, %46 ]
-  %244 = add nuw nsw i32 %.0144, 1
+  %244 = add nuw nsw i32 %.0146, 1
   %245 = lshr i32 %243, 17
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds nuw i32, ptr %.094142, i64 %246
+  %247 = getelementptr inbounds nuw i32, ptr %.094144, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
   %249 = icmp slt i32 %244, %242
   br i1 %249, label %46, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre151 = load float, ptr %.092.sroa.gep103, align 8
-  %.pre152 = load float, ptr %.092.sroa.gep104, align 8
-  %.pre153 = load float, ptr %.092.sroa.gep100, align 8
-  %.pre154 = load float, ptr %.092.sroa.gep101, align 8
+  %.pre153 = load float, ptr %.092.sroa.gep103, align 8
+  %.pre154 = load float, ptr %.092.sroa.gep104, align 8
+  %.pre155 = load float, ptr %.092.sroa.gep100, align 8
+  %.pre156 = load float, ptr %.092.sroa.gep101, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
-  %250 = phi float [ %.pre154, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
-  %251 = phi float [ %.pre153, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
-  %252 = phi float [ %.pre152, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
-  %253 = phi float [ %.pre151, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %250 = phi float [ %.pre156, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %251 = phi float [ %.pre155, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %252 = phi float [ %.pre154, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
+  %253 = phi float [ %.pre153, %._crit_edge.loopexit ], [ 0.000000e+00, %29 ]
   %254 = fsub float %253, %252
   %255 = fcmp olt float %254, 0.000000e+00
   %256 = fneg float %254

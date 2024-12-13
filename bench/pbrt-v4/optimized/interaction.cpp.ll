@@ -3474,8 +3474,8 @@ cond.true:                                        ; preds = %entry
   %uv = getelementptr inbounds nuw i8, ptr %this, i64 52
   %agg.tmp5.sroa.0.0.copyload = load <2 x float>, ptr %uv, align 4
   %1 = inttoptr i64 %and.i to ptr
-  %retval.0.i.i.i.i = load i32, ptr %1, align 8
-  %cmp.i1 = icmp eq i32 %retval.0.i.i.i.i, 2
+  %2 = load i32, ptr %1, align 8
+  %cmp.i1 = icmp eq i32 %2, 2
   br i1 %cmp.i1, label %land.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %cond.true
@@ -3493,13 +3493,13 @@ sw.bb18.i.i.i:                                    ; preds = %land.end.i
 
 _ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit: ; preds = %land.end.i, %sw.bb18.i.i.i
   %call30.pn.i.i.i = phi { <2 x float>, <2 x float> } [ %call.i.i.i.i, %sw.bb18.i.i.i ], [ zeroinitializer, %land.end.i ]
-  %2 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 0
-  %3 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 1
+  %3 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 0
+  %4 = extractvalue { <2 x float>, <2 x float> } %call30.pn.i.i.i, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit
-  %retval.sroa.4.0 = phi <2 x float> [ %3, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
-  %retval.sroa.0.0 = phi <2 x float> [ %2, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
+  %retval.sroa.4.0 = phi <2 x float> [ %4, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %3, %_ZNK4pbrt5Light1LENS_6Point3IfEENS_7Normal3IfEENS_6Point2IfEENS_7Vector3IfEERKNS_18SampledWavelengthsE.exit ], [ zeroinitializer, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.4.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

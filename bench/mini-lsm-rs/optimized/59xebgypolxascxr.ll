@@ -8788,7 +8788,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   br i1 %.not5.i14, label %42, label %.invoke
 
 29:                                               ; preds = %46, %42, %21
-  %.1 = phi i8 [ %.05, %21 ], [ 0, %42 ], [ %spec.select10, %46 ]
+  %.1 = phi i8 [ %.05, %21 ], [ 0, %42 ], [ %..05, %46 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !noalias !968
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8841,7 +8841,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   %.not.i23 = icmp ne i64 %.fca.0.extract, 0
   %47 = icmp ult i64 %5, %.fca.1.extract
   %spec.select.i = select i1 %.not.i23, i1 %47, i1 false
-  %spec.select10 = select i1 %spec.select.i, i8 1, i8 %.05
+  %..05 = select i1 %spec.select.i, i8 1, i8 %.05
   br label %29
 
 48:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7eda9844bac99617E.llvm.885679253126787145.exit.i", %41, %.critedge.i

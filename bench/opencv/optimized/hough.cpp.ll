@@ -11005,8 +11005,8 @@ define internal noundef zeroext i1 @_ZN2cvL8cmpAccumERKNS_15EstimatedCircleES2_(
 30:                                               ; preds = %24
   br label %31
 
-31:                                               ; preds = %30, %24, %22, %18, %16, %10, %8, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ true, %10 ], [ false, %16 ], [ true, %18 ], [ false, %22 ], [ true, %24 ], [ false, %30 ]
+31:                                               ; preds = %24, %22, %18, %16, %10, %8, %2, %30
+  %.0 = phi i1 [ false, %30 ], [ true, %2 ], [ false, %8 ], [ true, %10 ], [ false, %16 ], [ true, %18 ], [ false, %22 ], [ true, %24 ]
   ret i1 %.0
 }
 

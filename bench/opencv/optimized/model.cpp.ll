@@ -15387,8 +15387,8 @@ _ZNSt12_Vector_baseISt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i
   %495 = phi i64 [ %794, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %483, %.lr.ph.i.preheader ]
   %.023.i = phi i64 [ %790, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %494, %.lr.ph.i.preheader ]
-  %.sroa.018.022.i = phi ptr [ %.sroa.018.0..sroa.012.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %479, %.lr.ph.i.preheader ]
-  %.sroa.015.021.i = phi ptr [ %.sroa.012.1.i.i..sroa.015.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %474, %.lr.ph.i.preheader ]
+  %.sroa.018.022.i = phi ptr [ %.sroa.012.1.i.i..sroa.018.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %479, %.lr.ph.i.preheader ]
+  %.sroa.015.021.i = phi ptr [ %.sroa.015.0..sroa.012.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ], [ %474, %.lr.ph.i.preheader ]
   %496 = icmp eq i64 %.023.i, 0
   br i1 %496, label %497, label %513
 
@@ -15932,18 +15932,18 @@ _ZN2cv3dnn6LogAddEff.exit.i:                      ; preds = %755, %.preheader.i.
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i: ; preds = %774
   %790 = add nsw i64 %.023.i, -1
   %.not.i254 = icmp ugt ptr %.sroa.012.1.i.i.i, %487
-  %.sroa.012.1.i.i..sroa.015.0.i = select i1 %.not.i254, ptr %.sroa.012.1.i.i.i, ptr %.sroa.015.021.i
-  %.sroa.018.0..sroa.012.1.i.i.i = select i1 %.not.i254, ptr %.sroa.018.022.i, ptr %.sroa.012.1.i.i.i
-  %791 = ptrtoint ptr %.sroa.012.1.i.i..sroa.015.0.i to i64
-  %792 = ptrtoint ptr %.sroa.018.0..sroa.012.1.i.i.i to i64
+  %.sroa.015.0..sroa.012.1.i.i.i = select i1 %.not.i254, ptr %.sroa.012.1.i.i.i, ptr %.sroa.015.021.i
+  %.sroa.012.1.i.i..sroa.018.0.i = select i1 %.not.i254, ptr %.sroa.018.022.i, ptr %.sroa.012.1.i.i.i
+  %791 = ptrtoint ptr %.sroa.015.0..sroa.012.1.i.i.i to i64
+  %792 = ptrtoint ptr %.sroa.012.1.i.i..sroa.018.0.i to i64
   %793 = sub i64 %791, %792
   %794 = ashr exact i64 %793, 5
   %795 = icmp sgt i64 %794, 3
   br i1 %795, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !389
 
 ._crit_edge.i:                                    ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i, %490
-  %.sroa.015.0.lcssa.i = phi ptr [ %474, %490 ], [ %.sroa.012.1.i.i..sroa.015.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ]
-  %.sroa.018.0.lcssa.i = phi ptr [ %479, %490 ], [ %.sroa.018.0..sroa.012.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ]
+  %.sroa.015.0.lcssa.i = phi ptr [ %474, %490 ], [ %.sroa.015.0..sroa.012.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ]
+  %.sroa.018.0.lcssa.i = phi ptr [ %479, %490 ], [ %.sroa.012.1.i.i..sroa.018.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEET_SM_SM_T0_.exit.i ]
   invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIPFbRKSA_SI_EEEEvT_SM_T0_(ptr %.sroa.018.0.lcssa.i, ptr %.sroa.015.0.lcssa.i, ptr nonnull @_ZN2cv3dnn25TextRecognitionModel_Impl18PrefixScoreCompareERKSt4pairISt6vectorIiSaIiEENS1_11PrefixScoreEES9_)
           to label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIiSaIiEEN2cv3dnn25TextRecognitionModel_Impl11PrefixScoreEES3_ISA_SaISA_EEEEPFbRKSA_SG_EEvT_SJ_SJ_T0_.exit unwind label %.body262
 

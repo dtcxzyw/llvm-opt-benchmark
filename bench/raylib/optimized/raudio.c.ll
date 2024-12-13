@@ -867,7 +867,6 @@ target triple = "x86_64-pc-linux-gnu"
 @amiga_frequencies = internal unnamed_addr constant [13 x i16] [i16 1712, i16 1616, i16 1525, i16 1440, i16 1357, i16 1281, i16 1209, i16 1141, i16 1077, i16 1017, i16 961, i16 907, i16 856], align 16
 @sintable = internal unnamed_addr constant [32 x i16] [i16 0, i16 24, i16 49, i16 74, i16 97, i16 120, i16 141, i16 161, i16 180, i16 197, i16 212, i16 224, i16 235, i16 244, i16 250, i16 253, i16 255, i16 253, i16 250, i16 244, i16 235, i16 224, i16 212, i16 197, i16 180, i16 161, i16 141, i16 120, i16 97, i16 74, i16 49, i16 24], align 16
 @.str.613 = private unnamed_addr constant [5 x i8] c"M.K.\00", align 1
-@switch.table.ma_result_from_errno = private unnamed_addr constant [130 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1], align 4
 @switch.table.ma_log_level_to_string = private unnamed_addr constant [3 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
 @switch.table.ma_is_backend_enabled = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
 @switch.table.ma_channel_map_apply_f32 = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
@@ -1608,12 +1607,12 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc range(i32 -51, 1) i32 @ma_result_from_errno(i32 noundef %0) unnamed_addr #1 {
-  %2 = icmp ult i32 %0, 130
+  %2 = icmp ult i32 %0, 126
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [130 x i32], ptr @switch.table.ma_result_from_errno, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [126 x i32], ptr @switch.table.drwav_result_from_errno, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

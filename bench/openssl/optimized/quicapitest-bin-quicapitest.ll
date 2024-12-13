@@ -1056,8 +1056,8 @@ if.end70:                                         ; preds = %if.end61
   br i1 %tobool80.not, label %end, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %if.end70
-  %retval.sroa.0.0.i = call i64 @llvm.usub.sat.i64(i64 %call72, i64 %call62)
-  %div = udiv i64 %retval.sroa.0.0.i, 1000000
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call72, i64 %call62)
+  %div = udiv i64 %.sub.i.i, 1000000
   %call84 = call i32 @test_uint64_t_le(ptr noundef nonnull @.str.14, i32 noundef 261, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, i64 noundef %div, i64 noundef 20) #9
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %end, label %if.end87

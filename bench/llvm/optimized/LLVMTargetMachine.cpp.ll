@@ -1321,7 +1321,7 @@ define dso_local void @_ZN4llvm17LLVMTargetMachine16createMCStreamerERNS_17raw_p
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %24 = load ptr, ptr %23, align 8
-  switch i32 %4, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82 [
+  switch i32 %4, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79 [
     i32 0, label %25
     i32 1, label %74
     i32 2, label %124
@@ -1340,11 +1340,11 @@ define dso_local void @_ZN4llvm17LLVMTargetMachine16createMCStreamerERNS_17raw_p
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %34 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(56) %33, i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(484) %20, ptr noundef nonnull align 8 dereferenceable(44) %24, ptr noundef nonnull align 8 dereferenceable(224) %22) #17
-  %.pre102.pre = load ptr, ptr %26, align 8
+  %.pre99.pre = load ptr, ptr %26, align 8
   br label %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit
 
 _ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit: ; preds = %25, %30
-  %.pre102 = phi ptr [ %.pre102.pre, %30 ], [ %27, %25 ]
+  %.pre99 = phi ptr [ %.pre99.pre, %30 ], [ %27, %25 ]
   %.0.i = phi ptr [ %34, %30 ], [ null, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 992
   %36 = load i16, ptr %35, align 8
@@ -1353,7 +1353,7 @@ _ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCIns
   br i1 %.not38, label %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EE5resetEPS1_.exit, label %38
 
 38:                                               ; preds = %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.pre102, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %.pre99, i64 144
   %40 = load ptr, ptr %39, align 8
   %.not.i39 = icmp eq ptr %40, null
   br i1 %.not.i39, label %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EE5resetEPS1_.exit, label %41
@@ -1365,8 +1365,8 @@ _ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCIns
   br label %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %38, %41, %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit
-  %44 = phi ptr [ %.pre102, %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit ], [ %.pre, %41 ], [ %.pre102, %38 ]
-  %.sroa.092.0 = phi i64 [ 0, %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit ], [ %43, %41 ], [ 0, %38 ]
+  %44 = phi ptr [ %.pre99, %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit ], [ %.pre, %41 ], [ %.pre99, %38 ]
+  %.sroa.089.0 = phi i64 [ 0, %_ZNK4llvm6Target19createMCInstPrinterERKNS_6TripleEjRKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE.exit ], [ %43, %41 ], [ 0, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %46 = load ptr, ptr %45, align 8
   %.not.i41 = icmp eq ptr %46, null
@@ -1400,7 +1400,7 @@ _ZNK4llvm6Target18createMCAsmBackendERKNS_15MCSubtargetInfoERKNS_14MCRegisterInf
   %59 = load ptr, ptr %26, align 8
   %60 = ptrtoint ptr %50 to i64
   store i64 %60, ptr %9, align 8
-  store i64 %.sroa.092.0, ptr %10, align 8
+  store i64 %.sroa.089.0, ptr %10, align 8
   store i64 %.0.i42, ptr %11, align 8
   %61 = call noundef ptr @_ZNK4llvm6Target17createAsmStreamerERNS_9MCContextESt10unique_ptrINS_21formatted_raw_ostreamESt14default_deleteIS4_EEPNS_13MCInstPrinterES3_INS_13MCCodeEmitterES5_ISA_EES3_INS_12MCAsmBackendES5_ISD_EE(ptr noundef nonnull align 8 dereferenceable(248) %59, ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
   %62 = load ptr, ptr %11, align 8
@@ -1431,14 +1431,14 @@ _ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit: ; pre
   store ptr null, ptr %10, align 8
   %70 = load ptr, ptr %9, align 8
   %.not.i45 = icmp eq ptr %70, null
-  br i1 %.not.i45, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82, label %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i
+  br i1 %.not.i45, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79, label %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(105) %70) #17
-  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82
+  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79
 
 74:                                               ; preds = %6
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1545,32 +1545,32 @@ _ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit71: ; p
   store ptr null, ptr %16, align 8
   %116 = load ptr, ptr %15, align 8
   %.not.i72 = icmp eq ptr %116, null
-  br i1 %.not.i72, label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit.sink.split
+  br i1 %.not.i72, label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm14MCObjectWriterEEclEPS1_.exit.i
 
-_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit71
+_ZNKSt14default_deleteIN4llvm14MCObjectWriterEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit71
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull align 8 dereferenceable(104) %116) #17
   br label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit71, %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit.sink.split
+_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit71, %_ZNKSt14default_deleteIN4llvm14MCObjectWriterEEclEPS1_.exit.i
   store ptr null, ptr %15, align 8
   %120 = load ptr, ptr %14, align 8
-  %.not.i76 = icmp eq ptr %120, null
-  br i1 %.not.i76, label %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78, label %_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i77
+  %.not.i73 = icmp eq ptr %120, null
+  br i1 %.not.i73, label %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit75, label %_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i74
 
-_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i77: ; preds = %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit
+_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i74: ; preds = %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(16) %120) #17
-  br label %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78
+  br label %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit75
 
-_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78: ; preds = %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i77
+_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit75: ; preds = %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i74
   store ptr null, ptr %14, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #17
-  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82
+  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79
 
 124:                                              ; preds = %6
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1578,24 +1578,24 @@ _ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78: ; pr
   %127 = tail call noundef ptr @_ZN4llvm18createNullStreamerERNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2432) %5) #17
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 184
   %129 = load ptr, ptr %128, align 8
-  %.not.i.i79 = icmp eq ptr %129, null
-  br i1 %.not.i.i79, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82, label %130
+  %.not.i.i76 = icmp eq ptr %129, null
+  br i1 %.not.i.i76, label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79, label %130
 
 130:                                              ; preds = %124
   %131 = tail call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(288) %127) #17
-  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82
+  br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79
 
-_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82: ; preds = %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit, %124, %130, %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78, %6
-  %.sroa.094.0 = phi ptr [ null, %6 ], [ %111, %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit78 ], [ %127, %130 ], [ %127, %124 ], [ %61, %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit ], [ %61, %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i ]
+_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79: ; preds = %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit, %124, %130, %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit75, %6
+  %.sroa.091.0 = phi ptr [ null, %6 ], [ %111, %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit75 ], [ %127, %130 ], [ %127, %124 ], [ %61, %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit ], [ %61, %_ZNKSt14default_deleteIN4llvm21formatted_raw_ostreamEEclEPS1_.exit.i ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = load i8, ptr %132, align 8
   %134 = and i8 %133, -2
   store i8 %134, ptr %132, align 8
-  %135 = ptrtoint ptr %.sroa.094.0 to i64
+  %135 = ptrtoint ptr %.sroa.091.0 to i64
   store i64 %135, ptr %0, align 8
   br label %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit65, %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit82
+_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit65, %_ZNSt10unique_ptrIN4llvm10MCStreamerESt14default_deleteIS1_EE5resetEPS1_.exit79
   ret void
 }
 

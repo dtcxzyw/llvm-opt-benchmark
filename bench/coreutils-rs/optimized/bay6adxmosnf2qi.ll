@@ -1799,8 +1799,8 @@ define hidden noundef ptr @_ZN5uu_dd8progress10ProgUpdate14write_io_lines17hc122
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %50
 
-50:                                               ; preds = %37, %44, %34, %22, %2
-  %.0 = phi ptr [ %20, %2 ], [ %32, %22 ], [ null, %34 ], [ %49, %44 ], [ %43, %37 ]
+50:                                               ; preds = %44, %37, %34, %22, %2
+  %.0 = phi ptr [ %20, %2 ], [ %32, %22 ], [ null, %34 ], [ %43, %37 ], [ %49, %44 ]
   ret ptr %.0
 }
 

@@ -6177,13 +6177,13 @@ define dso_local i32 @_ZNK5clang13SourceManager14getFileIDLocalEj(ptr noundef no
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 2147483647
   %14 = icmp ult i32 %13, %1
-  %spec.select = select i1 %14, i32 %5, i32 %7
-  %spec.select29 = select i1 %14, i32 %7, i32 0
+  %. = select i1 %14, i32 %5, i32 %7
+  %.29 = select i1 %14, i32 %7, i32 0
   br label %15
 
 15:                                               ; preds = %9, %2
-  %.024 = phi i32 [ %5, %2 ], [ %spec.select, %9 ]
-  %.0 = phi i32 [ 0, %2 ], [ %spec.select29, %9 ]
+  %.024 = phi i32 [ %5, %2 ], [ %., %9 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.29, %9 ]
   %16 = add i32 %.024, -8
   br label %17
 

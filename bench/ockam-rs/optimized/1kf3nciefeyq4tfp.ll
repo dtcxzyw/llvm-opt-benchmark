@@ -29836,9 +29836,9 @@ common.ret:                                       ; preds = %1678, %1658, %1110,
   br label %480
 
 844:                                              ; preds = %1105, %1089, %1055, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i", %728
-  %845 = phi ptr [ %1016, %1089 ], [ %518, %728 ], [ %1056, %1055 ], [ %899, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ], [ %1094, %1105 ]
-  %846 = phi ptr [ %1017, %1089 ], [ %519, %728 ], [ %1057, %1055 ], [ %900, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ], [ %1095, %1105 ]
-  %.0164.i = phi ptr [ %.fca.1.extract135.i, %1089 ], [ null, %728 ], [ null, %1055 ], [ %.fca.1.extract.i.i, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ], [ %.fca.1.extract158.i, %1105 ]
+  %845 = phi ptr [ %1016, %1089 ], [ %518, %728 ], [ %1056, %1055 ], [ %1094, %1105 ], [ %899, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ]
+  %846 = phi ptr [ %1017, %1089 ], [ %519, %728 ], [ %1057, %1055 ], [ %1095, %1105 ], [ %900, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ]
+  %.0164.i = phi ptr [ %.fca.1.extract135.i, %1089 ], [ null, %728 ], [ null, %1055 ], [ %.fca.1.extract158.i, %1105 ], [ %.fca.1.extract.i.i, %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update28_$u7b$$u7b$closure$u7d$$u7d$17hea0978a1a4f2efb8E.exit.i" ]
   store i8 1, ptr %845, align 1, !noalias !3439
   %847 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.0164.i, 1
   br label %"_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker16handle_heartbeat28_$u7b$$u7b$closure$u7d$$u7d$17hdf4cf0ebcbe3d621E.exit"

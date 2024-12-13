@@ -413,41 +413,30 @@ terminate.lpad.i12:                               ; preds = %if.then.i.i11
 _ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit: ; preds = %invoke.cont14, %if.end.i.i, %delete.notnull.i.i.i
   %14 = load ptr, ptr %agg.tmp3, align 8
   %cmp.not.i13 = icmp eq ptr %14, null
-  br i1 %cmp4.not.not, label %cleanup.action, label %cleanup.action20
-
-cleanup.action:                                   ; preds = %_ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit
   br i1 %cmp.not.i13, label %return, label %if.then.i14
 
-if.then.i14:                                      ; preds = %cleanup.action
+if.then.i14:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit
   %15 = atomicrmw sub ptr %14, i64 1 acq_rel, align 8
   %cmp.i.i15 = icmp eq i64 %15, 1
-  br i1 %cmp.i.i15, label %return.sink.split, label %return
+  br i1 %cmp.i.i15, label %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i, label %return
 
-cleanup.action20:                                 ; preds = %_ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit
-  br i1 %cmp.not.i13, label %return, label %if.then.i17
-
-if.then.i17:                                      ; preds = %cleanup.action20
-  %16 = atomicrmw sub ptr %14, i64 1 acq_rel, align 8
-  %cmp.i.i18 = icmp eq i64 %16, 1
-  br i1 %cmp.i.i18, label %return.sink.split, label %return
+_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i: ; preds = %if.then.i14
+  call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #20
+  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
+  br label %return
 
 lpad11:                                           ; preds = %invoke.cont10
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp8) #20
   call void @_ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #20
   br label %eh.resume
 
-return.sink.split:                                ; preds = %if.then.i17, %if.then.i14
-  call void @_ZN17grpc_auth_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #20
-  call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(8) %14) #21
-  br label %return
-
-return:                                           ; preds = %return.sink.split, %if.then, %if.then.i17, %cleanup.action20, %if.then.i14, %cleanup.action, %if.then.i.i, %invoke.cont
+return:                                           ; preds = %if.then, %_ZNK9grpc_core11UnrefDeleteclIK17grpc_auth_contextEEvPT_.exit.i, %if.then.i14, %_ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit, %if.then.i.i, %invoke.cont
   ret void
 
 eh.resume:                                        ; preds = %lpad11, %lpad.i.i
-  %.pn6 = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %17, %lpad11 ]
+  %.pn6 = phi { ptr, i32 } [ %1, %lpad.i.i ], [ %16, %lpad11 ]
   resume { ptr, i32 } %.pn6
 }
 

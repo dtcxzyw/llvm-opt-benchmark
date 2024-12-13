@@ -152,8 +152,8 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   %58 = getelementptr i8, ptr %57, i64 -56
   %.val.i = load i8, ptr %58, align 1
   %59 = getelementptr i8, ptr %57, i64 -55
-  %.val128.i = load i8, ptr %59, align 1
-  %60 = zext i8 %.val128.i to i32
+  %.val130.i = load i8, ptr %59, align 1
+  %60 = zext i8 %.val130.i to i32
   br label %61
 
 61:                                               ; preds = %61, %55
@@ -177,11 +177,11 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   %75 = and i8 %71, 127
   %76 = icmp eq i8 %75, 1
   %or.cond123.i = select i1 %74, i1 %76, i1 false
-  %spec.select127.i = select i1 %or.cond123.i, i16 2, i16 1000
+  %spec.select129.i = select i1 %or.cond123.i, i16 2, i16 1000
   br label %77
 
 77:                                               ; preds = %66, %53
-  %.2.i = phi i16 [ 1000, %53 ], [ %spec.select127.i, %66 ]
+  %.2.i = phi i16 [ 1000, %53 ], [ %spec.select129.i, %66 ]
   %78 = icmp samesign ugt i32 %.0.i.i, 44
   %79 = icmp eq i16 %.2.i, 1000
   %or.cond.i = select i1 %78, i1 %79, i1 false
@@ -191,10 +191,10 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   %81 = zext nneg i32 %.0.i.i to i64
   %82 = getelementptr i8, ptr %12, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -36
-  %.val129.i = load i8, ptr %83, align 1
+  %.val131.i = load i8, ptr %83, align 1
   %84 = getelementptr i8, ptr %82, i64 -35
-  %.val130.i = load i8, ptr %84, align 1
-  %85 = zext i8 %.val130.i to i32
+  %.val132.i = load i8, ptr %84, align 1
+  %85 = zext i8 %.val132.i to i32
   br label %86
 
 86:                                               ; preds = %86, %80
@@ -207,7 +207,7 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br i1 %.not116.i, label %91, label %86, !llvm.loop !6
 
 91:                                               ; preds = %86
-  %92 = zext i8 %.val129.i to i32
+  %92 = zext i8 %.val131.i to i32
   %93 = shl nuw nsw i32 %92, 8
   %94 = or disjoint i32 %93, %85
   %95 = add nuw nsw i32 %94, 44
@@ -226,9 +226,9 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
 101:                                              ; preds = %98
   %102 = load i8, ptr %17, align 8
   switch i8 %102, label %103 [
-    i8 68, label %.thread140.i
-    i8 61, label %.thread140.i
-    i8 48, label %.thread140.i
+    i8 68, label %.thread142.i
+    i8 61, label %.thread142.i
+    i8 48, label %.thread142.i
   ]
 
 103:                                              ; preds = %101
@@ -267,10 +267,10 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   %123 = zext nneg i32 %.0.i.i to i64
   %124 = getelementptr i8, ptr %12, i64 %123
   %125 = getelementptr i8, ptr %124, i64 -48
-  %.val131.i = load i8, ptr %125, align 1
+  %.val133.i = load i8, ptr %125, align 1
   %126 = getelementptr i8, ptr %124, i64 -47
-  %.val132.i = load i8, ptr %126, align 1
-  %127 = zext i8 %.val132.i to i32
+  %.val134.i = load i8, ptr %126, align 1
+  %127 = zext i8 %.val134.i to i32
   br label %128
 
 128:                                              ; preds = %128, %122
@@ -283,23 +283,23 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   br i1 %.not118.i, label %133, label %128, !llvm.loop !8
 
 133:                                              ; preds = %128
-  %134 = zext i8 %.val131.i to i32
+  %134 = zext i8 %.val133.i to i32
   %135 = shl nuw nsw i32 %134, 8
   %136 = or disjoint i32 %135, %127
   %137 = add nuw nsw i32 %136, 48
   %138 = add nuw nsw i32 %137, %129
   %139 = icmp eq i32 %.0.i.i, %138
-  br i1 %139, label %.thread140.i, label %140
+  br i1 %139, label %.thread142.i, label %140
 
 140:                                              ; preds = %133, %120
-  br i1 %121, label %decode_msg.exit.thread.i, label %.thread140.split.loop.exit153.i
+  br i1 %121, label %decode_msg.exit.thread.i, label %.thread142.split.loop.exit155.i
 
-.thread140.split.loop.exit153.i:                  ; preds = %140
+.thread142.split.loop.exit155.i:                  ; preds = %140
   %141 = zext nneg i16 %.4.i to i32
-  br label %.thread140.i
+  br label %.thread142.i
 
-.thread140.i:                                     ; preds = %133, %101, %101, %101, %.thread140.split.loop.exit153.i
-  %142 = phi i32 [ %141, %.thread140.split.loop.exit153.i ], [ 5, %101 ], [ 5, %101 ], [ 5, %101 ], [ 4, %133 ]
+.thread142.i:                                     ; preds = %133, %101, %101, %101, %.thread142.split.loop.exit155.i
+  %142 = phi i32 [ %141, %.thread142.split.loop.exit155.i ], [ 5, %101 ], [ 5, %101 ], [ 5, %101 ], [ 4, %133 ]
   %143 = load ptr, ptr %0, align 8
   %144 = call i64 @file_seek(ptr noundef %143, i64 noundef %6, i32 noundef 0, ptr noundef nonnull %1) #9
   %145 = icmp eq i64 %144, -1
@@ -330,10 +330,10 @@ decode_msg.exit.thread.i:                         ; preds = %140, %43, %decode_m
   %153 = load i32, ptr %1, align 4
   %154 = icmp ne i32 %153, -12
   call void @g_free(ptr noundef %12) #9
-  %.174.i = sext i1 %154 to i32
+  %.128.i = sext i1 %154 to i32
   br label %vwr_get_fpga_version.exit
 
-vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread140.i
+vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread142.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %324
 
@@ -342,8 +342,8 @@ vwr_get_fpga_version.exit.thread33:               ; preds = %decode_msg.exit.thr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %155
 
-vwr_get_fpga_version.exit:                        ; preds = %.thread140.i, %45, %50, %152
-  %.0101.i = phi i32 [ %..i, %45 ], [ %.121.i, %50 ], [ %142, %.thread140.i ], [ %.174.i, %152 ]
+vwr_get_fpga_version.exit:                        ; preds = %.thread142.i, %45, %50, %152
+  %.0101.i = phi i32 [ %..i, %45 ], [ %.121.i, %50 ], [ %142, %.thread142.i ], [ %.128.i, %152 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   switch i32 %.0101.i, label %156 [
     i32 -1, label %324

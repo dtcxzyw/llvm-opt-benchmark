@@ -782,35 +782,35 @@ define void @_ZN7xgboost3ltr12RankingCache9InitOnCPUEPKNS_7ContextERKNS_8MetaInf
   %.sroa.0.0.copyload.i.i11.i = phi i32 [ %.sroa.0.0.copyload.i.i11.pre.i, %54 ], [ %.sroa.0.0.copyload.i.i.i, %._crit_edge ]
   %56 = and i32 %.sroa.0.0.copyload.i.i11.i, 65535
   %57 = icmp eq i32 %56, 1
-  br i1 %57, label %.critedge.i, label %58
+  br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
-  %59 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %50), !noalias !9
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !noalias !9
-  %62 = load ptr, ptr %59, align 8, !noalias !9
-  %63 = ptrtoint ptr %61 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = ashr exact i64 %65, 2
-  br label %_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit
-
-.critedge.i:                                      ; preds = %55
   call void @_ZNK7xgboost16HostDeviceVectorIfE15ConstDeviceSpanEv(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::common::Span") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %50), !noalias !6
-  %67 = load i64, ptr %4, align 8, !noalias !6
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %69 = load ptr, ptr %68, align 8, !noalias !6
+  %.pre.i = load i64, ptr %4, align 8, !noalias !6
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.pre13.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !6
   br label %_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit
 
-_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit: ; preds = %58, %.critedge.i
-  %.sink12.i = phi i64 [ %67, %.critedge.i ], [ %66, %58 ]
-  %.sink.i = phi ptr [ %69, %.critedge.i ], [ %62, %58 ]
+59:                                               ; preds = %55
+  %60 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %50), !noalias !9
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load ptr, ptr %61, align 8, !noalias !9
+  %63 = load ptr, ptr %60, align 8, !noalias !9
+  %64 = ptrtoint ptr %62 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %67 = ashr exact i64 %66, 2
+  br label %_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit
+
+_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit: ; preds = %58, %59
+  %68 = phi ptr [ %63, %59 ], [ %.pre13.i, %58 ]
+  %69 = phi i64 [ %67, %59 ], [ %.pre.i, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not = icmp eq i64 %49, 0
   br i1 %.not, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %_ZN7xgboost6common19MakeOptionalWeightsEPKNS_7ContextERKNS_16HostDeviceVectorIfEE.exit
-  %70 = icmp eq i64 %.sink12.i, 0
+  %70 = icmp eq i64 %69, 0
   br i1 %70, label %_ZNK7xgboost6common15OptionalWeightsixEm.exit.us, label %.lr.ph30.split
 
 _ZNK7xgboost6common15OptionalWeightsixEm.exit.us: ; preds = %.lr.ph30, %_ZNK7xgboost6common15OptionalWeightsixEm.exit.us
@@ -826,7 +826,7 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit.us: ; preds = %.lr.ph30, %_ZNK7xgb
   %75 = phi i64 [ %82, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ 0, %.lr.ph30 ]
   %.02129 = phi double [ %80, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ 0.000000e+00, %.lr.ph30 ]
   %.02228 = phi i32 [ %81, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i ], [ 0, %.lr.ph30 ]
-  %76 = icmp ugt i64 %.sink12.i, %75
+  %76 = icmp ugt i64 %69, %75
   br i1 %76, label %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i, label %77
 
 77:                                               ; preds = %.lr.ph30.split
@@ -834,7 +834,7 @@ _ZNK7xgboost6common15OptionalWeightsixEm.exit.us: ; preds = %.lr.ph30, %_ZNK7xgb
   unreachable
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i: ; preds = %.lr.ph30.split
-  %78 = getelementptr inbounds nuw float, ptr %.sink.i, i64 %75
+  %78 = getelementptr inbounds nuw float, ptr %68, i64 %75
   %.in.i.sroa.speculate.load._ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i = load float, ptr %78, align 4
   %79 = fpext float %.in.i.sroa.speculate.load._ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i to double
   %80 = fadd double %.02129, %79

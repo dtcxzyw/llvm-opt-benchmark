@@ -8224,13 +8224,13 @@ define dso_local void @_ZN4llvm14CombinerHelper18applyCombineDivRemERNS_12Machin
   %8 = add i16 %7, -55
   %or.cond = icmp ult i16 %8, 2
   %9 = load ptr, ptr %2, align 8
-  %.pn38 = select i1 %or.cond, ptr %1, ptr %9
-  %.pn40 = select i1 %or.cond, ptr %9, ptr %1
-  %.pn39.in = getelementptr inbounds nuw i8, ptr %.pn40, i64 32
+  %. = select i1 %or.cond, ptr %1, ptr %9
+  %.41 = select i1 %or.cond, ptr %9, ptr %1
+  %.pn39.in = getelementptr inbounds nuw i8, ptr %.41, i64 32
   %.pn39 = load ptr, ptr %.pn39.in, align 8
   %storemerge.in = getelementptr inbounds nuw i8, ptr %.pn39, i64 4
   %storemerge = load i32, ptr %storemerge.in, align 4
-  %.pn.in = getelementptr inbounds nuw i8, ptr %.pn38, i64 32
+  %.pn.in = getelementptr inbounds nuw i8, ptr %., i64 32
   %.pn = load ptr, ptr %.pn.in, align 8
   %.sroa.037.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %.sroa.037.0 = load i32, ptr %.sroa.037.0.in, align 4

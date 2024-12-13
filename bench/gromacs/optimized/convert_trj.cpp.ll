@@ -278,11 +278,11 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110ConvertTrj12initAn
 15:                                               ; preds = %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZNK3gmx31OutputRequirementOptionDirector7processEv(ptr dead_on_unwind nonnull writable sret(%"struct.gmx::OutputRequirements") align 4 %6, ptr noundef nonnull align 8 dereferenceable(64) %16)
-          to label %17 unwind label %32
+          to label %17 unwind label %27
 
 17:                                               ; preds = %15
   invoke void @_ZN3gmx27createTrajectoryFrameWriterEPK10gmx_mtop_tRKNS_9SelectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrI7t_atomsNS_15functor_wrapperISF_XadL_Z21done_and_delete_atomsPSF_EEEEENS_18OutputRequirementsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.10") align 8 %4, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %5, ptr noundef nonnull byval(%"struct.gmx::OutputRequirements") align 8 %6)
-          to label %18 unwind label %32
+          to label %18 unwind label %27
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -308,45 +308,28 @@ _ZNKSt14default_deleteIN3gmx21TrajectoryFrameWriterEEclEPS1_.exit.i: ; preds = %
 _ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EED2Ev.exit: ; preds = %18, %_ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN3gmx21TrajectoryFrameWriterEEclEPS1_.exit.i
   store ptr null, ptr %4, align 8
   %22 = load ptr, ptr %5, align 8
-  %.not.i13 = icmp eq ptr %22, null
-  br i1 %12, label %.critedge, label %23
+  %.not.i12 = icmp eq ptr %22, null
+  br i1 %.not.i12, label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, label %23
 
 23:                                               ; preds = %_ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EED2Ev.exit
-  br i1 %.not.i13, label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, label %24
+  invoke void @_Z21done_and_delete_atomsP7t_atoms(ptr noundef nonnull %22)
+          to label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit unwind label %24
 
 24:                                               ; preds = %23
-  invoke void @_Z21done_and_delete_atomsP7t_atoms(ptr noundef nonnull %22)
-          to label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit unwind label %25
-
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #13
   unreachable
 
-.critedge:                                        ; preds = %_ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EED2Ev.exit
-  br i1 %.not.i13, label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, label %28
-
-28:                                               ; preds = %.critedge
-  invoke void @_Z21done_and_delete_atomsP7t_atoms(ptr noundef nonnull %22)
-          to label %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit unwind label %29
-
-29:                                               ; preds = %28
-  %30 = landingpad { ptr, i32 }
-          catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
-  unreachable
-
-_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit: ; preds = %28, %.critedge, %24, %23
+_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx21TrajectoryFrameWriterESt14default_deleteIS1_EED2Ev.exit, %23
   ret void
 
-32:                                               ; preds = %17, %15
-  %33 = landingpad { ptr, i32 }
+27:                                               ; preds = %17, %15
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %28
 }
 
 declare void @_ZN3gmx24TrajectoryAnalysisModule19initAfterFirstFrameERKNS_26TrajectoryAnalysisSettingsERK10t_trxframe(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 1) unnamed_addr #3

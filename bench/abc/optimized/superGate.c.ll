@@ -4000,10 +4000,10 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
 30:                                               ; preds = %.thread
   %31 = load ptr, ptr %6, align 8
   %32 = load ptr, ptr %31, align 8
-  %.not75 = icmp eq ptr %32, null
-  br i1 %.not75, label %.loopexit, label %.lr.ph92
+  %.not74 = icmp eq ptr %32, null
+  br i1 %.not74, label %.loopexit, label %.lr.ph91
 
-.lr.ph92:                                         ; preds = %30
+.lr.ph91:                                         ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %35 = fpext float %2 to double
@@ -4014,26 +4014,26 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %40
 
-40:                                               ; preds = %100, %.lr.ph92
-  %.06789 = phi ptr [ %32, %.lr.ph92 ], [ %.06690, %100 ]
-  %.06888 = phi ptr [ null, %.lr.ph92 ], [ %.169, %100 ]
-  %.06690.in = getelementptr inbounds nuw i8, ptr %.06789, i64 104
-  %.06690 = load ptr, ptr %.06690.in, align 8
+40:                                               ; preds = %100, %.lr.ph91
+  %.06688 = phi ptr [ %32, %.lr.ph91 ], [ %.06589, %100 ]
+  %.06787 = phi ptr [ null, %.lr.ph91 ], [ %.168, %100 ]
+  %.06589.in = getelementptr inbounds nuw i8, ptr %.06688, i64 104
+  %.06589 = load ptr, ptr %.06589.in, align 8
   %41 = load i32, ptr %33, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %33, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %.06789, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %.06688, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %1, align 4
-  %.not77 = icmp eq i32 %44, %45
-  br i1 %.not77, label %46, label %50
+  %.not76 = icmp eq i32 %44, %45
+  br i1 %.not76, label %46, label %50
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds nuw i8, ptr %.06789, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.06688, i64 16
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %22, align 4
-  %.not78 = icmp eq i32 %48, %49
-  br i1 %.not78, label %53, label %50
+  %.not77 = icmp eq i32 %48, %49
+  br i1 %.not77, label %53, label %50
 
 50:                                               ; preds = %46, %40
   %51 = load i32, ptr %34, align 8
@@ -4042,7 +4042,7 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   br label %100
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %.06789, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %.06688, i64 72
   %55 = load float, ptr %54, align 8
   %56 = fpext float %55 to double
   %57 = fadd double %56, 1.000000e-03
@@ -4057,18 +4057,18 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   br label %62
 
 62:                                               ; preds = %53, %59, %61
-  %.060 = phi i32 [ 1, %61 ], [ 0, %59 ], [ 0, %53 ]
-  %.059 = phi i32 [ 0, %61 ], [ 0, %59 ], [ 1, %53 ]
+  %.059 = phi i32 [ 1, %61 ], [ 0, %59 ], [ 0, %53 ]
+  %.058 = phi i32 [ 0, %61 ], [ 0, %59 ], [ 1, %53 ]
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %62
-  %63 = getelementptr inbounds nuw i8, ptr %.06789, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %.06688, i64 76
   br label %64
 
 64:                                               ; preds = %.lr.ph, %84
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
-  %.182 = phi i32 [ %.059, %.lr.ph ], [ %.3, %84 ]
-  %.16181 = phi i32 [ %.060, %.lr.ph ], [ %.363, %84 ]
+  %.181 = phi i32 [ %.058, %.lr.ph ], [ %.3, %84 ]
+  %.16080 = phi i32 [ %.059, %.lr.ph ], [ %.362, %84 ]
   %65 = getelementptr inbounds nuw [6 x float], ptr %63, i64 0, i64 %indvars.iv
   %66 = load float, ptr %65, align 4
   %67 = fpext float %66 to double
@@ -4096,25 +4096,25 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   br label %81
 
 81:                                               ; preds = %74, %77, %80
-  %.464 = phi i32 [ 1, %80 ], [ %.16181, %77 ], [ %.16181, %74 ]
-  %.4 = phi i32 [ %.182, %80 ], [ %.182, %77 ], [ 1, %74 ]
+  %.463 = phi i32 [ 1, %80 ], [ %.16080, %77 ], [ %.16080, %74 ]
+  %.4 = phi i32 [ %.181, %80 ], [ %.181, %77 ], [ 1, %74 ]
   %82 = icmp ne i32 %.4, 0
-  %83 = icmp ne i32 %.464, 0
+  %83 = icmp ne i32 %.463, 0
   %or.cond = select i1 %82, i1 %83, i1 false
   br i1 %or.cond, label %._crit_edge, label %84
 
 84:                                               ; preds = %81, %64, %69
-  %.363 = phi i32 [ %.16181, %64 ], [ %.16181, %69 ], [ %.464, %81 ]
-  %.3 = phi i32 [ %.182, %64 ], [ %.182, %69 ], [ %.4, %81 ]
+  %.362 = phi i32 [ %.16080, %64 ], [ %.16080, %69 ], [ %.463, %81 ]
+  %.3 = phi i32 [ %.181, %64 ], [ %.181, %69 ], [ %.4, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %64, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %84, %81, %62
-  %.262 = phi i32 [ %.060, %62 ], [ 1, %81 ], [ %.363, %84 ]
-  %.2 = phi i32 [ %.059, %62 ], [ 1, %81 ], [ %.3, %84 ]
+  %.261 = phi i32 [ %.059, %62 ], [ 1, %81 ], [ %.362, %84 ]
+  %.2 = phi i32 [ %.058, %62 ], [ 1, %81 ], [ %.3, %84 ]
   %85 = icmp ne i32 %.2, 0
-  %86 = icmp ne i32 %.262, 0
+  %86 = icmp ne i32 %.261, 0
   %or.cond3 = select i1 %85, i1 %86, i1 false
   br i1 %or.cond3, label %100, label %87
 
@@ -4122,8 +4122,8 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   br i1 %86, label %88, label %.loopexit
 
 88:                                               ; preds = %87
-  %89 = icmp eq ptr %.06888, null
-  %90 = getelementptr inbounds nuw i8, ptr %.06789, i64 104
+  %89 = icmp eq ptr %.06787, null
+  %90 = getelementptr inbounds nuw i8, ptr %.06688, i64 104
   %91 = load ptr, ptr %90, align 8
   br i1 %89, label %92, label %94
 
@@ -4133,22 +4133,22 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr nocapture nou
   br label %96
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds nuw i8, ptr %.06888, i64 104
+  %95 = getelementptr inbounds nuw i8, ptr %.06787, i64 104
   store ptr %91, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %94, %92
   %97 = load ptr, ptr %38, align 8
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %97, ptr noundef nonnull %.06789) #19
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %97, ptr noundef nonnull %.06688) #19
   %98 = load i32, ptr %39, align 8
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %39, align 8
   br label %100
 
 100:                                              ; preds = %._crit_edge, %96, %50
-  %.169 = phi ptr [ %.06888, %50 ], [ %.06888, %96 ], [ %.06789, %._crit_edge ]
-  %.not79 = icmp eq ptr %.06690, null
-  br i1 %.not79, label %.loopexit, label %40, !llvm.loop !55
+  %.168 = phi ptr [ %.06787, %50 ], [ %.06787, %96 ], [ %.06688, %._crit_edge ]
+  %.not78 = icmp eq ptr %.06589, null
+  br i1 %.not78, label %.loopexit, label %40, !llvm.loop !55
 
 .loopexit:                                        ; preds = %100, %87, %30, %.thread, %13, %17, %11, %11
   %.0 = phi i32 [ 0, %11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]

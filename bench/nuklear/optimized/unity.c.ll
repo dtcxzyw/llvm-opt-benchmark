@@ -76293,11 +76293,11 @@ if.else.i:                                        ; preds = %if.then.i
   store ptr %call.i, ptr %pages.i, align 8
   store i32 0, ptr %call.i, align 8
   %.pre.i = load ptr, ptr %pages.i, align 8
-  %.pre15.i = load i32, ptr %.pre.i, align 8
+  %.pre14.i = load i32, ptr %.pre.i, align 8
   br label %nk_pool_alloc.exit
 
 nk_pool_alloc.exit:                               ; preds = %lor.lhs.false.i, %if.else.i
-  %11 = phi i32 [ %.pre15.i, %if.else.i ], [ %4, %lor.lhs.false.i ]
+  %11 = phi i32 [ %.pre14.i, %if.else.i ], [ %4, %lor.lhs.false.i ]
   %12 = phi ptr [ %.pre.i, %if.else.i ], [ %3, %lor.lhs.false.i ]
   %win.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %inc.i = add i32 %11, 1

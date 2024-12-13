@@ -5326,11 +5326,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit166.i: ; preds = %1
   br i1 %.not257307.i, label %._crit_edge.thread.i, label %.lr.ph.i395
 
 .lr.ph.i395:                                      ; preds = %1984, %2026
-  %.0103315.i = phi i64 [ %.1104.i, %2026 ], [ -1, %1984 ]
-  %.0106314.i = phi i64 [ %.1107.i, %2026 ], [ -1, %1984 ]
-  %.0109313.i = phi i64 [ %.1110.i, %2026 ], [ 0, %1984 ]
-  %.0113312.i = phi i64 [ %.1114.i, %2026 ], [ 0, %1984 ]
-  %.0116311.i = phi i64 [ %.1117.i, %2026 ], [ 0, %1984 ]
+  %.0103314.i = phi i64 [ %.1104.i, %2026 ], [ -1, %1984 ]
+  %.0106313.i = phi i64 [ %.1107.i, %2026 ], [ -1, %1984 ]
+  %.0109312.i = phi i64 [ %.1110.i, %2026 ], [ 0, %1984 ]
+  %.0113311.i = phi i64 [ %.1114.i, %2026 ], [ 0, %1984 ]
+  %.0116310.i = phi i64 [ %.1117.i, %2026 ], [ 0, %1984 ]
   %.0118309.i = phi i64 [ %2027, %2026 ], [ 0, %1984 ]
   %.sroa.0250.0308.i = phi ptr [ %2028, %2026 ], [ %1985, %1984 ]
   %1987 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0250.0308.i) #22
@@ -5436,13 +5436,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit166.i: ; preds = %1
   br i1 %2016, label %.thread.i, label %2026
 
 .thread.i:                                        ; preds = %.loopexit.i396, %._crit_edge.i.i.i.i.i
-  %2017 = icmp eq i64 %.0103315.i, -1
+  %2017 = icmp eq i64 %.0103314.i, -1
   %2018 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0250.0308.i) #22
-  %.0113312..i = select i1 %2017, i64 %.0113312.i, i64 %2018
-  %..0109313.i = select i1 %2017, i64 %2018, i64 %.0109313.i
-  %.0106314..0118309.i = select i1 %2017, i64 %.0106314.i, i64 %.0118309.i
-  %.0118309..0103315.i = select i1 %2017, i64 %.0118309.i, i64 %.0103315.i
-  %2019 = add i64 %.0116311.i, 1
+  %.0113..i = select i1 %2017, i64 %.0113311.i, i64 %2018
+  %..0109.i = select i1 %2017, i64 %2018, i64 %.0109312.i
+  %.0106..0118.i = select i1 %2017, i64 %.0106313.i, i64 %.0118309.i
+  %.0118..0103.i = select i1 %2017, i64 %.0118309.i, i64 %.0103314.i
+  %2019 = add i64 %.0116310.i, 1
   br label %2026
 
 2020:                                             ; preds = %1981, %1979
@@ -5471,11 +5471,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit166.i: ; preds = %1
   br label %.body.i400
 
 2026:                                             ; preds = %.thread.i, %.loopexit.i396
-  %.1117.i = phi i64 [ %2019, %.thread.i ], [ %.0116311.i, %.loopexit.i396 ]
-  %.1114.i = phi i64 [ %.0113312..i, %.thread.i ], [ %.0113312.i, %.loopexit.i396 ]
-  %.1110.i = phi i64 [ %..0109313.i, %.thread.i ], [ %.0109313.i, %.loopexit.i396 ]
-  %.1107.i = phi i64 [ %.0106314..0118309.i, %.thread.i ], [ %.0106314.i, %.loopexit.i396 ]
-  %.1104.i = phi i64 [ %.0118309..0103315.i, %.thread.i ], [ %.0103315.i, %.loopexit.i396 ]
+  %.1117.i = phi i64 [ %2019, %.thread.i ], [ %.0116310.i, %.loopexit.i396 ]
+  %.1114.i = phi i64 [ %.0113..i, %.thread.i ], [ %.0113311.i, %.loopexit.i396 ]
+  %.1110.i = phi i64 [ %..0109.i, %.thread.i ], [ %.0109312.i, %.loopexit.i396 ]
+  %.1107.i = phi i64 [ %.0106..0118.i, %.thread.i ], [ %.0106313.i, %.loopexit.i396 ]
+  %.1104.i = phi i64 [ %.0118..0103.i, %.thread.i ], [ %.0103314.i, %.loopexit.i396 ]
   %2027 = add i64 %.0118309.i, 1
   %2028 = getelementptr inbounds nuw i8, ptr %.sroa.0250.0308.i, i64 32
   %.not257.i = icmp eq ptr %2028, %1986
@@ -5867,7 +5867,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
 
 2173:                                             ; preds = %2171
   %2174 = fmul double %1853, 1.000000e+04
-  br i1 %1908, label %2175, label %._crit_edge331.i
+  br i1 %1908, label %2175, label %._crit_edge330.i
 
 2175:                                             ; preds = %2173
   %2176 = fmul double %1909, 1.000000e+04
@@ -5876,7 +5876,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
   store double %2178, ptr %46, align 8
   store double %2178, ptr %1228, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %1855, ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %._crit_edge331.i unwind label %2187
+          to label %._crit_edge330.i unwind label %2187
 
 2179:                                             ; preds = %2114, %2112
   %2180 = landingpad { ptr, i32 }
@@ -5906,19 +5906,19 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_13PcpLa
           cleanup
   br label %.body204.i
 
-._crit_edge331.i:                                 ; preds = %2175, %2173
+._crit_edge330.i:                                 ; preds = %2175, %2173
   %2189 = fmul double %1854, 1.000000e+04
   %2190 = fcmp ugt double %2174, %2189
-  br i1 %2190, label %._crit_edge325.i, label %.lr.ph324.i
+  br i1 %2190, label %._crit_edge324.i, label %.lr.ph323.i
 
-.lr.ph324.i:                                      ; preds = %._crit_edge331.i
+.lr.ph323.i:                                      ; preds = %._crit_edge330.i
   %.not.i203.i = icmp eq i64 %.1114.i, 0
   br label %2191
 
-2191:                                             ; preds = %2371, %.lr.ph324.i
-  %.0112321.i = phi double [ %2174, %.lr.ph324.i ], [ %2372, %2371 ]
-  %.0119320.i = phi i64 [ 0, %.lr.ph324.i ], [ %.1120.i, %2371 ]
-  %2192 = fdiv double %.0112321.i, 1.000000e+04
+2191:                                             ; preds = %2371, %.lr.ph323.i
+  %.0112320.i = phi double [ %2174, %.lr.ph323.i ], [ %2372, %2371 ]
+  %.0119319.i = phi i64 [ 0, %.lr.ph323.i ], [ %.1120.i, %2371 ]
+  %2192 = fdiv double %.0112320.i, 1.000000e+04
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
@@ -6406,9 +6406,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEE9push_backEOS1_
   br i1 %1908, label %2339, label %2366
 
 2339:                                             ; preds = %2338
-  %2340 = call double @llvm.fmuladd.f64(double %1852, double 1.000000e+04, double %.0112321.i)
+  %2340 = call double @llvm.fmuladd.f64(double %1852, double 1.000000e+04, double %.0112320.i)
   %2341 = fdiv double %2340, 1.000000e+04
-  %2342 = uitofp i64 %.0119320.i to double
+  %2342 = uitofp i64 %.0119319.i to double
   store double %2341, ptr %56, align 8
   store double %2342, ptr %1234, align 8
   br label %.invoke.i415
@@ -6476,7 +6476,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %2374
 
 2366:                                             ; preds = %2338
-  %2367 = uitofp i64 %.0119320.i to double
+  %2367 = uitofp i64 %.0119319.i to double
   store double %2192, ptr %57, align 8
   store double %2367, ptr %1233, align 8
   br label %.invoke.i415
@@ -6487,17 +6487,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
           to label %2369 unwind label %2359
 
 2369:                                             ; preds = %.invoke.i415
-  %2370 = add i64 %.0119320.i, 1
+  %2370 = add i64 %.0119319.i, 1
   br label %2371
 
 2371:                                             ; preds = %2369, %2333
-  %.1120.i = phi i64 [ %2370, %2369 ], [ %.0119320.i, %2333 ]
+  %.1120.i = phi i64 [ %2370, %2369 ], [ %.0119319.i, %2333 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1229) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #22
-  %2372 = call double @llvm.fmuladd.f64(double %1848, double 1.000000e+04, double %.0112321.i)
+  %2372 = call double @llvm.fmuladd.f64(double %1848, double 1.000000e+04, double %.0112320.i)
   %2373 = fcmp ugt double %2372, %2189
-  br i1 %2373, label %._crit_edge325.i, label %2191, !llvm.loop !66
+  br i1 %2373, label %._crit_edge324.i, label %2191, !llvm.loop !66
 
 2374:                                             ; preds = %2365, %2359
   %.pn136.i = phi { ptr, i32 } [ %2360, %2359 ], [ %.pn134.i, %2365 ]
@@ -6510,10 +6510,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #22
   br label %.body204.i
 
-._crit_edge325.i:                                 ; preds = %2371, %._crit_edge331.i
+._crit_edge324.i:                                 ; preds = %2371, %._crit_edge330.i
   br i1 %1908, label %2375, label %2379
 
-2375:                                             ; preds = %._crit_edge325.i
+2375:                                             ; preds = %._crit_edge324.i
   %2376 = fmul double %1909, 1.000000e+04
   %2377 = fadd double %2376, %2189
   %2378 = fdiv double %2377, 1.000000e+04
@@ -6522,7 +6522,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %1855, ptr noundef nonnull align 8 dereferenceable(16) %58)
           to label %2379 unwind label %2187
 
-2379:                                             ; preds = %2375, %._crit_edge325.i
+2379:                                             ; preds = %2375, %._crit_edge324.i
   %2380 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__19UsdClipsAPIInfoKeysE seq_cst, align 8
   %2381 = inttoptr i64 %2380 to ptr
   %.not.i.i218.i = icmp eq i64 %2380, 0

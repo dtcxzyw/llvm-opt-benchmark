@@ -2659,8 +2659,8 @@ if.end78:                                         ; preds = %if.end59
   br i1 %cmp16.i.not, label %while.end.thread.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end78.thread, %if.end78
-  %nr.242 = phi i32 [ %inc77, %if.end78.thread ], [ %nr.1, %if.end78 ]
-  %wide.trip.count.i = zext nneg i32 %nr.242 to i64
+  %nr.239 = phi i32 [ %inc77, %if.end78.thread ], [ %nr.1, %if.end78 ]
+  %wide.trip.count.i = zext nneg i32 %nr.239 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
@@ -2672,12 +2672,12 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.body.preheader.i.lr.ph.i, label %for.body.i, !llvm.loop !12
 
 while.end.thread.i:                               ; preds = %if.end78
-  %call1.i51 = tail call ptr @xmalloc(i64 noundef 0) #21
-  tail call void @free(ptr noundef %call1.i51) #21
-  br label %if.end83
+  %call1.i48 = tail call ptr @xmalloc(i64 noundef 0) #21
+  tail call void @free(ptr noundef %call1.i48) #21
+  br label %pump_io.exit
 
 for.body.preheader.i.lr.ph.i:                     ; preds = %for.body.i
-  %conv.i = zext nneg i32 %nr.242 to i64
+  %conv.i = zext nneg i32 %nr.239 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i, 3
   %call1.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #21
   br label %for.body.i.i
@@ -2822,25 +2822,29 @@ for.inc110.i.i:                                   ; preds = %for.inc110.i.i.sink
 
 while.end.i:                                      ; preds = %for.end.i.i
   tail call void @free(ptr noundef %call1.i) #21
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %nr.242, i32 1)
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %nr.239, i32 1)
   %wide.trip.count25.i = zext nneg i32 %smax.i to i64
   br label %for.body6.i
 
 for.cond3.i:                                      ; preds = %for.body6.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
-  br i1 %exitcond26.not.i, label %if.end83, label %for.body6.i, !llvm.loop !15
+  br i1 %exitcond26.not.i, label %pump_io.exit, label %for.body6.i, !llvm.loop !15
 
 for.body6.i:                                      ; preds = %for.cond3.i, %while.end.i
   %indvars.iv22.i = phi i64 [ 0, %while.end.i ], [ %indvars.iv.next23.i, %for.cond3.i ]
   %error9.i = getelementptr inbounds nuw %struct.io_pump, ptr %io, i64 %indvars.iv22.i, i32 3
   %21 = load i32, ptr %error9.i, align 8
   %tobool10.not.i = icmp eq i32 %21, 0
-  br i1 %tobool10.not.i, label %for.cond3.i, label %if.then81
+  br i1 %tobool10.not.i, label %for.cond3.i, label %if.then.i
 
-if.then81:                                        ; preds = %for.body6.i
+if.then.i:                                        ; preds = %for.body6.i
   %call14.i = tail call ptr @__errno_location() #23
   store i32 %21, ptr %call14.i, align 4
+  br label %pump_io.exit
+
+pump_io.exit:                                     ; preds = %for.cond3.i, %while.end.thread.i, %if.then.i
+  %cmp80 = phi i1 [ true, %if.then.i ], [ false, %while.end.thread.i ], [ false, %for.cond3.i ]
   %pid.i = getelementptr inbounds nuw i8, ptr %cmd, i64 48
   %22 = load i32, ptr %pid.i, align 8
   %23 = load ptr, ptr %cmd, align 8
@@ -2851,23 +2855,11 @@ if.then81:                                        ; preds = %for.body6.i
   %env.i.i = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   tail call void @strvec_clear(ptr noundef nonnull %env.i.i) #21
   tail call void @invalidate_lstat_cache() #21
+  %spec.select = select i1 %cmp80, i32 -1, i32 %call.i
   br label %return
 
-if.end83:                                         ; preds = %for.cond3.i, %while.end.thread.i
-  %pid.i36 = getelementptr inbounds nuw i8, ptr %cmd, i64 48
-  %25 = load i32, ptr %pid.i36, align 8
-  %26 = load ptr, ptr %cmd, align 8
-  %27 = load ptr, ptr %26, align 8
-  %call.i37 = tail call fastcc i32 @wait_or_whine(i32 noundef %25, ptr noundef %27, i32 noundef 0)
-  tail call void @trace2_child_exit_fl(ptr noundef nonnull @.str, i32 noundef 977, ptr noundef nonnull %cmd, i32 noundef %call.i37) #21
-  tail call void @strvec_clear(ptr noundef nonnull %cmd) #21
-  %env.i.i38 = getelementptr inbounds nuw i8, ptr %cmd, i64 24
-  tail call void @strvec_clear(ptr noundef nonnull %env.i.i38) #21
-  tail call void @invalidate_lstat_cache() #21
-  br label %return
-
-return:                                           ; preds = %if.end26, %if.then28, %if.end9, %if.end83, %if.then81
-  %retval.0 = phi i32 [ -1, %if.then81 ], [ %call.i37, %if.end83 ], [ -1, %if.end9 ], [ -1, %if.then28 ], [ -1, %if.end26 ]
+return:                                           ; preds = %pump_io.exit, %if.end26, %if.then28, %if.end9
+  %retval.0 = phi i32 [ -1, %if.end9 ], [ -1, %if.then28 ], [ -1, %if.end26 ], [ %spec.select, %pump_io.exit ]
   ret i32 %retval.0
 }
 

@@ -5842,15 +5842,15 @@ cleanup42:                                        ; preds = %invoke.cont35
   %_M_engaged.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %agg.result, i64 132
   store i8 0, ptr %_M_engaged.i.i.i.i32, align 4
   %.pre = load i64, ptr %addr, align 8
-  %and.i.i.i1.i.i = and i64 %.pre, 1
-  %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
-  br i1 %cmp.i.i.i2.i.i, label %cleanup44, label %if.then.i.i3.i.i
+  %and.i.i.i.i.i = and i64 %.pre, 1
+  %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i.i, label %cleanup44, label %if.then.i.i.i.i
 
-if.then.i.i3.i.i:                                 ; preds = %cleanup42
+if.then.i.i.i.i:                                  ; preds = %cleanup42
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre)
-          to label %cleanup44 unwind label %terminate.lpad.i4.i.i
+          to label %cleanup44 unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
@@ -5862,7 +5862,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad16, %l
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #20
   br label %ehcleanup45
 
-cleanup44:                                        ; preds = %if.then.i, %cleanup42, %if.then.i.i3.i.i, %cleanup42.thread
+cleanup44:                                        ; preds = %if.then.i, %cleanup42, %if.then.i.i.i.i, %cleanup42.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #20
   %.pre44 = load ptr, ptr %field, align 8
   %cmp.not.i34 = icmp eq ptr %.pre44, null
@@ -5901,22 +5901,22 @@ declare void @_ZN9grpc_core16StringToSockaddrESt17basic_string_viewIcSt11char_tr
 define linkonce_odr void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
-  %and.i.i.i1.i = and i64 %0, 1
-  %cmp.i.i.i2.i = icmp eq i64 %and.i.i.i1.i, 0
-  br i1 %cmp.i.i.i2.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit, label %if.then.i.i3.i
+  %and.i.i.i.i = and i64 %0, 1
+  %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
+  br i1 %cmp.i.i.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i3.i:                                   ; preds = %entry
+if.then.i.i.i:                                    ; preds = %entry
   invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %0)
-          to label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit unwind label %terminate.lpad.i4.i
+          to label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit unwind label %terminate.lpad.i.i
 
-terminate.lpad.i4.i:                              ; preds = %if.then.i.i3.i
+terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   tail call void @__clang_call_terminate(ptr %2) #25
   unreachable
 
-_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit: ; preds = %entry, %if.then.i.i3.i
+_ZN4absl12lts_2023080217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit: ; preds = %entry, %if.then.i.i.i
   ret void
 }
 

@@ -13405,11 +13405,11 @@ define noundef align 8 dereferenceable_or_null(40) ptr @_ZN8worktree13LocalWorkt
   %30 = load i64, ptr %29, align 8, !alias.scope !2651, !noundef !4
   %31 = load i64, ptr %7, align 8, !alias.scope !2654, !noalias !2657, !noundef !4
   %32 = icmp eq i64 %31, %30
-  %spec.select.i = select i1 %32, ptr %26, ptr null
+  %..i = select i1 %32, ptr %26, ptr null
   br label %"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$3get17h6b7d80f89b505fd2E.exit"
 
 "_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$3get17h6b7d80f89b505fd2E.exit": ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hfba2b2f9d3ef942bE.llvm.1198603800146016543.exit.i.i", %28
-  %.sroa.0.0.i = phi ptr [ null, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hfba2b2f9d3ef942bE.llvm.1198603800146016543.exit.i.i" ], [ %spec.select.i, %28 ]
+  %.sroa.0.0.i = phi ptr [ null, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hfba2b2f9d3ef942bE.llvm.1198603800146016543.exit.i.i" ], [ %..i, %28 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5), !noalias !2629
   ret ptr %.sroa.0.0.i
 }

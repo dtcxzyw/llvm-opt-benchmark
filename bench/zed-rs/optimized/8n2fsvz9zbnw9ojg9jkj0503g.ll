@@ -155446,7 +155446,7 @@ _ZN4gpui11text_system12line_wrapper11LineWrapper14width_for_char17hb19e14ba25f84
   %.sroa.0107.0 = phi ptr [ %.sroa.08.0, %.loopexit149 ], [ %.sroa.0107.1, %318 ]
   %.sroa.0103.0 = phi float [ 0.000000e+00, %.loopexit149 ], [ %319, %318 ]
   %.sroa.11.0 = phi i64 [ 0, %.loopexit149 ], [ %229, %318 ]
-  %.sroa.016.0 = phi i64 [ 0, %.loopexit149 ], [ %spec.select, %318 ]
+  %.sroa.016.0 = phi i64 [ 0, %.loopexit149 ], [ %.sroa.016.0., %318 ]
   %173 = ptrtoint ptr %.sroa.0107.0 to i64
   %174 = icmp eq ptr %.sroa.0107.0, %41
   br i1 %174, label %211, label %175
@@ -155569,7 +155569,7 @@ _ZN4gpui11text_system12line_wrapper11LineWrapper14width_for_char17hb19e14ba25f84
   %235 = call noundef i8 @llvm.scmp.i8.i32(i32 %234, i32 %44)
   %.off = add nsw i8 %235, -1
   %switch50 = icmp ult i8 %.off, 2
-  %spec.select = select i1 %switch50, i64 %.sroa.016.0, i64 %.sroa.11.0
+  %.sroa.016.0. = select i1 %switch50, i64 %.sroa.016.0, i64 %.sroa.11.0
   %236 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 128
   br i1 %236, label %308, label %237
 
@@ -155764,37 +155764,37 @@ select.unfold142:                                 ; preds = %._crit_edge.i.i86, 
   %.sroa.012.0.idx = select i1 %trunc45, i64 16, i64 0
   %.sroa.012.0 = getelementptr inbounds nuw i8, ptr %327, i64 %.sroa.012.0.idx
   %.sroa.5.0 = load i64, ptr %.sroa.39.0.in, align 8, !noundef !4
-  %328 = icmp eq i64 %spec.select, 0
+  %328 = icmp eq i64 %.sroa.016.0., 0
   br i1 %328, label %select.unfold144, label %329
 
 329:                                              ; preds = %325
-  %330 = icmp ult i64 %spec.select, %.sroa.5.0
+  %330 = icmp ult i64 %.sroa.016.0., %.sroa.5.0
   br i1 %330, label %331, label %335
 
 331:                                              ; preds = %329
-  %332 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 %spec.select
+  %332 = getelementptr inbounds i8, ptr %.sroa.012.0, i64 %.sroa.016.0.
   %333 = load i8, ptr %332, align 1, !noundef !4
   %334 = icmp sgt i8 %333, -65
   br i1 %334, label %select.unfold144, label %337
 
 335:                                              ; preds = %329
-  %336 = icmp eq i64 %spec.select, %.sroa.5.0
+  %336 = icmp eq i64 %.sroa.016.0., %.sroa.5.0
   br i1 %336, label %select.unfold144, label %337
 
 337:                                              ; preds = %331, %335
-  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.012.0, i64 noundef %.sroa.5.0, i64 noundef 0, i64 noundef %spec.select, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2f13f7ae31c46e97a8e87533050cbefc.1167) #80
+  invoke void @_ZN4core3str16slice_error_fail17h402ef64b20c243efE(ptr noalias noundef nonnull readonly align 1 %.sroa.012.0, i64 noundef %.sroa.5.0, i64 noundef 0, i64 noundef %.sroa.016.0., ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2f13f7ae31c46e97a8e87533050cbefc.1167) #80
           to label %341 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 select.unfold144:                                 ; preds = %335, %331, %325
   store ptr %.sroa.012.0, ptr %16, align 8
   %338 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %spec.select, ptr %338, align 8
+  store i64 %.sroa.016.0., ptr %338, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  %spec.select175 = select i1 %20, ptr inttoptr (i64 1 to ptr), ptr %4
-  %spec.select176 = select i1 %20, i64 0, i64 %5
-  store ptr %spec.select175, ptr %15, align 8
+  %spec.select = select i1 %20, ptr inttoptr (i64 1 to ptr), ptr %4
+  %spec.select175 = select i1 %20, i64 0, i64 %5
+  store ptr %spec.select, ptr %15, align 8
   %339 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %spec.select176, ptr %339, align 8
+  store i64 %spec.select175, ptr %339, align 8
   store ptr %16, ptr %17, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77e6a36f7ebc64f0E", ptr %.sroa.435.0..sroa_idx, align 8

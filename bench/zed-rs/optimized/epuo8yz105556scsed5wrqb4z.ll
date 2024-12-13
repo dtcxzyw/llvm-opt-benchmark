@@ -17367,11 +17367,14 @@ default.unreachable122:                           ; preds = %115, %65, %2
 
 .noexc130.i.i:                                    ; preds = %251
   %253 = load i64, ptr %20, align 8, !range !250, !noalias !2754, !noundef !25
-  %trunc.i128.i.i = trunc nuw i64 %253 to i1
   %254 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %255 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %255, ptr noundef nonnull align 8 dereferenceable(40) %254, i64 40, i1 false), !noalias !2757
-  br i1 %trunc.i128.i.i, label %262, label %438
+  store i64 %253, ptr %43, align 8, !alias.scope !2751, !noalias !2757
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !2754
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
+  %trunc.i.i = trunc nuw i64 %253 to i1
+  br i1 %trunc.i.i, label %262, label %438
 
 256:                                              ; preds = %260, %249
   %.pn24.i.i = phi { ptr, i32 } [ %261, %260 ], [ %250, %249 ]
@@ -17390,9 +17393,6 @@ default.unreachable122:                           ; preds = %115, %65, %2
   br label %256
 
 262:                                              ; preds = %.noexc130.i.i
-  store i64 1, ptr %43, align 8, !alias.scope !2751, !noalias !2757
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %255, i64 40, i1 false)
   %263 = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 -104
@@ -17940,9 +17940,6 @@ default.unreachable122:                           ; preds = %115, %65, %2
           to label %"_ZN4core3ptr257drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$alloc..string..String$C$live_kit_client..test..TestServerRoom$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h1642950e74b755c3E.exit169.i.i" unwind label %376
 
 438:                                              ; preds = %.noexc130.i.i
-  store i64 0, ptr %43, align 8, !alias.scope !2751, !noalias !2757
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !2754
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   store ptr %47, ptr %30, align 8

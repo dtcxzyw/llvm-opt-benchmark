@@ -3711,8 +3711,8 @@ if.then182.i:                                     ; preds = %land.lhs.true.i
   br label %do.body190.i
 
 do.body190.i:                                     ; preds = %do.body190.i, %if.then182.i
-  %min.1.i = phi i64 [ %spec.select.i, %if.then182.i ], [ %min.2.i, %do.body190.i ]
-  %max.1.i = phi i64 [ %spec.select35.i, %if.then182.i ], [ %max.2.i, %do.body190.i ]
+  %min.1.i = phi i64 [ %spec.select.i, %if.then182.i ], [ %.min.1.i, %do.body190.i ]
+  %max.1.i = phi i64 [ %spec.select35.i, %if.then182.i ], [ %max.1..i, %do.body190.i ]
   %sub.i = sub i64 %max.1.i, %min.1.i
   %div34.i = lshr i64 %sub.i, 1
   %add.i = add i64 %div34.i, %min.1.i
@@ -3720,10 +3720,10 @@ do.body190.i:                                     ; preds = %do.body190.i, %if.t
   %call192.i = call i32 @setrlimit64(i32 noundef 7, ptr noundef nonnull %lim.i) #22
   %tobool193.not.i = icmp eq i32 %call192.i, 0
   %29 = load i64, ptr %lim.i, align 8
-  %min.2.i = select i1 %tobool193.not.i, i64 %29, i64 %min.1.i
-  %max.2.i = select i1 %tobool193.not.i, i64 %max.1.i, i64 %29
-  %add199.i = add i64 %min.2.i, 1
-  %cmp200.i = icmp ult i64 %add199.i, %max.2.i
+  %.min.1.i = select i1 %tobool193.not.i, i64 %29, i64 %min.1.i
+  %max.1..i = select i1 %tobool193.not.i, i64 %max.1.i, i64 %29
+  %add199.i = add i64 %.min.1.i, 1
+  %cmp200.i = icmp ult i64 %add199.i, %max.1..i
   br i1 %cmp200.i, label %do.body190.i, label %_ZN4nodeL12PlatformInitENS_26ProcessInitializationFlags5FlagsE.exit, !llvm.loop !53
 
 _ZN4nodeL12PlatformInitENS_26ProcessInitializationFlags5FlagsE.exit: ; preds = %do.body190.i, %if.end175.i, %if.then178.i, %land.lhs.true.i

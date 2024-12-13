@@ -28034,20 +28034,20 @@ proto_get_next_protocol.exit:                     ; preds = %proto_can_toggle_pr
 define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %1 = load i32, ptr @gpa_hfinfo.0, align 8
   %2 = icmp sgt i32 %1, 0
-  br i1 %2, label %.lr.ph256, label %._crit_edge
+  br i1 %2, label %.lr.ph257, label %._crit_edge
 
-.lr.ph256:                                        ; preds = %0
+.lr.ph257:                                        ; preds = %0
   %3 = load ptr, ptr @g_ascii_table, align 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %4
 
-4:                                                ; preds = %.lr.ph256, %.thread233
-  %indvars.iv = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next, %.thread233 ]
+4:                                                ; preds = %.lr.ph257, %.thread234
+  %indvars.iv = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next, %.thread234 ]
   %5 = load ptr, ptr @gpa_hfinfo.2, align 8
   %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread233, label %9
+  br i1 %8, label %.thread234, label %9
 
 9:                                                ; preds = %4
   %10 = icmp eq i64 %indvars.iv, 0
@@ -28072,8 +28072,8 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %17
-  %.0255262 = phi i32 [ %18, %.loopexit.loopexit ], [ 0, %17 ]
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 11452, ptr noundef nonnull @__func__.proto_registrar_dump_values, ptr noundef nonnull @.str.2, i32 noundef %.0255262) #35
+  %.0256263 = phi i32 [ %18, %.loopexit.loopexit ], [ 0, %17 ]
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 11452, ptr noundef nonnull @__func__.proto_registrar_dump_values, ptr noundef nonnull @.str.2, i32 noundef %.0256263) #35
   unreachable
 
 19:                                               ; preds = %11
@@ -28089,19 +28089,19 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @hf_text_only, align 4
   %25 = icmp eq i32 %23, %24
-  br i1 %25, label %.thread233, label %26
+  br i1 %25, label %.thread234, label %26
 
 26:                                               ; preds = %21
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call i32 @proto_registrar_is_protocol(i32 noundef %27)
   %.not148 = icmp eq i32 %28, 0
-  br i1 %.not148, label %29, label %.thread233
+  br i1 %.not148, label %29, label %.thread234
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not149 = icmp eq ptr %31, null
-  br i1 %.not149, label %.thread233, label %32
+  br i1 %.not149, label %.thread234, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -28110,10 +28110,10 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %.not150 = icmp eq i32 %35, 6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %.not150, label %._crit_edge264, label %36
+  br i1 %.not150, label %._crit_edge265, label %36
 
 36:                                               ; preds = %32
-  switch i32 %.pre, label %.thread233 [
+  switch i32 %.pre, label %.thread234 [
     i32 3, label %37
     i32 4, label %37
     i32 5, label %37
@@ -28139,15 +28139,15 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 37:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   %38 = and i32 %34, 256
   %.not151 = icmp eq i32 %38, 0
-  br i1 %.not151, label %42, label %.preheader241
+  br i1 %.not151, label %42, label %.preheader242
 
-.preheader241:                                    ; preds = %37
+.preheader242:                                    ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %40 = load ptr, ptr %39, align 8
-  %.not162247 = icmp eq ptr %40, null
-  br i1 %.not162247, label %.thread233, label %.lr.ph
+  %.not162248 = icmp eq ptr %40, null
+  br i1 %.not162248, label %.thread234, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader241
+.lr.ph:                                           ; preds = %.preheader242
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %125
 
@@ -28167,30 +28167,30 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 47:                                               ; preds = %46
   %48 = and i32 %34, 4096
   %.not154 = icmp eq i32 %48, 0
-  br i1 %.not154, label %.thread185.thread, label %148
+  br i1 %.not154, label %.thread186.thread, label %148
 
-._crit_edge264:                                   ; preds = %32
+._crit_edge265:                                   ; preds = %32
   %49 = icmp eq i32 %.pre, 2
-  br i1 %49, label %141, label %.thread233
+  br i1 %49, label %141, label %.thread234
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not156 = icmp eq ptr %52, null
-  br i1 %.not156, label %.thread233, label %.thread185
+  br i1 %.not156, label %.thread234, label %.thread186
 
-.thread185:                                       ; preds = %50
+.thread186:                                       ; preds = %50
   %53 = tail call i32 @value_string_ext_validate(ptr noundef nonnull %31) #33
   %.not166 = icmp eq i32 %53, 0
   br i1 %.not166, label %54, label %57
 
-54:                                               ; preds = %.thread185
+54:                                               ; preds = %.thread186
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 11546, ptr noundef nonnull @__func__.proto_registrar_dump_values, ptr noundef nonnull @.str.136, ptr noundef %56) #33
-  br label %.thread233
+  br label %.thread234
 
-57:                                               ; preds = %.thread185
+57:                                               ; preds = %.thread186
   %58 = tail call ptr @try_val_to_str_ext(i32 noundef 0, ptr noundef nonnull %31) #33
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = load ptr, ptr %59, align 8
@@ -28200,23 +28200,23 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @value_string_ext_match_type_str(ptr noundef nonnull %31) #33
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, ptr noundef %60, i32 noundef %62, ptr noundef %64, ptr noundef %65)
-  br label %.thread185.thread
+  br label %.thread186.thread
 
-.thread185.thread:                                ; preds = %47, %57
-  %.0141192266 = phi ptr [ %52, %57 ], [ %31, %47 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.0141192266, i64 8
+.thread186.thread:                                ; preds = %47, %57
+  %.0141193267 = phi ptr [ %52, %57 ], [ %31, %47 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.0141193267, i64 8
   %68 = load ptr, ptr %67, align 8
-  %.not168252 = icmp eq ptr %68, null
-  br i1 %.not168252, label %.thread233, label %.lr.ph254
+  %.not168253 = icmp eq ptr %68, null
+  br i1 %.not168253, label %.thread234, label %.lr.ph255
 
-.lr.ph254:                                        ; preds = %.thread185.thread
+.lr.ph255:                                        ; preds = %.thread186.thread
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %70
 
-70:                                               ; preds = %.lr.ph254, %102
-  %71 = phi ptr [ %68, %.lr.ph254 ], [ %107, %102 ]
-  %72 = phi ptr [ %.0141192266, %.lr.ph254 ], [ %105, %102 ]
-  %.0136253 = phi i32 [ 0, %.lr.ph254 ], [ %103, %102 ]
+70:                                               ; preds = %.lr.ph255, %102
+  %71 = phi ptr [ %68, %.lr.ph255 ], [ %107, %102 ]
+  %72 = phi ptr [ %.0141193267, %.lr.ph255 ], [ %105, %102 ]
+  %.0136254 = phi i32 [ 0, %.lr.ph255 ], [ %103, %102 ]
   %73 = load i32, ptr %.phi.trans.insert, align 8
   %74 = icmp eq i32 %73, 3
   br i1 %74, label %75, label %93
@@ -28266,50 +28266,50 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   br label %102
 
 102:                                              ; preds = %98, %100, %82, %91, %89
-  %103 = add i32 %.0136253, 1
+  %103 = add i32 %.0136254, 1
   %104 = sext i32 %103 to i64
-  %105 = getelementptr %struct._value_string, ptr %.0141192266, i64 %104
+  %105 = getelementptr %struct._value_string, ptr %.0141193267, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not168 = icmp eq ptr %107, null
-  br i1 %.not168, label %.thread233, label %70, !llvm.loop !48
+  br i1 %.not168, label %.thread234, label %70, !llvm.loop !48
 
 108:                                              ; preds = %45
   %109 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not157 = icmp eq ptr %110, null
-  br i1 %.not157, label %.thread233, label %.preheader
+  br i1 %.not157, label %.thread234, label %.preheader
 
 .preheader:                                       ; preds = %46, %108
-  %.0140.ph270 = phi ptr [ %110, %108 ], [ %31, %46 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.0140.ph270, i64 8
+  %.0140.ph271 = phi ptr [ %110, %108 ], [ %31, %46 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.0140.ph271, i64 8
   %112 = load ptr, ptr %111, align 8
-  %.not163249 = icmp eq ptr %112, null
-  br i1 %.not163249, label %.thread233, label %.lr.ph251
+  %.not163250 = icmp eq ptr %112, null
+  br i1 %.not163250, label %.thread234, label %.lr.ph252
 
-.lr.ph251:                                        ; preds = %.preheader
+.lr.ph252:                                        ; preds = %.preheader
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %114
 
-114:                                              ; preds = %.lr.ph251, %114
-  %115 = phi ptr [ %112, %.lr.ph251 ], [ %124, %114 ]
-  %116 = phi ptr [ %.0140.ph270, %.lr.ph251 ], [ %122, %114 ]
-  %.1250 = phi i32 [ 0, %.lr.ph251 ], [ %120, %114 ]
+114:                                              ; preds = %.lr.ph252, %114
+  %115 = phi ptr [ %112, %.lr.ph252 ], [ %124, %114 ]
+  %116 = phi ptr [ %.0140.ph271, %.lr.ph252 ], [ %122, %114 ]
+  %.1251 = phi i32 [ 0, %.lr.ph252 ], [ %120, %114 ]
   %117 = load ptr, ptr %113, align 8
   %118 = load i64, ptr %116, align 8
   %119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.142, ptr noundef %117, i64 noundef %118, ptr noundef nonnull %115)
-  %120 = add i32 %.1250, 1
+  %120 = add i32 %.1251, 1
   %121 = sext i32 %120 to i64
-  %122 = getelementptr %struct._val64_string, ptr %.0140.ph270, i64 %121
+  %122 = getelementptr %struct._val64_string, ptr %.0140.ph271, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %.not163 = icmp eq ptr %124, null
-  br i1 %.not163, label %.thread233, label %114, !llvm.loop !49
+  br i1 %.not163, label %.thread234, label %114, !llvm.loop !49
 
 125:                                              ; preds = %.lr.ph, %125
   %126 = phi ptr [ %40, %.lr.ph ], [ %140, %125 ]
   %127 = phi ptr [ %31, %.lr.ph ], [ %138, %125 ]
-  %.2248 = phi i32 [ 0, %.lr.ph ], [ %136, %125 ]
+  %.2249 = phi i32 [ 0, %.lr.ph ], [ %136, %125 ]
   %128 = load i32, ptr %33, align 4
   %129 = and i32 %128, 255
   %130 = icmp eq i32 %129, 2
@@ -28319,22 +28319,22 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %134 = load i64, ptr %133, align 8
   %.str.143..str.144 = select i1 %130, ptr @.str.143, ptr @.str.144
   %135 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.143..str.144, ptr noundef %131, i64 noundef %132, i64 noundef %134, ptr noundef nonnull %126)
-  %136 = add i32 %.2248, 1
+  %136 = add i32 %.2249, 1
   %137 = sext i32 %136 to i64
   %138 = getelementptr %struct._range_string, ptr %31, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8
   %.not162 = icmp eq ptr %140, null
-  br i1 %.not162, label %.thread233, label %125, !llvm.loop !50
+  br i1 %.not162, label %.thread234, label %125, !llvm.loop !50
 
-141:                                              ; preds = %36, %._crit_edge264
+141:                                              ; preds = %36, %._crit_edge265
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %31, align 8
   %145 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.145, ptr noundef %143, ptr noundef %144, ptr noundef %146)
-  br label %.thread233
+  br label %.thread234
 
 148:                                              ; preds = %47
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -28345,14 +28345,14 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %.not161 = icmp eq ptr %153, null
   %spec.select = select i1 %.not161, ptr @.str.147, ptr %153
   %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, ptr noundef %150, ptr noundef %151, ptr noundef nonnull %spec.select)
-  br label %.thread233
+  br label %.thread234
 
-.thread233:                                       ; preds = %125, %114, %102, %36, %.preheader241, %.preheader, %.thread185.thread, %29, %._crit_edge264, %50, %108, %148, %141, %26, %21, %4, %54
+.thread234:                                       ; preds = %125, %114, %102, %36, %.preheader242, %.preheader, %.thread186.thread, %29, %._crit_edge265, %50, %108, %148, %141, %26, %21, %4, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !51
 
-._crit_edge:                                      ; preds = %.thread233, %0
+._crit_edge:                                      ; preds = %.thread234, %0
   ret void
 }
 

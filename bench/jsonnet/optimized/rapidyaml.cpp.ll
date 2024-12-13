@@ -2084,7 +2084,7 @@ define dso_local void @_ZN2c43yml5errorEPKcmNS0_8LocationE(ptr noundef %0, i64 n
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE(ptr %0, i64 %1) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr %0, i64 %1)
-  switch i16 %3, label %default.unreachable37 [
+  switch i16 %3, label %default.unreachable32 [
     i16 0, label %17
     i16 1, label %_ZN2c43yml8from_tagENS0_9YamlTag_eE.exit
     i16 2, label %4
@@ -2141,7 +2141,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml13normalize_tagENS_15basic_substringIKc
 16:                                               ; preds = %2
   br label %_ZN2c43yml8from_tagENS0_9YamlTag_eE.exit
 
-default.unreachable37:                            ; preds = %2
+default.unreachable32:                            ; preds = %2
   unreachable
 
 17:                                               ; preds = %2
@@ -2545,7 +2545,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml18normalize_tag_longENS_15basic_substringIKcEE(ptr %0, i64 %1) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr %0, i64 %1)
-  switch i16 %3, label %default.unreachable37 [
+  switch i16 %3, label %default.unreachable32 [
     i16 0, label %17
     i16 1, label %_ZN2c43yml13from_tag_longENS0_9YamlTag_eE.exit
     i16 2, label %4
@@ -2602,7 +2602,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml18normalize_tag_longENS_15basic_substri
 16:                                               ; preds = %2
   br label %_ZN2c43yml13from_tag_longENS0_9YamlTag_eE.exit
 
-default.unreachable37:                            ; preds = %2
+default.unreachable32:                            ; preds = %2
   unreachable
 
 17:                                               ; preds = %2
@@ -19944,8 +19944,8 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit206: ; preds = %.lr.ph.i201, %
   call void @_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nonnull @.str.227, i64 18)
   br label %479
 
-479:                                              ; preds = %388, %.thread313, %.critedge4, %244, %390, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread, %347, %349, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit141, %338, %_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv.exit, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit126.thread, %245, %82, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit206, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit198, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit159, %358, %_ZNK2c415basic_substringIKcE11begins_withEc.exit149.thread, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit109, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit101, %228, %_ZN2c43yml6Parser16_line_progressedEm.exit84, %_ZN2c43yml6Parser16_line_progressedEm.exit, %66
-  %.061 = phi i1 [ true, %66 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit84 ], [ true, %228 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit101 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit109 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit149.thread ], [ true, %358 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit159 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit206 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit198 ], [ true, %82 ], [ true, %245 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit126.thread ], [ true, %_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv.exit ], [ true, %338 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit141 ], [ true, %349 ], [ true, %347 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread ], [ true, %390 ], [ false, %244 ], [ false, %.critedge4 ], [ false, %.thread313 ], [ true, %388 ]
+479:                                              ; preds = %.thread313, %.critedge4, %244, %390, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread, %388, %347, %349, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit141, %338, %_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv.exit, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit126.thread, %245, %82, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit206, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit198, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit159, %358, %_ZNK2c415basic_substringIKcE11begins_withEc.exit149.thread, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit109, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit101, %228, %_ZN2c43yml6Parser16_line_progressedEm.exit84, %_ZN2c43yml6Parser16_line_progressedEm.exit, %66
+  %.061 = phi i1 [ true, %66 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit84 ], [ true, %228 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit101 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit109 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit149.thread ], [ true, %358 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit159 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit206 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit198 ], [ true, %82 ], [ true, %245 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit126.thread ], [ true, %_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv.exit ], [ true, %338 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit141 ], [ true, %349 ], [ true, %347 ], [ true, %388 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread ], [ true, %390 ], [ false, %244 ], [ false, %.critedge4 ], [ false, %.thread313 ]
   ret i1 %.061
 }
 
@@ -22444,8 +22444,8 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit55.thread
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit55.thread: ; preds = %252, %618, %403, %_ZN2c43yml6Parser16_line_progressedEm.exit, %206, %505, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit, %.loopexit317, %620, %_ZNK2c415basic_substringIKcE11begins_withEc.exit165.thread, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit144, %_ZNK2c415basic_substringIKcE11begins_withEc.exit146.thread, %558, %503, %.thread263, %_ZNK2c415basic_substringIKcE11begins_withEc.exit96, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit.thread, %_ZNK2c415basic_substringIKcE11begins_withEc.exit55, %281, %112, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit195, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit179, %605, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread, %596, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit154, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit136, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit128, %_ZNK2c415basic_substringIKcE7compareEc.exit120.thread, %392, %_ZN2c43yml6Parser16_line_progressedEm.exit77, %76
-  %.042 = phi i1 [ true, %76 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit77 ], [ true, %392 ], [ true, %_ZNK2c415basic_substringIKcE7compareEc.exit120.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit128 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit136 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit154 ], [ true, %596 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread ], [ true, %605 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit179 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit195 ], [ true, %112 ], [ true, %281 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit55 ], [ true, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit96 ], [ true, %.thread263 ], [ true, %503 ], [ true, %558 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit146.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit144 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit165.thread ], [ true, %620 ], [ false, %.loopexit317 ], [ false, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ false, %505 ], [ true, %206 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit ], [ true, %403 ], [ true, %618 ], [ true, %252 ]
+_ZNK2c415basic_substringIKcE11begins_withEc.exit55.thread: ; preds = %252, %403, %_ZN2c43yml6Parser16_line_progressedEm.exit, %206, %505, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit, %.loopexit317, %620, %_ZNK2c415basic_substringIKcE11begins_withEc.exit165.thread, %618, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit144, %_ZNK2c415basic_substringIKcE11begins_withEc.exit146.thread, %558, %503, %.thread263, %_ZNK2c415basic_substringIKcE11begins_withEc.exit96, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit.thread, %_ZNK2c415basic_substringIKcE11begins_withEc.exit55, %281, %112, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit195, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit179, %605, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread, %596, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit154, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit136, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit128, %_ZNK2c415basic_substringIKcE7compareEc.exit120.thread, %392, %_ZN2c43yml6Parser16_line_progressedEm.exit77, %76
+  %.042 = phi i1 [ true, %76 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit77 ], [ true, %392 ], [ true, %_ZNK2c415basic_substringIKcE7compareEc.exit120.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit128 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit136 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit154 ], [ true, %596 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit161.thread ], [ true, %605 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit179 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit195 ], [ true, %112 ], [ true, %281 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit55 ], [ true, %_ZNK2c415basic_substringIKcE12first_not_ofEcm.exit.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit96 ], [ true, %.thread263 ], [ true, %503 ], [ true, %558 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit146.thread ], [ true, %_ZNK2c415basic_substringIKcE11begins_withES2_.exit144 ], [ true, %618 ], [ true, %_ZNK2c415basic_substringIKcE11begins_withEc.exit165.thread ], [ true, %620 ], [ false, %.loopexit317 ], [ false, %_ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit ], [ false, %505 ], [ true, %206 ], [ true, %_ZN2c43yml6Parser16_line_progressedEm.exit ], [ true, %403 ], [ true, %252 ]
   ret i1 %.042
 }
 

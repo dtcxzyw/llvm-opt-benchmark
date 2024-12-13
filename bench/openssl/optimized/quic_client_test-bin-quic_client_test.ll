@@ -174,8 +174,8 @@ if.end55:                                         ; preds = %if.end48
 if.end62:                                         ; preds = %if.end55
   %call63 = call i64 @ossl_time_now() #6
   %call6561 = call i64 @ossl_time_now() #6
-  %retval.sroa.0.0.i62 = call i64 @llvm.usub.sat.i64(i64 %call6561, i64 %call63)
-  %cmp7763 = icmp ugt i64 %retval.sroa.0.0.i62, 9999999999
+  %.sub.i.i62 = call i64 @llvm.usub.sat.i64(i64 %call6561, i64 %call63)
+  %cmp7763 = icmp ugt i64 %.sub.i.i62, 9999999999
   br i1 %cmp7763, label %if.then79, label %if.end80
 
 if.then79:                                        ; preds = %if.end152, %if.end62
@@ -288,8 +288,8 @@ if.end152:                                        ; preds = %if.else138, %if.els
   call void @OSSL_sleep(i64 noundef 0) #6
   %call153 = call i32 @SSL_handle_events(ptr noundef %call37) #6
   %call65 = call i64 @ossl_time_now() #6
-  %retval.sroa.0.0.i = call i64 @llvm.usub.sat.i64(i64 %call65, i64 %call63)
-  %cmp77 = icmp ugt i64 %retval.sroa.0.0.i, 9999999999
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call65, i64 %call63)
+  %cmp77 = icmp ugt i64 %.sub.i.i, 9999999999
   br i1 %cmp77, label %if.then79, label %if.end80
 
 err:                                              ; preds = %lor.end.thread, %if.then146, %if.else138, %if.else, %if.end106, %if.then101, %lor.end, %if.end48, %if.end55, %if.end41, %if.end36, %if.end30, %if.end25, %if.end20, %if.end12, %if.end7, %if.end, %entry, %if.then79

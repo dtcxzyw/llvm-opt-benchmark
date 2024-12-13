@@ -552,16 +552,16 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %108 = icmp eq i16 %22, 640
   %109 = load i32, ptr %106, align 4
   %. = select i1 %108, i32 %109, i32 %23
-  %.242 = select i1 %108, i32 0, i32 %109
+  %.237 = select i1 %108, i32 0, i32 %109
   br label %110
 
 110:                                              ; preds = %107, %102
   %.1 = phi i32 [ %23, %102 ], [ %., %107 ]
-  %.0222 = phi i32 [ 0, %102 ], [ %.242, %107 ]
-  %.not240 = icmp eq i32 %.1, 32769
+  %.0222 = phi i32 [ 0, %102 ], [ %.237, %107 ]
+  %.not241 = icmp eq i32 %.1, 32769
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8
-  br i1 %.not240, label %.thread, label %114
+  br i1 %.not241, label %.thread, label %114
 
 .thread:                                          ; preds = %110
   %113 = call ptr @val_to_str(i32 noundef %.0222, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.221) #4

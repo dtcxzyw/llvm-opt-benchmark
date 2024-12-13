@@ -9806,9 +9806,9 @@ define hidden noundef i64 @"_ZN4just6recipe15Recipe$LT$D$GT$13max_arguments17hef
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %7, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h27ee96c07846fb62E.llvm.3204583114324502961.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h27ee96c07846fb62E.llvm.3204583114324502961.exit": ; preds = %9, %7
-  %.0 = phi i64 [ %5, %7 ], [ -2, %9 ]
-  ret i64 %.0
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h27ee96c07846fb62E.llvm.3204583114324502961.exit": ; preds = %7, %9
+  %. = phi i64 [ %5, %7 ], [ -2, %9 ]
+  ret i64 %.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

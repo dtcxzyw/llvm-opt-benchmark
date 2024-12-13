@@ -8422,8 +8422,8 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %93
 
 .noexc93.i:                                       ; preds = %"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.exit13.i.i.i"
   %133 = load i8, ptr %23, align 8, !range !738, !noalias !1340, !noundef !5
-  %.not12.i.i.i.i.i.i.i.i = icmp eq i8 %133, 10
-  br i1 %.not12.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
+  %.not13.i.i.i.i.i.i.i.i = icmp eq i8 %133, 10
+  br i1 %.not13.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc93.i, %.noexc95.i
   %134 = phi i8 [ %188, %.noexc95.i ], [ %133, %.noexc93.i ]
@@ -8495,7 +8495,8 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %156 = icmp ne ptr %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %156)
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1358, !noalias !1362
-  %157 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %bcmp.i.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %157 = icmp eq i32 %bcmp.i.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %157, label %187, label %.thread213.i
 
 158:                                              ; preds = %152
@@ -8515,7 +8516,8 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
 
 162:                                              ; preds = %152
   %163 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
-  br i1 %163, label %187, label %.thread213.i
+  %cond.fr24.i.i.i.i.i.i.i.i.i.i = freeze i1 %163
+  br i1 %cond.fr24.i.i.i.i.i.i.i.i.i.i, label %187, label %.thread213.i
 
 164:                                              ; preds = %152
   %.not.i7.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i, %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i
@@ -8527,7 +8529,8 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %167 = icmp ne ptr %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %167)
   %bcmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1379, !noalias !1362
-  %168 = icmp eq i32 %bcmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %bcmp.i9.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i = freeze i32 %bcmp.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %168 = icmp eq i32 %bcmp.i9.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %168, label %187, label %.thread213.i
 
 169:                                              ; preds = %152
@@ -8542,12 +8545,13 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %bcmp.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1383, !noalias !1362
   %172 = icmp eq i32 %bcmp.i13.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   %.not.i19.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.79.0.copyload.i.i.i.i.i.i.i.i, %.sroa.78.0.copyload.i.i.i.i.i.i.i.i.i.i
-  %or.cond33.i.i.i.i.i.i.i.i.i.i.i = select i1 %172, i1 %.not.i19.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
-  br i1 %or.cond33.i.i.i.i.i.i.i.i.i.i.i, label %179, label %.thread213.i
+  %or.cond26.i.i.i.i.i.i.i.i.i.i.i = select i1 %172, i1 %.not.i19.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
+  br i1 %or.cond26.i.i.i.i.i.i.i.i.i.i.i, label %179, label %.thread213.i
 
 173:                                              ; preds = %152
   %174 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
-  br i1 %174, label %187, label %.thread213.i
+  %cond.fr23.i.i.i.i.i.i.i.i.i.i = freeze i1 %174
+  br i1 %cond.fr23.i.i.i.i.i.i.i.i.i.i, label %187, label %.thread213.i
 
 175:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %176 = icmp ne ptr %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i, null
@@ -8555,7 +8559,8 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %177 = icmp ne ptr %.sroa.68.0.copyload.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %177)
   %bcmp.i17.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.68.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.79.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1387, !noalias !1362
-  %178 = icmp eq i32 %bcmp.i17.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %bcmp.i17.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i = freeze i32 %bcmp.i17.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %178 = icmp eq i32 %bcmp.i17.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %178, label %187, label %.thread213.i
 
 179:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit14.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -8564,23 +8569,25 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %181 = icmp ne ptr %.sroa.68.0.copyload.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %181)
   %bcmp.i21.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.68.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.79.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1391, !noalias !1362
-  %182 = icmp eq i32 %bcmp.i21.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %bcmp.i21.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i = freeze i32 %bcmp.i21.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %182 = icmp eq i32 %bcmp.i21.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %182, label %187, label %.thread213.i
 
 183:                                              ; preds = %148
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i, %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17ha7c1dff7b1837313E.exit.i.i.i.i.i.i.i.i.i.i.i", label %.thread213.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h27607d4a6d0f875dE.exit.i.i.i.i.i.i.i.i.i.i", label %.thread213.i
 
-"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17ha7c1dff7b1837313E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %183
+"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h27607d4a6d0f875dE.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %183
   %184 = icmp ne ptr %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %184)
   %185 = icmp ne ptr %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, null
   call void @llvm.assume(i1 %185)
   %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.46.0.copyload.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i, i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i), !alias.scope !1395, !noalias !1399
-  %186 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
+  %bcmp.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %186 = icmp eq i32 %bcmp.i.i.i.i.fr.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %186, label %187, label %.thread213.i
 
-187:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17ha7c1dff7b1837313E.exit.i.i.i.i.i.i.i.i.i.i.i", %179, %175, %173, %165, %162, %154, %149, %148
+187:                                              ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h27607d4a6d0f875dE.exit.i.i.i.i.i.i.i.i.i.i", %179, %175, %173, %165, %162, %154, %149, %148
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22), !noalias !1353
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23), !noalias !1340
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %23), !noalias !1340
@@ -8592,7 +8599,7 @@ default.unreachable25.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %152
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %188, 10
   br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.thread213.i:                                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator2eq28_$u7b$$u7b$closure$u7d$$u7d$17ha7c1dff7b1837313E.exit.i.i.i.i.i.i.i.i.i.i.i", %183, %179, %175, %173, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit14.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %169, %165, %164, %162, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %158, %154, %153, %150, %137, %.noexc94.i
+.thread213.i:                                     ; preds = %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h27607d4a6d0f875dE.exit.i.i.i.i.i.i.i.i.i.i", %183, %179, %175, %173, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit14.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %169, %165, %164, %162, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %158, %154, %153, %150, %137, %.noexc94.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22), !noalias !1353
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23), !noalias !1340
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25), !noalias !1329

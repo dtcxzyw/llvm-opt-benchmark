@@ -794,7 +794,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double -1.000000e+00, ptr %83, align 8, !alias.scope !28, !noalias !31
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %84 unwind label %338
+          to label %84 unwind label %339
 
 84:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -803,7 +803,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 1.000000e+00, ptr %85, align 8, !alias.scope !34, !noalias !37
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %86 unwind label %338
+          to label %86 unwind label %339
 
 86:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -840,7 +840,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %117 = call noundef double @llvm.fmuladd.f64(double %109, double %109, double %116)
   %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %117)
   %118 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %8, double noundef 1.000000e+00)
-          to label %119 unwind label %338
+          to label %119 unwind label %339
 
 119:                                              ; preds = %86
   %120 = fcmp ogt double %sqrt.i.i, 1.000000e-10
@@ -908,340 +908,339 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store double %171, ptr %172, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d15ExtractRotationEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRotation") align 8 %9, ptr noundef nonnull align 8 dereferenceable(128) %8)
-          to label %173 unwind label %338
+          to label %173 unwind label %339
 
 173:                                              ; preds = %119
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %176 = fcmp ogt double %117, 0.000000e+00
-  %.pn.in.idx.i = select i1 %176, i64 8, i64 0
-  %.pn.in.i = getelementptr inbounds nuw i8, ptr %175, i64 %.pn.in.idx.i
-  %.pn9.in.idx.i = select i1 %176, i64 0, i64 8
-  %.pn9.in.i = getelementptr inbounds nuw i8, ptr %175, i64 %.pn9.in.idx.i
-  %.pn9.i = load double, ptr %.pn9.in.i, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.val.i = load double, ptr %175, align 8
+  %.val11.i = load double, ptr %177, align 8
+  %.pn9.i = select i1 %176, double %.val.i, double %.val11.i
   %.sroa.0.0.i = fmul double %sqrt.i.i, %.pn9.i
-  %.pn.i = load double, ptr %.pn.in.i, align 8
+  %.pn.i = select i1 %176, double %.val11.i, double %.val.i
   %.sroa.3.0.i = fmul double %sqrt.i.i, %.pn.i
-  %177 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store double %.sroa.0.0.i, ptr %177, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store double %.sroa.0.0.i, ptr %178, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 96
   store double %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %179 = load double, ptr %178, align 8
-  %180 = fmul double %sqrt.i.i, %179
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store double %180, ptr %181, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %183 = load double, ptr %182, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %185 = load double, ptr %184, align 8
-  store double %183, ptr %12, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %185, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double -1.000000e+00, ptr %187, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %180 = load double, ptr %179, align 8
+  %181 = fmul double %sqrt.i.i, %180
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store double %181, ptr %182, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %184 = load double, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %186 = load double, ptr %185, align 8
+  store double %184, ptr %12, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store double %186, ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store double -1.000000e+00, ptr %188, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(24) %12)
-          to label %188 unwind label %338
+          to label %189 unwind label %339
 
-188:                                              ; preds = %173
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 72
+189:                                              ; preds = %173
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %.sroa.0.0.copyload.i = load double, ptr %0, align 8, !noalias !46
   %.sroa.4.0.copyload.i = load double, ptr %25, align 8, !noalias !46
   %.sroa.6.0.copyload.i = load double, ptr %31, align 8, !noalias !46
-  %190 = load double, ptr %11, align 8, !noalias !46
-  %191 = fadd double %.sroa.0.0.copyload.i, %190
-  %192 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %193 = load double, ptr %192, align 8, !noalias !46
-  %194 = fadd double %.sroa.4.0.copyload.i, %193
-  %195 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %196 = load double, ptr %195, align 8, !noalias !46
-  %197 = fadd double %.sroa.6.0.copyload.i, %196
-  store double %191, ptr %10, align 8, !alias.scope !46
+  %191 = load double, ptr %11, align 8, !noalias !46
+  %192 = fadd double %.sroa.0.0.copyload.i, %191
+  %193 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %194 = load double, ptr %193, align 8, !noalias !46
+  %195 = fadd double %.sroa.4.0.copyload.i, %194
+  %196 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %197 = load double, ptr %196, align 8, !noalias !46
+  %198 = fadd double %.sroa.6.0.copyload.i, %197
+  store double %192, ptr %10, align 8, !alias.scope !46
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %194, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !46
+  store double %195, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !46
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %197, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !46
-  %198 = load double, ptr %189, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %200 = load double, ptr %199, align 8
-  store double %198, ptr %15, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store double %200, ptr %201, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store double -1.000000e+00, ptr %202, align 8
+  store double %198, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !46
+  %199 = load double, ptr %190, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %201 = load double, ptr %200, align 8
+  store double %199, ptr %15, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store double %201, ptr %202, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store double -1.000000e+00, ptr %203, align 8
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %203 unwind label %338
+          to label %204 unwind label %339
 
-203:                                              ; preds = %188
+204:                                              ; preds = %189
   %.sroa.0.0.copyload.i17 = load double, ptr %0, align 8, !noalias !49
   %.sroa.4.0.copyload.i19 = load double, ptr %25, align 8, !noalias !49
   %.sroa.6.0.copyload.i21 = load double, ptr %31, align 8, !noalias !49
-  %204 = load double, ptr %14, align 8, !noalias !49
-  %205 = fadd double %.sroa.0.0.copyload.i17, %204
-  %206 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %207 = load double, ptr %206, align 8, !noalias !49
-  %208 = fadd double %.sroa.4.0.copyload.i19, %207
-  %209 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %210 = load double, ptr %209, align 8, !noalias !49
-  %211 = fadd double %.sroa.6.0.copyload.i21, %210
+  %205 = load double, ptr %14, align 8, !noalias !49
+  %206 = fadd double %.sroa.0.0.copyload.i17, %205
+  %207 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %208 = load double, ptr %207, align 8, !noalias !49
+  %209 = fadd double %.sroa.4.0.copyload.i19, %208
+  %210 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %211 = load double, ptr %210, align 8, !noalias !49
+  %212 = fadd double %.sroa.6.0.copyload.i21, %211
   %.sroa.4.0..sroa_idx3.i22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.6.0..sroa_idx5.i23 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %212 = load double, ptr %1, align 8, !noalias !52
-  %213 = load double, ptr %27, align 8, !noalias !52
-  %214 = fmul double %194, %213
-  %215 = call double @llvm.fmuladd.f64(double %191, double %212, double %214)
-  %216 = load double, ptr %33, align 8, !noalias !52
-  %217 = call double @llvm.fmuladd.f64(double %197, double %216, double %215)
-  %218 = load double, ptr %36, align 8, !noalias !52
-  %219 = fadd double %217, %218
-  %220 = load double, ptr %39, align 8, !noalias !52
-  %221 = load double, ptr %41, align 8, !noalias !52
-  %222 = fmul double %194, %221
-  %223 = call double @llvm.fmuladd.f64(double %191, double %220, double %222)
-  %224 = load double, ptr %45, align 8, !noalias !52
-  %225 = call double @llvm.fmuladd.f64(double %197, double %224, double %223)
-  %226 = load double, ptr %48, align 8, !noalias !52
-  %227 = fadd double %226, %225
-  %228 = load double, ptr %51, align 8, !noalias !52
-  %229 = load double, ptr %53, align 8, !noalias !52
-  %230 = fmul double %194, %229
-  %231 = call double @llvm.fmuladd.f64(double %191, double %228, double %230)
-  %232 = load double, ptr %57, align 8, !noalias !52
-  %233 = call double @llvm.fmuladd.f64(double %197, double %232, double %231)
-  %234 = load double, ptr %60, align 8, !noalias !52
-  %235 = fadd double %234, %233
-  %236 = load double, ptr %63, align 8, !noalias !52
-  %237 = load double, ptr %65, align 8, !noalias !52
-  %238 = fmul double %194, %237
-  %239 = call double @llvm.fmuladd.f64(double %191, double %236, double %238)
-  %240 = load double, ptr %69, align 8, !noalias !52
-  %241 = call double @llvm.fmuladd.f64(double %197, double %240, double %239)
-  %242 = load double, ptr %72, align 8, !noalias !52
-  %243 = fadd double %242, %241
-  %244 = fcmp une double %243, 0.000000e+00
-  %245 = fdiv double 1.000000e+00, %243
-  %246 = select i1 %244, double %245, double 1.000000e+00
-  %247 = fmul double %219, %246
-  %248 = fmul double %227, %246
-  %249 = fmul double %235, %246
-  %250 = fmul double %208, %213
-  %251 = call double @llvm.fmuladd.f64(double %205, double %212, double %250)
-  %252 = call double @llvm.fmuladd.f64(double %211, double %216, double %251)
-  %253 = fadd double %252, %218
-  %254 = fmul double %208, %221
-  %255 = call double @llvm.fmuladd.f64(double %205, double %220, double %254)
-  %256 = call double @llvm.fmuladd.f64(double %211, double %224, double %255)
-  %257 = fadd double %226, %256
-  %258 = fmul double %208, %229
-  %259 = call double @llvm.fmuladd.f64(double %205, double %228, double %258)
-  %260 = call double @llvm.fmuladd.f64(double %211, double %232, double %259)
-  %261 = fadd double %234, %260
-  %262 = fmul double %208, %237
-  %263 = call double @llvm.fmuladd.f64(double %205, double %236, double %262)
-  %264 = call double @llvm.fmuladd.f64(double %211, double %240, double %263)
-  %265 = fadd double %242, %264
-  %266 = fcmp une double %265, 0.000000e+00
-  %267 = fdiv double 1.000000e+00, %265
-  %268 = select i1 %266, double %267, double 1.000000e+00
-  %269 = fmul double %253, %268
-  %270 = fmul double %257, %268
-  %271 = fmul double %261, %268
-  %272 = load double, ptr %5, align 8
-  %273 = fsub double %247, %272
-  store double %273, ptr %10, align 8
-  %274 = load double, ptr %.sroa.269.0..sroa_idx, align 8
-  %275 = fsub double %248, %274
-  store double %275, ptr %.sroa.4.0..sroa_idx3.i, align 8
-  %276 = load double, ptr %.sroa.370.0..sroa_idx, align 8
-  %277 = fsub double %249, %276
-  store double %277, ptr %.sroa.6.0..sroa_idx5.i, align 8
-  %278 = fsub double %269, %272
-  store double %278, ptr %13, align 8
-  %279 = fsub double %270, %274
-  store double %279, ptr %.sroa.4.0..sroa_idx3.i22, align 8
-  %280 = fsub double %271, %276
-  store double %280, ptr %.sroa.6.0..sroa_idx5.i23, align 8
+  %213 = load double, ptr %1, align 8, !noalias !52
+  %214 = load double, ptr %27, align 8, !noalias !52
+  %215 = fmul double %195, %214
+  %216 = call double @llvm.fmuladd.f64(double %192, double %213, double %215)
+  %217 = load double, ptr %33, align 8, !noalias !52
+  %218 = call double @llvm.fmuladd.f64(double %198, double %217, double %216)
+  %219 = load double, ptr %36, align 8, !noalias !52
+  %220 = fadd double %218, %219
+  %221 = load double, ptr %39, align 8, !noalias !52
+  %222 = load double, ptr %41, align 8, !noalias !52
+  %223 = fmul double %195, %222
+  %224 = call double @llvm.fmuladd.f64(double %192, double %221, double %223)
+  %225 = load double, ptr %45, align 8, !noalias !52
+  %226 = call double @llvm.fmuladd.f64(double %198, double %225, double %224)
+  %227 = load double, ptr %48, align 8, !noalias !52
+  %228 = fadd double %227, %226
+  %229 = load double, ptr %51, align 8, !noalias !52
+  %230 = load double, ptr %53, align 8, !noalias !52
+  %231 = fmul double %195, %230
+  %232 = call double @llvm.fmuladd.f64(double %192, double %229, double %231)
+  %233 = load double, ptr %57, align 8, !noalias !52
+  %234 = call double @llvm.fmuladd.f64(double %198, double %233, double %232)
+  %235 = load double, ptr %60, align 8, !noalias !52
+  %236 = fadd double %235, %234
+  %237 = load double, ptr %63, align 8, !noalias !52
+  %238 = load double, ptr %65, align 8, !noalias !52
+  %239 = fmul double %195, %238
+  %240 = call double @llvm.fmuladd.f64(double %192, double %237, double %239)
+  %241 = load double, ptr %69, align 8, !noalias !52
+  %242 = call double @llvm.fmuladd.f64(double %198, double %241, double %240)
+  %243 = load double, ptr %72, align 8, !noalias !52
+  %244 = fadd double %243, %242
+  %245 = fcmp une double %244, 0.000000e+00
+  %246 = fdiv double 1.000000e+00, %244
+  %247 = select i1 %245, double %246, double 1.000000e+00
+  %248 = fmul double %220, %247
+  %249 = fmul double %228, %247
+  %250 = fmul double %236, %247
+  %251 = fmul double %209, %214
+  %252 = call double @llvm.fmuladd.f64(double %206, double %213, double %251)
+  %253 = call double @llvm.fmuladd.f64(double %212, double %217, double %252)
+  %254 = fadd double %253, %219
+  %255 = fmul double %209, %222
+  %256 = call double @llvm.fmuladd.f64(double %206, double %221, double %255)
+  %257 = call double @llvm.fmuladd.f64(double %212, double %225, double %256)
+  %258 = fadd double %227, %257
+  %259 = fmul double %209, %230
+  %260 = call double @llvm.fmuladd.f64(double %206, double %229, double %259)
+  %261 = call double @llvm.fmuladd.f64(double %212, double %233, double %260)
+  %262 = fadd double %235, %261
+  %263 = fmul double %209, %238
+  %264 = call double @llvm.fmuladd.f64(double %206, double %237, double %263)
+  %265 = call double @llvm.fmuladd.f64(double %212, double %241, double %264)
+  %266 = fadd double %243, %265
+  %267 = fcmp une double %266, 0.000000e+00
+  %268 = fdiv double 1.000000e+00, %266
+  %269 = select i1 %267, double %268, double 1.000000e+00
+  %270 = fmul double %254, %269
+  %271 = fmul double %258, %269
+  %272 = fmul double %262, %269
+  %273 = load double, ptr %5, align 8
+  %274 = fsub double %248, %273
+  store double %274, ptr %10, align 8
+  %275 = load double, ptr %.sroa.269.0..sroa_idx, align 8
+  %276 = fsub double %249, %275
+  store double %276, ptr %.sroa.4.0..sroa_idx3.i, align 8
+  %277 = load double, ptr %.sroa.370.0..sroa_idx, align 8
+  %278 = fsub double %250, %277
+  store double %278, ptr %.sroa.6.0..sroa_idx5.i, align 8
+  %279 = fsub double %270, %273
+  store double %279, ptr %13, align 8
+  %280 = fsub double %271, %275
+  store double %280, ptr %.sroa.4.0..sroa_idx3.i22, align 8
+  %281 = fsub double %272, %277
+  store double %281, ptr %.sroa.6.0..sroa_idx5.i23, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %281 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %282 = load double, ptr %281, align 8, !noalias !55
-  %283 = fneg double %282
+  %282 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %283 = load double, ptr %282, align 8, !noalias !55
+  %284 = fneg double %283
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 24, i1 false)
-  %284 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store double %283, ptr %284, align 8, !alias.scope !55
-  %285 = load double, ptr %17, align 8, !alias.scope !55
-  %286 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %287 = load double, ptr %286, align 8, !alias.scope !55
-  %288 = fmul double %287, %287
-  %289 = call double @llvm.fmuladd.f64(double %285, double %285, double %288)
-  %290 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %291 = load double, ptr %290, align 8, !alias.scope !55
-  %292 = call noundef double @llvm.fmuladd.f64(double %291, double %291, double %289)
-  %293 = fadd double %292, -1.000000e+00
-  %294 = call double @llvm.fabs.f64(double %293)
-  %295 = fcmp olt double %294, 1.000000e-10
-  br i1 %295, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, label %296
+  %285 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store double %284, ptr %285, align 8, !alias.scope !55
+  %286 = load double, ptr %17, align 8, !alias.scope !55
+  %287 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %288 = load double, ptr %287, align 8, !alias.scope !55
+  %289 = fmul double %288, %288
+  %290 = call double @llvm.fmuladd.f64(double %286, double %286, double %289)
+  %291 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %292 = load double, ptr %291, align 8, !alias.scope !55
+  %293 = call noundef double @llvm.fmuladd.f64(double %292, double %292, double %290)
+  %294 = fadd double %293, -1.000000e+00
+  %295 = call double @llvm.fabs.f64(double %294)
+  %296 = fcmp olt double %295, 1.000000e-10
+  br i1 %296, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, label %297
 
-296:                                              ; preds = %203
-  %sqrt.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %292)
-  %297 = fcmp ogt double %sqrt.i.i.i.i.i, 1.000000e-10
-  %298 = select i1 %297, double %sqrt.i.i.i.i.i, double 1.000000e-10
-  %299 = fdiv double 1.000000e+00, %298
-  %300 = fmul double %285, %299
-  store double %300, ptr %17, align 8, !alias.scope !55
-  %301 = fmul double %287, %299
-  store double %301, ptr %286, align 8, !alias.scope !55
-  %302 = fmul double %291, %299
-  store double %302, ptr %290, align 8, !alias.scope !55
+297:                                              ; preds = %204
+  %sqrt.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %293)
+  %298 = fcmp ogt double %sqrt.i.i.i.i.i, 1.000000e-10
+  %299 = select i1 %298, double %sqrt.i.i.i.i.i, double 1.000000e-10
+  %300 = fdiv double 1.000000e+00, %299
+  %301 = fmul double %286, %300
+  store double %301, ptr %17, align 8, !alias.scope !55
+  %302 = fmul double %288, %300
+  store double %302, ptr %287, align 8, !alias.scope !55
+  %303 = fmul double %292, %300
+  store double %303, ptr %291, align 8, !alias.scope !55
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds = %296, %203
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds = %297, %204
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %303 unwind label %338
+          to label %304 unwind label %339
 
-303:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit
+304:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %304 = load double, ptr %281, align 8, !noalias !58
-  %305 = fneg double %304
+  %305 = load double, ptr %282, align 8, !noalias !58
+  %306 = fneg double %305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 24, i1 false)
-  %306 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store double %305, ptr %306, align 8, !alias.scope !58
-  %307 = load double, ptr %19, align 8, !alias.scope !58
-  %308 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %309 = load double, ptr %308, align 8, !alias.scope !58
-  %310 = fmul double %309, %309
-  %311 = call double @llvm.fmuladd.f64(double %307, double %307, double %310)
-  %312 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %313 = load double, ptr %312, align 8, !alias.scope !58
-  %314 = call noundef double @llvm.fmuladd.f64(double %313, double %313, double %311)
-  %315 = fadd double %314, -1.000000e+00
-  %316 = call double @llvm.fabs.f64(double %315)
-  %317 = fcmp olt double %316, 1.000000e-10
-  br i1 %317, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25, label %318
+  %307 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store double %306, ptr %307, align 8, !alias.scope !58
+  %308 = load double, ptr %19, align 8, !alias.scope !58
+  %309 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %310 = load double, ptr %309, align 8, !alias.scope !58
+  %311 = fmul double %310, %310
+  %312 = call double @llvm.fmuladd.f64(double %308, double %308, double %311)
+  %313 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %314 = load double, ptr %313, align 8, !alias.scope !58
+  %315 = call noundef double @llvm.fmuladd.f64(double %314, double %314, double %312)
+  %316 = fadd double %315, -1.000000e+00
+  %317 = call double @llvm.fabs.f64(double %316)
+  %318 = fcmp olt double %317, 1.000000e-10
+  br i1 %318, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25, label %319
 
-318:                                              ; preds = %303
-  %sqrt.i.i.i.i.i24 = call noundef double @llvm.sqrt.f64(double %314)
-  %319 = fcmp ogt double %sqrt.i.i.i.i.i24, 1.000000e-10
-  %320 = select i1 %319, double %sqrt.i.i.i.i.i24, double 1.000000e-10
-  %321 = fdiv double 1.000000e+00, %320
-  %322 = fmul double %307, %321
-  store double %322, ptr %19, align 8, !alias.scope !58
-  %323 = fmul double %309, %321
-  store double %323, ptr %308, align 8, !alias.scope !58
-  %324 = fmul double %313, %321
-  store double %324, ptr %312, align 8, !alias.scope !58
+319:                                              ; preds = %304
+  %sqrt.i.i.i.i.i24 = call noundef double @llvm.sqrt.f64(double %315)
+  %320 = fcmp ogt double %sqrt.i.i.i.i.i24, 1.000000e-10
+  %321 = select i1 %320, double %sqrt.i.i.i.i.i24, double 1.000000e-10
+  %322 = fdiv double 1.000000e+00, %321
+  %323 = fmul double %308, %322
+  store double %323, ptr %19, align 8, !alias.scope !58
+  %324 = fmul double %310, %322
+  store double %324, ptr %309, align 8, !alias.scope !58
+  %325 = fmul double %314, %322
+  store double %325, ptr %313, align 8, !alias.scope !58
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25
 
-_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25: ; preds = %318, %303
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25: ; preds = %319, %304
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation12TransformDirERKNS_7GfVec3dE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %325 unwind label %338
+          to label %326 unwind label %339
 
-325:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25
+326:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
-  %326 = load i32, ptr %20, align 8
-  %327 = icmp eq i32 %326, 1
+  %327 = load i32, ptr %20, align 8
+  %328 = icmp eq i32 %327, 1
   %.pre = load double, ptr %10, align 8
   %.pre71 = load double, ptr %.sroa.4.0..sroa_idx3.i, align 8
   %.pre72 = load double, ptr %13, align 8
   %.pre73 = load double, ptr %.sroa.4.0..sroa_idx3.i22, align 8
-  br i1 %327, label %328, label %340
+  br i1 %328, label %329, label %341
 
-328:                                              ; preds = %325
-  %329 = fdiv double 1.000000e+00, %sqrt.i.i
-  %330 = fmul double %329, %.pre
-  store double %330, ptr %10, align 8
-  %331 = fmul double %329, %.pre71
-  store double %331, ptr %.sroa.4.0..sroa_idx3.i, align 8
-  %332 = load double, ptr %.sroa.6.0..sroa_idx5.i, align 8
-  %333 = fmul double %329, %332
-  store double %333, ptr %.sroa.6.0..sroa_idx5.i, align 8
-  %334 = fmul double %329, %.pre72
-  store double %334, ptr %13, align 8
-  %335 = fmul double %329, %.pre73
-  store double %335, ptr %.sroa.4.0..sroa_idx3.i22, align 8
-  %336 = load double, ptr %.sroa.6.0..sroa_idx5.i23, align 8
-  %337 = fmul double %329, %336
-  store double %337, ptr %.sroa.6.0..sroa_idx5.i23, align 8
-  br label %340
+329:                                              ; preds = %326
+  %330 = fdiv double 1.000000e+00, %sqrt.i.i
+  %331 = fmul double %330, %.pre
+  store double %331, ptr %10, align 8
+  %332 = fmul double %330, %.pre71
+  store double %332, ptr %.sroa.4.0..sroa_idx3.i, align 8
+  %333 = load double, ptr %.sroa.6.0..sroa_idx5.i, align 8
+  %334 = fmul double %330, %333
+  store double %334, ptr %.sroa.6.0..sroa_idx5.i, align 8
+  %335 = fmul double %330, %.pre72
+  store double %335, ptr %13, align 8
+  %336 = fmul double %330, %.pre73
+  store double %336, ptr %.sroa.4.0..sroa_idx3.i22, align 8
+  %337 = load double, ptr %.sroa.6.0..sroa_idx5.i23, align 8
+  %338 = fmul double %330, %337
+  store double %338, ptr %.sroa.6.0..sroa_idx5.i23, align 8
+  br label %341
 
-338:                                              ; preds = %86, %84, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, %188, %173, %119
-  %339 = landingpad { ptr, i32 }
+339:                                              ; preds = %86, %84, %2, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit25, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, %189, %173, %119
+  %340 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #25
-  resume { ptr, i32 } %339
+  resume { ptr, i32 } %340
 
-340:                                              ; preds = %328, %325
-  %341 = phi double [ %335, %328 ], [ %.pre73, %325 ]
-  %342 = phi double [ %334, %328 ], [ %.pre72, %325 ]
-  %343 = phi double [ %331, %328 ], [ %.pre71, %325 ]
-  %344 = phi double [ %330, %328 ], [ %.pre, %325 ]
-  %345 = getelementptr inbounds nuw i8, ptr %5, i64 56
+341:                                              ; preds = %329, %326
+  %342 = phi double [ %336, %329 ], [ %.pre73, %326 ]
+  %343 = phi double [ %335, %329 ], [ %.pre72, %326 ]
+  %344 = phi double [ %332, %329 ], [ %.pre71, %326 ]
+  %345 = phi double [ %331, %329 ], [ %.pre, %326 ]
+  %346 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %346 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %347 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.2.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %347 = fcmp ogt double %344, %342
-  %.sroa.031.0 = select i1 %347, double %342, double %344
-  %.sroa.0.0 = select i1 %347, double %344, double %342
-  %348 = fcmp ogt double %343, %341
-  %.sroa.534.0 = select i1 %348, double %341, double %343
-  %.sroa.5.0 = select i1 %348, double %343, double %341
-  store double %.sroa.031.0, ptr %345, align 8
+  %348 = fcmp ogt double %345, %343
+  %.sroa.031.0 = select i1 %348, double %343, double %345
+  %.sroa.0.0 = select i1 %348, double %345, double %343
+  %349 = fcmp ogt double %344, %342
+  %.sroa.534.0 = select i1 %349, double %342, double %344
+  %.sroa.5.0 = select i1 %349, double %344, double %342
+  store double %.sroa.031.0, ptr %346, align 8
   store double %.sroa.534.0, ptr %.sroa.241.0..sroa_idx, align 8
-  store double %.sroa.0.0, ptr %346, align 8
+  store double %.sroa.0.0, ptr %347, align 8
   store double %.sroa.5.0, ptr %.sroa.2.0..sroa_idx39, align 8
-  %349 = icmp eq ptr %0, %5
-  br i1 %349, label %_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumaSERKS0_.exit, label %350
+  %350 = icmp eq ptr %0, %5
+  br i1 %350, label %_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumaSERKS0_.exit, label %351
 
-350:                                              ; preds = %340
+351:                                              ; preds = %341
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %174, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(32) %345, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(16) %177, i64 16, i1 false)
-  %351 = load double, ptr %181, align 8
-  store double %351, ptr %178, align 8
-  %352 = load i32, ptr %22, align 8
-  store i32 %352, ptr %20, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %354 = load atomic i64, ptr %353 monotonic, align 8
-  %355 = icmp eq i64 %354, 0
-  br i1 %355, label %357, label %356
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(32) %346, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %175, ptr noundef nonnull align 8 dereferenceable(16) %178, i64 16, i1 false)
+  %352 = load double, ptr %182, align 8
+  store double %352, ptr %179, align 8
+  %353 = load i32, ptr %22, align 8
+  store i32 %353, ptr %20, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %355 = load atomic i64, ptr %354 monotonic, align 8
+  %356 = icmp eq i64 %355, 0
+  br i1 %356, label %358, label %357
 
-356:                                              ; preds = %350
-  %.0.i.i = inttoptr i64 %354 to ptr
+357:                                              ; preds = %351
+  %.0.i.i = inttoptr i64 %355 to ptr
   call void @_ZdlPvm(ptr noundef nonnull %.0.i.i, i64 noundef 192) #26
-  br label %357
+  br label %358
 
-357:                                              ; preds = %356, %350
-  %358 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %359 = load atomic i64, ptr %358 monotonic, align 8
-  %.0.i15.i = inttoptr i64 %359 to ptr
-  %.not.i = icmp eq i64 %359, 0
-  br i1 %.not.i, label %.sink.split.i, label %360
+358:                                              ; preds = %357, %351
+  %359 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %360 = load atomic i64, ptr %359 monotonic, align 8
+  %.0.i15.i = inttoptr i64 %360 to ptr
+  %.not.i = icmp eq i64 %360, 0
+  br i1 %.not.i, label %.sink.split.i, label %361
 
-360:                                              ; preds = %357
-  %361 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #27
-          to label %362 unwind label %364
+361:                                              ; preds = %358
+  %362 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #27
+          to label %363 unwind label %365
 
-362:                                              ; preds = %360
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %361, ptr noundef nonnull align 8 dereferenceable(192) %.0.i15.i, i64 192, i1 false)
-  %363 = ptrtoint ptr %361 to i64
+363:                                              ; preds = %361
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %362, ptr noundef nonnull align 8 dereferenceable(192) %.0.i15.i, i64 192, i1 false)
+  %364 = ptrtoint ptr %362 to i64
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %362, %357
-  %.sink.i = phi i64 [ %363, %362 ], [ 0, %357 ]
-  store atomic i64 %.sink.i, ptr %353 monotonic, align 8
+.sink.split.i:                                    ; preds = %363, %358
+  %.sink.i = phi i64 [ %364, %363 ], [ 0, %358 ]
+  store atomic i64 %.sink.i, ptr %354 monotonic, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumaSERKS0_.exit
 
-364:                                              ; preds = %360
-  %365 = landingpad { ptr, i32 }
+365:                                              ; preds = %361
+  %366 = landingpad { ptr, i32 }
           catch ptr null
-  %366 = extractvalue { ptr, i32 } %365, 0
-  call void @__clang_call_terminate(ptr %366) #28
+  %367 = extractvalue { ptr, i32 } %366, 0
+  call void @__clang_call_terminate(ptr %367) #28
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumaSERKS0_.exit: ; preds = %340, %.sink.split.i
+_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumaSERKS0_.exit: ; preds = %341, %.sink.split.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #25
   ret ptr %0
 }

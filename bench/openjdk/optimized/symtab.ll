@@ -393,7 +393,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   %185 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) %168) #14
   %186 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %173)
   %187 = icmp sgt i32 %186, -1
-  br i1 %187, label %open_file_from_debug_link.exit.thread11.sink.split.i, label %188
+  br i1 %187, label %open_file_from_debug_link.exit.thread11.i, label %188
 
 188:                                              ; preds = %183
   store i64 13343077765047342, ptr %184, align 1
@@ -401,7 +401,12 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   %190 = load i32, ptr @open_file_from_debug_link.crc, align 4
   %191 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %190)
   %192 = icmp sgt i32 %191, -1
-  br i1 %192, label %open_file_from_debug_link.exit.thread11.sink.split.i, label %open_file_from_debug_link.exit.i
+  br i1 %192, label %open_file_from_debug_link.exit.thread11.i, label %open_file_from_debug_link.exit.i
+
+open_file_from_debug_link.exit.thread11.i:        ; preds = %188, %183
+  %.0.ph.i.ph.i = phi i32 [ %191, %188 ], [ %186, %183 ]
+  call void @free(ptr noundef nonnull %177) #14
+  br label %build_symtab_from_debug_link.exit
 
 open_file_from_debug_link.exit.i:                 ; preds = %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %177, ptr noundef nonnull align 1 dereferenceable(15) @debug_file_directory, i64 15, i1 false) #14
@@ -415,15 +420,10 @@ open_file_from_debug_link.exit.i:                 ; preds = %188
   %199 = icmp sgt i32 %198, -1
   br i1 %199, label %build_symtab_from_debug_link.exit, label %.preheader
 
-open_file_from_debug_link.exit.thread11.sink.split.i: ; preds = %188, %183
-  %.0.i13.ph.i = phi i32 [ %186, %183 ], [ %191, %188 ]
-  call void @free(ptr noundef nonnull %177) #14
-  br label %build_symtab_from_debug_link.exit
-
-build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debug_link.exit.i, %open_file_from_debug_link.exit.thread11.sink.split.i
-  %.0.i13.i = phi i32 [ %198, %open_file_from_debug_link.exit.i ], [ %.0.i13.ph.i, %open_file_from_debug_link.exit.thread11.sink.split.i ]
-  %200 = call fastcc ptr @build_symtab_internal(i32 noundef %.0.i13.i, ptr noundef null, i32 noundef 0)
-  %201 = call i32 @close(i32 noundef %.0.i13.i) #14
+build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debug_link.exit.thread11.i, %open_file_from_debug_link.exit.i
+  %.0.ph.i13.i = phi i32 [ %.0.ph.i.ph.i, %open_file_from_debug_link.exit.thread11.i ], [ %198, %open_file_from_debug_link.exit.i ]
+  %200 = call fastcc ptr @build_symtab_internal(i32 noundef %.0.ph.i13.i, ptr noundef null, i32 noundef 0)
+  %201 = call i32 @close(i32 noundef %.0.ph.i13.i) #14
   %.not135 = icmp eq ptr %200, null
   br i1 %.not135, label %.preheader, label %.thread
 

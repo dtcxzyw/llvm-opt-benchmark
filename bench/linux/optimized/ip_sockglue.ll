@@ -3328,7 +3328,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
   %17 = icmp eq i32 %1, 0
-  br i1 %17, label %18, label %.thread9
+  br i1 %17, label %18, label %.thread8
 
 18:                                               ; preds = %6
   %19 = add i32 %2, -213
@@ -3340,7 +3340,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
 
 24:                                               ; preds = %18
   %25 = tail call i32 @ip_mroute_getsockopt(ptr noundef %0, i32 noundef %2, ptr %3, i8 %4, ptr %21, i8 %23) #14
-  br label %.thread9
+  br label %.thread8
 
 26:                                               ; preds = %18
   store i32 0, ptr %7, align 4, !annotation !6
@@ -3353,7 +3353,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
   %30 = call i64 @_copy_from_user(ptr noundef nonnull %8, ptr noundef %21, i64 noundef 4) #14
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %thread-pre-split, label %.thread9
+  br i1 %32, label %thread-pre-split, label %.thread8
 
 .critedge:                                        ; preds = %26
   %33 = load i32, ptr %21, align 1
@@ -3367,7 +3367,7 @@ thread-pre-split:                                 ; preds = %29
 34:                                               ; preds = %thread-pre-split, %.critedge
   %35 = phi i32 [ %.pr, %thread-pre-split ], [ %33, %.critedge ]
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.thread9, label %37
+  br i1 %36, label %.thread8, label %37
 
 37:                                               ; preds = %34
   switch i32 %2, label %299 [
@@ -3681,19 +3681,19 @@ thread-pre-split:                                 ; preds = %29
 206:                                              ; preds = %199, %194, %188, %185
   %207 = phi i32 [ -14, %194 ], [ %205, %199 ], [ 0, %188 ], [ %187, %185 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #14
-  br label %.thread9
+  br label %.thread8
 
 208:                                              ; preds = %37
   %209 = call fastcc ptr @sk_dst_get(ptr noundef %0)
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.thread9, label %211
+  br i1 %210, label %.thread8, label %211
 
 211:                                              ; preds = %208
   %212 = call fastcc i32 @dst_mtu(ptr noundef nonnull %209)
   store i32 %212, ptr %7, align 4
   call void @dst_release(ptr noundef nonnull %209) #14
   %213 = icmp eq i32 %212, 0
-  br i1 %213, label %.thread9, label %332
+  br i1 %213, label %.thread8, label %332
 
 214:                                              ; preds = %37
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #14
@@ -3795,7 +3795,7 @@ thread-pre-split:                                 ; preds = %29
 272:                                              ; preds = %271, %268, %214
   %273 = phi i32 [ -92, %214 ], [ 0, %271 ], [ %270, %268 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #14
-  br label %.thread9
+  br label %.thread8
 
 274:                                              ; preds = %37
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 788
@@ -3834,7 +3834,7 @@ thread-pre-split:                                 ; preds = %29
 293:                                              ; preds = %287, %282
   %294 = phi i32 [ -14, %282 ], [ %292, %287 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
-  br label %.thread9
+  br label %.thread8
 
 295:                                              ; preds = %37
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -3913,7 +3913,7 @@ thread-pre-split:                                 ; preds = %29
 
 331:                                              ; preds = %299
   call void @sockopt_release_sock(ptr noundef %0) #14
-  br label %.thread9
+  br label %.thread8
 
 332:                                              ; preds = %327, %295, %274, %211, %168, %164, %160, %156, %150, %145, %139, %133, %127, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %38
   %333 = phi i32 [ %330, %327 ], [ %297, %295 ], [ %277, %274 ], [ %212, %211 ], [ %171, %168 ], [ %167, %164 ], [ %163, %160 ], [ %159, %156 ], [ %155, %150 ], [ %148, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %127 ], [ %126, %121 ], [ %120, %115 ], [ %114, %109 ], [ %108, %103 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %79 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %38 ]
@@ -3939,7 +3939,7 @@ thread-pre-split:                                 ; preds = %29
 
 .thread6:                                         ; preds = %341
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
-  br label %.thread9
+  br label %.thread8
 
 345:                                              ; preds = %339
   store i32 1, ptr %21, align 1
@@ -3957,11 +3957,10 @@ thread-pre-split:                                 ; preds = %29
 
 349:                                              ; preds = %346
   %350 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %16, i64 noundef 1) #14
-  %.fr7 = freeze i64 %350
-  %351 = and i64 %.fr7, 4294967295
+  %351 = and i64 %350, 4294967295
   %352 = icmp eq i64 %351, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
-  br i1 %352, label %370, label %.thread9
+  br i1 %352, label %370, label %.thread8
 
 353:                                              ; preds = %332
   %354 = call i32 @llvm.umin.i32(i32 %334, i32 4)
@@ -3972,7 +3971,7 @@ thread-pre-split:                                 ; preds = %29
   %356 = call i64 @_copy_to_user(ptr noundef %21, ptr noundef nonnull %8, i64 noundef 4) #14
   %357 = and i64 %356, 4294967295
   %358 = icmp eq i64 %357, 0
-  br i1 %358, label %360, label %.thread9
+  br i1 %358, label %360, label %.thread8
 
 359:                                              ; preds = %353
   store i32 %354, ptr %21, align 1
@@ -3987,35 +3986,35 @@ thread-pre-split:                                 ; preds = %29
 
 365:                                              ; preds = %360
   %366 = icmp slt i32 %361, 0
-  br i1 %366, label %.critedge8, label %copy_to_sockptr.exit, !prof !8
+  br i1 %366, label %.critedge7, label %copy_to_sockptr.exit, !prof !8
 
-.critedge8:                                       ; preds = %365
+.critedge7:                                       ; preds = %365
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #14, !srcloc !27
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 249, i32 2307, i64 12) #14, !srcloc !28
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #14, !srcloc !29
-  br label %.thread9
+  br label %.thread8
 
 copy_to_sockptr.exit:                             ; preds = %365
   %367 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %7, i64 noundef range(i64 -2147483648, 2147483648) %362) #14
   %368 = and i64 %367, 4294967295
   %369 = icmp eq i64 %368, 0
-  br i1 %369, label %370, label %.thread9
+  br i1 %369, label %370, label %.thread8
 
 copy_to_sockptr.exit.thread:                      ; preds = %360
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %7, i64 range(i64 -2147483648, 2147483648) %362, i1 false)
   br label %370
 
 370:                                              ; preds = %349, %copy_to_sockptr.exit.thread, %.thread5, %copy_to_sockptr.exit
-  br label %.thread9
+  br label %.thread8
 
 371:                                              ; preds = %313, %323, %325
   %372 = phi i32 [ %324, %323 ], [ %326, %325 ], [ %314, %313 ]
   call void @sockopt_release_sock(ptr noundef %0) #14
   call void @rtnl_unlock() #14
-  br label %.thread9
+  br label %.thread8
 
-.thread9:                                         ; preds = %349, %208, %.critedge8, %.thread6, %371, %370, %copy_to_sockptr.exit, %355, %331, %293, %272, %211, %206, %34, %29, %24, %6
-  %373 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %370 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %29 ], [ -22, %34 ], [ -14, %355 ], [ -14, %copy_to_sockptr.exit ], [ %372, %371 ], [ -14, %.thread6 ], [ -14, %.critedge8 ], [ -107, %208 ], [ -14, %349 ]
+.thread8:                                         ; preds = %208, %.critedge7, %349, %.thread6, %371, %370, %copy_to_sockptr.exit, %355, %331, %293, %272, %211, %206, %34, %29, %24, %6
+  %373 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %370 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %29 ], [ -22, %34 ], [ -14, %355 ], [ -14, %copy_to_sockptr.exit ], [ %372, %371 ], [ -14, %.thread6 ], [ -14, %349 ], [ -14, %.critedge7 ], [ -107, %208 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
   ret i32 %373

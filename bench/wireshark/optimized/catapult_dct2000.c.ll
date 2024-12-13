@@ -486,8 +486,8 @@ read_new_line.exit:                               ; preds = %26
 51:                                               ; preds = %48, %thread-pre-split.thread.i, %thread-pre-split.i, %33
   %.2.ph = phi i32 [ %36, %33 ], [ 0, %thread-pre-split.i ], [ %.1, %thread-pre-split.thread.i ], [ %49, %48 ]
   %52 = call fastcc i32 @parse_line(ptr noundef nonnull @catapult_dct2000_read.linebuff, i32 noundef %.2.ph, ptr noundef %12, ptr noundef %13, ptr noundef %8, ptr noundef %9, ptr noundef %7, ptr noundef %14, ptr noundef %10, ptr noundef %11, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
-  %.not25 = icmp eq i32 %52, 0
-  br i1 %.not25, label %26, label %53
+  %.not23 = icmp eq i32 %52, 0
+  br i1 %.not23, label %26, label %53
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %12, align 4
@@ -502,8 +502,8 @@ read_new_line.exit:                               ; preds = %26
   %61 = load i32, ptr %15, align 4
   %62 = load i32, ptr %14, align 4
   %63 = call fastcc i32 @process_parsed_line(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %1, ptr noundef %2, i64 noundef %28, ptr noundef nonnull @catapult_dct2000_read.linebuff, i64 noundef %57, i32 noundef %54, i32 noundef %55, ptr noundef %23, i32 noundef %58, i32 noundef %59, ptr noundef %18, i8 noundef zeroext %60, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %17, i32 noundef %61, i32 noundef %62, ptr noundef %3, ptr noundef %4)
-  %.not26 = icmp eq i32 %63, 0
-  br i1 %.not26, label %87, label %64
+  %.not24 = icmp eq i32 %63, 0
+  br i1 %.not24, label %87, label %64
 
 64:                                               ; preds = %53
   %65 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #18
@@ -522,14 +522,14 @@ read_new_line.exit:                               ; preds = %26
 sub_0:                                            ; preds = %64
   %73 = getelementptr i8, ptr @catapult_dct2000_read.linebuff, i64 %70
   %74 = load i8, ptr %73, align 1
-  %.not37 = icmp eq i8 %74, 32
-  br i1 %.not37, label %sub_1, label %.tail
+  %.not35 = icmp eq i8 %74, 32
+  br i1 %.not35, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %76 = load i8, ptr %75, align 1
-  %.not38 = icmp eq i8 %76, 108
-  br i1 %.not38, label %sub_2, label %.tail
+  %.not36 = icmp eq i8 %76, 108
+  br i1 %.not36, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 2

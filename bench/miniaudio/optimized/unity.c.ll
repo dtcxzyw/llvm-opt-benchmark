@@ -803,7 +803,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ma_dr_mp3_L12_subband_alloc_table.g_alloc_L2M1 = internal unnamed_addr constant [4 x %struct.ma_dr_mp3_L12_subband_alloc] [%struct.ma_dr_mp3_L12_subband_alloc { i8 0, i8 4, i8 3 }, %struct.ma_dr_mp3_L12_subband_alloc { i8 16, i8 4, i8 8 }, %struct.ma_dr_mp3_L12_subband_alloc { i8 32, i8 3, i8 12 }, %struct.ma_dr_mp3_L12_subband_alloc { i8 40, i8 2, i8 7 }], align 1
 @ma_dr_mp3_L12_subband_alloc_table.g_alloc_L2M1_lowrate = internal unnamed_addr constant [2 x %struct.ma_dr_mp3_L12_subband_alloc] [%struct.ma_dr_mp3_L12_subband_alloc { i8 44, i8 4, i8 2 }, %struct.ma_dr_mp3_L12_subband_alloc { i8 44, i8 3, i8 10 }], align 1
 @ma_dr_mp3_L12_read_scalefactors.g_deq_L12 = internal unnamed_addr constant [54 x float] [float 0x3E95555560000000, float 0x3E90EEA9C0000000, float 0x3E8AE0D960000000, float 0x3E824924A0000000, float 0x3E7D06D9E0000000, float 0x3E7709DEE0000000, float 0x3E71111120000000, float 0x3E6B177600000000, float 0x3E6580ADE0000000, float 0x3E60842100000000, float 0x3E5A37BC80000000, float 0x3E54CF1BE0000000, float 0x3E50410420000000, float 0x3E49CD3360000000, float 0x3E447A8D40000000, float 0x3E40204080000000, float 0x3E39993100000000, float 0x3E34514580000000, float 0x3E30101020000000, float 0x3E297F7E20000000, float 0x3E243CDFE0000000, float 0x3E20080400000000, float 0x3E1972B800000000, float 0x3E1432BC60000000, float 0x3E10040100000000, float 0x3E096C59C0000000, float 0x3E042DAE60000000, float 0x3E00020040000000, float 0x3DF9692BC0000000, float 0x3DF42B2860000000, float 0x3DF0010020000000, float 0x3DE9679520000000, float 0x3DE429E5A0000000, float 0x3DE0008000000000, float 0x3DD966C9E0000000, float 0x3DD4294440000000, float 0x3DD0004000000000, float 0x3DC9666440000000, float 0x3DC428F3A0000000, float 0x3DC0002000000000, float 0x3DB9663160000000, float 0x3DB428CB60000000, float 0x3DB0001000000000, float 0x3DA9661800000000, float 0x3DA428B720000000, float 0x3E95555560000000, float 0x3E90EEA9C0000000, float 0x3E8AE0D960000000, float 0x3E899999A0000000, float 0x3E84519880000000, float 0x3E80208260000000, float 0x3E7C71C720000000, float 0x3E76938D00000000, float 0x3E71EB3B80000000], align 16
-@switch.table.ma_result_from_errno = private unnamed_addr constant [130 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51, i32 -1, i32 -1, i32 -1, i32 -1], align 4
+@switch.table.ma_result_from_errno = private unnamed_addr constant [126 x i32] [i32 0, i32 -3, i32 -7, i32 -7, i32 -21, i32 -20, i32 -7, i32 -2, i32 -10, i32 -10, i32 -1, i32 -22, i32 -4, i32 -6, i32 -24, i32 -1, i32 -19, i32 -8, i32 -1, i32 -7, i32 -14, i32 -15, i32 -2, i32 -9, i32 -9, i32 -3, i32 -19, i32 -11, i32 -18, i32 -25, i32 -6, i32 -28, i32 -26, i32 -5, i32 -5, i32 -27, i32 -12, i32 -1, i32 -29, i32 -16, i32 -28, i32 -1, i32 -30, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -5, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -10, i32 -1, i32 -32, i32 -34, i32 -32, i32 -35, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -31, i32 -11, i32 -36, i32 -1, i32 -1, i32 -6, i32 -10, i32 -10, i32 -1, i32 -1, i32 -33, i32 -1, i32 -1, i32 -1, i32 -37, i32 -38, i32 -11, i32 -39, i32 -40, i32 -41, i32 -44, i32 -3, i32 -42, i32 -43, i32 -23, i32 -1, i32 -35, i32 -35, i32 -35, i32 -35, i32 -45, i32 -18, i32 -46, i32 -47, i32 -1, i32 -1, i32 -34, i32 -48, i32 -49, i32 -49, i32 -50, i32 -50, i32 -10, i32 -1, i32 -1, i32 -1, i32 -1, i32 -20, i32 -18, i32 -7, i32 -1, i32 -51], align 4
 @switch.table.ma_log_level_to_string = private unnamed_addr constant [3 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.1], align 8
 @switch.table.ma_is_backend_enabled = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 1, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
 @switch.table.ma_channel_map_apply_f32 = private unnamed_addr constant [6 x i64] [i64 2, i64 3, i64 4, i64 5, i64 11, i64 12], align 8
@@ -1555,12 +1555,12 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc range(i32 -51, 1) i32 @ma_result_from_errno(i32 noundef %e) unnamed_addr #1 {
 entry:
-  %0 = icmp ult i32 %e, 130
+  %0 = icmp ult i32 %e, 126
   br i1 %0, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %e to i64
-  %switch.gep = getelementptr inbounds nuw [130 x i32], ptr @switch.table.ma_result_from_errno, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [126 x i32], ptr @switch.table.ma_result_from_errno, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -69453,9 +69453,6 @@ for.body63.i:                                     ; preds = %for.inc89.i, %for.c
   %19 = load double, ptr %amplitude67.i, align 8
   %mul.i43.i = fmul double %18, 0x401921FB54442D18
   %call.i.i44.i = tail call double @sin(double noundef %mul.i43.i) #64
-  %mul1.i45.i = fmul double %19, %call.i.i44.i
-  %mul1.i45.i.fr = freeze double %mul1.i45.i
-  %conv.i46.i = fptrunc double %mul1.i45.i.fr to float
   %20 = load double, ptr %advance69.i, align 8
   %21 = load double, ptr %time65.i, align 8
   %add71.i = fadd double %20, %21
@@ -69465,6 +69462,9 @@ for.body63.i:                                     ; preds = %for.inc89.i, %for.c
   br i1 %cmp7669.not.i, label %for.inc89.i, label %for.body78.lr.ph.i
 
 for.body78.lr.ph.i:                               ; preds = %for.body63.i
+  %mul1.i45.i = fmul double %19, %call.i.i44.i
+  %mul1.i45.i.fr = freeze double %mul1.i45.i
+  %conv.i46.i = fptrunc double %mul1.i45.i.fr to float
   %mul80.i = mul i64 %iFrame.271.i, %conv79.i
   %23 = getelementptr i8, ptr %pFramesOut, i64 %mul80.i
   %cmp3.i28.i.i.i = fcmp olt float %conv.i46.i, -1.000000e+00
@@ -69724,6 +69724,13 @@ for.body63.i68:                                   ; preds = %for.inc89.i96, %for
   %iFrame.281.i = phi i64 [ 0, %for.cond60.preheader.i59 ], [ %add90.i97, %for.inc89.i96 ]
   %57 = load double, ptr %time65.i63, align 8
   %58 = load double, ptr %amplitude67.i64, align 8
+  %59 = load double, ptr %advance69.i65, align 8
+  %add71.i69 = fadd double %57, %59
+  store double %add71.i69, ptr %time65.i63, align 8
+  %cmp7679.not.i = icmp eq i32 %56, 0
+  br i1 %cmp7679.not.i, label %for.inc89.i96, label %for.body78.lr.ph.i70
+
+for.body78.lr.ph.i70:                             ; preds = %for.body63.i68
   %conv.i43.i = fptosi double %57 to i64
   %conv1.i44.i = sitofp i64 %conv.i43.i to double
   %sub.i45.i = fsub double %57, %conv1.i44.i
@@ -69732,17 +69739,10 @@ for.body63.i68:                                   ; preds = %for.inc89.i96, %for
   %cmp.i48.i = fcmp ogt double %mul.i47.i, 0.000000e+00
   %fneg.i49.i = fneg double %mul.i47.i
   %cond.i50.i = select i1 %cmp.i48.i, double %mul.i47.i, double %fneg.i49.i
-  %59 = tail call double @llvm.fmuladd.f64(double %cond.i50.i, double 2.000000e+00, double -1.000000e+00)
-  %mul9.i51.i = fmul double %58, %59
+  %60 = tail call double @llvm.fmuladd.f64(double %cond.i50.i, double 2.000000e+00, double -1.000000e+00)
+  %mul9.i51.i = fmul double %58, %60
   %mul9.i51.i.fr = freeze double %mul9.i51.i
   %conv10.i52.i = fptrunc double %mul9.i51.i.fr to float
-  %60 = load double, ptr %advance69.i65, align 8
-  %add71.i69 = fadd double %57, %60
-  store double %add71.i69, ptr %time65.i63, align 8
-  %cmp7679.not.i = icmp eq i32 %56, 0
-  br i1 %cmp7679.not.i, label %for.inc89.i96, label %for.body78.lr.ph.i70
-
-for.body78.lr.ph.i70:                             ; preds = %for.body63.i68
   %mul80.i71 = mul i64 %iFrame.281.i, %conv79.i66
   %61 = getelementptr i8, ptr %pFramesOut, i64 %mul80.i71
   %cmp3.i28.i.i.i72 = fcmp olt float %conv10.i52.i, -1.000000e+00
@@ -69991,6 +69991,13 @@ for.body63.i166:                                  ; preds = %for.inc89.i199, %fo
   %iFrame.275.i = phi i64 [ 0, %for.cond60.preheader.i157 ], [ %add90.i200, %for.inc89.i199 ]
   %94 = load double, ptr %time65.i161, align 8
   %95 = load double, ptr %amplitude67.i162, align 8
+  %96 = load double, ptr %advance69.i163, align 8
+  %add71.i172 = fadd double %94, %96
+  store double %add71.i172, ptr %time65.i161, align 8
+  %cmp7673.not.i = icmp eq i32 %93, 0
+  br i1 %cmp7673.not.i, label %for.inc89.i199, label %for.body78.lr.ph.i173
+
+for.body78.lr.ph.i173:                            ; preds = %for.body63.i166
   %conv.i43.i167 = fptosi double %94 to i64
   %conv1.i44.i168 = sitofp i64 %conv.i43.i167 to double
   %sub.i45.i169 = fsub double %94, %conv1.i44.i168
@@ -69999,13 +70006,6 @@ for.body63.i166:                                  ; preds = %for.inc89.i199, %fo
   %mul3.i48.i = fmul double %95, %mul.i47.i171
   %mul3.i48.i.fr = freeze double %mul3.i48.i
   %conv4.i49.i = fptrunc double %mul3.i48.i.fr to float
-  %96 = load double, ptr %advance69.i163, align 8
-  %add71.i172 = fadd double %94, %96
-  store double %add71.i172, ptr %time65.i161, align 8
-  %cmp7673.not.i = icmp eq i32 %93, 0
-  br i1 %cmp7673.not.i, label %for.inc89.i199, label %for.body78.lr.ph.i173
-
-for.body78.lr.ph.i173:                            ; preds = %for.body63.i166
   %mul80.i174 = mul i64 %iFrame.275.i, %conv79.i164
   %97 = getelementptr i8, ptr %pFramesOut, i64 %mul80.i174
   %cmp3.i28.i.i.i175 = fcmp olt float %conv4.i49.i, -1.000000e+00

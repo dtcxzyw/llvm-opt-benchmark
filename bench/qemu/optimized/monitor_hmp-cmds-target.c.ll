@@ -324,8 +324,8 @@ sw.bb14:                                          ; preds = %if.end6, %if.end6
 sw.epilog:                                        ; preds = %if.end6, %sw.bb14, %sw.bb11, %sw.bb
   %max_digits.0 = phi i32 [ %div13, %sw.bb11 ], [ %div19, %sw.bb14 ], [ %div, %sw.bb ], [ 0, %if.end6 ]
   %wsize.addr.0 = phi i32 [ %wsize, %sw.bb11 ], [ %wsize, %sw.bb14 ], [ %wsize, %sw.bb ], [ 1, %if.end6 ]
-  %cmp2192 = icmp sgt i32 %mul, 0
-  br i1 %cmp2192, label %while.body.lr.ph, label %while.end122
+  %cmp2188 = icmp sgt i32 %mul, 0
+  br i1 %cmp2188, label %while.body.lr.ph, label %while.end122
 
 while.body.lr.ph:                                 ; preds = %sw.epilog
   %tobool22.not = icmp eq i32 %is_physical, 0
@@ -333,11 +333,11 @@ while.body.lr.ph:                                 ; preds = %sw.epilog
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %.compoundliteral.sroa.0.095 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral.sroa.0.1, %while.end ]
-  %addr.addr.094 = phi i64 [ %addr, %while.body.lr.ph ], [ %add120, %while.end ]
-  %len.093 = phi i32 [ %mul, %while.body.lr.ph ], [ %sub121, %while.end ]
-  %call26 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i64 noundef %addr.addr.094) #7
-  %spec.select86 = call i32 @llvm.smin.i32(i32 %len.093, i32 %.)
+  %.compoundliteral.sroa.0.091 = phi i32 [ undef, %while.body.lr.ph ], [ %.compoundliteral.sroa.0.1, %while.end ]
+  %addr.addr.090 = phi i64 [ %addr, %while.body.lr.ph ], [ %add120, %while.end ]
+  %len.089 = phi i32 [ %mul, %while.body.lr.ph ], [ %sub121, %while.end ]
+  %call26 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i64 noundef %addr.addr.090) #7
+  %l.0 = call i32 @llvm.smin.i32(i32 %len.089, i32 %.)
   br i1 %tobool22.not, label %if.else68, label %if.then32
 
 if.then32:                                        ; preds = %while.body
@@ -349,10 +349,10 @@ cond.true:                                        ; preds = %if.then32
 
 cond.end:                                         ; preds = %if.then32, %cond.true
   %cond = phi ptr [ %0, %cond.true ], [ @address_space_memory, %if.then32 ]
-  %bf.set = and i32 %.compoundliteral.sroa.0.095, -67108864
+  %bf.set = and i32 %.compoundliteral.sroa.0.091, -67108864
   %bf.clear36 = or disjoint i32 %bf.set, 1
-  %conv = zext nneg i32 %spec.select86 to i64
-  %call13.i = call i32 @address_space_read_full(ptr noundef %cond, i64 noundef %addr.addr.094, i32 %bf.clear36, ptr noundef nonnull %buf, i64 noundef %conv) #7
+  %conv = zext nneg i32 %l.0 to i64
+  %call13.i = call i32 @address_space_read_full(ptr noundef %cond, i64 noundef %addr.addr.090, i32 %bf.clear36, ptr noundef nonnull %buf, i64 noundef %conv) #7
   %cmp63.not = icmp eq i32 %call13.i, 0
   br i1 %cmp63.not, label %while.body81.preheader, label %if.then65
 
@@ -361,8 +361,8 @@ if.then65:                                        ; preds = %cond.end
   br label %while.end122
 
 if.else68:                                        ; preds = %while.body
-  %conv70 = zext nneg i32 %spec.select86 to i64
-  %call71 = call i32 @cpu_memory_rw_debug(ptr noundef %call.i82, i64 noundef %addr.addr.094, ptr noundef nonnull %buf, i64 noundef %conv70, i1 noundef zeroext false) #7
+  %conv70 = zext nneg i32 %l.0 to i64
+  %call71 = call i32 @cpu_memory_rw_debug(ptr noundef %call.i82, i64 noundef %addr.addr.090, ptr noundef nonnull %buf, i64 noundef %conv70, i1 noundef zeroext false) #7
   %cmp72 = icmp slt i32 %call71, 0
   br i1 %cmp72, label %if.then74, label %while.body81.preheader
 
@@ -371,12 +371,12 @@ if.then74:                                        ; preds = %if.else68
   br label %while.end122
 
 while.body81.preheader:                           ; preds = %cond.end, %if.else68
-  %.compoundliteral.sroa.0.1 = phi i32 [ %bf.clear36, %cond.end ], [ %.compoundliteral.sroa.0.095, %if.else68 ]
+  %.compoundliteral.sroa.0.1 = phi i32 [ %bf.clear36, %cond.end ], [ %.compoundliteral.sroa.0.091, %if.else68 ]
   br label %while.body81
 
 while.body81:                                     ; preds = %while.body81.preheader, %sw.epilog116
-  %i.091 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %while.body81.preheader ]
-  %idx.ext = sext i32 %i.091 to i64
+  %i.087 = phi i32 [ %add117, %sw.epilog116 ], [ 0, %while.body81.preheader ]
+  %idx.ext = sext i32 %i.087 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   switch i32 %wsize.addr.0, label %sw.bb83 [
     i32 8, label %sw.bb99
@@ -436,15 +436,15 @@ sw.bb114:                                         ; preds = %sw.epilog104
   br label %sw.epilog116
 
 sw.epilog116:                                     ; preds = %sw.bb114, %sw.bb112, %sw.bb110, %sw.bb108, %sw.bb106, %sw.epilog104
-  %add117 = add i32 %i.091, %wsize.addr.0
-  %cmp79 = icmp slt i32 %add117, %spec.select86
+  %add117 = add i32 %i.087, %wsize.addr.0
+  %cmp79 = icmp slt i32 %add117, %l.0
   br i1 %cmp79, label %while.body81, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %sw.epilog116
   %call118 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #7
-  %conv119 = zext nneg i32 %spec.select86 to i64
-  %add120 = add i64 %addr.addr.094, %conv119
-  %sub121 = sub nsw i32 %len.093, %spec.select86
+  %conv119 = zext nneg i32 %l.0 to i64
+  %add120 = add i64 %addr.addr.090, %conv119
+  %sub121 = sub nsw i32 %len.089, %l.0
   %cmp21 = icmp sgt i32 %sub121, 0
   br i1 %cmp21, label %while.body, label %while.end122, !llvm.loop !13
 

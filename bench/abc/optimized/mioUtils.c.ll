@@ -2128,37 +2128,37 @@ Mio_GateDelayAve.exit.i:                          ; preds = %.lr.ph.i.i, %65
   %79 = fdiv float %.010.lcssa.i.i, %78
   %.1.i.i = select i1 %.not12.i.i, float %.010.lcssa.i.i, float %79
   %80 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.078) #30
-  %.not13.i21.i = icmp eq ptr %80, null
-  br i1 %.not13.i21.i, label %Mio_GateDelayAve.exit29.i, label %.lr.ph.i22.i
+  %.not13.i19.i = icmp eq ptr %80, null
+  br i1 %.not13.i19.i, label %Mio_GateDelayAve.exit27.i, label %.lr.ph.i20.i
 
-.lr.ph.i22.i:                                     ; preds = %Mio_GateDelayAve.exit.i, %.lr.ph.i22.i
-  %.015.i23.i = phi ptr [ %89, %.lr.ph.i22.i ], [ %80, %Mio_GateDelayAve.exit.i ]
-  %.01014.i24.i = phi float [ %88, %.lr.ph.i22.i ], [ 0.000000e+00, %Mio_GateDelayAve.exit.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.015.i23.i, i64 32
+.lr.ph.i20.i:                                     ; preds = %Mio_GateDelayAve.exit.i, %.lr.ph.i20.i
+  %.015.i21.i = phi ptr [ %89, %.lr.ph.i20.i ], [ %80, %Mio_GateDelayAve.exit.i ]
+  %.01014.i22.i = phi float [ %88, %.lr.ph.i20.i ], [ 0.000000e+00, %Mio_GateDelayAve.exit.i ]
+  %81 = getelementptr inbounds nuw i8, ptr %.015.i21.i, i64 32
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %.015.i23.i, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %.015.i21.i, i64 48
   %84 = load double, ptr %83, align 8
   %85 = fmul double %84, 5.000000e-01
   %86 = tail call double @llvm.fmuladd.f64(double %82, double 5.000000e-01, double %85)
   %87 = fptrunc double %86 to float
-  %88 = fadd float %.01014.i24.i, %87
-  %89 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.015.i23.i) #30
-  %.not.i25.i = icmp eq ptr %89, null
-  br i1 %.not.i25.i, label %Mio_GateDelayAve.exit29.i, label %.lr.ph.i22.i, !llvm.loop !26
+  %88 = fadd float %.01014.i22.i, %87
+  %89 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.015.i21.i) #30
+  %.not.i23.i = icmp eq ptr %89, null
+  br i1 %.not.i23.i, label %Mio_GateDelayAve.exit27.i, label %.lr.ph.i20.i, !llvm.loop !26
 
-Mio_GateDelayAve.exit29.i:                        ; preds = %.lr.ph.i22.i, %Mio_GateDelayAve.exit.i
-  %.010.lcssa.i26.i = phi float [ 0.000000e+00, %Mio_GateDelayAve.exit.i ], [ %88, %.lr.ph.i22.i ]
+Mio_GateDelayAve.exit27.i:                        ; preds = %.lr.ph.i20.i, %Mio_GateDelayAve.exit.i
+  %.010.lcssa.i24.i = phi float [ 0.000000e+00, %Mio_GateDelayAve.exit.i ], [ %88, %.lr.ph.i20.i ]
   %90 = load i32, ptr %21, align 4
-  %.not12.i27.i = icmp eq i32 %90, 0
+  %.not12.i25.i = icmp eq i32 %90, 0
   %91 = sitofp i32 %90 to float
-  %92 = fdiv float %.010.lcssa.i26.i, %91
-  %.1.i28.i = select i1 %.not12.i27.i, float %.010.lcssa.i26.i, float %92
-  %93 = fadd float %.1.i28.i, 0x3F8361A6E0000000
+  %92 = fdiv float %.010.lcssa.i24.i, %91
+  %.1.i26.i = select i1 %.not12.i25.i, float %.010.lcssa.i24.i, float %92
+  %93 = fadd float %.1.i26.i, 0x3F8361A6E0000000
   %94 = fcmp ogt float %.1.i.i, %93
   br i1 %94, label %Mio_CompareTwoGates.exit.thread68, label %95
 
-95:                                               ; preds = %Mio_GateDelayAve.exit29.i
-  %96 = fadd float %.1.i28.i, 0xBF8361A6E0000000
+95:                                               ; preds = %Mio_GateDelayAve.exit27.i
+  %96 = fadd float %.1.i26.i, 0xBF8361A6E0000000
   %97 = fcmp olt float %.1.i.i, %96
   br i1 %97, label %Mio_CompareTwoGates.exit.thread, label %Mio_CompareTwoGates.exit
 
@@ -2169,7 +2169,7 @@ Mio_CompareTwoGates.exit:                         ; preds = %95
   %101 = icmp slt i32 %100, 1
   br i1 %101, label %Mio_CompareTwoGates.exit.thread, label %Mio_CompareTwoGates.exit.thread68
 
-Mio_CompareTwoGates.exit.thread68:                ; preds = %Mio_GateDelayAve.exit29.i, %51, %Mio_CompareTwoGates.exit
+Mio_CompareTwoGates.exit.thread68:                ; preds = %Mio_GateDelayAve.exit27.i, %51, %Mio_CompareTwoGates.exit
   store ptr %.078, ptr %52, align 8
   br label %Mio_CompareTwoGates.exit.thread
 
@@ -2346,11 +2346,11 @@ Mio_CellDelayAve.exit.i:                          ; preds = %43, %38
   %.1.i.i = select i1 %.not16.i.i, float %.09.lcssa.i.i, float %48
   %49 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %.091165) #30
   %.not13.i.i = icmp eq ptr %49, null
-  br i1 %.not13.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i21.i
+  br i1 %.not13.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i19.i
 
-.lr.ph.i21.i:                                     ; preds = %Mio_CellDelayAve.exit.i, %.lr.ph.i21.i
-  %.015.i.i = phi ptr [ %58, %.lr.ph.i21.i ], [ %49, %Mio_CellDelayAve.exit.i ]
-  %.01014.i.i = phi float [ %57, %.lr.ph.i21.i ], [ 0.000000e+00, %Mio_CellDelayAve.exit.i ]
+.lr.ph.i19.i:                                     ; preds = %Mio_CellDelayAve.exit.i, %.lr.ph.i19.i
+  %.015.i.i = phi ptr [ %58, %.lr.ph.i19.i ], [ %49, %Mio_CellDelayAve.exit.i ]
+  %.01014.i.i = phi float [ %57, %.lr.ph.i19.i ], [ 0.000000e+00, %Mio_CellDelayAve.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
   %51 = load double, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 48
@@ -2361,21 +2361,21 @@ Mio_CellDelayAve.exit.i:                          ; preds = %43, %38
   %57 = fadd float %.01014.i.i, %56
   %58 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.015.i.i) #30
   %.not.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i21.i, !llvm.loop !26
+  br i1 %.not.i.i, label %Mio_GateDelayAve.exit.i, label %.lr.ph.i19.i, !llvm.loop !26
 
-Mio_GateDelayAve.exit.i:                          ; preds = %.lr.ph.i21.i, %Mio_CellDelayAve.exit.i
-  %.010.lcssa.i.i = phi float [ 0.000000e+00, %Mio_CellDelayAve.exit.i ], [ %57, %.lr.ph.i21.i ]
+Mio_GateDelayAve.exit.i:                          ; preds = %.lr.ph.i19.i, %Mio_CellDelayAve.exit.i
+  %.010.lcssa.i.i = phi float [ 0.000000e+00, %Mio_CellDelayAve.exit.i ], [ %57, %.lr.ph.i19.i ]
   %59 = load i32, ptr %10, align 4
   %.not12.i.i = icmp eq i32 %59, 0
   %60 = sitofp i32 %59 to float
   %61 = fdiv float %.010.lcssa.i.i, %60
-  %.1.i22.i = select i1 %.not12.i.i, float %.010.lcssa.i.i, float %61
-  %62 = fadd float %.1.i22.i, 0x3F8361A6E0000000
+  %.1.i20.i = select i1 %.not12.i.i, float %.010.lcssa.i.i, float %61
+  %62 = fadd float %.1.i20.i, 0x3F8361A6E0000000
   %63 = fcmp ogt float %.1.i.i, %62
   br i1 %63, label %Mio_CompareTwo.exit.thread147, label %64
 
 64:                                               ; preds = %Mio_GateDelayAve.exit.i
-  %65 = fadd float %.1.i22.i, 0xBF8361A6E0000000
+  %65 = fadd float %.1.i20.i, 0xBF8361A6E0000000
   %66 = fcmp olt float %.1.i.i, %65
   br i1 %66, label %Mio_CollectCopy.exit, label %Mio_CompareTwo.exit
 

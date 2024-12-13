@@ -1613,14 +1613,14 @@ _ZN5ZXing14DetectorResultD2Ev.exit18:             ; preds = %.body, %631
 690:                                              ; preds = %.lr.ph.i
   %691 = icmp eq ptr %.0162186.i, null
   %692 = load ptr, ptr %682, align 8, !noalias !21
-  %.0166184..i = select i1 %691, ptr %.0166184.i, ptr %692
-  %..0162186.i = select i1 %691, ptr %692, ptr %.0162186.i
+  %.0166..i = select i1 %691, ptr %.0166184.i, ptr %692
+  %..0162.i = select i1 %691, ptr %692, ptr %.0162186.i
   br label %693
 
 693:                                              ; preds = %690, %686
-  %.1167.i = phi ptr [ %.0166184.i, %686 ], [ %.0166184..i, %690 ]
+  %.1167.i = phi ptr [ %.0166184.i, %686 ], [ %.0166..i, %690 ]
   %.1165.i = phi ptr [ %687, %686 ], [ %.0164185.i, %690 ]
-  %.1163.i = phi ptr [ %.0162186.i, %686 ], [ %..0162186.i, %690 ]
+  %.1163.i = phi ptr [ %.0162186.i, %686 ], [ %..0162.i, %690 ]
   %694 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0135.0183.i) #21, !noalias !21
   %.not174.i = icmp eq ptr %694, %658
   br i1 %.not174.i, label %._crit_edge.i, label %.lr.ph.i

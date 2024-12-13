@@ -6625,11 +6625,11 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20.i: ; preds = %230, %232, 
 .noexc60:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h1c98f029939284abE.exit.i.i.us.us.i"
   %337 = extractvalue { i64, i64 } %336, 0
   %switch.i2.i.i.i.us.us.i = icmp eq i64 %337, 0
-  %spec.select.i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
+  %..i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i": ; preds = %.noexc60, %333, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.us.us.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.us.us.i", %322
-  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %322 ], [ 2, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.us.us.i" ], [ 0, %333 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.us.us.i" ], [ %spec.select.i.i.us.us.i, %.noexc60 ]
+  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %322 ], [ 2, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.us.us.i" ], [ 0, %333 ], [ %..i.i.us.us.i, %.noexc60 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.us.us.i" ]
   %338 = add nsw i64 %.sroa.0.1.i.i.us.us.i, -2
   %339 = call i64 @llvm.umin.i64(i64 %338, i64 2)
   switch i64 %339, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.us.us.i.unreachabledefault" [
@@ -6725,11 +6725,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 .noexc63:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h1c98f029939284abE.exit.i.i.i"
   %368 = extractvalue { i64, i64 } %367, 0
   %switch.i2.i.i.i.i = icmp eq i64 %368, 0
-  %spec.select.i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
+  %..i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hf10d1dc54e4fb0d4E.exit.i.i": ; preds = %.noexc63, %364, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.i", %351
-  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.i" ], [ 0, %364 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.i" ], [ %spec.select.i.i.i, %.noexc63 ], [ 0, %351 ]
+  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17hd2793d92552582e5E.exit.i.i.i" ], [ 0, %364 ], [ %..i.i.i, %.noexc63 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i.i" ], [ 0, %351 ]
   %369 = add nsw i64 %.sroa.0.1.i.i.i, -2
   %370 = call i64 @llvm.umin.i64(i64 %369, i64 2)
   switch i64 %370, label %default.unreachable [
@@ -7516,11 +7516,11 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %92, %_ZN3
 .noexc60:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h1c4a7ca0a7573204E.exit.i.i.us.us.i"
   %227 = extractvalue { i64, i64 } %226, 0
   %switch.i2.i.i.i.us.us.i = icmp eq i64 %227, 0
-  %spec.select.i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
+  %..i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i": ; preds = %.noexc60, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i", %214
-  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %214 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i" ], [ %spec.select.i.i.us.us.i, %.noexc60 ]
+  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %214 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i" ], [ %..i.i.us.us.i, %.noexc60 ]
   %228 = add nsw i64 %.sroa.0.1.i.i.us.us.i, -2
   %229 = call i64 @llvm.umin.i64(i64 %228, i64 2)
   switch i64 %229, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.us.us.i.unreachabledefault" [
@@ -7607,11 +7607,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 .noexc63:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h1c4a7ca0a7573204E.exit.i.i.i"
   %256 = extractvalue { i64, i64 } %255, 0
   %switch.i2.i.i.i.i = icmp eq i64 %256, 0
-  %spec.select.i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
+  %..i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17hd59e855491896af4E.exit.i.i": ; preds = %.noexc63, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i", %241
-  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i" ], [ %spec.select.i.i.i, %.noexc63 ], [ 0, %241 ]
+  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i" ], [ %..i.i.i, %.noexc63 ], [ 0, %241 ]
   %257 = add nsw i64 %.sroa.0.1.i.i.i, -2
   %258 = call i64 @llvm.umin.i64(i64 %257, i64 2)
   switch i64 %258, label %default.unreachable [
@@ -8398,11 +8398,11 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %92, %_ZN3
 .noexc60:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h8b1a66860b196c1dE.exit.i.i.us.us.i"
   %227 = extractvalue { i64, i64 } %226, 0
   %switch.i2.i.i.i.us.us.i = icmp eq i64 %227, 0
-  %spec.select.i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
+  %..i.i.us.us.i = select i1 %switch.i2.i.i.i.us.us.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i": ; preds = %.noexc60, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i", %214
-  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %214 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i" ], [ %spec.select.i.i.us.us.i, %.noexc60 ]
+  %.sroa.0.1.i.i.us.us.i = phi i64 [ 0, %214 ], [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.us.us.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.us.us.i" ], [ %..i.i.us.us.i, %.noexc60 ]
   %228 = add nsw i64 %.sroa.0.1.i.i.us.us.i, -2
   %229 = call i64 @llvm.umin.i64(i64 %228, i64 2)
   switch i64 %229, label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.us.us.i.unreachabledefault" [
@@ -8489,11 +8489,11 @@ default.unreachable:                              ; preds = %"_ZN4moka3cht3map6b
 .noexc63:                                         ; preds = %"_ZN15crossbeam_epoch6atomic15Atomic$LT$T$GT$21compare_exchange_weak17h8b1a66860b196c1dE.exit.i.i.i"
   %256 = extractvalue { i64, i64 } %255, 0
   %switch.i2.i.i.i.i = icmp eq i64 %256, 0
-  %spec.select.i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
+  %..i.i.i = select i1 %switch.i2.i.i.i.i, i64 1, i64 3
   br label %"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.i"
 
 "_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$15insert_for_grow28_$u7b$$u7b$closure$u7d$$u7d$17h6c4d94f773ddfcaaE.exit.i.i": ; preds = %.noexc63, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i", %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i", %241
-  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i" ], [ %spec.select.i.i.i, %.noexc63 ], [ 0, %241 ]
+  %.sroa.0.1.i.i.i = phi i64 [ 2, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.i.i.i" ], [ 0, %"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2ne17h2af62d3fcb769d85E.exit.thread.i.i.i" ], [ %..i.i.i, %.noexc63 ], [ 0, %241 ]
   %257 = add nsw i64 %.sroa.0.1.i.i.i, -2
   %258 = call i64 @llvm.umin.i64(i64 %257, i64 2)
   switch i64 %258, label %default.unreachable [

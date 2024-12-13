@@ -20697,7 +20697,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4DeclENS_12PointerUnionIJPS3_
 
 83:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4DeclENS_12PointerUnionIJPS3_PNS_11SmallVectorIPNS2_7VarDeclELj4EEEEEELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4findES5_.exit
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i, i64 8
-  br label %.critedge
+  br label %_ZNK5clang4Decl14getDeclContextEv.exit
 
 85:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4DeclENS_12PointerUnionIJPS3_PNS_11SmallVectorIPNS2_7VarDeclELj4EEEEEELj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4findES5_.exit
   %86 = getelementptr inbounds nuw i8, ptr %.015, i64 28
@@ -20738,21 +20738,21 @@ _ZNK5clang12RedeclarableINS_7TagDeclEE15getPreviousDeclEv.exit.thread: ; preds =
   %103 = load i32, ptr %102, align 4
   %104 = and i32 %103, 127
   switch i32 %104, label %105 [
-    i32 44, label %.critedge
-    i32 64, label %.critedge
-    i32 65, label %.critedge
+    i32 44, label %_ZNK5clang4Decl14getDeclContextEv.exit
+    i32 64, label %_ZNK5clang4Decl14getDeclContextEv.exit
+    i32 65, label %_ZNK5clang4Decl14getDeclContextEv.exit
   ]
 
 105:                                              ; preds = %101
   %106 = add nsw i32 %104, -59
   %107 = icmp ult i32 %106, -3
-  br i1 %107, label %.critedge, label %108
+  br i1 %107, label %_ZNK5clang4Decl14getDeclContextEv.exit, label %108
 
 108:                                              ; preds = %105
   %109 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl12isLocalClassEv(ptr noundef nonnull align 8 dereferenceable(144) %.0.i)
-  br label %.critedge
+  br label %_ZNK5clang4Decl14getDeclContextEv.exit
 
-.critedge:                                        ; preds = %108, %105, %101, %101, %101, %83
+_ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %108, %105, %101, %101, %101, %83
   %.0 = phi ptr [ %84, %83 ], [ null, %101 ], [ null, %101 ], [ null, %101 ], [ null, %108 ], [ null, %105 ]
   ret ptr %.0
 }

@@ -1593,7 +1593,7 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit: ; preds 
   %116 = icmp eq i32 %115, 6
   %117 = and i32 %.sroa.0.0.i, -16
   %118 = or disjoint i32 %117, 12
-  %..i = select i1 %116, i64 7602176, i64 6553600
+  %.119.i = select i1 %116, i64 7602176, i64 6553600
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.exit
 
 119:                                              ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit
@@ -1604,28 +1604,28 @@ _ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit: ; preds 
   %122 = and i32 %.sroa.0.0.i, 15
   %123 = icmp eq i32 %122, 6
   %124 = and i32 %.sroa.0.0.i, -16
-  %.117.i = select i1 %123, i64 7602176, i64 6553600
+  %..i = select i1 %123, i64 7602176, i64 6553600
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.exit
 
 125:                                              ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit
   %126 = and i32 %.sroa.0.0.i, 15
   %127 = icmp eq i32 %126, 6
   %128 = and i32 %.sroa.0.0.i, -16
-  %.118.i = select i1 %127, i64 7602176, i64 6553600
+  %.117.i = select i1 %127, i64 7602176, i64 6553600
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.exit
 
 129:                                              ; preds = %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit
   %130 = and i32 %.sroa.0.0.i, 15
   %131 = icmp eq i32 %130, 6
   %132 = and i32 %.sroa.0.0.i, -16
-  %.119.i = select i1 %131, i64 7602176, i64 6553600
+  %.118.i = select i1 %131, i64 7602176, i64 6553600
   br label %_ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.exit
 
 _ZN4Luau7CodeGen3X6413IrRegAllocX6417getRestoreAddressERKNS0_6IrInstENS0_4IrOpE.exit: ; preds = %129, %125, %121, %119, %114, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit, %64, %_ZNSt6bitsetILm256EE3setEmb.exit
-  %.sroa.058.0 = phi i64 [ 1, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ 1, %64 ], [ 1, %119 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ 1, %114 ], [ 1, %121 ], [ 1, %125 ], [ 1, %129 ]
-  %.sroa.7.0 = phi i64 [ 2359296, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ 2359296, %64 ], [ 7602176, %119 ], [ 8388608, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ %..i, %114 ], [ %.117.i, %121 ], [ %.118.i, %125 ], [ %.119.i, %129 ]
-  %.sroa.8.0 = phi i8 [ %68, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ %68, %64 ], [ 19, %119 ], [ 16, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ 19, %114 ], [ 20, %121 ], [ 20, %125 ], [ 21, %129 ]
-  %.sroa.11.0 = phi i32 [ %.sroa.11.0.extract.trunc105, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ %.sroa.11.0.extract.trunc105, %64 ], [ %120, %119 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ %118, %114 ], [ %124, %121 ], [ %128, %125 ], [ %132, %129 ]
+  %.sroa.058.0 = phi i64 [ 1, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ 1, %64 ], [ 1, %119 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ 1, %121 ], [ 1, %125 ], [ 1, %129 ], [ 1, %114 ]
+  %.sroa.7.0 = phi i64 [ 2359296, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ 2359296, %64 ], [ 7602176, %119 ], [ 8388608, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ %..i, %121 ], [ %.117.i, %125 ], [ %.118.i, %129 ], [ %.119.i, %114 ]
+  %.sroa.8.0 = phi i8 [ %68, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ %68, %64 ], [ 19, %119 ], [ 16, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ 20, %121 ], [ 20, %125 ], [ 21, %129 ], [ 19, %114 ]
+  %.sroa.11.0 = phi i32 [ %.sroa.11.0.extract.trunc105, %_ZNSt6bitsetILm256EE3setEmb.exit ], [ %.sroa.11.0.extract.trunc105, %64 ], [ %120, %119 ], [ 0, %_ZNK4Luau7CodeGen3X6413IrRegAllocX6412getRestoreOpERKNS0_6IrInstE.exit ], [ %124, %121 ], [ %128, %125 ], [ %132, %129 ], [ %118, %114 ]
   %133 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %134 = load i8, ptr %133, align 4
   %135 = load ptr, ptr %0, align 8
@@ -1700,7 +1700,7 @@ define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrRegAllocX6
   %8 = icmp eq i32 %7, 6
   %9 = and i32 %2, -16
   %10 = or disjoint i32 %9, 12
-  %. = select i1 %8, i64 7602176, i64 6553600
+  %.119 = select i1 %8, i64 7602176, i64 6553600
   br label %25
 
 11:                                               ; preds = %3
@@ -1711,28 +1711,28 @@ define dso_local range(i64 268435456, 0) i64 @_ZN4Luau7CodeGen3X6413IrRegAllocX6
   %14 = and i32 %2, 15
   %15 = icmp eq i32 %14, 6
   %16 = and i32 %2, -16
-  %.117 = select i1 %15, i64 7602176, i64 6553600
+  %. = select i1 %15, i64 7602176, i64 6553600
   br label %25
 
 17:                                               ; preds = %3
   %18 = and i32 %2, 15
   %19 = icmp eq i32 %18, 6
   %20 = and i32 %2, -16
-  %.118 = select i1 %19, i64 7602176, i64 6553600
+  %.117 = select i1 %19, i64 7602176, i64 6553600
   br label %25
 
 21:                                               ; preds = %3
   %22 = and i32 %2, 15
   %23 = icmp eq i32 %22, 6
   %24 = and i32 %2, -16
-  %.119 = select i1 %23, i64 7602176, i64 6553600
+  %.118 = select i1 %23, i64 7602176, i64 6553600
   br label %25
 
-25:                                               ; preds = %21, %17, %13, %6, %3, %11
-  %.sroa.14.0 = phi i32 [ %12, %11 ], [ 0, %3 ], [ %10, %6 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ]
-  %.sroa.13.0 = phi i64 [ 318767104, %11 ], [ 268435456, %3 ], [ 318767104, %6 ], [ 335544320, %13 ], [ 335544320, %17 ], [ 352321536, %21 ]
-  %.sroa.12.0 = phi i64 [ 7602176, %11 ], [ 8388608, %3 ], [ %., %6 ], [ %.117, %13 ], [ %.118, %17 ], [ %.119, %21 ]
-  %.sroa.0.0 = phi i64 [ 1, %11 ], [ 0, %3 ], [ 1, %6 ], [ 1, %13 ], [ 1, %17 ], [ 1, %21 ]
+25:                                               ; preds = %6, %21, %17, %13, %3, %11
+  %.sroa.14.0 = phi i32 [ %12, %11 ], [ 0, %3 ], [ %16, %13 ], [ %20, %17 ], [ %24, %21 ], [ %10, %6 ]
+  %.sroa.13.0 = phi i64 [ 318767104, %11 ], [ 268435456, %3 ], [ 335544320, %13 ], [ 335544320, %17 ], [ 352321536, %21 ], [ 318767104, %6 ]
+  %.sroa.12.0 = phi i64 [ 7602176, %11 ], [ 8388608, %3 ], [ %., %13 ], [ %.117, %17 ], [ %.118, %21 ], [ %.119, %6 ]
+  %.sroa.0.0 = phi i64 [ 1, %11 ], [ 0, %3 ], [ 1, %13 ], [ 1, %17 ], [ 1, %21 ], [ 1, %6 ]
   %.sroa.14.0.insert.ext = zext i32 %.sroa.14.0 to i64
   %.sroa.14.0.insert.shift = shl nuw i64 %.sroa.14.0.insert.ext, 32
   %.sroa.13.0.insert.insert = or disjoint i64 %.sroa.14.0.insert.shift, %.sroa.13.0

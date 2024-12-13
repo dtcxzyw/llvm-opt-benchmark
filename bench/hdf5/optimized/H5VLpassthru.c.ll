@@ -122,7 +122,7 @@ define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes(
   %14 = tail call i32 @H5VLcmp_connector_info(ptr noundef nonnull %0, i64 noundef %9, ptr noundef %11, ptr noundef %13) #10
   br label %15
 
-15:                                               ; preds = %8, %3
+15:                                               ; preds = %3, %8
   ret i32 0
 }
 

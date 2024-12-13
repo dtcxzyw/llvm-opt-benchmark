@@ -5325,7 +5325,7 @@ define i64 @_ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c5
   %16 = icmp ne i128 %15, -101084004025800487874573260070676418087
   %17 = icmp eq ptr %11, null
   %18 = or i1 %17, %16
-  br i1 %18, label %19, label %29
+  br i1 %18, label %19, label %30
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -5334,37 +5334,35 @@ define i64 @_ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c5
   call void %21(ptr noalias nocapture noundef nonnull sret({ ptr, { i64 } }) align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 %5), !noalias !680
   %22 = and i64 %1, 3
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %34
+  br i1 %23, label %24, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load atomic i64, ptr %25 monotonic, align 8, !noalias !681
   %27 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 4)
-  %28 = icmp ult i64 %27, %26
-  br i1 %28, label %33, label %34
+  %28 = icmp uge i64 %27, %26
+  %29 = zext i1 %28 to i64
+  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
-29:                                               ; preds = %3
-  %30 = tail call i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %1, i32 noundef %2)
-  %31 = and i64 %30, -65536
-  %32 = and i64 %30, 255
-  br label %35
-
-33:                                               ; preds = %24
+_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %24, %19
+  %.sroa.4.0 = phi i64 [ 512, %19 ], [ 256, %24 ]
+  %.sink.i = phi i64 [ 1, %19 ], [ %29, %24 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %35
+  br label %34
 
-34:                                               ; preds = %19, %24
-  %.sroa.4.0.ph = phi i64 [ 256, %24 ], [ 512, %19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %35
+30:                                               ; preds = %3
+  %31 = tail call i64 @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_notify17h0c4ac33da2261278E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, i64 noundef %1, i32 noundef %2)
+  %32 = and i64 %31, -65536
+  %33 = and i64 %31, 255
+  br label %34
 
-35:                                               ; preds = %29, %33, %34
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0.ph, %34 ], [ 0, %33 ], [ %30, %29 ]
-  %.sroa.0.1 = phi i64 [ 1, %34 ], [ 0, %33 ], [ %32, %29 ]
-  %.sroa.5.0.insert.insert = phi i64 [ 0, %34 ], [ 0, %33 ], [ %31, %29 ]
+34:                                               ; preds = %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit, %30
+  %.sroa.4.1 = phi i64 [ %31, %30 ], [ %.sroa.4.0, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit ]
+  %.sroa.0.1 = phi i64 [ %33, %30 ], [ %.sink.i, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit ]
+  %.sroa.5.0.insert.insert = phi i64 [ %32, %30 ], [ 0, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit ]
   %.sroa.4.0.insert.ext = and i64 %.sroa.4.1, 65280
-  %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.0.1, %.sroa.4.0.insert.ext
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.5.0.insert.insert
+  %.sroa.4.0.insert.insert = or i64 %.sroa.0.1, %.sroa.4.0.insert.ext
+  %.sroa.0.0.insert.insert = or i64 %.sroa.4.0.insert.insert, %.sroa.5.0.insert.insert
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -5386,7 +5384,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4a
   %18 = icmp ne i128 %17, -101084004025800487874573260070676418087
   %19 = icmp eq ptr %13, null
   %20 = or i1 %19, %18
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -5395,36 +5393,29 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4a
   call void %23(ptr noalias nocapture noundef nonnull sret({ ptr, { i64 } }) align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 %7), !noalias !691
   %24 = and i64 %1, 3
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %36
+  br i1 %25, label %26, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load atomic i64, ptr %27 monotonic, align 8, !noalias !692
   %29 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 4)
   %30 = icmp ult i64 %29, %28
-  br i1 %30, label %35, label %36
+  %31 = select i1 %30, i8 13, i8 1
+  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
-31:                                               ; preds = %5
-  %32 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait3217hcf69b5299a54f587E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4)
-  %33 = extractvalue { i1, i8 } %32, 0
-  %34 = extractvalue { i1, i8 } %32, 1
-  br label %37
-
-35:                                               ; preds = %26
+_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %26, %21
+  %.sink.i = phi i8 [ 2, %21 ], [ %31, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %37
+  %32 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i, 1
+  br label %35
 
-36:                                               ; preds = %21, %26
-  %.sroa.4.0.ph = phi i8 [ 1, %26 ], [ 2, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %37
+33:                                               ; preds = %5
+  %34 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait3217hcf69b5299a54f587E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4)
+  br label %35
 
-37:                                               ; preds = %31, %35, %36
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0.ph, %36 ], [ 13, %35 ], [ %34, %31 ]
-  %.sroa.0.1 = phi i1 [ true, %36 ], [ true, %35 ], [ %33, %31 ]
-  %38 = insertvalue { i1, i8 } poison, i1 %.sroa.0.1, 0
-  %39 = insertvalue { i1, i8 } %38, i8 %.sroa.4.1, 1
-  ret { i1, i8 } %39
+35:                                               ; preds = %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit, %33
+  %.merged = phi { i1, i8 } [ %34, %33 ], [ %32, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit ]
+  ret { i1, i8 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5445,7 +5436,7 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7
   %18 = icmp ne i128 %17, -101084004025800487874573260070676418087
   %19 = icmp eq ptr %13, null
   %20 = or i1 %19, %18
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %33
 
 21:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -5454,36 +5445,29 @@ define { i1, i8 } @_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7
   call void %23(ptr noalias nocapture noundef nonnull sret({ ptr, { i64 } }) align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 %7), !noalias !702
   %24 = and i64 %1, 7
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %36
+  br i1 %25, label %26, label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load atomic i64, ptr %27 monotonic, align 8, !noalias !703
   %29 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 8)
   %30 = icmp ult i64 %29, %28
-  br i1 %30, label %35, label %36
+  %31 = select i1 %30, i8 13, i8 1
+  br label %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit
 
-31:                                               ; preds = %5
-  %32 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait6417h3c2c2bbcab804de1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %1, i64 noundef %2, i64 %3, i32 noundef %4)
-  %33 = extractvalue { i1, i8 } %32, 0
-  %34 = extractvalue { i1, i8 } %32, 1
-  br label %37
-
-35:                                               ; preds = %26
+_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit: ; preds = %26, %21
+  %.sink.i = phi i8 [ 2, %21 ], [ %31, %26 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %37
+  %32 = insertvalue { i1, i8 } { i1 true, i8 poison }, i8 %.sink.i, 1
+  br label %35
 
-36:                                               ; preds = %21, %26
-  %.sroa.4.0.ph = phi i8 [ 1, %26 ], [ 2, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %37
+33:                                               ; preds = %5
+  %34 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait6417h3c2c2bbcab804de1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13, i64 noundef %1, i64 noundef %2, i64 %3, i32 noundef %4)
+  br label %35
 
-37:                                               ; preds = %31, %35, %36
-  %.sroa.4.1 = phi i8 [ %.sroa.4.0.ph, %36 ], [ 13, %35 ], [ %34, %31 ]
-  %.sroa.0.1 = phi i1 [ true, %36 ], [ true, %35 ], [ %33, %31 ]
-  %38 = insertvalue { i1, i8 } poison, i1 %.sroa.0.1, 0
-  %39 = insertvalue { i1, i8 } %38, i8 %.sroa.4.1, 1
-  ret { i1, i8 } %39
+35:                                               ; preds = %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit, %33
+  %.merged = phi { i1, i8 } [ %34, %33 ], [ %32, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit ]
+  ret { i1, i8 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

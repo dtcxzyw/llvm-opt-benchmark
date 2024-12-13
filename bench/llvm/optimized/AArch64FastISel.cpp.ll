@@ -9876,35 +9876,37 @@ _ZNK4llvm11ConstantInt5isOneEv.exit.i:            ; preds = %50
   %68 = getelementptr inbounds i8, ptr %1, i64 -32
   %69 = load ptr, ptr %68, align 8
   %70 = load i8, ptr %69, align 8
-  %.not53.i = icmp eq i8 %70, 17
-  br i1 %.not53.i, label %71, label %90
+  %.not54.i = icmp eq i8 %70, 17
+  br i1 %.not54.i, label %71, label %90
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = icmp ult i32 %74, 65
-  br i1 %75, label %76, label %_ZNK4llvm11ConstantInt5isOneEv.exit35.i
+  br i1 %75, label %76, label %79
 
 76:                                               ; preds = %71
   %77 = load i64, ptr %72, align 8
   %78 = icmp eq i64 %77, 1
-  br i1 %78, label %83, label %82
+  br label %_ZNK4llvm11ConstantInt5isOneEv.exit36.i
 
-_ZNK4llvm11ConstantInt5isOneEv.exit35.i:          ; preds = %71
-  %79 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %72) #24
-  %80 = add i32 %74, -1
-  %81 = icmp eq i32 %79, %80
-  br i1 %81, label %83, label %82
+79:                                               ; preds = %71
+  %80 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %72) #24
+  %81 = add i32 %74, -1
+  %82 = icmp eq i32 %80, %81
+  br label %_ZNK4llvm11ConstantInt5isOneEv.exit36.i
 
-82:                                               ; preds = %_ZNK4llvm11ConstantInt5isOneEv.exit35.i, %76
+_ZNK4llvm11ConstantInt5isOneEv.exit36.i:          ; preds = %79, %76
+  %.0.i.i35.i = phi i1 [ %78, %76 ], [ %82, %79 ]
+  %.33.i = select i1 %.0.i.i35.i, i32 996, i32 331
   br label %83
 
-83:                                               ; preds = %76, %_ZNK4llvm11ConstantInt5isOneEv.exit35.i, %82, %64, %61
-  %.026.ph.i = phi i1 [ false, %82 ], [ false, %64 ], [ false, %61 ], [ true, %_ZNK4llvm11ConstantInt5isOneEv.exit35.i ], [ true, %76 ]
-  %.025.ph.i = phi i32 [ 331, %82 ], [ 423, %64 ], [ 996, %61 ], [ 996, %_ZNK4llvm11ConstantInt5isOneEv.exit35.i ], [ 996, %76 ]
-  %.024.ph.i = phi ptr [ %48, %82 ], [ %66, %64 ], [ %63, %61 ], [ %48, %_ZNK4llvm11ConstantInt5isOneEv.exit35.i ], [ %48, %76 ]
-  %.023.ph.in.i = phi ptr [ %42, %82 ], [ %65, %64 ], [ %42, %61 ], [ %42, %_ZNK4llvm11ConstantInt5isOneEv.exit35.i ], [ %42, %76 ]
+83:                                               ; preds = %_ZNK4llvm11ConstantInt5isOneEv.exit36.i, %64, %61
+  %.026.ph.i = phi i1 [ %.0.i.i35.i, %_ZNK4llvm11ConstantInt5isOneEv.exit36.i ], [ false, %64 ], [ false, %61 ]
+  %.025.ph.i = phi i32 [ %.33.i, %_ZNK4llvm11ConstantInt5isOneEv.exit36.i ], [ 423, %64 ], [ 996, %61 ]
+  %.024.ph.i = phi ptr [ %48, %_ZNK4llvm11ConstantInt5isOneEv.exit36.i ], [ %66, %64 ], [ %63, %61 ]
+  %.023.ph.in.i = phi ptr [ %42, %_ZNK4llvm11ConstantInt5isOneEv.exit36.i ], [ %65, %64 ], [ %42, %61 ]
   %.023.ph.i = load ptr, ptr %.023.ph.in.i, align 8
   %84 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %.023.ph.i) #21
   %.not31.i = icmp eq i32 %84, 0
@@ -9923,8 +9925,8 @@ _ZNK4llvm11ConstantInt5isOneEv.exit35.i:          ; preds = %71
   br label %_ZN12_GLOBAL__N_115AArch64FastISel14optimizeSelectEPKN4llvm10SelectInstE.exit
 
 _ZN12_GLOBAL__N_115AArch64FastISel14optimizeSelectEPKN4llvm10SelectInstE.exit: ; preds = %87, %.loopexit.i55
-  %.sroa.039.0.i = phi i32 [ %84, %87 ], [ %88, %.loopexit.i55 ]
-  %89 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.025.ph.i, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE, i32 noundef %.sroa.039.0.i, i32 noundef %86) #21
+  %.sroa.040.0.i = phi i32 [ %84, %87 ], [ %88, %.loopexit.i55 ]
+  %89 = tail call i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.025.ph.i, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE, i32 noundef %.sroa.040.0.i, i32 noundef %86) #21
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, i32 %89, i32 noundef 1) #21
   br label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread112
 

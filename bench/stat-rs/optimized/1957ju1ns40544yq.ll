@@ -514,50 +514,50 @@ define noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
 
 8:                                                ; preds = %6
   %9 = fcmp oeq double %1, 1.000000e+00
-  br i1 %9, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %.preheader41
+  br i1 %9, label %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit25.thread, label %.preheader40
 
-.preheader41:                                     ; preds = %8
+.preheader40:                                     ; preds = %8
   %10 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef 1.000000e+00)
   %11 = fcmp ogt double %10, %1
-  br i1 %11, label %.lr.ph, label %.preheader40
+  br i1 %11, label %.lr.ph, label %.preheader39
 
-.preheader40:                                     ; preds = %.lr.ph, %.preheader41
-  %.sroa.010.0.lcssa = phi double [ 1.000000e+00, %.preheader41 ], [ %14, %.lr.ph ]
+.preheader39:                                     ; preds = %.lr.ph, %.preheader40
+  %.sroa.010.0.lcssa = phi double [ 1.000000e+00, %.preheader40 ], [ %14, %.lr.ph ]
   %12 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef 2.000000e+00)
   %13 = fcmp olt double %12, %1
-  br i1 %13, label %.lr.ph45, label %._crit_edge
+  br i1 %13, label %.lr.ph44, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
-  %.sroa.010.043 = phi double [ %14, %.lr.ph ], [ 1.000000e+00, %.preheader41 ]
-  %14 = fmul double %.sroa.010.043, 5.000000e-01
+.lr.ph:                                           ; preds = %.preheader40, %.lr.ph
+  %.sroa.010.042 = phi double [ %14, %.lr.ph ], [ 1.000000e+00, %.preheader40 ]
+  %14 = fmul double %.sroa.010.042, 5.000000e-01
   %15 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %14)
   %16 = fcmp ogt double %15, %1
-  br i1 %16, label %.lr.ph, label %.preheader40
+  br i1 %16, label %.lr.ph, label %.preheader39
 
-._crit_edge:                                      ; preds = %.lr.ph45, %.preheader40
-  %.sroa.06.0.lcssa = phi double [ 2.000000e+00, %.preheader40 ], [ %19, %.lr.ph45 ]
+._crit_edge:                                      ; preds = %.lr.ph44, %.preheader39
+  %.sroa.06.0.lcssa = phi double [ 2.000000e+00, %.preheader39 ], [ %19, %.lr.ph44 ]
   %17 = fadd double %.sroa.010.0.lcssa, %.sroa.06.0.lcssa
   %18 = fmul double %17, 5.000000e-01
   br label %22
 
-.lr.ph45:                                         ; preds = %.preheader40, %.lr.ph45
-  %.sroa.06.044 = phi double [ %19, %.lr.ph45 ], [ 2.000000e+00, %.preheader40 ]
-  %19 = fmul double %.sroa.06.044, 2.000000e+00
+.lr.ph44:                                         ; preds = %.preheader39, %.lr.ph44
+  %.sroa.06.043 = phi double [ %19, %.lr.ph44 ], [ 2.000000e+00, %.preheader39 ]
+  %19 = fmul double %.sroa.06.043, 2.000000e+00
   %20 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %19)
   %21 = fcmp olt double %20, %1
-  br i1 %21, label %.lr.ph45, label %._crit_edge
+  br i1 %21, label %.lr.ph44, label %._crit_edge
 
 22:                                               ; preds = %._crit_edge, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit
   %.sroa.030.0 = phi double [ %18, %._crit_edge ], [ %27, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
   %.sroa.014.0 = phi i32 [ 0, %._crit_edge ], [ %23, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
-  %.sroa.010.1 = phi double [ %.sroa.010.0.lcssa, %._crit_edge ], [ %.sroa.010.2, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
-  %.sroa.06.1 = phi double [ %.sroa.06.0.lcssa, %._crit_edge ], [ %.sroa.06.2, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
+  %.sroa.010.1 = phi double [ %.sroa.010.0.lcssa, %._crit_edge ], [ %..sroa.010.1, %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
+  %.sroa.06.1 = phi double [ %.sroa.06.0.lcssa, %._crit_edge ], [ %.sroa.06.1., %_ZN6statrs4prec11convergence17he4da219176fb4aabE.exit ]
   %23 = add nuw nsw i32 %.sroa.014.0, 1
   %24 = tail call noundef double @"_ZN107_$LT$statrs..distribution..gamma..Gamma$u20$as$u20$statrs..distribution..ContinuousCDF$LT$f64$C$f64$GT$$GT$3cdf17h8ea699656e017159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %.sroa.030.0)
   %25 = fcmp ult double %24, %1
-  %.sroa.010.2 = select i1 %25, double %.sroa.030.0, double %.sroa.010.1
-  %.sroa.06.2 = select i1 %25, double %.sroa.06.1, double %.sroa.030.0
-  %26 = fadd double %.sroa.06.2, %.sroa.010.2
+  %..sroa.010.1 = select i1 %25, double %.sroa.030.0, double %.sroa.010.1
+  %.sroa.06.1. = select i1 %25, double %.sroa.06.1, double %.sroa.030.0
+  %26 = fadd double %.sroa.06.1., %..sroa.010.1
   %27 = fmul double %26, 5.000000e-01
   %28 = fcmp oeq double %.sroa.030.0, %27
   br i1 %28, label %.preheader.preheader, label %29

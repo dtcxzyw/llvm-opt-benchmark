@@ -1289,7 +1289,7 @@ opal_datatype_span.exit.i:                        ; preds = %25, %24
 
 .lr.ph21.i:                                       ; preds = %61, %82
   %.09220.i = phi i32 [ %83, %82 ], [ 1, %61 ]
-  %.09319.i = phi i64 [ %.1.i, %82 ], [ 0, %61 ]
+  %.09319.i = phi i64 [ %.093..i, %82 ], [ 0, %61 ]
   %.09618.i = phi i64 [ %63, %82 ], [ %17, %61 ]
   %.09717.i = phi ptr [ %.198.i, %82 ], [ %39, %61 ]
   %.010016.i = phi ptr [ %.1101.i, %82 ], [ %40, %61 ]
@@ -1298,11 +1298,11 @@ opal_datatype_span.exit.i:                        ; preds = %25, %24
   %64 = and i32 %.09220.i, %.val
   %65 = icmp eq i32 %64, 0
   %66 = add i64 %63, %.09319.i
-  %.195.i = select i1 %65, i64 %66, i64 %.09319.i
-  %.1.i = select i1 %65, i64 %.09319.i, i64 %66
-  %67 = mul nsw i64 %.195.i, %20
+  %..093.i = select i1 %65, i64 %66, i64 %.09319.i
+  %.093..i = select i1 %65, i64 %.09319.i, i64 %66
+  %67 = mul nsw i64 %..093.i, %20
   %68 = getelementptr inbounds i8, ptr %.09717.i, i64 %67
-  %69 = mul nsw i64 %.1.i, %20
+  %69 = mul nsw i64 %.093..i, %20
   %70 = getelementptr inbounds i8, ptr %.010016.i, i64 %69
   %71 = icmp eq i32 %.09220.i, 0
   br i1 %71, label %72, label %75

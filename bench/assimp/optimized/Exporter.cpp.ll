@@ -4937,8 +4937,8 @@ entry:
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %cmp.not = icmp ult i64 %index, %sub.ptr.div.i.i
   %add.ptr.i = getelementptr inbounds %"struct.Assimp::Exporter::ExportFormatEntry", ptr %2, i64 %index
-  %spec.select = select i1 %cmp.not, ptr %add.ptr.i, ptr null
-  ret ptr %spec.select
+  %retval.0 = select i1 %cmp.not, ptr %add.ptr.i, ptr null
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

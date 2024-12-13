@@ -303,11 +303,11 @@ if.end:                                           ; preds = %entry
   %when = getelementptr inbounds nuw i8, ptr %event, i64 8
   %call1 = tail call i64 @ossl_time_now() #4
   %0 = load i64, ptr %when, align 8
-  %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %call1)
+  %.sub.i.i = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %call1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.i, %if.end ], [ -1, %entry ]
+  %retval.sroa.0.0 = phi i64 [ %.sub.i.i, %if.end ], [ -1, %entry ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -336,11 +336,11 @@ if.end.i:                                         ; preds = %if.end6
   %when.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
   %call1.i = tail call i64 @ossl_time_now() #4
   %2 = load i64, ptr %when.i, align 8
-  %retval.sroa.0.0.i.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %call1.i)
+  %.sub.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %call1.i)
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.end6, %if.end, %entry
-  %retval.sroa.0.0 = phi i64 [ -1, %entry ], [ 0, %if.end ], [ %retval.sroa.0.0.i.i, %if.end.i ], [ -1, %if.end6 ]
+  %retval.sroa.0.0 = phi i64 [ -1, %entry ], [ 0, %if.end ], [ %.sub.i.i.i, %if.end.i ], [ -1, %if.end6 ]
   ret i64 %retval.sroa.0.0
 }
 

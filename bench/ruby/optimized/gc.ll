@@ -8728,33 +8728,36 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %7, %RB_SYMBOL_P.exi
 define dso_local i64 @rb_gc_stat(i64 noundef %0) local_unnamed_addr #0 {
   %2 = and i64 %0, 255
   %3 = icmp eq i64 %2, 12
-  br i1 %3, label %RB_SYMBOL_P.exit.thread, label %4
+  br i1 %3, label %RB_SYMBOL_P.exit.thread, label %5
 
-4:                                                ; preds = %1
-  %5 = and i64 %0, 7
-  %6 = icmp ne i64 %5, 0
-  %7 = icmp eq i64 %0, 0
-  %8 = or i1 %7, %6
-  br i1 %8, label %RB_SYMBOL_P.exit.thread5, label %RB_SYMBOL_P.exit
+RB_SYMBOL_P.exit.thread:                          ; preds = %1
+  %4 = tail call fastcc i64 @gc_stat_internal(i64 noundef %0)
+  br label %16
 
-RB_SYMBOL_P.exit:                                 ; preds = %4
-  %9 = inttoptr i64 %0 to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 31
-  %12 = icmp eq i64 %11, 20
-  br i1 %12, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread5
+5:                                                ; preds = %1
+  %6 = and i64 %0, 7
+  %7 = icmp ne i64 %6, 0
+  %8 = icmp eq i64 %0, 0
+  %9 = or i1 %8, %7
+  br i1 %9, label %RB_SYMBOL_P.exit.thread6, label %RB_SYMBOL_P.exit
 
-RB_SYMBOL_P.exit.thread:                          ; preds = %1, %RB_SYMBOL_P.exit
-  %13 = tail call fastcc i64 @gc_stat_internal(i64 noundef %0)
-  br label %15
+RB_SYMBOL_P.exit.thread6:                         ; preds = %5
+  %10 = tail call fastcc i64 @gc_stat_internal(i64 noundef %0)
+  br label %16
 
-RB_SYMBOL_P.exit.thread5:                         ; preds = %4, %RB_SYMBOL_P.exit
-  %14 = tail call fastcc i64 @gc_stat_internal(i64 noundef %0)
-  br label %15
+RB_SYMBOL_P.exit:                                 ; preds = %5
+  %11 = inttoptr i64 %0 to ptr
+  %12 = load i64, ptr %11, align 8
+  %.fr8 = freeze i64 %12
+  %13 = and i64 %.fr8, 31
+  %14 = icmp eq i64 %13, 20
+  %15 = tail call fastcc i64 @gc_stat_internal(i64 noundef %0)
+  %spec.select = select i1 %14, i64 %15, i64 0
+  br label %16
 
-15:                                               ; preds = %RB_SYMBOL_P.exit.thread5, %RB_SYMBOL_P.exit.thread
-  %.0 = phi i64 [ %13, %RB_SYMBOL_P.exit.thread ], [ 0, %RB_SYMBOL_P.exit.thread5 ]
-  ret i64 %.0
+16:                                               ; preds = %RB_SYMBOL_P.exit, %RB_SYMBOL_P.exit.thread, %RB_SYMBOL_P.exit.thread6
+  %17 = phi i64 [ 0, %RB_SYMBOL_P.exit.thread6 ], [ %4, %RB_SYMBOL_P.exit.thread ], [ %spec.select, %RB_SYMBOL_P.exit ]
+  ret i64 %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

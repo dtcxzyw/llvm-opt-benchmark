@@ -1240,13 +1240,13 @@ Amap_RemoveComments.exit:                         ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %Vec_PtrFree.exit.sink.split
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %20
 
-Vec_PtrFree.exit.sink.split:                      ; preds = %Amap_RemoveComments.exit
+20:                                               ; preds = %Amap_RemoveComments.exit
   tail call void @free(ptr noundef nonnull %19) #16
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Amap_RemoveComments.exit, %Vec_PtrFree.exit.sink.split
+Vec_PtrFree.exit:                                 ; preds = %Amap_RemoveComments.exit, %20
   tail call void @free(ptr noundef nonnull %16) #16
   ret ptr %17
 }

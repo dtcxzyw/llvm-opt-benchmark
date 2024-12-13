@@ -1913,10 +1913,10 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   %10 = call noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17hedd42da43e2077d9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   %11 = icmp ne ptr %10, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %. = select i1 %11, ptr %10, ptr %0
+  %.. = select i1 %11, ptr %10, ptr %0
   %.6 = zext i1 %11 to i64
   %12 = insertvalue { i64, ptr } poison, i64 %.6, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %., 1
+  %13 = insertvalue { i64, ptr } %12, ptr %.., 1
   ret { i64, ptr } %13
 }
 
@@ -1943,10 +1943,10 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   %10 = call noundef align 8 ptr @"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17hedd42da43e2077d9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   %11 = icmp ne ptr %10, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %. = select i1 %11, ptr %10, ptr %0
+  %.. = select i1 %11, ptr %10, ptr %0
   %.6 = zext i1 %11 to i64
   %12 = insertvalue { i64, ptr } poison, i64 %.6, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %., 1
+  %13 = insertvalue { i64, ptr } %12, ptr %.., 1
   ret { i64, ptr } %13
 }
 

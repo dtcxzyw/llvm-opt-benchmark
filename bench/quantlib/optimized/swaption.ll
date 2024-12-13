@@ -6664,8 +6664,8 @@ while.body.preheader.i.i:                         ; preds = %do.end.i.i
 while.body.i.i:                                   ; preds = %call67.i.i.noexc, %while.body.preheader.i.i
   %solver.sroa.35.0 = phi i64 [ 3, %while.body.preheader.i.i ], [ %inc69.i.i, %call67.i.i.noexc ]
   %297 = phi double [ %guess, %while.body.preheader.i.i ], [ %storemerge.i.i, %call67.i.i.noexc ]
-  %xl.1119.i.i = phi double [ %xl.0.i.i, %while.body.preheader.i.i ], [ %xl.2.i.i, %call67.i.i.noexc ]
-  %xh.1118.i.i = phi double [ %xh.0.i.i, %while.body.preheader.i.i ], [ %xh.2.i.i, %call67.i.i.noexc ]
+  %xl.1119.i.i = phi double [ %xl.0.i.i, %while.body.preheader.i.i ], [ %.xl.1.i.i, %call67.i.i.noexc ]
+  %xh.1118.i.i = phi double [ %xh.0.i.i, %while.body.preheader.i.i ], [ %xh.1..i.i, %call67.i.i.noexc ]
   %dxold.0117.i.i = phi double [ %sub.i.i, %while.body.preheader.i.i ], [ %dx.0116.i.i, %call67.i.i.noexc ]
   %dx.0116.i.i = phi double [ %sub.i.i, %while.body.preheader.i.i ], [ %dx.1.i.i, %call67.i.i.noexc ]
   %dfroot.0115.i.i = phi double [ %call7.i.i123, %while.body.preheader.i.i ], [ %call67.i.i126, %call67.i.i.noexc ]
@@ -6716,8 +6716,8 @@ call65.i.i.noexc:                                 ; preds = %if.end63.i.i
 call67.i.i.noexc:                                 ; preds = %call65.i.i.noexc
   %inc69.i.i = add nuw nsw i64 %solver.sroa.35.0, 1
   %cmp70.i.i = fcmp olt double %call65.i.i125, 0.000000e+00
-  %xh.2.i.i = select i1 %cmp70.i.i, double %xh.1118.i.i, double %storemerge.i.i
-  %xl.2.i.i = select i1 %cmp70.i.i, double %storemerge.i.i, double %xl.1119.i.i
+  %xh.1..i.i = select i1 %cmp70.i.i, double %xh.1118.i.i, double %storemerge.i.i
+  %.xl.1.i.i = select i1 %cmp70.i.i, double %storemerge.i.i, double %xl.1119.i.i
   %exitcond = icmp eq i64 %solver.sroa.35.0, %conv
   br i1 %exitcond, label %do.body76.i.i, label %while.body.i.i, !llvm.loop !134
 

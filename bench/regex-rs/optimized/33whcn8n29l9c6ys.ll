@@ -5454,8 +5454,8 @@ define noundef zeroext i1 @"_ZN77_$LT$regex_automata..dfa..onepass..Transition$u
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %45
 
-45:                                               ; preds = %38, %13, %32, %29, %21
-  %.0 = phi i1 [ %26, %21 ], [ true, %32 ], [ false, %29 ], [ true, %13 ], [ %44, %38 ]
+45:                                               ; preds = %13, %38, %32, %29, %21
+  %.0 = phi i1 [ %26, %21 ], [ true, %32 ], [ false, %29 ], [ %44, %38 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -5526,8 +5526,8 @@ define noundef zeroext i1 @"_ZN82_$LT$regex_automata..dfa..onepass..PatternEpsil
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %.thread29
 
-32:                                               ; preds = %.thread29, %20, %.thread, %33, %27, %14
-  %.0 = phi i1 [ %19, %14 ], [ true, %33 ], [ false, %27 ], [ false, %.thread ], [ true, %20 ], [ %45, %.thread29 ]
+32:                                               ; preds = %20, %.thread, %.thread29, %33, %27, %14
+  %.0 = phi i1 [ %19, %14 ], [ true, %33 ], [ false, %27 ], [ %45, %.thread29 ], [ false, %.thread ], [ true, %20 ]
   ret i1 %.0
 
 33:                                               ; preds = %27
@@ -5607,7 +5607,7 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..dfa..onepass..Epsilons$u20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br i1 %20, label %.thread37, label %.thread35
+  br i1 %20, label %.thread36, label %.thread
 
 21:                                               ; preds = %2
   %22 = trunc i64 %11 to i32
@@ -5615,14 +5615,14 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..dfa..onepass..Epsilons$u20
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %42, label %28
 
-.thread35:                                        ; preds = %14
+.thread:                                          ; preds = %14
   %25 = trunc i64 %11 to i32
   %26 = and i32 %25, 1023
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread37, label %36
+  br i1 %27, label %.thread36, label %36
 
-.thread37:                                        ; preds = %28, %14, %.thread35, %42, %36
-  %.0 = phi i1 [ true, %36 ], [ %47, %42 ], [ false, %.thread35 ], [ true, %14 ], [ %35, %28 ]
+.thread36:                                        ; preds = %14, %.thread, %28, %42, %36
+  %.0 = phi i1 [ true, %36 ], [ %47, %42 ], [ %35, %28 ], [ false, %.thread ], [ true, %14 ]
   ret i1 %.0
 
 28:                                               ; preds = %21, %36
@@ -5647,9 +5647,9 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..dfa..onepass..Epsilons$u20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %.thread37
+  br label %.thread36
 
-36:                                               ; preds = %.thread35
+36:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.451e762c733db03501c72f969938ebf7.109, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5662,7 +5662,7 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..dfa..onepass..Epsilons$u20
   store i64 0, ptr %40, align 8
   %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  br i1 %41, label %.thread37, label %28
+  br i1 %41, label %.thread36, label %28
 
 42:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -5677,7 +5677,7 @@ define noundef zeroext i1 @"_ZN75_$LT$regex_automata..dfa..onepass..Epsilons$u20
   store i64 0, ptr %46, align 8
   %47 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %.thread37
+  br label %.thread36
 }
 
 ; Function Attrs: nonlazybind uwtable

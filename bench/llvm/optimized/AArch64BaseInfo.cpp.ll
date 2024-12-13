@@ -1877,8 +1877,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -1996,8 +1996,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2153,8 +2153,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2270,8 +2270,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2387,8 +2387,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2488,8 +2488,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %6, i64 2)
   %8 = call i32 @memcmp(ptr noundef nonnull readonly @.str.32, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
+  %.not.i3.i.i.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm10AArch64ISB15lookupISBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupISBByNameES2_E7KeyTypeZNS1_15lookupISBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
 
 9:                                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %8, 0
@@ -2535,8 +2535,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %6, i64 5)
   %8 = call i32 @memcmp(ptr noundef nonnull readonly @.str.66, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
+  %.not.i3.i.i.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm10AArch64TSB15lookupTSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupTSBByNameES2_E7KeyTypeZNS1_15lookupTSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
 
 9:                                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %8, 0
@@ -2598,8 +2598,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2693,8 +2693,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2810,8 +2810,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -2927,8 +2927,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3044,8 +3044,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3157,8 +3157,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3234,8 +3234,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3351,8 +3351,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3452,8 +3452,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %6, i64 5)
   %8 = call i32 @memcmp(ptr noundef nonnull readonly @.str.66, ptr noundef %5, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
+  %.not.i3.i.i.i.i = icmp eq i32 %8, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZSt11lower_boundIPKZN4llvm14AArch64PSBHint15lookupPSBByNameENS0_9StringRefEE9IndexTypeZNS1_15lookupPSBByNameES2_E7KeyTypeZNS1_15lookupPSBByNameES2_E4CompET_S8_S8_RKT0_T1_.exit, label %9
 
 9:                                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %8, 0
@@ -3515,8 +3515,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -3632,8 +3632,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -4214,8 +4214,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0
@@ -4291,8 +4291,8 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i.i:            ; preds = %8, %.lr.ph.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i
   %14 = call i32 @memcmp(ptr noundef readonly %.val.i.i, ptr noundef %11, i64 noundef %.sroa.speculated.i.i.i.i.i) #11
-  %.not.i5.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i5.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
+  %.not.i3.i.i.i.i = icmp eq i32 %14, 0
+  br i1 %.not.i3.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, label %15
 
 15:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp slt i32 %14, 0

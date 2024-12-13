@@ -560,31 +560,25 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42
   %46 = load i64, ptr %15, align 8
   %47 = add i64 %46, %45
   store i64 %47, ptr %10, align 8
+  br label %mbedtls_psa_cipher_set_iv.exit.thread
+
+mbedtls_psa_cipher_set_iv.exit.thread:            ; preds = %18, %mbedtls_psa_cipher_finish.exit.thread, %25, %mbedtls_psa_cipher_set_iv.exit, %11, %44
+  %.0 = phi i32 [ %16, %11 ], [ %24, %mbedtls_psa_cipher_set_iv.exit ], [ %26, %25 ], [ 0, %44 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ -135, %18 ]
   %48 = load i32, ptr %13, align 8
   %49 = and i32 %48, 2130706432
   %50 = icmp eq i32 %49, 67108864
-  br i1 %50, label %mbedtls_psa_cipher_abort.exit.sink.split, label %mbedtls_psa_cipher_abort.exit
+  br i1 %50, label %51, label %mbedtls_psa_cipher_abort.exit
 
-mbedtls_psa_cipher_set_iv.exit.thread:            ; preds = %18, %11, %mbedtls_psa_cipher_set_iv.exit, %25, %mbedtls_psa_cipher_finish.exit.thread
-  %.0.ph = phi i32 [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ %26, %25 ], [ %24, %mbedtls_psa_cipher_set_iv.exit ], [ %16, %11 ], [ -135, %18 ]
-  %51 = load i32, ptr %13, align 8
-  %52 = and i32 %51, 2130706432
-  %53 = icmp eq i32 %52, 67108864
-  br i1 %53, label %54, label %mbedtls_psa_cipher_abort.exit
-
-54:                                               ; preds = %mbedtls_psa_cipher_set_iv.exit.thread
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  br label %mbedtls_psa_cipher_abort.exit.sink.split
-
-mbedtls_psa_cipher_abort.exit.sink.split:         ; preds = %44, %54
-  %.sink = phi ptr [ %55, %54 ], [ %31, %44 ]
-  %.1.ph = phi i32 [ %.0.ph, %54 ], [ 0, %44 ]
-  call void @mbedtls_cipher_free(ptr noundef nonnull %.sink) #6
+51:                                               ; preds = %mbedtls_psa_cipher_set_iv.exit.thread
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @mbedtls_cipher_free(ptr noundef nonnull %52) #6
   br label %mbedtls_psa_cipher_abort.exit
 
-mbedtls_psa_cipher_abort.exit:                    ; preds = %mbedtls_psa_cipher_abort.exit.sink.split, %mbedtls_psa_cipher_set_iv.exit.thread, %44
-  %.1 = phi i32 [ -137, %44 ], [ %.0.ph, %mbedtls_psa_cipher_set_iv.exit.thread ], [ %.1.ph, %mbedtls_psa_cipher_abort.exit.sink.split ]
-  ret i32 %.1
+mbedtls_psa_cipher_abort.exit:                    ; preds = %mbedtls_psa_cipher_set_iv.exit.thread, %51
+  %.0.i31 = phi i32 [ 0, %51 ], [ -137, %mbedtls_psa_cipher_set_iv.exit.thread ]
+  %53 = icmp eq i32 %.0, 0
+  %..0 = select i1 %53, i32 %.0.i31, i32 %.0
+  ret i32 %..0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -598,7 +592,7 @@ define hidden i32 @mbedtls_psa_cipher_decrypt(ptr nocapture noundef readonly %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 104, i1 false)
   %13 = call fastcc i32 @psa_cipher_setup(ptr noundef nonnull %11, ptr noundef readonly %0, ptr noundef %1, i32 noundef %3, i32 noundef 0)
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %50
+  br i1 %.not, label %14, label %47
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -612,7 +606,7 @@ mbedtls_psa_cipher_set_iv.exit:                   ; preds = %14
   %19 = call i32 @mbedtls_cipher_set_iv(ptr noundef nonnull %18, ptr noundef %4, i64 noundef %17) #6
   %20 = call i32 @mbedtls_to_psa_error(i32 noundef %19) #6
   %.not26 = icmp eq i32 %20, 0
-  br i1 %.not26, label %mbedtls_psa_cipher_set_iv.exit._crit_edge, label %50
+  br i1 %.not26, label %mbedtls_psa_cipher_set_iv.exit._crit_edge, label %47
 
 mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_set_iv.exit
   %.pre = load i8, ptr %15, align 4
@@ -625,7 +619,7 @@ mbedtls_psa_cipher_set_iv.exit._crit_edge:        ; preds = %mbedtls_psa_cipher_
   %25 = sub i64 %5, %23
   %26 = call i32 @mbedtls_psa_cipher_update(ptr noundef nonnull %11, ptr noundef %24, i64 noundef %25, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %12)
   %.not27 = icmp eq i32 %26, 0
-  br i1 %.not27, label %27, label %50
+  br i1 %.not27, label %27, label %47
 
 27:                                               ; preds = %22
   %28 = load i64, ptr %12, align 8
@@ -668,7 +662,7 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42
   %.0.i30.ph = phi i32 [ -138, %42 ], [ -135, %34 ], [ -135, %34 ], [ %38, %36 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %50
+  br label %47
 
 44:                                               ; preds = %43, %39
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #6
@@ -676,31 +670,25 @@ mbedtls_psa_cipher_finish.exit.thread:            ; preds = %36, %34, %34, %42
   %45 = load i64, ptr %12, align 8
   %46 = add i64 %45, %28
   store i64 %46, ptr %8, align 8
-  %47 = load i32, ptr %11, align 8
-  %48 = and i32 %47, 2130706432
-  %49 = icmp eq i32 %48, 67108864
-  br i1 %49, label %mbedtls_psa_cipher_abort.exit.sink.split, label %mbedtls_psa_cipher_abort.exit
+  br label %47
 
-50:                                               ; preds = %9, %mbedtls_psa_cipher_set_iv.exit, %22, %mbedtls_psa_cipher_finish.exit.thread
-  %.0.ph = phi i32 [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ], [ %26, %22 ], [ %20, %mbedtls_psa_cipher_set_iv.exit ], [ %13, %9 ]
-  %51 = load i32, ptr %11, align 8
-  %52 = and i32 %51, 2130706432
-  %53 = icmp eq i32 %52, 67108864
-  br i1 %53, label %54, label %mbedtls_psa_cipher_abort.exit
+47:                                               ; preds = %mbedtls_psa_cipher_finish.exit.thread, %22, %mbedtls_psa_cipher_set_iv.exit, %9, %44
+  %.0 = phi i32 [ %13, %9 ], [ %20, %mbedtls_psa_cipher_set_iv.exit ], [ %26, %22 ], [ 0, %44 ], [ %.0.i30.ph, %mbedtls_psa_cipher_finish.exit.thread ]
+  %48 = load i32, ptr %11, align 8
+  %49 = and i32 %48, 2130706432
+  %50 = icmp eq i32 %49, 67108864
+  br i1 %50, label %51, label %mbedtls_psa_cipher_abort.exit
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %mbedtls_psa_cipher_abort.exit.sink.split
-
-mbedtls_psa_cipher_abort.exit.sink.split:         ; preds = %44, %54
-  %.sink = phi ptr [ %55, %54 ], [ %31, %44 ]
-  %.1.ph = phi i32 [ %.0.ph, %54 ], [ 0, %44 ]
-  call void @mbedtls_cipher_free(ptr noundef nonnull %.sink) #6
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @mbedtls_cipher_free(ptr noundef nonnull %52) #6
   br label %mbedtls_psa_cipher_abort.exit
 
-mbedtls_psa_cipher_abort.exit:                    ; preds = %mbedtls_psa_cipher_abort.exit.sink.split, %50, %44
-  %.1 = phi i32 [ -137, %44 ], [ %.0.ph, %50 ], [ %.1.ph, %mbedtls_psa_cipher_abort.exit.sink.split ]
-  ret i32 %.1
+mbedtls_psa_cipher_abort.exit:                    ; preds = %47, %51
+  %.0.i31 = phi i32 [ 0, %51 ], [ -137, %47 ]
+  %53 = icmp eq i32 %.0, 0
+  %..0 = select i1 %53, i32 %.0.i31, i32 %.0
+  ret i32 %..0
 }
 
 declare void @mbedtls_cipher_init(ptr noundef) local_unnamed_addr #1

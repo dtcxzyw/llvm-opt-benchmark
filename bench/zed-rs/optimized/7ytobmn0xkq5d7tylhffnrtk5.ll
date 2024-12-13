@@ -59911,16 +59911,16 @@ define hidden noundef ptr @"_ZN82_$LT$$LP$A1$C$$RP$$u20$as$u20$wasmtime..runtime
   store i64 %40, ptr %4, align 8, !alias.scope !13570, !noalias !13571
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %42, ptr %43, align 8, !alias.scope !13570, !noalias !13571
-  br label %46
+  br label %"_ZN90_$LT$alloc..string..String$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h49a91767076401d0E.exit"
 
 44:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hedad288ffc22927dE.llvm.9243646390802613332.exit"
   %45 = load ptr, ptr %38, align 8, !noalias !13566, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !13566
-  br label %46
+  br label %"_ZN90_$LT$alloc..string..String$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h49a91767076401d0E.exit"
 
-46:                                               ; preds = %44, %39
-  %.sroa.01.0 = phi ptr [ null, %39 ], [ %45, %44 ]
-  ret ptr %.sroa.01.0
+"_ZN90_$LT$alloc..string..String$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h49a91767076401d0E.exit": ; preds = %39, %44
+  %.sroa.0.0.i.i = phi ptr [ %45, %44 ], [ null, %39 ]
+  ret ptr %.sroa.0.0.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

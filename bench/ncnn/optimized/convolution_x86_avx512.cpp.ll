@@ -15871,14 +15871,14 @@ define internal fastcc noundef zeroext i1 @_ZN4ncnnL22test_prefer_winograd63Eiii
   %or.cond = icmp ult i32 %13, 4
   %14 = add i32 %.sroa.speculated, -19
   %or.cond3 = icmp ult i32 %14, 2
-  %or.cond162 = or i1 %or.cond, %or.cond3
+  %or.cond161 = or i1 %or.cond, %or.cond3
   %15 = add i32 %.sroa.speculated, -23
   %or.cond5 = icmp ult i32 %15, 22
-  %or.cond163 = or i1 %or.cond5, %or.cond162
+  %or.cond162 = or i1 %or.cond5, %or.cond161
   %16 = add i32 %.sroa.speculated, -47
   %or.cond7 = icmp ult i32 %16, 10
-  %or.cond164 = or i1 %or.cond7, %or.cond163
-  br i1 %or.cond164, label %switch.lookup, label %17
+  %or.cond163 = or i1 %or.cond7, %or.cond162
+  br i1 %or.cond163, label %switch.lookup, label %17
 
 17:                                               ; preds = %12
   %18 = add i32 %.sroa.speculated, -63
@@ -15909,11 +15909,11 @@ switch.early.test:                                ; preds = %22
   br i1 %29, label %30, label %switch.lookup
 
 30:                                               ; preds = %28
-  %switch.tableidx192 = add i32 %.sroa.speculated, -11
-  %31 = icmp ult i32 %switch.tableidx192, 34
-  br i1 %31, label %switch.hole_check193, label %32
+  %switch.tableidx191 = add i32 %.sroa.speculated, -11
+  %31 = icmp ult i32 %switch.tableidx191, 34
+  br i1 %31, label %switch.hole_check192, label %32
 
-32:                                               ; preds = %switch.hole_check193, %30
+32:                                               ; preds = %switch.hole_check192, %30
   %33 = add i32 %.sroa.speculated, -55
   %34 = icmp ult i32 %33, 108
   br label %switch.lookup
@@ -15935,14 +15935,14 @@ switch.early.test:                                ; preds = %22
   %or.cond25 = icmp ult i32 %42, 4
   %43 = add i32 %.sroa.speculated, -19
   %or.cond27 = icmp ult i32 %43, 2
-  %or.cond171 = or i1 %or.cond25, %or.cond27
+  %or.cond170 = or i1 %or.cond25, %or.cond27
   %44 = add i32 %.sroa.speculated, -23
   %or.cond29 = icmp ult i32 %44, 22
-  %or.cond172 = or i1 %or.cond29, %or.cond171
+  %or.cond171 = or i1 %or.cond29, %or.cond170
   %45 = add i32 %.sroa.speculated, -47
   %or.cond31 = icmp ult i32 %45, 46
-  %or.cond173 = or i1 %or.cond31, %or.cond172
-  br i1 %or.cond173, label %switch.lookup, label %46
+  %or.cond172 = or i1 %or.cond31, %or.cond171
+  br i1 %or.cond172, label %switch.lookup, label %46
 
 46:                                               ; preds = %41
   %47 = add i32 %.sroa.speculated, -95
@@ -15958,20 +15958,20 @@ switch.early.test:                                ; preds = %22
   %or.cond33 = icmp ult i32 %52, 4
   %53 = add i32 %.sroa.speculated, -27
   %or.cond35 = icmp ult i32 %53, 12
-  %or.cond174 = or i1 %or.cond33, %or.cond35
+  %or.cond173 = or i1 %or.cond33, %or.cond35
   %54 = add i32 %.sroa.speculated, -43
   %or.cond37 = icmp ult i32 %54, 2
-  %or.cond175 = or i1 %or.cond37, %or.cond174
+  %or.cond174 = or i1 %or.cond37, %or.cond173
   %55 = add i32 %.sroa.speculated, -47
   %or.cond39 = icmp ult i32 %55, 28
-  %or.cond176 = or i1 %or.cond39, %or.cond175
+  %or.cond175 = or i1 %or.cond39, %or.cond174
   %56 = add i32 %.sroa.speculated, -81
   %or.cond41 = icmp ult i32 %56, 30
-  %or.cond177 = or i1 %or.cond41, %or.cond176
+  %or.cond176 = or i1 %or.cond41, %or.cond175
   %57 = add i32 %.sroa.speculated, -117
   %or.cond43 = icmp ult i32 %57, 54
-  %or.cond178 = or i1 %or.cond43, %or.cond177
-  br i1 %or.cond178, label %switch.lookup, label %58
+  %or.cond177 = or i1 %or.cond43, %or.cond176
+  br i1 %or.cond177, label %switch.lookup, label %58
 
 58:                                               ; preds = %51
   %59 = add i32 %.sroa.speculated, -177
@@ -15985,14 +15985,14 @@ switch.early.test:                                ; preds = %22
 63:                                               ; preds = %61
   %64 = add i32 %.sroa.speculated, -47
   %or.cond51 = icmp ult i32 %64, 82
-  br i1 %or.cond51, label %switch.lookup, label %switch.early.test186
+  br i1 %or.cond51, label %switch.lookup, label %switch.early.test185
 
-switch.early.test186:                             ; preds = %63
-  %switch.tableidx198 = add i32 %.sroa.speculated, -19
-  %65 = icmp ult i32 %switch.tableidx198, 26
-  br i1 %65, label %switch.hole_check199, label %66
+switch.early.test185:                             ; preds = %63
+  %switch.tableidx197 = add i32 %.sroa.speculated, -19
+  %65 = icmp ult i32 %switch.tableidx197, 26
+  br i1 %65, label %switch.hole_check198, label %66
 
-66:                                               ; preds = %switch.hole_check199, %switch.early.test186
+66:                                               ; preds = %switch.hole_check198, %switch.early.test185
   %67 = add i32 %.sroa.speculated, -155
   %68 = icmp ult i32 %67, 56
   br label %switch.lookup
@@ -16000,19 +16000,19 @@ switch.early.test186:                             ; preds = %63
 69:                                               ; preds = %35
   %70 = icmp slt i32 %0, 8
   %71 = icmp sgt i32 %1, 63
-  %or.cond187 = or i1 %70, %71
-  br i1 %or.cond187, label %switch.lookup, label %72
+  %or.cond186 = or i1 %70, %71
+  br i1 %or.cond186, label %switch.lookup, label %72
 
 72:                                               ; preds = %69
   %73 = icmp sgt i32 %1, 31
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %72
-  %switch.tableidx204 = add i32 %.sroa.speculated, -7
-  %75 = icmp ult i32 %switch.tableidx204, 32
-  br i1 %75, label %switch.hole_check205, label %76
+  %switch.tableidx203 = add i32 %.sroa.speculated, -7
+  %75 = icmp ult i32 %switch.tableidx203, 32
+  br i1 %75, label %switch.hole_check204, label %76
 
-76:                                               ; preds = %switch.hole_check205, %74
+76:                                               ; preds = %switch.hole_check204, %74
   %77 = add i32 %.sroa.speculated, -43
   %78 = icmp ult i32 %77, 120
   br label %switch.lookup
@@ -16022,11 +16022,11 @@ switch.early.test186:                             ; preds = %63
   br i1 %80, label %81, label %switch.lookup
 
 81:                                               ; preds = %79
-  %switch.tableidx210 = add i32 %.sroa.speculated, -31
-  %82 = icmp ult i32 %switch.tableidx210, 14
-  br i1 %82, label %switch.hole_check211, label %83
+  %switch.tableidx209 = add i32 %.sroa.speculated, -31
+  %82 = icmp ult i32 %switch.tableidx209, 14
+  br i1 %82, label %switch.hole_check210, label %83
 
-83:                                               ; preds = %switch.hole_check211, %81
+83:                                               ; preds = %switch.hole_check210, %81
   %84 = add i32 %.sroa.speculated, -47
   %85 = icmp ult i32 %84, 166
   br label %switch.lookup
@@ -16036,30 +16036,30 @@ switch.hole_check:                                ; preds = %switch.early.test
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %25
 
-switch.hole_check193:                             ; preds = %30
-  %switch.maskindex = zext nneg i32 %switch.tableidx192 to i64
-  %switch.shifted195 = lshr i64 13152289551, %switch.maskindex
-  %switch.lobit196 = trunc i64 %switch.shifted195 to i1
-  br i1 %switch.lobit196, label %switch.lookup, label %32
+switch.hole_check192:                             ; preds = %30
+  %switch.maskindex = zext nneg i32 %switch.tableidx191 to i64
+  %switch.shifted194 = lshr i64 13152289551, %switch.maskindex
+  %switch.lobit195 = trunc i64 %switch.shifted194 to i1
+  br i1 %switch.lobit195, label %switch.lookup, label %32
 
-switch.hole_check199:                             ; preds = %switch.early.test186
-  %switch.shifted201 = lshr i32 51363843, %switch.tableidx198
-  %switch.lobit202 = trunc i32 %switch.shifted201 to i1
-  br i1 %switch.lobit202, label %switch.lookup, label %66
+switch.hole_check198:                             ; preds = %switch.early.test185
+  %switch.shifted200 = lshr i32 51363843, %switch.tableidx197
+  %switch.lobit201 = trunc i32 %switch.shifted200 to i1
+  br i1 %switch.lobit201, label %switch.lookup, label %66
 
-switch.hole_check205:                             ; preds = %74
-  %switch.shifted207 = lshr i32 -15778561, %switch.tableidx204
-  %switch.lobit208 = trunc i32 %switch.shifted207 to i1
-  br i1 %switch.lobit208, label %switch.lookup, label %76
+switch.hole_check204:                             ; preds = %74
+  %switch.shifted206 = lshr i32 -15778561, %switch.tableidx203
+  %switch.lobit207 = trunc i32 %switch.shifted206 to i1
+  br i1 %switch.lobit207, label %switch.lookup, label %76
 
-switch.hole_check211:                             ; preds = %81
-  %switch.maskindex213 = trunc nuw i32 %switch.tableidx210 to i16
-  %switch.shifted214 = lshr i16 16131, %switch.maskindex213
-  %switch.lobit215 = trunc i16 %switch.shifted214 to i1
-  br i1 %switch.lobit215, label %switch.lookup, label %83
+switch.hole_check210:                             ; preds = %81
+  %switch.maskindex212 = trunc nuw i32 %switch.tableidx209 to i16
+  %switch.shifted213 = lshr i16 16131, %switch.maskindex212
+  %switch.lobit214 = trunc i16 %switch.shifted213 to i1
+  br i1 %switch.lobit214, label %switch.lookup, label %83
 
-switch.lookup:                                    ; preds = %switch.hole_check211, %switch.hole_check205, %switch.hole_check199, %switch.hole_check193, %switch.hole_check, %63, %22, %69, %79, %83, %76, %61, %66, %58, %51, %46, %41, %37, %28, %32, %25, %17, %12, %8, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ %19, %17 ], [ true, %12 ], [ %27, %25 ], [ %34, %32 ], [ false, %28 ], [ false, %37 ], [ %48, %46 ], [ true, %41 ], [ %60, %58 ], [ true, %51 ], [ %68, %66 ], [ false, %61 ], [ %78, %76 ], [ %85, %83 ], [ false, %79 ], [ false, %69 ], [ true, %22 ], [ true, %63 ], [ true, %switch.hole_check ], [ true, %switch.hole_check193 ], [ true, %switch.hole_check199 ], [ true, %switch.hole_check205 ], [ true, %switch.hole_check211 ]
+switch.lookup:                                    ; preds = %switch.hole_check210, %switch.hole_check204, %switch.hole_check198, %switch.hole_check192, %switch.hole_check, %63, %22, %69, %79, %83, %76, %61, %66, %58, %51, %46, %41, %37, %28, %32, %25, %17, %12, %8, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %8 ], [ %19, %17 ], [ true, %12 ], [ %27, %25 ], [ %34, %32 ], [ false, %28 ], [ false, %37 ], [ %48, %46 ], [ true, %41 ], [ %60, %58 ], [ true, %51 ], [ %68, %66 ], [ false, %61 ], [ %78, %76 ], [ %85, %83 ], [ false, %79 ], [ false, %69 ], [ true, %22 ], [ true, %63 ], [ true, %switch.hole_check ], [ true, %switch.hole_check192 ], [ true, %switch.hole_check198 ], [ true, %switch.hole_check204 ], [ true, %switch.hole_check210 ]
   ret i1 %.0
 }
 

@@ -2245,49 +2245,49 @@ define noundef zeroext i1 @_ZN4ring6pbkdf26verify17h3b62a3be952bcf4dE(ptr noalia
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46ac70c01d12096318b30cbe23e8e5d5.34) #22, !noalias !315
   unreachable
 
-22:                                               ; preds = %.sink.split, %8
-  %.012 = phi i1 [ true, %8 ], [ %23, %.sink.split ]
+22:                                               ; preds = %23, %8
+  %.012 = phi i1 [ true, %8 ], [ %24, %23 ]
   ret i1 %.012
 
-.sink.split:                                      ; preds = %.lr.ph.preheader.i
-  %23 = icmp eq i32 %34, 0
+23:                                               ; preds = %.lr.ph.preheader.i
+  %24 = icmp eq i32 %35, 0
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %22
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader": ; preds = %13, %.lr.ph.preheader.i
-  %.029 = phi i32 [ %34, %.lr.ph.preheader.i ], [ 1, %13 ]
-  %.01428 = phi i32 [ %28, %.lr.ph.preheader.i ], [ 0, %13 ]
-  %.sroa.5.01727 = phi i64 [ %25, %.lr.ph.preheader.i ], [ %7, %13 ]
-  %.sroa.016.026 = phi ptr [ %24, %.lr.ph.preheader.i ], [ %6, %13 ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.5.01727, i64 %15)
-  %24 = getelementptr inbounds i8, ptr %.sroa.016.026, i64 %.0.sroa.speculated.i.i
-  %25 = sub nuw i64 %.sroa.5.01727, %.0.sroa.speculated.i.i
-  %26 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.01428, i32 1)
-  %27 = extractvalue { i32, i1 } %26, 1
-  %28 = extractvalue { i32, i1 } %26, 0
-  br i1 %27, label %29, label %30
+  %.030 = phi i32 [ %35, %.lr.ph.preheader.i ], [ 1, %13 ]
+  %.01429 = phi i32 [ %29, %.lr.ph.preheader.i ], [ 0, %13 ]
+  %.sroa.5.01828 = phi i64 [ %26, %.lr.ph.preheader.i ], [ %7, %13 ]
+  %.sroa.017.027 = phi ptr [ %25, %.lr.ph.preheader.i ], [ %6, %13 ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.5.01828, i64 %15)
+  %25 = getelementptr inbounds i8, ptr %.sroa.017.027, i64 %.0.sroa.speculated.i.i
+  %26 = sub nuw i64 %.sroa.5.01828, %.0.sroa.speculated.i.i
+  %27 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %.01429, i32 1)
+  %28 = extractvalue { i32, i1 } %27, 1
+  %29 = extractvalue { i32, i1 } %27, 0
+  br i1 %28, label %30, label %31
 
-29:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
+30:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
   call void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.46ac70c01d12096318b30cbe23e8e5d5.30, i64 noundef 20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46ac70c01d12096318b30cbe23e8e5d5.35) #22
   unreachable
 
-30:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
-  %31 = icmp ugt i64 %.0.sroa.speculated.i.i, 64
-  br i1 %31, label %32, label %.lr.ph.preheader.i
+31:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
+  %32 = icmp ugt i64 %.0.sroa.speculated.i.i, 64
+  br i1 %32, label %33, label %.lr.ph.preheader.i
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %.0.sroa.speculated.i.i, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.46ac70c01d12096318b30cbe23e8e5d5.36) #22, !noalias !316
   unreachable
 
-.lr.ph.preheader.i:                               ; preds = %30
+.lr.ph.preheader.i:                               ; preds = %31
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %11, i8 0, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !319
-  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %28, ptr noalias noundef nonnull align 1 %11, i64 noundef %.0.sroa.speculated.i.i)
-  %33 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly align 1 %11, ptr noundef nonnull readonly align 1 %.sroa.016.026, i64 noundef %.0.sroa.speculated.i.i)
-  %.not = icmp eq i32 %33, 0
-  %34 = select i1 %.not, i32 %.029, i32 0
-  %35 = icmp eq i64 %25, 0
-  br i1 %35, label %.sink.split, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
+  call fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(ptr noalias noundef readonly align 8 dereferenceable(160) %10, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %29, ptr noalias noundef nonnull align 1 %11, i64 noundef %.0.sroa.speculated.i.i)
+  %34 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly align 1 %11, ptr noundef nonnull readonly align 1 %.sroa.017.027, i64 noundef %.0.sroa.speculated.i.i)
+  %.not = icmp eq i32 %34, 0
+  %35 = select i1 %.not, i32 %.030, i32 0
+  %36 = icmp eq i64 %26, 0
+  br i1 %36, label %23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6chunks17h71542add2c84d48fE.exit.preheader"
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

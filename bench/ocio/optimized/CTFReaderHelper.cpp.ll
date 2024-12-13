@@ -29989,35 +29989,35 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %m_gradingTone = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %m_green.i15.i = getelementptr inbounds nuw i8, ptr %values, i64 8
-  %m_blue.i16.i = getelementptr inbounds nuw i8, ptr %values, i64 16
-  %m_master.i17.i = getelementptr inbounds nuw i8, ptr %values, i64 24
-  %m_whites95.i = getelementptr inbounds nuw i8, ptr %values, i64 192
-  %m_width.i64.i = getelementptr inbounds nuw i8, ptr %values, i64 184
-  %m_start.i63.i = getelementptr inbounds nuw i8, ptr %values, i64 176
-  %m_master.i62.i = getelementptr inbounds nuw i8, ptr %values, i64 168
-  %m_blue.i61.i = getelementptr inbounds nuw i8, ptr %values, i64 160
-  %m_green.i60.i = getelementptr inbounds nuw i8, ptr %values, i64 152
-  %m_highlights90.i = getelementptr inbounds nuw i8, ptr %values, i64 144
-  %m_width.i49.i = getelementptr inbounds nuw i8, ptr %values, i64 136
-  %m_start.i48.i = getelementptr inbounds nuw i8, ptr %values, i64 128
-  %m_master.i47.i = getelementptr inbounds nuw i8, ptr %values, i64 120
-  %m_blue.i46.i = getelementptr inbounds nuw i8, ptr %values, i64 112
-  %m_green.i45.i = getelementptr inbounds nuw i8, ptr %values, i64 104
-  %m_midtones85.i = getelementptr inbounds nuw i8, ptr %values, i64 96
-  %m_width.i34.i = getelementptr inbounds nuw i8, ptr %values, i64 88
-  %m_start.i33.i = getelementptr inbounds nuw i8, ptr %values, i64 80
-  %m_master.i32.i = getelementptr inbounds nuw i8, ptr %values, i64 72
-  %m_blue.i31.i = getelementptr inbounds nuw i8, ptr %values, i64 64
-  %m_green.i30.i = getelementptr inbounds nuw i8, ptr %values, i64 56
-  %m_shadows80.i = getelementptr inbounds nuw i8, ptr %values, i64 48
-  %m_width.i19.i = getelementptr inbounds nuw i8, ptr %values, i64 40
-  %m_start.i18.i = getelementptr inbounds nuw i8, ptr %values, i64 32
-  %m_green.i70.i = getelementptr inbounds nuw i8, ptr %values, i64 200
-  %m_blue.i71.i = getelementptr inbounds nuw i8, ptr %values, i64 208
-  %m_master.i72.i = getelementptr inbounds nuw i8, ptr %values, i64 216
-  %m_start.i73.i = getelementptr inbounds nuw i8, ptr %values, i64 224
-  %m_width.i74.i = getelementptr inbounds nuw i8, ptr %values, i64 232
+  %m_green.i.i = getelementptr inbounds nuw i8, ptr %values, i64 8
+  %m_blue.i.i = getelementptr inbounds nuw i8, ptr %values, i64 16
+  %m_master.i.i = getelementptr inbounds nuw i8, ptr %values, i64 24
+  %m_start.i.i = getelementptr inbounds nuw i8, ptr %values, i64 32
+  %m_width.i.i = getelementptr inbounds nuw i8, ptr %values, i64 40
+  %m_shadows74.i = getelementptr inbounds nuw i8, ptr %values, i64 48
+  %m_width.i18.i = getelementptr inbounds nuw i8, ptr %values, i64 88
+  %m_green.i19.i = getelementptr inbounds nuw i8, ptr %values, i64 56
+  %m_blue.i20.i = getelementptr inbounds nuw i8, ptr %values, i64 64
+  %m_master.i21.i = getelementptr inbounds nuw i8, ptr %values, i64 72
+  %m_start.i22.i = getelementptr inbounds nuw i8, ptr %values, i64 80
+  %m_midtones7678.i = getelementptr inbounds nuw i8, ptr %values, i64 96
+  %m_green.i34.i = getelementptr inbounds nuw i8, ptr %values, i64 104
+  %m_blue.i35.i = getelementptr inbounds nuw i8, ptr %values, i64 112
+  %m_master.i36.i = getelementptr inbounds nuw i8, ptr %values, i64 120
+  %m_start.i37.i = getelementptr inbounds nuw i8, ptr %values, i64 128
+  %m_width.i38.i = getelementptr inbounds nuw i8, ptr %values, i64 136
+  %m_highlights8183.i = getelementptr inbounds nuw i8, ptr %values, i64 144
+  %m_green.i49.i = getelementptr inbounds nuw i8, ptr %values, i64 152
+  %m_blue.i50.i = getelementptr inbounds nuw i8, ptr %values, i64 160
+  %m_master.i51.i = getelementptr inbounds nuw i8, ptr %values, i64 168
+  %m_start.i52.i = getelementptr inbounds nuw i8, ptr %values, i64 176
+  %m_width.i53.i = getelementptr inbounds nuw i8, ptr %values, i64 184
+  %m_whites8688.i = getelementptr inbounds nuw i8, ptr %values, i64 192
+  %m_green.i64.i = getelementptr inbounds nuw i8, ptr %values, i64 200
+  %m_blue.i65.i = getelementptr inbounds nuw i8, ptr %values, i64 208
+  %m_master.i66.i = getelementptr inbounds nuw i8, ptr %values, i64 216
+  %m_start.i67.i = getelementptr inbounds nuw i8, ptr %values, i64 224
+  %m_width.i68.i = getelementptr inbounds nuw i8, ptr %values, i64 232
   %m_scontrast.i = getelementptr inbounds nuw i8, ptr %values, i64 240
   br label %while.body
 
@@ -30045,57 +30045,65 @@ invoke.cont:                                      ; preds = %if.then
   %6 = load i32, ptr %dir, align 4
   call void @_ZN19OpenColorIO_v2_4dev17GradingToneOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef %6) #30
   %7 = load i32, ptr %style, align 4
+  %cmp.i = icmp eq i32 %7, 1
   store double 1.000000e+00, ptr %values, align 8
-  store double 1.000000e+00, ptr %m_green.i15.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i16.i, align 8
-  store double 1.000000e+00, ptr %m_master.i17.i, align 8
-  switch i32 %7, label %cond.false35.i [
-    i32 1, label %invoke.cont9
-    i32 0, label %cond.true34.i
-  ]
+  store double 1.000000e+00, ptr %m_green.i.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i.i, align 8
+  store double 1.000000e+00, ptr %m_master.i.i, align 8
+  br i1 %cmp.i, label %cond.true31.i, label %cond.false8.i
 
-cond.true34.i:                                    ; preds = %invoke.cont
+cond.false8.i:                                    ; preds = %invoke.cont
+  store double 4.000000e-01, ptr %m_start.i.i, align 8
+  store double 4.000000e-01, ptr %m_width.i.i, align 8
+  %cmp9.i = icmp eq i32 %7, 0
+  store double 1.000000e+00, ptr %m_shadows74.i, align 8
+  store double 1.000000e+00, ptr %m_green.i19.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i20.i, align 8
+  store double 1.000000e+00, ptr %m_master.i21.i, align 8
+  %. = select i1 %cmp9.i, double 5.000000e-01, double 6.000000e-01
+  %.26 = select i1 %cmp9.i, double 6.000000e-01, double 0x3FE6666666666666
+  %.27 = select i1 %cmp9.i, double 3.000000e-01, double 2.000000e-01
+  %.28 = select i1 %cmp9.i, double 4.000000e-01, double 5.000000e-01
   br label %invoke.cont9
 
-cond.false35.i:                                   ; preds = %invoke.cont
+cond.true31.i:                                    ; preds = %invoke.cont
+  store double 0.000000e+00, ptr %m_start.i.i, align 8
+  store double 4.000000e+00, ptr %m_width.i.i, align 8
+  store double 1.000000e+00, ptr %m_shadows74.i, align 8
+  store double 1.000000e+00, ptr %m_green.i19.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i20.i, align 8
+  store double 1.000000e+00, ptr %m_master.i21.i, align 8
   br label %invoke.cont9
 
-invoke.cont9:                                     ; preds = %cond.false35.i, %cond.true34.i, %invoke.cont
-  %.sink108.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 0.000000e+00, %invoke.cont ]
-  %.sink107.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 4.000000e+00, %invoke.cont ]
-  %.sink106.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 6.000000e-01, %cond.false35.i ], [ 2.000000e+00, %invoke.cont ]
-  %.sink105.i = phi double [ 0.000000e+00, %cond.true34.i ], [ 0.000000e+00, %cond.false35.i ], [ -7.000000e+00, %invoke.cont ]
-  %.sink103.i = phi double [ 6.000000e-01, %cond.true34.i ], [ 0x3FE6666666666666, %cond.false35.i ], [ 8.000000e+00, %invoke.cont ]
-  %.sink102.i = phi double [ 3.000000e-01, %cond.true34.i ], [ 2.000000e-01, %cond.false35.i ], [ -2.000000e+00, %invoke.cont ]
-  %.sink101.i = phi double [ 1.000000e+00, %cond.true34.i ], [ 1.000000e+00, %cond.false35.i ], [ 9.000000e+00, %invoke.cont ]
-  %.sink100.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 0.000000e+00, %invoke.cont ]
-  %.sink.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 8.000000e+00, %invoke.cont ]
-  store double %.sink108.i, ptr %m_start.i18.i, align 8
-  store double %.sink107.i, ptr %m_width.i19.i, align 8
-  store double 1.000000e+00, ptr %m_shadows80.i, align 8
-  store double 1.000000e+00, ptr %m_green.i30.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i31.i, align 8
-  store double 1.000000e+00, ptr %m_master.i32.i, align 8
-  store double %.sink106.i, ptr %m_start.i33.i, align 8
-  store double %.sink105.i, ptr %m_width.i34.i, align 8
-  store double 1.000000e+00, ptr %m_midtones85.i, align 8
-  store double 1.000000e+00, ptr %m_green.i45.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i46.i, align 8
-  store double 1.000000e+00, ptr %m_master.i47.i, align 8
-  store double %.sink108.i, ptr %m_start.i48.i, align 8
-  store double %.sink103.i, ptr %m_width.i49.i, align 8
-  store double 1.000000e+00, ptr %m_highlights90.i, align 8
-  store double 1.000000e+00, ptr %m_green.i60.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i61.i, align 8
-  store double 1.000000e+00, ptr %m_master.i62.i, align 8
-  store double %.sink102.i, ptr %m_start.i63.i, align 8
-  store double %.sink101.i, ptr %m_width.i64.i, align 8
-  store double 1.000000e+00, ptr %m_whites95.i, align 8
-  store double 1.000000e+00, ptr %m_green.i70.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i71.i, align 8
-  store double 1.000000e+00, ptr %m_master.i72.i, align 8
-  store double %.sink100.i, ptr %m_start.i73.i, align 8
-  store double %.sink.i, ptr %m_width.i74.i, align 8
+invoke.cont9:                                     ; preds = %cond.false8.i, %cond.true31.i
+  %.sink25 = phi double [ 2.000000e+00, %cond.true31.i ], [ %., %cond.false8.i ]
+  %.sink24 = phi double [ -7.000000e+00, %cond.true31.i ], [ 0.000000e+00, %cond.false8.i ]
+  %.sink23 = phi double [ 0.000000e+00, %cond.true31.i ], [ 4.000000e-01, %cond.false8.i ]
+  %.sink22 = phi double [ 8.000000e+00, %cond.true31.i ], [ %.26, %cond.false8.i ]
+  %.sink21 = phi double [ -2.000000e+00, %cond.true31.i ], [ %.27, %cond.false8.i ]
+  %.sink20 = phi double [ 9.000000e+00, %cond.true31.i ], [ 1.000000e+00, %cond.false8.i ]
+  %.sink19 = phi double [ 0.000000e+00, %cond.true31.i ], [ %.28, %cond.false8.i ]
+  %.sink = phi double [ 8.000000e+00, %cond.true31.i ], [ 5.000000e-01, %cond.false8.i ]
+  store double %.sink25, ptr %m_start.i22.i, align 8
+  store double %.sink24, ptr %m_width.i18.i, align 8
+  store double 1.000000e+00, ptr %m_midtones7678.i, align 8
+  store double 1.000000e+00, ptr %m_green.i34.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i35.i, align 8
+  store double 1.000000e+00, ptr %m_master.i36.i, align 8
+  store double %.sink23, ptr %m_start.i37.i, align 8
+  store double %.sink22, ptr %m_width.i38.i, align 8
+  store double 1.000000e+00, ptr %m_highlights8183.i, align 8
+  store double 1.000000e+00, ptr %m_green.i49.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i50.i, align 8
+  store double 1.000000e+00, ptr %m_master.i51.i, align 8
+  store double %.sink21, ptr %m_start.i52.i, align 8
+  store double %.sink20, ptr %m_width.i53.i, align 8
+  store double 1.000000e+00, ptr %m_whites8688.i, align 8
+  store double 1.000000e+00, ptr %m_green.i64.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i65.i, align 8
+  store double 1.000000e+00, ptr %m_master.i66.i, align 8
+  store double %.sink19, ptr %m_start.i67.i, align 8
+  store double %.sink, ptr %m_width.i68.i, align 8
   store double 1.000000e+00, ptr %m_scontrast.i, align 8
   %8 = load ptr, ptr %m_gradingTone, align 8
   %m_value.i = getelementptr inbounds nuw i8, ptr %8, i64 176

@@ -7058,21 +7058,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %27
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %41 = and i32 %.lcssa.i, 262143
   %42 = icmp eq i32 %41, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14
-  br i1 %42, label %43, label %45
-
-43:                                               ; preds = %LockBufHdr.exit
-  %44 = and i32 %.lcssa.i, -4456447
-  store volatile i32 %44, ptr %36, align 4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !5
+  %43 = and i32 %.lcssa.i, -4194305
+  store volatile i32 %43, ptr %36, align 4
   br label %GetPrivateRefCount.exit.thread
 
-45:                                               ; preds = %LockBufHdr.exit
-  %46 = and i32 %.lcssa.i, -4194305
-  store volatile i32 %46, ptr %36, align 4
-  br label %GetPrivateRefCount.exit.thread
-
-GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %GetPrivateRefCount.exit, %5, %45, %43
-  %.0 = phi i1 [ true, %43 ], [ false, %45 ], [ %.not11, %5 ], [ false, %GetPrivateRefCount.exit ], [ false, %GetPrivateRefCountEntry.exit.i ], [ false, %GetPrivateRefCountEntry.exit.thread.i ]
+GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %LockBufHdr.exit, %GetPrivateRefCount.exit, %5
+  %.0 = phi i1 [ %.not11, %5 ], [ false, %GetPrivateRefCount.exit ], [ %42, %LockBufHdr.exit ], [ false, %GetPrivateRefCountEntry.exit.i ], [ false, %GetPrivateRefCountEntry.exit.thread.i ]
   ret i1 %.0
 }
 

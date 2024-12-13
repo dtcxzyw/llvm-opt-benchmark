@@ -6784,9 +6784,9 @@ common.ret:                                       ; preds = %51, %48
 
 51:                                               ; preds = %41, %17, %20, %23, %37
   %trunc = trunc nuw i64 %15 to i1
-  %.sroa.2.0.copyload. = select i1 %trunc, ptr %.sroa.2.0.copyload, ptr null
+  %..sroa.2.0.copyload = select i1 %trunc, ptr %.sroa.2.0.copyload, ptr null
   store i8 1, ptr %4, align 8
-  %52 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.2.0.copyload., 1
+  %52 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %..sroa.2.0.copyload, 1
   br label %common.ret
 
 53:                                               ; preds = %12

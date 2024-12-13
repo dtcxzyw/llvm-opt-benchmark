@@ -1332,7 +1332,7 @@ define dso_local void @_ZNK4llvm20BalancedPartitioning5splitENS_14iterator_range
 
 47:                                               ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i, %38
   %.08.i.i.i.i = phi i64 [ %40, %38 ], [ %63, %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i ]
-  %48 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.sroa.027.0..sroa.012.1.i.i.i.i, i64 %.08.i.i.i.i
+  %48 = getelementptr inbounds %"class.llvm::BPFunctionNode", ptr %.sroa.012.1.i.i..sroa.027.0.i.i, i64 %.08.i.i.i.i
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %10, align 8
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -1359,7 +1359,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i.i:     ; preds = %52, %47
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit9.i.i.i.i:    ; preds = %57, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef %.08.i.i.i.i, i64 noundef %36, ptr noundef %11)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.012.1.i.i..sroa.027.0.i.i, i64 noundef %.08.i.i.i.i, i64 noundef %36, ptr noundef %11)
   %59 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #22
   %60 = load ptr, ptr %44, align 8
   %61 = icmp eq ptr %60, %45
@@ -1387,16 +1387,16 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i:      ; preds = %67, %_ZN4llvm14BPFu
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i": ; preds = %_ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
-  %68 = icmp ult ptr %33, %.sroa.012.1.i.i..sroa.024.0.i.i
+  %68 = icmp ult ptr %33, %.sroa.024.0..sroa.012.1.i.i.i.i
   br i1 %68, label %.lr.ph.i.i.i, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i"
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i"
-  %69 = getelementptr i8, ptr %.sroa.027.0..sroa.012.1.i.i.i.i, i64 48
+  %69 = getelementptr i8, ptr %.sroa.012.1.i.i..sroa.027.0.i.i, i64 48
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.027.0..sroa.012.1.i.i.i.i, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.027.0..sroa.012.1.i.i.i.i, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i..sroa.027.0.i.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i..sroa.027.0.i.i, i64 40
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1427,7 +1427,7 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit10.i.i.i.i:      ; preds = %67, %_ZN4llvm14BPFu
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i9.i.i.i:    ; preds = %85, %81
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false)
-  %88 = load i64, ptr %.sroa.027.0..sroa.012.1.i.i.i.i, align 8
+  %88 = load i64, ptr %.sroa.012.1.i.i..sroa.027.0.i.i, align 8
   store i64 %88, ptr %.sroa.0.013.i.i.i, align 8
   %89 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIjEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %73)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
@@ -1443,7 +1443,7 @@ _ZN4llvm14BPFunctionNodeC2EOS0_.exit.i9.i.i.i:    ; preds = %85, %81
 
 _ZN4llvm14BPFunctionNodeC2EOS0_.exit2.i.i.i.i:    ; preds = %92, %_ZN4llvm14BPFunctionNodeC2EOS0_.exit.i9.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.027.0..sroa.012.1.i.i.i.i, i64 noundef 0, i64 noundef %36, ptr noundef %9)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %.sroa.012.1.i.i..sroa.027.0.i.i, i64 noundef 0, i64 noundef %36, ptr noundef %9)
   %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #22
   %95 = load ptr, ptr %75, align 8
   %96 = icmp eq ptr %95, %76
@@ -1470,16 +1470,16 @@ _ZN4llvm14BPFunctionNodeD2Ev.exit.i10.i.i.i:      ; preds = %97, %_ZN4llvm14BPFu
 
 102:                                              ; preds = %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_RT0_.exit.i.i.i", %78
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 56
-  %104 = icmp ult ptr %103, %.sroa.012.1.i.i..sroa.024.0.i.i
+  %104 = icmp ult ptr %103, %.sroa.024.0..sroa.012.1.i.i.i.i
   br i1 %104, label %78, label %"_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i", !llvm.loop !48
 
 "_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_SG_T0_.exit.i.i": ; preds = %102, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEEvT_SG_RT0_.exit.i.i.i"
-  call void @_ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.027.0..sroa.012.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %19)
+  call void @_ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.012.1.i.i..sroa.027.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %19)
   br label %"_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEEZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EvT_SD_SD_T0_.exit"
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i.i
-  %.sroa.024.032.i15.i = phi ptr [ %.sroa.012.1.i.i..sroa.024.0.i.i, %31 ], [ %2, %.lr.ph.i.i ]
-  %.sroa.027.033.i14.i = phi ptr [ %.sroa.027.0..sroa.012.1.i.i.i.i, %31 ], [ %1, %.lr.ph.i.i ]
+  %.sroa.024.032.i15.i = phi ptr [ %.sroa.024.0..sroa.012.1.i.i.i.i, %31 ], [ %2, %.lr.ph.i.i ]
+  %.sroa.027.033.i14.i = phi ptr [ %.sroa.012.1.i.i..sroa.027.0.i.i, %31 ], [ %1, %.lr.ph.i.i ]
   %.034.i13.i = phi i64 [ %106, %31 ], [ %30, %.lr.ph.i.i ]
   %105 = phi i64 [ %152, %31 ], [ %14, %.lr.ph.i.i ]
   %106 = add nsw i64 %.034.i13.i, -1
@@ -1587,17 +1587,17 @@ _ZSt4swapIN4llvm14BPFunctionNodeEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tu
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i": ; preds = %131
   %.not.i.i = icmp ugt ptr %.sroa.012.1.i.i.i.i, %19
-  %.sroa.012.1.i.i..sroa.024.0.i.i = select i1 %.not.i.i, ptr %.sroa.012.1.i.i.i.i, ptr %.sroa.024.032.i15.i
-  %.sroa.027.0..sroa.012.1.i.i.i.i = select i1 %.not.i.i, ptr %.sroa.027.033.i14.i, ptr %.sroa.012.1.i.i.i.i
-  %150 = ptrtoint ptr %.sroa.012.1.i.i..sroa.024.0.i.i to i64
-  %151 = ptrtoint ptr %.sroa.027.0..sroa.012.1.i.i.i.i to i64
+  %.sroa.024.0..sroa.012.1.i.i.i.i = select i1 %.not.i.i, ptr %.sroa.012.1.i.i.i.i, ptr %.sroa.024.032.i15.i
+  %.sroa.012.1.i.i..sroa.027.0.i.i = select i1 %.not.i.i, ptr %.sroa.027.033.i14.i, ptr %.sroa.012.1.i.i.i.i
+  %150 = ptrtoint ptr %.sroa.024.0..sroa.012.1.i.i.i.i to i64
+  %151 = ptrtoint ptr %.sroa.012.1.i.i..sroa.027.0.i.i to i64
   %152 = sub i64 %150, %151
   %153 = icmp sgt i64 %152, 168
   br i1 %153, label %31, label %._crit_edge.i.i, !llvm.loop !47
 
 ._crit_edge.i.i:                                  ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i", %22
-  %.sroa.024.0.lcssa.i.i = phi ptr [ %2, %22 ], [ %.sroa.012.1.i.i..sroa.024.0.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i" ]
-  %.sroa.027.0.lcssa.i.i = phi ptr [ %1, %22 ], [ %.sroa.027.0..sroa.012.1.i.i.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i" ]
+  %.sroa.024.0.lcssa.i.i = phi ptr [ %2, %22 ], [ %.sroa.024.0..sroa.012.1.i.i.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i" ]
+  %.sroa.027.0.lcssa.i.i = phi ptr [ %1, %22 ], [ %.sroa.012.1.i.i..sroa.027.0.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i" ]
   %.lcssa28.i.i = phi i64 [ %13, %22 ], [ %151, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_20BalancedPartitioning5splitENS2_14iterator_rangeIS8_EEjE3$_0EEET_SG_SG_T0_.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %154 = icmp eq ptr %.sroa.027.0.lcssa.i.i, %.sroa.024.0.lcssa.i.i

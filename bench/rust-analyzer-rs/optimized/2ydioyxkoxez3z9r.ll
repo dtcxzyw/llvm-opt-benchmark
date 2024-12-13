@@ -61525,7 +61525,7 @@ define hidden void @_ZN13rust_analyzer11diagnostics8to_proto26map_rust_diagnosti
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdcf5d17395e47489E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdcf5d17395e47489E.exit.i": ; preds = %.noexc.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i", %.noexc26.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i", %163, %137, %136, %130, %130
-  %.0.ph.i = phi i32 [ 1, %130 ], [ 1, %130 ], [ 3, %136 ], [ 4, %137 ], [ 2, %163 ], [ 3, %.noexc26.i ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i" ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i" ], [ 4, %.noexc.i ]
+  %.0.ph.i = phi i32 [ 1, %130 ], [ 1, %130 ], [ 3, %136 ], [ 4, %137 ], [ 3, %.noexc26.i ], [ 3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i24.i" ], [ 2, %163 ], [ 4, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i.i" ], [ 4, %.noexc.i ]
   %.pr.i = load i64, ptr %91, align 8, !alias.scope !13954, !noalias !13946
   %138 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %138, label %176, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$cargo_metadata..diagnostic..DiagnosticCode$GT$$GT$17h432903e3e0f1855aE.exit.sink.split.i"

@@ -487,8 +487,8 @@ if.end33:                                         ; preds = %for.body17.preheade
 
 if.end49.thread:                                  ; preds = %if.end33
   %call41 = call i64 @ossl_time_now() #9
-  %retval.sroa.0.0.i = call i64 @llvm.usub.sat.i64(i64 %call34, i64 %call41)
-  %t.sroa.0.0.i = call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i, i64 999)
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call34, i64 %call41)
+  %t.sroa.0.0.i = call i64 @llvm.uadd.sat.i64(i64 %.sub.i.i, i64 999)
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
   %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32

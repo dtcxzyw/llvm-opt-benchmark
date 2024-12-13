@@ -333,34 +333,36 @@ if.end3:                                          ; preds = %if.end
   %6 = load i32, ptr %options, align 8
   %7 = and i32 %6, 4194304
   %tobool.not = icmp eq i32 %7, 0
-  %cmp912.not = icmp eq i64 %spec.select, 0
-  %.spec.select11 = select i1 %tobool.not, ptr %3, ptr %spec.select11
-  %spec.select11. = select i1 %tobool.not, ptr %spec.select11, ptr %3
-  %.spec.select = select i1 %tobool.not, i64 %2, i64 %spec.select
-  %spec.select. = select i1 %tobool.not, i64 %spec.select, i64 %2
-  br i1 %cmp912.not, label %return, label %for.cond8.preheader.us
+  %. = select i1 %tobool.not, i64 %2, i64 %spec.select
+  %.10 = select i1 %tobool.not, i64 %spec.select, i64 %2
+  %supp.0.sroa.speculated = select i1 %tobool.not, ptr %spec.select11, ptr %3
+  %pref.0.sroa.speculated = select i1 %tobool.not, ptr %3, ptr %spec.select11
+  %cmp614.not = icmp eq i64 %., 0
+  %cmp912.not = icmp eq i64 %.10, 0
+  %or.cond = select i1 %cmp614.not, i1 true, i1 %cmp912.not
+  br i1 %or.cond, label %return, label %for.cond8.preheader.us
 
 for.cond8.preheader.us:                           ; preds = %if.end3, %for.cond8.for.inc20_crit_edge.us
   %i.015.us = phi i64 [ %inc21.us, %for.cond8.for.inc20_crit_edge.us ], [ 0, %if.end3 ]
-  %arrayidx.us = getelementptr inbounds i16, ptr %.spec.select11, i64 %i.015.us
+  %arrayidx.us = getelementptr inbounds i16, ptr %pref.0.sroa.speculated, i64 %i.015.us
   %8 = load i16, ptr %arrayidx.us, align 2
   br label %for.body11.us
 
 for.cond8.us:                                     ; preds = %for.body11.us
   %inc.us = add nuw i64 %j.013.us, 1
-  %exitcond.not = icmp eq i64 %inc.us, %spec.select.
+  %exitcond.not = icmp eq i64 %inc.us, %.10
   br i1 %exitcond.not, label %for.cond8.for.inc20_crit_edge.us, label %for.body11.us, !llvm.loop !12
 
 for.body11.us:                                    ; preds = %for.cond8.preheader.us, %for.cond8.us
   %j.013.us = phi i64 [ 0, %for.cond8.preheader.us ], [ %inc.us, %for.cond8.us ]
-  %arrayidx13.us = getelementptr inbounds i16, ptr %spec.select11., i64 %j.013.us
+  %arrayidx13.us = getelementptr inbounds i16, ptr %supp.0.sroa.speculated, i64 %j.013.us
   %9 = load i16, ptr %arrayidx13.us, align 2
   %cmp15.us = icmp eq i16 %8, %9
   br i1 %cmp15.us, label %if.then17, label %for.cond8.us
 
 for.cond8.for.inc20_crit_edge.us:                 ; preds = %for.cond8.us
   %inc21.us = add nuw i64 %i.015.us, 1
-  %exitcond18.not = icmp eq i64 %inc21.us, %.spec.select
+  %exitcond18.not = icmp eq i64 %inc21.us, %.
   br i1 %exitcond18.not, label %return, label %for.cond8.preheader.us, !llvm.loop !13
 
 if.then17:                                        ; preds = %for.body11.us

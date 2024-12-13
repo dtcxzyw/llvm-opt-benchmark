@@ -18033,7 +18033,7 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
   %5 = alloca { {} }, align 1
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { i64, i64 }, { i64, i64 } }, align 8
-  %.sroa.259 = alloca [3 x i64], align 8
+  %.sroa.258 = alloca [3 x i64], align 8
   %8 = alloca { { i64, ptr }, i64 }, align 8
   %.sroa.534.sroa.0 = alloca [3 x i64], align 8
   %9 = alloca { { i64, i64 }, { i32, i32 } }, align 8
@@ -18063,9 +18063,9 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
   %29 = load i64, ptr %28, align 8, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load i64, ptr %30, align 8, !noundef !4
-  %.not93 = icmp ult i64 %24, %3
+  %.not91 = icmp ult i64 %24, %3
   %32 = getelementptr inbounds { { { { i64, [40 x i64] }, i64 }, i64, i8, [7 x i8] }, { i64, i64 }, { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i32, [7 x i32] }, { i32, float }, { i32, float }, { i32, float }, { i32, float }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { i8, [39 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { i32, i32 }, { float, float }, { i32, [2 x i32] }, { i32, [2 x i32] }, { i32, [16 x i32] }, { i32, [16 x i32] }, { i32, [2 x i32] }, float, i8, [7 x i8] }, { i32, i32 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { i64, i64 }, { i32, i32 } }, float, { i32, [8 x i32] }, { i8, [17 x i8] }, [6 x i8] }, { [17 x i8], i8, [6 x i8] }, { i64, i64 }, i64, { i32, [2 x i32] }, i8, i8, [2 x i8] }, ptr %2, i64 %24
-  br i1 %.not93, label %34, label %33
+  br i1 %.not91, label %34, label %33
 
 33:                                               ; preds = %4
   invoke void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.55, i64 noundef 21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.57) #42
@@ -18220,8 +18220,8 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
   br i1 %87, label %90, label %.critedge
 
 89:                                               ; preds = %81
-  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.259, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.457.0..sroa_idx, i64 24, i1 false)
+  %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.258, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.456.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %109
 
@@ -18233,8 +18233,8 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
 .critedge:                                        ; preds = %84
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %86, ptr %93, align 8
-  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.265.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.727, i64 24, i1 false)
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.264.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.727, i64 24, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -18249,9 +18249,9 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
 
 96:                                               ; preds = %94
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.31, i64 noundef 25, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.485243c0b6e0c52e847d698bbee735f0.33) #42
-          to label %.noexc79 unwind label %98
+          to label %.noexc77 unwind label %98
 
-.noexc79:                                         ; preds = %96
+.noexc77:                                         ; preds = %96
   unreachable
 
 97:                                               ; preds = %90
@@ -18312,11 +18312,11 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
 
 109:                                              ; preds = %70, %89
   %.sink = phi i64 [ %82, %89 ], [ %71, %70 ]
-  %.sroa.259.sink = phi ptr [ %.sroa.259, %89 ], [ %.sroa.7, %70 ]
+  %.sroa.258.sink = phi ptr [ %.sroa.258, %89 ], [ %.sroa.7, %70 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %110, align 8
-  %.sroa.259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.259.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.259.sink, i64 24, i1 false)
+  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.258.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.258.sink, i64 24, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -18363,8 +18363,8 @@ define internal fastcc void @_ZN3exr5block17UncompressedBlock17compress_to_chunk
           to label %45 unwind label %125
 
 .thread:                                          ; preds = %98, %125
-  %.pn82 = phi { ptr, i32 } [ %lpad.thr_comm, %125 ], [ %99, %98 ]
-  resume { ptr, i32 } %.pn82
+  %.pn80 = phi { ptr, i32 } [ %lpad.thr_comm, %125 ], [ %99, %98 ]
+  resume { ptr, i32 } %.pn80
 
 125:                                              ; preds = %.invoke, %33, %117, %74, %67
   %lpad.thr_comm = landingpad { ptr, i32 }

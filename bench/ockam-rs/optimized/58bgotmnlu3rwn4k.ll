@@ -5527,7 +5527,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 16:                                               ; preds = %17, %._crit_edge.thread.i
   %.sroa.0.0.idx.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.0.0.add.i, %17 ]
   %exitcond50.i = icmp eq i64 %.sroa.0.0.idx.i, %umin.i
-  br i1 %exitcond50.i, label %28, label %17
+  br i1 %exitcond50.i, label %"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit", label %17
 
 17:                                               ; preds = %16
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i
@@ -5538,7 +5538,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   %18 = call noundef align 8 ptr @"_ZN68_$LT$serde_bare..ser..VecWrite$u20$as$u20$serde_bare..ser..Write$GT$9write_all17h6197d76a10dcff5eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1), !noalias !1635
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !1630
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %16, label %28
+  br i1 %19, label %16, label %"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit"
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
@@ -5554,12 +5554,14 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c06183e97dfb1b64f2fc5efd32a496cf.38) #19, !noalias !1623
   unreachable
 
-28:                                               ; preds = %17, %16
-  %.sroa.3.0 = phi ptr [ %0, %16 ], [ %18, %17 ]
-  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 1, %17 ]
+"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit": ; preds = %16, %17
+  %.1.i = phi ptr [ %18, %17 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9), !noalias !1623
-  %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %30 = insertvalue { i64, ptr } %29, ptr %.sroa.3.0, 1
+  %28 = icmp ne ptr %.1.i, null
+  %.. = select i1 %28, ptr %.1.i, ptr %0
+  %.6 = zext i1 %28 to i64
+  %29 = insertvalue { i64, ptr } poison, i64 %.6, 0
+  %30 = insertvalue { i64, ptr } %29, ptr %.., 1
   ret { i64, ptr } %30
 }
 
@@ -5607,7 +5609,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
 16:                                               ; preds = %17, %._crit_edge.thread.i
   %.sroa.0.0.idx.i = phi i64 [ 0, %._crit_edge.thread.i ], [ %.sroa.0.0.add.i, %17 ]
   %exitcond50.i = icmp eq i64 %.sroa.0.0.idx.i, %umin.i
-  br i1 %exitcond50.i, label %28, label %17
+  br i1 %exitcond50.i, label %"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit", label %17
 
 17:                                               ; preds = %16
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i
@@ -5618,7 +5620,7 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   %18 = call noundef align 8 ptr @"_ZN68_$LT$serde_bare..ser..VecWrite$u20$as$u20$serde_bare..ser..Write$GT$9write_all17h6197d76a10dcff5eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1), !noalias !1653
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !1648
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %16, label %28
+  br i1 %19, label %16, label %"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit"
 
 20:                                               ; preds = %.lr.ph.i
   %21 = trunc i64 %.03245.i to i8
@@ -5634,12 +5636,14 @@ define hidden { i64, ptr } @"_ZN91_$LT$$RF$mut$u20$serde_bare..ser..Serializer$L
   tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef 10, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c06183e97dfb1b64f2fc5efd32a496cf.38) #19, !noalias !1641
   unreachable
 
-28:                                               ; preds = %17, %16
-  %.sroa.3.0 = phi ptr [ %0, %16 ], [ %18, %17 ]
-  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 1, %17 ]
+"_ZN58_$LT$serde_bare..Uint$u20$as$u20$serde..ser..Serialize$GT$9serialize17h200fa13301ef3f6fE.llvm.281566960213045120.exit": ; preds = %16, %17
+  %.1.i = phi ptr [ %18, %17 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9), !noalias !1641
-  %29 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %30 = insertvalue { i64, ptr } %29, ptr %.sroa.3.0, 1
+  %28 = icmp ne ptr %.1.i, null
+  %.. = select i1 %28, ptr %.1.i, ptr %0
+  %.6 = zext i1 %28 to i64
+  %29 = insertvalue { i64, ptr } poison, i64 %.6, 0
+  %30 = insertvalue { i64, ptr } %29, ptr %.., 1
   ret { i64, ptr } %30
 }
 

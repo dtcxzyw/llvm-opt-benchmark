@@ -58,12 +58,12 @@ entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %patternString, i64 8
   %fLength.i = getelementptr inbounds nuw i8, ptr %patternString, i64 12
   %0 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i20 = icmp slt i16 %0, 0
+  %cmp.i.i21 = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
-  %shr.i.i21 = sext i16 %1 to i32
+  %shr.i.i22 = sext i16 %1 to i32
   %2 = load i32, ptr %fLength.i, align 4
-  %cond.i22 = select i1 %cmp.i.i20, i32 %2, i32 %shr.i.i21
-  %cmp24 = icmp sgt i32 %cond.i22, 0
+  %cond.i23 = select i1 %cmp.i.i21, i32 %2, i32 %shr.i.i22
+  %cmp24 = icmp sgt i32 %cond.i23, 0
   br i1 %cmp24, label %for.body, label %sw.epilog26
 
 for.body:                                         ; preds = %entry, %sw.epilog
@@ -80,33 +80,37 @@ for.body:                                         ; preds = %entry, %sw.epilog
 
 sw.bb:                                            ; preds = %for.body
   %cmp2 = icmp ne i32 %call1, 39
+  %inc = zext i1 %cmp2 to i32
+  %spec.select = add nsw i32 %length.026, %inc
   %not.cmp2 = xor i1 %cmp2, true
-  %spec.select15 = zext i1 %not.cmp2 to i32
+  %spec.select16 = zext i1 %not.cmp2 to i32
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %for.body
   %cmp4 = icmp eq i32 %call1, 39
+  %inc6 = add nsw i32 %length.026, 1
   %. = select i1 %cmp4, i32 0, i32 2
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %for.body
   %cmp11 = icmp ne i32 %call1, 39
-  %spec.select17 = select i1 %cmp11, i32 2, i32 3
+  %inc14 = zext i1 %cmp11 to i32
+  %spec.select17 = add nsw i32 %length.026, %inc14
+  %spec.select18 = select i1 %cmp11, i32 2, i32 3
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %for.body
   %cmp17 = icmp eq i32 %call1, 39
-  %.32 = select i1 %cmp17, i32 2, i32 3
+  %inc19 = add nsw i32 %length.026, 1
+  %.15 = select i1 %cmp17, i32 2, i32 3
   br label %sw.epilog
 
 default.unreachable:                              ; preds = %for.body
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb16, %sw.bb3, %sw.bb10, %sw.bb
-  %inc.pn.shrunk = phi i1 [ %cmp2, %sw.bb ], [ %cmp11, %sw.bb10 ], [ true, %sw.bb3 ], [ true, %sw.bb16 ]
-  %state.1 = phi i32 [ %spec.select15, %sw.bb ], [ %spec.select17, %sw.bb10 ], [ %., %sw.bb3 ], [ %.32, %sw.bb16 ]
-  %inc.pn = zext i1 %inc.pn.shrunk to i32
-  %length.1 = add nuw nsw i32 %length.026, %inc.pn
+sw.epilog:                                        ; preds = %sw.bb10, %sw.bb, %sw.bb16, %sw.bb3
+  %length.1 = phi i32 [ %inc6, %sw.bb3 ], [ %inc19, %sw.bb16 ], [ %spec.select, %sw.bb ], [ %spec.select17, %sw.bb10 ]
+  %state.1 = phi i32 [ %., %sw.bb3 ], [ %.15, %sw.bb16 ], [ %spec.select16, %sw.bb ], [ %spec.select18, %sw.bb10 ]
   %cmp23 = icmp ult i32 %call1, 65536
   %cond = select i1 %cmp23, i32 1, i32 2
   %add = add nuw nsw i32 %cond, %offset.025

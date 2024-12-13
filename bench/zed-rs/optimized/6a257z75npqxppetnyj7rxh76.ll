@@ -16421,9 +16421,9 @@ define hidden noundef range(i64 0, 384307168202282326) i64 @_ZN4core4iter6traits
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h87f06223d1b626fcE.llvm.12597586636751361339"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #18 {
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %3 = trunc nuw i8 %.sroa.4.0.copyload to i1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
+  %3 = trunc nuw i8 %.sroa.3.0.copyload to i1
   ret i1 %3
 }
 

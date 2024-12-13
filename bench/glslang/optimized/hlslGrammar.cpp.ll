@@ -3531,8 +3531,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar26acceptAssignmentExpressionE
   %43 = call noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 362) #16
   br label %44
 
-44:                                               ; preds = %42, %17, %15, %6, %37, %26, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %37 ], [ false, %26 ], [ true, %6 ], [ false, %15 ], [ true, %17 ], [ true, %42 ]
+44:                                               ; preds = %17, %15, %6, %42, %37, %26, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %37 ], [ true, %42 ], [ false, %26 ], [ true, %6 ], [ false, %15 ], [ true, %17 ]
   ret i1 %.0
 }
 

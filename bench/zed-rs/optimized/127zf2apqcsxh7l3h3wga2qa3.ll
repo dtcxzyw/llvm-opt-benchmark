@@ -139217,14 +139217,14 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN9assistant15assistant_panel
   br label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$language_model..LanguageModelProvider$GT$$GT$$GT$17h99a59ed40d3a2c05E.llvm.13532673337308757346.exit7"
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$language_model..LanguageModelProvider$GT$$GT$$GT$17h99a59ed40d3a2c05E.llvm.13532673337308757346.exit7": ; preds = %1, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0605efb454b21b8cE.exit", %28, %31
-  %.sroa.02.0.i10 = phi i1 [ %18, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0605efb454b21b8cE.exit" ], [ %18, %28 ], [ %18, %31 ], [ false, %1 ]
+  %.sroa.02.0.i9 = phi i1 [ %18, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0605efb454b21b8cE.exit" ], [ %18, %28 ], [ %18, %31 ], [ false, %1 ]
   %32 = phi i1 [ false, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0605efb454b21b8cE.exit" ], [ true, %28 ], [ true, %31 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.not = xor i1 %32, true
-  %brmerge = or i1 %.sroa.02.0.i10, %.not
-  %brmerge.not = and i1 %.sroa.02.0.i10, %32
+  %brmerge = or i1 %.sroa.02.0.i9, %.not
+  %brmerge.not = and i1 %.sroa.02.0.i9, %32
   %.mux = select i1 %brmerge.not, i8 2, i8 0
   %.mux.mux = select i1 %brmerge, i8 %.mux, i8 1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret i8 %.mux.mux
 
 33:                                               ; preds = %26

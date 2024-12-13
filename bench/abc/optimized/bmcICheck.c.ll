@@ -1072,11 +1072,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %76 = add nuw nsw i32 %.081125, 1
   %.val90 = load i32, ptr %45, align 8
   %77 = icmp slt i32 %76, %.val90
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %Vec_IntPush.exit, %Vec_IntAlloc.exit
+._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit
+  %.val95.pr.pre = load i32, ptr %38, align 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_IntAlloc.exit
+  %.val95.pr = phi i32 [ %.val95.pr.pre, %._crit_edge.loopexit ], [ 0, %Vec_IntAlloc.exit ]
   %78 = icmp ne i32 %3, 0
-  %.val95.pr = load i32, ptr %38, align 4
   %..val95.pr = select i1 %78, i32 0, i32 %.val95.pr
   %79 = add i32 %.val95.pr, -1
   %or.cond.i106 = icmp ult i32 %79, 15
@@ -1105,8 +1109,8 @@ Vec_IntAlloc.exit109:                             ; preds = %._crit_edge, %80
   br label %94
 
 94:                                               ; preds = %.critedge88, %Vec_IntAlloc.exit109
-  %.val99147 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val99, %.critedge88 ]
-  %.val104142 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val104143, %.critedge88 ]
+  %.val99148 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val99, %.critedge88 ]
+  %.val104143 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val104144, %.critedge88 ]
   %95 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %142, %.critedge88 ]
   %96 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %143, %.critedge88 ]
   %97 = phi i32 [ %spec.store.select.i107, %Vec_IntAlloc.exit109 ], [ %116, %.critedge88 ]
@@ -1149,8 +1153,8 @@ Vec_IntAlloc.exit109:                             ; preds = %._crit_edge, %80
   br label %Vec_IntGrow.exit.i110
 
 Vec_IntGrow.exit.i110:                            ; preds = %110, %112, %104
-  %.val99 = phi ptr [ %.val99147, %104 ], [ %111, %110 ], [ %113, %112 ]
-  %.val104 = phi ptr [ %.val104142, %104 ], [ %111, %110 ], [ %113, %112 ]
+  %.val99 = phi ptr [ %.val99148, %104 ], [ %111, %110 ], [ %113, %112 ]
+  %.val104 = phi ptr [ %.val104143, %104 ], [ %111, %110 ], [ %113, %112 ]
   %114 = phi ptr [ %95, %104 ], [ %111, %110 ], [ %113, %112 ]
   %115 = phi ptr [ %96, %104 ], [ %111, %110 ], [ %113, %112 ]
   %116 = phi i32 [ %97, %104 ], [ %.val95.pr, %110 ], [ %.val95.pr, %112 ]
@@ -1187,7 +1191,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br i1 %exitcond.not, label %.preheader, label %121, !llvm.loop !18
 
 .lr.ph131:                                        ; preds = %.preheader, %138
-  %.val104145 = phi ptr [ %.val104144, %138 ], [ %.val104, %.preheader ]
+  %.val104146 = phi ptr [ %.val104145, %138 ], [ %.val104, %.preheader ]
   %127 = phi ptr [ %139, %138 ], [ %119, %.preheader ]
   %128 = phi ptr [ %140, %138 ], [ %120, %.preheader ]
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %138 ], [ 0, %.preheader ]
@@ -1212,7 +1216,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br label %138
 
 138:                                              ; preds = %132, %.lr.ph131, %135
-  %.val104144 = phi ptr [ %.val104145, %.lr.ph131 ], [ %.val99, %132 ], [ %.val99, %135 ]
+  %.val104145 = phi ptr [ %.val104146, %.lr.ph131 ], [ %.val99, %132 ], [ %.val99, %135 ]
   %139 = phi ptr [ %127, %.lr.ph131 ], [ %.val99, %132 ], [ %.val99, %135 ]
   %140 = phi ptr [ %128, %.lr.ph131 ], [ %.val99, %132 ], [ %.val99, %135 ]
   %.2 = phi i32 [ %.179129, %.lr.ph131 ], [ %.179129, %132 ], [ %137, %135 ]
@@ -1226,7 +1230,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.val104143 = phi ptr [ %.val104, %.preheader ], [ %.val104144, %.critedge.loopexit ]
+  %.val104144 = phi ptr [ %.val104, %.preheader ], [ %.val104145, %.critedge.loopexit ]
   %142 = phi ptr [ %119, %.preheader ], [ %139, %.critedge.loopexit ]
   %143 = phi ptr [ %120, %.preheader ], [ %140, %.critedge.loopexit ]
   %.179.lcssa = phi i32 [ %.078, %.preheader ], [ %.2, %.critedge.loopexit ]
@@ -1288,7 +1292,7 @@ Abc_Clock.exit115:                                ; preds = %144, %166
   br i1 %or.cond, label %.loopexit, label %94
 
 .loopexit:                                        ; preds = %.critedge88, %103, %101
-  %175 = phi ptr [ %.val99147, %103 ], [ %.val99147, %101 ], [ %.val99, %.critedge88 ]
+  %175 = phi ptr [ %.val99148, %103 ], [ %.val99148, %101 ], [ %.val99, %.critedge88 ]
   call void @Cnf_DataFree(ptr noundef %33) #12
   call void @Gia_ManStop(ptr noundef %31) #12
   %.not.i116 = icmp eq ptr %.val102, null

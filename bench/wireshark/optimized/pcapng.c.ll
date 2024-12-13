@@ -6198,7 +6198,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %146 = zext i32 %143 to i64
   %147 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %17, i64 noundef %146, ptr noundef %2) #16
   %.not172 = icmp ne i32 %147, 0
-  call void @g_free(ptr noundef nonnull %17) #16
+  call void @g_free(ptr noundef %17) #16
   %. = zext i1 %.not172 to i32
   br label %148
 

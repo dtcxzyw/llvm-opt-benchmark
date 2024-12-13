@@ -1333,7 +1333,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
   %8 = load i64, ptr %2, align 8, !range !64, !alias.scope !385, !noalias !388, !noundef !65
   switch i64 %8, label %default.unreachable [
     i64 0, label %9
-    i64 1, label %.critedge.i70.thread133
+    i64 1, label %.thread
     i64 4, label %.thread150
     i64 2, label %31
     i64 3, label %31
@@ -1362,7 +1362,7 @@ default.unreachable:                              ; preds = %3
   %.sroa.6.0.in.i106109 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i107110 = load ptr, ptr %.sroa.6.0.in.i106109, align 8, !alias.scope !385, !noalias !388, !nonnull !65, !align !66, !noundef !65
   store i8 0, ptr %.sroa.6.0.i107110, align 1, !noalias !407
-  br label %.critedge.i70.thread133
+  br label %.thread
 
 .thread31.i:                                      ; preds = %.critedge.thread.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !394
@@ -1406,7 +1406,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.239.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   br label %25
 
-25:                                               ; preds = %.critedge.i70.thread133, %32, %24
+25:                                               ; preds = %.thread, %32, %24
   ret void
 
 .critedge.thread.i79:                             ; preds = %.thread149
@@ -1436,7 +1436,7 @@ default.unreachable:                              ; preds = %3
 
 30:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hb04c4a7709d86b11E.exit.thread.i82"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !407
-  br label %.critedge.i70.thread133
+  br label %.thread
 
 "_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h43c5bae78a859612E.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hb04c4a7709d86b11E.exit.thread.i82"
   %.sroa.46.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1446,7 +1446,7 @@ default.unreachable:                              ; preds = %3
 
 31:                                               ; preds = %3, %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
-  br label %.critedge.i70.thread133
+  br label %.thread
 
 32:                                               ; preds = %"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h43c5bae78a859612E.exit", %"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h43c5bae78a859612E.exit.thread"
   %.sroa.098.1144 = phi i64 [ %26, %"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h43c5bae78a859612E.exit.thread" ], [ %28, %"_ZN122_$LT$diesel..pg..metadata_lookup..pg_type..columns..typarray$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h43c5bae78a859612E.exit" ]
@@ -1455,7 +1455,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.254.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.699, i64 24, i1 false)
   br label %25
 
-.critedge.i70.thread133:                          ; preds = %31, %3, %.thread150, %30
+.thread:                                          ; preds = %31, %3, %.thread150, %30
   store i64 -9223372036854775798, ptr %0, align 8
   br label %25
 }

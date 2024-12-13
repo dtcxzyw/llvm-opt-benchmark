@@ -828,10 +828,10 @@ if.end.i:                                         ; preds = %cond.false
 cond.end:                                         ; preds = %if.end.i, %cond.false, %if.end23
   %ctimeout.sroa.0.0 = phi i64 [ -1, %if.end23 ], [ %add.i, %if.end.i ], [ 0, %cond.false ]
   %call32 = call i64 @ossl_quic_tserver_get_deadline(ptr noundef %qtserv) #10
-  %retval.sroa.0.0.i8 = call i64 @llvm.usub.sat.i64(i64 %call32, i64 %now.sroa.0.0)
-  %a.coerce.b.coerce.i = call i64 @llvm.umin.i64(i64 %ctimeout.sroa.0.0, i64 %retval.sroa.0.0.i8)
-  %cmp.i9.not = icmp eq i64 %a.coerce.b.coerce.i, -1
-  br i1 %cmp.i9.not, label %return, label %if.end47
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call32, i64 %now.sroa.0.0)
+  %a.coerce.b.coerce.i = call i64 @llvm.umin.i64(i64 %ctimeout.sroa.0.0, i64 %.sub.i.i)
+  %cmp.i8.not = icmp eq i64 %a.coerce.b.coerce.i, -1
+  br i1 %cmp.i8.not, label %return, label %if.end47
 
 if.end47:                                         ; preds = %cond.end
   %.b = load i1, ptr @using_fake_time, align 4

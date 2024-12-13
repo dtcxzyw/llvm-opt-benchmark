@@ -8789,12 +8789,12 @@ _ZN18alacritty_terminal9selection9Selection6rotate17h7122bc11b1cd6ee1E.exit: ; p
 .cont.thread124:                                  ; preds = %63
   br label %.cont62
 
-.cont74:                                          ; preds = %69, %.cont56, %66, %.cont62
+.cont74:                                          ; preds = %.cont56, %69, %66, %.cont62
   %.sroa.042.1 = phi i64 [ %.sroa.042.0, %66 ], [ %.sroa.042.0, %.cont62 ], [ %.sroa.042.0, %.cont56 ], [ %..sroa.042.0, %69 ]
-  %.sroa.544.1 = phi i32 [ %spec.select149, %66 ], [ %.sroa.544.0, %.cont62 ], [ %spec.select151, %.cont56 ], [ %..sroa.544.0, %69 ]
+  %.sroa.544.1 = phi i32 [ %spec.select149, %66 ], [ %.sroa.544.0, %.cont62 ], [ %spec.select151, %.cont56 ], [ %.spec.select149, %69 ]
   %.sroa.947.1 = phi i8 [ %.sroa.947.0, %66 ], [ %.sroa.947.0, %.cont62 ], [ %.sroa.947.0, %.cont56 ], [ %..sroa.947.0, %69 ]
   %.sroa.1149.1 = phi i64 [ %.sroa.1149.0, %66 ], [ %.sroa.1149.0, %.cont62 ], [ %.sroa.1149.0, %.cont56 ], [ %.sroa.1149.0., %69 ]
-  %.sroa.14.1 = phi i32 [ %spec.select150, %66 ], [ %.sroa.14.0, %.cont62 ], [ %spec.select152, %.cont56 ], [ %.sroa.14.0., %69 ]
+  %.sroa.14.1 = phi i32 [ %spec.select150, %66 ], [ %.sroa.14.0, %.cont62 ], [ %spec.select152, %.cont56 ], [ %spec.select150., %69 ]
   %.sroa.1853.1 = phi i8 [ %.sroa.1853.0, %66 ], [ %.sroa.1853.0, %.cont62 ], [ %.sroa.1853.0, %.cont56 ], [ %.sroa.1853.0., %69 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.01.sroa.7, i64 7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.sroa.0, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.sroa.0, i64 7, i1 false)
@@ -8829,10 +8829,10 @@ _ZN18alacritty_terminal9selection9Selection6rotate17h7122bc11b1cd6ee1E.exit: ; p
   %71 = add i64 %.val.i, -1
   %72 = add nsw i32 %28, -1
   %..sroa.042.0 = select i1 %52, i64 %71, i64 %.sroa.042.0
-  %..sroa.544.0 = select i1 %52, i32 %72, i32 %.sroa.544.0
+  %.spec.select149 = select i1 %52, i32 %72, i32 %.sroa.544.0
   %..sroa.947.0 = select i1 %52, i8 1, i8 %.sroa.947.0
   %.sroa.1149.0. = select i1 %52, i64 %.sroa.1149.0, i64 %71
-  %.sroa.14.0. = select i1 %52, i32 %.sroa.14.0, i32 %72
+  %spec.select150. = select i1 %52, i32 %.sroa.14.0, i32 %72
   %.sroa.1853.0. = select i1 %52, i8 %.sroa.1853.0, i8 1
   br label %.cont74
 
@@ -9046,12 +9046,12 @@ _ZN18alacritty_terminal9selection9Selection6rotate17h7122bc11b1cd6ee1E.exit: ; p
 .cont.thread130:                                  ; preds = %59
   br label %.cont68
 
-.cont80:                                          ; preds = %65, %.cont62, %62, %.cont68
+.cont80:                                          ; preds = %.cont62, %65, %62, %.cont68
   %.sroa.048.1 = phi i64 [ %.sroa.048.0, %62 ], [ %.sroa.048.0, %.cont68 ], [ %.sroa.048.0, %.cont62 ], [ %..sroa.048.0, %65 ]
-  %.sroa.550.1 = phi i32 [ %spec.select155, %62 ], [ %.sroa.550.0, %.cont68 ], [ %spec.select157, %.cont62 ], [ %..sroa.550.0, %65 ]
+  %.sroa.550.1 = phi i32 [ %spec.select155, %62 ], [ %.sroa.550.0, %.cont68 ], [ %spec.select157, %.cont62 ], [ %.spec.select155, %65 ]
   %.sroa.953.1 = phi i8 [ %.sroa.953.0, %62 ], [ %.sroa.953.0, %.cont68 ], [ %.sroa.953.0, %.cont62 ], [ %..sroa.953.0, %65 ]
   %.sroa.1155.1 = phi i64 [ %.sroa.1155.0, %62 ], [ %.sroa.1155.0, %.cont68 ], [ %.sroa.1155.0, %.cont62 ], [ %.sroa.1155.0., %65 ]
-  %.sroa.14.1 = phi i32 [ %spec.select156, %62 ], [ %.sroa.14.0, %.cont68 ], [ %spec.select158, %.cont62 ], [ %.sroa.14.0., %65 ]
+  %.sroa.14.1 = phi i32 [ %spec.select156, %62 ], [ %.sroa.14.0, %.cont68 ], [ %spec.select158, %.cont62 ], [ %spec.select156., %65 ]
   %.sroa.1859.1 = phi i8 [ %.sroa.1859.0, %62 ], [ %.sroa.1859.0, %.cont68 ], [ %.sroa.1859.0, %.cont62 ], [ %.sroa.1859.0., %65 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.029.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.01.sroa.7, i64 7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.sroa.0, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.sroa.0, i64 7, i1 false)
@@ -9086,10 +9086,10 @@ _ZN18alacritty_terminal9selection9Selection6rotate17h7122bc11b1cd6ee1E.exit: ; p
   %67 = add i64 %.val.i, -1
   %68 = add nsw i32 %27, -1
   %..sroa.048.0 = select i1 %48, i64 %67, i64 %.sroa.048.0
-  %..sroa.550.0 = select i1 %48, i32 %68, i32 %.sroa.550.0
+  %.spec.select155 = select i1 %48, i32 %68, i32 %.sroa.550.0
   %..sroa.953.0 = select i1 %48, i8 1, i8 %.sroa.953.0
   %.sroa.1155.0. = select i1 %48, i64 %.sroa.1155.0, i64 %67
-  %.sroa.14.0. = select i1 %48, i32 %.sroa.14.0, i32 %68
+  %spec.select156. = select i1 %48, i32 %.sroa.14.0, i32 %68
   %.sroa.1859.0. = select i1 %48, i8 %.sroa.1859.0, i8 1
   br label %.cont80
 

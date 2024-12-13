@@ -254,7 +254,7 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeHanziSegment
 
 .lr.ph:                                           ; preds = %19, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %19 ]
-  %.03238 = phi i32 [ %42, %30 ], [ %3, %19 ]
+  %.03237 = phi i32 [ %42, %30 ], [ %3, %19 ]
   %24 = tail call noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -284,8 +284,8 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeHanziSegment
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 %40
   store i8 %39, ptr %41, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %42 = add nsw i32 %.03238, -1
-  %43 = icmp sgt i32 %.03238, 1
+  %42 = add nsw i32 %.03237, -1
+  %43 = icmp sgt i32 %.03237, 1
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %30, %19
@@ -293,8 +293,8 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeHanziSegment
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %.not36 = icmp eq i32 %47, 0
-  br i1 %.not36, label %48, label %_ZN5zxing6qrcode22DecodedBitStreamParser6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcmRNS_12ErrorHandlerE.exit
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %48, label %_ZN5zxing6qrcode22DecodedBitStreamParser6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcmRNS_12ErrorHandlerE.exit
 
 48:                                               ; preds = %._crit_edge
   %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %22, i64 noundef %21)
@@ -344,7 +344,7 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeKanjiSegment
 
 .lr.ph:                                           ; preds = %5, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %5 ]
-  %.02531 = phi i32 [ %28, %16 ], [ %3, %5 ]
+  %.02530 = phi i32 [ %28, %16 ], [ %3, %5 ]
   %10 = load ptr, ptr %1, align 8
   %11 = tail call noundef i32 @_ZN5zxing9BitSource8readBitsEiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %12 = load ptr, ptr %4, align 8
@@ -371,8 +371,8 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeKanjiSegment
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 %26
   store i8 %25, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %28 = add nsw i32 %.02531, -1
-  %29 = icmp sgt i32 %.02531, 1
+  %28 = add nsw i32 %.02530, -1
+  %29 = icmp sgt i32 %.02530, 1
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %5
@@ -380,8 +380,8 @@ define hidden void @_ZN5zxing6qrcode22DecodedBitStreamParser18decodeKanjiSegment
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %.not29 = icmp eq i32 %33, 0
-  br i1 %.not29, label %34, label %_ZN5zxing6qrcode22DecodedBitStreamParser6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcmRNS_12ErrorHandlerE.exit
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %34, label %_ZN5zxing6qrcode22DecodedBitStreamParser6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcmRNS_12ErrorHandlerE.exit
 
 34:                                               ; preds = %._crit_edge
   %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %8, i64 noundef %7)

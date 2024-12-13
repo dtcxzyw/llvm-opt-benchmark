@@ -746,8 +746,8 @@ if.end49:                                         ; preds = %if.then44, %if.end4
   %42 = load ptr, ptr %statm, align 8
   %time = getelementptr inbounds nuw i8, ptr %acked_pkts.i.0.acked_pkts.i.0.acked_pkts.i.0.acked_pkts.0.acked_pkts.0.acked_pkts.0..i, i64 16
   %43 = load i64, ptr %time, align 8
-  %retval.sroa.0.0.i = call i64 @llvm.usub.sat.i64(i64 %call35, i64 %43)
-  call void @ossl_statm_update_rtt(ptr noundef %42, i64 %ack_delay.sroa.0.0, i64 %retval.sroa.0.0.i) #11
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call35, i64 %43)
+  call void @ossl_statm_update_rtt(ptr noundef %42, i64 %ack_delay.sroa.0.0, i64 %.sub.i.i) #11
   br label %if.end56
 
 if.end56:                                         ; preds = %for.inc.i47, %if.end49, %if.end25
@@ -1117,11 +1117,11 @@ entry:
   %now_arg = getelementptr inbounds nuw i8, ptr %ackm, i64 248
   %9 = load ptr, ptr %now_arg, align 8
   %call23 = call i64 %8(ptr noundef %9) #11
-  %retval.sroa.0.0.i34 = call i64 @llvm.usub.sat.i64(i64 %call23, i64 %a.coerce.b.coerce.i33)
+  %.sub.i.i = call i64 @llvm.usub.sat.i64(i64 %call23, i64 %a.coerce.b.coerce.i33)
   %arrayidx.i = getelementptr inbounds [3 x %struct.tx_pkt_history_st], ptr %ackm, i64 0, i64 %idxprom
   %call30.val = load ptr, ptr %arrayidx.i, align 8
-  %cmp.not40 = icmp eq ptr %call30.val, null
-  br i1 %cmp.not40, label %for.end, label %for.body.lr.ph
+  %cmp.not39 = icmp eq ptr %call30.val, null
+  br i1 %cmp.not39, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %largest_acked_pkt = getelementptr inbounds nuw i8, ptr %ackm, i64 288
@@ -1132,19 +1132,19 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %fixup.042 = phi ptr [ %lost_pkts, %for.body.lr.ph ], [ %fixup.1, %for.inc ]
-  %pkt.041 = phi ptr [ %call30.val, %for.body.lr.ph ], [ %pkt.0.val, %for.inc ]
-  %11 = getelementptr i8, ptr %pkt.041, i64 72
+  %fixup.041 = phi ptr [ %lost_pkts, %for.body.lr.ph ], [ %fixup.1, %for.inc ]
+  %pkt.040 = phi ptr [ %call30.val, %for.body.lr.ph ], [ %pkt.0.val, %for.inc ]
+  %11 = getelementptr i8, ptr %pkt.040, i64 72
   %pkt.0.val = load ptr, ptr %11, align 8
-  %12 = load i64, ptr %pkt.041, align 8
+  %12 = load i64, ptr %pkt.040, align 8
   %13 = load i64, ptr %arrayidx34, align 8
   %cmp35 = icmp ugt i64 %12, %13
   br i1 %cmp35, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %time = getelementptr inbounds nuw i8, ptr %pkt.041, i64 16
+  %time = getelementptr inbounds nuw i8, ptr %pkt.040, i64 16
   %14 = load i64, ptr %time, align 8
-  %cmp39 = icmp ugt i64 %14, %retval.sroa.0.0.i34
+  %cmp39 = icmp ugt i64 %14, %.sub.i.i
   %add = add i64 %12, 3
   %cmp44.not = icmp ult i64 %13, %add
   %or.cond = and i1 %cmp44.not, %cmp39
@@ -1215,28 +1215,28 @@ ossl_list_tx_history_remove.exit.i:               ; preds = %if.then21.i.i, %if.
 
 tx_pkt_history_remove.exit:                       ; preds = %if.then45, %ossl_list_tx_history_remove.exit.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key.i)
-  store ptr %pkt.041, ptr %fixup.042, align 8
-  %lnext = getelementptr inbounds nuw i8, ptr %pkt.041, i64 96
+  store ptr %pkt.040, ptr %fixup.041, align 8
+  %lnext = getelementptr inbounds nuw i8, ptr %pkt.040, i64 96
   store ptr null, ptr %lnext, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %if.end
   %22 = load i64, ptr %arrayidx, align 8
-  %cmp.i36.not = icmp eq i64 %22, 0
-  %retval.sroa.0.0.i37 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %a.coerce.b.coerce.i33)
-  br i1 %cmp.i36.not, label %if.then53, label %if.else63
+  %cmp.i35.not = icmp eq i64 %22, 0
+  %retval.sroa.0.0.i36 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %a.coerce.b.coerce.i33)
+  br i1 %cmp.i35.not, label %if.then53, label %if.else63
 
 if.then53:                                        ; preds = %if.else
-  store i64 %retval.sroa.0.0.i37, ptr %arrayidx, align 8
+  store i64 %retval.sroa.0.0.i36, ptr %arrayidx, align 8
   br label %for.inc
 
 if.else63:                                        ; preds = %if.else
-  %a.coerce.b.coerce.i39 = call i64 @llvm.umin.i64(i64 %22, i64 %retval.sroa.0.0.i37)
-  store i64 %a.coerce.b.coerce.i39, ptr %arrayidx, align 8
+  %a.coerce.b.coerce.i38 = call i64 @llvm.umin.i64(i64 %22, i64 %retval.sroa.0.0.i36)
+  store i64 %a.coerce.b.coerce.i38, ptr %arrayidx, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %tx_pkt_history_remove.exit, %if.else63, %if.then53, %for.body
-  %fixup.1 = phi ptr [ %fixup.042, %for.body ], [ %lnext, %tx_pkt_history_remove.exit ], [ %fixup.042, %if.then53 ], [ %fixup.042, %if.else63 ]
+  %fixup.1 = phi ptr [ %fixup.041, %for.body ], [ %lnext, %tx_pkt_history_remove.exit ], [ %fixup.041, %if.then53 ], [ %fixup.041, %if.else63 ]
   %cmp.not = icmp eq ptr %pkt.0.val, null
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !15
 
@@ -2501,8 +2501,8 @@ land.lhs.true:                                    ; preds = %ackm_fill_rx_ack_ra
 
 if.then:                                          ; preds = %land.lhs.true
   %delay_time = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %retval.sroa.0.0.i = sub nuw i64 %call, %8
-  store i64 %retval.sroa.0.0.i, ptr %delay_time, align 8
+  %.sub.i.i = sub nuw i64 %call, %8
+  store i64 %.sub.i.i, ptr %delay_time, align 8
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %ackm_fill_rx_ack_ranges.exit

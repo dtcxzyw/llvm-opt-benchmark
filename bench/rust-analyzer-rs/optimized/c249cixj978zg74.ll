@@ -8550,7 +8550,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %17 = load i32, ptr %3, align 4, !alias.scope !1985, !noalias !1990, !noundef !10
   %18 = load i32, ptr %16, align 4, !alias.scope !1988, !noalias !1991, !noundef !10
   %19 = icmp eq i32 %17, %18
-  br i1 %19, label %20, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %19, label %20, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i"
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8562,35 +8562,28 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 26:                                               ; preds = %20
   %27 = icmp eq i32 %25, 0
-  br i1 %27, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %27, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i"
 
 28:                                               ; preds = %20
   %29 = icmp eq i32 %22, %25
-  br i1 %29, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %29, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i"
 
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i.i": ; preds = %28, %26, %9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !1980
-  br label %34
-
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i": ; preds = %28, %26
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = load i32, ptr %30, align 4, !alias.scope !1985, !noalias !1990, !noundef !10
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %33 = load i32, ptr %32, align 4, !alias.scope !1988, !noalias !1991, !noundef !10
-  %.not.i.i = icmp eq i32 %31, %33
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !1980
-  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i", label %34
-
-34:                                               ; preds = %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i", %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i.i"
+30:                                               ; preds = %28, %26
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = load i32, ptr %31, align 4, !alias.scope !1985, !noalias !1990, !noundef !10
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %34 = load i32, ptr %33, align 4, !alias.scope !1988, !noalias !1991, !noundef !10
+  %35 = icmp ne i32 %32, %34
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i"
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i": ; preds = %34, %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i"
-  %.0.i.i2.i.i = phi i1 [ true, %34 ], [ false, %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i.i" ]
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i": ; preds = %30, %28, %26, %9
+  %.0.i.i.i.i = phi i1 [ %35, %30 ], [ true, %9 ], [ true, %28 ], [ true, %26 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !1980
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !1972
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4065d8804404b8aeE.llvm.2919776409019166437.exit"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4065d8804404b8aeE.llvm.2919776409019166437.exit": ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i"
-  %.0.i = phi i1 [ %.0.i.i2.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i" ], [ false, %2 ]
+  %.0.i = phi i1 [ %.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit.i" ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1968
   ret i1 %.0.i
 }
@@ -8846,7 +8839,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %17 = load i32, ptr %3, align 4, !alias.scope !2088, !noalias !2093, !noundef !10
   %18 = load i32, ptr %16, align 4, !alias.scope !2091, !noalias !2094, !noundef !10
   %19 = icmp eq i32 %17, %18
-  br i1 %19, label %20, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %19, label %20, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i"
 
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8858,35 +8851,28 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 26:                                               ; preds = %20
   %27 = icmp eq i32 %25, 0
-  br i1 %27, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %27, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i"
 
 28:                                               ; preds = %20
   %29 = icmp eq i32 %22, %25
-  br i1 %29, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i.i"
+  br i1 %29, label %30, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i"
 
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i.i": ; preds = %28, %26, %9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !2083
-  br label %34
-
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i": ; preds = %28, %26
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = load i32, ptr %30, align 4, !alias.scope !2088, !noalias !2093, !noundef !10
-  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %33 = load i32, ptr %32, align 4, !alias.scope !2091, !noalias !2094, !noundef !10
-  %.not.i.i = icmp eq i32 %31, %33
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !2083
-  br i1 %.not.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i", label %34
-
-34:                                               ; preds = %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i", %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i.i"
+30:                                               ; preds = %28, %26
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = load i32, ptr %31, align 4, !alias.scope !2088, !noalias !2093, !noundef !10
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %34 = load i32, ptr %33, align 4, !alias.scope !2091, !noalias !2094, !noundef !10
+  %35 = icmp ne i32 %32, %34
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i"
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i": ; preds = %34, %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i"
-  %.0.i.i2.i.i = phi i1 [ true, %34 ], [ false, %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i.i" ]
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i": ; preds = %30, %28, %26, %9
+  %.0.i.i.i.i = phi i1 [ %35, %30 ], [ true, %9 ], [ true, %28 ], [ true, %26 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !2083
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !2075
   br label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h736c90cec8565300E.llvm.2919776409019166437.exit"
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h736c90cec8565300E.llvm.2919776409019166437.exit": ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i"
-  %.0.i = phi i1 [ %.0.i.i2.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i" ], [ false, %2 ]
+  %.0.i = phi i1 [ %.0.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit.i" ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2072
   ret i1 %.0.i
 }
@@ -12817,7 +12803,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
   %10 = load i32, ptr %3, align 4, !alias.scope !3564, !noalias !3569, !noundef !10
   %11 = load i32, ptr %9, align 4, !alias.scope !3567, !noalias !3570, !noundef !10
   %12 = icmp eq i32 %10, %11
-  br i1 %12, label %13, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread"
+  br i1 %12, label %13, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit"
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12829,32 +12815,25 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
 
 19:                                               ; preds = %13
   %20 = icmp eq i32 %18, 0
-  br i1 %20, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread"
+  br i1 %20, label %23, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit"
 
 21:                                               ; preds = %13
   %22 = icmp eq i32 %15, %18
-  br i1 %22, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread"
+  br i1 %22, label %23, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit"
 
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread": ; preds = %2, %21, %19
+23:                                               ; preds = %21, %19
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load i32, ptr %24, align 4, !alias.scope !3564, !noalias !3569, !noundef !10
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %27 = load i32, ptr %26, align 4, !alias.scope !3567, !noalias !3570, !noundef !10
+  %28 = icmp ne i32 %25, %27
+  br label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit"
+
+"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit": ; preds = %2, %19, %21, %23
+  %.0.i.i = phi i1 [ %28, %23 ], [ true, %2 ], [ true, %21 ], [ true, %19 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !3561
-  br label %27
-
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit": ; preds = %19, %21
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load i32, ptr %23, align 4, !alias.scope !3564, !noalias !3569, !noundef !10
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 4, !alias.scope !3567, !noalias !3570, !noundef !10
-  %.not = icmp eq i32 %24, %26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !3561
-  br i1 %.not, label %28, label %27
-
-27:                                               ; preds = %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread", %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit"
-  br label %28
-
-28:                                               ; preds = %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit", %27
-  %.0.i.i2 = phi i1 [ true, %27 ], [ false, %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit" ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret i1 %.0.i.i2
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -12907,7 +12886,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
   %10 = load i32, ptr %3, align 4, !alias.scope !3577, !noalias !3582, !noundef !10
   %11 = load i32, ptr %9, align 4, !alias.scope !3580, !noalias !3583, !noundef !10
   %12 = icmp eq i32 %10, %11
-  br i1 %12, label %13, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread"
+  br i1 %12, label %13, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit"
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -12919,32 +12898,25 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3any5ch
 
 19:                                               ; preds = %13
   %20 = icmp eq i32 %18, 0
-  br i1 %20, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread"
+  br i1 %20, label %23, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit"
 
 21:                                               ; preds = %13
   %22 = icmp eq i32 %15, %18
-  br i1 %22, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread"
+  br i1 %22, label %23, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit"
 
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread": ; preds = %2, %21, %19
+23:                                               ; preds = %21, %19
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load i32, ptr %24, align 4, !alias.scope !3577, !noalias !3582, !noundef !10
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %27 = load i32, ptr %26, align 4, !alias.scope !3580, !noalias !3583, !noundef !10
+  %28 = icmp ne i32 %25, %27
+  br label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit"
+
+"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit": ; preds = %2, %19, %21, %23
+  %.0.i.i = phi i1 [ %28, %23 ], [ true, %2 ], [ true, %21 ], [ true, %19 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !3574
-  br label %27
-
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit": ; preds = %19, %21
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %24 = load i32, ptr %23, align 4, !alias.scope !3577, !noalias !3582, !noundef !10
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load i32, ptr %25, align 4, !alias.scope !3580, !noalias !3583, !noundef !10
-  %.not = icmp eq i32 %24, %26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !3574
-  br i1 %.not, label %28, label %27
-
-27:                                               ; preds = %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread", %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit"
-  br label %28
-
-28:                                               ; preds = %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit", %27
-  %.0.i.i2 = phi i1 [ true, %27 ], [ false, %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit" ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  ret i1 %.0.i.i2
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15834,7 +15806,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
   call void @"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17h4bf6f7b6e02e35e6E.llvm.2919776409019166437"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
   %7 = load i32, ptr %5, align 4, !range !1971, !noundef !10
   %trunc = trunc nuw i32 %7 to i1
-  br i1 %trunc, label %8, label %34
+  br i1 %trunc, label %8, label %35
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -15855,7 +15827,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
   %16 = load i32, ptr %3, align 4, !alias.scope !4369, !noalias !4374, !noundef !10
   %17 = load i32, ptr %15, align 4, !alias.scope !4372, !noalias !4375, !noundef !10
   %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i"
+  br i1 %18, label %19, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -15867,35 +15839,28 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %24, 0
-  br i1 %26, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i"
+  br i1 %26, label %29, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
 
 27:                                               ; preds = %19
   %28 = icmp eq i32 %21, %24
-  br i1 %28, label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i", label %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i"
+  br i1 %28, label %29, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
 
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i": ; preds = %27, %25, %8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4364
-  br label %33
-
-"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i": ; preds = %27, %25
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 4, !alias.scope !4369, !noalias !4374, !noundef !10
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %32 = load i32, ptr %31, align 4, !alias.scope !4372, !noalias !4375, !noundef !10
-  %.not.i = icmp eq i32 %30, %32
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4364
-  br i1 %.not.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit", label %33
-
-33:                                               ; preds = %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i", %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.thread.i"
+29:                                               ; preds = %27, %25
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load i32, ptr %30, align 4, !alias.scope !4369, !noalias !4374, !noundef !10
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %33 = load i32, ptr %32, align 4, !alias.scope !4372, !noalias !4375, !noundef !10
+  %34 = icmp ne i32 %31, %33
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit": ; preds = %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i", %33
-  %.0.i.i2.i = phi i1 [ true, %33 ], [ false, %"_ZN11ide_assists8handlers35convert_tuple_return_type_to_struct20add_tuple_struct_def28_$u7b$$u7b$closure$u7d$$u7d$17ha1ee94800c50c46dE.llvm.2919776409019166437.exit.i" ]
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit": ; preds = %8, %25, %27, %29
+  %.0.i.i.i = phi i1 [ %34, %29 ], [ true, %8 ], [ true, %27 ], [ true, %25 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4364
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !4356
-  br label %34
+  br label %35
 
-34:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
-  %.0 = phi i1 [ %.0.i.i2.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit" ], [ false, %2 ]
+35:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit"
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h723607efef5225c1E.llvm.2919776409019166437.exit" ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %.0
 }
@@ -15977,7 +15942,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
   call void @"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17hf5b33af73bc491bfE.llvm.2919776409019166437"(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1)
   %7 = load i32, ptr %5, align 4, !range !1971, !noundef !10
   %trunc = trunc nuw i32 %7 to i1
-  br i1 %trunc, label %8, label %34
+  br i1 %trunc, label %8, label %35
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -15998,7 +15963,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
   %16 = load i32, ptr %3, align 4, !alias.scope !4406, !noalias !4411, !noundef !10
   %17 = load i32, ptr %15, align 4, !alias.scope !4409, !noalias !4412, !noundef !10
   %18 = icmp eq i32 %16, %17
-  br i1 %18, label %19, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i"
+  br i1 %18, label %19, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -16010,35 +15975,28 @@ define hidden noundef zeroext i1 @"_ZN4core4iter8adapters10filter_map19filter_ma
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %24, 0
-  br i1 %26, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i"
+  br i1 %26, label %29, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
 
 27:                                               ; preds = %19
   %28 = icmp eq i32 %21, %24
-  br i1 %28, label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i", label %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i"
+  br i1 %28, label %29, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
 
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i": ; preds = %27, %25, %8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4401
-  br label %33
-
-"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i": ; preds = %27, %25
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 4, !alias.scope !4406, !noalias !4411, !noundef !10
-  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %32 = load i32, ptr %31, align 4, !alias.scope !4409, !noalias !4412, !noundef !10
-  %.not.i = icmp eq i32 %30, %32
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4401
-  br i1 %.not.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit", label %33
-
-33:                                               ; preds = %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i", %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.thread.i"
+29:                                               ; preds = %27, %25
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load i32, ptr %30, align 4, !alias.scope !4406, !noalias !4411, !noundef !10
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %33 = load i32, ptr %32, align 4, !alias.scope !4409, !noalias !4412, !noundef !10
+  %34 = icmp ne i32 %31, %33
   br label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
 
-"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit": ; preds = %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i", %33
-  %.0.i.i2.i = phi i1 [ true, %33 ], [ false, %"_ZN11ide_assists8handlers12bool_to_enum12add_enum_def28_$u7b$$u7b$closure$u7d$$u7d$17h2b6421393f85f179E.llvm.2919776409019166437.exit.i" ]
+"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit": ; preds = %8, %25, %27, %29
+  %.0.i.i.i = phi i1 [ %34, %29 ], [ true, %8 ], [ true, %27 ], [ true, %25 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3), !noalias !4401
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !4393
-  br label %34
+  br label %35
 
-34:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
-  %.0 = phi i1 [ %.0.i.i2.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit" ], [ false, %2 ]
+35:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit"
+  %.0 = phi i1 [ %.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hd695713422619271E.llvm.2919776409019166437.exit" ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %.0
 }

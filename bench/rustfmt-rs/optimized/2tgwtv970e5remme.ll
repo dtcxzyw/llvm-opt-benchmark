@@ -25631,7 +25631,7 @@ default.unreachable:                              ; preds = %1
   br label %22
 
 11:                                               ; preds = %1
-  %.sroa.0.0.i = load i64, ptr %4, align 8, !alias.scope !4801
+  %.sroa.0.0.copyload.i = load i64, ptr %4, align 8, !alias.scope !4801
   br label %22
 
 12:                                               ; preds = %1
@@ -25648,16 +25648,16 @@ default.unreachable:                              ; preds = %1
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.0.0.copyload.i = load i64, ptr %19, align 8, !alias.scope !4804
+  %.sroa.0.0.copyload.i37 = load i64, ptr %19, align 8, !alias.scope !4804
   br label %22
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.sroa.0.0.copyload.i37 = load i64, ptr %21, align 8, !alias.scope !4807
+  %.sroa.0.0.copyload.i38 = load i64, ptr %21, align 8, !alias.scope !4807
   br label %22
 
 22:                                               ; preds = %20, %18, %16, %14, %12, %11, %9, %7, %5
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i37, %20 ], [ %.sroa.0.0.copyload.i, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %.sroa.0.0.i, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload.i38, %20 ], [ %.sroa.0.0.copyload.i37, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %.sroa.0.0.copyload.i, %11 ], [ %10, %9 ], [ %8, %7 ], [ %6, %5 ]
   ret i64 %.sroa.0.0
 }
 
@@ -33398,8 +33398,8 @@ define i64 @"_ZN82_$LT$rustc_ast..ast..GenericBound$u20$as$u20$rustfmt_nightly..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define i64 @"_ZN84_$LT$rustc_ast..ast..NestedMetaItem$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17hac3cd09f06ec0b7aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #9 {
-  %.sroa.0.0 = load i64, ptr %0, align 8
-  ret i64 %.sroa.0.0
+  %.sroa.0.0.copyload = load i64, ptr %0, align 8
+  ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -433,111 +433,111 @@ lor.lhs.false46:                                  ; preds = %while.end
   br i1 %tobool48.not, label %return, label %if.end50
 
 if.end50:                                         ; preds = %lor.lhs.false46
-  %.pre16.i.pr = load ptr, ptr %ossl_list_int.i57, align 16
-  %5 = load ptr, ptr %prev3.i59, align 8
-  %cmp9.not.i = icmp eq ptr %5, null
+  %5 = load ptr, ptr %ossl_list_int.i57, align 16
+  %6 = load ptr, ptr %prev3.i59, align 8
+  %cmp9.not.i = icmp eq ptr %6, null
   br i1 %cmp9.not.i, label %if.end17.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end50
-  %ossl_list_int15.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.pre16.i.pr, ptr %ossl_list_int15.i, align 8
+  %ossl_list_int15.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %5, ptr %ossl_list_int15.i, align 8
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then10.i, %if.end50
-  %cmp20.not.i = icmp eq ptr %.pre16.i.pr, null
+  %cmp20.not.i = icmp eq ptr %5, null
   br i1 %cmp20.not.i, label %ossl_list_int_remove.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end17.i
-  %6 = load ptr, ptr %prev3.i59, align 8
-  %prev27.i = getelementptr inbounds nuw i8, ptr %.pre16.i.pr, i64 16
-  store ptr %6, ptr %prev27.i, align 8
+  %7 = load ptr, ptr %prev3.i59, align 8
+  %prev27.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %7, ptr %prev27.i, align 8
   br label %ossl_list_int_remove.exit
 
 ossl_list_int_remove.exit:                        ; preds = %if.end17.i, %if.then21.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ossl_list_int.i57, i8 0, i64 16, i1 false)
-  %cmp.i111 = icmp eq ptr %.pre16.i.pr, %add.ptr5
-  %7 = load ptr, ptr %ossl_list_int3.i44, align 8
-  %spec.select322 = select i1 %cmp.i111, ptr %7, ptr %.pre16.i.pr
-  %8 = load ptr, ptr %prev.i45, align 16
-  %cmp9.not.i119 = icmp eq ptr %8, null
+  %cmp.i111 = icmp eq ptr %5, %add.ptr5
+  %8 = load ptr, ptr %ossl_list_int3.i44, align 8
+  %spec.select322 = select i1 %cmp.i111, ptr %8, ptr %5
+  %9 = load ptr, ptr %prev.i45, align 16
+  %cmp9.not.i119 = icmp eq ptr %9, null
   br i1 %cmp9.not.i119, label %if.end17.i123, label %if.then10.i121
 
 if.then10.i121:                                   ; preds = %ossl_list_int_remove.exit
-  %ossl_list_int15.i122 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %ossl_list_int15.i122, align 8
+  %ossl_list_int15.i122 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %8, ptr %ossl_list_int15.i122, align 8
   br label %if.end17.i123
 
 if.end17.i123:                                    ; preds = %if.then10.i121, %ossl_list_int_remove.exit
-  %cmp20.not.i124 = icmp eq ptr %7, null
+  %cmp20.not.i124 = icmp eq ptr %8, null
   br i1 %cmp20.not.i124, label %ossl_list_int_remove.exit132, label %if.then21.i125
 
 if.then21.i125:                                   ; preds = %if.end17.i123
-  %9 = load ptr, ptr %prev.i45, align 16
-  %prev27.i126 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %9, ptr %prev27.i126, align 8
+  %10 = load ptr, ptr %prev.i45, align 16
+  %prev27.i126 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %10, ptr %prev27.i126, align 8
   br label %ossl_list_int_remove.exit132
 
 ossl_list_int_remove.exit132:                     ; preds = %if.end17.i123, %if.then21.i125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int3.i44, i8 0, i64 16, i1 false)
   %cmp.i133 = icmp eq ptr %spec.select322, %add.ptr21
-  %10 = load ptr, ptr %ossl_list_int.i79, align 16
-  %spec.select323 = select i1 %cmp.i133, ptr %10, ptr %spec.select322
-  %11 = load ptr, ptr %prev.i80, align 8
-  %cmp9.not.i141 = icmp eq ptr %11, null
+  %11 = load ptr, ptr %ossl_list_int.i79, align 16
+  %spec.select323 = select i1 %cmp.i133, ptr %11, ptr %spec.select322
+  %12 = load ptr, ptr %prev.i80, align 8
+  %cmp9.not.i141 = icmp eq ptr %12, null
   br i1 %cmp9.not.i141, label %if.end17.i145, label %if.then10.i143
 
 if.then10.i143:                                   ; preds = %ossl_list_int_remove.exit132
-  %ossl_list_int15.i144 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %10, ptr %ossl_list_int15.i144, align 8
+  %ossl_list_int15.i144 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %11, ptr %ossl_list_int15.i144, align 8
   br label %if.end17.i145
 
 if.end17.i145:                                    ; preds = %if.then10.i143, %ossl_list_int_remove.exit132
-  %cmp20.not.i146 = icmp eq ptr %10, null
+  %cmp20.not.i146 = icmp eq ptr %11, null
   br i1 %cmp20.not.i146, label %ossl_list_int_remove.exit154, label %if.then21.i147
 
 if.then21.i147:                                   ; preds = %if.end17.i145
-  %12 = load ptr, ptr %prev.i80, align 8
-  %prev27.i148 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %12, ptr %prev27.i148, align 8
+  %13 = load ptr, ptr %prev.i80, align 8
+  %prev27.i148 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %13, ptr %prev27.i148, align 8
   br label %ossl_list_int_remove.exit154
 
 ossl_list_int_remove.exit154:                     ; preds = %if.end17.i145, %if.then21.i147
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ossl_list_int.i79, i8 0, i64 16, i1 false)
   %cmp60338 = icmp ne ptr %spec.select323, null
-  %cmp63339 = icmp ne ptr %11, null
-  %13 = and i1 %cmp60338, %cmp63339
-  br i1 %13, label %while.body66, label %while.end80
+  %cmp63339 = icmp ne ptr %12, null
+  %14 = and i1 %cmp60338, %cmp63339
+  br i1 %14, label %while.body66, label %while.end80
 
 while.body66:                                     ; preds = %ossl_list_int_remove.exit154, %if.end76
   %n.1342 = phi i32 [ %inc79, %if.end76 ], [ 2, %ossl_list_int_remove.exit154 ]
-  %d.1341 = phi ptr [ %d.1.val, %if.end76 ], [ %11, %ossl_list_int_remove.exit154 ]
+  %d.1341 = phi ptr [ %d.1.val, %if.end76 ], [ %12, %ossl_list_int_remove.exit154 ]
   %c.1340 = phi ptr [ %c.1.val, %if.end76 ], [ %spec.select323, %ossl_list_int_remove.exit154 ]
-  %14 = load i32, ptr %c.1340, align 8
-  %call68 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %14, i32 noundef %n.1342) #3
+  %15 = load i32, ptr %c.1340, align 8
+  %call68 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %15, i32 noundef %n.1342) #3
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %return, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %while.body66
-  %15 = load i32, ptr %d.1341, align 8
+  %16 = load i32, ptr %d.1341, align 8
   %sub72 = sub nsw i32 7, %n.1342
-  %call73 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %15, i32 noundef %sub72) #3
+  %call73 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %16, i32 noundef %sub72) #3
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
 
 if.end76:                                         ; preds = %lor.lhs.false70
-  %16 = getelementptr i8, ptr %c.1340, i64 8
-  %c.1.val = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %d.1341, i64 16
-  %d.1.val = load ptr, ptr %17, align 8
+  %17 = getelementptr i8, ptr %c.1340, i64 8
+  %c.1.val = load ptr, ptr %17, align 8
+  %18 = getelementptr i8, ptr %d.1341, i64 16
+  %d.1.val = load ptr, ptr %18, align 8
   %inc79 = add nuw nsw i32 %n.1342, 1
   %cmp60 = icmp ne ptr %c.1.val, null
   %cmp63 = icmp ne ptr %d.1.val, null
-  %18 = select i1 %cmp60, i1 %cmp63, i1 false
-  br i1 %18, label %while.body66, label %while.end80, !llvm.loop !9
+  %19 = select i1 %cmp60, i1 %cmp63, i1 false
+  br i1 %19, label %while.body66, label %while.end80, !llvm.loop !9
 
 while.end80:                                      ; preds = %if.end76, %ossl_list_int_remove.exit154
   %c.1.lcssa = phi ptr [ %spec.select323, %ossl_list_int_remove.exit154 ], [ %c.1.val, %if.end76 ]
-  %d.1.lcssa = phi ptr [ %11, %ossl_list_int_remove.exit154 ], [ %d.1.val, %if.end76 ]
+  %d.1.lcssa = phi ptr [ %12, %ossl_list_int_remove.exit154 ], [ %d.1.val, %if.end76 ]
   %call81 = call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @.str.36, ptr noundef %c.1.lcssa) #3
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %return, label %lor.lhs.false83
@@ -549,79 +549,79 @@ lor.lhs.false83:                                  ; preds = %while.end80
 
 if.end87:                                         ; preds = %lor.lhs.false83
   %cmp.i155 = icmp eq ptr %spec.select323, %add.ptr17
-  %19 = load ptr, ptr %ossl_list_int.i69, align 8
-  %spec.select324 = select i1 %cmp.i155, ptr %19, ptr %spec.select323
-  %cmp2.i158 = icmp eq ptr %11, %add.ptr17
-  %20 = load ptr, ptr %prev.i70, align 16
-  %l.sroa.36.7 = select i1 %cmp2.i158, ptr %20, ptr %11
-  %cmp9.not.i163 = icmp eq ptr %20, null
+  %20 = load ptr, ptr %ossl_list_int.i69, align 8
+  %spec.select324 = select i1 %cmp.i155, ptr %20, ptr %spec.select323
+  %cmp2.i158 = icmp eq ptr %12, %add.ptr17
+  %21 = load ptr, ptr %prev.i70, align 16
+  %l.sroa.36.7 = select i1 %cmp2.i158, ptr %21, ptr %12
+  %cmp9.not.i163 = icmp eq ptr %21, null
   br i1 %cmp9.not.i163, label %if.end17.i167, label %if.then10.i165
 
 if.then10.i165:                                   ; preds = %if.end87
-  %ossl_list_int15.i166 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %19, ptr %ossl_list_int15.i166, align 8
+  %ossl_list_int15.i166 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %20, ptr %ossl_list_int15.i166, align 8
   br label %if.end17.i167
 
 if.end17.i167:                                    ; preds = %if.then10.i165, %if.end87
-  %cmp20.not.i168 = icmp eq ptr %19, null
+  %cmp20.not.i168 = icmp eq ptr %20, null
   br i1 %cmp20.not.i168, label %ossl_list_int_remove.exit176, label %if.then21.i169
 
 if.then21.i169:                                   ; preds = %if.end17.i167
-  %21 = load ptr, ptr %prev.i70, align 16
-  %prev27.i170 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %21, ptr %prev27.i170, align 8
+  %22 = load ptr, ptr %prev.i70, align 16
+  %prev27.i170 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %22, ptr %prev27.i170, align 8
   br label %ossl_list_int_remove.exit176
 
 ossl_list_int_remove.exit176:                     ; preds = %if.end17.i167, %if.then21.i169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int.i69, i8 0, i64 16, i1 false)
   %cmp.i177 = icmp eq ptr %spec.select324, %add.ptr25
-  %22 = load ptr, ptr %ossl_list_int.i92, align 8
-  %spec.select325 = select i1 %cmp.i177, ptr %22, ptr %spec.select324
+  %23 = load ptr, ptr %ossl_list_int.i92, align 8
+  %spec.select325 = select i1 %cmp.i177, ptr %23, ptr %spec.select324
   %cmp2.i180 = icmp eq ptr %l.sroa.36.7, %add.ptr25
-  %23 = load ptr, ptr %prev.i93, align 16
-  %l.sroa.36.8 = select i1 %cmp2.i180, ptr %23, ptr %l.sroa.36.7
-  %cmp9.not.i185 = icmp eq ptr %23, null
+  %24 = load ptr, ptr %prev.i93, align 16
+  %l.sroa.36.8 = select i1 %cmp2.i180, ptr %24, ptr %l.sroa.36.7
+  %cmp9.not.i185 = icmp eq ptr %24, null
   br i1 %cmp9.not.i185, label %if.end17.i189, label %if.then10.i187
 
 if.then10.i187:                                   ; preds = %ossl_list_int_remove.exit176
-  %ossl_list_int15.i188 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %22, ptr %ossl_list_int15.i188, align 8
+  %ossl_list_int15.i188 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %23, ptr %ossl_list_int15.i188, align 8
   br label %if.end17.i189
 
 if.end17.i189:                                    ; preds = %if.then10.i187, %ossl_list_int_remove.exit176
-  %cmp20.not.i190 = icmp eq ptr %22, null
+  %cmp20.not.i190 = icmp eq ptr %23, null
   br i1 %cmp20.not.i190, label %ossl_list_int_remove.exit198, label %if.then21.i191
 
 if.then21.i191:                                   ; preds = %if.end17.i189
-  %24 = load ptr, ptr %prev.i93, align 16
-  %prev27.i192 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %24, ptr %prev27.i192, align 8
+  %25 = load ptr, ptr %prev.i93, align 16
+  %prev27.i192 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store ptr %25, ptr %prev27.i192, align 8
   br label %ossl_list_int_remove.exit198
 
 ossl_list_int_remove.exit198:                     ; preds = %if.end17.i189, %if.then21.i191
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int.i92, i8 0, i64 16, i1 false)
   %cmp.i199 = icmp eq ptr %spec.select325, %add.ptr3
-  %25 = load ptr, ptr %ossl_list_int3.i, align 16
-  %spec.select326 = select i1 %cmp.i199, ptr %25, ptr %spec.select325
+  %26 = load ptr, ptr %ossl_list_int3.i, align 16
+  %spec.select326 = select i1 %cmp.i199, ptr %26, ptr %spec.select325
   %cmp2.i202 = icmp eq ptr %l.sroa.36.8, %add.ptr3
-  %26 = load ptr, ptr %prev5.i, align 8
-  %l.sroa.36.9 = select i1 %cmp2.i202, ptr %26, ptr %l.sroa.36.8
-  %cmp9.not.i207 = icmp eq ptr %26, null
+  %27 = load ptr, ptr %prev5.i, align 8
+  %l.sroa.36.9 = select i1 %cmp2.i202, ptr %27, ptr %l.sroa.36.8
+  %cmp9.not.i207 = icmp eq ptr %27, null
   br i1 %cmp9.not.i207, label %if.end17.i211, label %if.then10.i209
 
 if.then10.i209:                                   ; preds = %ossl_list_int_remove.exit198
-  %ossl_list_int15.i210 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %25, ptr %ossl_list_int15.i210, align 8
+  %ossl_list_int15.i210 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %26, ptr %ossl_list_int15.i210, align 8
   br label %if.end17.i211
 
 if.end17.i211:                                    ; preds = %if.then10.i209, %ossl_list_int_remove.exit198
-  %cmp20.not.i212 = icmp eq ptr %25, null
+  %cmp20.not.i212 = icmp eq ptr %26, null
   br i1 %cmp20.not.i212, label %ossl_list_int_remove.exit220, label %if.then21.i213
 
 if.then21.i213:                                   ; preds = %if.end17.i211
-  %27 = load ptr, ptr %prev5.i, align 8
-  %prev27.i214 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %27, ptr %prev27.i214, align 8
+  %28 = load ptr, ptr %prev5.i, align 8
+  %prev27.i214 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %28, ptr %prev27.i214, align 8
   br label %ossl_list_int_remove.exit220
 
 ossl_list_int_remove.exit220:                     ; preds = %if.end17.i211, %if.then21.i213
@@ -636,14 +636,14 @@ lor.lhs.false97:                                  ; preds = %ossl_list_int_remov
   br i1 %tobool100.not, label %return, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %lor.lhs.false97
-  %28 = load i32, ptr %spec.select326, align 8
-  %call104 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 154, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.19, i32 noundef %28, i32 noundef 5) #3
+  %29 = load i32, ptr %spec.select326, align 8
+  %call104 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 154, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.19, i32 noundef %29, i32 noundef 5) #3
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %return, label %lor.lhs.false106
 
 lor.lhs.false106:                                 ; preds = %lor.lhs.false101
-  %29 = load i32, ptr %l.sroa.36.9, align 8
-  %call109 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.19, i32 noundef %29, i32 noundef 5) #3
+  %30 = load i32, ptr %l.sroa.36.9, align 8
+  %call109 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.19, i32 noundef %30, i32 noundef 5) #3
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %return, label %if.end.i235
 
@@ -655,14 +655,14 @@ if.end.i235:                                      ; preds = %lor.lhs.false106
   %prev5.i227 = getelementptr inbounds nuw i8, ptr %elem, i64 16
   store ptr null, ptr %prev5.i227, align 16
   %cmp2.i237 = icmp eq ptr %l.sroa.36.9, %add.ptr9
-  %30 = load ptr, ptr %prev3.i, align 8
-  %spec.select327 = select i1 %cmp2.i237, ptr %30, ptr %l.sroa.36.9
-  %cmp9.not.i242 = icmp eq ptr %30, null
+  %31 = load ptr, ptr %prev3.i, align 8
+  %spec.select327 = select i1 %cmp2.i237, ptr %31, ptr %l.sroa.36.9
+  %cmp9.not.i242 = icmp eq ptr %31, null
   %.pre16.i243 = load ptr, ptr %ossl_list_int.i50, align 16
   br i1 %cmp9.not.i242, label %if.end17.i246, label %if.then10.i244
 
 if.then10.i244:                                   ; preds = %if.end.i235
-  %ossl_list_int15.i245 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %ossl_list_int15.i245 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.pre16.i243, ptr %ossl_list_int15.i245, align 8
   br label %if.end17.i246
 
@@ -671,9 +671,9 @@ if.end17.i246:                                    ; preds = %if.then10.i244, %if
   br i1 %cmp20.not.i247, label %ossl_list_int_remove.exit255, label %if.then21.i248
 
 if.then21.i248:                                   ; preds = %if.end17.i246
-  %31 = load ptr, ptr %prev3.i, align 8
+  %32 = load ptr, ptr %prev3.i, align 8
   %prev27.i249 = getelementptr inbounds nuw i8, ptr %.pre16.i243, i64 16
-  store ptr %31, ptr %prev27.i249, align 8
+  store ptr %32, ptr %prev27.i249, align 8
   br label %ossl_list_int_remove.exit255
 
 ossl_list_int_remove.exit255:                     ; preds = %if.end17.i246, %if.then21.i248
@@ -688,43 +688,43 @@ lor.lhs.false119:                                 ; preds = %ossl_list_int_remov
   br i1 %tobool122.not, label %return, label %lor.lhs.false123
 
 lor.lhs.false123:                                 ; preds = %lor.lhs.false119
-  %32 = load i32, ptr %elem, align 16
-  %call126 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 163, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, i32 noundef %32, i32 noundef 0) #3
+  %33 = load i32, ptr %elem, align 16
+  %call126 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 163, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, i32 noundef %33, i32 noundef 0) #3
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %return, label %lor.lhs.false128
 
 lor.lhs.false128:                                 ; preds = %lor.lhs.false123
-  %33 = load i32, ptr %spec.select327, align 8
-  %call131 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 164, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %33, i32 noundef 0) #3
+  %34 = load i32, ptr %spec.select327, align 8
+  %call131 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 164, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %34, i32 noundef 0) #3
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %return, label %if.end134
 
 if.end134:                                        ; preds = %lor.lhs.false128
-  %34 = load ptr, ptr %ossl_list_int3.i226, align 8
+  %35 = load ptr, ptr %ossl_list_int3.i226, align 8
   %cmp2.i259 = icmp eq ptr %spec.select327, %elem
-  %35 = load ptr, ptr %prev5.i227, align 16
-  %l.sroa.36.12 = select i1 %cmp2.i259, ptr %35, ptr %spec.select327
-  %cmp9.not.i264 = icmp eq ptr %35, null
+  %36 = load ptr, ptr %prev5.i227, align 16
+  %l.sroa.36.12 = select i1 %cmp2.i259, ptr %36, ptr %spec.select327
+  %cmp9.not.i264 = icmp eq ptr %36, null
   br i1 %cmp9.not.i264, label %if.end17.i268, label %if.then10.i266
 
 if.then10.i266:                                   ; preds = %if.end134
-  %ossl_list_int15.i267 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %34, ptr %ossl_list_int15.i267, align 8
+  %ossl_list_int15.i267 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %35, ptr %ossl_list_int15.i267, align 8
   br label %if.end17.i268
 
 if.end17.i268:                                    ; preds = %if.then10.i266, %if.end134
-  %cmp20.not.i269 = icmp eq ptr %34, null
+  %cmp20.not.i269 = icmp eq ptr %35, null
   br i1 %cmp20.not.i269, label %ossl_list_int_remove.exit277, label %if.then21.i270
 
 if.then21.i270:                                   ; preds = %if.end17.i268
-  %36 = load ptr, ptr %prev5.i227, align 16
-  %prev27.i271 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %36, ptr %prev27.i271, align 8
+  %37 = load ptr, ptr %prev5.i227, align 16
+  %prev27.i271 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store ptr %37, ptr %prev27.i271, align 8
   br label %ossl_list_int_remove.exit277
 
 ossl_list_int_remove.exit277:                     ; preds = %if.end17.i268, %if.then21.i270
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_int3.i226, i8 0, i64 16, i1 false)
-  %call137 = call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 169, ptr noundef nonnull @.str.39, ptr noundef %34) #3
+  %call137 = call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 169, ptr noundef nonnull @.str.39, ptr noundef %35) #3
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %return, label %lor.lhs.false139
 

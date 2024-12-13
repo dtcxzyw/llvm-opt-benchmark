@@ -152836,7 +152836,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN5boost8geometry6detail7overlay9turn_infoI
 _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i15.i: ; preds = %68
   %71 = fcmp ogt double %66, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #56
-  %.46.i = select i1 %71, i32 2, i32 1
+  %.43.i = select i1 %71, i32 2, i32 1
   br label %.sink.split.i17.i
 
 _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i12.i: ; preds = %68
@@ -152859,7 +152859,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorI21sub_range_from_pointsINS0_
   br label %.sink.split.i17.i
 
 .sink.split.i17.i:                                ; preds = %76, %_ZNK5boost8geometry6detail7overlay15side_calculatorI21sub_range_from_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEEESB_NS0_10strategies6relate9cartesianIvEEE9qk_wrt_q1Ev.exit.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i15.i
-  %.sink.i18.i = phi i32 [ 2, %_ZNK5boost8geometry6detail7overlay15side_calculatorI21sub_range_from_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEEESB_NS0_10strategies6relate9cartesianIvEEE9qk_wrt_q1Ev.exit.i ], [ 1, %76 ], [ %.46.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i15.i ]
+  %.sink.i18.i = phi i32 [ 2, %_ZNK5boost8geometry6detail7overlay15side_calculatorI21sub_range_from_pointsINS0_5model2d28point_xyIdNS0_2cs9cartesianEEEESB_NS0_10strategies6relate9cartesianIvEEE9qk_wrt_q1Ev.exit.i ], [ 1, %76 ], [ %.43.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i15.i ]
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %.sroa.13.88..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13, i64 44

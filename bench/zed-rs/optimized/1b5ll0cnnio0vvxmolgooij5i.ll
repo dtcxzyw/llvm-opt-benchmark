@@ -66951,7 +66951,7 @@ _ZN8wasmtime7runtime2vm8instance14InstanceHandle5vmctx17hab676fa47d5cb75eE.llvm.
 
 77:                                               ; preds = %79, %_ZN8wasmtime7runtime2vm8instance14InstanceHandle5vmctx17hab676fa47d5cb75eE.llvm.5851185471656548919.exit.i
   %78 = icmp eq ptr %76, null
-  br i1 %78, label %82, label %80
+  br i1 %78, label %_ZN8wasmtime7runtime4func27invoke_wasm_and_catch_traps17h4856e825a8d5b81eE.llvm.5851185471656548919.exit, label %80
 
 79:                                               ; preds = %_ZN8wasmtime7runtime2vm8instance14InstanceHandle5vmctx17hab676fa47d5cb75eE.llvm.5851185471656548919.exit.i
   store i64 %37, ptr %36, align 16, !noalias !12910
@@ -66959,13 +66959,13 @@ _ZN8wasmtime7runtime2vm8instance14InstanceHandle5vmctx17hab676fa47d5cb75eE.llvm.
 
 80:                                               ; preds = %77
   %81 = call noundef nonnull ptr @_ZN8wasmtime7runtime4trap16from_runtime_box17h986f7978cd618ed8E(ptr noundef nonnull align 8 %23, ptr noalias noundef nonnull align 8 %76), !noalias !12910
-  br label %82
+  br label %_ZN8wasmtime7runtime4func27invoke_wasm_and_catch_traps17h4856e825a8d5b81eE.llvm.5851185471656548919.exit
 
-82:                                               ; preds = %77, %80
-  %.sroa.0.0 = phi ptr [ %81, %80 ], [ null, %77 ]
+_ZN8wasmtime7runtime4func27invoke_wasm_and_catch_traps17h4856e825a8d5b81eE.llvm.5851185471656548919.exit: ; preds = %77, %80
+  %.sroa.0.0.i = phi ptr [ %81, %80 ], [ null, %77 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  ret ptr %.sroa.0.0
+  ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable

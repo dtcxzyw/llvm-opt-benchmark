@@ -3353,7 +3353,7 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %.026.i.i = phi float [ %55, %54 ], [ %59, %58 ]
   %.025.i.i = phi float [ 2.000000e+00, %54 ], [ 0.000000e+00, %58 ]
   %57 = fcmp ogt float %52, %.028.i.i
-  br i1 %57, label %63, label %60
+  br i1 %57, label %62, label %60
 
 58:                                               ; preds = %2
   %59 = fsub float %49, %52
@@ -3361,39 +3361,37 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
 
 60:                                               ; preds = %56
   %61 = fcmp olt float %52, %.027.i.i
-  br i1 %61, label %62, label %65
+  %.031.sroa.speculated.i.i = select i1 %61, float %52, float %.027.i.i
+  br label %64
 
-62:                                               ; preds = %60
-  br label %65
+62:                                               ; preds = %56
+  %63 = fsub float %46, %49
+  br label %64
 
-63:                                               ; preds = %56
-  %64 = fsub float %46, %49
-  br label %65
+64:                                               ; preds = %62, %60
+  %.032.i.i = phi float [ %.028.i.i, %60 ], [ %52, %62 ]
+  %.1.i.i = phi float [ %.031.sroa.speculated.i.i, %60 ], [ %.027.i.i, %62 ]
+  %.030.i.i = phi float [ %.026.i.i, %60 ], [ %63, %62 ]
+  %.029.i.i = phi float [ %.025.i.i, %60 ], [ 4.000000e+00, %62 ]
+  %65 = fcmp une float %.032.i.i, %.1.i.i
+  br i1 %65, label %66, label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
 
-65:                                               ; preds = %63, %62, %60
-  %.032.i.i = phi float [ %52, %63 ], [ %.028.i.i, %60 ], [ %.028.i.i, %62 ]
-  %.1.i.i = phi float [ %.027.i.i, %63 ], [ %.027.i.i, %60 ], [ %52, %62 ]
-  %.030.i.i = phi float [ %64, %63 ], [ %.026.i.i, %60 ], [ %.026.i.i, %62 ]
-  %.029.i.i = phi float [ 4.000000e+00, %63 ], [ %.025.i.i, %60 ], [ %.025.i.i, %62 ]
-  %66 = fcmp une float %.032.i.i, %.1.i.i
-  br i1 %66, label %67, label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
-
-67:                                               ; preds = %65
-  %68 = fsub float %.032.i.i, %.1.i.i
-  %69 = fdiv float %.030.i.i, %68
-  %70 = fadd float %69, %.029.i.i
-  %71 = fmul float %70, 6.000000e+01
-  %72 = fdiv float %68, %.032.i.i
+66:                                               ; preds = %64
+  %67 = fsub float %.032.i.i, %.1.i.i
+  %68 = fdiv float %.030.i.i, %67
+  %69 = fadd float %68, %.029.i.i
+  %70 = fmul float %69, 6.000000e+01
+  %71 = fdiv float %67, %.032.i.i
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
 
-"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit": ; preds = %65, %67
-  %.024.i.i = phi float [ %71, %67 ], [ 0.000000e+00, %65 ]
-  %.0.i.i = phi float [ %72, %67 ], [ 0.000000e+00, %65 ]
+"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit": ; preds = %64, %66
+  %.024.i.i = phi float [ %70, %66 ], [ 0.000000e+00, %64 ]
+  %.0.i.i = phi float [ %71, %66 ], [ 0.000000e+00, %64 ]
   store float %.024.i.i, ptr %0, align 4, !alias.scope !98, !noalias !97
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i.i, ptr %73, align 4, !alias.scope !98, !noalias !97
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.032.i.i, ptr %74, align 4, !alias.scope !98, !noalias !97
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i.i, ptr %72, align 4, !alias.scope !98, !noalias !97
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.032.i.i, ptr %73, align 4, !alias.scope !98, !noalias !97
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   ret void
 }
@@ -3482,7 +3480,7 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %.026.i.i = phi float [ %56, %55 ], [ %60, %59 ]
   %.025.i.i = phi float [ 2.000000e+00, %55 ], [ 0.000000e+00, %59 ]
   %58 = fcmp ogt float %53, %.028.i.i
-  br i1 %58, label %64, label %61
+  br i1 %58, label %63, label %61
 
 59:                                               ; preds = %2
   %60 = fsub float %50, %53
@@ -3490,39 +3488,37 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
 
 61:                                               ; preds = %57
   %62 = fcmp olt float %53, %.027.i.i
-  br i1 %62, label %63, label %66
+  %.031.sroa.speculated.i.i = select i1 %62, float %53, float %.027.i.i
+  br label %65
 
-63:                                               ; preds = %61
-  br label %66
+63:                                               ; preds = %57
+  %64 = fsub float %47, %50
+  br label %65
 
-64:                                               ; preds = %57
-  %65 = fsub float %47, %50
-  br label %66
+65:                                               ; preds = %63, %61
+  %.032.i.i = phi float [ %.028.i.i, %61 ], [ %53, %63 ]
+  %.1.i.i = phi float [ %.031.sroa.speculated.i.i, %61 ], [ %.027.i.i, %63 ]
+  %.030.i.i = phi float [ %.026.i.i, %61 ], [ %64, %63 ]
+  %.029.i.i = phi float [ %.025.i.i, %61 ], [ 4.000000e+00, %63 ]
+  %66 = fcmp une float %.032.i.i, %.1.i.i
+  br i1 %66, label %67, label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
 
-66:                                               ; preds = %64, %63, %61
-  %.032.i.i = phi float [ %53, %64 ], [ %.028.i.i, %61 ], [ %.028.i.i, %63 ]
-  %.1.i.i = phi float [ %.027.i.i, %64 ], [ %.027.i.i, %61 ], [ %53, %63 ]
-  %.030.i.i = phi float [ %65, %64 ], [ %.026.i.i, %61 ], [ %.026.i.i, %63 ]
-  %.029.i.i = phi float [ 4.000000e+00, %64 ], [ %.025.i.i, %61 ], [ %.025.i.i, %63 ]
-  %67 = fcmp une float %.032.i.i, %.1.i.i
-  br i1 %67, label %68, label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
-
-68:                                               ; preds = %66
-  %69 = fsub float %.032.i.i, %.1.i.i
-  %70 = fdiv float %.030.i.i, %69
-  %71 = fadd float %70, %.029.i.i
-  %72 = fmul float %71, 6.000000e+01
-  %73 = fdiv float %69, %.032.i.i
+67:                                               ; preds = %65
+  %68 = fsub float %.032.i.i, %.1.i.i
+  %69 = fdiv float %.030.i.i, %68
+  %70 = fadd float %69, %.029.i.i
+  %71 = fmul float %70, 6.000000e+01
+  %72 = fdiv float %68, %.032.i.i
   br label %"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit"
 
-"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit": ; preds = %66, %68
-  %.024.i.i = phi float [ %72, %68 ], [ 0.000000e+00, %66 ]
-  %.0.i.i = phi float [ %73, %68 ], [ 0.000000e+00, %66 ]
+"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_unclamped..IntoColorUnclamped$LT$U$GT$$GT$20into_color_unclamped17h587fedb6f6c9e0ccE.llvm.13383457361836014260.exit": ; preds = %65, %67
+  %.024.i.i = phi float [ %71, %67 ], [ 0.000000e+00, %65 ]
+  %.0.i.i = phi float [ %72, %67 ], [ 0.000000e+00, %65 ]
   store float %.024.i.i, ptr %0, align 4, !alias.scope !133, !noalias !132
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i.i, ptr %74, align 4, !alias.scope !133, !noalias !132
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.032.i.i, ptr %75, align 4, !alias.scope !133, !noalias !132
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i.i, ptr %73, align 4, !alias.scope !133, !noalias !132
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.032.i.i, ptr %74, align 4, !alias.scope !133, !noalias !132
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   ret void
 }
@@ -3640,7 +3636,7 @@ define hidden void @"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %.026 = phi float [ %13, %12 ], [ %17, %16 ]
   %.025 = phi float [ 2.000000e+00, %12 ], [ 0.000000e+00, %16 ]
   %15 = fcmp ogt float %10, %.028
-  br i1 %15, label %21, label %18
+  br i1 %15, label %20, label %18
 
 16:                                               ; preds = %2
   %17 = fsub float %7, %10
@@ -3648,40 +3644,38 @@ define hidden void @"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
 
 18:                                               ; preds = %14
   %19 = fcmp olt float %10, %.027
-  br i1 %19, label %20, label %23
+  %.031.sroa.speculated = select i1 %19, float %10, float %.027
+  br label %22
 
-20:                                               ; preds = %18
-  br label %23
+20:                                               ; preds = %14
+  %21 = fsub float %4, %7
+  br label %22
 
-21:                                               ; preds = %14
-  %22 = fsub float %4, %7
-  br label %23
+22:                                               ; preds = %20, %18
+  %.032 = phi float [ %.028, %18 ], [ %10, %20 ]
+  %.1 = phi float [ %.031.sroa.speculated, %18 ], [ %.027, %20 ]
+  %.030 = phi float [ %.026, %18 ], [ %21, %20 ]
+  %.029 = phi float [ %.025, %18 ], [ 4.000000e+00, %20 ]
+  %23 = fcmp une float %.032, %.1
+  br i1 %23, label %27, label %24
 
-23:                                               ; preds = %20, %18, %21
-  %.032 = phi float [ %10, %21 ], [ %.028, %18 ], [ %.028, %20 ]
-  %.1 = phi float [ %.027, %21 ], [ %.027, %18 ], [ %10, %20 ]
-  %.030 = phi float [ %22, %21 ], [ %.026, %18 ], [ %.026, %20 ]
-  %.029 = phi float [ 4.000000e+00, %21 ], [ %.025, %18 ], [ %.025, %20 ]
-  %24 = fcmp une float %.032, %.1
-  br i1 %24, label %28, label %25
-
-25:                                               ; preds = %23, %28
-  %.024 = phi float [ %32, %28 ], [ 0.000000e+00, %23 ]
-  %.0 = phi float [ %33, %28 ], [ 0.000000e+00, %23 ]
+24:                                               ; preds = %22, %27
+  %.024 = phi float [ %31, %27 ], [ 0.000000e+00, %22 ]
+  %.0 = phi float [ %32, %27 ], [ 0.000000e+00, %22 ]
   store float %.024, ptr %0, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.032, ptr %27, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.032, ptr %26, align 4
   ret void
 
-28:                                               ; preds = %23
-  %29 = fsub float %.032, %.1
-  %30 = fdiv float %.030, %29
-  %31 = fadd float %30, %.029
-  %32 = fmul float %31, 6.000000e+01
-  %33 = fdiv float %29, %.032
-  br label %25
+27:                                               ; preds = %22
+  %28 = fsub float %.032, %.1
+  %29 = fdiv float %.030, %28
+  %30 = fadd float %29, %.029
+  %31 = fmul float %30, 6.000000e+01
+  %32 = fdiv float %28, %.032
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -56439,7 +56433,7 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
   %.026.i = phi float [ %13, %12 ], [ %17, %16 ]
   %.025.i = phi float [ 2.000000e+00, %12 ], [ 0.000000e+00, %16 ]
   %15 = fcmp ogt float %10, %.028.i
-  br i1 %15, label %21, label %18
+  br i1 %15, label %20, label %18
 
 16:                                               ; preds = %2
   %17 = fsub float %7, %10
@@ -56447,39 +56441,37 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
 
 18:                                               ; preds = %14
   %19 = fcmp olt float %10, %.027.i
-  br i1 %19, label %20, label %23
+  %.031.sroa.speculated.i = select i1 %19, float %10, float %.027.i
+  br label %22
 
-20:                                               ; preds = %18
-  br label %23
+20:                                               ; preds = %14
+  %21 = fsub float %4, %7
+  br label %22
 
-21:                                               ; preds = %14
-  %22 = fsub float %4, %7
-  br label %23
+22:                                               ; preds = %20, %18
+  %.032.i = phi float [ %.028.i, %18 ], [ %10, %20 ]
+  %.1.i = phi float [ %.031.sroa.speculated.i, %18 ], [ %.027.i, %20 ]
+  %.030.i = phi float [ %.026.i, %18 ], [ %21, %20 ]
+  %.029.i = phi float [ %.025.i, %18 ], [ 4.000000e+00, %20 ]
+  %23 = fcmp une float %.032.i, %.1.i
+  br i1 %23, label %24, label %"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E.exit"
 
-23:                                               ; preds = %21, %20, %18
-  %.032.i = phi float [ %10, %21 ], [ %.028.i, %18 ], [ %.028.i, %20 ]
-  %.1.i = phi float [ %.027.i, %21 ], [ %.027.i, %18 ], [ %10, %20 ]
-  %.030.i = phi float [ %22, %21 ], [ %.026.i, %18 ], [ %.026.i, %20 ]
-  %.029.i = phi float [ 4.000000e+00, %21 ], [ %.025.i, %18 ], [ %.025.i, %20 ]
-  %24 = fcmp une float %.032.i, %.1.i
-  br i1 %24, label %25, label %"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E.exit"
-
-25:                                               ; preds = %23
-  %26 = fsub float %.032.i, %.1.i
-  %27 = fdiv float %.030.i, %26
-  %28 = fadd float %27, %.029.i
-  %29 = fmul float %28, 6.000000e+01
-  %30 = fdiv float %26, %.032.i
+24:                                               ; preds = %22
+  %25 = fsub float %.032.i, %.1.i
+  %26 = fdiv float %.030.i, %25
+  %27 = fadd float %26, %.029.i
+  %28 = fmul float %27, 6.000000e+01
+  %29 = fdiv float %25, %.032.i
   br label %"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E.exit"
 
-"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E.exit": ; preds = %23, %25
-  %.024.i = phi float [ %29, %25 ], [ 0.000000e+00, %23 ]
-  %.0.i = phi float [ %30, %25 ], [ 0.000000e+00, %23 ]
+"_ZN157_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..rgb..rgb..Rgb$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6c1e0f582def0941E.exit": ; preds = %22, %24
+  %.024.i = phi float [ %28, %24 ], [ 0.000000e+00, %22 ]
+  %.0.i = phi float [ %29, %24 ], [ 0.000000e+00, %22 ]
   store float %.024.i, ptr %0, align 4, !alias.scope !11137, !noalias !11140
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %.0.i, ptr %31, align 4, !alias.scope !11137, !noalias !11140
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %.032.i, ptr %32, align 4, !alias.scope !11137, !noalias !11140
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store float %.0.i, ptr %30, align 4, !alias.scope !11137, !noalias !11140
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %.032.i, ptr %31, align 4, !alias.scope !11137, !noalias !11140
   ret void
 }
 
@@ -58317,7 +58309,7 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %5 = load i8, ptr %4, align 8, !range !2787, !noundef !5
   %6 = icmp eq i8 %5, 7
-  br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread", label %8
+  br i1 %6, label %53, label %8
 
 7:                                                ; preds = %8
   unreachable
@@ -58330,19 +58322,19 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   %13 = select i1 %10, i64 %12, i64 0
   switch i64 %13, label %7 [
     i64 0, label %14
-    i64 1, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread"
-    i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread"
+    i64 1, label %53
+    i64 2, label %53
     i64 3, label %16
   ]
 
 14:                                               ; preds = %8
   %15 = icmp eq i8 %5, 3
-  br i1 %15, label %18, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread"
+  br i1 %15, label %18, label %53
 
 16:                                               ; preds = %8
   %17 = tail call noundef zeroext i1 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$11will_render17h763e6afc69456956E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %0, ptr noalias noundef nonnull align 8 dereferenceable(664) %1, i8 noundef 3, i8 noundef 0)
   %not. = xor i1 %17, true
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread"
+  br label %53
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 185
@@ -58366,13 +58358,13 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   br i1 %31, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit", label %26
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit": ; preds = %26, %28
-  br i1 %2, label %32, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread"
+  br i1 %2, label %32, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit"
 
 32:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit"
   %33 = tail call noundef align 8 dereferenceable_or_null(24) ptr @_ZN12citationberg5Names10substitute17h8f0eb5d0aeb3be32E(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %0)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11440)
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread", label %35
+  br i1 %34, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit", label %35
 
 35:                                               ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11443)
@@ -58382,7 +58374,7 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   %39 = load i64, ptr %38, align 8, !alias.scope !11446, !noalias !11447, !noundef !5
   %40 = getelementptr inbounds { i64, [30 x i64] }, ptr %37, i64 %39
   %.not.i.i.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %35, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i"
   %41 = phi ptr [ %42, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i" ], [ %37, %35 ]
@@ -58406,14 +58398,19 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %49, align 1, !range !5474, !alias.scope !11469, !noalias !11476, !noundef !5
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %25, %52
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread", label %.preheader.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit", label %.preheader.i.i
 
 "_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i": ; preds = %.preheader.i.i, %.lr.ph.i.i.i.i.i.i
   %.not12.i.i.i.i.i.i = icmp eq ptr %42, %40
-  br i1 %.not12.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread", label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not12.i.i.i.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit", label %.lr.ph.i.i.i.i.i.i
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit.thread": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i", %50, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit", %32, %35, %16, %8, %8, %14, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %14 ], [ false, %8 ], [ false, %8 ], [ %not., %16 ], [ %.not.not.not.i.not.not.not.not.not, %35 ], [ %.not.not.not.i.not.not.not.not.not, %32 ], [ %.not.not.not.i.not.not.not.not.not, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit" ], [ true, %50 ], [ %.not.not.not.i.not.not.not.not.not, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i", %50, %35, %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit"
+  %.06 = phi i1 [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h97d4268fe21df354E.llvm.13383457361836014260.exit" ], [ false, %32 ], [ false, %35 ], [ true, %50 ], [ false, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i" ]
+  %brmerge = or i1 %.not.not.not.i.not.not.not.not.not, %.06
+  br label %53
+
+53:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit", %16, %8, %8, %14, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %14 ], [ false, %8 ], [ false, %8 ], [ %not., %16 ], [ %brmerge, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha93da26fcc7f9205E.llvm.13383457361836014260.exit" ]
   ret i1 %.0
 }
 

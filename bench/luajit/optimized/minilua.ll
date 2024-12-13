@@ -36411,8 +36411,8 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %lua_rawgeti.exit608
-  %u.addr.0714 = phi i32 [ %u, %while.body.lr.ph ], [ %u.addr.0714..lcssa.lcssa737, %lua_rawgeti.exit608 ]
-  %l.addr.0713 = phi i32 [ %l, %while.body.lr.ph ], [ %add48.l.addr.0713, %lua_rawgeti.exit608 ]
+  %u.addr.0714 = phi i32 [ %u, %while.body.lr.ph ], [ %u.addr.0.i.1, %lua_rawgeti.exit608 ]
+  %l.addr.0713 = phi i32 [ %l, %while.body.lr.ph ], [ %add48.l.addr.0, %lua_rawgeti.exit608 ]
   %1 = load ptr, ptr %base.i.i, align 8
   %2 = load ptr, ptr %top.i.i, align 8
   %cmp1.not.i.i = icmp ult ptr %1, %2
@@ -37583,12 +37583,12 @@ lua_rawgeti.exit608:                              ; preds = %land.lhs.true.i.i59
   %sub44 = sub nsw i32 %u.addr.0714, %143
   %cmp45 = icmp slt i32 %sub43, %sub44
   %add48 = add nsw i32 %115, 2
-  %add48.l.addr.0713 = select i1 %cmp45, i32 %add48, i32 %l.addr.0713
-  %u.addr.0714..lcssa.lcssa737 = select i1 %cmp45, i32 %u.addr.0714, i32 %115
-  %.lcssa.lcssa737.u.addr.0714 = select i1 %cmp45, i32 %115, i32 %u.addr.0714
-  %l.addr.0713.add48 = select i1 %cmp45, i32 %l.addr.0713, i32 %add48
-  tail call fastcc void @auxsort(ptr noundef nonnull %L, i32 noundef %l.addr.0713.add48, i32 noundef %.lcssa.lcssa737.u.addr.0714)
-  %cmp = icmp slt i32 %add48.l.addr.0713, %u.addr.0714..lcssa.lcssa737
+  %add48.l.addr.0 = select i1 %cmp45, i32 %add48, i32 %l.addr.0713
+  %u.addr.0.i.1 = select i1 %cmp45, i32 %u.addr.0714, i32 %115
+  %i.1.u.addr.0 = select i1 %cmp45, i32 %115, i32 %u.addr.0714
+  %l.addr.0.add48 = select i1 %cmp45, i32 %l.addr.0713, i32 %add48
+  tail call fastcc void @auxsort(ptr noundef %L, i32 noundef %l.addr.0.add48, i32 noundef %i.1.u.addr.0)
+  %cmp = icmp slt i32 %add48.l.addr.0, %u.addr.0.i.1
   br i1 %cmp, label %while.body, label %while.end53, !llvm.loop !130
 
 if.end40:                                         ; preds = %while.end37

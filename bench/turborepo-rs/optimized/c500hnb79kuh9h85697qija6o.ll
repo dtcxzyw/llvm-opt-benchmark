@@ -1282,8 +1282,8 @@ define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenN
   %7 = alloca [24 x i8], align 8
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
-  %switch22 = icmp ult i64 %2, 2
-  br i1 %switch22, label %10, label %13
+  %switch21 = icmp ult i64 %2, 2
+  br i1 %switch21, label %10, label %13
 
 10:                                               ; preds = %4, %18, %13
   %11 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
@@ -1341,8 +1341,8 @@ define void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenN
   %37 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8
   %38 = icmp ult i64 %37, 6
   tail call void @llvm.assume(i1 %38)
-  %switch21 = icmp samesign ult i64 %37, 4
-  br i1 %switch21, label %33, label %39
+  %switch20 = icmp samesign ult i64 %37, 4
+  br i1 %switch20, label %33, label %39
 
 39:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -1397,8 +1397,8 @@ _RNvNtCs8mTrBI1stz4_15turborepo_vt1007perform13osc_param_str.exit: ; preds = %47
   call void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCsbYUTfhIhMOk_7ratatui(ptr noalias noundef nonnull align 8 dereferenceable(24) %6), !noalias !317
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !313
   store ptr %7, ptr %8, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4ef59da2ce0d282aE", ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4ef59da2ce0d282aE", ptr %.sroa.49.0..sroa_idx, align 8
   store ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.26, ptr %9, align 8
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %54, align 8

@@ -815,8 +815,8 @@ define noundef zeroext i1 @"_ZN85_$LT$cranelift_frontend..frontend..DefVariableE
   br label %34
 
 34:                                               ; preds = %25, %12
-  %.sink = phi i1 [ %33, %25 ], [ %24, %12 ]
-  ret i1 %.sink
+  %.0 = phi i1 [ %24, %12 ], [ %33, %25 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

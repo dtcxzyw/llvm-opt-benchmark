@@ -5625,7 +5625,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPKNS_11InstructionENS_6
   store ptr inttoptr (i64 -4096 to ptr), ptr %25, align 8
   br label %.thread73
 
-.thread73:                                        ; preds = %.thread75, %35, %.thread72, %34
+.thread73:                                        ; preds = %35, %.thread75, %.thread72, %34
   store ptr %27, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not66 = icmp eq i64 %indvars.iv.next, 8

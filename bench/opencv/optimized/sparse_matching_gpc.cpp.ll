@@ -989,8 +989,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i
   %142 = phi i64 [ %189, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %137, %.lr.ph.i.preheader ]
   %.024.i = phi i64 [ %149, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %141, %.lr.ph.i.preheader ]
-  %.sroa.015.023.i = phi ptr [ %.sroa.015.0..sroa.010.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %.sroa.0208.5, %.lr.ph.i.preheader ]
-  %.sroa.012.022.i = phi ptr [ %.sroa.010.1.i.i..sroa.012.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %.sroa.12.5, %.lr.ph.i.preheader ]
+  %.sroa.015.023.i = phi ptr [ %.sroa.010.1.i.i..sroa.015.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %.sroa.0208.5, %.lr.ph.i.preheader ]
+  %.sroa.012.022.i = phi ptr [ %.sroa.012.0..sroa.010.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ], [ %.sroa.12.5, %.lr.ph.i.preheader ]
   %143 = icmp eq i64 %.024.i, 0
   br i1 %143, label %144, label %148
 
@@ -1102,18 +1102,18 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEE
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i: ; preds = %183
   %.not.i = icmp ugt ptr %.sroa.010.1.i.i.i, %130
-  %.sroa.010.1.i.i..sroa.012.0.i = select i1 %.not.i, ptr %.sroa.010.1.i.i.i, ptr %.sroa.012.022.i
-  %.sroa.015.0..sroa.010.1.i.i.i = select i1 %.not.i, ptr %.sroa.015.023.i, ptr %.sroa.010.1.i.i.i
-  %186 = ptrtoint ptr %.sroa.010.1.i.i..sroa.012.0.i to i64
-  %187 = ptrtoint ptr %.sroa.015.0..sroa.010.1.i.i.i to i64
+  %.sroa.012.0..sroa.010.1.i.i.i = select i1 %.not.i, ptr %.sroa.010.1.i.i.i, ptr %.sroa.012.022.i
+  %.sroa.010.1.i.i..sroa.015.0.i = select i1 %.not.i, ptr %.sroa.015.023.i, ptr %.sroa.010.1.i.i.i
+  %186 = ptrtoint ptr %.sroa.012.0..sroa.010.1.i.i.i to i64
+  %187 = ptrtoint ptr %.sroa.010.1.i.i..sroa.015.0.i to i64
   %188 = sub i64 %186, %187
   %189 = ashr exact i64 %188, 3
   %190 = icmp sgt i64 %189, 3
   br i1 %190, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i, %133
-  %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.12.5, %133 ], [ %.sroa.010.1.i.i..sroa.012.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
-  %.sroa.015.0.lcssa.i = phi ptr [ %.sroa.0208.5, %133 ], [ %.sroa.015.0..sroa.010.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %.sroa.012.0.lcssa.i = phi ptr [ %.sroa.12.5, %133 ], [ %.sroa.012.0..sroa.010.1.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
+  %.sroa.015.0.lcssa.i = phi ptr [ %.sroa.0208.5, %133 ], [ %.sroa.010.1.i.i..sroa.015.0.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %.lcssa18.i = phi i64 [ %135, %133 ], [ %187, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit.i ]
   %191 = icmp eq ptr %.sroa.015.0.lcssa.i, %.sroa.012.0.lcssa.i
   %.sroa.0.015.i.i = getelementptr inbounds nuw i8, ptr %.sroa.015.0.lcssa.i, i64 8
@@ -3031,13 +3031,13 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE9push_backEOS3_.exit: 
   %120 = and i64 %115, 1
   %121 = icmp eq i64 %120, 0
   %122 = or disjoint i64 %116, 1
-  %123 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %122
-  %124 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %117
+  %123 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %122
+  %124 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %117
   br label %125
 
 125:                                              ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i.i, %.split.i.i.i.i
   %.0.i.i.i.i = phi i64 [ %117, %.split.i.i.i.i ], [ %149, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i.i ]
-  %phi.call.i.i.i.i = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.0.i.i.i.i
+  %phi.call.i.i.i.i = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.0.i.i.i.i
   %.sroa.04.0.copyload.i.i.i.i = load i64, ptr %phi.call.i.i.i.i, align 4
   %.sroa.25.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i.i, i64 8
   %.sroa.25.0.copyload.i.i.i.i = load i32, ptr %.sroa.25.0..sroa_idx.i.i.i.i, align 4
@@ -3048,15 +3048,15 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE9push_backEOS3_.exit: 
   %.044.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0.i.i.i.i, %125 ]
   %127 = shl i64 %.044.i.i.i.i.i, 1
   %128 = add i64 %127, 2
-  %129 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %128
+  %129 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %128
   %130 = or disjoint i64 %127, 1
-  %131 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %130
+  %131 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %130
   %.val2.i.i.i.i.i.i = load float, ptr %129, align 4
   %.val3.i.i.i.i.i.i = load float, ptr %131, align 4
   %132 = fcmp ogt float %.val2.i.i.i.i.i.i, %.val3.i.i.i.i.i.i
   %spec.select.i.i.i.i.i = select i1 %132, i64 %130, i64 %128
-  %133 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %spec.select.i.i.i.i.i
-  %134 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.044.i.i.i.i.i
+  %133 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %spec.select.i.i.i.i.i
+  %134 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.044.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %134, ptr noundef nonnull align 4 dereferenceable(12) %133, i64 12, i1 false)
   %135 = icmp slt i64 %spec.select.i.i.i.i.i, %119
   br i1 %135, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !43
@@ -3085,13 +3085,13 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE9push_backEOS3_.exit: 
   %.09.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %.01010.i.i.i.i.i.i, %144 ]
   %.01010.in.i.i.i.i.i.i = add nsw i64 %.09.i.i.i.i.i.i, -1
   %.01010.i.i.i.i.i.i = sdiv i64 %.01010.in.i.i.i.i.i.i, 2
-  %142 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.01010.i.i.i.i.i.i
+  %142 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.01010.i.i.i.i.i.i
   %.val1.i.i.i.i.i.i.i = load float, ptr %142, align 4
   %143 = fcmp ogt float %.val1.i.i.i.i.i.i.i, %140
   br i1 %143, label %144, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i.i
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.09.i.i.i.i.i.i
+  %145 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.09.i.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %145, ptr noundef nonnull align 4 dereferenceable(12) %142, i64 12, i1 false)
   %146 = icmp sgt i64 %.01010.i.i.i.i.i.i, %.0.i.i.i.i
   br i1 %146, label %141, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i.i, !llvm.loop !44
@@ -3100,7 +3100,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19M
   %.0.lcssa.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %138 ], [ %.01010.i.i.i.i.i.i, %144 ], [ %.09.i.i.i.i.i.i, %141 ]
   %.sroa.03.sroa.3.0.extract.shift.i.i.i.i.i.i = lshr i64 %.sroa.04.0.copyload.i.i.i.i, 32
   %.sroa.03.sroa.3.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.03.sroa.3.0.extract.shift.i.i.i.i.i.i to i32
-  %147 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.0.lcssa.i.i.i.i.i.i
+  %147 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.0.lcssa.i.i.i.i.i.i
   store i32 %.sroa.03.sroa.0.0.extract.trunc.i.i.i.i.i.i, ptr %147, align 4
   %.sroa.0.0..val14.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %147, i64 4
   store i32 %.sroa.03.sroa.3.0.extract.trunc.i.i.i.i.i.i, ptr %.sroa.0.0..val14.sroa_idx.i.i.i.i.i.i, align 4
@@ -3111,7 +3111,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19M
   br i1 %148, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i.i, label %125, !llvm.loop !45
 
 _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i.i: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_.exit.i.i.i.i, %.lr.ph.i._crit_edge.i
-  %150 = icmp ult ptr %111, %.sroa.012.1.i.i..sroa.020.0.i.i
+  %150 = icmp ult ptr %111, %.sroa.020.0..sroa.012.1.i.i.i.i
   br i1 %150, label %.lr.ph.i.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i.i
@@ -3124,14 +3124,14 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Mag
   %157 = add nsw i64 %151, -2
   %158 = ashr exact i64 %157, 1
   %159 = or disjoint i64 %157, 1
-  %160 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %159
-  %161 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %158
+  %160 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %159
+  %161 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %158
   br label %162
 
 162:                                              ; preds = %185, %.lr.ph.i.i.i
   %.sroa.0.033.i.i.i = phi ptr [ %111, %.lr.ph.i.i.i ], [ %186, %185 ]
   %.val2.i.i.i.i = load float, ptr %.sroa.0.033.i.i.i, align 4
-  %.val3.i.i.i.i = load float, ptr %.sroa.022.0..sroa.012.1.i.i.i.i, align 4
+  %.val3.i.i.i.i = load float, ptr %.sroa.012.1.i.i..sroa.022.0.i.i, align 4
   %163 = fcmp ogt float %.val2.i.i.i.i, %.val3.i.i.i.i
   br i1 %163, label %164, label %185
 
@@ -3139,22 +3139,22 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Mag
   %.sroa.04.0.copyload.i10.i.i.i = load i64, ptr %.sroa.0.033.i.i.i, align 4
   %.sroa.25.0..sroa_idx.i11.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 8
   %.sroa.25.0.copyload.i12.i.i.i = load i32, ptr %.sroa.25.0..sroa_idx.i11.i.i.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.033.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.022.0..sroa.012.1.i.i.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.033.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i..sroa.022.0.i.i, i64 12, i1 false)
   br i1 %154, label %.lr.ph.i.i27.i.i.i, label %._crit_edge.i.i13.i.i.i
 
 .lr.ph.i.i27.i.i.i:                               ; preds = %164, %.lr.ph.i.i27.i.i.i
   %.044.i.i28.i.i.i = phi i64 [ %spec.select.i.i31.i.i.i, %.lr.ph.i.i27.i.i.i ], [ 0, %164 ]
   %165 = shl i64 %.044.i.i28.i.i.i, 1
   %166 = add i64 %165, 2
-  %167 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %166
+  %167 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %166
   %168 = or disjoint i64 %165, 1
-  %169 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %168
+  %169 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %168
   %.val2.i.i.i29.i.i.i = load float, ptr %167, align 4
   %.val3.i.i.i30.i.i.i = load float, ptr %169, align 4
   %170 = fcmp ogt float %.val2.i.i.i29.i.i.i, %.val3.i.i.i30.i.i.i
   %spec.select.i.i31.i.i.i = select i1 %170, i64 %168, i64 %166
-  %171 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %spec.select.i.i31.i.i.i
-  %172 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.044.i.i28.i.i.i
+  %171 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %spec.select.i.i31.i.i.i
+  %172 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.044.i.i28.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %172, ptr noundef nonnull align 4 dereferenceable(12) %171, i64 12, i1 false)
   %173 = icmp slt i64 %spec.select.i.i31.i.i.i, %153
   br i1 %173, label %.lr.ph.i.i27.i.i.i, label %._crit_edge.i.i13.i.i.i, !llvm.loop !43
@@ -3183,13 +3183,13 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Mag
   %.09.i.i.i24.i.i.i = phi i64 [ %.1.i.i15.i.i.i, %.lr.ph.i.i.i23.i.i.i ], [ %.01010.i.i34.i.i.i.i, %182 ]
   %.01010.in.i.i.i25.i.i.i = add nsw i64 %.09.i.i.i24.i.i.i, -1
   %.01010.i.i34.i.i.i.i = lshr i64 %.01010.in.i.i.i25.i.i.i, 1
-  %180 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.01010.i.i34.i.i.i.i
+  %180 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.01010.i.i34.i.i.i.i
   %.val1.i.i.i.i26.i.i.i = load float, ptr %180, align 4
   %181 = fcmp ogt float %.val1.i.i.i.i26.i.i.i, %178
   br i1 %181, label %182, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i.i
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.09.i.i.i24.i.i.i
+  %183 = getelementptr inbounds nuw %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.09.i.i.i24.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %183, ptr noundef nonnull align 4 dereferenceable(12) %180, i64 12, i1 false)
   %.not.i.i.i.i128 = icmp ult i64 %.01010.in.i.i.i25.i.i.i, 2
   br i1 %.not.i.i.i.i128, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i.i, label %179, !llvm.loop !44
@@ -3198,7 +3198,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Magn
   %.0.lcssa.i.i.i18.i.i.i = phi i64 [ %.1.i.i15.i.i.i, %176 ], [ 0, %182 ], [ %.09.i.i.i24.i.i.i, %179 ]
   %.sroa.03.sroa.3.0.extract.shift.i.i.i19.i.i.i = lshr i64 %.sroa.04.0.copyload.i10.i.i.i, 32
   %.sroa.03.sroa.3.0.extract.trunc.i.i.i20.i.i.i = trunc nuw i64 %.sroa.03.sroa.3.0.extract.shift.i.i.i19.i.i.i to i32
-  %184 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.022.0..sroa.012.1.i.i.i.i, i64 %.0.lcssa.i.i.i18.i.i.i
+  %184 = getelementptr inbounds %"struct.cv::optflow::(anonymous namespace)::Magnitude", ptr %.sroa.012.1.i.i..sroa.022.0.i.i, i64 %.0.lcssa.i.i.i18.i.i.i
   store i32 %.sroa.03.sroa.0.0.extract.trunc.i.i.i16.i.i.i, ptr %184, align 4
   %.sroa.0.0..val14.sroa_idx.i.i.i21.i.i.i = getelementptr inbounds nuw i8, ptr %184, i64 4
   store i32 %.sroa.03.sroa.3.0.extract.trunc.i.i.i20.i.i.i, ptr %.sroa.0.0..val14.sroa_idx.i.i.i21.i.i.i, align 4
@@ -3208,20 +3208,20 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19Magn
 
 185:                                              ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i.i.i, %162
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 12
-  %187 = icmp ult ptr %186, %.sroa.012.1.i.i..sroa.020.0.i.i
+  %187 = icmp ult ptr %186, %.sroa.020.0..sroa.012.1.i.i.i.i
   br i1 %187, label %162, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit.i.i, !llvm.loop !46
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_T0_.exit.i.i: ; preds = %185, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.022.0..sroa.012.1.i.i.i.i, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.022.0..sroa.012.1.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %101, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i..sroa.022.0.i.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.012.1.i.i..sroa.022.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %101, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %22)
   br label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEEEvT_SB_SB_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.sroa.020.027.i17.i = phi ptr [ %.sroa.012.1.i.i..sroa.020.0.i.i, %.lr.ph.i.i ], [ %.sroa.15.0.lcssa, %.lr.ph.i.preheader.i ]
-  %.sroa.022.028.i16.i = phi ptr [ %.sroa.022.0..sroa.012.1.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.0163.0.lcssa, %.lr.ph.i.preheader.i ]
+  %.sroa.020.027.i17.i = phi ptr [ %.sroa.020.0..sroa.012.1.i.i.i.i, %.lr.ph.i.i ], [ %.sroa.15.0.lcssa, %.lr.ph.i.preheader.i ]
+  %.sroa.022.028.i16.i = phi ptr [ %.sroa.012.1.i.i..sroa.022.0.i.i, %.lr.ph.i.i ], [ %.sroa.0163.0.lcssa, %.lr.ph.i.preheader.i ]
   %.029.i15.i = phi i64 [ %189, %.lr.ph.i.i ], [ %109, %.lr.ph.i.preheader.i ]
   %188 = phi i64 [ %218, %.lr.ph.i.i ], [ %96, %.lr.ph.i.preheader.i ]
   %189 = add nsw i64 %.029.i15.i, -1
@@ -3336,17 +3336,17 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOB
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i: ; preds = %213
   %.not.i.i127 = icmp ugt ptr %.sroa.012.1.i.i.i.i, %101
-  %.sroa.012.1.i.i..sroa.020.0.i.i = select i1 %.not.i.i127, ptr %.sroa.012.1.i.i.i.i, ptr %.sroa.020.027.i17.i
-  %.sroa.022.0..sroa.012.1.i.i.i.i = select i1 %.not.i.i127, ptr %.sroa.022.028.i16.i, ptr %.sroa.012.1.i.i.i.i
-  %216 = ptrtoint ptr %.sroa.012.1.i.i..sroa.020.0.i.i to i64
-  %217 = ptrtoint ptr %.sroa.022.0..sroa.012.1.i.i.i.i to i64
+  %.sroa.020.0..sroa.012.1.i.i.i.i = select i1 %.not.i.i127, ptr %.sroa.012.1.i.i.i.i, ptr %.sroa.020.027.i17.i
+  %.sroa.012.1.i.i..sroa.022.0.i.i = select i1 %.not.i.i127, ptr %.sroa.022.028.i16.i, ptr %.sroa.012.1.i.i.i.i
+  %216 = ptrtoint ptr %.sroa.020.0..sroa.012.1.i.i.i.i to i64
+  %217 = ptrtoint ptr %.sroa.012.1.i.i..sroa.022.0.i.i to i64
   %218 = sub i64 %216, %217
   %219 = icmp sgt i64 %218, 36
   br i1 %219, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !42
 
 ._crit_edge.i.i:                                  ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i, %104
-  %.sroa.020.0.lcssa.i.i = phi ptr [ %.sroa.15.0.lcssa, %104 ], [ %.sroa.012.1.i.i..sroa.020.0.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i ]
-  %.sroa.022.0.lcssa.i.i = phi ptr [ %.sroa.0163.0.lcssa, %104 ], [ %.sroa.022.0..sroa.012.1.i.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i ]
+  %.sroa.020.0.lcssa.i.i = phi ptr [ %.sroa.15.0.lcssa, %104 ], [ %.sroa.020.0..sroa.012.1.i.i.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i ]
+  %.sroa.022.0.lcssa.i.i = phi ptr [ %.sroa.0163.0.lcssa, %104 ], [ %.sroa.012.1.i.i..sroa.022.0.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i ]
   %.lcssa23.i.i = phi i64 [ %95, %104 ], [ %217, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv7optflow12_GLOBAL__N_19MagnitudeESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
   %220 = icmp eq ptr %.sroa.022.0.lcssa.i.i, %.sroa.020.0.lcssa.i.i
@@ -7721,8 +7721,8 @@ define linkonce_odr hidden void @_ZSt13__introselectIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %4, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit
   %10 = phi i64 [ %57, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %8, %4 ]
   %.024 = phi i64 [ %17, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %3, %4 ]
-  %.sroa.015.023 = phi ptr [ %.sroa.015.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %0, %4 ]
-  %.sroa.012.022 = phi ptr [ %.sroa.010.1.i.i..sroa.012.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %2, %4 ]
+  %.sroa.015.023 = phi ptr [ %.sroa.010.1.i.i..sroa.015.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %0, %4 ]
+  %.sroa.012.022 = phi ptr [ %.sroa.012.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ], [ %2, %4 ]
   %11 = icmp eq i64 %.024, 0
   br i1 %11, label %12, label %16
 
@@ -7831,18 +7831,18 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEE
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit: ; preds = %51
   %.not = icmp ugt ptr %.sroa.010.1.i.i, %1
-  %.sroa.010.1.i.i..sroa.012.0 = select i1 %.not, ptr %.sroa.010.1.i.i, ptr %.sroa.012.022
-  %.sroa.015.0..sroa.010.1.i.i = select i1 %.not, ptr %.sroa.015.023, ptr %.sroa.010.1.i.i
-  %54 = ptrtoint ptr %.sroa.010.1.i.i..sroa.012.0 to i64
-  %55 = ptrtoint ptr %.sroa.015.0..sroa.010.1.i.i to i64
+  %.sroa.012.0..sroa.010.1.i.i = select i1 %.not, ptr %.sroa.010.1.i.i, ptr %.sroa.012.022
+  %.sroa.010.1.i.i..sroa.015.0 = select i1 %.not, ptr %.sroa.015.023, ptr %.sroa.010.1.i.i
+  %54 = ptrtoint ptr %.sroa.012.0..sroa.010.1.i.i to i64
+  %55 = ptrtoint ptr %.sroa.010.1.i.i..sroa.015.0 to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 2
   %58 = icmp sgt i64 %57, 3
   br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit, %4
-  %.sroa.012.0.lcssa = phi ptr [ %2, %4 ], [ %.sroa.010.1.i.i..sroa.012.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
-  %.sroa.015.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.015.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
+  %.sroa.012.0.lcssa = phi ptr [ %2, %4 ], [ %.sroa.012.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
+  %.sroa.015.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.010.1.i.i..sroa.015.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   %.lcssa18 = phi i64 [ %6, %4 ], [ %55, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEET_S9_S9_T0_.exit ]
   %59 = icmp eq ptr %.sroa.015.0.lcssa, %.sroa.012.0.lcssa
   %.sroa.0.015.i = getelementptr inbounds nuw i8, ptr %.sroa.015.0.lcssa, i64 4

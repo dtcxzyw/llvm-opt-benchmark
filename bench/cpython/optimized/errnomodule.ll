@@ -174,16 +174,12 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %call5 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull %call1) #2
   %cmp6 = icmp slt i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %do.body
-
-if.then7:                                         ; preds = %if.end4
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp6, label %return.sink.split, label %do.body
 
 do.body:                                          ; preds = %if.end4
   %call.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.2) #2
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.then11, label %if.end.i
+  br i1 %tobool.not.i, label %return.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
   %call1.i = tail call ptr @PyLong_FromLong(i64 noundef 19) #2
@@ -200,7 +196,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   %0 = icmp slt i32 %call9.i, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i) #2
-  br i1 %0, label %if.then11, label %do.body13
+  br i1 %0, label %return.sink.split, label %do.body13
 
 if.then11.critedge:                               ; preds = %if.end4.i
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i) #2
@@ -209,16 +205,12 @@ if.then11.critedge:                               ; preds = %if.end4.i
 if.then11.sink.split:                             ; preds = %if.end.i, %if.then11.critedge
   %call1.i.sink = phi ptr [ %call1.i, %if.then11.critedge ], [ %call.i, %if.end.i ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i.sink) #2
-  br label %if.then11
-
-if.then11:                                        ; preds = %if.then11.sink.split, %do.body, %if.end8.i
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body13:                                        ; preds = %if.end8.i
   %call.i413 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #2
   %tobool.not.i414 = icmp eq ptr %call.i413, null
-  br i1 %tobool.not.i414, label %if.then16, label %if.end.i415
+  br i1 %tobool.not.i414, label %return.sink.split, label %if.end.i415
 
 if.end.i415:                                      ; preds = %do.body13
   %call1.i416 = tail call ptr @PyLong_FromLong(i64 noundef 50) #2
@@ -235,7 +227,7 @@ if.end8.i421:                                     ; preds = %if.end4.i418
   %1 = icmp slt i32 %call9.i422, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i413) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i416) #2
-  br i1 %1, label %if.then16, label %do.body19
+  br i1 %1, label %return.sink.split, label %do.body19
 
 if.then16.critedge:                               ; preds = %if.end4.i418
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i413) #2
@@ -244,16 +236,12 @@ if.then16.critedge:                               ; preds = %if.end4.i418
 if.then16.sink.split:                             ; preds = %if.end.i415, %if.then16.critedge
   %call1.i416.sink = phi ptr [ %call1.i416, %if.then16.critedge ], [ %call.i413, %if.end.i415 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i416.sink) #2
-  br label %if.then16
-
-if.then16:                                        ; preds = %if.then16.sink.split, %do.body13, %if.end8.i421
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body19:                                        ; preds = %if.end8.i421
   %call.i431 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.4) #2
   %tobool.not.i432 = icmp eq ptr %call.i431, null
-  br i1 %tobool.not.i432, label %if.then22, label %if.end.i433
+  br i1 %tobool.not.i432, label %return.sink.split, label %if.end.i433
 
 if.end.i433:                                      ; preds = %do.body19
   %call1.i434 = tail call ptr @PyLong_FromLong(i64 noundef 113) #2
@@ -270,7 +258,7 @@ if.end8.i439:                                     ; preds = %if.end4.i436
   %2 = icmp slt i32 %call9.i440, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i431) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i434) #2
-  br i1 %2, label %if.then22, label %do.body25
+  br i1 %2, label %return.sink.split, label %do.body25
 
 if.then22.critedge:                               ; preds = %if.end4.i436
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i431) #2
@@ -279,16 +267,12 @@ if.then22.critedge:                               ; preds = %if.end4.i436
 if.then22.sink.split:                             ; preds = %if.end.i433, %if.then22.critedge
   %call1.i434.sink = phi ptr [ %call1.i434, %if.then22.critedge ], [ %call.i431, %if.end.i433 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i434.sink) #2
-  br label %if.then22
-
-if.then22:                                        ; preds = %if.then22.sink.split, %do.body19, %if.end8.i439
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body25:                                        ; preds = %if.end8.i439
   %call.i449 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.5) #2
   %tobool.not.i450 = icmp eq ptr %call.i449, null
-  br i1 %tobool.not.i450, label %if.then28, label %if.end.i451
+  br i1 %tobool.not.i450, label %return.sink.split, label %if.end.i451
 
 if.end.i451:                                      ; preds = %do.body25
   %call1.i452 = tail call ptr @PyLong_FromLong(i64 noundef 42) #2
@@ -305,7 +289,7 @@ if.end8.i457:                                     ; preds = %if.end4.i454
   %3 = icmp slt i32 %call9.i458, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i449) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i452) #2
-  br i1 %3, label %if.then28, label %do.body31
+  br i1 %3, label %return.sink.split, label %do.body31
 
 if.then28.critedge:                               ; preds = %if.end4.i454
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i449) #2
@@ -314,16 +298,12 @@ if.then28.critedge:                               ; preds = %if.end4.i454
 if.then28.sink.split:                             ; preds = %if.end.i451, %if.then28.critedge
   %call1.i452.sink = phi ptr [ %call1.i452, %if.then28.critedge ], [ %call.i449, %if.end.i451 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i452.sink) #2
-  br label %if.then28
-
-if.then28:                                        ; preds = %if.then28.sink.split, %do.body25, %if.end8.i457
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body31:                                        ; preds = %if.end8.i457
   %call.i467 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.6) #2
   %tobool.not.i468 = icmp eq ptr %call.i467, null
-  br i1 %tobool.not.i468, label %if.then34, label %if.end.i469
+  br i1 %tobool.not.i468, label %return.sink.split, label %if.end.i469
 
 if.end.i469:                                      ; preds = %do.body31
   %call1.i470 = tail call ptr @PyLong_FromLong(i64 noundef 117) #2
@@ -340,7 +320,7 @@ if.end8.i475:                                     ; preds = %if.end4.i472
   %4 = icmp slt i32 %call9.i476, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i467) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i470) #2
-  br i1 %4, label %if.then34, label %do.body37
+  br i1 %4, label %return.sink.split, label %do.body37
 
 if.then34.critedge:                               ; preds = %if.end4.i472
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i467) #2
@@ -349,16 +329,12 @@ if.then34.critedge:                               ; preds = %if.end4.i472
 if.then34.sink.split:                             ; preds = %if.end.i469, %if.then34.critedge
   %call1.i470.sink = phi ptr [ %call1.i470, %if.then34.critedge ], [ %call.i467, %if.end.i469 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i470.sink) #2
-  br label %if.then34
-
-if.then34:                                        ; preds = %if.then34.sink.split, %do.body31, %if.end8.i475
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body37:                                        ; preds = %if.end8.i475
   %call.i485 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.7) #2
   %tobool.not.i486 = icmp eq ptr %call.i485, null
-  br i1 %tobool.not.i486, label %if.then40, label %if.end.i487
+  br i1 %tobool.not.i486, label %return.sink.split, label %if.end.i487
 
 if.end.i487:                                      ; preds = %do.body37
   %call1.i488 = tail call ptr @PyLong_FromLong(i64 noundef 45) #2
@@ -375,7 +351,7 @@ if.end8.i493:                                     ; preds = %if.end4.i490
   %5 = icmp slt i32 %call9.i494, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i485) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i488) #2
-  br i1 %5, label %if.then40, label %do.body43
+  br i1 %5, label %return.sink.split, label %do.body43
 
 if.then40.critedge:                               ; preds = %if.end4.i490
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i485) #2
@@ -384,1181 +360,664 @@ if.then40.critedge:                               ; preds = %if.end4.i490
 if.then40.sink.split:                             ; preds = %if.end.i487, %if.then40.critedge
   %call1.i488.sink = phi ptr [ %call1.i488, %if.then40.critedge ], [ %call.i485, %if.end.i487 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i488.sink) #2
-  br label %if.then40
-
-if.then40:                                        ; preds = %if.then40.sink.split, %do.body37, %if.end8.i493
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br label %return.sink.split
 
 do.body43:                                        ; preds = %if.end8.i493
   %call44 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.8, i32 noundef 51)
   %cmp45 = icmp slt i32 %call44, 0
-  br i1 %cmp45, label %if.then46, label %do.body49
-
-if.then46:                                        ; preds = %do.body43
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp45, label %return.sink.split, label %do.body49
 
 do.body49:                                        ; preds = %do.body43
   %call50 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.9, i32 noundef 61)
   %cmp51 = icmp slt i32 %call50, 0
-  br i1 %cmp51, label %if.then52, label %do.body55
-
-if.then52:                                        ; preds = %do.body49
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp51, label %return.sink.split, label %do.body55
 
 do.body55:                                        ; preds = %do.body49
   %call56 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.10, i32 noundef 15)
   %cmp57 = icmp slt i32 %call56, 0
-  br i1 %cmp57, label %if.then58, label %do.body61
-
-if.then58:                                        ; preds = %do.body55
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp57, label %return.sink.split, label %do.body61
 
 do.body61:                                        ; preds = %do.body55
   %call62 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.11, i32 noundef 38)
   %cmp63 = icmp slt i32 %call62, 0
-  br i1 %cmp63, label %if.then64, label %do.body67
-
-if.then64:                                        ; preds = %do.body61
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp63, label %return.sink.split, label %do.body67
 
 do.body67:                                        ; preds = %do.body61
   %call68 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.12, i32 noundef 32)
   %cmp69 = icmp slt i32 %call68, 0
-  br i1 %cmp69, label %if.then70, label %do.body73
-
-if.then70:                                        ; preds = %do.body67
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp69, label %return.sink.split, label %do.body73
 
 do.body73:                                        ; preds = %do.body67
   %call74 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.13, i32 noundef 22)
   %cmp75 = icmp slt i32 %call74, 0
-  br i1 %cmp75, label %if.then76, label %do.body79
-
-if.then76:                                        ; preds = %do.body73
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp75, label %return.sink.split, label %do.body79
 
 do.body79:                                        ; preds = %do.body73
   %call80 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.14, i32 noundef 75)
   %cmp81 = icmp slt i32 %call80, 0
-  br i1 %cmp81, label %if.then82, label %do.body85
-
-if.then82:                                        ; preds = %do.body79
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp81, label %return.sink.split, label %do.body85
 
 do.body85:                                        ; preds = %do.body79
   %call86 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.15, i32 noundef 68)
   %cmp87 = icmp slt i32 %call86, 0
-  br i1 %cmp87, label %if.then88, label %do.body91
-
-if.then88:                                        ; preds = %do.body85
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp87, label %return.sink.split, label %do.body91
 
 do.body91:                                        ; preds = %do.body85
   %call92 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.16, i32 noundef 4)
   %cmp93 = icmp slt i32 %call92, 0
-  br i1 %cmp93, label %if.then94, label %do.body97
-
-if.then94:                                        ; preds = %do.body91
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp93, label %return.sink.split, label %do.body97
 
 do.body97:                                        ; preds = %do.body91
   %call98 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.17, i32 noundef 87)
   %cmp99 = icmp slt i32 %call98, 0
-  br i1 %cmp99, label %if.then100, label %do.body103
-
-if.then100:                                       ; preds = %do.body97
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp99, label %return.sink.split, label %do.body103
 
 do.body103:                                       ; preds = %do.body97
   %call104 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.18, i32 noundef 39)
   %cmp105 = icmp slt i32 %call104, 0
-  br i1 %cmp105, label %if.then106, label %do.body109
-
-if.then106:                                       ; preds = %do.body103
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp105, label %return.sink.split, label %do.body109
 
 do.body109:                                       ; preds = %do.body103
   %call110 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.19, i32 noundef 105)
   %cmp111 = icmp slt i32 %call110, 0
-  br i1 %cmp111, label %if.then112, label %do.body115
-
-if.then112:                                       ; preds = %do.body109
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp111, label %return.sink.split, label %do.body115
 
 do.body115:                                       ; preds = %do.body109
   %call116 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.20, i32 noundef 71)
   %cmp117 = icmp slt i32 %call116, 0
-  br i1 %cmp117, label %if.then118, label %do.body121
-
-if.then118:                                       ; preds = %do.body115
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp117, label %return.sink.split, label %do.body121
 
 do.body121:                                       ; preds = %do.body115
   %call122 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.21, i32 noundef 66)
   %cmp123 = icmp slt i32 %call122, 0
-  br i1 %cmp123, label %if.then124, label %do.body127
-
-if.then124:                                       ; preds = %do.body121
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp123, label %return.sink.split, label %do.body127
 
 do.body127:                                       ; preds = %do.body121
   %call128 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.22, i32 noundef 119)
   %cmp129 = icmp slt i32 %call128, 0
-  br i1 %cmp129, label %if.then130, label %do.body133
-
-if.then130:                                       ; preds = %do.body127
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp129, label %return.sink.split, label %do.body133
 
 do.body133:                                       ; preds = %do.body127
   %call134 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.23, i32 noundef 10)
   %cmp135 = icmp slt i32 %call134, 0
-  br i1 %cmp135, label %if.then136, label %do.body139
-
-if.then136:                                       ; preds = %do.body133
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp135, label %return.sink.split, label %do.body139
 
 do.body139:                                       ; preds = %do.body133
   %call140 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.24, i32 noundef 40)
   %cmp141 = icmp slt i32 %call140, 0
-  br i1 %cmp141, label %if.then142, label %do.body145
-
-if.then142:                                       ; preds = %do.body139
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp141, label %return.sink.split, label %do.body145
 
 do.body145:                                       ; preds = %do.body139
   %call146 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.25, i32 noundef 18)
   %cmp147 = icmp slt i32 %call146, 0
-  br i1 %cmp147, label %if.then148, label %do.body151
-
-if.then148:                                       ; preds = %do.body145
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp147, label %return.sink.split, label %do.body151
 
 do.body151:                                       ; preds = %do.body145
   %call152 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.26, i32 noundef 7)
   %cmp153 = icmp slt i32 %call152, 0
-  br i1 %cmp153, label %if.then154, label %do.body157
-
-if.then154:                                       ; preds = %do.body151
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp153, label %return.sink.split, label %do.body157
 
 do.body157:                                       ; preds = %do.body151
   %call158 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.27, i32 noundef 3)
   %cmp159 = icmp slt i32 %call158, 0
-  br i1 %cmp159, label %if.then160, label %do.body163
-
-if.then160:                                       ; preds = %do.body157
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp159, label %return.sink.split, label %do.body163
 
 do.body163:                                       ; preds = %do.body157
   %call164 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.28, i32 noundef 90)
   %cmp165 = icmp slt i32 %call164, 0
-  br i1 %cmp165, label %if.then166, label %do.body169
-
-if.then166:                                       ; preds = %do.body163
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp165, label %return.sink.split, label %do.body169
 
 do.body169:                                       ; preds = %do.body163
   %call170 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.29, i32 noundef 97)
   %cmp171 = icmp slt i32 %call170, 0
-  br i1 %cmp171, label %if.then172, label %do.body175
-
-if.then172:                                       ; preds = %do.body169
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp171, label %return.sink.split, label %do.body175
 
 do.body175:                                       ; preds = %do.body169
   %call176 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.30, i32 noundef 53)
   %cmp177 = icmp slt i32 %call176, 0
-  br i1 %cmp177, label %if.then178, label %do.body181
-
-if.then178:                                       ; preds = %do.body175
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp177, label %return.sink.split, label %do.body181
 
 do.body181:                                       ; preds = %do.body175
   %call182 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.31, i32 noundef 112)
   %cmp183 = icmp slt i32 %call182, 0
-  br i1 %cmp183, label %if.then184, label %do.body187
-
-if.then184:                                       ; preds = %do.body181
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp183, label %return.sink.split, label %do.body187
 
 do.body187:                                       ; preds = %do.body181
   %call188 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.32, i32 noundef 96)
   %cmp189 = icmp slt i32 %call188, 0
-  br i1 %cmp189, label %if.then190, label %do.body193
-
-if.then190:                                       ; preds = %do.body187
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp189, label %return.sink.split, label %do.body193
 
 do.body193:                                       ; preds = %do.body187
   %call194 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.33, i32 noundef 92)
   %cmp195 = icmp slt i32 %call194, 0
-  br i1 %cmp195, label %if.then196, label %do.body199
-
-if.then196:                                       ; preds = %do.body193
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp195, label %return.sink.split, label %do.body199
 
 do.body199:                                       ; preds = %do.body193
   %call200 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.34, i32 noundef 16)
   %cmp201 = icmp slt i32 %call200, 0
-  br i1 %cmp201, label %if.then202, label %do.body205
-
-if.then202:                                       ; preds = %do.body199
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp201, label %return.sink.split, label %do.body205
 
 do.body205:                                       ; preds = %do.body199
   %call206 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.35, i32 noundef 11)
   %cmp207 = icmp slt i32 %call206, 0
-  br i1 %cmp207, label %if.then208, label %do.body211
-
-if.then208:                                       ; preds = %do.body205
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp207, label %return.sink.split, label %do.body211
 
 do.body211:                                       ; preds = %do.body205
   %call212 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.36, i32 noundef 77)
   %cmp213 = icmp slt i32 %call212, 0
-  br i1 %cmp213, label %if.then214, label %do.body217
-
-if.then214:                                       ; preds = %do.body211
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp213, label %return.sink.split, label %do.body217
 
 do.body217:                                       ; preds = %do.body211
   %call218 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.37, i32 noundef 73)
   %cmp219 = icmp slt i32 %call218, 0
-  br i1 %cmp219, label %if.then220, label %do.body223
-
-if.then220:                                       ; preds = %do.body217
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp219, label %return.sink.split, label %do.body223
 
 do.body223:                                       ; preds = %do.body217
   %call224 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.38, i32 noundef 106)
   %cmp225 = icmp slt i32 %call224, 0
-  br i1 %cmp225, label %if.then226, label %do.body229
-
-if.then226:                                       ; preds = %do.body223
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp225, label %return.sink.split, label %do.body229
 
 do.body229:                                       ; preds = %do.body223
   %call230 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.39, i32 noundef 55)
   %cmp231 = icmp slt i32 %call230, 0
-  br i1 %cmp231, label %if.then232, label %do.body235
-
-if.then232:                                       ; preds = %do.body229
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp231, label %return.sink.split, label %do.body235
 
 do.body235:                                       ; preds = %do.body229
   %call236 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.40, i32 noundef 108)
   %cmp237 = icmp slt i32 %call236, 0
-  br i1 %cmp237, label %if.then238, label %do.body241
-
-if.then238:                                       ; preds = %do.body235
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp237, label %return.sink.split, label %do.body241
 
 do.body241:                                       ; preds = %do.body235
   %call242 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.41, i32 noundef 44)
   %cmp243 = icmp slt i32 %call242, 0
-  br i1 %cmp243, label %if.then244, label %do.body247
-
-if.then244:                                       ; preds = %do.body241
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp243, label %return.sink.split, label %do.body247
 
 do.body247:                                       ; preds = %do.body241
   %call248 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.42, i32 noundef 80)
   %cmp249 = icmp slt i32 %call248, 0
-  br i1 %cmp249, label %if.then250, label %do.body253
-
-if.then250:                                       ; preds = %do.body247
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp249, label %return.sink.split, label %do.body253
 
 do.body253:                                       ; preds = %do.body247
   %call254 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.43, i32 noundef 64)
   %cmp255 = icmp slt i32 %call254, 0
-  br i1 %cmp255, label %if.then256, label %do.body259
-
-if.then256:                                       ; preds = %do.body253
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp255, label %return.sink.split, label %do.body259
 
 do.body259:                                       ; preds = %do.body253
   %call260 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.44, i32 noundef 52)
   %cmp261 = icmp slt i32 %call260, 0
-  br i1 %cmp261, label %if.then262, label %do.body265
-
-if.then262:                                       ; preds = %do.body259
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp261, label %return.sink.split, label %do.body265
 
 do.body265:                                       ; preds = %do.body259
   %call266 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.45, i32 noundef 9)
   %cmp267 = icmp slt i32 %call266, 0
-  br i1 %cmp267, label %if.then268, label %do.body271
-
-if.then268:                                       ; preds = %do.body265
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp267, label %return.sink.split, label %do.body271
 
 do.body271:                                       ; preds = %do.body265
   %call272 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.46, i32 noundef 72)
   %cmp273 = icmp slt i32 %call272, 0
-  br i1 %cmp273, label %if.then274, label %do.body277
-
-if.then274:                                       ; preds = %do.body271
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp273, label %return.sink.split, label %do.body277
 
 do.body277:                                       ; preds = %do.body271
   %call278 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.47, i32 noundef 5)
   %cmp279 = icmp slt i32 %call278, 0
-  br i1 %cmp279, label %if.then280, label %do.body283
-
-if.then280:                                       ; preds = %do.body277
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp279, label %return.sink.split, label %do.body283
 
 do.body283:                                       ; preds = %do.body277
   %call284 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.48, i32 noundef 49)
   %cmp285 = icmp slt i32 %call284, 0
-  br i1 %cmp285, label %if.then286, label %do.body289
-
-if.then286:                                       ; preds = %do.body283
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp285, label %return.sink.split, label %do.body289
 
 do.body289:                                       ; preds = %do.body283
   %call290 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.49, i32 noundef 91)
   %cmp291 = icmp slt i32 %call290, 0
-  br i1 %cmp291, label %if.then292, label %do.body295
-
-if.then292:                                       ; preds = %do.body289
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp291, label %return.sink.split, label %do.body295
 
 do.body295:                                       ; preds = %do.body289
   %call296 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.50, i32 noundef 28)
   %cmp297 = icmp slt i32 %call296, 0
-  br i1 %cmp297, label %if.then298, label %do.body301
-
-if.then298:                                       ; preds = %do.body295
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp297, label %return.sink.split, label %do.body301
 
 do.body301:                                       ; preds = %do.body295
   %call302 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.51, i32 noundef 8)
   %cmp303 = icmp slt i32 %call302, 0
-  br i1 %cmp303, label %if.then304, label %do.body307
-
-if.then304:                                       ; preds = %do.body301
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp303, label %return.sink.split, label %do.body307
 
 do.body307:                                       ; preds = %do.body301
   %call308 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.52, i32 noundef 114)
   %cmp309 = icmp slt i32 %call308, 0
-  br i1 %cmp309, label %if.then310, label %do.body313
-
-if.then310:                                       ; preds = %do.body307
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp309, label %return.sink.split, label %do.body313
 
 do.body313:                                       ; preds = %do.body307
   %call314 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.53, i32 noundef 100)
   %cmp315 = icmp slt i32 %call314, 0
-  br i1 %cmp315, label %if.then316, label %do.body319
-
-if.then316:                                       ; preds = %do.body313
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp315, label %return.sink.split, label %do.body319
 
 do.body319:                                       ; preds = %do.body313
   %call320 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.54, i32 noundef 118)
   %cmp321 = icmp slt i32 %call320, 0
-  br i1 %cmp321, label %if.then322, label %do.body325
-
-if.then322:                                       ; preds = %do.body319
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp321, label %return.sink.split, label %do.body325
 
 do.body325:                                       ; preds = %do.body319
   %call326 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.55, i32 noundef 13)
   %cmp327 = icmp slt i32 %call326, 0
-  br i1 %cmp327, label %if.then328, label %do.body331
-
-if.then328:                                       ; preds = %do.body325
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp327, label %return.sink.split, label %do.body331
 
 do.body331:                                       ; preds = %do.body325
   %call332 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.56, i32 noundef 48)
   %cmp333 = icmp slt i32 %call332, 0
-  br i1 %cmp333, label %if.then334, label %do.body337
-
-if.then334:                                       ; preds = %do.body331
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp333, label %return.sink.split, label %do.body337
 
 do.body337:                                       ; preds = %do.body331
   %call338 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.57, i32 noundef 84)
   %cmp339 = icmp slt i32 %call338, 0
-  br i1 %cmp339, label %if.then340, label %do.body343
-
-if.then340:                                       ; preds = %do.body337
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp339, label %return.sink.split, label %do.body343
 
 do.body343:                                       ; preds = %do.body337
   %call344 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.58, i32 noundef 20)
   %cmp345 = icmp slt i32 %call344, 0
-  br i1 %cmp345, label %if.then346, label %do.body349
-
-if.then346:                                       ; preds = %do.body343
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp345, label %return.sink.split, label %do.body349
 
 do.body349:                                       ; preds = %do.body343
   %call350 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.59, i32 noundef 76)
   %cmp351 = icmp slt i32 %call350, 0
-  br i1 %cmp351, label %if.then352, label %do.body355
-
-if.then352:                                       ; preds = %do.body349
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp351, label %return.sink.split, label %do.body355
 
 do.body355:                                       ; preds = %do.body349
   %call356 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.60, i32 noundef 1)
   %cmp357 = icmp slt i32 %call356, 0
-  br i1 %cmp357, label %if.then358, label %do.body361
-
-if.then358:                                       ; preds = %do.body355
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp357, label %return.sink.split, label %do.body361
 
 do.body361:                                       ; preds = %do.body355
   %call362 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.61, i32 noundef 33)
   %cmp363 = icmp slt i32 %call362, 0
-  br i1 %cmp363, label %if.then364, label %do.body367
-
-if.then364:                                       ; preds = %do.body361
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp363, label %return.sink.split, label %do.body367
 
 do.body367:                                       ; preds = %do.body361
   %call368 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.62, i32 noundef 54)
   %cmp369 = icmp slt i32 %call368, 0
-  br i1 %cmp369, label %if.then370, label %do.body373
-
-if.then370:                                       ; preds = %do.body367
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp369, label %return.sink.split, label %do.body373
 
 do.body373:                                       ; preds = %do.body367
   %call374 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.63, i32 noundef 111)
   %cmp375 = icmp slt i32 %call374, 0
-  br i1 %cmp375, label %if.then376, label %do.body379
-
-if.then376:                                       ; preds = %do.body373
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp375, label %return.sink.split, label %do.body379
 
 do.body379:                                       ; preds = %do.body373
   %call380 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.64, i32 noundef 21)
   %cmp381 = icmp slt i32 %call380, 0
-  br i1 %cmp381, label %if.then382, label %do.body385
-
-if.then382:                                       ; preds = %do.body379
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp381, label %return.sink.split, label %do.body385
 
 do.body385:                                       ; preds = %do.body379
   %call386 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.65, i32 noundef 93)
   %cmp387 = icmp slt i32 %call386, 0
-  br i1 %cmp387, label %if.then388, label %do.body391
-
-if.then388:                                       ; preds = %do.body385
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp387, label %return.sink.split, label %do.body391
 
 do.body391:                                       ; preds = %do.body385
   %call392 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.66, i32 noundef 30)
   %cmp393 = icmp slt i32 %call392, 0
-  br i1 %cmp393, label %if.then394, label %do.body397
-
-if.then394:                                       ; preds = %do.body391
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp393, label %return.sink.split, label %do.body397
 
 do.body397:                                       ; preds = %do.body391
   %call398 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.67, i32 noundef 99)
   %cmp399 = icmp slt i32 %call398, 0
-  br i1 %cmp399, label %if.then400, label %do.body403
-
-if.then400:                                       ; preds = %do.body397
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp399, label %return.sink.split, label %do.body403
 
 do.body403:                                       ; preds = %do.body397
   %call404 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.68, i32 noundef 43)
   %cmp405 = icmp slt i32 %call404, 0
-  br i1 %cmp405, label %if.then406, label %do.body409
-
-if.then406:                                       ; preds = %do.body403
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp405, label %return.sink.split, label %do.body409
 
 do.body409:                                       ; preds = %do.body403
   %call410 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.69, i32 noundef 70)
   %cmp411 = icmp slt i32 %call410, 0
-  br i1 %cmp411, label %if.then412, label %do.body415
-
-if.then412:                                       ; preds = %do.body409
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp411, label %return.sink.split, label %do.body415
 
 do.body415:                                       ; preds = %do.body409
   %call416 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.70, i32 noundef 69)
   %cmp417 = icmp slt i32 %call416, 0
-  br i1 %cmp417, label %if.then418, label %do.body421
-
-if.then418:                                       ; preds = %do.body415
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp417, label %return.sink.split, label %do.body421
 
 do.body421:                                       ; preds = %do.body415
   %call422 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.71, i32 noundef 121)
   %cmp423 = icmp slt i32 %call422, 0
-  br i1 %cmp423, label %if.then424, label %do.body427
-
-if.then424:                                       ; preds = %do.body421
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp423, label %return.sink.split, label %do.body427
 
 do.body427:                                       ; preds = %do.body421
   %call428 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.72, i32 noundef 47)
   %cmp429 = icmp slt i32 %call428, 0
-  br i1 %cmp429, label %if.then430, label %do.body433
-
-if.then430:                                       ; preds = %do.body427
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp429, label %return.sink.split, label %do.body433
 
 do.body433:                                       ; preds = %do.body427
   %call434 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.73, i32 noundef 74)
   %cmp435 = icmp slt i32 %call434, 0
-  br i1 %cmp435, label %if.then436, label %do.body439
-
-if.then436:                                       ; preds = %do.body433
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp435, label %return.sink.split, label %do.body439
 
 do.body439:                                       ; preds = %do.body433
   %call440 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.74, i32 noundef 23)
   %cmp441 = icmp slt i32 %call440, 0
-  br i1 %cmp441, label %if.then442, label %do.body445
-
-if.then442:                                       ; preds = %do.body439
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp441, label %return.sink.split, label %do.body445
 
 do.body445:                                       ; preds = %do.body439
   %call446 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.75, i32 noundef 82)
   %cmp447 = icmp slt i32 %call446, 0
-  br i1 %cmp447, label %if.then448, label %do.body451
-
-if.then448:                                       ; preds = %do.body445
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp447, label %return.sink.split, label %do.body451
 
 do.body451:                                       ; preds = %do.body445
   %call452 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.76, i32 noundef 29)
   %cmp453 = icmp slt i32 %call452, 0
-  br i1 %cmp453, label %if.then454, label %do.body457
-
-if.then454:                                       ; preds = %do.body451
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp453, label %return.sink.split, label %do.body457
 
 do.body457:                                       ; preds = %do.body451
   %call458 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.77, i32 noundef 67)
   %cmp459 = icmp slt i32 %call458, 0
-  br i1 %cmp459, label %if.then460, label %do.body463
-
-if.then460:                                       ; preds = %do.body457
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp459, label %return.sink.split, label %do.body463
 
 do.body463:                                       ; preds = %do.body457
   %call464 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.78, i32 noundef 102)
   %cmp465 = icmp slt i32 %call464, 0
-  br i1 %cmp465, label %if.then466, label %do.body469
-
-if.then466:                                       ; preds = %do.body463
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp465, label %return.sink.split, label %do.body469
 
 do.body469:                                       ; preds = %do.body463
   %call470 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.79, i32 noundef 110)
   %cmp471 = icmp slt i32 %call470, 0
-  br i1 %cmp471, label %if.then472, label %do.body475
-
-if.then472:                                       ; preds = %do.body469
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp471, label %return.sink.split, label %do.body475
 
 do.body475:                                       ; preds = %do.body469
   %call476 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.80, i32 noundef 2)
   %cmp477 = icmp slt i32 %call476, 0
-  br i1 %cmp477, label %if.then478, label %do.body481
-
-if.then478:                                       ; preds = %do.body475
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp477, label %return.sink.split, label %do.body481
 
 do.body481:                                       ; preds = %do.body475
   %call482 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.81, i32 noundef 17)
   %cmp483 = icmp slt i32 %call482, 0
-  br i1 %cmp483, label %if.then484, label %do.body487
-
-if.then484:                                       ; preds = %do.body481
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp483, label %return.sink.split, label %do.body487
 
 do.body487:                                       ; preds = %do.body481
   %call488 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.82, i32 noundef 122)
   %cmp489 = icmp slt i32 %call488, 0
-  br i1 %cmp489, label %if.then490, label %do.body493
-
-if.then490:                                       ; preds = %do.body487
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp489, label %return.sink.split, label %do.body493
 
 do.body493:                                       ; preds = %do.body487
   %call494 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.83, i32 noundef 60)
   %cmp495 = icmp slt i32 %call494, 0
-  br i1 %cmp495, label %if.then496, label %do.body499
-
-if.then496:                                       ; preds = %do.body493
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp495, label %return.sink.split, label %do.body499
 
 do.body499:                                       ; preds = %do.body493
   %call500 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.84, i32 noundef 57)
   %cmp501 = icmp slt i32 %call500, 0
-  br i1 %cmp501, label %if.then502, label %do.body505
-
-if.then502:                                       ; preds = %do.body499
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp501, label %return.sink.split, label %do.body505
 
 do.body505:                                       ; preds = %do.body499
   %call506 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.85, i32 noundef 56)
   %cmp507 = icmp slt i32 %call506, 0
-  br i1 %cmp507, label %if.then508, label %do.body511
-
-if.then508:                                       ; preds = %do.body505
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp507, label %return.sink.split, label %do.body511
 
 do.body511:                                       ; preds = %do.body505
   %call512 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.86, i32 noundef 79)
   %cmp513 = icmp slt i32 %call512, 0
-  br i1 %cmp513, label %if.then514, label %do.body517
-
-if.then514:                                       ; preds = %do.body511
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp513, label %return.sink.split, label %do.body517
 
 do.body517:                                       ; preds = %do.body511
   %call518 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.87, i32 noundef 14)
   %cmp519 = icmp slt i32 %call518, 0
-  br i1 %cmp519, label %if.then520, label %do.body523
-
-if.then520:                                       ; preds = %do.body517
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp519, label %return.sink.split, label %do.body523
 
 do.body523:                                       ; preds = %do.body517
   %call524 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.88, i32 noundef 27)
   %cmp525 = icmp slt i32 %call524, 0
-  br i1 %cmp525, label %if.then526, label %do.body529
-
-if.then526:                                       ; preds = %do.body523
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp525, label %return.sink.split, label %do.body529
 
 do.body529:                                       ; preds = %do.body523
   %call530 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.89, i32 noundef 35)
   %cmp531 = icmp slt i32 %call530, 0
-  br i1 %cmp531, label %if.then532, label %do.body535
-
-if.then532:                                       ; preds = %do.body529
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp531, label %return.sink.split, label %do.body535
 
 do.body535:                                       ; preds = %do.body529
   %call536 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.90, i32 noundef 107)
   %cmp537 = icmp slt i32 %call536, 0
-  br i1 %cmp537, label %if.then538, label %do.body541
-
-if.then538:                                       ; preds = %do.body535
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp537, label %return.sink.split, label %do.body541
 
 do.body541:                                       ; preds = %do.body535
   %call542 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.91, i32 noundef 89)
   %cmp543 = icmp slt i32 %call542, 0
-  br i1 %cmp543, label %if.then544, label %do.body547
-
-if.then544:                                       ; preds = %do.body541
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp543, label %return.sink.split, label %do.body547
 
 do.body547:                                       ; preds = %do.body541
   %call548 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.92, i32 noundef 81)
   %cmp549 = icmp slt i32 %call548, 0
-  br i1 %cmp549, label %if.then550, label %do.body553
-
-if.then550:                                       ; preds = %do.body547
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp549, label %return.sink.split, label %do.body553
 
 do.body553:                                       ; preds = %do.body547
   %call554 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.93, i32 noundef 37)
   %cmp555 = icmp slt i32 %call554, 0
-  br i1 %cmp555, label %if.then556, label %do.body559
-
-if.then556:                                       ; preds = %do.body553
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp555, label %return.sink.split, label %do.body559
 
 do.body559:                                       ; preds = %do.body553
   %call560 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.94, i32 noundef 120)
   %cmp561 = icmp slt i32 %call560, 0
-  br i1 %cmp561, label %if.then562, label %do.body565
-
-if.then562:                                       ; preds = %do.body559
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp561, label %return.sink.split, label %do.body565
 
 do.body565:                                       ; preds = %do.body559
   %call566 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.95, i32 noundef 103)
   %cmp567 = icmp slt i32 %call566, 0
-  br i1 %cmp567, label %if.then568, label %do.body571
-
-if.then568:                                       ; preds = %do.body565
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp567, label %return.sink.split, label %do.body571
 
 do.body571:                                       ; preds = %do.body565
   %call572 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.96, i32 noundef 101)
   %cmp573 = icmp slt i32 %call572, 0
-  br i1 %cmp573, label %if.then574, label %do.body577
-
-if.then574:                                       ; preds = %do.body571
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp573, label %return.sink.split, label %do.body577
 
 do.body577:                                       ; preds = %do.body571
   %call578 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.97, i32 noundef 116)
   %cmp579 = icmp slt i32 %call578, 0
-  br i1 %cmp579, label %if.then580, label %do.body583
-
-if.then580:                                       ; preds = %do.body577
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp579, label %return.sink.split, label %do.body583
 
 do.body583:                                       ; preds = %do.body577
   %call584 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.98, i32 noundef 63)
   %cmp585 = icmp slt i32 %call584, 0
-  br i1 %cmp585, label %if.then586, label %do.body589
-
-if.then586:                                       ; preds = %do.body583
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp585, label %return.sink.split, label %do.body589
 
 do.body589:                                       ; preds = %do.body583
   %call590 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.99, i32 noundef 12)
   %cmp591 = icmp slt i32 %call590, 0
-  br i1 %cmp591, label %if.then592, label %do.body595
-
-if.then592:                                       ; preds = %do.body589
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp591, label %return.sink.split, label %do.body595
 
 do.body595:                                       ; preds = %do.body589
   %call596 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.100, i32 noundef 88)
   %cmp597 = icmp slt i32 %call596, 0
-  br i1 %cmp597, label %if.then598, label %do.body601
-
-if.then598:                                       ; preds = %do.body595
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp597, label %return.sink.split, label %do.body601
 
 do.body601:                                       ; preds = %do.body595
   %call602 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.101, i32 noundef 86)
   %cmp603 = icmp slt i32 %call602, 0
-  br i1 %cmp603, label %if.then604, label %do.body607
-
-if.then604:                                       ; preds = %do.body601
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp603, label %return.sink.split, label %do.body607
 
 do.body607:                                       ; preds = %do.body601
   %call608 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.102, i32 noundef 31)
   %cmp609 = icmp slt i32 %call608, 0
-  br i1 %cmp609, label %if.then610, label %do.body613
-
-if.then610:                                       ; preds = %do.body607
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp609, label %return.sink.split, label %do.body613
 
 do.body613:                                       ; preds = %do.body607
   %call614 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.103, i32 noundef 34)
   %cmp615 = icmp slt i32 %call614, 0
-  br i1 %cmp615, label %if.then616, label %do.body619
-
-if.then616:                                       ; preds = %do.body613
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp615, label %return.sink.split, label %do.body619
 
 do.body619:                                       ; preds = %do.body613
   %call620 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.104, i32 noundef 83)
   %cmp621 = icmp slt i32 %call620, 0
-  br i1 %cmp621, label %if.then622, label %do.body625
-
-if.then622:                                       ; preds = %do.body619
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp621, label %return.sink.split, label %do.body625
 
 do.body625:                                       ; preds = %do.body619
   %call626 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.105, i32 noundef 46)
   %cmp627 = icmp slt i32 %call626, 0
-  br i1 %cmp627, label %if.then628, label %do.body631
-
-if.then628:                                       ; preds = %do.body625
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp627, label %return.sink.split, label %do.body631
 
 do.body631:                                       ; preds = %do.body625
   %call632 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.106, i32 noundef 104)
   %cmp633 = icmp slt i32 %call632, 0
-  br i1 %cmp633, label %if.then634, label %do.body637
-
-if.then634:                                       ; preds = %do.body631
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp633, label %return.sink.split, label %do.body637
 
 do.body637:                                       ; preds = %do.body631
   %call638 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.107, i32 noundef 98)
   %cmp639 = icmp slt i32 %call638, 0
-  br i1 %cmp639, label %if.then640, label %do.body643
-
-if.then640:                                       ; preds = %do.body637
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp639, label %return.sink.split, label %do.body643
 
 do.body643:                                       ; preds = %do.body637
   %call644 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.108, i32 noundef 95)
   %cmp645 = icmp slt i32 %call644, 0
-  br i1 %cmp645, label %if.then646, label %do.body649
-
-if.then646:                                       ; preds = %do.body643
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp645, label %return.sink.split, label %do.body649
 
 do.body649:                                       ; preds = %do.body643
   %call650 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.109, i32 noundef 78)
   %cmp651 = icmp slt i32 %call650, 0
-  br i1 %cmp651, label %if.then652, label %do.body655
-
-if.then652:                                       ; preds = %do.body649
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp651, label %return.sink.split, label %do.body655
 
 do.body655:                                       ; preds = %do.body649
   %call656 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.110, i32 noundef 11)
   %cmp657 = icmp slt i32 %call656, 0
-  br i1 %cmp657, label %if.then658, label %do.body661
-
-if.then658:                                       ; preds = %do.body655
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp657, label %return.sink.split, label %do.body661
 
 do.body661:                                       ; preds = %do.body655
   %call662 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.111, i32 noundef 36)
   %cmp663 = icmp slt i32 %call662, 0
-  br i1 %cmp663, label %if.then664, label %do.body667
-
-if.then664:                                       ; preds = %do.body661
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp663, label %return.sink.split, label %do.body667
 
 do.body667:                                       ; preds = %do.body661
   %call668 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.112, i32 noundef 25)
   %cmp669 = icmp slt i32 %call668, 0
-  br i1 %cmp669, label %if.then670, label %do.body673
-
-if.then670:                                       ; preds = %do.body667
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp669, label %return.sink.split, label %do.body673
 
 do.body673:                                       ; preds = %do.body667
   %call674 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.113, i32 noundef 85)
   %cmp675 = icmp slt i32 %call674, 0
-  br i1 %cmp675, label %if.then676, label %do.body679
-
-if.then676:                                       ; preds = %do.body673
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp675, label %return.sink.split, label %do.body679
 
 do.body679:                                       ; preds = %do.body673
   %call680 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.114, i32 noundef 94)
   %cmp681 = icmp slt i32 %call680, 0
-  br i1 %cmp681, label %if.then682, label %do.body685
-
-if.then682:                                       ; preds = %do.body679
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp681, label %return.sink.split, label %do.body685
 
 do.body685:                                       ; preds = %do.body679
   %call686 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.115, i32 noundef 62)
   %cmp687 = icmp slt i32 %call686, 0
-  br i1 %cmp687, label %if.then688, label %do.body691
-
-if.then688:                                       ; preds = %do.body685
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp687, label %return.sink.split, label %do.body691
 
 do.body691:                                       ; preds = %do.body685
   %call692 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.116, i32 noundef 59)
   %cmp693 = icmp slt i32 %call692, 0
-  br i1 %cmp693, label %if.then694, label %do.body697
-
-if.then694:                                       ; preds = %do.body691
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp693, label %return.sink.split, label %do.body697
 
 do.body697:                                       ; preds = %do.body691
   %call698 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.117, i32 noundef 35)
   %cmp699 = icmp slt i32 %call698, 0
-  br i1 %cmp699, label %if.then700, label %do.body703
-
-if.then700:                                       ; preds = %do.body697
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp699, label %return.sink.split, label %do.body703
 
 do.body703:                                       ; preds = %do.body697
   %call704 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.118, i32 noundef 109)
   %cmp705 = icmp slt i32 %call704, 0
-  br i1 %cmp705, label %if.then706, label %do.body709
-
-if.then706:                                       ; preds = %do.body703
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp705, label %return.sink.split, label %do.body709
 
 do.body709:                                       ; preds = %do.body703
   %call710 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.119, i32 noundef 24)
   %cmp711 = icmp slt i32 %call710, 0
-  br i1 %cmp711, label %if.then712, label %do.body715
-
-if.then712:                                       ; preds = %do.body709
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp711, label %return.sink.split, label %do.body715
 
 do.body715:                                       ; preds = %do.body709
   %call716 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.120, i32 noundef 26)
   %cmp717 = icmp slt i32 %call716, 0
-  br i1 %cmp717, label %if.then718, label %do.body721
-
-if.then718:                                       ; preds = %do.body715
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp717, label %return.sink.split, label %do.body721
 
 do.body721:                                       ; preds = %do.body715
   %call722 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.121, i32 noundef 115)
   %cmp723 = icmp slt i32 %call722, 0
-  br i1 %cmp723, label %if.then724, label %do.body727
-
-if.then724:                                       ; preds = %do.body721
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp723, label %return.sink.split, label %do.body727
 
 do.body727:                                       ; preds = %do.body721
   %call728 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.122, i32 noundef 6)
   %cmp729 = icmp slt i32 %call728, 0
-  br i1 %cmp729, label %if.then730, label %do.body733
-
-if.then730:                                       ; preds = %do.body727
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp729, label %return.sink.split, label %do.body733
 
 do.body733:                                       ; preds = %do.body727
   %call734 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.123, i32 noundef 65)
   %cmp735 = icmp slt i32 %call734, 0
-  br i1 %cmp735, label %if.then736, label %do.body739
-
-if.then736:                                       ; preds = %do.body733
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp735, label %return.sink.split, label %do.body739
 
 do.body739:                                       ; preds = %do.body733
   %call740 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.124, i32 noundef 123)
   %cmp741 = icmp slt i32 %call740, 0
-  br i1 %cmp741, label %if.then742, label %do.body745
-
-if.then742:                                       ; preds = %do.body739
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp741, label %return.sink.split, label %do.body745
 
 do.body745:                                       ; preds = %do.body739
   %call746 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.125, i32 noundef 124)
   %cmp747 = icmp slt i32 %call746, 0
-  br i1 %cmp747, label %if.then748, label %do.body751
-
-if.then748:                                       ; preds = %do.body745
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp747, label %return.sink.split, label %do.body751
 
 do.body751:                                       ; preds = %do.body745
   %call752 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.126, i32 noundef 125)
   %cmp753 = icmp slt i32 %call752, 0
-  br i1 %cmp753, label %if.then754, label %do.body757
-
-if.then754:                                       ; preds = %do.body751
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp753, label %return.sink.split, label %do.body757
 
 do.body757:                                       ; preds = %do.body751
   %call758 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.127, i32 noundef 126)
   %cmp759 = icmp slt i32 %call758, 0
-  br i1 %cmp759, label %if.then760, label %do.body763
-
-if.then760:                                       ; preds = %do.body757
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp759, label %return.sink.split, label %do.body763
 
 do.body763:                                       ; preds = %do.body757
   %call764 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.128, i32 noundef 127)
   %cmp765 = icmp slt i32 %call764, 0
-  br i1 %cmp765, label %if.then766, label %do.body769
-
-if.then766:                                       ; preds = %do.body763
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp765, label %return.sink.split, label %do.body769
 
 do.body769:                                       ; preds = %do.body763
   %call770 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.129, i32 noundef 128)
   %cmp771 = icmp slt i32 %call770, 0
-  br i1 %cmp771, label %if.then772, label %do.body775
-
-if.then772:                                       ; preds = %do.body769
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp771, label %return.sink.split, label %do.body775
 
 do.body775:                                       ; preds = %do.body769
   %call776 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.130, i32 noundef 129)
   %cmp777 = icmp slt i32 %call776, 0
-  br i1 %cmp777, label %if.then778, label %do.body781
-
-if.then778:                                       ; preds = %do.body775
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp777, label %return.sink.split, label %do.body781
 
 do.body781:                                       ; preds = %do.body775
   %call782 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.131, i32 noundef 130)
   %cmp783 = icmp slt i32 %call782, 0
-  br i1 %cmp783, label %if.then784, label %do.body787
-
-if.then784:                                       ; preds = %do.body781
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp783, label %return.sink.split, label %do.body787
 
 do.body787:                                       ; preds = %do.body781
   %call788 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.132, i32 noundef 131)
   %cmp789 = icmp slt i32 %call788, 0
-  br i1 %cmp789, label %if.then790, label %do.body793
-
-if.then790:                                       ; preds = %do.body787
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp789, label %return.sink.split, label %do.body793
 
 do.body793:                                       ; preds = %do.body787
   %call794 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.133, i32 noundef 132)
   %cmp795 = icmp slt i32 %call794, 0
-  br i1 %cmp795, label %if.then796, label %do.body799
-
-if.then796:                                       ; preds = %do.body793
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp795, label %return.sink.split, label %do.body799
 
 do.body799:                                       ; preds = %do.body793
   %call800 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.126, i32 noundef 125)
   %cmp801 = icmp slt i32 %call800, 0
-  br i1 %cmp801, label %if.then802, label %do.body805
-
-if.then802:                                       ; preds = %do.body799
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp801, label %return.sink.split, label %do.body805
 
 do.body805:                                       ; preds = %do.body799
   %call806 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.134, i32 noundef 95)
   %cmp807 = icmp slt i32 %call806, 0
-  br i1 %cmp807, label %if.then808, label %do.body811
-
-if.then808:                                       ; preds = %do.body805
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp807, label %return.sink.split, label %do.body811
 
 do.body811:                                       ; preds = %do.body805
   %call812 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.131, i32 noundef 130)
   %cmp813 = icmp slt i32 %call812, 0
-  br i1 %cmp813, label %if.then814, label %do.body817
-
-if.then814:                                       ; preds = %do.body811
-  tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  br label %return
+  br i1 %cmp813, label %return.sink.split, label %do.body817
 
 do.body817:                                       ; preds = %do.body811
   %call818 = tail call fastcc i32 @_add_errcode(ptr noundef %call, ptr noundef %call1, ptr noundef nonnull @.str.132, i32 noundef 131)
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %do.body811, %do.body805, %do.body799, %do.body793, %do.body787, %do.body781, %do.body775, %do.body769, %do.body763, %do.body757, %do.body751, %do.body745, %do.body739, %do.body733, %do.body727, %do.body721, %do.body715, %do.body709, %do.body703, %do.body697, %do.body691, %do.body685, %do.body679, %do.body673, %do.body667, %do.body661, %do.body655, %do.body649, %do.body643, %do.body637, %do.body631, %do.body625, %do.body619, %do.body613, %do.body607, %do.body601, %do.body595, %do.body589, %do.body583, %do.body577, %do.body571, %do.body565, %do.body559, %do.body553, %do.body547, %do.body541, %do.body535, %do.body529, %do.body523, %do.body517, %do.body511, %do.body505, %do.body499, %do.body493, %do.body487, %do.body481, %do.body475, %do.body469, %do.body463, %do.body457, %do.body451, %do.body445, %do.body439, %do.body433, %do.body427, %do.body421, %do.body415, %do.body409, %do.body403, %do.body397, %do.body391, %do.body385, %do.body379, %do.body373, %do.body367, %do.body361, %do.body355, %do.body349, %do.body343, %do.body337, %do.body331, %do.body325, %do.body319, %do.body313, %do.body307, %do.body301, %do.body295, %do.body289, %do.body283, %do.body277, %do.body271, %do.body265, %do.body259, %do.body253, %do.body247, %do.body241, %do.body235, %do.body229, %do.body223, %do.body217, %do.body211, %do.body205, %do.body199, %do.body193, %do.body187, %do.body181, %do.body175, %do.body169, %do.body163, %do.body157, %do.body151, %do.body145, %do.body139, %do.body133, %do.body127, %do.body121, %do.body115, %do.body109, %do.body103, %do.body97, %do.body91, %do.body85, %do.body79, %do.body73, %do.body67, %do.body61, %do.body55, %do.body49, %do.body43, %if.end8.i493, %do.body37, %if.then40.sink.split, %if.end8.i475, %do.body31, %if.then34.sink.split, %if.end8.i457, %do.body25, %if.then28.sink.split, %if.end8.i439, %do.body19, %if.then22.sink.split, %if.end8.i421, %do.body13, %if.then16.sink.split, %if.end8.i, %do.body, %if.then11.sink.split, %if.end4, %do.body817
+  %retval.0.ph = phi i32 [ %call818, %do.body817 ], [ -1, %if.end4 ], [ -1, %if.then11.sink.split ], [ -1, %do.body ], [ -1, %if.end8.i ], [ -1, %if.then16.sink.split ], [ -1, %do.body13 ], [ -1, %if.end8.i421 ], [ -1, %if.then22.sink.split ], [ -1, %do.body19 ], [ -1, %if.end8.i439 ], [ -1, %if.then28.sink.split ], [ -1, %do.body25 ], [ -1, %if.end8.i457 ], [ -1, %if.then34.sink.split ], [ -1, %do.body31 ], [ -1, %if.end8.i475 ], [ -1, %if.then40.sink.split ], [ -1, %do.body37 ], [ -1, %if.end8.i493 ], [ -1, %do.body43 ], [ -1, %do.body49 ], [ -1, %do.body55 ], [ -1, %do.body61 ], [ -1, %do.body67 ], [ -1, %do.body73 ], [ -1, %do.body79 ], [ -1, %do.body85 ], [ -1, %do.body91 ], [ -1, %do.body97 ], [ -1, %do.body103 ], [ -1, %do.body109 ], [ -1, %do.body115 ], [ -1, %do.body121 ], [ -1, %do.body127 ], [ -1, %do.body133 ], [ -1, %do.body139 ], [ -1, %do.body145 ], [ -1, %do.body151 ], [ -1, %do.body157 ], [ -1, %do.body163 ], [ -1, %do.body169 ], [ -1, %do.body175 ], [ -1, %do.body181 ], [ -1, %do.body187 ], [ -1, %do.body193 ], [ -1, %do.body199 ], [ -1, %do.body205 ], [ -1, %do.body211 ], [ -1, %do.body217 ], [ -1, %do.body223 ], [ -1, %do.body229 ], [ -1, %do.body235 ], [ -1, %do.body241 ], [ -1, %do.body247 ], [ -1, %do.body253 ], [ -1, %do.body259 ], [ -1, %do.body265 ], [ -1, %do.body271 ], [ -1, %do.body277 ], [ -1, %do.body283 ], [ -1, %do.body289 ], [ -1, %do.body295 ], [ -1, %do.body301 ], [ -1, %do.body307 ], [ -1, %do.body313 ], [ -1, %do.body319 ], [ -1, %do.body325 ], [ -1, %do.body331 ], [ -1, %do.body337 ], [ -1, %do.body343 ], [ -1, %do.body349 ], [ -1, %do.body355 ], [ -1, %do.body361 ], [ -1, %do.body367 ], [ -1, %do.body373 ], [ -1, %do.body379 ], [ -1, %do.body385 ], [ -1, %do.body391 ], [ -1, %do.body397 ], [ -1, %do.body403 ], [ -1, %do.body409 ], [ -1, %do.body415 ], [ -1, %do.body421 ], [ -1, %do.body427 ], [ -1, %do.body433 ], [ -1, %do.body439 ], [ -1, %do.body445 ], [ -1, %do.body451 ], [ -1, %do.body457 ], [ -1, %do.body463 ], [ -1, %do.body469 ], [ -1, %do.body475 ], [ -1, %do.body481 ], [ -1, %do.body487 ], [ -1, %do.body493 ], [ -1, %do.body499 ], [ -1, %do.body505 ], [ -1, %do.body511 ], [ -1, %do.body517 ], [ -1, %do.body523 ], [ -1, %do.body529 ], [ -1, %do.body535 ], [ -1, %do.body541 ], [ -1, %do.body547 ], [ -1, %do.body553 ], [ -1, %do.body559 ], [ -1, %do.body565 ], [ -1, %do.body571 ], [ -1, %do.body577 ], [ -1, %do.body583 ], [ -1, %do.body589 ], [ -1, %do.body595 ], [ -1, %do.body601 ], [ -1, %do.body607 ], [ -1, %do.body613 ], [ -1, %do.body619 ], [ -1, %do.body625 ], [ -1, %do.body631 ], [ -1, %do.body637 ], [ -1, %do.body643 ], [ -1, %do.body649 ], [ -1, %do.body655 ], [ -1, %do.body661 ], [ -1, %do.body667 ], [ -1, %do.body673 ], [ -1, %do.body679 ], [ -1, %do.body685 ], [ -1, %do.body691 ], [ -1, %do.body697 ], [ -1, %do.body703 ], [ -1, %do.body709 ], [ -1, %do.body715 ], [ -1, %do.body721 ], [ -1, %do.body727 ], [ -1, %do.body733 ], [ -1, %do.body739 ], [ -1, %do.body745 ], [ -1, %do.body751 ], [ -1, %do.body757 ], [ -1, %do.body763 ], [ -1, %do.body769 ], [ -1, %do.body775 ], [ -1, %do.body781 ], [ -1, %do.body787 ], [ -1, %do.body793 ], [ -1, %do.body799 ], [ -1, %do.body805 ], [ -1, %do.body811 ]
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
-  %call818.lobit = ashr i32 %call818, 31
   br label %return
 
-return:                                           ; preds = %do.body817, %if.end, %entry, %if.then814, %if.then808, %if.then802, %if.then796, %if.then790, %if.then784, %if.then778, %if.then772, %if.then766, %if.then760, %if.then754, %if.then748, %if.then742, %if.then736, %if.then730, %if.then724, %if.then718, %if.then712, %if.then706, %if.then700, %if.then694, %if.then688, %if.then682, %if.then676, %if.then670, %if.then664, %if.then658, %if.then652, %if.then646, %if.then640, %if.then634, %if.then628, %if.then622, %if.then616, %if.then610, %if.then604, %if.then598, %if.then592, %if.then586, %if.then580, %if.then574, %if.then568, %if.then562, %if.then556, %if.then550, %if.then544, %if.then538, %if.then532, %if.then526, %if.then520, %if.then514, %if.then508, %if.then502, %if.then496, %if.then490, %if.then484, %if.then478, %if.then472, %if.then466, %if.then460, %if.then454, %if.then448, %if.then442, %if.then436, %if.then430, %if.then424, %if.then418, %if.then412, %if.then406, %if.then400, %if.then394, %if.then388, %if.then382, %if.then376, %if.then370, %if.then364, %if.then358, %if.then352, %if.then346, %if.then340, %if.then334, %if.then328, %if.then322, %if.then316, %if.then310, %if.then304, %if.then298, %if.then292, %if.then286, %if.then280, %if.then274, %if.then268, %if.then262, %if.then256, %if.then250, %if.then244, %if.then238, %if.then232, %if.then226, %if.then220, %if.then214, %if.then208, %if.then202, %if.then196, %if.then190, %if.then184, %if.then178, %if.then172, %if.then166, %if.then160, %if.then154, %if.then148, %if.then142, %if.then136, %if.then130, %if.then124, %if.then118, %if.then112, %if.then106, %if.then100, %if.then94, %if.then88, %if.then82, %if.then76, %if.then70, %if.then64, %if.then58, %if.then52, %if.then46, %if.then40, %if.then34, %if.then28, %if.then22, %if.then16, %if.then11, %if.then7
-  %retval.0 = phi i32 [ -1, %if.then7 ], [ -1, %if.then11 ], [ -1, %if.then16 ], [ -1, %if.then22 ], [ -1, %if.then28 ], [ -1, %if.then34 ], [ -1, %if.then40 ], [ -1, %if.then46 ], [ -1, %if.then52 ], [ -1, %if.then58 ], [ -1, %if.then64 ], [ -1, %if.then70 ], [ -1, %if.then76 ], [ -1, %if.then82 ], [ -1, %if.then88 ], [ -1, %if.then94 ], [ -1, %if.then100 ], [ -1, %if.then106 ], [ -1, %if.then112 ], [ -1, %if.then118 ], [ -1, %if.then124 ], [ -1, %if.then130 ], [ -1, %if.then136 ], [ -1, %if.then142 ], [ -1, %if.then148 ], [ -1, %if.then154 ], [ -1, %if.then160 ], [ -1, %if.then166 ], [ -1, %if.then172 ], [ -1, %if.then178 ], [ -1, %if.then184 ], [ -1, %if.then190 ], [ -1, %if.then196 ], [ -1, %if.then202 ], [ -1, %if.then208 ], [ -1, %if.then214 ], [ -1, %if.then220 ], [ -1, %if.then226 ], [ -1, %if.then232 ], [ -1, %if.then238 ], [ -1, %if.then244 ], [ -1, %if.then250 ], [ -1, %if.then256 ], [ -1, %if.then262 ], [ -1, %if.then268 ], [ -1, %if.then274 ], [ -1, %if.then280 ], [ -1, %if.then286 ], [ -1, %if.then292 ], [ -1, %if.then298 ], [ -1, %if.then304 ], [ -1, %if.then310 ], [ -1, %if.then316 ], [ -1, %if.then322 ], [ -1, %if.then328 ], [ -1, %if.then334 ], [ -1, %if.then340 ], [ -1, %if.then346 ], [ -1, %if.then352 ], [ -1, %if.then358 ], [ -1, %if.then364 ], [ -1, %if.then370 ], [ -1, %if.then376 ], [ -1, %if.then382 ], [ -1, %if.then388 ], [ -1, %if.then394 ], [ -1, %if.then400 ], [ -1, %if.then406 ], [ -1, %if.then412 ], [ -1, %if.then418 ], [ -1, %if.then424 ], [ -1, %if.then430 ], [ -1, %if.then436 ], [ -1, %if.then442 ], [ -1, %if.then448 ], [ -1, %if.then454 ], [ -1, %if.then460 ], [ -1, %if.then466 ], [ -1, %if.then472 ], [ -1, %if.then478 ], [ -1, %if.then484 ], [ -1, %if.then490 ], [ -1, %if.then496 ], [ -1, %if.then502 ], [ -1, %if.then508 ], [ -1, %if.then514 ], [ -1, %if.then520 ], [ -1, %if.then526 ], [ -1, %if.then532 ], [ -1, %if.then538 ], [ -1, %if.then544 ], [ -1, %if.then550 ], [ -1, %if.then556 ], [ -1, %if.then562 ], [ -1, %if.then568 ], [ -1, %if.then574 ], [ -1, %if.then580 ], [ -1, %if.then586 ], [ -1, %if.then592 ], [ -1, %if.then598 ], [ -1, %if.then604 ], [ -1, %if.then610 ], [ -1, %if.then616 ], [ -1, %if.then622 ], [ -1, %if.then628 ], [ -1, %if.then634 ], [ -1, %if.then640 ], [ -1, %if.then646 ], [ -1, %if.then652 ], [ -1, %if.then658 ], [ -1, %if.then664 ], [ -1, %if.then670 ], [ -1, %if.then676 ], [ -1, %if.then682 ], [ -1, %if.then688 ], [ -1, %if.then694 ], [ -1, %if.then700 ], [ -1, %if.then706 ], [ -1, %if.then712 ], [ -1, %if.then718 ], [ -1, %if.then724 ], [ -1, %if.then730 ], [ -1, %if.then736 ], [ -1, %if.then742 ], [ -1, %if.then748 ], [ -1, %if.then754 ], [ -1, %if.then760 ], [ -1, %if.then766 ], [ -1, %if.then772 ], [ -1, %if.then778 ], [ -1, %if.then784 ], [ -1, %if.then790 ], [ -1, %if.then796 ], [ -1, %if.then802 ], [ -1, %if.then808 ], [ -1, %if.then814 ], [ -1, %entry ], [ -1, %if.end ], [ %call818.lobit, %do.body817 ]
+return:                                           ; preds = %return.sink.split, %if.end, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ -1, %if.end ], [ %retval.0.ph, %return.sink.split ]
   ret i32 %retval.0
 }
 

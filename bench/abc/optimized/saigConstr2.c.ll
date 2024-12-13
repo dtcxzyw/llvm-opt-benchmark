@@ -1379,11 +1379,11 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define range(i32 0, 2) i32 @Saig_ManFilterUsingIndOne_new(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = getelementptr i8, ptr %1, i64 24
-  %.val11 = load ptr, ptr %9, align 8
-  %10 = getelementptr i8, ptr %.val11, i64 8
-  %.val11.val = load ptr, ptr %10, align 8
+  %.val7 = load ptr, ptr %9, align 8
+  %10 = getelementptr i8, ptr %.val7, i64 8
+  %.val7.val = load ptr, ptr %10, align 8
   %11 = sext i32 %6 to i64
-  %12 = getelementptr inbounds ptr, ptr %.val11.val, i64 %11
+  %12 = getelementptr inbounds ptr, ptr %.val7.val, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -1397,9 +1397,9 @@ define range(i32 0, 2) i32 @Saig_ManFilterUsingIndOne_new(ptr nocapture noundef 
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %22 = sext i32 %4 to i64
   %23 = call i32 @sat_solver_solve(ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %21, i64 noundef %22, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
-  %switch.selectcmp9 = icmp eq i32 %23, -1
-  %switch.select10 = zext i1 %switch.selectcmp9 to i32
-  ret i32 %switch.select10
+  %24 = icmp eq i32 %23, -1
+  %. = zext i1 %24 to i32
+  ret i32 %.
 }
 
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -1417,76 +1417,76 @@ define void @Saig_ManFilterUsingInd(ptr nocapture noundef readonly %0, ptr nocap
 
 11:                                               ; preds = %5
   %12 = getelementptr i8, ptr %1, i64 4
-  %.val5059 = load i32, ptr %12, align 4
-  %13 = icmp sgt i32 %.val5059, 0
-  br i1 %13, label %.lr.ph63.split.us.preheader, label %.critedge
+  %.val5060 = load i32, ptr %12, align 4
+  %13 = icmp sgt i32 %.val5060, 0
+  br i1 %13, label %.lr.ph64.split.us.preheader, label %.critedge
 
 .thread:                                          ; preds = %5
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @str.4)
   %15 = getelementptr i8, ptr %1, i64 4
-  %.val505984 = load i32, ptr %15, align 4
-  %16 = icmp sgt i32 %.val505984, 0
-  br i1 %16, label %.lr.ph63.split.preheader, label %.critedge.thread
+  %.val506085 = load i32, ptr %15, align 4
+  %16 = icmp sgt i32 %.val506085, 0
+  br i1 %16, label %.lr.ph64.split.preheader, label %.critedge.thread
 
-.lr.ph63.split.preheader:                         ; preds = %.thread
+.lr.ph64.split.preheader:                         ; preds = %.thread
   %17 = getelementptr i8, ptr %1, i64 8
   %18 = getelementptr i8, ptr %7, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %21 = sext i32 %2 to i64
-  br label %.lr.ph63.split
+  br label %.lr.ph64.split
 
-.lr.ph63.split.us.preheader:                      ; preds = %11
+.lr.ph64.split.us.preheader:                      ; preds = %11
   %22 = getelementptr i8, ptr %1, i64 8
   %23 = getelementptr i8, ptr %7, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %26 = sext i32 %2 to i64
-  br label %.lr.ph63.split.us
+  br label %.lr.ph64.split.us
 
-.lr.ph63.split.us:                                ; preds = %.lr.ph63.split.us.preheader, %.critedge2.us
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph63.split.us.preheader ], [ %indvars.iv.next82, %.critedge2.us ]
-  %.062.us = phi i32 [ 0, %.lr.ph63.split.us.preheader ], [ %.1.lcssa.us, %.critedge2.us ]
+.lr.ph64.split.us:                                ; preds = %.lr.ph64.split.us.preheader, %.critedge2.us
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph64.split.us.preheader ], [ %indvars.iv.next83, %.critedge2.us ]
+  %.063.us = phi i32 [ 0, %.lr.ph64.split.us.preheader ], [ %.1.lcssa.us, %.critedge2.us ]
   %.val51.us = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %.val51.us, i64 %indvars.iv81
+  %27 = getelementptr inbounds nuw ptr, ptr %.val51.us, i64 %indvars.iv82
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 4
-  %.val53.us = load i32, ptr %29, align 4
-  %30 = icmp sgt i32 %.val53.us, 0
+  %.val54.us = load i32, ptr %29, align 4
+  %30 = icmp sgt i32 %.val54.us, 0
   br i1 %30, label %.lr.ph.us, label %.critedge2.us
 
 .critedge2.us.loopexit:                           ; preds = %53
-  %31 = trunc nsw i64 %indvars.iv.next75 to i32
+  %31 = trunc nsw i64 %indvars.iv.next76 to i32
   br label %.critedge2.us
 
-.critedge2.us:                                    ; preds = %.critedge2.us.loopexit, %.lr.ph63.split.us
-  %.039.lcssa.us = phi i32 [ 0, %.lr.ph63.split.us ], [ %.140.us.us, %.critedge2.us.loopexit ]
-  %.1.lcssa.us = phi i32 [ %.062.us, %.lr.ph63.split.us ], [ %31, %.critedge2.us.loopexit ]
+.critedge2.us:                                    ; preds = %.critedge2.us.loopexit, %.lr.ph64.split.us
+  %.039.lcssa.us = phi i32 [ 0, %.lr.ph64.split.us ], [ %.140.us.us, %.critedge2.us.loopexit ]
+  %.1.lcssa.us = phi i32 [ %.063.us, %.lr.ph64.split.us ], [ %31, %.critedge2.us.loopexit ]
   store i32 %.039.lcssa.us, ptr %29, align 4
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %.val50.us = load i32, ptr %12, align 4
   %32 = sext i32 %.val50.us to i64
-  %33 = icmp slt i64 %indvars.iv.next82, %32
-  br i1 %33, label %.lr.ph63.split.us, label %.critedge, !llvm.loop !39
+  %33 = icmp slt i64 %indvars.iv.next83, %32
+  br i1 %33, label %.lr.ph64.split.us, label %.critedge, !llvm.loop !39
 
-.lr.ph.us:                                        ; preds = %.lr.ph63.split.us
+.lr.ph.us:                                        ; preds = %.lr.ph64.split.us
   %34 = getelementptr i8, ptr %28, i64 8
-  %35 = sext i32 %.062.us to i64
+  %35 = sext i32 %.063.us to i64
   br label %36
 
 36:                                               ; preds = %53, %.lr.ph.us
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %53 ], [ 0, %.lr.ph.us ]
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %53 ], [ %35, %.lr.ph.us ]
-  %.03955.us.us = phi i32 [ %.140.us.us, %53 ], [ 0, %.lr.ph.us ]
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %53 ], [ 0, %.lr.ph.us ]
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %53 ], [ %35, %.lr.ph.us ]
+  %.03956.us.us = phi i32 [ %.140.us.us, %53 ], [ 0, %.lr.ph.us ]
   %.val47.us.us = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %.val47.us.us, i64 %indvars.iv76
+  %37 = getelementptr inbounds nuw ptr, ptr %.val47.us.us, i64 %indvars.iv77
   %38 = load ptr, ptr %37, align 8
-  %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
+  %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %.val11.i.us.us = load ptr, ptr %23, align 8
-  %39 = getelementptr i8, ptr %.val11.i.us.us, i64 8
-  %.val11.val.i.us.us = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val11.val.i.us.us, i64 %indvars.iv74
+  %.val7.i.us.us = load ptr, ptr %23, align 8
+  %39 = getelementptr i8, ptr %.val7.i.us.us, i64 8
+  %.val7.val.i.us.us = load ptr, ptr %39, align 8
+  %40 = getelementptr inbounds ptr, ptr %.val7.val.i.us.us, i64 %indvars.iv75
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %24, align 8
   %43 = getelementptr i8, ptr %41, i64 36
@@ -1497,56 +1497,56 @@ define void @Saig_ManFilterUsingInd(ptr nocapture noundef readonly %0, ptr nocap
   %47 = shl nsw i32 %46, 1
   store i32 %47, ptr %6, align 4
   %48 = call i32 @sat_solver_solve(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %25, i64 noundef %26, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
-  %switch.selectcmp9.i.not.us.us = icmp eq i32 %48, -1
+  %.not53.us.us = icmp eq i32 %48, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %switch.selectcmp9.i.not.us.us, label %49, label %53
+  br i1 %.not53.us.us, label %49, label %53
 
 49:                                               ; preds = %36
-  %50 = add nsw i32 %.03955.us.us, 1
+  %50 = add nsw i32 %.03956.us.us, 1
   %.val52.us.us = load ptr, ptr %34, align 8
-  %51 = sext i32 %.03955.us.us to i64
+  %51 = sext i32 %.03956.us.us to i64
   %52 = getelementptr inbounds ptr, ptr %.val52.us.us, i64 %51
   store ptr %38, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %49, %36
-  %.140.us.us = phi i32 [ %50, %49 ], [ %.03955.us.us, %36 ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %.140.us.us = phi i32 [ %50, %49 ], [ %.03956.us.us, %36 ]
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %.val.us.us = load i32, ptr %29, align 4
   %54 = sext i32 %.val.us.us to i64
-  %55 = icmp slt i64 %indvars.iv.next77, %54
+  %55 = icmp slt i64 %indvars.iv.next78, %54
   br i1 %55, label %36, label %.critedge2.us.loopexit, !llvm.loop !40
 
-.lr.ph63.split:                                   ; preds = %.lr.ph63.split.preheader, %.critedge2
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph63.split.preheader ], [ %indvars.iv.next72, %.critedge2 ]
-  %.062 = phi i32 [ 0, %.lr.ph63.split.preheader ], [ %.1.lcssa, %.critedge2 ]
+.lr.ph64.split:                                   ; preds = %.lr.ph64.split.preheader, %.critedge2
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph64.split.preheader ], [ %indvars.iv.next73, %.critedge2 ]
+  %.063 = phi i32 [ 0, %.lr.ph64.split.preheader ], [ %.1.lcssa, %.critedge2 ]
   %.val51 = load ptr, ptr %17, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv71
+  %56 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv72
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 4
-  %.val53 = load i32, ptr %58, align 4
-  %59 = icmp sgt i32 %.val53, 0
+  %.val54 = load i32, ptr %58, align 4
+  %59 = icmp sgt i32 %.val54, 0
   br i1 %59, label %.lr.ph, label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph63.split
+.lr.ph:                                           ; preds = %.lr.ph64.split
   %60 = getelementptr i8, ptr %57, i64 8
-  %61 = sext i32 %.062 to i64
-  %62 = trunc nuw nsw i64 %indvars.iv71 to i32
+  %61 = sext i32 %.063 to i64
+  %62 = trunc nuw nsw i64 %indvars.iv72 to i32
   br label %63
 
 63:                                               ; preds = %.lr.ph, %87
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next67, %87 ]
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %87 ]
   %indvars.iv = phi i64 [ %61, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %.03955 = phi i32 [ 0, %.lr.ph ], [ %.140, %87 ]
+  %.03956 = phi i32 [ 0, %.lr.ph ], [ %.140, %87 ]
   %.val47 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %.val47, i64 %indvars.iv66
+  %64 = getelementptr inbounds nuw ptr, ptr %.val47, i64 %indvars.iv67
   %65 = load ptr, ptr %64, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %.val11.i = load ptr, ptr %18, align 8
-  %66 = getelementptr i8, ptr %.val11.i, i64 8
-  %.val11.val.i = load ptr, ptr %66, align 8
-  %67 = getelementptr inbounds ptr, ptr %.val11.val.i, i64 %indvars.iv
+  %.val7.i = load ptr, ptr %18, align 8
+  %66 = getelementptr i8, ptr %.val7.i, i64 8
+  %.val7.val.i = load ptr, ptr %66, align 8
+  %67 = getelementptr inbounds ptr, ptr %.val7.val.i, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %19, align 8
   %70 = getelementptr i8, ptr %68, i64 36
@@ -1557,14 +1557,14 @@ define void @Saig_ManFilterUsingInd(ptr nocapture noundef readonly %0, ptr nocap
   %74 = shl nsw i32 %73, 1
   store i32 %74, ptr %6, align 4
   %75 = call i32 @sat_solver_solve(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %20, i64 noundef %21, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
-  %switch.selectcmp9.i.not = icmp eq i32 %75, -1
+  %.not53 = icmp eq i32 %75, -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %switch.selectcmp9.i.not, label %76, label %87
+  br i1 %.not53, label %76, label %87
 
 76:                                               ; preds = %63
-  %77 = add nsw i32 %.03955, 1
+  %77 = add nsw i32 %.03956, 1
   %.val52 = load ptr, ptr %60, align 8
-  %78 = sext i32 %.03955 to i64
+  %78 = sext i32 %.03956 to i64
   %79 = getelementptr inbounds ptr, ptr %.val52, i64 %78
   store ptr %65, ptr %79, align 8
   %80 = ptrtoint ptr %65 to i64
@@ -1579,26 +1579,26 @@ define void @Saig_ManFilterUsingInd(ptr nocapture noundef readonly %0, ptr nocap
   br label %87
 
 87:                                               ; preds = %63, %76
-  %.140 = phi i32 [ %77, %76 ], [ %.03955, %63 ]
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %.140 = phi i32 [ %77, %76 ], [ %.03956, %63 ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %.val = load i32, ptr %58, align 4
   %88 = sext i32 %.val to i64
-  %89 = icmp slt i64 %indvars.iv.next67, %88
+  %89 = icmp slt i64 %indvars.iv.next68, %88
   br i1 %89, label %63, label %.critedge2.loopexit, !llvm.loop !40
 
 .critedge2.loopexit:                              ; preds = %87
   %90 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph63.split
-  %.039.lcssa = phi i32 [ 0, %.lr.ph63.split ], [ %.140, %.critedge2.loopexit ]
-  %.1.lcssa = phi i32 [ %.062, %.lr.ph63.split ], [ %90, %.critedge2.loopexit ]
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.lr.ph64.split
+  %.039.lcssa = phi i32 [ 0, %.lr.ph64.split ], [ %.140, %.critedge2.loopexit ]
+  %.1.lcssa = phi i32 [ %.063, %.lr.ph64.split ], [ %90, %.critedge2.loopexit ]
   store i32 %.039.lcssa, ptr %58, align 4
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %.val50 = load i32, ptr %15, align 4
   %91 = sext i32 %.val50 to i64
-  %92 = icmp slt i64 %indvars.iv.next72, %91
-  br i1 %92, label %.lr.ph63.split, label %.critedge, !llvm.loop !39
+  %92 = icmp slt i64 %indvars.iv.next73, %91
+  br i1 %92, label %.lr.ph64.split, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %.critedge2, %.critedge2.us, %11
   br i1 %.not, label %.critedge46, label %.critedge.thread

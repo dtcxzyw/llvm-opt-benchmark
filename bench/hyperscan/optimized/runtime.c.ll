@@ -333,20 +333,20 @@ if.then4.i.i407:                                  ; preds = %if.end.i8.i412
   %div.i.i419202 = lshr i32 %add.i.i417, 3
   %conv.i14.i420 = zext nneg i32 %div.i.i419202 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i393, i8 0, i64 %conv.i14.i420, i1 false)
-  %somWritable.i398208212 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
-  %38 = load i32, ptr %somWritable.i398208212, align 4
-  %idx.ext2.i399209213 = zext i32 %38 to i64
-  %add.ptr3.i400210214 = getelementptr inbounds nuw i8, ptr %35, i64 %idx.ext2.i399209213
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr3.i400210214, i8 0, i64 %conv.i14.i420, i1 false)
+  %somWritable.i398209213 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
+  %38 = load i32, ptr %somWritable.i398209213, align 4
+  %idx.ext2.i399210214 = zext i32 %38 to i64
+  %add.ptr3.i400211215 = getelementptr inbounds nuw i8, ptr %35, i64 %idx.ext2.i399210214
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr3.i400211215, i8 0, i64 %conv.i14.i420, i1 false)
   br label %initSomState.exit421
 
 if.end6.i.i406:                                   ; preds = %if.end.i8.i412
   store i64 0, ptr %add.ptr.i393, align 1
-  %somWritable.i398208 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
-  %39 = load i32, ptr %somWritable.i398208, align 4
-  %idx.ext2.i399209 = zext i32 %39 to i64
-  %add.ptr3.i400210 = getelementptr inbounds nuw i8, ptr %35, i64 %idx.ext2.i399209
-  store i64 0, ptr %add.ptr3.i400210, align 1
+  %somWritable.i398209 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
+  %39 = load i32, ptr %somWritable.i398209, align 4
+  %idx.ext2.i399210 = zext i32 %39 to i64
+  %add.ptr3.i400211 = getelementptr inbounds nuw i8, ptr %35, i64 %idx.ext2.i399210
+  store i64 0, ptr %add.ptr3.i400211, align 1
   br label %initSomState.exit421
 
 initSomState.exit421:                             ; preds = %sw.bb, %if.end6.i.i406, %if.then4.i.i407
@@ -379,20 +379,20 @@ if.then4.i.i:                                     ; preds = %if.end.i8.i
   %div.i.i200 = lshr i32 %add.i.i, 3
   %conv.i14.i = zext nneg i32 %div.i.i200 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i366, i8 0, i64 %conv.i14.i, i1 false)
-  %somWritable.i217221 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
-  %44 = load i32, ptr %somWritable.i217221, align 4
-  %idx.ext2.i218222 = zext i32 %44 to i64
-  %add.ptr3.i367219223 = getelementptr inbounds nuw i8, ptr %41, i64 %idx.ext2.i218222
-  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr3.i367219223, i8 0, i64 %conv.i14.i, i1 false)
+  %somWritable.i218222 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
+  %44 = load i32, ptr %somWritable.i218222, align 4
+  %idx.ext2.i219223 = zext i32 %44 to i64
+  %add.ptr3.i367220224 = getelementptr inbounds nuw i8, ptr %41, i64 %idx.ext2.i219223
+  tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr3.i367220224, i8 0, i64 %conv.i14.i, i1 false)
   br label %initSomState.exit
 
 if.end6.i.i:                                      ; preds = %if.end.i8.i
   store i64 0, ptr %add.ptr.i366, align 1
-  %somWritable.i217 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
-  %45 = load i32, ptr %somWritable.i217, align 4
-  %idx.ext2.i218 = zext i32 %45 to i64
-  %add.ptr3.i367219 = getelementptr inbounds nuw i8, ptr %41, i64 %idx.ext2.i218
-  store i64 0, ptr %add.ptr3.i367219, align 1
+  %somWritable.i218 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 360
+  %45 = load i32, ptr %somWritable.i218, align 4
+  %idx.ext2.i219 = zext i32 %45 to i64
+  %add.ptr3.i367220 = getelementptr inbounds nuw i8, ptr %41, i64 %idx.ext2.i219
+  store i64 0, ptr %add.ptr3.i367220, align 1
   br label %initSomState.exit
 
 initSomState.exit:                                ; preds = %sw.bb124, %if.end6.i.i, %if.then4.i.i
@@ -494,7 +494,7 @@ if.then171:                                       ; preds = %if.then166
   %59 = and i8 %.pre, 8
   %tobool173.not = icmp eq i8 %59, 0
   store i8 0, ptr %in_use.i, align 4
-  %. = select i1 %tobool173.not, i32 -3, i32 -13
+  %.206 = select i1 %tobool173.not, i32 -3, i32 -13
   br label %return
 
 do.end185:                                        ; preds = %if.then166, %if.end164
@@ -505,8 +505,8 @@ do.end185:                                        ; preds = %if.then166, %if.end
   store i8 0, ptr %in_use.i, align 4
   br label %return
 
-return:                                           ; preds = %if.then171, %lor.lhs.false.i, %if.end48, %if.end36, %if.end.i194, %land.lhs.true.i, %if.end11.i, %if.end26, %if.end13, %validDatabase.exit, %entry, %do.end185, %if.then163, %if.then144, %if.then137, %if.then134, %do.end
-  %retval.0 = phi i32 [ 0, %do.end ], [ -13, %if.then163 ], [ %cond, %do.end185 ], [ -13, %if.then134 ], [ -3, %if.then137 ], [ -3, %if.then144 ], [ -1, %entry ], [ -5, %validDatabase.exit ], [ -1, %if.end13 ], [ -7, %if.end26 ], [ -1, %if.end11.i ], [ -1, %land.lhs.true.i ], [ -1, %if.end.i194 ], [ -1, %if.end36 ], [ -10, %if.end48 ], [ -1, %lor.lhs.false.i ], [ %., %if.then171 ]
+return:                                           ; preds = %lor.lhs.false.i, %if.end48, %if.end36, %if.end.i194, %land.lhs.true.i, %if.then171, %if.end11.i, %if.end26, %if.end13, %validDatabase.exit, %entry, %do.end185, %if.then163, %if.then144, %if.then137, %if.then134, %do.end
+  %retval.0 = phi i32 [ 0, %do.end ], [ -13, %if.then163 ], [ %cond, %do.end185 ], [ -13, %if.then134 ], [ -3, %if.then137 ], [ -3, %if.then144 ], [ -1, %entry ], [ -5, %validDatabase.exit ], [ -1, %if.end13 ], [ -7, %if.end26 ], [ -1, %if.end11.i ], [ %.206, %if.then171 ], [ -1, %land.lhs.true.i ], [ -1, %if.end.i194 ], [ -1, %if.end36 ], [ -10, %if.end48 ], [ -1, %lor.lhs.false.i ]
   ret i32 %retval.0
 }
 

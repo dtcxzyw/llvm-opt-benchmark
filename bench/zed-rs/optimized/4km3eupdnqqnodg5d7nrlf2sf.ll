@@ -4741,11 +4741,11 @@ define void @_ZN2ui10components5label5label5Label10m_neg_full17h35681712b75b0626
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -4756,84 +4756,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -4907,11 +4907,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_1_217hf48ecac98f3785b2E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -4922,84 +4922,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5073,11 +5073,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_1_317h771556fb6bb185a2E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -5088,84 +5088,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5239,11 +5239,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_2_317h92f2374944e698d0E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -5254,84 +5254,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5405,11 +5405,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_1_417h7817fafbc94586f1E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -5420,84 +5420,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5571,11 +5571,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_2_417hb494ffb78a22c615E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -5586,84 +5586,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5737,11 +5737,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_3_417hb91fef7a8270af0cE(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -5752,84 +5752,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -5903,11 +5903,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_1_517h0738d543e57ddc26E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -5918,84 +5918,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6069,11 +6069,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_2_517h9a26d0166860f226E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -6084,84 +6084,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6235,11 +6235,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_3_517h32d287e21d78eba5E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -6250,84 +6250,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6401,11 +6401,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_4_517hea23e93feafa4db8E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -6416,84 +6416,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6567,11 +6567,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_1_617h01f195b047a88bf5E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -6582,84 +6582,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6733,11 +6733,11 @@ define void @_ZN2ui10components5label5label5Label9m_neg_5_617h7a9a52d04adcf6f8E(
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -6748,84 +6748,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6899,11 +6899,11 @@ define void @_ZN2ui10components5label5label5Label10m_neg_1_1217hf52d107454426531
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %31, %28, %23, %20, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %40 unwind label %38
+          to label %44 unwind label %42
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -6914,84 +6914,84 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.457.0.extract.trunc = trunc nuw i64 %.sroa.457.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.457.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.459.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.459.0.insert.ext = zext i32 %11 to i64
   %.sroa.459.0.insert.shift = shl nuw i64 %.sroa.459.0.insert.ext, 32
   %.sroa.058.0.insert.insert = or disjoint i64 %.sroa.459.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.058.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.462.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.462.0.extract.shift = lshr i64 %15, 32
   %.sroa.462.0.extract.trunc = trunc nuw i64 %.sroa.462.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.462.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.464.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.462.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.464.0.insert.ext = zext i32 %20 to i64
   %.sroa.464.0.insert.shift = shl nuw i64 %.sroa.464.0.insert.ext, 32
-  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.063.0.insert.insert = or disjoint i64 %.sroa.464.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.063.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
-  %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
-          to label %23 unwind label %4
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
+  %24 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+          to label %25 unwind label %4
 
-23:                                               ; preds = %20
-  %.sroa.467.0.extract.shift = lshr i64 %22, 32
+25:                                               ; preds = %22
+  %.sroa.467.0.extract.shift = lshr i64 %24, 32
   %.sroa.467.0.extract.trunc = trunc nuw i64 %.sroa.467.0.extract.shift to i32
-  %24 = bitcast i32 %.sroa.467.0.extract.trunc to float
-  %25 = and i64 %22, 4294967295
-  %.sroa.521.0 = fneg float %24
-  %26 = bitcast float %.sroa.521.0 to i32
-  %.sroa.469.0.insert.ext = zext i32 %26 to i64
+  %26 = bitcast i32 %.sroa.467.0.extract.trunc to float
+  %27 = and i64 %24, 4294967295
+  %28 = fneg float %26
+  %29 = bitcast float %28 to i32
+  %.sroa.469.0.insert.ext = zext i32 %29 to i64
   %.sroa.469.0.insert.shift = shl nuw i64 %.sroa.469.0.insert.ext, 32
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %25
-  %27 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
-          to label %28 unwind label %4
-
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %27, ptr %29, align 8
-  %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0.insert.shift, %27
+  %30 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.068.0.insert.insert)
           to label %31 unwind label %4
 
-31:                                               ; preds = %28
-  %.sroa.472.0.extract.shift = lshr i64 %30, 32
-  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
-  %32 = bitcast i32 %.sroa.472.0.extract.trunc to float
-  %33 = and i64 %30, 4294967295
-  %.sroa.530.0 = fneg float %32
-  %34 = bitcast float %.sroa.530.0 to i32
-  %.sroa.474.0.insert.ext = zext i32 %34 to i64
-  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
-  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %33
-  %35 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
-          to label %36 unwind label %4
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %30, ptr %32, align 8
+  %33 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+          to label %34 unwind label %4
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %35, ptr %37, align 8
+34:                                               ; preds = %31
+  %.sroa.472.0.extract.shift = lshr i64 %33, 32
+  %.sroa.472.0.extract.trunc = trunc nuw i64 %.sroa.472.0.extract.shift to i32
+  %35 = bitcast i32 %.sroa.472.0.extract.trunc to float
+  %36 = and i64 %33, 4294967295
+  %37 = fneg float %35
+  %38 = bitcast float %37 to i32
+  %.sroa.474.0.insert.ext = zext i32 %38 to i64
+  %.sroa.474.0.insert.shift = shl nuw i64 %.sroa.474.0.insert.ext, 32
+  %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.474.0.insert.shift, %36
+  %39 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.073.0.insert.insert)
+          to label %40 unwind label %4
+
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %39, ptr %41, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-38:                                               ; preds = %4
-  %39 = landingpad { ptr, i32 }
+42:                                               ; preds = %4
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-40:                                               ; preds = %4
+44:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9271,7 +9271,7 @@ define void @_ZN2ui10components5label5label5Label11mt_neg_full17h73fa7979c3bd853
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -9282,27 +9282,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9350,7 +9350,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_1_217h68beb2a257454e93
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -9361,27 +9361,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9429,7 +9429,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_1_317hb3227a99db68a14c
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -9440,27 +9440,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9508,7 +9508,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_2_317h4d178863fb723aa3
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -9519,27 +9519,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9587,7 +9587,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_1_417hd041ec947a12d5c3
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -9598,27 +9598,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9666,7 +9666,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_2_417h1f137dca783fc4e2
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -9677,27 +9677,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9745,7 +9745,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_3_417h0c94be4f66f5c904
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -9756,27 +9756,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9824,7 +9824,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_1_517hdf427327d11b0b14
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -9835,27 +9835,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9903,7 +9903,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_2_517ha180393e057bf70d
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -9914,27 +9914,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -9982,7 +9982,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_3_517h105df06d3efbd5a4
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -9993,27 +9993,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -10061,7 +10061,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_4_517h0b12a83813711869
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -10072,27 +10072,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -10140,7 +10140,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_1_617hfb5ec028e8e07101
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -10151,27 +10151,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -10219,7 +10219,7 @@ define void @_ZN2ui10components5label5label5Label10mt_neg_5_617h7d3cbb89f64febe8
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -10230,27 +10230,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -10298,7 +10298,7 @@ define void @_ZN2ui10components5label5label5Label11mt_neg_1_1217hc127f08198b4057
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -10309,27 +10309,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -12609,7 +12609,7 @@ define void @_ZN2ui10components5label5label5Label11mb_neg_full17hce6d2e79908aa9b
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -12620,27 +12620,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -12688,7 +12688,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_1_217h4dbd298eb94d6c89
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -12699,27 +12699,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -12767,7 +12767,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_1_317h07defad6688eb317
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -12778,27 +12778,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -12846,7 +12846,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_2_317h7cadb71160e9a7b5
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -12857,27 +12857,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -12925,7 +12925,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_1_417ha4e92dc6f449653b
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -12936,27 +12936,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13004,7 +13004,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_2_417h77368f1dadaf03dd
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -13015,27 +13015,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13083,7 +13083,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_3_417ha21af3a24e1110f5
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -13094,27 +13094,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13162,7 +13162,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_1_517h532f348ea971d34b
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -13173,27 +13173,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13241,7 +13241,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_2_517hc1b1653d5198a00f
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -13252,27 +13252,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13320,7 +13320,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_3_517h29a75edf5bc87a8c
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -13331,27 +13331,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13399,7 +13399,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_4_517hed3955dfa99b231c
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -13410,27 +13410,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13478,7 +13478,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_1_617h9e1e49eee9073265
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -13489,27 +13489,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13557,7 +13557,7 @@ define void @_ZN2ui10components5label5label5Label10mb_neg_5_617h23f028e12388a4c7
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -13568,27 +13568,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -13636,7 +13636,7 @@ define void @_ZN2ui10components5label5label5Label11mb_neg_1_1217h5d65e55e3f4d15e
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -13647,27 +13647,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -16610,11 +16610,11 @@ define void @_ZN2ui10components5label5label5Label11my_neg_full17hc8bf3b044f0353f
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -16625,46 +16625,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -16718,11 +16718,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_1_217he37e891313f1b928
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -16733,46 +16733,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -16826,11 +16826,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_1_317h85bca4769f9e89de
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -16841,46 +16841,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -16934,11 +16934,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_2_317h50ab13ae87065331
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -16949,46 +16949,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17042,11 +17042,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_1_417h79655af60b810cea
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -17057,46 +17057,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17150,11 +17150,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_2_417h1cac70bd3592be87
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -17165,46 +17165,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17258,11 +17258,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_3_417h084817a974117753
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -17273,46 +17273,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17366,11 +17366,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_1_517h42481aa2abde1ecf
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -17381,46 +17381,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17474,11 +17474,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_2_517h894a837a0e652257
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -17489,46 +17489,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17582,11 +17582,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_3_517h48c3acb46799d626
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -17597,46 +17597,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17690,11 +17690,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_4_517h68591d38e2e0fb6a
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -17705,46 +17705,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17798,11 +17798,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_1_617h69b2a7b00cf34279
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -17813,46 +17813,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -17906,11 +17906,11 @@ define void @_ZN2ui10components5label5label5Label10my_neg_5_617h15ac79c8c402a092
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -17921,46 +17921,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -18014,11 +18014,11 @@ define void @_ZN2ui10components5label5label5Label11my_neg_1_1217h26c7026aaf05483
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -18029,46 +18029,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21011,11 +21011,11 @@ define void @_ZN2ui10components5label5label5Label11mx_neg_full17h5a7765aca7a434d
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -21026,46 +21026,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21119,11 +21119,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_1_217h8034a1d09dcf662a
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -21134,46 +21134,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21227,11 +21227,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_1_317hb3ce2b361cab2e44
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -21242,46 +21242,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21335,11 +21335,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_2_317h890185f58c7024a0
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -21350,46 +21350,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21443,11 +21443,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_1_417h0e445438a25dc287
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -21458,46 +21458,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21551,11 +21551,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_2_417h3304c905bd553cc8
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -21566,46 +21566,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21659,11 +21659,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_3_417h9e508fe79fca40a0
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -21674,46 +21674,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21767,11 +21767,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_1_517h8c11f309e6406991
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -21782,46 +21782,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21875,11 +21875,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_2_517h3648c873543c7e92
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -21890,46 +21890,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -21983,11 +21983,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_3_517h802baab90621fd2c
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -21998,46 +21998,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -22091,11 +22091,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_4_517hd0539e848c14de3f
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -22106,46 +22106,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -22199,11 +22199,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_1_617h2a2f2605d39b025a
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -22214,46 +22214,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -22307,11 +22307,11 @@ define void @_ZN2ui10components5label5label5Label10mx_neg_5_617h623a298542ce948a
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -22322,46 +22322,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -22415,11 +22415,11 @@ define void @_ZN2ui10components5label5label5Label11mx_neg_1_1217hbcec2a08374d803
   %3 = invoke noundef nonnull align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1)
           to label %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit unwind label %4
 
-4:                                                ; preds = %2, %15, %12, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
+4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %24 unwind label %22
+          to label %26 unwind label %24
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -22430,46 +22430,46 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.429.0.extract.trunc = trunc nuw i64 %.sroa.429.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.429.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.431.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.431.0.insert.ext = zext i32 %11 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.030.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
-  %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
-          to label %15 unwind label %4
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
+  %15 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
+          to label %16 unwind label %4
 
-15:                                               ; preds = %12
-  %.sroa.434.0.extract.shift = lshr i64 %14, 32
+16:                                               ; preds = %13
+  %.sroa.434.0.extract.shift = lshr i64 %15, 32
   %.sroa.434.0.extract.trunc = trunc nuw i64 %.sroa.434.0.extract.shift to i32
-  %16 = bitcast i32 %.sroa.434.0.extract.trunc to float
-  %17 = and i64 %14, 4294967295
-  %.sroa.512.0 = fneg float %16
-  %18 = bitcast float %.sroa.512.0 to i32
-  %.sroa.436.0.insert.ext = zext i32 %18 to i64
+  %17 = bitcast i32 %.sroa.434.0.extract.trunc to float
+  %18 = and i64 %15, 4294967295
+  %19 = fneg float %17
+  %20 = bitcast float %19 to i32
+  %.sroa.436.0.insert.ext = zext i32 %20 to i64
   %.sroa.436.0.insert.shift = shl nuw i64 %.sroa.436.0.insert.ext, 32
-  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %17
-  %19 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
-          to label %20 unwind label %4
+  %.sroa.035.0.insert.insert = or disjoint i64 %.sroa.436.0.insert.shift, %18
+  %21 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.035.0.insert.insert)
+          to label %22 unwind label %4
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %19, ptr %21, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %21, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-22:                                               ; preds = %4
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-24:                                               ; preds = %4
+26:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -24749,7 +24749,7 @@ define void @_ZN2ui10components5label5label5Label11ml_neg_full17h79739956bf34d19
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -24760,27 +24760,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -24828,7 +24828,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_1_217h34526d80e222a841
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -24839,27 +24839,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -24907,7 +24907,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_1_317h77c780dadae8cfcc
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -24918,27 +24918,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -24986,7 +24986,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_2_317h594dae3bfe7a0f22
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -24997,27 +24997,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25065,7 +25065,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_1_417h8475ffc8dfd2d4c1
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -25076,27 +25076,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25144,7 +25144,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_2_417haa178d46e261e125
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -25155,27 +25155,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25223,7 +25223,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_3_417h0b54dcb6bc3beef4
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -25234,27 +25234,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25302,7 +25302,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_1_517h210bf433988aed39
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -25313,27 +25313,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25381,7 +25381,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_2_517h6c52e2be307a9673
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -25392,27 +25392,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25460,7 +25460,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_3_517hba9cf499424b1d3e
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -25471,27 +25471,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25539,7 +25539,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_4_517h45ff8663a8ec2ce8
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -25550,27 +25550,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25618,7 +25618,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_1_617h235dc48665e21c03
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -25629,27 +25629,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25697,7 +25697,7 @@ define void @_ZN2ui10components5label5label5Label10ml_neg_5_617h56a5854ff97ee6e1
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -25708,27 +25708,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -25776,7 +25776,7 @@ define void @_ZN2ui10components5label5label5Label11ml_neg_1_1217hc0dc24619ac34e8
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -25787,27 +25787,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28087,7 +28087,7 @@ define void @_ZN2ui10components5label5label5Label11mr_neg_full17h1e8070b31b785ef
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
@@ -28098,27 +28098,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28166,7 +28166,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_1_217h3615bcc4ceebb6ac
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -28177,27 +28177,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28245,7 +28245,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_1_317hfd9801142e5f6f19
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
@@ -28256,27 +28256,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28324,7 +28324,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_2_317he72ddcb9f8e0ef16
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
@@ -28335,27 +28335,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28403,7 +28403,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_1_417hde841053b252399f
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
@@ -28414,27 +28414,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28482,7 +28482,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_2_417h0735a2ea398f6209
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
@@ -28493,27 +28493,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28561,7 +28561,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_3_417h439b6a9b67b5b44a
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
@@ -28572,27 +28572,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28640,7 +28640,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_1_517hc2144b6a7d0f9864
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
@@ -28651,27 +28651,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28719,7 +28719,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_2_517h4e75c7f85e63edc6
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
@@ -28730,27 +28730,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28798,7 +28798,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_3_517h336edc208827869f
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
@@ -28809,27 +28809,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28877,7 +28877,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_4_517h601ed16d1b2c5048
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
@@ -28888,27 +28888,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -28956,7 +28956,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_1_617hdc4940885a1d9b31
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
@@ -28967,27 +28967,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -29035,7 +29035,7 @@ define void @_ZN2ui10components5label5label5Label10mr_neg_5_617hc23a57df1b25c064
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
@@ -29046,27 +29046,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -29114,7 +29114,7 @@ define void @_ZN2ui10components5label5label5Label11mr_neg_1_1217hd958b990a5e83d9
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$ui..components..label..label..Label$GT$17hdf67067b58286496E"(ptr noalias noundef nonnull align 8 dereferenceable(856) %1) #10
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
 _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %2
   %6 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
@@ -29125,27 +29125,27 @@ _ZN2ui10components5label5label5Label5style17h588c4c816c92f55eE.exit: ; preds = %
   %.sroa.415.0.extract.trunc = trunc nuw i64 %.sroa.415.0.extract.shift to i32
   %8 = bitcast i32 %.sroa.415.0.extract.trunc to float
   %9 = and i64 %6, 4294967295
-  %.sroa.5.0 = fneg float %8
-  %10 = bitcast float %.sroa.5.0 to i32
-  %.sroa.417.0.insert.ext = zext i32 %10 to i64
+  %10 = fneg float %8
+  %11 = bitcast float %10 to i32
+  %.sroa.417.0.insert.ext = zext i32 %11 to i64
   %.sroa.417.0.insert.shift = shl nuw i64 %.sroa.417.0.insert.ext, 32
   %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.417.0.insert.shift, %9
-  %11 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
-          to label %12 unwind label %4
+  %12 = invoke i64 @"_ZN100_$LT$gpui..geometry..Length$u20$as$u20$core..convert..From$LT$gpui..geometry..DefiniteLength$GT$$GT$4from17h8182fd628be70784E"(i64 %.sroa.016.0.insert.insert)
+          to label %13 unwind label %4
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
-  store i64 %11, ptr %13, align 8
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  store i64 %12, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, i64 856, i1 false)
   ret void
 
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #11
   unreachable
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 

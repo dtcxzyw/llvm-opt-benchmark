@@ -59,8 +59,8 @@ entry:
   %call2 = tail call ptr @ossl_quic_channel_get_reactor(ptr noundef %1) #3
   %teardown = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %2 = load i32, ptr %teardown, align 8
-  %tobool.not18 = icmp eq i32 %2, 0
-  br i1 %tobool.not18, label %if.end.lr.ph, label %for.end
+  %tobool.not17 = icmp eq i32 %2, 0
+  br i1 %tobool.not17, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
   %now_cb = getelementptr inbounds nuw i8, ptr %arg, i64 32
@@ -74,19 +74,19 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %cmp.not = icmp eq ptr %3, null
   %4 = add i64 %call3, 1
   %5 = icmp ult i64 %4, 2
-  %or.cond17 = select i1 %cmp.not, i1 true, i1 %5
-  br i1 %or.cond17, label %if.end28, label %if.then11
+  %or.cond16 = select i1 %cmp.not, i1 true, i1 %5
+  br i1 %or.cond16, label %if.end28, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %6 = load ptr, ptr %now_cb_arg, align 8
   %call15 = tail call i64 %3(ptr noundef %6) #3
-  %retval.sroa.0.0.i = tail call i64 @llvm.usub.sat.i64(i64 %call3, i64 %call15)
+  %.sub.i.i = tail call i64 @llvm.usub.sat.i64(i64 %call3, i64 %call15)
   %call22 = tail call i64 @ossl_time_now() #3
-  %retval.sroa.0.0.i16 = tail call i64 @llvm.uadd.sat.i64(i64 %retval.sroa.0.0.i, i64 %call22)
+  %retval.sroa.0.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %.sub.i.i, i64 %call22)
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then11, %if.end
-  %deadline.sroa.0.0 = phi i64 [ %retval.sroa.0.0.i16, %if.then11 ], [ %call3, %if.end ]
+  %deadline.sroa.0.0 = phi i64 [ %retval.sroa.0.0.i, %if.then11 ], [ %call3, %if.end ]
   %7 = load ptr, ptr %cv, align 8
   tail call void @ossl_crypto_condvar_wait_timeout(ptr noundef %7, ptr noundef %call, i64 %deadline.sroa.0.0) #3
   %8 = load i32, ptr %teardown, align 8

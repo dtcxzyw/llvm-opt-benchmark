@@ -978,8 +978,8 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
   %41 = tail call noundef zeroext i1 @_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38) #19
   br label %42
 
-42:                                               ; preds = %40, %36, %34, %30, %28, %20, %18, %10, %8, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %8 ], [ true, %10 ], [ false, %18 ], [ true, %20 ], [ false, %28 ], [ true, %30 ], [ false, %34 ], [ true, %36 ], [ false, %40 ]
+42:                                               ; preds = %36, %34, %30, %28, %20, %18, %10, %8, %2, %40
+  %.0 = phi i1 [ false, %40 ], [ true, %2 ], [ false, %8 ], [ true, %10 ], [ false, %18 ], [ true, %20 ], [ false, %28 ], [ true, %30 ], [ false, %34 ], [ true, %36 ]
   ret i1 %.0
 }
 

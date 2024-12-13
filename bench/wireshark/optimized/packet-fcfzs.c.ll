@@ -380,17 +380,17 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %107 = icmp eq i16 %24, 640
   %108 = load i32, ptr %105, align 4
   %. = select i1 %107, i32 %108, i32 %25
-  %.183 = select i1 %107, i32 0, i32 %108
+  %.157 = select i1 %107, i32 0, i32 %108
   br label %109
 
 109:                                              ; preds = %106, %101
   %.1 = phi i32 [ %25, %101 ], [ %., %106 ]
-  %.0143 = phi i32 [ 0, %101 ], [ %.183, %106 ]
-  %.not176 = icmp eq i32 %.1, 32769
+  %.0143 = phi i32 [ 0, %101 ], [ %.157, %106 ]
+  %.not177 = icmp eq i32 %.1, 32769
   %110 = load ptr, ptr %9, align 8
-  br i1 %.not176, label %.thread173, label %112
+  br i1 %.not177, label %.thread174, label %112
 
-.thread173:                                       ; preds = %109
+.thread174:                                       ; preds = %109
   %111 = call ptr @val_to_str(i32 noundef %.0143, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.102) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.105, ptr noundef %111) #4
   br label %118
@@ -407,7 +407,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 116:                                              ; preds = %95, %112, %77
   %.0144 = phi i32 [ %25, %77 ], [ %.1, %112 ], [ %25, %95 ]
   %117 = phi i1 [ true, %77 ], [ false, %112 ], [ false, %95 ]
-  %.not.i168 = phi i1 [ false, %77 ], [ true, %112 ], [ true, %95 ]
+  %.not.i169 = phi i1 [ false, %77 ], [ true, %112 ], [ true, %95 ]
   %.0140 = phi i32 [ 1, %77 ], [ 0, %112 ], [ 0, %95 ]
   switch i32 %.0144, label %259 [
     i32 32769, label %118
@@ -429,7 +429,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 770, label %250
   ]
 
-118:                                              ; preds = %.thread173, %116
+118:                                              ; preds = %.thread174, %116
   %.not.i = icmp eq ptr %.0141, null
   br i1 %.not.i, label %dissect_fcfzs_rjt.exit, label %119
 
@@ -443,7 +443,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcfzs_rjt.exit
 
 126:                                              ; preds = %116
-  br i1 %.not.i168, label %127, label %dissect_fcfzs_rjt.exit
+  br i1 %.not.i169, label %127, label %dissect_fcfzs_rjt.exit
 
 127:                                              ; preds = %126
   %128 = load i32, ptr @hf_fcfzs_gzc_flags, align 4
@@ -454,7 +454,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcfzs_rjt.exit
 
 133:                                              ; preds = %116
-  br i1 %.not.i168, label %134, label %dissect_fcfzs_rjt.exit
+  br i1 %.not.i169, label %134, label %dissect_fcfzs_rjt.exit
 
 134:                                              ; preds = %133
   %135 = load i32, ptr @hf_fcfzs_zone_state, align 4
@@ -497,11 +497,11 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not.i, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i, !llvm.loop !4
 
 161:                                              ; preds = %116
-  %.not.i159 = icmp eq ptr %.0141, null
-  br i1 %.not.i159, label %dissect_fcfzs_rjt.exit, label %162
+  %.not.i160 = icmp eq ptr %.0141, null
+  br i1 %.not.i160, label %dissect_fcfzs_rjt.exit, label %162
 
 162:                                              ; preds = %161
-  br i1 %.not.i168, label %170, label %163
+  br i1 %.not.i169, label %170, label %163
 
 163:                                              ; preds = %162
   %164 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -517,11 +517,11 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %172 = load i32, ptr @hf_fcfzs_numzoneattrs, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %172, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #4
   %174 = icmp sgt i32 %171, 0
-  br i1 %174, label %.lr.ph.i160, label %dissect_fcfzs_rjt.exit
+  br i1 %174, label %.lr.ph.i161, label %dissect_fcfzs_rjt.exit
 
-.lr.ph.i160:                                      ; preds = %170, %.lr.ph.i160
-  %.039.i = phi i32 [ %187, %.lr.ph.i160 ], [ 20, %170 ]
-  %.03538.i = phi i32 [ %188, %.lr.ph.i160 ], [ 0, %170 ]
+.lr.ph.i161:                                      ; preds = %170, %.lr.ph.i161
+  %.039.i = phi i32 [ %187, %.lr.ph.i161 ], [ 20, %170 ]
+  %.03538.i = phi i32 [ %188, %.lr.ph.i161 ], [ 0, %170 ]
   %175 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.039.i) #4
   %176 = zext i8 %175 to i32
   %177 = load i32, ptr @hf_fcfzs_zonenmlen, align 4
@@ -536,11 +536,11 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %186 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %185, ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef 0) #4
   %187 = add i32 %184, 4
   %188 = add nuw nsw i32 %.03538.i, 1
-  %exitcond.not.i161 = icmp eq i32 %188, %171
-  br i1 %exitcond.not.i161, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i160, !llvm.loop !6
+  %exitcond.not.i162 = icmp eq i32 %188, %171
+  br i1 %exitcond.not.i162, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i161, !llvm.loop !6
 
 189:                                              ; preds = %116
-  br i1 %.not.i168, label %197, label %190
+  br i1 %.not.i169, label %197, label %190
 
 190:                                              ; preds = %189
   %191 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -556,9 +556,9 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %199 = load i32, ptr @hf_fcfzs_nummbrentries, align 4
   %200 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %199, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #4
   %201 = icmp sgt i32 %198, 0
-  br i1 %201, label %.lr.ph.i163, label %dissect_fcfzs_rjt.exit
+  br i1 %201, label %.lr.ph.i164, label %dissect_fcfzs_rjt.exit
 
-.lr.ph.i163:                                      ; preds = %197, %219
+.lr.ph.i164:                                      ; preds = %197, %219
   %.037.i = phi i32 [ %221, %219 ], [ 0, %197 ]
   %.03536.i = phi i32 [ %220, %219 ], [ 20, %197 ]
   %202 = load i32, ptr @hf_fcfzs_mbrtype, align 4
@@ -571,43 +571,43 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
     i8 3, label %213
   ]
 
-205:                                              ; preds = %.lr.ph.i163, %.lr.ph.i163
+205:                                              ; preds = %.lr.ph.i164, %.lr.ph.i164
   %206 = load i32, ptr @hf_fcfzs_mbrid_fcwwn, align 4
   %207 = add i32 %.03536.i, 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef 8, i32 noundef 0) #4
   br label %219
 
-209:                                              ; preds = %.lr.ph.i163
+209:                                              ; preds = %.lr.ph.i164
   %210 = load i32, ptr @hf_fcfzs_mbrid_uint, align 4
   %211 = add i32 %.03536.i, 4
   %212 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 3, i32 noundef 0) #4
   br label %219
 
-213:                                              ; preds = %.lr.ph.i163
+213:                                              ; preds = %.lr.ph.i164
   %214 = load i32, ptr @hf_fcfzs_mbrid_fc, align 4
   %215 = add i32 %.03536.i, 4
   %216 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %214, ptr noundef %0, i32 noundef %215, i32 noundef 3, i32 noundef 0) #4
   br label %219
 
-217:                                              ; preds = %.lr.ph.i163
+217:                                              ; preds = %.lr.ph.i164
   %218 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %203, ptr noundef nonnull @ei_fcfzs_mbrid) #4
   br label %219
 
 219:                                              ; preds = %217, %213, %209, %205
   %220 = add i32 %.03536.i, 12
   %221 = add nuw nsw i32 %.037.i, 1
-  %exitcond.not.i164 = icmp eq i32 %221, %198
-  br i1 %exitcond.not.i164, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i163, !llvm.loop !7
+  %exitcond.not.i165 = icmp eq i32 %221, %198
+  br i1 %exitcond.not.i165, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i164, !llvm.loop !7
 
 222:                                              ; preds = %116
-  br i1 %.not.i168, label %223, label %dissect_fcfzs_rjt.exit
+  br i1 %.not.i169, label %223, label %dissect_fcfzs_rjt.exit
 
 223:                                              ; preds = %222
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 224:                                              ; preds = %116
-  br i1 %.not.i168, label %232, label %225
+  br i1 %.not.i169, label %232, label %225
 
 225:                                              ; preds = %224
   %226 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -623,14 +623,14 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_fcfzs_rjt.exit
 
 233:                                              ; preds = %116
-  br i1 %.not.i168, label %dissect_fcfzs_rjt.exit, label %234
+  br i1 %.not.i169, label %dissect_fcfzs_rjt.exit, label %234
 
 234:                                              ; preds = %233
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
 235:                                              ; preds = %116
-  br i1 %.not.i168, label %dissect_fcfzs_rjt.exit, label %236
+  br i1 %.not.i169, label %dissect_fcfzs_rjt.exit, label %236
 
 236:                                              ; preds = %235
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0141)
@@ -638,8 +638,8 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 237:                                              ; preds = %116
   %238 = icmp ne ptr %.0141, null
-  %or.cond.i169 = and i1 %238, %117
-  br i1 %or.cond.i169, label %239, label %dissect_fcfzs_rjt.exit
+  %or.cond.i170 = and i1 %238, %117
+  br i1 %or.cond.i170, label %239, label %dissect_fcfzs_rjt.exit
 
 239:                                              ; preds = %237
   %240 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -668,8 +668,8 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 250:                                              ; preds = %116
   %251 = icmp ne ptr %.0141, null
-  %or.cond.i170 = and i1 %251, %117
-  br i1 %or.cond.i170, label %252, label %dissect_fcfzs_rjt.exit
+  %or.cond.i171 = and i1 %251, %117
+  br i1 %or.cond.i171, label %252, label %dissect_fcfzs_rjt.exit
 
 252:                                              ; preds = %250
   %253 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
@@ -684,7 +684,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %260 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
   br label %dissect_fcfzs_rjt.exit
 
-dissect_fcfzs_rjt.exit:                           ; preds = %219, %.lr.ph.i160, %.lr.ph.i, %252, %250, %116, %239, %237, %236, %235, %234, %233, %232, %225, %223, %222, %197, %190, %170, %163, %161, %142, %140, %134, %133, %127, %126, %119, %118, %259, %249, %248, %247, %246
+dissect_fcfzs_rjt.exit:                           ; preds = %219, %.lr.ph.i161, %.lr.ph.i, %252, %250, %116, %239, %237, %236, %235, %234, %233, %232, %225, %223, %222, %197, %190, %170, %163, %161, %142, %140, %134, %133, %127, %126, %119, %118, %259, %249, %248, %247, %246
   %261 = call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %262
 

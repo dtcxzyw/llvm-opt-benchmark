@@ -162025,7 +162025,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_rang
 _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i16.i: ; preds = %84
   %87 = fcmp ogt double %82, 0.000000e+00
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #56
-  %.50.i = select i1 %87, i32 2, i32 1
+  %.47.i = select i1 %87, i32 2, i32 1
   br label %.sink.split.i21.i
 
 _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i13.i: ; preds = %84
@@ -162048,7 +162048,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_rang
   br label %.sink.split.i21.i
 
 .sink.split.i21.i:                                ; preds = %92, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_range_from_pieceINS4_13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEEEESD_NS0_10strategies6buffer9cartesianIvEEE9qk_wrt_q1Ev.exit.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i16.i
-  %.sink.i22.i = phi i32 [ 2, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_range_from_pieceINS4_13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEEEESD_NS0_10strategies6buffer9cartesianIvEEE9qk_wrt_q1Ev.exit.i ], [ 1, %92 ], [ %.50.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i16.i ]
+  %.sink.i22.i = phi i32 [ 2, %_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_6buffer27unique_sub_range_from_pieceINS4_13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEEEESD_NS0_10strategies6buffer9cartesianIvEEE9qk_wrt_q1Ev.exit.i ], [ 1, %92 ], [ %.47.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i16.i ]
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %.sroa.13.112..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13, i64 44

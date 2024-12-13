@@ -32978,8 +32978,8 @@ _ZNK4Luau6TxnLog3getINS_16VariadicTypePackEPKNS_11TypePackVarEEEPKT_T0_.exit: ; 
   %30 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %. = select i1 %3, ptr %22, ptr %31
-  %.114 = select i1 %3, ptr %31, ptr %22
-  tail call void @_ZN4Luau7Unifier9tryUnify_EPKNS_4TypeES3_bbPKNS_12DenseHashSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISA_ESt8equal_toISA_EEE(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %., ptr noundef %.114, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  %.111 = select i1 %3, ptr %31, ptr %22
+  tail call void @_ZN4Luau7Unifier9tryUnify_EPKNS_4TypeES3_bbPKNS_12DenseHashSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISA_ESt8equal_toISA_EEE(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr noundef %., ptr noundef %.111, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   br label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE9push_backERKS3_.exit
 
 32:                                               ; preds = %24, %26, %_ZN4Luau10getMutableINS_16VariadicTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i.i

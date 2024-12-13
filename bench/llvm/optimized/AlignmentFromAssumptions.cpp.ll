@@ -757,8 +757,8 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %_ZNK4llvm11Constant
   %61 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %62 = load i16, ptr %61, align 8
   %63 = icmp ne i16 %62, 8
-  %.not69 = icmp eq ptr %17, null
-  %.not = or i1 %.not69, %63
+  %.not68 = icmp eq ptr %17, null
+  %.not = or i1 %.not68, %63
   br i1 %.not, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit, label %64
 
 64:                                               ; preds = %60
@@ -770,9 +770,9 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %_ZNK4llvm11Constant
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i16, ptr %70, align 8
   %72 = icmp ne i16 %71, 0
-  %.not15.i31 = icmp eq ptr %69, null
-  %.not.i32 = or i1 %.not15.i31, %72
-  br i1 %.not.i32, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45, label %73
+  %.not15.i30 = icmp eq ptr %69, null
+  %.not.i31 = or i1 %.not15.i30, %72
+  br i1 %.not.i31, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44, label %73
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
@@ -790,19 +790,19 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %_ZNK4llvm11Constant
   %84 = zext nneg i32 %83 to i64
   %85 = shl i64 %81, %84
   %86 = ashr exact i64 %85, %84
-  br i1 %82, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33
+  br i1 %82, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i32
 
 87:                                               ; preds = %73
   %88 = load ptr, ptr %76, align 8
   %89 = load i64, ptr %88, align 8
-  br label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33
+  br label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i32
 
-_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33:  ; preds = %87, %80
-  %.0.i.i.i34 = phi i64 [ %86, %80 ], [ %89, %87 ]
-  %.not11.i35 = icmp eq i64 %.0.i.i.i34, 0
-  br i1 %.not11.i35, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40, label %_ZN4llvm13isPowerOf2_64Em.exit.i36
+_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i32:  ; preds = %87, %80
+  %.0.i.i.i33 = phi i64 [ %86, %80 ], [ %89, %87 ]
+  %.not11.i34 = icmp eq i64 %.0.i.i.i33, 0
+  br i1 %.not11.i34, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39, label %_ZN4llvm13isPowerOf2_64Em.exit.i35
 
-_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33, %80
+_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i32, %80
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
@@ -810,39 +810,39 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40: ; preds = %_ZNK4llvm11Co
   %94 = load i32, ptr %93, align 8
   %95 = icmp ult i32 %94, 65
   %96 = load ptr, ptr %92, align 8
-  %.0.in.i.i.i.i.i41 = select i1 %95, ptr %92, ptr %96
-  %.0.i.i.i.i.i42 = load i64, ptr %.0.in.i.i.i.i.i41, align 8
-  %.not.i.not.i.i.i43 = icmp eq i64 %.0.i.i.i.i.i42, 0
-  %97 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i42, i1 true)
+  %.0.in.i.i.i.i.i40 = select i1 %95, ptr %92, ptr %96
+  %.0.i.i.i.i.i41 = load i64, ptr %.0.in.i.i.i.i.i40, align 8
+  %.not.i.not.i.i.i42 = icmp eq i64 %.0.i.i.i.i.i41, 0
+  %97 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i41, i1 true)
   %98 = trunc nuw nsw i64 %97 to i16
   %99 = xor i16 %98, 63
-  %.sroa.0.0.i.i.i.i44 = select i1 %.not.i.not.i.i.i43, i16 0, i16 %99
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45
+  %.sroa.0.0.i.i.i.i43 = select i1 %.not.i.not.i.i.i42, i16 0, i16 %99
+  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44
 
-_ZN4llvm13isPowerOf2_64Em.exit.i36:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i33
-  %100 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i34, i1 true)
+_ZN4llvm13isPowerOf2_64Em.exit.i35:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i32
+  %100 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i33, i1 true)
   %101 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %100)
   %102 = icmp samesign ult i64 %101, 2
-  br i1 %102, label %103, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45
+  br i1 %102, label %103, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44
 
-103:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i36
+103:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i35
   %104 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %100, i1 true)
   %105 = trunc nuw nsw i64 %104 to i16
   %106 = xor i16 %105, 63
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45
+  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44
 
-_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45: ; preds = %64, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40, %_ZN4llvm13isPowerOf2_64Em.exit.i36, %103
-  %.sroa.012.0.i37 = phi i16 [ %.sroa.0.0.i.i.i.i44, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40 ], [ %106, %103 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i36 ], [ 0, %64 ]
-  %.not70 = phi i1 [ false, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i40 ], [ false, %103 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.i36 ], [ true, %64 ]
+_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44: ; preds = %64, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39, %_ZN4llvm13isPowerOf2_64Em.exit.i35, %103
+  %.sroa.012.0.i36 = phi i16 [ %.sroa.0.0.i.i.i.i43, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39 ], [ %106, %103 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i35 ], [ 0, %64 ]
+  %.not69 = phi i1 [ false, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i39 ], [ false, %103 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.i35 ], [ true, %64 ]
   %107 = call noundef ptr @_ZN4llvm15ScalarEvolution11getURemExprEPKNS_4SCEVES3_(ptr noundef nonnull align 8 dereferenceable(1392) %4, ptr noundef %68, ptr noundef %1) #10
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i16, ptr %108, align 8
   %110 = icmp ne i16 %109, 0
-  %.not15.i46 = icmp eq ptr %107, null
-  %.not.i47 = or i1 %.not15.i46, %110
-  br i1 %.not.i47, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60, label %111
+  %.not15.i45 = icmp eq ptr %107, null
+  %.not.i46 = or i1 %.not15.i45, %110
+  br i1 %.not.i46, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59, label %111
 
-111:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45
+111:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
@@ -858,19 +858,19 @@ _ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45: ; preds 
   %122 = zext nneg i32 %121 to i64
   %123 = shl i64 %119, %122
   %124 = ashr exact i64 %123, %122
-  br i1 %120, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48
+  br i1 %120, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i47
 
 125:                                              ; preds = %111
   %126 = load ptr, ptr %114, align 8
   %127 = load i64, ptr %126, align 8
-  br label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48
+  br label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i47
 
-_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48:  ; preds = %125, %118
-  %.0.i.i.i49 = phi i64 [ %124, %118 ], [ %127, %125 ]
-  %.not11.i50 = icmp eq i64 %.0.i.i.i49, 0
-  br i1 %.not11.i50, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55, label %_ZN4llvm13isPowerOf2_64Em.exit.i51
+_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i47:  ; preds = %125, %118
+  %.0.i.i.i48 = phi i64 [ %124, %118 ], [ %127, %125 ]
+  %.not11.i49 = icmp eq i64 %.0.i.i.i48, 0
+  br i1 %.not11.i49, label %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54, label %_ZN4llvm13isPowerOf2_64Em.exit.i50
 
-_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48, %118
+_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i47, %118
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
@@ -878,41 +878,41 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55: ; preds = %_ZNK4llvm11Co
   %132 = load i32, ptr %131, align 8
   %133 = icmp ult i32 %132, 65
   %134 = load ptr, ptr %130, align 8
-  %.0.in.i.i.i.i.i56 = select i1 %133, ptr %130, ptr %134
-  %.0.i.i.i.i.i57 = load i64, ptr %.0.in.i.i.i.i.i56, align 8
-  %.not.i.not.i.i.i58 = icmp eq i64 %.0.i.i.i.i.i57, 0
-  %135 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i57, i1 true)
+  %.0.in.i.i.i.i.i55 = select i1 %133, ptr %130, ptr %134
+  %.0.i.i.i.i.i56 = load i64, ptr %.0.in.i.i.i.i.i55, align 8
+  %.not.i.not.i.i.i57 = icmp eq i64 %.0.i.i.i.i.i56, 0
+  %135 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i.i.i.i56, i1 true)
   %136 = trunc nuw nsw i64 %135 to i16
   %137 = xor i16 %136, 63
-  %.sroa.0.0.i.i.i.i59 = select i1 %.not.i.not.i.i.i58, i16 0, i16 %137
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60
+  %.sroa.0.0.i.i.i.i58 = select i1 %.not.i.not.i.i.i57, i16 0, i16 %137
+  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59
 
-_ZN4llvm13isPowerOf2_64Em.exit.i51:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i48
-  %138 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i49, i1 true)
+_ZN4llvm13isPowerOf2_64Em.exit.i50:               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i47
+  %138 = call noundef i64 @llvm.abs.i64(i64 %.0.i.i.i48, i1 true)
   %139 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %138)
   %140 = icmp samesign ult i64 %139, 2
-  br i1 %140, label %141, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60
+  br i1 %140, label %141, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59
 
-141:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i51
+141:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i50
   %142 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %138, i1 true)
   %143 = trunc nuw nsw i64 %142 to i16
   %144 = xor i16 %143, 63
-  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60
+  br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59
 
-_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60: ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55, %_ZN4llvm13isPowerOf2_64Em.exit.i51, %141
-  %.sroa.012.0.i52 = phi i16 [ %.sroa.0.0.i.i.i.i59, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55 ], [ %144, %141 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i51 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45 ]
-  %.not71 = phi i1 [ false, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i55 ], [ false, %141 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.i51 ], [ true, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit45 ]
-  %brmerge = or i1 %.not70, %.not71
+_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59: ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54, %_ZN4llvm13isPowerOf2_64Em.exit.i50, %141
+  %.sroa.012.0.i51 = phi i16 [ %.sroa.0.0.i.i.i.i58, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54 ], [ %144, %141 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.i50 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44 ]
+  %.not70 = phi i1 [ false, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i54 ], [ false, %141 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.i50 ], [ true, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit44 ]
+  %brmerge = or i1 %.not69, %.not70
   br i1 %brmerge, label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit, label %145
 
-145:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60
-  %spec.select.v = call i16 @llvm.umin.i16(i16 %.sroa.012.0.i37, i16 %.sroa.012.0.i52)
+145:                                              ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59
+  %spec.select.v = call i16 @llvm.umin.i16(i16 %.sroa.012.0.i36, i16 %.sroa.012.0.i51)
   %spec.select = trunc nuw nsw i16 %spec.select.v to i8
   br label %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit
 
-_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit: ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60, %56, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i, %145, %60, %5
-  %.sroa.067.0 = phi i8 [ 0, %5 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit60 ], [ 0, %60 ], [ %spec.select, %145 ], [ %.sroa.0.0.i.i.i.i, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i ], [ %59, %56 ]
-  ret i8 %.sroa.067.0
+_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit: ; preds = %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59, %56, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i, %145, %60, %5
+  %.sroa.066.0 = phi i8 [ 0, %5 ], [ 0, %_ZL19getNewAlignmentDiffPKN4llvm4SCEVES2_PNS_15ScalarEvolutionE.exit59 ], [ 0, %60 ], [ %spec.select, %145 ], [ %.sroa.0.0.i.i.i.i, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread.i ], [ %59, %56 ]
+  ret i8 %.sroa.066.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

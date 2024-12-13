@@ -5646,8 +5646,8 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @Abc_NodeMffcSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %32, ptr noundef %34)
-  %.not57 = icmp eq ptr %35, null
-  br i1 %.not57, label %40, label %36
+  %.not56 = icmp eq ptr %35, null
+  br i1 %.not56, label %40, label %36
 
 36:                                               ; preds = %Abc_NodeMffcConstants.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -5664,8 +5664,8 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
   %43 = load ptr, ptr %16, align 8
   %44 = load ptr, ptr %33, align 8
   %45 = tail call ptr @Abc_NodeMffcSingleNode(ptr noundef nonnull %0, ptr noundef %43, i32 poison, ptr noundef %44)
-  %.not58 = icmp eq ptr %45, null
-  br i1 %.not58, label %54, label %46
+  %.not57 = icmp eq ptr %45, null
+  br i1 %.not57, label %54, label %46
 
 46:                                               ; preds = %42
   %47 = add nsw i32 %10, -1

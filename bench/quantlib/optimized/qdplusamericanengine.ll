@@ -25779,8 +25779,8 @@ while.body.preheader:                             ; preds = %do.end
 
 while.body:                                       ; preds = %while.body.preheader, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60
   %39 = phi double [ %49, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %.pre, %while.body.preheader ]
-  %xl.1134 = phi double [ %xl.2, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %xl.0, %while.body.preheader ]
-  %xh.1133 = phi double [ %xh.2, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %xh.0, %while.body.preheader ]
+  %xl.1134 = phi double [ %.xl.1, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %xl.0, %while.body.preheader ]
+  %xh.1133 = phi double [ %xh.1., %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %xh.0, %while.body.preheader ]
   %dxold.0132 = phi double [ %dx.0131, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %sub, %while.body.preheader ]
   %dx.0131 = phi double [ %dx.1, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %sub, %while.body.preheader ]
   %dfroot.0130 = phi double [ %61, %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60 ], [ %15, %while.body.preheader ]
@@ -25837,7 +25837,7 @@ if.end63:                                         ; preds = %if.end55
 
 if.then.i59:                                      ; preds = %if.end63
   tail call void @_ZNK8QuantLib23QdPlusBoundaryEvaluator12preCalculateEd(ptr noundef nonnull align 8 dereferenceable(320) %f, double noundef %47)
-  %.pre136 = load double, ptr %this, align 8
+  %.pre136 = load double, ptr %this, align 8, !tbaa !396
   br label %_ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60
 
 _ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60: ; preds = %if.end63, %if.then.i59
@@ -25861,8 +25861,8 @@ _ZNK8QuantLib23QdPlusBoundaryEvaluator10derivativeEd.exit60: ; preds = %if.end63
   %inc69 = add i64 %62, 1
   store i64 %inc69, ptr %evaluationNumber_, align 8, !tbaa !395
   %cmp70 = fcmp olt double %call59, 0.000000e+00
-  %xh.2 = select i1 %cmp70, double %xh.1133, double %49
-  %xl.2 = select i1 %cmp70, double %49, double %xl.1134
+  %xh.1. = select i1 %cmp70, double %xh.1133, double %49
+  %.xl.1 = select i1 %cmp70, double %49, double %xl.1134
   %63 = load i64, ptr %maxEvaluations_, align 8, !tbaa !385
   %cmp38.not = icmp ugt i64 %inc69, %63
   br i1 %cmp38.not, label %do.body76, label %while.body, !llvm.loop !397

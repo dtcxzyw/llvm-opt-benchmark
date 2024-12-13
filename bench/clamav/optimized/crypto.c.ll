@@ -488,8 +488,8 @@ cl_hash_file_fd.exit:                             ; preds = %9
   %. = sext i1 %28 to i32
   br label %cl_hash_file_fd.exit.thread
 
-cl_hash_file_fd.exit.thread:                      ; preds = %26, %7, %5, %cl_hash_file_fd.exit.thread36, %cl_hash_file_fd.exit, %25, %22, %19, %14
-  %.0 = phi i32 [ -1, %25 ], [ -1, %22 ], [ -1, %19 ], [ -1, %14 ], [ -1, %cl_hash_file_fd.exit ], [ -1, %cl_hash_file_fd.exit.thread36 ], [ -1, %5 ], [ -1, %7 ], [ %., %26 ]
+cl_hash_file_fd.exit.thread:                      ; preds = %7, %5, %cl_hash_file_fd.exit.thread36, %26, %cl_hash_file_fd.exit, %25, %22, %19, %14
+  %.0 = phi i32 [ -1, %25 ], [ -1, %22 ], [ -1, %19 ], [ -1, %14 ], [ -1, %cl_hash_file_fd.exit ], [ %., %26 ], [ -1, %cl_hash_file_fd.exit.thread36 ], [ -1, %5 ], [ -1, %7 ]
   ret i32 %.0
 }
 

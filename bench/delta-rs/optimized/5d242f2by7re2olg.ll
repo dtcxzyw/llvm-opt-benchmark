@@ -25603,20 +25603,20 @@ define hidden { i64, i32 } @"_ZN95_$LT$backoff..exponential..ExponentialBackoff$
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !range !1310, !noundef !5
   %.not = icmp eq i32 %18, 1000000000
-  br i1 %.not, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28", label %19
+  br i1 %.not, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30", label %19
 
 19:                                               ; preds = %1
-  %.val16 = load i64, ptr %0, align 8, !noundef !5
-  %20 = icmp ult i64 %15, %.val16
-  br i1 %20, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28", label %21
+  %.val17 = load i64, ptr %0, align 8, !noundef !5
+  %20 = icmp ult i64 %15, %.val17
+  br i1 %20, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30", label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ne i64 %15, %.val16
+  %22 = icmp ne i64 %15, %.val17
   %23 = icmp ugt i32 %16, %18
   %or.cond = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond, label %.critedge, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28"
+  br i1 %or.cond, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread", label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30"
 
-"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28": ; preds = %21, %19, %1
+"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30": ; preds = %21, %19, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %24 = call noundef nonnull ptr @_ZN4rand4rngs6thread10thread_rng17h45e55fcece35551cE()
   store ptr %24, ptr %3, align 8
@@ -25624,7 +25624,7 @@ define hidden { i64, i32 } @"_ZN95_$LT$backoff..exponential..ExponentialBackoff$
   %26 = invoke noundef i64 @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h953ceb8f9a394e41E.llvm.800285880109910518"(ptr noalias noundef nonnull align 16 dereferenceable(352) %25)
           to label %_ZN4rand6random17h8c9d4ab399b6558bE.exit unwind label %27
 
-27:                                               ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28"
+27:                                               ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30"
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcaf854dd0e0f0089E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
@@ -25639,7 +25639,7 @@ define hidden { i64, i32 } @"_ZN95_$LT$backoff..exponential..ExponentialBackoff$
 "_ZN4core3ptr50drop_in_place$LT$rand..rngs..thread..ThreadRng$GT$17h11d42a590c773ea3E.exit.i": ; preds = %27
   resume { ptr, i32 } %28
 
-_ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread28"
+_ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30"
   %31 = lshr i64 %26, 11
   %32 = uitofp nneg i64 %31 to double
   %33 = fmul double %32, 0x3CA0000000000000
@@ -25704,11 +25704,11 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
   store i32 %79, ptr %38, align 8
   %80 = load i32, ptr %17, align 8, !range !1310, !noundef !5
   %.not10 = icmp eq i32 %80, 1000000000
-  br i1 %.not10, label %.critedge, label %83
+  br i1 %.not10, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread", label %83
 
-.critedge:                                        ; preds = %109, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit, %21, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit"
-  %.sroa.5.0 = phi i32 [ %53, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ 1000000000, %21 ], [ %53, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %spec.select, %109 ]
-  %.sroa.0.0 = phi i64 [ %52, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ undef, %21 ], [ %52, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %spec.select36, %109 ]
+"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread": ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22", %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit, %21, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit"
+  %.sroa.5.0 = phi i32 [ %53, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ 1000000000, %21 ], [ %53, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %spec.select42, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
+  %.sroa.0.0 = phi i64 [ %52, %"_ZN7backoff11exponential27ExponentialBackoff$LT$C$GT$26increment_current_interval17he000ba72732dd7d8E.exit" ], [ undef, %21 ], [ %52, %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit ], [ %52, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22" ]
   %81 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %82 = insertvalue { i64, i32 } %81, i32 %.sroa.5.0, 1
   ret { i64, i32 } %82
@@ -25734,11 +25734,11 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
 
 96:                                               ; preds = %91, %88
   %.010.i = phi i32 [ %89, %88 ], [ %92, %91 ]
-  %.0.i18 = phi i64 [ %86, %88 ], [ %94, %91 ]
+  %.0.i19 = phi i64 [ %86, %88 ], [ %94, %91 ]
   %97 = udiv i32 %.010.i, 1000000000
   %98 = urem i32 %.010.i, 1000000000
   %99 = zext nneg i32 %97 to i64
-  %100 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i18, i64 %99)
+  %100 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i19, i64 %99)
   %101 = extractvalue { i64, i1 } %100, 1
   br i1 %101, label %102, label %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit
 
@@ -25759,19 +25759,19 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
 _ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit: ; preds = %96
   %107 = extractvalue { i64, i1 } %100, 0
   %108 = icmp ult i64 %107, %84
-  br i1 %108, label %.critedge, label %109
+  br i1 %108, label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread", label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22"
 
 _ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit.thread: ; preds = %83, %91
   call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.ef876e9a40f6761df4fa1e2b544b5407.467, i64 noundef 30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ef876e9a40f6761df4fa1e2b544b5407.468) #36
   unreachable
 
-109:                                              ; preds = %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit
-  %110 = icmp ne i64 %107, %84
-  %111 = icmp samesign ugt i32 %98, %80
-  %or.cond35 = or i1 %111, %110
-  %spec.select = select i1 %or.cond35, i32 1000000000, i32 %53
-  %spec.select36 = select i1 %or.cond35, i64 undef, i64 %52
-  br label %.critedge
+"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit22": ; preds = %_ZN4core4time8Duration11checked_add17hf759a74fa2456fb3E.exit
+  %109 = icmp eq i64 %107, %84
+  %110 = icmp samesign ule i32 %98, %80
+  %spec.select = select i1 %109, i1 %110, i1 false
+  %cond.fr = freeze i1 %spec.select
+  %spec.select42 = select i1 %cond.fr, i32 %53, i32 1000000000
+  br label %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread"
 }
 
 ; Function Attrs: nonlazybind uwtable

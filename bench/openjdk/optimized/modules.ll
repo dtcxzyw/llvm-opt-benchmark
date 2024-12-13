@@ -1173,7 +1173,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit155:          ; preds = %_ZN16SymbolHandleBa
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %228) #14
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit157
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit157:          ; preds = %378, %_ZN16SymbolHandleBaseILb1EED2Ev.exit155, %113, %_ZL15get_module_nameP7oopDescRiP10JavaThread.exit, %193, %_ZL19verify_package_namePKci.exit.thread, %165, %117, %74, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread, %38
+_ZN16SymbolHandleBaseILb1EED2Ev.exit157:          ; preds = %378, %_ZN16SymbolHandleBaseILb1EED2Ev.exit155, %_ZL15get_module_nameP7oopDescRiP10JavaThread.exit, %113, %193, %_ZL19verify_package_namePKci.exit.thread, %165, %117, %74, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread, %38
   %379 = load ptr, ptr %30, align 8
   %.not.i.i.i.i = icmp eq ptr %379, null
   br i1 %.not.i.i.i.i, label %381, label %380

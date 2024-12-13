@@ -540,7 +540,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   switch i8 %4, label %Aig_ManObj.exit [
     i8 110, label %5
     i8 112, label %14
-    i8 108, label %22
+    i8 108, label %23
   ]
 
 5:                                                ; preds = %3
@@ -561,45 +561,45 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1
-  %cond = icmp eq i8 %16, 105
-  br i1 %cond, label %17, label %Aig_ManObj.exit
+  %17 = icmp eq i8 %16, 105
+  br i1 %17, label %18, label %Aig_ManObj.exit
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %18) #14
-  %20 = getelementptr i8, ptr %0, i64 16
-  %.val23 = load ptr, ptr %20, align 8
-  %21 = getelementptr i8, ptr %.val23, i64 8
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #14
+  %21 = getelementptr i8, ptr %0, i64 16
+  %.val18 = load ptr, ptr %21, align 8
+  %22 = getelementptr i8, ptr %.val18, i64 8
   br label %Aig_ManObj.exit.sink.split
 
-22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %24 = load i8, ptr %23, align 1
-  %cond22 = icmp eq i8 %24, 111
-  br i1 %cond22, label %25, label %Aig_ManObj.exit
+23:                                               ; preds = %3
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 111
+  br i1 %26, label %27, label %Aig_ManObj.exit
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #14
-  %28 = getelementptr i8, ptr %0, i64 16
-  %.val24 = load ptr, ptr %28, align 8
-  %29 = getelementptr i8, ptr %0, i64 108
-  %.val25 = load i32, ptr %29, align 4
-  %30 = getelementptr i8, ptr %.val24, i64 8
-  %31 = add nsw i32 %.val25, %27
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %28) #14
+  %30 = getelementptr i8, ptr %0, i64 16
+  %.val19 = load ptr, ptr %30, align 8
+  %31 = getelementptr i8, ptr %0, i64 108
+  %.val20 = load i32, ptr %31, align 4
+  %32 = getelementptr i8, ptr %.val19, i64 8
+  %33 = add nsw i32 %.val20, %29
   br label %Aig_ManObj.exit.sink.split
 
-Aig_ManObj.exit.sink.split:                       ; preds = %17, %25, %7
-  %.sink = phi i32 [ %12, %7 ], [ %31, %25 ], [ %19, %17 ]
-  %.val.i.sink.in = phi ptr [ %13, %7 ], [ %30, %25 ], [ %21, %17 ]
+Aig_ManObj.exit.sink.split:                       ; preds = %18, %27, %7
+  %.sink = phi i32 [ %12, %7 ], [ %33, %27 ], [ %20, %18 ]
+  %.val.i.sink.in = phi ptr [ %13, %7 ], [ %32, %27 ], [ %22, %18 ]
   %.val.i.sink = load ptr, ptr %.val.i.sink.in, align 8
-  %32 = sext i32 %.sink to i64
-  %33 = getelementptr inbounds ptr, ptr %.val.i.sink, i64 %32
-  %34 = load ptr, ptr %33, align 8
+  %34 = sext i32 %.sink to i64
+  %35 = getelementptr inbounds ptr, ptr %.val.i.sink, i64 %34
+  %36 = load ptr, ptr %35, align 8
   br label %Aig_ManObj.exit
 
-Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.sink.split, %5, %22, %14, %3
-  %.0 = phi ptr [ null, %14 ], [ null, %22 ], [ null, %3 ], [ null, %5 ], [ %34, %Aig_ManObj.exit.sink.split ]
+Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.sink.split, %5, %3, %23, %14
+  %.0 = phi ptr [ null, %14 ], [ null, %23 ], [ null, %3 ], [ null, %5 ], [ %36, %Aig_ManObj.exit.sink.split ]
   ret ptr %.0
 }
 

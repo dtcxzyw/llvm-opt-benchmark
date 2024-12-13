@@ -1212,8 +1212,8 @@ define linkonce_odr hidden void @_ZSt13__introselectIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %4, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit
   %18 = phi i64 [ %65, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %16, %4 ]
   %.028 = phi i64 [ %23, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %3, %4 ]
-  %.sroa.021.027 = phi ptr [ %.sroa.021.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %0, %4 ]
-  %.sroa.018.026 = phi ptr [ %.sroa.010.1.i.i..sroa.018.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %2, %4 ]
+  %.sroa.021.027 = phi ptr [ %.sroa.010.1.i.i..sroa.021.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %0, %4 ]
+  %.sroa.018.026 = phi ptr [ %.sroa.018.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ], [ %2, %4 ]
   %19 = icmp eq i64 %.028, 0
   br i1 %19, label %20, label %22
 
@@ -1346,17 +1346,17 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6ve
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit: ; preds = %60
   %.not = icmp ugt ptr %.sroa.010.1.i.i, %1
-  %.sroa.010.1.i.i..sroa.018.0 = select i1 %.not, ptr %.sroa.010.1.i.i, ptr %.sroa.018.026
-  %.sroa.021.0..sroa.010.1.i.i = select i1 %.not, ptr %.sroa.021.027, ptr %.sroa.010.1.i.i
-  %63 = ptrtoint ptr %.sroa.010.1.i.i..sroa.018.0 to i64
-  %64 = ptrtoint ptr %.sroa.021.0..sroa.010.1.i.i to i64
+  %.sroa.018.0..sroa.010.1.i.i = select i1 %.not, ptr %.sroa.010.1.i.i, ptr %.sroa.018.026
+  %.sroa.010.1.i.i..sroa.021.0 = select i1 %.not, ptr %.sroa.021.027, ptr %.sroa.010.1.i.i
+  %63 = ptrtoint ptr %.sroa.018.0..sroa.010.1.i.i to i64
+  %64 = ptrtoint ptr %.sroa.010.1.i.i..sroa.021.0 to i64
   %65 = sub i64 %63, %64
   %66 = icmp sgt i64 %65, 84
   br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit, %4
-  %.sroa.018.0.lcssa = phi ptr [ %2, %4 ], [ %.sroa.010.1.i.i..sroa.018.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ]
-  %.sroa.021.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.021.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ]
+  %.sroa.018.0.lcssa = phi ptr [ %2, %4 ], [ %.sroa.018.0..sroa.010.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ]
+  %.sroa.021.0.lcssa = phi ptr [ %0, %4 ], [ %.sroa.010.1.i.i..sroa.021.0, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ]
   %.lcssa22 = phi i64 [ %15, %4 ], [ %64, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_23KeypointResponseGreaterEEEET_SD_SD_T0_.exit ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
   %67 = icmp eq ptr %.sroa.021.0.lcssa, %.sroa.018.0.lcssa

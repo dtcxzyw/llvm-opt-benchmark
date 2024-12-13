@@ -353,8 +353,8 @@ validate_exec.exit:                               ; preds = %26
   %. = select i1 %.not15, i32 0, i32 -2
   br label %37
 
-37:                                               ; preds = %35, %validate_exec.exit.thread, %31, %validate_exec.exit, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %validate_exec.exit ], [ -1, %31 ], [ -1, %validate_exec.exit.thread ], [ %., %35 ]
+37:                                               ; preds = %validate_exec.exit.thread, %35, %31, %validate_exec.exit, %4
+  %.0 = phi i32 [ -1, %4 ], [ -1, %validate_exec.exit ], [ -1, %31 ], [ %., %35 ], [ -1, %validate_exec.exit.thread ]
   ret i32 %.0
 }
 

@@ -909,8 +909,8 @@ while.body:                                       ; preds = %if.end
 
 if.then:                                          ; preds = %while.body, %while.body.preheader
   %sub.ptr.rhs.cast.i29.lcssa = phi i64 [ %sub.ptr.rhs.cast.i23, %while.body.preheader ], [ %sub.ptr.rhs.cast.i, %while.body ]
-  %__first.sroa.0.027.lcssa = phi ptr [ %__first.coerce, %while.body.preheader ], [ %__first.sroa.0.0.call21, %while.body ]
-  %__last.sroa.0.026.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call21.__last.sroa.0.0, %while.body ]
+  %__first.sroa.0.027.lcssa = phi ptr [ %__first.coerce, %while.body.preheader ], [ %call21.__first.sroa.0.0, %while.body ]
+  %__last.sroa.0.026.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %__last.sroa.0.0.call21, %while.body ]
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__nth.coerce, i64 16
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i29.lcssa
@@ -993,22 +993,22 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS
   br label %return
 
 if.end:                                           ; preds = %while.body.preheader, %while.body
-  %__last.sroa.0.02647 = phi ptr [ %call21.__last.sroa.0.0, %while.body ], [ %__last.coerce, %while.body.preheader ]
-  %__first.sroa.0.02746 = phi ptr [ %__first.sroa.0.0.call21, %while.body ], [ %__first.coerce, %while.body.preheader ]
+  %__last.sroa.0.02647 = phi ptr [ %__last.sroa.0.0.call21, %while.body ], [ %__last.coerce, %while.body.preheader ]
+  %__first.sroa.0.02746 = phi ptr [ %call21.__first.sroa.0.0, %while.body ], [ %__first.coerce, %while.body.preheader ]
   %__depth_limit.addr.02845 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.preheader ]
   %call21 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS3_EEEET_SE_SE_T0_(ptr %__first.sroa.0.02746, ptr %__last.sroa.0.02647)
   %cmp.i.not = icmp ugt ptr %call21, %__nth.coerce
-  %call21.__last.sroa.0.0 = select i1 %cmp.i.not, ptr %call21, ptr %__last.sroa.0.02647
-  %__first.sroa.0.0.call21 = select i1 %cmp.i.not, ptr %__first.sroa.0.02746, ptr %call21
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %call21.__last.sroa.0.0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.sroa.0.0.call21 to i64
+  %__last.sroa.0.0.call21 = select i1 %cmp.i.not, ptr %call21, ptr %__last.sroa.0.02647
+  %call21.__first.sroa.0.0 = select i1 %cmp.i.not, ptr %__first.sroa.0.02746, ptr %call21
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.sroa.0.0.call21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %call21.__first.sroa.0.0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 48
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end, %entry
-  %__last.sroa.0.0.lcssa = phi ptr [ %__last.coerce, %entry ], [ %call21.__last.sroa.0.0, %if.end ]
-  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %__first.sroa.0.0.call21, %if.end ]
+  %__last.sroa.0.0.lcssa = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.0.call21, %if.end ]
+  %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %call21.__first.sroa.0.0, %if.end ]
   %sub.ptr.rhs.cast.i.lcssa = phi i64 [ %sub.ptr.rhs.cast.i23, %entry ], [ %sub.ptr.rhs.cast.i, %if.end ]
   %cmp.i.i4 = icmp eq ptr %__first.sroa.0.0.lcssa, %__last.sroa.0.0.lcssa
   br i1 %cmp.i.i4, label %return, label %for.cond.preheader.i

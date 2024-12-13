@@ -409,11 +409,11 @@ entry:
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 512
   %tobool.not = icmp eq i32 %and, 0
-  %readp = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %bm.0.in = select i1 %tobool.not, ptr %readp, ptr %0
-  %bo.0.in = select i1 %tobool.not, ptr %0, ptr %readp
-  %bo.0 = load ptr, ptr %bo.0.in, align 8
-  %bm.0 = load ptr, ptr %bm.0.in, align 8
+  %readp2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %readp2. = select i1 %tobool.not, ptr %readp2, ptr %0
+  %.readp2 = select i1 %tobool.not, ptr %0, ptr %readp2
+  %bo.0 = load ptr, ptr %.readp2, align 8
+  %bm.0 = load ptr, ptr %readp2., align 8
   %data = getelementptr inbounds nuw i8, ptr %bm.0, i64 8
   %2 = load ptr, ptr %data, align 8
   %data4 = getelementptr inbounds nuw i8, ptr %bo.0, i64 8
@@ -465,12 +465,12 @@ if.then18:                                        ; preds = %if.then14
 
 if.end21:                                         ; preds = %if.then18, %if.then14
   %8 = phi ptr [ %.pre, %if.then18 ], [ %5, %if.then14 ]
-  %9 = load ptr, ptr %readp, align 8
+  %9 = load ptr, ptr %readp2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %return
 
 if.else24:                                        ; preds = %if.then10
-  %10 = load ptr, ptr %readp, align 8
+  %10 = load ptr, ptr %readp2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   br label %return
 
@@ -544,7 +544,7 @@ mem_buf_free.exit:                                ; preds = %if.end.i, %land.lhs
   %conv63 = trunc i64 %num to i32
   store i32 %conv63, ptr %shutdown.i, align 4
   store ptr %ptr, ptr %0, align 8
-  %16 = load ptr, ptr %readp, align 8
+  %16 = load ptr, ptr %readp2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %ptr, i64 32, i1 false)
   br label %return
 
@@ -564,7 +564,7 @@ land.lhs.true.i59:                                ; preds = %if.then70
   br i1 %or.cond67, label %if.end76, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i59
-  %18 = load ptr, ptr %readp, align 8
+  %18 = load ptr, ptr %readp2, align 8
   %data.i64 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load ptr, ptr %data.i64, align 8
   %20 = load ptr, ptr %0, align 8
@@ -576,14 +576,14 @@ if.then.i:                                        ; preds = %land.lhs.true.i59
 if.then7.i65:                                     ; preds = %if.then.i
   %22 = load i64, ptr %18, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr align 1 %19, i64 %22, i1 false)
-  %23 = load ptr, ptr %readp, align 8
+  %23 = load ptr, ptr %readp2, align 8
   %24 = load i64, ptr %23, align 8
   %25 = load ptr, ptr %0, align 8
   store i64 %24, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %data18.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load ptr, ptr %data18.i, align 8
-  %28 = load ptr, ptr %readp, align 8
+  %28 = load ptr, ptr %readp2, align 8
   %data20.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %27, ptr %data20.i, align 8
   br label %if.end76

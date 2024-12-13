@@ -724,8 +724,8 @@ if.then15:                                        ; preds = %_ZNSt10unique_ptrIN
 
 if.end16:                                         ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
   %4 = load i32, ptr %token_tag_.i, align 8
-  %cond = icmp eq i32 %4, 13
-  br i1 %cond, label %if.then19, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i
+  %cmp18 = icmp eq i32 %4, 13
+  br i1 %cmp18, label %if.then19, label %_ZNKSt14default_deleteIN4node9inspector8protocol5ValueEEclEPS3_.exit.i
 
 if.then19:                                        ; preds = %if.end16
   %5 = ptrtoint ptr %3 to i64

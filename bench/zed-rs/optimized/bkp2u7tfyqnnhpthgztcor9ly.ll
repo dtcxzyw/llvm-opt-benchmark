@@ -11172,11 +11172,11 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8sum_tree8tre
   %50 = load i64, ptr %49, align 8, !alias.scope !2710, !noundef !4
   %51 = load i64, ptr %1, align 8, !alias.scope !2713, !noalias !2716, !noundef !4
   %52 = icmp eq i64 %51, %50
-  %spec.select = select i1 %52, ptr %48, ptr null
+  %. = select i1 %52, ptr %48, ptr null
   br label %"_ZN4core3ptr210drop_in_place$LT$sum_tree..cursor..Cursor$LT$sum_tree..tree_map..MapEntry$LT$worktree..ProjectEntryId$C$worktree..LocalRepositoryEntry$GT$$C$sum_tree..tree_map..MapKeyRef$LT$worktree..ProjectEntryId$GT$$GT$$GT$17h4ab4976e05332b25E.exit12"
 
 "_ZN4core3ptr210drop_in_place$LT$sum_tree..cursor..Cursor$LT$sum_tree..tree_map..MapEntry$LT$worktree..ProjectEntryId$C$worktree..LocalRepositoryEntry$GT$$C$sum_tree..tree_map..MapKeyRef$LT$worktree..ProjectEntryId$GT$$GT$$GT$17h4ab4976e05332b25E.exit12": ; preds = %.thread, %38, %26
-  %.sroa.0.016 = phi ptr [ null, %26 ], [ %spec.select, %.thread ], [ null, %38 ]
+  %.sroa.0.016 = phi ptr [ null, %26 ], [ %., %.thread ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %5)
   ret ptr %.sroa.0.016
 }

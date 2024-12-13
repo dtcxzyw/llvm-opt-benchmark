@@ -70620,8 +70620,8 @@ define noundef zeroext i1 @"_ZN74_$LT$rust_analyzer..version..VersionInfo$u20$as
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %26
 
-26:                                               ; preds = %16, %2, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %2 ], [ %25, %16 ]
+26:                                               ; preds = %2, %16, %13
+  %.0 = phi i1 [ false, %13 ], [ %25, %16 ], [ true, %2 ]
   ret i1 %.0
 }
 

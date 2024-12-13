@@ -348,8 +348,8 @@ land.rhs.us.i.i:                                  ; preds = %do.body.us.i.i
 
 do.body.i.i:                                      ; preds = %if.end64.i.i, %land.rhs.i.i
   %call70.i.i = call i64 @ossl_time_now() #10
-  %retval.sroa.0.0.i.i.i = call i64 @llvm.usub.sat.i64(i64 %retval.sroa.0.0.copyload.i, i64 %call70.i.i)
-  %div.i.i = udiv i64 %retval.sroa.0.0.i.i.i, 1000000
+  %.sub.i.i.i.i = call i64 @llvm.usub.sat.i64(i64 %retval.sroa.0.0.copyload.i, i64 %call70.i.i)
+  %div.i.i = udiv i64 %.sub.i.i.i.i, 1000000
   %conv79.i.i = trunc i64 %div.i.i to i32
   %call81.i.i = call i32 @poll(ptr noundef nonnull %pfds.i.i, i64 noundef %npfd.036.i.i, i32 noundef %conv79.i.i) #10
   %cmp82.i.i = icmp eq i32 %call81.i.i, -1

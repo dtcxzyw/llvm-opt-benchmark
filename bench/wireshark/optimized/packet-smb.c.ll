@@ -27103,23 +27103,23 @@ define internal fastcc i32 @dissect_qpi_loi_vals(ptr noundef nonnull %0, ptr nou
   %157 = load i32, ptr %156, align 8
   %158 = call fastcc ptr @get_unicode_or_ascii_string(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %157, ptr noundef %8, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4)
   %.not63.i = icmp eq ptr %158, null
-  %.pre189 = load i32, ptr %7, align 4
+  %.pre.i = load i32, ptr %7, align 4
   br i1 %.not63.i, label %dissect_qfi_SMB_FILE_ALL_INFO.exit, label %159
 
 159:                                              ; preds = %155
   %160 = load i32, ptr @hf_smb_file_name, align 4
   %161 = load i32, ptr %8, align 4
-  %162 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %160, ptr noundef nonnull %0, i32 noundef %.pre189, i32 noundef %161, ptr noundef nonnull %158) #15
+  %162 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %160, ptr noundef nonnull %0, i32 noundef %.pre.i, i32 noundef %161, ptr noundef nonnull %158) #15
   %163 = load i32, ptr %8, align 4
-  %164 = add i32 %163, %.pre189
+  %164 = add i32 %163, %.pre.i
   %165 = load i16, ptr %4, align 2
   %166 = trunc i32 %163 to i16
   %167 = sub i16 %165, %166
   store i16 %167, ptr %4, align 2
   br label %dissect_qfi_SMB_FILE_ALL_INFO.exit
 
-dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %155, %159, %79, %85, %96, %104, %112, %120, %128, %136, %144, %154
-  %.0.i177 = phi i32 [ %80, %85 ], [ %93, %96 ], [ %100, %104 ], [ %108, %112 ], [ %116, %120 ], [ %124, %128 ], [ %133, %136 ], [ %140, %144 ], [ %149, %154 ], [ %80, %79 ], [ %164, %159 ], [ %.pre189, %155 ]
+dissect_qfi_SMB_FILE_ALL_INFO.exit:               ; preds = %79, %85, %96, %104, %112, %120, %128, %136, %144, %154, %155, %159
+  %.0.i177 = phi i32 [ %80, %85 ], [ %93, %96 ], [ %100, %104 ], [ %108, %112 ], [ %116, %120 ], [ %124, %128 ], [ %133, %136 ], [ %140, %144 ], [ %149, %154 ], [ %80, %79 ], [ %164, %159 ], [ %.pre.i, %155 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %dissect_4_2_16_4.exitthread-pre-split

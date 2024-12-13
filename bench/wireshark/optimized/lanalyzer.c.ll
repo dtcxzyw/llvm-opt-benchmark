@@ -52,12 +52,12 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 12:                                               ; preds = %3
   %.val = load i16, ptr %4, align 2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %.val104 = load i8, ptr %13, align 2
+  %.val105 = load i8, ptr %13, align 2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %.val105 = load i8, ptr %14, align 1
-  %15 = zext i8 %.val105 to i16
+  %.val106 = load i8, ptr %14, align 1
+  %15 = zext i8 %.val106 to i16
   %16 = shl nuw i16 %15, 8
-  %17 = zext i8 %.val104 to i16
+  %17 = zext i8 %.val105 to i16
   %18 = or disjoint i16 %16, %17
   switch i16 %.val, label %.loopexit [
     i16 4103, label %19
@@ -99,7 +99,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %36 = load i32, ptr %1, align 4
   %.not94 = icmp ne i32 %36, -12
   call void @g_free(ptr noundef %32) #11
-  %.208 = sext i1 %.not94 to i32
+  %.103 = sext i1 %.not94 to i32
   br label %.loopexit
 
 37:                                               ; preds = %28
@@ -115,8 +115,8 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 44:                                               ; preds = %37, %26
   %45 = load ptr, ptr %0, align 8
   %46 = call i32 @wtap_read_bytes_or_eof(ptr noundef %45, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2) #11
-  %.not95146 = icmp eq i32 %46, 0
-  br i1 %.not95146, label %._crit_edge, label %.lr.ph
+  %.not95147 = icmp eq i32 %46, 0
+  br i1 %.not95147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -143,18 +143,18 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br i1 %60, label %115, label %.loopexit
 
 61:                                               ; preds = %.lr.ph, %112
-  %.078150 = phi i32 [ undef, %.lr.ph ], [ %.2, %112 ]
-  %.079149 = phi i64 [ undef, %.lr.ph ], [ %.180, %112 ]
-  %.081148 = phi i32 [ 0, %.lr.ph ], [ %.182, %112 ]
-  %.083147 = phi i16 [ undef, %.lr.ph ], [ %.184, %112 ]
-  %.val106 = load i16, ptr %4, align 2
-  %.val108 = load i8, ptr %13, align 2
-  %.val109 = load i8, ptr %14, align 1
-  %62 = zext i8 %.val109 to i16
+  %.078151 = phi i32 [ undef, %.lr.ph ], [ %.2, %112 ]
+  %.079150 = phi i64 [ undef, %.lr.ph ], [ %.180, %112 ]
+  %.081149 = phi i32 [ 0, %.lr.ph ], [ %.182, %112 ]
+  %.083148 = phi i16 [ undef, %.lr.ph ], [ %.184, %112 ]
+  %.val107 = load i16, ptr %4, align 2
+  %.val109 = load i8, ptr %13, align 2
+  %.val110 = load i8, ptr %14, align 1
+  %62 = zext i8 %.val110 to i16
   %63 = shl nuw i16 %62, 8
-  %64 = zext i8 %.val108 to i16
+  %64 = zext i8 %.val109 to i16
   %65 = or disjoint i16 %63, %64
-  switch i16 %.val106, label %108 [
+  switch i16 %.val107, label %108 [
     i16 4098, label %66
     i16 4101, label %104
   ]
@@ -179,8 +179,8 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 74:                                               ; preds = %71
   %75 = load i8, ptr %6, align 16
   %76 = load i8, ptr %47, align 1
-  %.val110 = load i16, ptr %48, align 2
-  %77 = zext i16 %.val110 to i32
+  %.val111 = load i16, ptr %48, align 2
+  %77 = zext i16 %.val111 to i32
   %78 = add nsw i32 %77, -1900
   store i32 %78, ptr %49, align 4
   %79 = zext i8 %76 to i32
@@ -193,17 +193,17 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   store i32 0, ptr %7, align 8
   store i32 -1, ptr %54, align 8
   %82 = call i64 @mktime(ptr noundef nonnull %7) #11
-  %.val112 = load i8, ptr %55, align 2
-  %.val113 = load i8, ptr %56, align 1
-  %83 = zext i8 %.val113 to i16
+  %.val113 = load i8, ptr %55, align 2
+  %.val114 = load i8, ptr %56, align 1
+  %83 = zext i8 %.val114 to i16
   %84 = shl nuw i16 %83, 8
-  %85 = zext i8 %.val112 to i16
+  %85 = zext i8 %.val113 to i16
   %86 = or disjoint i16 %84, %85
-  %.val114 = load i8, ptr %57, align 4
-  %.val115 = load i8, ptr %58, align 1
-  %87 = zext i8 %.val115 to i16
+  %.val115 = load i8, ptr %57, align 4
+  %.val116 = load i8, ptr %58, align 1
+  %87 = zext i8 %.val116 to i16
   %88 = shl nuw i16 %87, 8
-  %89 = zext i8 %.val114 to i16
+  %89 = zext i8 %.val115 to i16
   %90 = or disjoint i16 %88, %89
   switch i16 %90, label %92 [
     i16 226, label %95
@@ -222,7 +222,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
 
 95:                                               ; preds = %74, %91
   %.1 = phi i32 [ 2, %91 ], [ 1, %74 ]
-  %.not98 = icmp eq i32 %.081148, 0
+  %.not98 = icmp eq i32 %.081149, 0
   br i1 %.not98, label %98, label %96
 
 96:                                               ; preds = %95
@@ -257,21 +257,21 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   br i1 %.not101, label %.loopexit, label %112
 
 112:                                              ; preds = %108, %98, %100
-  %.184 = phi i16 [ %.083147, %108 ], [ %86, %100 ], [ %86, %98 ]
-  %.182 = phi i32 [ %.081148, %108 ], [ 1, %100 ], [ 1, %98 ]
-  %.180 = phi i64 [ %.079149, %108 ], [ %82, %100 ], [ %82, %98 ]
-  %.2 = phi i32 [ %.078150, %108 ], [ %.1, %100 ], [ %.1, %98 ]
+  %.184 = phi i16 [ %.083148, %108 ], [ %86, %100 ], [ %86, %98 ]
+  %.182 = phi i32 [ %.081149, %108 ], [ 1, %100 ], [ 1, %98 ]
+  %.180 = phi i64 [ %.079150, %108 ], [ %82, %100 ], [ %82, %98 ]
+  %.2 = phi i32 [ %.078151, %108 ], [ %.1, %100 ], [ %.1, %98 ]
   %113 = load ptr, ptr %0, align 8
   %114 = call i32 @wtap_read_bytes_or_eof(ptr noundef %113, ptr noundef nonnull %4, i32 noundef 4, ptr noundef %1, ptr noundef %2) #11
   %.not95 = icmp eq i32 %114, 0
   br i1 %.not95, label %._crit_edge, label %61
 
 115:                                              ; preds = %._crit_edge, %104
-  %.083140 = phi i16 [ %.083.lcssa, %._crit_edge ], [ %.083147, %104 ]
-  %.081134 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081148, %104 ]
-  %.079128 = phi i64 [ %.079.lcssa, %._crit_edge ], [ %.079149, %104 ]
-  %.078122 = phi i32 [ %.078.lcssa, %._crit_edge ], [ %.078150, %104 ]
-  %.not96 = icmp eq i32 %.081134, 0
+  %.083141 = phi i16 [ %.083.lcssa, %._crit_edge ], [ %.083148, %104 ]
+  %.081135 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081149, %104 ]
+  %.079129 = phi i64 [ %.079.lcssa, %._crit_edge ], [ %.079150, %104 ]
+  %.078123 = phi i32 [ %.078.lcssa, %._crit_edge ], [ %.078151, %104 ]
+  %.not96 = icmp eq i32 %.081135, 0
   br i1 %.not96, label %116, label %118
 
 116:                                              ; preds = %115
@@ -285,7 +285,7 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %119, ptr %120, align 4
   %121 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #13
-  store i64 %.079128, ptr %121, align 8
+  store i64 %.079129, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -293,8 +293,8 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @lanalyzer_seek_read, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.078122, ptr %125, align 8
-  %126 = zext i16 %.083140 to i32
+  store i32 %.078123, ptr %125, align 8
+  %126 = zext i16 %.083141 to i32
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %126, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -302,8 +302,8 @@ define hidden range(i32 -1, 2) i32 @lanalyzer_open(ptr noundef %0, ptr noundef %
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %108, %100, %71, %35, %104, %._crit_edge, %24, %19, %12, %10, %118, %116, %96, %92, %68
-  %.0 = phi i32 [ 1, %118 ], [ -1, %116 ], [ -1, %68 ], [ -1, %92 ], [ -1, %96 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.102, %24 ], [ -1, %._crit_edge ], [ -1, %104 ], [ %.208, %35 ], [ -1, %71 ], [ -1, %100 ], [ -1, %108 ]
+.loopexit:                                        ; preds = %108, %100, %71, %104, %._crit_edge, %35, %24, %19, %12, %10, %118, %116, %96, %92, %68
+  %.0 = phi i32 [ 1, %118 ], [ -1, %116 ], [ -1, %68 ], [ -1, %92 ], [ -1, %96 ], [ %., %10 ], [ 0, %12 ], [ 0, %19 ], [ %.102, %24 ], [ %.103, %35 ], [ -1, %._crit_edge ], [ -1, %104 ], [ -1, %71 ], [ -1, %100 ], [ -1, %108 ]
   ret i32 %.0
 }
 

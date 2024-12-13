@@ -3549,120 +3549,102 @@ define dso_local noundef ptr @_ZN5clang16CompilerInstance17createFileManagerEN4l
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %.not12 = icmp eq ptr %8, null
-  br i1 %.not12, label %12, label %9
+  %.not10 = icmp eq ptr %8, null
+  br i1 %.not10, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %.critedge.thread, label %.critedge
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit, label %12
 
-.critedge.thread:                                 ; preds = %9
-  store ptr null, ptr %3, align 8
-  store ptr %11, ptr %1, align 8
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = atomicrmw add ptr %13, i32 1 monotonic, align 4
+  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit
+
+15:                                               ; preds = %6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load ptr, ptr %18, align 8
+  call void @_ZN5clang31createVFSFromCompilerInvocationERKNS_18CompilerInvocationERNS_17DiagnosticsEngineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.639") align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %17, ptr noundef nonnull align 8 dereferenceable(1304) %19) #24
+  %.pre = load ptr, ptr %3, align 8
+  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit
+
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit: ; preds = %12, %9, %15
+  %20 = phi ptr [ %11, %12 ], [ null, %9 ], [ %.pre, %15 ]
+  %21 = load ptr, ptr %1, align 8
+  store ptr %21, ptr %3, align 8
+  store ptr %20, ptr %1, align 8
+  %.not.i.i4 = icmp eq ptr %21, null
+  br i1 %.not.i.i4, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %22
+
+22:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = atomicrmw sub ptr %23, i32 1 acq_rel, align 4
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %26, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
+
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %21, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(12) %21) #24
   br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8
-  call void @_ZN5clang31createVFSFromCompilerInvocationERKNS_18CompilerInvocationERNS_17DiagnosticsEngineE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.639") align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %14, ptr noundef nonnull align 8 dereferenceable(1304) %16) #24
-  %17 = load ptr, ptr %3, align 8
-  %18 = load ptr, ptr %1, align 8
-  store ptr %18, ptr %3, align 8
-  store ptr %17, ptr %1, align 8
-  %.not.i.i4 = icmp eq ptr %18, null
-  br i1 %.not.i.i4, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %19
-
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = atomicrmw sub ptr %20, i32 1 acq_rel, align 4
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %23, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
-
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(12) %18) #24
-  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
-
-.critedge:                                        ; preds = %9
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4
-  %.pre = load ptr, ptr %1, align 8
-  store ptr %.pre, ptr %3, align 8
-  store ptr %11, ptr %1, align 8
-  %.not.i.i5 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i5, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, label %29
-
-29:                                               ; preds = %.critedge
-  %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %31 = atomicrmw sub ptr %30, i32 1 acq_rel, align 4
-  %32 = icmp eq i32 %31, 1
-  br i1 %32, label %33, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
-
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %.pre, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(12) %.pre) #24
-  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
-
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %.critedge.thread, %33, %29, %.critedge, %23, %19, %12, %2
-  %37 = call noalias noundef nonnull dereferenceable(808) ptr @_Znwm(i64 noundef 808) #23
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %1, align 8
-  store ptr %42, ptr %4, align 8
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit: ; preds = %26, %22, %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEEC2EPS2_.exit, %2
+  %30 = call noalias noundef nonnull dereferenceable(808) ptr @_Znwm(i64 noundef 808) #23
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %1, align 8
+  store ptr %35, ptr %4, align 8
   store ptr null, ptr %1, align 8
-  call void @_ZN5clang11FileManagerC1ERKNS_17FileSystemOptionsEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(808) %37, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull %4) #24
-  %43 = load i32, ptr %37, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %37, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = load ptr, ptr %45, align 8
-  store ptr %37, ptr %45, align 8
-  %.not.i.i8 = icmp eq ptr %46, null
-  br i1 %.not.i.i8, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit, label %47
+  call void @_ZN5clang11FileManagerC1ERKNS_17FileSystemOptionsEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(808) %30, ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull %4) #24
+  %36 = load i32, ptr %30, align 4
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %30, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %39 = load ptr, ptr %38, align 8
+  store ptr %30, ptr %38, align 8
+  %.not.i.i6 = icmp eq ptr %39, null
+  br i1 %.not.i.i6, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit, label %40
 
-47:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
-  %48 = load i32, ptr %46, align 4
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %46, align 4
-  %.not.i.i.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i.i.i, label %50, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit
+40:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit
+  %41 = load i32, ptr %39, align 4
+  %42 = add i32 %41, -1
+  store i32 %42, ptr %39, align 4
+  %.not.i.i.i.i = icmp eq i32 %42, 0
+  br i1 %.not.i.i.i.i, label %43, label %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit
 
-50:                                               ; preds = %47
-  call void @_ZN5clang11FileManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(808) %46) #24
-  call void @_ZdlPvm(ptr noundef nonnull align 4 dereferenceable(4) %46, i64 noundef 808) #25
+43:                                               ; preds = %40
+  call void @_ZN5clang11FileManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(808) %39) #24
+  call void @_ZdlPvm(ptr noundef nonnull align 4 dereferenceable(4) %39, i64 noundef 808) #25
   br label %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, %47, %50
-  %51 = load ptr, ptr %4, align 8
-  %.not.i.i9 = icmp eq ptr %51, null
-  br i1 %.not.i.i9, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit10, label %52
+_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit, %40, %43
+  %44 = load ptr, ptr %4, align 8
+  %.not.i.i7 = icmp eq ptr %44, null
+  br i1 %.not.i.i7, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit8, label %45
 
-52:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = atomicrmw sub ptr %53, i32 1 acq_rel, align 4
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %56, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit10
+45:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = atomicrmw sub ptr %46, i32 1 acq_rel, align 4
+  %48 = icmp eq i32 %47, 1
+  br i1 %48, label %49, label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit8
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(12) %51) #24
-  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit10
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %44, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(12) %44) #24
+  br label %_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit8
 
-_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit10: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit, %52, %56
-  %60 = load ptr, ptr %45, align 8
-  ret ptr %60
+_ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev.exit8: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang11FileManagerEED2Ev.exit, %45, %49
+  %53 = load ptr, ptr %38, align 8
+  ret ptr %53
 }
 
 declare void @_ZN5clang31createVFSFromCompilerInvocationERKNS_18CompilerInvocationERNS_17DiagnosticsEngineE(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.639") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(1304)) local_unnamed_addr #3

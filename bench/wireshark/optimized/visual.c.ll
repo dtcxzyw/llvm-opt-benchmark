@@ -886,8 +886,8 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
 
 27:                                               ; preds = %25
   %.val28 = load ptr, ptr %5, align 8
-  %.not.i31 = icmp eq ptr %.val28, null
-  br i1 %.not.i31, label %visual_dump_free.exit, label %28
+  %.not.i30 = icmp eq ptr %.val28, null
+  br i1 %.not.i30, label %visual_dump_free.exit, label %28
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %.val28, i64 16
@@ -942,31 +942,23 @@ define internal range(i32 0, 2) i32 @visual_dump_finish(ptr noundef %0, ptr noun
 
 48:                                               ; preds = %.sink.split, %31
   %49 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 188, ptr noundef %1) #7
-  %.not27 = icmp eq i32 %49, 0
+  %.not27 = icmp ne i32 %49, 0
   %.val29 = load ptr, ptr %5, align 8
-  %.not.i33 = icmp eq ptr %.val29, null
-  br i1 %.not27, label %50, label %54
+  %.not.i32 = icmp eq ptr %.val29, null
+  br i1 %.not.i32, label %visual_dump_free.exit33, label %50
 
 50:                                               ; preds = %48
-  br i1 %.not.i33, label %visual_dump_free.exit, label %51
+  %51 = getelementptr inbounds nuw i8, ptr %.val29, i64 16
+  %52 = load ptr, ptr %51, align 8
+  call void @g_free(ptr noundef %52) #7
+  br label %visual_dump_free.exit33
 
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %.val29, i64 16
-  %53 = load ptr, ptr %52, align 8
-  call void @g_free(ptr noundef %53) #7
+visual_dump_free.exit33:                          ; preds = %48, %50
+  %. = zext i1 %.not27 to i32
   br label %visual_dump_free.exit
 
-54:                                               ; preds = %48
-  br i1 %.not.i33, label %visual_dump_free.exit, label %55
-
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %.val29, i64 16
-  %57 = load ptr, ptr %56, align 8
-  call void @g_free(ptr noundef %57) #7
-  br label %visual_dump_free.exit
-
-visual_dump_free.exit:                            ; preds = %55, %54, %51, %50, %28, %27, %19, %18, %22, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %22 ], [ 0, %18 ], [ 0, %19 ], [ 0, %27 ], [ 0, %28 ], [ 0, %50 ], [ 0, %51 ], [ 1, %54 ], [ 1, %55 ]
+visual_dump_free.exit:                            ; preds = %28, %27, %19, %18, %visual_dump_free.exit33, %22, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %22 ], [ %., %visual_dump_free.exit33 ], [ 0, %18 ], [ 0, %19 ], [ 0, %27 ], [ 0, %28 ]
   ret i32 %.0
 }
 

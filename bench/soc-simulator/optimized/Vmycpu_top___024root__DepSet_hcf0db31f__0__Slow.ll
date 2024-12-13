@@ -1393,8 +1393,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 752:                                              ; preds = %751
   %753 = and i32 %337, 134217728
-  %.not3094 = icmp eq i32 %753, 0
-  br i1 %.not3094, label %.thread, label %754
+  %.not3097.not = icmp eq i32 %753, 0
+  br i1 %.not3097.not, label %.thread, label %754
 
 .thread:                                          ; preds = %752
   store i8 1, ptr %720, align 1
@@ -1425,7 +1425,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 215040, ptr %56, align 8
   br label %767
 
-767:                                              ; preds = %766, %.thread, %765, %756
+767:                                              ; preds = %.thread, %766, %765, %756
   %768 = lshr i32 %337, 11
   %769 = trunc i32 %768 to i8
   %770 = and i8 %769, 31
@@ -2088,10 +2088,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1014:                                             ; preds = %1012
   %1015 = and i32 %337, 2
-  %.not2982 = icmp eq i32 %1015, 0
+  %.not2985 = icmp eq i32 %1015, 0
   %1016 = and i32 %337, 1
   %.not2986.not = icmp eq i32 %1016, 0
-  br i1 %.not2982, label %1019, label %1017
+  br i1 %.not2985, label %1019, label %1017
 
 1017:                                             ; preds = %1014
   br i1 %.not2986.not, label %1018, label %1098
@@ -2354,7 +2354,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 65110016, ptr %56, align 8
   br label %1098
 
-1098:                                             ; preds = %905, %1021, %1079, %798, %783, %777, %894, %883, %897, %898, %906, %903, %904, %896, %888, %848, %960, %995, %994, %997, %996, %998, %1001, %999, %984, %986, %1060, %1068, %1069, %1065, %1066, %1050, %1058, %1059, %1055, %1056, %1090, %1091, %1088, %1089, %1096, %1097, %1094, %1095, %1074, %1076, %1077, %1082, %1083, %1019, %1020, %1017, %1018, %1011, %1038, %1039, %1035, %1036, %1045, %1046, %1042, %1043, %1023, %1027, %1028, %967, %969, %950, %951, %947, %948, %957, %958, %954, %955, %743, %749, %730, %736, %780, %796, %797, %767
+1098:                                             ; preds = %905, %798, %783, %777, %1021, %1079, %894, %883, %897, %898, %906, %903, %904, %896, %888, %848, %960, %995, %994, %997, %996, %998, %1001, %999, %984, %986, %1060, %1068, %1069, %1065, %1066, %1050, %1058, %1059, %1055, %1056, %1090, %1091, %1088, %1089, %1096, %1097, %1094, %1095, %1074, %1076, %1077, %1082, %1083, %1019, %1020, %1017, %1018, %1011, %1038, %1039, %1035, %1036, %1045, %1046, %1042, %1043, %1023, %1027, %1028, %967, %969, %950, %951, %947, %948, %957, %958, %954, %955, %743, %749, %730, %736, %780, %796, %797, %767
   %1099 = load i16, ptr %342, align 2
   %1100 = zext i16 %1099 to i32
   %1101 = and i32 %1100, 128
@@ -2931,8 +2931,8 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1474:                                             ; preds = %1473
   %1475 = and i32 %1419, 134217728
-  %.not3367 = icmp eq i32 %1475, 0
-  br i1 %.not3367, label %.thread3789, label %1476
+  %.not3370.not = icmp eq i32 %1475, 0
+  br i1 %.not3370.not, label %.thread3789, label %1476
 
 .thread3789:                                      ; preds = %1474
   store i8 1, ptr %1416, align 2
@@ -2963,7 +2963,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 215040, ptr %1444, align 4
   br label %1489
 
-1489:                                             ; preds = %1488, %.thread3789, %1487, %1478
+1489:                                             ; preds = %.thread3789, %1488, %1487, %1478
   %1490 = lshr i32 %1419, 11
   %1491 = trunc i32 %1490 to i8
   %1492 = and i8 %1491, 31
@@ -3672,10 +3672,10 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 
 1759:                                             ; preds = %1757
   %1760 = and i32 %1419, 2
-  %.not3245 = icmp eq i32 %1760, 0
+  %.not3248 = icmp eq i32 %1760, 0
   %1761 = and i32 %1419, 1
   %.not3249.not = icmp eq i32 %1761, 0
-  br i1 %.not3245, label %1764, label %1762
+  br i1 %.not3248, label %1764, label %1762
 
 1762:                                             ; preds = %1759
   br i1 %.not3249.not, label %1763, label %1843

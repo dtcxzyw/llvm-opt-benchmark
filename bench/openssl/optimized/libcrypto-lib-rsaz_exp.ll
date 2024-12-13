@@ -19,97 +19,97 @@ entry:
   %1 = ptrtoint ptr %add.ptr to i64
   %and = and i64 %1, 4032
   %tobool.not = icmp samesign ult i64 %and, 3776
-  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 320
-  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 640
-  %m.0 = select i1 %tobool.not, ptr %add.ptr, ptr %add.ptr4
-  %result.0 = select i1 %tobool.not, ptr %add.ptr3, ptr %add.ptr
-  %a_inv.0 = select i1 %tobool.not, ptr %add.ptr4, ptr %add.ptr3
-  call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %m.0, ptr noundef %m_norm) #2
-  call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %a_inv.0, ptr noundef %base_norm) #2
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 320
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 640
+  %add.ptr.add.ptr6 = select i1 %tobool.not, ptr %add.ptr, ptr %add.ptr6
+  %add.ptr5.add.ptr = select i1 %tobool.not, ptr %add.ptr5, ptr %add.ptr
+  %add.ptr6.add.ptr5 = select i1 %tobool.not, ptr %add.ptr6, ptr %add.ptr5
+  call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %add.ptr.add.ptr6, ptr noundef %m_norm) #2
+  call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef %base_norm) #2
   call void @rsaz_1024_norm2red_avx2(ptr noundef nonnull %add.ptr2, ptr noundef %RR) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull @two80, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, ptr noundef nonnull @one, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %a_inv.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %a_inv.0, i32 noundef 1) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 2) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 4) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 8) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 16) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 17) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 2) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 3) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 6) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 12) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 24) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 25) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 4) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 5) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 10) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 20) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 21) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 6) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 7) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 14) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 28) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 29) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 8) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 9) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 18) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 19) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 10) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 11) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 22) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 23) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 12) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 13) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 26) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 27) #2
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef 14) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 15) #2
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 1) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 30) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %result.0, i32 noundef 31) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr2, ptr noundef nonnull @two80, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, ptr noundef nonnull @one, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr6.add.ptr5, i32 noundef 1) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 2) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 4) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 8) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 16) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 17) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 2) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 3) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 6) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 12) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 24) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 25) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 4) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 5) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 10) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 20) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 21) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 6) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 7) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 14) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 28) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 29) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 8) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 9) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 18) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 19) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 10) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 11) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 22) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 23) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 12) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 13) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 26) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 27) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef 14) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 15) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 1) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 30) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_scatter5_avx2(ptr noundef nonnull %add.ptr2, ptr noundef nonnull %add.ptr5.add.ptr, i32 noundef 31) #2
   %arrayidx = getelementptr inbounds nuw i8, ptr %exponent, i64 127
   %2 = load i8, ptr %arrayidx, align 1
   %3 = lshr i8 %2, 3
   %shr7 = zext nneg i8 %3 to i32
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %add.ptr2, i32 noundef %shr7) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr2, i32 noundef %shr7) #2
   br label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %index.0280 = phi i32 [ 1014, %entry ], [ %sub19, %while.body ]
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 5) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 5) #2
   %div279 = lshr i32 %index.0280, 3
   %4 = zext nneg i32 %div279 to i64
   %5 = getelementptr inbounds nuw i8, ptr %exponent, i64 %4
@@ -119,20 +119,20 @@ while.body:                                       ; preds = %entry, %while.body
   %shr17 = lshr i32 %7, %rem16
   %and18 = and i32 %shr17, 31
   %sub19 = add nsw i32 %index.0280, -5
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %a_inv.0, ptr noundef nonnull %add.ptr2, i32 noundef %and18) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr2, i32 noundef %and18) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
   %cmp = icmp ugt i32 %index.0280, 4
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body
-  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %m.0, i64 noundef %k0, i32 noundef 4) #2
+  call void @rsaz_1024_sqr_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0, i32 noundef 4) #2
   %8 = load i8, ptr %exponent, align 1
   %9 = and i8 %8, 15
   %and22 = zext nneg i8 %9 to i32
-  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %a_inv.0, ptr noundef nonnull %add.ptr2, i32 noundef %and22) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull %a_inv.0, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %result.0, ptr noundef nonnull %result.0, ptr noundef nonnull @one, ptr noundef nonnull %m.0, i64 noundef %k0) #2
-  call void @rsaz_1024_red2norm_avx2(ptr noundef %result_norm, ptr noundef nonnull %result.0) #2
+  call void @rsaz_1024_gather5_avx2(ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr2, i32 noundef %and22) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr6.add.ptr5, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_mul_avx2(ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull %add.ptr5.add.ptr, ptr noundef nonnull @one, ptr noundef nonnull %add.ptr.add.ptr6, i64 noundef %k0) #2
+  call void @rsaz_1024_red2norm_avx2(ptr noundef %result_norm, ptr noundef nonnull %add.ptr5.add.ptr) #2
   %call.i = call i64 @bn_sub_words(ptr noundef nonnull %tmp, ptr noundef %result_norm, ptr noundef %m_norm, i32 noundef 16) #2
   %sub.i = sub i64 0, %call.i
   %10 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %sub.i) #3, !srcloc !6

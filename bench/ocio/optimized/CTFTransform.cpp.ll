@@ -21901,97 +21901,164 @@ entry:
   %3 = load ptr, ptr %m_tone, align 8
   %m_style.i = getelementptr inbounds nuw i8, ptr %3, i64 168
   %4 = load i32, ptr %m_style.i, align 8
+  %cmp.i = icmp eq i32 %4, 1
   store double 1.000000e+00, ptr %defaultVals, align 8
-  %m_green.i15.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 8
-  store double 1.000000e+00, ptr %m_green.i15.i, align 8
-  %m_blue.i16.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 16
-  store double 1.000000e+00, ptr %m_blue.i16.i, align 8
-  %m_master.i17.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 24
-  store double 1.000000e+00, ptr %m_master.i17.i, align 8
-  switch i32 %4, label %cond.false35.i [
-    i32 1, label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
-    i32 0, label %cond.true34.i
-  ]
+  %m_green.i.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 8
+  store double 1.000000e+00, ptr %m_green.i.i, align 8
+  %m_blue.i.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 16
+  store double 1.000000e+00, ptr %m_blue.i.i, align 8
+  %m_master.i.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 24
+  store double 1.000000e+00, ptr %m_master.i.i, align 8
+  %m_start.i.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 32
+  %m_width.i.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 40
+  %m_shadows74.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 48
+  %m_width.i18.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 88
+  br i1 %cmp.i, label %cond.true31.i, label %cond.false8.i
 
-cond.true34.i:                                    ; preds = %entry
+cond.false8.i:                                    ; preds = %entry
+  store double 4.000000e-01, ptr %m_start.i.i, align 8
+  store double 4.000000e-01, ptr %m_width.i.i, align 8
+  %cmp9.i = icmp eq i32 %4, 0
+  store double 1.000000e+00, ptr %m_shadows74.i, align 8
+  %m_green.i19.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 56
+  store double 1.000000e+00, ptr %m_green.i19.i, align 8
+  %m_blue.i20.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 64
+  store double 1.000000e+00, ptr %m_blue.i20.i, align 8
+  %m_master.i21.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 72
+  store double 1.000000e+00, ptr %m_master.i21.i, align 8
+  %m_start.i22.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 80
+  %m_midtones7678.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 96
+  %m_green.i34.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 104
+  %m_blue.i35.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 112
+  %m_master.i36.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 120
+  %m_start.i37.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 128
+  %m_width.i38.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 136
+  %m_highlights8183.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 144
+  %m_green.i49.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 152
+  %m_blue.i50.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 160
+  %m_master.i51.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 168
+  %m_start.i52.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 176
+  %m_width.i53.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 184
+  %m_whites8688.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 192
+  %m_green.i64.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 200
+  %m_blue.i65.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 208
+  %m_master.i66.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 216
+  %m_start.i67.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 224
+  %m_width.i68.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 232
+  br i1 %cmp9.i, label %cond.true34.i, label %cond.false35.i
+
+cond.true31.i:                                    ; preds = %entry
+  store double 0.000000e+00, ptr %m_start.i.i, align 8
+  store double 4.000000e+00, ptr %m_width.i.i, align 8
+  store double 1.000000e+00, ptr %m_shadows74.i, align 8
+  %m_green.i14.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 56
+  store double 1.000000e+00, ptr %m_green.i14.i, align 8
+  %m_blue.i15.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 64
+  store double 1.000000e+00, ptr %m_blue.i15.i, align 8
+  %m_master.i16.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 72
+  store double 1.000000e+00, ptr %m_master.i16.i, align 8
+  %m_start.i17.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 80
+  store double 2.000000e+00, ptr %m_start.i17.i, align 8
+  store double -7.000000e+00, ptr %m_width.i18.i, align 8
+  %m_midtones.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 96
+  store double 1.000000e+00, ptr %m_midtones.i, align 8
+  %m_green.i29.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 104
+  store double 1.000000e+00, ptr %m_green.i29.i, align 8
+  %m_blue.i30.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 112
+  store double 1.000000e+00, ptr %m_blue.i30.i, align 8
+  %m_master.i31.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 120
+  store double 1.000000e+00, ptr %m_master.i31.i, align 8
+  %m_start.i32.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 128
+  store double 0.000000e+00, ptr %m_start.i32.i, align 8
+  %m_width.i33.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 136
+  store double 8.000000e+00, ptr %m_width.i33.i, align 8
+  %m_highlights.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 144
+  store double 1.000000e+00, ptr %m_highlights.i, align 8
+  %m_green.i44.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 152
+  store double 1.000000e+00, ptr %m_green.i44.i, align 8
+  %m_blue.i45.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 160
+  store double 1.000000e+00, ptr %m_blue.i45.i, align 8
+  %m_master.i46.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 168
+  store double 1.000000e+00, ptr %m_master.i46.i, align 8
+  %m_start.i47.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 176
+  store double -2.000000e+00, ptr %m_start.i47.i, align 8
+  %m_width.i48.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 184
+  store double 9.000000e+00, ptr %m_width.i48.i, align 8
+  %m_whites.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 192
+  store double 1.000000e+00, ptr %m_whites.i, align 8
+  %m_green.i59.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 200
+  store double 1.000000e+00, ptr %m_green.i59.i, align 8
+  %m_blue.i60.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 208
+  store double 1.000000e+00, ptr %m_blue.i60.i, align 8
+  %m_master.i61.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 216
+  store double 1.000000e+00, ptr %m_master.i61.i, align 8
+  %m_start.i62.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 224
+  store double 0.000000e+00, ptr %m_start.i62.i, align 8
+  %m_width.i63.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 232
+  store double 8.000000e+00, ptr %m_width.i63.i, align 8
   br label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
 
-cond.false35.i:                                   ; preds = %entry
+cond.true34.i:                                    ; preds = %cond.false8.i
+  store double 5.000000e-01, ptr %m_start.i22.i, align 8
+  store double 0.000000e+00, ptr %m_width.i18.i, align 8
+  store double 1.000000e+00, ptr %m_midtones7678.i, align 8
+  store double 1.000000e+00, ptr %m_green.i34.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i35.i, align 8
+  store double 1.000000e+00, ptr %m_master.i36.i, align 8
+  store double 4.000000e-01, ptr %m_start.i37.i, align 8
+  store double 6.000000e-01, ptr %m_width.i38.i, align 8
+  store double 1.000000e+00, ptr %m_highlights8183.i, align 8
+  store double 1.000000e+00, ptr %m_green.i49.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i50.i, align 8
+  store double 1.000000e+00, ptr %m_master.i51.i, align 8
+  store double 3.000000e-01, ptr %m_start.i52.i, align 8
+  store double 1.000000e+00, ptr %m_width.i53.i, align 8
+  store double 1.000000e+00, ptr %m_whites8688.i, align 8
+  store double 1.000000e+00, ptr %m_green.i64.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i65.i, align 8
+  store double 1.000000e+00, ptr %m_master.i66.i, align 8
+  store double 4.000000e-01, ptr %m_start.i67.i, align 8
+  store double 5.000000e-01, ptr %m_width.i68.i, align 8
   br label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
 
-_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %entry, %cond.true34.i, %cond.false35.i
-  %.sink108.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
-  %.sink107.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 4.000000e-01, %cond.false35.i ], [ 4.000000e+00, %entry ]
-  %.sink106.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 6.000000e-01, %cond.false35.i ], [ 2.000000e+00, %entry ]
-  %.sink105.i = phi double [ 0.000000e+00, %cond.true34.i ], [ 0.000000e+00, %cond.false35.i ], [ -7.000000e+00, %entry ]
-  %.sink103.i = phi double [ 6.000000e-01, %cond.true34.i ], [ 0x3FE6666666666666, %cond.false35.i ], [ 8.000000e+00, %entry ]
-  %.sink102.i = phi double [ 3.000000e-01, %cond.true34.i ], [ 2.000000e-01, %cond.false35.i ], [ -2.000000e+00, %entry ]
-  %.sink101.i = phi double [ 1.000000e+00, %cond.true34.i ], [ 1.000000e+00, %cond.false35.i ], [ 9.000000e+00, %entry ]
-  %.sink100.i = phi double [ 4.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 0.000000e+00, %entry ]
-  %.sink.i = phi double [ 5.000000e-01, %cond.true34.i ], [ 5.000000e-01, %cond.false35.i ], [ 8.000000e+00, %entry ]
-  %m_whites95.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 192
-  %m_width.i64.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 184
-  %m_start.i63.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 176
-  %m_master.i62.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 168
-  %m_blue.i61.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 160
-  %m_green.i60.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 152
-  %m_highlights90.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 144
-  %m_width.i49.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 136
-  %m_start.i48.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 128
-  %m_master.i47.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 120
-  %m_blue.i46.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 112
-  %m_green.i45.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 104
-  %m_midtones85.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 96
-  %m_width.i34.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 88
-  %m_start.i33.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 80
-  %m_master.i32.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 72
-  %m_blue.i31.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 64
-  %m_green.i30.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 56
-  %m_shadows80.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 48
-  %m_width.i19.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 40
-  %m_start.i18.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 32
-  store double %.sink108.i, ptr %m_start.i18.i, align 8
-  store double %.sink107.i, ptr %m_width.i19.i, align 8
-  store double 1.000000e+00, ptr %m_shadows80.i, align 8
-  store double 1.000000e+00, ptr %m_green.i30.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i31.i, align 8
-  store double 1.000000e+00, ptr %m_master.i32.i, align 8
-  store double %.sink106.i, ptr %m_start.i33.i, align 8
-  store double %.sink105.i, ptr %m_width.i34.i, align 8
-  store double 1.000000e+00, ptr %m_midtones85.i, align 8
-  store double 1.000000e+00, ptr %m_green.i45.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i46.i, align 8
-  store double 1.000000e+00, ptr %m_master.i47.i, align 8
-  store double %.sink108.i, ptr %m_start.i48.i, align 8
-  store double %.sink103.i, ptr %m_width.i49.i, align 8
-  store double 1.000000e+00, ptr %m_highlights90.i, align 8
-  store double 1.000000e+00, ptr %m_green.i60.i, align 8
-  store double 1.000000e+00, ptr %m_blue.i61.i, align 8
-  store double 1.000000e+00, ptr %m_master.i62.i, align 8
-  store double %.sink102.i, ptr %m_start.i63.i, align 8
-  store double %.sink101.i, ptr %m_width.i64.i, align 8
-  store double 1.000000e+00, ptr %m_whites95.i, align 8
-  %m_green.i70.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 200
-  store double 1.000000e+00, ptr %m_green.i70.i, align 8
-  %m_blue.i71.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 208
-  store double 1.000000e+00, ptr %m_blue.i71.i, align 8
-  %m_master.i72.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 216
-  store double 1.000000e+00, ptr %m_master.i72.i, align 8
-  %m_start.i73.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 224
-  store double %.sink100.i, ptr %m_start.i73.i, align 8
-  %m_width.i74.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 232
-  store double %.sink.i, ptr %m_width.i74.i, align 8
+cond.false35.i:                                   ; preds = %cond.false8.i
+  store double 6.000000e-01, ptr %m_start.i22.i, align 8
+  store double 0.000000e+00, ptr %m_width.i18.i, align 8
+  store double 1.000000e+00, ptr %m_midtones7678.i, align 8
+  store double 1.000000e+00, ptr %m_green.i34.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i35.i, align 8
+  store double 1.000000e+00, ptr %m_master.i36.i, align 8
+  store double 4.000000e-01, ptr %m_start.i37.i, align 8
+  store double 0x3FE6666666666666, ptr %m_width.i38.i, align 8
+  store double 1.000000e+00, ptr %m_highlights8183.i, align 8
+  store double 1.000000e+00, ptr %m_green.i49.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i50.i, align 8
+  store double 1.000000e+00, ptr %m_master.i51.i, align 8
+  store double 2.000000e-01, ptr %m_start.i52.i, align 8
+  store double 1.000000e+00, ptr %m_width.i53.i, align 8
+  store double 1.000000e+00, ptr %m_whites8688.i, align 8
+  store double 1.000000e+00, ptr %m_green.i64.i, align 8
+  store double 1.000000e+00, ptr %m_blue.i65.i, align 8
+  store double 1.000000e+00, ptr %m_master.i66.i, align 8
+  store double 5.000000e-01, ptr %m_start.i67.i, align 8
+  store double 5.000000e-01, ptr %m_width.i68.i, align 8
+  br label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
+
+_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %cond.true31.i, %cond.true34.i, %cond.false35.i
   %m_scontrast.i = getelementptr inbounds nuw i8, ptr %defaultVals, i64 240
   store double 1.000000e+00, ptr %m_scontrast.i, align 8
   call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_TONE_BLACKSE, ptr noundef nonnull align 8 dereferenceable(48) %defaultVals, ptr noundef nonnull align 8 dereferenceable(48) %call2.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %m_shadows7 = getelementptr inbounds nuw i8, ptr %call2.i, i64 48
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL16TAG_TONE_SHADOWSE, ptr noundef nonnull align 8 dereferenceable(48) %m_shadows80.i, ptr noundef nonnull align 8 dereferenceable(48) %m_shadows7, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL16TAG_TONE_SHADOWSE, ptr noundef nonnull align 8 dereferenceable(48) %m_shadows74.i, ptr noundef nonnull align 8 dereferenceable(48) %m_shadows7, i1 noundef zeroext false, i1 noundef zeroext true)
+  %m_midtones = getelementptr inbounds nuw i8, ptr %defaultVals, i64 96
   %m_midtones8 = getelementptr inbounds nuw i8, ptr %call2.i, i64 96
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17TAG_TONE_MIDTONESE, ptr noundef nonnull align 8 dereferenceable(48) %m_midtones85.i, ptr noundef nonnull align 8 dereferenceable(48) %m_midtones8, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL17TAG_TONE_MIDTONESE, ptr noundef nonnull align 8 dereferenceable(48) %m_midtones, ptr noundef nonnull align 8 dereferenceable(48) %m_midtones8, i1 noundef zeroext true, i1 noundef zeroext false)
+  %m_highlights = getelementptr inbounds nuw i8, ptr %defaultVals, i64 144
   %m_highlights9 = getelementptr inbounds nuw i8, ptr %call2.i, i64 144
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL19TAG_TONE_HIGHLIGHTSE, ptr noundef nonnull align 8 dereferenceable(48) %m_highlights90.i, ptr noundef nonnull align 8 dereferenceable(48) %m_highlights9, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL19TAG_TONE_HIGHLIGHTSE, ptr noundef nonnull align 8 dereferenceable(48) %m_highlights, ptr noundef nonnull align 8 dereferenceable(48) %m_highlights9, i1 noundef zeroext false, i1 noundef zeroext true)
+  %m_whites = getelementptr inbounds nuw i8, ptr %defaultVals, i64 192
   %m_whites10 = getelementptr inbounds nuw i8, ptr %call2.i, i64 192
-  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_TONE_WHITESE, ptr noundef nonnull align 8 dereferenceable(48) %m_whites95.i, ptr noundef nonnull align 8 dereferenceable(48) %m_whites10, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter11writeRGBMSWEPKcRKNS_13GradingRGBMSWES6_bb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL15TAG_TONE_WHITESE, ptr noundef nonnull align 8 dereferenceable(48) %m_whites, ptr noundef nonnull align 8 dereferenceable(48) %m_whites10, i1 noundef zeroext false, i1 noundef zeroext false)
   %5 = load double, ptr %m_scontrast.i, align 8
   %m_scontrast11 = getelementptr inbounds nuw i8, ptr %call2.i, i64 240
   %6 = load double, ptr %m_scontrast11, align 8
@@ -22001,8 +22068,8 @@ _ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %entr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp13.i)
-  %cmp.i = fcmp une double %6, %5
-  br i1 %cmp.i, label %if.then.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
+  %cmp.i8 = fcmp une double %6, %5
+  br i1 %cmp.i8, label %if.then.i, label %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
 
 if.then.i:                                        ; preds = %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %attributes.i, i8 0, i64 24, i1 false)
@@ -22010,8 +22077,8 @@ if.then.i:                                        ; preds = %_ZN19OpenColorIO_v2
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %vtable.i8 = load ptr, ptr %stream.i, align 8
-  %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i8, i64 -24
+  %vtable.i9 = load ptr, ptr %stream.i, align 8
+  %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i9, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream.i, i64 %vbase.offset.i
   %_M_precision.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -22196,12 +22263,12 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   %22 = load ptr, ptr %attributes, align 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %22, %23
-  br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i10, label %for.body.i.i.i.i
+  br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i11, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont22, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %22, %invoke.cont22 ]
-  %second.i.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i9) #27
+  %second.i.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i10) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.04.i.i.i.i) #27
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %23
@@ -22209,14 +22276,14 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont22, %for
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %attributes, align 8
-  br label %invoke.cont.i10
+  br label %invoke.cont.i11
 
-invoke.cont.i10:                                  ; preds = %invoke.contthread-pre-split.i, %invoke.cont22
+invoke.cont.i11:                                  ; preds = %invoke.contthread-pre-split.i, %invoke.cont22
   %24 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %22, %invoke.cont22 ]
   %tobool.not.i.i.i = icmp eq ptr %24, null
-  br i1 %tobool.not.i.i.i, label %if.end, label %if.then.i.i.i11
+  br i1 %tobool.not.i.i.i, label %if.end, label %if.then.i.i.i12
 
-if.then.i.i.i11:                                  ; preds = %invoke.cont.i10
+if.then.i.i.i12:                                  ; preds = %invoke.cont.i11
   call void @_ZdlPv(ptr noundef nonnull %24) #29
   br label %if.end
 
@@ -22228,8 +22295,8 @@ lpad:                                             ; preds = %if.then
 lpad15:                                           ; preds = %if.else.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
-  %second.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i12) #27
+  %second.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i13) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #27
   br label %common.resume
 
@@ -22249,7 +22316,7 @@ ehcleanup:                                        ; preds = %lpad21, %lpad19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #27
   br label %common.resume
 
-if.end:                                           ; preds = %if.then.i.i.i11, %invoke.cont.i10, %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
+if.end:                                           ; preds = %if.then.i.i.i12, %invoke.cont.i11, %_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_117GradingToneWriter18writeScalarElementEPKcdd.exit
   ret void
 }
 

@@ -241,13 +241,13 @@ define void @Java_sun_java2d_loops_MaskFill_FillAAPgram(ptr noundef %0, ptr noun
   %.1149 = phi double [ %.0157, %38 ], [ %.0148, %34 ]
   %40 = fcmp olt double %.1149, 0.000000e+00
   %41 = fadd double %.1, %.1149
-  %.0155 = select i1 %40, double %41, double %.1
-  %.0153 = select i1 %40, double %.1, double %41
+  %..1 = select i1 %40, double %41, double %.1
+  %.1. = select i1 %40, double %.1, double %41
   %42 = fcmp olt double %.1158, 0.000000e+00
-  %43 = fadd double %.1158, %.0155
-  %44 = fadd double %.1158, %.0153
-  %.1156 = select i1 %42, double %43, double %.0155
-  %.1154 = select i1 %42, double %.0153, double %44
+  %43 = fadd double %.1158, %..1
+  %44 = fadd double %.1158, %.1.
+  %.1156 = select i1 %42, double %43, double %..1
+  %.1154 = select i1 %42, double %.1., double %44
   %45 = tail call double @llvm.floor.f64(double %.1156)
   %46 = fptosi double %45 to i32
   %47 = tail call double @llvm.ceil.f64(double %.1154)
@@ -360,9 +360,9 @@ define void @Java_sun_java2d_loops_MaskFill_FillAAPgram(ptr noundef %0, ptr noun
 119:                                              ; preds = %102
   %120 = fneg double %.1149
   %.2150 = select i1 %40, double %120, double %.1149
-  %121 = fadd double %.0155, %.2150
+  %121 = fadd double %..1, %.2150
   %122 = fadd double %.1147, %.1161
-  call fastcc void @fillAARect(ptr noundef %55, ptr noundef %12, ptr noundef %13, i32 noundef %89, ptr noundef %95, ptr noundef %116, double noundef %.0155, double noundef %.1147, double noundef %121, double noundef %122)
+  call fastcc void @fillAARect(ptr noundef %55, ptr noundef %12, ptr noundef %13, i32 noundef %89, ptr noundef %95, ptr noundef %116, double noundef %..1, double noundef %.1147, double noundef %121, double noundef %122)
   br label %131
 
 123:                                              ; preds = %102

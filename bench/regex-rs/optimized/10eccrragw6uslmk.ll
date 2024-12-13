@@ -13945,8 +13945,8 @@ define noundef zeroext i1 @"_ZN131_$LT$$LT$regex_automata..util..captures..Captu
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %27
 
-27:                                               ; preds = %17, %2, %15
-  %.0 = phi i1 [ false, %15 ], [ true, %2 ], [ %26, %17 ]
+27:                                               ; preds = %2, %17, %15
+  %.0 = phi i1 [ false, %15 ], [ %26, %17 ], [ true, %2 ]
   ret i1 %.0
 }
 

@@ -977,8 +977,8 @@ if.then7:                                         ; preds = %if.end3
   %call9 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %cond) #15
   br label %return
 
-return:                                           ; preds = %if.end3, %if.then7, %if.end, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.end ], [ -125, %if.then7 ], [ 0, %if.end3 ]
+return:                                           ; preds = %if.end3, %if.end, %entry, %if.then7
+  %retval.0 = phi i32 [ -125, %if.then7 ], [ -173, %entry ], [ -125, %if.end ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 

@@ -629,8 +629,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 346, label %list_length.exit.thread.loopexit
     i32 339, label %10
     i32 315, label %14
-    i32 318, label %18
-    i32 319, label %26
+    i32 318, label %19
+    i32 319, label %27
   ]
 
 4:                                                ; preds = %tailrecurse, %tailrecurse
@@ -650,57 +650,57 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 14:                                               ; preds = %tailrecurse
   %15 = load i32, ptr %.tr, align 4
-  %cond = icmp eq i32 %15, 285
-  br i1 %cond, label %16, label %list_length.exit.thread
+  %16 = icmp eq i32 %15, 285
+  br i1 %16, label %17, label %list_length.exit.thread
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %16, %24, %32
-  %.tr.be.in = phi ptr [ %17, %16 ], [ %.val, %24 ], [ %.val15, %32 ]
+tailrecurse.backedge:                             ; preds = %17, %25, %33
+  %.tr.be.in = phi ptr [ %18, %17 ], [ %.val, %25 ], [ %.val12, %33 ]
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   br label %tailrecurse
 
-18:                                               ; preds = %tailrecurse
-  %19 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %20 = load ptr, ptr %19, align 8
-  %.not.i = icmp eq ptr %20, null
+19:                                               ; preds = %tailrecurse
+  %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
+  %21 = load ptr, ptr %20, align 8
+  %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
-list_length.exit:                                 ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %list_length.exit.thread
+list_length.exit:                                 ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %list_length.exit.thread
 
-24:                                               ; preds = %list_length.exit
-  %25 = getelementptr i8, ptr %20, i64 16
-  %.val = load ptr, ptr %25, align 8
+25:                                               ; preds = %list_length.exit
+  %26 = getelementptr i8, ptr %21, i64 16
+  %.val = load ptr, ptr %26, align 8
   br label %tailrecurse.backedge
 
-26:                                               ; preds = %tailrecurse
-  %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %.not.i16 = icmp eq ptr %28, null
-  br i1 %.not.i16, label %list_length.exit.thread, label %list_length.exit17
+27:                                               ; preds = %tailrecurse
+  %28 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
+  %29 = load ptr, ptr %28, align 8
+  %.not.i13 = icmp eq ptr %29, null
+  br i1 %.not.i13, label %list_length.exit.thread, label %list_length.exit14
 
-list_length.exit17:                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %32, label %list_length.exit.thread
+list_length.exit14:                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %list_length.exit.thread
 
-32:                                               ; preds = %list_length.exit17
-  %33 = getelementptr i8, ptr %28, i64 16
-  %.val15 = load ptr, ptr %33, align 8
+33:                                               ; preds = %list_length.exit14
+  %34 = getelementptr i8, ptr %29, i64 16
+  %.val12 = load ptr, ptr %34, align 8
   br label %tailrecurse.backedge
 
 list_length.exit.thread.loopexit:                 ; preds = %tailrecurse, %tailrecurse
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %26, %18, %14, %list_length.exit17, %list_length.exit, %tailrecurse, %list_length.exit.thread.loopexit, %10, %4
-  %.0 = phi i1 [ %9, %4 ], [ %.not, %10 ], [ true, %list_length.exit.thread.loopexit ], [ false, %tailrecurse ], [ false, %list_length.exit ], [ false, %list_length.exit17 ], [ false, %14 ], [ false, %18 ], [ false, %26 ]
+list_length.exit.thread:                          ; preds = %27, %19, %list_length.exit14, %list_length.exit, %14, %tailrecurse, %list_length.exit.thread.loopexit, %10, %4
+  %.0 = phi i1 [ %9, %4 ], [ %.not, %10 ], [ true, %list_length.exit.thread.loopexit ], [ false, %tailrecurse ], [ false, %14 ], [ false, %list_length.exit ], [ false, %list_length.exit14 ], [ false, %19 ], [ false, %27 ]
   ret i1 %.0
 }
 

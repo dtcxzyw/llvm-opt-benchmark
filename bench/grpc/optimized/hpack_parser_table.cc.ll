@@ -8657,9 +8657,9 @@ _ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_s
   %transport_size_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 %conv, ptr %transport_size_.i, align 8
   %call3.i4 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-          to label %invoke.cont8 unwind label %lpad7
+          to label %_ZN9grpc_core5SliceD2Ev.exit12 unwind label %lpad7
 
-invoke.cont8:                                     ; preds = %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
+_ZN9grpc_core5SliceD2Ev.exit12:                   ; preds = %_ZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE14KeyValueVTableESt17basic_string_viewIcSt11char_traitsIcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call3.i4, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, i64 32, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %call3.i4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, i64 32, i1 false)

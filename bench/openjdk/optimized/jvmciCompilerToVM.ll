@@ -29943,8 +29943,8 @@ _ZL25attachSharedLibraryThreadP7JNIEnv_P11_jbyteArrayh.exit: ; preds = %28, %35,
   %137 = load volatile i64, ptr %136, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !7
   %138 = and i64 %137, 1
-  %.not.i.i.i.i67 = icmp eq i64 %138, 0
-  br i1 %.not.i.i.i.i67, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %139
+  %.not.i.i.i.i66 = icmp eq i64 %138, 0
+  br i1 %.not.i.i.i.i66, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %139
 
 139:                                              ; preds = %135
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %21, i1 noundef zeroext true, i1 noundef zeroext false) #16
@@ -29954,8 +29954,8 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; pred
   %140 = getelementptr inbounds nuw i8, ptr %21, i64 1088
   %141 = load volatile i32, ptr %140, align 8
   %142 = and i32 %141, 12
-  %.not.i.i.i68 = icmp eq i32 %142, 0
-  br i1 %.not.i.i.i68, label %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, label %143
+  %.not.i.i.i67 = icmp eq i32 %142, 0
+  br i1 %.not.i.i.i67, label %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, label %143
 
 143:                                              ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
   tail call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %21) #16
@@ -29981,8 +29981,8 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %157 = icmp slt i64 %156, 2
   %158 = load i64, ptr @JVMCIEventLogLevel, align 8
   %159 = icmp slt i64 %158, 2
-  %or.cond.i69 = select i1 %157, i1 %159, i1 false
-  br i1 %or.cond.i69, label %_ZN14JVMCITraceMarkC2EPKc.exit, label %160
+  %or.cond.i68 = select i1 %157, i1 %159, i1 false
+  br i1 %or.cond.i68, label %_ZN14JVMCITraceMarkC2EPKc.exit, label %160
 
 160:                                              ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
   call void (ptr, ...) @_ZN5JVMCI6event2EPKcz(ptr noundef nonnull @.str.439, ptr noundef nonnull @.str.164) #16
@@ -30006,8 +30006,8 @@ _ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit:    ; preds = %_ZN14JVMCITraceMark
   %166 = call noundef ptr @_ZN5JVMCI16compiler_runtimeEP10JavaThreadb(ptr noundef nonnull %21, i1 noundef zeroext true) #16
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load ptr, ptr %167, align 8
-  %.not78 = icmp eq ptr %168, null
-  br i1 %.not78, label %174, label %169
+  %.not77 = icmp eq ptr %168, null
+  br i1 %.not77, label %174, label %169
 
 169:                                              ; preds = %165
   %170 = call noundef i32 @_ZN12JVMCIRuntime6GetEnvEP10JavaThreadPPvi(ptr noundef nonnull align 8 dereferenceable(93) %166, ptr noundef nonnull %21, ptr noundef nonnull %14, i32 noundef 65538) #16
@@ -30040,8 +30040,8 @@ _ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit:    ; preds = %_ZN14JVMCITraceMark
 
 181:                                              ; preds = %179, %176
   %182 = call noundef ptr @_ZN5JVMCI18get_shared_libraryERPcb(ptr noundef nonnull align 8 dereferenceable(8) %17, i1 noundef zeroext false) #16
-  %.not79 = icmp eq ptr %182, null
-  br i1 %.not79, label %183, label %.critedge66
+  %.not78 = icmp eq ptr %182, null
+  br i1 %.not78, label %183, label %.critedge65
 
 183:                                              ; preds = %181
   call void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull @.str.165) #16
@@ -30049,7 +30049,7 @@ _ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit:    ; preds = %_ZN14JVMCITraceMark
   call void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #16
   br label %219
 
-.critedge66:                                      ; preds = %181
+.critedge65:                                      ; preds = %181
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #16
   call void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #16
   store i32 65538, ptr %18, align 8
@@ -30065,7 +30065,7 @@ _ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit:    ; preds = %_ZN14JVMCITraceMark
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %219, label %192
 
-192:                                              ; preds = %.critedge66
+192:                                              ; preds = %.critedge65
   %.not61 = icmp eq i8 %3, 0
   br i1 %.not61, label %195, label %193
 
@@ -30126,14 +30126,14 @@ _ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit:    ; preds = %_ZN14JVMCITraceMark
   call void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #16
   br label %219
 
-219:                                              ; preds = %183, %211, %206, %204, %.critedge66, %.critedge, %172, %_ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit, %216
-  %.1 = phi i8 [ 0, %216 ], [ 0, %183 ], [ 0, %_ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit ], [ 0, %172 ], [ 0, %.critedge ], [ 0, %.critedge66 ], [ 0, %204 ], [ 1, %206 ], [ 1, %211 ]
+219:                                              ; preds = %183, %211, %206, %204, %.critedge65, %.critedge, %_ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit, %172, %216
+  %.1 = phi i8 [ 0, %172 ], [ 0, %216 ], [ 0, %183 ], [ 0, %_ZL25requireJVMCINativeLibraryP8JVMCIEnv.exit ], [ 0, %.critedge ], [ 0, %.critedge65 ], [ 0, %204 ], [ 1, %206 ], [ 1, %211 ]
   %220 = load i64, ptr @JVMCITraceLevel, align 8
   %221 = icmp slt i64 %220, 2
   %222 = load i64, ptr @JVMCIEventLogLevel, align 8
   %223 = icmp slt i64 %222, 2
-  %or.cond.i70 = select i1 %221, i1 %223, i1 false
-  br i1 %or.cond.i70, label %_ZN14JVMCITraceMarkD2Ev.exit, label %224
+  %or.cond.i69 = select i1 %221, i1 %223, i1 false
+  br i1 %or.cond.i69, label %_ZN14JVMCITraceMarkD2Ev.exit, label %224
 
 224:                                              ; preds = %219
   call void (ptr, ...) @_ZN5JVMCI6event2EPKcz(ptr noundef nonnull @.str.440, ptr noundef nonnull @.str.164) #16
@@ -30143,8 +30143,8 @@ _ZN14JVMCITraceMarkD2Ev.exit:                     ; preds = %219, %224
   call void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #16
   call void @_ZN25CompilerThreadCanCallJavaD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %12) #16
   %225 = load ptr, ptr %148, align 8
-  %.not.i.i.i.i71 = icmp eq ptr %225, null
-  br i1 %.not.i.i.i.i71, label %227, label %226
+  %.not.i.i.i.i70 = icmp eq ptr %225, null
+  br i1 %.not.i.i.i.i70, label %227, label %226
 
 226:                                              ; preds = %_ZN14JVMCITraceMarkD2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %146, i64 noundef %154) #16

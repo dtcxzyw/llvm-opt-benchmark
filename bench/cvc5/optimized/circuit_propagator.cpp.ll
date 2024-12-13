@@ -1457,7 +1457,7 @@ if.then13.i.i127:                                 ; preds = %if.else.i.i125
 
 invoke.cont72:                                    ; preds = %if.then13.i.i127, %if.else.i.i125, %if.then.i.i129
   invoke void @_ZN4cvc58internal16ProofNodeManager8mkAssumeENS0_12NodeTemplateILb1EEE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %agg.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %call70, ptr noundef nonnull %agg.tmp71)
-          to label %cond.end78 unwind label %lpad73
+          to label %cond.end78 unwind label %ehcleanup95.thread
 
 cond.false76:                                     ; preds = %if.else57
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63, i8 0, i64 16, i1 false)
@@ -1465,7 +1465,7 @@ cond.false76:                                     ; preds = %if.else57
 
 cond.end78:                                       ; preds = %invoke.cont72, %cond.false76
   invoke void @_ZN4cvc58internal6theory8booleans17CircuitPropagator16assignAndEnqueueENS0_12NodeTemplateILb0EEEbSt10shared_ptrINS0_9ProofNodeEE(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull %agg.tmp62, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp63)
-          to label %invoke.cont80 unwind label %lpad79
+          to label %invoke.cont80 unwind label %ehcleanup95
 
 invoke.cont80:                                    ; preds = %cond.end78
   %_M_refcount.i.i136 = getelementptr inbounds nuw i8, ptr %agg.tmp63, i64 8
@@ -1642,27 +1642,27 @@ terminate.lpad.i209:                              ; preds = %if.then13.i.i208
   call void @__clang_call_terminate(ptr %77) #22
   unreachable
 
-lpad73:                                           ; preds = %invoke.cont72
+ehcleanup95.thread:                               ; preds = %invoke.cont72
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action97
 
-lpad79:                                           ; preds = %cond.end78
+ehcleanup95:                                      ; preds = %cond.end78
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63) #20
   br i1 %cmp.i.i.i120.not, label %eh.resume, label %cleanup.action97
 
-cleanup.action97:                                 ; preds = %lpad79, %lpad73
-  %.pn.ph = phi { ptr, i32 } [ %78, %lpad73 ], [ %79, %lpad79 ]
+cleanup.action97:                                 ; preds = %ehcleanup95.thread, %ehcleanup95
+  %.pn219 = phi { ptr, i32 } [ %78, %ehcleanup95.thread ], [ %79, %ehcleanup95 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp71) #20
   br label %eh.resume
 
 if.end101:                                        ; preds = %invoke.cont50, %if.end, %cleanup.action, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i145, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i155, %if.end8.sink.split.i.i.i.i158, %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit199, %if.then.i.i202, %if.then13.i.i208, %if.then13.i.i54, %if.then.i.i48, %invoke.cont
   ret void
 
-eh.resume:                                        ; preds = %lpad79, %cleanup.action97, %ehcleanup, %lpad45, %lpad
-  %.pn8.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn3, %ehcleanup ], [ %47, %lpad45 ], [ %.pn.ph, %cleanup.action97 ], [ %79, %lpad79 ]
+eh.resume:                                        ; preds = %cleanup.action97, %ehcleanup95, %ehcleanup, %lpad45, %lpad
+  %.pn8.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn3, %ehcleanup ], [ %47, %lpad45 ], [ %.pn219, %cleanup.action97 ], [ %79, %ehcleanup95 ]
   resume { ptr, i32 } %.pn8.pn
 }
 

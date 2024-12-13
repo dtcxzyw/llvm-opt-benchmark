@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Match_t, align 8
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 352
   store ptr %8, ptr %9, align 8
@@ -325,7 +325,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Match_t, align 8
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %3)
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 352
   store ptr %5, ptr %6, align 8
@@ -1030,7 +1030,7 @@ gv_isspace.exit:                                  ; preds = %gv_isspace.exit.bac
 
 251:                                              ; preds = %249
   %252 = tail call i64 @llvm.umin.i64(i64 %.sroa.13.0497.lcssa, i64 5)
-  %253 = tail call i32 @strncmp(ptr noundef nonnull readonly %237, ptr noundef nonnull readonly @.str, i64 noundef %252) #8
+  %253 = tail call i32 @strncmp(ptr noundef nonnull readonly %237, ptr noundef nonnull readonly @.str, i64 noundef %252) #7
   %.not.i.i.i = icmp eq i32 %253, 0
   %254 = icmp eq i64 %.sroa.13.0497.lcssa, 5
   %spec.select.i.i = and i1 %254, %.not.i.i.i
@@ -1153,8 +1153,8 @@ gv_isxdigit.exit.thread:                          ; preds = %switch.early.test, 
   br i1 %297, label %298, label %303
 
 298:                                              ; preds = %292
-  %299 = tail call i32 @tolower(i32 noundef %288) #8
-  %300 = tail call i32 @tolower(i32 noundef %294) #8
+  %299 = tail call i32 @tolower(i32 noundef %288) #7
+  %300 = tail call i32 @tolower(i32 noundef %294) #7
   %301 = icmp eq i32 %299, %300
   %302 = icmp eq i32 %.fr420, %288
   %or.cond419 = or i1 %301, %302
@@ -1315,12 +1315,10 @@ gobble.exit.thread:                               ; preds = %.loopexit, %361, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64 %1, ptr noundef readonly %2) unnamed_addr #3 {
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
+define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64 %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
   %4 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %2)
   %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
-  %6 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %2, i64 noundef %5) #8
+  %6 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %5) #7
   %.not.i.i = icmp eq i32 %6, 0
   %7 = icmp eq i64 %1, %4
   %spec.select.i = and i1 %7, %.not.i.i
@@ -1336,17 +1334,14 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1354,9 +1349,8 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

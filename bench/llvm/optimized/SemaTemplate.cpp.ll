@@ -6891,7 +6891,7 @@ define internal fastcc void @_ZL25translateTemplateArgumentRN5clang4SemaERKNS_22
   %7 = load i32, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  switch i32 %7, label %40 [
+  switch i32 %7, label %41 [
     i32 0, label %10
     i32 1, label %24
     i32 2, label %29
@@ -6921,7 +6921,7 @@ define internal fastcc void @_ZL25translateTemplateArgumentRN5clang4SemaERKNS_22
   %22 = and i64 %21, -4
   %23 = or disjoint i64 %22, 2
   store i64 %23, ptr %20, align 8
-  br label %41
+  br label %42
 
 24:                                               ; preds = %3
   %25 = ptrtoint ptr %9 to i64
@@ -6932,7 +6932,7 @@ define internal fastcc void @_ZL25translateTemplateArgumentRN5clang4SemaERKNS_22
   %27 = and i64 %25, -4
   %28 = or disjoint i64 %27, 1
   store i64 %28, ptr %26, align 8
-  br label %41
+  br label %42
 
 29:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6942,30 +6942,30 @@ define internal fastcc void @_ZL25translateTemplateArgumentRN5clang4SemaERKNS_22
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %.sroa.0.0.copyload.i26 = load i32, ptr %31, align 4
   %.not43 = icmp eq i32 %.sroa.0.0.copyload.i26, 0
-  %.sroa.036.0 = select i1 %.not43, i32 6, i32 7
-  %.sroa.6.0 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = call { ptr, ptr } @_ZNK5clang12CXXScopeSpec19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(23096) %33) #24
-  %36 = extractvalue { ptr, ptr } %35, 0
-  %37 = extractvalue { ptr, ptr } %35, 1
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.sroa.0.0.copyload.i27 = load i32, ptr %38, align 8
+  %32 = inttoptr i64 %30 to ptr
+  %. = select i1 %.not43, i32 6, i32 7
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = call { ptr, ptr } @_ZNK5clang12CXXScopeSpec19getWithLocInContextERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(23096) %34) #24
+  %37 = extractvalue { ptr, ptr } %36, 0
+  %38 = extractvalue { ptr, ptr } %36, 1
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %.sroa.0.0.copyload.i27 = load i32, ptr %39, align 8
   %.sroa.0.0.copyload.i28 = load i32, ptr %31, align 4
-  store i32 %.sroa.036.0, ptr %0, align 8
+  store i32 %., ptr %0, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %.sroa.437.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(23096) %33, ptr %36, ptr %37, i32 %.sroa.0.0.copyload.i27, i32 %.sroa.0.0.copyload.i28) #24
-  br label %41
+  store ptr %32, ptr %.sroa.6.0..sroa_idx, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @_ZN5clang23TemplateArgumentLocInfoC1ERNS_10ASTContextENS_22NestedNameSpecifierLocENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(23096) %34, ptr %37, ptr %38, i32 %.sroa.0.0.copyload.i27, i32 %.sroa.0.0.copyload.i28) #24
+  br label %42
 
-40:                                               ; preds = %3
+41:                                               ; preds = %3
   unreachable
 
-41:                                               ; preds = %29, %24, %18
+42:                                               ; preds = %29, %24, %18
   ret void
 }
 
