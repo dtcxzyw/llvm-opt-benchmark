@@ -16654,6 +16654,7 @@ _ZNK4llvm9Attribute16getValueAsStringEv.exit.i:   ; preds = %228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %239 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %235, i64 %238, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #25
   %240 = load i64, ptr %6, align 8
+  %spec.select.i = select i1 %239, i64 undef, i64 %240
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %241 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %242 = getelementptr inbounds nuw i8, ptr %227, i64 12
@@ -16667,11 +16668,10 @@ _ZNK4llvm9Attribute16getValueAsStringEv.exit.i:   ; preds = %228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %250 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %246, i64 %249, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #25
   %251 = load i64, ptr %5, align 8
+  %.026.i = select i1 %250, i64 undef, i64 %251
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %252 = icmp uge i64 %251, %240
-  %.demorgan.i = or i1 %239, %250
-  %.not30.i = select i1 %.demorgan.i, i1 true, i1 %252
-  br i1 %.not30.i, label %_ZL26adjustCallerStackProbeSizeRN4llvm8FunctionERKS0_.exit, label %_ZL26adjustCallerStackProbeSizeRN4llvm8FunctionERKS0_.exit.sink.split
+  %252 = icmp ugt i64 %spec.select.i, %.026.i
+  br i1 %252, label %_ZL26adjustCallerStackProbeSizeRN4llvm8FunctionERKS0_.exit.sink.split, label %_ZL26adjustCallerStackProbeSizeRN4llvm8FunctionERKS0_.exit
 
 _ZL26adjustCallerStackProbeSizeRN4llvm8FunctionERKS0_.exit.sink.split: ; preds = %228, %_ZNK4llvm9Attribute16getValueAsStringEv.exit.i
   call void @_ZN4llvm8Function9addFnAttrENS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %227) #25
@@ -16700,6 +16700,7 @@ _ZNK4llvm9Attribute16getValueAsStringEv.exit.i97: ; preds = %254
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %265 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %261, i64 %264, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %4) #25
   %266 = load i64, ptr %4, align 8
+  %spec.select.i98 = select i1 %265, i64 undef, i64 %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %267 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %268 = getelementptr inbounds nuw i8, ptr %255, i64 12
@@ -16713,11 +16714,10 @@ _ZNK4llvm9Attribute16getValueAsStringEv.exit.i97: ; preds = %254
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %276 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %272, i64 %275, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3) #25
   %277 = load i64, ptr %3, align 8
+  %.027.i = select i1 %276, i64 undef, i64 %277
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %278 = icmp ule i64 %277, %266
-  %.demorgan.i98 = or i1 %265, %276
-  %.not31.i = select i1 %.demorgan.i98, i1 true, i1 %278
-  br i1 %.not31.i, label %_ZL25adjustMinLegalVectorWidthRN4llvm8FunctionERKS0_.exit, label %279
+  %278 = icmp ult i64 %spec.select.i98, %.027.i
+  br i1 %278, label %279, label %_ZL25adjustMinLegalVectorWidthRN4llvm8FunctionERKS0_.exit
 
 279:                                              ; preds = %_ZNK4llvm9Attribute16getValueAsStringEv.exit.i97
   call void @_ZN4llvm8Function9addFnAttrENS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %255) #25
@@ -16783,19 +16783,13 @@ _ZNK4llvm9Attribute16getValueAsStringEv.exit:     ; preds = %2
   %16 = zext i32 %15 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %17 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %13, i64 %16, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #25
-  br i1 %17, label %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit.thread, label %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit
-
-_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit.thread: ; preds = %_ZNK4llvm9Attribute16getValueAsStringEv.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %31
-
-_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit:  ; preds = %_ZNK4llvm9Attribute16getValueAsStringEv.exit
   %18 = load i64, ptr %5, align 8
+  %spec.select = select i1 %17, i64 undef, i64 %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %19 = icmp ugt i64 %1, %18
+  %19 = icmp ugt i64 %1, %spec.select
   br i1 %19, label %20, label %31
 
-20:                                               ; preds = %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit
+20:                                               ; preds = %_ZNK4llvm9Attribute16getValueAsStringEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -16830,7 +16824,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br label %31
 
-31:                                               ; preds = %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit.thread, %_ZNK4llvm9StringRef12getAsIntegerImEEbjRT_.exit, %_ZN4llvm6utostrB5cxx11Emb.exit, %2
+31:                                               ; preds = %_ZNK4llvm9Attribute16getValueAsStringEv.exit, %_ZN4llvm6utostrB5cxx11Emb.exit, %2
   ret void
 }
 

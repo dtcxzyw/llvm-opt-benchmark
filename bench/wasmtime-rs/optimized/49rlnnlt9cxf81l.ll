@@ -13418,114 +13418,114 @@ define hidden void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offse
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3451)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.not.i.us = icmp eq i64 %.promoted, 0
-  br i1 %.not.i.us, label %21, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread.us"
+  %.not.i.us.us = icmp eq i64 %.promoted, 0
+  br i1 %.not.i.us.us, label %.split52.us.sink.split.sink.split, label %.split52.us.sink.split
 
-21:                                               ; preds = %.split.us
-  %22 = ptrtoint ptr %7 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val28.us = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
-  %24 = ptrtoint ptr %.val28.us to i64
-  %25 = sub i64 %22, %24
-  store i64 1, ptr %20, align 8, !noalias !3448
-  store i64 %25, ptr %23, align 8, !noalias !3448
-  br label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread.us"
-
-"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread.us": ; preds = %21, %.split.us
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  br label %.split52
-
-.split:                                           ; preds = %3, %51
-  %26 = phi ptr [ %47, %51 ], [ %13, %3 ]
-  %27 = phi i64 [ %48, %51 ], [ %14, %3 ]
+.split:                                           ; preds = %3, %46
+  %21 = phi ptr [ %42, %46 ], [ %13, %3 ]
+  %22 = phi i64 [ %43, %46 ], [ %14, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3451)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %38
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %33
 
-29:                                               ; preds = %.split
-  %30 = load ptr, ptr %18, align 8, !alias.scope !3451, !noalias !3448, !nonnull !4, !align !18, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %32 = load i64, ptr %31, align 8, !range !3128, !noalias !3453, !noundef !4
-  %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %33, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
+24:                                               ; preds = %.split
+  %25 = load ptr, ptr %18, align 8, !alias.scope !3451, !noalias !3448, !nonnull !4, !align !18, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load i64, ptr %26, align 8, !range !3128, !noalias !3453, !noundef !4
+  %.not.i = icmp eq i64 %27, 0
+  br i1 %.not.i, label %28, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 48
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %.val = load ptr, ptr %6, align 8, !nonnull !4, !align !5, !noundef !4
-  %.val28 = load ptr, ptr %30, align 8, !nonnull !4, !align !5, !noundef !4
-  %35 = ptrtoint ptr %.val28 to i64
-  %36 = ptrtoint ptr %.val to i64
-  %37 = sub i64 %36, %35
-  store i64 1, ptr %31, align 8, !noalias !3448
-  store i64 %37, ptr %34, align 8, !noalias !3448
+  %.val28 = load ptr, ptr %25, align 8, !nonnull !4, !align !5, !noundef !4
+  %30 = ptrtoint ptr %.val28 to i64
+  %31 = ptrtoint ptr %.val to i64
+  %32 = sub i64 %31, %30
+  store i64 1, ptr %26, align 8, !noalias !3448
+  store i64 %32, ptr %29, align 8, !noalias !3448
   br label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
 
-38:                                               ; preds = %.split
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !noalias !3453
+33:                                               ; preds = %.split
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !noalias !3453
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !3453
-  %39 = load ptr, ptr %18, align 8, !alias.scope !3451, !noalias !3448, !nonnull !4, !align !18, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load ptr, ptr %40, align 8, !noalias !3453, !nonnull !4, !align !18, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  %.sroa.04.0.copyload.i = load i32, ptr %42, align 8, !noalias !3453
+  %34 = load ptr, ptr %18, align 8, !alias.scope !3451, !noalias !3448, !nonnull !4, !align !18, !noundef !4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load ptr, ptr %35, align 8, !noalias !3453, !nonnull !4, !align !18, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
+  %.sroa.04.0.copyload.i = load i32, ptr %37, align 8, !noalias !3453
   call void @_ZN5gimli4read4unit15parse_attribute17h1c0fab4e2bdd62e2E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(40) %6, i32 %.sroa.04.0.copyload.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5), !noalias !3448
-  %43 = load i64, ptr %4, align 8, !range !632, !noalias !3453, !noundef !4
-  %44 = icmp eq i64 %43, 46
-  br i1 %44, label %49, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit"
+  %38 = load i64, ptr %4, align 8, !range !632, !noalias !3453, !noundef !4
+  %39 = icmp eq i64 %38, 46
+  br i1 %39, label %44, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit"
 
-"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit": ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %46 = add i64 %27, -1
+"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit": ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %41 = add i64 %22, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.433.0..sroa_idx, i64 16, i1 false), !noalias !3451
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8, !noalias !3453
-  store ptr %45, ptr %16, align 8, !alias.scope !3451, !noalias !3448
-  store i64 %46, ptr %17, align 8, !alias.scope !3451, !noalias !3448
+  store ptr %40, ptr %16, align 8, !alias.scope !3451, !noalias !3448
+  store i64 %41, ptr %17, align 8, !alias.scope !3451, !noalias !3448
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3453
   br label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
 
-"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread": ; preds = %33, %29, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit"
-  %47 = phi ptr [ %45, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ %26, %29 ], [ %26, %33 ]
-  %48 = phi i64 [ %46, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ 0, %29 ], [ 0, %33 ]
-  %.sroa.0.141 = phi i64 [ %43, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ 46, %29 ], [ 46, %33 ]
-  %.sroa.10.240 = phi i64 [ %.sroa.534.0.copyload, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ undef, %29 ], [ undef, %33 ]
+"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread": ; preds = %28, %24, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit"
+  %42 = phi ptr [ %40, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ %21, %24 ], [ %21, %28 ]
+  %43 = phi i64 [ %41, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ 0, %24 ], [ 0, %28 ]
+  %.sroa.0.141 = phi i64 [ %38, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ 46, %24 ], [ 46, %28 ]
+  %.sroa.10.240 = phi i64 [ %.sroa.534.0.copyload, %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit" ], [ undef, %24 ], [ undef, %28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.not = icmp eq i64 %.sroa.0.141, 46
-  br i1 %.not, label %.split52, label %51
+  br i1 %.not, label %.split52.us, label %46
 
-49:                                               ; preds = %38
+44:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.433.0..sroa_idx, i64 16, i1 false), !noalias !3451
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3453
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   store i64 47, ptr %0, align 8
-  br label %53
+  br label %52
 
-51:                                               ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
+46:                                               ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread"
   %.sroa.611.24.extract.trunc = trunc i64 %.sroa.10.240 to i16
-  %52 = icmp eq i16 %2, %.sroa.611.24.extract.trunc
-  br i1 %52, label %.split54, label %.split, !llvm.loop !3454
+  %47 = icmp eq i16 %2, %.sroa.611.24.extract.trunc
+  br i1 %47, label %.split54, label %.split, !llvm.loop !3454
 
-.split54:                                         ; preds = %51
+.split54:                                         ; preds = %46
   store i64 %.sroa.0.141, ptr %0, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.10.240, ptr %.sroa.518.0..sroa_idx, align 8
-  br label %53
+  br label %52
 
-.split52:                                         ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread", %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread.us"
+.split52.us.sink.split.sink.split:                ; preds = %.split.us
+  %48 = ptrtoint ptr %7 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val28.us = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
+  %50 = ptrtoint ptr %.val28.us to i64
+  %51 = sub i64 %48, %50
+  store i64 1, ptr %20, align 8, !noalias !3448
+  store i64 %51, ptr %49, align 8, !noalias !3448
+  br label %.split52.us.sink.split
+
+.split52.us.sink.split:                           ; preds = %.split.us, %.split52.us.sink.split.sink.split
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
+  br label %.split52.us
+
+.split52.us:                                      ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17h064ec47755f25490E.exit.thread", %.split52.us.sink.split
   store i64 46, ptr %0, align 8
-  br label %53
+  br label %52
 
-53:                                               ; preds = %49, %.split54, %.split52
+52:                                               ; preds = %44, %.split54, %.split52.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 }

@@ -23874,12 +23874,13 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17ha93
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %19 = load i64, ptr %18, align 8, !alias.scope !5452, !noalias !5455
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  %.sroa.3.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, ptr %20, ptr undef
   br i1 %.not.i.i.i.i.i.i, label %.preheader.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i"
 
 .preheader.i:                                     ; preds = %12, %22
   %21 = phi ptr [ %23, %22 ], [ %17, %12 ]
-  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i.i = icmp eq ptr %20, %21
-  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i", label %22
+  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i.i = icmp eq ptr %21, %.sroa.3.0.i.i.i.i.i.i.i
+  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i", label %22
 
 22:                                               ; preds = %.preheader.i
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -58395,12 +58396,13 @@ define hidden noundef zeroext i1 @_ZN9hayagriva3csl9rendering5names26renders_giv
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %47 = load i64, ptr %46, align 8, !alias.scope !11453, !noalias !11456
   %48 = getelementptr inbounds i8, ptr %45, i64 %47
+  %.sroa.3.0.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, ptr %48, ptr undef
   br i1 %.not.i.i.i.i.i.i.i, label %.preheader.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i"
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i.i.i.i.i, %50
   %49 = phi ptr [ %51, %50 ], [ %45, %.lr.ph.i.i.i.i.i.i ]
-  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i.i.i = icmp eq ptr %48, %49
-  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i", label %50
+  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i.i.i = icmp eq ptr %49, %.sroa.3.0.i.i.i.i.i.i.i.i
+  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i.i.i", label %50
 
 50:                                               ; preds = %.preheader.i.i
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
@@ -58443,12 +58445,13 @@ define hidden noundef zeroext i1 @"_ZN9hayagriva3csl9rendering5names26renders_gi
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !11493, !noalias !11496
   %17 = getelementptr inbounds i8, ptr %14, i64 %16
+  %.sroa.3.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr %17, ptr undef
   br i1 %.not.i.i.i.i.i, label %.preheader, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i"
 
 .preheader:                                       ; preds = %9, %19
   %18 = phi ptr [ %20, %19 ], [ %14, %9 ]
-  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i = icmp eq ptr %17, %18
-  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not1.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i", label %19
+  %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i = icmp eq ptr %18, %.sroa.3.0.i.i.i.i.i.i
+  br i1 %.not9.not.not.i.not.not.not.i.not.not.not.i.not.not.i.i.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3fb486611e47f111E.exit.i.i.i.i", label %19
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1

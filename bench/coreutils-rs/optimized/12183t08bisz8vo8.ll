@@ -1564,6 +1564,7 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
   %6 = extractvalue { ptr, i64 } %5, 1
   %.not = icmp eq i64 %6, 1
   %7 = load i8, ptr %4, align 4, !noalias !212
+  %.sroa.3.0.i = select i1 %.not, i8 %7, i8 undef
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !212
   br i1 %.not, label %9, label %8
 
@@ -1584,7 +1585,7 @@ define void @_ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8
   %.011.i = phi i64 [ %20, %18 ], [ 0, %9 ]
   %16 = phi ptr [ %19, %18 ], [ %11, %9 ]
   %.val7.i = load i8, ptr %16, align 1, !noalias !215, !noundef !5
-  %17 = icmp eq i8 %7, %.val7.i
+  %17 = icmp eq i8 %.val7.i, %.sroa.3.0.i
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %.lr.ph.i

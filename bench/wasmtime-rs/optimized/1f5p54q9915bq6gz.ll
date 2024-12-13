@@ -14481,7 +14481,8 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h05c779fc60435867E.exit.i.i: ; pre
   %75 = extractvalue { ptr, i64 } %72, 1
   %76 = select i1 %74, i64 0, i64 %71
   %.0.i.i = add nuw nsw i64 %76, %69
-  %77 = icmp ult i64 %75, %71
+  %.sroa.3.0.i.i.i.i = select i1 %74, i64 undef, i64 %75
+  %77 = icmp ugt i64 %71, %.sroa.3.0.i.i.i.i
   %78 = select i1 %74, i1 true, i1 %77
   br i1 %78, label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h8e58d3444f19eb4eE.exit", label %79
 
@@ -14689,7 +14690,8 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h05c779fc60435867E.exit.i.i: ; pre
   %75 = extractvalue { ptr, i64 } %72, 1
   %76 = select i1 %74, i64 0, i64 %71
   %.0.i.i = add nuw nsw i64 %76, %69
-  %77 = icmp ult i64 %75, %71
+  %.sroa.3.0.i.i.i.i = select i1 %74, i64 undef, i64 %75
+  %77 = icmp ugt i64 %71, %.sroa.3.0.i.i.i.i
   %78 = select i1 %74, i1 true, i1 %77
   br i1 %78, label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h8e58d3444f19eb4eE.exit", label %79
 
@@ -17963,7 +17965,8 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h63e3aa4972ebe15cE.exit: ; preds =
   %14 = extractvalue { ptr, i64 } %11, 1
   %15 = select i1 %13, i64 0, i64 %10
   %.0 = add nuw nsw i64 %15, %7
-  %16 = icmp ult i64 %14, %10
+  %.sroa.3.0.i.i = select i1 %13, i64 undef, i64 %14
+  %16 = icmp ugt i64 %10, %.sroa.3.0.i.i
   %17 = select i1 %13, i1 true, i1 %16
   br i1 %17, label %25, label %19
 
@@ -18040,7 +18043,8 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h05c779fc60435867E.exit: ; preds =
   %14 = extractvalue { ptr, i64 } %11, 1
   %15 = select i1 %13, i64 0, i64 %10
   %.0 = add nuw nsw i64 %15, %7
-  %16 = icmp ult i64 %14, %10
+  %.sroa.3.0.i.i = select i1 %13, i64 undef, i64 %14
+  %16 = icmp ugt i64 %10, %.sroa.3.0.i.i
   %17 = select i1 %13, i1 true, i1 %16
   br i1 %17, label %25, label %19
 
@@ -18122,8 +18126,8 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
   %20 = icmp ne ptr %19, null
   %21 = extractvalue { ptr, i64 } %18, 1
   %22 = icmp ugt i64 %21, 9
-  %.not25 = select i1 %20, i1 %22, i1 false
-  br i1 %.not25, label %30, label %37
+  %.not26 = select i1 %20, i1 %22, i1 false
+  br i1 %.not26, label %30, label %37
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit": ; preds = %12, %4, %33
   %.014 = phi i64 [ %7, %12 ], [ %35, %33 ], [ %7, %4 ]
@@ -18133,7 +18137,8 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = icmp eq ptr %25, null
   %27 = extractvalue { ptr, i64 } %24, 1
-  %28 = icmp ult i64 %27, %23
+  %spec.select.i20 = select i1 %26, i64 undef, i64 %27
+  %28 = icmp ugt i64 %23, %spec.select.i20
   %29 = select i1 %26, i1 true, i1 %28
   %.sink1.i = select i1 %29, ptr @anon.b28def11bbe935747ffab42946fa965e.144, ptr %25
   %.sink.i = select i1 %29, i64 40, i64 %.0
@@ -18153,12 +18158,12 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
 
 37:                                               ; preds = %17, %30, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit"
   %anon.b28def11bbe935747ffab42946fa965e.144.sink = phi ptr [ %.sink1.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit" ], [ @anon.b28def11bbe935747ffab42946fa965e.145, %30 ], [ @anon.b28def11bbe935747ffab42946fa965e.144, %17 ]
-  %.sink26 = phi i64 [ %.sink.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit" ], [ 30, %30 ], [ 40, %17 ]
+  %.sink27 = phi i64 [ %.sink.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit" ], [ 30, %30 ], [ 40, %17 ]
   %.sink = phi i64 [ %storemerge.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd593e387b208a79dE.exit" ], [ 1, %30 ], [ 1, %17 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.b28def11bbe935747ffab42946fa965e.144.sink, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink26, ptr %39, align 8
+  store i64 %.sink27, ptr %39, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

@@ -3486,7 +3486,8 @@ _ZN10grep_regex7literal4TSeq13make_infinite17h9c40391a692e0855E.llvm.16979978850
   %.not = icmp eq i64 %35, -9223372036854775808
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !690
-  %38 = icmp ule i64 %37, %31
+  %.sroa.3.0.i = select i1 %.not, i64 undef, i64 %37
+  %38 = icmp ule i64 %.sroa.3.0.i, %31
   %.0.in.i8 = select i1 %.not, i1 true, i1 %38
   br i1 %.0.in.i8, label %42, label %.invoke
 
@@ -3748,7 +3749,8 @@ _ZN10grep_regex7literal4TSeq13make_infinite17h9c40391a692e0855E.llvm.16979978850
   %.not = icmp eq i64 %62, -9223372036854775808
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load i64, ptr %63, align 8, !alias.scope !806
-  %65 = icmp ule i64 %64, %35
+  %.sroa.3.0.i = select i1 %.not, i64 undef, i64 %64
+  %65 = icmp ule i64 %.sroa.3.0.i, %35
   %.0.in.i21 = select i1 %.not, i1 true, i1 %65
   br i1 %.0.in.i21, label %67, label %66
 

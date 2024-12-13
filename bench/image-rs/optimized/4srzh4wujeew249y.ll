@@ -35133,6 +35133,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %9 = icmp ugt i16 %8, 511
   %10 = lshr i16 %8, 1
   %11 = trunc nuw i16 %10 to i8
+  %.sroa.5.0 = select i1 %9, i8 undef, i8 %11
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   br i1 %9, label %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit"
 
@@ -35218,8 +35219,8 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %51 = phi i64 [ %47, %46 ], [ %26, %48 ]
   %.0.i = phi i8 [ 0, %46 ], [ %49, %48 ]
   store i8 %.0.i, ptr %23, align 8, !alias.scope !4210, !noalias !4213
-  %exitcond.not.i35 = icmp eq i8 %27, %11
-  br i1 %exitcond.not.i35, label %.loopexit, label %24
+  %exitcond.not.i = icmp eq i8 %27, %.sroa.5.0
+  br i1 %exitcond.not.i, label %.loopexit, label %24
 
 52:                                               ; preds = %3
   %53 = add nuw nsw i16 %2, 1

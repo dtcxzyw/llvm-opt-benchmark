@@ -2909,7 +2909,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq85_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !459
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -2927,7 +2928,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq89_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !464
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -2945,7 +2947,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq97_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !469
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -2962,7 +2965,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !474
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -2980,7 +2984,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !479
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -2998,7 +3003,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !484
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3015,7 +3021,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !489
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3033,7 +3040,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !494
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3051,7 +3059,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %7, i1 %switch.i.i, i1 false
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !499
-  %12 = icmp eq i64 %11, %5
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %11, i64 undef
+  %12 = icmp eq i64 %.sroa.4.0.i.i, %5
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %12, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3067,7 +3076,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %5, i1 %switch.i.i, i1 false
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !504
-  %10 = icmp eq i64 %9, %3
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %9, i64 undef
+  %10 = icmp eq i64 %.sroa.4.0.i.i, %3
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %10, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3084,7 +3094,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !509
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3101,7 +3112,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq98_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !514
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3117,7 +3129,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq88_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %5, i1 %switch.i.i, i1 false
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !519
-  %10 = icmp eq i64 %9, %3
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %9, i64 undef
+  %10 = icmp eq i64 %.sroa.4.0.i.i, %3
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %10, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3134,7 +3147,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq92_$LT$impl$u20$cor
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !524
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }
@@ -3151,7 +3165,8 @@ define noundef zeroext i1 @"_ZN10serde_json5value10partial_eq100_$LT$impl$u20$co
   %or.cond.i.not.not.i = select i1 %6, i1 %switch.i.i, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !529
-  %11 = icmp eq i64 %10, %4
+  %.sroa.4.0.i.i = select i1 %or.cond.i.not.not.i, i64 %10, i64 undef
+  %11 = icmp eq i64 %.sroa.4.0.i.i, %4
   %.0.in.i.i = select i1 %or.cond.i.not.not.i, i1 %11, i1 false
   ret i1 %.0.in.i.i
 }

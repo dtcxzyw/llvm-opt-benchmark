@@ -20504,9 +20504,9 @@ define internal fastcc void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = icmp eq i64 %14, 0
-  br i1 %19, label %.split.us, label %.split
+  br i1 %19, label %.split.us.split, label %.split
 
-.split.us:                                        ; preds = %3
+.split.us.split:                                  ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.promoted = load i64, ptr %20, align 8, !noalias !3570
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
@@ -20515,7 +20515,7 @@ define internal fastcc void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$
   %.not.i.us = icmp eq i64 %.promoted, 0
   br i1 %.not.i.us, label %21, label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us"
 
-21:                                               ; preds = %.split.us
+21:                                               ; preds = %.split.us.split
   %22 = ptrtoint ptr %7 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val28.us = load ptr, ptr %1, align 8, !nonnull !4, !align !171, !noundef !4
@@ -20525,10 +20525,10 @@ define internal fastcc void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$
   store i64 %25, ptr %23, align 8, !noalias !3570
   br label %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us"
 
-"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us": ; preds = %21, %.split.us
+"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us": ; preds = %21, %.split.us.split
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  br label %.split52
+  br label %.split52.us
 
 .split:                                           ; preds = %3, %51
   %26 = phi ptr [ %47, %51 ], [ %13, %3 ]
@@ -20589,7 +20589,7 @@ define internal fastcc void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.not = icmp eq i64 %.sroa.0.141, 46
-  br i1 %.not, label %.split52, label %51
+  br i1 %.not, label %.split52.us, label %51
 
 49:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.433.0..sroa_idx, i64 16, i1 false), !noalias !3573
@@ -20615,11 +20615,11 @@ define internal fastcc void @"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$
   store i64 %.sroa.10.240, ptr %.sroa.518.0..sroa_idx, align 8
   br label %53
 
-.split52:                                         ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread", %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us"
+.split52.us:                                      ; preds = %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread", %"_ZN5gimli4read4unit18AttrsIter$LT$R$GT$4next17hab9c6165dd8c7b01E.exit.thread.us"
   store i64 46, ptr %0, align 8
   br label %53
 
-53:                                               ; preds = %49, %.split54, %.split52
+53:                                               ; preds = %49, %.split54, %.split52.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 }

@@ -17170,7 +17170,7 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake19HasServerExtensions13alpn
     i16 1, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
     i16 2, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
     i16 3, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
-    i16 4, label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10
+    i16 4, label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12
     i16 5, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
     i16 6, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
     i16 7, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
@@ -17200,14 +17200,14 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
 .lr.ph.i.i.backedge:                              ; preds = %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i", %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i
   br label %.lr.ph.i.i
 
-_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10: ; preds = %.lr.ph.i.i
+_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12: ; preds = %.lr.ph.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3602)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !3602, !noundef !4
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i", label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread
 
-"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i": ; preds = %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10
+"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i": ; preds = %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load ptr, ptr %18, align 8, !alias.scope !3605, !noalias !3608, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -17216,9 +17216,9 @@ _ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe3
   %23 = load i64, ptr %22, align 8, !alias.scope !3610, !noalias !3602, !noundef !4
   br label %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread
 
-_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread: ; preds = %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i", %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i", %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %23, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i" ], [ undef, %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10 ], [ undef, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i ], [ undef, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %21, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i" ], [ null, %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread10 ], [ null, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i ], [ null, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i" ]
+_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread: ; preds = %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i", %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i", %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12, %1
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %23, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i" ], [ undef, %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12 ], [ undef, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i ], [ undef, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %21, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc5ed4bf33cdd6a1bE.llvm.12014582817787848890.exit.i" ], [ null, %_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension17h61c6bece141abe37E.exit.thread12 ], [ null, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i ], [ null, %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i" ]
   %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %25
@@ -17263,7 +17263,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i16, ptr %12, align 8, !range !1102, !alias.scope !3619, !noalias !3622, !noundef !4
   %14 = icmp eq i16 %13, 32
-  br i1 %14, label %.loopexit31, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
+  br i1 %14, label %.loopexit33, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i"
 
 "_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i
   %15 = icmp eq ptr %10, %7
@@ -17294,7 +17294,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %20 = load i16, ptr %19, align 8, !range !1102, !alias.scope !3629, !noalias !3632, !noundef !4
   %21 = icmp eq i16 %20, 36
-  br i1 %21, label %.loopexit31, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i.i.i"
+  br i1 %21, label %.loopexit33, label %"_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i.i.i"
 
 "_ZN6rustls4msgs9handshake19HasServerExtensions14find_extension28_$u7b$$u7b$closure$u7d$$u7d$17ha7cede5ebfe3c0d7E.llvm.9964311202002838858.exit.thread10.i.i.i.i": ; preds = %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
   %22 = icmp eq ptr %17, %7
@@ -17304,7 +17304,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   store i64 -9223372036854775808, ptr %0, align 8
   br label %31
 
-.loopexit31:                                      ; preds = %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i.i.i
+.loopexit33:                                      ; preds = %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i, %_ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i.i.i.i
   store i64 -9223372036854775808, ptr %0, align 8
   br label %31
 
@@ -17327,7 +17327,7 @@ _ZN6rustls4msgs9handshake15ServerExtension8ext_type17hceb8a800d7240357E.exit.i.i
   store i64 %26, ptr %.sroa.5.0..sroa_idx, align 8
   br label %31
 
-31:                                               ; preds = %.loopexit, %.loopexit31, %.thread
+31:                                               ; preds = %.loopexit, %.loopexit33, %.thread
   ret void
 }
 

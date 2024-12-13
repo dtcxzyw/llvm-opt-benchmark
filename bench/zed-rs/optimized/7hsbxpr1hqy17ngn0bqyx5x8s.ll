@@ -51626,6 +51626,8 @@ default.unreachable251:                           ; preds = %3
   store ptr %.sroa.11.0.copyload, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10157, i64 24, i1 false)
+  %trunc.i = trunc nuw i64 %.sroa.0155.0.copyload to i1
+  %spec.select2.i = select i1 %trunc.i, i64 %.sroa.9.0.copyload, i64 undef
   %switch = icmp eq i64 %.sroa.0155.0.copyload, 1
   br i1 %switch, label %109, label %168
 
@@ -51644,7 +51646,7 @@ default.unreachable251:                           ; preds = %3
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %117 = load i64, ptr %116, align 8, !noalias !15469, !noundef !5
-  %118 = icmp eq i64 %.sroa.9.0.copyload, %117
+  %118 = icmp eq i64 %117, %spec.select2.i
   br i1 %118, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h665afaf371ab4acdE.exit", label %111
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h665afaf371ab4acdE.exit": ; preds = %114
@@ -51700,7 +51702,7 @@ default.unreachable251:                           ; preds = %3
   br label %.body77
 
 132:                                              ; preds = %.noexc75
-  store i64 %.sroa.9.0.copyload, ptr %88, align 8, !alias.scope !15473, !noalias !15476
+  store i64 %spec.select2.i, ptr %88, align 8, !alias.scope !15473, !noalias !15476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %24, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !15476
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !15476
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !15478
@@ -51810,6 +51812,8 @@ default.unreachable251:                           ; preds = %3
   br label %238
 
 168:                                              ; preds = %108
+  %trunc.i72 = trunc nuw i64 %.sroa.13.0.copyload to i1
+  %spec.select2.i73 = select i1 %trunc.i72, i64 %.sroa.14.0.copyload, i64 undef
   %switch56 = icmp eq i64 %.sroa.13.0.copyload, 1
   br i1 %switch56, label %171, label %169
 
@@ -51832,7 +51836,7 @@ default.unreachable251:                           ; preds = %3
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 88
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 72
   %179 = load i64, ptr %178, align 8, !noalias !15519, !noundef !5
-  %180 = icmp eq i64 %.sroa.14.0.copyload, %179
+  %180 = icmp eq i64 %179, %spec.select2.i73
   br i1 %180, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h18a066397101ef65E.exit", label %173
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h18a066397101ef65E.exit": ; preds = %176
@@ -51936,7 +51940,7 @@ default.unreachable251:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0164)
   store i64 %.sroa.12.0.copyload, ptr %22, align 8
   store i64 %.sroa.01.0.i, ptr %.sroa.5172.0..sroa_idx, align 8
-  store i64 %.sroa.14.0.copyload, ptr %.sroa.7174.0..sroa_idx, align 8
+  store i64 %spec.select2.i73, ptr %.sroa.7174.0..sroa_idx, align 8
   store i16 %182, ptr %.sroa.8175.0..sroa_idx, align 8
   store i16 %.sroa.5.0.i, ptr %.sroa.9176.0..sroa_idx, align 2
   %209 = load i64, ptr %50, align 8, !alias.scope !15552, !noalias !15555, !noundef !5

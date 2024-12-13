@@ -7582,7 +7582,7 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator4func22FuncValidato
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   %.not.i.i.i = icmp ult i64 %103, %101
-  br i1 %.not.i.i.i, label %112, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i
+  br i1 %.not.i.i.i, label %112, label %.thread56.i
 
 112:                                              ; preds = %2
   %113 = getelementptr inbounds i8, ptr %99, i64 %103
@@ -7590,14 +7590,14 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator4func22FuncValidato
   %115 = add nuw i64 %103, 1
   store i64 %115, ptr %109, align 8, !alias.scope !662, !noalias !663
   %116 = icmp sgt i8 %114, -1
-  br i1 %116, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread53.i, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i
+  br i1 %116, label %.thread58.i, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i: ; preds = %2
+.thread56.i:                                      ; preds = %2
   %117 = call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader12BinaryReader7eof_err17hb3e9b7b068bc5734E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %98), !noalias !663
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96), !noalias !651
   br label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread"
 
-_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread53.i: ; preds = %112
+.thread58.i:                                      ; preds = %112
   %118 = zext nneg i8 %114 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96), !noalias !651
   br label %.preheader.i
@@ -7606,15 +7606,15 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   call void @_ZN10wasmparser13binary_reader12BinaryReader16read_var_u32_big17hef3eca3b144cfb8eE(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %96, ptr noalias noundef nonnull align 8 dereferenceable(40) %98, i8 noundef %114), !noalias !664
   %.pre.i = load i32, ptr %96, align 8, !range !313, !noalias !651
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %.pre49.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !651
-  %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %.pre51.i = load i32, ptr %.phi.trans.insert50.i, align 4, !noalias !651
+  %.pre48.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !651
+  %.phi.trans.insert49.i = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %.pre50.i = load i32, ptr %.phi.trans.insert49.i, align 4, !noalias !651
   %119 = trunc nuw i32 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96), !noalias !651
   br i1 %119, label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit", label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread53.i
-  %120 = phi i32 [ %118, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread53.i ], [ %.pre51.i, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i ]
+.preheader.i:                                     ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i, %.thread58.i
+  %120 = phi i32 [ %118, %.thread58.i ], [ %.pre50.i, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %122 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -7657,7 +7657,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   br i1 %140, label %126, label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread"
 
 "_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit": ; preds = %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i
-  %141 = icmp eq ptr %.pre49.i, null
+  %141 = icmp eq ptr %.pre48.i, null
   br i1 %141, label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread28", label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread"
 
 "_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread28": ; preds = %126, %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit"
@@ -9737,8 +9737,8 @@ _ZN10wasmparser13binary_reader12BinaryReader14visit_operator17h25f1fb0a084d55acE
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %97)
   br label %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread"
 
-"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread": ; preds = %138, %135, %127, %.loopexit50, %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit", %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i, %._crit_edge
-  %.1 = phi ptr [ %900, %._crit_edge ], [ %.sroa.71.1.i3448, %.loopexit50 ], [ %.pre49.i, %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit" ], [ %117, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i ], [ %139, %138 ], [ %137, %135 ], [ %133, %127 ]
+"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit.thread": ; preds = %138, %135, %127, %.loopexit50, %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit", %.thread56.i, %._crit_edge
+  %.1 = phi ptr [ %900, %._crit_edge ], [ %.sroa.71.1.i3448, %.loopexit50 ], [ %.pre48.i, %"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$11read_locals17h71509c2b4a021cd9E.exit" ], [ %117, %.thread56.i ], [ %139, %138 ], [ %137, %135 ], [ %133, %127 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %98)
   ret ptr %.1
 }

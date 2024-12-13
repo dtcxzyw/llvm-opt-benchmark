@@ -192,27 +192,30 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %10, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.val = load i64, ptr %7, align 8, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.val4 = load i64, ptr %8, align 8
-  %.not.i.not.i.not.not = icmp eq i64 %.val, -1
+  %.not.i.not.i.not = icmp ne i64 %.val, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val, i64 %.val4)
-  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
-  %.sroa.5.0 = select i1 %.not.i.not.i.not.not, i64 %4, i64 %.sroa.0.0.sroa.speculated.i
-  br label %10
+  %.sroa.5.0.i = select i1 %.not.i.not.i.not, i64 %9, i64 undef
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %10 = icmp ult i64 %.sroa.5.0.i, %4
+  %or.cond = select i1 %.not.i.not.i.not, i1 %10, i1 false
+  %.sroa.5.0 = select i1 %or.cond, i64 %9, i64 %4
+  br label %11
 
-10:                                               ; preds = %2, %6
+11:                                               ; preds = %2, %6
   %.sroa.0.0.sroa.speculated.i.sink = phi i64 [ %.sroa.0.0.sroa.speculated.i, %6 ], [ 0, %2 ]
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %6 ], [ 0, %2 ]
   store i64 %.sroa.0.0.sroa.speculated.i.sink, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink, ptr %12, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink, ptr %13, align 8
   ret void
 }
 
@@ -251,20 +254,23 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val.i.i = load i64, ptr %7, align 8, !alias.scope !20, !noalias !21, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.val4.i.i = load i64, ptr %8, align 8, !alias.scope !20, !noalias !21
-  %.not.i.not.i.not.not.i.i = icmp eq i64 %.val.i.i, -1
+  %.not.i.not.i.not.i.i = icmp ne i64 %.val.i.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i, i64 %.val4.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
-  %.sroa.5.0.i.i = select i1 %.not.i.not.i.not.not.i.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %.sroa.5.0.i.i.i = select i1 %.not.i.not.i.not.i.i, i64 %9, i64 undef
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %10 = icmp ult i64 %.sroa.5.0.i.i.i, %4
+  %or.cond.i.i = select i1 %.not.i.not.i.not.i.i, i1 %10, i1 false
+  %.sroa.5.0.i.i = select i1 %or.cond.i.i, i64 %9, i64 %4
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h84f007475d56a1d6E.llvm.5336188084572713014.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h84f007475d56a1d6E.llvm.5336188084572713014.exit": ; preds = %2, %6
   %.sroa.0.0.sroa.speculated.i.sink.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %6 ], [ 0, %2 ]
   %.sroa.5.0.sink.i.i = phi i64 [ %.sroa.5.0.i.i, %6 ], [ 0, %2 ]
   store i64 %.sroa.0.0.sroa.speculated.i.sink.i.i, ptr %0, align 8, !alias.scope !21, !noalias !20
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %10, align 8, !alias.scope !21, !noalias !20
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink.i.i, ptr %11, align 8, !alias.scope !21, !noalias !20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %11, align 8, !alias.scope !21, !noalias !20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink.i.i, ptr %12, align 8, !alias.scope !21, !noalias !20
   ret void
 }
 
@@ -308,20 +314,23 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val.i = load i64, ptr %7, align 8, !alias.scope !33, !noalias !30, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.val4.i = load i64, ptr %8, align 8, !alias.scope !33, !noalias !30
-  %.not.i.not.i.not.not.i = icmp eq i64 %.val.i, -1
+  %.not.i.not.i.not.i = icmp ne i64 %.val.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i, i64 %.val4.i)
-  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
-  %.sroa.5.0.i = select i1 %.not.i.not.i.not.not.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i
+  %.sroa.5.0.i.i = select i1 %.not.i.not.i.not.i, i64 %9, i64 undef
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %10 = icmp ult i64 %.sroa.5.0.i.i, %4
+  %or.cond.i = select i1 %.not.i.not.i.not.i, i1 %10, i1 false
+  %.sroa.5.0.i = select i1 %or.cond.i, i64 %9, i64 %4
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h06554d5020ceb88fE.llvm.5336188084572713014.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h06554d5020ceb88fE.llvm.5336188084572713014.exit": ; preds = %2, %6
   %.sroa.0.0.sroa.speculated.i.sink.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %6 ], [ 0, %2 ]
   %.sroa.5.0.sink.i = phi i64 [ %.sroa.5.0.i, %6 ], [ 0, %2 ]
   store i64 %.sroa.0.0.sroa.speculated.i.sink.i, ptr %0, align 8, !alias.scope !30, !noalias !33
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %10, align 8, !alias.scope !30, !noalias !33
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink.i, ptr %11, align 8, !alias.scope !30, !noalias !33
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %11, align 8, !alias.scope !30, !noalias !33
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink.i, ptr %12, align 8, !alias.scope !30, !noalias !33
   ret void
 }
 
@@ -370,20 +379,23 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val.i.i.i = load i64, ptr %7, align 8, !alias.scope !65, !noalias !66, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.val4.i.i.i = load i64, ptr %8, align 8, !alias.scope !65, !noalias !66
-  %.not.i.not.i.not.not.i.i.i = icmp eq i64 %.val.i.i.i, -1
+  %.not.i.not.i.not.i.i.i = icmp ne i64 %.val.i.i.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i.i, i64 %.val4.i.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
-  %.sroa.5.0.i.i.i = select i1 %.not.i.not.i.not.not.i.i.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
+  %.sroa.5.0.i.i.i.i = select i1 %.not.i.not.i.not.i.i.i, i64 %9, i64 undef
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %10 = icmp ult i64 %.sroa.5.0.i.i.i.i, %4
+  %or.cond.i.i.i = select i1 %.not.i.not.i.not.i.i.i, i1 %10, i1 false
+  %.sroa.5.0.i.i.i = select i1 %or.cond.i.i.i, i64 %9, i64 %4
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h46becdad417b2bc1E.llvm.5336188084572713014.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h46becdad417b2bc1E.llvm.5336188084572713014.exit": ; preds = %2, %6
   %.sroa.0.0.sroa.speculated.i.sink.i.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %6 ], [ 0, %2 ]
   %.sroa.5.0.sink.i.i.i = phi i64 [ %.sroa.5.0.i.i.i, %6 ], [ 0, %2 ]
   store i64 %.sroa.0.0.sroa.speculated.i.sink.i.i.i, ptr %0, align 8, !alias.scope !66, !noalias !65
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %10, align 8, !alias.scope !66, !noalias !65
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink.i.i.i, ptr %11, align 8, !alias.scope !66, !noalias !65
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %11, align 8, !alias.scope !66, !noalias !65
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink.i.i.i, ptr %12, align 8, !alias.scope !66, !noalias !65
   ret void
 }
 
@@ -1671,19 +1683,21 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %.val.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !626, !noalias !635, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.val4.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !626, !noalias !635
-  %.not.i.not.i.not.not.i.i.i.i = icmp eq i64 %.val.i.i.i.i, -1
+  %.not.i.not.i.not.i.i.i.i = icmp ne i64 %.val.i.i.i.i, -1
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i.i.i, i64 %.val4.i.i.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %9)
-  %.sroa.5.0.i.i.i.i = select i1 %.not.i.not.i.not.not.i.i.i.i, i64 %9, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i
+  %.sroa.5.0.i.i.i.i.i = select i1 %.not.i.not.i.not.i.i.i.i, i64 %14, i64 undef
+  %15 = icmp ult i64 %.sroa.5.0.i.i.i.i.i, %9
+  %or.cond.i.i.i.i = select i1 %.not.i.not.i.not.i.i.i.i, i1 %15, i1 false
+  %.sroa.5.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 %14, i64 %9
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc609831e04b5c56eE.llvm.5336188084572713014.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc609831e04b5c56eE.llvm.5336188084572713014.exit": ; preds = %11, %7, %2
   %.sroa.5.0.sink.i.i.i.i.sink = phi i64 [ 0, %2 ], [ %.sroa.5.0.i.i.i.i, %11 ], [ 0, %7 ]
   store i64 0, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink.i.i.i.i.sink, ptr %16, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink.i.i.i.i.sink, ptr %17, align 8
   ret void
 }
 

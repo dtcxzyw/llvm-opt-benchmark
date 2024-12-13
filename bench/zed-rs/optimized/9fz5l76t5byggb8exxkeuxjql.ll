@@ -14271,13 +14271,13 @@ select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %517, label %522, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17he17b7f7f2aca218eE.exit.i.i"
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17he17b7f7f2aca218eE.exit.i.i": ; preds = %"_ZN3lsp13input_handler16LspStdoutHandler7handler28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h74607037b46550eaE.exit.i.i.i", %select.unfold.i.i
-  br i1 %516, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h34f52ab96d2d6924E.exit.thread.i.i.i", label %.lr.ph.split.split.i.i
+  br i1 %516, label %.thread480, label %.lr.ph.split.split.i.i
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h34f52ab96d2d6924E.exit.thread.i.i.i": ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17he17b7f7f2aca218eE.exit.i.i"
+.thread480:                                       ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17he17b7f7f2aca218eE.exit.i.i"
   %518 = invoke fastcc noundef nonnull ptr @"_ZN3lsp13input_handler16LspStdoutHandler7handler28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb82b2bdc0dd3ecadE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %493)
           to label %625 unwind label %519
 
-519:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h34f52ab96d2d6924E.exit.thread.i.i.i"
+519:                                              ; preds = %.thread480
   %520 = landingpad { ptr, i32 }
           cleanup
   br label %521
@@ -14517,7 +14517,7 @@ select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u
           cleanup
   br label %622
 
-625:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h34f52ab96d2d6924E.exit.thread.i.i.i"
+625:                                              ; preds = %.thread480
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hf41510689cd8292cE.exit"
 

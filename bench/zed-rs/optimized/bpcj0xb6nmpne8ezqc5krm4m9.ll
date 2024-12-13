@@ -7978,7 +7978,7 @@ define hidden void @"_ZN3png7decoder15Reader$LT$R$GT$10next_frame17hc7faafc76278
   %24 = icmp eq i64 %23, -9223372036854775808
   br i1 %24, label %25, label %26
 
-default.unreachable344:                           ; preds = %268, %266
+default.unreachable343:                           ; preds = %268, %266
   unreachable
 
 25:                                               ; preds = %4
@@ -7992,6 +7992,7 @@ default.unreachable344:                           ; preds = %268, %266
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
+  %.sroa.6.0 = select i1 %29, i32 %32, i32 undef
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %34 = load i32, ptr %33, align 8, !range !1249, !noundef !7
   %35 = icmp eq i32 %34, 2
@@ -8013,8 +8014,8 @@ default.unreachable344:                           ; preds = %268, %266
   %or.cond = and i1 %29, %41
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %43 = load i32, ptr %42, align 4
-  %.not285 = icmp ne i32 %32, %43
-  %or.cond164.not = select i1 %or.cond, i1 %.not285, i1 false
+  %.not = icmp ne i32 %43, %.sroa.6.0
+  %or.cond164.not = select i1 %or.cond, i1 %.not, i1 false
   br i1 %or.cond164.not, label %44, label %"_ZN3png7decoder15Reader$LT$R$GT$18output_buffer_size17h04bd44bdaea42d11E.exit"
 
 44:                                               ; preds = %40, %37
@@ -8316,17 +8317,17 @@ common.resume:                                    ; preds = %228, %"_ZN63_$LT$al
   br label %common.resume
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %178
-  %.sroa.13.0315 = phi i64 [ %169, %178 ], [ %119, %.lr.ph.preheader ]
-  %.sroa.8.0201314 = phi i64 [ %179, %178 ], [ %121, %.lr.ph.preheader ]
-  %.sroa.5187.0313 = phi ptr [ %180, %178 ], [ %2, %.lr.ph.preheader ]
-  %169 = add nsw i64 %.sroa.13.0315, -1
-  %170 = icmp ult i64 %.sroa.8.0201314, %76
+  %.sroa.13.0314 = phi i64 [ %169, %178 ], [ %119, %.lr.ph.preheader ]
+  %.sroa.8.0201313 = phi i64 [ %179, %178 ], [ %121, %.lr.ph.preheader ]
+  %.sroa.5187.0312 = phi ptr [ %180, %178 ], [ %2, %.lr.ph.preheader ]
+  %169 = add nsw i64 %.sroa.13.0314, -1
+  %170 = icmp ult i64 %.sroa.8.0201313, %76
   br i1 %170, label %.thread232, label %171
 
 171:                                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   %172 = load i64, ptr %67, align 8, !noundef !7
-  call fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_row_impl17hbe56a4feb62bd630E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %20, ptr noalias noundef align 8 dereferenceable(688) %1, i64 noundef %172, ptr noalias noundef nonnull align 1 %.sroa.5187.0313, i64 noundef %76)
+  call fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_row_impl17hbe56a4feb62bd630E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %20, ptr noalias noundef align 8 dereferenceable(688) %1, i64 noundef %172, ptr noalias noundef nonnull align 1 %.sroa.5187.0312, i64 noundef %76)
   %173 = load i64, ptr %20, align 8, !range !1250, !noundef !7
   %174 = icmp eq i64 %173, 4
   br i1 %174, label %178, label %182
@@ -8338,8 +8339,8 @@ common.resume:                                    ; preds = %228, %"_ZN63_$LT$al
   br i1 %177, label %257, label %192
 
 178:                                              ; preds = %171
-  %179 = sub nuw i64 %.sroa.8.0201314, %76
-  %180 = getelementptr inbounds i8, ptr %.sroa.5187.0313, i64 %76
+  %179 = sub nuw i64 %.sroa.8.0201313, %76
+  %180 = getelementptr inbounds i8, ptr %.sroa.5187.0312, i64 %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %181 = icmp eq i64 %169, 0
   br i1 %181, label %.thread232, label %.lr.ph
@@ -8663,7 +8664,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h9ca44e73f7f94d6eE.exit.i:
 
 266:                                              ; preds = %263
   %267 = load i32, ptr %33, align 8, !range !1249, !noundef !7
-  switch i32 %267, label %default.unreachable344 [
+  switch i32 %267, label %default.unreachable343 [
     i32 0, label %283
     i32 1, label %272
     i32 2, label %276
@@ -8673,7 +8674,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h9ca44e73f7f94d6eE.exit.i:
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %270 = load i32, ptr %269, align 8, !noundef !7
   %271 = load i32, ptr %33, align 8, !range !1249, !noundef !7
-  switch i32 %271, label %default.unreachable344 [
+  switch i32 %271, label %default.unreachable343 [
     i32 0, label %281
     i32 1, label %272
     i32 2, label %276

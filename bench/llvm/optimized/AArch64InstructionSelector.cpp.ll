@@ -49230,8 +49230,8 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_ty
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %90, align 8
-  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 1, ptr %.sroa.230.0..sroa_idx, align 8
+  %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 1, ptr %.sroa.231.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %.sroa.0.0.copyload, ptr %5, align 4
   %91 = call noundef zeroext i1 @_ZN4llvm14MIPatternMatch2OrIJNS0_14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_21SpecificConstantMatchELj52ELb1EEENS2_IS5_S6_Lj213ELb0EEEEE5matchIRS4_EEbRKNS_19MachineRegisterInfoEOT_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(512) %89, ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -49255,10 +49255,10 @@ _ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_ty
   %101 = load i32, ptr %100, align 4
   %102 = xor i32 %101, 1
   store i32 %102, ptr %100, align 4
-  %.sroa.0.0.copyload.i24 = load i32, ptr %1, align 4
+  %.sroa.0.0.copyload.i25 = load i32, ptr %1, align 4
   %103 = load i32, ptr %2, align 4
   store i32 %103, ptr %1, align 4
-  store i32 %.sroa.0.0.copyload.i24, ptr %2, align 4
+  store i32 %.sroa.0.0.copyload.i25, ptr %2, align 4
   br label %104
 
 104:                                              ; preds = %.sink.split, %88, %92, %_ZN4llvm14MIPatternMatch8mi_matchINS_8RegisterENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS0_21SpecificConstantMatchELj63ELb1EEEEEbT_RKNS_19MachineRegisterInfoEOT0_.exit, %35, %4
@@ -49301,8 +49301,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14MIPatternMatch2OrIJNS0_
   %25 = extractvalue { i64, i8 } %24, 1
   %26 = trunc i8 %25 to i1
   %27 = extractvalue { i64, i8 } %24, 0
+  %spec.select.i.i = select i1 %26, i64 %27, i64 undef
   %28 = load i64, ptr %20, align 8
-  %29 = icmp eq i64 %27, %28
+  %29 = icmp eq i64 %spec.select.i.i, %28
   %30 = select i1 %26, i1 %29, i1 false
   br i1 %30, label %_ZN4llvm14MIPatternMatch14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_21SpecificConstantMatchELj52ELb1EE5matchIRS3_EEbRKNS_19MachineRegisterInfoEOT_.exit, label %31
 
@@ -49314,8 +49315,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm14MIPatternMatch2OrIJNS0_
   %36 = extractvalue { i64, i8 } %35, 1
   %37 = trunc i8 %36 to i1
   %38 = extractvalue { i64, i8 } %35, 0
+  %spec.select.i10.i = select i1 %37, i64 %38, i64 undef
   %39 = load i64, ptr %20, align 8
-  %40 = icmp eq i64 %38, %39
+  %40 = icmp eq i64 %spec.select.i10.i, %39
   %41 = select i1 %37, i1 %40, i1 false
   br i1 %41, label %42, label %47
 
@@ -49360,8 +49362,9 @@ _ZN4llvm14MIPatternMatch14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_21Speci
   %67 = extractvalue { i64, i8 } %66, 1
   %68 = trunc i8 %67 to i1
   %69 = extractvalue { i64, i8 } %66, 0
+  %spec.select.i.i.i = select i1 %68, i64 %69, i64 undef
   %70 = load i64, ptr %62, align 8
-  %71 = icmp eq i64 %69, %70
+  %71 = icmp eq i64 %spec.select.i.i.i, %70
   %72 = select i1 %68, i1 %71, i1 false
   br i1 %72, label %_ZN4llvm14MIPatternMatch14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_21SpecificConstantMatchELj52ELb1EE5matchIRS3_EEbRKNS_19MachineRegisterInfoEOT_.exit, label %_ZN4llvm14MIPatternMatch14BinaryOp_matchINS0_7bind_tyINS_8RegisterEEENS0_21SpecificConstantMatchELj213ELb0EE5matchIRS3_EEbRKNS_19MachineRegisterInfoEOT_.exit.thread.i
 
