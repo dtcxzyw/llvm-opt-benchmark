@@ -57691,9 +57691,9 @@ js_get_length64.exit:                             ; preds = %JS_ToInt64Clamp.exi
   br label %128
 
 128:                                              ; preds = %.lr.ph, %JS_FreeValue.exit
-  %.0318 = phi i64 [ 0, %.lr.ph ], [ %200, %JS_FreeValue.exit ]
-  %.0219317 = phi i64 [ 0, %.lr.ph ], [ %.1, %JS_FreeValue.exit ]
-  %129 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %3, i64 %4, i64 noundef %.0318)
+  %.0317 = phi i64 [ 0, %.lr.ph ], [ %200, %JS_FreeValue.exit ]
+  %.0219316 = phi i64 [ 0, %.lr.ph ], [ %.1, %JS_FreeValue.exit ]
+  %129 = call fastcc { i64, i64 } @JS_GetPropertyInt64(ptr noundef %0, i64 %3, i64 %4, i64 noundef %.0317)
   %130 = extractvalue { i64, i64 } %129, 0
   %131 = extractvalue { i64, i64 } %129, 1
   store i64 %130, ptr %8, align 8
@@ -57813,8 +57813,8 @@ JS_ToStringFree.exit:                             ; preds = %137, %142
   br i1 %.not234, label %187, label %190
 
 187:                                              ; preds = %184
-  %188 = add i64 %.0219317, 1
-  %189 = call i32 @JS_SetPropertyInt64(ptr noundef %0, i64 %97, i64 %98, i64 noundef %.0219317, i64 %169, i64 %170)
+  %188 = add i64 %.0219316, 1
+  %189 = call i32 @JS_SetPropertyInt64(ptr noundef %0, i64 %97, i64 %98, i64 noundef %.0219316, i64 %169, i64 %170)
   br label %JS_FreeValue.exit
 
 190:                                              ; preds = %184
@@ -57836,8 +57836,8 @@ JS_ToStringFree.exit:                             ; preds = %137, %142
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit:                                ; preds = %198, %193, %190, %166, %162, %160, %151, %147, %187
-  %.1 = phi i64 [ %188, %187 ], [ %.0219317, %147 ], [ %.0219317, %151 ], [ %.0219317, %160 ], [ %.0219317, %162 ], [ %.0219317, %166 ], [ %.0219317, %190 ], [ %.0219317, %193 ], [ %.0219317, %198 ]
-  %200 = add nuw nsw i64 %.0318, 1
+  %.1 = phi i64 [ %188, %187 ], [ %.0219316, %147 ], [ %.0219316, %151 ], [ %.0219316, %160 ], [ %.0219316, %162 ], [ %.0219316, %166 ], [ %.0219316, %190 ], [ %.0219316, %193 ], [ %.0219316, %198 ]
+  %200 = add nuw nsw i64 %.0317, 1
   %201 = load i64, ptr %9, align 8
   %202 = icmp slt i64 %200, %201
   br i1 %202, label %128, label %.thread286, !llvm.loop !170
@@ -57900,7 +57900,7 @@ JS_ToStringFree.exit262:                          ; preds = %221, %223, %227
   br label %232
 
 232:                                              ; preds = %213, %JS_ToStringFree.exit262, %216
-  %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114324 = phi ptr [ %220, %216 ], [ %231, %JS_ToStringFree.exit262 ], [ %208, %213 ]
+  %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114323 = phi ptr [ %220, %216 ], [ %231, %JS_ToStringFree.exit262 ], [ %208, %213 ]
   %233 = phi i64 [ %218, %216 ], [ %229, %JS_ToStringFree.exit262 ], [ %203, %213 ]
   %.sroa.14.1 = phi i64 [ %219, %216 ], [ %230, %JS_ToStringFree.exit262 ], [ %205, %213 ]
   %234 = and i64 %.sroa.14.1, 4294967295
@@ -57908,15 +57908,15 @@ JS_ToStringFree.exit262:                          ; preds = %221, %223, %227
   br i1 %.not306, label %JS_IsArray.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %232
-  %.pre325 = trunc i64 %.sroa.14.1 to i32
+  %.pre324 = trunc i64 %.sroa.14.1 to i32
   br label %235
 
 235:                                              ; preds = %._crit_edge, %JS_DupValue.exit
-  %.pre-phi326 = phi i32 [ %.pre325, %._crit_edge ], [ %206, %JS_DupValue.exit ]
-  %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114 = phi ptr [ %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114324, %._crit_edge ], [ %208, %JS_DupValue.exit ]
+  %.pre-phi325 = phi i32 [ %.pre324, %._crit_edge ], [ %206, %JS_DupValue.exit ]
+  %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114 = phi ptr [ %.sroa.0113.0..sroa.0113.0..sroa.0113.0..sroa.0113.0.114323, %._crit_edge ], [ %208, %JS_DupValue.exit ]
   %236 = phi i64 [ %233, %._crit_edge ], [ %203, %JS_DupValue.exit ]
   %.sroa.14.0 = phi i64 [ %.sroa.14.1, %._crit_edge ], [ %205, %JS_DupValue.exit ]
-  switch i32 %.pre-phi326, label %246 [
+  switch i32 %.pre-phi325, label %246 [
     i32 7, label %JS_DupValue.exit.i
     i32 0, label %JS_DupValue.exit.i
   ]
@@ -57962,11 +57962,11 @@ JS_DupValue.exit266:                              ; preds = %246
   br label %259
 
 259:                                              ; preds = %248, %JS_DupValue.exit266
-  %.sink330 = phi i64 [ %255, %248 ], [ %.sroa.01.0..sroa.01.0.20.cast.i.i, %JS_DupValue.exit266 ]
+  %.sink329 = phi i64 [ %255, %248 ], [ %.sroa.01.0..sroa.01.0.20.cast.i.i, %JS_DupValue.exit266 ]
   %.sink = phi i64 [ %256, %248 ], [ -7, %JS_DupValue.exit266 ]
-  store i64 %.sink330, ptr %13, align 8
+  store i64 %.sink329, ptr %13, align 8
   store i64 %.sink, ptr %.sroa.257.0..sroa_idx, align 8
-  %260 = icmp ugt i32 %.pre-phi326, -12
+  %260 = icmp ugt i32 %.pre-phi325, -12
   br i1 %260, label %261, label %JS_FreeValue.exit267
 
 261:                                              ; preds = %259
@@ -58026,8 +58026,8 @@ JS_DupValue.exit270.thread:                       ; preds = %275
 JS_DupValue.exit273:                              ; preds = %JS_DupValue.exit270.thread, %285
   %289 = call fastcc { i64, i64 } @js_json_check(ptr noundef %0, ptr noundef %7, i64 %272, i64 %273, i64 %1, i64 %2, ptr noundef nonnull byval(%struct.JSValue) align 8 %15)
   %290 = extractvalue { i64, i64 } %289, 1
-  %trunc319 = trunc i64 %290 to i32
-  switch i32 %trunc319, label %291 [
+  %trunc318 = trunc i64 %290 to i32
+  switch i32 %trunc318, label %291 [
     i32 6, label %JS_IsArray.exit
     i32 3, label %JS_IsArray.exit.fold.split
   ]
@@ -59999,11 +59999,11 @@ JS_ToQuotedStringFree.exit:                       ; preds = %386, %391
   br label %402
 
 402:                                              ; preds = %4, %4, %4, %4, %397, %401, %JS_ToQuotedStringFree.exit
-  %403 = phi i64 [ %3, %4 ], [ %3, %4 ], [ %3, %4 ], [ %3, %4 ], [ %3, %397 ], [ 2, %401 ], [ %395, %JS_ToQuotedStringFree.exit ]
-  %404 = phi i64 [ %2, %4 ], [ %2, %4 ], [ %2, %4 ], [ %2, %4 ], [ %2, %397 ], [ %.pre, %401 ], [ %394, %JS_ToQuotedStringFree.exit ]
+  %403 = phi i64 [ %2, %4 ], [ %2, %4 ], [ %2, %4 ], [ %2, %4 ], [ %2, %397 ], [ %.pre, %401 ], [ %394, %JS_ToQuotedStringFree.exit ]
+  %404 = phi i64 [ %3, %4 ], [ %3, %4 ], [ %3, %4 ], [ %3, %4 ], [ %3, %397 ], [ 2, %401 ], [ %395, %JS_ToQuotedStringFree.exit ]
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %406 = load ptr, ptr %405, align 8
-  %407 = tail call fastcc i32 @string_buffer_concat_value_free(ptr noundef %406, i64 %404, i64 %403)
+  %407 = tail call fastcc i32 @string_buffer_concat_value_free(ptr noundef %406, i64 %403, i64 %404)
   br label %JS_FreeValue.exit
 
 408:                                              ; preds = %4
@@ -60028,11 +60028,11 @@ JS_ToQuotedStringFree.exit:                       ; preds = %386, %391
   br label %JS_FreeValue.exit
 
 JS_FreeValue.exit542:                             ; preds = %191, %JS_FreeValue.exit533, %167, %160, %287, %262, %JS_DupValue.exit541, %JS_FreeValue.exit538, %285, %280, %278, %JS_ToQuotedStringFree.exit, %320, %226, %224, %143, %139, %132, %110, %JS_DupValue.exit524, %JS_DupValue.exit521, %57, %28, %19, %14, %408, %68, %55
-  %419 = phi i64 [ %3, %408 ], [ %395, %JS_ToQuotedStringFree.exit ], [ %3, %139 ], [ %3, %320 ], [ %3, %226 ], [ %3, %224 ], [ %3, %143 ], [ %3, %132 ], [ %3, %110 ], [ %3, %JS_DupValue.exit524 ], [ %3, %JS_DupValue.exit521 ], [ %3, %68 ], [ %3, %57 ], [ %3, %55 ], [ %31, %28 ], [ %22, %19 ], [ %17, %14 ], [ %3, %278 ], [ %3, %280 ], [ %3, %285 ], [ %3, %JS_FreeValue.exit538 ], [ %3, %JS_DupValue.exit541 ], [ %3, %262 ], [ %3, %287 ], [ %3, %160 ], [ %3, %167 ], [ %3, %JS_FreeValue.exit533 ], [ %3, %191 ]
-  %420 = phi i64 [ %2, %408 ], [ %394, %JS_ToQuotedStringFree.exit ], [ %2, %139 ], [ %2, %320 ], [ %2, %226 ], [ %2, %224 ], [ %2, %143 ], [ %2, %132 ], [ %2, %110 ], [ %2, %JS_DupValue.exit524 ], [ %2, %JS_DupValue.exit521 ], [ %2, %68 ], [ %2, %57 ], [ %2, %55 ], [ %30, %28 ], [ %21, %19 ], [ %16, %14 ], [ %2, %278 ], [ %2, %280 ], [ %2, %285 ], [ %2, %JS_FreeValue.exit538 ], [ %2, %JS_DupValue.exit541 ], [ %2, %262 ], [ %2, %287 ], [ %2, %160 ], [ %2, %167 ], [ %2, %JS_FreeValue.exit533 ], [ %2, %191 ]
+  %419 = phi i64 [ %2, %408 ], [ %394, %JS_ToQuotedStringFree.exit ], [ %2, %139 ], [ %2, %320 ], [ %2, %226 ], [ %2, %224 ], [ %2, %143 ], [ %2, %132 ], [ %2, %110 ], [ %2, %JS_DupValue.exit524 ], [ %2, %JS_DupValue.exit521 ], [ %2, %68 ], [ %2, %57 ], [ %2, %55 ], [ %30, %28 ], [ %21, %19 ], [ %16, %14 ], [ %2, %278 ], [ %2, %280 ], [ %2, %285 ], [ %2, %JS_FreeValue.exit538 ], [ %2, %JS_DupValue.exit541 ], [ %2, %262 ], [ %2, %287 ], [ %2, %160 ], [ %2, %167 ], [ %2, %JS_FreeValue.exit533 ], [ %2, %191 ]
   %.sroa.7.sroa.6.0 = phi i64 [ 3, %408 ], [ 3, %JS_ToQuotedStringFree.exit ], [ %89, %139 ], [ %89, %320 ], [ %89, %226 ], [ %89, %224 ], [ %89, %143 ], [ %89, %132 ], [ %89, %110 ], [ %89, %JS_DupValue.exit524 ], [ %89, %JS_DupValue.exit521 ], [ 3, %68 ], [ 3, %57 ], [ 3, %55 ], [ 3, %28 ], [ 3, %19 ], [ 3, %14 ], [ %89, %278 ], [ %89, %280 ], [ %89, %285 ], [ %89, %JS_FreeValue.exit538 ], [ %89, %JS_DupValue.exit541 ], [ %89, %262 ], [ %89, %287 ], [ %89, %160 ], [ %89, %167 ], [ %89, %JS_FreeValue.exit533 ], [ %89, %191 ]
   %.sroa.7.sroa.0.0 = phi i64 [ 0, %408 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %.sroa.7.0.extract.shift15, %139 ], [ %.sroa.7.0.extract.shift15, %320 ], [ %.sroa.7.0.extract.shift15, %226 ], [ %.sroa.7.0.extract.shift15, %224 ], [ %.sroa.7.0.extract.shift15, %143 ], [ %.sroa.7.0.extract.shift15, %132 ], [ %.sroa.7.0.extract.shift15, %110 ], [ %.sroa.7.0.extract.shift15, %JS_DupValue.exit524 ], [ %.sroa.7.0.extract.shift15, %JS_DupValue.exit521 ], [ 0, %68 ], [ 0, %57 ], [ 0, %55 ], [ 0, %28 ], [ 0, %19 ], [ 0, %14 ], [ %.sroa.7.0.extract.shift15, %278 ], [ %.sroa.7.0.extract.shift15, %280 ], [ %.sroa.7.0.extract.shift15, %285 ], [ %.sroa.7.0.extract.shift15, %JS_FreeValue.exit538 ], [ %.sroa.7.0.extract.shift15, %JS_DupValue.exit541 ], [ %.sroa.7.0.extract.shift15, %262 ], [ %.sroa.7.0.extract.shift15, %287 ], [ %.sroa.7.0.extract.shift15, %160 ], [ %.sroa.7.0.extract.shift15, %167 ], [ %.sroa.7.0.extract.shift15, %JS_FreeValue.exit533 ], [ %.sroa.7.0.extract.shift15, %191 ]
   %.sroa.0.0 = phi i64 [ 0, %408 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %88, %139 ], [ %88, %320 ], [ %88, %226 ], [ %88, %224 ], [ %88, %143 ], [ %88, %132 ], [ %88, %110 ], [ %88, %JS_DupValue.exit524 ], [ %88, %JS_DupValue.exit521 ], [ 0, %68 ], [ 0, %57 ], [ 0, %55 ], [ 0, %28 ], [ 0, %19 ], [ 0, %14 ], [ %88, %278 ], [ %88, %280 ], [ %88, %285 ], [ %88, %JS_FreeValue.exit538 ], [ %88, %JS_DupValue.exit541 ], [ %88, %262 ], [ %88, %287 ], [ %88, %160 ], [ %88, %167 ], [ %88, %JS_FreeValue.exit533 ], [ %88, %191 ]
+  %420 = phi i64 [ %3, %408 ], [ %395, %JS_ToQuotedStringFree.exit ], [ %3, %139 ], [ %3, %320 ], [ %3, %226 ], [ %3, %224 ], [ %3, %143 ], [ %3, %132 ], [ %3, %110 ], [ %3, %JS_DupValue.exit524 ], [ %3, %JS_DupValue.exit521 ], [ %3, %68 ], [ %3, %57 ], [ %3, %55 ], [ %31, %28 ], [ %22, %19 ], [ %17, %14 ], [ %3, %278 ], [ %3, %280 ], [ %3, %285 ], [ %3, %JS_FreeValue.exit538 ], [ %3, %JS_DupValue.exit541 ], [ %3, %262 ], [ %3, %287 ], [ %3, %160 ], [ %3, %167 ], [ %3, %JS_FreeValue.exit533 ], [ %3, %191 ]
   %.sroa.0248.0 = phi i32 [ 0, %408 ], [ 0, %JS_ToQuotedStringFree.exit ], [ 0, %139 ], [ %.sroa.0248.1, %320 ], [ %.sroa.0248.2, %226 ], [ %.sroa.0248.2, %224 ], [ 0, %143 ], [ 0, %132 ], [ 0, %110 ], [ 0, %JS_DupValue.exit524 ], [ 0, %JS_DupValue.exit521 ], [ 0, %68 ], [ 0, %57 ], [ 0, %55 ], [ 0, %28 ], [ 0, %19 ], [ 0, %14 ], [ %.sroa.0248.2, %278 ], [ %.sroa.0248.2, %280 ], [ %.sroa.0248.2, %285 ], [ %.sroa.0248.2, %JS_FreeValue.exit538 ], [ %.sroa.0248.2, %JS_DupValue.exit541 ], [ %.sroa.0248.2, %262 ], [ %.sroa.0248.2, %287 ], [ 0, %160 ], [ 0, %167 ], [ 0, %JS_FreeValue.exit533 ], [ 0, %191 ]
   %.sroa.8.0 = phi i32 [ undef, %408 ], [ undef, %JS_ToQuotedStringFree.exit ], [ undef, %139 ], [ %.sroa.8.1, %320 ], [ %.sroa.8.2, %226 ], [ %.sroa.8.2, %224 ], [ undef, %143 ], [ undef, %132 ], [ undef, %110 ], [ undef, %JS_DupValue.exit524 ], [ undef, %JS_DupValue.exit521 ], [ undef, %68 ], [ undef, %57 ], [ undef, %55 ], [ undef, %28 ], [ undef, %19 ], [ undef, %14 ], [ %.sroa.8.2, %278 ], [ %.sroa.8.2, %280 ], [ %.sroa.8.2, %285 ], [ %.sroa.8.2, %JS_FreeValue.exit538 ], [ %.sroa.8.2, %JS_DupValue.exit541 ], [ %.sroa.8.2, %262 ], [ %.sroa.8.2, %287 ], [ undef, %160 ], [ undef, %167 ], [ undef, %JS_FreeValue.exit533 ], [ undef, %191 ]
   %.sroa.9.0 = phi i64 [ 3, %408 ], [ 3, %JS_ToQuotedStringFree.exit ], [ 3, %139 ], [ %.sroa.9.1, %320 ], [ %.sroa.9.2, %226 ], [ %.sroa.9.2, %224 ], [ 3, %143 ], [ 3, %132 ], [ 3, %110 ], [ 3, %JS_DupValue.exit524 ], [ 3, %JS_DupValue.exit521 ], [ 3, %68 ], [ 3, %57 ], [ 3, %55 ], [ 3, %28 ], [ 3, %19 ], [ 3, %14 ], [ %.sroa.9.2, %278 ], [ %.sroa.9.2, %280 ], [ %.sroa.9.2, %285 ], [ %.sroa.9.2, %JS_FreeValue.exit538 ], [ %.sroa.9.2, %JS_DupValue.exit541 ], [ %.sroa.9.2, %262 ], [ %.sroa.9.2, %287 ], [ 3, %160 ], [ 3, %167 ], [ 3, %JS_FreeValue.exit533 ], [ 3, %191 ]
@@ -60042,12 +60042,12 @@ JS_FreeValue.exit542:                             ; preds = %191, %JS_FreeValue.
   %.sroa.0327.0 = phi i32 [ 0, %408 ], [ 0, %JS_ToQuotedStringFree.exit ], [ %.sroa.0327.1, %139 ], [ %.sroa.0327.1, %320 ], [ %.sroa.0327.1, %226 ], [ %.sroa.0327.1, %224 ], [ %.sroa.0327.1, %143 ], [ %.sroa.0327.1, %132 ], [ %.sroa.0327.0.extract.trunc344, %110 ], [ %.sroa.0327.0.extract.trunc344, %JS_DupValue.exit524 ], [ 0, %JS_DupValue.exit521 ], [ 0, %68 ], [ 0, %57 ], [ 0, %55 ], [ 0, %28 ], [ 0, %19 ], [ 0, %14 ], [ %.sroa.0327.1, %278 ], [ %.sroa.0327.1, %280 ], [ %.sroa.0327.1, %285 ], [ %.sroa.0327.1, %JS_FreeValue.exit538 ], [ %.sroa.0327.1, %JS_DupValue.exit541 ], [ %.sroa.0327.1, %262 ], [ %.sroa.0327.1, %287 ], [ %.sroa.0327.1, %160 ], [ %.sroa.0327.1, %167 ], [ %.sroa.0327.1, %JS_FreeValue.exit533 ], [ %.sroa.0327.1, %191 ]
   %.sroa.8345.0 = phi i32 [ undef, %408 ], [ undef, %JS_ToQuotedStringFree.exit ], [ %.sroa.8345.1, %139 ], [ %.sroa.8345.1, %320 ], [ %.sroa.8345.1, %226 ], [ %.sroa.8345.1, %224 ], [ %.sroa.8345.1, %143 ], [ %.sroa.8345.1, %132 ], [ %.sroa.8345.0.extract.trunc367, %110 ], [ %.sroa.8345.0.extract.trunc367, %JS_DupValue.exit524 ], [ undef, %JS_DupValue.exit521 ], [ undef, %68 ], [ undef, %57 ], [ undef, %55 ], [ undef, %28 ], [ undef, %19 ], [ undef, %14 ], [ %.sroa.8345.1, %278 ], [ %.sroa.8345.1, %280 ], [ %.sroa.8345.1, %285 ], [ %.sroa.8345.1, %JS_FreeValue.exit538 ], [ %.sroa.8345.1, %JS_DupValue.exit541 ], [ %.sroa.8345.1, %262 ], [ %.sroa.8345.1, %287 ], [ %.sroa.8345.1, %160 ], [ %.sroa.8345.1, %167 ], [ %.sroa.8345.1, %JS_FreeValue.exit533 ], [ %.sroa.8345.1, %191 ]
   %.sroa.9368.0 = phi i64 [ 3, %408 ], [ 3, %JS_ToQuotedStringFree.exit ], [ %.sroa.9368.1, %139 ], [ %.sroa.9368.1, %320 ], [ %.sroa.9368.1, %226 ], [ %.sroa.9368.1, %224 ], [ %.sroa.9368.1, %143 ], [ %.sroa.9368.1, %132 ], [ %108, %110 ], [ %108, %JS_DupValue.exit524 ], [ 3, %JS_DupValue.exit521 ], [ 3, %68 ], [ 3, %57 ], [ 3, %55 ], [ 3, %28 ], [ 3, %19 ], [ 3, %14 ], [ %.sroa.9368.1, %278 ], [ %.sroa.9368.1, %280 ], [ %.sroa.9368.1, %285 ], [ %.sroa.9368.1, %JS_FreeValue.exit538 ], [ %.sroa.9368.1, %JS_DupValue.exit541 ], [ %.sroa.9368.1, %262 ], [ %.sroa.9368.1, %287 ], [ %.sroa.9368.1, %160 ], [ %.sroa.9368.1, %167 ], [ %.sroa.9368.1, %JS_FreeValue.exit533 ], [ %.sroa.9368.1, %191 ]
-  %421 = trunc i64 %419 to i32
+  %421 = trunc i64 %420 to i32
   %422 = icmp ugt i32 %421, -12
   br i1 %422, label %423, label %JS_FreeValue.exit551
 
 423:                                              ; preds = %JS_FreeValue.exit542
-  %424 = inttoptr i64 %420 to ptr
+  %424 = inttoptr i64 %419 to ptr
   %425 = load i32, ptr %424, align 4
   %426 = add i32 %425, -1
   store i32 %426, ptr %424, align 4
@@ -60057,7 +60057,7 @@ JS_FreeValue.exit542:                             ; preds = %191, %JS_FreeValue.
 428:                                              ; preds = %423
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %430 = load ptr, ptr %429, align 8
-  call void @__JS_FreeValueRT(ptr noundef %430, i64 %420, i64 %419)
+  call void @__JS_FreeValueRT(ptr noundef %430, i64 %419, i64 %420)
   br label %JS_FreeValue.exit551
 
 JS_FreeValue.exit551:                             ; preds = %JS_FreeValue.exit542, %423, %428

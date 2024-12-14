@@ -45007,38 +45007,36 @@ _ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev.exit157: ; preds = %_ZSt8_DestroyIPN4Lu
   br i1 %.not.i.i.i158, label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit, label %409
 
 409:                                              ; preds = %406
-  %410 = load ptr, ptr %41, align 8
-  %411 = ptrtoint ptr %410 to i64
-  %412 = ptrtoint ptr %408 to i64
-  %413 = sub i64 %411, %412
-  call void @_ZdlPvm(ptr noundef nonnull %408, i64 noundef %413) #32
+  %410 = ptrtoint ptr %.sink.i to i64
+  %411 = ptrtoint ptr %408 to i64
+  %412 = sub i64 %410, %411
+  call void @_ZdlPvm(ptr noundef nonnull %408, i64 noundef %412) #32
   br label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146:  ; preds = %.loopexit256, %.loopexit.split-lp257, %342, %_ZN4Luau9UnionTypeD2Ev.exit143, %.body
   %.pn92 = phi { ptr, i32 } [ %.pn89, %.body ], [ %.pn85.pn.pn, %_ZN4Luau9UnionTypeD2Ev.exit143 ], [ %.pn85.pn.pn, %342 ], [ %lpad.loopexit258, %.loopexit256 ], [ %lpad.loopexit.split-lp259, %.loopexit.split-lp257 ]
-  %414 = load ptr, ptr %7, align 8
-  %.not.i.i.i159 = icmp eq ptr %414, null
-  br i1 %.not.i.i.i159, label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit160, label %415
+  %413 = load ptr, ptr %7, align 8
+  %.not.i.i.i159 = icmp eq ptr %413, null
+  br i1 %.not.i.i.i159, label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit160, label %414
 
-415:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146
-  %416 = load ptr, ptr %41, align 8
-  %417 = ptrtoint ptr %416 to i64
-  %418 = ptrtoint ptr %414 to i64
-  %419 = sub i64 %417, %418
-  call void @_ZdlPvm(ptr noundef nonnull %414, i64 noundef %419) #32
+414:                                              ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146
+  %415 = ptrtoint ptr %.sink.i to i64
+  %416 = ptrtoint ptr %413 to i64
+  %417 = sub i64 %415, %416
+  call void @_ZdlPvm(ptr noundef nonnull %413, i64 noundef %417) #32
   br label %_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit160
 
 _ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit: ; preds = %409, %406, %_ZN4Luau11TypeChecker17errorRecoveryTypeERKSt10shared_ptrINS_5ScopeEE.exit
+  %418 = load i32, ptr %17, align 8
+  %419 = add nsw i32 %418, -1
+  store i32 %419, ptr %17, align 8
+  ret void
+
+_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit160: ; preds = %414, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146, %62, %29
+  %.pn94 = phi { ptr, i32 } [ %30, %29 ], [ %63, %62 ], [ %.pn92, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146 ], [ %.pn92, %414 ]
   %420 = load i32, ptr %17, align 8
   %421 = add nsw i32 %420, -1
   store i32 %421, ptr %17, align 8
-  ret void
-
-_ZNSt6vectorISt4pairIPKN4Luau4TypeES4_ESaIS5_EED2Ev.exit160: ; preds = %415, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146, %62, %29
-  %.pn94 = phi { ptr, i32 } [ %30, %29 ], [ %63, %62 ], [ %.pn92, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit146 ], [ %.pn92, %415 ]
-  %422 = load i32, ptr %17, align 8
-  %423 = add nsw i32 %422, -1
-  store i32 %423, ptr %17, align 8
   resume { ptr, i32 } %.pn94
 }
 

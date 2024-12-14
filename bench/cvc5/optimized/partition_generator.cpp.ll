@@ -11616,8 +11616,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.else:                                          ; preds = %for.body
-  %agg.tmp28.sroa.0.0.copyload = load ptr, ptr %__comp, align 8
-  tail call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_6theory18PartitionGenerator15collectLiteralsENSE_15LiteralListTypeEE3$_0EEEvT_T0_"(ptr nonnull %__i.sroa.0.039, ptr %agg.tmp28.sroa.0.0.copyload)
+  tail call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_6theory18PartitionGenerator15collectLiteralsENSE_15LiteralListTypeEE3$_0EEEvT_T0_"(ptr nonnull %__i.sroa.0.039, ptr %__comp.coerce)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then13.i.i27, %if.then.i.i21, %invoke.cont24, %if.else

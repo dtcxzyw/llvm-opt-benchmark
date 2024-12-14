@@ -3602,7 +3602,7 @@ if.then126:                                       ; preds = %if.then124
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then124, %if.then126, %if.end109
-  %rs.promoted = phi i32 [ %sub128, %if.then126 ], [ %conv115, %if.then124 ], [ %conv115, %if.end109 ]
+  %conv11561 = phi i32 [ %sub128, %if.then126 ], [ %conv115, %if.then124 ], [ %conv115, %if.end109 ]
   %paramCrossX.1 = phi float [ %add, %if.then126 ], [ %add, %if.then124 ], [ %paramCrossX.0, %if.end109 ]
   %cmp132 = fcmp oeq float %paramCrossZ.0, 0.000000e+00
   br i1 %cmp132, label %if.then133, label %if.end140
@@ -3617,7 +3617,7 @@ if.then136:                                       ; preds = %if.then133
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then133, %if.then136, %if.end130
-  %z.promoted = phi i32 [ %sub138, %if.then136 ], [ %conv121, %if.then133 ], [ %conv121, %if.end130 ]
+  %25 = phi i32 [ %sub138, %if.then136 ], [ %conv121, %if.then133 ], [ %conv121, %if.end130 ]
   %paramCrossZ.1 = phi float [ %add134, %if.then136 ], [ %add134, %if.then133 ], [ %paramCrossZ.0, %if.end130 ]
   %prev_x = getelementptr inbounds nuw i8, ptr %rs, i64 8
   %prev_z = getelementptr inbounds nuw i8, ptr %rs, i64 12
@@ -3626,19 +3626,19 @@ if.end140:                                        ; preds = %if.then133, %if.the
   br label %while.body
 
 while.body:                                       ; preds = %if.else166, %if.end140
-  %25 = phi float [ 0.000000e+00, %if.end140 ], [ %paramCrossZ.2.sink, %if.else166 ]
-  %26 = phi i32 [ %z.promoted, %if.end140 ], [ %27, %if.else166 ]
-  %add15162 = phi i32 [ %rs.promoted, %if.end140 ], [ %add15161, %if.else166 ]
+  %paramCrossZ.265 = phi float [ 0.000000e+00, %if.end140 ], [ %paramCrossZ.2.sink, %if.else166 ]
+  %26 = phi i32 [ %25, %if.end140 ], [ %27, %if.else166 ]
+  %conv11563 = phi i32 [ %conv11561, %if.end140 ], [ %conv11562, %if.else166 ]
   %paramCrossX.2 = phi float [ %paramCrossX.1, %if.end140 ], [ %paramCrossX.3, %if.else166 ]
   %paramCrossZ.2 = phi float [ %paramCrossZ.1, %if.end140 ], [ %paramCrossZ.3, %if.else166 ]
-  store i32 %add15162, ptr %prev_x, align 4
+  store i32 %conv11563, ptr %prev_x, align 4
   store i32 %26, ptr %prev_z, align 4
-  store float %25, ptr %prevParam, align 4
+  store float %paramCrossZ.265, ptr %prevParam, align 4
   %cmp148 = fcmp olt float %paramCrossX.2, %paramCrossZ.2
   br i1 %cmp148, label %if.then149, label %if.else154
 
 if.then149:                                       ; preds = %while.body
-  %add151 = add nsw i32 %add15162, %cond29
+  %add151 = add nsw i32 %conv11563, %cond29
   store i32 %add151, ptr %rs, align 4
   %add153 = fadd float %cond43, %paramCrossX.2
   br label %if.end159
@@ -3652,7 +3652,7 @@ if.else154:                                       ; preds = %while.body
 if.end159:                                        ; preds = %if.else154, %if.then149
   %paramCrossZ.2.sink = phi float [ %paramCrossX.2, %if.then149 ], [ %paramCrossZ.2, %if.else154 ]
   %27 = phi i32 [ %26, %if.then149 ], [ %add156, %if.else154 ]
-  %add15161 = phi i32 [ %add151, %if.then149 ], [ %add15162, %if.else154 ]
+  %conv11562 = phi i32 [ %add151, %if.then149 ], [ %conv11563, %if.else154 ]
   %paramCrossX.3 = phi float [ %add153, %if.then149 ], [ %paramCrossX.2, %if.else154 ]
   %paramCrossZ.3 = phi float [ %paramCrossZ.2, %if.then149 ], [ %add158, %if.else154 ]
   store float %paramCrossZ.2.sink, ptr %param, align 4

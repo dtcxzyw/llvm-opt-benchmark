@@ -11951,8 +11951,7 @@ _ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i: ; preds = %i
 
 _ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvPvN5folly18TLPDestructionModeEEED2Ev.exit.i.i.i.i, %if.then.i44.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i.i.i.i, i8 0, i64 17, i1 false)
-  %49 = load ptr, ptr %newPtr.addr.i.i.i, align 8
-  %tobool.not.i.i2.i.i = icmp eq ptr %49, null
+  %tobool.not.i.i2.i.i = icmp eq ptr %call2.i.i.i, null
   br i1 %tobool.not.i.i2.i.i, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE7makeTlpEv.exit.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
@@ -11961,19 +11960,19 @@ if.end.i.i.i.i:                                   ; preds = %_ZN5folly18threadlo
           to label %.noexc48.i.i.i unwind label %lpad.i.i.i
 
 .noexc48.i.i.i:                                   ; preds = %if.end.i.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
-  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS4_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS6_EES8_E7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeESG_SH_, ptr %50, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 8
+  store ptr @_ZZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS4_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS6_EES8_E7WrapperEEEvT_ENUlPvNS_18TLPDestructionModeEE_8__invokeESG_SH_, ptr %49, align 8
   store i8 0, ptr %ownsDeleter.i42.i.i.i, align 8
-  store ptr %49, ptr %arrayidx.i.i.i.i, align 8
+  store ptr %call2.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   br label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE7makeTlpEv.exit.i
 
 lpad.i.i.i:                                       ; preds = %if.end.i.i.i.i, %if.then.i32.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i26.i.i.i, %cond.false.i.i.i35.i.i.i, %cond.false11.i.i.i.i, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i16.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i.i, %cond.false.i.i.i17.i.i.i
   %guard.sroa.0.0.i.i.i = phi i8 [ 0, %if.then.i.i.i.i.i ], [ 1, %if.end.i.i.i.i ], [ 0, %if.then.i32.i.i.i ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i26.i.i.i ], [ 0, %cond.false.i.i.i35.i.i.i ], [ 0, %_ZNKSt8functionIFvPvN5folly18TLPDestructionModeEEEclES0_S2_.exit.i.i.i.i ], [ 0, %cond.false11.i.i.i.i ], [ 0, %if.then.i16.i.i.i ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i.i ], [ 0, %cond.false.i.i.i17.i.i.i ]
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS4_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS0_11DefaultMakeIS6_EES8_E7WrapperES8_vE5resetEPSC_EUlvE_Lb1EED2Ev(i8 %guard.sroa.0.0.i.i.i, ptr nonnull %newPtr.addr.i.i.i) #23
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #23
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %50
 
 _ZNK5folly11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE7makeTlpEv.exit.i: ; preds = %.noexc48.i.i.i, %_ZN5folly18threadlocal_detail14ElementWrapper7cleanupEv.exit.i.i.i
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %rlock.i.i.i) #23

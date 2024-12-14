@@ -611,12 +611,12 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre35 = load ptr, ptr @replication_states, align 8
+  %.pre39 = load ptr, ptr @replication_states, align 8
   br label %43
 
 43:                                               ; preds = %.lr.ph, %70
   %44 = phi i32 [ %40, %.lr.ph ], [ %71, %70 ]
-  %45 = phi ptr [ %.pre35, %.lr.ph ], [ %72, %70 ]
+  %45 = phi ptr [ %.pre39, %.lr.ph ], [ %72, %70 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %46 = phi i32 [ %36, %.lr.ph ], [ %73, %70 ]
   %47 = getelementptr %struct.ReplicationState, ptr %45, i64 %indvars.iv
@@ -663,11 +663,11 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
   %68 = load ptr, ptr @pg_comp_crc32c, align 8
   %69 = call i32 %68(i32 noundef %46, ptr noundef nonnull %3, i64 noundef 16) #10
   %.pre = load ptr, ptr @replication_states, align 8
-  %.pre36 = load i32, ptr @max_replication_slots, align 4
+  %.pre40 = load i32, ptr @max_replication_slots, align 4
   br label %70
 
 70:                                               ; preds = %43, %67
-  %71 = phi i32 [ %44, %43 ], [ %.pre36, %67 ]
+  %71 = phi i32 [ %44, %43 ], [ %.pre40, %67 ]
   %72 = phi ptr [ %45, %43 ], [ %.pre, %67 ]
   %73 = phi i32 [ %46, %43 ], [ %69, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

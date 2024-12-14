@@ -1232,24 +1232,24 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN
   %28 = and i64 %25, 8589934592
   %29 = xor i64 %28, 56100862820352
   %30 = select i1 %.not17.i, i64 56092272885760, i64 %29
-  %31 = or disjoint i64 %8, %10
+  %31 = or disjoint i64 %10, %8
   %32 = or disjoint i64 %31, %16
   %33 = or disjoint i64 %32, %18
   %34 = or disjoint i64 %33, %20
-  %.masked.masked.masked.masked.masked.masked = or disjoint i64 %34, %22
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %36 = load i64, ptr %35, align 8
-  %37 = shl i64 %36, 37
-  %38 = and i64 %37, 70368744177664
-  %.masked3.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %24
-  %.masked.masked.masked.masked.masked.masked8.masked = or i64 %.masked3.masked.masked.masked.masked.masked.masked.masked, %26
-  %.masked6.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked8.masked, %14
-  %39 = or i64 %.masked6.masked.masked.masked.masked.masked, %30
-  %40 = or i64 %39, %38
-  %41 = xor i64 %40, 807542786
-  store i64 %41, ptr %5, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %42, align 8
+  %35 = or disjoint i64 %34, %22
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %37 = load i64, ptr %36, align 8
+  %38 = shl i64 %37, 37
+  %39 = and i64 %38, 70368744177664
+  %.masked.masked.masked.masked.masked.masked = or i64 %35, %24
+  %.masked3.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %26
+  %.masked.masked.masked = or i64 %.masked3.masked.masked.masked.masked, %14
+  %40 = or i64 %.masked.masked.masked, %30
+  %41 = or i64 %40, %39
+  %42 = xor i64 %41, 807542786
+  store i64 %42, ptr %5, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %43, align 8
   call void @_ZNK5clang15DeclarationName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(841) %4) #16
   ret ptr %0
@@ -1737,24 +1737,24 @@ define dso_local void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dea
   %34 = and i64 %31, 8589934592
   %35 = xor i64 %34, 56100862820352
   %36 = select i1 %.not17.i.i, i64 56092272885760, i64 %35
-  %37 = or disjoint i64 %14, %16
+  %37 = or disjoint i64 %16, %14
   %38 = or disjoint i64 %37, %22
   %39 = or disjoint i64 %38, %24
   %40 = or disjoint i64 %39, %26
-  %.masked.masked.masked.masked.masked.masked.i = or disjoint i64 %40, %28
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %42 = load i64, ptr %41, align 8
-  %43 = shl i64 %42, 37
-  %44 = and i64 %43, 70368744177664
-  %.masked3.masked.masked.masked.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked.i, %30
-  %.masked.masked.masked.masked.masked.masked8.masked.i = or i64 %.masked3.masked.masked.masked.masked.masked.masked.masked.i, %32
-  %.masked6.masked.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked8.masked.i, %20
-  %45 = or i64 %.masked6.masked.masked.masked.masked.masked.i, %44
-  %46 = or i64 %45, %36
-  %47 = xor i64 %46, 807542786
-  store i64 %47, ptr %5, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %48, align 8
+  %41 = or disjoint i64 %40, %28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %43 = load i64, ptr %42, align 8
+  %44 = shl i64 %43, 37
+  %45 = and i64 %44, 70368744177664
+  %.masked.masked.masked.masked.masked.masked.i = or i64 %41, %30
+  %.masked3.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked.i, %32
+  %.masked.masked.masked.i = or i64 %.masked3.masked.masked.masked.masked.i, %20
+  %46 = or i64 %.masked.masked.masked.i, %45
+  %47 = or i64 %46, %36
+  %48 = xor i64 %47, 807542786
+  store i64 %48, ptr %5, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %49, align 8
   call void @_ZNK5clang15DeclarationName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(841) %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -1867,47 +1867,47 @@ define dso_local void @_ZNK5clang15DeclarationName4dumpEv(ptr nocapture noundef 
   %28 = and i64 %25, 8589934592
   %29 = xor i64 %28, 56100862820352
   %30 = select i1 %.not17.i.i, i64 56092272885760, i64 %29
-  %31 = or disjoint i64 %8, %10
+  %31 = or disjoint i64 %10, %8
   %32 = or disjoint i64 %31, %16
   %33 = or disjoint i64 %32, %18
   %34 = or disjoint i64 %33, %20
-  %.masked.masked.masked.masked.masked.masked.i = or disjoint i64 %34, %22
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %36 = load i64, ptr %35, align 8
-  %37 = shl i64 %36, 37
-  %38 = and i64 %37, 70368744177664
-  %.masked3.masked.masked.masked.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked.i, %24
-  %.masked.masked.masked.masked.masked.masked8.masked.i = or i64 %.masked3.masked.masked.masked.masked.masked.masked.masked.i, %26
-  %.masked6.masked.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked8.masked.i, %14
-  %39 = or i64 %.masked6.masked.masked.masked.masked.masked.i, %38
-  %40 = or i64 %39, %30
-  %41 = xor i64 %40, 807542786
-  store i64 %41, ptr %4, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %42, align 8
+  %35 = or disjoint i64 %34, %22
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %37 = load i64, ptr %36, align 8
+  %38 = shl i64 %37, 37
+  %39 = and i64 %38, 70368744177664
+  %.masked.masked.masked.masked.masked.masked.i = or i64 %35, %24
+  %.masked3.masked.masked.masked.masked.i = or i64 %.masked.masked.masked.masked.masked.masked.i, %26
+  %.masked.masked.masked.i = or i64 %.masked3.masked.masked.masked.masked.i, %14
+  %40 = or i64 %.masked.masked.masked.i, %39
+  %41 = or i64 %40, %30
+  %42 = xor i64 %41, 807542786
+  store i64 %42, ptr %4, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %43, align 8
   call void @_ZNK5clang15DeclarationName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @_ZN5clang11LangOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(841) %3) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %.not.i = icmp ult ptr %44, %46
-  br i1 %.not.i, label %49, label %47
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %.not.i = icmp ult ptr %45, %47
+  br i1 %.not.i, label %50, label %48
 
-47:                                               ; preds = %1
-  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef zeroext 10) #16
+48:                                               ; preds = %1
+  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 noundef zeroext 10) #16
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-49:                                               ; preds = %1
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store ptr %50, ptr %43, align 8
-  store i8 10, ptr %44, align 1
+50:                                               ; preds = %1
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  store ptr %51, ptr %44, align 8
+  store i8 10, ptr %45, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %47, %49
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %50
   ret void
 }
 

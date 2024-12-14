@@ -2027,11 +2027,10 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit.i.i: ; pre
 
 154:                                              ; preds = %150, %147
   %.1.i.i = phi ptr [ %122, %147 ], [ %.026.i.i, %150 ]
-  %.val.i.i = load ptr, ptr %4, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %156 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
-  %157 = load ptr, ptr %.val.i.i, align 8
-  %158 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #14
+  %157 = load ptr, ptr %0, align 8
+  %158 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %159 = getelementptr inbounds %"struct.llvm::LiveRange::Segment", ptr %157, i64 %158
   %160 = ptrtoint ptr %159 to i64
   %161 = ptrtoint ptr %156 to i64
@@ -2048,16 +2047,15 @@ _ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit31.i.i: ; p
   br label %_ZN12_GLOBAL__N_121CalcLiveRangeUtilBaseINS_23CalcLiveRangeUtilVectorEPN4llvm9LiveRange7SegmentENS2_11SmallVectorIS4_Lj2EEEE20extendSegmentStartToES5_NS2_9SlotIndexE.exit.i
 
 _ZN12_GLOBAL__N_121CalcLiveRangeUtilBaseINS_23CalcLiveRangeUtilVectorEPN4llvm9LiveRange7SegmentENS2_11SmallVectorIS4_Lj2EEEE20extendSegmentStartToES5_NS2_9SlotIndexE.exit.i: ; preds = %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit31.i.i, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit.i.i
-  %.val.sink47.i.i = phi ptr [ %.val.i.i, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit31.i.i ], [ %0, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit.i.i ]
   %.sink45.i.i = phi ptr [ %164, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit31.i.i ], [ %120, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit.i.i ]
   %.0.i.i = phi ptr [ %.1.i.i, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit31.i.i ], [ %.0.lcssa.i.i.i.i.i, %_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE5eraseEPKS2_S5_.exit.i.i ]
-  %165 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.sink47.i.i) #14
-  %166 = load ptr, ptr %.val.sink47.i.i, align 8
+  %165 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  %166 = load ptr, ptr %0, align 8
   %167 = ptrtoint ptr %.sink45.i.i to i64
   %168 = ptrtoint ptr %166 to i64
   %169 = sub i64 %167, %168
   %170 = sdiv exact i64 %169, 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %.val.sink47.i.i, i64 noundef %170) #14
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %170) #14
   %171 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %.sroa.01.0.copyload.i = load i64, ptr %171, align 8
   %172 = load i32, ptr %96, align 8

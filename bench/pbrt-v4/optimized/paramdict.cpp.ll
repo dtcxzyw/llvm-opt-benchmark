@@ -5436,9 +5436,6 @@ if.end:                                           ; preds = %for.body
 
 for.body.i.i.i.preheader:                         ; preds = %if.end
   %name.i.i85 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %name.i.i63 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %name.i.i40 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %name.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader, %if.end12.i.i.i
@@ -5506,13 +5503,13 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 land.rhs.i.i62:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i60, %land.rhs.i.i.i55
   %call.i1.i.i64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.val28.i.i.i) #23
-  %call1.i2.i.i65 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i63) #23
+  %call1.i2.i.i65 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %cmp.i3.i.i66 = icmp eq i64 %call.i1.i.i64, %call1.i2.i.i65
   br i1 %cmp.i3.i.i66, label %land.rhs.i4.i.i67, label %if.end4.i.i.i
 
 land.rhs.i4.i.i67:                                ; preds = %land.rhs.i.i62
   %call2.i5.i.i68 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.val28.i.i.i) #23
-  %call3.i6.i.i69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i63) #23
+  %call3.i6.i.i69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %call4.i7.i.i70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.val28.i.i.i) #23
   %cmp.i.i8.i.i71 = icmp eq i64 %call4.i7.i.i70, 0
   br i1 %cmp.i.i8.i.i71, label %invoke.cont8.loopexit.split.loop.exit148, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit74"
@@ -5546,13 +5543,13 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 land.rhs.i.i39:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i37, %land.rhs.i.i.i32
   %call.i1.i.i41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.val30.i.i.i) #23
-  %call1.i2.i.i42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i40) #23
+  %call1.i2.i.i42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %cmp.i3.i.i43 = icmp eq i64 %call.i1.i.i41, %call1.i2.i.i42
   br i1 %cmp.i3.i.i43, label %land.rhs.i4.i.i44, label %if.end8.i.i.i
 
 land.rhs.i4.i.i44:                                ; preds = %land.rhs.i.i39
   %call2.i5.i.i45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.val30.i.i.i) #23
-  %call3.i6.i.i46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i40) #23
+  %call3.i6.i.i46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %call4.i7.i.i47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.val30.i.i.i) #23
   %cmp.i.i8.i.i48 = icmp eq i64 %call4.i7.i.i47, 0
   br i1 %cmp.i.i8.i.i48, label %invoke.cont8.loopexit.split.loop.exit150, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit51"
@@ -5586,13 +5583,13 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 land.rhs.i.i:                                     ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i, %land.rhs.i.i.i
   %call.i1.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.val32.i.i.i) #23
-  %call1.i2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
+  %call1.i2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %cmp.i3.i.i = icmp eq i64 %call.i1.i.i, %call1.i2.i.i
   br i1 %cmp.i3.i.i, label %land.rhs.i4.i.i, label %if.end12.i.i.i
 
 land.rhs.i4.i.i:                                  ; preds = %land.rhs.i.i
   %call2.i5.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.val32.i.i.i) #23
-  %call3.i6.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
+  %call3.i6.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i85) #23
   %call4.i7.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.val32.i.i.i) #23
   %cmp.i.i8.i.i = icmp eq i64 %call4.i7.i.i, 0
   br i1 %cmp.i.i8.i.i, label %invoke.cont8.loopexit.split.loop.exit152, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4pbrt19ParameterDictionary12ReportUnusedEvE3$_0EclIPSt4pairIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_EEEbT_.exit"

@@ -2545,8 +2545,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %51 = zext i1 %7 to i8
   %52 = or i8 %50, %51
   %53 = icmp ne i8 %52, 0
-  %.sroa.0.0.copyload = load ptr, ptr %11, align 8
-  %.sroa.2.0.copyload = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %54, align 8
@@ -2565,7 +2563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt3anyC2ERKS_.exit:                            ; preds = %56, %57
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfErrorC1ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) %14, ptr %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %15, i1 noundef zeroext %53)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7TfErrorC1ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) %14, ptr %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %15, i1 noundef zeroext %53)
           to label %58 unwind label %75
 
 58:                                               ; preds = %_ZNSt3anyC2ERKS_.exit
@@ -2930,8 +2928,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %58 = zext i1 %7 to i8
   %59 = or i8 %57, %58
   %60 = icmp ne i8 %59, 0
-  %.sroa.0.0.copyload = load ptr, ptr %15, align 8
-  %.sroa.2.0.copyload = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %61, align 8
@@ -2974,7 +2970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt3anyC2ERKS_.exit.i:                          ; preds = %68, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) %18, ptr %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %11, i1 noundef zeroext %60)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) %18, ptr %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %11, i1 noundef zeroext %60)
           to label %69 unwind label %75
 
 69:                                               ; preds = %_ZNSt3anyC2ERKS_.exit.i

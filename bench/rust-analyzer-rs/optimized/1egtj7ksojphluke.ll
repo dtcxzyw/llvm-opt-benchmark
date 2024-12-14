@@ -27359,9 +27359,9 @@ define internal fastcc void @_ZN3ide17highlight_related21highlight_exit_points2h
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 60
   store i32 2, ptr %.sroa.0.sroa.6.0..sroa_idx, align 4
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h698a6004a9e0aac7E.llvm.7519451831489459490"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %12)
-          to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hffa10df103887662E.exit" unwind label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread81"
+          to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hffa10df103887662E.exit" unwind label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread80"
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread81": ; preds = %5
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread80": ; preds = %5
   %18 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread"
@@ -27468,13 +27468,13 @@ define internal fastcc void @_ZN3ide17highlight_related21highlight_exit_points2h
   unreachable
 
 .thread61:                                        ; preds = %35, %54
-  %.sroa.573.0 = phi ptr [ %48, %54 ], [ %4, %35 ]
+  %.sroa.572.0 = phi ptr [ %48, %54 ], [ %4, %35 ]
   %.23464 = phi i8 [ 1, %54 ], [ 0, %35 ]
   %57 = phi i64 [ %47, %54 ], [ %3, %35 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i64 %57, ptr %8, align 8
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.573.0, ptr %58, align 8
+  store ptr %.sroa.572.0, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %13, ptr %7, align 8
   invoke void @_ZN6ide_db14syntax_helpers8node_ext18for_each_tail_expr17h66b3174df7c9e272E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3c5d4856225436a016f648d8ca8332b3.169)
@@ -27549,21 +27549,21 @@ define internal fastcc void @_ZN3ide17highlight_related21highlight_exit_points2h
 
 81:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread"
   %82 = icmp eq i64 %3, 36
-  %or.cond = or i1 %.178, %82
+  %or.cond = or i1 %82, %.177
   br i1 %or.cond, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17hd8ed5e6419c64147E.llvm.13464776083476810161.exit", label %84
 
 83:                                               ; preds = %29, %25, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7229
   br label %69
 
-"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread": ; preds = %74, %80, %31, %73, %72, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread81"
-  %.pn4480 = phi { ptr, i32 } [ %18, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread81" ], [ %.pn60, %74 ], [ %.pn60, %80 ], [ %.pn, %31 ], [ %.pn60, %73 ], [ %.pn60, %72 ]
-  %.178 = phi i1 [ false, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread81" ], [ true, %74 ], [ true, %80 ], [ true, %31 ], [ true, %73 ], [ true, %72 ]
+"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread": ; preds = %74, %80, %31, %73, %72, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread80"
+  %.pn4479 = phi { ptr, i32 } [ %18, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread80" ], [ %.pn60, %74 ], [ %.pn60, %80 ], [ %.pn, %31 ], [ %.pn60, %73 ], [ %.pn60, %72 ]
+  %.177 = phi i1 [ false, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit52.thread80" ], [ true, %74 ], [ true, %80 ], [ true, %31 ], [ true, %73 ], [ true, %72 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$ide..highlight_related..HighlightedRange$GT$$GT$17h2455008aea0af234E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #29
           to label %81 unwind label %55
 
 "_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17hd8ed5e6419c64147E.llvm.13464776083476810161.exit": ; preds = %84, %81
-  resume { ptr, i32 } %.pn4480
+  resume { ptr, i32 } %.pn4479
 
 84:                                               ; preds = %81
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.llvm.13464776083476810161"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14)

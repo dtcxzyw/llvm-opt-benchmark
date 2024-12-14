@@ -24850,11 +24850,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_
   br label %127
 
 21:                                               ; preds = %11
-  %.sroa.0.0.copyload = load ptr, ptr %6, align 8
-  %.sroa.2.0.copyload = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store ptr %.sroa.0.0.copyload, ptr %5, align 8
-  store ptr %.sroa.2.0.copyload, ptr %9, align 8
+  store ptr %2, ptr %5, align 8
+  store ptr %3, ptr %9, align 8
   %22 = load i32, ptr %.034, align 4
   %.0.val12.i = load i32, ptr %.pn33, align 4
   %23 = call fastcc noundef zeroext i1 @"_ZZN4llvm3rdf8Liveness18getAllReachingDefsENS0_11RegisterRefENS0_8NodeAddrIPNS0_7RefNodeEEEbbRKNS0_12RegisterAggrEENK3$_2clEjj"(ptr noundef nonnull readonly align 8 dereferenceable(16) %5, i32 noundef %22, i32 noundef %.0.val12.i)

@@ -23105,7 +23105,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %21, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %24, %21 ]
   invoke void @"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E"(ptr nonnull align 8 %4) #9
-          to label %44 unwind label %42
+          to label %43 unwind label %41
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23141,7 +23141,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 "_ZN4core3ptr106drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$GT$17h07af456c5b46f275E.exit.i": ; preds = %18, %17, %.lr.ph.i, %.lr.ph.i
   %20 = icmp eq i64 %13, %10
-  br i1 %20, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit.loopexit", label %.lr.ph.i
+  br i1 %20, label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit", label %.lr.ph.i
 
 21:                                               ; preds = %25, %23
   %.sroa.0.1.i = phi i64 [ %13, %23 ], [ %27, %25 ]
@@ -23165,46 +23165,41 @@ default.unreachable:                              ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit.loopexit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$GT$17h07af456c5b46f275E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit"
-
-"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit": ; preds = %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit.loopexit", %8
-  %30 = phi ptr [ %.pre, %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$GT$17h07af456c5b46f275E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %31, ptr %34, align 8
-  store i64 %33, ptr %3, align 8
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %30, ptr %33, align 8
+  store i64 %32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha3d14b17b3bbfd5eE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i64, ptr %35, align 8
-  %.not.i.i.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E.exit", label %37
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load i64, ptr %34, align 8
+  %.not.i.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E.exit", label %36
 
-37:                                               ; preds = %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit"
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %41, ptr %38, i64 %36, i64 %40)
+36:                                               ; preds = %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit"
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %40, ptr %37, i64 %35, i64 %39)
   br label %"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E.exit"
 
-"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E.exit": ; preds = %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit", %37
+"_ZN4core3ptr239drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h899bd631586a7543E.exit": ; preds = %"_ZN4core3ptr116drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17heefc512f42a6bda6E.exit", %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-42:                                               ; preds = %.body
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %.body
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-44:                                               ; preds = %.body
+43:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23225,7 +23220,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E.exit9.i", %17, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %18, %17 ], [ %18, %"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E.exit9.i" ]
   invoke void @"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE"(ptr nonnull align 8 %4) #9
-          to label %41 unwind label %39
+          to label %40 unwind label %38
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23247,7 +23242,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E.exit.i": ; preds = %15, %.lr.ph.i
   %16 = icmp eq i64 %13, %10
-  br i1 %16, label %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit.loopexit", label %.lr.ph.i
+  br i1 %16, label %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit", label %.lr.ph.i
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -23277,46 +23272,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit.loopexit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit"
-
-"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit.loopexit", %8
-  %27 = phi ptr [ %.pre, %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$17h2757980dea763a87E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %31, align 8
-  store i64 %30, ptr %3, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %27, ptr %30, align 8
+  store i64 %29, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a1d2b9b0f557f8aE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8
-  %.not.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE.exit", label %34
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8
+  %.not.i.i.i.i = icmp eq i64 %32, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE.exit", label %33
 
-34:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit"
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %38, ptr %35, i64 %33, i64 %37)
+33:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit"
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %37, ptr %34, i64 %32, i64 %36)
   br label %"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE.exit"
 
-"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit", %34
+"_ZN4core3ptr213drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h4963e6b4846ee29bE.exit": ; preds = %"_ZN4core3ptr90drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$u5d$$GT$17h186aba2dfaec7db3E.exit", %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-39:                                               ; preds = %.body
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %.body
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-41:                                               ; preds = %.body
+40:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23337,7 +23327,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr71drop_in_place$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$GT$17h3e0ba30a8075d794E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr71drop_in_place$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$GT$17h3e0ba30a8075d794E.exit7.i" ]
   invoke void @"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23379,40 +23369,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$u5d$$GT$17hc8462e28afd915f8E.exit": ; preds = %"_ZN4core3ptr71drop_in_place$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$GT$17h3e0ba30a8075d794E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha328893c7352c97dE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$u5d$$GT$17hc8462e28afd915f8E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$u5d$$GT$17hc8462e28afd915f8E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE.exit"
 
-"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$u5d$$GT$17hc8462e28afd915f8E.exit", %30
+"_ZN4core3ptr204drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$C$alloc..alloc..Global$GT$$GT$17h9629ba4799b1f28bE.exit": ; preds = %"_ZN4core3ptr81drop_in_place$LT$$u5b$$LP$proc_macro2..TokenStream$C$syn..token..Not$RP$$u5d$$GT$17hc8462e28afd915f8E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23433,7 +23422,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E"(ptr nonnull align 8 %4) #9
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23475,40 +23464,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassPyO3Option$u5d$$GT$17h6c4590fe5c65376dE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %26, ptr %29, align 8
-  store i64 %28, ptr %3, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  store i64 %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h71ce2dd208630f5eE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E.exit", label %32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E.exit", label %31
 
-32:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassPyO3Option$u5d$$GT$17h6c4590fe5c65376dE.exit"
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
+31:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassPyO3Option$u5d$$GT$17h6c4590fe5c65376dE.exit"
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
   br label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E.exit"
 
-"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassPyO3Option$u5d$$GT$17h6c4590fe5c65376dE.exit", %32
+"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$alloc..alloc..Global$GT$$GT$17h9cfbfa5a17508b12E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassPyO3Option$u5d$$GT$17h6c4590fe5c65376dE.exit", %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-37:                                               ; preds = %.body
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.body
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-39:                                               ; preds = %.body
+38:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23529,7 +23517,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$17h4e7d0317ed86c95dE.exit8.i", %20, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %21, %20 ], [ %21, %"_ZN4core3ptr98drop_in_place$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$17h4e7d0317ed86c95dE.exit8.i" ]
   invoke void @"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E"(ptr nonnull align 8 %4) #9
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23553,7 +23541,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr98drop_in_place$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$17h4e7d0317ed86c95dE.exit.i": ; preds = %17, %.lr.ph.i
   %19 = icmp eq i64 %13, %10
-  br i1 %19, label %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit.loopexit", label %.lr.ph.i
+  br i1 %19, label %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit", label %.lr.ph.i
 
 20:                                               ; preds = %17
   %21 = landingpad { ptr, i32 }
@@ -23585,46 +23573,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit.loopexit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$17h4e7d0317ed86c95dE.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit"
-
-"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit.loopexit", %8
-  %33 = phi ptr [ %.pre, %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$17h4e7d0317ed86c95dE.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %37, align 8
-  store i64 %36, ptr %3, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %33, ptr %36, align 8
+  store i64 %35, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h27f583d3e01f7f18E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E.exit", label %40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq i64 %38, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E.exit", label %39
 
-40:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit"
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
+39:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit"
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
   br label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E.exit"
 
-"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit", %40
+"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$C$alloc..alloc..Global$GT$$GT$17hdf3b3d548fb57ee3E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$u5d$$GT$17h332335874b28ba5cE.exit", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-47:                                               ; preds = %.body
+46:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23645,7 +23628,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %24, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %27, %24 ]
   invoke void @"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E"(ptr nonnull align 8 %4) #9
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23682,7 +23665,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE.exit.i": ; preds = %21, %20, %18
   %23 = icmp eq i64 %13, %10
-  br i1 %23, label %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit.loopexit", label %.lr.ph.i
+  br i1 %23, label %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit", label %.lr.ph.i
 
 24:                                               ; preds = %28, %26
   %.sroa.0.1.i = phi i64 [ %13, %26 ], [ %30, %28 ]
@@ -23706,46 +23689,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit.loopexit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit"
-
-"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit.loopexit", %8
-  %33 = phi ptr [ %.pre, %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit": ; preds = %"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..module..PyModulePyO3Option$GT$17h237374c7f6b6502aE.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %37, align 8
-  store i64 %36, ptr %3, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %33, ptr %36, align 8
+  store i64 %35, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h24d96d13c650fbecE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E.exit", label %40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq i64 %38, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E.exit", label %39
 
-40:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit"
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
+39:                                               ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit"
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
   br label %"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E.exit"
 
-"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit", %40
+"_ZN4core3ptr201drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..module..PyModulePyO3Option$C$alloc..alloc..Global$GT$$GT$17hde30760ab1db1fb7E.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$$u5b$pyo3_macros_backend..module..PyModulePyO3Option$u5d$$GT$17hc7ec724623d9778fE.exit", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-47:                                               ; preds = %.body
+46:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23815,7 +23793,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E"(ptr nonnull align 8 %4) #9
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23857,40 +23835,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr79drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassEnumVariant$u5d$$GT$17ha56995c716c171bdE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %26, ptr %29, align 8
-  store i64 %28, ptr %3, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  store i64 %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h27f71b78f1aa3ed1E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E.exit", label %32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E.exit", label %31
 
-32:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassEnumVariant$u5d$$GT$17ha56995c716c171bdE.exit"
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
+31:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassEnumVariant$u5d$$GT$17ha56995c716c171bdE.exit"
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
   br label %"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E.exit"
 
-"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E.exit": ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassEnumVariant$u5d$$GT$17ha56995c716c171bdE.exit", %32
+"_ZN4core3ptr202drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$C$alloc..alloc..Global$GT$$GT$17h0ba01b1d244ecd74E.exit": ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..PyClassEnumVariant$u5d$$GT$17ha56995c716c171bdE.exit", %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-37:                                               ; preds = %.body
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.body
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-39:                                               ; preds = %.body
+38:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -23907,7 +23884,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E"(ptr nonnull align 8 %4) #9
-          to label %26 unwind label %24
+          to label %25 unwind label %23
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -23917,40 +23894,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %13, ptr %16, align 8
-  store i64 %15, ptr %3, align 8
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %12, ptr %15, align 8
+  store i64 %14, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfd3d2630d708c49bE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E.exit", label %19
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i64, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E.exit", label %18
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %23, ptr %20, i64 %18, i64 %22)
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %22, ptr %19, i64 %17, i64 %21)
   br label %"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E.exit"
 
-"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E.exit": ; preds = %11, %19
+"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$alloc..alloc..Global$GT$$GT$17h26187965bafe9408E.exit": ; preds = %11, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-24:                                               ; preds = %6
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-26:                                               ; preds = %6
+25:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -23971,7 +23947,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E"(ptr nonnull align 8 %4) #9
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24013,40 +23989,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$GT$17h32bba899f26d187bE.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %26, ptr %29, align 8
-  store i64 %28, ptr %3, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  store i64 %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb77d3524e5d359ecE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E.exit", label %32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E.exit", label %31
 
-32:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$GT$17h32bba899f26d187bE.exit"
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
+31:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$GT$17h32bba899f26d187bE.exit"
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
   br label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E.exit"
 
-"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E.exit": ; preds = %"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$GT$17h32bba899f26d187bE.exit", %32
+"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$proc_macro2..TokenStream$C$alloc..alloc..Global$GT$$GT$17h6522f76816ba9727E.exit": ; preds = %"_ZN4core3ptr55drop_in_place$LT$$u5b$proc_macro2..TokenStream$u5d$$GT$17h32bba899f26d187bE.exit", %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-37:                                               ; preds = %.body
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.body
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-39:                                               ; preds = %.body
+38:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24063,7 +24038,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %7 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE"(ptr nonnull align 8 %4) #9
-          to label %26 unwind label %24
+          to label %25 unwind label %23
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24073,40 +24048,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %13, ptr %16, align 8
-  store i64 %15, ptr %3, align 8
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %12, ptr %15, align 8
+  store i64 %14, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9b84b74804b6e035E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load i64, ptr %17, align 8
-  %.not.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE.exit", label %19
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load i64, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE.exit", label %18
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %23, ptr %20, i64 %18, i64 %22)
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %2, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %22, ptr %19, i64 %17, i64 %21)
   br label %"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE.exit"
 
-"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE.exit": ; preds = %11, %19
+"_ZN4core3ptr233drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..EnumVariantPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hb15a38bfe40c3e7aE.exit": ; preds = %11, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-24:                                               ; preds = %6
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %6
+  %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-26:                                               ; preds = %6
+25:                                               ; preds = %6
   resume { ptr, i32 } %7
 }
 
@@ -24127,7 +24101,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %24, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %27, %24 ]
   invoke void @"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E"(ptr nonnull align 8 %4) #9
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24164,7 +24138,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$GT$17hdfa030d4b9ef1b28E.exit.i": ; preds = %21, %20, %18
   %23 = icmp eq i64 %13, %10
-  br i1 %23, label %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit.loopexit", label %.lr.ph.i
+  br i1 %23, label %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit", label %.lr.ph.i
 
 24:                                               ; preds = %28, %26
   %.sroa.0.1.i = phi i64 [ %13, %26 ], [ %30, %28 ]
@@ -24188,46 +24162,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit.loopexit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$GT$17hdfa030d4b9ef1b28E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit"
-
-"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit.loopexit", %8
-  %33 = phi ptr [ %.pre, %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$GT$17hdfa030d4b9ef1b28E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %37, align 8
-  store i64 %36, ptr %3, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %33, ptr %36, align 8
+  store i64 %35, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h785ea316897bfd78E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E.exit", label %40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq i64 %38, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E.exit", label %39
 
-40:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit"
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
+39:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit"
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
   br label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E.exit"
 
-"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit", %40
+"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf89cb866efc79452E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..module..PyModulePyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hfa7d53df620ff455E.exit", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-47:                                               ; preds = %.body
+46:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24248,7 +24217,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %24, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %27, %24 ]
   invoke void @"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E"(ptr nonnull align 8 %4) #9
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24285,7 +24254,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr102drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$GT$17hf768f33952288572E.exit.i": ; preds = %22, %20, %19
   %23 = icmp eq i64 %13, %10
-  br i1 %23, label %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit.loopexit", label %.lr.ph.i
+  br i1 %23, label %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit", label %.lr.ph.i
 
 24:                                               ; preds = %28, %26
   %.sroa.0.1.i = phi i64 [ %13, %26 ], [ %30, %28 ]
@@ -24309,46 +24278,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit.loopexit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$GT$17hf768f33952288572E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit"
-
-"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit.loopexit", %8
-  %33 = phi ptr [ %.pre, %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit": ; preds = %"_ZN4core3ptr102drop_in_place$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$GT$17hf768f33952288572E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %37, align 8
-  store i64 %36, ptr %3, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %33, ptr %36, align 8
+  store i64 %35, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9b6468968fb84cfcE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i.i.i1 = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i1, label %"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E.exit", label %40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i.i.i1 = icmp eq i64 %38, 0
+  br i1 %.not.i.i.i.i1, label %"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E.exit", label %39
 
-40:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit"
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
+39:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit"
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
   br label %"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E.exit"
 
-"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit", %40
+"_ZN4core3ptr235drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he16361da241716d5E.exit": ; preds = %"_ZN4core3ptr112drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17h3c13cac63ea1a1ebE.exit", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-47:                                               ; preds = %.body
+46:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24369,7 +24333,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %16, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %19, %16 ]
   invoke void @"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E"(ptr nonnull align 8 %4) #9
-          to label %39 unwind label %37
+          to label %38 unwind label %36
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24411,40 +24375,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr80drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionOption$u5d$$GT$17h558dfd5a476a3261E.exit": ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %25 = load ptr, ptr %4, align 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %26, ptr %29, align 8
-  store i64 %28, ptr %3, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  store i64 %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hede1e8b9fbb7a5edE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load i64, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E.exit", label %32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %30 = load i64, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E.exit", label %31
 
-32:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionOption$u5d$$GT$17h558dfd5a476a3261E.exit"
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %36, ptr %33, i64 %31, i64 %35)
+31:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionOption$u5d$$GT$17h558dfd5a476a3261E.exit"
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %35, ptr %32, i64 %30, i64 %34)
   br label %"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E.exit"
 
-"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionOption$u5d$$GT$17h558dfd5a476a3261E.exit", %32
+"_ZN4core3ptr203drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyfunction..PyFunctionOption$C$alloc..alloc..Global$GT$$GT$17h12c47af4feddc771E.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$$u5b$pyo3_macros_backend..pyfunction..PyFunctionOption$u5d$$GT$17h558dfd5a476a3261E.exit", %31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-37:                                               ; preds = %.body
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %.body
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-39:                                               ; preds = %.body
+38:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24465,7 +24428,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E.exit7.i" ]
   invoke void @"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24507,40 +24470,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr77drop_in_place$LT$$u5b$pyo3_macros_backend..konst..PyO3ConstAttribute$u5d$$GT$17h3ac1468b3fc62d81E.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$GT$17h1f1c09674d8869a4E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5adb2929ac977b9aE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$$u5b$pyo3_macros_backend..konst..PyO3ConstAttribute$u5d$$GT$17h3ac1468b3fc62d81E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$$u5b$pyo3_macros_backend..konst..PyO3ConstAttribute$u5d$$GT$17h3ac1468b3fc62d81E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE.exit"
 
-"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE.exit": ; preds = %"_ZN4core3ptr77drop_in_place$LT$$u5b$pyo3_macros_backend..konst..PyO3ConstAttribute$u5d$$GT$17h3ac1468b3fc62d81E.exit", %30
+"_ZN4core3ptr200drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..konst..PyO3ConstAttribute$C$alloc..alloc..Global$GT$$GT$17h6b3c6020bbb328ebE.exit": ; preds = %"_ZN4core3ptr77drop_in_place$LT$$u5b$pyo3_macros_backend..konst..PyO3ConstAttribute$u5d$$GT$17h3ac1468b3fc62d81E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24561,7 +24523,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE.exit7.i" ]
   invoke void @"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24603,40 +24565,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyimpl..PyImplPyO3Option$u5d$$GT$17h3b2554a718085188E.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$GT$17h5a5c759cd2bdbbdcE.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha2ab555f8d95dee4E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyimpl..PyImplPyO3Option$u5d$$GT$17h3b2554a718085188E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyimpl..PyImplPyO3Option$u5d$$GT$17h3b2554a718085188E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE.exit"
 
-"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyimpl..PyImplPyO3Option$u5d$$GT$17h3b2554a718085188E.exit", %30
+"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$alloc..alloc..Global$GT$$GT$17h30c20d417e58c51fE.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyimpl..PyImplPyO3Option$u5d$$GT$17h3b2554a718085188E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24657,7 +24618,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$17h3b598342157cf33aE.exit9.i", %19, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %20, %19 ], [ %20, %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$17h3b598342157cf33aE.exit9.i" ]
   invoke void @"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE"(ptr nonnull align 8 %4) #9
-          to label %45 unwind label %43
+          to label %44 unwind label %42
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24681,7 +24642,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$17h3b598342157cf33aE.exit.i": ; preds = %17, %.lr.ph.i
   %18 = icmp eq i64 %13, %10
-  br i1 %18, label %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit.loopexit", label %.lr.ph.i
+  br i1 %18, label %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit", label %.lr.ph.i
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
@@ -24713,46 +24674,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit.loopexit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$17h3b598342157cf33aE.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit"
-
-"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit.loopexit", %8
-  %31 = phi ptr [ %.pre, %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$GT$17h3b598342157cf33aE.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %32, ptr %35, align 8
-  store i64 %34, ptr %3, align 8
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %31, ptr %34, align 8
+  store i64 %33, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16fb1f5c976e100aE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load i64, ptr %36, align 8
-  %.not.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE.exit", label %38
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i64, ptr %35, align 8
+  %.not.i.i.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE.exit", label %37
 
-38:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit"
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %42, ptr %39, i64 %37, i64 %41)
+37:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit"
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %41, ptr %38, i64 %36, i64 %40)
   br label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE.exit"
 
-"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE.exit": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit", %38
+"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h4a76503c6106349dE.exit": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..FieldPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf91f777e1f811089E.exit", %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-43:                                               ; preds = %.body
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %.body
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-45:                                               ; preds = %.body
+44:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24773,7 +24729,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %21, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %24, %21 ]
   invoke void @"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E"(ptr nonnull align 8 %4) #9
-          to label %44 unwind label %42
+          to label %43 unwind label %41
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24809,7 +24765,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 
 "_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE.exit.i": ; preds = %18, %17, %.lr.ph.i, %.lr.ph.i
   %20 = icmp eq i64 %13, %10
-  br i1 %20, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit.loopexit", label %.lr.ph.i
+  br i1 %20, label %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit", label %.lr.ph.i
 
 21:                                               ; preds = %25, %23
   %.sroa.0.1.i = phi i64 [ %13, %23 ], [ %27, %25 ]
@@ -24833,46 +24789,41 @@ default.unreachable:                              ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit.loopexit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit"
-
-"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit.loopexit", %8
-  %30 = phi ptr [ %.pre, %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit": ; preds = %"_ZN4core3ptr78drop_in_place$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$GT$17h30bf97dfbfc5579cE.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %31, ptr %34, align 8
-  store i64 %33, ptr %3, align 8
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %30, ptr %33, align 8
+  store i64 %32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h30fe0415c18917b4E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i64, ptr %35, align 8
-  %.not.i.i.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E.exit", label %37
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load i64, ptr %34, align 8
+  %.not.i.i.i.i = icmp eq i64 %35, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E.exit", label %36
 
-37:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit"
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %41, ptr %38, i64 %36, i64 %40)
+36:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit"
+  %37 = load ptr, ptr %2, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %40, ptr %37, i64 %35, i64 %39)
   br label %"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E.exit"
 
-"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit", %37
+"_ZN4core3ptr211drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17h70357327f2b42686E.exit": ; preds = %"_ZN4core3ptr88drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..ContainerPyO3Attribute$u5d$$GT$17hb9ab2ff171dae29eE.exit", %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-42:                                               ; preds = %.body
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %.body
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-44:                                               ; preds = %.body
+43:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24893,7 +24844,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$GT$17h9a73ca61e85dd157E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$GT$17h9a73ca61e85dd157E.exit7.i" ]
   invoke void @"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -24935,40 +24886,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf02c594a054b4f97E.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$GT$17h9a73ca61e85dd157E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc9bdcfd1e2c471b2E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf02c594a054b4f97E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf02c594a054b4f97E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E.exit"
 
-"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf02c594a054b4f97E.exit", %30
+"_ZN4core3ptr229drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17he2816ee74b7eeb02E.exit": ; preds = %"_ZN4core3ptr106drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyclass..PyClassPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17hf02c594a054b4f97E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -24989,7 +24939,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$17h4431262de9e89de7E.exit9.i", %17, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %18, %17 ], [ %18, %"_ZN4core3ptr108drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$17h4431262de9e89de7E.exit9.i" ]
   invoke void @"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE"(ptr nonnull align 8 %4) #9
-          to label %41 unwind label %39
+          to label %40 unwind label %38
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25011,7 +24961,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr108drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$17h4431262de9e89de7E.exit.i": ; preds = %15, %.lr.ph.i
   %16 = icmp eq i64 %13, %10
-  br i1 %16, label %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit.loopexit", label %.lr.ph.i
+  br i1 %16, label %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit", label %.lr.ph.i
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -25041,46 +24991,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit.loopexit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$17h4431262de9e89de7E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit"
-
-"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit": ; preds = %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit.loopexit", %8
-  %27 = phi ptr [ %.pre, %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$GT$17h4431262de9e89de7E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %31, align 8
-  store i64 %30, ptr %3, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %27, ptr %30, align 8
+  store i64 %29, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5bc5fc00344e629eE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8
-  %.not.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE.exit", label %34
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8
+  %.not.i.i.i.i = icmp eq i64 %32, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE.exit", label %33
 
-34:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit"
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %38, ptr %35, i64 %33, i64 %37)
+33:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit"
+  %34 = load ptr, ptr %2, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %37, ptr %34, i64 %32, i64 %36)
   br label %"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE.exit"
 
-"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE.exit": ; preds = %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit", %34
+"_ZN4core3ptr241drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17h6e2e295cf7b18ebdE.exit": ; preds = %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$C$syn..token..Comma$RP$$u5d$$GT$17hc15541d66bde0287E.exit", %33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-39:                                               ; preds = %.body
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %.body
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-41:                                               ; preds = %.body
+40:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -25101,7 +25046,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %24, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %27, %24 ]
   invoke void @"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E"(ptr nonnull align 8 %4) #9
-          to label %47 unwind label %45
+          to label %46 unwind label %44
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25138,7 +25083,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E.exit.i": ; preds = %22, %20, %19
   %23 = icmp eq i64 %13, %10
-  br i1 %23, label %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit.loopexit", label %.lr.ph.i
+  br i1 %23, label %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit", label %.lr.ph.i
 
 24:                                               ; preds = %28, %26
   %.sroa.0.1.i = phi i64 [ %13, %26 ], [ %30, %28 ]
@@ -25162,46 +25107,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit.loopexit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit"
-
-"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit.loopexit", %8
-  %33 = phi ptr [ %.pre, %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$GT$17h0436cd89c04544b1E.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %34, ptr %37, align 8
-  store i64 %36, ptr %3, align 8
+  %33 = load ptr, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %33, ptr %36, align 8
+  store i64 %35, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4312e3f119a9e325E"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E.exit", label %40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i.i.i = icmp eq i64 %38, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E.exit", label %39
 
-40:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit"
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %44, ptr %41, i64 %39, i64 %43)
+39:                                               ; preds = %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit"
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %43, ptr %40, i64 %38, i64 %42)
   br label %"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E.exit"
 
-"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E.exit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit", %40
+"_ZN4core3ptr207drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$C$alloc..alloc..Global$GT$$GT$17hc55cedad186b5520E.exit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$$u5b$pyo3_macros_backend..frompyobject..FieldPyO3Attribute$u5d$$GT$17hf6b2bc488eb30176E.exit", %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-45:                                               ; preds = %.body
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %.body
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-47:                                               ; preds = %.body
+46:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -25222,7 +25162,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE.exit9.i", %19, %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %20, %19 ], [ %20, %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE.exit9.i" ]
   invoke void @"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E"(ptr nonnull align 8 %4) #9
-          to label %45 unwind label %43
+          to label %44 unwind label %42
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25246,7 +25186,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE.exit.i": ; preds = %17, %.lr.ph.i
   %18 = icmp eq i64 %13, %10
-  br i1 %18, label %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit.loopexit", label %.lr.ph.i
+  br i1 %18, label %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit", label %.lr.ph.i
 
 19:                                               ; preds = %17
   %20 = landingpad { ptr, i32 }
@@ -25278,46 +25218,41 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit.loopexit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE.exit.i"
-  %.pre = load ptr, ptr %4, align 8
-  br label %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit"
-
-"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit.loopexit", %8
-  %31 = phi ptr [ %.pre, %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit.loopexit" ], [ %0, %8 ]
+"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit": ; preds = %"_ZN4core3ptr66drop_in_place$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$GT$17hdf265217ab75dfcfE.exit.i", %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %32, ptr %35, align 8
-  store i64 %34, ptr %3, align 8
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %31, ptr %34, align 8
+  store i64 %33, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2c6edf1597ab73fE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load i64, ptr %36, align 8
-  %.not.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E.exit", label %38
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i64, ptr %35, align 8
+  %.not.i.i.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E.exit", label %37
 
-38:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit"
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %42, ptr %39, i64 %37, i64 %41)
+37:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit"
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %41, ptr %38, i64 %36, i64 %40)
   br label %"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E.exit"
 
-"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit", %38
+"_ZN4core3ptr199drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$pyo3_macros_backend..pyclass..FieldPyO3Option$C$alloc..alloc..Global$GT$$GT$17h3c7a580b393b5ee7E.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$$u5b$pyo3_macros_backend..pyclass..FieldPyO3Option$u5d$$GT$17h0eefb004ce5606bdE.exit", %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-43:                                               ; preds = %.body
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %.body
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-45:                                               ; preds = %.body
+44:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -25338,7 +25273,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr95drop_in_place$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$GT$17hc6b9e6963e25ce03E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr95drop_in_place$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$GT$17hc6b9e6963e25ce03E.exit7.i" ]
   invoke void @"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25380,40 +25315,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr105drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$u5d$$GT$17hd3ff4db952605609E.exit": ; preds = %"_ZN4core3ptr95drop_in_place$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$GT$17hc6b9e6963e25ce03E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6384ffe0b089f9baE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$u5d$$GT$17hd3ff4db952605609E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$u5d$$GT$17hd3ff4db952605609E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E.exit"
 
-"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E.exit": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$u5d$$GT$17hd3ff4db952605609E.exit", %30
+"_ZN4core3ptr228drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hde1b1909878cd913E.exit": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..konst..PyO3ConstAttribute$C$syn..token..Comma$RP$$u5d$$GT$17hd3ff4db952605609E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -25434,7 +25368,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$GT$17h565bf7732abdb9a1E.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$GT$17h565bf7732abdb9a1E.exit7.i" ]
   invoke void @"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25476,40 +25410,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17h862c1a35d6490d34E.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$GT$17h565bf7732abdb9a1E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h3e8cd4fd9c19be8dE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17h862c1a35d6490d34E.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17h862c1a35d6490d34E.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E.exit"
 
-"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E.exit": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17h862c1a35d6490d34E.exit", %30
+"_ZN4core3ptr227drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17headcd0ab749bbe10E.exit": ; preds = %"_ZN4core3ptr104drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyimpl..PyImplPyO3Option$C$syn..token..Comma$RP$$u5d$$GT$17h862c1a35d6490d34E.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -25530,7 +25463,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 .body:                                            ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$GT$17haaa6e9dabafb914aE.exit7.i", %6
   %eh.lpad-body = phi { ptr, i32 } [ %7, %6 ], [ %17, %"_ZN4core3ptr98drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$GT$17haaa6e9dabafb914aE.exit7.i" ]
   invoke void @"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E"(ptr nonnull align 8 %4) #9
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
 8:                                                ; preds = %1
   %9 = extractvalue { ptr, i64 } %5, 0
@@ -25572,40 +25505,39 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
 
 "_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$u5d$$GT$17h204e5d58da67903fE.exit": ; preds = %"_ZN4core3ptr98drop_in_place$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$GT$17haaa6e9dabafb914aE.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %23 = load ptr, ptr %4, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %24, ptr %27, align 8
-  store i64 %26, ptr %3, align 8
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %26, align 8
+  store i64 %25, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha3e481a8563c308eE"(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3)
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = load i64, ptr %28, align 8
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E.exit", label %30
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load i64, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E.exit", label %29
 
-30:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$u5d$$GT$17h204e5d58da67903fE.exit"
-  %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %34, ptr %31, i64 %29, i64 %33)
+29:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$u5d$$GT$17h204e5d58da67903fE.exit"
+  %30 = load ptr, ptr %2, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hdfe43292a3a2c004E"(ptr nonnull align 1 %33, ptr %30, i64 %28, i64 %32)
   br label %"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E.exit"
 
-"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$u5d$$GT$17h204e5d58da67903fE.exit", %30
+"_ZN4core3ptr231drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$C$alloc..alloc..Global$GT$$GT$17hf65f1c28ddb33a66E.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$$u5b$$LP$pyo3_macros_backend..pyfunction..PyFunctionOption$C$syn..token..Comma$RP$$u5d$$GT$17h204e5d58da67903fE.exit", %29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 
-35:                                               ; preds = %.body
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %.body
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #10
   unreachable
 
-37:                                               ; preds = %.body
+36:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

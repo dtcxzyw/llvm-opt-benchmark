@@ -1703,22 +1703,22 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   store ptr %call5.i.i.i16.i.i.i.i277, ptr %_M_refcount.i.i, align 8, !tbaa !25
   %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 16
-  %_M_refcount.i.i285 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 24
   br i1 %tobool.i.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit, label %if.then.i.i.i288.thread
 
 if.then.i.i.i288.thread:                          ; preds = %if.then.i.i.i
-  %53 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !tbaa !32
-  %add.i.i.i.i.i = add nsw i32 %53, 1
+  %52 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4, !tbaa !32
+  %add.i.i.i.i.i = add nsw i32 %52, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4, !tbaa !32
   %_M_use_count.i.i.i.i28921 = getelementptr inbounds nuw i8, ptr %call5.i.i.i16.i.i.i.i282, i64 8
   br label %if.then.i.i.i.i.i291
 
 _ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit: ; preds = %if.then.i.i.i
+  %_M_refcount.i.i285 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 16
   %54 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre534 = load ptr, ptr %print_destructor_stack_trace, align 16, !tbaa !153
   %.pre535 = load ptr, ptr %_M_refcount.i.i.i278, align 8, !tbaa !25
-  store ptr %.pre534, ptr %52, align 8, !tbaa !153
+  store ptr %.pre534, ptr %53, align 8, !tbaa !153
   store ptr %.pre535, ptr %_M_refcount.i.i285, align 8, !tbaa !25
   %cmp.not.i.i.i287 = icmp eq ptr %.pre535, null
   br i1 %cmp.not.i.i.i287, label %invoke.cont121, label %if.then.i.i.i288
@@ -1740,13 +1740,11 @@ if.then.i.i.i.i.i291:                             ; preds = %if.then.i.i.i288.th
 
 if.else.i.i.i.i.i293:                             ; preds = %if.then.i.i.i288
   %59 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i289, i32 1 acq_rel, align 4
-  %.pre536 = load ptr, ptr %52, align 8, !tbaa !153
-  %.pre537 = load ptr, ptr %_M_refcount.i.i285, align 8, !tbaa !25
   br label %invoke.cont121
 
 invoke.cont121:                                   ; preds = %if.else.i.i.i.i.i293, %if.then.i.i.i.i.i291, %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit
-  %60 = phi ptr [ %.pre537, %if.else.i.i.i.i.i293 ], [ %56, %if.then.i.i.i.i.i291 ], [ null, %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit ]
-  %61 = phi ptr [ %.pre536, %if.else.i.i.i.i.i293 ], [ %57, %if.then.i.i.i.i.i291 ], [ %.pre534, %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit ]
+  %60 = phi ptr [ %.pre535, %if.else.i.i.i.i.i293 ], [ %56, %if.then.i.i.i.i.i291 ], [ null, %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit ]
+  %61 = phi ptr [ %.pre534, %if.else.i.i.i.i.i293 ], [ %57, %if.then.i.i.i.i.i291 ], [ %.pre534, %_ZNSt10shared_ptrIN5folly5BatonILb1ESt6atomicEEEC2ERKS4_.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %agg.tmp119, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %type_.i294 = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -1130,7 +1130,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %386, %_ZNSt6vectorI
   %sext125.i = shl i64 %392, 32
   %393 = ashr exact i64 %sext125.i, 32
   %394 = icmp slt i64 %indvars.iv.next118.i, %393
-  br i1 %394, label %165, label %.loopexit162.loopexit, !llvm.loop !12
+  br i1 %394, label %165, label %.loopexit162, !llvm.loop !12
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %356, %.loopexit.split-lp.i, %.loopexit.split-lp67.i, %.loopexit66.i
   %.sroa.0.177.i = phi ptr [ %.sroa.0.1.lcssa130.i, %.loopexit.split-lp.i ], [ %.sroa.0.1.lcssa130.i, %356 ], [ %.sroa.0.191.i, %.loopexit66.i ], [ %.sroa.0.191.i, %.loopexit.split-lp67.i ]
@@ -1151,16 +1151,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit47.i:                ; preds = %395, %_ZNSt6vectorI
   call void @_ZdlPv(ptr noundef nonnull %396) #23
   br label %.body103
 
-.loopexit162.loopexit:                            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i
-  %.val87.pre = load i32, ptr %67, align 4
-  %.val88.pre = load i32, ptr %70, align 4
-  br label %.loopexit162
-
-.loopexit162:                                     ; preds = %.loopexit162.loopexit, %148
-  %398 = phi ptr [ %387, %.loopexit162.loopexit ], [ %150, %148 ]
-  %.pr.i139 = phi ptr [ %388, %.loopexit162.loopexit ], [ %151, %148 ]
-  %.val88 = phi i32 [ %.val88.pre, %.loopexit162.loopexit ], [ %134, %148 ]
-  %.val87 = phi i32 [ %.val87.pre, %.loopexit162.loopexit ], [ %131, %148 ]
+.loopexit162:                                     ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %148
+  %398 = phi ptr [ %150, %148 ], [ %387, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
+  %.pr.i139 = phi ptr [ %151, %148 ], [ %388, %_ZNSt6vectorIfSaIfEED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %28)
@@ -1186,9 +1179,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit47.i:                ; preds = %395, %_ZNSt6vectorI
   %410 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %411 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %412 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.3.0.insert.ext9.i.i = zext i32 %.val87 to i64
+  %.sroa.3.0.insert.ext9.i.i = zext i32 %131 to i64
   %.sroa.3.0.insert.shift10.i.i = shl nuw i64 %.sroa.3.0.insert.ext9.i.i, 32
-  %.sroa.05.0.insert.ext6.i.i = zext i32 %.val88 to i64
+  %.sroa.05.0.insert.ext6.i.i = zext i32 %134 to i64
   %.sroa.05.0.insert.insert8.i.i = or disjoint i64 %.sroa.3.0.insert.shift10.i.i, %.sroa.05.0.insert.ext6.i.i
   %413 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %414 = getelementptr inbounds nuw i8, ptr %6, i64 20

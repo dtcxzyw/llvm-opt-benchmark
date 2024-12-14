@@ -53281,8 +53281,8 @@ define hidden noundef ptr @"_ZN5image6codecs3pnm9autobreak18AutoBreak$LT$W$GT$9f
   br i1 %.not, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit", label %.thread44
 
 .loopexit.thread72:                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit", %.loopexit
-  %.0135475 = phi i64 [ %.01359, %.loopexit ], [ %.148, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit" ]
   %30 = phi ptr [ %storemerge, %.loopexit ], [ null, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit" ]
+  %.0135475 = phi i64 [ %.01359, %.loopexit ], [ %.148, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h465e23b60d7b9e57E.exit" ]
   %31 = invoke { i64, i64 } @_ZN4core5slice5index5range17h00ef883df2e0c68bE(i64 noundef %.0135475, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b16754a467d3cf51c98f9660b4d015ba.115.llvm.17224713629878502917)
           to label %34 unwind label %.loopexit.split-lp
 

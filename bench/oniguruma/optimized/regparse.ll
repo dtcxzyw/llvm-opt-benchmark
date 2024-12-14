@@ -13493,39 +13493,39 @@ define internal fastcc range(i32 -5, 1) i32 @make_range_clear(ptr nocapture noun
   store ptr %29, ptr %4, align 8
   %35 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef 2, ptr noundef nonnull readonly %3)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %onig_node_free.exit.thread, label %37
+  br i1 %36, label %onig_node_free.exit.thread59, label %37
 
 37:                                               ; preds = %31
   store ptr %35, ptr %0, align 8
   br label %onig_node_free.exit38
 
 onig_node_free.exit:                              ; preds = %22, %14, %9, %24, %19
-  %38 = phi ptr [ %calloc.i.i32, %19 ], [ %20, %24 ], [ null, %9 ], [ null, %14 ], [ %20, %22 ]
-  %.pr60 = phi ptr [ %calloc.i.i30, %19 ], [ %calloc.i.i34, %24 ], [ null, %9 ], [ %calloc.i.i30, %14 ], [ null, %22 ]
+  %.ph = phi ptr [ %20, %22 ], [ null, %14 ], [ null, %9 ], [ %calloc.i.i32, %19 ], [ %20, %24 ]
+  %.ph50 = phi ptr [ null, %22 ], [ %calloc.i.i30, %14 ], [ null, %9 ], [ %calloc.i.i30, %19 ], [ %calloc.i.i34, %24 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i)
   tail call void @free(ptr noundef nonnull %calloc.i.i) #25
-  %39 = icmp eq ptr %.pr60, null
-  br i1 %39, label %onig_node_free.exit37, label %onig_node_free.exit.thread
+  %38 = icmp eq ptr %.ph50, null
+  br i1 %38, label %onig_node_free.exit37, label %onig_node_free.exit.thread59
 
-onig_node_free.exit.thread:                       ; preds = %31, %onig_node_free.exit
-  %40 = phi ptr [ %38, %onig_node_free.exit ], [ %29, %31 ]
-  %41 = phi ptr [ %.pr60, %onig_node_free.exit ], [ %calloc.i.i, %31 ]
-  tail call fastcc void @node_free_body(ptr noundef nonnull %41)
-  tail call void @free(ptr noundef nonnull %41) #25
+onig_node_free.exit.thread59:                     ; preds = %31, %onig_node_free.exit
+  %39 = phi ptr [ %.ph, %onig_node_free.exit ], [ %29, %31 ]
+  %40 = phi ptr [ %.ph50, %onig_node_free.exit ], [ %calloc.i.i, %31 ]
+  tail call fastcc void @node_free_body(ptr noundef nonnull %40)
+  tail call void @free(ptr noundef nonnull %40) #25
   br label %onig_node_free.exit37
 
-onig_node_free.exit37:                            ; preds = %onig_node_free.exit, %onig_node_free.exit.thread
-  %42 = phi ptr [ %38, %onig_node_free.exit ], [ %40, %onig_node_free.exit.thread ]
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %onig_node_free.exit38, label %44
+onig_node_free.exit37:                            ; preds = %onig_node_free.exit, %onig_node_free.exit.thread59
+  %41 = phi ptr [ %.ph, %onig_node_free.exit ], [ %39, %onig_node_free.exit.thread59 ]
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %onig_node_free.exit38, label %43
 
-44:                                               ; preds = %onig_node_free.exit37
-  tail call fastcc void @node_free_body(ptr noundef nonnull %42)
-  tail call void @free(ptr noundef nonnull %42) #25
+43:                                               ; preds = %onig_node_free.exit37
+  tail call fastcc void @node_free_body(ptr noundef nonnull %41)
+  tail call void @free(ptr noundef nonnull %41) #25
   br label %onig_node_free.exit38
 
-onig_node_free.exit38:                            ; preds = %2, %44, %onig_node_free.exit37, %37
-  %.0 = phi i32 [ 0, %37 ], [ -5, %onig_node_free.exit37 ], [ -5, %44 ], [ -5, %2 ]
+onig_node_free.exit38:                            ; preds = %2, %43, %onig_node_free.exit37, %37
+  %.0 = phi i32 [ 0, %37 ], [ -5, %onig_node_free.exit37 ], [ -5, %43 ], [ -5, %2 ]
   ret i32 %.0
 }
 
@@ -15094,29 +15094,29 @@ define internal fastcc range(i32 -5, 1) i32 @make_absent_tail(ptr nocapture noun
   br label %onig_node_free.exit37
 
 onig_node_free.exit:                              ; preds = %26, %21, %11, %16, %24
-  %33 = phi ptr [ %22, %24 ], [ null, %16 ], [ null, %11 ], [ %calloc.i.i31, %21 ], [ %22, %26 ]
-  %34 = phi ptr [ null, %24 ], [ %calloc.i.i29, %16 ], [ null, %11 ], [ %calloc.i.i29, %21 ], [ %calloc.i.i33, %26 ]
+  %.ph = phi ptr [ %22, %24 ], [ null, %16 ], [ null, %11 ], [ %calloc.i.i31, %21 ], [ %22, %26 ]
+  %.ph48 = phi ptr [ null, %24 ], [ %calloc.i.i29, %16 ], [ null, %11 ], [ %calloc.i.i29, %21 ], [ %calloc.i.i33, %26 ]
   tail call fastcc void @node_free_body(ptr noundef nonnull %calloc.i.i)
   tail call void @free(ptr noundef nonnull %calloc.i.i) #25
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %onig_node_free.exit36, label %36
+  %33 = icmp eq ptr %.ph48, null
+  br i1 %33, label %onig_node_free.exit36, label %34
 
-36:                                               ; preds = %onig_node_free.exit
-  tail call fastcc void @node_free_body(ptr noundef nonnull %34)
-  tail call void @free(ptr noundef nonnull %34) #25
+34:                                               ; preds = %onig_node_free.exit
+  tail call fastcc void @node_free_body(ptr noundef nonnull %.ph48)
+  tail call void @free(ptr noundef nonnull %.ph48) #25
   br label %onig_node_free.exit36
 
-onig_node_free.exit36:                            ; preds = %onig_node_free.exit, %36
-  %37 = icmp eq ptr %33, null
-  br i1 %37, label %onig_node_free.exit37, label %38
+onig_node_free.exit36:                            ; preds = %onig_node_free.exit, %34
+  %35 = icmp eq ptr %.ph, null
+  br i1 %35, label %onig_node_free.exit37, label %36
 
-38:                                               ; preds = %onig_node_free.exit36
-  tail call fastcc void @node_free_body(ptr noundef nonnull %33)
-  tail call void @free(ptr noundef nonnull %33) #25
+36:                                               ; preds = %onig_node_free.exit36
+  tail call fastcc void @node_free_body(ptr noundef nonnull %.ph)
+  tail call void @free(ptr noundef nonnull %.ph) #25
   br label %onig_node_free.exit37
 
-onig_node_free.exit37:                            ; preds = %4, %38, %onig_node_free.exit36, %32
-  %.0 = phi i32 [ 0, %32 ], [ -5, %onig_node_free.exit36 ], [ -5, %38 ], [ -5, %4 ]
+onig_node_free.exit37:                            ; preds = %4, %36, %onig_node_free.exit36, %32
+  %.0 = phi i32 [ 0, %32 ], [ -5, %onig_node_free.exit36 ], [ -5, %36 ], [ -5, %4 ]
   ret i32 %.0
 }
 

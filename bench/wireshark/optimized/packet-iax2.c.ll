@@ -1082,8 +1082,8 @@ dissect_ies.exit.thread.i.i:                      ; preds = %179
 
 190:                                              ; preds = %379, %.lr.ph.i.i.i
   %191 = phi i32 [ -1, %.lr.ph.i.i.i ], [ %226, %379 ]
-  %192 = phi ptr [ null, %.lr.ph.i.i.i ], [ %227, %379 ]
-  %193 = phi i32 [ 0, %.lr.ph.i.i.i ], [ %228, %379 ]
+  %192 = phi i32 [ 0, %.lr.ph.i.i.i ], [ %227, %379 ]
+  %193 = phi ptr [ null, %.lr.ph.i.i.i ], [ %228, %379 ]
   %.0218.i.i.i = phi i32 [ %175, %.lr.ph.i.i.i ], [ %381, %379 ]
   %194 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0218.i.i.i) #13
   %195 = zext i8 %194 to i32
@@ -1145,8 +1145,8 @@ dissect_ies.exit.thread.i.i:                      ; preds = %179
 
 225:                                              ; preds = %222, %216, %209, %205, %202, %200, %190
   %226 = phi i32 [ %191, %222 ], [ %191, %216 ], [ %191, %209 ], [ %191, %205 ], [ %204, %202 ], [ %191, %200 ], [ %191, %190 ]
-  %227 = phi ptr [ %192, %222 ], [ %221, %216 ], [ %192, %209 ], [ %192, %205 ], [ %192, %202 ], [ %192, %200 ], [ %192, %190 ]
-  %228 = phi i32 [ %193, %222 ], [ %219, %216 ], [ %193, %209 ], [ %193, %205 ], [ %193, %202 ], [ %193, %200 ], [ %193, %190 ]
+  %227 = phi i32 [ %192, %222 ], [ %219, %216 ], [ %192, %209 ], [ %192, %205 ], [ %192, %202 ], [ %192, %200 ], [ %192, %190 ]
+  %228 = phi ptr [ %193, %222 ], [ %221, %216 ], [ %193, %209 ], [ %193, %205 ], [ %193, %202 ], [ %193, %200 ], [ %193, %190 ]
   br i1 %.not203.i.i.i, label %379, label %229
 
 229:                                              ; preds = %225
@@ -1297,8 +1297,8 @@ dissect_ies.exit.thread.i.i:                      ; preds = %179
 310:                                              ; preds = %301
   %311 = load i32, ptr @hf_IAX_IE_APPARENTADDR_SINPORT, align 4
   %312 = add i32 %.0218.i.i.i, 4
-  %313 = call ptr @proto_tree_add_uint(ptr noundef %304, i32 noundef %311, ptr noundef %0, i32 noundef %312, i32 noundef 2, i32 noundef %228) #13
-  %.0.copyload.i.i.i = load i32, ptr %227, align 1
+  %313 = call ptr @proto_tree_add_uint(ptr noundef %304, i32 noundef %311, ptr noundef %0, i32 noundef %312, i32 noundef 2, i32 noundef %227) #13
+  %.0.copyload.i.i.i = load i32, ptr %228, align 1
   %314 = load i32, ptr @hf_IAX_IE_APPARENTADDR_SINADDR, align 4
   %315 = add i32 %.0218.i.i.i, 6
   %316 = call ptr @proto_tree_add_ipv4(ptr noundef %304, i32 noundef %314, ptr noundef %0, i32 noundef %315, i32 noundef 4, i32 noundef %.0.copyload.i.i.i) #13

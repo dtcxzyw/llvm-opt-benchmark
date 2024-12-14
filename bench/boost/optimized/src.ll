@@ -8265,7 +8265,7 @@ _ZN5boost4json6object7reserveEm.exit:             ; preds = %.invoke.i.i, %.noex
 47:                                               ; preds = %14
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %159
+  br label %157
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %_ZN5boost4json11storage_ptrD2Ev.exit
   %49 = phi i32 [ %77, %_ZN5boost4json11storage_ptrD2Ev.exit ], [ %.pre, %.lr.ph53.preheader ]
@@ -8329,7 +8329,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %61, %64, %71
   %81 = load i64, ptr %5, align 8, !tbaa !17
   %82 = and i64 %81, 1
   %.not.i.i31 = icmp eq i64 %82, 0
-  br i1 %.not.i.i31, label %_ZN5boost4json11storage_ptrD2Ev.exit33, label %83
+  br i1 %.not.i.i31, label %_ZN5boost4json6object16revert_constructD2Ev.exit44, label %83
 
 83:                                               ; preds = %79
   %84 = and i64 %81, -4
@@ -8339,7 +8339,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit:             ; preds = %61, %64, %71
   %88 = icmp ne i64 %87, 1
   %89 = icmp eq i64 %84, 0
   %or.cond.i.i32 = or i1 %89, %88
-  br i1 %or.cond.i.i32, label %_ZN5boost4json11storage_ptrD2Ev.exit33, label %_ZN5boost4json11storage_ptrD2Ev.exit33.sink.split
+  br i1 %or.cond.i.i32, label %_ZN5boost4json6object16revert_constructD2Ev.exit44, label %_ZN5boost4json6object16revert_constructD2Ev.exit44.sink.split
 
 90:                                               ; preds = %_ZN5boost4json6object7reserveEm.exit
   br i1 %.not2751, label %_ZN5boost4json6object16revert_constructD2Ev.exit, label %.lr.ph.preheader
@@ -8445,7 +8445,7 @@ _ZN5boost4json11storage_ptrD2Ev.exit38:           ; preds = %123, %126, %133
   %145 = load i64, ptr %6, align 8, !tbaa !17
   %146 = and i64 %145, 1
   %.not.i.i39 = icmp eq i64 %146, 0
-  br i1 %.not.i.i39, label %_ZN5boost4json11storage_ptrD2Ev.exit33, label %147
+  br i1 %.not.i.i39, label %_ZN5boost4json6object16revert_constructD2Ev.exit44, label %147
 
 147:                                              ; preds = %143
   %148 = and i64 %145, -4
@@ -8455,60 +8455,52 @@ _ZN5boost4json11storage_ptrD2Ev.exit38:           ; preds = %123, %126, %133
   %152 = icmp ne i64 %151, 1
   %153 = icmp eq i64 %148, 0
   %or.cond.i.i40 = or i1 %153, %152
-  br i1 %or.cond.i.i40, label %_ZN5boost4json11storage_ptrD2Ev.exit33, label %_ZN5boost4json11storage_ptrD2Ev.exit33.sink.split
+  br i1 %or.cond.i.i40, label %_ZN5boost4json6object16revert_constructD2Ev.exit44, label %_ZN5boost4json6object16revert_constructD2Ev.exit44.sink.split
 
 _ZN5boost4json6object16revert_constructD2Ev.exit: ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit38, %_ZN5boost4json11storage_ptrD2Ev.exit, %90, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #48
   ret void
 
-_ZN5boost4json11storage_ptrD2Ev.exit33.sink.split: ; preds = %147, %83
+_ZN5boost4json6object16revert_constructD2Ev.exit44.sink.split: ; preds = %147, %83
   %.sink63 = phi ptr [ %85, %83 ], [ %149, %147 ]
   %.pn.ph = phi { ptr, i32 } [ %80, %83 ], [ %144, %147 ]
   %154 = load ptr, ptr %.sink63, align 8, !tbaa !19
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(16) %.sink63) #48
-  br label %_ZN5boost4json11storage_ptrD2Ev.exit33
-
-_ZN5boost4json11storage_ptrD2Ev.exit33:           ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit33.sink.split, %147, %143, %83, %79
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %80, %83 ], [ %144, %143 ], [ %144, %147 ], [ %.pn.ph, %_ZN5boost4json11storage_ptrD2Ev.exit33.sink.split ]
-  %157 = load ptr, ptr %4, align 8, !tbaa !115
-  %.not.i43 = icmp eq ptr %157, null
-  br i1 %.not.i43, label %_ZN5boost4json6object16revert_constructD2Ev.exit44, label %158
-
-158:                                              ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit33
-  call void @_ZN5boost4json6object16revert_construct7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #48
   br label %_ZN5boost4json6object16revert_constructD2Ev.exit44
 
-_ZN5boost4json6object16revert_constructD2Ev.exit44: ; preds = %_ZN5boost4json11storage_ptrD2Ev.exit33, %158
+_ZN5boost4json6object16revert_constructD2Ev.exit44: ; preds = %_ZN5boost4json6object16revert_constructD2Ev.exit44.sink.split, %147, %143, %83, %79
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %80, %83 ], [ %144, %143 ], [ %144, %147 ], [ %.pn.ph, %_ZN5boost4json6object16revert_constructD2Ev.exit44.sink.split ]
+  call void @_ZN5boost4json6object16revert_construct7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #48
-  br label %159
+  br label %157
 
-159:                                              ; preds = %_ZN5boost4json6object16revert_constructD2Ev.exit44, %47
+157:                                              ; preds = %_ZN5boost4json6object16revert_constructD2Ev.exit44, %47
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost4json6object16revert_constructD2Ev.exit44 ], [ %48, %47 ]
-  %160 = load i64, ptr %0, align 8, !tbaa !17
-  %161 = and i64 %160, 1
-  %.not.i.i45 = icmp eq i64 %161, 0
-  br i1 %.not.i.i45, label %_ZN5boost4json11storage_ptrD2Ev.exit47, label %162
+  %158 = load i64, ptr %0, align 8, !tbaa !17
+  %159 = and i64 %158, 1
+  %.not.i.i45 = icmp eq i64 %159, 0
+  br i1 %.not.i.i45, label %_ZN5boost4json11storage_ptrD2Ev.exit47, label %160
 
-162:                                              ; preds = %159
-  %163 = and i64 %160, -4
-  %164 = inttoptr i64 %163 to ptr
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = atomicrmw sub ptr %165, i64 1 acq_rel, align 8
-  %167 = icmp ne i64 %166, 1
-  %168 = icmp eq i64 %163, 0
-  %or.cond.i.i46 = or i1 %168, %167
-  br i1 %or.cond.i.i46, label %_ZN5boost4json11storage_ptrD2Ev.exit47, label %169
+160:                                              ; preds = %157
+  %161 = and i64 %158, -4
+  %162 = inttoptr i64 %161 to ptr
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = atomicrmw sub ptr %163, i64 1 acq_rel, align 8
+  %165 = icmp ne i64 %164, 1
+  %166 = icmp eq i64 %161, 0
+  %or.cond.i.i46 = or i1 %166, %165
+  br i1 %or.cond.i.i46, label %_ZN5boost4json11storage_ptrD2Ev.exit47, label %167
 
-169:                                              ; preds = %162
-  %170 = load ptr, ptr %164, align 8, !tbaa !19
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8
-  call void %172(ptr noundef nonnull align 8 dereferenceable(16) %164) #48
+167:                                              ; preds = %160
+  %168 = load ptr, ptr %162, align 8, !tbaa !19
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load ptr, ptr %169, align 8
+  call void %170(ptr noundef nonnull align 8 dereferenceable(16) %162) #48
   br label %_ZN5boost4json11storage_ptrD2Ev.exit47
 
-_ZN5boost4json11storage_ptrD2Ev.exit47:           ; preds = %159, %162, %169
+_ZN5boost4json11storage_ptrD2Ev.exit47:           ; preds = %157, %160, %167
   resume { ptr, i32 } %.pn.pn
 }
 

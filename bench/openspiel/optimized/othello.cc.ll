@@ -1283,7 +1283,6 @@ _ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit: ; preds = %_ZNK10op
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel7othello12_GLOBAL__N_113PlayerToStateEi.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %.promoted = load i64, ptr %11, align 8
   %80 = shl nsw i32 %.sroa.0.0.i, 3
   %81 = add nsw i32 %80, %.sroa.9.0.i
   %82 = sext i32 %81 to i64
@@ -1311,7 +1310,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit.loopexit:    ; preds = %86
   br label %_ZN4absl7debian28AlphaNumC2EPKc.exit
 
 _ZN4absl7debian28AlphaNumC2EPKc.exit:             ; preds = %_ZN4absl7debian28AlphaNumC2EPKc.exit.loopexit, %.lr.ph
-  %.sroa.0.0.insert.insert.i2631.lcssa = phi i64 [ %.promoted, %.lr.ph ], [ %.sroa.0.0.insert.insert.i26.le, %_ZN4absl7debian28AlphaNumC2EPKc.exit.loopexit ]
+  %.sroa.0.0.insert.insert.i2631.lcssa = phi i64 [ %.sroa.0.0.insert.insert.i, %.lr.ph ], [ %.sroa.0.0.insert.insert.i26.le, %_ZN4absl7debian28AlphaNumC2EPKc.exit.loopexit ]
   store i64 %.sroa.0.0.insert.insert.i2631.lcssa, ptr %11, align 8
   store ptr @.str.6, ptr %14, align 8
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 8

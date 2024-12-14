@@ -21569,8 +21569,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6ve
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
 43:                                               ; preds = %13
-  %.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_"(ptr nonnull %.sroa.0.020, ptr %.sroa.0.0.copyload)
+  call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_19TemporalProfTraceTy21createBPFunctionNodesENS2_8ArrayRefISB_EERS7_bE3$_1EEEvT_T0_"(ptr nonnull %.sroa.0.020, ptr %2)
   br label %_ZN4llvm14BPFunctionNodeD2Ev.exit
 
 _ZN4llvm14BPFunctionNodeD2Ev.exit:                ; preds = %42, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm14BPFunctionNodeESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %43

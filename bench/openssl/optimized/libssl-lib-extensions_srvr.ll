@@ -163,8 +163,8 @@ PACKET_get_1.exit:                                ; preds = %lor.lhs.false
   %2 = load i8, ptr %add.ptr.i2.i.i, align 1
   %cmp5 = icmp ne i8 %2, 0
   %cmp.i.i.i27 = icmp samesign ult i64 %or.i.i.i, 3
-  %or.cond57 = select i1 %cmp5, i1 true, i1 %cmp.i.i.i27
-  br i1 %or.cond57, label %if.then9, label %lor.lhs.false.i28
+  %or.cond61 = select i1 %cmp5, i1 true, i1 %cmp.i.i.i27
+  br i1 %or.cond61, label %if.then9, label %lor.lhs.false.i28
 
 lor.lhs.false.i28:                                ; preds = %PACKET_get_1.exit
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %tmp.sroa.0.0.copyload.i, i64 3

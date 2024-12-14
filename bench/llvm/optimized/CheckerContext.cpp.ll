@@ -540,24 +540,21 @@ _ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit: ; preds = %3, %3, %
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %5, align 8
   %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, label %45
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %46
 
-45:                                               ; preds = %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %44) #9
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit, %45
-  %46 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 13, ptr nonnull %29, i8 %.sroa.3.0.i, ptr noundef %5)
-  %47 = load ptr, ptr %5, align 8
-  %.not.i.i13 = icmp eq ptr %47, null
-  br i1 %.not.i.i13, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %48
-
-48:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %47) #9
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
+  %45 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 13, ptr nonnull %29, i8 %.sroa.3.0.i, ptr noundef %5)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %48
-  ret i1 %46
+46:                                               ; preds = %_ZN5clang4ento11SValBuilder10makeIntValEmNS_8QualTypeE.exit
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %44) #9
+  %47 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 13, ptr nonnull %29, i8 %.sroa.3.0.i, ptr noundef %5)
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %44) #9
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %46
+  %48 = phi i1 [ %45, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %47, %46 ]
+  ret i1 %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -729,24 +726,21 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14CheckerContext10isNegativeE
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %4, align 8
   %.not.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, label %27
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %28
 
-27:                                               ; preds = %2
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #9
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %2, %27
-  %28 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 10, ptr nonnull %11, i8 6, ptr noundef %4)
-  %29 = load ptr, ptr %4, align 8
-  %.not.i.i15 = icmp eq ptr %29, null
-  br i1 %.not.i.i15, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %30
-
-30:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %29) #9
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %2
+  %27 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 10, ptr nonnull %11, i8 6, ptr noundef %4)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %30
-  ret i1 %28
+28:                                               ; preds = %2
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #9
+  %29 = call fastcc noundef zeroext i1 @_ZL14evalComparisonN5clang4ento4SValENS_18BinaryOperatorKindES1_N4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr %.fca.0.extract, i8 %.fca.1.extract, i32 noundef 10, ptr nonnull %11, i8 6, ptr noundef %4)
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %26) #9
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %28
+  %30 = phi i1 [ %27, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %29, %28 ]
+  ret i1 %30
 }
 
 declare noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1

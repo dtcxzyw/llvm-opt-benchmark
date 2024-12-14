@@ -1288,17 +1288,15 @@ _ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInte
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
-  %9 = load ptr, ptr %ref.tmp, align 8
-  store ptr %9, ptr %call.i.i2.i4, align 8
+  store ptr %1, ptr %call.i.i2.i4, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 8
-  %10 = load ptr, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %_M_refcount.i.i, align 8
-  store ptr %10, ptr %_M_refcount.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i, align 8
   store ptr null, ptr %ref.tmp, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 16
-  store i32 %state, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 24
-  store i64 %8, ptr %12, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 16
+  store i32 %state, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 24
+  store i64 %8, ptr %10, align 8
   store i64 54, ptr %7, align 8
   store ptr %call.i.i2.i4, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
@@ -1307,59 +1305,59 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %13 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %13, null
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont5
-  %call.i.i = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %14 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #23
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #23
   unreachable
 
 "_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit": ; preds = %invoke.cont5, %if.then.i.i
   %call6 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %16 = load ptr, ptr %work_serializer_, align 8
-  store ptr %16, ptr %agg.tmp7, align 8
+  %14 = load ptr, ptr %work_serializer_, align 8
+  store ptr %14, ptr %agg.tmp7, align 8
   %_M_refcount.i.i9 = getelementptr inbounds nuw i8, ptr %agg.tmp7, i64 8
   %_M_refcount3.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %17 = load ptr, ptr %_M_refcount3.i.i10, align 8
-  store ptr %17, ptr %_M_refcount.i.i9, align 8
-  %cmp.not.i.i.i11 = icmp eq ptr %17, null
+  %15 = load ptr, ptr %_M_refcount3.i.i10, align 8
+  store ptr %15, ptr %_M_refcount.i.i9, align 8
+  %cmp.not.i.i.i11 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i11, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit"
-  %_M_use_count.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %18 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i14 = icmp eq i8 %18, 0
+  %_M_use_count.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i14 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i14, label %if.else.i.i.i.i.i17, label %if.then.i.i.i.i.i15
 
 if.then.i.i.i.i.i15:                              ; preds = %if.then.i.i.i12
-  %19 = load i32, ptr %_M_use_count.i.i.i.i13, align 4
-  %add.i.i.i.i.i16 = add nsw i32 %19, 1
+  %17 = load i32, ptr %_M_use_count.i.i.i.i13, align 4
+  %add.i.i.i.i.i16 = add nsw i32 %17, 1
   store i32 %add.i.i.i.i.i16, ptr %_M_use_count.i.i.i.i13, align 4
   br label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit
 
 if.else.i.i.i.i.i17:                              ; preds = %if.then.i.i.i12
-  %20 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i13, i32 1 acq_rel, align 4
+  %18 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i13, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %agg.tmp7, align 8
   %.pre39 = load ptr, ptr %_M_refcount.i.i9, align 8
   br label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit: ; preds = %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit", %if.then.i.i.i.i.i15, %if.else.i.i.i.i.i17
-  %21 = phi ptr [ null, %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ %17, %if.then.i.i.i.i.i15 ], [ %.pre39, %if.else.i.i.i.i.i17 ]
-  %22 = phi ptr [ %16, %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ %16, %if.then.i.i.i.i.i15 ], [ %.pre, %if.else.i.i.i.i.i17 ]
+  %19 = phi ptr [ null, %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ %15, %if.then.i.i.i.i.i15 ], [ %.pre39, %if.else.i.i.i.i.i17 ]
+  %20 = phi ptr [ %14, %"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev.exit" ], [ %14, %if.then.i.i.i.i.i15 ], [ %.pre, %if.else.i.i.i.i.i17 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  store ptr %22, ptr %call6, align 8
+  store ptr %20, ptr %call6, align 8
   %_M_refcount.i.i.i18 = getelementptr inbounds nuw i8, ptr %call6, i64 8
   store ptr null, ptr %_M_refcount.i.i9, align 8
-  store ptr %21, ptr %_M_refcount.i.i.i18, align 8
+  store ptr %19, ptr %_M_refcount.i.i.i18, align 8
   store ptr null, ptr %agg.tmp7, align 8
   %closure_2.i = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %cb1.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 24
@@ -1373,24 +1371,24 @@ _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit: ; preds = %"_ZZN9g
           to label %invoke.cont7.i unwind label %lpad6.i
 
 invoke.cont7.i:                                   ; preds = %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit
-  %23 = load i64, ptr %agg.tmp.i, align 8
-  %and.i.i.i.i19 = and i64 %23, 1
+  %21 = load i64, ptr %agg.tmp.i, align 8
+  %and.i.i.i.i19 = and i64 %21, 1
   %cmp.i.i.i.i20 = icmp eq i64 %and.i.i.i.i19, 0
   br i1 %cmp.i.i.i.i20, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %invoke.cont7.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %23)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %21)
           to label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit unwind label %terminate.lpad.i.i22
 
 terminate.lpad.i.i22:                             ; preds = %if.then.i.i.i21
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #23
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #23
   unreachable
 
 lpad6.i:                                          ; preds = %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit
-  %26 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i) #22
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %call6) #22
@@ -1404,35 +1402,35 @@ _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit: ; preds = %invoke.cont
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit
-  %27 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3:                                            ; preds = %invoke.cont
-  %28 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i34 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i34 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i34, label %ehcleanup, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %lpad3
-  %call.i.i36 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
+  %call.i.i36 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3)
           to label %ehcleanup unwind label %terminate.lpad.i.i37
 
 terminate.lpad.i.i37:                             ; preds = %if.then.i.i35
-  %30 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #23
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #23
   unreachable
 
 ehcleanup:                                        ; preds = %if.then.i.i35, %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %27, %lpad ], [ %28, %lpad3 ], [ %28, %if.then.i.i35 ]
+  %.pn = phi { ptr, i32 } [ %25, %lpad ], [ %26, %lpad3 ], [ %26, %if.then.i.i35 ]
   call fastcc void @"_ZZN9grpc_core13HealthWatcher6NotifyE23grpc_connectivity_stateN4absl12lts_202308026StatusEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad6.i, %ehcleanup
-  %.pn2 = phi { ptr, i32 } [ %26, %lpad6.i ], [ %.pn, %ehcleanup ]
+  %.pn2 = phi { ptr, i32 } [ %24, %lpad6.i ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn2
 }
 

@@ -17875,7 +17875,7 @@ trans_th_addsl1.exit:                             ; preds = %sw.bb120
   %call.i = call fastcc zeroext i1 @gen_arith(ptr noundef nonnull readonly %ctx, ptr noundef nonnull readonly %u, i32 noundef 0, ptr noundef nonnull @gen_th_addsl1, ptr noundef null)
   br i1 %call.i, label %return, label %sw.epilog502
 
-default.unreachable1655:                          ; preds = %sw.bb258
+default.unreachable1653:                          ; preds = %sw.bb258
   unreachable
 
 sw.bb125:                                         ; preds = %sw.bb110
@@ -18263,8 +18263,8 @@ get_gpr.exit.i.i:                                 ; preds = %sw.epilog11.i.i.i, 
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %get_gpr.exit.i.i
-  %reass.sub1654 = sub nuw nsw i32 %shr.i.i551, %and.i11.i
-  %add.i.i = add nuw nsw i32 %reass.sub1654, 1
+  %reass.sub.i = add nuw nsw i32 %shr.i.i551, 1
+  %add.i.i = sub nuw nsw i32 %reass.sub.i, %and.i11.i
   tail call void @tcg_gen_sextract_i64(ptr noundef %retval.0.i.i.i, ptr noundef %retval.0.i14.i.i, i32 noundef %and.i11.i, i32 noundef %add.i.i) #13, !callees !9
   br i1 %cmp.i.i.i, label %return, label %if.then.i16.i.i
 
@@ -18389,8 +18389,8 @@ get_gpr.exit.i.i592:                              ; preds = %sw.epilog11.i.i.i58
   br i1 %cmp.not.i.i595, label %return, label %if.then.i.i596
 
 if.then.i.i596:                                   ; preds = %get_gpr.exit.i.i592
-  %reass.sub = sub nuw nsw i32 %shr.i.i560, %and.i11.i568
-  %add.i.i598 = add nuw nsw i32 %reass.sub, 1
+  %reass.sub.i597 = add nuw nsw i32 %shr.i.i560, 1
+  %add.i.i598 = sub nuw nsw i32 %reass.sub.i597, %and.i11.i568
   tail call void @tcg_gen_extract_i64(ptr noundef %retval.0.i.i.i584, ptr noundef %retval.0.i14.i.i593, i32 noundef %and.i11.i568, i32 noundef %add.i.i598) #13, !callees !9
   br i1 %cmp.i.i.i575, label %return, label %if.then.i16.i.i600
 
@@ -18438,7 +18438,7 @@ if.then5.i.i.i608:                                ; preds = %sw.epilog.i.i.i605
 
 sw.bb258:                                         ; preds = %entry
   %shr259 = lshr i32 %insn, 27
-  switch i32 %shr259, label %default.unreachable1655 [
+  switch i32 %shr259, label %default.unreachable1653 [
     i32 0, label %sw.bb261
     i32 1, label %sw.bb265
     i32 2, label %sw.bb269
