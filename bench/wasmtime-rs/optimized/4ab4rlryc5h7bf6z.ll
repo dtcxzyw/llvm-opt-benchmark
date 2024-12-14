@@ -40883,8 +40883,8 @@ default.unreachable:                              ; preds = %3
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %8 = load <16 x i8>, ptr %7, align 1
-  %.sroa.4.1.vec.insert = shufflevector <16 x i8> %8, <16 x i8> poison, <16 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %8 = load i8, ptr %7, align 1, !alias.scope !7443, !noalias !7446, !noundef !4
+  %.sroa.4.1.vec.insert = insertelement <16 x i8> <i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef>, i8 %8, i64 0
   br label %"_ZN79_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..clone..Clone$GT$5clone17hef60b78463275edfE.exit"
 
 9:                                                ; preds = %3
