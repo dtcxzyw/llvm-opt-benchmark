@@ -6448,8 +6448,7 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse21index_for_column_name17h95d732
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1292
   %switch.i = icmp ne i32 %.fca.0.extract.i, 0
   %.fca.1.extract.i = extractvalue { i32, i32 } %21, 1
-  %narrow.i = select i1 %switch.i, i32 %.fca.1.extract.i, i32 0
-  %.sroa.5.0.i = sext i32 %narrow.i to i64
+  %.sroa.5.0.i = sext i32 %.fca.1.extract.i to i64
   %spec.select.i = select i1 %switch.i, i64 %.sroa.5.0.i, i64 undef
   %spec.select7.i = zext i1 %switch.i to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1292

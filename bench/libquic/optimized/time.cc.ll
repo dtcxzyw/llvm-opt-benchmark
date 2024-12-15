@@ -133,8 +133,7 @@ entry:
   %and.i.i.i = and i64 %xor.i.i.i, %xor1.i.i.i
   %tobool.i7.i.i.i = icmp sgt i64 %add.i.i.i, -1
   %tobool.i.i.i.i.inv = icmp slt i64 %and.i.i.i, 0
-  %cmp.i = and i1 %tobool.i7.i.i.i, %tobool.i.i.i.i.inv
-  %spec.select.i = select i1 %cmp.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i = select i1 %tobool.i7.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i.i.i.inv, i64 %spec.select.i, i64 %add.i.i.i
   ret i64 %retval.0.i
 }
@@ -159,8 +158,7 @@ entry:
   %and.i.i.i = and i64 %xor.i.i.i, %xor1.i.i.i
   %tobool.i7.i.i.i = icmp sgt i64 %sub.i.i.i, -1
   %tobool.i.i.i.i.inv = icmp slt i64 %and.i.i.i, 0
-  %cmp.i = and i1 %tobool.i7.i.i.i, %tobool.i.i.i.i.inv
-  %spec.select.i = select i1 %cmp.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i = select i1 %tobool.i7.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i.i.i.inv, i64 %spec.select.i, i64 %sub.i.i.i
   ret i64 %retval.0.i
 }
@@ -202,8 +200,7 @@ if.end5:                                          ; preds = %entry
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i7.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i = icmp slt i64 %and.i.i.i.i.i, 0
-  %cmp.i.i.i = and i1 %tobool.i7.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i = select i1 %tobool.i7.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i, i64 %spec.select.i.i.i, i64 %add.i.i.i.i.i
   br label %return
 
@@ -265,8 +262,7 @@ _ZN4base9TimeDelta12FromSecondsDEd.exit:          ; preds = %if.end, %cond.false
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i7.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i = icmp slt i64 %and.i.i.i.i.i, 0
-  %cmp.i.i.i = and i1 %tobool.i7.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i = select i1 %tobool.i7.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i, i64 %spec.select.i.i.i, i64 %add.i.i.i.i.i
   br label %return
 
@@ -334,8 +330,7 @@ _ZN4base9TimeDelta12FromSecondsDEd.exit.i:        ; preds = %cond.false10.i.i.i,
   %and.i.i.i.i.i.i = and i64 %xor.i.i.i.i.i.i, %xor1.i.i.i.i.i.i
   %tobool.i7.i.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i.i = icmp slt i64 %and.i.i.i.i.i.i, 0
-  %cmp.i.i.i.i = and i1 %tobool.i7.i.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i.i
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i.i = select i1 %tobool.i7.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i, i64 %spec.select.i.i.i.i, i64 %add.i.i.i.i.i.i
   br label %_ZN4base4Time11FromDoubleTEd.exit
 
@@ -368,8 +363,7 @@ _ZN4base9TimeDelta17FromMillisecondsDEd.exit:     ; preds = %entry, %cond.false.
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i7.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i = icmp slt i64 %and.i.i.i.i.i, 0
-  %cmp.i.i.i = and i1 %tobool.i7.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i = select i1 %tobool.i7.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i, i64 %spec.select.i.i.i, i64 %add.i.i.i.i.i
   ret i64 %retval.0.i.i.i
 }
@@ -599,8 +593,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i.i.i.i.i.i.i.i.i = and i64 %xor.i.i.i.i.i.i.i.i.i.i, %xor1.i.i.i.i.i.i.i.i.i.i
   %tobool.i7.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %sub.i.i.i.i.i.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i.i.i.i.i.i = icmp slt i64 %and.i.i.i.i.i.i.i.i.i.i, 0
-  %cmp.i.i.i.i.i.i.i.i = and i1 %tobool.i7.i.i.i.i.i.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i.i.i.i.i.i = select i1 %tobool.i7.i.i.i.i.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i.i.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i.i.i.i.i, i64 %spec.select.i.i.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i.i.i.i.i
   %sub.i1.i.i.i.i.i = sub nsw i64 0, %retval.0.i.i.i.i.i.i.i.i
   store i64 %sub.i1.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4baseL35leaky_unix_epoch_singleton_instanceE, i64 8), align 8
@@ -634,8 +627,7 @@ if.then:                                          ; preds = %land.lhs.true
   %and.i.i.i.i.i.i = and i64 %xor.i.i.i.i.i.i, %xor1.i.i.i.i.i.i
   %tobool.i7.i.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i.i = icmp slt i64 %and.i.i.i.i.i.i, 0
-  %cmp.i.i.i.i = and i1 %tobool.i7.i.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i.i
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i.i = select i1 %tobool.i7.i.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i.i, i64 %spec.select.i.i.i.i, i64 %add.i.i.i.i.i.i
   br label %if.end
 
@@ -647,8 +639,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %and.i.i.i.i.i = and i64 %xor.i.i.i.i.i, %xor1.i.i.i.i.i
   %tobool.i7.i.i.i.i.i = icmp sgt i64 %add.i.i.i.i.i, -1
   %tobool.i.i.i.i.inv.i.i = icmp slt i64 %and.i.i.i.i.i, 0
-  %cmp.i.i.i = and i1 %tobool.i7.i.i.i.i.i, %tobool.i.i.i.i.inv.i.i
-  %spec.select.i.i.i = select i1 %cmp.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
+  %spec.select.i.i.i = select i1 %tobool.i7.i.i.i.i.i, i64 -9223372036854775807, i64 9223372036854775807
   %retval.0.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i, i64 %spec.select.i.i.i, i64 %add.i.i.i.i.i
   ret i64 %retval.0.i.i.i
 }

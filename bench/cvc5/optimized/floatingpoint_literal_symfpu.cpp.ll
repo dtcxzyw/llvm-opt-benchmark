@@ -26378,20 +26378,19 @@ land.rhs183:                                      ; preds = %land.lhs.true180
 
 land.end187:                                      ; preds = %land.rhs183, %land.lhs.true180, %land.end176
   %46 = phi i1 [ false, %land.lhs.true180 ], [ false, %land.end176 ], [ %call186, %land.rhs183 ]
-  %47 = and i1 %frombool111, %call137
   %tobool7 = trunc i8 %1 to i1
-  %48 = select i1 %tobool, i1 true, i1 %tobool7
-  %49 = or i8 %21, %17
-  %50 = or i1 %32, %34
-  %51 = or i1 %44, %46
-  %52 = or i1 %38, %41
-  %.v = select i1 %equality, i1 %51, i1 %52
-  %.v157 = select i1 %47, i1 %.v, i1 %50
+  %47 = select i1 %tobool, i1 true, i1 %tobool7
+  %48 = or i8 %21, %17
+  %49 = or i1 %32, %34
+  %50 = or i1 %44, %46
+  %51 = or i1 %38, %41
+  %.v = select i1 %equality, i1 %50, i1 %51
+  %.v157 = select i1 %call137, i1 %.v, i1 %49
   %tobool.i138 = select i1 %frombool111, i1 %.v157, i1 %negativeLessThanPositive.0
-  %53 = trunc i8 %49 to i1
-  %not. = xor i1 %48, true
-  %54 = select i1 %not., i1 %53, i1 false
-  %tobool.i142 = select i1 %lnot191, i1 %54, i1 %tobool.i138
+  %52 = trunc i8 %48 to i1
+  %not. = xor i1 %47, true
+  %53 = select i1 %not., i1 %52, i1 false
+  %tobool.i142 = select i1 %lnot191, i1 %53, i1 %tobool.i138
   ret i1 %tobool.i142
 }
 

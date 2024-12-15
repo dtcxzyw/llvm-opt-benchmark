@@ -4411,29 +4411,29 @@ define linkonce_odr dso_local void @_ZN18LinkResolveVisitor5visitEP6AstVar(ptr n
   br i1 %.not7, label %._crit_edge, label %12
 
 12:                                               ; preds = %9
-  %spec.select.i = or i64 %.pre, 49152
-  store i64 %spec.select.i, ptr %.phi.trans.insert, align 4
+  %13 = or i64 %.pre, 49152
+  store i64 %13, ptr %.phi.trans.insert, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %12
-  %13 = phi i64 [ %spec.select.i, %12 ], [ %.pre, %9 ]
-  %14 = and i64 %13, 256
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %23, label %15
+  %14 = phi i64 [ %13, %12 ], [ %.pre, %9 ]
+  %15 = and i64 %14, 256
+  %.not8 = icmp eq i64 %15, 0
+  br i1 %.not8, label %24, label %16
 
-15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 260
-  %17 = and i64 %13, -257
-  store i64 %17, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 255
-  %21 = load i16, ptr %20, align 1
-  %22 = or i16 %21, 1
-  store i16 %22, ptr %20, align 1
-  br label %23
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %18 = and i64 %14, -257
+  store i64 %18, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 255
+  %22 = load i16, ptr %21, align 1
+  %23 = or i16 %22, 1
+  store i16 %23, ptr %21, align 1
+  br label %24
 
-23:                                               ; preds = %15, %._crit_edge
+24:                                               ; preds = %16, %._crit_edge
   ret void
 }
 

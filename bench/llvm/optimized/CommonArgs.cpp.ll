@@ -16955,12 +16955,12 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %105, %111, %_ZN5cla
 116:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   store i32 2, ptr %114, align 4, !alias.scope !807
   store i32 1, ptr %115, align 4, !alias.scope !807
-  br label %430
+  br label %428
 
 117:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit
   store i32 0, ptr %114, align 4, !alias.scope !810
   store i32 0, ptr %115, align 4, !alias.scope !810
-  br label %430
+  br label %428
 
 _ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %58, %63, %_ZNK4llvm6Triple11isOSCygMingEv.exit, %54
   %118 = load ptr, ptr %1, align 8
@@ -17341,7 +17341,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit151:         ; preds = %223, %226, %226, %2
   store i32 %283, ptr %284, align 4, !alias.scope !823
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %285, align 4, !alias.scope !823
-  br label %430
+  br label %428
 
 286:                                              ; preds = %221
   %287 = load i32, ptr %47, align 8
@@ -17676,38 +17676,35 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread285:      ; preds = %_ZN4llvmeqENS_9Stri
   store i32 0, ptr %417, align 4, !alias.scope !854
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %418, align 4, !alias.scope !854
-  br label %430
+  br label %428
 
 419:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread285, %409
   %.492 = phi i8 [ %.391, %409 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread285 ]
   %.5 = phi i8 [ %.4, %409 ], [ %414, %_ZN4llvmeqENS_9StringRefES0_.exit.thread285 ]
   %420 = trunc nuw i8 %.5 to i1
-  br i1 %420, label %421, label %427
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %420, label %423, label %427
 
-421:                                              ; preds = %419
-  %422 = trunc nuw i8 %.492 to i1
-  %423 = select i1 %422, i32 2, i32 1
-  %424 = and i8 %.3254, 1
-  store i8 %424, ptr %0, align 4, !alias.scope !857
-  %425 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %423, ptr %425, align 4, !alias.scope !857
-  %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %426, align 4, !alias.scope !857
-  br label %430
+423:                                              ; preds = %419
+  %424 = trunc nuw i8 %.492 to i1
+  %425 = select i1 %424, i32 2, i32 1
+  %426 = and i8 %.3254, 1
+  store i8 %426, ptr %0, align 4, !alias.scope !857
+  store i32 %425, ptr %421, align 4, !alias.scope !857
+  store i32 1, ptr %422, align 4, !alias.scope !857
+  br label %428
 
 427:                                              ; preds = %419
-  %brmerge107.demorgan = and i1 %.094, %.095280
-  %.mux292 = select i1 %brmerge107.demorgan, i32 5, i32 3
+  %.mux292 = select i1 %.095280, i32 5, i32 3
   %spec.select293 = select i1 %.095280, i32 4, i32 0
   %.0255 = select i1 %.094, i32 %.mux292, i32 %spec.select293
   store i8 0, ptr %0, align 4, !alias.scope !860
-  %428 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %428, align 4, !alias.scope !860
-  %429 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.0255, ptr %429, align 4, !alias.scope !860
-  br label %430
+  store i32 0, ptr %421, align 4, !alias.scope !860
+  store i32 %.0255, ptr %422, align 4, !alias.scope !860
+  br label %428
 
-430:                                              ; preds = %427, %421, %416, %282, %117, %116
+428:                                              ; preds = %427, %423, %416, %282, %117, %116
   ret void
 }
 
