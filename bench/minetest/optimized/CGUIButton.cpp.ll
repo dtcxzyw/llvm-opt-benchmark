@@ -1594,8 +1594,7 @@ if.then45:                                        ; preds = %if.end38
 
 if.then.i214:                                     ; preds = %if.then45
   %cmp.i190 = icmp eq ptr %call6.i189, %this
-  %brmerge.not.i215 = and i1 %call.i186, %cmp.i190
-  %.mux351 = select i1 %brmerge.not.i215, i32 3, i32 2
+  %.mux351 = select i1 %cmp.i190, i32 3, i32 2
   %brmerge352 = or i1 %call.i186, %cmp.i190
   %.mux351.mux = select i1 %call.i186, i32 %.mux351, i32 1
   br i1 %brmerge352, label %land.rhs.lr.ph.i196, label %_ZNK3irr3gui10CGUIButton13getImageStateEb.exit219

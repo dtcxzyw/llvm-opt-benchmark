@@ -2756,8 +2756,7 @@ _ZNK9GUIButton9isHoveredEv.exit.i.i:              ; preds = %land.rhs.i.i.i, %lo
   br i1 %call5.i.i, label %if.then.i.i, label %land.rhs.lr.ph.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK9GUIButton9isHoveredEv.exit.i.i
-  %brmerge.demorgan.i.i = and i1 %call.i.i.i, %40
-  %.mux.i = select i1 %brmerge.demorgan.i.i, i32 3, i32 2
+  %.mux.i = select i1 %40, i32 3, i32 2
   %brmerge2.i = or i1 %call.i.i.i, %40
   %.mux.mux.i = select i1 %call.i.i.i, i32 %.mux.i, i32 1
   br i1 %brmerge2.i, label %land.rhs.lr.ph.i.i, label %if.then75

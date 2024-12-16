@@ -1457,15 +1457,12 @@ define internal i32 @dissect_aal5_sdu(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 number_of_cells.exit:                             ; preds = %.thread91
-  %64 = icmp samesign ugt i32 %.07197, 51
-  %.neg.i = select i1 %64, i32 -52, i32 0
-  %storemerge.i = sub nsw i32 0, %.07197
-  %65 = icmp eq i32 %.neg.i, %storemerge.i
-  %or.cond4.not = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond4.not, label %72, label %66
+  %64 = icmp eq i32 %.07197, 52
+  br i1 %64, label %72, label %65
 
-66:                                               ; preds = %number_of_cells.exit
-  %spec.store.select.i = zext i1 %64 to i32
+65:                                               ; preds = %number_of_cells.exit
+  %66 = icmp samesign ugt i32 %.07197, 51
+  %spec.store.select.i = zext i1 %66 to i32
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %68 = or i32 %61, 128
   store i32 %68, ptr %67, align 4
@@ -1477,9 +1474,9 @@ number_of_cells.exit:                             ; preds = %.thread91
   tail call void @col_set_str(ptr noundef %71, i32 noundef 34, ptr noundef nonnull @shortname_aal5_sdu) #6
   br label %76
 
-72:                                               ; preds = %66, %number_of_cells.exit
-  %.ph99 = phi i32 [ %61, %number_of_cells.exit ], [ %68, %66 ]
-  %.073.ph = phi i32 [ 1, %number_of_cells.exit ], [ %spec.store.select.i, %66 ]
+72:                                               ; preds = %65, %number_of_cells.exit
+  %.ph99 = phi i32 [ %61, %number_of_cells.exit ], [ %68, %65 ]
+  %.073.ph = phi i32 [ 1, %number_of_cells.exit ], [ %spec.store.select.i, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load ptr, ptr %73, align 8
   tail call void @col_set_str(ptr noundef %74, i32 noundef 34, ptr noundef nonnull @shortname_aal5_sdu) #6

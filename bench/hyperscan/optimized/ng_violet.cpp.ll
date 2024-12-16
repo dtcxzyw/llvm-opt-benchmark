@@ -40004,8 +40004,7 @@ declare noundef i64 @_ZN3ue227sanitizeAndCompressAndScoreERSt3setINS_11ue2_liter
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN3ue2L29validateRoseLiteralSetQualityERKSt3setINS_11ue2_literalESt4lessIS1_ESaIS1_EEybjbb(ptr noundef nonnull readonly align 8 dereferenceable(48) %s, i64 noundef %score, i1 noundef zeroext %anchored, i32 noundef %min_allowed_floating_len, i1 noundef zeroext %desperation, i1 noundef zeroext %last_chance) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %cond = select i1 %anchored, i32 2, i32 %min_allowed_floating_len
-  %spec.select = select i1 %last_chance, i32 1, i32 %cond
+  %spec.select = select i1 %last_chance, i32 1, i32 2
   %min_allowed_len.0 = select i1 %anchored, i32 %spec.select, i32 %min_allowed_floating_len
   %spec.select104 = or i1 %desperation, %last_chance
   %cmp = icmp ugt i64 %score, 9999999

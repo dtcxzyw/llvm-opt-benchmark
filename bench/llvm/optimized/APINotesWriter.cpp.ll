@@ -31435,89 +31435,89 @@ define internal fastcc void @_ZN5clang9api_notes12_GLOBAL__N_116emitFunctionInfo
   %14 = lshr i16 %11, 9
   %15 = trunc nuw nsw i16 %14 to i8
   %16 = and i8 %15, 7
-  %.0 = or disjoint i8 %13, %16
+  %17 = or disjoint i8 %13, %16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  store i8 %.0, ptr %9, align 1
-  %17 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %9, i64 noundef 1) #16
+  store i8 %17, ptr %9, align 1
+  %18 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %9, i64 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %18 = load i16, ptr %10, align 8
-  %19 = lshr i16 %18, 1
-  %20 = trunc i16 %19 to i8
+  %19 = load i16, ptr %10, align 8
+  %20 = lshr i16 %19, 1
+  %21 = trunc i16 %20 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
-  store i8 %20, ptr %8, align 1
-  %21 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %8, i64 noundef 1) #16
+  store i8 %21, ptr %8, align 1
+  %22 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %8, i64 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %23 = load i64, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %24 = load i64, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %23, ptr %7, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i64 noundef 8) #16
+  store i64 %24, ptr %7, align 8
+  %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i64 noundef 8) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %25, align 8
-  %29 = ptrtoint ptr %27 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %26, align 8
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = sdiv exact i64 %31, 120
-  %33 = trunc i64 %32 to i16
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = sdiv exact i64 %32, 120
+  %34 = trunc i64 %33 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  store i16 %33, ptr %6, align 2
-  %34 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i64 noundef 2) #16
+  store i16 %34, ptr %6, align 2
+  %35 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  %35 = load ptr, ptr %25, align 8
   %36 = load ptr, ptr %26, align 8
-  %.not39 = icmp eq ptr %35, %36
+  %37 = load ptr, ptr %27, align 8
+  %.not39 = icmp eq ptr %36, %37
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.025.040 = phi ptr [ %47, %.lr.ph ], [ %35, %2 ]
+  %.sroa.025.040 = phi ptr [ %48, %.lr.ph ], [ %36, %2 ]
   call fastcc void @_ZN5clang9api_notes12_GLOBAL__N_116emitVariableInfoERN4llvm11raw_ostreamERKNS0_12VariableInfoE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(113) %.sroa.025.040)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.025.040, i64 112
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  %40 = and i8 %38, 3
-  %41 = icmp eq i8 %40, 3
-  %spec.select.i = select i1 %41, i8 24, i8 8
-  %.0.i = select i1 %39, i8 %spec.select.i, i8 0
-  %42 = lshr i8 %38, 2
-  %43 = and i8 %42, 7
-  %.not.not.i.i = icmp eq i8 %43, 0
-  %44 = call i8 @llvm.umax.i8(i8 %43, i8 1)
-  %45 = select i1 %.not.not.i.i, i8 0, i8 %44
-  %.1.i = or disjoint i8 %.0.i, %45
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.025.040, i64 112
+  %39 = load i8, ptr %38, align 8
+  %40 = trunc i8 %39 to i1
+  %41 = and i8 %39, 3
+  %42 = icmp eq i8 %41, 3
+  %spec.select.i = select i1 %42, i8 24, i8 8
+  %.0.i = select i1 %40, i8 %spec.select.i, i8 0
+  %43 = lshr i8 %39, 2
+  %44 = and i8 %43, 7
+  %.not.not.i.i = icmp eq i8 %44, 0
+  %45 = call i8 @llvm.umax.i8(i8 %44, i8 1)
+  %46 = select i1 %.not.not.i.i, i8 0, i8 %45
+  %.1.i = or disjoint i8 %.0.i, %46
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %.1.i, ptr %5, align 1
-  %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %5, i64 noundef 1) #16
+  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %5, i64 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.040, i64 120
-  %.not = icmp eq ptr %47, %36
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.025.040, i64 120
+  %.not = icmp eq ptr %48, %37
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %49 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
-  %50 = trunc i64 %49 to i16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %50 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #16
+  %51 = trunc i64 %50 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  store i16 %50, ptr %4, align 2
-  %51 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4, i64 noundef 2) #16
+  store i16 %51, ptr %4, align 2
+  %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  %52 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
-  %53 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
-  %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %.not9.i.i = icmp eq i64 %53, 0
+  %53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #16
+  %54 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %49) #16
+  %55 = getelementptr inbounds i8, ptr %53, i64 %54
+  %.not9.i.i = icmp eq i64 %54, 0
   br i1 %.not9.i.i, label %_ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
-  %.010.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %52, %._crit_edge ]
-  %55 = load i8, ptr %.010.i.i, align 1
+  %.010.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %53, %._crit_edge ]
+  %56 = load i8, ptr %.010.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %55, ptr %3, align 1
-  %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %3, i64 noundef 1) #16
+  store i8 %56, ptr %3, align 1
+  %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %3, i64 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %57 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
-  %.not.i.i = icmp eq ptr %57, %54
+  %58 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
+  %.not.i.i = icmp eq ptr %58, %55
   br i1 %.not.i.i, label %_ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit, label %.lr.ph.i.i
 
 _ZN4llvm7support6endian6Writer5writeIcEEvNS_8ArrayRefIT_EE.exit: ; preds = %.lr.ph.i.i, %._crit_edge

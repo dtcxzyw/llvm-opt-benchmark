@@ -2389,12 +2389,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeGenRegister15inheritRegUnitsE
   %39 = trunc nuw i8 %.013.i.i to i1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [2 x i64], ptr %36, i64 0, i64 %indvars.iv.i.i
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
-  %..pre.i.i = select i1 %39, i64 0, i64 %.pre.i.i
   %40 = getelementptr inbounds nuw [2 x i64], ptr %35, i64 0, i64 %indvars.iv.i.i
   %41 = load i64, ptr %40, align 8
   %42 = or i64 %41, %.pre.i.i
   store i64 %42, ptr %.phi.trans.insert.i.i, align 8
-  %.not.i.i = icmp eq i64 %..pre.i.i, %42
+  %.not.i.i = icmp eq i64 %.pre.i.i, %42
   %or.cond.i.i = select i1 %39, i1 true, i1 %.not.i.i
   %.1.i.i = select i1 %or.cond.i.i, i8 %.013.i.i, i8 1
   br i1 %38, label %37, label %_ZN4llvm22SparseBitVectorElementILj128EE9unionWithERKS1_.exit.i, !llvm.loop !24

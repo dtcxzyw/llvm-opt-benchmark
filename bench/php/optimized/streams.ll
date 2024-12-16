@@ -3659,7 +3659,6 @@ define range(i32 -1, 1) i32 @_php_stream_copy_to_stream_ex(ptr noundef %0, ptr n
   %78 = sub i64 %spec.store.select, %.2
   %. = call i64 @llvm.umin.i64(i64 %78, i64 536870912)
   %.0101 = select i1 %62, i64 %., i64 536870912
-  %.0100 = select i1 %62, i64 %78, i64 536870912
   %79 = load i64, ptr %74, align 8
   %80 = call ptr @_php_stream_mmap_range(ptr noundef nonnull %0, i64 noundef %79, i64 noundef %.0101, i32 noundef 2, ptr noundef nonnull %9) #27
   %.not122 = icmp eq ptr %80, null
@@ -3745,7 +3744,7 @@ _php_stream_write.exit.thread:                    ; preds = %99, %86, %_php_stre
 
 108:                                              ; preds = %.cont153
   %109 = icmp samesign ult i64 %.013.i167, %.0101
-  %110 = icmp eq i64 %.0100, %.013.i167
+  %110 = icmp eq i64 %78, %.013.i167
   %or.cond131 = select i1 %62, i1 %110, i1 false
   %or.cond = select i1 %109, i1 true, i1 %or.cond131
   br i1 %or.cond, label %.cont, label %77

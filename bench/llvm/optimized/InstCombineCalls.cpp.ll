@@ -10821,8 +10821,7 @@ _ZN4llvm8dyn_castINS_16PtrToIntOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %2838
   %.01031 = phi ptr [ null, %2856 ], [ %2877, %2873 ], [ null, %.critedge91 ]
   %.01030 = phi ptr [ null, %2856 ], [ %2875, %2873 ], [ null, %.critedge91 ]
   %.not1239 = icmp ne ptr %.01030, null
-  %brmerge.not2441 = and i1 %2824, %.not1239
-  %.mux = select i1 %brmerge.not2441, i32 288, i32 286
+  %.mux = select i1 %2824, i32 288, i32 286
   %brmerge1302 = or i1 %2824, %.not1239
   %.mux.mux = select i1 %.not1239, i32 %.mux, i32 289
   br i1 %brmerge1302, label %2936, label %2931

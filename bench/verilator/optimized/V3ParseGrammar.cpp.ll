@@ -68302,7 +68302,7 @@ _ZN7AstFork9addStmtspEP7AstNode.exit:             ; preds = %2
   br label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit
 
 _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %_ZN7AstFork9addStmtspEP7AstNode.exit, %_ZN7AstFork9addInitspEP7AstNode.exit
-  %.018 = phi ptr [ %8, %_ZN7AstFork9addInitspEP7AstNode.exit ], [ %1, %_ZN7AstFork9addStmtspEP7AstNode.exit ]
+  %.018 = phi ptr [ %9, %_ZN7AstFork9addInitspEP7AstNode.exit ], [ %1, %_ZN7AstFork9addStmtspEP7AstNode.exit ]
   %3 = getelementptr inbounds nuw i8, ptr %.018, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %3, align 8
   %.not16 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 48
@@ -68312,12 +68312,12 @@ _ZN7AstFork9addInitspEP7AstNode.exit:             ; preds = %_ZN7AstNode11privat
   %4 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(280) %.018, ptr noundef null)
   %5 = getelementptr inbounds nuw i8, ptr %.018, i64 260
   %6 = load i64, ptr %5, align 4
-  %spec.select.i13 = or i64 %6, 49152
-  store i64 %spec.select.i13, ptr %5, align 4
+  %7 = or i64 %6, 49152
+  store i64 %7, ptr %5, align 4
   tail call void @_ZN7AstNode7addOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %.018)
-  %7 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
+  %8 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
   br i1 %.not, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit._crit_edge, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit, !llvm.loop !99
 
 _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit._crit_edge: ; preds = %_ZN7AstFork9addInitspEP7AstNode.exit, %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit, %2

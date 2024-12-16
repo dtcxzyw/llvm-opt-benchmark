@@ -1353,11 +1353,11 @@ define dso_local void @intel_set_cdclk_post_plane_update(ptr noundef %0) local_u
   %67 = and i32 %66, 67043328
   %68 = or disjoint i32 %67, 134217728
   %69 = select i1 %65, i32 0, i32 %68
-  %70 = or i32 %60, -2147483648
-  %71 = select i1 %59, i32 %70, i32 0
-  %72 = or disjoint i32 %69, %71
+  %70 = or disjoint i32 %60, %69
+  %71 = or i32 %70, -2147483648
+  %72 = select i1 %59, i32 %71, i32 %69
   %73 = getelementptr inbounds nuw i8, ptr %40, i64 7368
-  %74 = or disjoint i32 %72, 3
+  %74 = or i32 %72, 3
   %75 = tail call i32 @skl_pcode_request(ptr noundef nonnull %73, i32 noundef 7, i32 noundef %74, i32 noundef 1, i32 noundef 1, i32 noundef 3) #15
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %84, label %77

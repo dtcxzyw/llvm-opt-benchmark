@@ -1170,26 +1170,26 @@ define hidden noundef ptr @_ZN11JavaClasses12get_injectedEP6SymbolPi(ptr noundef
   br i1 %.not128, label %50, label %37
 
 37:                                               ; preds = %5
-  %38 = select i1 %6, i32 7, i32 0
-  %.7109 = add nuw nsw i32 %.0102, %38
+  %38 = add nuw nsw i32 %.0102, 7
+  %.7109 = select i1 %6, i32 %38, i32 %.0102
   %39 = zext i1 %7 to i32
   %40 = zext i1 %10 to i32
   %41 = zext i1 %13 to i32
   %.8110 = add nuw nsw i32 %40, %39
   %.9111 = add nuw nsw i32 %.8110, %41
   %.10112 = add nuw nsw i32 %.9111, %.7109
-  %42 = select i1 %16, i32 2, i32 0
-  %.12114 = add nuw nsw i32 %.10112, %42
+  %42 = add nuw nsw i32 %.10112, 2
+  %.12114 = select i1 %16, i32 %42, i32 %.10112
   %43 = zext i1 %20 to i32
   %44 = zext i1 %23 to i32
   %.13115 = add nuw nsw i32 %44, %43
   %.14116 = add nuw nsw i32 %.13115, %.12114
-  %45 = select i1 %26, i32 4, i32 0
-  %.18120 = add nuw nsw i32 %.14116, %45
+  %45 = add nuw nsw i32 %.14116, 4
+  %.18120 = select i1 %26, i32 %45, i32 %.14116
   %46 = zext i1 %30 to i32
   %.19121 = add nuw nsw i32 %.18120, %46
-  %47 = select i1 %33, i32 4, i32 0
-  %.23125 = add nuw nsw i32 %.19121, %47
+  %47 = add nuw nsw i32 %.19121, 4
+  %.23125 = select i1 %33, i32 %47, i32 %.19121
   store i32 %.23125, ptr %1, align 4
   %48 = zext nneg i32 %.23 to i64
   %49 = getelementptr inbounds nuw %class.InjectedField, ptr @_ZN11JavaClasses16_injected_fieldsE, i64 %48

@@ -1030,8 +1030,7 @@ _is_writable.exit:                                ; preds = %2, %13
 
 _is_readable.exit:                                ; preds = %_is_writable.exit
   %18 = tail call zeroext i1 %17(ptr noundef nonnull %0) #10
-  %19 = and i1 %16, %18
-  %.mux = select i1 %19, i16 8213, i16 8193
+  %.mux = select i1 %16, i16 8213, i16 8193
   %brmerge51 = or i1 %18, %16
   %.mux.mux = select i1 %18, i16 %.mux, i16 20
   br i1 %brmerge51, label %.thread43, label %.critedge
@@ -1041,18 +1040,18 @@ _is_readable.exit:                                ; preds = %_is_writable.exit
 
 .thread43:                                        ; preds = %_is_readable.exit, %.thread
   %.sink = phi i16 [ 20, %.thread ], [ %.mux.mux, %_is_readable.exit ]
-  %20 = load i32, ptr %0, align 8
-  %21 = zext i32 %8 to i64
-  %22 = getelementptr inbounds nuw %struct.pollfd, ptr %4, i64 %21
-  store i32 %20, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i16 %.sink, ptr %23, align 4
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
-  store ptr %0, ptr %24, align 8
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 4
+  %19 = load i32, ptr %0, align 8
+  %20 = zext i32 %8 to i64
+  %21 = getelementptr inbounds nuw %struct.pollfd, ptr %4, i64 %20
+  store i32 %19, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i16 %.sink, ptr %22, align 4
+  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %20
+  store ptr %0, ptr %23, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %24, align 4
+  %26 = add i32 %25, 1
+  store i32 %26, ptr %24, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %_is_readable.exit, %.thread, %.thread43
