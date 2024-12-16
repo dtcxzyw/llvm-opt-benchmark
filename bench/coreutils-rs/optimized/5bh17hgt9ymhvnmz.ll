@@ -745,6 +745,7 @@ define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains1
   %3 = load i32, ptr %1, align 4, !range !64, !alias.scope !87, !noundef !5
   %4 = icmp samesign ugt i32 %3, 127
   %5 = trunc nuw i32 %3 to i8
+  %.sroa.3.0.i = select i1 %4, i8 undef, i8 %5
   br i1 %4, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %6
 
 6:                                                ; preds = %2
@@ -770,7 +771,7 @@ define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains1
   %.05.i = phi i64 [ %18, %17 ], [ 0, %13 ]
   %14 = getelementptr inbounds nuw [0 x i8], ptr %.pn3.i, i64 0, i64 %.05.i
   %15 = load i8, ptr %14, align 1, !alias.scope !93, !noundef !5
-  %16 = icmp eq i8 %15, %5
+  %16 = icmp eq i8 %15, %.sroa.3.0.i
   br i1 %16, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
@@ -823,6 +824,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   %13 = load i32, ptr %2, align 4, !range !64, !alias.scope !103, !noundef !5
   %14 = icmp samesign ugt i32 %13, 127
   %15 = trunc nuw i32 %13 to i8
+  %.sroa.6.0 = select i1 %14, i8 undef, i8 %15
   br i1 %14, label %25, label %16
 
 16:                                               ; preds = %3
@@ -838,7 +840,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   %.011.i = phi i64 [ %23, %21 ], [ 0, %16 ]
   %19 = phi ptr [ %22, %21 ], [ %.pn3.i, %16 ]
   %.val7.i = load i8, ptr %19, align 1, !noalias !109, !noundef !5
-  %20 = icmp eq i8 %.val7.i, %15
+  %20 = icmp eq i8 %.val7.i, %.sroa.6.0
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %.lr.ph.i

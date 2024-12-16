@@ -122190,6 +122190,7 @@ default.unreachable243:                           ; preds = %279, %267, %265
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %54 = load i32, ptr %53, align 8, !alias.scope !26447, !noalias !26450
   %55 = add i32 %54, -1
+  %.sroa.6.0.i = select i1 %52, i32 %55, i32 undef
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %57 = load i32, ptr %56, align 8, !range !26453, !alias.scope !26447, !noalias !26450, !noundef !22
   %58 = icmp eq i32 %57, 2
@@ -122205,8 +122206,8 @@ default.unreachable243:                           ; preds = %279, %267, %265
   %or.cond.i = and i1 %52, %63
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 668
   %65 = load i32, ptr %64, align 4, !alias.scope !26447, !noalias !26450
-  %.not285.i = icmp ne i32 %55, %65
-  %or.cond164.not.i = select i1 %or.cond.i, i1 %.not285.i, i1 false
+  %.not.i = icmp ne i32 %65, %.sroa.6.0.i
+  %or.cond164.not.i = select i1 %or.cond.i, i1 %.not.i, i1 false
   br i1 %or.cond164.not.i, label %66, label %"_ZN3png7decoder15Reader$LT$R$GT$18output_buffer_size17h9842b3f6e23fac1dE.exit.i"
 
 66:                                               ; preds = %62, %59
@@ -122546,17 +122547,17 @@ default.unreachable243:                           ; preds = %279, %267, %265
   br label %.body
 
 .lr.ph.i:                                         ; preds = %189, %.lr.ph.preheader.i
-  %.sroa.13.0315.i = phi i64 [ %180, %189 ], [ %132, %.lr.ph.preheader.i ]
-  %.sroa.8.0201314.i = phi i64 [ %190, %189 ], [ %134, %.lr.ph.preheader.i ]
-  %.sroa.5187.0313.i = phi ptr [ %191, %189 ], [ %2, %.lr.ph.preheader.i ]
-  %180 = add nsw i64 %.sroa.13.0315.i, -1
-  %181 = icmp ult i64 %.sroa.8.0201314.i, %94
+  %.sroa.13.0314.i = phi i64 [ %180, %189 ], [ %132, %.lr.ph.preheader.i ]
+  %.sroa.8.0201313.i = phi i64 [ %190, %189 ], [ %134, %.lr.ph.preheader.i ]
+  %.sroa.5187.0312.i = phi ptr [ %191, %189 ], [ %2, %.lr.ph.preheader.i ]
+  %180 = add nsw i64 %.sroa.13.0314.i, -1
+  %181 = icmp ult i64 %.sroa.8.0201313.i, %94
   br i1 %181, label %.thread232.i, label %182
 
 182:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !26454
   %183 = load i64, ptr %86, align 8, !alias.scope !26447, !noalias !26450, !noundef !22
-  invoke fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_row_impl17hc886a6d134b92dfbE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %21, ptr noalias noundef nonnull align 8 dereferenceable(688) %49, i64 noundef %183, ptr noalias noundef nonnull align 1 %.sroa.5187.0313.i, i64 noundef %94)
+  invoke fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_row_impl17hc886a6d134b92dfbE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %21, ptr noalias noundef nonnull align 8 dereferenceable(688) %49, i64 noundef %183, ptr noalias noundef nonnull align 1 %.sroa.5187.0312.i, i64 noundef %94)
           to label %.noexc51 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc51:                                         ; preds = %182
@@ -122571,8 +122572,8 @@ default.unreachable243:                           ; preds = %279, %267, %265
   br i1 %188, label %"_ZN3png7decoder20ReadDecoder$LT$R$GT$15finish_decoding17ha3cb068e8dc19a15E.exit.thread275.i", label %198
 
 189:                                              ; preds = %.noexc51
-  %190 = sub nuw i64 %.sroa.8.0201314.i, %94
-  %191 = getelementptr inbounds i8, ptr %.sroa.5187.0313.i, i64 %94
+  %190 = sub nuw i64 %.sroa.8.0201313.i, %94
+  %191 = getelementptr inbounds i8, ptr %.sroa.5187.0312.i, i64 %94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !26454
   %192 = icmp eq i64 %180, 0
   br i1 %192, label %.thread232.i, label %.lr.ph.i

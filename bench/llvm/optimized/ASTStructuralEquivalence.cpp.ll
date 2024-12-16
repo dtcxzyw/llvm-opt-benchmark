@@ -1162,37 +1162,37 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.not358, label %.preheader, label %.thread755
 
 .preheader:                                       ; preds = %233
-  %.not359773 = icmp eq i32 %237, 0
-  br i1 %.not359773, label %._crit_edge, label %.lr.ph775
+  %.not359771 = icmp eq i32 %237, 0
+  br i1 %.not359771, label %._crit_edge, label %.lr.ph773
 
-.lr.ph775:                                        ; preds = %.preheader
+.lr.ph773:                                        ; preds = %.preheader
   %242 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %243 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %244 = and i64 %235, 65535
   br label %246
 
 245:                                              ; preds = %246
-  %indvars.iv.next784 = add nuw nsw i64 %indvars.iv783, 1
-  %.not359 = icmp eq i64 %indvars.iv.next784, %244
+  %indvars.iv.next782 = add nuw nsw i64 %indvars.iv781, 1
+  %.not359 = icmp eq i64 %indvars.iv.next782, %244
   br i1 %.not359, label %._crit_edge.loopexit, label %246, !llvm.loop !21
 
-246:                                              ; preds = %.lr.ph775, %245
-  %indvars.iv783 = phi i64 [ 0, %.lr.ph775 ], [ %indvars.iv.next784, %245 ]
-  %247 = getelementptr inbounds nuw %"class.clang::QualType", ptr %242, i64 %indvars.iv783
+246:                                              ; preds = %.lr.ph773, %245
+  %indvars.iv781 = phi i64 [ 0, %.lr.ph773 ], [ %indvars.iv.next782, %245 ]
+  %247 = getelementptr inbounds nuw %"class.clang::QualType", ptr %242, i64 %indvars.iv781
   %.sroa.0.0.copyload.i450 = load i64, ptr %247, align 8
-  %248 = getelementptr inbounds nuw %"class.clang::QualType", ptr %243, i64 %indvars.iv783
+  %248 = getelementptr inbounds nuw %"class.clang::QualType", ptr %243, i64 %indvars.iv781
   %.sroa.0.0.copyload.i451 = load i64, ptr %248, align 8
   %249 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(137) %0, i64 %.sroa.0.0.copyload.i450, i64 %.sroa.0.0.copyload.i451)
   br i1 %249, label %245, label %.thread755
 
 ._crit_edge.loopexit:                             ; preds = %245
-  %.pre787 = load i64, ptr %54, align 16
-  %.pre788 = load i64, ptr %57, align 16
+  %.pre785 = load i64, ptr %54, align 16
+  %.pre786 = load i64, ptr %57, align 16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %250 = phi i64 [ %.pre788, %._crit_edge.loopexit ], [ %238, %.preheader ]
-  %251 = phi i64 [ %.pre787, %._crit_edge.loopexit ], [ %234, %.preheader ]
+  %250 = phi i64 [ %.pre786, %._crit_edge.loopexit ], [ %238, %.preheader ]
+  %251 = phi i64 [ %.pre785, %._crit_edge.loopexit ], [ %234, %.preheader ]
   %252 = and i64 %251, 1152921504606846976
   %253 = icmp ne i64 %252, 0
   %254 = and i64 %250, 1152921504606846976
@@ -1203,8 +1203,8 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
 257:                                              ; preds = %._crit_edge
   %258 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %53)
   %259 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %56)
-  %.not762 = icmp eq i64 %258, %259
-  br i1 %.not762, label %260, label %.thread755
+  %.not760 = icmp eq i64 %258, %259
+  br i1 %.not760, label %260, label %.thread755
 
 260:                                              ; preds = %257
   %261 = load ptr, ptr %0, align 8
@@ -1222,13 +1222,13 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %272, label %..thread756_crit_edge, label %.thread755
 
 ..thread756_crit_edge:                            ; preds = %260
-  %.pre789 = load ptr, ptr %31, align 16
-  %.pre790 = load ptr, ptr %42, align 16
+  %.pre787 = load ptr, ptr %31, align 16
+  %.pre788 = load ptr, ptr %42, align 16
   br label %.thread756
 
 .thread756:                                       ; preds = %..thread756_crit_edge, %62, %60, %64
-  %273 = phi ptr [ %.pre790, %..thread756_crit_edge ], [ %56, %62 ], [ %56, %60 ], [ %56, %64 ]
-  %274 = phi ptr [ %.pre789, %..thread756_crit_edge ], [ %53, %62 ], [ %53, %60 ], [ %53, %64 ]
+  %273 = phi ptr [ %.pre788, %..thread756_crit_edge ], [ %56, %62 ], [ %56, %60 ], [ %56, %64 ]
+  %274 = phi ptr [ %.pre787, %..thread756_crit_edge ], [ %53, %62 ], [ %53, %60 ], [ %53, %64 ]
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %.sroa.0.0.copyload.i458 = load i64, ptr %275, align 8
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 24
@@ -1249,8 +1249,8 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
   %288 = trunc nuw nsw i32 %287 to i16
   %289 = xor i16 %288, %283
   %290 = and i16 %289, 31
-  %.not.i797 = icmp eq i16 %290, 0
-  br i1 %.not.i797, label %291, label %.thread755
+  %.not.i795 = icmp eq i16 %290, 0
+  br i1 %.not.i795, label %291, label %.thread755
 
 291:                                              ; preds = %278
   %292 = and i16 %283, 1792
@@ -1263,10 +1263,10 @@ _ZN4llvm5APIntD2Ev.exit417:                       ; preds = %_ZN4llvm5APIntD2Ev.
 297:                                              ; preds = %291
   %298 = lshr i16 %283, 8
   %299 = and i16 %298, 7
-  %.not.i.i798 = icmp eq i16 %299, 0
+  %.not.i.i796 = icmp eq i16 %299, 0
   %300 = zext nneg i16 %299 to i32
   %301 = add nsw i32 %300, -1
-  %.0.i.i = select i1 %.not.i.i798, i32 0, i32 %301
+  %.0.i.i = select i1 %.not.i.i796, i32 0, i32 %301
   %302 = lshr i16 %288, 8
   %303 = and i16 %302, 7
   %.not.i6.i = icmp eq i16 %303, 0
@@ -1525,19 +1525,19 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12Functio
   %463 = load i8, ptr %462, align 8
   %464 = trunc i8 %463 to i1
   %.pre = load i64, ptr %54, align 16
-  %.pre786 = load i64, ptr %57, align 16
-  %.pre792 = xor i64 %.pre786, %.pre
-  %465 = and i64 %.pre792, 140733193388032
+  %.pre784 = load i64, ptr %57, align 16
+  %.pre790 = xor i64 %.pre784, %.pre
+  %465 = and i64 %.pre790, 140733193388032
   %.not353 = icmp eq i64 %465, 0
   %or.cond = select i1 %464, i1 true, i1 %.not353
-  %.not354 = icmp ult i64 %.pre792, 281474976710656
-  %or.cond796 = select i1 %or.cond, i1 %.not354, i1 false
-  br i1 %or.cond796, label %466, label %.thread755
+  %.not354 = icmp ult i64 %.pre790, 281474976710656
+  %or.cond794 = select i1 %or.cond, i1 %.not354, i1 false
+  br i1 %or.cond794, label %466, label %.thread755
 
 466:                                              ; preds = %461
   %467 = and i64 %.pre, 140737488355328
   %468 = icmp ne i64 %467, 0
-  %469 = and i64 %.pre786, 140737488355328
+  %469 = and i64 %.pre784, 140737488355328
   %470 = icmp ne i64 %469, 0
   %471 = xor i1 %468, %470
   br i1 %471, label %.thread755, label %.loopexit
@@ -1587,8 +1587,8 @@ _ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12Functio
   br i1 %496, label %497, label %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
 
 497:                                              ; preds = %489
-  %.not759760761 = icmp eq i32 %495, %492
-  br i1 %.not759760761, label %.loopexit, label %.thread755
+  %.not759 = icmp eq i32 %492, %495
+  br i1 %.not759, label %.loopexit, label %.thread755
 
 _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %489
   %498 = xor i1 %.not.i538, %.not.i539
@@ -1760,28 +1760,28 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %608 = load i8, ptr %607, align 16
   %609 = and i8 %608, 63
   %.not348 = icmp eq i8 %606, %609
-  br i1 %.not348, label %.preheader763, label %.thread755
+  br i1 %.not348, label %.preheader761, label %.thread755
 
-.preheader763:                                    ; preds = %603
-  %.not349770 = icmp eq i8 %606, 0
-  br i1 %.not349770, label %.loopexit, label %.lr.ph772
+.preheader761:                                    ; preds = %603
+  %.not349768 = icmp eq i8 %606, 0
+  br i1 %.not349768, label %.loopexit, label %.lr.ph770
 
-.lr.ph772:                                        ; preds = %.preheader763
+.lr.ph770:                                        ; preds = %.preheader761
   %610 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %611 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %612 = zext nneg i8 %606 to i64
   br label %614
 
 613:                                              ; preds = %614
-  %indvars.iv.next781 = add nuw nsw i64 %indvars.iv780, 1
-  %.not349 = icmp eq i64 %indvars.iv.next781, %612
+  %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
+  %.not349 = icmp eq i64 %indvars.iv.next779, %612
   br i1 %.not349, label %.loopexit, label %614, !llvm.loop !22
 
-614:                                              ; preds = %.lr.ph772, %613
-  %indvars.iv780 = phi i64 [ 0, %.lr.ph772 ], [ %indvars.iv.next781, %613 ]
-  %615 = getelementptr inbounds nuw ptr, ptr %610, i64 %indvars.iv780
+614:                                              ; preds = %.lr.ph770, %613
+  %indvars.iv778 = phi i64 [ 0, %.lr.ph770 ], [ %indvars.iv.next779, %613 ]
+  %615 = getelementptr inbounds nuw ptr, ptr %610, i64 %indvars.iv778
   %616 = load ptr, ptr %615, align 8
-  %617 = getelementptr inbounds nuw ptr, ptr %611, i64 %indvars.iv780
+  %617 = getelementptr inbounds nuw ptr, ptr %611, i64 %indvars.iv778
   %618 = load ptr, ptr %617, align 8
   %619 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_4DeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %616, ptr noundef %618)
   br i1 %619, label %613, label %.thread755
@@ -1800,13 +1800,13 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %627 = load i32, ptr %57, align 16
   %628 = lshr i32 %627, 26
   %.not346 = icmp eq i32 %626, %628
-  br i1 %.not346, label %.preheader765, label %.thread755
+  br i1 %.not346, label %.preheader763, label %.thread755
 
-.preheader765:                                    ; preds = %624
-  %.not347768 = icmp ult i32 %625, 67108864
-  br i1 %.not347768, label %.loopexit, label %.lr.ph
+.preheader763:                                    ; preds = %624
+  %.not347766 = icmp ult i32 %625, 67108864
+  br i1 %.not347766, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader765
+.lr.ph:                                           ; preds = %.preheader763
   %629 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %630 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %631 = zext nneg i32 %626 to i64
@@ -1890,7 +1890,7 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %681 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_4StmtES4_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %679, ptr noundef %680)
   br i1 %681, label %.loopexit, label %.thread755
 
-.loopexit:                                        ; preds = %632, %613, %.preheader765, %.preheader763, %497, %678, %671, %657, %653, %649, %593, %581, %585, %577, %567, %549, %539, %535, %514, %508, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %466, %456, %452, %436, %438, %418, %414, %410, %404, %398, %386, %376, %372, %356, %342, %338, %332, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit, %228, %215, %198, %185, %170, %160, %152, %144, %136, %134, %108, %100, %82, %78, %74, %70, %65, %64
+.loopexit:                                        ; preds = %632, %613, %.preheader763, %.preheader761, %497, %678, %671, %657, %653, %649, %593, %581, %585, %577, %567, %549, %539, %535, %514, %508, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %466, %456, %452, %436, %438, %418, %414, %410, %404, %398, %386, %376, %372, %356, %342, %338, %332, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit, %228, %215, %198, %185, %170, %160, %152, %144, %136, %134, %108, %100, %82, %78, %74, %70, %65, %64
   br label %.thread755
 
 .thread755:                                       ; preds = %633, %614, %246, %312, %306, %297, %291, %278, %3, %461, %59, %60, %497, %674, %678, %661, %671, %657, %653, %649, %624, %620, %603, %597, %593, %585, %577, %567, %561, %555, %549, %543, %539, %535, %529, %524, %514, %510, %508, %503, %499, %_ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit, %484, %478, %472, %466, %456, %452, %448, %438, %437, %428, %424, %418, %414, %410, %404, %392, %398, %386, %380, %376, %372, %356, %350, %346, %342, %338, %332, %328, %322, %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextENS_12FunctionType7ExtInfoES3_.exit, %.thread756, %260, %257, %._crit_edge, %233, %219, %223, %228, %203, %209, %215, %198, %193, %189, %185, %179, %174, %170, %164, %160, %154, %152, %146, %144, %138, %136, %134, %_ZN4llvm5APIntD2Ev.exit417, %108, %104, %100, %94, %86, %82, %78, %74, %70, %65, %62, %_ZNK5clang8QualType13getQualifiersEv.exit383, %.loopexit
@@ -10808,7 +10808,7 @@ _ZStneIjjENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3std
   %.not.i9.i = icmp ne i32 %26, 0
   %27 = xor i1 %.not.i.i, %.not.i9.i
   %28 = and i1 %.not.i.i, %.not.i9.i
-  %29 = icmp ne i32 %26, %24
+  %29 = icmp ne i32 %24, %26
   %spec.select.i = select i1 %28, i1 %29, i1 %27
   %not..i = xor i1 %spec.select.i, true
   br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplateParmExprES4_.exit

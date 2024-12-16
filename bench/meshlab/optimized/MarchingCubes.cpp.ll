@@ -124,36 +124,45 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %3, %_ZN6Square15Fac
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 4) i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6Square16ReflectEdgeIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 2
-  switch i32 %0, label %.thread16 [
-    i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-    i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
-    i32 1, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
-    i32 3, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
+  switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit [
+    i32 0, label %4
+    i32 2, label %4
+    i32 1, label %5
+    i32 3, label %5
   ]
 
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %2, %2
-  %.cmp.i = icmp ult i32 %0, 2
-  %.not = icmp ne i32 %3, 0
-  %brmerge = or i1 %.not, %.cmp.i
-  %.mux = select i1 %.not, i32 %0, i32 2
-  br i1 %brmerge, label %_ZN6Square9EdgeIndexEii.exit, label %.thread16
+4:                                                ; preds = %2, %2
+  %.cmp.i = icmp samesign ugt i32 %0, 1
+  br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
 
-_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
-  %.not23 = icmp eq i32 %3, 1
-  br i1 %.not23, label %4, label %_ZN6Square9EdgeIndexEii.exit
+5:                                                ; preds = %2, %2
+  %.cmp6.i = icmp samesign ult i32 %0, 2
+  br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
 
-.thread16:                                        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %2
+_ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %4, %5, %2
+  %.1 = phi i32 [ undef, %2 ], [ 1, %5 ], [ 0, %4 ]
+  %.07 = phi i1 [ true, %2 ], [ %.cmp6.i, %5 ], [ %.cmp.i, %4 ]
+  %.not = icmp eq i32 %.1, %3
+  br i1 %.not, label %6, label %_ZN6Square9EdgeIndexEii.exit
+
+6:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
+  switch i32 %3, label %_ZN6Square9EdgeIndexEii.exit [
+    i32 0, label %7
+    i32 1, label %8
+  ]
+
+7:                                                ; preds = %6
+  %..i = select i1 %.07, i32 0, i32 2
   br label %_ZN6Square9EdgeIndexEii.exit
 
-4:                                                ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread
-  %.cmp6.i.inv = icmp ugt i32 %0, 1
-  %.5.i = select i1 %.cmp6.i.inv, i32 1, i32 3
+8:                                                ; preds = %6
+  %.5.i = select i1 %.07, i32 3, i32 1
   br label %_ZN6Square9EdgeIndexEii.exit
 
-_ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread, %4, %.thread16
-  %.0 = phi i32 [ %.mux, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %.5.i, %4 ], [ 0, %.thread16 ], [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread ]
+_ZN6Square9EdgeIndexEii.exit:                     ; preds = %8, %7, %6, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
+  %.0 = phi i32 [ %0, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit ], [ %..i, %7 ], [ %.5.i, %8 ], [ -1, %6 ]
   ret i32 %.0
 }
 

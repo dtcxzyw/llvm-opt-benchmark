@@ -1914,8 +1914,8 @@ _ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit: ; preds = %1
   br label %79
 
 20:                                               ; preds = %_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit
-  %.not.i91146 = icmp eq i64 %.sroa.6.0.copyload.i, %2
-  %.not.i91 = select i1 %.not.i, i1 %.not.i91146, i1 undef
+  %.sroa.8.0..i = select i1 %.not.i, i64 %.sroa.6.0.copyload.i, i64 undef
+  %.not.i91 = icmp eq i64 %.sroa.8.0..i, %2
   br i1 %.not.i91, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit": ; preds = %20

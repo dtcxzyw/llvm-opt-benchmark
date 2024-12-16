@@ -84765,10 +84765,10 @@ common.ret:                                       ; preds = %239, %149
   br i1 %or.cond.i.i.not, label %_ZN4core3cmp10PartialOrd2ge17hd64d7a63c20af95fE.exit, label %259
 
 259:                                              ; preds = %255
+  %.sroa.4.1.i75 = select i1 %trunc.i73, i64 undef, i64 %257
   %.val44 = load i64, ptr %175, align 8
-  %.not231252 = icmp sge i64 %257, %.val44
-  %.not231.not = select i1 %trunc.i73, i1 true, i1 %.not231252
-  br i1 %.not231.not, label %260, label %.critedge35
+  %.not231 = icmp slt i64 %.sroa.4.1.i75, %.val44
+  br i1 %.not231, label %.critedge35, label %260
 
 _ZN4core3cmp10PartialOrd2ge17hd64d7a63c20af95fE.exit: ; preds = %.thread, %255
   %.val43246 = phi i64 [ %.val43243, %.thread ], [ %.val43, %255 ]

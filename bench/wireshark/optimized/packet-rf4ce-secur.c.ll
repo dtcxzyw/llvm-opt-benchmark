@@ -943,38 +943,37 @@ rf4ce_aes_cmac.exit18.i:                          ; preds = %.sink.split.i15.i, 
   store i64 16, ptr %6, align 8
   %70 = call i32 @gcry_mac_open(ptr noundef nonnull %5, i32 noundef 201, i32 noundef 0, ptr noundef null) #14
   %.not.i19.i = icmp eq i32 %70, 0
-  br i1 %.not.i19.i, label %71, label %rf4ce_aes_cmac.exit24.thread.i
-
-rf4ce_aes_cmac.exit24.thread.i:                   ; preds = %rf4ce_aes_cmac.exit18.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %calc_key_cmac.exit
+  br i1 %.not.i19.i, label %71, label %rf4ce_aes_cmac.exit24.i
 
 71:                                               ; preds = %rf4ce_aes_cmac.exit18.i
   %72 = load ptr, ptr %5, align 8
   %73 = call i32 @gcry_mac_setkey(ptr noundef %72, ptr noundef nonnull %17, i64 noundef 16) #14
   %.not4.i20.i = icmp eq i32 %73, 0
   %74 = load ptr, ptr %5, align 8
-  br i1 %.not4.i20.i, label %75, label %rf4ce_aes_cmac.exit24.i
+  br i1 %.not4.i20.i, label %75, label %.sink.split.i21.i
 
 75:                                               ; preds = %71
   %76 = call i32 @gcry_mac_write(ptr noundef %74, ptr noundef nonnull %14, i64 noundef 16) #14
   %.not5.i23.i = icmp eq i32 %76, 0
   %77 = load ptr, ptr %5, align 8
-  br i1 %.not5.i23.i, label %78, label %rf4ce_aes_cmac.exit24.i
+  br i1 %.not5.i23.i, label %78, label %.sink.split.i21.i
 
 78:                                               ; preds = %75
   %79 = call i32 @gcry_mac_read(ptr noundef %77, ptr noundef nonnull %18, ptr noundef nonnull %6) #14
   %80 = load ptr, ptr %5, align 8
-  br label %rf4ce_aes_cmac.exit24.i
+  br label %.sink.split.i21.i
 
-rf4ce_aes_cmac.exit24.i:                          ; preds = %78, %75, %71
+.sink.split.i21.i:                                ; preds = %78, %75, %71
   %.sink.i22.i = phi ptr [ %80, %78 ], [ %74, %71 ], [ %77, %75 ]
   call void @gcry_mac_close(ptr noundef %.sink.i22.i) #14
   %.0.copyload.pre.i = load i32, ptr %18, align 16
+  br label %rf4ce_aes_cmac.exit24.i
+
+rf4ce_aes_cmac.exit24.i:                          ; preds = %.sink.split.i21.i, %rf4ce_aes_cmac.exit18.i
+  %.0.copyload.i = phi i32 [ undef, %rf4ce_aes_cmac.exit18.i ], [ %.0.copyload.pre.i, %.sink.split.i21.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %81 = icmp eq i32 %1, %.0.copyload.pre.i
+  %81 = icmp eq i32 %1, %.0.copyload.i
   br i1 %81, label %calc_key_cmac.exit, label %calc_key_cmac.exit.thread
 
 calc_key_cmac.exit.thread:                        ; preds = %rf4ce_aes_cmac.exit24.i
@@ -988,7 +987,7 @@ calc_key_cmac.exit.thread:                        ; preds = %rf4ce_aes_cmac.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %82
 
-calc_key_cmac.exit:                               ; preds = %rf4ce_aes_cmac.exit24.i, %rf4ce_aes_cmac.exit24.thread.i
+calc_key_cmac.exit:                               ; preds = %rf4ce_aes_cmac.exit24.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %17, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
